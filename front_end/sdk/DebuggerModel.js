@@ -1368,7 +1368,7 @@ export class CallFrame {
    */
   constructor(debuggerModel, script, payload) {
     this.debuggerModel = debuggerModel;
-    /** @type {?Array<!RemoteObjectImpl>} */
+    /** @type {?Array<!ScopeChainEntry>} */
     this.sourceScopeChain = null;
     this._script = script;
     this._payload = payload;
@@ -1533,6 +1533,71 @@ export class CallFrame {
   }
 }
 
+/**
+ * @interface
+ */
+export class ScopeChainEntry {
+  /**
+   * @return {!CallFrame}
+   */
+  callFrame() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @return {string}
+   */
+  type() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @return {string}
+   */
+  typeName() {
+    throw new Error('not implemented');
+  }
+
+
+  /**
+   * @return {string|undefined}
+   */
+  name() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @return {?Location}
+   */
+  startLocation() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @return {?Location}
+   */
+  endLocation() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @return {!RemoteObject}
+   */
+  object() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @return {string}
+   */
+  description() {
+    throw new Error('not implemented');
+  }
+}
+
+/**
+ * @implements {ScopeChainEntry}
+ */
 export class Scope {
   /**
    * @param {!CallFrame} callFrame
@@ -1553,6 +1618,7 @@ export class Scope {
   }
 
   /**
+   * @override
    * @return {!CallFrame}
    */
   callFrame() {
@@ -1560,6 +1626,7 @@ export class Scope {
   }
 
   /**
+   * @override
    * @return {string}
    */
   type() {
@@ -1567,6 +1634,7 @@ export class Scope {
   }
 
   /**
+   * @override
    * @return {string}
    */
   typeName() {
@@ -1595,6 +1663,7 @@ export class Scope {
 
 
   /**
+   * @override
    * @return {string|undefined}
    */
   name() {
@@ -1602,6 +1671,7 @@ export class Scope {
   }
 
   /**
+   * @override
    * @return {?Location}
    */
   startLocation() {
@@ -1609,6 +1679,7 @@ export class Scope {
   }
 
   /**
+   * @override
    * @return {?Location}
    */
   endLocation() {
@@ -1616,6 +1687,7 @@ export class Scope {
   }
 
   /**
+   * @override
    * @return {!RemoteObject}
    */
   object() {
@@ -1637,6 +1709,7 @@ export class Scope {
   }
 
   /**
+   * @override
    * @return {string}
    */
   description() {
