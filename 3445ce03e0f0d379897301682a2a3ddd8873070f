@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a99553d3_40f1eba8",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1385776
+      },
+      "writtenOn": "2020-08-25T18:50:08Z",
+      "side": 1,
+      "message": "Should this not just be passing along the writingMode and then the default on _getLabelSize doesn\u0027t become necessary?",
+      "revId": "3445ce03e0f0d379897301682a2a3ddd8873070f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
