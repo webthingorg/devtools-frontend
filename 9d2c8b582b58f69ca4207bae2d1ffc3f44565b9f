@@ -39,6 +39,30 @@
       "revId": "9d2c8b582b58f69ca4207bae2d1ffc3f44565b9f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f265d565_a96eafe3",
+        "filename": "front_end/bindings/CSSWorkspaceBinding.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-25T15:37:56Z",
+      "side": 1,
+      "message": "This promise before didn\u0027t have a generic type. Rather than going for `*` (which is `any`), it is safer to choose `?` (which is `unknown`). That way, whenever the result is used, you are forced to check the type. In this case, we don\u0027t actually care about the type, so I felt like `unknown` was appropriate in that scenario as well.",
+      "parentUuid": "1a613ad5_2bf467b7",
+      "range": {
+        "startLine": 38,
+        "startChar": 30,
+        "endLine": 38,
+        "endChar": 31
+      },
+      "revId": "9d2c8b582b58f69ca4207bae2d1ffc3f44565b9f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
