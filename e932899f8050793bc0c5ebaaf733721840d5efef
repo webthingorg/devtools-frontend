@@ -33,6 +33,24 @@
       "revId": "e932899f8050793bc0c5ebaaf733721840d5efef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66d22b09_3e54d0bc",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-25T15:21:13Z",
+      "side": 1,
+      "message": "The result of `refreshInDebugger()` is `Promise.all`\u0027d as well, so if I understand the code correctly it is not used. Even then, outside of the if-statement it would also return `undefined`, so I think it should have crashed if `undefined` was indeed unexpected.",
+      "parentUuid": "5747d007_d63866e6",
+      "revId": "e932899f8050793bc0c5ebaaf733721840d5efef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
