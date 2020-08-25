@@ -16,6 +16,23 @@
       "revId": "c9c39888cb7f9c9301776350bdab3d55eb7ee7eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b13a6ca9_af51d0cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-25T12:10:17Z",
+      "side": 1,
+      "message": "LGTM as discussed offline",
+      "revId": "c9c39888cb7f9c9301776350bdab3d55eb7ee7eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

@@ -106,6 +106,64 @@
     },
     {
       "key": {
+        "uuid": "16bf837c_f116563e",
+        "filename": "front_end/sdk/CSSModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-25T12:10:17Z",
+      "side": 1,
+      "message": "Note for my own understanding: setting `_isCSSPropertyTrackingEnabled \u003d false` beforehand is important, otherwise line 831 kicks off another poll",
+      "parentUuid": "f61d7ebe_3fac8938",
+      "range": {
+        "startLine": 809,
+        "startChar": 16,
+        "endLine": 809,
+        "endChar": 48
+      },
+      "revId": "7f92e4f0d06f66d87bb931391792435228090245",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89d96ce8_de131922",
+        "filename": "front_end/sdk/CSSModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-25T12:10:17Z",
+      "side": 1,
+      "message": "Note for my own understanding: _isCSSPropertyTrackingEnabled could have been disabled while we\u0027re waiting.",
+      "revId": "7f92e4f0d06f66d87bb931391792435228090245",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2016c5b_1aeab3d6",
+        "filename": "front_end/sdk/CSSModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 839,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-25T12:10:17Z",
+      "side": 1,
+      "message": "Note for my own understanding:  This is the back-end letting us know, after the fact, that it\u0027s already closed the target on its end. We probably shouldn\u0027t send any more commands to that target.",
+      "revId": "7f92e4f0d06f66d87bb931391792435228090245",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "15bb6ae4_76bd25f0",
         "filename": "front_end/sdk/CSSModel.js",
         "patchSetId": 2
