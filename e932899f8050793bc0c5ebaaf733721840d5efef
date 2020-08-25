@@ -51,6 +51,24 @@
       "revId": "e932899f8050793bc0c5ebaaf733721840d5efef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ddd32646_5ccb0af1",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-25T15:23:54Z",
+      "side": 1,
+      "message": "Good catch. Should we explicitly type this function to return `!Promise\u003cvoid\u003e` so TS and closure can check it?",
+      "parentUuid": "66d22b09_3e54d0bc",
+      "revId": "e932899f8050793bc0c5ebaaf733721840d5efef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
