@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "afa5cf35_c348ccad",
+        "filename": "front_end/network/NetworkLogView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-25T07:26:40Z",
+      "side": 1,
+      "message": "I still don\u0027t think it is useful to include the protocol. It just means that entering any prefix of https into the search field will be useless (because it will in most cases match almost all requests).\n\nSince you added the path: filter, I would support testing the URL without the scheme:// prefix here.",
+      "range": {
+        "startLine": 256,
+        "startChar": 22,
+        "endLine": 256,
+        "endChar": 35
+      },
+      "revId": "418e6932412e1c899f15c01e473cde382470d823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
