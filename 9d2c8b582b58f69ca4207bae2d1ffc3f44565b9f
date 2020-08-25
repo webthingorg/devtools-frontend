@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "79c250be_76405bda",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-25T15:36:08Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "9d2c8b582b58f69ca4207bae2d1ffc3f44565b9f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a613ad5_2bf467b7",
+        "filename": "front_end/bindings/CSSWorkspaceBinding.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-25T15:36:08Z",
+      "side": 1,
+      "message": "q: Is closure not liking the `!Promise\u003c*\u003e` type?",
+      "range": {
+        "startLine": 38,
+        "startChar": 30,
+        "endLine": 38,
+        "endChar": 31
+      },
+      "revId": "9d2c8b582b58f69ca4207bae2d1ffc3f44565b9f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
