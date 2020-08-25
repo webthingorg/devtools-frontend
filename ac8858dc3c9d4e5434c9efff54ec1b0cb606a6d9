@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eecec517_207d8686",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-25T13:01:44Z",
+      "side": 1,
+      "message": "TypeScript-side looking good. The only change would be to use `unknown` instead of `object`. It seems like these arguments are not used in the callbacks anyways, so this should be safe. The benefit of using `unknown` over `object` is that the former will block you from using it. This means that you *have* to make sure the structure is as it should be. With `object`, you don\u0027t get these guarantees (just like with `any`).",
+      "revId": "ac8858dc3c9d4e5434c9efff54ec1b0cb606a6d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e0cfe0a_20d7d879",
+        "filename": "test/e2e/sources/debugger-language-plugins_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-25T13:01:44Z",
+      "side": 1,
+      "message": "`object` is akin to `any`. Can we type it as `unknown` instead? This would need to change for all occurrences of `object`.",
+      "range": {
+        "startLine": 81,
+        "startChar": 18,
+        "endLine": 81,
+        "endChar": 24
+      },
+      "revId": "ac8858dc3c9d4e5434c9efff54ec1b0cb606a6d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
