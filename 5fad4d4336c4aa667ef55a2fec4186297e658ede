@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84ee9373_92c5e16f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-25T15:50:13Z",
+      "side": 1,
+      "message": "This patchset seems big, but it\u0027s really not. Let me list the changes:\n\n- I had forgotten to update the bundle files max sizes. This is now fixed.\n- Discussing we Peter, we realized we wanted a slightly darker default line color and white text. this is done.\n- Based on this new color, I updated a bunch of overlay debug files.\n- I also fixed one of the debug files to show number labels (we refactored line number offsets into positions a while back, but had never updated the debug files, so at least now one of them is done)\n\n",
+      "revId": "5fad4d4336c4aa667ef55a2fec4186297e658ede",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
