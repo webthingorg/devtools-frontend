@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "85da0f88_eee396e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-08-25T20:50:56Z",
+      "side": 1,
+      "message": "+1 to Shane\u0027s comment, otherwise changes LGTM.",
+      "revId": "3445ce03e0f0d379897301682a2a3ddd8873070f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a99553d3_40f1eba8",
         "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
         "patchSetId": 3
