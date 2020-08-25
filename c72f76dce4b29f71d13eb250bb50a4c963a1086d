@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24cc937d_dea2cf66",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-25T09:24:12Z",
+      "side": 1,
+      "message": "This should fix https://logs.chromium.org/logs/devtools-frontend/buildbucket/cr-buildbucket.appspot.com/8871107211711802992/+/steps/E2E_tests/0/stdout",
+      "revId": "c72f76dce4b29f71d13eb250bb50a4c963a1086d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
