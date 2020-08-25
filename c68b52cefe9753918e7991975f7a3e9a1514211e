@@ -39,6 +39,30 @@
       "revId": "c68b52cefe9753918e7991975f7a3e9a1514211e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13a3d644_824ea074",
+        "filename": "front_end/bindings/CompilerScriptMapping.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-25T15:31:13Z",
+      "side": 1,
+      "message": "Per offline discussion: we will keep on using WeakMaps for now. If we do run into performance problems, we will make optimizations accordingly. (And we would need to implement performance tracking for it anyways).",
+      "parentUuid": "fac0754c_7bbf978f",
+      "range": {
+        "startLine": 339,
+        "startChar": 6,
+        "endLine": 339,
+        "endChar": 29
+      },
+      "revId": "c68b52cefe9753918e7991975f7a3e9a1514211e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
