@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "058935aa_e5e9896d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-25T09:47:47Z",
+      "side": 1,
+      "message": "This looks reasonable to me, but I defer to Changhao.\n\nFor completeness-sake, this aims to fix failing e2e-tests when rolling in backend updates (https://ci.chromium.org/p/devtools-frontend/builders/try/devtools_frontend_linux_rel/b8871016509207275552?).",
+      "revId": "7f92e4f0d06f66d87bb931391792435228090245",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "770f0288_1934b7c1",
         "filename": "front_end/sdk/CSSModel.js",
         "patchSetId": 2
