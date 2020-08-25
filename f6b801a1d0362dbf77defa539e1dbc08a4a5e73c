@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "53c9ba72_1216d54c",
+        "filename": "scripts/localization/utils/localization_utils.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-08-25T09:16:37Z",
+      "side": 0,
+      "message": "We can also update this a bit:\nnode_modules : doesnt exist\nlighthouse/lighthouse: doesnt exist. I think this was previously excluding the lighthouse bundle which was moved under third-party\nlighthouse_worker/lighthouse: doenst exist, maybe exclude the whole \u0027lighthouse_worker\u0027 instead?",
+      "revId": "f6b801a1d0362dbf77defa539e1dbc08a4a5e73c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

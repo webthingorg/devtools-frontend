@@ -68,6 +68,23 @@
       "revId": "b2e8ea723ac7ade7f38d2b3d21a2cbd0a81dcc86",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "565f7a26_7e6e6fcb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-08-25T09:16:37Z",
+      "side": 1,
+      "message": "Thanks for working on this Vidal! Left a small suggestion. \nAlso I was thinking is it worth for us to look into combining two Loc scan into one? That can potentially speed up the presubmit since we now only run through the files once, but then... it will become a very complex scan that does a lot of checks, so Im not sure if it\u0027s the right thing to do. ",
+      "revId": "b2e8ea723ac7ade7f38d2b3d21a2cbd0a81dcc86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
