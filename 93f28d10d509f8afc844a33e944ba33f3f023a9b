@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "10e2f871_00fe53f6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-26T08:39:48Z",
+      "side": 1,
+      "message": "It would be nice to have screenshot(s).",
+      "revId": "93f28d10d509f8afc844a33e944ba33f3f023a9b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "070c3254_f8c79e09",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
