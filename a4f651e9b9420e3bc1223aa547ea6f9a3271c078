@@ -22,6 +22,30 @@
       "revId": "a4f651e9b9420e3bc1223aa547ea6f9a3271c078",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5404cfda_f796c7a5",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-08-26T14:47:11Z",
+      "side": 0,
+      "message": "The -1 is correct, the last entry in the `nestedName` is the unqualified variable name.",
+      "parentUuid": "baaf8439_7857d784",
+      "range": {
+        "startLine": 226,
+        "startChar": 36,
+        "endLine": 226,
+        "endChar": 67
+      },
+      "revId": "a4f651e9b9420e3bc1223aa547ea6f9a3271c078",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
