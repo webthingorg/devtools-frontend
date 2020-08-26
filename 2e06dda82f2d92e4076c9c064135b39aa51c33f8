@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3ee0ad26_d73deb78",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-26T10:44:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38a1abcb_ed789107",
+      "revId": "2e06dda82f2d92e4076c9c064135b39aa51c33f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "37cb643a_868f4807",
         "filename": "front_end/sdk/FrameManager.js",
         "patchSetId": 2
@@ -39,6 +57,30 @@
       "revId": "2e06dda82f2d92e4076c9c064135b39aa51c33f8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06398d6e_fdb5995d",
+        "filename": "front_end/sdk/FrameManager.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-26T10:44:56Z",
+      "side": 1,
+      "message": "I was unsure about object comparison, but you\u0027re right, a simple equality check on the models should work just as well.",
+      "parentUuid": "37cb643a_868f4807",
+      "range": {
+        "startLine": 100,
+        "startChar": 68,
+        "endLine": 100,
+        "endChar": 77
+      },
+      "revId": "2e06dda82f2d92e4076c9c064135b39aa51c33f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
