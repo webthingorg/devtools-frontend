@@ -16,6 +16,23 @@
       "revId": "b4d55edbd177a458dd5c86cdaa95048dd1a2134f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffc47c2c_739700ef",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 957,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-26T05:52:22Z",
+      "side": 1,
+      "message": "Is this used anywhere?",
+      "revId": "b4d55edbd177a458dd5c86cdaa95048dd1a2134f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
