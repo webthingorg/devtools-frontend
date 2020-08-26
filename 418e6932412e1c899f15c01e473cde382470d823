@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "48726568_f228b347",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-26T09:23:17Z",
+      "side": 1,
+      "message": "I\u0027m coming back to my comment from Aug 12:\n\n\u003e To go forward with this CL why don\u0027t you add a new filter type loc which filters the domain/path string (but not the scheme)?\n\nLet\u0027s:\n  - not change the default filtering at this time (Peter will explain the rational)\n  - let\u0027s add a url: filter that matches the whole URL\n\nThen we can land this CL.",
+      "revId": "418e6932412e1c899f15c01e473cde382470d823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "afa5cf35_c348ccad",
         "filename": "front_end/network/NetworkLogView.js",
         "patchSetId": 3
