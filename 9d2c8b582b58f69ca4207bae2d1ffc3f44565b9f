@@ -63,6 +63,30 @@
       "revId": "9d2c8b582b58f69ca4207bae2d1ffc3f44565b9f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e07e21b8_6b084863",
+        "filename": "front_end/bindings/CSSWorkspaceBinding.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-26T05:31:48Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "f265d565_a96eafe3",
+      "range": {
+        "startLine": 38,
+        "startChar": 30,
+        "endLine": 38,
+        "endChar": 31
+      },
+      "revId": "9d2c8b582b58f69ca4207bae2d1ffc3f44565b9f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
