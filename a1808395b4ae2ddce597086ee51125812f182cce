@@ -89,6 +89,30 @@
     },
     {
       "key": {
+        "uuid": "01bc753f_14be175a",
+        "filename": "front_end/ui/TabbedPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-26T06:07:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "199cdb68_f8128c7f",
+      "range": {
+        "startLine": 342,
+        "startChar": 11,
+        "endLine": 342,
+        "endChar": 19
+      },
+      "revId": "a1808395b4ae2ddce597086ee51125812f182cce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0125dbf4_f47044af",
         "filename": "front_end/ui/TabbedPane.js",
         "patchSetId": 1
@@ -109,6 +133,30 @@
       "revId": "a1808395b4ae2ddce597086ee51125812f182cce",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d956fff9_19b382be",
+        "filename": "front_end/ui/TabbedPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-26T06:07:10Z",
+      "side": 1,
+      "message": "AFAIU, _currentTab can really be undefined (it can be deleted at a certain point). Most of the other places contain explicit null checks.\n\nThis site does not, as I assume to select the next/previous tab, currentTab is guaranteed to be non-null.\n\nLeaving as-is, as I think this is the semantically correct solution.",
+      "parentUuid": "0125dbf4_f47044af",
+      "range": {
+        "startLine": 392,
+        "startChar": 73,
+        "endLine": 392,
+        "endChar": 84
+      },
+      "revId": "a1808395b4ae2ddce597086ee51125812f182cce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
