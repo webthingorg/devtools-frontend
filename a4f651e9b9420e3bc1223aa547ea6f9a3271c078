@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "baaf8439_7857d784",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-26T14:24:57Z",
+      "side": 0,
+      "message": "I am not sure if the `- 1` was intentional here, or whether you simply wanted to loop. I rewrote to a loop, but let me know if that is wrong.",
+      "range": {
+        "startLine": 226,
+        "startChar": 36,
+        "endLine": 226,
+        "endChar": 67
+      },
+      "revId": "a4f651e9b9420e3bc1223aa547ea6f9a3271c078",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
