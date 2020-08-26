@@ -33,6 +33,24 @@
       "revId": "b4d55edbd177a458dd5c86cdaa95048dd1a2134f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83ce26ab_b4f628e8",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 957,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-08-26T06:02:31Z",
+      "side": 1,
+      "message": "same question",
+      "parentUuid": "ffc47c2c_739700ef",
+      "revId": "b4d55edbd177a458dd5c86cdaa95048dd1a2134f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
