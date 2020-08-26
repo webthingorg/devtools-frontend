@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37cb643a_868f4807",
+        "filename": "front_end/sdk/FrameManager.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-26T09:29:20Z",
+      "side": 1,
+      "message": "Why are you comparing main frame ids?",
+      "range": {
+        "startLine": 100,
+        "startChar": 68,
+        "endLine": 100,
+        "endChar": 77
+      },
+      "revId": "2e06dda82f2d92e4076c9c064135b39aa51c33f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
