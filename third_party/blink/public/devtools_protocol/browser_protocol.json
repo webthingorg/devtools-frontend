@@ -15906,6 +15906,12 @@
                             "type": "boolean"
                         },
                         {
+                            "name": "openerFrameId",
+                            "experimental": true,
+                            "optional": true,
+                            "$ref": "Page.FrameId"
+                        },
+                        {
                             "name": "browserContextId",
                             "experimental": true,
                             "optional": true,
