@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8a5738e8_fe66c970",
+        "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1000675
+      },
+      "writtenOn": "2020-08-26T19:13:41Z",
+      "side": 1,
+      "message": "Ack.  Lets continue the conversation on the original comment thread, since I added context there.",
+      "parentUuid": "77727264_b35e2838",
+      "range": {
+        "startLine": 497,
+        "startChar": 0,
+        "endLine": 497,
+        "endChar": 6
+      },
+      "revId": "a08baf2797a45d668b0e5c14d26541d6d7c7fbee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5abb68b_c37ad2aa",
         "filename": "front_end/timeline_model/TimelineModel.js",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "a08baf2797a45d668b0e5c14d26541d6d7c7fbee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3b6d339_3285b89c",
+        "filename": "front_end/timeline_model/TimelineModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1000675
+      },
+      "writtenOn": "2020-08-26T19:13:41Z",
+      "side": 1,
+      "message": "(answered in the original thread, let\u0027s continue there)",
+      "parentUuid": "e5abb68b_c37ad2aa",
+      "range": {
+        "startLine": 252,
+        "startChar": 114,
+        "endLine": 253,
+        "endChar": 4
+      },
+      "revId": "a08baf2797a45d668b0e5c14d26541d6d7c7fbee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {

@@ -211,6 +211,24 @@
     },
     {
       "key": {
+        "uuid": "ceb8d9da_358d0123",
+        "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1000675
+      },
+      "writtenOn": "2020-08-26T19:13:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34426a5f_89006a8f",
+      "revId": "96a0f10130b84b5b7196aa946e626af594c07165",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca4a3882_157d744e",
         "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
         "patchSetId": 2
@@ -361,6 +379,24 @@
       "side": 1,
       "message": "After I removed this part, the UI failed to load, so I believe it is still necessary.",
       "parentUuid": "3ea30f27_d028e618",
+      "revId": "96a0f10130b84b5b7196aa946e626af594c07165",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe99935e_f15f6a76",
+        "filename": "front_end/timeline_model/TimelineModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1000675
+      },
+      "writtenOn": "2020-08-26T19:13:41Z",
+      "side": 1,
+      "message": "Right.. I didn\u0027t mean to suggest you will need to remove this code entirely.\n\nI am saying: the isn\u0027t doing exactly what the comment says it\u0027s doing.  Either the comment is wrong, or the code is wrong.\n\nThe comment says \"Remove PerfMark events\", but the code actually removes a lot more.\n\nI *think* that\u0027s fine, but this is the most worrisome change introduces in this patch and we should make it very visible to other reviewers.",
+      "parentUuid": "36544f8b_d408f0e2",
       "revId": "96a0f10130b84b5b7196aa946e626af594c07165",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
