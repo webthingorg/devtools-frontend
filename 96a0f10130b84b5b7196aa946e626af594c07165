@@ -281,6 +281,24 @@
     },
     {
       "key": {
+        "uuid": "4ab86f4f_49c35b1f",
+        "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1449423
+      },
+      "writtenOn": "2020-08-26T19:43:22Z",
+      "side": 1,
+      "message": "I will rephrase the comment to better reflect the behavior of these calls, so we can reach out to the DevTools team for suggestions.",
+      "parentUuid": "8a9fe968_d506379a",
+      "revId": "96a0f10130b84b5b7196aa946e626af594c07165",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f4953a50_8a09d882",
         "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
         "patchSetId": 2
@@ -295,6 +313,24 @@
       "revId": "96a0f10130b84b5b7196aa946e626af594c07165",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19378b84_447a01e8",
+        "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1449423
+      },
+      "writtenOn": "2020-08-26T19:43:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4953a50_8a09d882",
+      "revId": "96a0f10130b84b5b7196aa946e626af594c07165",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -333,6 +369,24 @@
     },
     {
       "key": {
+        "uuid": "dd565f59_287e1d25",
+        "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 1449423
+      },
+      "writtenOn": "2020-08-26T19:43:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0aa9c675_1d93ae71",
+      "revId": "96a0f10130b84b5b7196aa946e626af594c07165",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b3702c75_1e59194c",
         "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
         "patchSetId": 2
@@ -347,6 +401,24 @@
       "revId": "96a0f10130b84b5b7196aa946e626af594c07165",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d45dd215_a41fd611",
+        "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 905,
+      "author": {
+        "id": 1449423
+      },
+      "writtenOn": "2020-08-26T19:43:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3702c75_1e59194c",
+      "revId": "96a0f10130b84b5b7196aa946e626af594c07165",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -400,6 +472,24 @@
       "revId": "96a0f10130b84b5b7196aa946e626af594c07165",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "583ad859_8fbc277e",
+        "filename": "front_end/timeline_model/TimelineModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1449423
+      },
+      "writtenOn": "2020-08-26T19:43:22Z",
+      "side": 1,
+      "message": "I will rephrase the comment to better reflect the behavior of the function call. I will also change the const to \u0027userTimingEvents\u0027 to better reflect its content.",
+      "parentUuid": "fe99935e_f15f6a76",
+      "revId": "96a0f10130b84b5b7196aa946e626af594c07165",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
