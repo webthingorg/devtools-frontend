@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "a1676e52_74352d2a",
+        "filename": "front_end/ui/FilterBar.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-26T05:57:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80ab97ab_70038f3b",
+      "range": {
+        "startLine": 370,
+        "startChar": 10,
+        "endLine": 370,
+        "endChar": 22
+      },
+      "revId": "ae77f05712de2a51dc010dd415a9e0e32342c856",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f35e7012_a77ce719",
         "filename": "front_end/ui/FilterBar.js",
         "patchSetId": 4
@@ -86,6 +110,30 @@
       "revId": "ae77f05712de2a51dc010dd415a9e0e32342c856",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed43b91b_1b859e2b",
+        "filename": "front_end/ui/FilterBar.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-26T05:57:01Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "dc24023f_68619f46",
+      "range": {
+        "startLine": 488,
+        "startChar": 0,
+        "endLine": 500,
+        "endChar": 40
+      },
+      "revId": "ae77f05712de2a51dc010dd415a9e0e32342c856",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
