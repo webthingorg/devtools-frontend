@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2267c913_74f5167b",
+        "filename": "front_end/timeline_model/TimelineModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1000675
+      },
+      "writtenOn": "2020-08-26T18:55:32Z",
+      "side": 1,
+      "message": "I think this comment is stale at this point as well, sorry I missed it last review.",
+      "range": {
+        "startLine": 556,
+        "startChar": 7,
+        "endLine": 556,
+        "endChar": 11
+      },
+      "revId": "a08baf2797a45d668b0e5c14d26541d6d7c7fbee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
