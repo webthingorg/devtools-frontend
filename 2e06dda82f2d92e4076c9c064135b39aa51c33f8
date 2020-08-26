@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "38a1abcb_ed789107",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-26T09:30:13Z",
+      "side": 1,
+      "message": "Would be nice to have a bug.",
+      "revId": "2e06dda82f2d92e4076c9c064135b39aa51c33f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "37cb643a_868f4807",
         "filename": "front_end/sdk/FrameManager.js",
         "patchSetId": 2
