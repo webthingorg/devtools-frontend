@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cde3c33c_f8e50208",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-26T05:49:52Z",
+      "side": 1,
+      "message": "I\u0027ll add the backend counterpart in a separate CL.",
+      "revId": "b4d55edbd177a458dd5c86cdaa95048dd1a2134f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
