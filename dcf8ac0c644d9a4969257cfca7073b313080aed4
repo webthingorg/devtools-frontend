@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "aca54bdd_b7b62b3e",
+        "filename": "front_end/ui/ListWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-26T09:58:50Z",
+      "side": 1,
+      "message": "Yeah I don\u0027t think TS inference is that strong. If you feel fancy, you could file a bug for it on the TS repository.",
+      "parentUuid": "cb18978a_20268dd4",
+      "range": {
+        "startLine": 105,
+        "startChar": 8,
+        "endLine": 105,
+        "endChar": 27
+      },
+      "revId": "dcf8ac0c644d9a4969257cfca7073b313080aed4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b95d9863_a5130076",
         "filename": "front_end/ui/ListWidget.js",
         "patchSetId": 1
@@ -62,6 +86,30 @@
       "revId": "dcf8ac0c644d9a4969257cfca7073b313080aed4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3bf6e70_d05a46ab",
+        "filename": "front_end/ui/ListWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-26T09:58:50Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b95d9863_a5130076",
+      "range": {
+        "startLine": 429,
+        "startChar": 17,
+        "endLine": 429,
+        "endChar": 35
+      },
+      "revId": "dcf8ac0c644d9a4969257cfca7073b313080aed4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
