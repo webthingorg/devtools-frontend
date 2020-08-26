@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "c8734d96_e4a939c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-26T10:54:59Z",
+      "side": 1,
+      "message": "Yes I\u0027ll add them now.",
+      "parentUuid": "957aff79_815db320",
+      "revId": "b4d55edbd177a458dd5c86cdaa95048dd1a2134f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed7a5269_c78be015",
         "filename": "front_end/elements/ElementsPanel.js",
         "patchSetId": 2
@@ -47,6 +65,30 @@
       "writtenOn": "2020-08-26T08:41:00Z",
       "side": 1,
       "message": "Since we actually don\u0027t fire the event for the initial tab, it might be good to rename this as skippedInitialTabSelectedEvent or something.",
+      "range": {
+        "startLine": 925,
+        "startChar": 8,
+        "endLine": 925,
+        "endChar": 37
+      },
+      "revId": "b4d55edbd177a458dd5c86cdaa95048dd1a2134f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae37c641_0d1ea7e7",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 925,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-26T10:54:59Z",
+      "side": 1,
+      "message": "This \"event\" is referring to the `UI.TabbedPane.Events.TabSelected` event that leads to this `tabSelected` callback being called, so in that sense it\u0027s fired. But I think what you are suggesting is better. I\u0027ll change it to `skippedInitialTabSelectedEvent`.",
+      "parentUuid": "ed7a5269_c78be015",
       "range": {
         "startLine": 925,
         "startChar": 8,
@@ -94,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "af5169bc_4e237456",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 957,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-26T10:54:59Z",
+      "side": 1,
+      "message": "This is from some unnecessary experiment, and should have been removed. Thanks for spotting this :)",
+      "parentUuid": "83ce26ab_b4f628e8",
+      "revId": "b4d55edbd177a458dd5c86cdaa95048dd1a2134f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2d60e926_285a9d79",
         "filename": "front_end/host/UserMetrics.js",
         "patchSetId": 2
@@ -117,6 +177,30 @@
     },
     {
       "key": {
+        "uuid": "091650b2_8c15693f",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-26T10:54:59Z",
+      "side": 1,
+      "message": "Good question. Code 0 acts as a \"sink\" for unmapped sidebar panes. I don\u0027t think this can happen for now, but to be defensive I\u0027ll add a code 0 as \"other sidebar panes\". If we find out they actually get logged, I\u0027ll look into what\u0027s this pane and add them.",
+      "parentUuid": "2d60e926_285a9d79",
+      "range": {
+        "startLine": 89,
+        "startChar": 54,
+        "endLine": 89,
+        "endChar": 55
+      },
+      "revId": "b4d55edbd177a458dd5c86cdaa95048dd1a2134f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dd2ffa62_1f5a22ea",
         "filename": "front_end/host/UserMetrics.js",
         "patchSetId": 2
@@ -128,6 +212,30 @@
       "writtenOn": "2020-08-26T08:41:00Z",
       "side": 1,
       "message": "Question: is this same histogram going to be used for other panels that also have sidebar panes?\nIf so, great, I\u0027m just unsure whether we can add new codes later, once the histogram has started being recorded.\nIf not, then we might need to call this one ElementsSidebarPaneCodes.",
+      "range": {
+        "startLine": 336,
+        "startChar": 13,
+        "endLine": 336,
+        "endChar": 30
+      },
+      "revId": "b4d55edbd177a458dd5c86cdaa95048dd1a2134f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0469daad_ac2a7bf9",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-08-26T10:54:59Z",
+      "side": 1,
+      "message": "I also thought about this, and decided to leave the name more general to open to the possibility that we have other \"sidebar panes\" in the future and can also log them. We can always add new codes later by appending this list-like object, as long as we don\u0027t change existing code-name mappings. This has been done for `PanelCodes` as well.",
+      "parentUuid": "dd2ffa62_1f5a22ea",
       "range": {
         "startLine": 336,
         "startChar": 13,
