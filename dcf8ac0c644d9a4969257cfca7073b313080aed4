@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5e8d0315_fd75f876",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-26T07:38:26Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "dcf8ac0c644d9a4969257cfca7073b313080aed4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb18978a_20268dd4",
+        "filename": "front_end/ui/ListWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-26T07:38:26Z",
+      "side": 1,
+      "message": "Somehow, TS is not able to infer that if \u0027previousIsSeparator\u0027 is true, then \u0027previous\u0027 is guaranteed to be non-null.",
+      "range": {
+        "startLine": 105,
+        "startChar": 8,
+        "endLine": 105,
+        "endChar": 27
+      },
+      "revId": "dcf8ac0c644d9a4969257cfca7073b313080aed4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b95d9863_a5130076",
+        "filename": "front_end/ui/ListWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-26T07:38:26Z",
+      "side": 1,
+      "message": "FYI: Neither the current VSCode TS version, nor Closure know about \u0027\u0026\u0026\u003d\u0027 (its stage 3 or 4 at the moment).",
+      "range": {
+        "startLine": 429,
+        "startChar": 17,
+        "endLine": 429,
+        "endChar": 35
+      },
+      "revId": "dcf8ac0c644d9a4969257cfca7073b313080aed4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
