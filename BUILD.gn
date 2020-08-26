@@ -334,13 +334,19 @@ action("generate_devtools_grd") {
       generated_applications_html + generated_applications_js +
       generated_non_autostart_non_remote_modules + devtools_embedder_scripts +
       generated_worker_bundles + generated_typescript_entrypoint_sources +
-      generated_typescript_modules +
+      generated_typescript_modules + generated_devtools_locale_files +
       [
         "$resources_out_dir/devtools_extension_api.js",
         "$resources_out_dir/sdk/wasm_source_map/pkg/wasm_source_map_bg.wasm",
         "$resources_out_dir/formatter_worker_entrypoint.js",
         "$resources_out_dir/third_party/acorn/package/dist/acorn.mjs",
       ]
+
+  if (is_debug) {
+    # i18n-bundle.js is a file that gets generated at build time,
+    # for release it is bundled using rollup, for debug it needs to be added
+    grd_files += [ "$resources_out_dir/third_party/i18n/i18n-bundle.js" ]
+  }
 
   inputs = grd_files + front_end_image_files
 
