@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "5cee1eca_20844e1c",
+        "filename": "front_end/perf_ui/timelineGrid.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1449423
+      },
+      "writtenOn": "2020-08-26T19:02:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f60bcb5b_63ad7ec9",
+      "revId": "96a0f10130b84b5b7196aa946e626af594c07165",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50448db5_8b0714b5",
         "filename": "front_end/sdk/TracingModel.js",
         "patchSetId": 2
@@ -50,6 +68,24 @@
       "revId": "96a0f10130b84b5b7196aa946e626af594c07165",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5743f76_f29be3b4",
+        "filename": "front_end/sdk/TracingModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1449423
+      },
+      "writtenOn": "2020-08-26T19:02:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50448db5_8b0714b5",
+      "revId": "96a0f10130b84b5b7196aa946e626af594c07165",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -70,6 +106,24 @@
     },
     {
       "key": {
+        "uuid": "b322a918_b47c6ead",
+        "filename": "front_end/sdk/TracingModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 870,
+      "author": {
+        "id": 1449423
+      },
+      "writtenOn": "2020-08-26T19:02:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bbae884_2125c47b",
+      "revId": "96a0f10130b84b5b7196aa946e626af594c07165",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e30570e7_6e34262d",
         "filename": "front_end/sdk/TracingModel.js",
         "patchSetId": 2
@@ -87,6 +141,24 @@
     },
     {
       "key": {
+        "uuid": "88ebcb63_e98ff758",
+        "filename": "front_end/sdk/TracingModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 878,
+      "author": {
+        "id": 1449423
+      },
+      "writtenOn": "2020-08-26T19:02:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e30570e7_6e34262d",
+      "revId": "96a0f10130b84b5b7196aa946e626af594c07165",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d1c0815_67f48d0a",
         "filename": "front_end/sdk/TracingModel.js",
         "patchSetId": 2
@@ -101,6 +173,24 @@
       "revId": "96a0f10130b84b5b7196aa946e626af594c07165",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca9c761f_f44c2b56",
+        "filename": "front_end/sdk/TracingModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1449423
+      },
+      "writtenOn": "2020-08-26T19:02:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d1c0815_67f48d0a",
+      "revId": "96a0f10130b84b5b7196aa946e626af594c07165",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -135,6 +225,24 @@
       "revId": "96a0f10130b84b5b7196aa946e626af594c07165",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "036c68ae_d118939e",
+        "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1449423
+      },
+      "writtenOn": "2020-08-26T19:02:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca4a3882_157d744e",
+      "revId": "96a0f10130b84b5b7196aa946e626af594c07165",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -189,6 +297,24 @@
     },
     {
       "key": {
+        "uuid": "0aa9c675_1d93ae71",
+        "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 1449423
+      },
+      "writtenOn": "2020-08-26T19:02:28Z",
+      "side": 1,
+      "message": "Another example of an experiment that I should\u0027ve caught had I looked at diffs locally.",
+      "parentUuid": "1744a3e8_c50d322a",
+      "revId": "96a0f10130b84b5b7196aa946e626af594c07165",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b3702c75_1e59194c",
         "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
         "patchSetId": 2
@@ -217,6 +343,24 @@
       "writtenOn": "2020-08-25T15:32:36Z",
       "side": 1,
       "message": "I think this comment is not correct.\n\nI think this extracts not just PerfMark, but all UserTiming, sync and async, which includes PerfMeasures, Markers, Resource timing, etc.\n\nHowever, if I recall, it is not a problem to move all UserTimings to Timings track, since the code that renders these things scans through all events in all tracks anyway.\n\nI think this part is thorough review.",
+      "revId": "96a0f10130b84b5b7196aa946e626af594c07165",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36544f8b_d408f0e2",
+        "filename": "front_end/timeline_model/TimelineModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1449423
+      },
+      "writtenOn": "2020-08-26T19:02:28Z",
+      "side": 1,
+      "message": "After I removed this part, the UI failed to load, so I believe it is still necessary.",
+      "parentUuid": "3ea30f27_d028e618",
       "revId": "96a0f10130b84b5b7196aa946e626af594c07165",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
