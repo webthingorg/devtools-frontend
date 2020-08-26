@@ -33,6 +33,75 @@
       "revId": "ca92cf7f6e9952ab6d4d2cbfeb39a242a744a347",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79f58987_e35643f6",
+        "filename": "BUILD.gn",
+        "patchSetId": 4
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-26T09:56:10Z",
+      "side": 1,
+      "message": "This file should be added to `all_typescript_module_sources` in `all_devtools_modules.gni` instead.",
+      "range": {
+        "startLine": 344,
+        "startChar": 0,
+        "endLine": 349,
+        "endChar": 3
+      },
+      "revId": "ca92cf7f6e9952ab6d4d2cbfeb39a242a744a347",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8895fd0a_4b4e3e2e",
+        "filename": "front_end/third_party/i18n/BUILD.gn",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-26T09:56:10Z",
+      "side": 1,
+      "message": "(I missed this in the original CL): This is equivalent to `target_gen_dir`: https://gn.googlesource.com/gn/+/master/docs/reference.md#var_target_gen_dir",
+      "range": {
+        "startLine": 11,
+        "startChar": 6,
+        "endLine": 11,
+        "endChar": 76
+      },
+      "revId": "ca92cf7f6e9952ab6d4d2cbfeb39a242a744a347",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c48be8b_b90c8966",
+        "filename": "front_end/third_party/i18n/BUILD.gn",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-26T09:56:10Z",
+      "side": 1,
+      "message": "You will want to use `copy_gen_to_resources` instead as defined in `scripts/build/ninja/copy.gni`. I think then it will become:\n\n```\ncopy_gen_to_resources(\"bundle_i18n\") {\n  sources \u003d [\"$target_gen_dir/i18n-bundle.js\"]\n  deps \u003d [\":bundle_i18n_action\"]\n}\n```",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 4
+      },
+      "revId": "ca92cf7f6e9952ab6d4d2cbfeb39a242a744a347",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
