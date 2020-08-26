@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "07af5935_7cd5390d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 26
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2020-08-26T21:44:42Z",
+      "side": 1,
+      "message": "I\u0027m adding Yang Guo because Benedikt is on vacation according with his status.\nI need the approval for a couple of files that Sigurd is not an owner.\nPTAL to:\nfront_end/devtools_compatibility.js\nfront_end/externs.js\n\nThanks!\n",
+      "revId": "d28ae46854838db34556cfce3f88969788ce7416",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
