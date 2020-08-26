@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "39e97ddf_ac4bcb52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-26T14:23:38Z",
+      "side": 1,
+      "message": "There is quite a bit of refactoring this CL to make it typecheck properly. Adding Philip as domain reviewer.",
+      "revId": "b4150a9cd0b862be3f5aa6f0ca5883741f8fad84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
