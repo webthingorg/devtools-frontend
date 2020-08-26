@@ -16,6 +16,23 @@
       "revId": "25c44f15c18002f967157e99760182afc182b99c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fdf2bf80_e7579241",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2020-08-26T21:50:46Z",
+      "side": 1,
+      "message": "I\u0027m adding Yang Guo because Benedikt is on vacation according with his status.\nPTAL\n\nThanks!",
+      "revId": "25c44f15c18002f967157e99760182afc182b99c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
