@@ -10855,6 +10855,7 @@ declare namespace Protocol {
        * Whether the opened window has access to the originating window.
        */
       canAccessOpener: boolean;
+      openerFrameId?: Page.FrameId;
       browserContextId?: Browser.BrowserContextID;
     }
 

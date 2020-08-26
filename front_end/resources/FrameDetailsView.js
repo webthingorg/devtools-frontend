@@ -29,12 +29,12 @@ export class FrameDetailsView extends UI.ThrottledWidget.ThrottledWidget {
     this._unreachableURL = this._generalSection.appendField(ls`Unreachable URL`);
     this._originFieldValue = this._generalSection.appendField(ls`Origin`);
 
-    this._ownerElementFieldValue = this._generalSection.appendField(ls`Owner Element`);
-    this._ownerElementFieldValue.classList.add('devtools-link');
-    this._ownerElementFieldValue.title = ls`Click to reveal in Elements panel`;
+    const ownerElementLinkContainer = this._generalSection.appendField(ls`Owner Element`);
+    this._ownerElementLink = ownerElementLinkContainer.createChild('div', 'report-field-value-link devtools-link');
+    this._ownerElementLink.title = ls`Click to reveal in Elements panel`;
     /** @type {?SDK.DOMModel.DOMNode} */
     this._ownerDomNode = null;
-    this._ownerElementFieldValue.addEventListener('click', () => {
+    this._ownerElementLink.addEventListener('click', () => {
       if (this._ownerDomNode) {
         Common.Revealer.reveal(this._ownerDomNode);
       }
@@ -48,14 +48,31 @@ export class FrameDetailsView extends UI.ThrottledWidget.ThrottledWidget {
   }
 
   /**
+   * @param {!HTMLElement} parent
+   * @param {string} iconType
+   * @param {string} linkText
+   * @returns {!HTMLElement}
+   */
+  static addLinkWithIcon(parent, iconType, linkText) {
+    const linkContainer = parent.createChild('div');
+    const linkElement =
+        /** @type {!HTMLElement} */ (linkContainer.createChild('div', 'report-field-value-link devtools-link'));
+    const icon = UI.Icon.Icon.create(iconType, 'icon');
+    linkElement.appendChild(icon);
+    linkElement.createChild('span').textContent = linkText;
+    return linkElement;
+  }
+
+  /**
    * @override
    * @return {!Promise<?>}
    */
   async doUpdate() {
     this._urlFieldValue.textContent = this._frame.url;
     if (!this._frame.unreachableUrl()) {
-      const revealSources = this._urlFieldValue.createChild('span', 'report-field-value-part devtools-link');
-      revealSources.textContent = ls`View Source`;
+      const revealSources =
+          FrameDetailsView.addLinkWithIcon(this._urlFieldValue, 'mediumicon-sources-panel', ls`View Source`);
+      revealSources.title = ls`Click to reveal in Sources panel`;
       revealSources.addEventListener('click', () => {
         const sourceCode = Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURL(this._frame.url);
         Common.Revealer.reveal(sourceCode);
@@ -71,8 +88,11 @@ export class FrameDetailsView extends UI.ThrottledWidget.ThrottledWidget {
     }
     this._ownerDomNode = await this._frame.getOwnerDOMNodeOrDocument();
     this._updateAdStatus();
+    this._ownerElementLink.removeChildren();
     if (this._ownerDomNode) {
-      this._ownerElementFieldValue.textContent = `<${this._ownerDomNode.nodeName().toLocaleLowerCase()}>`;
+      const icon = UI.Icon.Icon.create('mediumicon-elements-panel', 'icon');
+      this._ownerElementLink.appendChild(icon);
+      this._ownerElementLink.createChild('span').textContent = `<${this._ownerDomNode.nodeName().toLocaleLowerCase()}>`;
     }
     await this._updateCoopCoepStatus();
     this._updateContextStatus();
@@ -120,15 +140,14 @@ export class FrameDetailsView extends UI.ThrottledWidget.ThrottledWidget {
   }
 
   /**
-   * @param {!Element} element
+   * @param {!HTMLElement} element
    * @param {?SDK.Resource.Resource} resource
    */
   static maybeAppendLinkToRequest(element, resource) {
     if (resource && resource.request) {
       const request = resource.request;
-      const revealRequest = element.createChild('span', 'report-field-value-part');
-      revealRequest.textContent = ls`View Request`;
-      revealRequest.classList.add('devtools-link');
+      const revealRequest = FrameDetailsView.addLinkWithIcon(element, 'mediumicon-network-panel', ls`View Request`);
+      revealRequest.title = ls`Click to reveal in Network panel`;
       revealRequest.addEventListener('click', () => {
         Network.NetworkPanel.NetworkPanel.selectAndShowRequest(request, Network.NetworkItemView.Tabs.Headers);
       });
@@ -146,8 +165,8 @@ export class FrameDetailsView extends UI.ThrottledWidget.ThrottledWidget {
     if (!unreachableUrl) {
       return;
     }
-    const revealRequest = this._unreachableURL.createChild('span', 'report-field-value-part devtools-link');
-    revealRequest.textContent = ls`Show matching requests`;
+    const revealRequest =
+        FrameDetailsView.addLinkWithIcon(this._unreachableURL, 'mediumicon-network-panel', ls`Show matching requests`);
     revealRequest.title = ls`Requires network log, try reloading the inspected page if unavailable`;
     revealRequest.addEventListener('click', () => {
       Network.NetworkPanel.NetworkPanel.revealAndFilter([
@@ -200,8 +219,38 @@ export class OpenedWindowDetailsView extends UI.ThrottledWidget.ThrottledWidget 
 
     this._securitySection = this._reportView.appendSection(ls`Security`);
     this._hasDOMAccessValue = this._securitySection.appendField(ls`Access to opener`);
+    const openerElementLinkContainer = this._securitySection.appendField(ls`Opener Frame`);
+    this._openerElementLink = openerElementLinkContainer.createChild('div', 'report-field-value-link devtools-link');
+    this._openerElementLink.title = ls`Click to reveal in Elements panel`;
+    /** @type {?SDK.ResourceTreeModel.ResourceTreeFrame} */
+    this._openerFrame = null;
+    /** @type {?SDK.DOMModel.DOMNode} */
+    this._openerDomNode = null;
+    this._openerElementLink.addEventListener('click', () => {
+      if (this._openerDomNode) {
+        Common.Revealer.reveal(this._openerDomNode);
+      }
+    });
+    this._openerElementLink.addEventListener('mouseenter', this._onMouseEnter.bind(this), false);
+    this._openerElementLink.addEventListener('mouseleave', this._onMouseLeave.bind(this), false);
 
     this.update();
+  }
+
+  /**
+   * @param {!Event} event
+   */
+  _onMouseEnter(event) {
+    if (this._openerFrame) {
+      this._openerFrame.highlight();
+    }
+  }
+
+  /**
+   * @param {!Event} event
+   */
+  _onMouseLeave(event) {
+    SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight();
   }
 
   /**
@@ -212,6 +261,22 @@ export class OpenedWindowDetailsView extends UI.ThrottledWidget.ThrottledWidget 
     this._reportView.setTitle(this.buildTitle());
     this._URLFieldValue.textContent = this._targetInfo.url;
     this._hasDOMAccessValue.textContent = booleanToYesNo(this._targetInfo.canAccessOpener);
+
+    const openerFrameId = this._targetInfo.openerFrameId;
+    const frameManager = SDK.FrameManager.FrameManager.instance();
+    this._openerElementLink.removeChildren();
+    if (openerFrameId) {
+      this._openerFrame = frameManager.getFrame(openerFrameId);
+      if (this._openerFrame) {
+        this._openerDomNode = await this._openerFrame.getOwnerDOMNodeOrDocument();
+        if (this._openerDomNode) {
+          const icon = UI.Icon.Icon.create('mediumicon-elements-panel', 'icon');
+          this._openerElementLink.appendChild(icon);
+          this._openerElementLink.createChild('span').textContent =
+              `<${this._openerDomNode.nodeName().toLocaleLowerCase()}>`;
+        }
+      }
+    }
   }
 
   /**
