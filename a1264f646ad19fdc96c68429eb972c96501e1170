@@ -16,6 +16,24 @@
       "revId": "a1264f646ad19fdc96c68429eb972c96501e1170",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bc0d2f2_9d2983ba",
+        "filename": "front_end/sdk/TracingModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1449423
+      },
+      "writtenOn": "2020-08-26T19:45:03Z",
+      "side": 1,
+      "message": "This is a stale experiment that needed to be removed.",
+      "parentUuid": "46a8a390_e5a954e7",
+      "revId": "a1264f646ad19fdc96c68429eb972c96501e1170",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
