@@ -898,6 +898,8 @@ export class ElementsPanel extends UI.Panel.Panel {
     computedStylePanesWrapper.element.classList.add('style-panes-wrapper');
     this._computedStyleWidget.show(computedStylePanesWrapper.element);
 
+    let initialTabSelectedEventFired = false;
+
     /**
      * @param {!Common.EventTarget.EventTargetEvent} event
      */
@@ -914,6 +916,15 @@ export class ElementsPanel extends UI.Panel.Panel {
           });
         }
       }
+
+      if (!initialTabSelectedEventFired) {
+        // We don't log the initially selected sidebar pane to UMA because
+        // it will skew the histogram heavily toward the Styles pane
+        initialTabSelectedEventFired = true;
+        return;
+      }
+
+      Host.userMetrics.sidebarPaneShown(tabId);
     };
 
     this.sidebarPaneView = UI.ViewManager.ViewManager.instance().createTabbedLocation(
@@ -943,6 +954,8 @@ export class ElementsPanel extends UI.Panel.Panel {
     }
 
     this._splitWidget.setSidebarWidget(this.sidebarPaneView.tabbedPane());
+
+    this._sidebarPaneInitialized = true;
   }
 
   _updateSidebarPosition() {
