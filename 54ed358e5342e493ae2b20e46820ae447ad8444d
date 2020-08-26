@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6566cbe_d21fce56",
+        "filename": "front_end/emulation/deviceModeView.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-26T11:48:15Z",
+      "side": 1,
+      "message": "This is redundant now. It seems we could just remove the @media query altogether, no?",
+      "revId": "54ed358e5342e493ae2b20e46820ae447ad8444d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
