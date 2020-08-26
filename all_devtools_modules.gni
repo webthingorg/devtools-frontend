@@ -248,6 +248,7 @@ all_typescript_module_sources = [
   "host/Platform.js",
   "host/ResourceLoader.js",
   "host/UserMetrics.js",
+  "i18n/i18nImpl.js",
   "inline_editor/BezierEditor.js",
   "inline_editor/BezierUI.js",
   "inline_editor/CSSShadowEditor.js",
