@@ -16,6 +16,23 @@
       "revId": "ca92cf7f6e9952ab6d4d2cbfeb39a242a744a347",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0c9dfcc8_dea64235",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-08-26T09:41:24Z",
+      "side": 1,
+      "message": "Rubber stamp LGTM assuming Tim looks at the build parts. Thanks!",
+      "revId": "ca92cf7f6e9952ab6d4d2cbfeb39a242a744a347",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
