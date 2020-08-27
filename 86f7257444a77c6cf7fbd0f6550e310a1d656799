@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "93afc48b_bf14c94d",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-27T11:35:46Z",
+      "side": 1,
+      "message": "Was fixing this while you were commenting.\n\nAnd now with the element text being a link again, it\u0027s back to being a field.",
+      "parentUuid": "d84d2578_47ecb443",
+      "range": {
+        "startLine": 66,
+        "startChar": 4,
+        "endLine": 66,
+        "endChar": 22
+      },
+      "revId": "86f7257444a77c6cf7fbd0f6550e310a1d656799",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c53fbacf_86c55e24",
         "filename": "front_end/resources/FrameDetailsView.js",
         "patchSetId": 7
@@ -65,6 +89,30 @@
     },
     {
       "key": {
+        "uuid": "6c6c31c8_e5d5a7b8",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-27T11:35:46Z",
+      "side": 1,
+      "message": "As per discussion elsewhere, I\u0027ll add back the link to the text here.",
+      "parentUuid": "c53fbacf_86c55e24",
+      "range": {
+        "startLine": 69,
+        "startChar": 11,
+        "endLine": 69,
+        "endChar": 34
+      },
+      "revId": "86f7257444a77c6cf7fbd0f6550e310a1d656799",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "29ed1a7a_0126eca0",
         "filename": "front_end/resources/frameDetailsReportView.css",
         "patchSetId": 7
@@ -85,6 +133,30 @@
       "revId": "86f7257444a77c6cf7fbd0f6550e310a1d656799",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64054786_7b70e30f",
+        "filename": "front_end/resources/frameDetailsReportView.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-27T11:35:46Z",
+      "side": 1,
+      "message": "Currently there isn\u0027t a CSS variable for the link color and as you\u0027re saying it feels like it should be handled in a separate CL. Handling dark theme locally now.",
+      "parentUuid": "29ed1a7a_0126eca0",
+      "range": {
+        "startLine": 17,
+        "startChar": 20,
+        "endLine": 17,
+        "endChar": 34
+      },
+      "revId": "86f7257444a77c6cf7fbd0f6550e310a1d656799",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
