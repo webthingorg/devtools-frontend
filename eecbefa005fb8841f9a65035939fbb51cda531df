@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2ac2e3b_e9850766",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-27T15:11:43Z",
+      "side": 1,
+      "message": "I have two concerns about this CL. The first is that the encoding doesn\u0027t work correctly (see my comments with examples where it doesn\u0027t).\n\nThe other concern is that the CL relies on an invariant (which you describe, and which I think is good, that \"anything called \u0027url\u0027 or \u0027path\u0027 is now url-encoded, and anything called \u0027name\u0027 or \u0027platformPath\u0027 is not.\" \n\nI think having such an invariant is great, but I think it needs to be type-checked to make sure we don\u0027t mix up escaped and unescaped usages. Manual inspection will not work (even if we get it right in this CL, it will break later on).",
+      "revId": "eecbefa005fb8841f9a65035939fbb51cda531df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a95f241_a9216089",
+        "filename": "front_end/common/ParsedURL.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-27T15:11:43Z",
+      "side": 1,
+      "message": "How did you get to this set? I think we need to escape everthing \n - in the uriReserved set (;/?:@\u0026\u003d+$,) defined in https://www.ecma-international.org/ecma-262/#sec-uri-syntax-and-semantics\n - plus # due to https://www.ecma-international.org/ecma-262/#sec-encodeuri-uri\n - plus % because decodeURI[Component] will otherwise start decoding %20 and the like that might be present in filename\n\nWhy do we encode \u0027\\\\\u0027? Why doesn\u0027t this interfere with out ability to separate directories later on?\n\nThis needs more tests. I came up with the following tests which don\u0027t work: \n  it(\u0027escaped, unescapes partial path\u0027, () \u003d\u003e {\n    const pathTest \u003d \u0027username:password@example.com\u0027; // valid filename on unix\n    const escapedPath \u003d ParsedURL.escapeFilePath(pathTest);\n    const convertedPath \u003d ParsedURL.unescapeFilePath(escapedPath);\n    assert.strictEqual(convertedPath, pathTest, \u0027path was not converted successfully\u0027);\n  });\n\n  it(\u0027escaped, unescapes partial path\u0027, () \u003d\u003e {\n    const pathTest \u003d \u0027C:/Program%20Files/Google\u0027;\n    const escapedPath \u003d ParsedURL.escapeFilePath(pathTest);\n    console.log(escapedPath);\n    const convertedPath \u003d ParsedURL.unescapeFilePath(escapedPath);\n    assert.strictEqual(convertedPath, pathTest, \u0027path was not converted successfully\u0027);\n  });\n\nThere are probably more.",
+      "range": {
+        "startLine": 110,
+        "startChar": 30,
+        "endLine": 110,
+        "endChar": 56
+      },
+      "revId": "eecbefa005fb8841f9a65035939fbb51cda531df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6112b276_58612c6e",
+        "filename": "front_end/common/ParsedURL.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-27T15:11:43Z",
+      "side": 1,
+      "message": "May filename start with C:\\ ? In that case it doesn\u0027t look like unescapeFilePath(escapeFilePath(filename))\u003d\u003dfilename.",
+      "range": {
+        "startLine": 120,
+        "startChar": 24,
+        "endLine": 120,
+        "endChar": 32
+      },
+      "revId": "eecbefa005fb8841f9a65035939fbb51cda531df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85ae300a_422dc99a",
+        "filename": "front_end/common/ParsedURL.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-27T15:11:43Z",
+      "side": 1,
+      "message": "Why is this happening here, but not in escapeFilePath?",
+      "range": {
+        "startLine": 159,
+        "startChar": 48,
+        "endLine": 159,
+        "endChar": 80
+      },
+      "revId": "eecbefa005fb8841f9a65035939fbb51cda531df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
