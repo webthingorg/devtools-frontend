@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e8973658_0ed7e6ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-27T14:10:31Z",
+      "side": 1,
+      "message": "lgtm, once the remaining TS errors are fixed",
+      "revId": "1d1cbeff5cb387e515e4dc9594f1fcac397d70aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba9f5e18_aed6ea65",
+        "filename": "front_end/ui/UIUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1390,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-27T14:10:31Z",
+      "side": 1,
+      "message": "I really like this :)",
+      "range": {
+        "startLine": 1390,
+        "startChar": 13,
+        "endLine": 1390,
+        "endChar": 30
+      },
+      "revId": "1d1cbeff5cb387e515e4dc9594f1fcac397d70aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
