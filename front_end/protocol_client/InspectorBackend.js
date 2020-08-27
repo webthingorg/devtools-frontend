@@ -762,6 +762,13 @@ export class TargetBase {
   }
 
   /**
+   * @return {!ProtocolProxyApi.TracingApi}
+   */
+  tracingAgent() {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
+
+  /**
    * @return {!ProtocolProxyApi.WebAuthnApi}
    */
   webAuthnAgent() {
@@ -845,6 +852,13 @@ export class TargetBase {
    * @param {!ProtocolProxyApi.TargetDispatcher} dispatcher
    */
   registerTargetDispatcher(dispatcher) {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
+
+  /**
+   * @param {!ProtocolProxyApi.TracingDispatcher} dispatcher
+   */
+  registerTracingDispatcher(dispatcher) {
     throw new Error('Implemented in InspectorBackend.js');
   }
 }
