@@ -12,7 +12,7 @@ export interface Slice {
   value: number, color: string, title: string
 }
 
-export class PieChart2 extends HTMLElement {
+export class PieChart extends HTMLElement {
   private readonly shadow = this.attachShadow({mode: 'open'});
   private chartName = '';
   private size = 0;
@@ -221,11 +221,11 @@ export class PieChart2 extends HTMLElement {
 
   private selectAndFocusTotal() {
     this.selectTotal();
-    // In order for the :focus-visible styles to work, we need to focus the
-    // newly selected item. This is so that the outline is only shown for focus
-    // caused by keyboard events and not all focus e.g. showing a focus ring
-    // when we click on something is not necessary. The same goes for focusing
-    // slices below.
+    // TODO(petermarshall): In order for the :focus-visible styles to work, we
+    // need to focus the newly selected item. This is so that the outline is
+    // only shown for focus caused by keyboard events and not all focus e.g.
+    // showing a focus ring when we click on something is not necessary. The
+    // same goes for focusing slices below.
     const totalLegendRow = this.shadow.querySelector<HTMLDivElement>('.pie-chart-legend > :last-child');
     totalLegendRow!.focus();
   }
@@ -297,10 +297,10 @@ export class PieChart2 extends HTMLElement {
   }
 }
 
-customElements.define('devtools-perf-piechart', PieChart2);
+customElements.define('devtools-perf-piechart', PieChart);
 
 declare global {
   interface HTMLElementTagNameMap {
-    'devtools-perf-piechart': PieChart2;
+    'devtools-perf-piechart': PieChart;
   }
 }
