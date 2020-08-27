@@ -16,6 +16,23 @@
       "revId": "b6a9629a678bf16c5f7560407b3a4f44f6f96962",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb0669a8_3371aa88",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-27T08:22:59Z",
+      "side": 1,
+      "message": "If only our tooling would let us use optional chaining and nullish coalescing already!",
+      "revId": "b6a9629a678bf16c5f7560407b3a4f44f6f96962",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
