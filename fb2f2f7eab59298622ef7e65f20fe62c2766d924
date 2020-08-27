@@ -39,6 +39,30 @@
       "revId": "fb2f2f7eab59298622ef7e65f20fe62c2766d924",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0f39ebd_69a382fa",
+        "filename": "front_end/services/ServiceManager.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-27T12:09:07Z",
+      "side": 1,
+      "message": "I am a bit hesitant to do so, as I think the closeHandler is also used for cleaning up of the sockets. Therefore, I think it is safer to keep it for now.",
+      "parentUuid": "b07956d2_de62cc71",
+      "range": {
+        "startLine": 389,
+        "startChar": 4,
+        "endLine": 389,
+        "endChar": 38
+      },
+      "revId": "fb2f2f7eab59298622ef7e65f20fe62c2766d924",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
