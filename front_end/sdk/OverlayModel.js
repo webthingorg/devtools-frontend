@@ -746,6 +746,10 @@ class DefaultPersistentGridHighlighter {
     this._showGridTrackSizesSetting.addChangeListener(this._onSettingChange, this);
 
     this._logCurrentGridSettings();
+
+    // Debounce recording highlighted grids in order to avoid counting rapidly turning grids on and off.
+    this._recordHighlightedGridCount = debounce(this._recordHighlightedGridCount.bind(this), 1000);
+    this._previouslyRecordedGridCountNodeIds = [];
   }
 
   /**
@@ -785,6 +789,19 @@ class DefaultPersistentGridHighlighter {
       return;
     }
     Host.userMetrics.cssGridSettings(`${setting.name}.${setting.get()}`);
+  }
+
+  _recordHighlightedGridCount() {
+    const recordedNodeIds = [...this._gridHighlights.keys()];
+
+    // If only settings changed, but not the list of highlighted grids, bail out.
+    if (arraysEqual(recordedNodeIds, this._previouslyRecordedGridCountNodeIds)) {
+      return;
+    }
+
+    Host.userMetrics.highlightedPersistentCssGridCount(recordedNodeIds.length);
+
+    this._previouslyRecordedGridCountNodeIds = recordedNodeIds;
   }
 
   /**
@@ -885,6 +902,8 @@ class DefaultPersistentGridHighlighter {
       gridNodeHighlightConfigs.push({nodeId, gridHighlightConfig});
     }
     overlayModel.target().overlayAgent().invoke_setShowGridOverlays({gridNodeHighlightConfigs});
+
+    this._recordHighlightedGridCount();
   }
 }
 
@@ -920,3 +939,29 @@ SDKModel.register(OverlayModel, Capability.DOM, true);
 /** @typedef {!{node: !DOMNode, selectorList: (string|undefined)} | !{deferredNode: DeferredDOMNode, selectorList: (string|undefined)} | !{object: !RemoteObject, selectorList: (string|undefined)} | !{clear: *}} */
 // @ts-ignore typedef
 export let HighlightData;
+
+const debounce = (func, delay) => {
+  let timer;
+  return function() {
+    const context = this;
+    const args = arguments;
+    clearTimeout(timer);
+    timer = setTimeout(() => func.apply(context, args), delay);
+  };
+};
+
+const arraysEqual = (a1, a2) => {
+  if (a1.length !== a2.length) {
+    return false;
+  }
+
+  a1 = [...a1].sort();
+  a2 = [...a2].sort();
+  for (let i = 0; i < a1.length; a1++) {
+    if (a1[i] !== a2[i]) {
+      return false;
+    }
+  }
+
+  return true;
+};
