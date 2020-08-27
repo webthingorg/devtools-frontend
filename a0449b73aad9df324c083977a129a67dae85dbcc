@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ecb4d97a_d4c90b63",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-27T06:12:37Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "a0449b73aad9df324c083977a129a67dae85dbcc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2dafa8d2_766bd7f0",
+        "filename": "front_end/bindings/FileUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-27T06:12:37Z",
+      "side": 1,
+      "message": "ultra-nit: Is this still needed after adding the constructor?",
+      "range": {
+        "startLine": 233,
+        "startChar": 4,
+        "endLine": 233,
+        "endChar": 42
+      },
+      "revId": "a0449b73aad9df324c083977a129a67dae85dbcc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
