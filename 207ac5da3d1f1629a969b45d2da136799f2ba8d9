@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3dc9e088_eb1ddaf0",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-27T11:13:48Z",
+      "side": 1,
+      "message": "@Philip, the tests are failing on this. I think the problem is that the indirection between parent and child is going wrong. However, I triple-checked the logic here and I simply can\u0027t spot the problem. Do you have any ideas?",
+      "range": {
+        "startLine": 250,
+        "startChar": 10,
+        "endLine": 250,
+        "endChar": 30
+      },
+      "revId": "207ac5da3d1f1629a969b45d2da136799f2ba8d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
