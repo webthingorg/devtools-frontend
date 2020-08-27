@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bc2e4f72_e6829f00",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-27T08:45:22Z",
+      "side": 1,
+      "message": "I removed the link text and added it to the icon\u0027s tooltips instead.\n\nPT another L",
+      "revId": "86f7257444a77c6cf7fbd0f6550e310a1d656799",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
