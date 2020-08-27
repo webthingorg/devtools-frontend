@@ -22,6 +22,30 @@
       "revId": "207ac5da3d1f1629a969b45d2da136799f2ba8d9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0121216d_c89b0878",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-08-27T11:25:43Z",
+      "side": 1,
+      "message": "The original implementation was correct. Note that the namespaces are returned from this function below. The callers expect it to be an object, not a Map.\n\nSorry I didn\u0027t spot that on the review!",
+      "parentUuid": "3dc9e088_eb1ddaf0",
+      "range": {
+        "startLine": 250,
+        "startChar": 10,
+        "endLine": 250,
+        "endChar": 30
+      },
+      "revId": "207ac5da3d1f1629a969b45d2da136799f2ba8d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
