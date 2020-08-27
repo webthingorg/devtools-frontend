@@ -16,6 +16,24 @@
       "revId": "ec5e1a7269de1fbf2b70a161fef173436da307c9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84147036_96e4d154",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-27T15:24:35Z",
+      "side": 1,
+      "message": "Yes, this is the smallest fix forward, as this is the cherry-pick into M86. To reduce the amount of refactoring into the release branch, we decided this is the safest way forward.",
+      "parentUuid": "e5fa949a_35d54a50",
+      "revId": "ec5e1a7269de1fbf2b70a161fef173436da307c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
