@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e015ed75_95964035",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-27T07:58:54Z",
+      "side": 1,
+      "message": "I think Alex is out for a few days, Mathias, would you be able to take a quick look at this please?",
+      "revId": "b6a9629a678bf16c5f7560407b3a4f44f6f96962",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
