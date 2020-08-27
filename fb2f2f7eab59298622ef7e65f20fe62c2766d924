@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8fa29e11_8fc38fb5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-27T11:58:34Z",
+      "side": 1,
+      "message": "lgtm % q",
+      "revId": "fb2f2f7eab59298622ef7e65f20fe62c2766d924",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b07956d2_de62cc71",
+        "filename": "front_end/services/ServiceManager.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-27T11:58:34Z",
+      "side": 1,
+      "message": "Do we even need the _closeHandler now?",
+      "range": {
+        "startLine": 389,
+        "startChar": 4,
+        "endLine": 389,
+        "endChar": 38
+      },
+      "revId": "fb2f2f7eab59298622ef7e65f20fe62c2766d924",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
