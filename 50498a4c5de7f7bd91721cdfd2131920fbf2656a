@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89abeb6b_2f670106",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-27T06:18:11Z",
+      "side": 1,
+      "message": "lgtm % nit",
+      "revId": "50498a4c5de7f7bd91721cdfd2131920fbf2656a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2f8755d_78d94530",
+        "filename": "front_end/workspace_diff/WorkspaceDiff.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-27T06:18:11Z",
+      "side": 1,
+      "message": "I actually had to try this in the DevTools console if this still evaluates to `content.error`, as I didn\u0027t know xD",
+      "range": {
+        "startLine": 284,
+        "startChar": 30,
+        "endLine": 284,
+        "endChar": 67
+      },
+      "revId": "50498a4c5de7f7bd91721cdfd2131920fbf2656a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf040af8_873ff8bc",
+        "filename": "front_end/workspace_diff/WorkspaceDiff.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-27T06:18:11Z",
+      "side": 1,
+      "message": "nit: Fold this into the if below?\n\n if (!baseline || baseline.length \u003e 1024 * 1024) {\n   return null;\n }",
+      "range": {
+        "startLine": 296,
+        "startChar": 0,
+        "endLine": 298,
+        "endChar": 5
+      },
+      "revId": "50498a4c5de7f7bd91721cdfd2131920fbf2656a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
