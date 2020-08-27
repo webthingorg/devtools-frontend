@@ -4,14 +4,17 @@
  * found in the LICENSE file.
  */
 
-.report-field-value-part {
-  padding-left: 1ex;
-}
-
 .report-field-name {
   flex: 0 0 200px;
 }
 
 .report-field .more-info {
   color: #555;
+  padding-left: 1ex;
+}
+
+.icon-link.devtools-link {
+  background-color: rgb(17 85 204);
+  margin-left: 0.5ex;
+  vertical-align: sub;
 }
