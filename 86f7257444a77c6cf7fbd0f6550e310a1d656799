@@ -16,6 +16,75 @@
       "revId": "86f7257444a77c6cf7fbd0f6550e310a1d656799",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d84d2578_47ecb443",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-27T09:47:40Z",
+      "side": 1,
+      "message": "This doesn\u0027t need to be a field, does it?",
+      "range": {
+        "startLine": 66,
+        "startChar": 4,
+        "endLine": 66,
+        "endChar": 22
+      },
+      "revId": "86f7257444a77c6cf7fbd0f6550e310a1d656799",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c53fbacf_86c55e24",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-27T09:47:40Z",
+      "side": 1,
+      "message": "This element doesn\u0027t link anymore, was that intended?",
+      "range": {
+        "startLine": 69,
+        "startChar": 11,
+        "endLine": 69,
+        "endChar": 34
+      },
+      "revId": "86f7257444a77c6cf7fbd0f6550e310a1d656799",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29ed1a7a_0126eca0",
+        "filename": "front_end/resources/frameDetailsReportView.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-27T09:47:40Z",
+      "side": 1,
+      "message": "This alone won\u0027t work for dark-mode. It would be nice to use CSS variables, but that can be done in a follow up.",
+      "range": {
+        "startLine": 17,
+        "startChar": 20,
+        "endLine": 17,
+        "endChar": 34
+      },
+      "revId": "86f7257444a77c6cf7fbd0f6550e310a1d656799",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
