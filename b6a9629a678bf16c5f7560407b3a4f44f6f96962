@@ -33,6 +33,24 @@
       "revId": "b6a9629a678bf16c5f7560407b3a4f44f6f96962",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20806b74_b5c6c9bc",
+        "filename": "front_end/inspector_overlay/css_grid_label_helpers.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-08-27T09:04:01Z",
+      "side": 1,
+      "message": "Right! That\u0027d be really good.\nJust for my own curiosity, it would look something like this, right: lastEmittedPos?.[axis] ?? 0\nWhat, in our tooling, prevents us from using it?",
+      "parentUuid": "bb0669a8_3371aa88",
+      "revId": "b6a9629a678bf16c5f7560407b3a4f44f6f96962",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
