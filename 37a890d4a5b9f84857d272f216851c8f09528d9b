@@ -39,6 +39,30 @@
       "revId": "37a890d4a5b9f84857d272f216851c8f09528d9b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4e07cc5_b4dc481c",
+        "filename": "front_end/sdk/IsolateManager.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-27T10:57:45Z",
+      "side": 1,
+      "message": "Ack, although this was done under guidance from Paul previously, so I continued this way in this CL.",
+      "parentUuid": "cbb7ebbe_c9524bc6",
+      "range": {
+        "startLine": 18,
+        "startChar": 40,
+        "endLine": 18,
+        "endChar": 63
+      },
+      "revId": "37a890d4a5b9f84857d272f216851c8f09528d9b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
