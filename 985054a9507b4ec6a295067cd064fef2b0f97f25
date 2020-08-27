@@ -56,6 +56,30 @@
       "revId": "985054a9507b4ec6a295067cd064fef2b0f97f25",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8761ea35_f4dc8ab4",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-27T12:41:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21e7f7db_3d105e17",
+      "range": {
+        "startLine": 75,
+        "startChar": 4,
+        "endLine": 75,
+        "endChar": 44
+      },
+      "revId": "985054a9507b4ec6a295067cd064fef2b0f97f25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
