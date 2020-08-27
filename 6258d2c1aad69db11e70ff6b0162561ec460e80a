@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72844c0a_7ca00694",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-08-27T22:32:30Z",
+      "side": 1,
+      "message": "Just out of curiosity, what does Cmd+W usually does in Mac?",
+      "revId": "6258d2c1aad69db11e70ff6b0162561ec460e80a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
