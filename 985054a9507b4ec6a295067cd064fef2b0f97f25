@@ -16,6 +16,46 @@
       "revId": "985054a9507b4ec6a295067cd064fef2b0f97f25",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "032977dc_df19a878",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-27T12:33:52Z",
+      "side": 1,
+      "message": "LGTM % nit, thanks!",
+      "revId": "985054a9507b4ec6a295067cd064fef2b0f97f25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "21e7f7db_3d105e17",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-27T12:33:52Z",
+      "side": 1,
+      "message": "nit: this can go in an else clause of the if below (textContent assignment implies it).",
+      "range": {
+        "startLine": 75,
+        "startChar": 4,
+        "endLine": 75,
+        "endChar": 44
+      },
+      "revId": "985054a9507b4ec6a295067cd064fef2b0f97f25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
