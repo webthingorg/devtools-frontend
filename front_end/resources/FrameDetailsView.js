@@ -206,8 +206,38 @@ export class OpenedWindowDetailsView extends UI.ThrottledWidget.ThrottledWidget 
 
     this._securitySection = this._reportView.appendSection(ls`Security`);
     this._hasDOMAccessValue = this._securitySection.appendField(ls`Access to opener`);
+    const openerElementLinkContainer = this._securitySection.appendField(ls`Opener Frame`);
+    this._openerElementLink = openerElementLinkContainer.createChild('div', 'report-field-value-link devtools-link');
+    this._openerElementLink.title = ls`Click to reveal in Elements panel`;
+    /** @type {?SDK.ResourceTreeModel.ResourceTreeFrame} */
+    this._openerFrame = null;
+    /** @type {?SDK.DOMModel.DOMNode} */
+    this._openerDomNode = null;
+    this._openerElementLink.addEventListener('mouseenter', this._onMouseEnter.bind(this), false);
+    this._openerElementLink.addEventListener('mouseleave', this._onMouseLeave.bind(this), false);
+    this._openerElementLink.addEventListener('click', () => {
+      if (this._openerDomNode) {
+        Common.Revealer.reveal(this._openerDomNode);
+      }
+    });
 
     this.update();
+  }
+
+  /**
+   * @param {!Event} event
+   */
+  _onMouseEnter(event) {
+    if (this._openerFrame) {
+      this._openerFrame.highlight();
+    }
+  }
+
+  /**
+   * @param {!Event} event
+   */
+  _onMouseLeave(event) {
+    SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight();
   }
 
   /**
@@ -218,6 +248,22 @@ export class OpenedWindowDetailsView extends UI.ThrottledWidget.ThrottledWidget 
     this._reportView.setTitle(this.buildTitle());
     this._URLFieldValue.textContent = this._targetInfo.url;
     this._hasDOMAccessValue.textContent = booleanToYesNo(this._targetInfo.canAccessOpener);
+
+    const openerFrameId = this._targetInfo.openerFrameId;
+    if (openerFrameId) {
+      const frameManager = SDK.FrameManager.FrameManager.instance();
+      this._openerFrame = frameManager.getFrame(openerFrameId);
+      if (this._openerFrame) {
+        this._openerDomNode = await this._openerFrame.getOwnerDOMNodeOrDocument();
+        if (this._openerDomNode) {
+          this._openerElementLink.textContent = `<${this._openerDomNode.nodeName().toLocaleLowerCase()}>`;
+          const icon = UI.Icon.Icon.create('mediumicon-elements-panel', 'icon-link devtools-link');
+          this._openerElementLink.appendChild(icon);
+        } else {
+          this._openerElementLink.removeChildren();
+        }
+      }
+    }
   }
 
   /**
