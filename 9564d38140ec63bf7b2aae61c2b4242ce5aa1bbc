@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d4b79844_a4ad6e17",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1450442
+      },
+      "writtenOn": "2020-08-28T22:42:50Z",
+      "side": 1,
+      "message": "PTAL, this should fix the issue caused by 37a35ff.\nIt seems like the event listener in ApplicationPanelSidebar.js is prone to the same issue.\nBut I have no idea what it does so I\u0027m hesitant to touch it.",
+      "revId": "9564d38140ec63bf7b2aae61c2b4242ce5aa1bbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
