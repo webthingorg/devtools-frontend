@@ -39,6 +39,30 @@
       "revId": "8a0205c25d7d19aaae182d05e8fafeee88526a00",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90b6db3b_7d56372c",
+        "filename": "front_end/persistence/Automapping.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-08-28T09:54:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "535695a9_7a170131",
+      "range": {
+        "startLine": 33,
+        "startChar": 9,
+        "endLine": 33,
+        "endChar": 41
+      },
+      "revId": "8a0205c25d7d19aaae182d05e8fafeee88526a00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
