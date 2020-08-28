@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2f37c05e_3abd09fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-08-28T00:32:52Z",
+      "side": 1,
+      "message": "Lets hold these changes until we understand our current presubmit issues a little more as I see some intersection in both scripts.",
+      "revId": "e00b29eda60f1ad5f2307d63a39f01ff9fbd9132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "528e2f4f_64f8617e",
+        "filename": "scripts/localization/localizationV2Checks.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-08-28T00:32:52Z",
+      "side": 1,
+      "message": "this should be fs.promises.writeFile and we can remove the \u0027util\u0027 requirement.",
+      "range": {
+        "startLine": 14,
+        "startChar": 23,
+        "endLine": 14,
+        "endChar": 46
+      },
+      "revId": "e00b29eda60f1ad5f2307d63a39f01ff9fbd9132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8649bce7_2b4a5d1c",
+        "filename": "scripts/localization/utils/localization_utils.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-08-28T00:32:52Z",
+      "side": 1,
+      "message": "Need to be updated to not use common but i18n.i18n.getLocalizedString",
+      "range": {
+        "startLine": 165,
+        "startChar": 12,
+        "endLine": 165,
+        "endChar": 18
+      },
+      "revId": "e00b29eda60f1ad5f2307d63a39f01ff9fbd9132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
