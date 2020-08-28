@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a1bd11b0_9e45086c",
+        "filename": "front_end/lighthouse_worker/LighthouseService.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-08-28T22:17:14Z",
+      "side": 1,
+      "message": "navigator.languages works great here: I tested it locally by changing the OS language on my Mac.\n\nBut since this value is readonly, I\u0027m having trouble writing a test case that works. Any ideas here? Is there / should there be some abstraction for which locale DevTools should use?",
+      "revId": "64a699a47fe1b7cff38c29aa0371fa1b882b0c5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
