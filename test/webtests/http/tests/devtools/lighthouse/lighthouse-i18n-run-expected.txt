@@ -1,0 +1,17 @@
+Tests that Lighthouse report is translated.
+
+
+========== Lighthouse Start Audit State ==========
+[x] Performance
+[ ] Progressive Web App
+[ ] Best practices
+[ ] Accessibility
+[ ] SEO
+[ ] Publisher Ads
+[x] Clear storage
+[x] Simulated throttling
+Generate report: enabled visible
+undefined
+
+Footer Issue Link Text: "File an issue"
+
