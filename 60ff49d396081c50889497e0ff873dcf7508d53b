@@ -51,6 +51,24 @@
       "revId": "60ff49d396081c50889497e0ff873dcf7508d53b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79980d98_9ad0c4f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-28T08:31:04Z",
+      "side": 1,
+      "message": "I wasn’t aware this needs back-porting. (It didn’t seem like a crucial issue that warrants a back-port.)\n\nHappy to make an alternate CL that removes the animation.",
+      "parentUuid": "269fa63c_05fd5e39",
+      "revId": "60ff49d396081c50889497e0ff873dcf7508d53b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
