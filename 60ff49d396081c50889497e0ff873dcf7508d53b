@@ -87,6 +87,24 @@
       "revId": "60ff49d396081c50889497e0ff873dcf7508d53b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9d7839b_4777ef74",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-28T08:36:57Z",
+      "side": 1,
+      "message": "This CL can then be altered to re-enable the animation and fix whatever CSS is needed to fix.",
+      "parentUuid": "3176cbb2_c69678ea",
+      "revId": "60ff49d396081c50889497e0ff873dcf7508d53b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
