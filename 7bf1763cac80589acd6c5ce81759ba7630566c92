@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "616aa9d3_9f9fc0b8",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 27
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-28T08:14:56Z",
+      "side": 1,
+      "message": "nit: What do think about doing this concatenation in Host.userMetrics.issuesPanelResourceOpened (and having two arugments to that function)?",
+      "range": {
+        "startLine": 215,
+        "startChar": 8,
+        "endLine": 215,
+        "endChar": 75
+      },
+      "revId": "7bf1763cac80589acd6c5ce81759ba7630566c92",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
