@@ -65,10 +65,10 @@ def show_result(errors, checkIndex):
         print('Check {0} succeeded'.format(checkIndex))
 
 
-def check_devtools_localizability(index, check_devtools_localizability_args):
-    script_path = devtools_paths.check_localized_strings_path()
-    script_description = 'Check {0}: Verifying that all resources are localizable'.format(index)
-    return check_with_node_script(script_path, script_description, check_devtools_localizability_args)
+# def check_devtools_localizability(index, check_devtools_localizability_args):
+#     script_path = devtools_paths.check_localized_strings_path()
+#     script_description = 'Check {0}: Verifying that all resources are localizable'.format(index)
+#     return check_with_node_script(script_path, script_description, check_devtools_localizability_args)
 
 
 def check_devtools_localizable_resources(index, check_devtools_localizable_resources_args):
@@ -79,26 +79,26 @@ def check_devtools_localizable_resources(index, check_devtools_localizable_resou
 
 def main():
     check_devtools_localizable_resources_args = []
-    check_devtools_localizability_args = []
+    # check_devtools_localizability_args = []
 
     parsed_args = parse_options(sys.argv[1:])
-    if parsed_args.all_files:
-        check_devtools_localizability_args = ['-a']
-    elif parsed_args.files:
-        check_devtools_localizability_args = parsed_args.files
-    elif parsed_args.file_list:
-        check_devtools_localizability_args = ['--file-list', parsed_args.file_list]
+    # if parsed_args.all_files:
+    #     check_devtools_localizability_args = ['-a']
+    # elif parsed_args.files:
+    #     check_devtools_localizability_args = parsed_args.files
+    # elif parsed_args.file_list:
+    #     check_devtools_localizability_args = ['--file-list', parsed_args.file_list]
 
     if parsed_args.autofix:
         check_devtools_localizable_resources_args = ['--autofix']
 
     resource_index = 1
-    localizability_index = 2
+    # localizability_index = 2
     resources_errors_found_localizable = check_devtools_localizable_resources(resource_index,
                                                                               check_devtools_localizable_resources_args)
-    localizability_errors_found = check_devtools_localizability(localizability_index, check_devtools_localizability_args)
+    # localizability_errors_found = check_devtools_localizability(localizability_index, check_devtools_localizability_args)
     show_result(resources_errors_found_localizable, resource_index)
-    show_result(localizability_errors_found, localizability_index)
+    # show_result(localizability_errors_found, localizability_index)
 
 
 if __name__ == '__main__':

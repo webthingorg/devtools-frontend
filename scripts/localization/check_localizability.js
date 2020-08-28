@@ -39,14 +39,14 @@ const usage = `Usage: node ${path.basename(process.argv[0])} [-a | <.js file pat
 -a: If present, check all devtools frontend .js files
 <.js file path>*: List of .js files with absolute paths separated by a space
 `;
-
+const localizability_errors = [];
+/* eslint-disable no-unused-vars */
 async function main() {
   if (process.argv.length < 3 || process.argv[2] === '--help') {
     console.log(usage);
     process.exit(0);
   }
 
-  const errors = [];
 
   try {
     let filePaths = [];
@@ -70,21 +70,21 @@ async function main() {
     await Promise.all(filePathPromises);
 
     filePaths.push(localizationUtils.SHARED_STRINGS_PATH);
-    const auditFilePromises = filePaths.map(filePath => auditFileForLocalizability(filePath, errors));
+    const auditFilePromises = filePaths.map(filePath => auditFileForLocalizability(filePath));
     await Promise.all(auditFilePromises);
   } catch (err) {
     console.log(err);
     process.exit(1);
   }
 
-  if (errors.length > 0) {
-    console.log(`DevTools localization checker detected errors!\n${errors.join('\n')}`);
+  if (localizability_errors.length > 0) {
+    console.log(`DevTools localization checker detected errors!\n${localizability_errors.join('\n')}`);
     process.exit(1);
   }
   console.log('DevTools localization checker passed');
 }
 
-main();
+// main();
 
 function includesConditionalExpression(listOfElements) {
   return listOfElements.filter(ele => ele !== undefined && ele.type === espreeTypes.COND_EXPR).length > 0;
@@ -109,9 +109,9 @@ function isURL(string) {
   return regexPattern.test(string);
 }
 
-function addError(error, errors) {
-  if (!errors.includes(error)) {
-    errors.push(error);
+function addError(error) {
+  if (!localizability_errors.includes(error)) {
+    localizability_errors.push(error);
   }
 }
 
@@ -136,7 +136,7 @@ function buildConcatenatedNodesList(node, nodes) {
  * Example (disallowed): ls`Status code: ` + statusCode
  * Example (disallowed): ls`Status ` + 'code'
  */
-function checkConcatenation(parentNode, node, filePath, errors) {
+function checkConcatenation(parentNode, node, filePath) {
   function isConcatenationDisallowed(node) {
     if (node.type !== espreeTypes.LITERAL && node.type !== espreeTypes.TEMP_LITERAL) {
       return true;
@@ -174,11 +174,9 @@ function checkConcatenation(parentNode, node, filePath, errors) {
       const hasConcatenationViolation = nonLocalizationCalls.some(isConcatenationDisallowed);
       if (hasConcatenationViolation) {
         const code = escodegen.generate(node);
-        addError(
-            `${localizationUtils.getRelativeFilePathFromSrc(filePath)}${
-                localizationUtils.getLocationMessage(
-                    node.loc)}: string concatenation should be changed to variable substitution with ls: ${code}`,
-            errors);
+        addError(`${localizationUtils.getRelativeFilePathFromSrc(filePath)}${
+            localizationUtils.getLocationMessage(
+                node.loc)}: string concatenation should be changed to variable substitution with ls: ${code}`);
       }
     }
   }
@@ -188,14 +186,14 @@ function checkConcatenation(parentNode, node, filePath, errors) {
  * Check espree node object that represents the AST of code
  * to see if there is any localization error.
  */
-function analyzeNode(parentNode, node, filePath, errors) {
+function analyzeNode(parentNode, node, filePath) {
   if (node === undefined || node === null) {
     return;
   }
 
   if (node instanceof Array) {
     for (const child of node) {
-      analyzeNode(node, child, filePath, errors);
+      analyzeNode(node, child, filePath);
     }
 
     return;
@@ -215,83 +213,76 @@ function analyzeNode(parentNode, node, filePath, errors) {
   switch (locCase) {
     case 'Common.UIString':
     case 'UI.formatLocalized': {
-      const firstArgType = node.arguments[0].type;
-      if (firstArgType !== espreeTypes.LITERAL && firstArgType !== espreeTypes.TEMP_LITERAL &&
-          firstArgType !== espreeTypes.IDENTIFIER && !excludeErrors.includes(code)) {
-        addError(
-            `${localizationUtils.getRelativeFilePathFromSrc(filePath)}${
-                localizationUtils.getLocationMessage(node.loc)}: first argument to call should be a string: ${code}`,
-            errors);
-      }
-      if (includesConditionalExpression(node.arguments.slice(1))) {
-        addError(
-            `${localizationUtils.getRelativeFilePathFromSrc(filePath)}${
-                localizationUtils.getLocationMessage(node.loc)}: conditional(s) found in ${
-                code}. Please extract conditional(s) out of the localization call.`,
-            errors);
-      }
-
-      if (node.arguments[0].type === espreeTypes.LITERAL && includesGritPlaceholders(node.arguments[0].value)) {
-        addError(
-            `${localizationUtils.getRelativeFilePathFromSrc(filePath)}${
-                localizationUtils.getLocationMessage(node.loc)}: possible placeholder(s) found in  ${
-                code}. Please extract placeholders(s) out of the localization call.`,
-            errors);
-      }
-
-      if (node.arguments[0].type === espreeTypes.LITERAL && isURL(node.arguments[0].value)) {
-        addError(
-            `${localizationUtils.getRelativeFilePathFromSrc(filePath)}${
-                localizationUtils.getLocationMessage(node.loc)}: localized URL-only string found in ${
-                code}. Please extract the URL out of the localization call.`,
-            errors);
-      }
-
+      analyzeCommonUIStringNode(node, filePath, code);
       break;
     }
 
     case 'Tagged Template': {
-      if (includesConditionalExpression(node.quasi.expressions)) {
-        addError(
-            `${localizationUtils.getRelativeFilePathFromSrc(filePath)}${
-                localizationUtils.getLocationMessage(node.loc)}: conditional(s) found in ${
-                code}. Please extract conditional(s) out of the localization call.`,
-            errors);
-      }
-
-      if (includesGritPlaceholders(node.quasi.quasis[0].value.cooked)) {
-        addError(
-            `${localizationUtils.getRelativeFilePathFromSrc(filePath)}${
-                localizationUtils.getLocationMessage(node.loc)}: possible placeholder(s) found in  ${
-                code}. Please extract placeholders(s) out of the localization call.`,
-            errors);
-      }
-
-      if (isURL(node.quasi.quasis[0].value.raw)) {
-        addError(
-            `${localizationUtils.getRelativeFilePathFromSrc(filePath)}${
-                localizationUtils.getLocationMessage(node.loc)}: localized URL-only string found in ${
-                code}. Please extract the URL out of the localization call.`,
-            errors);
-      }
-
+      analyzeTaggedTemplateNode(node, filePath, code);
       break;
     }
 
     default: {
       // String concatenation to localization call(s) should be changed
-      checkConcatenation(parentNode, node, filePath, errors);
+      checkConcatenation(parentNode, node, filePath);
       break;
     }
   }
 
   for (const key of objKeys) {
     // recursively parse all the child nodes
-    analyzeNode(node, node[key], filePath, errors);
+    analyzeNode(node, node[key], filePath);
   }
 }
 
-function auditGrdpFile(filePath, fileContent, errors) {
+function analyzeCommonUIStringNode(node, filePath, code) {
+  const firstArgType = node.arguments[0].type;
+  if (firstArgType !== espreeTypes.LITERAL && firstArgType !== espreeTypes.TEMP_LITERAL &&
+      firstArgType !== espreeTypes.IDENTIFIER && !excludeErrors.includes(code)) {
+    addError(`${localizationUtils.getRelativeFilePathFromSrc(filePath)}${
+        localizationUtils.getLocationMessage(node.loc)}: first argument to call should be a string: ${code}`);
+  }
+  if (includesConditionalExpression(node.arguments.slice(1))) {
+    addError(`${localizationUtils.getRelativeFilePathFromSrc(filePath)}${
+        localizationUtils.getLocationMessage(
+            node.loc)}: conditional(s) found in ${code}. Please extract conditional(s) out of the localization call.`);
+  }
+
+  if (node.arguments[0].type === espreeTypes.LITERAL && includesGritPlaceholders(node.arguments[0].value)) {
+    addError(`${localizationUtils.getRelativeFilePathFromSrc(filePath)}${
+        localizationUtils.getLocationMessage(node.loc)}: possible placeholder(s) found in  ${
+        code}. Please extract placeholders(s) out of the localization call.`);
+  }
+
+  if (node.arguments[0].type === espreeTypes.LITERAL && isURL(node.arguments[0].value)) {
+    addError(`${localizationUtils.getRelativeFilePathFromSrc(filePath)}${
+        localizationUtils.getLocationMessage(node.loc)}: localized URL-only string found in ${
+        code}. Please extract the URL out of the localization call.`);
+  }
+}
+
+function analyzeTaggedTemplateNode(node, filePath, code) {
+  if (includesConditionalExpression(node.quasi.expressions)) {
+    addError(`${localizationUtils.getRelativeFilePathFromSrc(filePath)}${
+        localizationUtils.getLocationMessage(
+            node.loc)}: conditional(s) found in ${code}. Please extract conditional(s) out of the localization call.`);
+  }
+
+  if (includesGritPlaceholders(node.quasi.quasis[0].value.cooked)) {
+    addError(`${localizationUtils.getRelativeFilePathFromSrc(filePath)}${
+        localizationUtils.getLocationMessage(node.loc)}: possible placeholder(s) found in  ${
+        code}. Please extract placeholders(s) out of the localization call.`);
+  }
+
+  if (isURL(node.quasi.quasis[0].value.raw)) {
+    addError(`${localizationUtils.getRelativeFilePathFromSrc(filePath)}${
+        localizationUtils.getLocationMessage(node.loc)}: localized URL-only string found in ${
+        code}. Please extract the URL out of the localization call.`);
+  }
+}
+
+// entry of auditing grdp
+function auditGrdpFile(filePath, fileContent) {
   function reportMissingPlaceholderExample(messageContent, lineNumber) {
     const phRegex = /<ph[^>]*name="([^"]*)">\$\d(s|d|\.\df)(?!<ex>)<\/ph>/gms;
     let match;
@@ -299,12 +290,10 @@ function auditGrdpFile(filePath, fileContent, errors) {
     // match[0]: full match
     // match[1]: ph name
     while ((match = phRegex.exec(messageContent)) !== null) {
-      addError(
-          `${localizationUtils.getRelativeFilePathFromSrc(filePath)} Line ${
-              lineNumber +
-              localizationUtils.lineNumberOfIndex(
-                  messageContent, match.index)}: missing <ex> in <ph> tag with the name "${match[1]}"`,
-          errors);
+      addError(`${localizationUtils.getRelativeFilePathFromSrc(filePath)} Line ${
+          lineNumber +
+          localizationUtils.lineNumberOfIndex(
+              messageContent, match.index)}: missing <ex> in <ph> tag with the name "${match[1]}"`);
     }
   }
 
@@ -318,10 +307,8 @@ function auditGrdpFile(filePath, fileContent, errors) {
     while ((match = messageRegex.exec(fileContent)) !== null) {
       const lineNumber = localizationUtils.lineNumberOfIndex(fileContent, match.index);
       if (match[2].trim() === '') {
-        addError(
-            `${localizationUtils.getRelativeFilePathFromSrc(filePath)} Line ${
-                lineNumber}: missing description for message with the name "${match[1]}"`,
-            errors);
+        addError(`${localizationUtils.getRelativeFilePathFromSrc(filePath)} Line ${
+            lineNumber}: missing description for message with the name "${match[1]}"`);
       }
       reportMissingPlaceholderExample(match[3], lineNumber);
     }
@@ -330,19 +317,26 @@ function auditGrdpFile(filePath, fileContent, errors) {
   reportMissingDescriptionAndPlaceholderExample();
 }
 
-async function auditFileForLocalizability(filePath, errors) {
+async function auditFileForLocalizability(filePath) {
   const fileContent = await localizationUtils.parseFileContent(filePath);
   if (path.extname(filePath) === '.grd') {
     return;
   }
   if (path.extname(filePath) === '.grdp') {
-    return auditGrdpFile(filePath, fileContent, errors);
+    return auditGrdpFile(filePath, fileContent);
   }
 
   const ast = espree.parse(fileContent, {ecmaVersion: 11, sourceType: 'module', range: true, loc: true});
 
   const relativeFilePath = localizationUtils.getRelativeFilePathFromSrc(filePath);
   for (const node of ast.body) {
-    analyzeNode(undefined, node, relativeFilePath, errors);
+    analyzeNode(undefined, node, relativeFilePath);
   }
 }
+
+module.exports = {
+  analyzeCommonUIStringNode,
+  analyzeTaggedTemplateNode,
+  auditGrdpFile,
+  localizability_errors,
+};

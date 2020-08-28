@@ -47,8 +47,9 @@ function getErrors(existingError) {
   const toAddError = checkLocalizedStrings.getAndReportResourcesToAdd();
   const toModifyError = checkLocalizedStrings.getAndReportIDSKeysToModify();
   const toRemoveError = checkLocalizedStrings.getAndReportResourcesToRemove();
-  let error =
-      `${existingError ? `${existingError}\n` : ''}${toAddError || ''}${toModifyError || ''}${toRemoveError || ''}`;
+  const localizabilityError = checkLocalizedStrings.getLocalizabilityError();
+  let error = `${existingError ? `${existingError}\n` : ''}${toAddError || ''}${toModifyError || ''}${
+      toRemoveError || ''}${localizabilityError || ''}`;
 
   if (error === '') {
     console.log('DevTools localizable resources checker passed.');
@@ -67,15 +68,20 @@ async function autofix(existingError) {
   const resourceModified = await modifyResourcesInGRDP();
   const resourceRemoved = await removeResourcesFromGRDP(keysToRemoveFromGRD);
   const shouldAddExampleTag = checkShouldAddExampleTag(keysToAddToGRD);
+  const localizabilityError = checkLocalizedStrings.getLocalizabilityError();
 
-  if (!resourceAdded && !resourceRemoved && !resourceModified && existingError === '') {
+  if (!resourceAdded && !resourceRemoved && !resourceModified && existingError === '' &&
+      localizabilityError.length === 0) {
     console.log('DevTools localizable resources checker passed.');
     return;
   }
 
   let message =
       'Found changes to localizable DevTools resources.\nDevTools localizable resources checker has updated the appropriate grd/grdp file(s).';
-  if (existingError !== '') {
+  if (localizabilityError !== []) {
+    message += localizabilityError;
+  }
+  if (existingError.length > 0) {
     message +=
         `\nGrd/Grdp files have been updated. Please verify the updated grdp files and/or the <part> file references in ${
             localizationUtils.getRelativeFilePathFromSrc(localizationUtils.GRD_PATH)} are correct.`;
