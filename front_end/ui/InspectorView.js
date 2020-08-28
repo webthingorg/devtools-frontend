@@ -288,7 +288,8 @@ export class InspectorView extends VBox {
     if (this._focusRestorer) {
       this._focusRestorer.restore();
     }
-    this._drawerSplitWidget.hideSidebar(true);
+    // TODO(mathias): Restore animation after fixing crbug/1121930.
+    this._drawerSplitWidget.hideSidebar(false);
   }
 
   /**
