@@ -16,6 +16,46 @@
       "revId": "404083a98fdb95f4fd39f12bdcf43f957793a477",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1be5e776_e2caf561",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-28T05:24:54Z",
+      "side": 1,
+      "message": "I think I know why you are seeing failing tests, see the inline comment.",
+      "revId": "404083a98fdb95f4fd39f12bdcf43f957793a477",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68d31f26_f709ecb5",
+        "filename": "front_end/persistence/Automapping.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-28T05:24:54Z",
+      "side": 1,
+      "message": "You are changing semantics here. The symobls were private, per Automapping instance.\n\nThis means that every \"Automappin\" instance had their own 3 set of properties on each UISourceCode. This is due to\n\n `Symbol(test) !\u003d\u003d Symbol(test)`\n\nAt the very least, the Maps need to be stored on Automapping, as each Automapping needs their own own set.",
+      "range": {
+        "startLine": 157,
+        "startChar": 6,
+        "endLine": 157,
+        "endChar": 72
+      },
+      "revId": "404083a98fdb95f4fd39f12bdcf43f957793a477",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
