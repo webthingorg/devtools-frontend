@@ -33,6 +33,24 @@
       "revId": "60ff49d396081c50889497e0ff873dcf7508d53b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "269fa63c_05fd5e39",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-28T08:02:46Z",
+      "side": 1,
+      "message": "Context: \n - SplitWidgets are used all over the place.\n - This needs back-porting to M86, so we need to be confident.\n\nWouldn\u0027t it be better to make a CL that disabled the animation and back-port that (because it is 100% safe).",
+      "parentUuid": "60f0bddc_0e99487e",
+      "revId": "60ff49d396081c50889497e0ff873dcf7508d53b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
