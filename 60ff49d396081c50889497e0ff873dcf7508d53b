@@ -69,6 +69,24 @@
       "revId": "60ff49d396081c50889497e0ff873dcf7508d53b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3176cbb2_c69678ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-28T08:36:30Z",
+      "side": 1,
+      "message": "Yes, let\u0027s to that, backport that CL. \n\nAll you need to do is change the argument to false here:\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/ui/InspectorView.js;l\u003d291?q\u003dInspectorView.js\u0026ss\u003dchromium",
+      "parentUuid": "79980d98_9ad0c4f8",
+      "revId": "60ff49d396081c50889497e0ff873dcf7508d53b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
