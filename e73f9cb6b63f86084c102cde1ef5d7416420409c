@@ -107,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "b151eba1_433707c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-08-28T15:06:07Z",
+      "side": 1,
+      "message": "I don\u0027t have strong feelings either way. But I lean against the aria attribute because 1) \"Object popover\" isn\u0027t that meaningful to a user and 2) it seems unlikely to me that someone would interact with popovers through a screen reader. That said, #2 is also a reason why there is no harm from adding the aria label.",
+      "parentUuid": "fc47f86a_71045da5",
+      "revId": "e73f9cb6b63f86084c102cde1ef5d7416420409c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b8338069_1c7356ac",
         "filename": "front_end/object_ui/ObjectPopoverHelper.js",
         "patchSetId": 3
