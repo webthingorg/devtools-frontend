@@ -105,6 +105,24 @@
       "revId": "60ff49d396081c50889497e0ff873dcf7508d53b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d92ef4e_051d5b67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-28T08:53:11Z",
+      "side": 1,
+      "message": "Ack. CL disabling the animation: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2381412",
+      "parentUuid": "d9d7839b_4777ef74",
+      "revId": "60ff49d396081c50889497e0ff873dcf7508d53b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
