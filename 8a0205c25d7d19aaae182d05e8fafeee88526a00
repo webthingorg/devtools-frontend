@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1e1e4f5b_42c2a2d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-28T09:50:47Z",
+      "side": 1,
+      "message": "lgtm % nit",
+      "revId": "8a0205c25d7d19aaae182d05e8fafeee88526a00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "535695a9_7a170131",
+        "filename": "front_end/persistence/Automapping.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-28T09:50:47Z",
+      "side": 1,
+      "message": "nit: Can we make these private? `_sourceCodeToProcessingPromiseMap` and so on?",
+      "range": {
+        "startLine": 33,
+        "startChar": 9,
+        "endLine": 33,
+        "endChar": 41
+      },
+      "revId": "8a0205c25d7d19aaae182d05e8fafeee88526a00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
