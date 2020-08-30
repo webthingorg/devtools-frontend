@@ -494,6 +494,16 @@ export class NetworkLogView extends UI.Widget.VBox {
   }
 
   /**
+   * @param {string} value
+   * @param {!SDK.NetworkRequest.NetworkRequest} request
+   * @return {boolean}
+   */
+  static _requestUrlFilter(value, request) {
+    const regex = new RegExp(value.escapeForRegExp(), 'i');
+    return regex.test(request.url());
+  }
+
+  /**
    * @param {number} windowStart
    * @param {number} windowEnd
    * @param {!SDK.NetworkRequest.NetworkRequest} request
@@ -1737,6 +1747,9 @@ export class NetworkLogView extends UI.Widget.VBox {
 
       case FilterType.ResourceType:
         return NetworkLogView._resourceTypeFilter.bind(null, value);
+
+      case FilterType.Url:
+        return NetworkLogView._requestUrlFilter.bind(null, value);
     }
     return null;
   }
@@ -2197,7 +2210,8 @@ export const FilterType = {
   CookieName: 'cookie-name',
   CookiePath: 'cookie-path',
   CookieValue: 'cookie-value',
-  StatusCode: 'status-code'
+  StatusCode: 'status-code',
+  Url: 'url'
 };
 
 /** @enum {string} */
