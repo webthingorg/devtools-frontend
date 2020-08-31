@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "609caf56_64c7dd04",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-31T05:33:27Z",
+      "side": 1,
+      "message": "This CL unfortunately does not pass the Closure type check. We are currently in the process of moving to TypeScript, but until that migration is complete we also have to make Closure happy.\n\nYou can run Closure locally with `npm run check-type-closure`.\n\nI think the `addEventListener` call is fine. IIRC you can safe the return value of `addEventListener`, and use that to remove it again afterwards. Not sure about that though, there should be examples in the code base.",
+      "revId": "c92f1e0b1c874a1c76092d5b4b875bd16c6ddba8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
