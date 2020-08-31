@@ -63,6 +63,30 @@
       "revId": "8dcf4049f352321e21f2a00b2404887c75fdefd0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97645f84_2d7578a9",
+        "filename": "front_end/ui/Geometry.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-31T14:30:29Z",
+      "side": 1,
+      "message": "As we know all values (non of them are falsy), it wouldn\u0027t change semantics :)",
+      "parentUuid": "5f776c84_34cc093a",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 57
+      },
+      "revId": "8dcf4049f352321e21f2a00b2404887c75fdefd0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
