@@ -63,6 +63,30 @@
       "revId": "6e18b4c301fc1f233d4ab14b019e68f7e5a33150",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d25c67b1_fa88373d",
+        "filename": "front_end/sources/DebuggerPlugin.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1450442
+      },
+      "writtenOn": "2020-08-31T17:49:32Z",
+      "side": 1,
+      "message": "I tried using `this._handleGutterClick` as is and it was working fine. I\u0027m not sure why because from my experience you need to `.bind(this)` a function because otherwise the `this` object will not be what you expect. So I decided to bind it, just to be sure. I think maybe the addEventListener of textEditor doesn\u0027t work the same internally as addEventListener on HTMLElements.\n\nSorry for making such a mess by the way, this is my first time contributing to a google project and there were some issues. Not sure why you got added as a reviewer to this CL. I have abandonned all invalid CLs.\nAlso apparently I left this reply as a draft without actually submitting it smh.",
+      "parentUuid": "00e5f9a2_8c2308fd",
+      "range": {
+        "startLine": 141,
+        "startChar": 4,
+        "endLine": 141,
+        "endChar": 101
+      },
+      "revId": "6e18b4c301fc1f233d4ab14b019e68f7e5a33150",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
