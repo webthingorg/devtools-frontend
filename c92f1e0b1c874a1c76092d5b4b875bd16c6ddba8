@@ -33,6 +33,24 @@
       "revId": "c92f1e0b1c874a1c76092d5b4b875bd16c6ddba8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d55eabe_47e45df6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-31T09:09:04Z",
+      "side": 1,
+      "message": "Never seen this, did you maybe upload the Closure fix from a new branch locally? depot_tootls/gerrit would treat that as a separate CL.\n\nI am fine with reviewing on either CL, simply \"Abandon\" the unnecessary one, fixup the commit message and add the reviewers.",
+      "parentUuid": "e76f4906_455f35d3",
+      "revId": "c92f1e0b1c874a1c76092d5b4b875bd16c6ddba8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
