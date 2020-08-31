@@ -115,6 +115,36 @@ export class LighthouseController extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
+   * @return {Promise<?string>}
+   */
+  async _willClearImportantResources() {
+    const mainTarget = this._manager.target();
+    const usageData = await mainTarget.storageAgent().invoke_getUsageAndQuota({origin: mainTarget.inspectedURL()});
+    const importantResources = usageData.usageBreakdown.filter(usage => usage.usage)
+                                   .map(usage => {
+                                     switch (usage.storageType) {
+                                       case 'local_storage':
+                                         return 'Local Storage';
+                                       case 'indexeddb':
+                                         return 'IndexedDB';
+                                       case 'websql':
+                                         return 'Web SQL';
+                                       default:
+                                         return null;
+                                     }
+                                   })
+                                   .filter(resourceString => resourceString)
+                                   .join(', ');
+    if (importantResources) {
+      return Common.UIString.UIString(
+          '(%s) These resources may contain important data and will be cleared when lighthouse runs. Audit this page in an incognito window to avoid loss of data.',
+          importantResources,
+      );
+    }
+    return null;
+  }
+
+  /**
    * @return {!Promise<string>}
    */
   async _evaluateInspectedURL() {
@@ -204,6 +234,12 @@ export class LighthouseController extends Common.ObjectWrapper.ObjectWrapper {
     }
 
     this.dispatchEventToListeners(Events.PageAuditabilityChanged, {helpText});
+
+    this._willClearImportantResources().then(warning => {
+      if (warning) {
+        this.dispatchEventToListeners(Events.PageWarningsChanged, {warning});
+      }
+    });
   }
 }
 
@@ -286,15 +322,16 @@ export const RuntimeSettings = [
   },
 ];
 
-export const Events = {
-  PageAuditabilityChanged: Symbol('PageAuditabilityChanged'),
-  AuditProgressChanged: Symbol('AuditProgressChanged'),
-  RequestLighthouseStart: Symbol('RequestLighthouseStart'),
-  RequestLighthouseCancel: Symbol('RequestLighthouseCancel'),
-};
+    export const Events = {
+      PageAuditabilityChanged: Symbol('PageAuditabilityChanged'),
+      PageWarningsChanged: Symbol('PageWarningsChanged'),
+      AuditProgressChanged: Symbol('AuditProgressChanged'),
+      RequestLighthouseStart: Symbol('RequestLighthouseStart'),
+      RequestLighthouseCancel: Symbol('RequestLighthouseCancel'),
+    };
 
-/** @typedef {{setting: !Common.Settings.Setting, configID: string, title: string, description: string}} */
-export let Preset;
+    /** @typedef {{setting: !Common.Settings.Setting, configID: string, title: string, description: string}} */
+    export let Preset;
 
-/** @typedef {{setting: !Common.Settings.Setting, description: string, setFlags: function(!Object, string), options: (!Array|undefined), title: (string|undefined)}} */
-export let RuntimeSetting;
+    /** @typedef {{setting: !Common.Settings.Setting, description: string, setFlags: function(!Object, string), options: (!Array|undefined), title: (string|undefined)}} */
+    export let RuntimeSetting;

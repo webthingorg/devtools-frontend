@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Common from '../common/common.js';
 import * as UI from '../ui/ui.js';  // eslint-disable-line no-unused-vars
 
 import {Events, LighthouseController, Presets, RuntimeSettings} from './LighthouseController.js';  // eslint-disable-line no-unused-vars
@@ -19,6 +20,10 @@ export class StartView extends UI.Widget.Widget {
     this.registerRequiredCSS('lighthouse/lighthouseStartView.css');
     this._controller = controller;
     this._settingsToolbar = new UI.Toolbar.Toolbar('');
+    this._ignoreWarningsSetting =
+        Common.Settings.Settings.instance().createSetting('lighthouse.ignore-warnings', false);
+    this._ignoreWarningsSetting.setTitle(ls`Ignore Warnings`);
+    this._shouldConfirm = false;
     this._render();
   }
 
@@ -90,14 +95,28 @@ export class StartView extends UI.Widget.Widget {
   }
 
   _render() {
+    const ignoreWarningsControl = new UI.Toolbar.ToolbarSettingCheckbox(
+        this._ignoreWarningsSetting,
+        ls`Always ignore warning prompt before running Lighthouse.`,
+    );
+    this._settingsToolbar.appendToolbarItem(ignoreWarningsControl);
     this._populateRuntimeSettingAsToolbarCheckbox('lighthouse.clear_storage', this._settingsToolbar);
     this._populateRuntimeSettingAsToolbarCheckbox('lighthouse.throttling', this._settingsToolbar);
 
     this._startButton = UI.UIUtils.createTextButton(
         ls`Generate report`,
-        () => this._controller.dispatchEventToListeners(
-            Events.RequestLighthouseStart,
-            /* keyboardInitiated */ this._startButton.matches(':focus-visible')),
+        () => {
+          let runLighthouse = true;
+          const ignoreWarnings = this._ignoreWarningsSetting.get();
+          if (this._shouldConfirm && !ignoreWarnings) {
+            runLighthouse = confirm(ls`Lighthouse has warnings. Are you sure you want to continue?`);
+          }
+          if (runLighthouse) {
+            this._controller.dispatchEventToListeners(
+                Events.RequestLighthouseStart,
+                /* keyboardInitiated */ this._startButton.matches(':focus-visible'));
+          }
+        },
         /* className */ '', /* primary */ true);
     this.setDefaultFocusedElement(this._startButton);
 
@@ -112,6 +131,7 @@ export class StartView extends UI.Widget.Widget {
             ${this._startButton}
             </div>
           <div $="help-text" class="lighthouse-help-text hidden"></div>
+          <div $="warning-text" class="lighthouse-warning-text hidden"></div>
           <div class="lighthouse-start-view-text">
             <span>${auditsDescription}</span>
             ${UI.XLink.XLink.create('https://developers.google.com/web/tools/lighthouse/', ls`Learn more`)}
@@ -143,6 +163,7 @@ export class StartView extends UI.Widget.Widget {
     `;
 
     this._helpText = fragment.$('help-text');
+    this._warningText = fragment.$('warning-text');
     this._populateFormControls(fragment);
     this.contentElement.appendChild(fragment.element());
     this.contentElement.style.overflow = 'auto';
@@ -181,6 +202,17 @@ export class StartView extends UI.Widget.Widget {
   setUnauditableExplanation(text) {
     if (this._helpText) {
       this._helpText.textContent = text;
+    }
+  }
+
+  /**
+   * @param {?string} text
+   */
+  setWarningText(text) {
+    if (this._warningText) {
+      this._warningText.textContent = text;
+      this._warningText.classList.toggle('hidden', !text);
+      this._shouldConfirm = !!text;
     }
   }
 }
