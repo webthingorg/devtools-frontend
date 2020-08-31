@@ -68,6 +68,23 @@
       "revId": "ea06840a9bdddec3cee2366a6c683dec98570526",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0c38e87e_23d0179e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-08-31T06:52:06Z",
+      "side": 1,
+      "message": "Ping @Tyler Pirtle, ptal (third party review)!",
+      "revId": "ea06840a9bdddec3cee2366a6c683dec98570526",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
