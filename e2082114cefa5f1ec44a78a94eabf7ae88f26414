@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "41043c72_921f6902",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-31T13:32:36Z",
+      "side": 1,
+      "message": "Per our offline discussion, we’ve decided to stick to using `WebKitCSSMatrix` in code, and `CSSMatrix` for typing, until Closure support is removed.",
+      "revId": "e2082114cefa5f1ec44a78a94eabf7ae88f26414",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
