@@ -16,6 +16,58 @@
       "revId": "9ac809189cc73ac223c49b314cf10c32d972307e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "025818f0_59127ff3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-08-31T20:47:28Z",
+      "side": 1,
+      "message": "+jalyn@microsoft.com has been working on customizable keyboard shortcuts. We\u0027d want this to follow the existing Command Pattern implementation regardless, because that implementation allows commands to be discoverable via the Command Palette (QuickOpen, default Ctrl/Cmd+Shift+P), not just do a one-off in the Console window.",
+      "parentUuid": "ef3fc8ba_b3345457",
+      "revId": "9ac809189cc73ac223c49b314cf10c32d972307e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ae9af61_7eed789d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-08-31T20:47:28Z",
+      "side": 1,
+      "message": "I think breaking this out into a command is probably the best way to go to get this checked in, although I\u0027m still not sure it\u0027s clear. As Yang said, Snippets probably do what you\u0027re looking to do, so I\u0027m not sure this is a hard want.",
+      "revId": "9ac809189cc73ac223c49b314cf10c32d972307e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e839970_10781c4f",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-08-31T20:47:28Z",
+      "side": 1,
+      "message": "This change actually removes all instances of the current line from history, not just a single one.",
+      "revId": "9ac809189cc73ac223c49b314cf10c32d972307e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
