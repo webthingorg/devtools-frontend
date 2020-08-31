@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6f08e77_fa2095d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-08-31T10:03:46Z",
+      "side": 1,
+      "message": "Peter, would it maybe be better to use the same color as the arrow icon (#4688f1), or does that not increase contrast enough?",
+      "revId": "0f7dc39d8fa3b02b263f25f79bc3a4cf48cca6af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
