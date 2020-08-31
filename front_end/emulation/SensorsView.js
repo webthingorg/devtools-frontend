@@ -453,7 +453,7 @@ export class SensorsView extends UI.Widget.VBox {
     }
 
     // The CSS transform should not depend on matrix3d, which does not interpolate well.
-    const matrix = new WebKitCSSMatrix();
+    const matrix = new DOMMatrix();
     this._boxMatrix = matrix.rotate(-deviceOrientation.beta, deviceOrientation.gamma, -deviceOrientation.alpha);
     const eulerAngles =
         new UI.Geometry.EulerAngles(deviceOrientation.alpha, deviceOrientation.beta, deviceOrientation.gamma);
@@ -482,7 +482,7 @@ export class SensorsView extends UI.Widget.VBox {
 
     // The mouse movement vectors occur in the screen space, which is offset by 90 degrees from
     // the actual device orientation.
-    let currentMatrix = new WebKitCSSMatrix();
+    let currentMatrix = new DOMMatrix();
     currentMatrix = currentMatrix.rotate(-90, 0, 0)
                         .rotateAxisAngle(axis.x, axis.y, axis.z, angle)
                         .rotate(90, 0, 0)

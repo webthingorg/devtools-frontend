@@ -228,7 +228,7 @@ export class AgentLayerTree extends SDK.LayerTreeBase.LayerTreeBase {
     }
     if (root) {
       this.setRoot(root);
-      root._calculateQuad(new WebKitCSSMatrix());
+      root._calculateQuad(new DOMMatrix());
     }
   }
 }
@@ -500,21 +500,21 @@ export class AgentLayer {
 
   /**
    * @param {!Array.<number>} a
-   * @return {!CSSMatrix}
+   * @return {!DOMMatrix}
    */
   _matrixFromArray(a) {
     function toFixed9(x) {
       return x.toFixed(9);
     }
-    return new WebKitCSSMatrix('matrix3d(' + a.map(toFixed9).join(',') + ')');
+    return new DOMMatrix('matrix3d(' + a.map(toFixed9).join(',') + ')');
   }
 
   /**
-   * @param {!CSSMatrix} parentTransform
-   * @return {!CSSMatrix}
+   * @param {!DOMMatrix} parentTransform
+   * @return {!DOMMatrix}
    */
   _calculateTransformToViewport(parentTransform) {
-    const offsetMatrix = new WebKitCSSMatrix().translate(this._layerPayload.offsetX, this._layerPayload.offsetY);
+    const offsetMatrix = new DOMMatrix().translate(this._layerPayload.offsetX, this._layerPayload.offsetY);
     let matrix = offsetMatrix;
 
     if (this._layerPayload.transform) {
@@ -523,7 +523,7 @@ export class AgentLayer {
           this._layerPayload.width * this.anchorPoint()[0], this._layerPayload.height * this.anchorPoint()[1],
           this.anchorPoint()[2]);
       const anchorPoint = UI.Geometry.multiplyVectorByMatrixAndNormalize(anchorVector, matrix);
-      const anchorMatrix = new WebKitCSSMatrix().translate(-anchorPoint.x, -anchorPoint.y, -anchorPoint.z);
+      const anchorMatrix = new DOMMatrix().translate(-anchorPoint.x, -anchorPoint.y, -anchorPoint.z);
       matrix = anchorMatrix.inverse().multiply(transformMatrix.multiply(anchorMatrix.multiply(matrix)));
     }
 
@@ -541,7 +541,7 @@ export class AgentLayer {
   }
 
   /**
-   * @param {!CSSMatrix} parentTransform
+   * @param {!DOMMatrix} parentTransform
    */
   _calculateQuad(parentTransform) {
     const matrix = this._calculateTransformToViewport(parentTransform);

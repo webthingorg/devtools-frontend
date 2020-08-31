@@ -153,7 +153,7 @@ describe('EulerAngles', () => {
   });
 
   it('is able to return an euler angles from rotation matrix', () => {
-    const matrix = new WebKitCSSMatrix();
+    const matrix = new DOMMatrix();
     const result = UI.Geometry.EulerAngles.fromRotationMatrix(matrix);
     assert.strictEqual(result.alpha, 0, 'alpha value was not set correctly');
     assert.strictEqual(result.beta, 0, 'beta value was not set correctly');
@@ -517,7 +517,7 @@ describe('subtract', () => {
 describe('multiplyVectorByMatrixAndNormalize', () => {
   it('returns the vector multiplied by a matrix and normalized', () => {
     const vector = new UI.Geometry.Vector(1, 2, 3);
-    const matrix = new WebKitCSSMatrix();
+    const matrix = new DOMMatrix();
     const result = UI.Geometry.multiplyVectorByMatrixAndNormalize(vector, matrix);
     assert.strictEqual(result.x, 1, 'x value for the resulting vector was not set correctly');
     assert.strictEqual(result.y, 2, 'y value for the resulting vector was not set correctly');
@@ -536,7 +536,7 @@ describe('calculateAngle', () => {
 
 describe('boundsForTransformedPoints', () => {
   it('returns the bounds for transformed points', () => {
-    const matrix = new WebKitCSSMatrix();
+    const matrix = new DOMMatrix();
     const result = UI.Geometry.boundsForTransformedPoints(matrix, [1, 2, 3], {minX: 5, maxX: 6, minY: 7, maxY: 8});
     assert.strictEqual(result.minX, 1, 'minX was calculated incorrectly');
     assert.strictEqual(result.maxX, 6, 'maxX was calculated incorrectly');

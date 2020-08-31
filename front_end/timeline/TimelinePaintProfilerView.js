@@ -200,7 +200,7 @@ export class TimelinePaintImageView extends UI.Widget.Widget {
       style.borderBottomWidth = (height - this._maskRectangle.y - this._maskRectangle.height) + 'px';
     }
     this._transformController.setScaleConstraints(0.5, 10 / scale);
-    let matrix = new WebKitCSSMatrix()
+    let matrix = new DOMMatrix()
                      .scale(this._transformController.scale(), this._transformController.scale())
                      .translate(clientWidth / 2, clientHeight / 2)
                      .scale(scale, scale)
@@ -209,7 +209,7 @@ export class TimelinePaintImageView extends UI.Widget.Widget {
     this._transformController.clampOffsets(
         paddingX - bounds.maxX, clientWidth - paddingX - bounds.minX, paddingY - bounds.maxY,
         clientHeight - paddingY - bounds.minY);
-    matrix = new WebKitCSSMatrix()
+    matrix = new DOMMatrix()
                  .translate(this._transformController.offsetX(), this._transformController.offsetY())
                  .multiply(matrix);
     this._imageContainer.style.webkitTransform = matrix.toString();

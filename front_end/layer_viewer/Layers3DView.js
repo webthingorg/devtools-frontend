@@ -276,7 +276,7 @@ export class Layers3DView extends UI.Widget.VBox {
       this._textureManager.setScale(textureScale);
       this.dispatchEventToListeners(Events.ScaleChanged, textureScale);
     }
-    const scaleAndRotationMatrix = new WebKitCSSMatrix()
+    const scaleAndRotationMatrix = new DOMMatrix()
                                        .scale(scale, scale, scale)
                                        .translate(canvasWidth / 2, canvasHeight / 2, 0)
                                        .rotate(rotateX, rotateY, 0)
@@ -296,9 +296,9 @@ export class Layers3DView extends UI.Widget.VBox {
     const offsetX = this._transformController.offsetX() * window.devicePixelRatio;
     const offsetY = this._transformController.offsetY() * window.devicePixelRatio;
     // Multiply to translation matrix on the right rather than translate (which would implicitly multiply on the left).
-    this._projectionMatrix = new WebKitCSSMatrix().translate(offsetX, offsetY, 0).multiply(scaleAndRotationMatrix);
+    this._projectionMatrix = new DOMMatrix().translate(offsetX, offsetY, 0).multiply(scaleAndRotationMatrix);
 
-    const glProjectionMatrix = new WebKitCSSMatrix()
+    const glProjectionMatrix = new DOMMatrix()
                                    .scale(1, -1, -1)
                                    .translate(-1, -1, 0)
                                    .scale(2 / this._canvasElement.width, 2 / this._canvasElement.height, 1 / 1000000)
@@ -307,7 +307,7 @@ export class Layers3DView extends UI.Widget.VBox {
   }
 
   /**
-   * @param {!CSSMatrix} m
+   * @param {!DOMMatrix} m
    * @return {!Float32Array}
    */
   _arrayFromMatrix(m) {
@@ -673,8 +673,7 @@ export class Layers3DView extends UI.Widget.VBox {
     }
     let closestIntersectionPoint = Infinity;
     let closestObject = null;
-    const projectionMatrix =
-        new WebKitCSSMatrix().scale(1, -1, -1).translate(-1, -1, 0).multiply(this._projectionMatrix);
+    const projectionMatrix = new DOMMatrix().scale(1, -1, -1).translate(-1, -1, 0).multiply(this._projectionMatrix);
     const x0 = (event.clientX - this._canvasElement.totalOffsetLeft()) * window.devicePixelRatio;
     const y0 = -(event.clientY - this._canvasElement.totalOffsetTop()) * window.devicePixelRatio;
 
@@ -1148,7 +1147,7 @@ export class Rectangle {
 
   /**
    * Intersects quad with given transform matrix and line l(t) = (x0, y0, t)
-   * @param {!CSSMatrix} matrix
+   * @param {!DOMMatrix} matrix
    * @param {number} x0
    * @param {number} y0
    * @return {(number|undefined)}
