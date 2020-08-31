@@ -39,6 +39,30 @@
       "revId": "8dcf4049f352321e21f2a00b2404887c75fdefd0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f776c84_34cc093a",
+        "filename": "front_end/ui/Geometry.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-08-31T14:00:53Z",
+      "side": 1,
+      "message": "Done. I decided to go with casting instead, since relying on `get()`’s return value being truthy would change the existing semantics.",
+      "parentUuid": "592258ea_86b0fb26",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 57
+      },
+      "revId": "8dcf4049f352321e21f2a00b2404887c75fdefd0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
