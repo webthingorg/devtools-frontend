@@ -16,6 +16,29 @@
       "revId": "d50fb9d07ae38506a66dfd89fc229fceeff707a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51970971_edf9bd39",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 834,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-31T12:20:06Z",
+      "side": 1,
+      "message": "nit: \u0027message\u0027 in sourceElement",
+      "range": {
+        "startLine": 834,
+        "startChar": 45,
+        "endLine": 834,
+        "endChar": 66
+      },
+      "revId": "d50fb9d07ae38506a66dfd89fc229fceeff707a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
