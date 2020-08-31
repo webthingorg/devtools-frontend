@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "73a1e974_4d581fa3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-08-31T10:01:59Z",
+      "side": 1,
+      "message": "Thank you for fixing this!",
+      "revId": "6e18b4c301fc1f233d4ab14b019e68f7e5a33150",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28c353de_7ba86798",
+        "filename": "front_end/sources/DebuggerPlugin.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-08-31T10:01:59Z",
+      "side": 1,
+      "message": "Can we use this._handleGutterClick as is? It shouldn\u0027t be necessary to create a function here or to save it.",
+      "range": {
+        "startLine": 141,
+        "startChar": 4,
+        "endLine": 141,
+        "endChar": 101
+      },
+      "revId": "6e18b4c301fc1f233d4ab14b019e68f7e5a33150",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
