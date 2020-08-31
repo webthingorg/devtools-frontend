@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "20324766_3ea136db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1427242
+      },
+      "writtenOn": "2020-08-31T23:51:19Z",
+      "side": 1,
+      "message": "Yeah, I did like Yang\u0027s suggestion and have been using it for some things, but there are still times when I want to remove a particular command from history.  I switched this to use the Command Pattern (unless I misunderstood what that meant).",
+      "parentUuid": "025818f0_59127ff3",
+      "revId": "9ac809189cc73ac223c49b314cf10c32d972307e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8e839970_10781c4f",
         "filename": "front_end/console/ConsoleView.js",
         "patchSetId": 2
@@ -65,6 +83,24 @@
       "writtenOn": "2020-08-31T20:47:28Z",
       "side": 1,
       "message": "This change actually removes all instances of the current line from history, not just a single one.",
+      "revId": "9ac809189cc73ac223c49b314cf10c32d972307e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97e29236_fb9b491d",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1427242
+      },
+      "writtenOn": "2020-08-31T23:51:19Z",
+      "side": 1,
+      "message": "I thought that would be the most desirable option.  If someone deletes one instance, I thought they\u0027d most likely want them all deleted.",
+      "parentUuid": "8e839970_10781c4f",
       "revId": "9ac809189cc73ac223c49b314cf10c32d972307e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
