@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "faa96560_8fb77bca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-08-31T18:16:42Z",
+      "side": 1,
+      "message": "Hi Connor,\nI left a couple of comments :)",
+      "revId": "2b7eff0d2b4d92a60ec62d2a4ce1a1ffeaee3564",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56affada_2b9788e8",
+        "filename": "front_end/lighthouse_worker/LighthouseService.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-08-31T18:16:42Z",
+      "side": 1,
+      "message": "Hi Connor, I think there area a couple of cases where this may lead to unexpected behavior:\n- A user with 4 locales in order: (es-MX, de-de, fr, en), the one used in the top (es) is used as the UI language, but AFAIK the others (de, fr, en) are not ordered at all. \n\nI think is better to try to match locale and if not use english.",
+      "range": {
+        "startLine": 84,
+        "startChar": 3,
+        "endLine": 84,
+        "endChar": 45
+      },
+      "revId": "2b7eff0d2b4d92a60ec62d2a4ce1a1ffeaee3564",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96476c29_24f98630",
+        "filename": "front_end/lighthouse_worker/LighthouseService.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-08-31T18:16:42Z",
+      "side": 1,
+      "message": "just wanted to double check that everybody is on the same page. This line will only work if specific Chromium implementations reenable the lighthouse locales in the pak file:\n2302592: Exclude generated Lighthouse locale files | https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2302592",
+      "range": {
+        "startLine": 92,
+        "startChar": 12,
+        "endLine": 92,
+        "endChar": 27
+      },
+      "revId": "2b7eff0d2b4d92a60ec62d2a4ce1a1ffeaee3564",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
