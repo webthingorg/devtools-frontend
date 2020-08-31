@@ -16,6 +16,23 @@
       "revId": "c92f1e0b1c874a1c76092d5b4b875bd16c6ddba8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e76f4906_455f35d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1450442
+      },
+      "writtenOn": "2020-08-31T09:04:40Z",
+      "side": 1,
+      "message": "Hmm not sure why but `git cl upload` decided to create a new CL for me.\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2382855\nShould I close this one and just add reviewers again on the new CL, or is there some way I can merge the two together somehow?",
+      "revId": "c92f1e0b1c874a1c76092d5b4b875bd16c6ddba8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
