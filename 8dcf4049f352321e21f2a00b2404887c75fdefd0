@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "026fa9e0_b3b4b8ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-31T13:43:57Z",
+      "side": 1,
+      "message": "lgtm % nit",
+      "revId": "8dcf4049f352321e21f2a00b2404887c75fdefd0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "592258ea_86b0fb26",
+        "filename": "front_end/ui/Geometry.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-08-31T13:43:57Z",
+      "side": 1,
+      "message": "Lets fix the @ts-ignore:\n\n const maybeKeyword \u003d keywordValues.get(value);\n if (maybeKeyword) {\n   return CubicBezier.parse(maybeKeyword);\n }\n\nAlternatively, cast the result of keywordValues.get.",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 57
+      },
+      "revId": "8dcf4049f352321e21f2a00b2404887c75fdefd0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
