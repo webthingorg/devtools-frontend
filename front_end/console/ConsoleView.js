@@ -830,7 +830,8 @@ export class ConsoleView extends UI.Widget.VBox {
     }
 
     const sourceElement = eventTarget.enclosingNodeOrSelfWithClass('console-message-wrapper');
-    const consoleMessage = sourceElement ?
+    // @ts-expect-error
+    const consoleMessage = (sourceElement && sourceElement.message) ?
         // @ts-expect-error We can't convert this to a Weakmap, as it comes from `ConsoleViewMessage` instead.
         /** @type {!ConsoleViewMessage} */ (sourceElement.message).consoleMessage() :
         null;
