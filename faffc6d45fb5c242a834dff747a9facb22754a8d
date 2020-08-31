@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "979304b7_ee2df92f",
+        "filename": "front_end/lighthouse_worker/LighthouseService.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-08-31T19:16:21Z",
+      "side": 1,
+      "message": "bit of a logic bug here: I want to _skip_ this navigator language is the lookupLocale couldn\u0027t resolved to a supported language, but currently lookupLocale hardcodes an `en` fallback. Gonna change that in LH core so that it returns undefined if not found.\n\nref https://github.com/GoogleChrome/lighthouse/pull/11349",
+      "revId": "faffc6d45fb5c242a834dff747a9facb22754a8d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
