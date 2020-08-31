@@ -123,6 +123,46 @@
       "revId": "60ff49d396081c50889497e0ff873dcf7508d53b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26ee85e4_4c579cda",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-31T11:52:33Z",
+      "side": 1,
+      "message": "I\u0027ve looked into this and I believe this is safe to land and backmerge. Thanks!",
+      "revId": "60ff49d396081c50889497e0ff873dcf7508d53b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2ef76eb_10e5fc94",
+        "filename": "front_end/ui/splitWidget.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-31T11:52:33Z",
+      "side": 1,
+      "message": "Do we need this? It doesn\u0027t seem relevant to the bug though.",
+      "range": {
+        "startLine": 31,
+        "startChar": 2,
+        "endLine": 31,
+        "endChar": 19
+      },
+      "revId": "60ff49d396081c50889497e0ff873dcf7508d53b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
