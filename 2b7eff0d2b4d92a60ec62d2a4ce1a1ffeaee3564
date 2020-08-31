@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "2b6b5626_8dfaadde",
+        "filename": "front_end/lighthouse_worker/LighthouseService.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-08-31T18:33:50Z",
+      "side": 1,
+      "message": "The spec does mention it\u0027s ordered by preference. https://html.spec.whatwg.org/multipage/system-state.html#dom-navigator-languages",
+      "parentUuid": "56affada_2b9788e8",
+      "range": {
+        "startLine": 84,
+        "startChar": 3,
+        "endLine": 84,
+        "endChar": 45
+      },
+      "revId": "2b7eff0d2b4d92a60ec62d2a4ce1a1ffeaee3564",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "96476c29_24f98630",
         "filename": "front_end/lighthouse_worker/LighthouseService.js",
         "patchSetId": 9
@@ -53,6 +77,30 @@
       "writtenOn": "2020-08-31T18:16:42Z",
       "side": 1,
       "message": "just wanted to double check that everybody is on the same page. This line will only work if specific Chromium implementations reenable the lighthouse locales in the pak file:\n2302592: Exclude generated Lighthouse locale files | https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2302592",
+      "range": {
+        "startLine": 92,
+        "startChar": 12,
+        "endLine": 92,
+        "endChar": 27
+      },
+      "revId": "2b7eff0d2b4d92a60ec62d2a4ce1a1ffeaee3564",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "714fb4be_faf9b8a8",
+        "filename": "front_end/lighthouse_worker/LighthouseService.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-08-31T18:33:50Z",
+      "side": 1,
+      "message": "My understanding is that this will make a request to the chromium app server, since these files are not included with the base installation.",
+      "parentUuid": "96476c29_24f98630",
       "range": {
         "startLine": 92,
         "startChar": 12,
