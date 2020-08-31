@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca1abff3_3f25dece",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-08-31T13:00:36Z",
+      "side": 1,
+      "message": "Let\u0027s add some rudimentary auto-completion.\n\nIf you add \n\n  /**\n   * @return {string}\n   */\n  securityOrigin() {\n    return this._parsedURL.securityOrigin();\n  }\n\nto the NetworkRequest you can add auto-complete \n\n  this._suggestionBuilder.addItem(FilterType.Url, request.securityOrigin());\n\nin _refreshRequest.\n\nThis isn\u0027t perfect (because only the scheme+domain will be auto-completed), but it is better than having no auto-completion at all.",
+      "revId": "216fa1be66862fbbf6589e2e15b183b6dcedf2f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
