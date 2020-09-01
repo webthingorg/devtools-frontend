@@ -454,7 +454,7 @@ export class JavaScriptAutocomplete {
         }
         // Object-wrapped BigInts cannot be constructed via `new BigInt`.
         else if (type === 'bigint') {
-          object = Object(BigInt(0));
+          object = Object(globalThis.BigInt(0));
         } else if (type === 'boolean') {
           object = new Boolean(false);
         } else {

@@ -153,14 +153,13 @@ Array.prototype.mergeOrdered = function(array, comparator) {};
  */
 Int32Array.prototype.lowerBound = function(object, comparator, left, right) {};
 
-// TODO(luoe): remove these BigInt and ArrayLike types once closure supports them.
-/**
- * @param {number|string} value
- */
-const BigInt = function(value) {};
 
-/** @typedef {*} */
-const bigint = null;
+/**
+ *
+ * @param {number|string} value
+ * @return {number}
+ */
+globalThis.BigInt = function(value) {};
 
 /** @typedef {Array|NodeList|Arguments|{length: number}} */
 let ArrayLike;
@@ -923,12 +922,6 @@ const base64ToSize = function(content) {};
  * @return {string}
  */
 const unescapeCssString = function(input) {};
-
-/**
- * @constructor
- * @param {function(!Array<*>)} callback
- */
-const ResizeObserver = function(callback) {};
 
 
 // Lighthouse Report Renderer

@@ -169,7 +169,12 @@ export class HeapProfileView extends ProfileView {
         '----\n\nCall graph:\n';
     const sortedChildren = this.profile().root.children.sort((a, b) => b.total - a.total);
     const modules = this.profile().modules.map(
-        m => Object.assign({address: BigInt(m.baseAddress), endAddress: BigInt(m.baseAddress) + BigInt(m.size)}, m));
+        m => Object.assign(
+            {
+              address: globalThis.BigInt(m.baseAddress),
+              endAddress: globalThis.BigInt(m.baseAddress) + globalThis.BigInt(m.size)
+            },
+            m));
     modules.sort((m1, m2) => m1.address > m2.address ? 1 : m1.address < m2.address ? -1 : 0);
     for (const child of sortedChildren) {
       printTree('    ', child !== sortedChildren.peekLast(), child);
@@ -183,7 +188,7 @@ export class HeapProfileView extends ProfileView {
           module.uuid :
           module.uuid.replace(/(.{8})(.{4})(.{4})(.{4})(.{12}).*/, '$1-$2-$3-$4-$5');
       text += `${('0x' + module.address.toString(16)).padStart(18)} - `;
-      text += `${('0x' + (module.endAddress - BigInt(1)).toString(16)).padStart(18)}`;
+      text += `${('0x' + (module.endAddress - globalThis.BigInt(1)).toString(16)).padStart(18)}`;
       text += `  ${fileName} (${version}) <${formattedUuid}> ${module.name}\n`;
     }
 
@@ -198,7 +203,7 @@ export class HeapProfileView extends ProfileView {
       const addressText = /0x[0-9a-f]*|[0-9]*/.exec(node.functionName)[0] || '';
       let module;
       if (addressText) {
-        const address = BigInt(addressText);
+        const address = globalThis.BigInt(addressText);
         const pos = modules.upperBound(address, (address, module) => address - module.address);
         if (pos > 0 && address < modules[pos - 1].endAddress) {
           module = modules[pos - 1];
@@ -212,7 +217,7 @@ export class HeapProfileView extends ProfileView {
         if (fileName) {
           text += `(in ${fileName})  `;
         }
-        const offset = BigInt(addressText) - module.address;
+        const offset = globalThis.BigInt(addressText) - module.address;
         text += `load address ${module.baseAddress} + 0x${offset.toString(16)}  `;
       }
       if (addressText) {

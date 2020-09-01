@@ -387,7 +387,7 @@ export class RemoteObjectImpl extends RemoteObject {
             unserializableValue === UnserializableNumber.NaN) {
           this._value = Number(unserializableValue);
         } else if (type === 'bigint' && unserializableValue.endsWith('n')) {
-          this._value = BigInt(unserializableValue.substring(0, unserializableValue.length - 1));
+          this._value = globalThis.BigInt(unserializableValue.substring(0, unserializableValue.length - 1));
         } else {
           this._value = unserializableValue;
         }
