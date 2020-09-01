@@ -282,12 +282,20 @@ common_closure_args = [
     '--warning_level',
     'VERBOSE',
     '--language_in=ECMASCRIPT_NEXT',
-    '--language_out=ES5_STRICT',
+    '--language_out=ECMASCRIPT_NEXT',
     '--extra_annotation_name',
     'suppressReceiverCheck',
     '--extra_annotation_name',
     'suppressGlobalPropertiesCheck',
     '--checks-only',
+    '--jscomp_off',
+    'boundedGenerics',
+    '--hide_warnings_for',
+    'SourceMapManager.js',
+    '--hide_warnings_for',
+    'CSSWorkspaceBinding.js',
+    '--hide_warnings_for',
+    'SASSSourceMapping.js',
 ]
 
 
