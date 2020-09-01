@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a15ed3c1_4171afc1",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-09-01T14:54:05Z",
+      "side": 1,
+      "message": "This is the part closure dislikes now: \n\n    /tmp/tmp864ZMM/front_end/accessibility/AccessibilityNodeView.js:188: WARNING - \n    [JSC_TYPE_MISMATCH] actual parameter 2 of Document.prototype.createElement does not match formal parameter\n    found   : {is: string}\n    required: (string|undefined)\n        /** @type {!UI.UIUtils.DevToolsIconLabel} */ (document.createElement(\u0027span\u0027, {is: \u0027dt-icon-label\u0027}));\n\nNo idea why it is looking for (string|undefined) - I can\u0027t find a definition anywhere that has that.",
+      "range": {
+        "startLine": 188,
+        "startChar": 54,
+        "endLine": 188,
+        "endChar": 108
+      },
+      "revId": "4e16f4874d7d8542de0806ce0cd03a9de1b9ec60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58ea0d04_a75bc990",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-09-01T14:54:05Z",
+      "side": 1,
+      "message": "Required because the custom element tag isn\u0027t set",
+      "range": {
+        "startLine": 188,
+        "startChar": 8,
+        "endLine": 188,
+        "endChar": 52
+      },
+      "revId": "4e16f4874d7d8542de0806ce0cd03a9de1b9ec60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca41901b_10e6ba69",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-09-01T14:54:05Z",
+      "side": 1,
+      "message": "Not sure if there\u0027s a better solution to this",
+      "range": {
+        "startLine": 200,
+        "startChar": 6,
+        "endLine": 201,
+        "endChar": 43
+      },
+      "revId": "4e16f4874d7d8542de0806ce0cd03a9de1b9ec60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e333bd0d_7cc92880",
+        "filename": "front_end/legacy/legacy-defs.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-09-01T14:54:05Z",
+      "side": 1,
+      "message": "just re-ordering for alphasort here",
+      "range": {
+        "startLine": 141,
+        "startChar": 2,
+        "endLine": 141,
+        "endChar": 81
+      },
+      "revId": "4e16f4874d7d8542de0806ce0cd03a9de1b9ec60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16b7fb78_b7c1cfd8",
+        "filename": "front_end/legacy/legacy-defs.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-09-01T14:54:05Z",
+      "side": 1,
+      "message": "Add this badboy",
+      "range": {
+        "startLine": 150,
+        "startChar": 2,
+        "endLine": 150,
+        "endChar": 33
+      },
+      "revId": "4e16f4874d7d8542de0806ce0cd03a9de1b9ec60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c08fc48e_274953b6",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-09-01T14:54:05Z",
+      "side": 0,
+      "message": "This is not used anywhere in all of chromium, no idea what it\u0027s for.",
+      "range": {
+        "startLine": 169,
+        "startChar": 19,
+        "endLine": 169,
+        "endChar": 39
+      },
+      "revId": "14e5fbd9f42c9421cc6fa7e29a10f7a88a7e2350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
