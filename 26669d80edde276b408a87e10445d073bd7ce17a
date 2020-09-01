@@ -39,6 +39,30 @@
       "revId": "26669d80edde276b408a87e10445d073bd7ce17a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31594e6a_fa3a4764",
+        "filename": "scripts/test/run_type_check.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-01T17:05:23Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "8a378c76_aa82ddbb",
+      "range": {
+        "startLine": 291,
+        "startChar": 4,
+        "endLine": 298,
+        "endChar": 27
+      },
+      "revId": "26669d80edde276b408a87e10445d073bd7ce17a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
