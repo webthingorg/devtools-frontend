@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7bb076b1_658c95b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-09-01T16:52:56Z",
+      "side": 1,
+      "message": "This is looking good and I like the behavior.\n\nI\u0027m really weirded out about including the value of \u003coption\u003e elements. It feels unnecessary and I think is likely to lead to confusion (example: with default settings I type \"scroll\" in the search box, and I get \"Flamechart mouse wheel action: Zoom\"). This feels like a bug, even though I can clearly see it\u0027s intentionally coded that way.",
+      "revId": "b23a06c3bc3a08f663d066c502be91b2ed968803",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3d6ac9b0_de8db226",
+        "filename": "front_end/settings/SettingsScreen.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-09-01T16:52:56Z",
+      "side": 1,
+      "message": "It would be nice if this was able to be unified with the experiment check in the constructor. I think perhaps it might be tough because of the reference to `dialog`, but having this check duplicated feels bad.",
+      "revId": "b23a06c3bc3a08f663d066c502be91b2ed968803",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b994958_a44b7580",
+        "filename": "front_end/settings/SettingsScreen.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-09-01T16:52:56Z",
+      "side": 1,
+      "message": "Couldn\u0027t we do this with `autofocus` instead?",
+      "revId": "b23a06c3bc3a08f663d066c502be91b2ed968803",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cffd73f4_cbefdf14",
+        "filename": "front_end/ui/SettingsUI.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-09-01T16:52:56Z",
+      "side": 1,
+      "message": "I find it a little unusual that settings search would search the individual option items of a select dropdown, e.g., I could search \"dark\" and find \"dark theme\". I mean, I guess that makes sense, but given that dropdown items don\u0027t have interior-selectable content, this doesn\u0027t behave the way I expect. (Perhaps \"dark\" makes more sense than searching against \"system\").\n\nI\u0027m not saying that we must change the behavior. It just feels weird.",
+      "revId": "b23a06c3bc3a08f663d066c502be91b2ed968803",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
