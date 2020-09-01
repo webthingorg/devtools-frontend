@@ -6,6 +6,7 @@ import * as BrowserSDK from '../browser_sdk/browser_sdk.js';
 import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
 import * as Components from '../components/components.js';
 import * as Elements from '../elements/elements.js';
+import * as ElementsPanelLink from '../elements/ElementsPanelLink_bridge.js';
 import * as Network from '../network/network.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
@@ -407,43 +408,72 @@ class AffectedDirectivesView extends AffectedResourcesView {
     element.appendChild(info);
   }
 
+  /** @type {function(?Event):void} */
+  _onElementRevealIconClick() {
+    console.log('Icon: clicked');
+  }
+
+  /** @type {function(?Event):void} */
+  _onElementRevealIconMouseEnter() {
+    console.log('Icon: mouse entered');
+  }
+
+  /** @type {function(?Event):void} */
+  _onElementRevealIconMouseLeave() {
+    console.log('Icon: mouse left');
+  }
+
   /**
    * @param {!Element} element
    * @param {number | undefined} nodeId
    * @param {!SDK.IssuesModel.IssuesModel} model
    */
   _appendBlockedElement(element, nodeId, model) {
+    const elementsPanelLinkComponent = ElementsPanelLink.createElementsPanelLink();
+
+    elementsPanelLinkComponent.data = {
+      onElementRevealIconClick: this._onElementRevealIconClick,
+      onElementRevealIconMouseEnter: this._onElementRevealIconMouseEnter,
+      onElementRevealIconMouseLeave: this._onElementRevealIconMouseLeave
+    };
+
     const violatingNode = document.createElement('td');
     violatingNode.classList.add('affected-resource-csp-info-node');
-
-    if (nodeId) {
-      const violatingNodeId = nodeId;
-      const icon = UI.Icon.Icon.create('largeicon-node-search', 'icon');
-      icon.classList.add('element-reveal-icon');
-
-      icon.onclick = () => {
-        const target = model.getTargetIfNotDisposed();
-        if (target) {
-          const deferredDOMNode = new SDK.DOMModel.DeferredDOMNode(target, violatingNodeId);
-          Common.Revealer.reveal(deferredDOMNode);
-        }
-      };
-
-      UI.Tooltip.Tooltip.install(icon, ls`Click to reveal the violating DOM node in the Elements panel`);
-      violatingNode.appendChild(icon);
-
-      violatingNode.onmouseenter = () => {
-        const target = model.getTargetIfNotDisposed();
-        if (target) {
-          const deferredDOMNode = new SDK.DOMModel.DeferredDOMNode(target, violatingNodeId);
-          if (deferredDOMNode) {
-            deferredDOMNode.highlight();
-          }
-        }
-      };
-      violatingNode.onmouseleave = () => SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight();
-    }
+    violatingNode.appendChild(elementsPanelLinkComponent);
     element.appendChild(violatingNode);
+
+
+    // const violatingNode = document.createElement('td');
+    // violatingNode.classList.add('affected-resource-csp-info-node');
+
+    // if (nodeId) {
+    //   const violatingNodeId = nodeId;
+    //   const icon = UI.Icon.Icon.create('largeicon-node-search', 'icon');
+    //   icon.classList.add('element-reveal-icon');
+
+    //   icon.onclick = () => {
+    //     const target = model.getTargetIfNotDisposed();
+    //     if (target) {
+    //       const deferredDOMNode = new SDK.DOMModel.DeferredDOMNode(target, violatingNodeId);
+    //       Common.Revealer.reveal(deferredDOMNode);
+    //     }
+    //   };
+
+    //   UI.Tooltip.Tooltip.install(icon, ls`Click to reveal the violating DOM node in the Elements panel`);
+    //   violatingNode.appendChild(icon);
+
+    //   violatingNode.onmouseenter = () => {
+    //     const target = model.getTargetIfNotDisposed();
+    //     if (target) {
+    //       const deferredDOMNode = new SDK.DOMModel.DeferredDOMNode(target, violatingNodeId);
+    //       if (deferredDOMNode) {
+    //         deferredDOMNode.highlight();
+    //       }
+    //     }
+    //   };
+    //   violatingNode.onmouseleave = () => SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight();
+    // }
+    // element.appendChild(violatingNode);
   }
 
   /**
