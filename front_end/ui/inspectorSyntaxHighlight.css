@@ -129,6 +129,14 @@
   vertical-align: middle;
 }
 
+.devtools-link [is=ui-icon].icon-mask {
+  background-color: rgb(17 85 204);
+}
+
+:host-context(.-theme-with-dark-background) .devtools-link [is=ui-icon].icon-mask {
+  background-color: hsl(0deg 0% 67%);
+}
+
 .devtools-link:focus-visible {
   outline-width: unset;
 }
