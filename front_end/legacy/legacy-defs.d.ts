@@ -149,8 +149,17 @@ interface Node {
   enclosingNodeOrSelfWithClass(className: string, stayWithin?: Element): Element;
   window(): Window;
   hasSelection(): boolean;
+  hasAttributes(): boolean;
+  hasAttribute(name: string): boolean;
+  getAttribute(name: string): string|null;
+  removeAttribute(name: string): void;
+  attributes: NamedNodeMap;
+  data: string;
 }
 
+declare function createTextNode(text: string): Text;
+declare function createElement(element: string): Element;
+declare function createDocumentFragment(): DocumentFragment;
 declare function isEnterKey(event: Event): boolean;
 declare function isEnterOrSpaceKey(event: Event): boolean;
 declare function isEscKey(event: Event): boolean;

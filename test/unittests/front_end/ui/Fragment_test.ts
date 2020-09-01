@@ -21,6 +21,8 @@ describe('Fragment', () => {
 
   it('is able to find a certain element by its ID', () => {
     const build = UI.Fragment.Fragment.build(['<p $="testID">Test Text</p>']);
+    const element = build.$('testID');
+    assert.isDefined(element);
     assert.strictEqual(
         build.$('testID').outerHTML, '<p class="">Test Text</p>', 'the element was not retrieved correctly');
   });

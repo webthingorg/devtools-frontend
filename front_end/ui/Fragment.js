@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @ts-nocheck
 // TODO(crbug.com/1011811): Enable TypeScript compiler checks
 
 export class Fragment {
@@ -25,7 +24,7 @@ export class Fragment {
 
   /**
    * @param {string} elementId
-   * @return {!Element}
+   * @return {Element | undefined}
    */
   $(elementId) {
     return this._elementsById.get(elementId);
@@ -41,7 +40,7 @@ export class Fragment {
   }
 
   /**
-   * @param {!Array<string>} strings
+   * @param {(!Array<string>|TemplateStringsArray)} strings
    * @param {...*} values
    * @return {!Fragment}
    */
@@ -55,7 +54,7 @@ export class Fragment {
   }
 
   /**
-   * @param {!Array<string>} strings
+   * @param {(!Array<string>|TemplateStringsArray)} strings
    * @return {!_Template}
    * @suppressGlobalPropertiesCheck
    */
@@ -81,14 +80,16 @@ export class Fragment {
         template.content, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, null, false);
     let valueIndex = 0;
     const emptyTextNodes = [];
+    /** @type {?Array<!_Bind>} */
     const binds = [];
+    /** @type {?Array<!Element>} */
     const nodesToMark = [];
     while (walker.nextNode()) {
-      const node = walker.currentNode;
+      const node = /** @type {!Element} */ (walker.currentNode);
       if (node.nodeType === Node.ELEMENT_NODE && node.hasAttributes()) {
         if (node.hasAttribute('$')) {
           nodesToMark.push(node);
-          binds.push({elementId: node.getAttribute('$')});
+          binds.push({elementId: node.getAttribute('$'), attr: null, replaceNodeIndex: null});
           node.removeAttribute('$');
         }
 
@@ -102,7 +103,15 @@ export class Fragment {
 
           attributesToRemove.push(name);
           nodesToMark.push(node);
-          const bind = {attr: {index: valueIndex}};
+          const bind = {
+            elementId: null,
+            attr: {
+              index: valueIndex,
+              names: /** @type {?Array<!string>} */[''],
+              values: /** @type {?Array<!string>} */['']
+            },
+            replaceNodeIndex: null
+          };
           bind.attr.names = name.split(_attributeMarkerRegex);
           valueIndex += bind.attr.names.length - 1;
           bind.attr.values = node.attributes[i].value.split(_attributeMarkerRegex);
@@ -119,12 +128,12 @@ export class Fragment {
         node.data = texts[texts.length - 1];
         for (let i = 0; i < texts.length - 1; i++) {
           if (texts[i]) {
-            node.parentNode.insertBefore(createTextNode(texts[i]), node);
+            /** @type {!Node} */ (node.parentNode).insertBefore(/** @type {!Text} */ createTextNode(texts[i]), node);
           }
           const nodeToReplace = createElement('span');
           nodesToMark.push(nodeToReplace);
-          binds.push({replaceNodeIndex: valueIndex++});
-          node.parentNode.insertBefore(nodeToReplace, node);
+          binds.push({elementId: null, attr: null, replaceNodeIndex: valueIndex++});
+          /** @type {!Node} */ (node.parentNode).insertBefore(nodeToReplace, node);
         }
       }
 
@@ -151,7 +160,8 @@ export class Fragment {
    * @return {!Fragment}
    */
   static _render(template, values) {
-    const content = template.template.ownerDocument.importNode(template.template.content, true);
+    const content = template.template.ownerDocument.importNode(
+        /** @type {!HTMLTemplateElement} */ (template.template).content, true);
     const resultElement =
         /** @type {!Element} */ (content.firstChild === content.lastChild ? content.firstChild : content);
     const result = new Fragment(resultElement);
@@ -167,12 +177,12 @@ export class Fragment {
     for (let bindIndex = 0; bindIndex < template.binds.length; bindIndex++) {
       const bind = template.binds[bindIndex];
       const element = boundElements[bindIndex];
-      if ('elementId' in bind) {
+      if (bind.elementId !== null) {
         result._elementsById.set(/** @type {string} */ (bind.elementId), element);
-      } else if ('replaceNodeIndex' in bind) {
+      } else if (bind.replaceNodeIndex !== null) {
         const value = values[/** @type {number} */ (bind.replaceNodeIndex)];
-        element.parentNode.replaceChild(this._nodeForValue(value), element);
-      } else if ('attr' in bind) {
+        /** @type {!Node} */ (element.parentNode).replaceChild(this._nodeForValue(value), element);
+      } else if (bind.attr !== null) {
         if (bind.attr.names.length === 2 && bind.attr.values.length === 1 &&
             typeof values[bind.attr.index] === 'function') {
           values[bind.attr.index].call(null, element);
@@ -222,13 +232,13 @@ export class Fragment {
 
 export const _textMarker = '{{template-text}}';
 const _textMarkerRegex = /{{template-text}}/;
-export const _attributeMarker = index => 'template-attribute' + index;
+export const _attributeMarker = /** @param {number} index */ index => 'template-attribute' + index;
 const _attributeMarkerRegex = /template-attribute\d+/;
-const _class = index => 'template-class-' + index;
+const _class = /** @param {number} index */ index => 'template-class-' + index;
 const _templateCache = new Map();
 
 /**
- * @param {(!Array<string>|!ITemplateArray)} strings
+ * @param {(!Array<string>|TemplateStringsArray)} strings
  * @param {...*} vararg
  * @return {!Element}
  */
@@ -238,17 +248,16 @@ export const html = (strings, ...vararg) => {
 
 /**
   * @typedef {!{
-  *   elementId: (string|undefined),
-  *
-  *   attr: (!{
+  *   elementId: ?string,
+  *   attr: ?{
   *     index: number,
   *     names: !Array<string>,
   *     values: !Array<string>
-  *   }|undefined),
-  *
-  *   replaceNodeIndex: (number|undefined)
+  *   },
+  *   replaceNodeIndex: ?number
   * }}
   */
+// @ts-ignore
 export let _Bind;
 
 /**
@@ -257,4 +266,5 @@ export let _Bind;
   *   binds: !Array<!_Bind>
   * }}
   */
+// @ts-ignore
 export let _Template;
