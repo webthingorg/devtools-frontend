@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "57f35ca4_ef13a812",
+        "filename": "front_end/lighthouse_worker/LighthouseService.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-09-01T19:06:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7493cd6_b8849c98",
+      "revId": "0d825780b5e5b58aff23f15ea706bdd28df2732f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "61bf81c8_81c73711",
         "filename": "front_end/lighthouse_worker/LighthouseService.js",
         "patchSetId": 12
@@ -53,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "9a0b8d22_1c018020",
+        "filename": "front_end/lighthouse_worker/LighthouseService.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-09-01T19:06:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61bf81c8_81c73711",
+      "revId": "0d825780b5e5b58aff23f15ea706bdd28df2732f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f789d8e_e7a7298d",
         "filename": "front_end/lighthouse_worker/LighthouseService.js",
         "patchSetId": 12
@@ -67,6 +103,24 @@
       "revId": "0d825780b5e5b58aff23f15ea706bdd28df2732f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cee6f1ce_0665f5e9",
+        "filename": "front_end/lighthouse_worker/LighthouseService.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-09-01T19:06:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f789d8e_e7a7298d",
+      "revId": "0d825780b5e5b58aff23f15ea706bdd28df2732f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
