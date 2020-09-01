@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a8afba7_585d22e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-09-01T07:11:04Z",
+      "side": 1,
+      "message": "Another attempt to improve the performance of Loc presubmit. \n@Tim could you give this one a try? Thanks!",
+      "revId": "03416fb591d47bed598738134c557b655faf2723",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
