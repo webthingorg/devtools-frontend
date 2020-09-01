@@ -61,6 +61,7 @@ copy_to_gen("copy-css-resources") {
     "../../../front_end/emulation/mediaQueryInspector.css",
     "../../../front_end/emulation/sensors.css",
     "../../../front_end/help/releaseNote.css",
+    "../../../front_end/inline_editor/colorSwatch.css",
     "../../../front_end/inspector_main/nodeIcon.css",
     "../../../front_end/inspector_main/renderingOptions.css",
     "../../../front_end/mobile_throttling/throttlingSettingsTab.css",
