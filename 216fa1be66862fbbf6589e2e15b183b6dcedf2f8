@@ -16,6 +16,24 @@
       "revId": "216fa1be66862fbbf6589e2e15b183b6dcedf2f8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc2ae82d_fd54fba2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1420124
+      },
+      "writtenOn": "2020-09-01T18:05:48Z",
+      "side": 1,
+      "message": "Thanks for the hint, definitely improves usability - Updated.",
+      "parentUuid": "ca1abff3_3f25dece",
+      "revId": "216fa1be66862fbbf6589e2e15b183b6dcedf2f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
