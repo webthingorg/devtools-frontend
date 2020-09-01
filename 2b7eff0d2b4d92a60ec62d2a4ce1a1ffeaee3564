@@ -90,6 +90,30 @@
     },
     {
       "key": {
+        "uuid": "9e27b051_c57382f7",
+        "filename": "front_end/lighthouse_worker/LighthouseService.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-09-01T19:02:54Z",
+      "side": 1,
+      "message": "Is anything in the devtools front end localized today?\n\nI don\u0027t think we can expect the locales that LH covers to equal the locales that Chrome devtools frontend covers, fwiw.",
+      "parentUuid": "4dd516c3_a756a1d7",
+      "range": {
+        "startLine": 84,
+        "startChar": 3,
+        "endLine": 84,
+        "endChar": 45
+      },
+      "revId": "2b7eff0d2b4d92a60ec62d2a4ce1a1ffeaee3564",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "96476c29_24f98630",
         "filename": "front_end/lighthouse_worker/LighthouseService.js",
         "patchSetId": 9
@@ -149,6 +173,30 @@
       "side": 1,
       "message": "I\u0027m a little confused, AFAIK the locales were part of the base installation they were removed in the CL I mentioned above. When I saw this(the remove locales CL) it made sense as Chromium it not localized yet, but if I understand correctly the intention on this CL is to enable localized reports on lighthouse and that require the files as exported in here (line 34304):\n\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/third_party/lighthouse/lighthouse-dt-bundle.js?originalUrl\u003dhttps:%2F%2Fcs.chromium.org%2F\n\nAs you mentioned the bundle could be getting the files from a server, but as the bundle is around 80k lines could you point me in the right direction in the LH repo so I can get a better understanding on this?",
       "parentUuid": "714fb4be_faf9b8a8",
+      "range": {
+        "startLine": 92,
+        "startChar": 12,
+        "endLine": 92,
+        "endChar": 27
+      },
+      "revId": "2b7eff0d2b4d92a60ec62d2a4ce1a1ffeaee3564",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b3cc7e8_4c5c8cd8",
+        "filename": "front_end/lighthouse_worker/LighthouseService.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-09-01T19:02:54Z",
+      "side": 1,
+      "message": "That CL removed the locale files from the default installation. All the files in devtools frontend are still uploaded to the remote module server, and fetchResource will look there if there is no file locally. see https://docs.google.com/document/d/1jQUhxpD_dni1SVAd160c8DjLgUKRx0imgWRXJ3htRf0/edit for more on the remote module server",
+      "parentUuid": "1fc95681_10a9b2ec",
       "range": {
         "startLine": 92,
         "startChar": 12,
