@@ -120,7 +120,8 @@ export class IsolatedFileSystem extends PlatformFileSystem {
     const promise = new Promise(f => {
       fulfill = f;
     });
-    this._domFileSystem.root.getFile(path, undefined, fileEntryLoaded, errorHandler);
+    this._domFileSystem.root.getFile(
+        Common.ParsedURL.ParsedURL.unescapeFilePath(path), undefined, fileEntryLoaded, errorHandler);
     return promise;
 
     /**
@@ -145,7 +146,7 @@ export class IsolatedFileSystem extends PlatformFileSystem {
    * @return {!Array<string>}
    */
   initialFilePaths() {
-    return [...this._initialFilePaths];
+    return [...this._initialFilePaths].map(Common.ParsedURL.ParsedURL.escapeFilePath);
   }
 
   /**
@@ -153,7 +154,7 @@ export class IsolatedFileSystem extends PlatformFileSystem {
    * @return {!Array<string>}
    */
   initialGitFolders() {
-    return [...this._initialGitFolders];
+    return [...this._initialGitFolders].map(Common.ParsedURL.ParsedURL.escapeFilePath);
   }
 
   /**
@@ -196,8 +197,8 @@ export class IsolatedFileSystem extends PlatformFileSystem {
             this._initialGitFolders.add(parentFolder);
           }
           if (this.isFileExcluded(entry.fullPath + '/')) {
-            this._excludedEmbedderFolders.push(
-                Common.ParsedURL.ParsedURL.urlToPlatformPath(this.path() + entry.fullPath, Host.Platform.isWin()));
+            this._excludedEmbedderFolders.push(Common.ParsedURL.ParsedURL.urlToPlatformPath(
+                this.path() + Common.ParsedURL.ParsedURL.escapeFilePath(entry.fullPath), Host.Platform.isWin()));
             continue;
           }
           ++pendingRequests;
@@ -254,7 +255,7 @@ export class IsolatedFileSystem extends PlatformFileSystem {
    * @return {!Promise<?string>}
    */
   async createFile(path, name) {
-    const dirEntry = await this._createFoldersIfNotExist(path);
+    const dirEntry = await this._createFoldersIfNotExist(Common.ParsedURL.ParsedURL.unescapeFilePath(path));
     if (!dirEntry) {
       return null;
     }
@@ -262,7 +263,7 @@ export class IsolatedFileSystem extends PlatformFileSystem {
     if (!fileEntry) {
       return null;
     }
-    return fileEntry.fullPath.substr(1);
+    return Common.ParsedURL.ParsedURL.escapeFilePath(fileEntry.fullPath.substr(1));
 
     /**
      * @param {string} name
@@ -298,7 +299,9 @@ export class IsolatedFileSystem extends PlatformFileSystem {
     const promise = new Promise(resolve => {
       resolveCallback = resolve;
     });
-    this._domFileSystem.root.getFile(path, undefined, fileEntryLoaded.bind(this), errorHandler.bind(this));
+    this._domFileSystem.root.getFile(
+        Common.ParsedURL.ParsedURL.unescapeFilePath(path), undefined, fileEntryLoaded.bind(this),
+        errorHandler.bind(this));
     return promise;
 
     /**
@@ -333,7 +336,7 @@ export class IsolatedFileSystem extends PlatformFileSystem {
    */
   requestFileBlob(path) {
     return new Promise(resolve => {
-      this._domFileSystem.root.getFile(path, undefined, entry => {
+      this._domFileSystem.root.getFile(Common.ParsedURL.ParsedURL.unescapeFilePath(path), undefined, entry => {
         entry.file(resolve, errorHandler.bind(this));
       }, errorHandler.bind(this));
 
@@ -418,7 +421,9 @@ export class IsolatedFileSystem extends PlatformFileSystem {
       const promise = new Promise(x => {
         callback = x;
       });
-      this._domFileSystem.root.getFile(path, {create: true}, fileEntryLoaded.bind(this), errorHandler.bind(this));
+      this._domFileSystem.root.getFile(
+          Common.ParsedURL.ParsedURL.unescapeFilePath(path), {create: true}, fileEntryLoaded.bind(this),
+          errorHandler.bind(this));
       return promise;
     };
 
@@ -478,7 +483,9 @@ export class IsolatedFileSystem extends PlatformFileSystem {
     let fileEntry;
     let dirEntry;
 
-    this._domFileSystem.root.getFile(path, undefined, fileEntryLoaded.bind(this), errorHandler.bind(this));
+    this._domFileSystem.root.getFile(
+        Common.ParsedURL.ParsedURL.unescapeFilePath(path), undefined, fileEntryLoaded.bind(this),
+        errorHandler.bind(this));
 
     /**
      * @param {!FileEntry} entry
@@ -573,7 +580,8 @@ export class IsolatedFileSystem extends PlatformFileSystem {
    * @param {function(!Array.<!FileEntry>)} callback
    */
   _requestEntries(path, callback) {
-    this._domFileSystem.root.getDirectory(path, undefined, innerCallback.bind(this), errorHandler);
+    this._domFileSystem.root.getDirectory(
+        Common.ParsedURL.ParsedURL.unescapeFilePath(path), undefined, innerCallback.bind(this), errorHandler);
 
     /**
      * @param {!DirectoryEntry} dirEntry
