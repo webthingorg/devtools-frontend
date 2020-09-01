@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b94227a1_e925d5af",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-09-01T12:25:28Z",
+      "side": 1,
+      "message": "How about we move the content and the references to both pdl source and the protocol viewer into docs/?",
+      "revId": "bd7a26ff8edd20efda40f308e3ab7338ba7dbdff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
