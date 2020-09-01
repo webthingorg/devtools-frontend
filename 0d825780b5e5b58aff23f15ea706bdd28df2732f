@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "25109036_8dbcca91",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2020-09-01T01:31:48Z",
+      "side": 1,
+      "message": "non-owner LGTM",
+      "revId": "0d825780b5e5b58aff23f15ea706bdd28df2732f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7493cd6_b8849c98",
+        "filename": "front_end/lighthouse_worker/LighthouseService.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2020-09-01T01:31:48Z",
+      "side": 1,
+      "message": "can you add the return type",
+      "revId": "0d825780b5e5b58aff23f15ea706bdd28df2732f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61bf81c8_81c73711",
+        "filename": "front_end/lighthouse_worker/LighthouseService.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2020-09-01T01:31:48Z",
+      "side": 1,
+      "message": "nit: i\u0027d go for fetchLocaleData since we\u0027re already making a distinction between locales (locale codes) and locale data.",
+      "revId": "0d825780b5e5b58aff23f15ea706bdd28df2732f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f789d8e_e7a7298d",
+        "filename": "front_end/lighthouse_worker/LighthouseService.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2020-09-01T01:31:48Z",
+      "side": 1,
+      "message": "move this to within the try/catch",
+      "revId": "0d825780b5e5b58aff23f15ea706bdd28df2732f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
