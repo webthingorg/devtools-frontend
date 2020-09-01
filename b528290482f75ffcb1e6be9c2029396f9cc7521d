@@ -221,6 +221,30 @@
       "revId": "b528290482f75ffcb1e6be9c2029396f9cc7521d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "375c7682_1b99b511",
+        "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 1981,
+      "author": {
+        "id": 1002405
+      },
+      "writtenOn": "2020-09-01T15:34:35Z",
+      "side": 1,
+      "message": "I missed the loop in 2001. That\u0027s subtle. Could please you add a comment?",
+      "parentUuid": "387513cb_faf0e07d",
+      "range": {
+        "startLine": 1981,
+        "startChar": 6,
+        "endLine": 1981,
+        "endChar": 61
+      },
+      "revId": "b528290482f75ffcb1e6be9c2029396f9cc7521d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
