@@ -1,0 +1,16 @@
+Tests that Lighthouse panel displays a warning when important data may be cleared.
+
+
+========== Lighthouse Start Audit State ==========
+[x] Performance
+[ ] Progressive Web App
+[ ] Best practices
+[ ] Accessibility
+[ ] SEO
+[ ] Publisher Ads
+[ ] Ignore Warnings
+[x] Clear storage
+[x] Simulated throttling
+Generate report: enabled visible
+Warning Text: (IndexedDB) These resources may contain important data and will be cleared when lighthouse runs. Audit this page in an incognito window to avoid loss of data.
+
