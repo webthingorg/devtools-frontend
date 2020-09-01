@@ -114,6 +114,30 @@
     },
     {
       "key": {
+        "uuid": "7124dc68_ccab08a1",
+        "filename": "front_end/lighthouse_worker/LighthouseService.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-09-01T23:02:31Z",
+      "side": 1,
+      "message": "good point, nothing is localized yet, my comment was more towards the fallback logic: \nThe design document mentions that the fallback should be directly to en-US, but the logic you propose in here is not a bad idea. I\u0027ll add this to the design document and we can decide to revisit this when we implement the actual Settings to control loc.",
+      "parentUuid": "9e27b051_c57382f7",
+      "range": {
+        "startLine": 84,
+        "startChar": 3,
+        "endLine": 84,
+        "endChar": 45
+      },
+      "revId": "2b7eff0d2b4d92a60ec62d2a4ce1a1ffeaee3564",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96476c29_24f98630",
         "filename": "front_end/lighthouse_worker/LighthouseService.js",
         "patchSetId": 9
@@ -206,6 +230,30 @@
       "revId": "2b7eff0d2b4d92a60ec62d2a4ce1a1ffeaee3564",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "562ab244_4b4ec2da",
+        "filename": "front_end/lighthouse_worker/LighthouseService.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-09-01T23:02:31Z",
+      "side": 1,
+      "message": "The link is protected, but not an issue. It seems you have this case covered :) thanks for clarifying.",
+      "parentUuid": "3b3cc7e8_4c5c8cd8",
+      "range": {
+        "startLine": 92,
+        "startChar": 12,
+        "endLine": 92,
+        "endChar": 27
+      },
+      "revId": "2b7eff0d2b4d92a60ec62d2a4ce1a1ffeaee3564",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
