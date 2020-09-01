@@ -16,6 +16,24 @@
       "revId": "bd7a26ff8edd20efda40f308e3ab7338ba7dbdff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a447534_cfa6abf4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-01T13:15:45Z",
+      "side": 1,
+      "message": "The links are already present in the README under \"Additional references\". That feels sufficient to me, WDYT?",
+      "parentUuid": "b94227a1_e925d5af",
+      "revId": "bd7a26ff8edd20efda40f308e3ab7338ba7dbdff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
