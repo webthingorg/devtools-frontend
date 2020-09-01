@@ -134,6 +134,30 @@
       "revId": "2b7eff0d2b4d92a60ec62d2a4ce1a1ffeaee3564",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1fc95681_10a9b2ec",
+        "filename": "front_end/lighthouse_worker/LighthouseService.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-09-01T04:23:43Z",
+      "side": 1,
+      "message": "I\u0027m a little confused, AFAIK the locales were part of the base installation they were removed in the CL I mentioned above. When I saw this(the remove locales CL) it made sense as Chromium it not localized yet, but if I understand correctly the intention on this CL is to enable localized reports on lighthouse and that require the files as exported in here (line 34304):\n\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/third_party/lighthouse/lighthouse-dt-bundle.js?originalUrl\u003dhttps:%2F%2Fcs.chromium.org%2F\n\nAs you mentioned the bundle could be getting the files from a server, but as the bundle is around 80k lines could you point me in the right direction in the LH repo so I can get a better understanding on this?",
+      "parentUuid": "714fb4be_faf9b8a8",
+      "range": {
+        "startLine": 92,
+        "startChar": 12,
+        "endLine": 92,
+        "endChar": 27
+      },
+      "revId": "2b7eff0d2b4d92a60ec62d2a4ce1a1ffeaee3564",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
