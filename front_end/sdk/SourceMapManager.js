@@ -13,7 +13,7 @@ import {SourceMap, TextSourceMap, WasmSourceMap} from './SourceMap.js';  // esli
 
 
 /**
- * @template {!FrameAssociated} T
+ * @template T
  */
 export class SourceMapManager extends Common.ObjectWrapper.ObjectWrapper {
   /**
