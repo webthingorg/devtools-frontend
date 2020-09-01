@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f9e1d717_4cb0970f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-09-01T15:17:04Z",
+      "side": 1,
+      "message": "PTAL\nIn case you want to test, I used https://first-party-test-with-resource.glitch.me/ for that.\n\nThe request column text is still a link and therefore inconsistent with the other columns in the affected resources table. I\u0027d like to fix that separately.",
+      "revId": "7f06c6d1f47f3c783ebf51afb8b815a7e9a73bea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
