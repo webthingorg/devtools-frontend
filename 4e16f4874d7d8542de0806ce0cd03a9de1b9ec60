@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "c9f48a9d_7098fd4b",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-09-01T15:00:57Z",
+      "side": 1,
+      "message": "As discussed, looks like we need to roll closure to include this fix: https://github.com/google/closure-compiler/commit/70afa26e95886c23a4c2a719550798e74ea9b8f5#diff-ff9e556c917a085de8dcc268ae8ea864",
+      "parentUuid": "a15ed3c1_4171afc1",
+      "range": {
+        "startLine": 188,
+        "startChar": 54,
+        "endLine": 188,
+        "endChar": 108
+      },
+      "revId": "4e16f4874d7d8542de0806ce0cd03a9de1b9ec60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ca41901b_10e6ba69",
         "filename": "front_end/accessibility/AccessibilityNodeView.js",
         "patchSetId": 1
