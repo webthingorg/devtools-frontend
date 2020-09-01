@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b7aafc3_82f9b15f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-01T08:43:46Z",
+      "side": 1,
+      "message": "I\u0027m seeing a weird unit test failure here. I\u0027m now loading a new CSS file in LayoutPane.ts to render the color swatch. And I also added it as a dependency for the unit test (in the BUILD.gn file), but the test still fails complaining that the CSS hasn\u0027t been preloaded. If someone has an idea, I\u0027d appreciate the help!",
+      "revId": "b61372e8b2d36b19bb37cf5749f4e5739450bd10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
