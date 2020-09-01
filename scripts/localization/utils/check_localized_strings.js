@@ -14,6 +14,7 @@ const {promisify} = require('util');
 const writeFileAsync = promisify(fs.writeFile);
 const renameFileAsync = promisify(fs.rename);
 const localizationUtils = require('./localization_utils');
+const checkLocalizability = require('./check_localizability');
 const escodegen = localizationUtils.escodegen;
 const espreeTypes = localizationUtils.espreeTypes;
 const espree = localizationUtils.espree;
@@ -327,21 +328,25 @@ function parseLocalizableStringFromNode(node, filePath) {
   }
 
   const locCase = localizationUtils.getLocalizationCase(node);
+  const code = escodegen.generate(node);
   switch (locCase) {
     case 'Common.UIString':
     case 'Platform.UIString':
     case 'Common.UIStringFormat': {
+      checkLocalizability.analyzeCommonUIStringNode(node, filePath, code);
       handleCommonUIString(node, filePath);
       break;
     }
     case 'UI.formatLocalized': {
+      checkLocalizability.analyzeCommonUIStringNode(node, filePath, code);
       if (node.arguments !== undefined && node.arguments[1] !== undefined && node.arguments[1].elements !== undefined) {
         handleCommonUIString(node, filePath, node.arguments[1].elements);
       }
       break;
     }
     case 'Tagged Template': {
-      handleTemplateLiteral(node.quasi, escodegen.generate(node), filePath);
+      checkLocalizability.analyzeTaggedTemplateNode(node, filePath, code);
+      handleTemplateLiteral(node.quasi, code, filePath);
       break;
     }
     case null: {
@@ -498,6 +503,7 @@ function convertToFrontendPlaceholders(message) {
 
 async function parseGRDPFile(filePath) {
   const fileContent = await localizationUtils.parseFileContent(filePath);
+  checkLocalizability.auditGrdpFile(filePath, fileContent);
 
   function stripWhitespacePadding(message) {
     let match = message.match(/^'''/);
@@ -699,12 +705,22 @@ function getLongestDescription(messages) {
   return longestDescription;
 }
 
+function getLocalizabilityError() {
+  let error = '';
+  if (checkLocalizability.localizabilityErrors.length > 0) {
+    error += '\nDevTools localizability errors detected! Please fix these manually.\n';
+    error += checkLocalizability.localizabilityErrors.join('\n');
+  }
+  return error;
+}
+
 module.exports = {
   parseLocalizableResourceMaps,
   getAndReportIDSKeysToModify,
   getAndReportResourcesToAdd,
   getAndReportResourcesToRemove,
   getIDSKeysToModify,
+  getLocalizabilityError,
   getLongestDescription,
   getMessagesToAdd,
   getMessagesToRemove,
