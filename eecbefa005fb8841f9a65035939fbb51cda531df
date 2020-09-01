@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7db7b199_5caf1243",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-09-01T15:03:35Z",
+      "side": 1,
+      "message": "If we are to typecheck this, I guess the easiest approach would be to use the URL object in most places instead of a string. It would be a pretty extensive change and there are concerns about how consistently the URL object behaves that get bigger if it is used across the codebase instead of in a few utility functions in one class. Another option would be to convert to a ParsedURL, but presently ParsedURL doesn\u0027t support snippet:// urls debugger: urls and other URLs we would need to support if it is to be the type of UISourceCode.url().",
+      "parentUuid": "f2ac2e3b_e9850766",
+      "revId": "eecbefa005fb8841f9a65035939fbb51cda531df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a95f241_a9216089",
         "filename": "front_end/common/ParsedURL.js",
         "patchSetId": 4
@@ -30,6 +48,30 @@
       "writtenOn": "2020-08-27T15:11:43Z",
       "side": 1,
       "message": "How did you get to this set? I think we need to escape everthing \n - in the uriReserved set (;/?:@\u0026\u003d+$,) defined in https://www.ecma-international.org/ecma-262/#sec-uri-syntax-and-semantics\n - plus # due to https://www.ecma-international.org/ecma-262/#sec-encodeuri-uri\n - plus % because decodeURI[Component] will otherwise start decoding %20 and the like that might be present in filename\n\nWhy do we encode \u0027\\\\\u0027? Why doesn\u0027t this interfere with out ability to separate directories later on?\n\nThis needs more tests. I came up with the following tests which don\u0027t work: \n  it(\u0027escaped, unescapes partial path\u0027, () \u003d\u003e {\n    const pathTest \u003d \u0027username:password@example.com\u0027; // valid filename on unix\n    const escapedPath \u003d ParsedURL.escapeFilePath(pathTest);\n    const convertedPath \u003d ParsedURL.unescapeFilePath(escapedPath);\n    assert.strictEqual(convertedPath, pathTest, \u0027path was not converted successfully\u0027);\n  });\n\n  it(\u0027escaped, unescapes partial path\u0027, () \u003d\u003e {\n    const pathTest \u003d \u0027C:/Program%20Files/Google\u0027;\n    const escapedPath \u003d ParsedURL.escapeFilePath(pathTest);\n    console.log(escapedPath);\n    const convertedPath \u003d ParsedURL.unescapeFilePath(escapedPath);\n    assert.strictEqual(convertedPath, pathTest, \u0027path was not converted successfully\u0027);\n  });\n\nThere are probably more.",
+      "range": {
+        "startLine": 110,
+        "startChar": 30,
+        "endLine": 110,
+        "endChar": 56
+      },
+      "revId": "eecbefa005fb8841f9a65035939fbb51cda531df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f02b036c_e64a29f2",
+        "filename": "front_end/common/ParsedURL.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-09-01T15:03:35Z",
+      "side": 1,
+      "message": "This only does part of the escaping; the URL constructor escapes some things too.\n\nThis code is based on https://source.chromium.org/chromium/chromium/src/+/master:net/base/filename_util.cc;drc\u003d6e8b402a6231405b753919029c9027404325ea00;l\u003d30 (and the assumption that the JavaScript URL class behaves like the GURL class).\n\nI\u0027m trying to have platformPathToUrl do the same thing that is done if you use Ctrl+O to open a file in Chrome and then get the file:/// url from the address bar.\n\nI added another test case to test these characters.\n\nPerhaps I shouldn\u0027t support \u0027\\\\\u0027 since we always treat that as a path separator in platformPathToUrl, but it is a supported character on Linux.",
+      "parentUuid": "2a95f241_a9216089",
       "range": {
         "startLine": 110,
         "startChar": 30,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "20478639_7baaf209",
+        "filename": "front_end/common/ParsedURL.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-09-01T15:03:35Z",
+      "side": 1,
+      "message": "Looks like URL was treating C: as a protocol in that case. Fixed.",
+      "parentUuid": "6112b276_58612c6e",
+      "range": {
+        "startLine": 120,
+        "startChar": 24,
+        "endLine": 120,
+        "endChar": 32
+      },
+      "revId": "eecbefa005fb8841f9a65035939fbb51cda531df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85ae300a_422dc99a",
         "filename": "front_end/common/ParsedURL.js",
         "patchSetId": 4
@@ -76,6 +142,30 @@
       "writtenOn": "2020-08-27T15:11:43Z",
       "side": 1,
       "message": "Why is this happening here, but not in escapeFilePath?",
+      "range": {
+        "startLine": 159,
+        "startChar": 48,
+        "endLine": 159,
+        "endChar": 80
+      },
+      "revId": "eecbefa005fb8841f9a65035939fbb51cda531df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d54c84e_9cff1a4e",
+        "filename": "front_end/common/ParsedURL.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-09-01T15:03:35Z",
+      "side": 1,
+      "message": "We should technically only do this when dealing with Windows paths, but we don\u0027t do that currently and would need to update every callsite carefully. (In most cases we wouldn\u0027t want to do this even on Windows because we\u0027re using the browser filesystem API which uses \u0027/\u0027 as the separator even on Windows.)",
+      "parentUuid": "85ae300a_422dc99a",
       "range": {
         "startLine": 159,
         "startChar": 48,
