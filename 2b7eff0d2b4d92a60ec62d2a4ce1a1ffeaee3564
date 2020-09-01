@@ -66,6 +66,30 @@
     },
     {
       "key": {
+        "uuid": "4dd516c3_a756a1d7",
+        "filename": "front_end/lighthouse_worker/LighthouseService.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-09-01T03:57:21Z",
+      "side": 1,
+      "message": "you are right they are ordered (Today I learned) 😉. But still not sure is this is what is expected, as Devtools and Lighthouse can be localized on a different set of locales, this can lead to a scenario where Devtools are in English and Lighthouse in another language, I think:\n\nhttps://docs.google.com/document/d/1L6TkT2-42MMQ72ZSBMFwUaq7M6mDgA2X0x8oHHKaV_U/edit?disco\u003dAAAAG42oadA\n\n\"When the browser is localized in any language other than English, turning on the setting will result in DevTools being displayed in the same language,  If it’s off, DevTools will be in English\"\n\nI don\u0027t think this is a blocker at all but it will be good to be on the same line to avoid a disrupting experience. Thoughts on this?",
+      "parentUuid": "2b6b5626_8dfaadde",
+      "range": {
+        "startLine": 84,
+        "startChar": 3,
+        "endLine": 84,
+        "endChar": 45
+      },
+      "revId": "2b7eff0d2b4d92a60ec62d2a4ce1a1ffeaee3564",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "96476c29_24f98630",
         "filename": "front_end/lighthouse_worker/LighthouseService.js",
         "patchSetId": 9
