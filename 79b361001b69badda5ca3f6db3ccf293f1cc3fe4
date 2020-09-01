@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c318ee23_eedad501",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-09-01T15:52:04Z",
+      "side": 1,
+      "message": "Left a comment, otherwise LGTM",
+      "revId": "79b361001b69badda5ca3f6db3ccf293f1cc3fe4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e2b77bc_d67a7aa1",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-09-01T15:52:04Z",
+      "side": 1,
+      "message": "could this be achieved using the current Throttler?\nhttps://chromium.googlesource.com/devtools/devtools-frontend/+/refs/heads/master/front_end/common/Throttler.js",
+      "range": {
+        "startLine": 943,
+        "startChar": 6,
+        "endLine": 943,
+        "endChar": 15
+      },
+      "revId": "79b361001b69badda5ca3f6db3ccf293f1cc3fe4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
