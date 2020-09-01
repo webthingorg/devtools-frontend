@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad768d82_e7c81849",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-09-01T11:09:46Z",
+      "side": 1,
+      "message": "ptal",
+      "revId": "7438e0deb40d228c939055108ac508862dcc6283",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16732742_c517d2e2",
+        "filename": "front_end/accessibility/AccessibilityModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-09-01T11:09:46Z",
+      "side": 1,
+      "message": "I tried\n\n    this.deferredDOMNode()?.highlight()\n\ninstead but the closure compiler dies on it with a parse error 😞",
+      "range": {
+        "startLine": 171,
+        "startChar": 4,
+        "endLine": 176,
+        "endChar": 29
+      },
+      "revId": "7438e0deb40d228c939055108ac508862dcc6283",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7a005bd_6d04e428",
+        "filename": "front_end/accessibility/AccessibilityModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-09-01T11:09:46Z",
+      "side": 1,
+      "message": "Should we be using invoke_ for everything now? This seems better (forced to do this because we type the accessibilityAgent properly now)",
+      "range": {
+        "startLine": 245,
+        "startChar": 38,
+        "endLine": 245,
+        "endChar": 61
+      },
+      "revId": "7438e0deb40d228c939055108ac508862dcc6283",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b4ad105_3b8ca830",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-09-01T11:09:46Z",
+      "side": 1,
+      "message": "This is a change of behavior but matches what we do in axNode.coreProperties() for the other extra properties",
+      "range": {
+        "startLine": 111,
+        "startChar": 18,
+        "endLine": 112,
+        "endChar": 15
+      },
+      "revId": "7438e0deb40d228c939055108ac508862dcc6283",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

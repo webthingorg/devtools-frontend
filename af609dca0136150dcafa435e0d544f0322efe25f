@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "46951677_56539081",
+        "filename": "front_end/accessibility/AccessibilityModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-09-01T11:09:46Z",
+      "side": 0,
+      "message": "The problem here is these property names are not in the protocol which is where the type comes from. The caller we thread them through to will handle them fine, though. I introduced the new union type that also accepts these properties and used that in the call-chain of this function.",
+      "range": {
+        "startLine": 81,
+        "startChar": 73,
+        "endLine": 81,
+        "endChar": 86
+      },
+      "revId": "af609dca0136150dcafa435e0d544f0322efe25f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
