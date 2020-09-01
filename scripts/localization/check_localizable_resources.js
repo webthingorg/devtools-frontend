@@ -47,8 +47,9 @@ function getErrors(existingError) {
   const toAddError = checkLocalizedStrings.getAndReportResourcesToAdd();
   const toModifyError = checkLocalizedStrings.getAndReportIDSKeysToModify();
   const toRemoveError = checkLocalizedStrings.getAndReportResourcesToRemove();
-  let error =
-      `${existingError ? `${existingError}\n` : ''}${toAddError || ''}${toModifyError || ''}${toRemoveError || ''}`;
+  const localizabilityError = checkLocalizedStrings.getLocalizabilityError();
+  let error = `${existingError ? `${existingError}\n` : ''}${toAddError || ''}${toModifyError || ''}${
+      toRemoveError || ''}${localizabilityError || ''}`;
 
   if (error === '') {
     console.log('DevTools localizable resources checker passed.');
@@ -61,6 +62,7 @@ function getErrors(existingError) {
 }
 
 async function autofix(existingError) {
+  const localizabilityError = checkLocalizedStrings.getLocalizabilityError();
   const keysToAddToGRD = checkLocalizedStrings.getMessagesToAdd();
   const keysToRemoveFromGRD = checkLocalizedStrings.getMessagesToRemove();
   const resourceAdded = await addResourcesToGRDP(keysToAddToGRD, keysToRemoveFromGRD);
@@ -68,7 +70,7 @@ async function autofix(existingError) {
   const resourceRemoved = await removeResourcesFromGRDP(keysToRemoveFromGRD);
   const shouldAddExampleTag = checkShouldAddExampleTag(keysToAddToGRD);
 
-  if (!resourceAdded && !resourceRemoved && !resourceModified && existingError === '') {
+  if (!localizabilityError && !resourceAdded && !resourceRemoved && !resourceModified && existingError === '') {
     console.log('DevTools localizable resources checker passed.');
     return;
   }
@@ -89,6 +91,9 @@ async function autofix(existingError) {
   }
   if (resourceRemoved && duplicateRemoved(keysToRemoveFromGRD)) {
     message += '\nDuplicate <message> entries are removed. Please verify the retained descriptions are correct.';
+  }
+  if (localizabilityError) {
+    message += localizabilityError;
   }
   message += '\n';
   message += '\nUse git status to see what has changed.';
