@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "d975f7c8_a740741e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-01T16:53:05Z",
+      "side": 1,
+      "message": "FYI I will add comments to this before landing if it LGTY, because I don\u0027t think it\u0027s all that clear from the current CL why these changes are necessary for the Bounded Generics.",
+      "revId": "26669d80edde276b408a87e10445d073bd7ce17a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a378c76_aa82ddbb",
         "filename": "scripts/test/run_type_check.py",
         "patchSetId": 4
