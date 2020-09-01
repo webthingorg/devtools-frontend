@@ -2,9 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
 import * as SDK from '../sdk/sdk.js';  // eslint-disable-line no-unused-vars
 import * as UI from '../ui/ui.js';
 
@@ -22,9 +19,10 @@ export class AccessibilitySubPane extends UI.View.SimpleView {
 
     /**
      * @protected
-     * @suppress {accessControls}
+     * @type {?AccessibilityNode}
      */
-    this._axNode = null;
+    this.axNode = null;
+    this._node = null;
     this.registerRequiredCSS('accessibility/accessibilityProperties.css');
   }
 

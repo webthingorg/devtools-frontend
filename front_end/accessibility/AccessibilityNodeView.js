@@ -24,7 +24,7 @@ export class AXNodeSubPane extends AccessibilitySubPane {
      * @protected
      * @suppress {accessControls}
      */
-    this._axNode = null;
+    this.axNode = null;
 
     this.contentElement.classList.add('ax-subpane');
 
@@ -44,10 +44,10 @@ export class AXNodeSubPane extends AccessibilitySubPane {
    * @override
    */
   setAXNode(axNode) {
-    if (this._axNode === axNode) {
+    if (this.axNode === axNode) {
       return;
     }
-    this._axNode = axNode;
+    this.axNode = axNode;
 
     const treeOutline = this._treeOutline;
     treeOutline.removeChildren();
@@ -130,7 +130,7 @@ export class AXNodeSubPane extends AccessibilitySubPane {
    */
   setNode(node) {
     super.setNode(node);
-    this._axNode = null;
+    this.axNode = null;
   }
 }
 
@@ -144,7 +144,7 @@ export class AXNodePropertyTreeElement extends UI.TreeOutline.TreeElement {
   constructor(axNode) {
     // Pass an empty title, the title gets made later in onattach.
     super('');
-    this._axNode = axNode;
+    this.axNode = axNode;
   }
 
   /**
@@ -224,7 +224,7 @@ export class AXNodePropertyTreeElement extends UI.TreeOutline.TreeElement {
       const sources = value.sources;
       for (let i = 0; i < sources.length; i++) {
         const source = sources[i];
-        const child = new AXValueSourceTreeElement(source, this._axNode);
+        const child = new AXValueSourceTreeElement(source, this.axNode);
         this.appendChild(child);
       }
       this.expand();
@@ -239,7 +239,7 @@ export class AXNodePropertyTreeElement extends UI.TreeOutline.TreeElement {
    */
   appendRelatedNode(relatedNode, index) {
     const deferredNode =
-        new SDK.DOMModel.DeferredDOMNode(this._axNode.accessibilityModel().target(), relatedNode.backendDOMNodeId);
+        new SDK.DOMModel.DeferredDOMNode(this.axNode.accessibilityModel().target(), relatedNode.backendDOMNodeId);
     const nodeTreeElement = new AXRelatedNodeSourceTreeElement({deferredNode: deferredNode}, relatedNode);
     this.appendChild(nodeTreeElement);
   }
@@ -249,7 +249,7 @@ export class AXNodePropertyTreeElement extends UI.TreeOutline.TreeElement {
    */
   appendRelatedNodeInline(relatedNode) {
     const deferredNode =
-        new SDK.DOMModel.DeferredDOMNode(this._axNode.accessibilityModel().target(), relatedNode.backendDOMNodeId);
+        new SDK.DOMModel.DeferredDOMNode(this.axNode.accessibilityModel().target(), relatedNode.backendDOMNodeId);
     const linkedNode = new AXRelatedNodeElement({deferredNode: deferredNode}, relatedNode);
     this.listItemElement.appendChild(linkedNode.render());
   }
@@ -356,7 +356,7 @@ export class AXValueSourceTreeElement extends AXNodePropertyTreeElement {
    */
   appendRelatedNodeWithIdref(relatedNode, idref) {
     const deferredNode =
-        new SDK.DOMModel.DeferredDOMNode(this._axNode.accessibilityModel().target(), relatedNode.backendDOMNodeId);
+        new SDK.DOMModel.DeferredDOMNode(this.axNode.accessibilityModel().target(), relatedNode.backendDOMNodeId);
     const nodeTreeElement = new AXRelatedNodeSourceTreeElement({deferredNode: deferredNode, idref: idref}, relatedNode);
     this.appendChild(nodeTreeElement);
   }
@@ -593,7 +593,7 @@ export class AXNodeIgnoredReasonTreeElement extends AXNodePropertyTreeElement {
   constructor(property, axNode) {
     super(axNode);
     this._property = property;
-    this._axNode = axNode;
+    this.axNode = axNode;
     this.toggleOnClick = true;
     this.selectable = false;
   }
@@ -677,7 +677,7 @@ export class AXNodeIgnoredReasonTreeElement extends AXNodePropertyTreeElement {
   onattach() {
     this.listItemElement.removeChildren();
 
-    this._reasonElement = AXNodeIgnoredReasonTreeElement.createReasonElement(this._property.name, this._axNode);
+    this._reasonElement = AXNodeIgnoredReasonTreeElement.createReasonElement(this._property.name, this.axNode);
     this.listItemElement.appendChild(this._reasonElement);
 
     const value = this._property.value;
