@@ -16,6 +16,23 @@
       "revId": "03416fb591d47bed598738134c557b655faf2723",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff7e2053_5f3242f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-01T11:29:28Z",
+      "side": 1,
+      "message": "There\u0027s a lot going on and I am not 100% an expert on the localization pipeline. The changes seem good to me though, e.g. fewer processes and fewer file reads are a good goal. Deferring full implementation review to Peter.",
+      "revId": "03416fb591d47bed598738134c557b655faf2723",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
