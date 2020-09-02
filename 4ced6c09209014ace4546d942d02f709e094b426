@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50eb7017_6653ac36",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-02T15:07:54Z",
+      "side": 1,
+      "message": "This isn\u0027t related to dark mode, is it? Can we have this in another CL (which also includes the changes for CSP issues if we want to do this)?",
+      "revId": "4ced6c09209014ace4546d942d02f709e094b426",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4225430_0cd1a5f2",
+        "filename": "front_end/issues/issuesTree.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-02T15:07:54Z",
+      "side": 1,
+      "message": "This is actually making the contrast worse (and a lot as it seems), how did you arrive at this value?\n\nLet\u0027s take ABABAB here.",
+      "range": {
+        "startLine": 27,
+        "startChar": 17,
+        "endLine": 27,
+        "endChar": 23
+      },
+      "revId": "4ced6c09209014ace4546d942d02f709e094b426",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dceb50f7_aa7857d5",
+        "filename": "front_end/issues/issuesTree.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-02T15:07:54Z",
+      "side": 1,
+      "message": "Isn\u0027t this issue gray?",
+      "range": {
+        "startLine": 305,
+        "startChar": 10,
+        "endLine": 305,
+        "endChar": 16
+      },
+      "revId": "4ced6c09209014ace4546d942d02f709e094b426",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
