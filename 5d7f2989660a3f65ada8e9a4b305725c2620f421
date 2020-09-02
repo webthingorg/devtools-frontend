@@ -50,6 +50,24 @@
       "revId": "5d7f2989660a3f65ada8e9a4b305725c2620f421",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44f8d8cd_975ca45d",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-02T09:15:15Z",
+      "side": 1,
+      "message": "This was intentional. The idea behind it is that I\u0027d like the colors to persist during a devtools session. The reason is that in a future part 2, we need to make it possible for users to customize the colors (with a color picker widget). So if a user choose a white color for their grid because their web page has a black background, then it\u0027d be nice if we could remember this white color.\nRight now with this patch, if you navigate and then go back to the same page, the same colors will be given to the grids.\n\nI only realize though that the map is indexed by nodeIds, an I am not sure what guarantees we have over those.\nIt might be better to index the map on url + unique CSS selectors. For instance, one key could be \u0027https://stripe.com:html\u003ebody\u003ediv#main\u0027 or something like this.\nThis way when navigating (or even across devtools sessions, if we can store things locally), we\u0027d be able to retrieve the customized color from before. At least as a best effort thing. If the DOM element has changed id or class, or position in the DOM, we wouldn\u0027t find it anymore, but in most cases we would.\n\nSo, for now, in this CL, I\u0027d like to not clear the map, so we can have some form of persistence of colors, and in a later CL, we need to add actual persistence and color customization.",
+      "parentUuid": "75bc78c8_129952bf",
+      "revId": "5d7f2989660a3f65ada8e9a4b305725c2620f421",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
