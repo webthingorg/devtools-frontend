@@ -16,6 +16,40 @@
       "revId": "22688115153fd7d1b59bab46036fa20d0ea62a5c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e4d6882_be2d1ec9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-02T15:25:43Z",
+      "side": 1,
+      "message": "LGTM % suggestion",
+      "revId": "22688115153fd7d1b59bab46036fa20d0ea62a5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1bd6a44b_3aec98fd",
+        "filename": "front_end/ui/UIUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1892,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-02T15:25:43Z",
+      "side": 1,
+      "message": "We don’t need the match result in this case, so it would be more efficient to use `/pattern/.test(value)`.\n\nBut, perhaps the cleanest solution is:\n\n    if (value.startsWith(\u0027var(\u0027) \u0026\u0026 value.endsWith(\u0027)\u0027)) {\n\nWDYT?",
+      "revId": "22688115153fd7d1b59bab46036fa20d0ea62a5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
