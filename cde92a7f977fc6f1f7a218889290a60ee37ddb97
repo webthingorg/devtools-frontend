@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90650f1d_ef3b25a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-09-02T15:17:38Z",
+      "side": 1,
+      "message": "ptal",
+      "revId": "cde92a7f977fc6f1f7a218889290a60ee37ddb97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11ac1083_32b0f106",
+        "filename": "front_end/accessibility/ARIAAttributesView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-09-02T15:17:38Z",
+      "side": 1,
+      "message": "setNode just does this._node \u003d node and node() just gets this._node so this is all fine",
+      "range": {
+        "startLine": 27,
+        "startChar": 10,
+        "endLine": 27,
+        "endChar": 17
+      },
+      "revId": "cde92a7f977fc6f1f7a218889290a60ee37ddb97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a19ab3a_3d17499a",
+        "filename": "front_end/accessibility/ARIAAttributesView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-09-02T15:17:38Z",
+      "side": 1,
+      "message": "This is impossible IIUC",
+      "range": {
+        "startLine": 137,
+        "startChar": 8,
+        "endLine": 137,
+        "endChar": 24
+      },
+      "revId": "cde92a7f977fc6f1f7a218889290a60ee37ddb97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8870b08_ec377264",
+        "filename": "front_end/accessibility/ARIAAttributesView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-09-02T15:17:38Z",
+      "side": 1,
+      "message": "Again, impossible because we always set _nameElement before registering the click handler which gets us here",
+      "range": {
+        "startLine": 154,
+        "startChar": 27,
+        "endLine": 154,
+        "endChar": 83
+      },
+      "revId": "cde92a7f977fc6f1f7a218889290a60ee37ddb97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28ba53e7_72ba57bf",
+        "filename": "front_end/accessibility/ARIAAttributesView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-09-02T15:17:38Z",
+      "side": 1,
+      "message": "Well this is annoying",
+      "range": {
+        "startLine": 248,
+        "startChar": 82,
+        "endLine": 255,
+        "endChar": 97
+      },
+      "revId": "cde92a7f977fc6f1f7a218889290a60ee37ddb97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd5468fe_47b9239a",
+        "filename": "front_end/ui/SuggestBox.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-09-02T15:17:38Z",
+      "side": 1,
+      "message": "Pretty sure this was a parenthesis accident in the first place",
+      "range": {
+        "startLine": 406,
+        "startChar": 60,
+        "endLine": 406,
+        "endChar": 61
+      },
+      "revId": "cde92a7f977fc6f1f7a218889290a60ee37ddb97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
