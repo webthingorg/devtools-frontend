@@ -16,6 +16,23 @@
       "revId": "7219b41e6e11e3a1a2f4c470bb7627522b4c887c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12ea855e_dd199024",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-09-02T10:24:16Z",
+      "side": 1,
+      "message": "lighthouse worker is a remote module right now so this is what I observe:\n\nRunning the bundled chromium with this CL via --custom-devtools-frontend does result in a localized lighthouse report (yay!) with two caveats:\n1. The de.json file is loaded from devtools://devtools/bundled/third_party/lighthouse/locales/de.json (so, not remotely IIUC). This is expected if we aren\u0027t building inside of the chromium tree I guess. To confirm that loading the localized .json files from the remote server is working as expected, we\u0027ll have to wait until this lands and the remote server gets updated for this commit.\n2. The navigator.languages setting seems to be respecting the preferred languages set in the chrome://settings/languages UI, rather than the chrome browser UI override that Christy set up here: https://chromium-review.googlesource.com/c/chromium/src/+/2278846. I think this is because of the issues discussed on that CL, which is that navigator.language/s gets overriden after we set it explicitly. That\u0027s not an issue with this CL though.\n\nWhen I build devtools with this commit inside chromium, lighthouse worker is loaded as a remote module, so we don\u0027t get the new behavior yet.\n\nSo overall I\u0027m happy to land this, we\u0027ll just need to check that loading the locales remotely does work as expected once it hits canary, and we\u0027ll need to follow up to fix the navigator.language override.\n\nThanks!",
+      "revId": "7219b41e6e11e3a1a2f4c470bb7627522b4c887c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
