@@ -72,6 +72,54 @@
     },
     {
       "key": {
+        "uuid": "d5460959_b557f9c5",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-02T08:27:23Z",
+      "side": 1,
+      "message": "Rolling Closure here: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2388060",
+      "parentUuid": "c9f48a9d_7098fd4b",
+      "range": {
+        "startLine": 188,
+        "startChar": 54,
+        "endLine": 188,
+        "endChar": 108
+      },
+      "revId": "4e16f4874d7d8542de0806ce0cd03a9de1b9ec60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8461d57e_b272ea89",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-02T08:27:23Z",
+      "side": 1,
+      "message": "Pondering aloud, as it were, we should just be able to instantiate the custom element directly. Not necessary for this CL, but it would work around a lot of the pain by doing new Foo() rather than document.createElement.",
+      "parentUuid": "58ea0d04_a75bc990",
+      "range": {
+        "startLine": 188,
+        "startChar": 8,
+        "endLine": 188,
+        "endChar": 52
+      },
+      "revId": "4e16f4874d7d8542de0806ce0cd03a9de1b9ec60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca41901b_10e6ba69",
         "filename": "front_end/accessibility/AccessibilityNodeView.js",
         "patchSetId": 1
@@ -92,6 +140,30 @@
       "revId": "4e16f4874d7d8542de0806ce0cd03a9de1b9ec60",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6b1eb1a_b9a8e941",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-02T08:27:23Z",
+      "side": 1,
+      "message": "I think it\u0027s fine for now.",
+      "parentUuid": "ca41901b_10e6ba69",
+      "range": {
+        "startLine": 200,
+        "startChar": 6,
+        "endLine": 201,
+        "endChar": 43
+      },
+      "revId": "4e16f4874d7d8542de0806ce0cd03a9de1b9ec60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -118,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "84059a52_45a41281",
+        "filename": "front_end/legacy/legacy-defs.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-02T08:27:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e333bd0d_7cc92880",
+      "range": {
+        "startLine": 141,
+        "startChar": 2,
+        "endLine": 141,
+        "endChar": 81
+      },
+      "revId": "4e16f4874d7d8542de0806ce0cd03a9de1b9ec60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16b7fb78_b7c1cfd8",
         "filename": "front_end/legacy/legacy-defs.d.ts",
         "patchSetId": 1
@@ -138,6 +234,30 @@
       "revId": "4e16f4874d7d8542de0806ce0cd03a9de1b9ec60",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78276b41_20558617",
+        "filename": "front_end/legacy/legacy-defs.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-02T08:27:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "16b7fb78_b7c1cfd8",
+      "range": {
+        "startLine": 150,
+        "startChar": 2,
+        "endLine": 150,
+        "endChar": 33
+      },
+      "revId": "4e16f4874d7d8542de0806ce0cd03a9de1b9ec60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
