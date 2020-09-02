@@ -2144,8 +2144,14 @@ export class BlankStylePropertiesSection extends StylePropertiesSection {
    */
   constructor(stylesPane, matchedStyles, defaultSelectorText, styleSheetId, ruleLocation, insertAfterStyle) {
     const cssModel = /** @type {!SDK.CSSModel.CSSModel} */ (stylesPane.cssModel());
-    const rule = SDK.CSSRule.CSSStyleRule.createDummyRule(cssModel, defaultSelectorText);
-    super(stylesPane, matchedStyles, rule.style);
+    /** @type {!SDK.CSSStyleDeclaration.CSSStyleDeclaration} */
+    const dummyStyle = /** @type {!SDK.CSSStyleDeclaration.CSSStyleDeclaration} */ ({
+      styleSheetId: '0',
+      range: new TextUtils.TextRange.TextRange(0, 0, 0, 0),
+      shorthandEntries: [],
+      cssProperties: []
+    });
+    super(stylesPane, matchedStyles, dummyStyle);
     this._normal = false;
     this._ruleLocation = ruleLocation;
     this._styleSheetId = styleSheetId;
