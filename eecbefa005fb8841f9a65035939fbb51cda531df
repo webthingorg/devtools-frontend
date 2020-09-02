@@ -108,6 +108,30 @@
     },
     {
       "key": {
+        "uuid": "899ecddd_f36a49a6",
+        "filename": "front_end/common/ParsedURL.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-09-02T12:01:03Z",
+      "side": 1,
+      "message": "I added the test cases you gave and we are doing what DoCanonicalize does. I added a pretty exhaustive test case but I could add another to make sure we are testing all special characters in https://source.chromium.org/chromium/chromium/src/+/master:url/url_canon_path.cc;drc\u003d6e8b402a6231405b753919029c9027404325ea00;l\u003d53",
+      "parentUuid": "b5be4495_d3a312d9",
+      "range": {
+        "startLine": 110,
+        "startChar": 30,
+        "endLine": 110,
+        "endChar": 56
+      },
+      "revId": "eecbefa005fb8841f9a65035939fbb51cda531df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6112b276_58612c6e",
         "filename": "front_end/common/ParsedURL.js",
         "patchSetId": 4
@@ -214,6 +238,30 @@
       "side": 1,
       "message": "Hmm.. how does that relate to the \\\\ replacement in _preEscapeFilePath then? I guess we should do that conditionally on the platform as well then?",
       "parentUuid": "9d54c84e_9cff1a4e",
+      "range": {
+        "startLine": 159,
+        "startChar": 48,
+        "endLine": 159,
+        "endChar": 80
+      },
+      "revId": "eecbefa005fb8841f9a65035939fbb51cda531df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ceff5405_46b6d435",
+        "filename": "front_end/common/ParsedURL.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-09-02T12:01:03Z",
+      "side": 1,
+      "message": "The relationship is that if we replace \u0027\\\\\u0027 with \u0027/\u0027 as we currently do on all platforms, then there is no point in also replacing `\\\\` with `%5C\u0027, so perhaps I should just get rid of that.",
+      "parentUuid": "40ffcf60_1cb2508d",
       "range": {
         "startLine": 159,
         "startChar": 48,
