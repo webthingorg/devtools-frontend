@@ -111,6 +111,30 @@
       "revId": "79b361001b69badda5ca3f6db3ccf293f1cc3fe4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37628a50_72034f0d",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-02T08:59:17Z",
+      "side": 1,
+      "message": "That\u0027s a good point. Usually for things like this, I prefer to wait until there is a second consumer to the new helper function. Otherwise we quickly end up with big common files that actually aren\u0027t that commonly used.\nLooking at the rest of the codebase, I\u0027m not seeing any other occurrences of the word debounce. It could very well be that there are other similar functions hidden away in other places, with other names though. \nWhat do you think? Are you aware of other parts of the code that need to debounce functions? If so, I\u0027m happy to clean this up (move debounce to common, and refactor all call sites to use it).",
+      "parentUuid": "cc4222d5_3888791c",
+      "range": {
+        "startLine": 943,
+        "startChar": 6,
+        "endLine": 943,
+        "endChar": 15
+      },
+      "revId": "79b361001b69badda5ca3f6db3ccf293f1cc3fe4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
