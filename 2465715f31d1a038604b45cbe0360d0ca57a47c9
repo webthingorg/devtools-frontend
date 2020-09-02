@@ -16,6 +16,69 @@
       "revId": "2465715f31d1a038604b45cbe0360d0ca57a47c9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f74016f9_4b7e8205",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-02T10:27:12Z",
+      "side": 1,
+      "message": "Nice, I like this change, thanks Sigurd! Small nits aside this LGTM.",
+      "revId": "2465715f31d1a038604b45cbe0360d0ca57a47c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47936e0f_e7209ed6",
+        "filename": "test/unittests/front_end/helpers/DOMHelpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-02T10:27:12Z",
+      "side": 1,
+      "message": "do we need to export this?",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 30
+      },
+      "revId": "2465715f31d1a038604b45cbe0360d0ca57a47c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4bad951d_f3703bee",
+        "filename": "test/unittests/front_end/helpers/DOMHelpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-02T10:27:12Z",
+      "side": 1,
+      "message": "could we use ..args: unknown[] here?",
+      "range": {
+        "startLine": 76,
+        "startChar": 16,
+        "endLine": 76,
+        "endChar": 19
+      },
+      "revId": "2465715f31d1a038604b45cbe0360d0ca57a47c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
