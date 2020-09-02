@@ -56,6 +56,24 @@
       "revId": "1a474bb1dea4a6a994f8ffb0012029be530e02c4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bfd4a14_55d57ea0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-09-02T01:16:55Z",
+      "side": 1,
+      "message": "Somehow this got filtered in my mail. We can\u0027t use `vw` because, when docked, DevTools is treated as a part of the larger browser window [1]. We may want to consider not fixing this class of issue. The user can resize their DevTools window to access the modal button, which isn\u0027t a terrible work around. Additionally, much of the UI isn\u0027t useable to DevTools\u0027 width is sub-500px.\n\n[1] https://imgur.com/a/i2DkP6n",
+      "parentUuid": "b8337947_3bddde9b",
+      "revId": "1a474bb1dea4a6a994f8ffb0012029be530e02c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
