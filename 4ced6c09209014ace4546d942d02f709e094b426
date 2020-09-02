@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "bb11477d_b06acb91",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-02T15:19:09Z",
+      "side": 1,
+      "message": "The main problem is that the affected resources have a different background than the rest.\n\nLet\u0027s use the devtools standard colors for the non-affected-resources parts, and let\u0027s use the colors I\u0027ve suggested in new variables for the affected resources parts.\n\nThis way we get high contrast everywhere, and consistency of colors where it is possible.",
+      "revId": "4ced6c09209014ace4546d942d02f709e094b426",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50eb7017_6653ac36",
         "filename": "front_end/issues/IssuesPane.js",
         "patchSetId": 5
