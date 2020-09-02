@@ -87,6 +87,30 @@
       "revId": "79b361001b69badda5ca3f6db3ccf293f1cc3fe4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc4222d5_3888791c",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-02T08:53:00Z",
+      "side": 1,
+      "message": "BTW have you considered moving the debounce helper to /front_end/common/, where the Throttler exists now? It could be in a later CL of course. I feel like this can be useful for other occasions.",
+      "parentUuid": "9e8014cc_8c0e866e",
+      "range": {
+        "startLine": 943,
+        "startChar": 6,
+        "endLine": 943,
+        "endChar": 15
+      },
+      "revId": "79b361001b69badda5ca3f6db3ccf293f1cc3fe4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
