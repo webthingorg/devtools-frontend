@@ -7,6 +7,7 @@ import {assert} from 'chai';
 import {goToResource, waitFor} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {navigateToConsoleTab} from '../helpers/console-helpers.js';
+import {clickOnContextMenu} from '../helpers/sources-helpers.js';
 
 describe('The Console Tab', async () => {
   it('shows infobar with button linking to issues tab', async () => {
@@ -17,5 +18,15 @@ describe('The Console Tab', async () => {
     const infobarButton = await waitFor('.infobar .infobar-button');
     const infobarButtonText = await infobarButton.evaluate(node => node.textContent);
     assert.strictEqual(infobarButtonText, 'View issues');
+  });
+
+  it('can save console contents to file when issues bar is showing', async () => {
+    // navigate to page which causes a SameSiteCookieIssue
+    await goToResource('console/cookie-issue.html');
+    await navigateToConsoleTab();
+
+    await clickOnContextMenu('.infobar-issue', 'Save as...');
+
+    // await new Promise(() => {});
   });
 });
