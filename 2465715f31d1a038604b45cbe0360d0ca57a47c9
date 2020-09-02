@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6c67dc5f_92eadc02",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-02T10:17:34Z",
+      "side": 1,
+      "message": "PTAL.\n\nI noticed that the querySelector[All] type assertions could be improved during your excellent code walkthrough today, and it even found a bug.",
+      "revId": "2465715f31d1a038604b45cbe0360d0ca57a47c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
