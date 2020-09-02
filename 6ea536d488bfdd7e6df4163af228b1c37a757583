@@ -16,6 +16,75 @@
       "revId": "6ea536d488bfdd7e6df4163af228b1c37a757583",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a4918be_33ac56ea",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-02T15:24:43Z",
+      "side": 1,
+      "message": "This is system dependent and therefore wouldn\u0027t work on CQ. Instead, we have to use `third_party/node`. Is this leftover code that the below already implements or am I missing something?",
+      "range": {
+        "startLine": 386,
+        "startChar": 10,
+        "endLine": 386,
+        "endChar": 13
+      },
+      "revId": "6ea536d488bfdd7e6df4163af228b1c37a757583",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71428b6a_efce004b",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-02T15:24:43Z",
+      "side": 1,
+      "message": "We already do the `git diff` in `_CheckNoUncheckedFiles`. I don\u0027t think the bridges presubmit check has a special need for doing `git diff` on its own? Therefore, I think we can remove this altogether, as the presubmit will fail if bridges are out-of-date.",
+      "range": {
+        "startLine": 402,
+        "startChar": 0,
+        "endLine": 414,
+        "endChar": 72
+      },
+      "revId": "6ea536d488bfdd7e6df4163af228b1c37a757583",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ceb316c_7cb012b9",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-02T15:24:43Z",
+      "side": 1,
+      "message": "Nit: I think this can be `_checkWithNodeScript` so that you can remove the `devtools_paths.node_path()` from the arguments.",
+      "range": {
+        "startLine": 506,
+        "startChar": 11,
+        "endLine": 506,
+        "endChar": 29
+      },
+      "revId": "6ea536d488bfdd7e6df4163af228b1c37a757583",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
