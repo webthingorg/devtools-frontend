@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fe8f439_35b17444",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1347952
+      },
+      "writtenOn": "2020-09-02T15:45:21Z",
+      "side": 1,
+      "message": "PTAL when you get the chance. This CL only adds the original warning in the Lighthouse issue. I have not looked into surfacing the other warnings you mentioned yet.\n\nLet me know if you want some screenshots.",
+      "revId": "c1ac44118822c3cbffeced587575b825c49e89df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
