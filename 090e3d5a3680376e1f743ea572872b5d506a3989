@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "976ac1a2_4ca37843",
+        "filename": "scripts/localization/check_localizability.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-09-02T05:59:55Z",
+      "side": 0,
+      "message": "did I understand this right, that this code was basically reduced to a `auditGrdpFile` call in `check_localized_strings.js`?",
+      "range": {
+        "startLine": 333,
+        "startChar": 0,
+        "endLine": 348,
+        "endChar": 1
+      },
+      "revId": "090e3d5a3680376e1f743ea572872b5d506a3989",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

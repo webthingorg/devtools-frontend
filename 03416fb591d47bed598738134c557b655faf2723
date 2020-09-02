@@ -50,6 +50,46 @@
       "revId": "03416fb591d47bed598738134c557b655faf2723",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d76a0d13_7da134da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-09-02T05:59:55Z",
+      "side": 1,
+      "message": "lgtm % question",
+      "revId": "03416fb591d47bed598738134c557b655faf2723",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3bb386c4_8559092f",
+        "filename": "scripts/localization/utils/check_localizability.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-09-02T05:59:55Z",
+      "side": 1,
+      "message": "I must say I would have preferred to keep the additional \"error array\" argument everywhere. Even if you pass in the global `localizabilityErrors`, the functions themselves would stay unit testable. This way they are not.\n\nI am fine with the code as-is, since we gonna remove it once V2 lands, but for future CLs, please try to reduce dependencies of functions on globals, it makes the code harder to read.",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 1
+      },
+      "revId": "03416fb591d47bed598738134c557b655faf2723",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
