@@ -55,6 +55,12 @@
   flex: none;
 }
 
+.checkbox-label > span {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 .select-settings {
   margin-top: 16px;
   display: grid;
