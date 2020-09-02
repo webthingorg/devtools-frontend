@@ -39,6 +39,30 @@
       "revId": "79b361001b69badda5ca3f6db3ccf293f1cc3fe4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "387e5df5_87245d10",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-02T08:38:34Z",
+      "side": 1,
+      "message": "My understanding is that a throttle is meant to prevent a function from being called more than 1 time per x ms. In my case, I wanted to debounce as I want a slightly different behavior: as long as the function keeps getting called, I\u0027m not executing it, unless a certain amount of time has passed without it being called again.\nThis is so that if a user is quickly checking on and off grids in the layout panel, I\u0027m not recording anything. I\u0027m only recording once interactions settle.\nBut maybe the Throttler class can do these 2 things. I\u0027ll look into how it\u0027s done and switch to it if it supports my use case.",
+      "parentUuid": "9e2b77bc_d67a7aa1",
+      "range": {
+        "startLine": 943,
+        "startChar": 6,
+        "endLine": 943,
+        "endChar": 15
+      },
+      "revId": "79b361001b69badda5ca3f6db3ccf293f1cc3fe4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
