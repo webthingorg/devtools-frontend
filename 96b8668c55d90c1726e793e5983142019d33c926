@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f3bf4c22_420cc9d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-09-02T08:53:36Z",
+      "side": 1,
+      "message": "Thanks for reviewing! \nI also added the fixes that Vidal found in this CL https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2370103\n1. Use native promises\n2. Fix a small bug around some files not being excluded from the scan. \n\nI will keep this open for a day in case anyone wants to take another look and feel free to let me know if more time is needed :) ",
+      "revId": "96b8668c55d90c1726e793e5983142019d33c926",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
