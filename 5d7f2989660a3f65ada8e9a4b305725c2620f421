@@ -68,6 +68,24 @@
       "revId": "5d7f2989660a3f65ada8e9a4b305725c2620f421",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87c22fb2_ec48e534",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-02T09:26:35Z",
+      "side": 1,
+      "message": "Thanks for explaining. For now it looks fine. And I\u0027m not familiar with how nodeIds get generated, and if we\u0027ll have better persistence using backendNodeId or not. And even if we use backendNodeIds, it still could be changed if the DOM tree structure is changed. In this sense, URL + css selector may be more persistent. I think as you said, there would probably be no way to 100% persist the color setting, and we just to have to find a way to covers the most use cases.",
+      "parentUuid": "44f8d8cd_975ca45d",
+      "revId": "5d7f2989660a3f65ada8e9a4b305725c2620f421",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
