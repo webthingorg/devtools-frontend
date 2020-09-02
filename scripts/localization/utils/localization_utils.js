@@ -4,12 +4,11 @@
 
 const fs = require('fs');
 const md5 = require('./md5');
-const {promisify} = require('util');
 const path = require('path');
-const readFileAsync = promisify(fs.readFile);
-const readDirAsync = promisify(fs.readdir);
-const statAsync = promisify(fs.stat);
-const writeFileAsync = promisify(fs.writeFile);
+const readDirAsync = fs.promises.readdir;
+const readFileAsync = fs.promises.readFile;
+const statAsync = fs.promises.stat;
+const writeFileAsync = fs.promises.writeFile;
 
 const espreeTypes = {
   BI_EXPR: 'BinaryExpression',
@@ -23,16 +22,23 @@ const espreeTypes = {
   TEMP_LITERAL: 'TemplateLiteral'
 };
 
-const excludeFiles = ['Tests.js'];
+const excludeFiles = [
+  'Tests.js',
+  '.d.ts',  // Skip definition files
+];
+
 const excludeDirs = [
   'test_runner',
   'Images',
   'langpacks',
   'node_modules',
-  'lighthouse/lighthouse',
-  'lighthouse_worker/lighthouse',
+  'lighthouse_worker',
   'front_end/third_party',
+  'front_end/dagre_layout',
+  'front_end/javascript_metadata',
+  'front_end/generated',
 ];
+
 const cppSpecialCharactersMap = {
   '"': '\\"',
   '\\': '\\\\',
@@ -52,19 +58,26 @@ function getRelativeFilePathFromSrc(filePath) {
 }
 
 function shouldParseDirectory(directoryName) {
-  return !excludeDirs.some(dir => directoryName.includes(dir));
+  return !excludeDirs.some(dir => path.normalize(directoryName).includes(path.normalize(dir)));
 }
 
 /**
  * @filepath can be partial path or full path, as long as it contains the file name.
  */
 function shouldParseFile(filepath) {
-  return !excludeFiles.includes(path.basename(filepath));
+  let result = true;
+  for (const exclusionPath of excludeFiles) {
+    if (path.normalize(filepath).includes(path.normalize(exclusionPath))) {
+      result = false;
+      break;
+    }
+  }
+
+  return result;
 }
 
 async function parseFileContent(filePath) {
-  let fileContent = await readFileAsync(filePath);
-  fileContent = fileContent.toString();
+  const fileContent = await readFileAsync(filePath, {encoding: 'utf8'});
   // normalize line ending to LF
   fileContent = fileContent.replace(/\r\n/g, '\n');
   return fileContent;
@@ -237,7 +250,7 @@ async function getChildDirectoriesFromDirectory(directoryPath) {
   for (const itemName of itemNames) {
     const itemPath = path.resolve(directoryPath, itemName);
     const stat = await statAsync(itemPath);
-    if (stat.isDirectory() && shouldParseDirectory(itemName)) {
+    if (stat.isDirectory() && shouldParseDirectory(itemPath)) {
       dirPaths.push(itemPath);
     }
   }
