@@ -16,6 +16,24 @@
       "revId": "29fc046ff5eb58a7af43ebe06dda2d0f91f04e70",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d093781e_cc05a450",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-09-02T10:41:28Z",
+      "side": 1,
+      "message": "Thanks, good catch. Made the text a bit brighter to improve contrast.",
+      "parentUuid": "1d6493a4_4a65b811",
+      "revId": "29fc046ff5eb58a7af43ebe06dda2d0f91f04e70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
