@@ -135,6 +135,30 @@
       "revId": "79b361001b69badda5ca3f6db3ccf293f1cc3fe4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5db4281_e43f0b7a",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-02T09:12:18Z",
+      "side": 1,
+      "message": "I don\u0027t remember seeing anything similar to debounce in the codebase before (kind of unusual for a big codebase like this), but I think waiting for a second usage is totally fine. Thanks for explaining :)",
+      "parentUuid": "37628a50_72034f0d",
+      "range": {
+        "startLine": 943,
+        "startChar": 6,
+        "endLine": 943,
+        "endChar": 15
+      },
+      "revId": "79b361001b69badda5ca3f6db3ccf293f1cc3fe4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
