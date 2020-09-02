@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d3564bed_6547079d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-09-02T08:08:10Z",
+      "side": 1,
+      "message": "Switched to using a data attribute. Please take another look and feel free to bikeshed the name!",
+      "revId": "7aeaddc6ad799bb724b551c6bfc17050f63ad380",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
