@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7fe2c072_71836cd9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-02T14:53:44Z",
+      "side": 1,
+      "message": "Tim, PTAL :) Updated it to use a _checkWithTypeScript helper and fixed a bug where any git diff lead it to decide bridges were out of date. LMKWYT!",
+      "revId": "6ea536d488bfdd7e6df4163af228b1c37a757583",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
