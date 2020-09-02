@@ -33,6 +33,24 @@
       "revId": "7219b41e6e11e3a1a2f4c470bb7627522b4c887c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "798b42fc_75e35fb3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-09-02T21:29:47Z",
+      "side": 1,
+      "message": "Cool, thanks for the verification and summary. I had trouble reasoning about if the remote modules would indeed work, but I\u0027m confident that if it doesn\u0027t work, this patch will fallback to english. Shall test completely when in Canary.",
+      "parentUuid": "12ea855e_dd199024",
+      "revId": "7219b41e6e11e3a1a2f4c470bb7627522b4c887c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
