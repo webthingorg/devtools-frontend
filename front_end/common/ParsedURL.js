@@ -103,11 +103,45 @@ export class ParsedURL {
   }
 
   /**
+   * @param {string} filename
+   * @return {string}
+   */
+  static _preEscapeFilePath(filename) {
+    // Based on net::FilePathToFileURL. Ideally we would handle
+    // '\\' as well on non-Windows file systems.
+    for (const specialChar of ['%', ';', '#', '?']) {
+      filename = filename.replaceAll(specialChar, encodeURIComponent(specialChar));
+    }
+    return filename;
+  }
+
+  /**
+   * @param {string} filename
+   * @return {string}
+   */
+  static escapeFilePath(filename) {
+    const partiallyEscaped = ParsedURL._preEscapeFilePath(filename);
+    if (filename.startsWith('/')) {
+      return new URL(partiallyEscaped, 'file:///').pathname;
+    }
+    // URL prepends a '/'
+    return new URL('/' + partiallyEscaped, 'file:///').pathname.substr(1);
+  }
+
+  /**
+   * @param {string} filename
+   * @return {string}
+   */
+  static unescapeFilePath(filename) {
+    return decodeURIComponent(filename);
+  }
+
+  /**
    * @param {string} fileSystemPath
    * @return {string}
    */
   static platformPathToURL(fileSystemPath) {
-    fileSystemPath = fileSystemPath.replace(/\\/g, '/');
+    fileSystemPath = ParsedURL._preEscapeFilePath(fileSystemPath.replace(/\\/g, '/'));
     if (!fileSystemPath.startsWith('file://')) {
       if (fileSystemPath.startsWith('/')) {
         fileSystemPath = 'file://' + fileSystemPath;
@@ -115,7 +149,17 @@ export class ParsedURL {
         fileSystemPath = 'file:///' + fileSystemPath;
       }
     }
-    return fileSystemPath;
+    return new URL(fileSystemPath).toString();
+  }
+
+  /**
+   * @param {string} relativePath
+   * @param {string} baseURL
+   * @return {string}
+   */
+  static relativePlatformPathToURL(relativePath, baseURL) {
+    relativePath = ParsedURL._preEscapeFilePath(relativePath.replace(/\\/g, '/'));
+    return new URL(relativePath, baseURL).toString();
   }
 
   /**
@@ -125,6 +169,7 @@ export class ParsedURL {
    */
   static urlToPlatformPath(fileURL, isWindows) {
     console.assert(fileURL.startsWith('file://'), 'This must be a file URL.');
+    fileURL = ParsedURL.unescapeFilePath(fileURL);
     if (isWindows) {
       return fileURL.substr('file:///'.length).replace(/\//g, '\\');
     }
