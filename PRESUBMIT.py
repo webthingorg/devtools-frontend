@@ -380,6 +380,42 @@ def _CheckForTooLargeFiles(input_api, output_api):
         return []
 
 
+def _CheckComponentBridgesUpToDate(input_api, output_api):
+    # Regenerate all bridge files
+    regen_process = input_api.subprocess.Popen(
+        ['npm', 'run', 'regenerate-all-component-bridges'],
+        stdout=input_api.subprocess.PIPE,
+        stderr=input_api.subprocess.STDOUT)
+    regen_process.communicate()
+
+    results = []
+
+    script_path = input_api.os_path.join(input_api.PresubmitLocalPath(),
+                                         'scripts', 'component_bridges', 'gen',
+                                         'regenerate-all-bridges.js')
+
+    tsc_arguments = '-p scripts/component_bridges/tsconfig.json'
+    results.extend(
+        _checkWithTypeScript(input_api, output_api, tsc_arguments, script_path,
+                             ['--silent']))
+
+    # Now do a git diff, find all _bridge.js files
+    files_changed_process = input_api.subprocess.Popen(
+        ['git', 'diff', '--name-only'],
+        stdout=input_api.subprocess.PIPE,
+        stderr=input_api.subprocess.STDOUT)
+    files_changed, _ = files_changed_process.communicate()
+    files_changed = [f for f in files_changed if '_bridge.js' in f]
+
+    if len(files_changed) > 0:
+        results.append(
+            output_api.PresubmitError(
+                'You have component bridge files that are not up to date:'))
+        results.append(output_api.PresubmitPromptWarning(files_changed))
+
+    return results
+
+
 def _CommonChecks(input_api, output_api):
     """Checks common to both upload and commit."""
     results = []
@@ -400,6 +436,7 @@ def _CommonChecks(input_api, output_api):
     results.extend(_CheckFormat(input_api, output_api))
     results.extend(_CheckOptimizeSVGHashes(input_api, output_api))
     results.extend(_CheckChangesAreExclusiveToDirectory(input_api, output_api))
+    results.extend(_CheckComponentBridgesUpToDate(input_api, output_api))
     results.extend(_CheckNoUncheckedFiles(input_api, output_api))
     results.extend(_CheckForTooLargeFiles(input_api, output_api))
     return results
@@ -443,6 +480,32 @@ def _checkWithNodeScript(input_api, output_api, script_path, script_arguments=[]
         sys.path = original_sys_path
 
     return _ExecuteSubProcess(input_api, output_api, [devtools_paths.node_path(), script_path], script_arguments, [])
+
+
+def _checkWithTypeScript(input_api,
+                         output_api,
+                         tsc_arguments,
+                         script_path,
+                         script_arguments=[]):  # pylint: disable=invalid-name
+    original_sys_path = sys.path
+    try:
+        sys.path = sys.path + [
+            input_api.os_path.join(input_api.PresubmitLocalPath(), 'scripts')
+        ]
+        import devtools_paths
+    finally:
+        sys.path = original_sys_path
+
+    # First run tsc to compile the TS script that we then run in the _ExecuteSubProcess call
+    tsc_compiler_process = input_api.subprocess.Popen(
+        [devtools_paths.typescript_compiler_path(), tsc_arguments],
+        stdout=input_api.subprocess.PIPE,
+        stderr=input_api.subprocess.STDOUT)
+    tsc_compiler_process.communicate()
+
+    return _ExecuteSubProcess(input_api, output_api,
+                              [devtools_paths.node_path(), script_path],
+                              script_arguments, [])
 
 
 def _getFilesToLint(input_api, output_api, lint_config_files,
