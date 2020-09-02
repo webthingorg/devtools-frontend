@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7055c987_cf5b847c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-09-02T12:35:42Z",
+      "side": 1,
+      "message": "PTAL\n\nfix for the failing layout test is in-flight here: https://crrev.com/c/2390340",
+      "revId": "30fa52dade63b4450ca8b23760213045e705525a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
