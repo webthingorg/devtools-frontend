@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b61b8e25_ac66b8d3",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-02T08:36:13Z",
+      "side": 1,
+      "message": "Thanks for adding closure typings!",
+      "revId": "5d7f2989660a3f65ada8e9a4b305725c2620f421",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75bc78c8_129952bf",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-02T08:36:13Z",
+      "side": 1,
+      "message": "Do we need to clear this out when we receive \"DocumentUpdated\" event after the user navigates to a new page? I suppose this test case has already been tested, but just want to double-check.",
+      "revId": "5d7f2989660a3f65ada8e9a4b305725c2620f421",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
