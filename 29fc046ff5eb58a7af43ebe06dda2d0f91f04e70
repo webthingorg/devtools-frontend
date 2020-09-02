@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1d6493a4_4a65b811",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2020-09-02T08:59:55Z",
+      "side": 1,
+      "message": "Hmm I think text doesn\u0027t pass contrast guidelines on the light grey background https://webaim.org/resources/contrastchecker/?fcolor\u003d8C8C8C\u0026bcolor\u003d343334",
+      "revId": "29fc046ff5eb58a7af43ebe06dda2d0f91f04e70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
