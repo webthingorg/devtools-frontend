@@ -12,6 +12,12 @@
   <message name="IDS_DEVTOOLS_1076f1bac69647c846ac3b822b133518" desc="Fast fact in the pop-up dialog when lighthouse is running in the Lighthouse panel">
     The average user device costs less than 200 USD. [Source: <ph name="LOCKED_1">International Data Corporation</ph>]
   </message>
+  <message name="IDS_DEVTOOLS_1509aa7d3478bf0a68ac7463f399df5b" desc="">
+    Lighthouse has warnings. Are you sure you want to continue?
+  </message>
+  <message name="IDS_DEVTOOLS_1548ea4dfc71f0a1709da7239f6da2d4" desc="">
+    (<ph name="IMPORTANTRESOURCES">$1s</ph>) These resources may contain important data and will be cleared when lighthouse runs. Audit this page in an incognito window to avoid loss of data.
+  </message>
   <message name="IDS_DEVTOOLS_161bf73e31de6b8e3d856815473cbe1c" desc="Text of the timeline button in Lighthouse Report Renderer">
     View Trace
   </message>
@@ -32,6 +38,9 @@
   </message>
   <message name="IDS_DEVTOOLS_2a96c07a6c11ca7add2b1ffde86efe25" desc="Text in Lighthouse Controller">
     Can only audit HTTP/HTTPS pages and <ph name="LOCKED_1">Chrome</ph> extensions. Navigate to a different page to start an audit.
+  </message>
+  <message name="IDS_DEVTOOLS_2dea8186d07288e2b3a22fa6c9cf35ca" desc="">
+    Always ignore warning prompt before running Lighthouse.
   </message>
   <message name="IDS_DEVTOOLS_39680b3025b1f8d881f9d983623bf071" desc="Text in Lighthouse Status View">
     <ph name="LOCKED_1">Lighthouse</ph> is loading your page
@@ -92,6 +101,9 @@
   </message>
   <message name="IDS_DEVTOOLS_d05ccbc748353441f061b4b039a29775" desc="Help text for 'View Trace' button">
     The performance metrics above are simulated and won&apos;t match the timings found in this trace. Disable simulated throttling in &quot;Lighthouse Settings&quot; if you want the timings to match.
+  </message>
+  <message name="IDS_DEVTOOLS_d30d60a88205e69384654dd4a0d13831" desc="">
+    Ignore Warnings
   </message>
   <message name="IDS_DEVTOOLS_d7d305befb5ff987deb149b9f4e197d6" desc="Tooltip text that appears when hovering over the largeicon settings gear in show settings pane setting in start view of the audits panel">
     <ph name="LOCKED_1">Lighthouse</ph> settings
