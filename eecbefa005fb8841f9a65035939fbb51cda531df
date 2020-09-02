@@ -84,6 +84,30 @@
     },
     {
       "key": {
+        "uuid": "b5be4495_d3a312d9",
+        "filename": "front_end/common/ParsedURL.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-02T09:02:35Z",
+      "side": 1,
+      "message": "Yes, but there is more going on in the GURL constructor (which URL isn\u0027t doing). You can follow the rabbit into DoCanonicalize and the various platform-dependent things that are going on there:\n\nhttps://source.chromium.org/chromium/chromium/src/+/master:url/url_util.cc;drc\u003d6e8b402a6231405b753919029c9027404325ea00;bpv\u003d1;bpt\u003d1;l\u003d211\n\nAbout \\\\: note that the code you are referencing is only applying that substitution platform-dependently.\n\nI think that we are not doing what DoCanonicalize is doing causes the failure of the tests I provided.",
+      "parentUuid": "f02b036c_e64a29f2",
+      "range": {
+        "startLine": 110,
+        "startChar": 30,
+        "endLine": 110,
+        "endChar": 56
+      },
+      "revId": "eecbefa005fb8841f9a65035939fbb51cda531df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6112b276_58612c6e",
         "filename": "front_end/common/ParsedURL.js",
         "patchSetId": 4
@@ -166,6 +190,30 @@
       "side": 1,
       "message": "We should technically only do this when dealing with Windows paths, but we don\u0027t do that currently and would need to update every callsite carefully. (In most cases we wouldn\u0027t want to do this even on Windows because we\u0027re using the browser filesystem API which uses \u0027/\u0027 as the separator even on Windows.)",
       "parentUuid": "85ae300a_422dc99a",
+      "range": {
+        "startLine": 159,
+        "startChar": 48,
+        "endLine": 159,
+        "endChar": 80
+      },
+      "revId": "eecbefa005fb8841f9a65035939fbb51cda531df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40ffcf60_1cb2508d",
+        "filename": "front_end/common/ParsedURL.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-02T09:02:35Z",
+      "side": 1,
+      "message": "Hmm.. how does that relate to the \\\\ replacement in _preEscapeFilePath then? I guess we should do that conditionally on the platform as well then?",
+      "parentUuid": "9d54c84e_9cff1a4e",
       "range": {
         "startLine": 159,
         "startChar": 48,
