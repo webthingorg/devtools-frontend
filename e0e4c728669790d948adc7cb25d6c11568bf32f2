@@ -157,6 +157,30 @@
     },
     {
       "key": {
+        "uuid": "368850a1_7e934f80",
+        "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 1993,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-03T09:02:38Z",
+      "side": 1,
+      "message": "After offline discussion, this is fine to do here as only unknown state can change.",
+      "parentUuid": "da45c5c9_0027aad5",
+      "range": {
+        "startLine": 1993,
+        "startChar": 8,
+        "endLine": 1993,
+        "endChar": 38
+      },
+      "revId": "e0e4c728669790d948adc7cb25d6c11568bf32f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91249daa_e7de5b4e",
         "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
         "patchSetId": 15
@@ -177,6 +201,30 @@
       "revId": "e0e4c728669790d948adc7cb25d6c11568bf32f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bee01a61_328fa8aa",
+        "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 2020,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-03T09:02:38Z",
+      "side": 1,
+      "message": "Didn\u0027t see the the early return in L1981, suggested how to rewrite that in a comment above to make it more readable.",
+      "parentUuid": "91249daa_e7de5b4e",
+      "range": {
+        "startLine": 2020,
+        "startChar": 4,
+        "endLine": 2020,
+        "endChar": 8
+      },
+      "revId": "e0e4c728669790d948adc7cb25d6c11568bf32f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
