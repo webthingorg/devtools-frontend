@@ -2,9 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
 import * as Common from '../common/common.js';
 import * as Diff from '../diff/diff.js';
 import * as Platform from '../platform/platform.js';
@@ -13,7 +10,7 @@ import * as UI from '../ui/ui.js';
 
 /**
  * @unrestricted
- * @implements {UI.ListControl.ListDelegate}
+ * @implements {UI.ListControl.ListDelegate<number>}
  */
 export class FilteredListWidget extends UI.Widget.VBox {
   /**
@@ -24,6 +21,11 @@ export class FilteredListWidget extends UI.Widget.VBox {
   constructor(provider, promptHistory, queryChangedCallback) {
     super(true);
     this._promptHistory = promptHistory || [];
+
+    /** @type {number|undefined} */
+    this._scoringTimer;
+    /** @type {(function(): void)|undefined} */
+    this._refreshListWithCurrentResult;
 
     this.contentElement.classList.add('filtered-list-widget');
     this.contentElement.addEventListener('keydown', this._onKeyDown.bind(this), true);
@@ -98,7 +100,7 @@ export class FilteredListWidget extends UI.Widget.VBox {
       return ranges;
     }
 
-    const text = element.textContent;
+    const text = element.textContent || '';
     let ranges = rangesForMatch(text, query);
     if (!ranges || caseInsensitive) {
       ranges = rangesForMatch(text.toUpperCase(), query.toUpperCase());
@@ -140,7 +142,7 @@ export class FilteredListWidget extends UI.Widget.VBox {
     this._dialog.once('hidden').then(() => {
       this.dispatchEventToListeners('hidden');
     });
-    this._dialog.show();
+    this._dialog.show(document);
   }
 
   /**
@@ -217,9 +219,15 @@ export class FilteredListWidget extends UI.Widget.VBox {
   }
 
   _clearTimers() {
-    clearTimeout(this._filterTimer);
-    clearTimeout(this._scoringTimer);
-    clearTimeout(this._loadTimeout);
+    if (this._filterTimer) {
+      clearTimeout(this._filterTimer);
+    }
+    if (this._scoringTimer) {
+      clearTimeout(this._scoringTimer);
+    }
+    if (this._loadTimeout) {
+      clearTimeout(this._loadTimeout);
+    }
     delete this._filterTimer;
     delete this._scoringTimer;
     delete this._loadTimeout;
@@ -262,12 +270,15 @@ export class FilteredListWidget extends UI.Widget.VBox {
    * @return {!Element}
    */
   createElementForItem(item) {
-    const itemElement = createElement('div');
-    itemElement.className = 'filtered-list-widget-item ' + (this._provider.renderAsTwoRows() ? 'two-rows' : 'one-row');
+    const itemElement = document.createElement('div');
+    const renderAsTwoRows = this._provider && this._provider.renderAsTwoRows();
+    itemElement.className = 'filtered-list-widget-item ' + (renderAsTwoRows ? 'two-rows' : 'one-row');
     const titleElement = itemElement.createChild('div', 'filtered-list-widget-title');
     const subtitleElement = itemElement.createChild('div', 'filtered-list-widget-subtitle');
     subtitleElement.textContent = '\u200B';
-    this._provider.renderItem(item, this._cleanValue(), titleElement, subtitleElement);
+    if (this._provider) {
+      this._provider.renderItem(item, this._cleanValue(), titleElement, subtitleElement);
+    }
     UI.ARIAUtils.markAsOption(itemElement);
     return itemElement;
   }
@@ -387,14 +398,18 @@ export class FilteredListWidget extends UI.Widget.VBox {
     const query = this._provider.rewriteQuery(this._cleanValue());
     this._query = query;
 
-    const filterRegex = query ? String.filterRegex(query) : null;
+    const filterRegex = query ? Platform.StringUtilities.filterRegex(query) : null;
 
+    /** @type {number[]} */
     const filteredItems = [];
 
+    /** @type {number[]} */
     const bestScores = [];
+    /** @type {number[]} */
     const bestItems = [];
     const bestItemsToCollect = 100;
     let minBestScore = 0;
+    /** @type {number[]} */
     const overflowItems = [];
     const scoreStartTime = window.performance.now();
 
@@ -416,6 +431,9 @@ export class FilteredListWidget extends UI.Widget.VBox {
      * @this {FilteredListWidget}
      */
     function scoreItems(fromIndex) {
+      if (!this._provider) {
+        return;
+      }
       delete this._scoringTimer;
       let workDone = 0;
       let i;
@@ -439,11 +457,17 @@ export class FilteredListWidget extends UI.Widget.VBox {
           bestItems.splice(index, 0, i);
           if (bestScores.length > bestItemsToCollect) {
             // Best list is too large -> drop last elements.
-            overflowItems.push(bestItems.peekLast());
+            const bestItemLast = bestItems.peekLast();
+            if (bestItemLast) {
+              overflowItems.push(bestItemLast);
+            }
             bestScores.length = bestItemsToCollect;
             bestItems.length = bestItemsToCollect;
           }
-          minBestScore = bestScores.peekLast();
+          const bestScoreLast = bestScores.peekLast();
+          if (bestScoreLast) {
+            minBestScore = bestScoreLast;
+          }
         } else {
           filteredItems.push(i);
         }
@@ -476,7 +500,7 @@ export class FilteredListWidget extends UI.Widget.VBox {
    */
   _refreshList(bestItems, overflowItems, filteredItems) {
     delete this._refreshListWithCurrentResult;
-    filteredItems = [].concat(bestItems, overflowItems, filteredItems);
+    filteredItems = /** @type {number[]} */ ([]).concat(bestItems, overflowItems, filteredItems);
     this._updateNotFoundMessage(!!filteredItems.length);
     const oldHeight = this._list.element.offsetHeight;
     this._items.replaceAll(filteredItems);
@@ -495,7 +519,7 @@ export class FilteredListWidget extends UI.Widget.VBox {
   _updateNotFoundMessage(hasItems) {
     this._list.element.classList.toggle('hidden', !hasItems);
     this._notFoundElement.classList.toggle('hidden', hasItems);
-    if (!hasItems) {
+    if (!hasItems && this._provider) {
       this._notFoundElement.textContent = this._provider.notFoundText(this._cleanValue());
       UI.ARIAUtils.alert(this._notFoundElement.textContent, this._notFoundElement);
     }
@@ -529,8 +553,9 @@ export class FilteredListWidget extends UI.Widget.VBox {
    * @param {!Event} event
    */
   _onKeyDown(event) {
+    const keyboardEvent = /** @type {!KeyboardEvent} */ (event);
     let handled = false;
-    switch (event.key) {
+    switch (keyboardEvent.key) {
       case 'Enter':
         this._onEnter(event);
         return;
@@ -570,7 +595,9 @@ export class FilteredListWidget extends UI.Widget.VBox {
     if (this._promptHistory.length > 100) {
       this._promptHistory.shift();
     }
-    this._provider.selectItem(itemIndex, this._cleanValue());
+    if (this._provider) {
+      this._provider.selectItem(itemIndex, this._cleanValue());
+    }
   }
 }
 
@@ -637,7 +664,9 @@ export class Provider {
   }
 
   refresh() {
-    this._refreshCallback();
+    if (this._refreshCallback) {
+      this._refreshCallback();
+    }
   }
 
   /**
