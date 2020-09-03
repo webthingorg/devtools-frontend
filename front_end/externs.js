@@ -1473,6 +1473,7 @@ InspectorFrontendHostAPI.EnumeratedHistogram = {
   ExperimentEnabledAtLaunch: 'DevTools.ExperimentEnabledAtLaunch',
   ExperimentEnabled: 'DevTools.ExperimentEnabled',
   ExperimentDisabled: 'DevTools.ExperimentDisabled',
+  ComputedStyleGrouping: 'DevTools.ComputedStyleGrouping',
 };
 
 /**
