@@ -208,6 +208,11 @@ export class NetworkLogView extends UI.Widget.VBox {
         .addChangeListener(() => this._updateGroupByFrame());
 
     this._filterBar = filterBar;
+
+    this._textFilterSetting = Common.Settings.Settings.instance().createSetting('network.textFilter', '');
+    if (this._textFilterSetting.get()) {
+      this.setTextFilterValue(this._textFilterSetting.get());
+    }
   }
 
   _updateGroupByFrame() {
@@ -701,6 +706,7 @@ export class NetworkLogView extends UI.Widget.VBox {
     this.removeAllNodeHighlights();
     this._parseFilterQuery(this._textFilterUI.value());
     this._filterRequests();
+    this._textFilterSetting.set(this._textFilterUI.value());
   }
 
   async resetFilter() {
