@@ -1140,7 +1140,7 @@ class IssueView extends UI.TreeOutline.TreeElement {
     const linkList = linkWrapper.listItemElement.createChild('ul', 'link-list');
     for (const description of this._description.links) {
       const link = UI.XLink.XLink.create(description.link, ls`Learn more: ${description.linkTitle}`, 'link');
-      const linkIcon = UI.Icon.Icon.create('largeicon-link', 'link-icon');
+      const linkIcon = UI.Icon.Icon.create('largeicon-link', 'link');
       link.prepend(linkIcon);
 
       const linkListItem = linkList.createChild('li');
