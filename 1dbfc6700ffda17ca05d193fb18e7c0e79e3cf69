@@ -16,6 +16,92 @@
       "revId": "1dbfc6700ffda17ca05d193fb18e7c0e79e3cf69",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "edc400a7_80f71bff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-03T08:19:59Z",
+      "side": 1,
+      "message": "Nice! I think this would really benefit from having an example documented using the components docs server - WDYT? Let me know if you want a hand looking at it or you could start by looking at one of the other examples that are in there (in `front_end/component_docs`). \n\n",
+      "revId": "1dbfc6700ffda17ca05d193fb18e7c0e79e3cf69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17d5a9e9_faebdd3b",
+        "filename": "front_end/elements/ElementsPanelLink.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-03T08:19:59Z",
+      "side": 1,
+      "message": "we should have the clang-format around every LitHtml.html call - this is why it\u0027s preferable to do:\n\n// clang-format off\nLitHtml.render(LitHtml.html`your code here`, this.shadow)\n// clang-format on\n\nAnd that way you have wrapped all the HTML up within one clang-format off/on comment.",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 22
+      },
+      "revId": "1dbfc6700ffda17ca05d193fb18e7c0e79e3cf69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b80e7d4_c4e8a4ed",
+        "filename": "front_end/elements/ElementsPanelLink.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-03T08:19:59Z",
+      "side": 1,
+      "message": "this should just be `devtools-elements-panel-link`. There\u0027s no need to duplicate the \"elements\" parts and HTML tags should always use dashes, not underscores, as separators 😊",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 82
+      },
+      "revId": "1dbfc6700ffda17ca05d193fb18e7c0e79e3cf69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54b92ee1_98179563",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-03T08:19:59Z",
+      "side": 1,
+      "message": "nit: you could tidy this up a bit to:\n\n.data \u003d {\n  onElementRevealIconClick,\n  onElementRevealIconMouseEnter,\n  onElementRevealIconMouseLeave,\n}",
+      "range": {
+        "startLine": 446,
+        "startChar": 5,
+        "endLine": 450,
+        "endChar": 8
+      },
+      "revId": "1dbfc6700ffda17ca05d193fb18e7c0e79e3cf69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
