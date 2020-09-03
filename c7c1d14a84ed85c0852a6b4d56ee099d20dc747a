@@ -16,6 +16,24 @@
       "revId": "c7c1d14a84ed85c0852a6b4d56ee099d20dc747a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6dc98fde_4991d972",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-03T08:59:21Z",
+      "side": 1,
+      "message": "Yes it is working locally for me.",
+      "parentUuid": "498ceec9_226ff469",
+      "revId": "c7c1d14a84ed85c0852a6b4d56ee099d20dc747a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
