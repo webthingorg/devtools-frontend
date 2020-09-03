@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0169983a_831402d0",
+        "filename": "front_end/network/NetworkPanel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-03T15:20:04Z",
+      "side": 1,
+      "message": "if we set a value from memory when the network panel first loads, these values aren\u0027t set, so this errors, hence the additional checks around them",
+      "range": {
+        "startLine": 606,
+        "startChar": 3,
+        "endLine": 606,
+        "endChar": 5
+      },
+      "revId": "3a2ddb5a0fe974e9bd5bd0e9599199a52539ad83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
