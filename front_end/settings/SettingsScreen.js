@@ -153,7 +153,7 @@ export class SettingsScreen extends UI.Widget.VBox {
    * @param {string} tabId
    */
   _reportSettingsPanelShown(tabId) {
-    if (tabId === ls`Shortcuts`) {
+    if (tabId === ls`Shortcuts test`) {
       Host.userMetrics.settingsPanelShown('shortcuts');
       return;
     }
@@ -358,7 +358,8 @@ export class ExperimentsSettingsTab extends SettingsTab {
       experiment.setEnabled(input.checked);
       Host.userMetrics.experimentChanged(experiment.name, experiment.isEnabled());
       UI.InspectorView.InspectorView.instance().displayReloadRequiredWarning(
-          ls`One or more settings have changed which requires a reload to take effect.`);
+          ls`One or more settings have changed which requires a reload to take effect.` +
+          'status');
     }
     input.addEventListener('click', listener, false);
 
@@ -391,7 +392,8 @@ export class ActionDelegate {
             UI.UIUtils.addReferrerToURL('https://developers.google.com/web/tools/chrome-devtools/'));
         return true;
       case 'settings.shortcuts':
-        screen = {name: ls`Shortcuts`, focusTabHeader: true};
+        Host.userMetrics.actionTaken(Host.UserMetrics.Action.SettingsOpenedFromMenu);
+        screen = {name: ls`Shortcuts Test`, focusTabHeader: true};
         if (Root.Runtime.experiments.isEnabled('customKeyboardShortcuts')) {
           screen = {name: 'keybinds', focusTabHeader: true};
         }

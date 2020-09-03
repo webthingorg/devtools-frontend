@@ -18,6 +18,9 @@
   <message name="IDS_DEVTOOLS_4a3aaf1edf15288e9ff3994088e2277a" desc="Pattern title in Framework Blackbox Settings Tab of the Settings">
     Blackbox scripts whose names match &apos;<ph name="ITEM_PATTERN">$1s<ex>ad.*?</ex></ph>&apos;
   </message>
+  <message name="IDS_DEVTOOLS_56c0c623bdcf346de51a39ff0807d26e" desc="Fake Description">
+    Shortcuts Test
+  </message>
   <message name="IDS_DEVTOOLS_57391192dfa1f247ad015a0fe2eca48e" desc="Aria accessible name in Framework Blackbox Settings Tab of the Settings">
     Pattern
   </message>
@@ -74,6 +77,9 @@
   </message>
   <message name="IDS_DEVTOOLS_fcaed535ee8943a22adbffb02ab12586" desc="Screen reader label for list of keyboard shortcuts in settings">
     Keyboard shortcuts list
+  </message>
+  <message name="IDS_DEVTOOLS_ff252ad03693589a4335324d588c9306" desc="Test">
+    Shortcuts test
   </message>
   <message name="IDS_DEVTOOLS_ffebb5ad32e2b253aa418b8d7a70028e" desc="Text in Framework Blackbox Settings Tab of the Settings">
     Blackbox content scripts
