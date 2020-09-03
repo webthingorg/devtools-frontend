@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b5e1bdf3_0be524ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-03T11:38:33Z",
+      "side": 1,
+      "message": "Overall LGTM % last nits.\n\nNot giving a +1 just yet, as we don\u0027t have any test coverage. Give me two days to figure out if there is an easy way to get the tests activated again.",
+      "revId": "413ba889bf171587cd85cbddc214072a25185e24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "843598d6_5f6c703b",
+        "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 1921,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-03T11:38:33Z",
+      "side": 1,
+      "message": "nit: _addString",
+      "range": {
+        "startLine": 1921,
+        "startChar": 2,
+        "endLine": 1921,
+        "endChar": 12
+      },
+      "revId": "413ba889bf171587cd85cbddc214072a25185e24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e232e17_45e4ea73",
+        "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 1947,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-03T11:38:33Z",
+      "side": 1,
+      "message": "One /** @enum {number} */ comment before this should do it.\n\nAlso, since the values are exposed in the properties of the nodes, let\u0027s move this enum out of the function and call it DomLinkState, for example.",
+      "range": {
+        "startLine": 1947,
+        "startChar": 4,
+        "endLine": 1947,
+        "endChar": 33
+      },
+      "revId": "413ba889bf171587cd85cbddc214072a25185e24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
