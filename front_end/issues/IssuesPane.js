@@ -413,36 +413,46 @@ class AffectedDirectivesView extends AffectedResourcesView {
    * @param {!SDK.IssuesModel.IssuesModel} model
    */
   _appendBlockedElement(element, nodeId, model) {
-    const violatingNode = document.createElement('td');
-    violatingNode.classList.add('affected-resource-csp-info-node');
-
+    const elementsPanelLinkComponent = Elements.ElementsPanelLink.createElementsPanelLink();
     if (nodeId) {
-      const violatingNodeId = nodeId;
-      const icon = UI.Icon.Icon.create('largeicon-node-search', 'icon');
-      icon.classList.add('element-reveal-icon');
+      UI.Tooltip.Tooltip.install(
+          elementsPanelLinkComponent, ls`Click to reveal the violating DOM node in the Elements panel`);
 
-      icon.onclick = () => {
+      /** @type {function(?Event):void} */
+      const onElementRevealIconClick = () => {
         const target = model.getTargetIfNotDisposed();
         if (target) {
-          const deferredDOMNode = new SDK.DOMModel.DeferredDOMNode(target, violatingNodeId);
+          const deferredDOMNode = new SDK.DOMModel.DeferredDOMNode(target, nodeId);
           Common.Revealer.reveal(deferredDOMNode);
         }
       };
 
-      UI.Tooltip.Tooltip.install(icon, ls`Click to reveal the violating DOM node in the Elements panel`);
-      violatingNode.appendChild(icon);
-
-      violatingNode.onmouseenter = () => {
+      /** @type {function(?Event):void} */
+      const onElementRevealIconMouseEnter = () => {
         const target = model.getTargetIfNotDisposed();
         if (target) {
-          const deferredDOMNode = new SDK.DOMModel.DeferredDOMNode(target, violatingNodeId);
+          const deferredDOMNode = new SDK.DOMModel.DeferredDOMNode(target, nodeId);
           if (deferredDOMNode) {
             deferredDOMNode.highlight();
           }
         }
       };
-      violatingNode.onmouseleave = () => SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight();
+
+      /** @type {function(?Event):void} */
+      const onElementRevealIconMouseLeave = () => {
+        SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight();
+      };
+
+      elementsPanelLinkComponent.data = {
+        onElementRevealIconClick: onElementRevealIconClick,
+        onElementRevealIconMouseEnter: onElementRevealIconMouseEnter,
+        onElementRevealIconMouseLeave: onElementRevealIconMouseLeave
+      };
     }
+
+    const violatingNode = document.createElement('td');
+    violatingNode.classList.add('affected-resource-csp-info-node');
+    violatingNode.appendChild(elementsPanelLinkComponent);
     element.appendChild(violatingNode);
   }
 
