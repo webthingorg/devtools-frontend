@@ -16,6 +16,69 @@
       "revId": "6a01b4b145697864f8aa61e17190a5f30915d6eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aab56b6d_05104226",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-03T12:31:38Z",
+      "side": 1,
+      "message": "Nice work taking this on, and removing some prototype pollution at the same time!\n\nI think it\u0027s worth considering splitting this work up (go/small-cls) into two parts:\n\n1. Removal of string prototype methods\n2. Typechecking FilteredListWidget\n\nAs right now this CL does a bit of both. See what the other reviewers think though.",
+      "revId": "6a01b4b145697864f8aa61e17190a5f30915d6eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "149c3229_6bb74438",
+        "filename": "front_end/platform/string-utilities.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-03T12:31:38Z",
+      "side": 1,
+      "message": "could we add some unit tests for this function whilst we\u0027re here?",
+      "range": {
+        "startLine": 498,
+        "startChar": 0,
+        "endLine": 498,
+        "endChar": 38
+      },
+      "revId": "6a01b4b145697864f8aa61e17190a5f30915d6eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64054293_3c5a6f6e",
+        "filename": "front_end/platform/utilities.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-03T12:31:38Z",
+      "side": 1,
+      "message": "rather than do this I think we should go through and replace any references of `String.specialRegexCharacters` with this new constant. Might be that you could do that in a standalone CL?",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 55
+      },
+      "revId": "6a01b4b145697864f8aa61e17190a5f30915d6eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
