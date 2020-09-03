@@ -16,6 +16,46 @@
       "revId": "04781181b5a1d41c347caf16d2765ddc925eb6e8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f605293d_933882b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-03T13:45:14Z",
+      "side": 1,
+      "message": "LGTM with one question about whether we need the explicit CSS class to select the link - I\u0027d prefer it if we didn\u0027t need it.",
+      "revId": "04781181b5a1d41c347caf16d2765ddc925eb6e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "73a1b1c6_a806b8ae",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-03T13:45:14Z",
+      "side": 1,
+      "message": "Is it very difficult to select the right link element without having this? Note that you can also call querySelector on an Element (to query only children of, for example, the issue element).",
+      "range": {
+        "startLine": 461,
+        "startChar": 6,
+        "endLine": 461,
+        "endChar": 55
+      },
+      "revId": "04781181b5a1d41c347caf16d2765ddc925eb6e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
