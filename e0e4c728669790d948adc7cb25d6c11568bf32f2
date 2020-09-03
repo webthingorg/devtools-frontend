@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "89f08bf3_85f37a66",
+        "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 1898,
+      "author": {
+        "id": 1131764
+      },
+      "writtenOn": "2020-09-03T10:24:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2084c7f_9041fc5d",
+      "range": {
+        "startLine": 1898,
+        "startChar": 2,
+        "endLine": 1898,
+        "endChar": 35
+      },
+      "revId": "e0e4c728669790d948adc7cb25d6c11568bf32f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7894ded_2da479e0",
         "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
         "patchSetId": 15
@@ -62,6 +86,30 @@
       "revId": "e0e4c728669790d948adc7cb25d6c11568bf32f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a43cc2f2_f4f1d90c",
+        "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 1945,
+      "author": {
+        "id": 1131764
+      },
+      "writtenOn": "2020-09-03T10:24:57Z",
+      "side": 1,
+      "message": "As discussed offline: array used as stack (push/pop) should be faster than set.",
+      "parentUuid": "b7894ded_2da479e0",
+      "range": {
+        "startLine": 1945,
+        "startChar": 10,
+        "endLine": 1945,
+        "endChar": 19
+      },
+      "revId": "e0e4c728669790d948adc7cb25d6c11568bf32f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -88,6 +136,30 @@
     },
     {
       "key": {
+        "uuid": "8bc431de_c8bd9353",
+        "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 1957,
+      "author": {
+        "id": 1131764
+      },
+      "writtenOn": "2020-09-03T10:24:57Z",
+      "side": 1,
+      "message": "Removed the argument. The method could\u0027ve been used to change any string field of a node. Made it specific to the name of the node since we only use it for that and it\u0027s a local function.",
+      "parentUuid": "8d3770d4_1b95906e",
+      "range": {
+        "startLine": 1957,
+        "startChar": 23,
+        "endLine": 1957,
+        "endChar": 41
+      },
+      "revId": "e0e4c728669790d948adc7cb25d6c11568bf32f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d222a52_dcfb824e",
         "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
         "patchSetId": 15
@@ -111,6 +183,30 @@
     },
     {
       "key": {
+        "uuid": "0c2b869f_5cec2cc7",
+        "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 1963,
+      "author": {
+        "id": 1131764
+      },
+      "writtenOn": "2020-09-03T10:24:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d222a52_dcfb824e",
+      "range": {
+        "startLine": 1963,
+        "startChar": 44,
+        "endLine": 1963,
+        "endChar": 60
+      },
+      "revId": "e0e4c728669790d948adc7cb25d6c11568bf32f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92d8cf97_600be3ce",
         "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
         "patchSetId": 15
@@ -131,6 +227,30 @@
       "revId": "e0e4c728669790d948adc7cb25d6c11568bf32f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a56174aa_7979e24b",
+        "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 1981,
+      "author": {
+        "id": 1131764
+      },
+      "writtenOn": "2020-09-03T10:24:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92d8cf97_600be3ce",
+      "range": {
+        "startLine": 1981,
+        "startChar": 34,
+        "endLine": 1981,
+        "endChar": 60
+      },
+      "revId": "e0e4c728669790d948adc7cb25d6c11568bf32f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
