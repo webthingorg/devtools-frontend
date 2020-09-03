@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9cfcb4e7_9ba55e2d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-03T13:54:17Z",
+      "side": 1,
+      "message": "Maybe add a note to the commit message that we didn\u0027t want to make this the default, as we are planing to redesign the search field in the future.",
+      "revId": "14ab16429a9083a01688ecf2858590a5d6df9953",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
