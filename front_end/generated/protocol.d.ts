@@ -4089,7 +4089,7 @@ declare namespace Protocol {
       /**
        * `Node`'s nodeName.
        */
-      nodeName?: StringIndex[];
+      nodeName: StringIndex[];
       /**
        * `Node`'s nodeValue.
        */
@@ -4097,7 +4097,7 @@ declare namespace Protocol {
       /**
        * `Node`'s id, corresponds to DOM.Node.backendNodeId.
        */
-      backendNodeId?: DOM.BackendNodeId[];
+      backendNodeId: DOM.BackendNodeId[];
       /**
        * Attributes of an `Element` node. Flatten name, value pairs.
        */
