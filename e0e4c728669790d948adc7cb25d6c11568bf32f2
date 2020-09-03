@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f6aa952_de245975",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-03T08:34:52Z",
+      "side": 1,
+      "message": "I don\u0027t think this algorithm is working, and there are no tests. I\u0027ve ping\u0027d Tim and he\u0027s going to speed up landing https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2390629 so we can have unittests. Some comments below.",
+      "revId": "e0e4c728669790d948adc7cb25d6c11568bf32f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2084c7f_9041fc5d",
+        "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 1898,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-03T08:34:52Z",
+      "side": 1,
+      "message": "_iterateFilteredChildren? After all, we are iterating all children (but subject to a configurable filter).",
+      "range": {
+        "startLine": 1898,
+        "startChar": 2,
+        "endLine": 1898,
+        "endChar": 35
+      },
+      "revId": "e0e4c728669790d948adc7cb25d6c11568bf32f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7894ded_2da479e0",
+        "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 1945,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-03T08:34:52Z",
+      "side": 1,
+      "message": "I think a Set would perform better here, same for detached.",
+      "range": {
+        "startLine": 1945,
+        "startChar": 10,
+        "endLine": 1945,
+        "endChar": 19
+      },
+      "revId": "e0e4c728669790d948adc7cb25d6c11568bf32f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d3770d4_1b95906e",
+        "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 1957,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-03T08:34:52Z",
+      "side": 1,
+      "message": "nit: does this have to be an argument (since snapshot is already one)",
+      "range": {
+        "startLine": 1957,
+        "startChar": 23,
+        "endLine": 1957,
+        "endChar": 41
+      },
+      "revId": "e0e4c728669790d948adc7cb25d6c11568bf32f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d222a52_dcfb824e",
+        "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 1963,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-03T08:34:52Z",
+      "side": 1,
+      "message": "Let\u0027s have a method on snapshot that adds a new string to the strings and returns the index. Having the local cache here is fine.",
+      "range": {
+        "startLine": 1963,
+        "startChar": 44,
+        "endLine": 1963,
+        "endChar": 60
+      },
+      "revId": "e0e4c728669790d948adc7cb25d6c11568bf32f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da45c5c9_0027aad5",
+        "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 1993,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-03T08:34:52Z",
+      "side": 1,
+      "message": "This can\u0027t happen here, but must happen in a post-pass as a node can change from detached to attached.",
+      "range": {
+        "startLine": 1993,
+        "startChar": 8,
+        "endLine": 1993,
+        "endChar": 38
+      },
+      "revId": "e0e4c728669790d948adc7cb25d6c11568bf32f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91249daa_e7de5b4e",
+        "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 2020,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-03T08:34:52Z",
+      "side": 1,
+      "message": "At this point visited is 1 for every node ordinal. Did you intend to reset the visited array between phases? Also please note my comments on the design doc (the mistake is already present there).",
+      "range": {
+        "startLine": 2020,
+        "startChar": 4,
+        "endLine": 2020,
+        "endChar": 8
+      },
+      "revId": "e0e4c728669790d948adc7cb25d6c11568bf32f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
