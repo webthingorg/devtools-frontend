@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "498ceec9_226ff469",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-03T07:47:05Z",
+      "side": 1,
+      "message": "Have you checked that this works locally? I hit problems running this locally despite Ninja building fine (sorry, I know that\u0027s annoying lack of details but I can\u0027t remember the specifics :( )\n\nIf so, LGTM 😊",
+      "revId": "c7c1d14a84ed85c0852a6b4d56ee099d20dc747a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
