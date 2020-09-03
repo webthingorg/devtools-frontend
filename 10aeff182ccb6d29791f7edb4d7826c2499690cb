@@ -16,6 +16,40 @@
       "revId": "10aeff182ccb6d29791f7edb4d7826c2499690cb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a04ae845_1f7a17a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-09-03T18:13:23Z",
+      "side": 1,
+      "message": "One nit",
+      "revId": "10aeff182ccb6d29791f7edb4d7826c2499690cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c0279320_9a0b1ef3",
+        "filename": "front_end/settings/SettingsScreen.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-09-03T18:13:23Z",
+      "side": 1,
+      "message": "Should we say \"...restart DevTools\" instead?",
+      "revId": "10aeff182ccb6d29791f7edb4d7826c2499690cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
