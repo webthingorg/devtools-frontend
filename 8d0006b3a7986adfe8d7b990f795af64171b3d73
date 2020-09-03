@@ -16,6 +16,24 @@
       "revId": "8d0006b3a7986adfe8d7b990f795af64171b3d73",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da565c93_ca645768",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-03T08:20:26Z",
+      "side": 1,
+      "message": "Oh right, sorry I forgot about it. I just added the screenshots to the commit message.",
+      "parentUuid": "2253bf22_18b69c2b",
+      "revId": "8d0006b3a7986adfe8d7b990f795af64171b3d73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
