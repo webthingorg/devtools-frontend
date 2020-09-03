@@ -60,14 +60,14 @@
   <message name="IDS_DEVTOOLS_d0834fcec6337785ee749c8f5464f6f6" desc="Text in Settings Screen of the Settings">
     Preferences
   </message>
+  <message name="IDS_DEVTOOLS_d2c6a8070b0f601cee9ef9d16fe4056f" desc="Message shown in the experiments panel to warn users about any possible unstable features.">
+    These experiments could be unstable or unreliable and may require you to restart the tools.
+  </message>
   <message name="IDS_DEVTOOLS_d2ef7dcdede23820e315ca1c3425ba4f" desc="Text in Framework Blackbox Settings Tab of the Settings">
     Debugger will skip through the scripts and will not stop on exceptions thrown by them.
   </message>
   <message name="IDS_DEVTOOLS_dd08f9d5ae3e9ba421754fd31db1a44a" desc="Error message in Framework Blackbox settings pane that declares pattern already exits">
     Pattern already exists
-  </message>
-  <message name="IDS_DEVTOOLS_e3b2f7d0af9c89f5ea504968ffcd2ef0" desc="Message text content in Settings Screen of the Settings">
-    These experiments could be dangerous and may require restart.
   </message>
   <message name="IDS_DEVTOOLS_f4f70727dc34561dfde1a3c529b6205c" desc="Name of the Settings view">
     Settings
