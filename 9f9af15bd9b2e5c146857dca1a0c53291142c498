@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4913d3df_26e77092",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-09-03T10:52:44Z",
+      "side": 1,
+      "message": "PTAL.\n\nPreviously the dark theme had at least 3 different colors for links (a grey color, a yellowish color and the blue from light theme which has low contrast in the dark theme). This CL tries to unify this somewhat by moving to the grey color.",
+      "revId": "9f9af15bd9b2e5c146857dca1a0c53291142c498",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
