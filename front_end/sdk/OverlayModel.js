@@ -764,6 +764,11 @@ class DefaultPersistentGridHighlighter {
     this._showGridTrackSizesSetting.addChangeListener(this._onSettingChange, this);
 
     this._logCurrentGridSettings();
+
+    // Debounce recording highlighted grids in order to avoid counting rapidly turning grids on and off.
+    this._recordHighlightedGridCount = debounce(this._recordHighlightedGridCount.bind(this), 1000);
+    /** @type {!number[]} */
+    this._previouslyRecordedGridCountNodeIds = [];
   }
 
   /**
@@ -803,6 +808,19 @@ class DefaultPersistentGridHighlighter {
       return;
     }
     Host.userMetrics.cssGridSettings(`${setting.name}.${setting.get()}`);
+  }
+
+  _recordHighlightedGridCount() {
+    const recordedNodeIds = [...this._gridHighlights.keys()];
+
+    // If only settings changed, but not the list of highlighted grids, bail out.
+    if (arraysEqual(recordedNodeIds, this._previouslyRecordedGridCountNodeIds)) {
+      return;
+    }
+
+    Host.userMetrics.highlightedPersistentCssGridCount(recordedNodeIds.length);
+
+    this._previouslyRecordedGridCountNodeIds = recordedNodeIds;
   }
 
   /**
@@ -922,6 +940,8 @@ class DefaultPersistentGridHighlighter {
       gridNodeHighlightConfigs.push({nodeId, gridHighlightConfig});
     }
     overlayModel.target().overlayAgent().invoke_setShowGridOverlays({gridNodeHighlightConfigs});
+
+    this._recordHighlightedGridCount();
   }
 }
 
@@ -985,3 +1005,41 @@ SDKModel.register(OverlayModel, Capability.DOM, true);
 /** @typedef {!{node: !DOMNode, selectorList: (string|undefined)} | !{deferredNode: DeferredDOMNode, selectorList: (string|undefined)} | !{object: !RemoteObject, selectorList: (string|undefined)} | !{clear: *}} */
 // @ts-ignore typedef
 export let HighlightData;
+
+/**
+ * Debounce utility function, ensures that the function passed in is only called once the function stops being called and the delay has expired.
+ * @param {function} func The function to debounce
+ * @param {number} delay The time to wait before calling the function
+ * @return {function} The debounced function
+ */
+const debounce = (func, delay) => {
+  let timer;
+  return function() {
+    const context = this;
+    const args = arguments;
+    clearTimeout(timer);
+    timer = setTimeout(() => func.apply(context, args), delay);
+  };
+};
+
+/**
+ * Checks if 2 arrays are equal.
+ * @param {any[]} a1 The first array
+ * @param {any[]} a2 The second array
+ * @return {boolean}
+ */
+const arraysEqual = (a1, a2) => {
+  if (a1.length !== a2.length) {
+    return false;
+  }
+
+  a1 = [...a1].sort();
+  a2 = [...a2].sort();
+  for (let i = 0; i < a1.length; i++) {
+    if (a1[i] !== a2[i]) {
+      return false;
+    }
+  }
+
+  return true;
+};
