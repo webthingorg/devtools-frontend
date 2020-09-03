@@ -111,6 +111,29 @@
     },
     {
       "key": {
+        "uuid": "92d8cf97_600be3ce",
+        "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 1981,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-03T08:48:18Z",
+      "side": 1,
+      "message": "Let\u0027s have a continue at the call site, then the calls to propagateState / processNode will have constant arguments for newState and the whole thing will be more readable.",
+      "range": {
+        "startLine": 1981,
+        "startChar": 34,
+        "endLine": 1981,
+        "endChar": 60
+      },
+      "revId": "e0e4c728669790d948adc7cb25d6c11568bf32f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "da45c5c9_0027aad5",
         "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
         "patchSetId": 15
