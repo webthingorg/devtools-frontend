@@ -79,6 +79,168 @@
       "revId": "6a01b4b145697864f8aa61e17190a5f30915d6eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cc92a2b_57bf7501",
+        "filename": "front_end/platform/utilities.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-03T12:40:39Z",
+      "side": 1,
+      "message": "Would also be OK to do this as a follow-up.",
+      "parentUuid": "64054293_3c5a6f6e",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 55
+      },
+      "revId": "6a01b4b145697864f8aa61e17190a5f30915d6eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ea68caa_67786e7d",
+        "filename": "front_end/quick_open/FilteredListWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-03T12:40:39Z",
+      "side": 1,
+      "message": "Can you get rid of this as well?",
+      "range": {
+        "startLine": 12,
+        "startChar": 3,
+        "endLine": 12,
+        "endChar": 16
+      },
+      "revId": "6a01b4b145697864f8aa61e17190a5f30915d6eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c42eb0f8_d2246de4",
+        "filename": "front_end/quick_open/FilteredListWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-03T12:40:39Z",
+      "side": 1,
+      "message": "I think zero is not a valid timer id, so you can have type number if you initialize to 0.",
+      "range": {
+        "startLine": 25,
+        "startChar": 22,
+        "endLine": 25,
+        "endChar": 31
+      },
+      "revId": "6a01b4b145697864f8aa61e17190a5f30915d6eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fe8ae22_a0894b6a",
+        "filename": "front_end/quick_open/FilteredListWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-03T12:40:39Z",
+      "side": 1,
+      "message": "I don\u0027t like he deletes too much, could you try to keep the fields, but clear them out (with 0 if it is a timer id, and undefined or null otherwise).",
+      "range": {
+        "startLine": 231,
+        "startChar": 4,
+        "endLine": 231,
+        "endChar": 11
+      },
+      "revId": "6a01b4b145697864f8aa61e17190a5f30915d6eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93009bc8_7ed603f5",
+        "filename": "front_end/quick_open/FilteredListWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-03T12:40:39Z",
+      "side": 1,
+      "message": "nit: use array spread here",
+      "range": {
+        "startLine": 503,
+        "startChar": 20,
+        "endLine": 503,
+        "endChar": 97
+      },
+      "revId": "6a01b4b145697864f8aa61e17190a5f30915d6eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b48ef2c_1392958a",
+        "filename": "front_end/quick_open/FilteredListWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-03T12:40:39Z",
+      "side": 1,
+      "message": "Nit: lets have \n\n  /**\n   * @param {!KeyboardEvent} event\n   */\n\nand cast at the use-site if necessary.",
+      "range": {
+        "startLine": 555,
+        "startChar": 2,
+        "endLine": 555,
+        "endChar": 12
+      },
+      "revId": "6a01b4b145697864f8aa61e17190a5f30915d6eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42281334_baafd08b",
+        "filename": "front_end/quick_open/FilteredListWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-03T12:40:39Z",
+      "side": 1,
+      "message": "Can we get rid of this as well? (by adding a constructor?)",
+      "range": {
+        "startLine": 606,
+        "startChar": 4,
+        "endLine": 606,
+        "endChar": 16
+      },
+      "revId": "6a01b4b145697864f8aa61e17190a5f30915d6eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
