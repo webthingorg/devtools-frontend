@@ -458,6 +458,7 @@ class AffectedDirectivesView extends AffectedResourcesView {
       const sourceAnchor = linkifier.linkifyScriptLocation(
           /* target */ null,
           /* scriptId */ null, sourceLocation.url, sourceLocation.lineNumber);
+      sourceAnchor.classList.add('sources-panel-link');
       sourceCodeLocation.appendChild(sourceAnchor);
     }
     element.appendChild(sourceCodeLocation);
