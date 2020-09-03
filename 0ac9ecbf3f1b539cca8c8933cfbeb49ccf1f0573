@@ -16,6 +16,24 @@
       "revId": "0ac9ecbf3f1b539cca8c8933cfbeb49ccf1f0573",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "240f17cd_5b57ea81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-09-03T07:34:21Z",
+      "side": 1,
+      "message": "I did not find a way to test the actual \"Save as...\" functionality in an e2e-test, therefore I am just testing that the context menu appears and contains the correct entries.\n\nThe test also passes locally on chromium M86 (chromium/4240), so it should be back-mergeable.",
+      "parentUuid": "1e3e9fb6_e41bcc69",
+      "revId": "0ac9ecbf3f1b539cca8c8933cfbeb49ccf1f0573",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
