@@ -16,6 +16,69 @@
       "revId": "b72c0d5a4592462707382426a4f95400e634e196",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afc8f9cb_0eaf2d9a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-09-03T22:46:57Z",
+      "side": 1,
+      "message": "Left a couple of comments 😊",
+      "revId": "b72c0d5a4592462707382426a4f95400e634e196",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d45edbbd_ab912e79",
+        "filename": "scripts/localization/utils/check_localizability.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-09-03T22:46:57Z",
+      "side": 1,
+      "message": "I just tried this path and it was not caught by the script. I used the same code on current master and it worked. Could you verify this case?",
+      "range": {
+        "startLine": 81,
+        "startChar": 1,
+        "endLine": 81,
+        "endChar": 55
+      },
+      "revId": "b72c0d5a4592462707382426a4f95400e634e196",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d231831a_b4027f64",
+        "filename": "scripts/test/run_localization_check.py",
+        "patchSetId": 14
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-09-03T22:46:57Z",
+      "side": 1,
+      "message": "we dont need this index anymore. Also this message needs to be updated it also verifies: \nVerifying that all resources are localizable",
+      "range": {
+        "startLine": 70,
+        "startChar": 26,
+        "endLine": 70,
+        "endChar": 35
+      },
+      "revId": "b72c0d5a4592462707382426a4f95400e634e196",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
