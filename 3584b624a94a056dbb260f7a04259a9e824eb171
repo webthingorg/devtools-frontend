@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "700059fe_bee75df3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-09-04T15:47:00Z",
+      "side": 1,
+      "message": "Consider this \"approved with suggestions.\"",
+      "revId": "3584b624a94a056dbb260f7a04259a9e824eb171",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ee6ae9e_b941f086",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1715,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-09-04T15:47:00Z",
+      "side": 1,
+      "message": "You could invert this check:\n\n    if (!this.dataGrid) {\n      return;\n    }\n\nThen your diff becomes much smaller, and it amounts to the same thing.",
+      "revId": "3584b624a94a056dbb260f7a04259a9e824eb171",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
