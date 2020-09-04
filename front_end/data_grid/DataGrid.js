@@ -1712,21 +1712,23 @@ export class DataGridNode extends Common.ObjectWrapper.ObjectWrapper {
    */
   createCells(element) {
     element.removeChildren();
-    const columnsArray = this.dataGrid.visibleColumnsArray;
-    const accessibleTextArray = [];
-    // Add depth if node is part of a tree
-    if (this._hasChildren || !this.parent._isRoot) {
-      accessibleTextArray.push(ls`level ${this.depth + 1}`);
+    if (this.dataGrid) {
+      const columnsArray = this.dataGrid.visibleColumnsArray;
+      const accessibleTextArray = [];
+      // Add depth if node is part of a tree
+      if (this._hasChildren || !this.parent._isRoot) {
+        accessibleTextArray.push(ls`level ${this.depth + 1}`);
+      }
+      for (let i = 0; i < columnsArray.length; ++i) {
+        const column = columnsArray[i];
+        const cell = element.appendChild(this.createCell(column.id));
+        // Add each visibile cell to the node's accessible text by gathering 'Column Title: content'
+        const localizedTitle = ls`${column.title}`;
+        accessibleTextArray.push(`${localizedTitle}: ${this.cellAccessibleTextMap.get(column.id) || cell.textContent}`);
+      }
+      this.nodeAccessibleText = accessibleTextArray.join(', ');
+      element.appendChild(this._createTDWithClass('corner'));
     }
-    for (let i = 0; i < columnsArray.length; ++i) {
-      const column = columnsArray[i];
-      const cell = element.appendChild(this.createCell(column.id));
-      // Add each visibile cell to the node's accessible text by gathering 'Column Title: content'
-      const localizedTitle = ls`${column.title}`;
-      accessibleTextArray.push(`${localizedTitle}: ${this.cellAccessibleTextMap.get(column.id) || cell.textContent}`);
-    }
-    this.nodeAccessibleText = accessibleTextArray.join(', ');
-    element.appendChild(this._createTDWithClass('corner'));
   }
 
   /**
