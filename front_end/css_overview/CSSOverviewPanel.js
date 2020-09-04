@@ -1,10 +1,7 @@
 // Copyright 2019 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
-
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
+import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
 import * as Host from '../host/host.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
@@ -50,7 +47,7 @@ export class CSSOverviewPanel extends UI.Panel.Panel {
     this._fillColors = new Map();
     this._borderColors = new Map();
     this._fontInfo = new Map();
-    this._mediaQueries = [];
+    this._mediaQueries = new Map();
     this._unusedDeclarations = new Map();
     this._elementCount = 0;
     this._cancelled = false;
@@ -73,6 +70,9 @@ export class CSSOverviewPanel extends UI.Panel.Panel {
     this._renderInitialView();
   }
 
+  /**
+   * @param {!Common.EventTarget.EventTargetEvent} evt
+   */
   _requestNodeHighlight(evt) {
     this._model.highlightNode(evt.data);
   }
@@ -157,6 +157,10 @@ export class CSSOverviewPanel extends UI.Panel.Panel {
     this._controller.dispatchEventToListeners(Events.OverviewCompleted);
   }
 
+  /**
+   * @param {!Array<!Protocol.CSS.CSSComputedStyleProperty>} styles
+   * @param {string} name
+   */
   _getStyleValue(styles, name) {
     const item = styles.filter(style => style.name === name);
     if (!item.length) {
