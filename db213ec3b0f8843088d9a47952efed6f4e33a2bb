@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "93438f31_513d31c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-04T08:23:42Z",
+      "side": 1,
+      "message": "Asking the same reviewers who reviewed the original console.table change.\nIf there is someone who knows the console in depth, let me know, I\u0027d love for them to check if the approach makes sense. I\u0027m pretty sure it does.",
+      "revId": "db213ec3b0f8843088d9a47952efed6f4e33a2bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
