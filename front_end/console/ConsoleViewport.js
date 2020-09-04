@@ -473,7 +473,8 @@ export class ConsoleViewport {
     }
 
     for (let i = this._anchorSelection.item; i <= this._headSelection.item; i++) {
-      if (this._renderedItems[i].consoleMessage().type === 'table') {
+      const element = this._providerElement(i);
+      if (element && element.consoleMessage().type === 'table') {
         return true;
       }
     }
