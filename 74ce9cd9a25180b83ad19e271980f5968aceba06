@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3f1abe6_f180316c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-04T15:39:38Z",
+      "side": 1,
+      "message": "Ready for review.\nI\u0027d appreciate it if you could test this out on a variety of websites too. It\u0027s very dependent on the DOM structure that websites use, and I could only test a few myself.",
+      "revId": "74ce9cd9a25180b83ad19e271980f5968aceba06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
