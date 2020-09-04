@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f14ed55_b1a891c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-09-04T15:49:37Z",
+      "side": 1,
+      "message": "I have some confusion about a couple of these items.",
+      "revId": "19c48f1b275a0834e87dd7e8f3df937e769743d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5c211ac_5f1ad92e",
+        "filename": "front_end/console/console_strings.grdp",
+        "patchSetId": 5
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-09-04T15:49:37Z",
+      "side": 1,
+      "message": "I\u0027m not sure I understand why this is locked. \"Extension\" isn\u0027t an API name here like \"top\" and \"iframe\".",
+      "revId": "19c48f1b275a0834e87dd7e8f3df937e769743d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81a68fbb_3b4cf55a",
+        "filename": "front_end/console/console_strings.grdp",
+        "patchSetId": 5
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-09-04T15:49:37Z",
+      "side": 1,
+      "message": "Why isn\u0027t \"worker\" locked elsewhere?",
+      "revId": "19c48f1b275a0834e87dd7e8f3df937e769743d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
