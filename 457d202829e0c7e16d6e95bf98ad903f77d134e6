@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "db4862a3_88bda167",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-09-04T06:11:29Z",
+      "side": 1,
+      "message": "Updated 😊",
+      "parentUuid": "4b235ede_260e7a41",
+      "revId": "457d202829e0c7e16d6e95bf98ad903f77d134e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0024690d_66818b9f",
         "filename": "front_end/console/ConsoleContextSelector.js",
         "patchSetId": 3
@@ -47,6 +65,30 @@
       "writtenOn": "2020-08-25T15:53:27Z",
       "side": 1,
       "message": "is this displayed in the UI? if it is I would then leave the localization call and block it on the grdp. If it is not we need to remove the loc call from line 264 too.",
+      "range": {
+        "startLine": 279,
+        "startChar": 14,
+        "endLine": 279,
+        "endChar": 20
+      },
+      "revId": "457d202829e0c7e16d6e95bf98ad903f77d134e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5219739_04288c4c",
+        "filename": "front_end/console/ConsoleContextSelector.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-09-04T06:11:29Z",
+      "side": 1,
+      "message": "Yes they are displayed in the UI! Update those to block on the grdps.",
+      "parentUuid": "0024690d_66818b9f",
       "range": {
         "startLine": 279,
         "startChar": 14,
@@ -79,6 +121,30 @@
       "revId": "457d202829e0c7e16d6e95bf98ad903f77d134e6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd60071a_cccb830d",
+        "filename": "front_end/console/console_strings.grdp",
+        "patchSetId": 3
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-09-04T06:11:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "488e3f02_5aebf63c",
+      "range": {
+        "startLine": 160,
+        "startChar": 112,
+        "endLine": 160,
+        "endChar": 118
+      },
+      "revId": "457d202829e0c7e16d6e95bf98ad903f77d134e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
