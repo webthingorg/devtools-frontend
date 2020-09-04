@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "02f38940_005e79d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-09-04T03:47:20Z",
+      "side": 1,
+      "message": "Done, PTAL, thank you!",
+      "parentUuid": "afc8f9cb_0eaf2d9a",
+      "revId": "b72c0d5a4592462707382426a4f95400e634e196",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d45edbbd_ab912e79",
         "filename": "scripts/localization/utils/check_localizability.js",
         "patchSetId": 14
@@ -47,6 +65,30 @@
       "writtenOn": "2020-09-03T22:46:57Z",
       "side": 1,
       "message": "I just tried this path and it was not caught by the script. I used the same code on current master and it worked. Could you verify this case?",
+      "range": {
+        "startLine": 81,
+        "startChar": 1,
+        "endLine": 81,
+        "endChar": 55
+      },
+      "revId": "b72c0d5a4592462707382426a4f95400e634e196",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5cf26733_84f51e4a",
+        "filename": "scripts/localization/utils/check_localizability.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-09-04T03:47:20Z",
+      "side": 1,
+      "message": "Ah you are right, I missed to add this back 😂 Thanks for catching! This should be working now.",
+      "parentUuid": "d45edbbd_ab912e79",
       "range": {
         "startLine": 81,
         "startChar": 1,
@@ -79,6 +121,30 @@
       "revId": "b72c0d5a4592462707382426a4f95400e634e196",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "114f4603_02844a7c",
+        "filename": "scripts/test/run_localization_check.py",
+        "patchSetId": 14
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-09-04T03:47:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d231831a_b4027f64",
+      "range": {
+        "startLine": 70,
+        "startChar": 26,
+        "endLine": 70,
+        "endChar": 35
+      },
+      "revId": "b72c0d5a4592462707382426a4f95400e634e196",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
