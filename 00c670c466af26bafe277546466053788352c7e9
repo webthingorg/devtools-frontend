@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "def5f186_f73167cc",
+        "filename": "test/unittests/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-07T12:09:16Z",
+      "side": 1,
+      "message": "Ultra-nit: can be `front_end`",
+      "range": {
+        "startLine": 10,
+        "startChar": 5,
+        "endLine": 10,
+        "endChar": 7
+      },
+      "revId": "00c670c466af26bafe277546466053788352c7e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71a87883_7a0e41a7",
+        "filename": "test/unittests/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-07T12:09:16Z",
+      "side": 1,
+      "message": "Nit: this can be `copy_to_gen` now.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 4
+      },
+      "revId": "00c670c466af26bafe277546466053788352c7e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1126a809_36e41a88",
+        "filename": "test/unittests/karma.conf.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-07T12:09:16Z",
+      "side": 1,
+      "message": "Aw yeah. First usage of `flat` I have found in the wild 🎉",
+      "range": {
+        "startLine": 48,
+        "startChar": 9,
+        "endLine": 48,
+        "endChar": 13
+      },
+      "revId": "00c670c466af26bafe277546466053788352c7e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
