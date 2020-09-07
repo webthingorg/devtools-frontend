@@ -255,6 +255,15 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
   }
 
   /**
+   * @param {string} url
+   * @return {string}
+   */
+  _fileUrlFromNetworkUrl(url) {
+    return Common.ParsedURL.ParsedURL.relativePlatformPathToURL(
+        this._encodedPathFromUrl(url), /** @type {!FileSystem} */ (this._project).fileSystemPath() + '/');
+  }
+
+  /**
    * @param {string} path
    * @return {string}
    */
@@ -381,9 +390,7 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     }
     const url = Common.ParsedURL.ParsedURL.urlWithoutHash(uiSourceCode.url());
     this._networkUISourceCodeForEncodedPath.set(this._encodedPathFromUrl(url), uiSourceCode);
-
-    const fileSystemUISourceCode = this._project.uiSourceCodeForURL(
-        /** @type {!FileSystem} */ (this._project).fileSystemPath() + '/' + this._encodedPathFromUrl(url));
+    const fileSystemUISourceCode = this._project.uiSourceCodeForURL(this._fileUrlFromNetworkUrl(url));
     if (fileSystemUISourceCode) {
       await this._bind(uiSourceCode, fileSystemUISourceCode);
     }
@@ -523,8 +530,7 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     if (!this._active || (method !== 'GET' && method !== 'POST')) {
       return;
     }
-    const path = /** @type {!FileSystem} */ (this._project).fileSystemPath() + '/' +
-        this._encodedPathFromUrl(interceptedRequest.request.url);
+    const path = this._fileUrlFromNetworkUrl(interceptedRequest.request.url);
     const fileSystemUISourceCode = this._project.uiSourceCodeForURL(path);
     if (!fileSystemUISourceCode) {
       return;
