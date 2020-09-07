@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc856b9c_dff16248",
+        "filename": "front_end/platform/string-utilities.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-07T09:34:05Z",
+      "side": 1,
+      "message": "nit: could you use string template for this part?",
+      "revId": "2b377b61dadd014a0cfc3ee77bb170af614e0b6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
