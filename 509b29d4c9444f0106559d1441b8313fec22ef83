@@ -16,6 +16,41 @@
       "revId": "509b29d4c9444f0106559d1441b8313fec22ef83",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "219522f2_8cf2352d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-07T07:20:02Z",
+      "side": 1,
+      "message": "LGTM but please wait for others to take a look",
+      "revId": "509b29d4c9444f0106559d1441b8313fec22ef83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ace8af65_d7f74595",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-07T07:20:02Z",
+      "side": 1,
+      "message": "\u003e PTAL. Any thoughts how to move tests? \n\u003e \n\u003e Some thoughts:\n\u003e \n\u003e - move unittests/front_end/helpers to unittests/\n\u003e - move unittests/front_end/karma.conf.js to unittests/karma.conf.js or have a separate karma config for the overlay? \n\nI defer to Tim on these questions.",
+      "parentUuid": "f8cf5e1a_7f506a6a",
+      "revId": "509b29d4c9444f0106559d1441b8313fec22ef83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
