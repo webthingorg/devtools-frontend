@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57264da3_5f8e0b67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-07T06:22:13Z",
+      "side": 1,
+      "message": "LGTM, assuming you’ve checked the hover/focus styles for the affected elements",
+      "revId": "d3ae2a6f46c98deb782e9f55e2e59e918043ac9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
