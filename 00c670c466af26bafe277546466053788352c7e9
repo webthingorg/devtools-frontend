@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5d1d1477_52c4a364",
+        "filename": "test/unittests/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-07T12:13:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "def5f186_f73167cc",
+      "range": {
+        "startLine": 10,
+        "startChar": 5,
+        "endLine": 10,
+        "endChar": 7
+      },
+      "revId": "00c670c466af26bafe277546466053788352c7e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71a87883_7a0e41a7",
         "filename": "test/unittests/BUILD.gn",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "cc2d1b54_6432ac8c",
+        "filename": "test/unittests/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-07T12:13:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71a87883_7a0e41a7",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 4
+      },
+      "revId": "00c670c466af26bafe277546466053788352c7e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1126a809_36e41a88",
         "filename": "test/unittests/karma.conf.js",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2020-09-07T12:09:16Z",
       "side": 1,
       "message": "Aw yeah. First usage of `flat` I have found in the wild 🎉",
+      "range": {
+        "startLine": 48,
+        "startChar": 9,
+        "endLine": 48,
+        "endChar": 13
+      },
+      "revId": "00c670c466af26bafe277546466053788352c7e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "948cde1b_0540ce7b",
+        "filename": "test/unittests/karma.conf.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-07T12:13:48Z",
+      "side": 1,
+      "message": "🎉",
+      "parentUuid": "1126a809_36e41a88",
       "range": {
         "startLine": 48,
         "startChar": 9,
