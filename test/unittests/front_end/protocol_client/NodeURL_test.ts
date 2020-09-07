@@ -23,52 +23,56 @@ describe('NodeURL', () => {
   });
 
   describe('patch', () => {
-    const url = Platform.isWin() ? 'c:\\prog\\foobar.js' : '/usr/local/home/prog/foobar.js';
-    const patchedUrl = Platform.isWin() ? 'file:///c:/prog/foobar.js' : 'file:///usr/local/home/prog/foobar.js';
+    // For Windows, test both cases for the drive letter, but the test should be case agnostic.
+    const urls = Platform.isWin() ? ['C:\\prog\\foobar.js', 'c:\\prog\\foobar.js'] : ['/usr/local/home/prog/foobar.js'];
+    const validPatchedUrls = Platform.isWin() ? ['file:///C:/prog/foobar.js', 'file:///c:/prog/foobar.js'] :
+                                                ['file:///usr/local/home/prog/foobar.js'];
 
-    it('does patch url fields', () => {
-      const object = {url, result: null};
+    for (const url of urls) {
+      it('does patch url fields', () => {
+        const object = {url, result: null};
 
-      NodeURL.patch(object);
+        NodeURL.patch(object);
 
-      assert.strictEqual(object.url, patchedUrl);
-    });
+        assert.oneOf(object.url, validPatchedUrls);
+      });
 
-    it('does not patch the url of the result', () => {
-      const object = {
-        url: '',
-        result: {
+      it('does not patch the url of the result', () => {
+        const object = {
+          url: '',
           result: {
-            value: {url},
+            result: {
+              value: {url},
+            },
           },
-        },
-      };
+        };
 
-      NodeURL.patch(object);
+        NodeURL.patch(object);
 
-      assert.strictEqual(object.result.result.value.url, url);
-    });
+        assert.strictEqual(object.result.result.value.url, url);
+      });
 
-    it('does patch all urls in an example protocol message', () => {
-      const object = {
-        exceptionDetails: {
-          url,
-          stackTrace: {
-            callFrames: [{
-              columnNumber: 0,
-              functionName: '',
-              lineNumber: 0,
-              scriptId: '0',
-              url,
-            }],
+      it('does patch all urls in an example protocol message', () => {
+        const object = {
+          exceptionDetails: {
+            url,
+            stackTrace: {
+              callFrames: [{
+                columnNumber: 0,
+                functionName: '',
+                lineNumber: 0,
+                scriptId: '0',
+                url,
+              }],
+            },
           },
-        },
-      };
+        };
 
-      NodeURL.patch(object as unknown as {url: string});
+        NodeURL.patch(object as unknown as {url: string});
 
-      assert.strictEqual(object.exceptionDetails.url, patchedUrl);
-      assert.strictEqual(object.exceptionDetails.stackTrace.callFrames[0].url, patchedUrl);
-    });
+        assert.oneOf(object.exceptionDetails.url, validPatchedUrls);
+        assert.oneOf(object.exceptionDetails.stackTrace.callFrames[0].url, validPatchedUrls);
+      });
+    }
   });
 });
