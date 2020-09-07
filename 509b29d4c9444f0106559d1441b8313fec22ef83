@@ -51,6 +51,47 @@
       "revId": "509b29d4c9444f0106559d1441b8313fec22ef83",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34fd7da0_a0bdb7ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-07T09:57:01Z",
+      "side": 1,
+      "message": "Yes that makes sense. Then we keep `unittests/front_end/` for all code under `front_end/`. And then move the `inspector_overlay/` tests to `unittests/inspector_overlay` (e.g. we mirror the directory layout of `/` in `test/unittests/`). Maybe make a separate CL for the karma config (you might need to update the CQ infra config) and another one for the move to `test/unittests/`. That way, we don\u0027t make this CL too big and we can hash out the details of the unittests without blocking the implementation move.",
+      "parentUuid": "ace8af65_d7f74595",
+      "revId": "509b29d4c9444f0106559d1441b8313fec22ef83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "276afeb4_972c7946",
+        "filename": "inspector_overlay/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-07T09:57:01Z",
+      "side": 1,
+      "message": "FYI Yang this will move the OWNERS, which means `front_end/OWNERS` can no longer use their rights to approve Cls in the new directory. Fwiw, I am personally okay with that.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 0
+      },
+      "revId": "509b29d4c9444f0106559d1441b8313fec22ef83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
