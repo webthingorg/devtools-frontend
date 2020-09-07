@@ -59,6 +59,30 @@
     },
     {
       "key": {
+        "uuid": "ccfe7ee8_6625b0ee",
+        "filename": "front_end/platform/string-utilities.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-09-07T09:19:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "149c3229_6bb74438",
+      "range": {
+        "startLine": 498,
+        "startChar": 0,
+        "endLine": 498,
+        "endChar": 38
+      },
+      "revId": "6a01b4b145697864f8aa61e17190a5f30915d6eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64054293_3c5a6f6e",
         "filename": "front_end/platform/utilities.js",
         "patchSetId": 1
@@ -129,6 +153,30 @@
     },
     {
       "key": {
+        "uuid": "2391b504_d9e4fa79",
+        "filename": "front_end/quick_open/FilteredListWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-09-07T09:19:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ea68caa_67786e7d",
+      "range": {
+        "startLine": 12,
+        "startChar": 3,
+        "endLine": 12,
+        "endChar": 16
+      },
+      "revId": "6a01b4b145697864f8aa61e17190a5f30915d6eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c42eb0f8_d2246de4",
         "filename": "front_end/quick_open/FilteredListWidget.js",
         "patchSetId": 1
@@ -149,6 +197,30 @@
       "revId": "6a01b4b145697864f8aa61e17190a5f30915d6eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b98851cc_b5637fb5",
+        "filename": "front_end/quick_open/FilteredListWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-09-07T09:19:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c42eb0f8_d2246de4",
+      "range": {
+        "startLine": 25,
+        "startChar": 22,
+        "endLine": 25,
+        "endChar": 31
+      },
+      "revId": "6a01b4b145697864f8aa61e17190a5f30915d6eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -175,6 +247,30 @@
     },
     {
       "key": {
+        "uuid": "27a0e108_b645c87c",
+        "filename": "front_end/quick_open/FilteredListWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-09-07T09:19:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fe8ae22_a0894b6a",
+      "range": {
+        "startLine": 231,
+        "startChar": 4,
+        "endLine": 231,
+        "endChar": 11
+      },
+      "revId": "6a01b4b145697864f8aa61e17190a5f30915d6eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "93009bc8_7ed603f5",
         "filename": "front_end/quick_open/FilteredListWidget.js",
         "patchSetId": 1
@@ -195,6 +291,30 @@
       "revId": "6a01b4b145697864f8aa61e17190a5f30915d6eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3094f900_4ee39b0c",
+        "filename": "front_end/quick_open/FilteredListWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-09-07T09:19:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93009bc8_7ed603f5",
+      "range": {
+        "startLine": 503,
+        "startChar": 20,
+        "endLine": 503,
+        "endChar": 97
+      },
+      "revId": "6a01b4b145697864f8aa61e17190a5f30915d6eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -221,6 +341,30 @@
     },
     {
       "key": {
+        "uuid": "3e66f745_bb76c86a",
+        "filename": "front_end/quick_open/FilteredListWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-09-07T09:19:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b48ef2c_1392958a",
+      "range": {
+        "startLine": 555,
+        "startChar": 2,
+        "endLine": 555,
+        "endChar": 12
+      },
+      "revId": "6a01b4b145697864f8aa61e17190a5f30915d6eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "42281334_baafd08b",
         "filename": "front_end/quick_open/FilteredListWidget.js",
         "patchSetId": 1
@@ -232,6 +376,30 @@
       "writtenOn": "2020-09-03T12:40:39Z",
       "side": 1,
       "message": "Can we get rid of this as well? (by adding a constructor?)",
+      "range": {
+        "startLine": 606,
+        "startChar": 4,
+        "endLine": 606,
+        "endChar": 16
+      },
+      "revId": "6a01b4b145697864f8aa61e17190a5f30915d6eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ccaee40_1a35ad51",
+        "filename": "front_end/quick_open/FilteredListWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-09-07T09:19:18Z",
+      "side": 1,
+      "message": "It seems I can just remove this without adding a constructor.\nIs that OK?",
+      "parentUuid": "42281334_baafd08b",
       "range": {
         "startLine": 606,
         "startChar": 4,
