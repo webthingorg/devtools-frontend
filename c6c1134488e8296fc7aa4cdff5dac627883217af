@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2828592_349c0181",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-09-07T09:25:07Z",
+      "side": 1,
+      "message": "PTAL\n\nDid the original texts change since July 21st when I uploaded the initial CL? If yes, then I would need to do another pass to double-check that the texts match.",
+      "revId": "c6c1134488e8296fc7aa4cdff5dac627883217af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
