@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "6a1d6925_4a7535e2",
+        "filename": "front_end/network/NetworkLogView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-09-07T07:29:26Z",
+      "side": 1,
+      "message": "The other network settings seem to be of the form networkTextFilter without the dot.",
+      "range": {
+        "startLine": 212,
+        "startChar": 81,
+        "endLine": 212,
+        "endChar": 99
+      },
+      "revId": "3a2ddb5a0fe974e9bd5bd0e9599199a52539ad83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbce9858_97437b44",
+        "filename": "front_end/network/NetworkLogView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-09-07T07:29:26Z",
+      "side": 1,
+      "message": "What\u0027s up with settings that are registered in the module.json file vs. ones that aren\u0027t? Do we need to register this one there?",
+      "range": {
+        "startLine": 212,
+        "startChar": 66,
+        "endLine": 212,
+        "endChar": 79
+      },
+      "revId": "3a2ddb5a0fe974e9bd5bd0e9599199a52539ad83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0169983a_831402d0",
         "filename": "front_end/network/NetworkPanel.js",
         "patchSetId": 1
