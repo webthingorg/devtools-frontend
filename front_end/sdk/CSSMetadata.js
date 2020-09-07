@@ -202,6 +202,15 @@ export class CSSMetadata {
   }
 
   /**
+ * @param {string} propertyName
+ * @return {boolean}
+ */
+  isAngleAwareProperty(propertyName) {
+    // TODO: complete the list of angle-aware properties
+    return propertyName === 'transform';
+  }
+
+  /**
    * @param {string} propertyName
    * @return {boolean}
    */
