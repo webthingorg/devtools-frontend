@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e9931277_57292105",
+        "filename": "front_end/quick_open/FilteredListWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-07T15:08:13Z",
+      "side": 1,
+      "message": "textContent is only null if element is a document or doctype node, which I think never applies to this case, since we only ever pass regular nodes that we create and contorl (of course, it would be good to double-check callsites to confirm this). In that case, it would be better to do an inline `/** @type */` cast instead.",
+      "revId": "d931fc1f0b59daed72971b2f294768ac986e96fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a21518db_a48a534d",
+        "filename": "front_end/quick_open/FilteredListWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-07T15:08:13Z",
+      "side": 1,
+      "message": "It looks like .show() actually allows omitting the document argument: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/ui/Dialog.js;l\u003d78-79;drc\u003d80d8265054b2c46496e85ff2a155b987bdb97b93 In that case, should we update its typings accordingly instead of changing this line?",
+      "revId": "d931fc1f0b59daed72971b2f294768ac986e96fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c156bdb1_e7b5b68b",
+        "filename": "front_end/quick_open/FilteredListWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-07T15:08:13Z",
+      "side": 1,
+      "message": "Unrelated to your change, but now that we’re here, let’s save a function call:\n\n    this._progressBarElement.classList.remove(\u0027filtered-widget-progress-fade\u0027, \u0027hidden\u0027);",
+      "revId": "d931fc1f0b59daed72971b2f294768ac986e96fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18d267e1_25e305ba",
+        "filename": "front_end/quick_open/FilteredListWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-07T15:08:13Z",
+      "side": 1,
+      "message": "Style: let’s use a literal when possible:\n\n    [...bestItems, ...overflowItems, ...filteredItems]",
+      "revId": "d931fc1f0b59daed72971b2f294768ac986e96fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
