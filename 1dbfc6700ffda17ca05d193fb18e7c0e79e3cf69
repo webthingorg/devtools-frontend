@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "f4302767_d41dfe0f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-09-07T12:36:50Z",
+      "side": 1,
+      "message": "Actually, this component is pretty simple, the event handlers are passed via data, I believe that an example wouldn\u0027t be really valuable here. Wdyt?",
+      "parentUuid": "e78733fa_0e40452c",
+      "revId": "1dbfc6700ffda17ca05d193fb18e7c0e79e3cf69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17d5a9e9_faebdd3b",
         "filename": "front_end/elements/ElementsPanelLink.ts",
         "patchSetId": 5
