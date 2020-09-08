@@ -16,6 +16,23 @@
       "revId": "de1f5d36bac15f9877f7566dd47ac49977562385",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d3862a3_441fe8de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-09-08T12:19:10Z",
+      "side": 1,
+      "message": "Still LGTM - Simon WDYT?",
+      "revId": "de1f5d36bac15f9877f7566dd47ac49977562385",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
