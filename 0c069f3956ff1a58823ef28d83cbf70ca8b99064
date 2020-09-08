@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "09c1cba1_955928b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1133035
+      },
+      "writtenOn": "2020-09-08T00:59:55Z",
+      "side": 1,
+      "message": "This seems to have broken win-archive-rel[1]. I\u0027ll stop the roller and revert the roll if the next build fails again.\n\n[1] https://ci.chromium.org/p/chromium/builders/ci/win-archive-rel/17350",
+      "revId": "0c069f3956ff1a58823ef28d83cbf70ca8b99064",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
