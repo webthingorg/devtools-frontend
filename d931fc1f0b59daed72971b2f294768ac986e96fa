@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "a5d83b74_55204968",
+        "filename": "front_end/quick_open/FilteredListWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-09-08T08:43:50Z",
+      "side": 1,
+      "message": "Typescript doesn\u0027t seem to know this. Even if it is an HTMLElement .textContent is still `string | null`. The semantically most correct solution seems to be updating to HTMLElement but still casting. We have to update quite a lot of call sites to HTMLElement as well though. WDYT?",
+      "parentUuid": "10312c87_a5545d76",
+      "revId": "d931fc1f0b59daed72971b2f294768ac986e96fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a21518db_a48a534d",
         "filename": "front_end/quick_open/FilteredListWidget.js",
         "patchSetId": 1
@@ -65,6 +83,24 @@
       "writtenOn": "2020-09-07T15:08:13Z",
       "side": 1,
       "message": "It looks like .show() actually allows omitting the document argument: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/ui/Dialog.js;l\u003d78-79;drc\u003d80d8265054b2c46496e85ff2a155b987bdb97b93 In that case, should we update its typings accordingly instead of changing this line?",
+      "revId": "d931fc1f0b59daed72971b2f294768ac986e96fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "391287c6_94d45e01",
+        "filename": "front_end/quick_open/FilteredListWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-09-08T08:43:50Z",
+      "side": 1,
+      "message": "Aha. Dialog.js is not yet typescriptified, so it seems ts instead pulls the type from the superclass `GlassPane` which only takes a Document.\nTypescriptification of Dialog.js seems blocked (https://crrev.com/c/2354092).\nShould we maybe just mark this line `@ts-ignore`?",
+      "parentUuid": "a21518db_a48a534d",
       "revId": "d931fc1f0b59daed72971b2f294768ac986e96fa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -88,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "0bcb769e_59afc495",
+        "filename": "front_end/quick_open/FilteredListWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-09-08T08:43:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c156bdb1_e7b5b68b",
+      "revId": "d931fc1f0b59daed72971b2f294768ac986e96fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18d267e1_25e305ba",
         "filename": "front_end/quick_open/FilteredListWidget.js",
         "patchSetId": 1
@@ -102,6 +156,24 @@
       "revId": "d931fc1f0b59daed72971b2f294768ac986e96fa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e0d2fdb_2c47fd99",
+        "filename": "front_end/quick_open/FilteredListWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-09-08T08:43:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18d267e1_25e305ba",
+      "revId": "d931fc1f0b59daed72971b2f294768ac986e96fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
