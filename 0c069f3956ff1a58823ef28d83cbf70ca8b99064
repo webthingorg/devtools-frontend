@@ -16,6 +16,24 @@
       "revId": "0c069f3956ff1a58823ef28d83cbf70ca8b99064",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "231acd65_0e3059a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-09-08T07:29:32Z",
+      "side": 1,
+      "message": "The previous build on that bot was green and already included the roll. Have you seen this error on other builds before?",
+      "parentUuid": "09c1cba1_955928b4",
+      "revId": "0c069f3956ff1a58823ef28d83cbf70ca8b99064",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
