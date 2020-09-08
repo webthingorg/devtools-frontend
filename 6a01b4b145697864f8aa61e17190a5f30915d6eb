@@ -433,6 +433,30 @@
       "revId": "6a01b4b145697864f8aa61e17190a5f30915d6eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80d51fda_68b60a37",
+        "filename": "front_end/quick_open/FilteredListWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-09-08T08:46:17Z",
+      "side": 1,
+      "message": "Point taken, thanks :)",
+      "parentUuid": "4a68957e_a6245ecc",
+      "range": {
+        "startLine": 606,
+        "startChar": 4,
+        "endLine": 606,
+        "endChar": 16
+      },
+      "revId": "6a01b4b145697864f8aa61e17190a5f30915d6eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
