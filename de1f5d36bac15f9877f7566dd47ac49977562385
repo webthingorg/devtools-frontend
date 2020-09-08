@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "21b58677_5e42e019",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-09-08T09:21:29Z",
+      "side": 1,
+      "message": "The i18n module CL has landed, so this one is updated ready to go. :)",
+      "revId": "de1f5d36bac15f9877f7566dd47ac49977562385",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
