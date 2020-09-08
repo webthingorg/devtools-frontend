@@ -601,7 +601,7 @@ export class Module {
    */
   resource(name) {
     const fullName = this._name + '/' + name;
-    const content = self.Runtime.cachedResources[fullName];
+    const content = cachedResources.get(fullName);
     if (!content) {
       throw new Error(fullName + ' not preloaded. Check module.json');
     }
@@ -642,11 +642,12 @@ export class Module {
    * @return {!Promise.<void>}
    * @this {Module}
    */
-  _loadResources() {
+  async _loadResources() {
     const resources = this._descriptor['resources'];
     if (!resources || !resources.length) {
       return Promise.resolve();
     }
+    await eval(`import('../${this._name}/${this._name}_module.js')`);
     const promises = [];
     for (const resource of resources) {
       const url = this._modularizeURL(resource);
@@ -1176,7 +1177,7 @@ function loadResourceIntoCache(url, appendSourceURL) {
       return;
     }
     const sourceURL = appendSourceURL ? Runtime.resolveSourceURL(path) : '';
-    self.Runtime.cachedResources[path] = content + sourceURL;
+    cachedResources.set(path, content + sourceURL);
   }
 }
 
@@ -1222,3 +1223,8 @@ importScriptPathPrefix = baseUrl.substring(0, baseUrl.lastIndexOf('/') + 1);
 
 // This must be constructed after the query parameters have been parsed.
 export const experiments = new ExperimentsSupport();
+
+/**
+ * @type {!Map<string, string>}
+ */
+export const cachedResources = new Map();
