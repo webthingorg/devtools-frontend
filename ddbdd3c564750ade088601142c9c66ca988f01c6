@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "7f2cd76f_550cc719",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-08T08:35:15Z",
+      "side": 1,
+      "message": "Suggestion: consider adding something like \"This ensures the current tab in the Settings is correctly highlighted.\", as I couldn’t figure out what changed by looking at the screenshots without reading the bug description 👍",
+      "revId": "ddbdd3c564750ade088601142c9c66ca988f01c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8b196f65_dc265e8a",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -13,6 +30,23 @@
       "writtenOn": "2020-09-08T08:30:46Z",
       "side": 1,
       "message": "PTAL\n\nThis also changes the background in the light theme (see screenshots).",
+      "revId": "ddbdd3c564750ade088601142c9c66ca988f01c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7389649f_05ead9c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-08T08:35:15Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
       "revId": "ddbdd3c564750ade088601142c9c66ca988f01c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
