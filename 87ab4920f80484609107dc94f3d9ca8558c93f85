@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "19f77517_bd248498",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-08T15:19:10Z",
+      "side": 1,
+      "message": "LGTM with one nit!",
+      "revId": "87ab4920f80484609107dc94f3d9ca8558c93f85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "32eae79a_e13a9cc2",
+        "filename": "front_end/elements/ElementsPanelLink.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-08T15:19:10Z",
+      "side": 1,
+      "message": "this all looks good but would you mind reducing the indent? So the first LitHtml.render line aligns with the start of the `// clang-format off` comment above please?",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 24
+      },
+      "revId": "87ab4920f80484609107dc94f3d9ca8558c93f85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
