@@ -1196,7 +1196,7 @@ export function initializeUIUtils(document, themeSetting) {
   document.addEventListener('focus', focusChanged.bind(UI), true);
 
   if (!self.UI.themeSupport) {
-    self.UI.themeSupport = new ThemeSupport(themeSetting);
+    self.UI.themeSupport = ThemeSupport.instance({forceNew: true, setting: themeSetting});
   }
   self.UI.themeSupport.applyTheme(document);
 
@@ -1693,12 +1693,16 @@ export function measureTextWidth(context, text) {
   return width;
 }
 
+/** @type {!ThemeSupport} */
+let themeSupportInstance;
+
 /**
  * @unrestricted
  */
 export class ThemeSupport {
   /**
    * @param {!Common.Settings.Setting<string>} setting
+   * @private
    */
   constructor(setting) {
     const systemPreferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
@@ -1713,6 +1717,22 @@ export class ThemeSupport {
     this._setting = setting;
     this._customSheets = new Set();
     this._computedRoot = Common.Lazy.lazy(() => window.getComputedStyle(document.documentElement));
+  }
+
+  /**
+   * @param {{forceNew: ?boolean, setting: ?Common.Settings.Setting<string>}} opts
+   * @return {!ThemeSupport}
+   */
+  static instance(opts = {forceNew: null, setting: null}) {
+    const {forceNew, setting} = opts;
+    if (!themeSupportInstance || forceNew) {
+      if (!setting) {
+        throw new Error('Requires setting for theme support');
+      }
+      themeSupportInstance = new ThemeSupport(setting);
+    }
+
+    return themeSupportInstance;
   }
 
   /**

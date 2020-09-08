@@ -95,8 +95,9 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
       padding: 4,
       height: 17,
       collapsible: true,
-      color: self.UI.themeSupport.patchColorText('#222', UI.UIUtils.ThemeSupport.ColorUsage.Foreground),
-      backgroundColor: self.UI.themeSupport.patchColorText('white', UI.UIUtils.ThemeSupport.ColorUsage.Background),
+      color: UI.UIUtils.ThemeSupport.instance().patchColorText('#222', UI.UIUtils.ThemeSupport.ColorUsage.Foreground),
+      backgroundColor:
+          UI.UIUtils.ThemeSupport.instance().patchColorText('white', UI.UIUtils.ThemeSupport.ColorUsage.Background),
       font: this._font,
       nestingLevel: 0,
       shareHeaderLine: true

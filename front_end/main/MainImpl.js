@@ -662,7 +662,7 @@ export class MainMenuItem {
           toggleDockSideShorcuts[0].title());
       dockItemElement.appendChild(titleElement);
       const dockItemToolbar = new UI.Toolbar.Toolbar('', dockItemElement);
-      if (Host.Platform.isMac() && !self.UI.themeSupport.hasTheme()) {
+      if (Host.Platform.isMac() && !UI.UIUtils.ThemeSupport.instance().hasTheme()) {
         dockItemToolbar.makeBlueOnHover();
       }
       const undock =

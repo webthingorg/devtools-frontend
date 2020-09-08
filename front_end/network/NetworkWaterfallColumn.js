@@ -77,7 +77,8 @@ export class NetworkWaterfallColumn extends UI.Widget.VBox {
     /** @type {!Map<!Common.ResourceType.ResourceType, !_LayerStyle>} */
     this._styleForDownloadingResourceType = resourceStyleTuple[1];
 
-    const baseLineColor = self.UI.themeSupport.patchColorText('#a5a5a5', UI.UIUtils.ThemeSupport.ColorUsage.Foreground);
+    const baseLineColor =
+        UI.UIUtils.ThemeSupport.instance().patchColorText('#a5a5a5', UI.UIUtils.ThemeSupport.ColorUsage.Foreground);
     /** @type {!_LayerStyle} */
     this._wiskerStyle = {borderColor: baseLineColor, lineWidth: 1};
     /** @type {!_LayerStyle} */
@@ -450,7 +451,8 @@ export class NetworkWaterfallColumn extends UI.Widget.VBox {
     this._drawLayers(context);
 
     context.save();
-    context.fillStyle = self.UI.themeSupport.patchColorText('#888', UI.UIUtils.ThemeSupport.ColorUsage.Foreground);
+    context.fillStyle =
+        UI.UIUtils.ThemeSupport.instance().patchColorText('#888', UI.UIUtils.ThemeSupport.ColorUsage.Foreground);
     for (const textData of this._textLayers) {
       context.fillText(textData.text, textData.x, textData.y);
     }
@@ -663,7 +665,7 @@ export class NetworkWaterfallColumn extends UI.Widget.VBox {
     const nodeBgColorId = node.backgroundColor();
     context.save();
     context.beginPath();
-    context.fillStyle = self.UI.themeSupport.getComputedValue(nodeBgColorId);
+    context.fillStyle = UI.UIUtils.ThemeSupport.instance().getComputedValue(nodeBgColorId);
     context.rect(0, y, this._offsetWidth, this._rowHeight);
     context.fill();
     context.restore();

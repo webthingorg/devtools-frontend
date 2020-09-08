@@ -109,7 +109,7 @@ export class LighthouseReportRenderer extends ReportRenderer {
    * @param {!Element} el
    */
   static handleDarkMode(el) {
-    if (self.UI.themeSupport.themeName() === 'dark') {
+    if (UI.UIUtils.ThemeSupport.instance().themeName() === 'dark') {
       el.classList.add('dark');
     }
   }

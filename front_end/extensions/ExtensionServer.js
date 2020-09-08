@@ -324,11 +324,11 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
     styleSheet.textContent = message.styleSheet;
     document.head.appendChild(styleSheet);
 
-    self.UI.themeSupport.addCustomStylesheet(message.styleSheet);
+    UI.UIUtils.ThemeSupport.instance().addCustomStylesheet(message.styleSheet);
     // Add to all the shadow roots that have already been created
     for (let node = document.body; node; node = node.traverseNextNode(document.body)) {
       if (node instanceof ShadowRoot) {
-        self.UI.themeSupport.injectCustomStyleSheets(node);
+        UI.UIUtils.ThemeSupport.instance().injectCustomStyleSheets(node);
       }
     }
   }
@@ -802,7 +802,7 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
         // See ExtensionAPI.js for details.
         const injectedAPI = self.buildExtensionAPIInjectedScript(
             /** @type {!{startPage: string, name: string, exposeExperimentalAPIs: boolean}} */ (extensionInfo),
-            this._inspectedTabId, self.UI.themeSupport.themeName(),
+            this._inspectedTabId, UI.UIUtils.ThemeSupport.instance().themeName(),
             UI.ShortcutRegistry.ShortcutRegistry.instance().globalShortcutKeys(),
             ExtensionServer.instance()['_extensionAPITestHook']);
         Host.InspectorFrontendHost.InspectorFrontendHostInstance.setInjectedScriptForOrigin(
