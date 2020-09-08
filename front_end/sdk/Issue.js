@@ -14,10 +14,23 @@ export const IssueCategory = {
   Other: Symbol('Other')
 };
 
+/** @type {Map<symbol, string>} */
+export const IssueCategoryNames = new Map([
+  [IssueCategory.CrossOriginEmbedderPolicy, ls`Cross Origin Embedder Policy`],
+  [IssueCategory.MixedContent, ls`Mixed Content`], [IssueCategory.SameSiteCookie, ls`SameSite Cookie`],
+  [IssueCategory.HeavyAd, ls`Heavy Ads`], [IssueCategory.ContentSecurityPolicy, ls`Content Security Policy`],
+  [IssueCategory.Other, ls`Other`]
+]);
+
 /** @enum {symbol} */
 export const IssueKind = {
   BreakingChange: Symbol('BreakingChange'),
 };
+
+/** @return {!Common.Settings.Setting<boolean>} */
+export function getGroupIssuesByCategorySetting() {
+  return Common.Settings.Settings.instance().createSetting('groupIssuesByCategory', false);
+}
 
 /** @return {!Common.Settings.Setting<boolean>} */
 export function getShowThirdPartyIssuesSetting() {
@@ -165,6 +178,13 @@ export class Issue extends Common.ObjectWrapper.ObjectWrapper {
    */
   getCategory() {
     throw new Error('Not implemented');
+  }
+
+  /**
+   * @return {string}
+   */
+  getCategoryName() {
+    return IssueCategoryNames.get(this.getCategory()) || ls`Other`;
   }
 
   /**

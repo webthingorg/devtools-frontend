@@ -170,6 +170,9 @@
   <message name="IDS_DEVTOOLS_323d4eb70b252acb4a04eaf9e0882597" desc="Title for a group of cities">
     Geolocation
   </message>
+  <message name="IDS_DEVTOOLS_330c6bbd83d7bbec5d92acd8fb8161c1" desc="Category title for a group of SameSite cookie issues">
+    SameSite Cookie
+  </message>
   <message name="IDS_DEVTOOLS_342916e27fe5384ce36e77b6070b883e" desc="Title of a setting that turns off the grid line labels">
     Hide line labels
   </message>
@@ -234,6 +237,9 @@
   <message name="IDS_DEVTOOLS_4cbb2bdce4db02a995cdd7a237a63d69" desc="Title of a setting under the Grid category that turns CSS Grid Area highlighting on">
     Show grid named areas
   </message>
+  <message name="IDS_DEVTOOLS_518dbfcc162c16f899d0df7b7dfaabbb" desc="Category title for a group of mixed content issues">
+    Mixed Content
+  </message>
   <message name="IDS_DEVTOOLS_565b655df6db4b7fea71e9a712bac937" desc="Part of the issue message for CSP eval issues">
     Content Security Policy of your site blocks the use of <ph name="LOCKED_1">&apos;eval&apos;</ph> in JavaScript
   </message>
@@ -259,6 +265,9 @@
   <message name="IDS_DEVTOOLS_62c98a40c9549eded0914ba9f5de51ce" desc="Bullet point about resolving CSP inline violations">
     adding the hash or nonce of the inline script to your CSP header.
   </message>
+  <message name="IDS_DEVTOOLS_7232b2cfdea953afe7f0087a11712c9b" desc="Category title for a group of content security policy (CSP) issues">
+    Content Security Policy
+  </message>
   <message name="IDS_DEVTOOLS_7aca5a3302ffbed606fd7701315b1c45" desc="Title of a setting that turns on grid extension lines">
     Extend grid lines
   </message>
@@ -281,6 +290,9 @@
     A cookie was not sent to <ph name="DESTINATION">$1s<ex>a secure</ex></ph> origin from <ph name="ORIGIN">$2s<ex>an insecure</ex></ph> context.
         Because this cookie would have been sent across schemes on the same site, it was not sent.
         This behavior enhances the <ph name="LOCKED_1">|SameSite|</ph> attribute’s protection of user data from request forgery by network attackers.
+  </message>
+  <message name="IDS_DEVTOOLS_a35e12e7c5b04c128af39e1c2e1ed793" desc="Category title for a group of heavy ads issues">
+    Heavy Ads
   </message>
   <message name="IDS_DEVTOOLS_a56491b51306fc59e63d029cb33328ee" desc="Label for the link for Schemeful Same-Site Issues">
     How <ph name="FEATURE_NAME_SCHEMEFUL_SAME_SITE">Schemeful Same-Site</ph> Works
@@ -701,6 +713,9 @@
   </message>
   <message name="IDS_DEVTOOLS_d24a22fef757966373800aa9795458dc" desc="Text in Source Map">
     ? [sm]
+  </message>
+  <message name="IDS_DEVTOOLS_d4cfcb4d43733c39d7b1b802fe2fc235" desc="Category title for a group of cross origin embedder policy (COEP) issues">
+    Cross Origin Embedder Policy
   </message>
   <message name="IDS_DEVTOOLS_d4fad802fc7bf0248d34c685533bd56f" desc="Title of a setting under the Network category that can be invoked through the Command Menu">
     Disable request blocking
