@@ -22,6 +22,30 @@
       "revId": "58ceda00f602367608178ee5b24da0be8eb439c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fdf51d2_e00e49ab",
+        "filename": "front_end/css_overview/CSSOverviewUnusedDeclarations.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-09-08T15:14:45Z",
+      "side": 1,
+      "message": "I was hesitating to use typedefs because of the TypeScript\u0027s fundamental issue with typedefs usage, but that would definitely make the code more readable and avoid duplicating several times the definition of that type. Will do on a separate CL.",
+      "parentUuid": "cbe631c2_7787ac5b",
+      "range": {
+        "startLine": 10,
+        "startChar": 32,
+        "endLine": 10,
+        "endChar": 68
+      },
+      "revId": "58ceda00f602367608178ee5b24da0be8eb439c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
