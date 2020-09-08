@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8da811ba_7932bb75",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-08T14:12:11Z",
+      "side": 1,
+      "message": "Simon, could you PTAL since Wolfgang is OOO?",
+      "revId": "231428a9016683fb1b24b1cf443aed905b9b7588",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
