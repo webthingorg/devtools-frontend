@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b196f65_dc265e8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-08T08:30:46Z",
+      "side": 1,
+      "message": "PTAL\n\nThis also changes the background in the light theme (see screenshots).",
+      "revId": "ddbdd3c564750ade088601142c9c66ca988f01c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
