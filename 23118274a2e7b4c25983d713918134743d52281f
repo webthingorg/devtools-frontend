@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d2bc49ce_01eeabcd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-09-09T09:15:02Z",
+      "side": 1,
+      "message": "Same as the previous two presubmit CLs, this one is rebased and updated :)",
+      "revId": "23118274a2e7b4c25983d713918134743d52281f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
