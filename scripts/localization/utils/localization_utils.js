@@ -60,6 +60,10 @@ function getRelativeFilePathFromSrc(filePath) {
   return path.relative(SRC_PATH, filePath);
 }
 
+function getRelativeFilePathFromFrontEnd(filePath) {
+  return path.relative(FRONT_END_PATH, filePath);
+}
+
 function shouldParseDirectory(directoryName) {
   return !excludeDirs.some(dir => directoryName.includes(dir));
 }
