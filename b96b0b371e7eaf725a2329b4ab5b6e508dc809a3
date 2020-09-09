@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed3c224e_39ff29a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-09T14:19:44Z",
+      "side": 1,
+      "message": "Hey Connor, I would like to remove the `self.Runtime.cachedResources` global and this CL works for DevTools. However, I found a reference to the global in the `report-generator.js` from LightHouse. Is LightHouse able to use ES imports of DevTools frontend files? I also recall we were loading the `report-generator.js` as `script` rather than as `module`, but I think we fixed that by now? Let me know what your thoughts are.",
+      "revId": "b96b0b371e7eaf725a2329b4ab5b6e508dc809a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
