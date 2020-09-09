@@ -100,6 +100,30 @@
     },
     {
       "key": {
+        "uuid": "6ef9e21e_c57b314a",
+        "filename": "front_end/ui/SearchableView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-09T10:09:03Z",
+      "side": 1,
+      "message": "Agreed, let\u0027s leave it for a migration.",
+      "parentUuid": "6b87ff25_25bb0242",
+      "range": {
+        "startLine": 91,
+        "startChar": 67,
+        "endLine": 91,
+        "endChar": 91
+      },
+      "revId": "1c194c6e9afaff17ead4cfa11b2520ae3a17ee68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16ccf34c_8a3f4293",
         "filename": "test/e2e/helpers/memory-helpers.ts",
         "patchSetId": 1
@@ -135,6 +159,30 @@
       "side": 1,
       "message": "Maybe I\u0027m missing your real question, but waitForFunction will keep calling findMatch until the tests runs into the time limit. Unfortunately, that seems to be the only reasonable way to signal error here.",
       "parentUuid": "16ccf34c_8a3f4293",
+      "range": {
+        "startLine": 105,
+        "startChar": 31,
+        "endLine": 105,
+        "endChar": 40
+      },
+      "revId": "1c194c6e9afaff17ead4cfa11b2520ae3a17ee68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "146aceea_5eabcc9e",
+        "filename": "test/e2e/helpers/memory-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-09T10:09:03Z",
+      "side": 1,
+      "message": "I think I just found it confusing that we explicitly return undefined. I wonder if we get a value on line 100 that would force us to return undefined, we could assert.fail that we didn\u0027t get the expected outcome. It\u0027s not critical because I\u0027m sure the error would surface eventually, but it seems like there\u0027s an opportunity here, rather than returning undefined when we know that wouldn\u0027t be a good outcome, to throw / assert instead. wdyt?",
+      "parentUuid": "00198cfb_a47d7638",
       "range": {
         "startLine": 105,
         "startChar": 31,
