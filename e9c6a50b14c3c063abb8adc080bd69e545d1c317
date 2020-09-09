@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "86023941_c090e5e7",
+        "filename": "front_end/elements/ElementsStyleSidebar.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-09T14:49:25Z",
+      "side": 1,
+      "message": "Yes I think this pattern will work well. Let\u0027s see how well it stands the test of time.",
+      "parentUuid": "5ca290d2_23504ac1",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 42
+      },
+      "revId": "e9c6a50b14c3c063abb8adc080bd69e545d1c317",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a389182_48534ad6",
         "filename": "front_end/elements/ElementsStyleSidebar.ts",
         "patchSetId": 5
@@ -45,6 +69,30 @@
       "revId": "e9c6a50b14c3c063abb8adc080bd69e545d1c317",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e67aab6b_7cb63e14",
+        "filename": "front_end/elements/ElementsStyleSidebar.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-09T14:49:25Z",
+      "side": 1,
+      "message": "Yes, since there are other properties that are more the \"internal state\" of the element. E.g. `shouldAddPendingRuleForClick` is state set by the component, irrespective of what data is passed in. By defining `dataInternal` separately, it is easier to know whether data is controlled by the component or by the user of the component (where it would be passed through the data property).",
+      "parentUuid": "6a389182_48534ad6",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 29
+      },
+      "revId": "e9c6a50b14c3c063abb8adc080bd69e545d1c317",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "935cc087_26276864",
+        "filename": "front_end/elements/ElementsStyleSidebar.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-09T14:49:25Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a40892fe_e2abb5b8",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 62
+      },
+      "revId": "e9c6a50b14c3c063abb8adc080bd69e545d1c317",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ffe0fa8b_db0ea9a1",
         "filename": "front_end/elements/ElementsStyleSidebar.ts",
         "patchSetId": 5
@@ -91,6 +163,30 @@
       "revId": "e9c6a50b14c3c063abb8adc080bd69e545d1c317",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c19637d_d7959669",
+        "filename": "front_end/elements/ElementsStyleSidebar.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-09T14:49:25Z",
+      "side": 1,
+      "message": "Yeah this was clang doing 😞 I will see what is possible here.",
+      "parentUuid": "ffe0fa8b_db0ea9a1",
+      "range": {
+        "startLine": 154,
+        "startChar": 0,
+        "endLine": 157,
+        "endChar": 11
+      },
+      "revId": "e9c6a50b14c3c063abb8adc080bd69e545d1c317",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "0613dfe0_b2fef9dd",
+        "filename": "front_end/elements/ElementsStyleSidebar.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-09T14:49:25Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ae4b179e_449481f0",
+      "range": {
+        "startLine": 357,
+        "startChar": 0,
+        "endLine": 357,
+        "endChar": 38
+      },
+      "revId": "e9c6a50b14c3c063abb8adc080bd69e545d1c317",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50af6e66_095f9826",
         "filename": "front_end/elements/ElementsStyleSidebar.ts",
         "patchSetId": 5
@@ -137,6 +257,30 @@
       "revId": "e9c6a50b14c3c063abb8adc080bd69e545d1c317",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a26d37fa_6b05c883",
+        "filename": "front_end/elements/ElementsStyleSidebar.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-09T14:49:25Z",
+      "side": 1,
+      "message": "I have written numerous tests that tests in specific the copy-pasting of the element. The problem with unittests for these functions is that they are very much dependent on the composition of the other elements. E.g. if you want to make sure there is proper whitespace separation between the \"property\" and the \"value\" definition, as separate by a colon.\n\nI will create a follow-up CL that hooks up the tests so hopefully that will be clearer. We can revisit the question of testing then?",
+      "parentUuid": "50af6e66_095f9826",
+      "range": {
+        "startLine": 425,
+        "startChar": 2,
+        "endLine": 425,
+        "endChar": 3
+      },
+      "revId": "e9c6a50b14c3c063abb8adc080bd69e545d1c317",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "03d94b24_41434cc0",
+        "filename": "front_end/elements/ElementsStyleSidebar_bridge.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-09T14:49:25Z",
+      "side": 1,
+      "message": "This type is correct afaik.",
+      "parentUuid": "25cb174c_ad505843",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 43
+      },
+      "revId": "e9c6a50b14c3c063abb8adc080bd69e545d1c317",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f645a8bc_e8d497fc",
         "filename": "front_end/elements/edit-target.ts",
         "patchSetId": 5
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "f7b21116_df253a65",
+        "filename": "front_end/elements/edit-target.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-09T14:49:25Z",
+      "side": 1,
+      "message": "Sadly not, as this method is defined in `lib.dom.d.ts`.",
+      "parentUuid": "f645a8bc_e8d497fc",
+      "range": {
+        "startLine": 84,
+        "startChar": 45,
+        "endLine": 84,
+        "endChar": 48
+      },
+      "revId": "e9c6a50b14c3c063abb8adc080bd69e545d1c317",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f049c5b1_d358cbf5",
         "filename": "front_end/elements/edit-target.ts",
         "patchSetId": 5
@@ -206,6 +398,30 @@
       "revId": "e9c6a50b14c3c063abb8adc080bd69e545d1c317",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39623264_c8e1d1f2",
+        "filename": "front_end/elements/edit-target.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-09T14:49:25Z",
+      "side": 1,
+      "message": "We can not use the editing class per se, as the element we are editing can be in a shadow dom. Thus we would not be able to pierce into the shadow dom to define the rules.\n\nMoreover, we want to have these styles override any previously set styles. By using a class selector, we could lose on specificity if another selector overrides a particular property.",
+      "parentUuid": "f049c5b1_d358cbf5",
+      "range": {
+        "startLine": 100,
+        "startChar": 3,
+        "endLine": 102,
+        "endChar": 5
+      },
+      "revId": "e9c6a50b14c3c063abb8adc080bd69e545d1c317",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
