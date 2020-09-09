@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "64c7d81a_20d36f03",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-09-09T13:23:02Z",
+      "side": 1,
+      "message": "Yes because the url we got from V8 should be escaped. In fact we should not have modified this url in any way unless this is a node target.",
+      "parentUuid": "57ce44f4_6e18063f",
+      "range": {
+        "startLine": 416,
+        "startChar": 34,
+        "endLine": 416,
+        "endChar": 37
+      },
+      "revId": "c5249c44f01bf7d3c6f89b8242e1c9903aa68ab9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "73f65fce_157095bc",
         "filename": "front_end/workspace/UISourceCode.js",
         "patchSetId": 11
@@ -53,6 +77,30 @@
       "writtenOn": "2020-09-09T08:13:59Z",
       "side": 1,
       "message": "This looks like it violates the variant, as you said names are not escaped, but urls are?",
+      "range": {
+        "startLine": 65,
+        "startChar": 6,
+        "endLine": 65,
+        "endChar": 23
+      },
+      "revId": "c5249c44f01bf7d3c6f89b8242e1c9903aa68ab9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cdaae27d_63941eeb",
+        "filename": "front_end/workspace/UISourceCode.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-09-09T13:23:02Z",
+      "side": 1,
+      "message": "True, but this is a url that can\u0027t be parsed. I\u0027m not sure in what situation we hit this case? I could use a decodeURIComponent just for good measure.",
+      "parentUuid": "73f65fce_157095bc",
       "range": {
         "startLine": 65,
         "startChar": 6,
