@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dbf9be5d_0643dfd0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-09T13:57:08Z",
+      "side": 1,
+      "message": "2 issues I found: LightHouse `report-generator.js` uses the global still and the layout tests are unhappy",
+      "revId": "a5a4bd1f92576b8e2d65064bf3f0390adf0e3b03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
