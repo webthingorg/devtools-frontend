@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c6258604_034b3236",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-09T07:49:00Z",
+      "side": 1,
+      "message": "I think that component_helpers also calls into the theme support too if I\u0027m not mistaken - might be worth seeing if that one can be updated?",
+      "revId": "56077942944439020c10cc14634f75f8eab677ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
