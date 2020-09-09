@@ -76,6 +76,30 @@
     },
     {
       "key": {
+        "uuid": "6b87ff25_25bb0242",
+        "filename": "front_end/ui/SearchableView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-09T09:22:36Z",
+      "side": 1,
+      "message": "I deliberated, but the file is full of it, and I\u0027d leave that for the (inevitable) TypeScript migration.",
+      "parentUuid": "a6749ffe_f963329b",
+      "range": {
+        "startLine": 91,
+        "startChar": 67,
+        "endLine": 91,
+        "endChar": 91
+      },
+      "revId": "1c194c6e9afaff17ead4cfa11b2520ae3a17ee68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16ccf34c_8a3f4293",
         "filename": "test/e2e/helpers/memory-helpers.ts",
         "patchSetId": 1
@@ -99,6 +123,30 @@
     },
     {
       "key": {
+        "uuid": "00198cfb_a47d7638",
+        "filename": "test/e2e/helpers/memory-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-09T09:22:36Z",
+      "side": 1,
+      "message": "Maybe I\u0027m missing your real question, but waitForFunction will keep calling findMatch until the tests runs into the time limit. Unfortunately, that seems to be the only reasonable way to signal error here.",
+      "parentUuid": "16ccf34c_8a3f4293",
+      "range": {
+        "startLine": 105,
+        "startChar": 31,
+        "endLine": 105,
+        "endChar": 40
+      },
+      "revId": "1c194c6e9afaff17ead4cfa11b2520ae3a17ee68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3608fd89_977a2871",
         "filename": "test/e2e/helpers/memory-helpers.ts",
         "patchSetId": 1
@@ -110,6 +158,30 @@
       "writtenOn": "2020-09-09T07:15:32Z",
       "side": 1,
       "message": "Similar here, and all other cases, actually.",
+      "range": {
+        "startLine": 123,
+        "startChar": 31,
+        "endLine": 123,
+        "endChar": 40
+      },
+      "revId": "1c194c6e9afaff17ead4cfa11b2520ae3a17ee68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3554402_a5992b19",
+        "filename": "test/e2e/helpers/memory-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-09T09:22:36Z",
+      "side": 1,
+      "message": "See above.",
+      "parentUuid": "3608fd89_977a2871",
       "range": {
         "startLine": 123,
         "startChar": 31,
