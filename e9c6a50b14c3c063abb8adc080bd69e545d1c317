@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ca290d2_23504ac1",
+        "filename": "front_end/elements/ElementsStyleSidebar.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-09T14:31:37Z",
+      "side": 1,
+      "message": "this is a really nice solution! We should document this once this lands and we\u0027re happy it all works nicely.",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 42
+      },
+      "revId": "e9c6a50b14c3c063abb8adc080bd69e545d1c317",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a389182_48534ad6",
+        "filename": "front_end/elements/ElementsStyleSidebar.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-09T14:31:37Z",
+      "side": 1,
+      "message": "is there a reason you went for this over `this.idendation` and `this.selectors` and `this.rules`?\n\nI don\u0027t have a super strong preference, but I\u0027d lean towards that to avoid the `this.dataInternal.X` everytime I want to reference something. It\u0027s also what we\u0027ve done in other components, so we should probably pick one or the other (or document/think about when we use one or the other).",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 29
+      },
+      "revId": "e9c6a50b14c3c063abb8adc080bd69e545d1c317",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a40892fe_e2abb5b8",
+        "filename": "front_end/elements/ElementsStyleSidebar.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-09T14:31:37Z",
+      "side": 1,
+      "message": "hmmm I guess this makes the `this.dataInternal` pattern quite nice actually.",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 62
+      },
+      "revId": "e9c6a50b14c3c063abb8adc080bd69e545d1c317",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ffe0fa8b_db0ea9a1",
+        "filename": "front_end/elements/ElementsStyleSidebar.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-09T14:31:37Z",
+      "side": 1,
+      "message": "nit, but I\u0027d probably do\n\nLitHtml.render(html`\n  \u003cstyle\u003e\n  ...\n`);\n\n\nI wish clang worked for this!",
+      "range": {
+        "startLine": 154,
+        "startChar": 0,
+        "endLine": 157,
+        "endChar": 11
+      },
+      "revId": "e9c6a50b14c3c063abb8adc080bd69e545d1c317",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae4b179e_449481f0",
+        "filename": "front_end/elements/ElementsStyleSidebar.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-09T14:31:37Z",
+      "side": 1,
+      "message": "ooooooooooh this is smart! 👌",
+      "range": {
+        "startLine": 357,
+        "startChar": 0,
+        "endLine": 357,
+        "endChar": 38
+      },
+      "revId": "e9c6a50b14c3c063abb8adc080bd69e545d1c317",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50af6e66_095f9826",
+        "filename": "front_end/elements/ElementsStyleSidebar.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-09T14:31:37Z",
+      "side": 1,
+      "message": "not that this has to be done before we land this, but do you think some of these functions warrant unit testing?\n\nI could see us creating a file of these functions (maybe even structuring it as a controller?) and unit testing them.",
+      "range": {
+        "startLine": 425,
+        "startChar": 2,
+        "endLine": 425,
+        "endChar": 3
+      },
+      "revId": "e9c6a50b14c3c063abb8adc080bd69e545d1c317",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25cb174c_ad505843",
+        "filename": "front_end/elements/ElementsStyleSidebar_bridge.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-09T14:31:37Z",
+      "side": 1,
+      "message": "is this type right? Or do we need brackets around the `Array` part?",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 43
+      },
+      "revId": "e9c6a50b14c3c063abb8adc080bd69e545d1c317",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f645a8bc_e8d497fc",
+        "filename": "front_end/elements/edit-target.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-09T14:31:37Z",
+      "side": 1,
+      "message": "could we explicitly deal with this rather than ! ?",
+      "range": {
+        "startLine": 84,
+        "startChar": 45,
+        "endLine": 84,
+        "endChar": 48
+      },
+      "revId": "e9c6a50b14c3c063abb8adc080bd69e545d1c317",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f049c5b1_d358cbf5",
+        "filename": "front_end/elements/edit-target.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-09T14:31:37Z",
+      "side": 1,
+      "message": "is there a reason to do this rather than apply the styles via CSS? You already add the `editing` class so you could add the styles under that in CSS?",
+      "range": {
+        "startLine": 100,
+        "startChar": 3,
+        "endLine": 102,
+        "endChar": 5
+      },
+      "revId": "e9c6a50b14c3c063abb8adc080bd69e545d1c317",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
