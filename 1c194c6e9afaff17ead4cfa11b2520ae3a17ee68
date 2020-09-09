@@ -219,6 +219,30 @@
     },
     {
       "key": {
+        "uuid": "8bbfcaaa_561bc5cd",
+        "filename": "test/e2e/helpers/memory-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-09T10:26:43Z",
+      "side": 1,
+      "message": "Gotcha! SGTM",
+      "parentUuid": "384ee01a_9b814327",
+      "range": {
+        "startLine": 105,
+        "startChar": 31,
+        "endLine": 105,
+        "endChar": 40
+      },
+      "revId": "1c194c6e9afaff17ead4cfa11b2520ae3a17ee68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3608fd89_977a2871",
         "filename": "test/e2e/helpers/memory-helpers.ts",
         "patchSetId": 1
