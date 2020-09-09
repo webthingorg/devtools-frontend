@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aad0ea0f_ca2d1213",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-09T15:52:02Z",
+      "side": 1,
+      "message": "All layout tests are passing, except the LightHouse ones.",
+      "revId": "5ac263fb60424b9f3dd00c5059bbbe57189b965d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
