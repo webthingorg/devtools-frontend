@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6dc8704f_c251648f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-09T08:04:57Z",
+      "side": 1,
+      "message": "I have low confidence in this change, because I keep finding small problems.\n\nI already outlined that in my comment on PS 4 / Apr 27:\n\u003e The other concern is that the CL relies on an invariant (which you describe, and which I think is\n\u003e good), that \"anything called \u0027url\u0027 or \u0027path\u0027 is now url-encoded, and anything called \u0027name\u0027 or\n\u003e \u0027platformPath\u0027 is not.\" \n\u003e I think having such an invariant is great, but I think it needs to be type-checked to make sure we\n\u003e don\u0027t mix up escaped and unescaped usages. Manual inspection will not work (even if we get it right\n\u003e in this CL, it will break later on).\n\nI think we should leverage the type system to enfoce this invariant. See my other comment in the CL. Given that this fixes a rather cosmetic issue, I\u0027d favor getting it right (and not introduce subtle bugs that we might not catch before beta/stable).",
+      "revId": "c5249c44f01bf7d3c6f89b8242e1c9903aa68ab9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57ce44f4_6e18063f",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-09T08:04:57Z",
+      "side": 1,
+      "message": "Is this an escaped URL? Is it OK to send the escaped URL to the debugger?",
+      "range": {
+        "startLine": 416,
+        "startChar": 34,
+        "endLine": 416,
+        "endChar": 37
+      },
+      "revId": "c5249c44f01bf7d3c6f89b8242e1c9903aa68ab9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
