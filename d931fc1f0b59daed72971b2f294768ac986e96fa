@@ -108,6 +108,24 @@
     },
     {
       "key": {
+        "uuid": "90831d5b_7160de16",
+        "filename": "front_end/quick_open/FilteredListWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-09T14:36:59Z",
+      "side": 1,
+      "message": "what about an explicit if(element.textContent \u003d\u003d\u003d null) throw(\"this went wrong\") or an early return?\n\nAnd then from then on in this code TypeScript will realise that element.textContent must exist.",
+      "parentUuid": "eecf6047_027ec007",
+      "revId": "d931fc1f0b59daed72971b2f294768ac986e96fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a21518db_a48a534d",
         "filename": "front_end/quick_open/FilteredListWidget.js",
         "patchSetId": 1
