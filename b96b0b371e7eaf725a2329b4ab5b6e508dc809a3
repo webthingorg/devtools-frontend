@@ -16,6 +16,24 @@
       "revId": "b96b0b371e7eaf725a2329b4ab5b6e508dc809a3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1038c191_74d6cc64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-09T14:42:47Z",
+      "side": 1,
+      "message": "Digging a bit deeper, it seems like the `_module.js` file for LightHouse must be loaded as a script, as implicitly `lighthouse-dt-bundle.js` depends on variables to be defined, such as `require`. It is unclear to me how this all works together though. I wonder if we should update the logic for loading modules to be aware of the remote module pattern. That way, we can make `lighthouse_worker` use modules, while still being a remote module.",
+      "parentUuid": "ed3c224e_39ff29a6",
+      "revId": "b96b0b371e7eaf725a2329b4ab5b6e508dc809a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
