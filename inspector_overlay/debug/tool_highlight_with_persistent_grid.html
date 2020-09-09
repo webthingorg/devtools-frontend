@@ -1,0 +1,26 @@
+<!--
+Copyright 2020 The Chromium Authors. All rights reserved.
+Use of this source code is governed by a BSD-style license that can be
+found in the LICENSE file.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Debug</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="../common.css">
+  <script type="module" src="../tool_highlight.js"></script>
+</head>
+<body>
+  <script type="module">
+    setPlatform("mac");
+    reset(window);
+    drawGridHighlight({"rotationAngle":0,"writingMode":"horizontal-tb","columnTrackSizes":[{"x":100,"y":40,"computedSize":120,"authoredSize":"120px"},{"x":230,"y":40,"computedSize":120,"authoredSize":"120px"},{"x":360,"y":40,"computedSize":120,"authoredSize":"120px"}],"rowTrackSizes":[{"x":40,"y":73.5,"computedSize":67},{"x":40,"y":150.5,"computedSize":67}],"rows":["M",40,40,"L",420,40,"M",420,107,"L",40,107,"M",40,117,"L",420,117,"M",420,184,"L",40,184],"rowGaps":["M",40,107,"L",420,107,"L",420,117,"L",40,117,"Z"],"columns":["M",40,40,"L",40,184,"M",160,184,"L",160,40,"M",170,40,"L",170,184,"M",290,184,"L",290,40,"M",300,40,"L",300,184,"M",420,184,"L",420,40],"columnGaps":["M",160,40,"L",170,40,"L",170,184,"L",160,184,"Z","M",290,40,"L",300,40,"L",300,184,"L",290,184,"Z"],"positiveRowLineNumberPositions":[{"x":40,"y":40},{"x":40,"y":112},{"x":40,"y":184}],"positiveColumnLineNumberPositions":[{"x":40,"y":40},{"x":165,"y":40},{"x":295,"y":40},{"x":420,"y":40}],"negativeRowLineNumberPositions":[{"x":420,"y":40},{"x":420,"y":112},{"x":420,"y":184}],"negativeColumnLineNumberPositions":[{"x":40,"y":184},{"x":165,"y":184},{"x":295,"y":184},{"x":420,"y":184}],"areaNames":{"header":["M",170,40,"L",420,40,"L",420,107,"L",170,107,"Z"],"sidebar":["M",40,117,"L",160,117,"L",160,184,"L",40,184,"Z"],"content":["M",170,117,"L",420,117,"L",420,184,"L",170,184,"Z"]},"gridBorder":["M",40,40,"L",420,40,"L",420,184,"L",40,184,"Z"],"gridHighlightConfig":{"gridBorderDash":false,"rowLineDash":true,"columnLineDash":true,"showGridExtensionLines":true,"showPositiveLineNumbers":true,"showNegativeLineNumbers":true,"showAreaNames":true,"showLineNames":false,"rowLineColor":"#b32424","columnLineColor":"#b32424","rowGapColor":"rgba(179, 36, 36, 0.298039215686275)","columnGapColor":"rgba(179, 36, 36, 0.298039215686275)","rowHatchColor":"rgba(179, 36, 36, 0.8)","columnHatchColor":"rgba(179, 36, 36, 0.8)","areaBorderColor":"#b32424"},"isPrimaryGrid":true}
+);
+    drawHighlight(
+      {"paths":[{"path":["M",190,137,"L",400,137,"L",400,164,"L",190,164,"Z"],"fillColor":"rgba(111, 168, 220, 0.658823529411765)","name":"content"},{"path":["M",170,117,"L",420,117,"L",420,184,"L",170,184,"Z"],"fillColor":"rgba(147, 196, 125, 0.549019607843137)","name":"padding"},{"path":["M",170,117,"L",420,117,"L",420,184,"L",170,184,"Z"],"fillColor":"rgba(255, 229, 153, 0.658823529411765)","name":"border"},{"path":["M",170,117,"L",420,117,"L",420,184,"L",170,184,"Z"],"fillColor":"rgba(246, 178, 107, 0.658823529411765)","name":"margin"}],"showRulers":false,"showExtensionLines":false,"showAccessibilityInfo":true,"colorFormat":"hex","elementInfo":{"tagName":"div","idValue":"","className":".box.content","nodeWidth":"250","nodeHeight":"67","isKeyboardFocusable":false,"accessibleName":"","accessibleRole":"generic","layoutObjectName":"LayoutNGBlockFlow","style":{"color":"#FFFFFFFF","font-family":"\"Times New Roman\"","font-size":"24px","line-height":"normal","padding":"20px","margin":"0px","background-color":"#444444FF"},"contrast":{"fontSize":"24px","fontWeight":"400","backgroundColor":"#444444FF"},"showAccessibilityInfo":true}}
+    );
+  </script>
+</body>
+</html>
