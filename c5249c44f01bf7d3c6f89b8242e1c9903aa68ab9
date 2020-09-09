@@ -66,6 +66,30 @@
     },
     {
       "key": {
+        "uuid": "14ca0797_95d3f89c",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-09T13:31:45Z",
+      "side": 1,
+      "message": "Does this also work if the URL is a file:// URL on windows?",
+      "parentUuid": "64c7d81a_20d36f03",
+      "range": {
+        "startLine": 416,
+        "startChar": 34,
+        "endLine": 416,
+        "endChar": 37
+      },
+      "revId": "c5249c44f01bf7d3c6f89b8242e1c9903aa68ab9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "73f65fce_157095bc",
         "filename": "front_end/workspace/UISourceCode.js",
         "patchSetId": 11
