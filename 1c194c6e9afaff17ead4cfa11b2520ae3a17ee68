@@ -195,6 +195,30 @@
     },
     {
       "key": {
+        "uuid": "384ee01a_9b814327",
+        "filename": "test/e2e/helpers/memory-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-09T10:24:54Z",
+      "side": 1,
+      "message": "We need to return a falsy value in in L103 to indicate to waitForFunction that it should continue waiting. This will happen, depending on the loading speed of the front-end, in a successful test run (it just means that loading took some time). So we can\u0027t assert.fail there. The only definitive failure happens when we it doesn\u0027t hold that we *eventually* (in a temporal logic sense) get the right element, that is, if we keep indefinitely searching. This can only be explicated by the test running in to the time limit.",
+      "parentUuid": "146aceea_5eabcc9e",
+      "range": {
+        "startLine": 105,
+        "startChar": 31,
+        "endLine": 105,
+        "endChar": 40
+      },
+      "revId": "1c194c6e9afaff17ead4cfa11b2520ae3a17ee68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3608fd89_977a2871",
         "filename": "test/e2e/helpers/memory-helpers.ts",
         "patchSetId": 1
