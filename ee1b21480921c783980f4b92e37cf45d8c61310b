@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8fe39e9b_c9531d1a",
+        "filename": "front_end/network/networkLogView.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-09T11:25:44Z",
+      "side": 1,
+      "message": "Note that previously, these styles from dataGrid.css would take effect:\n\n    .data-grid:focus tr.selected .devtools-link {\n      color: var(--selection-fg-color);\n    }\n\nThat\u0027s why this selector looks slightly different from the other ones here.",
+      "revId": "ee1b21480921c783980f4b92e37cf45d8c61310b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
