@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "eecf6047_027ec007",
+        "filename": "front_end/quick_open/FilteredListWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-09T14:28:04Z",
+      "side": 1,
+      "message": "I weakly prefer the comment-casting over `||` since it’s more precise — we explicitly never hit the non-element node case here.",
+      "parentUuid": "1271c12f_145ea834",
+      "revId": "d931fc1f0b59daed72971b2f294768ac986e96fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a21518db_a48a534d",
         "filename": "front_end/quick_open/FilteredListWidget.js",
         "patchSetId": 1
