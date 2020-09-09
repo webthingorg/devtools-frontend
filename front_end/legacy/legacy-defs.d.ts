@@ -46,10 +46,6 @@ interface Int32Array {
 
 declare let ls: (template: ITemplateArray, ...args: any[]) => string;
 
-declare namespace Runtime {
-  const cachedResources: {[cachePath: string]: string};
-}
-
 declare class AnchorBox {
   x: number;
   y: number;
