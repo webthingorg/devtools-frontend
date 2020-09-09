@@ -16,6 +16,23 @@
       "revId": "6fa28366224ec89b5f7b0544e046dab5e39dfec9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4425a951_24386d3c",
+        "filename": "front_end/sdk/Issue.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2020-09-09T23:39:57Z",
+      "side": 1,
+      "message": "Nit: Having more than one item per line is because of the presubmit checks?",
+      "revId": "6fa28366224ec89b5f7b0544e046dab5e39dfec9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
