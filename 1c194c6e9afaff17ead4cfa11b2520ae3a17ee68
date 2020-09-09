@@ -36,6 +36,23 @@
     },
     {
       "key": {
+        "uuid": "166ca86c_2ecdc0c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1131764
+      },
+      "writtenOn": "2020-09-09T07:17:37Z",
+      "side": 1,
+      "message": "lgtm (stamp)\n\nThanks a lot for setting up this framework!",
+      "revId": "1c194c6e9afaff17ead4cfa11b2520ae3a17ee68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a6749ffe_f963329b",
         "filename": "front_end/ui/SearchableView.js",
         "patchSetId": 1
@@ -116,6 +133,30 @@
       "writtenOn": "2020-09-09T07:15:32Z",
       "side": 1,
       "message": "This is really clear and nice 👍",
+      "range": {
+        "startLine": 28,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 5
+      },
+      "revId": "1c194c6e9afaff17ead4cfa11b2520ae3a17ee68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fa5e70e_64d0e9ff",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1131764
+      },
+      "writtenOn": "2020-09-09T07:17:37Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "532714ba_e4d4ed42",
       "range": {
         "startLine": 28,
         "startChar": 2,
