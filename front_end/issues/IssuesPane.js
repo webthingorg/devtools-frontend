@@ -1001,6 +1001,43 @@ class AffectedBlockedByResponseView extends AffectedResourcesView {
   }
 }
 
+class IssueCategoryView extends UI.TreeOutline.TreeElement {
+  /**
+   * @param {string} categoryName
+   */
+  constructor(categoryName) {
+    super();
+    this._categoryName = categoryName;
+    /** @type {!AggregatedIssue[]} */
+    this._issues = [];
+
+    this.toggleOnClick = true;
+    this.listItemElement.classList.add('issue-category');
+  }
+
+  getCategoryName() {
+    return this._categoryName;
+  }
+
+  /**
+   * @override
+   */
+  onattach() {
+    this._appendHeader();
+  }
+
+  _appendHeader() {
+    const header = document.createElement('div');
+    header.classList.add('header');
+
+    const title = document.createElement('div');
+    title.classList.add('title');
+    title.textContent = this._categoryName;
+    header.appendChild(title);
+
+    this.listItemElement.appendChild(header);
+  }
+}
 
 class IssueView extends UI.TreeOutline.TreeElement {
   /**
@@ -1174,6 +1211,8 @@ export class IssuesPaneImpl extends UI.Widget.VBox {
     this.registerRequiredCSS('issues/issuesPane.css');
     this.contentElement.classList.add('issues-pane');
 
+    /** @type {Map<string, IssueCategoryView>} */
+    this._categoryViews = new Map();
     this._issueViews = new Map();
 
     const {toolbarContainer, updateToolbarIssuesCount} = this._createToolbars();
@@ -1218,6 +1257,15 @@ export class IssuesPaneImpl extends UI.Widget.VBox {
     const toolbarContainer = this.contentElement.createChild('div', 'issues-toolbar-container');
     new UI.Toolbar.Toolbar('issues-toolbar-left', toolbarContainer);
     const rightToolbar = new UI.Toolbar.Toolbar('issues-toolbar-right', toolbarContainer);
+
+    const groupByCategorySetting =
+        /** @type {!Common.Settings.Setting<*>} */ (SDK.Issue.getGroupIssuesByCategorySetting());
+    const groupByCategoryCheckbox = new UI.Toolbar.ToolbarSettingCheckbox(
+        groupByCategorySetting, ls`Group displayed issues under associated categories`, ls`Group issues by category`);
+    rightToolbar.appendToolbarItem(groupByCategoryCheckbox);
+    this._groupByCategorySettingsChangeListener = groupByCategorySetting.addChangeListener(() => {
+      this._fullUpdate();
+    });
 
     // TODO(crbug.com/1011811): Remove cast once closure is gone. Closure requires an upcast to 'any' from 'boolean'.
     const thirdPartySetting = /** @type {!Common.Settings.Setting<*>} */ (SDK.Issue.getShowThirdPartyIssuesSetting());
@@ -1271,7 +1319,8 @@ export class IssuesPaneImpl extends UI.Widget.VBox {
       }
       const view = new IssueView(this, issue, /** @type {!SDK.Issue.IssueDescription} */ (description));
       this._issueViews.set(issue.code(), view);
-      this._issuesTree.appendChild(view, (a, b) => {
+      const parent = this._getIssueViewParent(issue);
+      parent.appendChild(view, (a, b) => {
         if (a instanceof IssueView && b instanceof IssueView) {
           return a.getIssueTitle().localeCompare(b.getIssueTitle());
         }
@@ -1283,11 +1332,45 @@ export class IssuesPaneImpl extends UI.Widget.VBox {
     this._updateCounts();
   }
 
-  _fullUpdate() {
-    for (const view of this._issueViews.values()) {
-      this._issuesTree.removeChild(view);
+  /**
+   * @param {!AggregatedIssue} issue
+   * @returns {UI.TreeOutline.TreeOutline | UI.TreeOutline.TreeElement}
+   */
+  _getIssueViewParent(issue) {
+    if (!SDK.Issue.getGroupIssuesByCategorySetting().get()) {
+      return this._issuesTree;
     }
-    this._issueViews.clear();
+
+    const categoryName = issue.getCategoryName();
+
+    if (!this._categoryViews.has(categoryName)) {
+      const view = new IssueCategoryView(categoryName);
+      this._issuesTree.appendChild(view, (a, b) => {
+        if (a instanceof IssueCategoryView && b instanceof IssueCategoryView) {
+          return a.getCategoryName().localeCompare(b.getCategoryName());
+        }
+        return 0;
+      });
+      this._categoryViews.set(categoryName, view);
+      return view;
+    }
+
+    return /** @type {IssueCategoryView} */ (this._categoryViews.get(categoryName));
+  }
+
+  /**
+   * @param {Map<any, UI.TreeOutline.TreeElement>} views
+   */
+  _clearViews(views) {
+    for (const view of views.values()) {
+      view.parent.removeChild(view);
+    }
+    views.clear();
+  }
+
+  _fullUpdate() {
+    this._clearViews(this._categoryViews);
+    this._clearViews(this._issueViews);
     if (this._aggregator) {
       for (const issue of this._aggregator.aggregatedIssues()) {
         this._updateIssueView(issue);

@@ -45,6 +45,9 @@
   <message name="IDS_DEVTOOLS_712e023413c1a2069cb68c5cb4a914a0" desc="Title for an unavailable link a request in the network panel">
     Request unavailable in the network panel, try reloading the inspected page
   </message>
+  <message name="IDS_DEVTOOLS_7b35fc8117c502cdc08a254097f9c7b6" desc="Label for a checkbox which toggles grouping by category in the issues tab">
+    Group issues by category
+  </message>
   <message name="IDS_DEVTOOLS_8e2dcfd7e7e24b1ca76c1193f645902b" desc="Singular label for number of affected element resource indication in issue view">
     element
   </message>
@@ -77,6 +80,9 @@
   </message>
   <message name="IDS_DEVTOOLS_93f07b720ebf7d1246512569761a5804" desc="The kind of resolution for a Heavy Ads issue">
     Removed
+  </message>
+  <message name="IDS_DEVTOOLS_b404999a151ab49a38d35be7e094e7e7" desc="Title for a checkbox which toggles grouping by category in the issues tab">
+    Group displayed issues under associated categories
   </message>
   <message name="IDS_DEVTOOLS_ba514415c6a7f5b7aa2b54d0914a122d" desc="Title for a column in an Heavy Ads issue view">
     Resolution Status
