@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b9668ee_8bd85ac8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-09T17:04:07Z",
+      "side": 1,
+      "message": "Discussed with Peter and Josephine, and they are both fine with this.",
+      "revId": "9aefb83d1448c0398427380fc34ecd49e170c9d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
