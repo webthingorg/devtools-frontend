@@ -34,6 +34,24 @@
       "revId": "0c069f3956ff1a58823ef28d83cbf70ca8b99064",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb26b778_a038b1d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1133035
+      },
+      "writtenOn": "2020-09-09T00:29:21Z",
+      "side": 1,
+      "message": "I ended up not reverting the roll since the next build succeeded. Seems like it was a build flake.",
+      "parentUuid": "231acd65_0e3059a1",
+      "revId": "0c069f3956ff1a58823ef28d83cbf70ca8b99064",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
