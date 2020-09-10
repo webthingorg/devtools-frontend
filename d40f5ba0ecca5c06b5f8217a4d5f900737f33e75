@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "35302917_6ea56aa4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-09-10T10:01:22Z",
+      "side": 1,
+      "message": "Hi Liviu, could you review and land this in our daytime?\n\nI assume the mastername property was only there for the chromium recipe. I assume the devtools recipe never needed it. And chromium should have switched to support builder_groups.",
+      "revId": "d40f5ba0ecca5c06b5f8217a4d5f900737f33e75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
