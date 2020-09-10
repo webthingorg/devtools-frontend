@@ -7,6 +7,7 @@ import {cssMetadata} from './CSSMetadata.js';
 import {CSSModel, Edit} from './CSSModel.js';  // eslint-disable-line no-unused-vars
 import {CSSProperty} from './CSSProperty.js';
 import {CSSRule} from './CSSRule.js';  // eslint-disable-line no-unused-vars
+import {DOMNode} from './DOMModel';    // eslint-disable-line no-unused-vars
 import {Target} from './SDKModel.js';  // eslint-disable-line no-unused-vars
 
 export class CSSStyleDeclaration {
@@ -332,6 +333,32 @@ export class CSSStyleDeclaration {
       const property = this._activePropertyMap.get(longhands[i]);
       if (property) {
         result.push(property);
+      }
+    }
+    return result;
+  }
+
+  /**
+   * @param {string} name
+   * @param {DOMNode} node
+   * @return {!Promise.<Array.<!CSSProperty>>}
+   */
+  async longhandPropertiesIncludingComputed(name, node) {
+    const longhands = cssMetadata().longhands(name);
+    const result = [];
+    for (let i = 0; longhands && i < longhands.length; ++i) {
+      const property = this._activePropertyMap.get(longhands[i]);
+      if (property) {
+        result.push(property);
+      } else {
+        const rootProperty = this._allProperties.find(currentProperty => currentProperty.name === name);
+        if (rootProperty && node && node.id) {
+          const computedStyles = await this._cssModel._styleLoader.computedStylePromise(node.id);
+          const computedValue = computedStyles?.get(longhands[i]);
+          const newProperty =
+              CSSProperty.parsePayload(rootProperty.ownerStyle, 0, {name: longhands[i], value: computedValue || ''});
+          result.push(newProperty);
+        }
       }
     }
     return result;
