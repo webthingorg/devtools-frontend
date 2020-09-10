@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9beb9af_2ed4124c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-10T12:09:33Z",
+      "side": 1,
+      "message": "Once live.js is removed from this CL this is good to go.",
+      "revId": "514cc959cbb06c8041e1b10e6c25f7fe41dcd2f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
