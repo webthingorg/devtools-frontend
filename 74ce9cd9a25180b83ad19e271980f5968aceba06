@@ -34,6 +34,23 @@
       "revId": "74ce9cd9a25180b83ad19e271980f5968aceba06",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8bc34eb2_00b31a14",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-10T13:04:40Z",
+      "side": 1,
+      "message": "It\u0027s been a few days, and I\u0027d really like to land a fix for this sooner rather than later, as the experience isn\u0027t great on canary right now.\nHave you 2 been able to test it out a little bit?\nI\u0027d appreciate a review, when you\u0027ve got some time.\nThanks!",
+      "revId": "74ce9cd9a25180b83ad19e271980f5968aceba06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
