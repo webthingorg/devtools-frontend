@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e89e8dc8_9bc93d32",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-10T13:18:29Z",
+      "side": 1,
+      "message": "this isn\u0027t valid Closure; you want `!Array\u003cstring\u003e` here.",
+      "range": {
+        "startLine": 73,
+        "startChar": 3,
+        "endLine": 73,
+        "endChar": 27
+      },
+      "revId": "0192afd44a097fffff7caaef4f7e339528b98404",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ad56e80_113cf4ee",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-10T13:18:29Z",
+      "side": 1,
+      "message": "I _thought_ that we could use Runtime.instance() safely now, what was the error when you tried it?",
+      "range": {
+        "startLine": 326,
+        "startChar": 0,
+        "endLine": 327,
+        "endChar": 72
+      },
+      "revId": "0192afd44a097fffff7caaef4f7e339528b98404",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
