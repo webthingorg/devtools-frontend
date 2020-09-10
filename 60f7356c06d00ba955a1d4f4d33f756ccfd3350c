@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc679f41_9d8c99b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-09-10T12:19:54Z",
+      "side": 1,
+      "message": "Hello Jack,\n\nWould you mind taking a look at this masterpiece of Typescriptification? :-)\n\ncheers,\nBenedikt",
+      "revId": "60f7356c06d00ba955a1d4f4d33f756ccfd3350c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
