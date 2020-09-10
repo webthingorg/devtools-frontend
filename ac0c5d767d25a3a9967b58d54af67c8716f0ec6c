@@ -22,6 +22,30 @@
       "revId": "ac0c5d767d25a3a9967b58d54af67c8716f0ec6c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23725f19_6dd14922",
+        "filename": "front_end/legacy/legacy-defs.d.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-09-10T08:10:30Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "fb7bb6f0_2d29fe31",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 13
+      },
+      "revId": "ac0c5d767d25a3a9967b58d54af67c8716f0ec6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

@@ -126,6 +126,24 @@
     },
     {
       "key": {
+        "uuid": "48f6eb04_60d05f85",
+        "filename": "front_end/quick_open/FilteredListWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-09-10T08:10:30Z",
+      "side": 1,
+      "message": "Early return seems like a good option to me. WDYT Mathias?",
+      "parentUuid": "90831d5b_7160de16",
+      "revId": "d931fc1f0b59daed72971b2f294768ac986e96fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a21518db_a48a534d",
         "filename": "front_end/quick_open/FilteredListWidget.js",
         "patchSetId": 1
