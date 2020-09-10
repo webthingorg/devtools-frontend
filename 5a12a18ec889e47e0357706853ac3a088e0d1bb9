@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b438123b_e7662c55",
+        "filename": "front_end/css_overview/CSSOverviewPanel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-10T15:46:08Z",
+      "side": 1,
+      "message": "This is implicitly any. Let\u0027s type it as `CSSOverviewModel`:\n\n```\nthis._model \u003d /** @type {!CSSOverviewModel} */ (model);\n```",
+      "range": {
+        "startLine": 25,
+        "startChar": 11,
+        "endLine": 25,
+        "endChar": 16
+      },
+      "revId": "5a12a18ec889e47e0357706853ac3a088e0d1bb9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
