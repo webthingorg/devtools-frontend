@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5f119729_97357d2b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-09-10T10:44:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15632616_3aff0b3d",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 21
+      },
+      "revId": "a46cafc8a338a1fdca4769c4e0e3c424623f9363",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "558c6f69_7ea06202",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
@@ -36,6 +60,24 @@
       "writtenOn": "2020-09-10T08:26:06Z",
       "side": 1,
       "message": "LGTM, thanks!\n\nTwo comments/questions: \n\nYou are writing the issue descriptions with one-sentence-per-line (OSPL). Is this something we want to enforce?\n\nAlso there are two issues that have the same title (CoepCorpNotSame[Site|Origin]), we can think about merging them in a follow up.\n\n",
+      "revId": "a46cafc8a338a1fdca4769c4e0e3c424623f9363",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "301caedf_23a5b385",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-09-10T10:44:29Z",
+      "side": 1,
+      "message": "OSPL was more or less by accident while copying over the descriptions. If we want to enforce any kind of format on issue descriptions, I am fine, as long as we can enforce them via linter. No strong opinion on what they should be.\n\nW.r.t to the two issues, while they have the same title, they have slightly different descriptions (\"site\" vs \"origin\"). We can ofc consolidate them in a follow up.",
+      "parentUuid": "558c6f69_7ea06202",
       "revId": "a46cafc8a338a1fdca4769c4e0e3c424623f9363",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
