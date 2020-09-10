@@ -4,7 +4,7 @@
 
 import {assert} from 'chai';
 
-import {click, enableExperiment, getBrowserAndPages, getResourcesPath, goToResource, waitFor} from '../../shared/helper.js';
+import {click, enableExperiment, getBrowserAndPages, getResourcesPath, goToResource, waitFor /* , waitForFunction*/} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {addBreakpointForLine, getValuesForScope, listenForSourceFilesAdded, openFileInEditor, openFileInSourcesPanel, openSourcesPanel, PAUSE_ON_EXCEPTION_BUTTON, RESUME_BUTTON, retrieveSourceFilesAdded, retrieveTopCallFrameScriptLocation, waitForAdditionalSourceFiles} from '../helpers/sources-helpers.js';
 
@@ -373,7 +373,7 @@ describe('The Debugger Language Plugins', async () => {
     assert.deepEqual(locals, ['local: int', 'value: 23']);
   });
 
-  it('shows variable value in popover', async () => {
+  it.repeat(200, 'shows variable value in popover', async () => {
     const {frontend} = getBrowserAndPages();
     await frontend.evaluateHandle(
         () => globalThis.installExtensionPlugin((extensionServerClient: unknown, extensionAPI: unknown) => {
@@ -436,6 +436,7 @@ describe('The Debugger Language Plugins', async () => {
     await waitFor(RESUME_BUTTON);
 
     const pausedPosition = await waitFor('.cm-execution-line-tail');
+    // await waitForFunction(() => pausedPosition.evaluate(element => element.isConnected));
     await pausedPosition.hover();
     const popover = await waitFor('[data-stable-name-for-test="object-popover-content"]');
     const value = await waitFor('.object-value-number', popover).then(e => e.evaluate(node => node.textContent));
