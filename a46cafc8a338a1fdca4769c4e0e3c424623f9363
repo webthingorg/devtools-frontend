@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15632616_3aff0b3d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-10T08:26:06Z",
+      "side": 1,
+      "message": "nit: let\u0027s add screenshots of the new situation (take an issue with a bullet point) and indicate that nothing changed.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 21
+      },
+      "revId": "a46cafc8a338a1fdca4769c4e0e3c424623f9363",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "558c6f69_7ea06202",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-10T08:26:06Z",
+      "side": 1,
+      "message": "LGTM, thanks!\n\nTwo comments/questions: \n\nYou are writing the issue descriptions with one-sentence-per-line (OSPL). Is this something we want to enforce?\n\nAlso there are two issues that have the same title (CoepCorpNotSame[Site|Origin]), we can think about merging them in a follow up.\n\n",
+      "revId": "a46cafc8a338a1fdca4769c4e0e3c424623f9363",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
