@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b21892a2_b4891b85",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-09-10T18:11:08Z",
+      "side": 1,
+      "message": "Thanks for the detailed feedback!\n\nI\u0027ve made all the suggested changes. I was originally mapping by string for flexibility as you suggested, but I agree plumbing the category further through makes this cleaner.\n\nI\u0027ve left one open comment for us to resolve once we decide whether we need to hide the checkbox entirely.",
+      "revId": "1d684a5c23ab8d8730ce5c0ecdb7ba460f2a97a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
