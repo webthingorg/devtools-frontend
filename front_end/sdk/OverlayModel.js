@@ -84,8 +84,6 @@ export class OverlayModel extends SDKModel {
       this._wireAgentToSettings();
     }
 
-    this._isPersistentGridModeOn = false;
-
     /** @type {?DefaultPersistentGridHighlighter} */
     this._persistentGridHighlighter = null;
     if (this._gridFeaturesExperimentEnabled) {
@@ -260,13 +258,6 @@ export class OverlayModel extends SDKModel {
     this._overlayAgent.invoke_setShowViewportSizeOnResize({show});
   }
 
-  /**
-   * @param {boolean} isPersistentGridModeOn
-   */
-  setPersistentGridMode(isPersistentGridModeOn) {
-    this._isPersistentGridModeOn = isPersistentGridModeOn;
-  }
-
   _updatePausedInDebuggerMessage() {
     if (this.target().suspended()) {
       return;
@@ -295,9 +286,8 @@ export class OverlayModel extends SDKModel {
     this._inspectModeEnabled = mode !== Protocol.Overlay.InspectMode.None;
     this.dispatchEventToListeners(Events.InspectModeWillBeToggled, this);
     this._highlighter.setInspectMode(mode, this._buildHighlightConfig('all', showDetailedTooltip));
-    if (this._inspectModeEnabled && this._gridFeaturesExperimentEnabled && this._persistentGridHighlighter) {
-      this._persistentGridHighlighter.hideAllInOverlay();
-      this.dispatchEventToListeners(Events.PersistentGridOverlayCleared);
+    if (!this._inspectModeEnabled && this._gridFeaturesExperimentEnabled && this._persistentGridHighlighter) {
+      this._persistentGridHighlighter.resetOverlay();
     }
   }
 
@@ -314,11 +304,6 @@ export class OverlayModel extends SDKModel {
    * @param {boolean=} showInfo
    */
   highlightInOverlay(data, mode, showInfo) {
-    if (this._isPersistentGridModeOn) {
-      // TODO: Currently the backend doesn't support normal highlights when
-      // the persistent highlight is turned on: https://crbug.com/1109224.
-      return;
-    }
     if (this._sourceOrderModeActive) {
       // Return early if the source order is currently being shown the in the
       // overlay, so that it is not cleared by the highlight
@@ -670,10 +655,30 @@ class DefaultHighlighter {
     const backendNodeId = deferredNode ? deferredNode.backendNodeId() : undefined;
     const objectId = object ? object.objectId : undefined;
     if (nodeId || backendNodeId || objectId) {
+      const gridNodeHighlightConfigs = [];
+      const persistentGridHighlighter = this._model._persistentGridHighlighter;
+      if (persistentGridHighlighter) {
+        for (const [nodeId, gridHighlightConfig] of persistentGridHighlighter._gridHighlights.entries()) {
+          gridNodeHighlightConfigs.push({nodeId, gridHighlightConfig});
+        }
+      }
       this._model.target().overlayAgent().invoke_highlightNode(
-          {highlightConfig, nodeId, backendNodeId, objectId, selector: selectorList});
+          /** @type {*} */ ({
+            highlightConfig: {
+              ...highlightConfig,
+              gridNodeHighlightConfigs,
+            },
+            nodeId,
+            backendNodeId,
+            objectId,
+            selector: selectorList
+          }));
     } else {
       this._model.target().overlayAgent().invoke_hideHighlight();
+      const persistentGridHighlighter = this._model._persistentGridHighlighter;
+      if (persistentGridHighlighter) {
+        persistentGridHighlighter.resetOverlay();
+      }
     }
   }
 
@@ -684,7 +689,20 @@ class DefaultHighlighter {
    * @return {!Promise<void>}
    */
   async setInspectMode(mode, highlightConfig) {
-    await this._model.target().overlayAgent().invoke_setInspectMode({mode, highlightConfig});
+    const gridNodeHighlightConfigs = [];
+    const persistentGridHighlighter = this._model._persistentGridHighlighter;
+    if (persistentGridHighlighter) {
+      for (const [nodeId, gridHighlightConfig] of persistentGridHighlighter._gridHighlights.entries()) {
+        gridNodeHighlightConfigs.push({nodeId, gridHighlightConfig});
+      }
+    }
+    await this._model.target().overlayAgent().invoke_setInspectMode(/** @type {*} */ ({
+      mode,
+      highlightConfig: {
+        ...highlightConfig,
+        gridNodeHighlightConfigs,
+      },
+    }));
   }
 
   /**
@@ -786,7 +804,7 @@ class DefaultPersistentGridHighlighter {
   }
 
   _onSettingChange() {
-    this._resetOverlay();
+    this.resetOverlay();
   }
 
   _logCurrentGridSettings() {
@@ -924,7 +942,7 @@ class DefaultPersistentGridHighlighter {
     }
   }
 
-  _resetOverlay() {
+  resetOverlay() {
     for (const nodeId of this._gridHighlights.keys()) {
       this._gridHighlights.set(nodeId, this._buildGridHighlightConfig(nodeId));
     }
@@ -933,7 +951,6 @@ class DefaultPersistentGridHighlighter {
 
   _updateHighlightsInOverlay() {
     const hasGridNodesToHighlight = this._gridHighlights.size > 0;
-    this._model.setPersistentGridMode(hasGridNodesToHighlight);
     this._model.setShowViewportSizeOnResize(!hasGridNodesToHighlight);
     const overlayModel = this._model;
     const gridNodeHighlightConfigs = [];
@@ -941,7 +958,6 @@ class DefaultPersistentGridHighlighter {
       gridNodeHighlightConfigs.push({nodeId, gridHighlightConfig});
     }
     overlayModel.target().overlayAgent().invoke_setShowGridOverlays({gridNodeHighlightConfigs});
-
     this._recordHighlightedGridCount();
   }
 }
