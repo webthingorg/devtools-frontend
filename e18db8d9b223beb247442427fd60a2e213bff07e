@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "932186e5_f4292154",
+        "filename": "front_end/css_overview/CSSOverviewSidebarPanel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-10T15:51:07Z",
+      "side": 1,
+      "message": "Typically I would avoid the `.forEach`. However, since `items` is a NodeList here, you can\u0027t \"just\" do that. Therefore, I am okay with the usage of `.forEach` in this specific instance, but would prefer the `for-of` for any other occurrences.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 7
+      },
+      "revId": "e18db8d9b223beb247442427fd60a2e213bff07e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
