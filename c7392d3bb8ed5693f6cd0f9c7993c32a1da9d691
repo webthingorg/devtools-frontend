@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e415b1fb_ed1f42b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-10T15:51:47Z",
+      "side": 1,
+      "message": "LGTM assuming you add the file to the other variables.",
+      "revId": "c7392d3bb8ed5693f6cd0f9c7993c32a1da9d691",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
