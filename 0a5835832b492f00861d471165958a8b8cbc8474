@@ -100,6 +100,30 @@
     },
     {
       "key": {
+        "uuid": "6e2a7452_a2fcc8e4",
+        "filename": "test/e2e/helpers/memory-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-11T13:48:40Z",
+      "side": 1,
+      "message": "This is working and is nicer 👍",
+      "parentUuid": "ac938474_3f548f6d",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 1
+      },
+      "revId": "0a5835832b492f00861d471165958a8b8cbc8474",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9cbf1ed_4fbc884a",
         "filename": "test/e2e/helpers/memory-helpers.ts",
         "patchSetId": 1
@@ -241,6 +265,30 @@
     },
     {
       "key": {
+        "uuid": "bab30a33_266b5078",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-11T13:48:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "714c39b2_4706f9eb",
+      "range": {
+        "startLine": 57,
+        "startChar": 3,
+        "endLine": 57,
+        "endChar": 34
+      },
+      "revId": "0a5835832b492f00861d471165958a8b8cbc8474",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92ce27b8_1268a23a",
         "filename": "test/e2e/memory/memory_test.ts",
         "patchSetId": 1
@@ -288,6 +336,30 @@
     },
     {
       "key": {
+        "uuid": "6989ff71_813ac825",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-11T13:48:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ea3a859_5af22813",
+      "range": {
+        "startLine": 67,
+        "startChar": 44,
+        "endLine": 67,
+        "endChar": 74
+      },
+      "revId": "0a5835832b492f00861d471165958a8b8cbc8474",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd1d0ce4_c7b5a414",
         "filename": "test/shared/helper.ts",
         "patchSetId": 1
@@ -332,6 +404,30 @@
       "revId": "0a5835832b492f00861d471165958a8b8cbc8474",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "603a828e_efe5771d",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-11T13:48:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82ead699_58060802",
+      "range": {
+        "startLine": 224,
+        "startChar": 38,
+        "endLine": 224,
+        "endChar": 49
+      },
+      "revId": "0a5835832b492f00861d471165958a8b8cbc8474",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
