@@ -829,6 +829,7 @@ class DefaultPersistentGridHighlighter {
    */
   _buildGridHighlightConfig(nodeId) {
     const mainColor = this.colorOfGrid(nodeId);
+    const background = mainColor.setAlpha(0.1);
     const gapBackground = mainColor.setAlpha(0.3);
     const gapHatch = mainColor.setAlpha(0.8);
 
@@ -853,6 +854,7 @@ class DefaultPersistentGridHighlighter {
       showAreaNames: /** @type {boolean} */ (this._showGridAreasSetting.get()),
       showTrackSizes: /** @type {boolean} */ (this._showGridTrackSizesSetting.get()),
       areaBorderColor: mainColor.toProtocolRGBA(),
+      gridBackgroundColor: background.toProtocolRGBA(),
     };
   }
 
