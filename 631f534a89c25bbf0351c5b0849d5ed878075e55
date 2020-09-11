@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "17aed77a_f2f42f5c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-11T10:44:16Z",
+      "side": 1,
+      "message": "Style LGTM. Will wait on Sigurd for semantics.",
+      "revId": "631f534a89c25bbf0351c5b0849d5ed878075e55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
