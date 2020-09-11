@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6366b681_4f606a0c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-11T07:49:43Z",
+      "side": 1,
+      "message": "So how does it work on the hight level? for every property we create a TreeElement and the element renders the property and if it\u0027s traceable it renders traces in a TreeElement? And if it\u0027s the grouped view, every group is also a TreeElement?",
+      "revId": "8ded116f468929e4112d477518f48290779287e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
