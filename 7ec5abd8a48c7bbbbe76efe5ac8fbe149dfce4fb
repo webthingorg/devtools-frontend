@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c031518d_a81b0e44",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-09-11T06:04:58Z",
+      "side": 1,
+      "message": "xs change fixing a performance bug in the Loc presubmit. PTAL, thank you 😊",
+      "revId": "7ec5abd8a48c7bbbbe76efe5ac8fbe149dfce4fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
