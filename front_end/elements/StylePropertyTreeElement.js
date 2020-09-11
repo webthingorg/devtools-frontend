@@ -379,9 +379,12 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
       return;
     }
 
-    const longhandProperties = this._style.longhandProperties(this.name);
+    const longhandProperties = await this._style.longhandPropertiesIncludingComputed(this.name, this.node());
+    const leadingProperties = this._style.leadingProperties();
+
     for (let i = 0; i < longhandProperties.length; ++i) {
       const name = longhandProperties[i].name;
+      let longHandProperty = longhandProperties[i];
       let inherited = false;
       let overloaded = false;
 
@@ -389,11 +392,18 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
       if (section) {
         inherited = section.isPropertyInherited(name);
         overloaded =
-            this._matchedStyles.propertyState(longhandProperties[i]) === SDK.CSSMatchedStyles.PropertyState.Overloaded;
+            this._matchedStyles.propertyState(longHandProperty) === SDK.CSSMatchedStyles.PropertyState.Overloaded;
+      }
+
+      const leadingProperty = leadingProperties.find(property => property.name === name && !property.disabled);
+      if (leadingProperty) {
+        overloaded = true;
+        longHandProperty = SDK.CSSProperty.CSSProperty.parsePayload(
+            longHandProperty.ownerStyle, longHandProperty.index, {name: longHandProperty.name, value: ''});
       }
 
       const item = new StylePropertyTreeElement(
-          this._parentPane, this._matchedStyles, longhandProperties[i], false, inherited, overloaded, false);
+          this._parentPane, this._matchedStyles, longHandProperty, false, inherited, overloaded, false);
       this.appendChild(item);
     }
   }
