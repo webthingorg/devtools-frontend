@@ -56,6 +56,30 @@
       "revId": "59f143efebb0de507b5867189f49b291182a5e4f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76bcd671_0ec106d8",
+        "filename": "test/e2e/helpers/memory-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-11T14:01:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a8dec62a_66ee29ae",
+      "range": {
+        "startLine": 185,
+        "startChar": 21,
+        "endLine": 185,
+        "endChar": 27
+      },
+      "revId": "59f143efebb0de507b5867189f49b291182a5e4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
