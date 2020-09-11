@@ -98,6 +98,30 @@
       "revId": "d416ef78f6741df2f5ed9b248c0afa46f15a1164",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63a4d416_d9ef5900",
+        "filename": "inspector_overlay/debug/tool_paused.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-11T09:47:31Z",
+      "side": 1,
+      "message": "You can use the \"npm run watch\" command to rebuild changes automatically. Also, the build step will be required once we migrate to TypeScript.",
+      "parentUuid": "d06e0985_0df37367",
+      "range": {
+        "startLine": 13,
+        "startChar": 2,
+        "endLine": 13,
+        "endChar": 95
+      },
+      "revId": "d416ef78f6741df2f5ed9b248c0afa46f15a1164",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
