@@ -2,12 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
 import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
 import * as Platform from '../platform/platform.js';
+import * as Root from '../root/root.js';
 
 import {Action} from './Action.js';                  // eslint-disable-line no-unused-vars
 import {ActionRegistry} from './ActionRegistry.js';  // eslint-disable-line no-unused-vars
@@ -72,6 +70,7 @@ export class ShortcutRegistry {
    * @return {!Array.<!Action>}
    */
   _applicableActions(key, handlers = {}) {
+    /** @type {!Array<string>} */
     let actions = [];
     const keyMap = this._activePrefixKey || this._keyMap;
     const keyNode = keyMap.getNode(key);
@@ -143,10 +142,10 @@ export class ShortcutRegistry {
    * @return {string|undefined}
    */
   shortcutTitleForAction(actionId) {
-    const shortcuts = this._actionToShortcut.get(actionId);
-    if (shortcuts.size) {
-      return shortcuts.firstValue().title();
+    for (const shortcut of this._actionToShortcut.get(actionId)) {
+      return shortcut.title();
     }
+    return undefined;
   }
 
   /**
@@ -180,12 +179,9 @@ export class ShortcutRegistry {
 
     element.addEventListener('keydown', event => {
       const key = KeyboardShortcut.makeKeyFromEvent(/** @type {!KeyboardEvent} */ (event));
-      let keyMap = allowlistKeyMap;
-      if (this._activePrefixKey) {
-        keyMap = keyMap.getNode(this._activePrefixKey.key());
-        if (!keyMap) {
-          return;
-        }
+      const keyMap = this._activePrefixKey ? allowlistKeyMap.getNode(this._activePrefixKey.key()) : allowlistKeyMap;
+      if (!keyMap) {
+        return;
       }
       if (keyMap.getNode(key)) {
         this.handleShortcut(/** @type {!KeyboardEvent} */ (event), handlers);
@@ -234,7 +230,7 @@ export class ShortcutRegistry {
         this._activePrefixTimeout = null;
         await maybeExecuteActionForKey.call(this);
       };
-      this._activePrefixTimeout = setTimeout(this._consumePrefix, KeyTimeout);
+      this._activePrefixTimeout = window.setTimeout(this._consumePrefix, KeyTimeout);
     } else {
       await maybeExecuteActionForKey.call(this);
     }
@@ -326,7 +322,11 @@ export class ShortcutRegistry {
     this._actionToShortcut.clear();
     this._keyMap.clear();
     const keybindSet = Common.Settings.Settings.instance().moduleSetting('activeKeybindSet').get();
-    const extensions = self.runtime.extensions('action');
+    // @ts-ignore
+    // TODO(crbug.com/1058320): Use Runtime.instance() here once we no longer crash using it.
+    const runtime = /** @type {!Root.Runtime.Runtime} */ (self.runtime);
+    const extensions = runtime.extensions('action');
+    /** @type {!Array<!{keyCode: number, modifiers: number}>} */
     const forwardedKeys = [];
     extensions.forEach(registerExtension, this);
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.setWhitelistedShortcuts(JSON.stringify(forwardedKeys));
