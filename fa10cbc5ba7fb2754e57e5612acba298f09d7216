@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64cc492b_bc8ff6f1",
+        "filename": "front_end/lighthouse/LighthouseStatusView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1347952
+      },
+      "writtenOn": "2020-09-11T20:54:38Z",
+      "side": 1,
+      "message": "Not worth merging until we have actual documentation to link to. Placeholder for now.",
+      "revId": "fa10cbc5ba7fb2754e57e5612acba298f09d7216",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
