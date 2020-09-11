@@ -34,6 +34,24 @@
       "revId": "d416ef78f6741df2f5ed9b248c0afa46f15a1164",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9528d240_678ec4b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-11T09:08:01Z",
+      "side": 1,
+      "message": "It\u0027s not standard to be using imports like this to pull in CSS, which is why I\u0027d quite like to make that obvious from the import - I\u0027ve been bitten by the magic of tools like Webpack that overload ES imports before. It\u0027s non-urgent though.",
+      "parentUuid": "1fa656cc_7ad5a147",
+      "revId": "d416ef78f6741df2f5ed9b248c0afa46f15a1164",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
