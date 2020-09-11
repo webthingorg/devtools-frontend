@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3aa49332_3f2b0ce7",
+        "filename": "front_end/sources/ThreadsSidebarPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-09-11T11:45:43Z",
+      "side": 1,
+      "message": "Updating the `ListControl` interface is a lot of work, so I went with the down-cast for now.",
+      "range": {
+        "startLine": 107,
+        "startChar": 3,
+        "endLine": 107,
+        "endChar": 14
+      },
+      "revId": "8f86d639695b0ddfba8cc9c74616350f018e3fa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
