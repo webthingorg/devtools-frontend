@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "46f1fc7d_f5528ced",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-09-11T11:32:43Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "fed37961d815b1ef927a09f04d2b6f7b61bae216",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12b014b7_ec99b1b9",
+        "filename": "front_end/sources/DebuggerPausedMessage.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-09-11T11:32:43Z",
+      "side": 1,
+      "message": "FYI, if we omit this line, then TS will type `this._contentElement` as `Element`, which causes errors further down. Just casting the result of root.createChild is not enough to force the type of the variable.",
+      "range": {
+        "startLine": 19,
+        "startChar": 4,
+        "endLine": 19,
+        "endChar": 31
+      },
+      "revId": "fed37961d815b1ef927a09f04d2b6f7b61bae216",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
