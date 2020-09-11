@@ -76,6 +76,30 @@
     },
     {
       "key": {
+        "uuid": "ac938474_3f548f6d",
+        "filename": "test/e2e/helpers/memory-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-11T13:36:40Z",
+      "side": 1,
+      "message": "I\u0027m not sure... I guess we could query the DOM to find the `value`s for each of the `option`s and then find the one we want?",
+      "parentUuid": "79c9d136_3fd2b9c2",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 1
+      },
+      "revId": "0a5835832b492f00861d471165958a8b8cbc8474",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d9cbf1ed_4fbc884a",
         "filename": "test/e2e/helpers/memory-helpers.ts",
         "patchSetId": 1
@@ -146,6 +170,30 @@
     },
     {
       "key": {
+        "uuid": "de18f5e8_1fb0f0dc",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-11T13:36:40Z",
+      "side": 1,
+      "message": "I don\u0027t follow what you mean - if it\u0027s not, something has gone wrong with the test, and it\u0027ll fail. Is there another way you\u0027d rather query for this element?",
+      "parentUuid": "5e3e699f_dac79544",
+      "range": {
+        "startLine": 55,
+        "startChar": 41,
+        "endLine": 55,
+        "endChar": 70
+      },
+      "revId": "0a5835832b492f00861d471165958a8b8cbc8474",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "54b5ebce_8370a3d9",
         "filename": "test/e2e/memory/memory_test.ts",
         "patchSetId": 1
@@ -157,6 +205,30 @@
       "writtenOn": "2020-09-11T13:15:09Z",
       "side": 1,
       "message": "I\u0027m puzzled, this shouldn\u0027t be necessary from the type of waitForElementWithTextContent. Can you explain why it is?",
+      "range": {
+        "startLine": 57,
+        "startChar": 3,
+        "endLine": 57,
+        "endChar": 34
+      },
+      "revId": "0a5835832b492f00861d471165958a8b8cbc8474",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "714c39b2_4706f9eb",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-11T13:36:40Z",
+      "side": 1,
+      "message": "No, it\u0027s not. This was left over from when I was hacking on it and forgot to remove.",
+      "parentUuid": "54b5ebce_8370a3d9",
       "range": {
         "startLine": 57,
         "startChar": 3,
@@ -192,6 +264,30 @@
     },
     {
       "key": {
+        "uuid": "8ea3a859_5af22813",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-11T13:36:40Z",
+      "side": 1,
+      "message": "You\u0027d think so, but unfortunately the actual HTML structure doesn\u0027t have them as child elements - they are all on the same level.",
+      "parentUuid": "92ce27b8_1268a23a",
+      "range": {
+        "startLine": 67,
+        "startChar": 44,
+        "endLine": 67,
+        "endChar": 74
+      },
+      "revId": "0a5835832b492f00861d471165958a8b8cbc8474",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cd1d0ce4_c7b5a414",
         "filename": "test/shared/helper.ts",
         "patchSetId": 1
@@ -203,6 +299,30 @@
       "writtenOn": "2020-09-11T13:15:09Z",
       "side": 1,
       "message": "This is always truthy, so the waitForFunction doesn\u0027t work properly.\n\nI would do\n\n  if (elems \u0026\u0026 elems.length) {\n    return elems;\n  }\n  return undefined;\n\nMaybe you can even defined the return type as NonEmptyArray\u003c...\u003e|undefined using\n\ntype NonEmptyArray\u003cT\u003e \u003d [T, ...T[]];",
+      "range": {
+        "startLine": 224,
+        "startChar": 38,
+        "endLine": 224,
+        "endChar": 49
+      },
+      "revId": "0a5835832b492f00861d471165958a8b8cbc8474",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82ead699_58060802",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-11T13:36:40Z",
+      "side": 1,
+      "message": "Ah ack, good spot.",
+      "parentUuid": "cd1d0ce4_c7b5a414",
       "range": {
         "startLine": 224,
         "startChar": 38,
