@@ -86,6 +86,23 @@
       "revId": "74ce9cd9a25180b83ad19e271980f5968aceba06",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d3e7213_620e2b20",
+        "filename": "front_end/ui/inspectorSyntaxHighlight.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-11T09:06:16Z",
+      "side": 1,
+      "message": "I was a bit on the fence on this, since I need to get accustomed to seeing urls or class names break to next lines. But I don\u0027t think it reduces my developer productivity, and I\u0027m curious to see what our users think.",
+      "revId": "74ce9cd9a25180b83ad19e271980f5968aceba06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
