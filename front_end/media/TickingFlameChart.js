@@ -11,7 +11,7 @@ import {PlayerEvent} from './MediaModel.js';  // eslint-disable-line no-unused-v
 import {Bounds, FormatMillisecondsToSeconds} from './TickingFlameChartHelpers.js';
 
 const defaultFont = '11px ' + Host.Platform.fontFamily();
-const defaultColor = '#444';
+const defaultColor = self.UI.themeSupport.patchColorText('#444', UI.UIUtils.ThemeSupport.ColorUsage.Foreground);
 
 const DefaultStyle = {
   height: 20,
