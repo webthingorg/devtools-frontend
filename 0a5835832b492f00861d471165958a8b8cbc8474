@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b75b1409_01ce0692",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-11T13:01:28Z",
+      "side": 1,
+      "message": "This one was a bit tricky; mainly because the search bar doesn\u0027t work once you switch to the Containment view so you can\u0027t follow the same pattern as the other e2e tests.\n\nI think we have two options:\n\n1) Land this with the search not working, and file a bug to fix the search functionality and come back and update the layout test\n2) Don\u0027t land this until the search is fixed\n\nI lean towards 1) because it lets us more quickly get rid of the old layout tests and unblock the v8 work that\u0027s blocked on low test confidence.\n\nsigurds@ aerotwist@ what do you think?",
+      "revId": "0a5835832b492f00861d471165958a8b8cbc8474",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
