@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e889f8a9_274a42bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-11T08:20:14Z",
+      "side": 1,
+      "message": "@jackfranklin PTAL since I\u0027m removing a TS component I added earlier, because it\u0027s in conflict to ARIA tree support in the Computed pane. Thanks!",
+      "revId": "5e8aea2f02275d860e4fc0627f0b3ff1e7cbe70d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
