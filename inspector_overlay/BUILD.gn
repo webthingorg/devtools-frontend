@@ -10,7 +10,9 @@ action("build_inspector_overlay") {
   script = "../scripts/build/build_inspector_overlay.py"
 
   inputs = [
-    "./common.css",
+    "loadCSS.rollup.js",
+    "common.css",
+    "tool_paused.css",
     "$target_gen_dir/common.js",
     "$target_gen_dir/css_grid_label_helpers.js",
     "$target_gen_dir/highlight_common.js",
@@ -63,6 +65,8 @@ action("build_inspector_overlay") {
     rebase_path(".", root_build_dir),
     "--output_path",
     rebase_path(resources_out_dir, root_build_dir),
+    "--rollup_plugin",
+    rebase_path("loadCSS.rollup.js", root_build_dir),
   ]
 
   public_deps = [
