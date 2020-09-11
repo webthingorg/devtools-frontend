@@ -33,6 +33,24 @@
       "revId": "5e8aea2f02275d860e4fc0627f0b3ff1e7cbe70d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52de64eb_af6cc9ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-11T08:56:03Z",
+      "side": 1,
+      "message": "I totally agree. I\u0027d usually go for the extra effort and acomodate as much as I can to retain/add new components and retire legacy ones, but in this case the legacy TreeOutline is too complex to port/recreate in the new component world (the ARIA logic is several hundreds LOC), and retaining \u003cComputedStyleGroupLists\u003e would mean some nasty wrangling of legacy UI into our new component world. I don\u0027t think we\u0027d want that.\n\nOn a related note, I\u0027m very aware of this TreeOutline challange and want to change this overtime. I\u0027m slowly typescriptifying ui/TreeOutline.js, and I\u0027ll figure out the next step after that.",
+      "parentUuid": "152e77ad_99a3a3b8",
+      "revId": "5e8aea2f02275d860e4fc0627f0b3ff1e7cbe70d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
