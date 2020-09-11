@@ -52,6 +52,52 @@
       "revId": "d416ef78f6741df2f5ed9b248c0afa46f15a1164",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13fefbb0_638ff828",
+        "filename": "inspector_overlay/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-11T09:21:05Z",
+      "side": 1,
+      "message": "Good thing that you updated the doc to mention it though!\nIs there no technical solution to avoid this?",
+      "range": {
+        "startLine": 30,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 43
+      },
+      "revId": "d416ef78f6741df2f5ed9b248c0afa46f15a1164",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d06e0985_0df37367",
+        "filename": "inspector_overlay/debug/tool_paused.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-11T09:21:05Z",
+      "side": 1,
+      "message": "Does that mean we now need to build to use the debug files? It\u0027s a bit unfortunate as using these was a really fast way of debugging overlays.",
+      "range": {
+        "startLine": 13,
+        "startChar": 2,
+        "endLine": 13,
+        "endChar": 95
+      },
+      "revId": "d416ef78f6741df2f5ed9b248c0afa46f15a1164",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
