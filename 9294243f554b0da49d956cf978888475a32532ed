@@ -16,6 +16,46 @@
       "revId": "9294243f554b0da49d956cf978888475a32532ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4d86497_4d446240",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-11T10:49:28Z",
+      "side": 1,
+      "message": "LGTM. We need to figure out the LH side, though, if that\u0027s causing issues.",
+      "revId": "9294243f554b0da49d956cf978888475a32532ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14ce0d2c_60e651c8",
+        "filename": "front_end/root/Runtime.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-11T10:49:28Z",
+      "side": 1,
+      "message": "// TODO(crbug.com/1011811): Remove eval when we use TypeScript which does support dynamic imports",
+      "range": {
+        "startLine": 676,
+        "startChar": 12,
+        "endLine": 676,
+        "endChar": 65
+      },
+      "revId": "9294243f554b0da49d956cf978888475a32532ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
