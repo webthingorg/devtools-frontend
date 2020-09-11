@@ -91,6 +91,24 @@
     },
     {
       "key": {
+        "uuid": "98886434_2e2be1ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-11T13:56:55Z",
+      "side": 1,
+      "message": "We could write a comment then? In my opinion, seeing a CSS file being imported implies some build tooling. I guess it\u0027d be not clear for someone not familiar with CSS modules or bundlers.",
+      "parentUuid": "6fa34e7c_c7ad51e9",
+      "revId": "d416ef78f6741df2f5ed9b248c0afa46f15a1164",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13fefbb0_638ff828",
         "filename": "inspector_overlay/README.md",
         "patchSetId": 2
