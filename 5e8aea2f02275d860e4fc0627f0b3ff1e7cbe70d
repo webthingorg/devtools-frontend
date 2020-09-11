@@ -51,6 +51,24 @@
       "revId": "5e8aea2f02275d860e4fc0627f0b3ff1e7cbe70d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b502db8_28042ebf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-11T08:57:38Z",
+      "side": 1,
+      "message": "SGTM. Thanks for explaining 👍",
+      "parentUuid": "52de64eb_af6cc9ab",
+      "revId": "5e8aea2f02275d860e4fc0627f0b3ff1e7cbe70d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
