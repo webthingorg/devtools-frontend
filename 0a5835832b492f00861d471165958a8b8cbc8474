@@ -16,6 +16,161 @@
       "revId": "0a5835832b492f00861d471165958a8b8cbc8474",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66ae2a54_47e60d8d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-11T13:15:09Z",
+      "side": 1,
+      "message": "Some comments. Please also run the test excessively locally to make sure it doesn\u0027t flake, the devil is in the details here.",
+      "revId": "0a5835832b492f00861d471165958a8b8cbc8474",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79c9d136_3fd2b9c2",
+        "filename": "test/e2e/helpers/memory-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-11T13:15:09Z",
+      "side": 1,
+      "message": "Hmm.. is there a way to not use the internal values, but the names?",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 1
+      },
+      "revId": "0a5835832b492f00861d471165958a8b8cbc8474",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9cbf1ed_4fbc884a",
+        "filename": "test/e2e/helpers/memory-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-11T13:15:09Z",
+      "side": 1,
+      "message": "Let\u0027s add an aria label to the drop-down and use that to select.",
+      "range": {
+        "startLine": 185,
+        "startChar": 2,
+        "endLine": 185,
+        "endChar": 75
+      },
+      "revId": "0a5835832b492f00861d471165958a8b8cbc8474",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e3e699f_dac79544",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-11T13:15:09Z",
+      "side": 1,
+      "message": "Can we guarantee that this is always visible?",
+      "range": {
+        "startLine": 55,
+        "startChar": 41,
+        "endLine": 55,
+        "endChar": 70
+      },
+      "revId": "0a5835832b492f00861d471165958a8b8cbc8474",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54b5ebce_8370a3d9",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-11T13:15:09Z",
+      "side": 1,
+      "message": "I\u0027m puzzled, this shouldn\u0027t be necessary from the type of waitForElementWithTextContent. Can you explain why it is?",
+      "range": {
+        "startLine": 57,
+        "startChar": 3,
+        "endLine": 57,
+        "endChar": 34
+      },
+      "revId": "0a5835832b492f00861d471165958a8b8cbc8474",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92ce27b8_1268a23a",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-11T13:15:09Z",
+      "side": 1,
+      "message": "Does it make sense to restrict this to children of the pendingActiviesElement?",
+      "range": {
+        "startLine": 67,
+        "startChar": 44,
+        "endLine": 67,
+        "endChar": 74
+      },
+      "revId": "0a5835832b492f00861d471165958a8b8cbc8474",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd1d0ce4_c7b5a414",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-11T13:15:09Z",
+      "side": 1,
+      "message": "This is always truthy, so the waitForFunction doesn\u0027t work properly.\n\nI would do\n\n  if (elems \u0026\u0026 elems.length) {\n    return elems;\n  }\n  return undefined;\n\nMaybe you can even defined the return type as NonEmptyArray\u003c...\u003e|undefined using\n\ntype NonEmptyArray\u003cT\u003e \u003d [T, ...T[]];",
+      "range": {
+        "startLine": 224,
+        "startChar": 38,
+        "endLine": 224,
+        "endChar": 49
+      },
+      "revId": "0a5835832b492f00861d471165958a8b8cbc8474",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
