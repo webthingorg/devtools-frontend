@@ -16,6 +16,69 @@
       "revId": "e997ebcf9b6caad15d0a8446f3230ef001bf7824",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a4bb722_e944af69",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-11T11:12:46Z",
+      "side": 1,
+      "message": "I would prefer if we fix GlassPane first, before landing this CL.",
+      "revId": "e997ebcf9b6caad15d0a8446f3230ef001bf7824",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2247995f_b80e477a",
+        "filename": "front_end/sources/AddSourceMapURLDialog.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-11T11:12:46Z",
+      "side": 1,
+      "message": "Ultra-nit: if you cast already, then this type is implied and therefore not strictly necessary. It is nice documentation for the field though, so I am okay with keeping it if you prefer.",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 36
+      },
+      "revId": "e997ebcf9b6caad15d0a8446f3230ef001bf7824",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7976fb1_792f362e",
+        "filename": "front_end/sources/AddSourceMapURLDialog.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-11T11:12:46Z",
+      "side": 1,
+      "message": "Could we fix these issues before landing this CL?",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 47
+      },
+      "revId": "e997ebcf9b6caad15d0a8446f3230ef001bf7824",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
