@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b58931b9_3ab8cdf7",
+        "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1000675
+      },
+      "writtenOn": "2020-09-11T20:27:00Z",
+      "side": 1,
+      "message": "_append* name is used by convention to mean add events to the timeline, but here you are doing something else (copying, then appending later). Consider renaming this, maybe, to make that clear?\n\nAlternatively, and maybe this is even better option: maybe you should actually append event from the helper, as done in _appendPageMetrics?  Could you remove the next line (this._appendSyncEvents) by calling this._appendEvent from the loops you are already doing?",
+      "revId": "ef955f9306e4c493eadd0675d9ae690810bb90e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fec745a_c1b53313",
+        "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1000675
+      },
+      "writtenOn": "2020-09-11T20:27:00Z",
+      "side": 1,
+      "message": "I think we should ask Paul about this.\nI know this is how appendPageMetrics does it, but some trace files can have lots of different tracks...  Not sure if it makes sense to merge all timings together.\n\nPerhaps it depends on the settings DevTools uses for profile recording?",
+      "revId": "ef955f9306e4c493eadd0675d9ae690810bb90e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7025640a_ded3bd51",
+        "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1000675
+      },
+      "writtenOn": "2020-09-11T20:27:00Z",
+      "side": 1,
+      "message": "Stale TODO.  You\u0027ve now done the TODO!",
+      "revId": "ef955f9306e4c493eadd0675d9ae690810bb90e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5fb63326_15e8c266",
+        "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 760,
+      "author": {
+        "id": 1000675
+      },
+      "writtenOn": "2020-09-11T20:27:00Z",
+      "side": 1,
+      "message": "Just making sure -- is this still needed with the latest changes?",
+      "revId": "ef955f9306e4c493eadd0675d9ae690810bb90e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb301835_b78f4565",
+        "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1000675
+      },
+      "writtenOn": "2020-09-11T20:27:00Z",
+      "side": 1,
+      "message": "For one thing, you can use `track.type \u003d\u003d\u003d TimelineModel.TimelineModel.TrackType.Timings`, I think.\n\nHowever, you can just pass track as an argument to this function when you call it, instead of looking for it.",
+      "revId": "ef955f9306e4c493eadd0675d9ae690810bb90e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea0c3295_e24f687c",
+        "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1000675
+      },
+      "writtenOn": "2020-09-11T20:27:00Z",
+      "side": 1,
+      "message": "Could you just push these in the loop above?  I think they get sorted in appendPageMetrics because they come from different tracks and get added manually.\n\nNot really sure if we need to do that here...",
+      "revId": "ef955f9306e4c493eadd0675d9ae690810bb90e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6de030c3_a0abb130",
+        "filename": "front_end/timeline_model/TimelineModel.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1000675
+      },
+      "writtenOn": "2020-09-11T20:27:00Z",
+      "side": 1,
+      "message": "No longer used, I think.",
+      "revId": "ef955f9306e4c493eadd0675d9ae690810bb90e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
