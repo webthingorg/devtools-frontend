@@ -69,6 +69,23 @@
       "revId": "74ce9cd9a25180b83ad19e271980f5968aceba06",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "77f823c9_92e33f1b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-11T08:38:23Z",
+      "side": 1,
+      "message": "I tested a couple of sites, and they work quite nicely.",
+      "revId": "74ce9cd9a25180b83ad19e271980f5968aceba06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
