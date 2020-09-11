@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "692bf0bf_258e0411",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-09-11T06:40:19Z",
+      "side": 1,
+      "message": "Of course... thanks :-)",
+      "parentUuid": "e89e8dc8_9bc93d32",
+      "range": {
+        "startLine": 73,
+        "startChar": 3,
+        "endLine": 73,
+        "endChar": 27
+      },
+      "revId": "0192afd44a097fffff7caaef4f7e339528b98404",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7ad56e80_113cf4ee",
         "filename": "front_end/ui/ShortcutRegistry.js",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2020-09-10T13:18:29Z",
       "side": 1,
       "message": "I _thought_ that we could use Runtime.instance() safely now, what was the error when you tried it?",
+      "range": {
+        "startLine": 326,
+        "startChar": 0,
+        "endLine": 327,
+        "endChar": 72
+      },
+      "revId": "0192afd44a097fffff7caaef4f7e339528b98404",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28fb5959_b354fd9c",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-09-11T06:40:19Z",
+      "side": 1,
+      "message": "TypeScript is still complaining that it doesn\u0027t have a property instance",
+      "parentUuid": "7ad56e80_113cf4ee",
       "range": {
         "startLine": 326,
         "startChar": 0,
