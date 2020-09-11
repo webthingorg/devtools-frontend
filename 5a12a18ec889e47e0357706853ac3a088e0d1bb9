@@ -22,6 +22,30 @@
       "revId": "5a12a18ec889e47e0357706853ac3a088e0d1bb9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "365826de_40d0e692",
+        "filename": "front_end/css_overview/CSSOverviewPanel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-09-11T20:05:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b438123b_e7662c55",
+      "range": {
+        "startLine": 25,
+        "startChar": 11,
+        "endLine": 25,
+        "endChar": 16
+      },
+      "revId": "5a12a18ec889e47e0357706853ac3a088e0d1bb9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
