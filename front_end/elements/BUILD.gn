@@ -27,6 +27,8 @@ devtools_module("elements") {
     "ElementsPanelLink.ts",
     "ElementsPanelLink_bridge.js",
     "ElementsSidebarPane.js",
+    "ElementsStyleSidebar.ts",
+    "ElementsStyleSidebar_bridge.js",
     "ElementsTreeElement.js",
     "ElementsTreeElementHighlighter.js",
     "ElementsTreeOutline.js",
@@ -47,6 +49,7 @@ devtools_module("elements") {
     "StylePropertyHighlighter.js",
     "StylePropertyTreeElement.js",
     "StylesSidebarPane.js",
+    "edit-target.ts",
   ]
 
   deps = [
