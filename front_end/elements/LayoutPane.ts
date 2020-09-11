@@ -118,6 +118,13 @@ export class LayoutPane extends HTMLElement {
     element.reveal();
   }
 
+  private onColorChange(element: LayoutElement, event: HTMLInputElementEvent) {
+    event.preventDefault();
+    element.setColor(event.target.value);
+    element.color = event.target.value;
+    this.render();
+  }
+
   private renderElement(element: LayoutElement) {
     const nodeText = new NodeText();
     nodeText.data = {
@@ -127,15 +134,17 @@ export class LayoutPane extends HTMLElement {
     };
     const onElementToggle = this.onElementToggle.bind(this, element);
     const onElementClick = this.onElementClick.bind(this, element);
+    const onColorChange = this.onColorChange.bind(this, element);
+    const color = Common.Color.Color.parse(element.color);
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
     return html`<div class="element">
       <label data-element="true" class="checkbox-label" title=${element.name}>
         <input data-input="true" type="checkbox" .checked=${element.enabled} @change=${onElementToggle} />
         <span data-label="true">${nodeText}</span>
-        <span class="color-swatch">
-          <span class="color-swatch-inner" style="background:${element.color}"></span>
-        </span>
+      </label>
+      <label class="color-picker-label" style="background:${element.color}">
+        <input @change=${onColorChange} @input=${onColorChange} class="color-picker" type="color" value=${color ? color.asString(Common.Color.Format.HEX) : ''} />
       </label>
       <button @click=${onElementClick} title=${showElementButtonTitle} class="show-element"></button>
     </div>`;

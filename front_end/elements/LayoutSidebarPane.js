@@ -36,7 +36,10 @@ const gridNodesToElements = nodes => {
         } else {
           node.domModel().overlayModel().hideGridInPersistentOverlay(node.id);
         }
-      }
+      },
+      setColor: value => {
+        node.domModel().overlayModel().setColorOfGridInPersistentOverlay(node.id, value);
+      },
     };
   });
 };
