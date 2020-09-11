@@ -2,9 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
 import * as Common from '../common/common.js';
 import * as UI from '../ui/ui.js';
 
@@ -13,14 +10,15 @@ import * as UI from '../ui/ui.js';
  */
 export class AddSourceMapURLDialog extends UI.Widget.HBox {
   /**
-   * @param {function(string)} callback
+   * @param {function(string):void} callback
    */
   constructor(callback) {
     super(/* isWebComponent */ true);
     this.registerRequiredCSS('sources/dialog.css');
     this.contentElement.createChild('label').textContent = Common.UIString.UIString('Source map URL: ');
 
-    this._input = UI.UIUtils.createInput('add-source-map', 'text');
+    /** @type {!HTMLInputElement} */
+    this._input = /** @type {!HTMLInputElement} */ (UI.UIUtils.createInput('add-source-map', 'text'));
     this._input.addEventListener('keydown', this._onKeyDown.bind(this), false);
     this.contentElement.appendChild(this._input);
 
@@ -32,6 +30,7 @@ export class AddSourceMapURLDialog extends UI.Widget.HBox {
     this._dialog.setDefaultFocusedElement(this._input);
 
     /**
+     * @param {string} value
      * @this {AddSourceMapURLDialog}
      */
     this._done = function(value) {
@@ -45,6 +44,10 @@ export class AddSourceMapURLDialog extends UI.Widget.HBox {
    */
   show() {
     super.show(this._dialog.contentElement);
+    // @ts-ignore
+    // TODO(crbug.com/1011811): Fix Dialog override of show. Glasspane#show expects a `!Document`,
+    //                          which TS somehow also expects here even though Dialog#show marks
+    //                          it as optional.
     this._dialog.show();
   }
 
