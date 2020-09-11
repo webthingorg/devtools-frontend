@@ -30,6 +30,9 @@
   <message name="IDS_DEVTOOLS_24e8ca2483129261096ba8ba0fbcd247" desc="Fast fact in the pop-up dialog when lighthouse is running in the Lighthouse panel">
     70% of mobile pages take nearly 7 seconds for the visual content above the fold to display on the screen. [Source: <ph name="LOCKED_1">Think with Google</ph>]
   </message>
+  <message name="IDS_DEVTOOLS_2a80b7e50393d366c832dce6a0441983" desc="Text that appears when request to fetch Lighthous remote module times out">
+    DevTools is having trouble fetching the Lighthouse remote module. Check that you&apos;re not blocking &quot;chrome-devtools-frontend.appspot.com&quot; in your firewall or ad-blocker.
+  </message>
   <message name="IDS_DEVTOOLS_2a96c07a6c11ca7add2b1ffde86efe25" desc="Text in Lighthouse Controller">
     Can only audit HTTP/HTTPS pages and <ph name="LOCKED_1">Chrome</ph> extensions. Navigate to a different page to start an audit.
   </message>

@@ -30,6 +30,7 @@ export class StatusView {
     this._currentPhase = null;
     this._scheduledTextChangeTimeout = null;
     this._scheduledFastFactTimeout = null;
+    this._warmingUpTimeout = null;
 
     this._dialog = new UI.Dialog.Dialog();
     this._dialog.setDimmed(true);
@@ -77,12 +78,14 @@ export class StatusView {
   _reset() {
     this._resetProgressBarClasses();
     clearTimeout(this._scheduledFastFactTimeout);
+    clearTimeout(this._warmingUpTimeout);
 
     this._textChangedAt = 0;
     this._fastFactsQueued = FastFacts.slice();
     this._currentPhase = null;
     this._scheduledTextChangeTimeout = null;
     this._scheduledFastFactTimeout = null;
+    this._warmingUpTimeout = null;
   }
 
   /**
@@ -130,6 +133,7 @@ export class StatusView {
     if (message.startsWith('Cancel')) {
       this._commitTextChange(Common.UIString.UIString('Cancelling…'));
       clearTimeout(this._scheduledFastFactTimeout);
+      clearTimeout(this._warmingUpTimeout);
       return;
     }
 
@@ -139,7 +143,22 @@ export class StatusView {
     if (!nextPhase && !this._currentPhase) {
       this._commitTextChange(Common.UIString.UIString('Lighthouse is warming up…'));
       clearTimeout(this._scheduledFastFactTimeout);
+      if (message === 'Loading…') {
+        this._warmingUpTimeout = setTimeout(() => {
+          this._commitTextChange(
+              Common.UIString.UIString(
+                  'DevTools is having trouble fetching the Lighthouse remote module. Check that you\'re not blocking "chrome-devtools-frontend.appspot.com" in your firewall or ad-blocker.'),
+              'https://github.com/GoogleChrome/lighthouse/issues/9484');
+        }, 10000);
+      } else if (this._warmingUpTimeout) {
+        clearTimeout(this._warmingUpTimeout);
+        this._warmingUpTimeout = null;
+      }
     } else if (nextPhase && (!this._currentPhase || currentPhaseIndex < nextPhaseIndex)) {
+      if (this._warmingUpTimeout) {
+        clearTimeout(this._warmingUpTimeout);
+        this._warmingUpTimeout = null;
+      }
       this._currentPhase = nextPhase;
       const text = this._getMessageForPhase(nextPhase);
       this._scheduleTextChange(text);
@@ -218,12 +237,15 @@ export class StatusView {
   /**
    * @param {string} text
    */
-  _commitTextChange(text) {
+  _commitTextChange(text, learnMoreUrl) {
     if (!this._statusText) {
       return;
     }
     this._textChangedAt = performance.now();
     this._statusText.textContent = text;
+    if (learnMoreUrl) {
+      this._statusText.appendChild(UI.XLink.XLink.create(learnMoreUrl, ls`Learn more`));
+    }
   }
 
   /**
