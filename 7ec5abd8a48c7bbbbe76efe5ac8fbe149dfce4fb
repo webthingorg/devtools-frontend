@@ -33,6 +33,23 @@
       "revId": "7ec5abd8a48c7bbbbe76efe5ac8fbe149dfce4fb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8978a962_b8578508",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-09-11T07:16:27Z",
+      "side": 1,
+      "message": "I\u0027ll make an owners file for scripts/localization and add us",
+      "revId": "7ec5abd8a48c7bbbbe76efe5ac8fbe149dfce4fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
