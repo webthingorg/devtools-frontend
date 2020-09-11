@@ -607,7 +607,8 @@ export const DevtoolsExperiments = {
   'dualScreenSupport': 32,
   'cssGridFeatures': 33,
   'movableTabs': 34,
-  '__lastValidEnumPosition': 34,
+  'keyboardShortcutEditor': 35,
+  '__lastValidEnumPosition': 35,
 };
 
 /** @type {!Object<string, number>} */
