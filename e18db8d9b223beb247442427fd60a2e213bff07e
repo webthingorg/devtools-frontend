@@ -22,6 +22,30 @@
       "revId": "e18db8d9b223beb247442427fd60a2e213bff07e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "812cfd0a_2b9a0c04",
+        "filename": "front_end/css_overview/CSSOverviewSidebarPanel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-09-11T19:58:29Z",
+      "side": 1,
+      "message": "Changed accordingly: go/tsstyle#iterating-containers",
+      "parentUuid": "932186e5_f4292154",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 7
+      },
+      "revId": "e18db8d9b223beb247442427fd60a2e213bff07e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
