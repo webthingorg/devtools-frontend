@@ -5,7 +5,7 @@
 import {assert} from 'chai';
 import * as puppeteer from 'puppeteer';
 
-import {platform} from '../../shared/helper.js';
+import {$, platform} from '../../shared/helper.js';
 import {$$, click, getBrowserAndPages, pasteText, waitFor, waitForFunction, waitForNone} from '../../shared/helper.js';
 
 
@@ -173,4 +173,16 @@ export async function assertRetainerChain(expectedRetainers: Array<string>) {
 
 export async function waitForRetainerChain(expectedRetainers: Array<string>) {
   await waitForFunction(assertRetainerChain.bind(null, expectedRetainers));
+}
+
+export const enum HeapPerspective {
+  /* The numbers here are the value attribute of the corresponding <option> in the DevTools UI */
+  Summary = '0',
+  Containment = '2',
+  Statistics = '3'
+}
+export async function changeViewViaDropdown(newPerspective: HeapPerspective) {
+  const perspectiveDropdownSelector = '.toolbar-select-container > select';
+  const dropdown = await $(perspectiveDropdownSelector) as puppeteer.ElementHandle<HTMLSelectElement>;
+  dropdown.select(newPerspective);
 }
