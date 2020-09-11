@@ -34,6 +34,24 @@
       "revId": "b137fe17bedaef23cb1e2e4a1f924b6288fa6640",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "acb20d26_62c59763",
+        "filename": "test/unittests/front_end/elements/ComputedStyleProperty_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-11T08:04:37Z",
+      "side": 0,
+      "message": "Oops nevermind. The only logic it affects is if ComputedStyleProperty will render a \"goto\" icon that\u0027s clickable, and this is unit-tested below.",
+      "parentUuid": "05d63dc1_7ed225df",
+      "revId": "b137fe17bedaef23cb1e2e4a1f924b6288fa6640",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
