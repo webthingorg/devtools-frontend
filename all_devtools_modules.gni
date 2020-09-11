@@ -378,6 +378,7 @@ all_typescript_module_sources = [
   "resources/IndexedDBViews.js",
   "resources/ResourcesPanel.js",
   "resources/ServiceWorkerCacheViews.js",
+  "resources/ServiceWorkerNetworkView.js",
   "resources/ServiceWorkersView.js",
   "resources/StorageItemsView.js",
   "root/Runtime.js",

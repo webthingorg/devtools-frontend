@@ -20,6 +20,7 @@ import * as IndexedDBModel from './IndexedDBModel.js';
 import * as IndexedDBViews from './IndexedDBViews.js';
 import * as ResourcesPanel from './ResourcesPanel.js';
 import * as ServiceWorkerCacheViews from './ServiceWorkerCacheViews.js';
+import * as ServiceWorkerNetworkView from './ServiceWorkerNetworkView.js';
 import * as ServiceWorkersView from './ServiceWorkersView.js';
 import * as StorageItemsView from './StorageItemsView.js';
 
@@ -42,6 +43,7 @@ export {
   IndexedDBViews,
   ResourcesPanel,
   ServiceWorkerCacheViews,
+  ServiceWorkerNetworkView,
   ServiceWorkersView,
   StorageItemsView,
 };

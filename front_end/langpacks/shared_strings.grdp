@@ -28,6 +28,9 @@
   <message name="IDS_DEVTOOLS_0ca08f8f4a8a19f7f1ae87c119494327" desc="Title as part of a tool to override existing configurations">
     Overrides
   </message>
+  <message name="IDS_DEVTOOLS_0d6c76e22c095f0ae6cf53753121adef" desc="Text used to show that serviceworker fetch response source is ServiceWorker Cache Storage">
+    <ph name="LOCKED_TERM">ServiceWorker</ph> cache storage
+  </message>
   <message name="IDS_DEVTOOLS_0eaadb4fcb48a0a0ed7bc9868be9fbaa" desc="Text to indicate an item is a warning">
     Warning
   </message>
@@ -64,6 +67,9 @@
   <message name="IDS_DEVTOOLS_16f78b9465f03f7ec5a03c24918fbde3" desc="Status code of an event">
     Status Code
   </message>
+  <message name="IDS_DEVTOOLS_17145319aba079a26c6d3bb2b1d58894" desc="Text in Request Timing View of the Network panel">
+    <ph name="LOCKED_TERM">Service Worker</ph>
+  </message>
   <message name="IDS_DEVTOOLS_193cfc9be3b995831c6af2fea6650e60" desc="Text that refers to one or a group of webpages">
     Page
   </message>
@@ -84,6 +90,9 @@
   </message>
   <message name="IDS_DEVTOOLS_22b6fe30dec1ae9c09480cce01cd4065" desc="Text to run commands">
     Run command
+  </message>
+  <message name="IDS_DEVTOOLS_22c5170c679b5d0232542f02c15bf335" desc="Text used to show that data was retrieved via a Network fetch">
+    Network fetch
   </message>
   <message name="IDS_DEVTOOLS_2310408a63388fe57e3a4177168a8798" desc="Text for the desktop platform, as opposed to mobile">
     Desktop
@@ -148,6 +157,9 @@
   <message name="IDS_DEVTOOLS_382b0f5185773fa0f67a8ed8056c7759" desc="Text for something not available">
     N/A
   </message>
+  <message name="IDS_DEVTOOLS_38f054df4f04de343770f468846f0202" desc="Text for unknown cache storage name">
+    Cache storage cache name: Unknown
+  </message>
   <message name="IDS_DEVTOOLS_393c3f5ea8ad35c02691d507bdbb31b0" desc="Text for revealing an item in its destination">
     Reveal
   </message>
@@ -162,6 +174,9 @@
   </message>
   <message name="IDS_DEVTOOLS_3c4684d2d502d7f9d20e05451c2f581c" desc="Next button title in Film Strip View of the Performance panel">
     Next frame
+  </message>
+  <message name="IDS_DEVTOOLS_3e150c8e936066f2c4e47dad7a07c9d1" desc="Description for treeitem in ServiceWorker Fetch Details">
+    Original Request
   </message>
   <message name="IDS_DEVTOOLS_3ec365dd533ddb7ef3d1c111186ce872" desc="Text for the details of something">
     Details
@@ -189,6 +204,9 @@
   </message>
   <message name="IDS_DEVTOOLS_46a2a41cc6e552044816a2d04634545d" desc="The current state of an item">
     State
+  </message>
+  <message name="IDS_DEVTOOLS_46b4d9ff37717009d48acedceece6914" desc="Header for last column of network timing tab.">
+    DURATION
   </message>
   <message name="IDS_DEVTOOLS_4789f23283b3a61f858b641a1bef19a3" desc="Text for the memory of the page">
     Memory
@@ -264,6 +282,9 @@
   </message>
   <message name="IDS_DEVTOOLS_5b6cf869265c13af8566f192b4ab3d2a" desc="Text for the documentation of something">
     Documentation
+  </message>
+  <message name="IDS_DEVTOOLS_5d0fc8284dca5a87af1d80b6715da9cf" desc="Displays how a particular response was fetched">
+    Source of response: <ph name="THIS__REQUEST_RESPONSESOURCE__">$1s<ex>Network fetch</ex></ph>
   </message>
   <message name="IDS_DEVTOOLS_5de39fa1bce4bbf9232597a2120bc4d4" desc="Text to open the cubic bezier editor">
     Open cubic bezier editor.
@@ -376,6 +397,9 @@
   <message name="IDS_DEVTOOLS_87d17f4624a514e81dc7c8e016a7405c" desc="Text for the mobile platform, as opposed to desktop">
     Mobile
   </message>
+  <message name="IDS_DEVTOOLS_88183b946cc5f0e8c96b2e66e1c74a7e" desc="Text for an unspecified service worker response source">
+    Unknown
+  </message>
   <message name="IDS_DEVTOOLS_883d7615c4d2de3fa1218f1298c46d0e" desc="Text for network request headers">
     Headers
   </message>
@@ -444,6 +468,9 @@
   </message>
   <message name="IDS_DEVTOOLS_9aae9fe27dbf2db0ad90762b5b59d3a7" desc="Text to clear the console">
     Clear console
+  </message>
+  <message name="IDS_DEVTOOLS_9b5e92790ca7fec879dfd28355a224d1" desc="Text used to show that serviceworker fetch response source is HTTP cache">
+    From HTTP cache
   </message>
   <message name="IDS_DEVTOOLS_9d8c209e49e328528c39c273798e98c9" desc="Text to save content as a specific file type">
     Save as...
@@ -556,6 +583,9 @@
   <message name="IDS_DEVTOOLS_bafd7322c6e97d25b6299b5d6fe8920b" desc="Text in Timeline indicating that input has not happened recently">
     No
   </message>
+  <message name="IDS_DEVTOOLS_bb9fd331bd610fd877425ceff23708a7" desc="Time at which a response was retrieved">
+    Retrieval Time: <ph name="THIS__REQUEST_RESPONSERETRIEVALTIME">$1s<ex>Fri Apr 10 2020 17:20:27 GMT-0700 (Pacific Daylight Time)</ex></ph>
+  </message>
   <message name="IDS_DEVTOOLS_bc28aa52ba5b534ad9d198157c375d67" desc="Text to clear storage of the web page">
     Clear storage
   </message>
@@ -637,6 +667,9 @@
   <message name="IDS_DEVTOOLS_dde38f333e095c2293593f504fd701a2" desc="Title of the 'JavaScript Profiler' tool">
     JavaScript Profiler
   </message>
+  <message name="IDS_DEVTOOLS_de04f7066e574ccce5b163308115dd2c" desc="Text used to show that data was retrieved using ServiceWorker fallback code">
+    Fallback code
+  </message>
   <message name="IDS_DEVTOOLS_e02d2ae03de9d493df2b6b2d2813d302" desc="Text for the duration of something">
     Duration
   </message>
@@ -691,6 +724,9 @@
   <message name="IDS_DEVTOOLS_ec53a8c4f07baed5d8825072c89799be" desc="Text for the status of something">
     Status
   </message>
+  <message name="IDS_DEVTOOLS_ec9dca2a4b061ad202945d88657e5ddf" desc="Text of a DOM element in Request Timing View of the Network panel">
+    Started at <ph name="CALCULATOR_FORMATVALUE_REQUEST_STARTTIME____">$1s<ex>120.39ms</ex></ph>
+  </message>
   <message name="IDS_DEVTOOLS_edd24cce7afedea5a1b2f90675880687" desc="Text to preserve the log after refreshing">
     Preserve log
   </message>
@@ -705,6 +741,9 @@
   </message>
   <message name="IDS_DEVTOOLS_ef95393ad48336d7c3543625354a3d56" desc="Text to highlight the rendering frames for ads">
     Highlight ad frames
+  </message>
+  <message name="IDS_DEVTOOLS_f0c5b7ae2d085f65b7b003d43a7d7521" desc="Name of storage cache from which a response was fetched">
+    Cache storage cache name: <ph name="THIS__REQUEST_RESPONSECACHESTORAGECACHENAME">$1s<ex>v1</ex></ph>
   </message>
   <message name="IDS_DEVTOOLS_f0f31c9700c6b10d8a20dc487b2ae6a8" desc="Text for the touch type to simulate on a device">
     Touch
@@ -726,6 +765,9 @@
   </message>
   <message name="IDS_DEVTOOLS_f53944c3a55bdb5ad65c6226e358a626" desc="Text to undock the DevTools">
     Undock into separate window
+  </message>
+  <message name="IDS_DEVTOOLS_f7aa0779f4d8e843b2877afa34d559e0" desc="Description for treeitem in ServiceWorker Fetch Details">
+    Response Received
   </message>
   <message name="IDS_DEVTOOLS_f80bc338b6146b566004a046f8137c85" desc="Text in Event Listeners Widget of the Elements panel">
     Passive
