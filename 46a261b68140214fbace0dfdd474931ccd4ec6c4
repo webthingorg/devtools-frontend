@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f3a90fa_c48fa15e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-09-11T15:14:46Z",
+      "side": 1,
+      "message": "We\u0027re almost there.  There is an issue if we have both an overloaded and non-overloaded property for a shorthand property.  See the example here:\nhttps://imgur.com/k087CXz\n\nmargin-right is being computed as 5px in the expanded property list where it should be overloaded.",
+      "revId": "46a261b68140214fbace0dfdd474931ccd4ec6c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
