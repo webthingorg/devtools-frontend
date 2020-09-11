@@ -39,6 +39,30 @@
       "revId": "fed37961d815b1ef927a09f04d2b6f7b61bae216",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc3e65eb_f275a761",
+        "filename": "front_end/sources/DebuggerPausedMessage.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-11T11:34:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "12b014b7_ec99b1b9",
+      "range": {
+        "startLine": 19,
+        "startChar": 4,
+        "endLine": 19,
+        "endChar": 31
+      },
+      "revId": "fed37961d815b1ef927a09f04d2b6f7b61bae216",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
