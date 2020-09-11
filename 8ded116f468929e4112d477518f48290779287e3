@@ -16,6 +16,24 @@
       "revId": "8ded116f468929e4112d477518f48290779287e3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62703914_4dae92c4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-11T08:00:36Z",
+      "side": 1,
+      "message": "Basically yes. Now the structure looks like this in flat list:\n```\n\u003ctree-element\u003e\n  \u003ccomputed-style-property /\u003e\n\u003c/tree-element\u003e\n\u003ctree-list \"traces\"\u003e\n  \u003ctree-element\u003e\u003ccomputed-style-trace /\u003e\u003c/tree-element\u003e\n  ...\n\u003c/tree-list\u003e\n```\n\nAnd in grouped list another layer is wrapped for each group:\n```\n\u003ctree-element\u003e\n  \u003cgroup-title /\u003e\n\u003c/tree-element\u003e\n\u003ctree-list\u003e ${what\u0027s above} \u003c/tree-list\u003e\n```",
+      "parentUuid": "6366b681_4f606a0c",
+      "revId": "8ded116f468929e4112d477518f48290779287e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
