@@ -16,6 +16,23 @@
       "revId": "5e8aea2f02275d860e4fc0627f0b3ff1e7cbe70d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "152e77ad_99a3a3b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-11T08:42:33Z",
+      "side": 1,
+      "message": "I\u0027m happy for this to ship, but just for my understanding, is there no way we could fix the a11y issues by rebuilding/modifiying the component rather than removing some of it? Or is that much more work compared to leaning on what we already have?\n\nThanks!",
+      "revId": "5e8aea2f02275d860e4fc0627f0b3ff1e7cbe70d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
