@@ -36,6 +36,23 @@
     },
     {
       "key": {
+        "uuid": "f64731bb_a358c550",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-11T13:34:31Z",
+      "side": 1,
+      "message": "+1 to Sigurd\u0027s comments. LGTM otherwise.",
+      "revId": "0a5835832b492f00861d471165958a8b8cbc8474",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79c9d136_3fd2b9c2",
         "filename": "test/e2e/helpers/memory-helpers.ts",
         "patchSetId": 1
@@ -70,6 +87,30 @@
       "writtenOn": "2020-09-11T13:15:09Z",
       "side": 1,
       "message": "Let\u0027s add an aria label to the drop-down and use that to select.",
+      "range": {
+        "startLine": 185,
+        "startChar": 2,
+        "endLine": 185,
+        "endChar": 75
+      },
+      "revId": "0a5835832b492f00861d471165958a8b8cbc8474",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d58193b_c0b2ce29",
+        "filename": "test/e2e/helpers/memory-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-11T13:34:31Z",
+      "side": 1,
+      "message": "If it makes sense to use aria, for sure do that, but if not then we should add a data- attribute and select via that. However, definitely agree that if we can collapse the selector into something that is resilient to markup changes all the better.",
+      "parentUuid": "d9cbf1ed_4fbc884a",
       "range": {
         "startLine": 185,
         "startChar": 2,
