@@ -109,6 +109,24 @@
     },
     {
       "key": {
+        "uuid": "7390d4a4_006e5f43",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-11T14:17:02Z",
+      "side": 1,
+      "message": "I\u0027m not entirely sure what the prefixing you are talking about looks like (I\u0027ve not seen it here in the discussion), but as a data point: I\u0027m always intrigued by CSS imports. I tend to agree with Jack that it\u0027d be nicer (to me) if the import was different from the other normal imports.",
+      "parentUuid": "98886434_2e2be1ce",
+      "revId": "d416ef78f6741df2f5ed9b248c0afa46f15a1164",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13fefbb0_638ff828",
         "filename": "inspector_overlay/README.md",
         "patchSetId": 2
