@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb072efe_c998a059",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-11T13:39:44Z",
+      "side": 1,
+      "message": "@jackfranklin Hi Jack, could you take a look mainly at if putting a common debouncer here is OK, plus the naming: Debouncer.js is capitalized to be consistent with other files, and we can think of it as a module so it makes sense. The actual function is named `debounce` because I don\u0027t think a utility function should be capitalized. And I avoided creating a `class Debouncer` and instead went for a simple function because I don\u0027t think creating a class for it is necessary, at least for now.",
+      "revId": "0730c1043eee8afc91dc2662a64e06831c929618",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
