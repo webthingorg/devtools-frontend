@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "fdfa8983_77a5204e",
+        "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1449423
+      },
+      "writtenOn": "2020-09-11T22:05:17Z",
+      "side": 1,
+      "message": "I guess I have, haven\u0027t I?",
+      "parentUuid": "7025640a_ded3bd51",
+      "revId": "ef955f9306e4c493eadd0675d9ae690810bb90e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fb63326_15e8c266",
         "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
         "patchSetId": 10
@@ -64,6 +82,24 @@
       "writtenOn": "2020-09-11T20:27:00Z",
       "side": 1,
       "message": "Just making sure -- is this still needed with the latest changes?",
+      "revId": "ef955f9306e4c493eadd0675d9ae690810bb90e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2dcbb4b2_c1eb9f7e",
+        "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 760,
+      "author": {
+        "id": 1449423
+      },
+      "writtenOn": "2020-09-11T22:05:17Z",
+      "side": 1,
+      "message": "Unfortunately, yes. The UI requires an endTime in order to draw a bar, even if the bar will have a width of 0.\n\nOnly way to workaround this would be to go where the UI draws the bar to set a width when there is no endTime.",
+      "parentUuid": "5fb63326_15e8c266",
       "revId": "ef955f9306e4c493eadd0675d9ae690810bb90e9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -87,6 +123,24 @@
     },
     {
       "key": {
+        "uuid": "45f3addd_f80e2ff2",
+        "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1449423
+      },
+      "writtenOn": "2020-09-11T22:05:17Z",
+      "side": 1,
+      "message": "I knew there would be a more efficient way, but I couldn\u0027t quite make the connection. Will change to pass the track.",
+      "parentUuid": "bb301835_b78f4565",
+      "revId": "ef955f9306e4c493eadd0675d9ae690810bb90e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea0c3295_e24f687c",
         "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
         "patchSetId": 10
@@ -104,6 +158,24 @@
     },
     {
       "key": {
+        "uuid": "5fa3c3a1_cbf1b1dd",
+        "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1449423
+      },
+      "writtenOn": "2020-09-11T22:05:17Z",
+      "side": 1,
+      "message": "I see; so instead of creating an array to grab the events and then passing, now that I have track, I can just push directly into it. Much better.",
+      "parentUuid": "ea0c3295_e24f687c",
+      "revId": "ef955f9306e4c493eadd0675d9ae690810bb90e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6de030c3_a0abb130",
         "filename": "front_end/timeline_model/TimelineModel.js",
         "patchSetId": 10
@@ -118,6 +190,24 @@
       "revId": "ef955f9306e4c493eadd0675d9ae690810bb90e9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1c3fe5b_72e437c1",
+        "filename": "front_end/timeline_model/TimelineModel.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1449423
+      },
+      "writtenOn": "2020-09-11T22:05:17Z",
+      "side": 1,
+      "message": "I double-checked; you are correct. Removing.",
+      "parentUuid": "6de030c3_a0abb130",
+      "revId": "ef955f9306e4c493eadd0675d9ae690810bb90e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
