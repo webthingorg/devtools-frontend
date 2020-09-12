@@ -218,6 +218,30 @@
     },
     {
       "key": {
+        "uuid": "e1cdb129_a6e46bfc",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-09-12T01:11:51Z",
+      "side": 1,
+      "message": "I\u0027ve reworked this class to hold the logic for both scenarios and get rid of all that duplication.",
+      "parentUuid": "428eb156_86e1e89a",
+      "range": {
+        "startLine": 259,
+        "startChar": 4,
+        "endLine": 264,
+        "endChar": 5
+      },
+      "revId": "10f832ce4bd1451727ad0db9eb81f07fca586377",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a06bc3b8_d060da70",
         "filename": "front_end/settings/keybindsSettingsTab.css",
         "patchSetId": 3
@@ -312,6 +336,30 @@
     },
     {
       "key": {
+        "uuid": "072667e1_22460990",
+        "filename": "front_end/ui/KeyboardShortcut.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-09-12T01:11:51Z",
+      "side": 1,
+      "message": "I tried changing the implementation to just set type instead of creating a new object, but that leads to problems because the actual shortcut instance gets stored in the Setting and mutating it afterward results in dupes. I\u0027ll leave this as is",
+      "parentUuid": "9742bc89_7af815fb",
+      "range": {
+        "startLine": 71,
+        "startChar": 11,
+        "endLine": 71,
+        "endChar": 31
+      },
+      "revId": "10f832ce4bd1451727ad0db9eb81f07fca586377",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d92f3e1_630d9bc3",
         "filename": "front_end/ui/ShortcutRegistry.js",
         "patchSetId": 3
@@ -326,6 +374,24 @@
       "revId": "10f832ce4bd1451727ad0db9eb81f07fca586377",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a7f4f70_4007daa9",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-09-12T01:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d92f3e1_630d9bc3",
+      "revId": "10f832ce4bd1451727ad0db9eb81f07fca586377",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
