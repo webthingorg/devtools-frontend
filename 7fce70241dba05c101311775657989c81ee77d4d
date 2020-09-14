@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "b3a55ef9_620faee9",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-14T10:11:49Z",
+      "side": 1,
+      "message": "Just curious, what\u0027s the difference between these two calls? It looks a little confusing that `element.setColor` won\u0027t actually set `element.color`.",
+      "range": {
+        "startLine": 123,
+        "startChar": 4,
+        "endLine": 124,
+        "endChar": 39
+      },
+      "revId": "7fce70241dba05c101311775657989c81ee77d4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f14949e5_f0fca548",
         "filename": "front_end/elements/LayoutPane.ts",
         "patchSetId": 1
