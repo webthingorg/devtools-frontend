@@ -16,6 +16,23 @@
       "revId": "691061659ecf68fde2f91165821b490fb8f06be9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f904bbc_f412b12e",
+        "filename": "front_end/sdk/CSSModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-14T06:59:12Z",
+      "side": 1,
+      "message": "Is it ok to rely on the error messages?",
+      "revId": "691061659ecf68fde2f91165821b490fb8f06be9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
