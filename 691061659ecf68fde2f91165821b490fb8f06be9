@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "222186fa_cc7b0a1a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-14T05:19:17Z",
+      "side": 1,
+      "message": "I know that checking the equality with error message strings is not very flexible, but under the current CDP-frontend messaging setup, this might be the only way to determine which error gets returned.",
+      "revId": "691061659ecf68fde2f91165821b490fb8f06be9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
