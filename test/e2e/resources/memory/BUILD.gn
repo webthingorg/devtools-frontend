@@ -11,5 +11,6 @@ copy_to_gen("memory") {
     "detached-node.html",
     "dom-objects.html",
     "event-listeners.html",
+    "multiple-retainers.html",
   ]
 }
