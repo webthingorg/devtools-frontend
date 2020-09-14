@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "61a9249e_28dbf65d",
+        "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 755,
+      "author": {
+        "id": 1449423
+      },
+      "writtenOn": "2020-09-14T20:13:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "665c519c_c4dbb901",
+      "revId": "11a84a8aba26b446e1c2ea3a5368e8cb63796432",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "21f64dd2_74cfeb24",
         "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
         "patchSetId": 13
@@ -50,6 +68,24 @@
       "revId": "11a84a8aba26b446e1c2ea3a5368e8cb63796432",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70ec02aa_f420ca09",
+        "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 763,
+      "author": {
+        "id": 1449423
+      },
+      "writtenOn": "2020-09-14T20:13:04Z",
+      "side": 1,
+      "message": "I tried to do that before when I ran into conflict errors during presubmit... I will try and update here.\n\nUpdate: it\u0027s working without it now, userTimingEvents completely removed.",
+      "parentUuid": "21f64dd2_74cfeb24",
+      "revId": "11a84a8aba26b446e1c2ea3a5368e8cb63796432",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
