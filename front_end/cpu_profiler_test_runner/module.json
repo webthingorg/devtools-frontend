@@ -4,9 +4,9 @@
     "test_runner"
   ],
   "scripts": [
-    "ProfilerTestRunner.js"
+    "cpu_profiler_test_runner.js"
   ],
   "skip_compilation": [
-    "ProfilerTestRunner.js"
+    "cpu_profiler_test_runner.js"
   ]
 }
