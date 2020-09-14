@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "757abd47_5b977002",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-14T12:30:40Z",
+      "side": 1,
+      "message": "These are the colors discussed with Peter on Slack.",
+      "revId": "8e9d2ead882095c33970bd38cf2c2d3e14ffa0a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
