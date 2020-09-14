@@ -1091,8 +1091,10 @@ export class ContextMenuProvider {
     if (ElementsPanel.instance().element.isAncestor(/** @type {!Node} */ (event.target))) {
       return;
     }
-    const commandCallback = Common.Revealer.reveal.bind(Common.Revealer.Revealer, object);
-    contextMenu.revealSection().appendItem(Common.UIString.UIString('Reveal in Elements panel'), commandCallback);
+
+    contextMenu.revealSection().appendItem(Common.UIString.UIString('Reveal in Elements panel'), () => {
+      Common.Revealer.reveal(object).catch((e) => console.log('Error:' + e));
+    });
   }
 }
 

@@ -156,6 +156,10 @@ export class ViewManager {
     const view = this._views.get(viewId);
     if (!view) {
       console.error('Could not find view for id: \'' + viewId + '\' ' + new Error().stack);
+      console.error('Available views are:');
+      for (const id of this._views.keys()) {
+        console.error('   ' + id);
+      }
       return Promise.resolve();
     }
 

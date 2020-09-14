@@ -101,7 +101,8 @@
     "ResourcesPanel.js",
     "ApplicationPanelSidebar.js",
     "ServiceWorkerCacheViews.js",
-    "ServiceWorkersView.js"
+    "ServiceWorkersView.js",
+    "ServiceWorkerUpdateCycleView.js"
   ],
   "resources": [
     "appManifestView.css",

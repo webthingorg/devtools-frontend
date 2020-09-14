@@ -22,6 +22,9 @@
   <message name="IDS_DEVTOOLS_0945359809dad1fbf3dea1c95a0da951" desc="Name of a network resource type">
     Document
   </message>
+  <message name="IDS_DEVTOOLS_09c9ea004b0c0822b75bdec322b90ff4" desc="Inner element text content in Network Log View Columns of the Network panel">
+    Waterfall
+  </message>
   <message name="IDS_DEVTOOLS_0b484cfcf50c8fabff48c0aad426f544" desc="Text to dock the DevTools to the left of the browser tab">
     Dock to left
   </message>
@@ -519,6 +522,9 @@
   </message>
   <message name="IDS_DEVTOOLS_afb4ea732ebcf8bd51a3d99a1b8909a8" desc="Text to show something is linked to another">
     Linked to <ph name="PATH">$1s<ex>example.url</ex></ph>
+  </message>
+  <message name="IDS_DEVTOOLS_b021df6aac4654c454f46c77646e745f" desc="Text in Signed Exchange Info View of the Network panel">
+    Label
   </message>
   <message name="IDS_DEVTOOLS_b1c94ca2fbc3e78fc30069c8d0f01680" desc="Text for everything">
     All

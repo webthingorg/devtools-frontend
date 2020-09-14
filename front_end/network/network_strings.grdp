@@ -30,9 +30,6 @@
   <message name="IDS_DEVTOOLS_09bad44011fa6a5a64ada3424ad85f03" desc="Text in Resource Web Socket Frame View of the Network panel">
     <ph name="LOCALIZEDDESCRIPTION">$1s<ex>Text Message</ex></ph> (Opcode <ph name="OPCODE">$2s<ex>0</ex></ph>)
   </message>
-  <message name="IDS_DEVTOOLS_09c9ea004b0c0822b75bdec322b90ff4" desc="Inner element text content in Network Log View Columns of the Network panel">
-    Waterfall
-  </message>
   <message name="IDS_DEVTOOLS_0a25d7f9a7637b2128651ac02ab9bf9d" desc="Text in Network Data Grid Node of the Network panel">
     NotSameSite
   </message>
@@ -791,9 +788,6 @@
   </message>
   <message name="IDS_DEVTOOLS_af6ef9fe7e48178f3765aa8e44f9ce5d" desc="Title of a setting under the Network category that can be invoked through the Command Menu">
     Group network log items by frame
-  </message>
-  <message name="IDS_DEVTOOLS_b021df6aac4654c454f46c77646e745f" desc="Text in Signed Exchange Info View of the Network panel">
-    Label
   </message>
   <message name="IDS_DEVTOOLS_b04f746dac7a367d85c411341b6673f6" desc="A group title in the user agent dropdown menu in the Network conditions tool">
     <ph name="LOCKED_1">Googlebot</ph>

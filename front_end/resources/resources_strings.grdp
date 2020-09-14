@@ -103,6 +103,9 @@ table is empty.
   <message name="IDS_DEVTOOLS_3472423ee4037c94e20d64b3aea8aa49" desc="Text in Service Workers View of the Application panel">
     <ph name="SCOPEURL">$1s<ex>example.com</ex></ph> - deleted
   </message>
+  <message name="IDS_DEVTOOLS_349838fb1d851d3e2014b9fe39203275" desc="Action of service worker">
+    Install
+  </message>
   <message name="IDS_DEVTOOLS_349e686330723975502e9ef4f939a5ac" desc="Label suffix in the Application Panel Frames section for windows which are already closed">
     closed
   </message>
@@ -338,6 +341,9 @@ read the &quot;<ph name="THIS_TABLENAME">$1s<ex>database</ex></ph>&quot; table.
   <message name="IDS_DEVTOOLS_a0394c82ef53a78ef470b18ecbf960b4" desc="Label for the primary icon loaded from the manifest">
     Primary icon
 as used by <ph name="LOCKED_1">Chrome</ph>
+  </message>
+  <message name="IDS_DEVTOOLS_a13367a8e2a3f3bf4f3409079e3fdf87" desc="Action of service worker">
+    Activate
   </message>
   <message name="IDS_DEVTOOLS_a20961082dd1a8a90cb08914b976639b" desc="Explanatory text in the Frame Details view">
     Localhost is always a secure context

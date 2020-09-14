@@ -10,6 +10,7 @@ import * as Components from '../components/components.js';
 import * as MobileThrottling from '../mobile_throttling/mobile_throttling.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
+import {ServiceWorkerUpdateCycleView} from './ServiceWorkerUpdateCycleView.js';
 
 /**
  * @implements {SDK.SDKModel.SDKModelObserver<!SDK.ServiceWorkerManager.ServiceWorkerManager>}
@@ -309,6 +310,12 @@ export class Section {
 
     this._toolbar = section.createToolbar();
     this._toolbar.renderAsLinks();
+
+    this._updateView = new ServiceWorkerUpdateCycleView(manager);
+    this._showDetailsButton = new UI.Toolbar.ToolbarButton(
+        Common.UIString.UIString('Details'), undefined, Common.UIString.UIString('Details'));
+    //this._showDetailsButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._showDetailsClicked, this);
+    this._toolbar.appendToolbarItem(this._showDetailsButton);
     this._updateButton =
         new UI.Toolbar.ToolbarButton(Common.UIString.UIString('Update'), undefined, Common.UIString.UIString('Update'));
     this._updateButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._updateButtonClicked, this);
@@ -331,6 +338,7 @@ export class Section {
     this._createSyncNotificationField(
         ls`Periodic Sync`, this._periodicSyncTagNameSetting.get(), ls`Periodic Sync tag`,
         tag => this._periodicSync(tag));
+    this._createUpdateCycleView();
 
     this._linkifier = new Components.Linkifier.Linkifier();
     /** @type {!Map<string, !Protocol.Target.TargetInfo>} */
@@ -439,6 +447,20 @@ export class Section {
    * @return {!Promise}
    */
   _update() {
+    function printV(active) {
+      console.log('---------------->');
+      if (active) {
+        var state = active.currentState;
+        while (state) {
+          console.log(state.runningStatus);
+          console.log(state.status);
+          console.log(new Date(state.timestamp));
+          state = state.previousState;
+        }
+      }
+      console.log('<-----------------');
+    }
+
     const fingerprint = this._registration.fingerprint();
     if (fingerprint === this._fingerprint) {
       return Promise.resolve();
@@ -457,13 +479,19 @@ export class Section {
     const installing = versions.get(SDK.ServiceWorkerManager.ServiceWorkerVersion.Modes.Installing);
     const redundant = versions.get(SDK.ServiceWorkerManager.ServiceWorkerVersion.Modes.Redundant);
 
+    // printV(active);
+    // printV(waiting);
+    // printV(installing);
+    // printV(redundant);
+
     this._statusField.removeChildren();
     const versionsStack = this._statusField.createChild('div', 'service-worker-version-stack');
     versionsStack.createChild('div', 'service-worker-version-stack-bar');
 
     if (active) {
       this._updateSourceField(active);
-      const localizedRunningStatus = SDK.ServiceWorkerManager.ServiceWorkerVersion.RunningStatus[active.runningStatus];
+      const localizedRunningStatus =
+          SDK.ServiceWorkerManager.ServiceWorkerVersion.RunningStatus[active.currentState.runningStatus];
       const activeEntry = this._addVersion(
           versionsStack, 'service-worker-active-circle', ls`#${active.id} activated and is ${localizedRunningStatus}`);
 
@@ -532,6 +560,13 @@ export class Section {
    */
   _unregisterButtonClicked(event) {
     this._manager.deleteRegistration(this._registration.id);
+  }
+
+  _createUpdateCycleView() {
+    const table = this._updateView.tableElement();
+    const form =
+        this._wrapWidget(this._section.appendField('Update Cycle')).createChild('form', 'service-worker-timing-line');
+    form.appendChild(table);
   }
 
   /**
