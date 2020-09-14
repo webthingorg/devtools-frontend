@@ -16,6 +16,23 @@
       "revId": "1d684a5c23ab8d8730ce5c0ecdb7ba460f2a97a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "389c3389_2eb9c40a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-14T07:20:56Z",
+      "side": 1,
+      "message": "Peter, what do you think about the check-box for grouping issues by category? Should we keep it hidden (and not group by category by default?), or should we ship this option?",
+      "revId": "1d684a5c23ab8d8730ce5c0ecdb7ba460f2a97a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
