@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "14a438ec_cf2b7255",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-14T10:53:44Z",
+      "side": 1,
+      "message": "FYI Paul this is a change related to LightHouse + remote modules, similar to what we had already discussed.",
+      "revId": "fa10cbc5ba7fb2754e57e5612acba298f09d7216",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64cc492b_bc8ff6f1",
         "filename": "front_end/lighthouse/LighthouseStatusView.js",
         "patchSetId": 1
