@@ -1,6 +1,7 @@
 .DS_Store
 .git_cl_description_backup
 .vscode
+*.ctc.json
 *.Makefile
 *.mk
 *.pyc

@@ -69,7 +69,7 @@ export class CoverageModel extends SDK.SDKModel.SDKModel {
     /** @type {!Array<!{rawCoverageData:!Array<!Protocol.CSS.RuleUsage>,stamp:number}>} */
     this._cssBacklog = [];
     /** @type {?boolean} */
-    this._performanceTraceRecording = false;
+    this._performanceTraceRecording = true;
   }
 
   /**
