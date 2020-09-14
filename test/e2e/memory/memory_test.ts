@@ -96,4 +96,20 @@ describe('The Memory Panel', async () => {
     await setSearchFilter('Detached HTMLDivElement');
     await waitForSearchResultNumber(3);
   });
+
+  it('Shows the correct output for a detached iframe', async () => {
+    await goToResource('memory/detached-iframe.html');
+    const {frontend} = getBrowserAndPages();
+    // TODO: do we need this ? Need to wait for the target's load event to
+    // finish firing (as the HTML example uses it) but can't get Pptr's event
+    // system to work right and actually fire when the onload evt is finished.
+    await frontend.waitFor(2000);
+    await navigateToMemoryTab();
+    await takeHeapSnapshot();
+    await waitForNonEmptyHeapSnapshotData();
+    await setSearchFilter('Leak');
+    await waitForSearchResultNumber(8);
+    // At this point based on the layout test I'd expect to see a "Detached Window" entry in the UI but I don't.
+    await waitForSearchResultNumber(20);
+  });
 });
