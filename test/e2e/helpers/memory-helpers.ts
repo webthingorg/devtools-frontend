@@ -124,10 +124,9 @@ async function waitForNextSelectedRow(grid: puppeteer.ElementHandle<Element>, pr
 }
 
 export async function findSearchResult(p: (el: puppeteer.ElementHandle<Element>) => Promise<boolean>) {
-  const grid = await waitFor('#profile-views table.data');
-  const next = await waitFor('[aria-label="Search next"]');
   let previousContent = '';
   const findSearchResult = async () => {
+    const grid = await waitFor('#profile-views table.data');
     const currentMatch = await waitForNextSelectedRow(grid, previousContent);
     if (currentMatch && await p(currentMatch)) {
       return currentMatch;
@@ -135,11 +134,30 @@ export async function findSearchResult(p: (el: puppeteer.ElementHandle<Element>)
     // Since `waitForNextSelectedRow` above waited for the new selection, we haven't found
     // the right search result yet, so click on the button for the next search result.
     previousContent = currentMatch && await currentMatch.evaluate(el => el.textContent) || '';
+    const next = await waitFor('[aria-label="Search next"]');
     await next.click();
     return undefined;
   };
   return await waitForFunction(findSearchResult);
 }
+
+const normalizRetainerName = (retainerName: string) => {
+  // Retainers including double-colons :: are names from the C++ implementation
+  // exposed through Chromium's gn arg `enable_additional_blink_object_names`;
+  // these should be considered implementation details, so we normalize them.
+  if (retainerName.includes('::')) {
+    if (retainerName.startsWith('Detached')) {
+      return 'Detached InternalNode';
+    }
+    return 'InternalNode';
+  }
+  // Retainers starting with `Window /` might have host information in their
+  // name, including the port, so we need to strip that.
+  if (retainerName.startsWith('Window /')) {
+    return 'Window /';
+  }
+  return retainerName;
+};
 
 export async function assertRetainerChain(expectedRetainers: Array<string>) {
   // Give some time for the expansion to finish.
@@ -149,16 +167,12 @@ export async function assertRetainerChain(expectedRetainers: Array<string>) {
   }
   for (let i = 0; i < retainerGridElements.length; ++i) {
     const retainer = retainerGridElements[i];
-    let retainerName = await retainer.$eval('span.object-value-object', el => el.textContent);
+    const retainerName = await retainer.$eval('span.object-value-object', el => el.textContent);
     if (!retainerName) {
       assert.fail('Could not get retainer name');
     }
-    // Retainers starting with `Window /` might have host information in their
-    // name, including the port, so we need to strip that.
-    if (retainerName.startsWith('Window /')) {
-      retainerName = 'Window /';
-    }
-    if (retainerName !== expectedRetainers[i]) {
+    const normalizedRetainerName = normalizRetainerName(retainerName);
+    if (normalizedRetainerName !== expectedRetainers[i]) {
       return false;
     }
     if (await retainer.evaluate(el => !el.classList.contains('expanded'))) {
