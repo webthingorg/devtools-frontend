@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a66dfdd_3c828a63",
+        "filename": "front_end/css_overview/CSSOverviewCompletedView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-14T13:57:58Z",
+      "side": 1,
+      "message": "This is not ideal, can we narrow it down? If that is not possible, then you can ignore this comment.",
+      "range": {
+        "startLine": 28,
+        "startChar": 21,
+        "endLine": 28,
+        "endChar": 22
+      },
+      "revId": "fc81c6495f5253d51458484f649e131fa8478984",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12a340ed_1da2e2b1",
+        "filename": "front_end/css_overview/CSSOverviewCompletedView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-14T13:57:58Z",
+      "side": 1,
+      "message": "Nit: This and the other types on this line should be non-nullable (not sure if Closure errored on this)",
+      "range": {
+        "startLine": 39,
+        "startChar": 26,
+        "endLine": 39,
+        "endChar": 29
+      },
+      "revId": "fc81c6495f5253d51458484f649e131fa8478984",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
