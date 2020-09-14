@@ -105,6 +105,24 @@
       "revId": "691061659ecf68fde2f91165821b490fb8f06be9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "403cf4b1_20c37761",
+        "filename": "front_end/sdk/CSSModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-14T07:34:45Z",
+      "side": 1,
+      "message": "If this isn\u0027t resolving an issue, and we agree that the code is brittle, let\u0027s not do it.",
+      "parentUuid": "848b1d4f_a06bfce7",
+      "revId": "691061659ecf68fde2f91165821b490fb8f06be9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
