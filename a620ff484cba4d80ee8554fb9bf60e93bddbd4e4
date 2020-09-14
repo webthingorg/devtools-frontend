@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c1859e6_75571732",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-14T11:34:31Z",
+      "side": 1,
+      "message": "@Sigurd PTAL. This test was hard to get right, specifically querying for the right elements. It really shows how we can improve the new data-grid with nicer HTML and better aria-labels/data-attributes to make it easier to write e2e tests. It was a bit painful at times! ",
+      "revId": "a620ff484cba4d80ee8554fb9bf60e93bddbd4e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
