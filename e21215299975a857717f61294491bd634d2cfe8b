@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0195f7bc_c73a74bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1131764
+      },
+      "writtenOn": "2020-09-14T14:00:02Z",
+      "side": 1,
+      "message": "Generally lgtm\n\nI was also wondering whether it would be even better to strip \"InternalNode\" or C++ names from the retaining path completely. Users should not rely on implementation details. It would also make the tests more robust in the presence of DOM refactorings. wdyt?",
+      "revId": "e21215299975a857717f61294491bd634d2cfe8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
