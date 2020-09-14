@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c1dd1f28_a867acc1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-09-14T07:06:24Z",
+      "side": 1,
+      "message": "Adding the collect-strings step, PTAL, thanks :)",
+      "revId": "6a8f46c5cf59337b1fe872b7eea9d5ff365a6c10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9dd9efd_514b2f62",
+        "filename": "front_end/i18n/locales/en-XL.json",
+        "patchSetId": 9
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-09-14T07:06:24Z",
+      "side": 1,
+      "message": "Do we also want to check in the testing locale? (example file https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2145025/3/front_end/i18n/locales/en-XL.json)\nIf not I can either:\n1. Make collect-strings not generate it\n2. Include this in git ignore",
+      "revId": "6a8f46c5cf59337b1fe872b7eea9d5ff365a6c10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
