@@ -16,6 +16,23 @@
       "revId": "505ea3a3fa5c4bf736700cb73f1dde22f615ede7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2025dd68_d9b081ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-14T14:06:31Z",
+      "side": 1,
+      "message": "LGTM, but please remove the stray newlines in the test.",
+      "revId": "505ea3a3fa5c4bf736700cb73f1dde22f615ede7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
