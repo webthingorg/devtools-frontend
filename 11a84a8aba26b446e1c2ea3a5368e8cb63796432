@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a7c45ee_16286b52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000675
+      },
+      "writtenOn": "2020-09-14T19:49:05Z",
+      "side": 1,
+      "message": "Looks good!  Cleaner than original and glad to see it passes tests.",
+      "revId": "11a84a8aba26b446e1c2ea3a5368e8cb63796432",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "665c519c_c4dbb901",
+        "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 755,
+      "author": {
+        "id": 1000675
+      },
+      "writtenOn": "2020-09-14T19:49:05Z",
+      "side": 1,
+      "message": "Nit: could you move the construction of IgnoreNames to outside of the loop (start of this function), so it needn\u0027t happen on every iteration?",
+      "revId": "11a84a8aba26b446e1c2ea3a5368e8cb63796432",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21f64dd2_74cfeb24",
+        "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 763,
+      "author": {
+        "id": 1000675
+      },
+      "writtenOn": "2020-09-14T19:49:05Z",
+      "side": 1,
+      "message": "Nit: I\u0027d prefer to see just `timingTrack.events.push` here instead of using a reference to it.  This way it\u0027s obvious that you aren\u0027t just making a copy, you are modifying.\n\n(You can remove userTimingEvents entirely, I think)",
+      "revId": "11a84a8aba26b446e1c2ea3a5368e8cb63796432",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
