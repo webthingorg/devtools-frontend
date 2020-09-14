@@ -52,6 +52,24 @@
       "revId": "3b875ec5ef66109cf14564b715f350b04bbfd4c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c42a40a3_53e59e38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-14T08:02:36Z",
+      "side": 1,
+      "message": "I see: I know that Philip is looking into it (and I created an issue for it) but we can wait a bit.",
+      "parentUuid": "ad645989_840de204",
+      "revId": "3b875ec5ef66109cf14564b715f350b04bbfd4c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
