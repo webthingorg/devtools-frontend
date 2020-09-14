@@ -1,1 +1,215 @@
-{}
+{
+  "accessibility/AccessibilityNodeView.js | accessibilityNodeNotExposed": {
+    "message": "Accessibility node not exposed"
+  },
+  "accessibility/AccessibilityNodeView.js | ancestorsChildrenAreAll": {
+    "message": "Ancestor's children are all presentational: "
+  },
+  "accessibility/AccessibilityNodeView.js | computedProperties": {
+    "message": "Computed Properties"
+  },
+  "accessibility/AccessibilityNodeView.js | elementHasEmptyAltText": {
+    "message": "Element has empty alt text."
+  },
+  "accessibility/AccessibilityNodeView.js | elementHasS": {
+    "message": "Element has {ROLEPRESENTATIONSPAN}."
+  },
+  "accessibility/AccessibilityNodeView.js | elementInheritsPresentational": {
+    "message": "Element inherits presentational role from "
+  },
+  "accessibility/AccessibilityNodeView.js | elementIsHiddenByActiveModal": {
+    "message": "Element is hidden by active modal dialog: "
+  },
+  "accessibility/AccessibilityNodeView.js | elementIsInAnInertSubtreeFrom": {
+    "message": "Element is in an inert subtree from "
+  },
+  "accessibility/AccessibilityNodeView.js | elementIsInert": {
+    "message": "Element is inert."
+  },
+  "accessibility/AccessibilityNodeView.js | elementIsNotRendered": {
+    "message": "Element is not rendered."
+  },
+  "accessibility/AccessibilityNodeView.js | elementIsNotVisible": {
+    "message": "Element is not visible."
+  },
+  "accessibility/AccessibilityNodeView.js | elementIsPresentational": {
+    "message": "Element is presentational."
+  },
+  "accessibility/AccessibilityNodeView.js | elementIsS": {
+    "message": "Element is {ARIAHIDDENSPAN}."
+  },
+  "accessibility/AccessibilityNodeView.js | elementNotInterestingFor": {
+    "message": "Element not interesting for accessibility."
+  },
+  "accessibility/AccessibilityNodeView.js | invalidSource": {
+    "message": "Invalid source."
+  },
+  "accessibility/AccessibilityNodeView.js | labelFor": {
+    "message": "Label for "
+  },
+  "accessibility/AccessibilityNodeView.js | noAccessibilityNode": {
+    "message": "No accessibility node"
+  },
+  "accessibility/AccessibilityNodeView.js | noNodeWithThisId": {
+    "message": "No node with this ID."
+  },
+  "accessibility/AccessibilityNodeView.js | noTextContent": {
+    "message": "No text content."
+  },
+  "accessibility/AccessibilityNodeView.js | notSpecified": {
+    "message": "Not specified"
+  },
+  "accessibility/AccessibilityNodeView.js | partOfLabelElement": {
+    "message": "Part of label element: "
+  },
+  "accessibility/AccessibilityNodeView.js | sIsSOnAncestor": {
+    "message": "{ARIAHIDDENSPAN} is {TRUESPAN} on ancestor: "
+  },
+  "accessibility/AccessibilityNodeView.js | staticTextNodeIsUsedAsNameFor": {
+    "message": "Static text node is used as name for "
+  },
+  "accessibility/ARIAAttributesView.js | ariaAttributes": {
+    "message": "ARIA Attributes"
+  },
+  "accessibility/ARIAAttributesView.js | noAriaAttributes": {
+    "message": "No ARIA attributes"
+  },
+  "accessibility/AXBreadcrumbsPane.js | accessibilityTree": {
+    "message": "Accessibility Tree"
+  },
+  "accessibility/AXBreadcrumbsPane.js | ignored": {
+    "message": "Ignored"
+  },
+  "accessibility/AXBreadcrumbsPane.js | scrollIntoView": {
+    "message": "Scroll into view"
+  },
+  "accessibility/moduleUIStrings.js | accessibility": {
+    "message": "Accessibility"
+  },
+  "accessibility/SourceOrderView.js | noSourceOrderInformation": {
+    "message": "No source order information available"
+  },
+  "accessibility/SourceOrderView.js | showSourceOrder": {
+    "message": "Show source order"
+  },
+  "accessibility/SourceOrderView.js | sourceOrderViewer": {
+    "message": "Source Order Viewer"
+  },
+  "accessibility/SourceOrderView.js | thereMayBeADelayInDisplaying": {
+    "message": "There may be a delay in displaying source order for elements with many children"
+  },
+  "color_picker/ContrastDetails.js | aa": {
+    "message": "AA"
+  },
+  "color_picker/ContrastDetails.js | aaa": {
+    "message": "AAA"
+  },
+  "color_picker/ContrastDetails.js | contrastRatio": {
+    "message": "Contrast ratio"
+  },
+  "color_picker/ContrastDetails.js | noContrastInformationAvailable": {
+    "message": "No contrast information available"
+  },
+  "color_picker/ContrastDetails.js | pickBackgroundColor": {
+    "message": "Pick background color"
+  },
+  "color_picker/ContrastDetails.js | S": {
+    "message": ": {AA_NUMBER}"
+  },
+  "color_picker/ContrastDetails.js | showLess": {
+    "message": "Show less"
+  },
+  "color_picker/ContrastDetails.js | showMore": {
+    "message": "Show more"
+  },
+  "color_picker/ContrastDetails.js | toggleBackgroundColorPicker": {
+    "message": "Toggle background color picker"
+  },
+  "color_picker/ContrastDetails.js | useSuggestedColorSToFixLow": {
+    "message": "Use suggested color {SUGGESTEDCOLORSTRING} to fix low contrast"
+  },
+  "color_picker/Spectrum.js | addToPalette": {
+    "message": "Add to palette"
+  },
+  "color_picker/Spectrum.js | changeAlpha": {
+    "message": "Change alpha"
+  },
+  "color_picker/Spectrum.js | changeColorFormat": {
+    "message": "Change color format"
+  },
+  "color_picker/Spectrum.js | changeHue": {
+    "message": "Change hue"
+  },
+  "color_picker/Spectrum.js | clearPalette": {
+    "message": "Clear palette"
+  },
+  "color_picker/Spectrum.js | colorPalettes": {
+    "message": "Color Palettes"
+  },
+  "color_picker/Spectrum.js | colorS": {
+    "message": "Color {PALETTE_COLORS_I_}"
+  },
+  "color_picker/Spectrum.js | copyColorToClipboard": {
+    "message": "Copy color to clipboard"
+  },
+  "color_picker/Spectrum.js | hex": {
+    "message": "HEX"
+  },
+  "color_picker/Spectrum.js | longclickOrLongpressSpaceToShow": {
+    "message": "Long-click or long-press space to show alternate shades of {PALETTE_COLORS_I_}"
+  },
+  "color_picker/Spectrum.js | pressArrowKeysWithOrWithout": {
+    "message": "Press arrow keys with or without modifiers to move swatch position. Arrow key with Shift key moves position largely, with Ctrl key it is less and with Alt key it is even less"
+  },
+  "color_picker/Spectrum.js | previewPalettes": {
+    "message": "Preview palettes"
+  },
+  "color_picker/Spectrum.js | removeAllToTheRight": {
+    "message": "Remove all to the right"
+  },
+  "color_picker/Spectrum.js | removeColor": {
+    "message": "Remove color"
+  },
+  "color_picker/Spectrum.js | returnToColorPicker": {
+    "message": "Return to color picker"
+  },
+  "color_picker/Spectrum.js | sInS": {
+    "message": "{THIS__TEXTLABELS_TEXTCONTENT_CHARAT_I_} in {THIS__TEXTLABELS_TEXTCONTENT}"
+  },
+  "color_picker/Spectrum.js | toggleColorPicker": {
+    "message": "Toggle color picker"
+  },
+  "help/moduleUIStrings.js | appearance": {
+    "message": "Appearance"
+  },
+  "help/moduleUIStrings.js | bug": {
+    "message": "bug"
+  },
+  "help/moduleUIStrings.js | doNotShowWhatsNewAfterEachUpdate": {
+    "message": "Do not show What's New after each update"
+  },
+  "help/moduleUIStrings.js | help": {
+    "message": "Help"
+  },
+  "help/moduleUIStrings.js | releaseNotes": {
+    "message": "Release notes"
+  },
+  "help/moduleUIStrings.js | reportADevtoolsIssue": {
+    "message": "Report a DevTools issue"
+  },
+  "help/moduleUIStrings.js | showWhatsNewAfterEachUpdate": {
+    "message": "Show What's New after each update"
+  },
+  "help/moduleUIStrings.js | whatsNew": {
+    "message": "What's New"
+  },
+  "help/ReleaseNoteView.js | close": {
+    "message": "Close"
+  },
+  "help/ReleaseNoteView.js | learnMore": {
+    "message": "Learn more"
+  },
+  "help/ReleaseNoteView.js | s": {
+    "message": "{DURATIONTEXT}"
+  }
+}

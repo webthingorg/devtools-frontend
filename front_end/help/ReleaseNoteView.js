@@ -10,6 +10,23 @@ import * as UI from '../ui/ui.js';
 
 import {latestReleaseNote, ReleaseNote, releaseNoteViewId} from './HelpImpl.js';  // eslint-disable-line no-unused-vars
 
+export const UIStrings = {
+  /**
+  *@description Text that only contain a placeholder
+  *@example {100ms (at 200ms)} DURATIONTEXT
+  */
+  s: '{DURATIONTEXT}',
+  /**
+  *@description Text that is usually a hyperlink to more documentation
+  */
+  learnMore: 'Learn more',
+  /**
+  *@description Text to close something
+  */
+  close: 'Close',
+};
+const str_ = i18n.i18n.registerUIStrings('help/ReleaseNoteView.js', UIStrings);
+
 export class ReleaseNoteView extends UI.Widget.VBox {
   constructor() {
     super(true);

@@ -11,6 +11,18 @@ import * as UI from '../ui/ui.js';
 import {AccessibilitySubPane} from './AccessibilitySubPane.js';
 import {ariaMetadata} from './ARIAMetadata.js';
 
+export const UIStrings = {
+  /**
+  *@description Text in ARIAAttributes View of the Accessibility panel
+  */
+  ariaAttributes: 'ARIA Attributes',
+  /**
+  *@description Text in ARIAAttributes View of the Accessibility panel
+  */
+  noAriaAttributes: 'No ARIA attributes',
+};
+const str_ = i18n.i18n.registerUIStrings('accessibility/ARIAAttributesView.js', UIStrings);
+
 /**
  * @unrestricted
  */

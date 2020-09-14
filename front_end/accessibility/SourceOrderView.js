@@ -8,6 +8,26 @@ import * as UI from '../ui/ui.js';
 
 import {AccessibilitySubPane} from './AccessibilitySubPane.js';
 
+export const UIStrings = {
+  /**
+  *@description Text in Source Order Viewer of the Accessibility panel
+  */
+  sourceOrderViewer: 'Source Order Viewer',
+  /**
+  *@description Text in Source Order Viewer of the Accessibility panel shown when the selected node has no child elements
+  */
+  noSourceOrderInformation: 'No source order information available',
+  /**
+  *@description Text in Source Order Viewer of the Accessibility panel shown when the selected node has many child elements
+  */
+  thereMayBeADelayInDisplaying: 'There may be a delay in displaying source order for elements with many children',
+  /**
+  *@description Checkbox label in Source Order Viewer of the Accessibility panel
+  */
+  showSourceOrder: 'Show source order',
+};
+const str_ = i18n.i18n.registerUIStrings('accessibility/SourceOrderView.js', UIStrings);
+
 const MAX_CHILD_ELEMENTS_THRESHOLD = 300;
 
 export class SourceOrderPane extends AccessibilitySubPane {

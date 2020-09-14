@@ -10,6 +10,106 @@ import {AccessibilityNode, CoreAxPropertyName, CoreOrProtocolAxProperty} from '.
 import {AXAttributes, AXNativeSourceTypes, AXSourceTypes} from './AccessibilityStrings.js';
 import {AccessibilitySubPane} from './AccessibilitySubPane.js';
 
+export const UIStrings = {
+  /**
+  *@description Text in Accessibility Node View of the Accessibility panel
+  */
+  computedProperties: 'Computed Properties',
+  /**
+  *@description Text in Accessibility Node View of the Accessibility panel
+  */
+  noAccessibilityNode: 'No accessibility node',
+  /**
+  *@description Text in Accessibility Node View of the Accessibility panel
+  */
+  accessibilityNodeNotExposed: 'Accessibility node not exposed',
+  /**
+  *@description Text in Accessibility Node View of the Accessibility panel
+  */
+  invalidSource: 'Invalid source.',
+  /**
+  *@description Text in Accessibility Node View of the Accessibility panel
+  */
+  notSpecified: 'Not specified',
+  /**
+  *@description Text in Accessibility Node View of the Accessibility panel
+  */
+  noNodeWithThisId: 'No node with this ID.',
+  /**
+  *@description Reason element in Accessibility Node View of the Accessibility panel
+  */
+  elementIsHiddenByActiveModal: 'Element is hidden by active modal dialog: ',
+  /**
+  *@description Reason element in Accessibility Node View of the Accessibility panel
+  */
+  ancestorsChildrenAreAll: 'Ancestor\'s children are all presentational: ',
+  /**
+  *@description Reason element in Accessibility Node View of the Accessibility panel
+  *@example {aria-hidden} ARIAHIDDENSPAN
+  */
+  elementIsS: 'Element is {ARIAHIDDENSPAN}.',
+  /**
+  *@description Reason element in Accessibility Node View of the Accessibility panel
+  *@example {aria-hidden} ARIAHIDDENSPAN
+  *@example {true} TRUESPAN
+  */
+  sIsSOnAncestor: '{ARIAHIDDENSPAN} is {TRUESPAN} on ancestor: ',
+  /**
+  *@description Reason element in Accessibility Node View of the Accessibility panel
+  */
+  elementHasEmptyAltText: 'Element has empty alt text.',
+  /**
+  *@description Reason element in Accessibility Node View of the Accessibility panel
+  */
+  noTextContent: 'No text content.',
+  /**
+  *@description Reason element in Accessibility Node View of the Accessibility panel
+  */
+  elementIsInert: 'Element is inert.',
+  /**
+  *@description Reason element in Accessibility Node View of the Accessibility panel
+  */
+  elementIsInAnInertSubtreeFrom: 'Element is in an inert subtree from ',
+  /**
+  *@description Reason element in Accessibility Node View of the Accessibility panel
+  */
+  elementInheritsPresentational: 'Element inherits presentational role from ',
+  /**
+  *@description Reason element in Accessibility Node View of the Accessibility panel
+  */
+  partOfLabelElement: 'Part of label element: ',
+  /**
+  *@description Reason element in Accessibility Node View of the Accessibility panel
+  */
+  labelFor: 'Label for ',
+  /**
+  *@description Reason element in Accessibility Node View of the Accessibility panel
+  */
+  elementIsNotRendered: 'Element is not rendered.',
+  /**
+  *@description Reason element in Accessibility Node View of the Accessibility panel
+  */
+  elementIsNotVisible: 'Element is not visible.',
+  /**
+  *@description Reason element in Accessibility Node View of the Accessibility panel
+  *@example {role=link} ROLEPRESENTATIONSPAN
+  */
+  elementHasS: 'Element has {ROLEPRESENTATIONSPAN}.',
+  /**
+  *@description Reason element in Accessibility Node View of the Accessibility panel
+  */
+  elementIsPresentational: 'Element is presentational.',
+  /**
+  *@description Reason element in Accessibility Node View of the Accessibility panel
+  */
+  staticTextNodeIsUsedAsNameFor: 'Static text node is used as name for ',
+  /**
+  *@description Reason element in Accessibility Node View of the Accessibility panel
+  */
+  elementNotInterestingFor: 'Element not interesting for accessibility.',
+};
+const str_ = i18n.i18n.registerUIStrings('accessibility/AccessibilityNodeView.js', UIStrings);
+
 /**
  * @unrestricted
  */
