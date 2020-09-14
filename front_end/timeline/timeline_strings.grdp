@@ -118,6 +118,9 @@ Click the reload button <ph name="RELOADBUTTON">$3s<ex>reload</ex></ph> or hit <
   <message name="IDS_DEVTOOLS_18fe96f0c47fa8c62afe3be31d97b880" desc="Text in Timeline UIUtils of the Performance panel">
     Finish Loading
   </message>
+  <message name="IDS_DEVTOOLS_1adfc5b1dfdf43f05379c771c71171b4" desc="Label for WebVitals lane">
+    Webvitals
+  </message>
   <message name="IDS_DEVTOOLS_1b01d1ef7772f8e0c0e0427e4faad653" desc="Text in Counters Graph of the Performance panel">
     Listeners: <ph name="PH1">$1s<ex>hsl(38, 90%, 43%)</ex></ph>
   </message>

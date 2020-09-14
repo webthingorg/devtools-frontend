@@ -1,0 +1,49 @@
+<!--
+  Copyright 2020 The Chromium Authors. All rights reserved.
+  Use of this source code is governed by a BSD-style license that can be
+  found in the LICENSE file.
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Basic WebVitalsTimeline example</title>
+  <style>
+    #container {
+      width: 80%;
+      border: 1px solid red;
+    }
+
+    #container canvas {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container"></div>
+  <script type="module">
+    import { WebVitalsTimeline } from '../../timeline/WebVitalsTimeline.js';
+
+    const component = new WebVitalsTimeline();
+
+    document.getElementById('container').appendChild(component);
+
+    component.data = {
+      min: 0,
+      max: 1000,
+      fcps: [0, 250, 500, 750, 1000, 1250, 1500],
+      lcps: [190, 380, 700],
+      layoutshifts: [200, 210, 220, 222, 225, 227, 230, 500],
+      longTasks: [
+        {start: 300, duration: 400},
+        {start: 850, duration: 50},
+      ]
+    };
+
+  </script>
+</body>
+
+</html>
