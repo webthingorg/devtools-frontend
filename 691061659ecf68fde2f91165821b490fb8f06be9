@@ -51,6 +51,24 @@
       "revId": "691061659ecf68fde2f91165821b490fb8f06be9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf649b02_69058609",
+        "filename": "front_end/sdk/CSSModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-14T07:23:17Z",
+      "side": 1,
+      "message": "Good question, and I\u0027m not sure 😞 . \nOn one hand, there\u0027s no downside of these extra guards because if the error message on the backend is changed, we\u0027ll simply return and not updating any internal properties, i.e. we fall back the the current behavior. Also, as a reference, there is one other place I\u0027ve found that does this: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/sdk/DebuggerModel.js;l\u003d442;drc\u003de687f6142d679d58d5a47b7a4d5d9ff6cf08fc80?originalUrl\u003dhttps:%2F%2Fcs.chromium.org%2F, but again, I\u0027m not sure if this is ok in general.\nOn the other hand, it would be nice to have something less fragile, but I think that would require a much bigger change, for example, adding a string Enum on the backend, and pull that file into the frontend, like css_properties.json5.\nI\u0027m happy to hear what others think and adjust this accordingly.",
+      "parentUuid": "5f904bbc_f412b12e",
+      "revId": "691061659ecf68fde2f91165821b490fb8f06be9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
