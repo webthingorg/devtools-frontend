@@ -1,0 +1,215 @@
+{
+  "accessibility/AccessibilityNodeView.js | accessibilityNodeNotExposed": {
+    "message": "Âćĉéŝśîb́îĺît́ŷ ńôd́ê ńôt́ êx́p̂óŝéd̂"
+  },
+  "accessibility/AccessibilityNodeView.js | ancestorsChildrenAreAll": {
+    "message": "Âńĉéŝt́ôŕ'ŝ ćĥíl̂d́r̂én̂ ár̂é âĺl̂ ṕr̂éŝén̂t́ât́îón̂ál̂: "
+  },
+  "accessibility/AccessibilityNodeView.js | computedProperties": {
+    "message": "Ĉóm̂ṕût́êd́ P̂ŕôṕêŕt̂íêś"
+  },
+  "accessibility/AccessibilityNodeView.js | elementHasEmptyAltText": {
+    "message": "Êĺêḿêńt̂ h́âś êḿp̂t́ŷ ál̂t́ t̂éx̂t́."
+  },
+  "accessibility/AccessibilityNodeView.js | elementHasS": {
+    "message": "Êĺêḿêńt̂ h́âś {ROLEPRESENTATIONSPAN}."
+  },
+  "accessibility/AccessibilityNodeView.js | elementInheritsPresentational": {
+    "message": "Êĺêḿêńt̂ ín̂h́êŕît́ŝ ṕr̂éŝén̂t́ât́îón̂ál̂ ŕôĺê f́r̂óm̂ "
+  },
+  "accessibility/AccessibilityNodeView.js | elementIsHiddenByActiveModal": {
+    "message": "Êĺêḿêńt̂ íŝ h́îd́d̂én̂ b́ŷ áĉt́îv́ê ḿôd́âĺ d̂íâĺôǵ: "
+  },
+  "accessibility/AccessibilityNodeView.js | elementIsInAnInertSubtreeFrom": {
+    "message": "Êĺêḿêńt̂ íŝ ín̂ án̂ ín̂ér̂t́ ŝúb̂t́r̂éê f́r̂óm̂ "
+  },
+  "accessibility/AccessibilityNodeView.js | elementIsInert": {
+    "message": "Êĺêḿêńt̂ íŝ ín̂ér̂t́."
+  },
+  "accessibility/AccessibilityNodeView.js | elementIsNotRendered": {
+    "message": "Êĺêḿêńt̂ íŝ ńôt́ r̂én̂d́êŕêd́."
+  },
+  "accessibility/AccessibilityNodeView.js | elementIsNotVisible": {
+    "message": "Êĺêḿêńt̂ íŝ ńôt́ v̂íŝíb̂ĺê."
+  },
+  "accessibility/AccessibilityNodeView.js | elementIsPresentational": {
+    "message": "Êĺêḿêńt̂ íŝ ṕr̂éŝén̂t́ât́îón̂ál̂."
+  },
+  "accessibility/AccessibilityNodeView.js | elementIsS": {
+    "message": "Êĺêḿêńt̂ íŝ {ARIAHIDDENSPAN}."
+  },
+  "accessibility/AccessibilityNodeView.js | elementNotInterestingFor": {
+    "message": "Êĺêḿêńt̂ ńôt́ îńt̂ér̂éŝt́îńĝ f́ôŕ âćĉéŝśîb́îĺît́ŷ."
+  },
+  "accessibility/AccessibilityNodeView.js | invalidSource": {
+    "message": "Îńv̂ál̂íd̂ śôúr̂ćê."
+  },
+  "accessibility/AccessibilityNodeView.js | labelFor": {
+    "message": "L̂áb̂él̂ f́ôŕ "
+  },
+  "accessibility/AccessibilityNodeView.js | noAccessibilityNode": {
+    "message": "N̂ó âćĉéŝśîb́îĺît́ŷ ńôd́ê"
+  },
+  "accessibility/AccessibilityNodeView.js | noNodeWithThisId": {
+    "message": "N̂ó n̂ód̂é ŵít̂h́ t̂h́îś ÎD́."
+  },
+  "accessibility/AccessibilityNodeView.js | noTextContent": {
+    "message": "N̂ó t̂éx̂t́ ĉón̂t́êńt̂."
+  },
+  "accessibility/AccessibilityNodeView.js | notSpecified": {
+    "message": "N̂ót̂ śp̂éĉíf̂íêd́"
+  },
+  "accessibility/AccessibilityNodeView.js | partOfLabelElement": {
+    "message": "P̂ár̂t́ ôf́ l̂áb̂él̂ él̂ém̂én̂t́: "
+  },
+  "accessibility/AccessibilityNodeView.js | sIsSOnAncestor": {
+    "message": "{ARIAHIDDENSPAN} îś {TRUESPAN} ôń âńĉéŝt́ôŕ: "
+  },
+  "accessibility/AccessibilityNodeView.js | staticTextNodeIsUsedAsNameFor": {
+    "message": "Ŝt́ât́îć t̂éx̂t́ n̂ód̂é îś ûśêd́ âś n̂ám̂é f̂ór̂ "
+  },
+  "accessibility/ARIAAttributesView.js | ariaAttributes": {
+    "message": "ÂŔÎÁ Ât́t̂ŕîb́ût́êś"
+  },
+  "accessibility/ARIAAttributesView.js | noAriaAttributes": {
+    "message": "N̂ó ÂŔÎÁ ât́t̂ŕîb́ût́êś"
+  },
+  "accessibility/AXBreadcrumbsPane.js | accessibilityTree": {
+    "message": "Âćĉéŝśîb́îĺît́ŷ T́r̂éê"
+  },
+  "accessibility/AXBreadcrumbsPane.js | ignored": {
+    "message": "Îǵn̂ór̂éd̂"
+  },
+  "accessibility/AXBreadcrumbsPane.js | scrollIntoView": {
+    "message": "Ŝćr̂ól̂ĺ îńt̂ó v̂íêẃ"
+  },
+  "accessibility/moduleUIStrings.js | accessibility": {
+    "message": "Âćĉéŝśîb́îĺît́ŷ"
+  },
+  "accessibility/SourceOrderView.js | noSourceOrderInformation": {
+    "message": "N̂ó ŝóûŕĉé ôŕd̂ér̂ ín̂f́ôŕm̂át̂íôń âv́âíl̂áb̂ĺê"
+  },
+  "accessibility/SourceOrderView.js | showSourceOrder": {
+    "message": "Ŝh́ôẃ ŝóûŕĉé ôŕd̂ér̂"
+  },
+  "accessibility/SourceOrderView.js | sourceOrderViewer": {
+    "message": "Ŝóûŕĉé Ôŕd̂ér̂ V́îéŵér̂"
+  },
+  "accessibility/SourceOrderView.js | thereMayBeADelayInDisplaying": {
+    "message": "T̂h́êŕê ḿâý b̂é â d́êĺâý îń d̂íŝṕl̂áŷín̂ǵ ŝóûŕĉé ôŕd̂ér̂ f́ôŕ êĺêḿêńt̂ś ŵít̂h́ m̂án̂ý ĉh́îĺd̂ŕêń"
+  },
+  "color_picker/ContrastDetails.js | aa": {
+    "message": "ÂÁ"
+  },
+  "color_picker/ContrastDetails.js | aaa": {
+    "message": "ÂÁÂ"
+  },
+  "color_picker/ContrastDetails.js | contrastRatio": {
+    "message": "Ĉón̂t́r̂áŝt́ r̂át̂íô"
+  },
+  "color_picker/ContrastDetails.js | noContrastInformationAvailable": {
+    "message": "N̂ó ĉón̂t́r̂áŝt́ îńf̂ór̂ḿât́îón̂ áv̂áîĺâb́l̂é"
+  },
+  "color_picker/ContrastDetails.js | pickBackgroundColor": {
+    "message": "P̂íĉḱ b̂áĉḱĝŕôún̂d́ ĉól̂ór̂"
+  },
+  "color_picker/ContrastDetails.js | S": {
+    "message": ": {AA_NUMBER}"
+  },
+  "color_picker/ContrastDetails.js | showLess": {
+    "message": "Ŝh́ôẃ l̂éŝś"
+  },
+  "color_picker/ContrastDetails.js | showMore": {
+    "message": "Ŝh́ôẃ m̂ór̂é"
+  },
+  "color_picker/ContrastDetails.js | toggleBackgroundColorPicker": {
+    "message": "T̂óĝǵl̂é b̂áĉḱĝŕôún̂d́ ĉól̂ór̂ ṕîćk̂ér̂"
+  },
+  "color_picker/ContrastDetails.js | useSuggestedColorSToFixLow": {
+    "message": "Ûśê śûǵĝéŝt́êd́ ĉól̂ór̂ {SUGGESTEDCOLORSTRING} t́ô f́îx́ l̂óŵ ćôńt̂ŕâśt̂"
+  },
+  "color_picker/Spectrum.js | addToPalette": {
+    "message": "Âd́d̂ t́ô ṕâĺêt́t̂é"
+  },
+  "color_picker/Spectrum.js | changeAlpha": {
+    "message": "Ĉh́âńĝé âĺp̂h́â"
+  },
+  "color_picker/Spectrum.js | changeColorFormat": {
+    "message": "Ĉh́âńĝé ĉól̂ór̂ f́ôŕm̂át̂"
+  },
+  "color_picker/Spectrum.js | changeHue": {
+    "message": "Ĉh́âńĝé ĥúê"
+  },
+  "color_picker/Spectrum.js | clearPalette": {
+    "message": "Ĉĺêár̂ ṕâĺêt́t̂é"
+  },
+  "color_picker/Spectrum.js | colorPalettes": {
+    "message": "Ĉól̂ór̂ Ṕâĺêt́t̂éŝ"
+  },
+  "color_picker/Spectrum.js | colorS": {
+    "message": "Ĉól̂ór̂ {PALETTE_COLORS_I_}"
+  },
+  "color_picker/Spectrum.js | copyColorToClipboard": {
+    "message": "Ĉóp̂ý ĉól̂ór̂ t́ô ćl̂íp̂b́ôár̂d́"
+  },
+  "color_picker/Spectrum.js | hex": {
+    "message": "ĤÉX̂"
+  },
+  "color_picker/Spectrum.js | longclickOrLongpressSpaceToShow": {
+    "message": "L̂ón̂ǵ-ĉĺîćk̂ ór̂ ĺôńĝ-ṕr̂éŝś ŝṕâćê t́ô śĥóŵ ál̂t́êŕn̂át̂é ŝh́âd́êś ôf́ {PALETTE_COLORS_I_}"
+  },
+  "color_picker/Spectrum.js | pressArrowKeysWithOrWithout": {
+    "message": "P̂ŕêśŝ ár̂ŕôẃ k̂éŷś ŵít̂h́ ôŕ ŵít̂h́ôút̂ ḿôd́îf́îér̂ś t̂ó m̂óv̂é ŝẃât́ĉh́ p̂óŝít̂íôń. Âŕr̂óŵ ḱêý ŵít̂h́ Ŝh́îf́t̂ ḱêý m̂óv̂éŝ ṕôśît́îón̂ ĺâŕĝél̂ý, ŵít̂h́ Ĉt́r̂ĺ k̂éŷ ít̂ íŝ ĺêśŝ án̂d́ ŵít̂h́ Âĺt̂ ḱêý ît́ îś êv́êń l̂éŝś"
+  },
+  "color_picker/Spectrum.js | previewPalettes": {
+    "message": "P̂ŕêv́îéŵ ṕâĺêt́t̂éŝ"
+  },
+  "color_picker/Spectrum.js | removeAllToTheRight": {
+    "message": "R̂ém̂óv̂é âĺl̂ t́ô t́ĥé r̂íĝh́t̂"
+  },
+  "color_picker/Spectrum.js | removeColor": {
+    "message": "R̂ém̂óv̂é ĉól̂ór̂"
+  },
+  "color_picker/Spectrum.js | returnToColorPicker": {
+    "message": "R̂ét̂úr̂ń t̂ó ĉól̂ór̂ ṕîćk̂ér̂"
+  },
+  "color_picker/Spectrum.js | sInS": {
+    "message": "{THIS__TEXTLABELS_TEXTCONTENT_CHARAT_I_} îń {THIS__TEXTLABELS_TEXTCONTENT}"
+  },
+  "color_picker/Spectrum.js | toggleColorPicker": {
+    "message": "T̂óĝǵl̂é ĉól̂ór̂ ṕîćk̂ér̂"
+  },
+  "help/moduleUIStrings.js | appearance": {
+    "message": "Âṕp̂éâŕâńĉé"
+  },
+  "help/moduleUIStrings.js | bug": {
+    "message": "b̂úĝ"
+  },
+  "help/moduleUIStrings.js | doNotShowWhatsNewAfterEachUpdate": {
+    "message": "D̂ó n̂ót̂ śĥóŵ Ẃĥát̂'ś N̂éŵ áf̂t́êŕ êáĉh́ ûṕd̂át̂é"
+  },
+  "help/moduleUIStrings.js | help": {
+    "message": "Ĥél̂ṕ"
+  },
+  "help/moduleUIStrings.js | releaseNotes": {
+    "message": "R̂él̂éâśê ńôt́êś"
+  },
+  "help/moduleUIStrings.js | reportADevtoolsIssue": {
+    "message": "R̂ép̂ór̂t́ â D́êv́T̂óôĺŝ íŝśûé"
+  },
+  "help/moduleUIStrings.js | showWhatsNewAfterEachUpdate": {
+    "message": "Ŝh́ôẃ Ŵh́ât́'ŝ Ńêẃ âf́t̂ér̂ éâćĥ úp̂d́ât́ê"
+  },
+  "help/moduleUIStrings.js | whatsNew": {
+    "message": "Ŵh́ât́'ŝ Ńêẃ"
+  },
+  "help/ReleaseNoteView.js | close": {
+    "message": "Ĉĺôśê"
+  },
+  "help/ReleaseNoteView.js | learnMore": {
+    "message": "L̂éâŕn̂ ḿôŕê"
+  },
+  "help/ReleaseNoteView.js | s": {
+    "message": "{DURATIONTEXT}"
+  }
+}

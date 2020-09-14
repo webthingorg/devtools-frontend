@@ -38,6 +38,83 @@ import {ContrastDetails, Events as ContrastDetailsEvents} from './ContrastDetail
 import {ContrastInfo} from './ContrastInfo.js';  // eslint-disable-line no-unused-vars
 import {ContrastOverlay} from './ContrastOverlay.js';
 
+export const UIStrings = {
+  /**
+  *@description Aria label for swatch in Color Picker
+  */
+  pressArrowKeysWithOrWithout:
+      'Press arrow keys with or without modifiers to move swatch position. Arrow key with Shift key moves position largely, with Ctrl key it is less and with Alt key it is even less',
+  /**
+  *@description Tooltip text that appears when hovering over largeicon eyedropper button in Spectrum of the Color Picker
+  */
+  toggleColorPicker: 'Toggle color picker',
+  /**
+  *@description Aria label for hue slider in Color Picker
+  */
+  changeHue: 'Change hue',
+  /**
+  *@description Aria label for alpha slider in Color Picker
+  */
+  changeAlpha: 'Change alpha',
+  /**
+  *@description Aria label for HEX color format input
+  */
+  hex: 'HEX',
+  /**
+  *@description Aria label for color format switcher button in Color Picker
+  */
+  changeColorFormat: 'Change color format',
+  /**
+  *@description Screen reader reads this text when palette switcher button receives focus
+  */
+  previewPalettes: 'Preview palettes',
+  /**
+  *@description Tooltip text that appears when hovering over the largeicon add button in the Spectrum of the Color Picker
+  */
+  addToPalette: 'Add to palette',
+  /**
+  *@description Title text content in Spectrum of the Color Picker
+  */
+  colorPalettes: 'Color Palettes',
+  /**
+  *@description Label for close button in Color Picker
+  */
+  returnToColorPicker: 'Return to color picker',
+  /**
+  *@description Aria label which declares hex value of a swatch in the Color Picker
+  *@example {#969696} PALETTE_COLORS_I_
+  */
+  colorS: 'Color {PALETTE_COLORS_I_}',
+  /**
+  *@description Color element title in Spectrum of the Color Picker
+  *@example {#9c1724} PALETTE_COLORS_I_
+  */
+  longclickOrLongpressSpaceToShow: 'Long-click or long-press space to show alternate shades of {PALETTE_COLORS_I_}',
+  /**
+  *@description A context menu item in the Spectrum of the Color Picker
+  */
+  removeColor: 'Remove color',
+  /**
+  *@description A context menu item in the Spectrum of the Color Picker
+  */
+  removeAllToTheRight: 'Remove all to the right',
+  /**
+  *@description A context menu item in the Spectrum of the Color Picker
+  */
+  clearPalette: 'Clear palette',
+  /**
+  *@description Aria label for RGBA and HSLA color format inputs in Color Picker
+  *@example {R} THIS__TEXTLABELS_TEXTCONTENT_CHARAT_I_
+  *@example {RGBA} THIS__TEXTLABELS_TEXTCONTENT
+  */
+  sInS: '{THIS__TEXTLABELS_TEXTCONTENT_CHARAT_I_} in {THIS__TEXTLABELS_TEXTCONTENT}',
+  /**
+  *@description Swatch copy icon title in Spectrum of the Color Picker
+  */
+  copyColorToClipboard: 'Copy color to clipboard',
+};
+const str_ = i18n.i18n.registerUIStrings('color_picker/Spectrum.js', UIStrings);
+
 /**
  * @unrestricted
  */

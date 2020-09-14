@@ -8,6 +8,52 @@ import * as UI from '../ui/ui.js';
 
 import {ContrastInfo, Events as ContrastInfoEvents} from './ContrastInfo.js';  // eslint-disable-line no-unused-vars
 
+export const UIStrings = {
+  /**
+  *@description Label for when no contrast information is available in the color picker
+  */
+  noContrastInformationAvailable: 'No contrast information available',
+  /**
+  *@description Text of a DOM element in Contrast Details of the Color Picker
+  */
+  contrastRatio: 'Contrast ratio',
+  /**
+  *@description Text to show more content
+  */
+  showMore: 'Show more',
+  /**
+  *@description Choose bg color text content in Contrast Details of the Color Picker
+  */
+  pickBackgroundColor: 'Pick background color',
+  /**
+  *@description Tooltip text that appears when hovering over largeicon eyedropper button in Contrast Details of the Color Picker
+  */
+  toggleBackgroundColorPicker: 'Toggle background color picker',
+  /**
+  *@description Text of a button in Contrast Details of the Color Picker
+  *@example {rgba(0 0 0 / 100%)} SUGGESTEDCOLORSTRING
+  */
+  useSuggestedColorSToFixLow: 'Use suggested color {SUGGESTEDCOLORSTRING} to fix low contrast',
+  /**
+  *@description Label aa text content in Contrast Details of the Color Picker
+  */
+  aa: 'AA',
+  /**
+  *@description Text that starts with a colon and includes a placeholder
+  *@example {3.0} AA_NUMBER
+  */
+  S: ': {AA_NUMBER}',
+  /**
+  *@description Label aaa text content in Contrast Details of the Color Picker
+  */
+  aaa: 'AAA',
+  /**
+  *@description Text to show less content
+  */
+  showLess: 'Show less',
+};
+const str_ = i18n.i18n.registerUIStrings('color_picker/ContrastDetails.js', UIStrings);
+
 export class ContrastDetails extends Common.ObjectWrapper.ObjectWrapper {
   /**
    * @param {!ContrastInfo} contrastInfo

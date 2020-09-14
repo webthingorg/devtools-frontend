@@ -13,6 +13,22 @@ import {AccessibilityNode} from './AccessibilityModel.js';               // esli
 import {AccessibilitySidebarView} from './AccessibilitySidebarView.js';  // eslint-disable-line no-unused-vars
 import {AccessibilitySubPane} from './AccessibilitySubPane.js';
 
+export const UIStrings = {
+  /**
+  *@description Text in AXBreadcrumbs Pane of the Accessibility panel
+  */
+  accessibilityTree: 'Accessibility Tree',
+  /**
+  *@description Text to scroll the displayed content into view
+  */
+  scrollIntoView: 'Scroll into view',
+  /**
+  *@description Ignored node element text content in AXBreadcrumbs Pane of the Accessibility panel
+  */
+  ignored: 'Ignored',
+};
+const str_ = i18n.i18n.registerUIStrings('accessibility/AXBreadcrumbsPane.js', UIStrings);
+
 export class AXBreadcrumbsPane extends AccessibilitySubPane {
   /**
    * @param {!AccessibilitySidebarView} axSidebarView

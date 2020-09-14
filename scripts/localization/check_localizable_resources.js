@@ -75,7 +75,7 @@ async function getV2Errors() {
 
 async function autofix(existingError) {
   let autoFixMessage = await autofixV1(existingError);
-  autoFixMessage += await autofixV2();
+  // autoFixMessage += await autofixV2();
 
   if (autoFixMessage === '') {
     console.log('DevTools localizable resources checker passed.');
