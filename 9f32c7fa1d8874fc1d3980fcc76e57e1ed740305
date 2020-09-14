@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "496d52ad_116c1393",
+        "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1000675
+      },
+      "writtenOn": "2020-09-14T16:38:23Z",
+      "side": 1,
+      "message": "Nit: I would either:\n* Rename this function to \"_copyUserTimingEvents\", or\n* remove _appendSyncEvents call and actually just append them from inside this function.\n\nSince I don\u0027t expect there will be any other sync timing events outside of performance.marks, I would slightly prefer the second option (because it\u0027s more similar to appendPageMetrics()).\n\nHowever, I think both options are viable and defendable.",
+      "revId": "9f32c7fa1d8874fc1d3980fcc76e57e1ed740305",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d3c1fb1_48b9c696",
+        "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1000675
+      },
+      "writtenOn": "2020-09-14T16:38:23Z",
+      "side": 1,
+      "message": "Please add a comment to this function that gives type information:\n\n/**\n * @param {?TimelineModel.TimelineModel.Track} track\n */\n\n..You may also want to specifically rename track to \"timingTrack\" since you use `track` for other tracks inside this function.",
+      "range": {
+        "startLine": 705,
+        "startChar": 2,
+        "endLine": 705,
+        "endChar": 25
+      },
+      "revId": "9f32c7fa1d8874fc1d3980fcc76e57e1ed740305",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87c585d7_9a83aeb8",
+        "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1000675
+      },
+      "writtenOn": "2020-09-14T16:38:23Z",
+      "side": 1,
+      "message": "Please skip adding async events.  Something like:\n\n```\nif (...isAsyncPhase) {\n  continue;\n}\nevent.setEndTime(event.startTime);\nuserTimingEvents.push(event);\n```\n\nI know when we looked at it earlier this didn\u0027t make a visual difference, however, I think if you copy these here, you\u0027ll have them *twice* in this track.events, since they are already in there.  (They were added earlier for perf.measures).",
+      "revId": "9f32c7fa1d8874fc1d3980fcc76e57e1ed740305",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
