@@ -87,6 +87,24 @@
       "revId": "691061659ecf68fde2f91165821b490fb8f06be9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "848b1d4f_a06bfce7",
+        "filename": "front_end/sdk/CSSModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-14T07:29:20Z",
+      "side": 1,
+      "message": "@sigurd I didn\u0027t saw your message before sending my message. This extra check mainly acts as a defensive guard to ensure these internal states are not tainted accidentally. You are right; logically it won\u0027t happen currently. It\u0027s designed for future multi-client scenarios, and I\u0027m happy to postpone this for now.",
+      "parentUuid": "cf649b02_69058609",
+      "revId": "691061659ecf68fde2f91165821b490fb8f06be9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
