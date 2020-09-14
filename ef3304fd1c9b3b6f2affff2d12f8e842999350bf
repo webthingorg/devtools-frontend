@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6da97e2_344bb1bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-14T08:51:51Z",
+      "side": 1,
+      "message": "Thanks Jack, this works great!\n\nJust one thing that I noticed: if a shortcut is already taken, then there\u0027s an error message, which is nice. But this validation should probably be more aware of where the shortcuts are enabled.\nFor example F2 works in 2 places: to rename a file in the Sources panel, and to edit HTML in the Elements panel.\nThose 2 things work great without conflicts because this happens in 2 different tools, with either a file selected (in the sources panel) or a node selected (in the Elements pane).\nWith this CL, if you configure something else than F2, and then try to make the shortcut be F2 again, you\u0027ll get the error message, preventing you from setting F2.\nThis might be good to address in another CL, this is an experiment for now anyway.\n\nI\u0027m mostly good with the code, I just have a few nits below, and a couple questions/comments that I\u0027d like to check again before giving +1.\n\n",
+      "revId": "ef3304fd1c9b3b6f2affff2d12f8e842999350bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c128b67_38bb1e0c",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-14T08:51:51Z",
+      "side": 1,
+      "message": "Starting at this line, and until the end of the constructor, you\u0027re creating the necessary markup for the item.\nI\u0027d prefer if this code was inside another method, maybe _createMarkup or something else?\nYou already have _createShortcutRow and _createEditButton, so that would be consistent and would make the constructor easier to read.\n\nIn fact there could even be several smaller methods: _createNoShortcutsSection, _createErrorMessage, ...",
+      "range": {
+        "startLine": 246,
+        "startChar": 4,
+        "endLine": 246,
+        "endChar": 33
+      },
+      "revId": "ef3304fd1c9b3b6f2affff2d12f8e842999350bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "024d4229_9bd2832f",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-14T08:51:51Z",
+      "side": 1,
+      "message": "should we also add the spellcheck\u003dfalse attribute to avoid the red wavy line when editing shortcuts?",
+      "range": {
+        "startLine": 321,
+        "startChar": 12,
+        "endLine": 321,
+        "endChar": 26
+      },
+      "revId": "ef3304fd1c9b3b6f2affff2d12f8e842999350bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66b8ca1b_7e96dbec",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-14T08:51:51Z",
+      "side": 1,
+      "message": "nit: maybe rename to _onShortcutInputKeyDown to make it more obvious that this is an event handler.",
+      "range": {
+        "startLine": 369,
+        "startChar": 2,
+        "endLine": 369,
+        "endChar": 23
+      },
+      "revId": "ef3304fd1c9b3b6f2affff2d12f8e842999350bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "307b057c_a999fdd0",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-14T08:51:51Z",
+      "side": 1,
+      "message": "There\u0027s something I\u0027m not understanding here. On line 376 we\u0027re only ever storing one userDescriptor (as an array) in the map. And here we\u0027re always accessing the first item in the array.\nIt seems logical, to me, that there would always only be one userDescriptor per KeyboardShortcut. So why did you make this._editedShortcuts be a map which values are arrays of userDescriptors? \nShouldn\u0027t we just store one userDescriptor as the value?",
+      "range": {
+        "startLine": 394,
+        "startChar": 60,
+        "endLine": 394,
+        "endChar": 78
+      },
+      "revId": "ef3304fd1c9b3b6f2affff2d12f8e842999350bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "197dd7b8_9aba63f1",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-14T08:51:51Z",
+      "side": 1,
+      "message": "nit: this first if doesn\u0027t care about conflicts. I think we should move it above the const conflicts initialization, and do an early return in it. In fact, we can probably do another few early returns to make the function a little easier to follow. Pardon the pseudo-code:\n\n  inputs.forEach(\n    const userDescriptor \u003d get descriptor;\n    if (!userDescriptor) {\n      return;\n    }\n    \n    if (onlyHasModifiers) {\n      show error about using only modifier keys;\n      return;\n    }\n\n    const conflicts \u003d get conflicts;\n    if (hasConflicts) {\n      show error about conflicts;\n      return;\n    }\n      \n    setValid;\n  )",
+      "range": {
+        "startLine": 394,
+        "startChar": 8,
+        "endLine": 394,
+        "endChar": 86
+      },
+      "revId": "ef3304fd1c9b3b6f2affff2d12f8e842999350bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
