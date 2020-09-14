@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "af17ba3d_9688a944",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-14T14:44:05Z",
+      "side": 1,
+      "message": "Good idea - that works 👍",
+      "parentUuid": "8b055654_53df9c20",
+      "range": {
+        "startLine": 106,
+        "startChar": 4,
+        "endLine": 106,
+        "endChar": 33
+      },
+      "revId": "24e346dfddb1f472e360db2672e3bd37ddf3138e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0180c6bd_69ccab4d",
         "filename": "test/e2e/resources/memory/heap-samples.html",
         "patchSetId": 1
@@ -62,6 +86,30 @@
       "revId": "24e346dfddb1f472e360db2672e3bd37ddf3138e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "662c023b_8567b31c",
+        "filename": "test/e2e/resources/memory/heap-samples.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-14T14:44:05Z",
+      "side": 1,
+      "message": "Yes, thanks!",
+      "parentUuid": "0180c6bd_69ccab4d",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 3
+      },
+      "revId": "24e346dfddb1f472e360db2672e3bd37ddf3138e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
