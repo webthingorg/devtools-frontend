@@ -606,8 +606,9 @@ export const DevtoolsExperiments = {
   'wasmDWARFDebugging': 31,
   'dualScreenSupport': 32,
   'cssGridFeatures': 33,
-  'movableTabs': 34,
-  '__lastValidEnumPosition': 34,
+  'fontEditor': 34,
+  'movableTabs': 35,
+  '__lastValidEnumPosition': 36,
 };
 
 /** @type {!Object<string, number>} */

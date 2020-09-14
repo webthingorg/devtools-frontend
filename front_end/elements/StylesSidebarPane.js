@@ -39,6 +39,7 @@ import * as SDK from '../sdk/sdk.js';
 import * as TextUtils from '../text_utils/text_utils.js';
 import * as UI from '../ui/ui.js';
 
+import {FontEditorSectionManager} from './ColorSwatchPopoverIcon.js';
 import {ComputedStyleModel} from './ComputedStyleModel.js';
 import {linkifyDeferredNodeReference} from './DOMLinkifier.js';
 import {ElementsSidebarPane} from './ElementsSidebarPane.js';
@@ -1039,6 +1040,50 @@ export class IdleCallbackManager {
   }
 }
 
+class FontEditorToolbar extends UI.Toolbar.Toolbar {
+  /**
+   * @param {string} className
+   * @param {!Element=} parentElement
+   * @param {!Element=} parentElement
+   */
+  constructor(className, parentElement) {
+    super(className, parentElement);
+  }
+
+  /**
+   * @param {!UI.Toolbar.ToolbarButton} fontEditorButton
+   * @param {!StylePropertiesSection} section
+   * @param {!!InlineEditor.SwatchPopoverHelper.SwatchPopoverHelper} popoverHelper
+   */
+  setFontEditorButton(fontEditorButton, section, popoverHelper) {
+    this.appendToolbarItem(fontEditorButton);
+    this._fontEditorButton = fontEditorButton;
+    this._fontPopoverIcon = new FontEditorSectionManager(popoverHelper, section);
+  }
+
+  getFontButtonElement() {
+    return this._fontEditorButton.element();
+  }
+
+  /**
+   * @param {!StylesSidebarPane} parentPane
+   */
+  showPopover(parentPane) {
+    if (this._fontPopoverIcon && this._fontEditorButton) {
+      this._fontPopoverIcon.showPopover(this._fontEditorButton.element, parentPane);
+    }
+  }
+
+  /**
+   * @param {!StylePropertyTreeElement} treeElement
+   */
+  registerFontProperty(treeElement) {
+    if (this._fontPopoverIcon) {
+      this._fontPopoverIcon.registerFontProperty(treeElement);
+    }
+  }
+}
+
 export class StylePropertiesSection {
   /**
    * @param {!StylesSidebarPane} parentPane
@@ -1094,8 +1139,11 @@ export class StylePropertiesSection {
     selectorContainer.addEventListener('mousedown', this._handleEmptySpaceMouseDown.bind(this), false);
     selectorContainer.addEventListener('click', this._handleSelectorContainerClick.bind(this), false);
 
-    const closeBrace = this._innerElement.createChild('div', 'sidebar-pane-closing-brace');
-    closeBrace.textContent = '}';
+    this._closeBrace = this._innerElement.createChild('div', 'sidebar-pane-closing-brace');
+    this._closeBrace.textContent = '}';
+    if (Root.Runtime.experiments.isEnabled('fontEditor')) {
+      this._createFontEditorMenu(this._closeBrace);
+    }
 
     this._selectorElement.addEventListener('click', this._handleSelectorClick.bind(this), false);
     this.element.addEventListener('mousedown', this._handleEmptySpaceMouseDown.bind(this), false);
@@ -1132,10 +1180,23 @@ export class StylePropertiesSection {
       this.element.classList.add('read-only');
       this.propertiesTreeOutline.element.classList.add('read-only');
     }
-
+    /** @type {?FontEditorSectionManager} */
+    this._fontPopoverIcon = null;
     this._hoverableSelectorsMode = false;
     this._markSelectorMatches();
     this.onpopulate();
+  }
+
+  /**
+   * @param {!StylePropertyTreeElement} treeElement
+   */
+  registerFontProperty(treeElement) {
+    if (this._fontEditorToolbar) {
+      this._fontEditorToolbar.registerFontProperty(treeElement);
+    }
+    if (this._fontEditorToolbar) {
+      this._fontEditorToolbar.element.style.display = 'block';
+    }
   }
 
   /**
@@ -1302,6 +1363,47 @@ export class StylePropertiesSection {
     }
     if (!this._selectedSinceMouseDown && this.element.getComponentSelection().toString()) {
       this._selectedSinceMouseDown = true;
+    }
+  }
+
+  /**
+   * @param {!Element} container
+   */
+  _createFontEditorMenu(container) {
+    if (!this.editable) {
+      return;
+    }
+
+    this._fontEditorToolbar = new FontEditorToolbar('sidebar-pane-section-toolbar', container);
+    if (this._style.type === SDK.CSSStyleDeclaration.Type.Inline) {
+      this._fontEditorToolbar.element.style.display = 'block';
+    } else {
+      this._fontEditorToolbar.element.style.display = 'none';
+    }
+    const fontEditorButton = new UI.Toolbar.ToolbarButton('Font Editor', 'largeicon-font-editor');
+    fontEditorButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, event => {
+      this._onFontEditorButtonClicked(event);
+    }, this);
+    fontEditorButton.element.addEventListener('keydown', event => {
+      if (isEnterKey(event)) {
+        this._onFontEditorButtonClicked(event);
+      }
+    }, false);
+    this._fontEditorToolbar.setFontEditorButton(fontEditorButton, this, this._parentPane.swatchPopoverHelper());
+  }
+
+  /**
+   * @param {!Common.EventTarget.EventTargetEvent} event
+   */
+  _onFontEditorButtonClicked(event) {
+    // Add Font Editor Menu telemetry
+    if (event.data) {
+      event.data.consume(true);
+    } else {
+      event.consume();
+    }
+    if (this._fontEditorToolbar) {
+      this._fontEditorToolbar.showPopover(this._parentPane);
     }
   }
 
@@ -2644,6 +2746,8 @@ export class StylesSidebarPropertyRenderer {
     this._colorHandler = null;
     /** @type {?function(string):!Node} */
     this._bezierHandler = null;
+    /** @type {?function(string):!Node} */
+    this._fontHandler = null;
     /** @type {?function(string, string):!Node} */
     this._shadowHandler = null;
     /** @type {?function(string, string):!Node} */
@@ -2664,6 +2768,13 @@ export class StylesSidebarPropertyRenderer {
    */
   setBezierHandler(handler) {
     this._bezierHandler = handler;
+  }
+
+  /**
+   * @param {function(string):!Node} handler
+   */
+  setFontHandler(handler) {
+    this._fontHandler = handler;
   }
 
   /**
@@ -2736,6 +2847,10 @@ export class StylesSidebarPropertyRenderer {
     if (this._colorHandler && metadata.isColorAwareProperty(this._propertyName)) {
       regexes.push(Common.Color.Regex);
       processors.push(this._colorHandler);
+    }
+    if (this._fontHandler && metadata.isFontAwareProperty(this._propertyName)) {
+      regexes.push(SDK.CSSMetadata.FontRegex);
+      processors.push(this._fontHandler);
     }
     const results = TextUtils.TextUtils.Utils.splitStringByRegexes(this._propertyValue, regexes);
     for (let i = 0; i < results.length; i++) {

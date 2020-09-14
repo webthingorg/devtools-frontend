@@ -188,6 +188,9 @@ export class MainImpl {
         'cssGridFeatures',
         'Enable new CSS Grid debugging features (configuration options available in Layout sidebar pane in Elements after restart)');
 
+    // Font Editor
+    Root.Runtime.experiments.register('fontEditor', 'Enable new Font Editor tool within the Styles Pane.');
+
     // Layout personalization
     Root.Runtime.experiments.register('movableTabs', 'Enable support to move tabs between panels');
 

@@ -12,6 +12,7 @@ import * as InlineEditor from '../inline_editor/inline_editor.js';
 import * as UI from '../ui/ui.js';
 
 import {StylePropertyTreeElement} from './StylePropertyTreeElement.js';  // eslint-disable-line no-unused-vars
+import {StylesSidebarPane} from './StylesSidebarPane.js';                // eslint-disable-line no-unused-vars
 
 /**
  * @unrestricted
@@ -39,6 +40,7 @@ export class BezierPopoverIcon {
    * @param {!Event} event
    */
   _iconClick(event) {
+    // Add icon click telemetry
     event.consume(true);
     if (this._swatchPopoverHelper.isShowing()) {
       this._swatchPopoverHelper.hide(true);
@@ -295,6 +297,7 @@ export class ShadowSwatchPopoverHelper {
    * @param {!Event} event
    */
   _iconClick(event) {
+    // Add icon click telemetry
     event.consume(true);
     this.showPopover();
   }
@@ -358,3 +361,165 @@ export class ShadowSwatchPopoverHelper {
 }
 
 ShadowSwatchPopoverHelper._treeElementSymbol = Symbol('ShadowSwatchPopoverHelper._treeElementSymbol');
+
+/**
+ * @unrestricted
+ */
+export class FontEditorSectionManager {
+  /**
+   * @param {!InlineEditor.SwatchPopoverHelper} swatchPopoverHelper
+   * @param {!Object} section
+   */
+  constructor(swatchPopoverHelper, section) {
+    /** @type {!Map<string, !StylePropertyTreeElement>} */
+    this._treeElementMap = new Map();
+    this._propertyMap = new Map();
+    // this._valueLengthMap = new Map();
+
+    this._swatchPopoverHelper = swatchPopoverHelper;
+    this._section = section;
+
+    this._boundFontChanged = this._fontChanged.bind(this);
+    // this._boundFontUnitChanged = this._fontUnitChanged.bind(this);
+    this._boundOnScroll = this._onScroll.bind(this);
+    this._boundResized = this._fontEditorResized.bind(this);
+  }
+
+  /**
+   * @param {!Event} event
+   */
+  async _fontChanged(event) {
+    const {propertyName, value} = event.data;
+    const treeElement = this._treeElementMap.get(propertyName);
+    if (treeElement && treeElement.property.parsedOk && treeElement.property.range) {
+      let elementRemoved = false;
+      treeElement.valueElement.textContent = value;
+      treeElement.property.value = value;
+      let styleText;
+      const propertyName = treeElement.property.name;
+      if (value.length) {
+        styleText = treeElement.renderedPropertyText();
+      } else {
+        styleText = '';
+        elementRemoved = true;
+        this._fixIndex(treeElement.property.index);
+      }
+      this._treeElementMap.set(propertyName, treeElement);
+      await treeElement.applyStyleText(styleText, false);
+      if (elementRemoved) {
+        this._treeElementMap.delete(propertyName);
+      }
+    } else if (value.length) {
+      const newProperty = this._section.addNewBlankProperty();
+      if (newProperty) {
+        newProperty.property.name = propertyName;
+        newProperty.property.value = value;
+        newProperty.updateTitle();
+        await newProperty.applyStyleText(newProperty.renderedPropertyText(), true);
+        this._treeElementMap.set(newProperty.property.name, newProperty);
+        this._swatchPopoverHelper.reposition();
+      }
+    }
+    this._section.onpopulate();
+  }
+
+  _fontEditorResized() {
+    this._swatchPopoverHelper.reposition();
+  }
+
+  /**
+   * @param {number} removedIndex
+   */
+  _fixIndex(removedIndex) {
+    for (const treeElement of this._treeElementMap.values()) {
+      if (treeElement.property.index > removedIndex) {
+        treeElement.property.index -= 1;
+      }
+    }
+  }
+
+  /**
+   * @param {!Array<string | !StylePropertyTreeElement>} fontProperty
+   */
+  _storeOriginalValue(fontProperty) {
+    if (fontProperty[1].property.value.length) {
+      this._propertyMap.set(
+          fontProperty[0], {value: fontProperty[1].property.value, isOverloaded: fontProperty[1].overloaded()});
+      // this._valueLengthMap.set(fontProperty[0], fontProperty[1].property.value.length);
+    } else {
+      this._treeElementMap.delete(fontProperty[0]);
+    }
+  }
+
+  /**
+   * @param {!StylePropertyTreeElement} treeElement
+   */
+  registerFontProperty(treeElement) {
+    const propertyName = treeElement.property.name;
+    if (this._treeElementMap.has(propertyName)) {
+      if (!treeElement.overloaded() || this._treeElementMap.get(propertyName).overloaded()) {
+        this._treeElementMap.set(propertyName, treeElement);
+        treeElement[FontEditorSectionManager._treeElementSymbol] = this;
+      }
+    } else {
+      this._treeElementMap.set(propertyName, treeElement);
+      treeElement[FontEditorSectionManager._treeElementSymbol] = this;
+    }
+  }
+
+  /**
+   * @param {!Event} event
+   * @param {!StylePropertyTreeElement} treeElement
+   */
+  _iconClick(event, treeElement) {
+    event.consume(true);
+    this.showPopover(treeElement);
+  }
+
+  /**
+   * @param {!Element} iconElement
+   * @param {!StylesSidebarPane} parentPane
+   */
+  async showPopover(iconElement, parentPane) {
+    if (this._swatchPopoverHelper.isShowing()) {
+      this._swatchPopoverHelper.hide(true);
+      return;
+    }
+    this._propertyMap.clear();
+    // this._valueLengthMap.clear();
+    for (const fontProperty of this._treeElementMap) {
+      this._storeOriginalValue(fontProperty);
+    }
+
+    this._fontEditor = new InlineEditor.FontEditor.FontEditor(this._propertyMap);
+    this._fontEditor.addEventListener(InlineEditor.FontEditor.Events.FontChanged, this._boundFontChanged);
+    this._fontEditor.addEventListener(InlineEditor.FontEditor.Events.FontEditorResized, this._boundResized);
+    this._swatchPopoverHelper.show(this._fontEditor, iconElement, this._onPopoverHidden.bind(this));
+    this._scrollerElement = iconElement.enclosingNodeOrSelfWithClass('style-panes-wrapper');
+    if (this._scrollerElement) {
+      this._scrollerElement.addEventListener('scroll', this._boundOnScroll, false);
+    }
+
+    parentPane.setEditingStyle(true);
+  }
+
+  _onScroll() {
+    this._swatchPopoverHelper.reposition();
+  }
+
+  clear() {
+    this._treeElementMap.clear();
+  }
+
+  _onPopoverHidden() {
+    if (this._scrollerElement) {
+      this._scrollerElement.removeEventListener('scroll', this._boundOnScroll, false);
+    }
+    this._section.onpopulate();
+    this._fontEditor.removeEventListener(InlineEditor.FontEditor.Events.FontChanged, this._boundFontChanged);
+    delete this._fontEditor;
+    this._section._parentPane.setEditingStyle(false);
+  }
+}
+
+FontEditorSectionManager._treeElementSymbol = Symbol('FontEditorSectionManager._treeElementSymbol');
