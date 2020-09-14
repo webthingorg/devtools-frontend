@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0449dd65_92627d7c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-14T16:48:21Z",
+      "side": 1,
+      "message": "Ideally we just have one HTML file, but this is a step in the right direction.",
+      "revId": "aa82760c76638275288c9cba0a9e9e78f290299b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
