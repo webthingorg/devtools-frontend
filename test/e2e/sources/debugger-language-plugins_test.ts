@@ -4,8 +4,8 @@
 
 import {assert} from 'chai';
 
-import {click, enableExperiment, getBrowserAndPages, getResourcesPath, goToResource, waitFor} from '../../shared/helper.js';
-import {describe, it} from '../../shared/mocha-extensions.js';
+import {$, click, enableExperiment, getBrowserAndPages, getResourcesPath, goToResource, waitFor, waitForFunction} from '../../shared/helper.js';
+import {AsyncScope, describe, it} from '../../shared/mocha-extensions.js';
 import {addBreakpointForLine, getValuesForScope, listenForSourceFilesAdded, openFileInEditor, openFileInSourcesPanel, openSourcesPanel, PAUSE_ON_EXCEPTION_BUTTON, RESUME_BUTTON, retrieveSourceFilesAdded, retrieveTopCallFrameScriptLocation, waitForAdditionalSourceFiles} from '../helpers/sources-helpers.js';
 
 
@@ -83,7 +83,7 @@ declare function RegisterExtension(
 
 // This testcase reaches into DevTools internals to install the extension plugin. At this point, there is no sensible
 // alternative, because loading a real extension is not supported in our test setup.
-describe('The Debugger Language Plugins', async () => {
+describe.only('The Debugger Language Plugins', async () => {
   beforeEach(async () => {
     await enableExperiment('wasmDWARFDebugging');
 
@@ -374,7 +374,7 @@ describe('The Debugger Language Plugins', async () => {
   });
 
   // Flaky test
-  it.skip('[crbug.com/1127785]: shows variable value in popover', async () => {
+  it.repeat(200, '[crbug.com/1127785]: shows variable value in popover', async () => {
     const {frontend} = getBrowserAndPages();
     await frontend.evaluateHandle(
         () => globalThis.installExtensionPlugin((extensionServerClient: unknown, extensionAPI: unknown) => {
@@ -436,8 +436,36 @@ describe('The Debugger Language Plugins', async () => {
     await goToResource('sources/wasm/unreachable.html');
     await waitFor(RESUME_BUTTON);
 
-    const pausedPosition = await waitFor('.cm-execution-line-tail');
-    await pausedPosition.hover();
+    const asyncScope = new AsyncScope();
+    const {element, x, y} = await asyncScope.exec(() => waitForFunction(async () => {
+                                                    const element = await $('.cm-execution-line-tail');
+                                                    if (element) {
+                                                      const {x, y} = await element.evaluate(element => {
+                                                        const {left, top, width, height} =
+                                                            element.getBoundingClientRect();
+
+                                                        return {
+                                                          x: left + width * 0.5,
+                                                          y: top + height * 0.5,
+                                                        };
+                                                      });
+                                                      return {element, x, y};
+                                                    }
+                                                    return undefined;
+                                                  }, asyncScope));
+    console.log(`{x: ${x}, y: ${y}}`);// eslint-disable-line no-console
+    // // @ts-ignore
+    // const {x, y} = await pausedPosition._clickablePoint();
+    // @ts-ignore
+    await frontend.mouse.move(x, y);
+    {
+      // @ts-ignore
+      const {x, y} = await element._clickablePoint();
+      console.log(`{x: ${x}, y: ${y}}`);// eslint-disable-line no-console
+    }
+
+    await element.hover();
+
     const popover = await waitFor('[data-stable-name-for-test="object-popover-content"]');
     const value = await waitFor('.object-value-number', popover).then(e => e.evaluate(node => node.textContent));
     assert.strictEqual(value, '23');
