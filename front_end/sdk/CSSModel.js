@@ -821,7 +821,20 @@ export class CSSModel extends SDKModel {
       const result = await this._agent.invoke_takeComputedStyleUpdates();
       this._isTrackingRequestPending = false;
 
-      if (result.getError() || !result.nodeIds || !this._isCSSPropertyTrackingEnabled) {
+      const error = result.getError();
+      if (error) {
+        switch (error) {
+          case 'No computed styles are being tracked right now.':
+            this._isCSSPropertyTrackingEnabled = false;
+            break;
+          case 'A previous request has not been resolved yet.':
+            this._isTrackingRequestPending = true;
+            break;
+        }
+        return;
+      }
+
+      if (!result.nodeIds || !this._isCSSPropertyTrackingEnabled) {
         return;
       }
 
