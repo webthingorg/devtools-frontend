@@ -33,6 +33,24 @@
       "revId": "691061659ecf68fde2f91165821b490fb8f06be9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3aaf72bd_dc964c7e",
+        "filename": "front_end/sdk/CSSModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-14T07:11:40Z",
+      "side": 1,
+      "message": "Quite frankly, I wouldn\u0027t recommend doing this.\n\nDo we need to check the particular error message at all? The current setting has the base-assumption that this client is the only one sending tracking requests. That means that if the front-end state is not corrupted, we should only arrive here if no tracking request was pending?\n\nCould you remind me which situation this code is supposed to handle?",
+      "parentUuid": "5f904bbc_f412b12e",
+      "revId": "691061659ecf68fde2f91165821b490fb8f06be9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
