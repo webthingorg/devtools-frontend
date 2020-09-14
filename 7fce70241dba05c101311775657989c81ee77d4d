@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a7b0280d_8b2e6310",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-14T09:52:36Z",
+      "side": 1,
+      "message": "Looks and works great! Love it.\nI just have a few comments below.",
+      "revId": "7fce70241dba05c101311775657989c81ee77d4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f14949e5_f0fca548",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-14T09:52:36Z",
+      "side": 1,
+      "message": "To avoid re-parsing something we\u0027ve already parsed before, we could make OverlayModel.colorOfGridInPersistentOverlay return the Color as a hex string directly with color.asString(Format.HEX)\nthis way, no need to re-parse here, and no need to check if color is null below in the input element\u0027s color attribute.",
+      "range": {
+        "startLine": 138,
+        "startChar": 4,
+        "endLine": 138,
+        "endChar": 58
+      },
+      "revId": "7fce70241dba05c101311775657989c81ee77d4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
