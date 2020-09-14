@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "77c8d6cb_a701abde",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-14T10:30:01Z",
+      "side": 1,
+      "message": "The difference is setColor is a method which invokes the overlay model and it does not actually have this reference to the element object. I think I should change that, thanks for noticing this.",
+      "parentUuid": "b3a55ef9_620faee9",
+      "range": {
+        "startLine": 123,
+        "startChar": 4,
+        "endLine": 124,
+        "endChar": 39
+      },
+      "revId": "7fce70241dba05c101311775657989c81ee77d4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f14949e5_f0fca548",
         "filename": "front_end/elements/LayoutPane.ts",
         "patchSetId": 1
