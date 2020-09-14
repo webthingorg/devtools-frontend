@@ -96,4 +96,17 @@ describe('The Memory Panel', async () => {
     await setSearchFilter('Detached HTMLDivElement');
     await waitForSearchResultNumber(3);
   });
+
+  it('Shows the correct output for a detached iframe', async () => {
+    await goToResource('memory/detached-iframe.html');
+    const {target} = getBrowserAndPages();
+    await target.waitForSelector('.frame-loaded');
+    await navigateToMemoryTab();
+    await takeHeapSnapshot();
+    await waitForNonEmptyHeapSnapshotData();
+    await setSearchFilter('Leak');
+    await waitForSearchResultNumber(8);
+    // At this point based on the layout test I'd expect to see a "Detached Window" entry in the UI but I don't.
+    await waitForSearchResultNumber(20);
+  });
 });
