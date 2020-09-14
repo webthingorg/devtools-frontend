@@ -16,6 +16,24 @@
       "revId": "3b875ec5ef66109cf14564b715f350b04bbfd4c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fe08807c_411d1fa6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-14T07:55:35Z",
+      "side": 1,
+      "message": "The waterfall sheriff guide says we should revert and ask questions later :-) Philip is trying to fix it here https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2401169 but I think there is no quick and obvious solution. I can wait for Philip though (I guess it\u0027s not a big problem for the waterfall?)",
+      "parentUuid": "14eb5aff_4593c715",
+      "revId": "3b875ec5ef66109cf14564b715f350b04bbfd4c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
