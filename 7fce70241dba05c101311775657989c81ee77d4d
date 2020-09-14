@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "307b20ab_a8f73aae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-14T10:34:58Z",
+      "side": 1,
+      "message": "LGTM % the `element.setColor` bit.",
+      "revId": "7fce70241dba05c101311775657989c81ee77d4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b3a55ef9_620faee9",
         "filename": "front_end/elements/LayoutPane.ts",
         "patchSetId": 1
