@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ca032b29_3c93e79f",
+        "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1449423
+      },
+      "writtenOn": "2020-09-14T18:04:49Z",
+      "side": 1,
+      "message": "Looking at _appendSyncEvents, I would have to rewrite a simplified version of it inside the UserTimingEvents function. The issue is the possibility of accidentally removing/changing critical tests and causing debugging overhead.\n\nWhile slightly less efficient, simply renaming the function while keeping current functionality is what I would prefer for the time being. I am willing to rewrite the function in the future if preferable.",
+      "parentUuid": "496d52ad_116c1393",
+      "revId": "9f32c7fa1d8874fc1d3980fcc76e57e1ed740305",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5d3c1fb1_48b9c696",
         "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
         "patchSetId": 12
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "a3173da2_5704ef20",
+        "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1449423
+      },
+      "writtenOn": "2020-09-14T18:04:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d3c1fb1_48b9c696",
+      "range": {
+        "startLine": 705,
+        "startChar": 2,
+        "endLine": 705,
+        "endChar": 25
+      },
+      "revId": "9f32c7fa1d8874fc1d3980fcc76e57e1ed740305",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87c585d7_9a83aeb8",
         "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
         "patchSetId": 12
@@ -56,6 +98,24 @@
       "revId": "9f32c7fa1d8874fc1d3980fcc76e57e1ed740305",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42b0cda6_4256def3",
+        "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1449423
+      },
+      "writtenOn": "2020-09-14T18:04:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87c585d7_9a83aeb8",
+      "revId": "9f32c7fa1d8874fc1d3980fcc76e57e1ed740305",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
