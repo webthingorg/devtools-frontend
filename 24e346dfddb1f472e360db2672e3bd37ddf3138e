@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b79c9a8_044b2a56",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-14T11:38:41Z",
+      "side": 1,
+      "message": "PTAL - this is the test I can\u0027t figure out.",
+      "revId": "24e346dfddb1f472e360db2672e3bd37ddf3138e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
