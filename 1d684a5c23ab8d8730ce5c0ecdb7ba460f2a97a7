@@ -51,6 +51,24 @@
       "revId": "1d684a5c23ab8d8730ce5c0ecdb7ba460f2a97a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60569520_7f770535",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-09-15T14:45:21Z",
+      "side": 1,
+      "message": "Hi Peter, I\u0027ll let Sigurd confirm but he had requested using the existing issue-level categories in our more recent discussions. My understanding was this was because nearly every existing issue would fall under \"Security\" (except HeavyAd), resulting in only one group most of the time.\n\nYou are correct that this results in a small number of issues per category. Sometimes it is two or three as there can be different messages for different CSP issues, for example.\n\nThe reality that we currently end up with either a small number of categories or a small number of issues per category is part of why we\u0027re debating whether the checkbox should be exposed to users just yet. Alternatively we can hide the capability for now with the intent of exposing the option to the user later.",
+      "parentUuid": "c1ace2dc_f03bc80f",
+      "revId": "1d684a5c23ab8d8730ce5c0ecdb7ba460f2a97a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
