@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "188c889a_339b3e55",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-15T13:20:58Z",
+      "side": 1,
+      "message": "Are you sure this is required?",
+      "range": {
+        "startLine": 103,
+        "startChar": 4,
+        "endLine": 103,
+        "endChar": 50
+      },
+      "revId": "feb47f3a9be8b853830d1afa4bcaaefad6ad4680",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04e2ffec_21c1d3df",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-15T13:20:58Z",
+      "side": 1,
+      "message": "Please assert that this the \"Detached Window\" is actually showing up in the retainer chain.",
+      "range": {
+        "startLine": 109,
+        "startChar": 4,
+        "endLine": 109,
+        "endChar": 112
+      },
+      "revId": "feb47f3a9be8b853830d1afa4bcaaefad6ad4680",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9349090f_1887cac5",
+        "filename": "test/e2e/resources/memory/detached-iframe.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-15T13:20:58Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 8,
+        "startChar": 2,
+        "endLine": 8,
+        "endChar": 6
+      },
+      "revId": "feb47f3a9be8b853830d1afa4bcaaefad6ad4680",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0307d88e_a4e06bcf",
+        "filename": "test/e2e/resources/memory/detached-iframe.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-15T13:20:58Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 13,
+        "startChar": 4,
+        "endLine": 13,
+        "endChar": 8
+      },
+      "revId": "feb47f3a9be8b853830d1afa4bcaaefad6ad4680",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9536e2ea_f6fd205c",
+        "filename": "test/e2e/resources/memory/detached-iframe.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-15T13:20:58Z",
+      "side": 1,
+      "message": "this",
+      "range": {
+        "startLine": 19,
+        "startChar": 30,
+        "endLine": 19,
+        "endChar": 35
+      },
+      "revId": "feb47f3a9be8b853830d1afa4bcaaefad6ad4680",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
