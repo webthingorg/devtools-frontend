@@ -16,6 +16,23 @@
       "revId": "2b6f28033a654087a4f9647e5e1b840fcf1a2e93",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59a566f4_6782414b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-09-15T08:05:45Z",
+      "side": 1,
+      "message": "LGTM but Tim is the expert here",
+      "revId": "2b6f28033a654087a4f9647e5e1b840fcf1a2e93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
