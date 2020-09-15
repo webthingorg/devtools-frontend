@@ -16,6 +16,24 @@
       "revId": "0d9a4a48403a519efa62e33270a3f9501da43a02",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "225a270a_412d4dde",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000675
+      },
+      "writtenOn": "2020-09-15T13:03:23Z",
+      "side": 1,
+      "message": "Tests failed due to changing expectations regarding user timings, since the previous patch \"extracted\" all timings, including Resource \u0026 Nav timing events (which we didn\u0027t originally intend to touch).  In hindsight, maybe the issue was that we were double-adding to Timings and not that we were removing from Main, but this newest patch still felt cleaner/safer.\n\nThere is another alternative: extract (not copy) only performance.marks() and leave everything else.  But this meant having the hardcoded list of resource/navigation event names in tracing/timeline model and we thought this was cleaner.\n\nRaphael can add comments to document these decisions (I suggest inside _copyUserTimingEvents).\n\nWDYT Paul, is it better to extract just perf.marks()?",
+      "parentUuid": "c1fcc769_3d9e0079",
+      "revId": "0d9a4a48403a519efa62e33270a3f9501da43a02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
