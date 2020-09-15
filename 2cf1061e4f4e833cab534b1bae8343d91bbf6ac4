@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b1f24da_fed0d20d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-09-15T22:37:41Z",
+      "side": 1,
+      "message": "Thanks everyone for the first round of review 👍, @Tim I left a question regarding front_end/third_party/i18n/i18n-bundle.d.ts please let me know your thoughts.",
+      "revId": "2cf1061e4f4e833cab534b1bae8343d91bbf6ac4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}

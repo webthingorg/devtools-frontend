@@ -59,6 +59,30 @@
     },
     {
       "key": {
+        "uuid": "15fcd91e_d09f5e12",
+        "filename": "all_devtools_files.gni",
+        "patchSetId": 3
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-09-15T22:37:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48c59a9a_a1c35ffc",
+      "range": {
+        "startLine": 326,
+        "startChar": 0,
+        "endLine": 327,
+        "endChar": 46
+      },
+      "revId": "2b6f28033a654087a4f9647e5e1b840fcf1a2e93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bb45848a_c3502ce7",
         "filename": "devtools_module_entrypoints.gni",
         "patchSetId": 3
@@ -79,6 +103,30 @@
       "revId": "2b6f28033a654087a4f9647e5e1b840fcf1a2e93",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43b74fce_9b92c697",
+        "filename": "devtools_module_entrypoints.gni",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-09-15T22:37:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb45848a_c3502ce7",
+      "range": {
+        "startLine": 168,
+        "startChar": 2,
+        "endLine": 168,
+        "endChar": 48
+      },
+      "revId": "2b6f28033a654087a4f9647e5e1b840fcf1a2e93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -105,6 +153,30 @@
     },
     {
       "key": {
+        "uuid": "2b67bc98_00456e07",
+        "filename": "front_end/i18n/i18nImpl.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-09-15T22:37:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac488180_cd301cf8",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 12
+      },
+      "revId": "2b6f28033a654087a4f9647e5e1b840fcf1a2e93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8dedb182_8d911bf9",
         "filename": "front_end/i18n/i18nImpl.js",
         "patchSetId": 3
@@ -116,6 +188,30 @@
       "writtenOn": "2020-09-15T09:39:00Z",
       "side": 1,
       "message": "Why were these types changed? I would have assumed that the generated bundle would have the same types as the pre-bundled version.",
+      "range": {
+        "startLine": 46,
+        "startChar": 11,
+        "endLine": 46,
+        "endChar": 12
+      },
+      "revId": "2b6f28033a654087a4f9647e5e1b840fcf1a2e93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e6622e2_3ab4b595",
+        "filename": "front_end/i18n/i18nImpl.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-09-15T22:37:41Z",
+      "side": 1,
+      "message": "I think this is related to my other comment in:\nfront_end/third_party/i18n/i18n-bundle.d.ts\n\nbut I started to get \n../../third_party/devtools-frontend/src/front_end/i18n/i18nImpl.js(59,71): error TS2345: Argument of type \u0027Object\u0027 is not assignable to parameter of type \u0027Record\u003cstring, string\u003e\u0027.\n\nIt seems this can be fixed by including the .d.ts file.",
+      "parentUuid": "8dedb182_8d911bf9",
       "range": {
         "startLine": 46,
         "startChar": 11,
@@ -151,6 +247,30 @@
     },
     {
       "key": {
+        "uuid": "da6bff6f_55e2c821",
+        "filename": "front_end/i18n/module.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-09-15T22:37:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f64676a_00e9796c",
+      "range": {
+        "startLine": 8,
+        "startChar": 3,
+        "endLine": 8,
+        "endChar": 10
+      },
+      "revId": "2b6f28033a654087a4f9647e5e1b840fcf1a2e93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9260a8ba_cb5f23a5",
         "filename": "front_end/third_party/i18n/BUILD.gn",
         "patchSetId": 3
@@ -171,6 +291,30 @@
       "revId": "2b6f28033a654087a4f9647e5e1b840fcf1a2e93",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56378d1d_a933ff40",
+        "filename": "front_end/third_party/i18n/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-09-15T22:37:41Z",
+      "side": 1,
+      "message": "Previously I received some feedback regarding the structure of the modules (module_name.js should be a light file that just re-export the actual implementation), I assumed as this was being refactored as a module it would be a good idea to follow the same convention. Have not problem changing it though.",
+      "parentUuid": "9260a8ba_cb5f23a5",
+      "range": {
+        "startLine": 14,
+        "startChar": 16,
+        "endLine": 14,
+        "endChar": 23
+      },
+      "revId": "2b6f28033a654087a4f9647e5e1b840fcf1a2e93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
