@@ -1,1 +1,71 @@
-{}
+{
+  "accessibility/AccessibilityStrings.js | accessibilityNodeNotExposed": {
+    "message": "Accessibility node not exposed"
+  },
+  "accessibility/AccessibilityStrings.js | ancestorsChildrenAreAll": {
+    "message": "Ancestor's children are all presentational: "
+  },
+  "accessibility/AccessibilityStrings.js | computedProperties": {
+    "message": "Computed Properties"
+  },
+  "accessibility/AccessibilityStrings.js | elementHasEmptyAltText": {
+    "message": "Element has empty alt text."
+  },
+  "accessibility/AccessibilityStrings.js | elementHasS": {
+    "message": "Element has {ROLEPRESENTATIONSPAN}."
+  },
+  "accessibility/AccessibilityStrings.js | elementInheritsPresentational": {
+    "message": "Element inherits presentational role from "
+  },
+  "accessibility/AccessibilityStrings.js | elementIsHiddenByActiveModal": {
+    "message": "Element is hidden by active modal dialog: "
+  },
+  "accessibility/AccessibilityStrings.js | elementIsInAnInertSubtreeFrom": {
+    "message": "Element is in an inert subtree from "
+  },
+  "accessibility/AccessibilityStrings.js | elementIsInert": {
+    "message": "Element is inert."
+  },
+  "accessibility/AccessibilityStrings.js | elementIsNotRendered": {
+    "message": "Element is not rendered."
+  },
+  "accessibility/AccessibilityStrings.js | elementIsNotVisible": {
+    "message": "Element is not visible."
+  },
+  "accessibility/AccessibilityStrings.js | elementIsPresentational": {
+    "message": "Element is presentational."
+  },
+  "accessibility/AccessibilityStrings.js | elementIsS": {
+    "message": "Element is {ARIAHIDDENSPAN}."
+  },
+  "accessibility/AccessibilityStrings.js | elementNotInterestingFor": {
+    "message": "Element not interesting for accessibility."
+  },
+  "accessibility/AccessibilityStrings.js | invalidSource": {
+    "message": "Invalid source."
+  },
+  "accessibility/AccessibilityStrings.js | labelFor": {
+    "message": "Label for "
+  },
+  "accessibility/AccessibilityStrings.js | noAccessibilityNode": {
+    "message": "No accessibility node"
+  },
+  "accessibility/AccessibilityStrings.js | noNodeWithThisId": {
+    "message": "No node with this ID."
+  },
+  "accessibility/AccessibilityStrings.js | noTextContent": {
+    "message": "No text content."
+  },
+  "accessibility/AccessibilityStrings.js | notSpecified": {
+    "message": "Not specified"
+  },
+  "accessibility/AccessibilityStrings.js | partOfLabelElement": {
+    "message": "Part of label element: "
+  },
+  "accessibility/AccessibilityStrings.js | sIsSOnAncestor": {
+    "message": "{ARIAHIDDENSPAN} is {TRUESPAN} on ancestor: "
+  },
+  "accessibility/AccessibilityStrings.js | staticTextNodeIsUsedAsNameFor": {
+    "message": "Static text node is used as name for "
+  }
+}
