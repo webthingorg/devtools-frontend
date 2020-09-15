@@ -33,6 +33,144 @@
       "revId": "2b6f28033a654087a4f9647e5e1b840fcf1a2e93",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48c59a9a_a1c35ffc",
+        "filename": "all_devtools_files.gni",
+        "patchSetId": 3
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-15T09:39:00Z",
+      "side": 1,
+      "message": "These files are JavaScript files that should be loaded as modules. Therefore, it should only be added to `all_devtools_modules`, not to `all_devtools_files`.",
+      "range": {
+        "startLine": 326,
+        "startChar": 0,
+        "endLine": 327,
+        "endChar": 46
+      },
+      "revId": "2b6f28033a654087a4f9647e5e1b840fcf1a2e93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb45848a_c3502ce7",
+        "filename": "devtools_module_entrypoints.gni",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-15T09:39:00Z",
+      "side": 1,
+      "message": "This file can remain here, but then the bundle output should be named `i18n.js` instead of `i18n-bundle.js`. The current version of `i18n.js` contains no implementation, only a redirect export, and therefore is not necessary.",
+      "range": {
+        "startLine": 168,
+        "startChar": 2,
+        "endLine": 168,
+        "endChar": 48
+      },
+      "revId": "2b6f28033a654087a4f9647e5e1b840fcf1a2e93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac488180_cd301cf8",
+        "filename": "front_end/i18n/i18nImpl.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-15T09:39:00Z",
+      "side": 1,
+      "message": "Revert this change, as the bundle will then export the default.",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 12
+      },
+      "revId": "2b6f28033a654087a4f9647e5e1b840fcf1a2e93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8dedb182_8d911bf9",
+        "filename": "front_end/i18n/i18nImpl.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-15T09:39:00Z",
+      "side": 1,
+      "message": "Why were these types changed? I would have assumed that the generated bundle would have the same types as the pre-bundled version.",
+      "range": {
+        "startLine": 46,
+        "startChar": 11,
+        "endLine": 46,
+        "endChar": 12
+      },
+      "revId": "2b6f28033a654087a4f9647e5e1b840fcf1a2e93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f64676a_00e9796c",
+        "filename": "front_end/i18n/module.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-15T09:39:00Z",
+      "side": 1,
+      "message": "This should remain `modules`. I fixed that yesterday.",
+      "range": {
+        "startLine": 8,
+        "startChar": 3,
+        "endLine": 8,
+        "endChar": 10
+      },
+      "revId": "2b6f28033a654087a4f9647e5e1b840fcf1a2e93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9260a8ba_cb5f23a5",
+        "filename": "front_end/third_party/i18n/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-15T09:39:00Z",
+      "side": 1,
+      "message": "The bundle can be the entrypoint, which means we don\u0027t need a separate i18n.js. I am not sure why the additional was introduced, as the current implementation doesn\u0027t have it either?",
+      "range": {
+        "startLine": 14,
+        "startChar": 16,
+        "endLine": 14,
+        "endChar": 23
+      },
+      "revId": "2b6f28033a654087a4f9647e5e1b840fcf1a2e93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }

@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "83447d78_e9165144",
+        "filename": "front_end/third_party/i18n/i18n-bundle.d.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-15T09:39:00Z",
+      "side": 0,
+      "message": "Why was this file removed? For TypeScript compilation, we still need to compile with the `.d.ts` definitions right? Otherwise, the bundle would be implicitly typed as `any` on all interactions.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 54
+      },
+      "revId": "53a7d9430dbb3fb355bd03e48db92a3348ba7602",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a1b8ef1_53c535a0",
+        "filename": "scripts/check_gn.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-15T09:39:00Z",
+      "side": 0,
+      "message": "Why has this been removed? The only change should be that we check in the bundle rather than pre-generate it. That should not affect our GRD setup, or am I missing something?",
+      "range": {
+        "startLine": 92,
+        "startChar": 65,
+        "endLine": 92,
+        "endChar": 84
+      },
+      "revId": "53a7d9430dbb3fb355bd03e48db92a3348ba7602",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
