@@ -16,6 +16,46 @@
       "revId": "a620ff484cba4d80ee8554fb9bf60e93bddbd4e4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23f33986_5ae2c6cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-15T13:43:42Z",
+      "side": 1,
+      "message": "The layout test is asserting that there are four paths. This test isn\u0027t?",
+      "revId": "a620ff484cba4d80ee8554fb9bf60e93bddbd4e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "946b0d89_aed336be",
+        "filename": "test/e2e/resources/memory/multiple-retainers.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-15T13:43:42Z",
+      "side": 1,
+      "message": "I think this is misleading, as it isn\u0027t leaking, is it?",
+      "range": {
+        "startLine": 9,
+        "startChar": 13,
+        "endLine": 9,
+        "endChar": 20
+      },
+      "revId": "a620ff484cba4d80ee8554fb9bf60e93bddbd4e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
