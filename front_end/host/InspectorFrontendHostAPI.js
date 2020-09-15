@@ -421,6 +421,7 @@ export const EnumeratedHistogram = {
   DualScreenDeviceEmulated: 'DevTools.DualScreenDeviceEmulated',
   CSSGridSettings: 'DevTools.CSSGridSettings2',
   HighlightedPersistentCSSGridCount: 'DevTools.HighlightedPersistentCSSGridCount',
+  CssEditorOpened: 'DevTools.CssEditorOpened',
   ExperimentEnabledAtLaunch: 'DevTools.ExperimentEnabledAtLaunch',
   ExperimentEnabled: 'DevTools.ExperimentEnabled',
   ExperimentDisabled: 'DevTools.ExperimentDisabled',

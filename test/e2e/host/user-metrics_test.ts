@@ -41,6 +41,7 @@ declare global {
     __issuesPanelOpenedFrom: (evt: Event) => void;
     __keybindSetSettingChanged: (evt: Event) => void;
     __dualScreenDeviceEmulated: (evt: Event) => void;
+    __cssEditorOpened: (evt: Event) => void;
     __experimentDisabled: (evt: Event) => void;
     __experimentEnabled: (evt: Event) => void;
     __colorFixed: (evt: Event) => void;
@@ -48,7 +49,9 @@ declare global {
     __issuesPanelIssueExpanded: (evt: Event) => void;
     __issuesPanelResourceOpened: (evt: Event) => void;
     Host: {
-      UserMetrics: UserMetrics; userMetrics: {actionTaken(name: number): void; colorFixed(threshold: string): void;}
+      UserMetrics: UserMetrics; userMetrics: {
+        actionTaken(name: number): void; colorFixed(threshold: string): void; cssEditorOpened(editorName: string): void;
+      }
     };
   }
 }
@@ -100,6 +103,11 @@ async function beginCatchEvents(frontend: puppeteer.Page) {
       window.__caughtEvents.push({name: 'DevTools.DualScreenDeviceEmulated', value: customEvt.detail.value});
     };
 
+    window.__cssEditorOpened = (evt: Event) => {
+      const customEvt = evt as CustomEvent;
+      window.__caughtEvents.push({name: 'DevTools.CssEditorOpened', value: customEvt.detail.value});
+    };
+
     window.__experimentDisabled = (evt: Event) => {
       const customEvt = evt as CustomEvent;
       window.__caughtEvents.push({name: 'DevTools.ExperimentDisabled', value: customEvt.detail.value});
@@ -141,6 +149,7 @@ async function beginCatchEvents(frontend: puppeteer.Page) {
       window.addEventListener('DevTools.IssuesPanelOpenedFrom', window.__issuesPanelOpenedFrom);
       window.addEventListener('DevTools.KeybindSetSettingChanged', window.__keybindSetSettingChanged);
       window.addEventListener('DevTools.DualScreenDeviceEmulated', window.__dualScreenDeviceEmulated);
+      window.addEventListener('DevTools.CssEditorOpened', window.__cssEditorOpened);
       window.addEventListener('DevTools.ExperimentDisabled', window.__experimentDisabled);
       window.addEventListener('DevTools.ExperimentEnabled', window.__experimentEnabled);
       window.addEventListener('DevTools.ColorPicker.FixedColor', window.__colorFixed);
@@ -159,6 +168,7 @@ async function beginCatchEvents(frontend: puppeteer.Page) {
       window.removeEventListener('DevTools.IssuesPanelOpenedFrom', window.__issuesPanelOpenedFrom);
       window.removeEventListener('DevTools.KeybindSetSettingChanged', window.__keybindSetSettingChanged);
       window.removeEventListener('DevTools.DualScreenDeviceEmulated', window.__dualScreenDeviceEmulated);
+      window.removeEventListener('DevTools.CssEditorOpened', window.__cssEditorOpened);
       window.removeEventListener('DevTools.ExperimentDisabled', window.__experimentDisabled);
       window.removeEventListener('DevTools.ExperimentEnabled', window.__experimentEnabled);
       window.removeEventListener('DevTools.ColorPicker.FixedColor', window.__colorFixed);
@@ -522,6 +532,49 @@ describe('User Metrics for CSS Overview', () => {
       {
         name: 'DevTools.ActionTaken',
         value: 41,  // CaptureCssOverviewClicked
+      },
+    ]);
+  });
+
+  afterEach(async () => {
+    const {frontend} = getBrowserAndPages();
+    await endCatchEvents(frontend);
+  });
+});
+
+
+describe('Usage count for CSS Editors in Styles Pane', () => {
+  beforeEach(async () => {
+    const {frontend} = getBrowserAndPages();
+    await beginCatchEvents(frontend);
+  });
+
+  it('dispatch CssEditorOpened events', async () => {
+    const {frontend} = getBrowserAndPages();
+
+    await frontend.evaluate(() => {
+      self.Host.userMetrics.cssEditorOpened('colorPicker');
+      self.Host.userMetrics.cssEditorOpened('shadowEditor');
+      self.Host.userMetrics.cssEditorOpened('bezierEditor');
+      self.Host.userMetrics.cssEditorOpened('fontEditor');
+    });
+
+    await assertCapturedEvents([
+      {
+        name: 'DevTools.CssEditorOpened',
+        value: 0,  // colorPicker
+      },
+      {
+        name: 'DevTools.CssEditorOpened',
+        value: 1,  // shadowEditor
+      },
+      {
+        name: 'DevTools.CssEditorOpened',
+        value: 2,  // bezierEditor
+      },
+      {
+        name: 'DevTools.CssEditorOpened',
+        value: 3,  // fontEditor
       },
     ]);
   });
