@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b31c764_12becfd7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-15T13:24:47Z",
+      "side": 1,
+      "message": "PTAL, thanks! (Not sure whom I should ask for reviewing so I\u0027ve added all three of you).",
+      "revId": "86ae28a983531963ca68367290ec3051249ae9af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
