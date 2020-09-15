@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f621bd6f_5c2e4f63",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-09-15T06:16:01Z",
+      "side": 1,
+      "message": "This CL removes the bundling step on third_party/i18n and instead check-in the bundled library and consumes it as any other module. This change is to address transient build failure:\n\nIssue 1127204: Compile failure on Win-Asan build M87 #87.0.4261.1 on official builder.\nhttps://bugs.chromium.org/p/chromium/issues/detail?id\u003d1127204#c5\n\nPTAL\n\n",
+      "revId": "2b6f28033a654087a4f9647e5e1b840fcf1a2e93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
