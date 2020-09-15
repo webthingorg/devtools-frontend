@@ -4,7 +4,7 @@
 import * as Platform from '../platform/platform.js';
 
 // eslint-disable-next-line
-import i18nBundle from '../third_party/i18n/i18n-bundle.js';
+import {i18n as i18nBundle} from '../third_party/i18n/i18n.js';
 
 /**
  * The locale that DevTools displays
@@ -43,8 +43,8 @@ export function getLocalizedString(str_, id, values = {}) {
 /**
  * Register a file's UIStrings with i18n, return function to generate the string ids.
  * @param {string} path
- * @param {!Object} UIStrings
- * @return {function(string, ?Object):string} return function to generate the string ids.
+ * @param {*} UIStrings
+ * @return {function(string, *):string} return function to generate the string ids.
  */
 export function registerUIStrings(path, UIStrings) {
   /**
@@ -52,7 +52,7 @@ export function registerUIStrings(path, UIStrings) {
    * indexed id value in the form '{messageid} | # {index}'.
    *
    * @param {string} id
-   * @param {?Object} value
+   * @param {*} value
    * */
   const str = (id, value) => {
     try {
