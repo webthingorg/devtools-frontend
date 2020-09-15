@@ -69,6 +69,24 @@
       "revId": "1d684a5c23ab8d8730ce5c0ecdb7ba460f2a97a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ccb5a456_21e76119",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-15T15:23:47Z",
+      "side": 1,
+      "message": "Can we default to not showing the categories, and hide the check-button for now?\nThe e2e test can then enable the check-button and click it to make the test work.",
+      "parentUuid": "60569520_7f770535",
+      "revId": "1d684a5c23ab8d8730ce5c0ecdb7ba460f2a97a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
