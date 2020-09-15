@@ -94,6 +94,29 @@
     },
     {
       "key": {
+        "uuid": "977a0dcb_2282df5c",
+        "filename": "test/e2e/resources/memory/detached-iframe.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-15T13:25:53Z",
+      "side": 1,
+      "message": "const retainingListener \u003d () \u003d\u003e {",
+      "range": {
+        "startLine": 14,
+        "startChar": 4,
+        "endLine": 14,
+        "endChar": 34
+      },
+      "revId": "feb47f3a9be8b853830d1afa4bcaaefad6ad4680",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9536e2ea_f6fd205c",
         "filename": "test/e2e/resources/memory/detached-iframe.html",
         "patchSetId": 2
