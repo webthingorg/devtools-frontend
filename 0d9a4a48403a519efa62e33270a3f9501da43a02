@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c1fcc769_3d9e0079",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-15T07:28:33Z",
+      "side": 1,
+      "message": "Out of interest, why are we copying the events now? In any case I think that reasoning is lost here, so I wonder if we need some comments somewhere just to point to the rationale.\n\nLGTM still, though - great stuff! 😊",
+      "revId": "0d9a4a48403a519efa62e33270a3f9501da43a02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
