@@ -34,6 +34,24 @@
       "revId": "0d9a4a48403a519efa62e33270a3f9501da43a02",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c9026a3_8c7ecd31",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1449423
+      },
+      "writtenOn": "2020-09-15T13:44:22Z",
+      "side": 1,
+      "message": "In my opinion, copying the events rather than extracting is more future-proof, assuming the resource cost is extremely small.\n\nHowever unlikely it may be, if there is a reason those events might be needed for other uses in the Main thread, having them copied instead will create less of a headache for others later on.\n\n+1 Michal\u0027s comment about comments... I can add comments for context if you recommend it Paul.",
+      "parentUuid": "225a270a_412d4dde",
+      "revId": "0d9a4a48403a519efa62e33270a3f9501da43a02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
