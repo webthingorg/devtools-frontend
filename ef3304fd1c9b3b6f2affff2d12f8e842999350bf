@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e8664d48_c42f2e3d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-09-15T18:11:24Z",
+      "side": 1,
+      "message": "Yup, I address this in the description but there isn\u0027t a good way to tell which shortcuts can conflict and which don\u0027t right now, so I\u0027ll probably implement something in a future CL.",
+      "parentUuid": "f6da97e2_344bb1bc",
+      "revId": "ef3304fd1c9b3b6f2affff2d12f8e842999350bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c128b67_38bb1e0c",
         "filename": "front_end/settings/KeybindsSettingsTab.js",
         "patchSetId": 13
@@ -39,6 +57,30 @@
       "revId": "ef3304fd1c9b3b6f2affff2d12f8e842999350bf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a2d7efd_470ff9fb",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-09-15T18:11:24Z",
+      "side": 1,
+      "message": "Good point, done",
+      "parentUuid": "9c128b67_38bb1e0c",
+      "range": {
+        "startLine": 246,
+        "startChar": 4,
+        "endLine": 246,
+        "endChar": 33
+      },
+      "revId": "ef3304fd1c9b3b6f2affff2d12f8e842999350bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "dcd2ebed_1faff5a9",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-09-15T18:11:24Z",
+      "side": 1,
+      "message": "I haven\u0027t seen the wavy line so it must vary by platform. Added spellcheck\u003dfalse",
+      "parentUuid": "024d4229_9bd2832f",
+      "range": {
+        "startLine": 321,
+        "startChar": 12,
+        "endLine": 321,
+        "endChar": 26
+      },
+      "revId": "ef3304fd1c9b3b6f2affff2d12f8e842999350bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66b8ca1b_7e96dbec",
         "filename": "front_end/settings/KeybindsSettingsTab.js",
         "patchSetId": 13
@@ -85,6 +151,30 @@
       "revId": "ef3304fd1c9b3b6f2affff2d12f8e842999350bf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e8ac403_fe1b9850",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-09-15T18:11:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66b8ca1b_7e96dbec",
+      "range": {
+        "startLine": 369,
+        "startChar": 2,
+        "endLine": 369,
+        "endChar": 23
+      },
+      "revId": "ef3304fd1c9b3b6f2affff2d12f8e842999350bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -131,6 +221,54 @@
       "revId": "ef3304fd1c9b3b6f2affff2d12f8e842999350bf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5bfe17d_27835a2b",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-09-15T18:11:24Z",
+      "side": 1,
+      "message": "The intent is to add support for sequences of 2+ descriptors (e.g. Ctrl+K Ctrl+S) in a future CL. I didn\u0027t want to implement chords entirely in this CL because it\u0027s already getting pretty big. I\u0027ll add a note to the description to make it clearer.",
+      "parentUuid": "307b057c_a999fdd0",
+      "range": {
+        "startLine": 394,
+        "startChar": 60,
+        "endLine": 394,
+        "endChar": 78
+      },
+      "revId": "ef3304fd1c9b3b6f2affff2d12f8e842999350bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a58b829_0449a8fc",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-09-15T18:11:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "197dd7b8_9aba63f1",
+      "range": {
+        "startLine": 394,
+        "startChar": 8,
+        "endLine": 394,
+        "endChar": 86
+      },
+      "revId": "ef3304fd1c9b3b6f2affff2d12f8e842999350bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
