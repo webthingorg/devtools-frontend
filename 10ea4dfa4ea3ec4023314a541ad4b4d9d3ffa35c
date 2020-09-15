@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c36b4ea4_bdb64b6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-15T12:53:54Z",
+      "side": 1,
+      "message": "Added myself on CC as I have a CL that needs to follow this one.",
+      "revId": "10ea4dfa4ea3ec4023314a541ad4b4d9d3ffa35c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
