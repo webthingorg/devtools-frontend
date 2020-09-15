@@ -33,6 +33,24 @@
       "revId": "1d684a5c23ab8d8730ce5c0ecdb7ba460f2a97a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1ace2dc_f03bc80f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2020-09-15T07:34:32Z",
+      "side": 1,
+      "message": "Hi, I need a bit of context :) What are the categories at the moment? In the screenshot each issue is put in a category which is almost it\u0027s own title (SameSite cookie issue in SameSite cookie category). This results in one issue per category, which might not be too helpful. Or am I getting this wrong? Initially I thought we group issues by categories like \"Security\" \"Performance\" \"A11y\" and so on.\n\nAnother string nitpick: \"Group issues by category\" can just be \"Group by category\".",
+      "parentUuid": "389c3389_2eb9c40a",
+      "revId": "1d684a5c23ab8d8730ce5c0ecdb7ba460f2a97a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
