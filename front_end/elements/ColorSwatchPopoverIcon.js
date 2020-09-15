@@ -39,6 +39,7 @@ export class BezierPopoverIcon {
    * @param {!Event} event
    */
   _iconClick(event) {
+    Host.userMetrics.cssEditorOpened('bezierEditor');
     event.consume(true);
     if (this._swatchPopoverHelper.isShowing()) {
       this._swatchPopoverHelper.hide(true);
@@ -172,6 +173,7 @@ export class ColorSwatchPopoverIcon {
    * @param {!Event} event
    */
   _iconClick(event) {
+    Host.userMetrics.cssEditorOpened('colorPicker');
     event.consume(true);
     this.showPopover();
   }
@@ -295,6 +297,7 @@ export class ShadowSwatchPopoverHelper {
    * @param {!Event} event
    */
   _iconClick(event) {
+    Host.userMetrics.cssEditorOpened('shadowEditor');
     event.consume(true);
     this.showPopover();
   }

@@ -264,6 +264,22 @@ export class UserMetrics {
   }
 
   /**
+   * @param {string} editorName
+   */
+  cssEditorOpened(editorName) {
+    const size = Object.keys(CssEditorOpened).length + 1;
+    const key = editorName;
+    const value = CssEditorOpened[key];
+
+    if (value === undefined) {
+      return;
+    }
+
+    InspectorFrontendHostInstance.recordEnumeratedHistogram(EnumeratedHistogram.CssEditorOpened, value, size);
+    Common.EventTarget.fireEvent(EnumeratedHistogram.CssEditorOpened, {value});
+  }
+
+  /**
    * @param {string} experimentId
    */
   experimentEnabledAtLaunch(experimentId) {
@@ -560,6 +576,14 @@ export const HighlightedPersistentCSSGridCount = [
   {threshold: 20, code: 7},  // 20 to 49 highlighted grids
   {threshold: 50, code: 8},  // more than 50 highlighted grids
 ];
+
+/** @type {!Object<string, number>} */
+export const CssEditorOpened = {
+  'colorPicker': 0,
+  'shadowEditor': 1,
+  'bezierEditor': 2,
+  'fontEditor': 3,
+};
 
 /**
  * This list should contain the currently active Devtools Experiments.
