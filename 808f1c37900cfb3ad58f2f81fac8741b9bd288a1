@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "05360cc9_88056ee5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-15T05:23:36Z",
+      "side": 1,
+      "message": "PTAL. This won\u0027t be submitted until backend CL is landed.",
+      "revId": "808f1c37900cfb3ad58f2f81fac8741b9bd288a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
