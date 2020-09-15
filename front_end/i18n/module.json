@@ -6,7 +6,8 @@
     "i18nImpl.js"
   ],
   "scripts": [
-    "../third_party/i18n/i18n-bundle.js"
+    "../third_party/i18n/i18n-bundle.js",
+    "../third_party/i18n/i18n.js"
   ],
   "skip_compilation":[
     "../third_party/i18n/i18n-bundle.js"

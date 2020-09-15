@@ -48,8 +48,8 @@ export function lookupLocale(locale){return ""};
  * generate the string ids.
  *
  * @param {string} filename
- * @param {!Object} fileStrings
- * @return {function(string, ?Object):string}
+ * @param {*} fileStrings
+ * @return {function(string, *):string}
  */
  export function createMessageInstanceIdFn(filename, fileStrings) {
    let result = new Map();
