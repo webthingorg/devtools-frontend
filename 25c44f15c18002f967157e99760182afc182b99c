@@ -33,6 +33,23 @@
       "revId": "25c44f15c18002f967157e99760182afc182b99c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7106a572_092f9a1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2020-09-15T23:41:15Z",
+      "side": 1,
+      "message": "Friendly ping. PTAL.",
+      "revId": "25c44f15c18002f967157e99760182afc182b99c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
