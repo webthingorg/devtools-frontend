@@ -33,6 +33,23 @@
       "revId": "86ae28a983531963ca68367290ec3051249ae9af",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "de79a948_a7b8a833",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-15T14:04:10Z",
+      "side": 1,
+      "message": "@jackfranklin I\u0027m not sure how to fix this TypeScript error upon compilation. It complains about `config` not matching `UI.InplaceEditor.Config()`\u0027s second parameter, but I\u0027m not sure if I should fix my parameter passing in or the definition of the function receiving it, i.e. in `UI.InplaceEditor.Config()`. I\u0027ll keep trying but if you have some pointers that would be helpful. Thanks!",
+      "revId": "86ae28a983531963ca68367290ec3051249ae9af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
