@@ -50,6 +50,24 @@
       "revId": "aa82760c76638275288c9cba0a9e9e78f290299b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8364623_d8ca014c",
+        "filename": "scripts/build/generate_html_entrypoint.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-15T10:42:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6db8ddd_e18106dd",
+      "revId": "aa82760c76638275288c9cba0a9e9e78f290299b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
