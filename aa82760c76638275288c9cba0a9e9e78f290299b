@@ -16,6 +16,40 @@
       "revId": "aa82760c76638275288c9cba0a9e9e78f290299b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2dca580_b6ee0d35",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-15T08:15:36Z",
+      "side": 1,
+      "message": "LGTM on the assumption of changing over to yargs. Nice little bit of tech debt reduction!",
+      "revId": "aa82760c76638275288c9cba0a9e9e78f290299b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6db8ddd_e18106dd",
+        "filename": "scripts/build/generate_html_entrypoint.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-15T08:15:36Z",
+      "side": 1,
+      "message": "We have yargs in our node_modules, we should use that instead.",
+      "revId": "aa82760c76638275288c9cba0a9e9e78f290299b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
