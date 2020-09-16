@@ -1192,6 +1192,8 @@ export class DOMDocument extends DOMNode {
     this._init(this, false, payload);
     this.documentURL = payload.documentURL || '';
     this.baseURL = payload.baseURL || '';
+    this.body = null;
+    this.documentElement = null;
   }
 }
 
