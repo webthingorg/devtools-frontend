@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "93891e82_198af896",
+        "filename": "scripts/deps/download_emscripten.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-09-16T14:09:06Z",
+      "side": 1,
+      "message": "Question: Could we also do by using raw:\nupload_to_google_storage.py/download_from_google_storage.py?",
+      "revId": "eec8b41a578ab90d7068ade174e435b1d3bbb516",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b58cefc_9c121e93",
+        "filename": "scripts/deps/download_emscripten.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-09-16T14:09:06Z",
+      "side": 1,
+      "message": "nit: sort",
+      "range": {
+        "startLine": 14,
+        "startChar": 7,
+        "endLine": 14,
+        "endChar": 14
+      },
+      "revId": "eec8b41a578ab90d7068ade174e435b1d3bbb516",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
