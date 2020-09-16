@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e2055fa_ab146f54",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-16T13:58:36Z",
+      "side": 1,
+      "message": "Some comments. We should setup a meetings to discuss whether we want to:\n\n - reflect HTML attributes as properties\n - have a constructor with optional arguments",
+      "revId": "25289da430648cb2258e17774809192d3b266145",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "58c6ddf1_aa8d28d1",
+        "filename": "front_end/Images/element_explore_icon.svg",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-16T13:58:36Z",
+      "side": 1,
+      "message": "There should be a readme in the image directory, and I think it needs updating 😊",
+      "range": {
+        "startLine": 1,
+        "startChar": 1,
+        "endLine": 1,
+        "endChar": 5
+      },
+      "revId": "25289da430648cb2258e17774809192d3b266145",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61248e2a_b05ea54a",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-16T13:58:36Z",
+      "side": 1,
+      "message": "This could be \n\ntype IconComponentData \u003d ({ iconPath: string } | { iconName: string }) \u0026 { color?: string } \u0026 ({ width: number } | { height: number });\n\nThis makes it clear that at least one of iconPath or the iconName should be set, color must always be set, and one of width or the height must be set.\n\nYou could also use \n\ntype IconComponentData \u003d ({ iconPath: string, iconName?:undefined } | { iconPath?:undefined, iconName: string }) \u0026 { color?: string } \u0026 ({ width: number } | { height: number });\n\nwhich additionally makes it clear that only one of iconPath and iconName may be set.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 1
+      },
+      "revId": "25289da430648cb2258e17774809192d3b266145",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aef0a029_217c064a",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-16T13:58:36Z",
+      "side": 1,
+      "message": "None of these should be permitted to be null.",
+      "range": {
+        "startLine": 21,
+        "startChar": 35,
+        "endLine": 21,
+        "endChar": 40
+      },
+      "revId": "25289da430648cb2258e17774809192d3b266145",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d96e1bb7_60f289d2",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-16T13:58:36Z",
+      "side": 1,
+      "message": "Can we default-initialize all fields to reasonable values that would display a placeholder icon?",
+      "range": {
+        "startLine": 21,
+        "startChar": 43,
+        "endLine": 21,
+        "endChar": 46
+      },
+      "revId": "25289da430648cb2258e17774809192d3b266145",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed353c92_79c9362e",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-16T13:58:36Z",
+      "side": 1,
+      "message": "Let\u0027s only have iconPath as a property.",
+      "range": {
+        "startLine": 22,
+        "startChar": 2,
+        "endLine": 22,
+        "endChar": 47
+      },
+      "revId": "25289da430648cb2258e17774809192d3b266145",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a2596b5_86a36621",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-16T13:58:36Z",
+      "side": 1,
+      "message": "Let\u0027s not return this here.",
+      "range": {
+        "startLine": 34,
+        "startChar": 5,
+        "endLine": 34,
+        "endChar": 30
+      },
+      "revId": "25289da430648cb2258e17774809192d3b266145",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "651b887f_f6a717a1",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-16T13:58:36Z",
+      "side": 1,
+      "message": "nit: `Images/${data.iconName}.svg`",
+      "range": {
+        "startLine": 43,
+        "startChar": 52,
+        "endLine": 43,
+        "endChar": 80
+      },
+      "revId": "25289da430648cb2258e17774809192d3b266145",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1da37c07_2a9708e3",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-16T13:58:36Z",
+      "side": 1,
+      "message": "Note that for optional properties (if you follow my suggestion from above) you need to check this with \n  \n  \u0027iconPath\u0027 in data",
+      "range": {
+        "startLine": 43,
+        "startChar": 19,
+        "endLine": 43,
+        "endChar": 33
+      },
+      "revId": "25289da430648cb2258e17774809192d3b266145",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9863b81b_2d61f9fc",
+        "filename": "front_end/elements/IconComponent_bridge.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-16T13:58:36Z",
+      "side": 1,
+      "message": "If you use the syntax\n\n/**\n * @typedef {Object} IconComponentData\n * @property {string} [iconPath]\n * @property {string} [iconName]\n * @property {string} [color]\n * @property {number} [width]\n * @property {number} [height]\n */\n// @ts-ignore we export this for Closure not TS\nexport let IconComponentData;\n\nyou get the properties correctly marked as optional properties.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 29
+      },
+      "revId": "25289da430648cb2258e17774809192d3b266145",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
