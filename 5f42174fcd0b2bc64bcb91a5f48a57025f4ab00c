@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "da6c4865_cad64465",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-09-16T13:14:37Z",
+      "side": 1,
+      "message": "LGTM with one nit:)",
+      "revId": "5f42174fcd0b2bc64bcb91a5f48a57025f4ab00c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f009496_8ab4c29e",
         "filename": "scripts/component_server/server.js",
         "patchSetId": 1
