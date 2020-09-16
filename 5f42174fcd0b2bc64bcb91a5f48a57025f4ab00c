@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2f009496_8ab4c29e",
+        "filename": "scripts/component_server/server.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-09-16T13:14:25Z",
+      "side": 1,
+      "message": "nit: Images",
+      "range": {
+        "startLine": 116,
+        "startChar": 62,
+        "endLine": 116,
+        "endChar": 67
+      },
+      "revId": "5f42174fcd0b2bc64bcb91a5f48a57025f4ab00c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
