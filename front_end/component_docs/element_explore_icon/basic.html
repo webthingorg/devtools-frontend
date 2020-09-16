@@ -1,0 +1,53 @@
+<!--
+  Copyright 2020 The Chromium Authors. All rights reserved.
+  Use of this source code is governed by a BSD-style license that can be
+  found in the LICENSE file.
+-->
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Element explore icon example</title>
+    <style>
+        #container {
+          width: 80%;
+          height: 20%;
+          border: 1px solid black;
+        }
+    </style>
+  </head>
+  <body>
+
+    <div id="container">
+    </div>
+
+    <script type="module">
+      import * as ComponentHelpers from '../../component_helpers/component_helpers.js';
+      import {IconComponent} from '../../elements/IconComponent.js';
+
+      ComponentHelpers.ComponentServerSetup.setup().then(() => renderComponent())
+
+      const renderComponent = () => {
+
+        const icon = new IconComponent();
+        const path = 'http://localhost:8090/Images/element_explore_icon.svg';
+        icon.data = {iconPath: path, color: 'rgb(110, 110, 110)', width: 24};
+        document.getElementById('container').appendChild(icon);
+        icon.onclick = async () => {
+            // Change of colour through a data-setter, which rerenders the component. Getting the data first in order not to specify the data fields all over again
+            icon.data = { ...icon.data,color: 'blue'};
+        };
+
+        const iconWithDifferentCSS = new IconComponent();
+        iconWithDifferentCSS.data = {iconPath: path, color: 'red', width: 48};
+        document.getElementById('container').appendChild(iconWithDifferentCSS);
+
+        const otherIcon = new IconComponent();
+        const otherPath = 'http://localhost:8090/Images/issues_tab_icon.svg';
+        otherIcon.data = {iconPath: otherPath, width:24, height: 27};
+        document.getElementById('container').appendChild(otherIcon);
+      }
+
+    </script>
+  </body>
+</html>
