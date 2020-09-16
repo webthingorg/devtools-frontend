@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57475215_4034ea7b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-16T16:21:37Z",
+      "side": 1,
+      "message": "This is a fix for (what I hope is) the last regression caused by my Elements pane horizontal scrollbar.\nI expected this fix to cause all sorts of issues. I\u0027m glad we were able to catch these quickly.\n\nThe goal here is to land this fix in time before the 87 branch point, so the feature can ride to Beta, etc. with a high level of quality.\n\nLet me know if you spot anything weird.\nThe main difference here is that the lines that show the various levels of indentation in the Elements pane (when a node is selected or hovered) now are drawn with a bacgkround gradient rather than a border.",
+      "revId": "d71d79ef3551b9d079e86a7abc64346ab89dafc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
