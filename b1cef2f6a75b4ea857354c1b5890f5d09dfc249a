@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9cddf64e_a24a032f",
+        "filename": "front_end/sdk/CSSStyleDeclaration.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-16T08:16:31Z",
+      "side": 1,
+      "message": "I\u0027m thinking that there might be a simpler fix that doesn\u0027t require the new longhandPropertiesIncludingComputed method, and doesn\u0027t require to go and get the computed styles (which, I suspect, have already been retrieved anyway).\n\nHere, on this line, we check if the particular longhand property is active. Only the properties that haven\u0027t been disabled by the user are considered active.\nThe _allProperties array does contain all of the properties, including the inactive ones, along with their values.\n\nI\u0027m surprised that this method would filter out the inactive properties at all. It\u0027s called longhandProperties, and as such, should return all longhand properties of a given shorthand, with no exceptions.\nSo I\u0027d be tempted to look for longhands inside the this._allProperties array instead of the this._activePropertyMap map and see if that breaks anything else.\n\nIf it does, we could always find the callsites that depended on the longhandProperties() method only returning active properties, and make them do the filtering themselves (with property.activeInStyle()).\n\nThis way, no need for longhandPropertiesIncludingComputed, and no extra call to the backend.",
+      "range": {
+        "startLine": 334,
+        "startChar": 6,
+        "endLine": 334,
+        "endChar": 65
+      },
+      "revId": "b1cef2f6a75b4ea857354c1b5890f5d09dfc249a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "462f8c9b_8135dd2d",
+        "filename": "front_end/sdk/CSSStyleDeclaration.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-16T08:16:31Z",
+      "side": 1,
+      "message": "In case we need to keep this, this can be replaced with this._cssModel.computedStylePromise(node.id)",
+      "range": {
+        "startLine": 359,
+        "startChar": 35,
+        "endLine": 359,
+        "endChar": 92
+      },
+      "revId": "b1cef2f6a75b4ea857354c1b5890f5d09dfc249a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
