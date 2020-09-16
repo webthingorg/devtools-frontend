@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0eabc358_8c76352b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-16T11:14:39Z",
+      "side": 1,
+      "message": "This is working now your Chromium fix is landed. @Sigurd, PTAL 😊",
+      "revId": "f5617564ffcbb33cce4cad043da572c62790533e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
