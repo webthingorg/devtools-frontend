@@ -39,6 +39,30 @@
       "revId": "3cade1ab134152f2cf3e69c6a964f1b46e0c0915",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28c9e735_796ba23e",
+        "filename": "front_end/elements/DOMLinkifier.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-16T10:07:19Z",
+      "side": 1,
+      "message": "We probably don\u0027t have an easy way to get that, because `node` here is not a traditional Node, but a DevTools-custom DOMModel.DOMNode. I don\u0027t like the naming confusion either 😞",
+      "parentUuid": "e8631f7c_ef082665",
+      "range": {
+        "startLine": 39,
+        "startChar": 3,
+        "endLine": 39,
+        "endChar": 47
+      },
+      "revId": "3cade1ab134152f2cf3e69c6a964f1b46e0c0915",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
