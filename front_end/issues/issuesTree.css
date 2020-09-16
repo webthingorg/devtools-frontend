@@ -91,6 +91,10 @@ p {
   width: 100%;
 }
 
+.header-issues-icon {
+  margin: 5px 7px 0 7px;
+}
+
 .title {
   flex: 1;
   font-size: 14px;

@@ -1106,7 +1106,9 @@ class IssueView extends UI.TreeOutline.TreeElement {
   _appendHeader() {
     const header = document.createElement('div');
     header.classList.add('header');
-    const icon = UI.Icon.Icon.create('largeicon-breaking-change', 'icon');
+    const icon = Elements.IconComponent.createIconComponent();
+    icon.data = {...icon.data, iconName: 'issues_tab_icon', width: 14, height: 16};
+    icon.classList.add('header-issues-icon');
     this._aggregatedIssuesCount = /** @type {!HTMLElement} */ (document.createElement('span'));
     const countAdorner = Elements.Adorner.Adorner.create(this._aggregatedIssuesCount, 'countWrapper');
     countAdorner.classList.add('aggregated-issues-count');
