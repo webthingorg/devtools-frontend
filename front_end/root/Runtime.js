@@ -3,7 +3,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-const REMOTE_MODULE_FALLBACK_REVISION = '@9c7912d3335c02d62f63be2749d84b2d0b788982';
+const REMOTE_MODULE_FALLBACK_REVISION = '@d5f7921bd805e24c1d99a78fcbcbabe77540e5bb';
 const instanceSymbol = Symbol('instance');
 
 const originalConsole = console;
@@ -634,8 +634,27 @@ export class Module {
     // by `build_release_applications`. These need to be loaded before any other code is
     // loaded, to make sure that the resource content is properly cached in `cachedResources`.
     if (this._descriptor.modules.includes(moduleFileName)) {
+      const moduleURL = `${this._name}/${moduleFileName}`;
+      let resolvedURL;
+
+      // Remote modules live on the remoteBase. We have to use absolute URLs to refer to these
+      // modules, as the relative URL would point to `/bundled/`.
+      const remoteBase = this._remoteBase();
+      if (remoteBase) {
+        resolvedURL = remoteBase + moduleURL;
+      } else {
+        resolvedURL = `../${moduleURL}`;
+      }
+
       // TODO(crbug.com/1011811): Remove eval when we use TypeScript which does support dynamic imports
-      await eval(`import('../${this._name}/${moduleFileName}')`);
+      try {
+        await eval(`import('${resolvedURL}')`);
+      } catch (err) {
+        // For local development, the git hash has not been uploaded tothe remoteBase.
+        // Therefore, fallback to a known good version.
+        const urlWithFallback = _computeFallbackURL(resolvedURL, err);
+        await eval(`import('${urlWithFallback}')`);
+      }
     }
 
     // All `*_test_runner` directories don't necessarily have an entrypoint
@@ -1111,15 +1130,25 @@ function loadScriptsPromise(scriptNames, base) {
 
 /**
  * @param {string} url
+ * @param {*} err
+ * @return {string}
+ */
+function _computeFallbackURL(url, err) {
+  const urlWithFallbackVersion = url.replace(/@[0-9a-f]{40}/, REMOTE_MODULE_FALLBACK_REVISION);
+  // TODO(phulce): mark fallbacks in module.json and modify build script instead
+  if (urlWithFallbackVersion === url || !url.includes('lighthouse_worker_module')) {
+    throw err;
+  }
+  return urlWithFallbackVersion;
+}
+
+/**
+ * @param {string} url
  * @return {!Promise.<string>}
  */
 function loadResourcePromiseWithFallback(url) {
   return loadResourcePromise(url).catch(err => {
-    const urlWithFallbackVersion = url.replace(/@[0-9a-f]{40}/, REMOTE_MODULE_FALLBACK_REVISION);
-    // TODO(phulce): mark fallbacks in module.json and modify build script instead
-    if (urlWithFallbackVersion === url || !url.includes('lighthouse_worker_module')) {
-      throw err;
-    }
+    const urlWithFallbackVersion = _computeFallbackURL(url, err);
     return loadResourcePromise(urlWithFallbackVersion);
   });
 }
