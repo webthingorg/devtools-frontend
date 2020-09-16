@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "b2fbb823_601dfc24",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-16T08:23:02Z",
+      "side": 1,
+      "message": "Sounds good to me!",
+      "parentUuid": "e8664d48_c42f2e3d",
+      "revId": "ef3304fd1c9b3b6f2affff2d12f8e842999350bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c128b67_38bb1e0c",
         "filename": "front_end/settings/KeybindsSettingsTab.js",
         "patchSetId": 13
@@ -265,6 +283,30 @@
         "startChar": 8,
         "endLine": 394,
         "endChar": 86
+      },
+      "revId": "ef3304fd1c9b3b6f2affff2d12f8e842999350bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "650f3775_41f52e24",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-16T08:23:02Z",
+      "side": 1,
+      "message": "Got it, thanks!",
+      "parentUuid": "f5bfe17d_27835a2b",
+      "range": {
+        "startLine": 394,
+        "startChar": 60,
+        "endLine": 394,
+        "endChar": 78
       },
       "revId": "ef3304fd1c9b3b6f2affff2d12f8e842999350bf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
