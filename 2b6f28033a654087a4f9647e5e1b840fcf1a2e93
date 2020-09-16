@@ -224,6 +224,30 @@
     },
     {
       "key": {
+        "uuid": "5ed87320_7ab22c1c",
+        "filename": "front_end/i18n/i18nImpl.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-16T14:12:44Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4e6622e2_3ab4b595",
+      "range": {
+        "startLine": 46,
+        "startChar": 11,
+        "endLine": 46,
+        "endChar": 12
+      },
+      "revId": "2b6f28033a654087a4f9647e5e1b840fcf1a2e93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f64676a_00e9796c",
         "filename": "front_end/i18n/module.json",
         "patchSetId": 3
@@ -306,6 +330,30 @@
       "side": 1,
       "message": "Previously I received some feedback regarding the structure of the modules (module_name.js should be a light file that just re-export the actual implementation), I assumed as this was being refactored as a module it would be a good idea to follow the same convention. Have not problem changing it though.",
       "parentUuid": "9260a8ba_cb5f23a5",
+      "range": {
+        "startLine": 14,
+        "startChar": 16,
+        "endLine": 14,
+        "endChar": 23
+      },
+      "revId": "2b6f28033a654087a4f9647e5e1b840fcf1a2e93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b70dc111_1eec7ec5",
+        "filename": "front_end/third_party/i18n/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-16T14:12:44Z",
+      "side": 1,
+      "message": "Ah okay. Yes it is a bit vague, we should clarify this in the style guide. But since this is a third_party bundle, it isn\u0027t considered a first-party DevTools module. Thus it doesn\u0027t necessitate to follow the same pattern. The current structure is good.",
+      "parentUuid": "56378d1d_a933ff40",
       "range": {
         "startLine": 14,
         "startChar": 16,

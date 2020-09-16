@@ -16,6 +16,23 @@
       "revId": "2cf1061e4f4e833cab534b1bae8343d91bbf6ac4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47b3fd5b_b15b2389",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-16T14:12:44Z",
+      "side": 1,
+      "message": "Almost there. We probably need to remove the `devtools_entrypoint` and instead force the inclusion of the file in `i18n` by updating the `rollup.config.js`, just like we do for `acorn`.",
+      "revId": "2cf1061e4f4e833cab534b1bae8343d91bbf6ac4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

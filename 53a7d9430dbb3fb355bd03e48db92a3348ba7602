@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "0b529273_c6cc0bf7",
+        "filename": "front_end/third_party/i18n/i18n-bundle.d.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-16T14:12:44Z",
+      "side": 0,
+      "message": "Right. We have a conflict here, as `devtools_entrypoint` assumes that it is in the driving seat. Since you manually need to check in the `.d.ts` file, that is not fully appropriate.\n\nWe have 2 options:\n1. Don\u0027t make this a `devtools_entrypoint` and instead force the inclusion into `i18n`. You can see the `rollup.config.js` file to see how we do that for `acorn`. Then you can keep the `devtools_pre_built` as is. Again, you can see `acorn` as an example here.\n2. Keep the `devtools_entrypoint` and make the bundle pass the TypeScript typechecker. Since this is third_party code, I would advise against this, but it is technically possible.",
+      "parentUuid": "ae405734_25ab89c9",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 54
+      },
+      "revId": "53a7d9430dbb3fb355bd03e48db92a3348ba7602",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1a1b8ef1_53c535a0",
         "filename": "scripts/check_gn.js",
         "patchSetId": 3
