@@ -36,6 +36,9 @@
   <message name="IDS_DEVTOOLS_0f558243fbf45f1cd840fff01957f57b" desc="Text in Service Workers View of the Application panel">
     Clients
   </message>
+  <message name="IDS_DEVTOOLS_0fea6a13c52b4d4725368f24b045ca84" desc="Placeholder tile">
+    cache
+  </message>
   <message name="IDS_DEVTOOLS_107417a6f25859ac157fae05c1386910" desc="Data grid name for Indexed DB data grids">
     Indexed DB
   </message>
@@ -274,6 +277,9 @@ table is empty.
   <message name="IDS_DEVTOOLS_85b285ed4a5b8960e8f85a6e5c125680" desc="Text in the Periodic Background Service View of the Application panel">
     Periodic Background Sync
   </message>
+  <message name="IDS_DEVTOOLS_86a352da0f5813d642488fa1f0fc33aa" desc="Title for service worker drawer panel">
+    Service worker network
+  </message>
   <message name="IDS_DEVTOOLS_86befdf33863a849060cf9f6d2425cdb" desc="Text in Indexed DBViews of the Application panel">
     Security origin
   </message>
@@ -410,6 +416,9 @@ as used by <ph name="LOCKED_1">Chrome</ph>
   </message>
   <message name="IDS_DEVTOOLS_bd0c1dbb1b437cd840dbc57852fb8ec6" desc="Link text for more information on maskable icons in App Manifest view of the Application panel">
     documentation on maskable icons
+  </message>
+  <message name="IDS_DEVTOOLS_be315efcc56fbc5ae522e0deb08c733a" desc="Description title for service worker drawer panel. ">
+    service worker
   </message>
   <message name="IDS_DEVTOOLS_bebc9b50966d8d2bd1913a3c25b707d4" desc="Text in Indexed DBViews of the Application panel">
     Data may be stale
@@ -578,6 +587,9 @@ as used by <ph name="LOCKED_1">Chrome</ph>
   </message>
   <message name="IDS_DEVTOOLS_f18cd4b9f925d85b3a669adc015a9797" desc="Text used to show that data was retrieved from ServiceWorker Cache">
     <ph name="LOCKED_TERM">Service Worker</ph> Cache
+  </message>
+  <message name="IDS_DEVTOOLS_f42f0b4f90052b38dd34141d2ac8ffd2" desc="Default message when service worker drawer panel has been opened for the first time.">
+    Intercepted network requests by service worker will be displayed here.
   </message>
   <message name="IDS_DEVTOOLS_f4d6426949b935ced95ef5e5d0bc5ef5" desc="Manifest installability error in the Application panel">
     No Play store ID provided

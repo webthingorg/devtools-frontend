@@ -258,9 +258,6 @@
   <message name="IDS_DEVTOOLS_459c830504806e5747ddc40008ccbade" desc="Text of add button in Network Manage Custom Headers View of the Network panel">
     Add custom header…
   </message>
-  <message name="IDS_DEVTOOLS_46b4d9ff37717009d48acedceece6914" desc="Header for last column of network timing tab.">
-    DURATION
-  </message>
   <message name="IDS_DEVTOOLS_46ff2c7bbdbb02687287512c874d391f" desc="Text in Network Data Grid Node of the Network panel">
     signed-exchange
   </message>
@@ -345,6 +342,9 @@
   <message name="IDS_DEVTOOLS_5cb98890f19c13e5fce52287187d9803" desc="Text in Network Log View of the Network panel">
     <ph name="SELECTEDNODENUMBER">$1s<ex>3</ex></ph> / <ph name="NODECOUNT">$2s<ex>5</ex></ph> requests
   </message>
+  <message name="IDS_DEVTOOLS_5d0fc8284dca5a87af1d80b6715da9cf" desc="Displays how a particular response was fetched">
+    Source of response: <ph name="THIS__REQUEST_RESPONSESOURCE__">$1s<ex>Network fetch</ex></ph>
+  </message>
   <message name="IDS_DEVTOOLS_5d849c6c271a039aba239a13132c5dd5" desc="An option in the user agent dropdown menu in the Network conditions tool">
     <ph name="LOCKED_1">Firefox — Mac</ph>
   </message>
@@ -386,9 +386,6 @@
   </message>
   <message name="IDS_DEVTOOLS_6b41d86d21d49c95f5b106fb2ed95762" desc="An option in the user agent dropdown menu in the Network conditions tool">
     <ph name="LOCKED_1">Internet Explorer 10</ph>
-  </message>
-  <message name="IDS_DEVTOOLS_5d0fc8284dca5a87af1d80b6715da9cf" desc="Displays how a particular response was fetched">
-    Source of response: <ph name="THIS__REQUEST_RESPONSESOURCE__">$1s<ex>Network fetch</ex></ph>
   </message>
   <message name="IDS_DEVTOOLS_6c2a1bf87fb84c91fc7e1120f4e3d0c7" desc="Text in Request Timing View of the Network panel">
     Content Download
@@ -438,9 +435,6 @@
   <message name="IDS_DEVTOOLS_a65043efa3ffbf89834b6d9c362d56a8" desc="Comment used in decoded X-Client-Data HTTP header output in Headers View of the Network panel">
     Active client experiment variation IDs.
   </message>
-  <message name="IDS_DEVTOOLS_bb9fd331bd610fd877425ceff23708a7" desc="Time at which a response was retrieved">
-    Retrieval Time: <ph name="THIS__REQUEST_RESPONSERETRIEVALTIME">$1s<ex>Fri Apr 10 2020 17:20:27 GMT-0700 (Pacific Daylight Time)</ex></ph>
-  </message>
   <message name="IDS_DEVTOOLS_b23be8e9d2dc9b79c70ec2acd3f174d3" desc="Label for the Server Timing API">
     the Server Timing API
   </message>
@@ -452,6 +446,9 @@
   </message>
   <message name="IDS_DEVTOOLS_b85f4d2fed0fc1c5f95fd4a49ff6f2e7" desc="A tag of Network Conditions tool that can be searched in the command menu">
     user-agent
+  </message>
+  <message name="IDS_DEVTOOLS_bb9fd331bd610fd877425ceff23708a7" desc="Time at which a response was retrieved">
+    Retrieval Time: <ph name="THIS__REQUEST_RESPONSERETRIEVALTIME">$1s<ex>Fri Apr 10 2020 17:20:27 GMT-0700 (Pacific Daylight Time)</ex></ph>
   </message>
   <message name="IDS_DEVTOOLS_be54c703eb3d0bf55a44e731f730f714" desc="Label for a filter in the Network panel">
     Blocked Requests
@@ -998,9 +995,6 @@
   </message>
   <message name="IDS_DEVTOOLS_ec559fc895e8cc77ef0c4d6fdff5bdcb" desc="Text in Request Headers View of the Network panel">
     Form Data
-  </message>
-  <message name="IDS_DEVTOOLS_ec9dca2a4b061ad202945d88657e5ddf" desc="Text of a DOM element in Request Timing View of the Network panel">
-    Started at <ph name="CALCULATOR_FORMATVALUE_REQUEST_STARTTIME____">$1s<ex>120.39ms</ex></ph>
   </message>
   <message name="IDS_DEVTOOLS_edfffa5a1ffba7492b25869813e7e15e" desc="Text in Network Log View Columns of the Network panel">
     <ph name="LOCKED_1">Content-Encoding</ph>

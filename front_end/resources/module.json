@@ -64,6 +64,16 @@
           "shortcut": "Meta+E"
         }
       ]
+    },
+    {
+      "type": "view",
+      "location": "drawer-view",
+      "id": "resources.service-worker-network",
+      "title": "Service worker network",
+      "persistence": "closeable",
+      "order": 200,
+      "className": "Resources.ServiceWorkerNetworkView",
+      "tags": "service worker, network, cache"
     }
   ],
   "dependencies": [
@@ -101,7 +111,8 @@
     "ResourcesPanel.js",
     "ApplicationPanelSidebar.js",
     "ServiceWorkerCacheViews.js",
-    "ServiceWorkersView.js"
+    "ServiceWorkersView.js",
+    "ServiceWorkerNetworkView.js"
   ],
   "resources": [
     "appManifestView.css",
@@ -112,6 +123,7 @@
     "resourcesSidebar.css",
     "serviceWorkerCacheViews.css",
     "serviceWorkersView.css",
+    "ServiceWorkerNetworkView.css",
     "cookieItemsView.css",
     "frameDetailsReportView.css"
   ]

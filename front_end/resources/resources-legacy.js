@@ -107,3 +107,6 @@ Resources.ServiceWorkerCacheView = ResourcesModule.ServiceWorkerCacheViews.Servi
 
 /** @constructor */
 Resources.ServiceWorkersView = ResourcesModule.ServiceWorkersView.ServiceWorkersView;
+
+/** @constructor */
+Resources.ServiceWorkerNetworkView = ResourcesModule.ServiceWorkerNetworkView.ServiceWorkerNetworkView;

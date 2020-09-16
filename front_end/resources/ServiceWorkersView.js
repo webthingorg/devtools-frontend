@@ -10,6 +10,7 @@ import * as Components from '../components/components.js';
 import * as MobileThrottling from '../mobile_throttling/mobile_throttling.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
+import {ServiceWorkerNetworkView} from './ServiceWorkerNetworkView.js';
 
 /**
  * @implements {SDK.SDKModel.SDKModelObserver<!SDK.ServiceWorkerManager.ServiceWorkerManager>}
@@ -309,6 +310,10 @@ export class Section {
 
     this._toolbar = section.createToolbar();
     this._toolbar.renderAsLinks();
+    this._showDetails = new UI.Toolbar.ToolbarButton(
+        Common.UIString.UIString('Network'), undefined, Common.UIString.UIString('Network'));
+    this._showDetails.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._showDetailsClicked, this);
+    this._toolbar.appendToolbarItem(this._showDetails);
     this._updateButton =
         new UI.Toolbar.ToolbarButton(Common.UIString.UIString('Update'), undefined, Common.UIString.UIString('Update'));
     this._updateButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._updateButtonClicked, this);
@@ -539,6 +544,13 @@ export class Section {
    */
   _updateButtonClicked(event) {
     this._manager.updateRegistration(this._registration.id);
+  }
+
+  /**
+   * @param {!Common.EventTarget.EventTargetEvent} event
+   */
+  async _showDetailsClicked(event) {
+    await self.runtime.sharedInstance(ServiceWorkerNetworkView).showPanel(this._registration);
   }
 
   /**
