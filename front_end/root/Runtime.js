@@ -634,8 +634,20 @@ export class Module {
     // by `build_release_applications`. These need to be loaded before any other code is
     // loaded, to make sure that the resource content is properly cached in `cachedResources`.
     if (this._descriptor.modules.includes(moduleFileName)) {
+      const moduleURL = `${this._name}/${moduleFileName}`;
+      let resolvedURL;
+
+      // Remote modules live on the remoteBase. We have to use absolute URLs to refer to these
+      // modules, as the relative URL would point to `/bundled/`.
+      const remoteBase = this._remoteBase();
+      if (remoteBase) {
+        resolvedURL = remoteBase + moduleURL;
+      } else {
+        resolvedURL = `../${moduleURL}`;
+      }
+
       // TODO(crbug.com/1011811): Remove eval when we use TypeScript which does support dynamic imports
-      await eval(`import('../${this._name}/${moduleFileName}')`);
+      await eval(`import('${resolvedURL}')`);
     }
 
     // All `*_test_runner` directories don't necessarily have an entrypoint
