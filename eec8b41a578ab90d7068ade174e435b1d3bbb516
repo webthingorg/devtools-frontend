@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "841b34e9_c0eaba38",
+        "filename": "scripts/deps/download_emscripten.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-09-16T16:12:28Z",
+      "side": 1,
+      "message": "I couldn\u0027t figure out how. If I understand the tool correctly it doesn\u0027t allow me to specify a key to download from the webassembly bucket directly. Am I misunderstanding how the tool works?",
+      "parentUuid": "93891e82_198af896",
+      "revId": "eec8b41a578ab90d7068ade174e435b1d3bbb516",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6b58cefc_9c121e93",
         "filename": "scripts/deps/download_emscripten.py",
         "patchSetId": 1
