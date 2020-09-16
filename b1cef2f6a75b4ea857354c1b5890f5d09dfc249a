@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ba55e4e0_0a6e65f5",
+        "filename": "front_end/sdk/CSSStyleDeclaration.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-09-16T21:30:03Z",
+      "side": 1,
+      "message": "Computed styles are available on first view, however computed styles are not refreshed if user adds/changes a property. The computed styles are only refreshed once user navigates to computed tab.\n\nEven the _allProperties array contains the overloaded property and value. For example if style has \n```\nmargin: 10px\nmargin-top: 20px;\n```\n_allProperties contains `margin`, `margin-top`, `margin-bottom`, `margin-right` and ``margin-left`. However `margin-top` here refers to new leading property, ideally there should be two `margin-top` in the array with one inactive but that is not the case.",
+      "parentUuid": "9cddf64e_a24a032f",
+      "range": {
+        "startLine": 334,
+        "startChar": 6,
+        "endLine": 334,
+        "endChar": 65
+      },
+      "revId": "b1cef2f6a75b4ea857354c1b5890f5d09dfc249a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "462f8c9b_8135dd2d",
         "filename": "front_end/sdk/CSSStyleDeclaration.js",
         "patchSetId": 6
@@ -45,6 +69,30 @@
       "revId": "b1cef2f6a75b4ea857354c1b5890f5d09dfc249a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b4de891_d2952198",
+        "filename": "front_end/sdk/CSSStyleDeclaration.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-09-16T21:30:03Z",
+      "side": 1,
+      "message": "You are right, I overlooked that, updated.",
+      "parentUuid": "462f8c9b_8135dd2d",
+      "range": {
+        "startLine": 359,
+        "startChar": 35,
+        "endLine": 359,
+        "endChar": 92
+      },
+      "revId": "b1cef2f6a75b4ea857354c1b5890f5d09dfc249a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
