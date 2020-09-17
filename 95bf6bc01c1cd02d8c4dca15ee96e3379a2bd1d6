@@ -22,6 +22,30 @@
       "revId": "95bf6bc01c1cd02d8c4dca15ee96e3379a2bd1d6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3abe59cf_ba733341",
+        "filename": "front_end/sdk/CSSStyleDeclaration.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-09-17T18:00:46Z",
+      "side": 1,
+      "message": "Good point, I initially did that, however since the function was changed to asynchronous, I was modifying too many files. So I ended up created a new async function. I will take a look at it again, if it takes too much time, I will cleanup after this CL as you suggested.",
+      "parentUuid": "c279723a_2ab4e4c4",
+      "range": {
+        "startLine": 330,
+        "startChar": 2,
+        "endLine": 330,
+        "endChar": 28
+      },
+      "revId": "95bf6bc01c1cd02d8c4dca15ee96e3379a2bd1d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
