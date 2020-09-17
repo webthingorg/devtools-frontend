@@ -16,6 +16,46 @@
       "revId": "4c4c7173765eff54ea93797d24119af68f3794bf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad1f31ae_94e8f09c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-17T13:16:15Z",
+      "side": 1,
+      "message": "Amazing!\nI have 2 comments before +1:\n- highlight on the node text hover only would be better I think\n- having a background applied to the node text on hover would help: if you look at the Elements tree, there\u0027s a blue-ish background behind node previews when you move your mouse, I think we should do the same here, that would help. We can probably do it with just a :hover pseudo-class in CSS.",
+      "revId": "4c4c7173765eff54ea93797d24119af68f3794bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3fd807a_61a81fb7",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-17T13:16:15Z",
+      "side": 1,
+      "message": "I would suggest moving this to the \u003cspan data-label\u003d\"true\"\u003e${nodeText}\u003c/span\u003e element below.\nThe way it is set up right now means that hovering anywhere on the entire width of the line will highlight the element, even if you\u0027re hovering over empty space. I think it\u0027s confusing.",
+      "range": {
+        "startLine": 150,
+        "startChar": 37,
+        "endLine": 150,
+        "endChar": 92
+      },
+      "revId": "4c4c7173765eff54ea93797d24119af68f3794bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
