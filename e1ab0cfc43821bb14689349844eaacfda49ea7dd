@@ -194,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "04ba7019_8a0e2ac7",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-17T13:10:36Z",
+      "side": 1,
+      "message": "Actually, I think I misread that part and @param should be fine.",
+      "parentUuid": "3d471592_f4bc7076",
+      "revId": "e1ab0cfc43821bb14689349844eaacfda49ea7dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "682b7486_594a2719",
         "filename": "front_end/resources/frameDetailsReportView.css",
         "patchSetId": 3
