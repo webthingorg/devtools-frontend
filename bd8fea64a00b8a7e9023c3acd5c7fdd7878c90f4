@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "881c8859_eca03531",
+        "filename": "front_end/elements/layoutPane.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-17T14:10:26Z",
+      "side": 1,
+      "message": "It feels odd to be defining this line-height only on hover. Can you move it to a new rule for .node-text-container {} and only use the :hover rule for the background-color?\n\nI think it looks good to me, but maybe we need to add some padding and border-radius to this background. \nThe best might be to take a screenshot and ask Peter to confirm whether he agrees that we need the background and what exact styles he wants.",
+      "range": {
+        "startLine": 127,
+        "startChar": 2,
+        "endLine": 127,
+        "endChar": 20
+      },
+      "revId": "bd8fea64a00b8a7e9023c3acd5c7fdd7878c90f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
