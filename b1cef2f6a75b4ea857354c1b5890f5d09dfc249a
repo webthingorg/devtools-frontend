@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e7fa4be6_9983f90d",
+        "filename": "front_end/sdk/CSSStyleDeclaration.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-17T08:38:20Z",
+      "side": 1,
+      "message": "In this particular case, it wouldn\u0027t be a problem though, would it? \n\nmargin: 10px;\nmargin-top: 20px;\n\nthe computed value of margin-top is 20px, and that\u0027s what the _allProperties array will contain. So we could keep on using it like today to display the longhand value when expanding the margin shorthand (and do the crossing-out, since that\u0027s missing).\n\nBut after re-reading the crbug report, I understand that there\u0027s another side to this problem that I had overloo\\ked:\n\nmargin-top: 20px;\nmargin: 10px;\n\nin this case, the opposite happens, the margin-top property computes to 10px because it is overridden by the margin shorthand. But the _allProperties array still contains 20px as you said.\n\nSorry for missing that, that means my simpler approach won\u0027t work.",
+      "parentUuid": "ba55e4e0_0a6e65f5",
+      "range": {
+        "startLine": 334,
+        "startChar": 6,
+        "endLine": 334,
+        "endChar": 65
+      },
+      "revId": "b1cef2f6a75b4ea857354c1b5890f5d09dfc249a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "462f8c9b_8135dd2d",
         "filename": "front_end/sdk/CSSStyleDeclaration.js",
         "patchSetId": 6

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c279723a_2ab4e4c4",
+        "filename": "front_end/sdk/CSSStyleDeclaration.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-17T08:38:20Z",
+      "side": 1,
+      "message": "Looking quickly at the callers of this function, I have a feeling we could merge it with the new longhandPropertiesIncludingComputed.\nMaybe keep just one function called longhandProperties, and give it a second, optional, parameter to pass the DOM node. If passed, then computed values are also returned, otherwise it defaults to what longhandProperties does today.\nThis could be done later, as a cleanup, after this CL.",
+      "range": {
+        "startLine": 330,
+        "startChar": 2,
+        "endLine": 330,
+        "endChar": 28
+      },
+      "revId": "95bf6bc01c1cd02d8c4dca15ee96e3379a2bd1d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
