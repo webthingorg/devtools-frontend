@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "d4fe5285_c651d89b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-17T12:09:13Z",
+      "side": 1,
+      "message": "On the screenshot, it looks there are multiple different font sizes and styles in that UI? Is it intended (perhaps it looks differently in the recording)?",
+      "revId": "e1ab0cfc43821bb14689349844eaacfda49ea7dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4f17417d_ae394b86",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
@@ -16,6 +33,57 @@
       "revId": "e1ab0cfc43821bb14689349844eaacfda49ea7dd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aee7751d_0adadaed",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-17T12:09:13Z",
+      "side": 1,
+      "message": "Where is this called?",
+      "revId": "e1ab0cfc43821bb14689349844eaacfda49ea7dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e31063f3_e9e1dc02",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-17T12:09:13Z",
+      "side": 1,
+      "message": "Does it require `ls` to localize?",
+      "revId": "e1ab0cfc43821bb14689349844eaacfda49ea7dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea847e3c_cc760767",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-17T12:09:13Z",
+      "side": 1,
+      "message": "Does it have to be a @param? I think @type would work?",
+      "revId": "e1ab0cfc43821bb14689349844eaacfda49ea7dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
