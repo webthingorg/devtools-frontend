@@ -16,6 +16,40 @@
       "revId": "2f8aaf7ba5e7d6bf32b575b771d8b7577c0a3b06",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4b77278_6bb29928",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-17T13:17:58Z",
+      "side": 1,
+      "message": "LGTM % accessibility concerns",
+      "revId": "2f8aaf7ba5e7d6bf32b575b771d8b7577c0a3b06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a53d5d69_74c7c3e7",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-17T13:17:58Z",
+      "side": 1,
+      "message": "should it be localised as well or is some kind of attribute name?",
+      "revId": "2f8aaf7ba5e7d6bf32b575b771d8b7577c0a3b06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
