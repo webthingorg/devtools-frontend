@@ -69,6 +69,24 @@
       "revId": "4c7b31d00d7398b17aa5a40a09f5e459bd6bac07",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "266636b3_573d8071",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-09-17T21:20:06Z",
+      "side": 1,
+      "message": "Created new bug here:\n\nhttps://bugs.chromium.org/p/chromium/issues/detail?id\u003d1129603",
+      "parentUuid": "b8a2c334_b8270ec8",
+      "revId": "4c7b31d00d7398b17aa5a40a09f5e459bd6bac07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
