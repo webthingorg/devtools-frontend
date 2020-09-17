@@ -16,6 +16,23 @@
       "revId": "4c7b31d00d7398b17aa5a40a09f5e459bd6bac07",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b0baa70_3c8f188f",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-09-17T19:20:54Z",
+      "side": 1,
+      "message": "Any idea why this ends up not defined here? I\u0027m concerned we may be fixing the symptom and not the underlying bug. It particular I\u0027m curious how we end up pausing without having a stack. Perhaps there\u0027s a bug setting the data somewhere...\n\nIt looks like the data originates from the backend so we may have to go looking there for more recent changes. There was a change to the structure of the call to `DebuggerModel.DebuggerDispatcher.paused` which passes this data in about four months ago. If we look it should have a corresponding backend change https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2207235\n\nI also noticed there are other places in sdk/DebuggerModel that reference debuggerPausedDetails.callFrames[0] without checking the existence. If this is expected we may need see if any of those need fixed as well.",
+      "revId": "4c7b31d00d7398b17aa5a40a09f5e459bd6bac07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
