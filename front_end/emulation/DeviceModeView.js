@@ -413,7 +413,7 @@ export class DeviceModeView extends UI.Widget.VBox {
   /**
    * @return {!Promise}
    */
-  async captureScreenshot() {
+  async captureScreenshot(copy) {
     const screenshot = await this._model.captureScreenshot(false);
     if (screenshot === null) {
       return;
@@ -442,7 +442,7 @@ export class DeviceModeView extends UI.Widget.VBox {
         await this._paintImage(ctx, this._model.screenImage(), screenRect.relativeTo(outlineRect));
       }
       ctx.drawImage(pageImage, Math.floor(contentLeft), Math.floor(contentTop));
-      this._saveScreenshot(canvas);
+      this._saveScreenshot(canvas, copy);
     };
   }
 
@@ -508,7 +508,7 @@ export class DeviceModeView extends UI.Widget.VBox {
   /**
    * @param {!Element} canvas
    */
-  _saveScreenshot(canvas) {
+  _saveScreenshot(canvas, copy) {
     const url = this._model.inspectedURL();
     let fileName = '';
     if (url) {
@@ -524,7 +524,18 @@ export class DeviceModeView extends UI.Widget.VBox {
     canvas.toBlob(blob => {
       link.href = URL.createObjectURL(blob);
       link.click();
+      if (copy) {
+        copyImage(blob);
+      }
     });
+
+    async function copyImage(blob) {
+      try {
+        await navigator.clipboard.write([new ClipboardItem({[blob.type]: blob})]);
+      } catch (err) {
+        console.error('Failed to copy image to clipboard: ', err);
+      }
+    }
   }
 }
 
