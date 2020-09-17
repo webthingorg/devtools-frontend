@@ -22,6 +22,30 @@
       "revId": "bd8fea64a00b8a7e9023c3acd5c7fdd7878c90f4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7196d8a9_131151df",
+        "filename": "front_end/elements/layoutPane.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-17T14:20:18Z",
+      "side": 1,
+      "message": "Ah, right, I mean to put it in .node-text-container. I have added the same border radius as in elements panel and a padding. PTAL. Peter is OOO until next week.",
+      "parentUuid": "881c8859_eca03531",
+      "range": {
+        "startLine": 127,
+        "startChar": 2,
+        "endLine": 127,
+        "endChar": 20
+      },
+      "revId": "bd8fea64a00b8a7e9023c3acd5c7fdd7878c90f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
