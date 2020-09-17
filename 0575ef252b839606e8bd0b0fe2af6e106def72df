@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f08edc07_72d5fd4e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-17T07:09:50Z",
+      "side": 1,
+      "message": "Kateryna, could you take care of re-enabling this test (once the flakiness is resolved?)",
+      "revId": "0575ef252b839606e8bd0b0fe2af6e106def72df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
