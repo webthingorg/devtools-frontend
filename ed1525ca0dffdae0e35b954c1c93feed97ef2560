@@ -33,6 +33,24 @@
       "revId": "ed1525ca0dffdae0e35b954c1c93feed97ef2560",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1125f55d_1e49081d",
+        "filename": "scripts/build/build_release_applications.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-17T14:46:24Z",
+      "side": 1,
+      "message": "Turns out that this is used to figure out which modules are autostart and which are not. All non-autostart modules don\u0027t have a type specified and thus are considered dynamic. We will soon remove this code, so let\u0027s keep it as-is for now.",
+      "parentUuid": "142754a4_588a9979",
+      "revId": "ed1525ca0dffdae0e35b954c1c93feed97ef2560",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
