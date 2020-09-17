@@ -33,6 +33,24 @@
       "revId": "4c7b31d00d7398b17aa5a40a09f5e459bd6bac07",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1aad496_cefdfbbd",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-09-17T19:54:40Z",
+      "side": 1,
+      "message": "This is definitely a symptom fix and not a root cause fix.  After looking at the code, I am pretty confident the issue originates from the backend as I cannot find a place where the callFrames property would be modified.\n\nI\u0027m happy to open up another bug in the backend, but investigation there will be more costly in terms of time.  I\u0027d be more comfortable knowing that in the meantime we won\u0027t enter a broken state in the DevTools.  As it is now, what would happen would be that the page will be paused, but the DevTools will assume the page is still running and give no option to resume the page.  The only option from here is to refresh everything.",
+      "parentUuid": "4b0baa70_3c8f188f",
+      "revId": "4c7b31d00d7398b17aa5a40a09f5e459bd6bac07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
