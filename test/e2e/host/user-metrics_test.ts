@@ -659,7 +659,6 @@ describe('User Metrics for Issue Panel', () => {
 describe('User Metrics for Grid Overlay', () => {
   beforeEach(async () => {
     await goToResource('elements/adornment.html');
-    await enableExperiment('cssGridFeatures');
 
     const {frontend} = getBrowserAndPages();
     await beginCatchEvents(frontend);

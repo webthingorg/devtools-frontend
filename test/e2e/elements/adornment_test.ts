@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {click, enableExperiment, goToResource} from '../../shared/helper.js';
+import {click, goToResource} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {assertActiveAdorners, assertInactiveAdorners, expandSelectedNodeRecursively, INACTIVE_GRID_ADORNER_SELECTOR, waitForContentOfSelectedElementsNode, waitForElementsStyleSection} from '../helpers/elements-helpers.js';
 
@@ -15,7 +15,6 @@ const prepareElementsTab = async () => {
 describe('Adornment in the Elements Tab', async () => {
   it('displays Grid adorners and they can be toggled', async () => {
     await goToResource('elements/adornment.html');
-    await enableExperiment('cssGridFeatures');
     await prepareElementsTab();
 
     await assertInactiveAdorners([
