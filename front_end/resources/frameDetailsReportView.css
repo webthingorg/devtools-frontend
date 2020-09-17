@@ -8,9 +8,33 @@
   flex: 0 0 200px;
 }
 
-.report-field .more-info {
+.report-field .report-field-value > * {
+  padding-left: 1ex;
+}
+
+.report-field .inline-name {
+  color: #888;
+}
+
+.report-field .only-on-hover {
+  display: none;
+}
+
+.report-field:hover .only-on-hover {
+  display: unset;
+}
+
+.report-field .inline-comment {
   color: #555;
   padding-left: 1ex;
+}
+
+.report-field .inline-comment::before {
+  content: "(";
+}
+
+.report-field .inline-comment::after {
+  content: ")";
 }
 
 .report-field-value-link {
