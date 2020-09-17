@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bac55d4f_a23c4130",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-17T11:28:13Z",
+      "side": 1,
+      "message": "That was my first idea as well, but Closure isn\u0027t happy about this.",
+      "parentUuid": "58a00d69_b5e598c2",
+      "range": {
+        "startLine": 854,
+        "startChar": 50,
+        "endLine": 854,
+        "endChar": 55
+      },
+      "revId": "95dfe0fc151e13e0e09d0e6266c35f9d1f28700e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "74816d3f_c7ebba28",
         "filename": "front_end/elements/ElementsPanel.js",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2020-09-17T09:45:05Z",
       "side": 1,
       "message": "same Q as above RE Event vs MouseEvent",
+      "range": {
+        "startLine": 860,
+        "startChar": 71,
+        "endLine": 860,
+        "endChar": 76
+      },
+      "revId": "95dfe0fc151e13e0e09d0e6266c35f9d1f28700e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f66917a3_4dd773f4",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-17T11:28:13Z",
+      "side": 1,
+      "message": "Same as above: Closure is the main blocker here.",
+      "parentUuid": "74816d3f_c7ebba28",
       "range": {
         "startLine": 860,
         "startChar": 71,
