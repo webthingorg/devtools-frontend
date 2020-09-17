@@ -46,6 +46,30 @@
       "revId": "bd8fea64a00b8a7e9023c3acd5c7fdd7878c90f4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb201f5c_31e4441c",
+        "filename": "front_end/elements/layoutPane.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-17T14:36:24Z",
+      "side": 1,
+      "message": "Looks good to me! Let\u0027s land this. I have asked Josephine what she thinks about it. If we need to change this, we can always do it later.",
+      "parentUuid": "7196d8a9_131151df",
+      "range": {
+        "startLine": 127,
+        "startChar": 2,
+        "endLine": 127,
+        "endChar": 20
+      },
+      "revId": "bd8fea64a00b8a7e9023c3acd5c7fdd7878c90f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
