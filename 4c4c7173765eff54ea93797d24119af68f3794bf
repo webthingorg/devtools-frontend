@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "96f34759_f069168f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-17T14:02:43Z",
+      "side": 1,
+      "message": "Done! (not sure if the background on hover looks nice in the current version, PTAL)",
+      "parentUuid": "ad1f31ae_94e8f09c",
+      "revId": "4c4c7173765eff54ea93797d24119af68f3794bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b3fd807a_61a81fb7",
         "filename": "front_end/elements/LayoutPane.ts",
         "patchSetId": 1
@@ -56,6 +74,30 @@
       "revId": "4c4c7173765eff54ea93797d24119af68f3794bf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e959f9b1_65ce8412",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-17T14:02:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3fd807a_61a81fb7",
+      "range": {
+        "startLine": 150,
+        "startChar": 37,
+        "endLine": 150,
+        "endChar": 92
+      },
+      "revId": "4c4c7173765eff54ea93797d24119af68f3794bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
