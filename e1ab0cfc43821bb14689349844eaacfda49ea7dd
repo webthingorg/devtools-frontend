@@ -119,6 +119,23 @@
       "revId": "e1ab0cfc43821bb14689349844eaacfda49ea7dd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "682b7486_594a2719",
+        "filename": "front_end/resources/frameDetailsReportView.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-17T13:01:28Z",
+      "side": 1,
+      "message": "I think showing the info only on hover might not be very accessible. It looks this part of the UI is not very accessible at the moment. I could not navigate to text via Tab but, perhaps, if it\u0027s text only it\u0027s ok. But once additional information is shown on hover keyboard users won\u0027t be able to access it.",
+      "revId": "e1ab0cfc43821bb14689349844eaacfda49ea7dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
