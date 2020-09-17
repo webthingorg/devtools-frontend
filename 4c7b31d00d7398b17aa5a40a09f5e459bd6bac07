@@ -51,6 +51,24 @@
       "revId": "4c7b31d00d7398b17aa5a40a09f5e459bd6bac07",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8a2c334_b8270ec8",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-09-17T20:06:23Z",
+      "side": 1,
+      "message": "Good point about being able to be less severely broken in the meantime. Let\u0027s open another bug as your suggested and fix the symptom for now.",
+      "parentUuid": "d1aad496_cefdfbbd",
+      "revId": "4c7b31d00d7398b17aa5a40a09f5e459bd6bac07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
