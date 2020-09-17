@@ -122,3 +122,8 @@
   margin: 0 0 0 8px;
   width: 10px;
 }
+
+.node-text-container:hover {
+  line-height: 16px;
+  background-color: var(--item-hover-color);
+}
