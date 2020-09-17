@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "38d3ab31_8cb393de",
+        "filename": "front_end/third_party/i18n/i18n-bundle.d.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-17T15:23:43Z",
+      "side": 0,
+      "message": "Initially I thought we had to update the rollup config as well, until I realized the same as you did: for lit-html and acorn, we define our custom devtools_entrypoint. This means we rollup *into* an entrypoint that *only* contains lit-html/acorn respectively. This is nice, because we no longer have to include in one of the subdirectories in front_end.\n\nHowever, for the i18n bundle, we only intend it to be used in i18n/. Therefore, the current solution is working as intended. Thanks for figuring that out!",
+      "parentUuid": "24729f7c_60e117b6",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 54
+      },
+      "revId": "53a7d9430dbb3fb355bd03e48db92a3348ba7602",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a1b8ef1_53c535a0",
         "filename": "scripts/check_gn.js",
         "patchSetId": 3
