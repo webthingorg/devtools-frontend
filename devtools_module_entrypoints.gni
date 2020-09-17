@@ -134,6 +134,7 @@ generated_typescript_entrypoint_sources = [
   "$resources_out_dir/layer_viewer/layer_viewer.js",
   "$resources_out_dir/layers/layers.js",
   "$resources_out_dir/lighthouse/lighthouse.js",
+  "$resources_out_dir/lighthouse_worker/lighthouse_worker.js",
   "$resources_out_dir/main/main.js",
   "$resources_out_dir/marked/marked.js",
   "$resources_out_dir/media/media.js",
