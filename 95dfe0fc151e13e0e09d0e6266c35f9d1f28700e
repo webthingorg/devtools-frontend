@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "58a00d69_b5e598c2",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-17T09:45:05Z",
+      "side": 1,
+      "message": "could you make this MouseEvent and avoid the type cast on the line below?",
+      "range": {
+        "startLine": 854,
+        "startChar": 50,
+        "endLine": 854,
+        "endChar": 55
+      },
+      "revId": "95dfe0fc151e13e0e09d0e6266c35f9d1f28700e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74816d3f_c7ebba28",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-17T09:45:05Z",
+      "side": 1,
+      "message": "same Q as above RE Event vs MouseEvent",
+      "range": {
+        "startLine": 860,
+        "startChar": 71,
+        "endLine": 860,
+        "endChar": 76
+      },
+      "revId": "95dfe0fc151e13e0e09d0e6266c35f9d1f28700e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
