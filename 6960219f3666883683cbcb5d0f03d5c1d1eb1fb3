@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7097a0f8_ebc1f8d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-17T20:38:45Z",
+      "side": 1,
+      "message": "@Alex I know you said you thought of multiple options, so I\u0027m happy to hear your other options as well, in case they are different from this one.",
+      "revId": "6960219f3666883683cbcb5d0f03d5c1d1eb1fb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
