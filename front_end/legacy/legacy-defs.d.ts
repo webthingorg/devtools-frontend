@@ -8,7 +8,8 @@ interface StringConstructor {
 }
 
 interface Window {
-  UI: {themeSupport: unknown}
+  UI: {themeSupport: unknown};
+  createElement(tagname: string, customElementType?: string): Element;
 }
 
 interface Array<T> {
