@@ -123,6 +123,16 @@ export class LayoutPane extends HTMLElement {
     this.render();
   }
 
+  private onElementMouseEnter(element: LayoutElement, event: HTMLInputElementEvent) {
+    event.preventDefault();
+    element.highlight();
+  }
+
+  private onElementMouseLeave(element: LayoutElement, event: HTMLInputElementEvent) {
+    event.preventDefault();
+    element.hideHighlight();
+  }
+
   private renderElement(element: LayoutElement) {
     const nodeText = new NodeText();
     nodeText.data = {
@@ -133,9 +143,11 @@ export class LayoutPane extends HTMLElement {
     const onElementToggle = this.onElementToggle.bind(this, element);
     const onElementClick = this.onElementClick.bind(this, element);
     const onColorChange = this.onColorChange.bind(this, element);
+    const onMouseEnter = this.onElementMouseEnter.bind(this, element);
+    const onMouseLeave = this.onElementMouseLeave.bind(this, element);
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
-    return html`<div class="element">
+    return html`<div class="element" @mouseenter=${onMouseEnter} @mouseleave=${onMouseLeave}>
       <label data-element="true" class="checkbox-label" title=${element.name}>
         <input data-input="true" type="checkbox" .checked=${element.enabled} @change=${onElementToggle} />
         <span data-label="true">${nodeText}</span>
