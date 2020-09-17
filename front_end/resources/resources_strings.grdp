@@ -320,6 +320,9 @@ read the &quot;<ph name="THIS_TABLENAME">$1s<ex>database</ex></ph>&quot; table.
   <message name="IDS_DEVTOOLS_99ccbbe2741019f0bbc87f4eb83dbc1d" desc="Screen reader title for a section of the Service Workers view of the Application panel">
     <ph name="LOCKED_TERM">Service worker</ph> for <ph name="TITLE"><ex>https://example.com</ex>$1s</ph>
   </message>
+  <message name="IDS_DEVTOOLS_9aea46ab764b662eb594964683bc7e10" desc="Label the Frame Details view">
+    Reporting endpoint
+  </message>
   <message name="IDS_DEVTOOLS_9b2a7456cec10d8b5ab8ce656598320b" desc="Text in Indexed DBViews of the Application panel">
     Key path: '''
   </message>
