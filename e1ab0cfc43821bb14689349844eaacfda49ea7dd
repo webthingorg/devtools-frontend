@@ -71,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "2de1a128_23a84abe",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-17T13:07:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b069081_782e2aef",
+      "revId": "e1ab0cfc43821bb14689349844eaacfda49ea7dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aee7751d_0adadaed",
         "filename": "front_end/resources/FrameDetailsView.js",
         "patchSetId": 3
@@ -85,6 +103,24 @@
       "revId": "e1ab0cfc43821bb14689349844eaacfda49ea7dd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cdb20766_4603f4bb",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-17T13:07:38Z",
+      "side": 1,
+      "message": "Done, removed.",
+      "parentUuid": "aee7751d_0adadaed",
+      "revId": "e1ab0cfc43821bb14689349844eaacfda49ea7dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -105,6 +141,24 @@
     },
     {
       "key": {
+        "uuid": "37f964a4_a0226ed4",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-17T13:07:38Z",
+      "side": 1,
+      "message": "Yes, thanks!",
+      "parentUuid": "e31063f3_e9e1dc02",
+      "revId": "e1ab0cfc43821bb14689349844eaacfda49ea7dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea847e3c_cc760767",
         "filename": "front_end/resources/FrameDetailsView.js",
         "patchSetId": 3
@@ -119,6 +173,24 @@
       "revId": "e1ab0cfc43821bb14689349844eaacfda49ea7dd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d471592_f4bc7076",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-17T13:07:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ea847e3c_cc760767",
+      "revId": "e1ab0cfc43821bb14689349844eaacfda49ea7dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
