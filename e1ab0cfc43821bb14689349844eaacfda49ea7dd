@@ -36,6 +36,23 @@
     },
     {
       "key": {
+        "uuid": "3b069081_782e2aef",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-17T12:14:20Z",
+      "side": 1,
+      "message": "This should be * for Closure to understand it. Or a more exact type.",
+      "revId": "e1ab0cfc43821bb14689349844eaacfda49ea7dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aee7751d_0adadaed",
         "filename": "front_end/resources/FrameDetailsView.js",
         "patchSetId": 3
