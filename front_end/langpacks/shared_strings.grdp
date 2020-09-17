@@ -190,6 +190,9 @@
   <message name="IDS_DEVTOOLS_46a2a41cc6e552044816a2d04634545d" desc="The current state of an item">
     State
   </message>
+  <message name="IDS_DEVTOOLS_46b4d9ff37717009d48acedceece6914" desc="Header for last column of network timing tab.">
+    DURATION
+  </message>
   <message name="IDS_DEVTOOLS_4789f23283b3a61f858b641a1bef19a3" desc="Text for the memory of the page">
     Memory
   </message>
@@ -690,6 +693,9 @@
   </message>
   <message name="IDS_DEVTOOLS_ec53a8c4f07baed5d8825072c89799be" desc="Text for the status of something">
     Status
+  </message>
+  <message name="IDS_DEVTOOLS_ec9dca2a4b061ad202945d88657e5ddf" desc="Text of a DOM element in Request Timing View of the Network panel">
+    Started at <ph name="CALCULATOR_FORMATVALUE_REQUEST_STARTTIME____">$1s<ex>120.39ms</ex></ph>
   </message>
   <message name="IDS_DEVTOOLS_edd24cce7afedea5a1b2f90675880687" desc="Text to preserve the log after refreshing">
     Preserve log

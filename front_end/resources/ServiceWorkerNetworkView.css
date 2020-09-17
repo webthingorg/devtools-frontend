@@ -1,0 +1,28 @@
+.service-worker-table {
+  width: 100%;
+}
+
+.table-details {
+  padding-left: 25px;
+}
+
+.main-container {
+  height: 100%;
+  padding: 0 10px;
+}
+
+.message-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1em;
+  height: 20%;
+}
+
+.hide-container {
+  display: none;
+}
+
+.title-cell {
+  font-weight: 700;
+}

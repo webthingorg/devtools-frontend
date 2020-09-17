@@ -387,6 +387,61 @@ export class RequestTimingView extends UI.Widget.VBox {
     }
   }
 
+  /**
+   * @param {SDK.NetworkRequest.NetworkRequest} request
+   * @return {!UI.TreeOutline.TreeOutlineInShadow}
+   */
+  static constructServiceWorkerFetchDetails(request) {
+    const detailsView = new UI.TreeOutline.TreeOutlineInShadow();
+
+    const origRequest = SDK.NetworkLog.NetworkLog.instance().originalRequestForURL(request.url());
+    if (origRequest) {
+      const requestObject = SDK.RemoteObject.RemoteObject.fromLocalObject(origRequest);
+      const requestTreeElement = new ObjectUI.ObjectPropertiesSection.RootElement(requestObject);
+      requestTreeElement.title = ls`Original Request`;
+      detailsView.appendChild(requestTreeElement);
+    }
+
+    const response = SDK.NetworkLog.NetworkLog.instance().originalResponseForURL(request.url());
+    if (response) {
+      const responseObject = SDK.RemoteObject.RemoteObject.fromLocalObject(response);
+      const responseTreeElement = new ObjectUI.ObjectPropertiesSection.RootElement(responseObject);
+      responseTreeElement.title = ls`Response Received`;
+      detailsView.appendChild(responseTreeElement);
+    }
+
+    const serviceWorkerResponseSource = document.createElementWithClass('div', 'network-fetch-details-treeitem');
+    let swResponseSourceString = ls`Unknown`;
+    const swResponseSource = request.serviceWorkerResponseSource();
+    if (swResponseSource) {
+      swResponseSourceString = RequestTimingView._getLocalizedResponseSourceForCode(swResponseSource);
+    }
+    serviceWorkerResponseSource.textContent = ls`Source of response: ${swResponseSourceString}`;
+
+    const responseSourceTreeElement = new UI.TreeOutline.TreeElement(serviceWorkerResponseSource);
+    detailsView.appendChild(responseSourceTreeElement);
+
+    const cacheNameElement = document.createElementWithClass('div', 'network-fetch-details-treeitem');
+    const responseCacheStorageName = request.getResponseCacheStorageCacheName();
+    if (responseCacheStorageName) {
+      cacheNameElement.textContent = ls`Cache storage cache name: ${responseCacheStorageName}`;
+    } else {
+      cacheNameElement.textContent = ls`Cache storage cache name: Unknown`;
+    }
+
+    const cacheNameTreeElement = new UI.TreeOutline.TreeElement(cacheNameElement);
+    detailsView.appendChild(cacheNameTreeElement);
+
+    const retrievalTime = request.getResponseRetrievalTime();
+    if (retrievalTime) {
+      const responseTimeElement = document.createElementWithClass('div', 'network-fetch-details-treeitem');
+      responseTimeElement.textContent = ls`Retrieval Time: ${retrievalTime}`;
+      const responseTimeTreeElement = new UI.TreeOutline.TreeElement(responseTimeElement);
+      detailsView.appendChild(responseTimeTreeElement);
+    }
+    return detailsView;
+  }
+
   _constructFetchDetailsView() {
     if (!this._tableElement) {
       return;
@@ -403,60 +458,14 @@ export class RequestTimingView extends UI.Widget.VBox {
 
     self.onInvokeElement(this._tableElement, this._onToggleFetchDetails.bind(this, fetchDetailsElement));
 
-    const detailsView = new UI.TreeOutline.TreeOutlineInShadow();
+    const detailsView = RequestTimingView.constructServiceWorkerFetchDetails(this._request);
     fetchDetailsElement.appendChild(detailsView.element);
-
-    const origRequest = SDK.NetworkLog.NetworkLog.instance().originalRequestForURL(this._request.url());
-    if (origRequest) {
-      const requestObject = SDK.RemoteObject.RemoteObject.fromLocalObject(origRequest);
-      const requestTreeElement = new ObjectUI.ObjectPropertiesSection.RootElement(requestObject);
-      requestTreeElement.title = ls`Original Request`;
-      detailsView.appendChild(requestTreeElement);
-    }
-
-    const response = SDK.NetworkLog.NetworkLog.instance().originalResponseForURL(this._request.url());
-    if (response) {
-      const responseObject = SDK.RemoteObject.RemoteObject.fromLocalObject(response);
-      const responseTreeElement = new ObjectUI.ObjectPropertiesSection.RootElement(responseObject);
-      responseTreeElement.title = ls`Response Received`;
-      detailsView.appendChild(responseTreeElement);
-    }
-
-    const serviceWorkerResponseSource = document.createElementWithClass('div', 'network-fetch-details-treeitem');
-    let swResponseSourceString = ls`Unknown`;
-    const swResponseSource = this._request.serviceWorkerResponseSource();
-    if (swResponseSource) {
-      swResponseSourceString = this._getLocalizedResponseSourceForCode(swResponseSource);
-    }
-    serviceWorkerResponseSource.textContent = ls`Source of response: ${swResponseSourceString}`;
-
-    const responseSourceTreeElement = new UI.TreeOutline.TreeElement(serviceWorkerResponseSource);
-    detailsView.appendChild(responseSourceTreeElement);
-
-    const cacheNameElement = document.createElementWithClass('div', 'network-fetch-details-treeitem');
-    const responseCacheStorageName = this._request.getResponseCacheStorageCacheName();
-    if (responseCacheStorageName) {
-      cacheNameElement.textContent = ls`Cache storage cache name: ${responseCacheStorageName}`;
-    } else {
-      cacheNameElement.textContent = ls`Cache storage cache name: Unknown`;
-    }
-
-    const cacheNameTreeElement = new UI.TreeOutline.TreeElement(cacheNameElement);
-    detailsView.appendChild(cacheNameTreeElement);
-
-    const retrievalTime = this._request.getResponseRetrievalTime();
-    if (retrievalTime) {
-      const responseTimeElement = document.createElementWithClass('div', 'network-fetch-details-treeitem');
-      responseTimeElement.textContent = ls`Retrieval Time: ${retrievalTime}`;
-      const responseTimeTreeElement = new UI.TreeOutline.TreeElement(responseTimeElement);
-      detailsView.appendChild(responseTimeTreeElement);
-    }
   }
 
   /**
    * @param {!Protocol.Network.ServiceWorkerResponseSource} swResponseSource
    */
-  _getLocalizedResponseSourceForCode(swResponseSource) {
+  static _getLocalizedResponseSourceForCode(swResponseSource) {
     switch (swResponseSource) {
       case Protocol.Network.ServiceWorkerResponseSource.CacheStorage:
         return ls`ServiceWorker cache storage`;

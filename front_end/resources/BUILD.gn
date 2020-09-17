@@ -25,6 +25,7 @@ devtools_module("resources") {
     "IndexedDBViews.js",
     "ResourcesPanel.js",
     "ServiceWorkerCacheViews.js",
+    "ServiceWorkerNetworkView.js",
     "ServiceWorkersView.js",
     "StorageItemsView.js",
   ]
