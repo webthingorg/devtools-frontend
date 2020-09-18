@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0cdcda5_d12e252d",
+        "filename": "front_end/components/ImagePreview.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-18T10:45:30Z",
+      "side": 1,
+      "message": "Nit: `document.createElement`",
+      "range": {
+        "startLine": 67,
+        "startChar": 24,
+        "endLine": 67,
+        "endChar": 28
+      },
+      "revId": "c25985fe9e0c6dd29d394f69be05541360c0c3ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ddd87ca_18030768",
+        "filename": "front_end/legacy/legacy-defs.d.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-18T10:45:30Z",
+      "side": 1,
+      "message": "Remove this one per the other comment.",
+      "range": {
+        "startLine": 12,
+        "startChar": 2,
+        "endLine": 12,
+        "endChar": 70
+      },
+      "revId": "c25985fe9e0c6dd29d394f69be05541360c0c3ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
