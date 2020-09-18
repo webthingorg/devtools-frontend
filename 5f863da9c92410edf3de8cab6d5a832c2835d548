@@ -16,6 +16,24 @@
       "revId": "5f863da9c92410edf3de8cab6d5a832c2835d548",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43b76985_f40160a1",
+        "filename": "test/e2e/host/user-metrics_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-18T07:09:49Z",
+      "side": 0,
+      "message": "Sounds reasonable. I\u0027ll do that.",
+      "parentUuid": "218ebfc6_2fc0b8c7",
+      "revId": "5f863da9c92410edf3de8cab6d5a832c2835d548",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
