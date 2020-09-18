@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "0c46e793_19630a77",
+        "filename": "AUTHORS",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1451147
+      },
+      "writtenOn": "2020-09-18T16:46:18Z",
+      "side": 1,
+      "message": "I updated my \"preferred\" email address to match the one with the signed CLA. Hovering over \"Owner\" now shows me@heardanieljames.com, so I believe this has been resolved.",
+      "parentUuid": "39766582_5bee5d99",
+      "range": {
+        "startLine": 28,
+        "startChar": 16,
+        "endLine": 28,
+        "endChar": 38
+      },
+      "revId": "8f94b4e67a2e7aaade97fd965d09f5d5fce661e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "07e7a9da_f28a5b3c",
         "filename": "front_end/emulation/DeviceModeView.js",
         "patchSetId": 1
@@ -62,6 +86,30 @@
       "revId": "8f94b4e67a2e7aaade97fd965d09f5d5fce661e3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3df59fd_f13c1ccd",
+        "filename": "front_end/emulation/DeviceModeView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1451147
+      },
+      "writtenOn": "2020-09-18T16:46:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07e7a9da_f28a5b3c",
+      "range": {
+        "startLine": 413,
+        "startChar": 2,
+        "endLine": 414,
+        "endChar": 4
+      },
+      "revId": "8f94b4e67a2e7aaade97fd965d09f5d5fce661e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
