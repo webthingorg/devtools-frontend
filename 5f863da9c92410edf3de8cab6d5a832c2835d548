@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "218ebfc6_2fc0b8c7",
+        "filename": "test/e2e/host/user-metrics_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-18T03:29:06Z",
+      "side": 0,
+      "message": "Should we still keep this until we completely remove the flag? In case, we would want to remove cssGridFeatures from default features, it might make it easier.",
+      "revId": "5f863da9c92410edf3de8cab6d5a832c2835d548",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

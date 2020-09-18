@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "80a81ba6_77b753ac",
+        "filename": "front_end/main/MainImpl.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-18T03:29:06Z",
+      "side": 1,
+      "message": "should we enabled experiments after the cleanup?",
+      "revId": "b2d9db27e9a817576e794d40907b136203350b98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
