@@ -60,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "43903fb7_4af8a7e7",
+        "filename": "scripts/deps/download_emscripten.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-09-18T07:16:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b58cefc_9c121e93",
+      "range": {
+        "startLine": 14,
+        "startChar": 7,
+        "endLine": 14,
+        "endChar": 14
+      },
+      "revId": "eec8b41a578ab90d7068ade174e435b1d3bbb516",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8fc48d04_17e37587",
         "filename": "scripts/deps/download_emscripten.py",
         "patchSetId": 1
@@ -74,6 +98,24 @@
       "revId": "eec8b41a578ab90d7068ade174e435b1d3bbb516",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eeeea421_2d447a5c",
+        "filename": "scripts/deps/download_emscripten.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-09-18T07:16:41Z",
+      "side": 1,
+      "message": "Builds are available for mac and windows, see how the URL is put together here. Fixed the os_name for mac in a later patchset!",
+      "parentUuid": "8fc48d04_17e37587",
+      "revId": "eec8b41a578ab90d7068ade174e435b1d3bbb516",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
