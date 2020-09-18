@@ -1276,7 +1276,9 @@ export class IssuesPaneImpl extends UI.Widget.VBox {
     rightToolbar.appendSeparator();
     const toolbarWarnings = document.createElement('div');
     toolbarWarnings.classList.add('toolbar-warnings');
-    const breakingChangeIcon = UI.Icon.Icon.create('largeicon-breaking-change');
+    const breakingChangeIcon = Elements.IconComponent.createIconComponent();
+    breakingChangeIcon.classList.add('toolbar-warning-issues-icon');
+    breakingChangeIcon.data = {iconPath: '', iconName: 'issues_tab_icon', color: '', width: '14px', height: '16px'};
     toolbarWarnings.appendChild(breakingChangeIcon);
     const toolbarIssuesCount = toolbarWarnings.createChild('span', 'warnings-count-label');
     const toolbarIssuesItem = new UI.Toolbar.ToolbarItem(toolbarWarnings);
