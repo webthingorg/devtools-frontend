@@ -87,6 +87,24 @@
       "revId": "1d684a5c23ab8d8730ce5c0ecdb7ba460f2a97a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68acf98b_00b3a510",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-09-18T22:50:21Z",
+      "side": 1,
+      "message": "Yes, I\u0027ve gone ahead and made this change and updated the test case. Testing manually now requires inspecting the devtools and forcing the checkbox visible first, but that should be okay.",
+      "parentUuid": "ccb5a456_21e76119",
+      "revId": "1d684a5c23ab8d8730ce5c0ecdb7ba460f2a97a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
