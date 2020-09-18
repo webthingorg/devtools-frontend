@@ -8,7 +8,8 @@ interface StringConstructor {
 }
 
 interface Window {
-  UI: {themeSupport: unknown}
+  UI: {themeSupport: unknown};
+  createElement(tagname: string, customElementType?: string): Element;
 }
 
 interface Array<T> {
@@ -38,6 +39,7 @@ interface String {
 interface NumberConstructor {
   withThousandsSeparator(num: number): string;
   toFixedIfFloating(value: string): string;
+  secondsToString(seconds: number, higherResolution?: boolean): string;
 }
 
 interface Int32Array {
