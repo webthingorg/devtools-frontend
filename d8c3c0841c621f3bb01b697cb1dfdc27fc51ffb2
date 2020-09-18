@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "34209dc4_1aa2f626",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 24
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1131764
+      },
+      "writtenOn": "2020-09-18T08:03:47Z",
+      "side": 1,
+      "message": "Thanks all!\n\nI tested now all CLs together with the new e2e tests and found two smaller issues.\n\nThe fix here is in the delta: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2328862/23..24\n\nThere\u0027s also a fix lined up in V8: https://chromium-review.googlesource.com/c/v8/v8/+/2416492\n\nWith those fixes all tests pass again. I think we can land the code now. It will only be enabled by landing the Blink CL (which requires the V8 fix).",
+      "revId": "d8c3c0841c621f3bb01b697cb1dfdc27fc51ffb2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
