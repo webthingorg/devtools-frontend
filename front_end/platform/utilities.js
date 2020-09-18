@@ -35,6 +35,85 @@
  */
 import {escapeCharacters, regexSpecialCharacters, sprintf} from './string-utilities.js';
 
+/**
+ * @param {number} ms
+ * @param {number=} precision
+ * @return {string}
+ */
+Number.preciseMillisToString = function(ms, precision) {
+  precision = precision || 0;
+  const format = '%.' + precision + 'f\xa0ms';
+  return Common.UIString.UIString(format, ms);
+};
+
+/**
+* @param {number} ms
+* @param {boolean=} higherResolution
+* @return {string}
+*/
+Number.millisToString = function(ms, higherResolution) {
+  if (!isFinite(ms)) {
+    return '-';
+  }
+
+  if (ms === 0) {
+    return '0';
+  }
+
+  if (higherResolution && ms < 0.1) {
+    return _microsFormat.format(ms * 1000);
+  }
+  if (higherResolution && ms < 1000) {
+    return _subMillisFormat.format(ms);
+  }
+  if (ms < 1000) {
+    return _millisFormat.format(ms);
+  }
+
+  const seconds = ms / 1000;
+  if (seconds < 60) {
+    return _secondsFormat.format(seconds);
+  }
+
+  const minutes = seconds / 60;
+  if (minutes < 60) {
+    return _minutesFormat.format(minutes);
+  }
+
+  const hours = minutes / 60;
+  if (hours < 24) {
+    return _hoursFormat.format(hours);
+  }
+
+  const days = hours / 24;
+  return _daysFormat.format(days);
+};
+
+/**
+* @param {number} seconds
+* @param {boolean=} higherResolution
+* @return {string}
+*/
+Number.secondsToString = function(seconds, higherResolution) {
+  if (!isFinite(seconds)) {
+    return '-';
+  }
+  return Number.millisToString(seconds * 1000, higherResolution);
+};
+
+/**
+* @param {number} num
+* @return {string}
+*/
+Number.withThousandsSeparator = function(num) {
+  let str = num + '';
+  const re = /(\d+)(\d{3})/;
+  while (str.match(re)) {
+    str = str.replace(re, '$1\xA0$2');
+  }  // \xa0 is a non-breaking space
+  return str;
+};
+
 // Still used in the test runners that can't use ES modules :(
 String.sprintf = sprintf;
 
