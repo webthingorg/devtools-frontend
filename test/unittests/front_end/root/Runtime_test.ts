@@ -26,6 +26,27 @@ describe('Runtime', () => {
       });
     });
 
+    describe('getRemoteBase', () => {
+      it('provides remote base info', () => {
+        const bundled = 'devtools://devtools/bundled/devtools_app.html';
+        const version = '@ffe848af6a5df4fa127e2929331116b7f9f1cb30';
+        const remoteOrigin = 'https://chrome-devtools-frontend.appspot.com/';
+        const remote = `${remoteOrigin}serve_file/${version}/`;
+        const fullLocation = `${bundled}?remoteBase=${remote}&can_dock=true&dockSide=undocked`;
+
+        assert.deepEqual(Root.Runtime.getRemoteBase(fullLocation), {
+          version,
+          base: `devtools://devtools/remote/serve_file/${version}/`,
+        });
+
+        // No remote base provided.
+        assert.isNull(Root.Runtime.getRemoteBase(bundled));
+
+        // Remote base with no version provided.
+        assert.isNull(Root.Runtime.getRemoteBase(`${bundled}?remoteBase=${remoteOrigin}`));
+      });
+    });
+
     describe('can substitute URLs', () => {
       it('as regular string', () => {
         const regularString = 'no url here';
