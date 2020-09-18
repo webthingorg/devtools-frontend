@@ -63,6 +63,9 @@
   <message name="IDS_DEVTOOLS_5d800f971c3d02bf5accd5f205e31f2a" desc="Text for option to enable simulated throttling in Lighthouse Panel">
     Simulated throttling
   </message>
+  <message name="IDS_DEVTOOLS_5e15c6e2d5fc161ae54580d5e1dc9660" desc="">
+    There may be important data in these locations: <ph name="LOCATIONS">$1s</ph>. Audit this page in an incognito window to prevent the resources from affecting your scores
+  </message>
   <message name="IDS_DEVTOOLS_5f0c08bc61549e7455c9e8b46bfe9aa9" desc="Fast fact in the pop-up dialog when lighthouse is running in the Lighthouse panel">
     70% of mobile pages weigh over 1MB, 36% over 2MB, and 12% over 4MB. [Source: <ph name="LOCKED_1">Think with Google</ph>]
   </message>

@@ -5,6 +5,7 @@
 // @ts-nocheck
 // TODO(crbug.com/1011811): Enable TypeScript compiler checks
 
+import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
 import * as UI from '../ui/ui.js';  // eslint-disable-line no-unused-vars
 
 import {Events, LighthouseController, Presets, RuntimeSettings} from './LighthouseController.js';  // eslint-disable-line no-unused-vars
@@ -93,14 +94,15 @@ export class StartView extends UI.Widget.Widget {
   }
 
   _render() {
+    this._settingsToolbar.appendToolbarItem(ignoreWarningsControl);
     this._populateRuntimeSettingAsToolbarCheckbox('lighthouse.clear_storage', this._settingsToolbar);
     this._populateRuntimeSettingAsToolbarCheckbox('lighthouse.throttling', this._settingsToolbar);
 
     this._startButton = UI.UIUtils.createTextButton(
         ls`Generate report`,
         () => this._controller.dispatchEventToListeners(
-            Events.RequestLighthouseStart,
-            /* keyboardInitiated */ this._startButton.matches(':focus-visible')),
+          Events.RequestLighthouseStart,
+          /* keyboardInitiated */ this._startButton.matches(':focus-visible')),
         /* className */ '', /* primary */ true);
     this.setDefaultFocusedElement(this._startButton);
 
@@ -119,6 +121,7 @@ export class StartView extends UI.Widget.Widget {
             <span>${auditsDescription}</span>
             ${UI.XLink.XLink.create('https://developers.google.com/web/tools/lighthouse/', ls`Learn more`)}
           </div>
+          <div $="warning-text" class="lighthouse-warning-text hidden"></div>
         </header>
         <form>
           <div class="lighthouse-form-categories">
@@ -146,6 +149,7 @@ export class StartView extends UI.Widget.Widget {
     `;
 
     this._helpText = fragment.$('help-text');
+    this._warningText = fragment.$('warning-text');
     this._populateFormControls(fragment);
     this.contentElement.appendChild(fragment.element());
     this.contentElement.style.overflow = 'auto';
@@ -184,6 +188,17 @@ export class StartView extends UI.Widget.Widget {
   setUnauditableExplanation(text) {
     if (this._helpText) {
       this._helpText.textContent = text;
+    }
+  }
+
+  /**
+   * @param {?string} text
+   */
+  setWarningText(text) {
+    if (this._warningText) {
+      this._warningText.textContent = text;
+      this._warningText.classList.toggle('hidden', !text);
+      this._shouldConfirm = !!text;
     }
   }
 }
