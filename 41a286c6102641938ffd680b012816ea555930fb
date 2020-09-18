@@ -110,6 +110,30 @@
       "revId": "41a286c6102641938ffd680b012816ea555930fb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d876b3c8_b95b669d",
+        "filename": "front_end/protocol_client/InspectorBackend.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-18T13:05:20Z",
+      "side": 1,
+      "message": "Thanks for checking!",
+      "parentUuid": "8ed5d5cd_58eb235c",
+      "range": {
+        "startLine": 417,
+        "startChar": 31,
+        "endLine": 417,
+        "endChar": 37
+      },
+      "revId": "41a286c6102641938ffd680b012816ea555930fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
