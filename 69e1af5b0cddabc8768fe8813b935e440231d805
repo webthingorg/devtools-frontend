@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ebcfe081_8a27cd67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-18T08:50:54Z",
+      "side": 1,
+      "message": "I couldn\u0027t find a way to make the E2E test wait for the debounced function to run, so I used a timeout. I know it\u0027s not ideal. If you have ideas, let me know.\nI know that without it, the test isn\u0027t doing what we think it is. In my case for example, it was passing with and without the fix, because it seems that the assertion was running before all adorners had been generated.",
+      "revId": "69e1af5b0cddabc8768fe8813b935e440231d805",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
