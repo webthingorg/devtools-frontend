@@ -255,6 +255,9 @@
   <message name="IDS_DEVTOOLS_953d347a777c07fc9a51f484be71165c" desc="Label in the Devices settings pane for the user agent type input of a custom device">
     User agent type
   </message>
+  <message name="IDS_DEVTOOLS_957248941ca9326b853e24643b00a3c8" desc="Title of an action in the emulation tool to capture a screenshot and copy the resulting image to the clipboard.">
+    Capture screenshot and copy image to clipboard
+  </message>
   <message name="IDS_DEVTOOLS_9b4dabc50f0b8ccba1c8981831abdad8" desc="Text in Sensors View of the Device Toolbar">
     Longitude
   </message>

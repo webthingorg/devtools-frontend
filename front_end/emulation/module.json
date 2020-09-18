@@ -34,6 +34,13 @@
       "title": "Capture screenshot"
     },
     {
+      "type": "action",
+      "actionId": "emulation.capture-screenshot-and-copy-to-clipboard",
+      "category": "Screenshot",
+      "className": "Emulation.DeviceModeWrapper.ActionDelegate",
+      "title": "Capture screenshot and copy image to clipboard"
+    },
+    {
       "type": "context-menu-item",
       "location": "deviceModeMenu/save",
       "order": 12,

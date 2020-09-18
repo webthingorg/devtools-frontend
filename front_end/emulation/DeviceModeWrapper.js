@@ -45,9 +45,10 @@ export class DeviceModeWrapper extends UI.Widget.VBox {
   /**
    * @param {boolean=} fullSize
    * @param {!Protocol.Page.Viewport=} clip
+   * @param {boolean} copy - If true, copies the screenshot to the clipboard.
    * @return {boolean}
    */
-  _captureScreenshot(fullSize, clip) {
+  _captureScreenshot(fullSize, clip, copy) {
     if (!this._deviceModeView) {
       this._deviceModeView = new DeviceModeView();
     }
@@ -56,6 +57,8 @@ export class DeviceModeWrapper extends UI.Widget.VBox {
       this._deviceModeView.captureFullSizeScreenshot();
     } else if (clip) {
       this._deviceModeView.captureAreaScreenshot(clip);
+    } else if (copy) {
+      this._deviceModeView.captureScreenshot(copy);
     } else {
       this._deviceModeView.captureScreenshot();
     }
@@ -116,6 +119,9 @@ export class ActionDelegate {
       switch (actionId) {
         case 'emulation.capture-screenshot':
           return DeviceModeView.wrapperInstance._captureScreenshot();
+
+        case 'emulation.capture-screenshot-and-copy-to-clipboard':
+          return DeviceModeView.wrapperInstance._captureScreenshot(false, null, true);
 
         case 'emulation.capture-node-screenshot': {
           const node = UI.Context.Context.instance().flavor(SDK.DOMModel.DOMNode);
