@@ -27,6 +27,8 @@ vars = {
   'clang_url': 'https://chromium.googlesource.com/chromium/src/tools/clang.git',
   'clang_revision': '116e3ee70d1877ee7d92e0d8bfdf9420b773cd43',
 
+  'emscripten_tag': '7a7f38ca19da152d4cd6da4776921a0f1e3f3e3f',
+
   'cmake_version': 'version:3.16.1',
   'protoc_version': 'protobuf_version:v3.11.4',
 
@@ -263,5 +265,9 @@ hooks = [
     'action': ['python', 'build/linux/sysroot_scripts/install-sysroot.py',
                '--arch=x64'],
   },
-
+  {
+    'name': 'emscripten',
+    'pattern': '.',
+    'action': ['python', 'scripts/deps/download_emscripten.py', Var('emscripten_tag'), 'third_party/emscripten-releases'],
+  },
 ]
