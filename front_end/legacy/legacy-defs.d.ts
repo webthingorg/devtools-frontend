@@ -8,7 +8,7 @@ interface StringConstructor {
 }
 
 interface Window {
-  UI: {themeSupport: unknown}
+  UI: {themeSupport: unknown};
 }
 
 interface Array<T> {
