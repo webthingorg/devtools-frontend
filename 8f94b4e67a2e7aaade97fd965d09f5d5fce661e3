@@ -16,6 +16,52 @@
       "revId": "8f94b4e67a2e7aaade97fd965d09f5d5fce661e3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39766582_5bee5d99",
+        "filename": "AUTHORS",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-09-18T08:00:56Z",
+      "side": 1,
+      "message": "You\u0027ll need to use the same email to upload the gerrit change - the CLA is signed for me@heardanieljames.com so preferably that one. I think you can update the owner of the gerrit change by setting the git author and uploading a new patchset to this CL? Otherwise you could upload again to a new gerrit CL if that doesn\u0027t work",
+      "range": {
+        "startLine": 28,
+        "startChar": 16,
+        "endLine": 28,
+        "endChar": 38
+      },
+      "revId": "8f94b4e67a2e7aaade97fd965d09f5d5fce661e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07e7a9da_f28a5b3c",
+        "filename": "front_end/emulation/DeviceModeView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-09-18T08:00:56Z",
+      "side": 1,
+      "message": "Can you update the jsdoc here and on the other functions with the new param?",
+      "range": {
+        "startLine": 413,
+        "startChar": 2,
+        "endLine": 414,
+        "endChar": 4
+      },
+      "revId": "8f94b4e67a2e7aaade97fd965d09f5d5fce661e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
