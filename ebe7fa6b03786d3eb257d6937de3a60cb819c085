@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f7d90a3_90e31ac9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-18T12:15:03Z",
+      "side": 1,
+      "message": "Tim, do you remember why our CQ didn\u0027t catch the layout test failure that caused the revert?\n\nI couldn\u0027t reproduce locally.\n",
+      "revId": "ebe7fa6b03786d3eb257d6937de3a60cb819c085",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
