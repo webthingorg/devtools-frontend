@@ -285,6 +285,10 @@ export class InspectorView extends VBox {
     if (!this._drawerTabbedPane.isShowing()) {
       return;
     }
+    const isNetworkInDrawer = ViewManager.instance().locationNameForViewId('network');
+    if (isNetworkInDrawer) {
+      ViewManager.instance().moveView('network', 'panel', false);
+    }
     if (this._focusRestorer) {
       this._focusRestorer.restore();
     }

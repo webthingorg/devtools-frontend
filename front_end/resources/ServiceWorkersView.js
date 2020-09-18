@@ -309,6 +309,10 @@ export class Section {
 
     this._toolbar = section.createToolbar();
     this._toolbar.renderAsLinks();
+    this._showDetails = new UI.Toolbar.ToolbarButton(
+        Common.UIString.UIString('Network'), undefined, Common.UIString.UIString('Network'));
+    this._showDetails.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._showDetailsClicked, this);
+    this._toolbar.appendToolbarItem(this._showDetails);
     this._updateButton =
         new UI.Toolbar.ToolbarButton(Common.UIString.UIString('Update'), undefined, Common.UIString.UIString('Update'));
     this._updateButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._updateButtonClicked, this);
@@ -539,6 +543,20 @@ export class Section {
    */
   _updateButtonClicked(event) {
     this._manager.updateRegistration(this._registration.id);
+  }
+
+  /**
+   * @param {!Common.EventTarget.EventTargetEvent} event
+   */
+  async _showDetailsClicked(event) {
+    // await self.runtime.sharedInstance(ServiceWorkerNetworkView).showPanel(this._registration);
+    await UI.ViewManager.ViewManager.instance().moveView('network', 'drawer-view', true, true);
+    // const serviceWorkerNetworkReuqests =
+    //     SDK.NetworkLog.NetworkLog.instance().requests().filter(request => request._fetchedViaServiceWorker);
+    // const lastRequst = serviceWorkerNetworkReuqests[serviceWorkerNetworkReuqests.length - 1];
+    // if (lastRequst) {
+    //   Network.NetworkPanel.NetworkPanel.selectAndShowRequest(lastRequst, 'timing');
+    // }
   }
 
   /**
