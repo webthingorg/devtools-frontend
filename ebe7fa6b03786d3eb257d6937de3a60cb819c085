@@ -16,6 +16,24 @@
       "revId": "ebe7fa6b03786d3eb257d6937de3a60cb819c085",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ad35be5_eb858736",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-18T12:27:37Z",
+      "side": 1,
+      "message": "Hm, I am not sure. I vaguely remember that it was related to promise races causing a flaky test.",
+      "parentUuid": "8f7d90a3_90e31ac9",
+      "revId": "ebe7fa6b03786d3eb257d6937de3a60cb819c085",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
