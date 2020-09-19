@@ -6,19 +6,21 @@ import {assert} from 'chai';
 import * as puppeteer from 'puppeteer';
 
 import {$, platform, waitForElementWithTextContent} from '../../shared/helper.js';
-import {$$, click, getBrowserAndPages, pasteText, waitFor, waitForFunction, waitForNone} from '../../shared/helper.js';
+import {$$, click, closePanelTab, getBrowserAndPages, pasteText, typeText, waitFor, waitForFunction, waitForNone} from '../../shared/helper.js';
 
+import {openCommandMenu} from './quick_open-helpers.js';
+import {openPanelViaMoreTools} from './settings-helpers.js';
 
 const NEW_HEAP_SNAPSHOT_BUTTON = 'button[aria-label="Take heap snapshot"]';
 const MEMORY_PANEL_CONTENT = 'div[aria-label="Memory panel"]';
 const PROFILE_TREE_SIDEBAR = 'div.profiles-tree-sidebar';
-export const MEMORY_TAB_ID = '#tab-heap_profiler';
+const MEMORY_PANEL_TITLE = 'Memory';
+export const MEMORY_TAB_SELECTOR = '#tab-heap_profiler';
 const CLASS_FILTER_INPUT = 'div[aria-placeholder="Class filter"]';
 
 export async function navigateToMemoryTab() {
-  await click(MEMORY_TAB_ID);
-  await waitFor(MEMORY_PANEL_CONTENT);
-  await waitFor(PROFILE_TREE_SIDEBAR);
+  await click(MEMORY_TAB_SELECTOR);
+  await memoryPanelContentIsLoaded();
 }
 
 export async function takeHeapSnapshot() {
@@ -219,4 +221,37 @@ export async function changeViewViaDropdown(newPerspective: string) {
     throw new Error(`Could not find heap snapshot perspective option: ${newPerspective}`);
   }
   dropdown.select(optionValue);
+}
+
+export async function memoryTabExists() {
+  await waitFor(MEMORY_TAB_SELECTOR);
+}
+
+export async function memoryTabDoesNotExist() {
+  await waitForNone(MEMORY_TAB_SELECTOR);
+}
+
+export async function memoryPanelContentIsLoaded() {
+  await waitFor(MEMORY_PANEL_CONTENT);
+  await waitFor(PROFILE_TREE_SIDEBAR);
+}
+
+export async function closeMemoryTab() {
+  await closePanelTab(MEMORY_TAB_SELECTOR);
+  await memoryTabDoesNotExist();
+}
+
+export async function openMemoryPanelFromMoreTools() {
+  await openPanelViaMoreTools(MEMORY_PANEL_TITLE);
+  await memoryTabExists();
+  await memoryPanelContentIsLoaded();
+}
+
+export async function openMemoryPanelFromCommandMenu() {
+  const {frontend} = getBrowserAndPages();
+  await openCommandMenu();
+  await typeText('Show Memory');
+  await frontend.keyboard.press('Enter');
+  await memoryTabExists();
+  await memoryPanelContentIsLoaded();
 }

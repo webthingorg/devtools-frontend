@@ -3,9 +3,12 @@
 // found in the LICENSE file.
 
 import {assert} from 'chai';
+
 import {$$, click, getBrowserAndPages, goToResource, waitForElementsWithTextContent, waitForElementWithTextContent, waitForFunction} from '../../shared/helper.js';
+import {reloadDevTools} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
-import {changeViewViaDropdown, findSearchResult, getDataGridRows, navigateToMemoryTab, setSearchFilter, takeHeapSnapshot, waitForNonEmptyHeapSnapshotData, waitForRetainerChain, waitForSearchResultNumber, waitUntilRetainerChainSatisfies} from '../helpers/memory-helpers.js';
+import {changeViewViaDropdown, closeMemoryTab, findSearchResult, getDataGridRows, memoryPanelContentIsLoaded, memoryTabDoesNotExist, memoryTabExists, navigateToMemoryTab, openMemoryPanelFromCommandMenu, openMemoryPanelFromMoreTools, setSearchFilter, takeHeapSnapshot, waitForNonEmptyHeapSnapshotData, waitForRetainerChain, waitForSearchResultNumber, waitUntilRetainerChainSatisfies} from '../helpers/memory-helpers.js';
+
 
 describe('The Memory Panel', async function() {
   // These tests render large chunks of data into DevTools and filter/search
@@ -196,5 +199,34 @@ describe('The Memory Panel', async function() {
     await waitForSearchResultNumber(8);
     await waitUntilRetainerChainSatisfies(
         retainerChain => retainerChain.some(({retainerClassName}) => retainerClassName === 'Detached Window'));
+  });
+
+  it('is open by default when devtools initializes', async () => {
+    await navigateToMemoryTab();
+  });
+
+  it('closes without crashing and stays closed after reloading tools', async () => {
+    await closeMemoryTab();
+    await reloadDevTools();
+    await memoryTabDoesNotExist();
+  });
+
+  it('appears under More tools after being closed', async () => {
+    await closeMemoryTab();
+    await openMemoryPanelFromMoreTools();
+    await reloadDevTools({selectedPanel: {name: 'memory'}});
+    await memoryTabExists();
+  });
+
+  it('can be opened from command menu after being closed', async () => {
+    await closeMemoryTab();
+    await openMemoryPanelFromCommandMenu();
+  });
+
+  it('opens if the query param "panel" is set', async () => {
+    await closeMemoryTab();
+    await reloadDevTools({queryParams: {panel: 'heap_profiler'}});
+    await memoryTabExists();
+    await memoryPanelContentIsLoaded();
   });
 });

@@ -507,7 +507,7 @@ export class _TabbedLocation extends _Location {
   _setOrUpdateCloseableTabsSetting() {
     // Update the setting value, we respect the closed state decided by the user
     // and append the new tabs with value of true so they are shown open
-    const defaultOptionsForTabs = {'security': true};
+    const defaultOptionsForTabs = {'security': true, 'heap_profiler': true};
     const tabs = this._closeableTabSetting.get();
     const newClosable = Object.assign(defaultOptionsForTabs, tabs);
     this._closeableTabSetting.set(newClosable);

@@ -8,7 +8,7 @@ import {navigateToConsoleTab, navigateToIssuesPanelViaInfoBar, waitForConsoleMes
 import {clickOnContextMenuItemFromTab, prepareForCrossToolScenario, tabExistsInDrawer, tabExistsInMainPanel} from '../helpers/cross-tool-helper.js';
 import {clickOnFirstLinkInStylesPanel, navigateToElementsTab} from '../helpers/elements-helpers.js';
 import {LAYERS_TAB_SELECTOR} from '../helpers/layers-helpers.js';
-import {MEMORY_TAB_ID, navigateToMemoryTab} from '../helpers/memory-helpers.js';
+import {MEMORY_TAB_SELECTOR, navigateToMemoryTab} from '../helpers/memory-helpers.js';
 import {navigateToPerformanceSidebarTab, navigateToPerformanceTab, startRecording, stopRecording, waitForSourceLinkAndFollowIt} from '../helpers/performance-helpers.js';
 import {openPanelViaMoreTools} from '../helpers/settings-helpers.js';
 
@@ -69,9 +69,9 @@ describe('A user can move tabs', async function() {
 
   it('Move Memory to drawer', async () => {
     await navigateToMemoryTab();
-    await tabExistsInMainPanel(MEMORY_TAB_ID);
-    await clickOnContextMenuItemFromTab(MEMORY_TAB_ID, MOVE_TO_DRAWER_SELECTOR);
-    await tabExistsInDrawer(MEMORY_TAB_ID);
+    await tabExistsInMainPanel(MEMORY_TAB_SELECTOR);
+    await clickOnContextMenuItemFromTab(MEMORY_TAB_SELECTOR, MOVE_TO_DRAWER_SELECTOR);
+    await tabExistsInDrawer(MEMORY_TAB_SELECTOR);
   });
 
   it('Move Animations to main panel', async () => {
