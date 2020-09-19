@@ -3,10 +3,12 @@
 // found in the LICENSE file.
 
 import * as TextUtils from '../text_utils/text_utils.js';
+
 import {cssMetadata} from './CSSMetadata.js';
 import {CSSModel, Edit} from './CSSModel.js';  // eslint-disable-line no-unused-vars
 import {CSSProperty} from './CSSProperty.js';
 import {CSSRule} from './CSSRule.js';  // eslint-disable-line no-unused-vars
+import {DOMNode} from './DOMModel.js';  // eslint-disable-line no-unused-vars
 import {Target} from './SDKModel.js';  // eslint-disable-line no-unused-vars
 
 export class CSSStyleDeclaration {
@@ -332,6 +334,35 @@ export class CSSStyleDeclaration {
       const property = this._activePropertyMap.get(longhands[i]);
       if (property) {
         result.push(property);
+      }
+    }
+    return result;
+  }
+
+  /**
+   * @param {string} name
+   * @param {?DOMNode} node
+   * @return {!Promise.<!Array.<!CSSProperty>>}
+   */
+  async longhandPropertiesIncludingComputed(name, node) {
+    const longhands = cssMetadata().longhands(name);
+    const result = [];
+    let computedStyles;
+    for (let i = 0; longhands && i < longhands.length; ++i) {
+      const property = this._activePropertyMap.get(longhands[i]);
+      if (property) {
+        result.push(property);
+      } else {
+        const rootProperty = this._allProperties.find(currentProperty => currentProperty.name === name);
+        if (rootProperty && node && node.id) {
+          if (!computedStyles) {
+            computedStyles = await this._cssModel.computedStylePromise(node.id);
+          }
+          const computedValue = computedStyles ? computedStyles.get(longhands[i]) : '';
+          const newProperty =
+              CSSProperty.parsePayload(rootProperty.ownerStyle, 0, {name: longhands[i], value: computedValue || ''});
+          result.push(newProperty);
+        }
       }
     }
     return result;
