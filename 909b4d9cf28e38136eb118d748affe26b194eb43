@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2962cdf2_aa3aa83a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-09-20T20:51:47Z",
+      "side": 1,
+      "message": "Make Application panel closeable, PTAL!",
+      "revId": "909b4d9cf28e38136eb118d748affe26b194eb43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
