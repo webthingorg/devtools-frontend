@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4f47584f_1e15c819",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-09-20T21:00:56Z",
+      "side": 1,
+      "message": "Make Lighthouse panel closeable, PTAL!",
+      "revId": "5c6d84a8187ef03aa1862b86ddc4bb84d84aac31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
