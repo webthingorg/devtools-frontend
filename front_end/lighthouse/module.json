@@ -6,6 +6,7 @@
       "id": "lighthouse",
       "title": "Lighthouse",
       "order": 90,
+      "persistence": "closeable",
       "className": "Lighthouse.LighthousePanel",
       "tags": "lighthouse, pwa"
     }
