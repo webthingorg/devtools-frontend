@@ -6,6 +6,7 @@ import("../../../third_party/typescript/typescript.gni")
 
 node_ts_library("application") {
   sources = [
+    "application_test.ts",
     "cookies_test.ts",
     "session-storage_test.ts",
     "websql-database_test.ts",
