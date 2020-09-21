@@ -16,6 +16,24 @@
       "revId": "07adff47df504c678cdcd371907f9b5df4ac9944",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43bdfe0d_e168efcc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-21T11:27:15Z",
+      "side": 1,
+      "message": "We found the cause for the crash https://chromium-review.googlesource.com/c/chromium/src/+/2421668 it\u0027s caused by the style polling invoking get computed styles on a node that was removed from the document.",
+      "parentUuid": "1d877f0d_c3d10a0f",
+      "revId": "07adff47df504c678cdcd371907f9b5df4ac9944",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
