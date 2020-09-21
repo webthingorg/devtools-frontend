@@ -56,6 +56,30 @@
       "revId": "a28a4c8ca8132f90a1242595a5c2b3b805355eda",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ad84919_c091e0e6",
+        "filename": "front_end/lighthouse_worker/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-21T11:18:58Z",
+      "side": 1,
+      "message": "We built in `devtools_pre_built` to check that the sources are in `debug` only. However, the LightHouse sources are in release instead. The check in `devtools_pre_built` therefore fails.\n\nI have a plan to clean up how we treat third_party packages, but before that we would need to collect all usages of it. I think it will boil down to \"don\u0027t terser\" on third_party packages.",
+      "parentUuid": "00a6591d_916471a9",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 25
+      },
+      "revId": "a28a4c8ca8132f90a1242595a5c2b3b805355eda",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
