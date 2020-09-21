@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "85bf6a95_52197959",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-21T11:20:09Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "7fede25605a2fc04c30362a38dc74e5c93af6ebb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eaafa420_8eab47c2",
         "filename": "front_end/elements/ElementsBreadcrumbs.ts",
         "patchSetId": 1
@@ -25,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "c13e4783_00392525",
+        "filename": "front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-21T11:20:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "eaafa420_8eab47c2",
+      "range": {
+        "startLine": 173,
+        "startChar": 0,
+        "endLine": 173,
+        "endChar": 54
+      },
+      "revId": "7fede25605a2fc04c30362a38dc74e5c93af6ebb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7d81964c_537ad017",
         "filename": "front_end/elements/ElementsBreadcrumbs.ts",
         "patchSetId": 1
@@ -41,6 +82,76 @@
         "startChar": 12,
         "endLine": 289,
         "endChar": 62
+      },
+      "revId": "7fede25605a2fc04c30362a38dc74e5c93af6ebb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29d36f1c_c9296cdb",
+        "filename": "front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-21T11:20:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7d81964c_537ad017",
+      "range": {
+        "startLine": 289,
+        "startChar": 12,
+        "endLine": 289,
+        "endChar": 62
+      },
+      "revId": "7fede25605a2fc04c30362a38dc74e5c93af6ebb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4500adb_3590873e",
+        "filename": "front_end/elements/NodeText.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-21T11:20:09Z",
+      "side": 1,
+      "message": "Can we document that we want folks to use interfaces rather than defining the shape of objects inline?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 1
+      },
+      "revId": "7fede25605a2fc04c30362a38dc74e5c93af6ebb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3eef8591_9c0d3061",
+        "filename": "test/unittests/front_end/helpers/DOMHelpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-21T11:20:09Z",
+      "side": 1,
+      "message": "Make it a param that defaults to 3 and call it something like waitForScrollDeltaBelowThreshold? I can imagine it won\u0027t be the last time we want to track scrolling",
+      "range": {
+        "startLine": 106,
+        "startChar": 49,
+        "endLine": 106,
+        "endChar": 50
       },
       "revId": "7fede25605a2fc04c30362a38dc74e5c93af6ebb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
