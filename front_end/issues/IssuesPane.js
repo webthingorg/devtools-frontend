@@ -1175,9 +1175,6 @@ class IssueView extends UI.TreeOutline.TreeElement {
   }
 
   _createReadMoreLinks() {
-    if (this._description.links.length === 0) {
-      return;
-    }
     const linkWrapper = new UI.TreeOutline.TreeElement();
     linkWrapper.setCollapsible(false);
     linkWrapper.listItemElement.classList.add('link-wrapper');
@@ -1193,6 +1190,41 @@ class IssueView extends UI.TreeOutline.TreeElement {
       const linkListItem = linkList.createChild('li');
       linkListItem.appendChild(link);
     }
+    // Survey link.
+    const url = 'https://todo';
+    // const link = UI.XLink.XLink.create(url, ls`Tell us what you think about this issue`, 'link');
+    const linkIcon = UI.Icon.Icon.create('largeicon-breaking-change', 'link-icon');
+    // link.prepend(linkIcon);
+
+    const link = document.createElement('a');
+    link.classList.add('link');
+    // link.href = url;
+    link.onclick = () => {
+
+      // @ts-ignore
+      const helpApi = window.help.service.Lazy.create(0, {apiKey:'todo', locale: 'en-US'});
+
+      helpApi.requestSurvey({
+        triggerId: 'todo',
+        // enableTestingMode: true, // Will always trigger a survey. Do not set this to prod!
+        // @ts-ignore
+        callback: (requestSurveyCallbackParam) => {
+          if (!requestSurveyCallbackParam.surveyData) {
+            return;
+          }
+          helpApi.presentSurvey({
+            surveyData: requestSurveyCallbackParam.surveyData,
+            colorScheme: 1, // light
+            customZIndex: 10000,
+          });
+        }
+      });
+    }
+    link.innerText = ls`Tell us what you think about this issue`;
+    link.prepend(linkIcon);
+
+    linkList.createChild('li').appendChild(link);
+
     this.appendChild(linkWrapper);
   }
 
