@@ -47,7 +47,7 @@ const envChromeBinary = process.env['CHROME_BIN'];
 
 function launchChrome() {
   // Use port 0 to request any free port.
-  const launchArgs = ['--remote-debugging-port=0', '--enable-experimental-web-platform-features'];
+  const launchArgs = ['--remote-debugging-port=0', '--enable-blink-features=IdleDetection'];
   const opts: puppeteer.LaunchOptions = {
     headless,
     executablePath: envChromeBinary,

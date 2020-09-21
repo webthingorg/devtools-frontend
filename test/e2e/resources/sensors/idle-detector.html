@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<div id="is-loaded"></div>
 <div id="state"></div>
 <script>
   const elState = document.querySelector('#state');
@@ -12,6 +13,9 @@
       threshold: 60000,
       signal,
     });
+
+    document.querySelector('#is-loaded').textContent = "IdleDetector is ready";
+
     idleDetector.addEventListener('change', () => {
       const userState = idleDetector.userState;
       const screenState = idleDetector.screenState;
