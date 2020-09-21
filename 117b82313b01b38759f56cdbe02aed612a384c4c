@@ -1,0 +1,395 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f84355b_3dd190c6",
+        "filename": "test/unittests/front_end/helpers/MutationHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-21T08:38:00Z",
+      "side": 1,
+      "message": "I feel like this should be an enum",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 4
+      },
+      "revId": "117b82313b01b38759f56cdbe02aed612a384c4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3ee399f_af076b78",
+        "filename": "test/unittests/front_end/helpers/MutationHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-21T08:38:00Z",
+      "side": 1,
+      "message": "nit: this should be tagName to minimise the chance of confusion",
+      "range": {
+        "startLine": 9,
+        "startChar": 23,
+        "endLine": 9,
+        "endChar": 30
+      },
+      "revId": "117b82313b01b38759f56cdbe02aed612a384c4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "487d20e3_d63d2555",
+        "filename": "test/unittests/front_end/helpers/MutationHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-21T08:38:00Z",
+      "side": 1,
+      "message": "nit: for (cont observedMutation of observedMutations)",
+      "range": {
+        "startLine": 16,
+        "startChar": 6,
+        "endLine": 16,
+        "endChar": 23
+      },
+      "revId": "117b82313b01b38759f56cdbe02aed612a384c4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26028acc_7012b084",
+        "filename": "test/unittests/front_end/helpers/MutationHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-21T08:38:00Z",
+      "side": 1,
+      "message": "Change this over to a for-of for consistency",
+      "range": {
+        "startLine": 27,
+        "startChar": 13,
+        "endLine": 27,
+        "endChar": 20
+      },
+      "revId": "117b82313b01b38759f56cdbe02aed612a384c4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4fb1cc7d_78a2915f",
+        "filename": "test/unittests/front_end/helpers/MutationHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-21T08:38:00Z",
+      "side": 1,
+      "message": "remove the forEach",
+      "range": {
+        "startLine": 40,
+        "startChar": 20,
+        "endLine": 40,
+        "endChar": 27
+      },
+      "revId": "117b82313b01b38759f56cdbe02aed612a384c4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e09e1a8_aafcc865",
+        "filename": "test/unittests/front_end/helpers/MutationHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-21T08:38:00Z",
+      "side": 1,
+      "message": "This and the below is repetitive, extract it out to a helper?",
+      "range": {
+        "startLine": 42,
+        "startChar": 6,
+        "endLine": 43,
+        "endChar": 87
+      },
+      "revId": "117b82313b01b38759f56cdbe02aed612a384c4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "527cdef9_1ba6b7fc",
+        "filename": "test/unittests/front_end/helpers/MutationHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-21T08:38:00Z",
+      "side": 1,
+      "message": "++",
+      "range": {
+        "startLine": 44,
+        "startChar": 6,
+        "endLine": 44,
+        "endChar": 35
+      },
+      "revId": "117b82313b01b38759f56cdbe02aed612a384c4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8413caee_aca6b205",
+        "filename": "test/unittests/front_end/helpers/MutationHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-21T08:38:00Z",
+      "side": 1,
+      "message": "++",
+      "range": {
+        "startLine": 50,
+        "startChar": 6,
+        "endLine": 50,
+        "endChar": 37
+      },
+      "revId": "117b82313b01b38759f56cdbe02aed612a384c4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51e8e9a2_d221b961",
+        "filename": "test/unittests/front_end/helpers/MutationHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-21T08:38:00Z",
+      "side": 1,
+      "message": "shadowRoot",
+      "range": {
+        "startLine": 64,
+        "startChar": 43,
+        "endLine": 64,
+        "endChar": 50
+      },
+      "revId": "117b82313b01b38759f56cdbe02aed612a384c4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8522003_d667c92e",
+        "filename": "test/unittests/front_end/helpers/MutationHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-21T08:38:00Z",
+      "side": 1,
+      "message": "It\u0027s not clear what this function would do from the outside.",
+      "range": {
+        "startLine": 65,
+        "startChar": 4,
+        "endLine": 65,
+        "endChar": 6
+      },
+      "revId": "117b82313b01b38759f56cdbe02aed612a384c4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "587e36fe_a6f589a8",
+        "filename": "test/unittests/front_end/helpers/MutationHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-21T08:38:00Z",
+      "side": 1,
+      "message": "Remove the forEach",
+      "range": {
+        "startLine": 68,
+        "startChar": 12,
+        "endLine": 68,
+        "endChar": 19
+      },
+      "revId": "117b82313b01b38759f56cdbe02aed612a384c4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b0e88f8_5718dc72",
+        "filename": "test/unittests/front_end/helpers/MutationHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-21T08:38:00Z",
+      "side": 1,
+      "message": "Avoid the repetition with the code below",
+      "range": {
+        "startLine": 68,
+        "startChar": 4,
+        "endLine": 72,
+        "endChar": 7
+      },
+      "revId": "117b82313b01b38759f56cdbe02aed612a384c4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5e1006e_8ea42cd6",
+        "filename": "test/unittests/front_end/helpers/MutationHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-21T08:38:00Z",
+      "side": 1,
+      "message": "Remove forEach",
+      "range": {
+        "startLine": 84,
+        "startChar": 10,
+        "endLine": 84,
+        "endChar": 17
+      },
+      "revId": "117b82313b01b38759f56cdbe02aed612a384c4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47225d00_457f1e05",
+        "filename": "test/unittests/front_end/helpers/MutationHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-21T08:38:00Z",
+      "side": 1,
+      "message": "I feel like this section should be broken out to its own function",
+      "range": {
+        "startLine": 91,
+        "startChar": 2,
+        "endLine": 91,
+        "endChar": 39
+      },
+      "revId": "117b82313b01b38759f56cdbe02aed612a384c4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ffa36a2_b2e4a914",
+        "filename": "test/unittests/front_end/helpers/MutationHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-21T08:38:00Z",
+      "side": 1,
+      "message": "Remove the forEach",
+      "range": {
+        "startLine": 95,
+        "startChar": 43,
+        "endLine": 95,
+        "endChar": 50
+      },
+      "revId": "117b82313b01b38759f56cdbe02aed612a384c4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d65f34d8_5b519f8b",
+        "filename": "test/unittests/front_end/helpers/MutationHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-21T08:38:00Z",
+      "side": 1,
+      "message": "And here, too 😊",
+      "range": {
+        "startLine": 112,
+        "startChar": 20,
+        "endLine": 112,
+        "endChar": 27
+      },
+      "revId": "117b82313b01b38759f56cdbe02aed612a384c4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01a33cc5_37602a4f",
+        "filename": "test/unittests/front_end/helpers/MutationHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-21T08:38:00Z",
+      "side": 1,
+      "message": "Put this to the top as a const DEFAULT_MAX_MUTATIONS",
+      "range": {
+        "startLine": 116,
+        "startChar": 56,
+        "endLine": 116,
+        "endChar": 58
+      },
+      "revId": "117b82313b01b38759f56cdbe02aed612a384c4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
