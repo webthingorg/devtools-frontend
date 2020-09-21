@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "207b4707_720ae20b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-21T13:26:25Z",
+      "side": 1,
+      "message": "PTAL this is my naive implementation for showing contrast warnings in CSS Overview. I hope for feedback from Peter on how to better integrate it into the existing UI.",
+      "revId": "95d490cb630ac6a7e7729e60124f8e0a600d4dd0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
