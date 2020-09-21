@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7077569_bd8d0615",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-21T16:06:00Z",
+      "side": 1,
+      "message": "LGTM with surprise",
+      "revId": "356cf555239bbba8994b943fc14eb5d68a2bb6fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9a9c22e_c773d82a",
+        "filename": "front_end/formatter_worker/formatter_worker.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-21T16:06:00Z",
+      "side": 1,
+      "message": "I\u0027m surprised. I thought the lib.worker.d.ts was needed for this postMessage signature to work.",
+      "range": {
+        "startLine": 18,
+        "startChar": 11,
+        "endLine": 18,
+        "endChar": 22
+      },
+      "revId": "356cf555239bbba8994b943fc14eb5d68a2bb6fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
