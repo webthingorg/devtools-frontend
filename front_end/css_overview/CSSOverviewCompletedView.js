@@ -20,9 +20,16 @@ import {UnusedDeclaration} from './CSSOverviewUnusedDeclarations.js';  // eslint
 export let NodeStyleStats;
 
 /**
+ * @typedef {!Array<{ nodeId: number, contrastRatio: number }>}
+ */
+// @ts-ignore typedef
+export let ContrastIssue;
+
+/**
  * @typedef {{
  * backgroundColors: NodeStyleStats,
  * textColors: NodeStyleStats,
+ * textColorContrastIssues: !Map<string, !ContrastIssue>,
  * fillColors: NodeStyleStats,
  * borderColors: NodeStyleStats,
  * globalStyleStats: !{
@@ -538,10 +545,22 @@ export class CSSOverviewCompletedView extends UI.Panel.PanelWithSidebar {
    * @param {string} color
    */
   _colorsToFragment(section, color) {
-    const blockFragment = UI.Fragment.Fragment.build`<li>
+    const blockFragment = UI.Fragment.Fragment.build`<li $="li">
       <button data-type="color" data-color="${color}" data-section="${section}" class="block" $="color"></button>
       <div class="block-title">${color}</div>
     </li>`;
+
+    if (section === 'text' && this._data) {
+      const issues = this._data.textColorContrastIssues.get(color);
+      if (issues && issues.length > 0) {
+        const li = blockFragment.$('li');
+        const contrastWarning = document.createElement('div');
+        contrastWarning.classList.add('contrast-warning');
+        contrastWarning.appendChild(UI.Icon.Icon.create('smallicon-no'));
+        contrastWarning.appendChild(document.createTextNode(ls`low contrast`));
+        li.appendChild(contrastWarning);
+      }
+    }
 
     const block = /** @type {!HTMLElement} */ (blockFragment.$('color'));
     block.style.backgroundColor = color;
