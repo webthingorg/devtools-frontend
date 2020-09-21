@@ -71,6 +71,13 @@ export class FrameGroupNode extends NetworkGroupNode {
 
   /**
    * @override
+   */
+  displayType() {
+    return '';
+  }
+
+  /**
+   * @override
    * @param {!Element} cell
    * @param {string} columnId
    */
