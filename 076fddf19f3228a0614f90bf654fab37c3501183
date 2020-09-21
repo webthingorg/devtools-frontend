@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "93d135df_415289a4",
+        "filename": "front_end/network/BinaryResourceView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-21T08:37:26Z",
+      "side": 0,
+      "message": "where has this logic moved to? Or do we not need it?",
+      "range": {
+        "startLine": 26,
+        "startChar": 1,
+        "endLine": 29,
+        "endChar": 5
+      },
+      "revId": "076fddf19f3228a0614f90bf654fab37c3501183",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

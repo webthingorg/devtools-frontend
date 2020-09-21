@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a8317f30_17e33176",
+        "filename": "front_end/network/ResourceWebSocketFrameView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-21T08:37:26Z",
+      "side": 1,
+      "message": "ah, is this the conditional that means the this._empty in the class is now not needed?\n\nAre we happy with this slight change in behaviour (looks like it used to show a message, and now it won\u0027t as we don\u0027t even instantiate the class anymore? Seems reasonable to me but just checking!",
+      "range": {
+        "startLine": 361,
+        "startChar": 1,
+        "endLine": 361,
+        "endChar": 37
+      },
+      "revId": "6eb2aaa3b7a4d1cb6bfe199e62975b3db8cc2876",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
