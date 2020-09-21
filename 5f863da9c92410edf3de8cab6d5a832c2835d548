@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "049fa89c_594104c2",
+        "filename": "front_end/console/ConsoleContextSelector.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-09-21T07:20:52Z",
+      "side": 0,
+      "message": "It looks like this had some extra logic like the _hideHightlightTimeout which I think we avoid now, I want to make sure we get that right, I\u0027ll add Alex who knows the Overlay better",
+      "range": {
+        "startLine": 70,
+        "startChar": 8,
+        "endLine": 70,
+        "endChar": 35
+      },
+      "revId": "5f863da9c92410edf3de8cab6d5a832c2835d548",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
