@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30da62f0_f505d04a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-21T15:36:58Z",
+      "side": 1,
+      "message": "I am surprised none of the fixtures had to be updated. Since these are typically easier to review, can we add a fixture for this edge-case as well?",
+      "revId": "20f4c8ad0a987665da29e38b61f6999bd17cd585",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
