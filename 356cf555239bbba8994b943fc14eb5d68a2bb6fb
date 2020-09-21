@@ -39,6 +39,30 @@
       "revId": "356cf555239bbba8994b943fc14eb5d68a2bb6fb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bc33b94_2bc5d836",
+        "filename": "front_end/formatter_worker/formatter_worker.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-21T16:21:38Z",
+      "side": 1,
+      "message": "There is a definition for `postMessage` in \"dom\", as that is used in iframes. However, to get the \"correct\" version of `postMessage`, we indeed need to get the webworker libs. The `is_web_worker` flag on `ts_library` adds this to the list: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/third_party/typescript/ts_library.py;l\u003d121;drc\u003d4e556fa8176bdfb0dcc3845a7a07aa5e8d724466",
+      "parentUuid": "c9a9c22e_c773d82a",
+      "range": {
+        "startLine": 18,
+        "startChar": 11,
+        "endLine": 18,
+        "endChar": 22
+      },
+      "revId": "356cf555239bbba8994b943fc14eb5d68a2bb6fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
