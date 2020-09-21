@@ -16,6 +16,46 @@
       "revId": "a28a4c8ca8132f90a1242595a5c2b3b805355eda",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d83580e0_e5c4f9b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-21T11:17:07Z",
+      "side": 1,
+      "message": "LGTM with question",
+      "revId": "a28a4c8ca8132f90a1242595a5c2b3b805355eda",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00a6591d_916471a9",
+        "filename": "front_end/lighthouse_worker/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-21T11:17:07Z",
+      "side": 1,
+      "message": "What prevents this from being a devtools_pre_built or a devtools_entrypoint?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 25
+      },
+      "revId": "a28a4c8ca8132f90a1242595a5c2b3b805355eda",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
