@@ -60,6 +60,9 @@
   <message name="IDS_DEVTOOLS_7828f7fcacd1ee27cb2c88647b86a748" desc="Label for unique text colors in the CSS Overview Panel">
     Text colors: <ph name="SORTEDTEXTCOLORS_LENGTH">$1s<ex>32</ex></ph>
   </message>
+  <message name="IDS_DEVTOOLS_7df813dcd202f5ad78c5b61a4707498d" desc="Label for low contrast warning in the CSS Overview panel">
+    low contrast
+  </message>
   <message name="IDS_DEVTOOLS_811b0dc0576a9743353448d08b400f45" desc="Label for the number of Attribute selectors in the CSS Overview report">
     Attribute selectors
   </message>
