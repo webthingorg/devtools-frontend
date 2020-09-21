@@ -16,6 +16,23 @@
       "revId": "69e1af5b0cddabc8768fe8813b935e440231d805",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a09907e_9e669164",
+        "filename": "test/e2e/elements/adornment_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-21T13:45:49Z",
+      "side": 1,
+      "message": "Can we use a waitFor function or similar instead of a timeout?",
+      "revId": "69e1af5b0cddabc8768fe8813b935e440231d805",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
