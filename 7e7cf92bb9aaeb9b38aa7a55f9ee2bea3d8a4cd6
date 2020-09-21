@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "350b35d8_4e2f97f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-09-21T08:49:30Z",
+      "side": 1,
+      "message": "lgtm % question",
+      "revId": "7e7cf92bb9aaeb9b38aa7a55f9ee2bea3d8a4cd6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9504012e_704f1112",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 12
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-09-21T08:49:30Z",
+      "side": 1,
+      "message": "Does _CollectStrings need to run after _CheckDevtoolsLocalization? Otherwise we could add it to _CommonChecks. If so, we should probably leave a comment, otherwise someone might refactor it.",
+      "range": {
+        "startLine": 474,
+        "startChar": 5,
+        "endLine": 474,
+        "endChar": 58
+      },
+      "revId": "7e7cf92bb9aaeb9b38aa7a55f9ee2bea3d8a4cd6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
