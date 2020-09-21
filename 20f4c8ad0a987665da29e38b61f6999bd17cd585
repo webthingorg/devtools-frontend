@@ -16,6 +16,24 @@
       "revId": "20f4c8ad0a987665da29e38b61f6999bd17cd585",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4ff2bbd_78d2b49c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-21T15:49:33Z",
+      "side": 1,
+      "message": "They don\u0027t have to be updated _yet_, but they will do soon when another CL I have to enforce explicit interfaces for the `set data` function lands (tomorrow). That\u0027s how I found this bug. Given that, and the fact that this change broke 3 unit tests, I\u0027m not sure it\u0027s worth any more explicit tests.",
+      "parentUuid": "30da62f0_f505d04a",
+      "revId": "20f4c8ad0a987665da29e38b61f6999bd17cd585",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
