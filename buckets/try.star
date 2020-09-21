@@ -95,6 +95,14 @@ builder_coverage(
   execution_timeout=2 * time.hour,
 )
 
+builder_coverage(
+  covered_oss = ["linux"],
+  builder_factory = try_builder,
+  builder_name_pattern = "devtools_frontend_%s_dbg",
+  recipe_name="devtools/devtools-frontend",
+  execution_timeout=2 * time.hour,
+)
+
 luci.list_view(
   name="tryserver",
   title="Tryserver",
@@ -140,6 +148,7 @@ cq_master_experiment_builders = [
   'dtf_linux_experiments',
   'devtools_backend_mac_rel',
   'devtools_backend_win64_rel',
+  'devtools_frontend_linux_dbg',
 ]
 
 def experiment_builder(builder):
