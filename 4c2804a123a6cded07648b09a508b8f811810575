@@ -16,6 +16,46 @@
       "revId": "4c2804a123a6cded07648b09a508b8f811810575",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97d30434_f45b48e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-09-21T08:00:47Z",
+      "side": 1,
+      "message": "Mathias PTAL as well",
+      "revId": "4c2804a123a6cded07648b09a508b8f811810575",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "46957881_fa11947e",
+        "filename": "front_end/emulation/DeviceModeView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-09-21T08:00:47Z",
+      "side": 1,
+      "message": "Looks like closure does not know about this type, and even tip-of-tree closure doesn\u0027t have it yet. We might need to ignore the type error here for closure.\n\nDoes \n\n/** @suppress {undefinedVars} */\n\nwork?\n\nYou can run the closure type checker locally with\n   npm run check-type-closure",
+      "range": {
+        "startLine": 536,
+        "startChar": 45,
+        "endLine": 536,
+        "endChar": 58
+      },
+      "revId": "4c2804a123a6cded07648b09a508b8f811810575",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
