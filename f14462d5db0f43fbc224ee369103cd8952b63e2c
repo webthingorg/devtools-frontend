@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50fd9a82_746c200d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-21T14:44:40Z",
+      "side": 1,
+      "message": "LGTM. I think it could be generalised a bit more, but if you want to land it as-is, that\u0027s fine.",
+      "revId": "f14462d5db0f43fbc224ee369103cd8952b63e2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25eac272_e07ae429",
+        "filename": "test/unittests/front_end/helpers/DOMHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-21T14:44:40Z",
+      "side": 1,
+      "message": "This works, but it might be better to waitForScrollFinish and detect between polls that the last known scrollLeft is the current scrollLeft?",
+      "range": {
+        "startLine": 95,
+        "startChar": 16,
+        "endLine": 95,
+        "endChar": 33
+      },
+      "revId": "f14462d5db0f43fbc224ee369103cd8952b63e2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
