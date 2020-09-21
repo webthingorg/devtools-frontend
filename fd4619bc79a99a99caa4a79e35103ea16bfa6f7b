@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a2dafb0_83296004",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2020-09-21T14:05:43Z",
+      "side": 1,
+      "message": "This is just a simple cosmetic cl. All sources were reformatted with `lucicfg format`.\nPTAL\nThanks!",
+      "revId": "fd4619bc79a99a99caa4a79e35103ea16bfa6f7b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
