@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eaafa420_8eab47c2",
+        "filename": "front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-21T11:11:44Z",
+      "side": 1,
+      "message": "I will update the building UI doc to recommend this over removing/adding DOM",
+      "range": {
+        "startLine": 173,
+        "startChar": 0,
+        "endLine": 173,
+        "endChar": 54
+      },
+      "revId": "7fede25605a2fc04c30362a38dc74e5c93af6ebb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d81964c_537ad017",
+        "filename": "front_end/elements/ElementsBreadcrumbs.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-21T11:11:44Z",
+      "side": 1,
+      "message": "follow up CLs will enforce this pattern via the bridges regenerator (well, they will enforce if you use .data you must use `as X`).",
+      "range": {
+        "startLine": 289,
+        "startChar": 12,
+        "endLine": 289,
+        "endChar": 62
+      },
+      "revId": "7fede25605a2fc04c30362a38dc74e5c93af6ebb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
