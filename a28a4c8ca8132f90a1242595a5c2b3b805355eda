@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a6cbd754_bd8ea1e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-21T11:11:18Z",
+      "side": 1,
+      "message": "After investigation, it is unlikely this CL caused the build issues we were observing in the post-commit CQ. We are relanding, given that we have no indication this CL is the culprit.",
+      "revId": "a28a4c8ca8132f90a1242595a5c2b3b805355eda",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
