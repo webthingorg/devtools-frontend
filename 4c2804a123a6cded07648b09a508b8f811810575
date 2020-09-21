@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "b0585f94_92850e9f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-21T08:35:24Z",
+      "side": 1,
+      "message": "For other commits that introduce UI changes, we tend to include a line like this:\n\n    Screenshot: https://i.imgur.com/...\n\nConsider doing the same here?",
+      "revId": "4c2804a123a6cded07648b09a508b8f811810575",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0bda34e4_2f05f013",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -36,6 +53,46 @@
     },
     {
       "key": {
+        "uuid": "72978d53_ed0f549f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-21T08:35:24Z",
+      "side": 1,
+      "message": "Please double-check that this works even when \"Emulate a focused page\" is enabled. This is an interesting case, since only pages in active tabs can write to the clipboard without requesting permission — and so, we want to make sure DevTools is still considered to be \"active\" even when we\u0027re pretending another document is the active one.\n\nThe code LGTM % nits, but I have some additional comments. We have different types of screenshots:\n\n- \"area screenshot\"\n- \"full size screenshot\"\n- \"node screenshot\"\n- \"screenshot\"\n\nThis CL only adds the copy option to one of them. We could do the same for the others, but that would be adding lots of additional command menu entries… PeMu, do you have any thoughts here? Is there a better way?",
+      "revId": "4c2804a123a6cded07648b09a508b8f811810575",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ee8b431_3619b119",
+        "filename": "front_end/emulation/DeviceModeView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-21T08:35:24Z",
+      "side": 1,
+      "message": "naming: how about `copyToClipboard`? There\u0027s nothing image-specific to this code (other than the console.error(), which we can rephrase) — it works for arbitrary blobs",
+      "range": {
+        "startLine": 534,
+        "startChar": 19,
+        "endLine": 534,
+        "endChar": 28
+      },
+      "revId": "4c2804a123a6cded07648b09a508b8f811810575",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "46957881_fa11947e",
         "filename": "front_end/emulation/DeviceModeView.js",
         "patchSetId": 2
@@ -51,6 +108,52 @@
         "startLine": 536,
         "startChar": 45,
         "endLine": 536,
+        "endChar": 58
+      },
+      "revId": "4c2804a123a6cded07648b09a508b8f811810575",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aaaa7027_b55b718c",
+        "filename": "front_end/emulation/DeviceModeView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-21T08:35:24Z",
+      "side": 1,
+      "message": "nit: error",
+      "range": {
+        "startLine": 537,
+        "startChar": 15,
+        "endLine": 537,
+        "endChar": 18
+      },
+      "revId": "4c2804a123a6cded07648b09a508b8f811810575",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73f123f2_8ff7d086",
+        "filename": "front_end/emulation/DeviceModeView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-21T08:35:24Z",
+      "side": 1,
+      "message": "nit: remove trailing space (separate parameters are already space-separated)",
+      "range": {
+        "startLine": 538,
+        "startChar": 57,
+        "endLine": 538,
         "endChar": 58
       },
       "revId": "4c2804a123a6cded07648b09a508b8f811810575",
