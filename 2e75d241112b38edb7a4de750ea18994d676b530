@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "83e8121d_8c611a37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-21T13:09:42Z",
+      "side": 1,
+      "message": "Removed auto-submit status to wait for CSS Grid experiment CL to land first.",
+      "revId": "2e75d241112b38edb7a4de750ea18994d676b530",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
