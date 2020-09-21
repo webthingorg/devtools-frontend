@@ -848,10 +848,12 @@ export class ExperimentsSupport {
   constructor() {
     /** @type {!Array<!Experiment>} */
     this._experiments = [];
-    /** @type {!Object<string,boolean>} */
-    this._experimentNames = {};
-    /** @type {!Object<string,boolean>} */
-    this._enabledTransiently = {};
+    /** @type {!Set<string>} */
+    this._experimentNames = new Set();
+    /** @type {!Set<string>} */
+    this._enabledTransiently = new Set();
+    /** @type {!Set<string>} */
+    this._enabledByDefault = new Set();
     /** @type {!Set<string>} */
     this._serverEnabled = new Set();
   }
@@ -863,7 +865,7 @@ export class ExperimentsSupport {
     const result = [];
     for (let i = 0; i < this._experiments.length; i++) {
       const experiment = this._experiments[i];
-      if (!this._enabledTransiently[experiment.name]) {
+      if (!this._enabledTransiently.has(experiment.name)) {
         result.push(experiment);
       }
     }
@@ -893,8 +895,9 @@ export class ExperimentsSupport {
   * @param {boolean=} unstable
   */
   register(experimentName, experimentTitle, unstable) {
-    Runtime._assert(!this._experimentNames[experimentName], 'Duplicate registration of experiment ' + experimentName);
-    this._experimentNames[experimentName] = true;
+    Runtime._assert(
+        !this._experimentNames.has(experimentName), 'Duplicate registration of experiment ' + experimentName);
+    this._experimentNames.add(experimentName);
     this._experiments.push(new Experiment(this, experimentName, experimentTitle, !!unstable));
   }
 
@@ -909,7 +912,7 @@ export class ExperimentsSupport {
     if (Runtime._experimentsSetting()[experimentName] === false) {
       return false;
     }
-    if (this._enabledTransiently[experimentName]) {
+    if (this._enabledTransiently.has(experimentName) || this._enabledByDefault.has(experimentName)) {
       return true;
     }
     if (this._serverEnabled.has(experimentName)) {
@@ -933,10 +936,20 @@ export class ExperimentsSupport {
   /**
   * @param {!Array.<string>} experimentNames
   */
-  setDefaultExperiments(experimentNames) {
+  enableExperimentsTransiently(experimentNames) {
     for (let i = 0; i < experimentNames.length; ++i) {
       this._checkExperiment(experimentNames[i]);
-      this._enabledTransiently[experimentNames[i]] = true;
+      this._enabledTransiently.add(experimentNames[i]);
+    }
+  }
+
+  /**
+  * @param {!Array.<string>} experimentNames
+  */
+  enableExperimentsByDefault(experimentNames) {
+    for (const experimentName of experimentNames) {
+      this._checkExperiment(experimentName);
+      this._enabledByDefault.add(experimentName);
     }
   }
 
@@ -955,13 +968,14 @@ export class ExperimentsSupport {
   */
   enableForTest(experimentName) {
     this._checkExperiment(experimentName);
-    this._enabledTransiently[experimentName] = true;
+    this._enabledTransiently.add(experimentName);
   }
 
   clearForTest() {
     this._experiments = [];
-    this._experimentNames = {};
-    this._enabledTransiently = {};
+    this._experimentNames.clear();
+    this._enabledTransiently.clear();
+    this._enabledByDefault.clear();
     this._serverEnabled.clear();
   }
 
@@ -969,10 +983,12 @@ export class ExperimentsSupport {
     const experimentsSetting = Runtime._experimentsSetting();
     /** @type {!Object<string,boolean>} */
     const cleanedUpExperimentSetting = {};
-    for (let i = 0; i < this._experiments.length; ++i) {
-      const experimentName = this._experiments[i].name;
-      if (experimentsSetting[experimentName]) {
-        cleanedUpExperimentSetting[experimentName] = true;
+    for (const {name: experimentName} of this._experiments) {
+      if (experimentsSetting.hasOwnProperty(experimentName)) {
+        const isEnabled = experimentsSetting[experimentName];
+        if (isEnabled || this._enabledByDefault.has(experimentName)) {
+          cleanedUpExperimentSetting[experimentName] = isEnabled;
+        }
       }
     }
     this._setExperimentsSetting(cleanedUpExperimentSetting);
@@ -982,7 +998,7 @@ export class ExperimentsSupport {
   * @param {string} experimentName
   */
   _checkExperiment(experimentName) {
-    Runtime._assert(this._experimentNames[experimentName], 'Unknown experiment ' + experimentName);
+    Runtime._assert(this._experimentNames.has(experimentName), 'Unknown experiment ' + experimentName);
   }
 }
 
