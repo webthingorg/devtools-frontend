@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fd2f3381_340b2623",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-09-21T07:51:00Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem to have a corresponding CI builder. I strongly suggest to add those in pairs as investigations on a tryserver-only builders can get very hairy.\n\nI don\u0027t see a commit-queue change. Shouldn\u0027t every builder get an includable-only entry?",
+      "revId": "4b403231a570583f9b5aba1d8a40763b95574b26",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d1c96c00_295a5fec",
+        "filename": "buckets/try.star",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-09-21T07:51:00Z",
+      "side": 1,
+      "message": "nit: Put it next to the release builder. I.e. line 89",
+      "range": {
+        "startLine": 101,
+        "startChar": 26,
+        "endLine": 101,
+        "endChar": 50
+      },
+      "revId": "4b403231a570583f9b5aba1d8a40763b95574b26",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
