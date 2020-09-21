@@ -50,8 +50,6 @@ Network.NetworkItemView = NetworkModule.NetworkItemView.NetworkItemView;
  */
 Network.NetworkLogView = NetworkModule.NetworkLogView.NetworkLogView;
 
-Network.NetworkLogView._isFilteredOutSymbol = NetworkModule.NetworkLogView.isFilteredOutSymbol;
-
 /** @enum {string} */
 Network.NetworkLogView.FilterType = NetworkModule.NetworkLogView.FilterType;
 
