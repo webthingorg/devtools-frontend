@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa465a86_f5b9b131",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-21T13:09:09Z",
+      "side": 1,
+      "message": "The cleanup has been moved to this CL: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2421695",
+      "revId": "e945e428fba66f106f5f8cd1ce9e0b70944dce77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
