@@ -22,6 +22,30 @@
       "revId": "076fddf19f3228a0614f90bf654fab37c3501183",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc3804be_66b5517a",
+        "filename": "front_end/network/BinaryResourceView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-21T10:57:38Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "93d135df_415289a4",
+      "range": {
+        "startLine": 26,
+        "startChar": 1,
+        "endLine": 29,
+        "endChar": 5
+      },
+      "revId": "076fddf19f3228a0614f90bf654fab37c3501183",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
