@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "4e0ed1e5_6670d835",
+        "filename": "front_end/css_overview/CSSOverviewCompletedView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-21T13:51:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2f00263_c200dd7e",
+      "range": {
+        "startLine": 560,
+        "startChar": 8,
+        "endLine": 560,
+        "endChar": 35
+      },
+      "revId": "eadb91228033ef89a5f64a6f26191bf32297bc2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01163d56_7e505e0c",
         "filename": "front_end/css_overview/CSSOverviewModel.js",
         "patchSetId": 3
@@ -56,6 +80,24 @@
       "revId": "eadb91228033ef89a5f64a6f26191bf32297bc2d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "106e866c_b44040d3",
+        "filename": "front_end/css_overview/CSSOverviewModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-21T13:51:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01163d56_7e505e0c",
+      "revId": "eadb91228033ef89a5f64a6f26191bf32297bc2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
