@@ -51,6 +51,24 @@
       "revId": "07adff47df504c678cdcd371907f9b5df4ac9944",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b11a119_540480dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-21T12:34:27Z",
+      "side": 1,
+      "message": "Yes. I feel like this is kind of trivial to do, so I included it in this CL. Do you think it\u0027s better to split this into a separate CL? I wouldn\u0027t mind either way.",
+      "parentUuid": "0878d679_d9da4ad2",
+      "revId": "07adff47df504c678cdcd371907f9b5df4ac9944",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
