@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "677f97ea_9413a754",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-21T13:36:26Z",
+      "side": 1,
+      "message": "Some code readability suggestions, but otherwise the implementation LGTM. Let\u0027s not land this until we’ve discussed the exact design though.",
+      "revId": "eadb91228033ef89a5f64a6f26191bf32297bc2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2f00263_c200dd7e",
+        "filename": "front_end/css_overview/CSSOverviewCompletedView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-21T13:36:26Z",
+      "side": 1,
+      "message": "simpler:\n\n    contrastWarning.append(ls`low contrast`)",
+      "range": {
+        "startLine": 560,
+        "startChar": 8,
+        "endLine": 560,
+        "endChar": 35
+      },
+      "revId": "eadb91228033ef89a5f64a6f26191bf32297bc2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01163d56_7e505e0c",
+        "filename": "front_end/css_overview/CSSOverviewModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-21T13:36:26Z",
+      "side": 1,
+      "message": "simpler:\n\n    const issue \u003d {\n      nodeId,\n      contrastRatio,\n    };\n    if (textColorContrastIssues.has(formatted)) {\n      textColorContrastIssues.get(formatted).push(issue);\n    } else {\n      textColorContrastIssues.set(formatted, [issue]);\n    }",
+      "revId": "eadb91228033ef89a5f64a6f26191bf32297bc2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
