@@ -46,6 +46,30 @@
       "revId": "5f863da9c92410edf3de8cab6d5a832c2835d548",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f6327fd_9fa55ce1",
+        "filename": "front_end/console/ConsoleContextSelector.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1175471
+      },
+      "writtenOn": "2020-09-21T12:30:19Z",
+      "side": 0,
+      "message": "The logic for _hideHighlightTimeout is also in highlightInOverlay [1], so I think that should be fine.\n\n[1] https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/sdk/OverlayModel.js;l\u003d309;drc\u003d855c8b49b0a4a75429c6f7da3c6126a6e2ebe913\n\nAnd yes, after this patch it doesn\u0027t look like highlightFrame is used anywhere else in the frontend, so I guess I can remove it, if we agree on this approach. I\u0027m unsure if I can remove it from the backend (not sure how DevTools API compatibility works).",
+      "parentUuid": "af6fabc2_d9a7d4ac",
+      "range": {
+        "startLine": 70,
+        "startChar": 8,
+        "endLine": 70,
+        "endChar": 35
+      },
+      "revId": "5f863da9c92410edf3de8cab6d5a832c2835d548",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }

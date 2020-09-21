@@ -33,6 +33,24 @@
       "revId": "3ac88a7939837c1c9614ec02363a302fb508439b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e86ca1a0_696fcd50",
+        "filename": "front_end/console/ConsoleContextSelector.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1175471
+      },
+      "writtenOn": "2020-09-21T12:30:19Z",
+      "side": 1,
+      "message": "AFAICT, the extra logic in highlightFrame (that isn\u0027t in highlightNode) is to figure out the frame owner of the frame (which isn\u0027t completely correct, it only works for same process frames). We also have the equivalent of this logic inside ResourceTreeFrame.highlight (but this actually works with OOPIFs, and with a minor tweak, portals).",
+      "parentUuid": "a8e8c33d_b3a3be03",
+      "revId": "3ac88a7939837c1c9614ec02363a302fb508439b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
