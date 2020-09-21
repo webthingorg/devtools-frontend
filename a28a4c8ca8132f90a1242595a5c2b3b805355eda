@@ -80,6 +80,30 @@
       "revId": "a28a4c8ca8132f90a1242595a5c2b3b805355eda",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5752a9a_4fc50b82",
+        "filename": "front_end/lighthouse_worker/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-21T11:20:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1ad84919_c091e0e6",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 25
+      },
+      "revId": "a28a4c8ca8132f90a1242595a5c2b3b805355eda",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
