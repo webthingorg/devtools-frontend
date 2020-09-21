@@ -108,6 +108,29 @@
       "revId": "933e2dc976100507d498a720ad86e654178f4175",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "291147a4_05a6a774",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-21T10:04:38Z",
+      "side": 1,
+      "message": "Just realised that doing conditional rendering in \u003cstyle\u003e tags is not ideal because it breaks the browser\u0027s ability to cache  and optimise the stylesheet (https://lit-html.polymer-project.org/guide/styling-templates#bindings-in-style-sheets).\n\nBut I think we could use `stylemap` and apply these styles onto the element itself? https://lit-html.polymer-project.org/guide/template-reference#stylemap",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 45
+      },
+      "revId": "933e2dc976100507d498a720ad86e654178f4175",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
