@@ -33,6 +33,24 @@
       "revId": "69e1af5b0cddabc8768fe8813b935e440231d805",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72b82a2b_0cb25f3b",
+        "filename": "test/e2e/elements/adornment_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-21T13:54:37Z",
+      "side": 1,
+      "message": "The thing is, there may be adorners at this point, but not all. Waiting for adorners before knowing which ones we want to test is likely to report false positive.\nThat said, maybe I can move this to each test case and wait until the expected number of adorners, with the right state, are displayed.\nI\u0027ll do this.",
+      "parentUuid": "7a09907e_9e669164",
+      "revId": "69e1af5b0cddabc8768fe8813b935e440231d805",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
