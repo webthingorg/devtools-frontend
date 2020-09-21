@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c295e7ad_db44696a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-21T09:26:52Z",
+      "side": 1,
+      "message": "LGTM with nit",
+      "revId": "096a2712f04d964295afd6fe685575284bf6902f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4756e35d_ae5cdd21",
+        "filename": "test/unittests/front_end/helpers/MutationHelpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-21T09:26:52Z",
+      "side": 1,
+      "message": "nit: forEach to go. Also, is there any way we can refactor these two to be less repetitive?",
+      "range": {
+        "startLine": 50,
+        "startChar": 24,
+        "endLine": 50,
+        "endChar": 31
+      },
+      "revId": "096a2712f04d964295afd6fe685575284bf6902f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
