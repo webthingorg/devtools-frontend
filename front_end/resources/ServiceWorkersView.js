@@ -519,12 +519,12 @@ export class Section {
    * @return {!Element}
    */
   _createLink(parent, title, listener, className, useCapture) {
-    const button = parent.createChild('button', className);
-    button.classList.add('link');
-    button.textContent = title;
-    button.tabIndex = 0;
-    button.addEventListener('click', listener, useCapture);
-    return button;
+    const link = parent.createChild('span', className);
+    link.classList.add('link', 'devtools-link');
+    link.textContent = title;
+    link.tabIndex = 0;
+    link.addEventListener('click', listener, useCapture);
+    return link;
   }
 
   /**
