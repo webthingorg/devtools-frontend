@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c17ae8f2_4b514371",
+        "filename": "front_end/wasmparser_worker/WasmParserWorker.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-22T13:18:27Z",
+      "side": 0,
+      "message": "I am not sure why we had this code in the first place, but I assume you have tried `atob` (https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/atob) before? Could you expand the command of the method to explain why `atob` does not work? Or if it does, update the implementation to use that instead.",
+      "range": {
+        "startLine": 73,
+        "startChar": 9,
+        "endLine": 73,
+        "endChar": 21
+      },
+      "revId": "1e2dd0ea032f189bf35179fbf8f27b41cd97ddb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
