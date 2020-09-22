@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6265360c_31074c53",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-22T07:50:05Z",
+      "side": 1,
+      "message": "LGTM in general but will wait for design confirmation.",
+      "revId": "ad6d1e6638acf9d882e497a4a6a9774de71bca51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13a52343_3b554d2e",
+        "filename": "front_end/css_overview/CSSOverviewModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-22T07:50:05Z",
+      "side": 1,
+      "message": "nit: Would it be possible for `colorFormatted` to be null|undefined|empty string in this case? I haven\u0027t looked at `Color.prototype.asString` but just want to make sure. If it\u0027s not possible maybe we can remove this.",
+      "range": {
+        "startLine": 106,
+        "startChar": 6,
+        "endLine": 108,
+        "endChar": 7
+      },
+      "revId": "ad6d1e6638acf9d882e497a4a6a9774de71bca51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
