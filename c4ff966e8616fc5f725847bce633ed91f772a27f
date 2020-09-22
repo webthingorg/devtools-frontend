@@ -33,6 +33,23 @@
       "revId": "c4ff966e8616fc5f725847bce633ed91f772a27f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bfe6967_fb224868",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372953
+      },
+      "writtenOn": "2020-09-22T16:14:42Z",
+      "side": 1,
+      "message": "LGTM for third-party-owners. No way to upvote, so please use this comment as my approval",
+      "revId": "c4ff966e8616fc5f725847bce633ed91f772a27f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
