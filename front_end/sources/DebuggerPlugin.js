@@ -43,7 +43,7 @@ import * as UI from '../ui/ui.js';
 import * as Workspace from '../workspace/workspace.js';
 
 import {AddSourceMapURLDialog} from './AddSourceMapURLDialog.js';
-import {BreakpointEditDialog, LogpointPrefix} from './BreakpointEditDialog.js';
+import {BreakpointEditDialog, LogpointPrefix, TracepointPrefix} from './BreakpointEditDialog.js';
 import {Plugin} from './Plugin.js';
 import {resolveExpression, resolveScopeInObject} from './SourceMapNamesResolver.js';
 import {SourcesPanel} from './SourcesPanel.js';
@@ -312,6 +312,9 @@ export class DebuggerPlugin extends Plugin {
         contextMenu.debugSection().appendItem(
             ls`Add logpoint…`,
             this._editBreakpointCondition.bind(this, editorLineNumber, null, null, true /* preferLogpoint */));
+        contextMenu.debugSection().appendItem(
+            ls`Add tracepoint…`,
+            this._editBreakpointCondition.bind(this, editorLineNumber, null, null, null, true /* preferTracepoint */));
         contextMenu.debugSection().appendItem(
             Common.UIString.UIString('Never pause here'),
             this._createNewBreakpoint.bind(this, editorLineNumber, 'false', true));
@@ -748,24 +751,26 @@ export class DebuggerPlugin extends Plugin {
    * @param {?Bindings.BreakpointManager.Breakpoint} breakpoint
    * @param {?{lineNumber: number, columnNumber: number}} location
    * @param {boolean=} preferLogpoint
+   * @param {boolean=} preferTracepoint
    */
-  async _editBreakpointCondition(editorLineNumber, breakpoint, location, preferLogpoint) {
+  async _editBreakpointCondition(editorLineNumber, breakpoint, location, preferLogpoint, preferTracepoint) {
     const oldCondition = breakpoint ? breakpoint.condition() : '';
     const decorationElement = createElement('div');
-    const dialog = new BreakpointEditDialog(editorLineNumber, oldCondition, !!preferLogpoint, async result => {
-      dialog.detach();
-      this._textEditor.removeDecoration(decorationElement, editorLineNumber);
-      if (!result.committed) {
-        return;
-      }
-      if (breakpoint) {
-        breakpoint.setCondition(result.condition);
-      } else if (location) {
-        await this._setBreakpoint(location.lineNumber, location.columnNumber, result.condition, true);
-      } else {
-        await this._createNewBreakpoint(editorLineNumber, result.condition, true);
-      }
-    });
+    const dialog =
+        new BreakpointEditDialog(editorLineNumber, oldCondition, !!preferLogpoint, !!preferTracepoint, async result => {
+          dialog.detach();
+          this._textEditor.removeDecoration(decorationElement, editorLineNumber);
+          if (!result.committed) {
+            return;
+          }
+          if (breakpoint) {
+            breakpoint.setCondition(result.condition);
+          } else if (location) {
+            await this._setBreakpoint(location.lineNumber, location.columnNumber, result.condition, true);
+          } else {
+            await this._createNewBreakpoint(editorLineNumber, result.condition, true);
+          }
+        });
     this._textEditor.addDecoration(decorationElement, editorLineNumber);
     dialog.markAsExternallyManaged();
     dialog.show(decorationElement);
@@ -1295,17 +1300,20 @@ export class DebuggerPlugin extends Plugin {
       this._textEditor.toggleLineClass(editorLineNumber, 'cm-breakpoint-unbound', false);
       this._textEditor.toggleLineClass(editorLineNumber, 'cm-breakpoint-conditional', false);
       this._textEditor.toggleLineClass(editorLineNumber, 'cm-breakpoint-logpoint', false);
+      this._textEditor.toggleLineClass(editorLineNumber, 'cm-breakpoint-tracepoint', false);
 
       if (decorations.length) {
         decorations.sort(BreakpointDecoration.mostSpecificFirst);
         const isDisabled = !decorations[0].enabled || this._muted;
+        const isTracepoint = decorations[0].condition.includes(TracepointPrefix);
         const isLogpoint = decorations[0].condition.includes(LogpointPrefix);
         const isUnbound = !decorations[0].bound;
-        const isConditionalBreakpoint = !!decorations[0].condition && !isLogpoint;
+        const isConditionalBreakpoint = !!decorations[0].condition && !isLogpoint && !isTracepoint;
 
         this._textEditor.toggleLineClass(editorLineNumber, 'cm-breakpoint', true);
         this._textEditor.toggleLineClass(editorLineNumber, 'cm-breakpoint-disabled', isDisabled);
         this._textEditor.toggleLineClass(editorLineNumber, 'cm-breakpoint-unbound', isUnbound && !isDisabled);
+        this._textEditor.toggleLineClass(editorLineNumber, 'cm-breakpoint-tracepoint', isTracepoint);
         this._textEditor.toggleLineClass(editorLineNumber, 'cm-breakpoint-logpoint', isLogpoint);
         this._textEditor.toggleLineClass(editorLineNumber, 'cm-breakpoint-conditional', isConditionalBreakpoint);
       }
@@ -1401,6 +1409,10 @@ export class DebuggerPlugin extends Plugin {
           ls`Add logpoint…`,
           this._editBreakpointCondition.bind(
               this, editorLocation.lineNumber, null, editorLocation, true /* preferLogpoint */));
+      contextMenu.debugSection().appendItem(
+          ls`Add tracepoint…`,
+          this._editBreakpointCondition.bind(
+              this, editorLocation.lineNumber, null, editorLocation, null, true /* preferTracepoint */));
       contextMenu.debugSection().appendItem(
           Common.UIString.UIString('Never pause here'),
           this._setBreakpoint.bind(this, location.lineNumber, location.columnNumber, 'false', true));
@@ -1888,7 +1900,9 @@ export class BreakpointDecoration {
 
   update() {
     const isLogpoint = !!this.condition && this.condition.includes(LogpointPrefix);
-    const isConditionalBreakpoint = !!this.condition && !isLogpoint;
+    const isTracepoint = !!this.condition && this.condition.includes(TracepointPrefix);
+    const isConditionalBreakpoint = !!this.condition && !isLogpoint && !isTracepoint;
+    this.element.classList.toggle('cm-inline-tracepoint', isTracepoint);
     this.element.classList.toggle('cm-inline-logpoint', isLogpoint);
     this.element.classList.toggle('cm-inline-breakpoint-conditional', isConditionalBreakpoint);
     this.element.classList.toggle('cm-inline-disabled', !this.enabled);
@@ -1923,6 +1937,7 @@ export class BreakpointDecoration {
       this._textEditor.toggleLineClass(location.lineNumber, 'cm-breakpoint-unbound', false);
       this._textEditor.toggleLineClass(location.lineNumber, 'cm-breakpoint-conditional', false);
       this._textEditor.toggleLineClass(location.lineNumber, 'cm-breakpoint-logpoint', false);
+      this._textEditor.toggleLineClass(location.lineNumber, 'cm-breakpoint-tracepoint', false);
     }
     this.hide();
   }
