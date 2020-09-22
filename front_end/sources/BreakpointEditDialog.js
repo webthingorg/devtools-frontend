@@ -13,9 +13,10 @@ export class BreakpointEditDialog extends UI.Widget.Widget {
    * @param {number} editorLineNumber
    * @param {string} oldCondition
    * @param {boolean} preferLogpoint
+   * @param {boolean} preferTracepoint
    * @param {function({committed: boolean, condition: string})} onFinish
    */
-  constructor(editorLineNumber, oldCondition, preferLogpoint, onFinish) {
+  constructor(editorLineNumber, oldCondition, preferLogpoint, preferTracepoint, onFinish) {
     super(true);
     this.registerRequiredCSS('sources/breakpointEditDialog.css');
     this._onFinish = onFinish;
@@ -25,12 +26,20 @@ export class BreakpointEditDialog extends UI.Widget.Widget {
     this.element.tabIndex = -1;
 
     const logpointPrefix = LogpointPrefix;
-    const logpointSuffix = LogpointSuffix;
-    this._isLogpoint = oldCondition.startsWith(logpointPrefix) && oldCondition.endsWith(logpointSuffix);
+    const tracepointPrefix = TracepointPrefix;
+    const suffix = Suffix;
+
+    this._isLogpoint = oldCondition.startsWith(logpointPrefix) && oldCondition.endsWith(suffix);
     if (this._isLogpoint) {
-      oldCondition = oldCondition.substring(logpointPrefix.length, oldCondition.length - logpointSuffix.length);
+      oldCondition = oldCondition.substring(logpointPrefix.length, oldCondition.length - suffix.length);
     }
     this._isLogpoint = this._isLogpoint || preferLogpoint;
+
+    this._isTracepoint = oldCondition.startsWith(tracepointPrefix) && oldCondition.endsWith(suffix);
+    if (this._isTracepoint) {
+      oldCondition = oldCondition.substring(tracepointPrefix.length, oldCondition.length - suffix.length);
+    }
+    this._isTracepoint = this._isTracepoint || preferTracepoint;
 
     this.element.classList.add('sources-edit-breakpoint-dialog');
     const toolbar = new UI.Toolbar.Toolbar('source-frame-breakpoint-toolbar', this.contentElement);
@@ -40,7 +49,14 @@ export class BreakpointEditDialog extends UI.Widget.Widget {
     this._typeSelector.createOption(ls`Breakpoint`, BreakpointType.Breakpoint);
     const conditionalOption = this._typeSelector.createOption(ls`Conditional breakpoint`, BreakpointType.Conditional);
     const logpointOption = this._typeSelector.createOption(ls`Logpoint`, BreakpointType.Logpoint);
-    this._typeSelector.select(this._isLogpoint ? logpointOption : conditionalOption);
+    const tracepointOption = this._typeSelector.createOption(ls`Tracepoint`, BreakpointType.Tracepoint);
+    if (this._isLogpoint) {
+      this._typeSelector.select(logpointOption);
+    } else if (this._isTracepoint) {
+      this._typeSelector.select(tracepointOption);
+    } else {
+      this._typeSelector.select(conditionalOption);
+    }
     toolbar.appendToolbarItem(this._typeSelector);
 
     self.runtime.extension(UI.TextEditor.TextEditorFactory).instance().then(factory => {
@@ -71,12 +87,21 @@ export class BreakpointEditDialog extends UI.Widget.Widget {
    * @return {string}
    */
   static _conditionForLogpoint(condition) {
-    return `${LogpointPrefix}${condition}${LogpointSuffix}`;
+    return `${LogpointPrefix}${condition}${Suffix}`;
+  }
+
+  /**
+   * @param {string} condition
+   * @return {string}
+   */
+  static _conditionForTracepoint(condition) {
+    return `${TracepointPrefix}${condition}${Suffix}`;
   }
 
   _onTypeChanged() {
     const value = this._typeSelector.selectedOption().value;
     this._isLogpoint = value === BreakpointType.Logpoint;
+    this._isTracepoint = value === BreakpointType.Tracepoint;
     this._updatePlaceholder();
     if (value === BreakpointType.Breakpoint) {
       this._editor.setText('');
@@ -89,7 +114,7 @@ export class BreakpointEditDialog extends UI.Widget.Widget {
     if (selectedValue === BreakpointType.Conditional) {
       this._editor.setPlaceholder(ls`Expression to check before pausing, e.g. x > 5`);
       this._typeSelector.element.title = ls`Pause only when the condition is true`;
-    } else if (selectedValue === BreakpointType.Logpoint) {
+    } else if ((selectedValue === BreakpointType.Logpoint) || (selectedValue === BreakpointType.Tracepoint)) {
       this._editor.setPlaceholder(ls`Log message, e.g. 'x is', x`);
       this._typeSelector.element.title = ls`Log a message to Console, do not break`;
     }
@@ -107,6 +132,9 @@ export class BreakpointEditDialog extends UI.Widget.Widget {
     let condition = this._editor.text();
     if (this._isLogpoint) {
       condition = BreakpointEditDialog._conditionForLogpoint(condition);
+    }
+    if (this._isTracepoint) {
+      condition = BreakpointEditDialog._conditionForTracepoint(condition);
     }
     this._onFinish({committed, condition});
   }
@@ -133,10 +161,12 @@ export class BreakpointEditDialog extends UI.Widget.Widget {
 }
 
 export const LogpointPrefix = '/** DEVTOOLS_LOGPOINT */ console.log(';
-export const LogpointSuffix = ')';
+export const TracepointPrefix = '/** DEVTOOLS_TRACEPOINT */ console.trace(';
+export const Suffix = ')';
 
 export const BreakpointType = {
   Breakpoint: 'Breakpoint',
   Conditional: 'Conditional',
   Logpoint: 'Logpoint',
+  Tracepoint: 'Tracepoint',
 };
