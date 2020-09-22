@@ -189,15 +189,12 @@ export class MainImpl {
     // Layout personalization
     Root.Runtime.experiments.register('movableTabs', 'Enable support to move tabs between panels');
 
-    Root.Runtime.experiments.enableExperimentsByDefault([
-      'cssGridFeatures',
-    ]);
     Root.Runtime.experiments.cleanUpStaleExperiments();
     const enabledExperiments = Root.Runtime.queryParam('enabledExperiments');
     if (enabledExperiments) {
       Root.Runtime.experiments.setServerEnabledExperiments(enabledExperiments.split(';'));
     }
-    Root.Runtime.experiments.enableExperimentsTransiently([
+    Root.Runtime.experiments.setDefaultExperiments([
       'backgroundServices',
       'backgroundServicesNotifications',
       'backgroundServicesPushMessaging',

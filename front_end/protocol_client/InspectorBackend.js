@@ -291,8 +291,6 @@ export const test = {
   onMessageReceived: null,
 };
 
-const LongPollingMethods = new Set(['CSS.takeComputedStyleUpdates']);
-
 export class SessionRouter {
   /**
    * @param {!Connection} connection
@@ -301,8 +299,6 @@ export class SessionRouter {
     this._connection = connection;
     this._lastMessageId = 1;
     this._pendingResponsesCount = 0;
-    /** @type {!Set<number>} */
-    this._pendingLongPollingMessageIds = new Set();
     this._domainToLogger = new Map();
 
     /** @type {!Map<string, {target: !TargetBase, callbacks: !Map<number, !_Callback>, proxyConnection: (?Connection|undefined)}>} */
@@ -415,10 +411,6 @@ export class SessionRouter {
     }
 
     ++this._pendingResponsesCount;
-    if (LongPollingMethods.has(method)) {
-      this._pendingLongPollingMessageIds.add(messageId);
-    }
-
     const session = this._sessions.get(sessionId);
     if (!session) {
       return;
@@ -502,9 +494,8 @@ export class SessionRouter {
 
       callback(messageObject.error, messageObject.result);
       --this._pendingResponsesCount;
-      this._pendingLongPollingMessageIds.delete(messageObject.id);
 
-      if (this._pendingScripts.length && !this._hasOutstandingNonLongPollingRequests()) {
+      if (this._pendingScripts.length && !this._pendingResponsesCount) {
         this._deprecatedRunAfterPendingDispatches();
       }
     } else {
@@ -526,10 +517,6 @@ export class SessionRouter {
     }
   }
 
-  _hasOutstandingNonLongPollingRequests() {
-    return this._pendingResponsesCount - this._pendingLongPollingMessageIds.size > 0;
-  }
-
   /**
    * @param {function():void=} script
    */
@@ -540,7 +527,7 @@ export class SessionRouter {
 
     // Execute all promises.
     setTimeout(() => {
-      if (!this._hasOutstandingNonLongPollingRequests()) {
+      if (!this._pendingResponsesCount) {
         this._executeAfterPendingDispatches();
       } else {
         this._deprecatedRunAfterPendingDispatches();
@@ -549,7 +536,7 @@ export class SessionRouter {
   }
 
   _executeAfterPendingDispatches() {
-    if (!this._hasOutstandingNonLongPollingRequests()) {
+    if (!this._pendingResponsesCount) {
       const scripts = this._pendingScripts;
       this._pendingScripts = [];
       for (let id = 0; id < scripts.length; ++id) {
