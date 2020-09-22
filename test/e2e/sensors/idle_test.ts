@@ -45,6 +45,16 @@ describe('Idle Emulation on Sensors panel', () => {
     });
   }
 
+  async function waitForIdleDetectorToBeReady() {
+    await step('Waiting for IdleDetector to be ready', async () => {
+      const {target} = getBrowserAndPages();
+      await target.waitForFunction(_state => {
+        const stateEl = document.getElementById('is-loaded');
+        return _state === (stateEl ? stateEl.innerText : '');
+      }, {}, 'IdleDetector is ready');
+    });
+  }
+
   it('includes UI for emulating an idle state', async () => {
     const select = await waitFor('.idle-section select');
     const actual = await select.evaluate(node => node.textContent);
@@ -59,11 +69,12 @@ describe('Idle Emulation on Sensors panel', () => {
     assert.deepEqual(actual, expected);
   });
 
-  // Skip this test since it's preventing Chrome -> DevTools roll: https://crrev.com/c/2420957
-  it.skip('[crbug.com/1130513] changing idle state emulation causes change of the IdleDetector state', async () => {
+  it('changing idle state emulation causes change of the IdleDetector state', async () => {
     await step('opening idle-detector.html', async () => {
       await goToResource('sensors/idle-detector.html');
     });
+
+    await waitForIdleDetectorToBeReady();
 
     const select = await waitFor('.idle-section select');
 
