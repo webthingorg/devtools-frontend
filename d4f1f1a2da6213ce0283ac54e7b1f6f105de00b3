@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "351ae50f_c954fba6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-22T09:13:29Z",
+      "side": 1,
+      "message": "Does this not already work (even without this patch) in modern npm versions? I remember the `--` used to be needed to pass arguments after `npm run`, but it shouldn’t be necessary anymore in the npm version we use for DevTools. Am I misunderstanding this patch?",
+      "revId": "d4f1f1a2da6213ce0283ac54e7b1f6f105de00b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
