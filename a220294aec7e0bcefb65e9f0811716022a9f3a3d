@@ -39,6 +39,30 @@
       "revId": "a220294aec7e0bcefb65e9f0811716022a9f3a3d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe6e75c2_cf7baa64",
+        "filename": "front_end/network/NetworkLogView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 2200,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-22T13:12:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7cecf50f_cce5c281",
+      "range": {
+        "startLine": 2198,
+        "startChar": 0,
+        "endLine": 2200,
+        "endChar": 3
+      },
+      "revId": "a220294aec7e0bcefb65e9f0811716022a9f3a3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
