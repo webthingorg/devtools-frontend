@@ -16,6 +16,24 @@
       "revId": "d3ae2a6f46c98deb782e9f55e2e59e918043ac9e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b823de3_eddadb36",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-09-22T11:04:52Z",
+      "side": 1,
+      "message": "Yes, as far as I can tell, nothing has changed there. However, I found that focus-styles were already inconsistent to begin with at application panel-\u003eservice workers. I have a fix at https://crrev.com/c/2422950.",
+      "parentUuid": "57264da3_5f8e0b67",
+      "revId": "d3ae2a6f46c98deb782e9f55e2e59e918043ac9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
