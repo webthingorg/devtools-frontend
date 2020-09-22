@@ -46,6 +46,30 @@
       "revId": "1e2dd0ea032f189bf35179fbf8f27b41cd97ddb7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9979d4ff_d53a5462",
+        "filename": "front_end/wasmparser_worker/WasmParserWorker.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-22T14:30:45Z",
+      "side": 0,
+      "message": "Ah I see. In any case, as long as we are moving code around, that\u0027s fine by me. Preferably we use `atob`, but we can punt that to a later CL.",
+      "parentUuid": "761b46c6_7f91dbdd",
+      "range": {
+        "startLine": 73,
+        "startChar": 9,
+        "endLine": 73,
+        "endChar": 21
+      },
+      "revId": "1e2dd0ea032f189bf35179fbf8f27b41cd97ddb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
