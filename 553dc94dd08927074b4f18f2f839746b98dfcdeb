@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a14e1d1_99db7b81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-09-22T13:30:19Z",
+      "side": 1,
+      "message": "Following up on your comment to check focus styles (https://crrev.com/c/2391225), I discovered some inconsistencies. PTAL, thanks!",
+      "revId": "553dc94dd08927074b4f18f2f839746b98dfcdeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
