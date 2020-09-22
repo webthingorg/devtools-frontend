@@ -19,6 +19,120 @@
     },
     {
       "key": {
+        "uuid": "cd518fed_df9c9048",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-09-22T16:00:59Z",
+      "side": 1,
+      "message": "This code looks much nicer than manually creating the table, thanks!",
+      "revId": "c8d38e77a071161c080e63200033eeb1cb0f4c7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "58fb9010_73e869ff",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-09-22T16:00:59Z",
+      "side": 1,
+      "message": "nit: is export needed here?",
+      "revId": "c8d38e77a071161c080e63200033eeb1cb0f4c7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ffd89fa_18ab15e4",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-09-22T16:00:59Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "c8d38e77a071161c080e63200033eeb1cb0f4c7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e41e8f70_e2f078ab",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-09-22T16:00:59Z",
+      "side": 1,
+      "message": "How about\n\n  No credentials. Try calling \u003cspan class\u003d\"code\"\u003enavigator.credentials.create()\u003c/span\u003e from your website.\n\nsince that\u0027s what we have on the design doc.\n\n(my vote is still for avoiding adding this string until the next version).",
+      "revId": "c8d38e77a071161c080e63200033eeb1cb0f4c7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f22d36af_9ea4f70e",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-09-22T16:00:59Z",
+      "side": 1,
+      "message": "Cookies?\n\nhttps://media3.giphy.com/media/HGe4zsOVo7Jvy/giphy.gif",
+      "range": {
+        "startLine": 154,
+        "startChar": 73,
+        "endLine": 154,
+        "endChar": 80
+      },
+      "revId": "c8d38e77a071161c080e63200033eeb1cb0f4c7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28e98474_f4c4996d",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-09-22T16:00:59Z",
+      "side": 1,
+      "message": "This would make debugging a failure here harder while not meaningfully handling an error. Maybe it\u0027s better to remove it.",
+      "range": {
+        "startLine": 185,
+        "startChar": 5,
+        "endLine": 187,
+        "endChar": 5
+      },
+      "revId": "c8d38e77a071161c080e63200033eeb1cb0f4c7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7ab35b57_601371be",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 1
@@ -36,6 +150,47 @@
         "endLine": 399,
         "endChar": 21
       },
+      "revId": "c8d38e77a071161c080e63200033eeb1cb0f4c7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21a4344a_b6dac50a",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-09-22T16:00:59Z",
+      "side": 1,
+      "message": "I would say let\u0027s update it for minimum perceived latency.",
+      "parentUuid": "7ab35b57_601371be",
+      "range": {
+        "startLine": 398,
+        "startChar": 4,
+        "endLine": 399,
+        "endChar": 21
+      },
+      "revId": "c8d38e77a071161c080e63200033eeb1cb0f4c7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24351d50_9777ff93",
+        "filename": "front_end/webauthn/webauthn_strings.grdp",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-09-22T16:00:59Z",
+      "side": 1,
+      "message": "These two won\u0027t get translated since we\u0027re past feature freeze. Unless devtools has its own process, my vote is for adding these strings in the next version.",
       "revId": "c8d38e77a071161c080e63200033eeb1cb0f4c7d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
