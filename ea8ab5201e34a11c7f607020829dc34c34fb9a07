@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa6c1b26_f125998f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2020-09-22T11:49:31Z",
+      "side": 1,
+      "message": "I bumped the puppeteer to have `idle-detection` permissions, needed to fix idle e2e test.",
+      "revId": "ea8ab5201e34a11c7f607020829dc34c34fb9a07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
