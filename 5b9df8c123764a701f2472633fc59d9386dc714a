@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "968a65da_a7634dec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-09-22T20:29:46Z",
+      "side": 1,
+      "message": "Localizing some titles for CSS grid, PTAL, thanks! ",
+      "revId": "5b9df8c123764a701f2472633fc59d9386dc714a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
