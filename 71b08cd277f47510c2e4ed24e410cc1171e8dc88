@@ -46,6 +46,30 @@
       "revId": "71b08cd277f47510c2e4ed24e410cc1171e8dc88",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "101d057c_32d609a6",
+        "filename": "front_end/network/NetworkLogView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1627,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-09-22T13:43:47Z",
+      "side": 0,
+      "message": "Ok, after scouring the code again, I couldn\u0027t find anything. I have a feeling that this is related to `highlightMatchedSubstring`, which is also unused:\n\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/network/NetworkDataGridNode.js;l\u003d1036?q\u003dhighlightMatchedSubstring%20-filepath:out\u0026ss\u003dchromium\n\nMaybe we can rip this code out in a follow-up, so its easier to revert in case things \"unexpectedly\" break :)",
+      "parentUuid": "7c654156_f6841c7a",
+      "range": {
+        "startLine": 1624,
+        "startChar": 0,
+        "endLine": 1627,
+        "endChar": 43
+      },
+      "revId": "71b08cd277f47510c2e4ed24e410cc1171e8dc88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
