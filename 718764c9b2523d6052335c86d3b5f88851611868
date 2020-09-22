@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "456a3ec0_5af12bbb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-22T07:08:08Z",
+      "side": 1,
+      "message": "Tested locally, works fine, and the code change is minimal. Good job!",
+      "revId": "718764c9b2523d6052335c86d3b5f88851611868",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
