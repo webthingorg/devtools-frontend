@@ -50,6 +50,23 @@
       "revId": "c4ff966e8616fc5f725847bce633ed91f772a27f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66415fdd_613756bc",
+        "filename": "scripts/deps/download_emscripten.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1348151
+      },
+      "writtenOn": "2020-09-22T18:17:34Z",
+      "side": 1,
+      "message": "Could you add a file level comment and document arguments?",
+      "revId": "c4ff966e8616fc5f725847bce633ed91f772a27f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
