@@ -117,6 +117,8 @@ export class ElementsPanel extends UI.Panel.Panel {
     this._stylesWidget = new StylesSidebarPane();
     this._computedStyleWidget = new ComputedStyleWidget();
     this._metricsWidget = new MetricsSidebarPane();
+    this._stylesWidget.element.classList.add('styles-widget');
+    this._computedStyleWidget.element.classList.add('computed-style-widget');
 
     Common.Settings.Settings.instance()
         .moduleSetting('sidebarPosition')
@@ -851,14 +853,14 @@ export class ElementsPanel extends UI.Panel.Panel {
     const uninstallHackBound = uninstallHack.bind(this);
 
     // Fallback to cover unforeseen cases where text selection has ended.
-    const uninstallHackOnMousemove = /** @param {!Event} event */ event => {
-      if (/** @type {!MouseEvent} */ (event).buttons === 0) {
+    const uninstallHackOnMousemove = /** @param {!MouseEvent} event */ event => {
+      if (event.buttons === 0) {
         uninstallHack.call(this);
       }
     };
 
-    stylePaneWrapperElement.addEventListener('mousedown', /** @param {!Event} event */ event => {
-      if (/** @type {!MouseEvent} */ (event).button !== 0 /* left or main button */) {
+    stylePaneWrapperElement.addEventListener('mousedown', /** @param {!MouseEvent} event */ event => {
+      if (event.button !== 0 /* left or main button */) {
         return;
       }
       this._splitWidget.element.classList.add('disable-resizer-for-elements-hack');
@@ -904,16 +906,38 @@ export class ElementsPanel extends UI.Panel.Panel {
     this._splitWidget.setVertical(splitMode === _splitMode.Vertical);
     this.showToolbarPane(null /* widget */, null /* toggle */);
 
-    const matchedStylePanesWrapper = new UI.Widget.VBox();
-    matchedStylePanesWrapper.element.classList.add('style-panes-wrapper');
-    this._stylesWidget.show(matchedStylePanesWrapper.element);
-    this._setupTextSelectionHack(matchedStylePanesWrapper.element);
-
     const computedStylePanesWrapper = new UI.Widget.VBox();
     computedStylePanesWrapper.element.classList.add('style-panes-wrapper');
     this._computedStyleWidget.show(computedStylePanesWrapper.element);
 
+    const matchedStylePanesWrapper = new UI.SplitWidget.SplitWidget(
+        true /* isVertical */, true /* secondIsSidebar */, 'elements.styles.sidebar.width', 100);
+    matchedStylePanesWrapper.element.classList.add('style-panes-wrapper');
+    matchedStylePanesWrapper.setMainWidget(this._stylesWidget);
+    matchedStylePanesWrapper.hideSidebar();
+    matchedStylePanesWrapper.enableShowModeSaving();
+    matchedStylePanesWrapper.addEventListener(UI.SplitWidget.Events.ShowModeChanged, () => {
+      // TODO: determine if we would ever need the box model at the bottom of the styles pane
+      // because now we have it at three different places
+      showMetricsWidgetInStylesPane();
+    });
+    this._stylesWidget.addEventListener(StylesSidebarPaneEvents.InitialUpdateCompleted, () => {
+      this._stylesWidget.appendToolbarItem(
+          matchedStylePanesWrapper.createShowHideSidebarButton(ls`Computed Styles sidebar`));
+    });
+
+    this._setupTextSelectionHack(matchedStylePanesWrapper.element);
+
     let skippedInitialTabSelectedEvent = false;
+
+    const showMetricsWidgetInStylesPane = () => {
+      const showMergedComputedPane = matchedStylePanesWrapper.showMode() === UI.SplitWidget.ShowMode.Both;
+      if (showMergedComputedPane) {
+        this._metricsWidget.show(computedStylePanesWrapper.element, this._computedStyleWidget.element);
+      } else {
+        this._metricsWidget.show(this._stylesWidget.element);
+      }
+    };
 
     /**
      * @param {!Common.EventTarget.EventTargetEvent} event
@@ -921,13 +945,15 @@ export class ElementsPanel extends UI.Panel.Panel {
     const tabSelected = event => {
       const tabId = /** @type {string} */ (event.data.tabId);
       if (tabId === Common.UIString.UIString('Computed')) {
+        computedStylePanesWrapper.show(computedView.element);
         this._metricsWidget.show(computedStylePanesWrapper.element, this._computedStyleWidget.element);
       } else if (tabId === Common.UIString.UIString('Styles')) {
+        matchedStylePanesWrapper.setSidebarWidget(computedStylePanesWrapper);
         if (this._stylesWidget.initialUpdateCompleted()) {
-          this._metricsWidget.show(matchedStylePanesWrapper.element);
+          showMetricsWidgetInStylesPane();
         } else {
           this._stylesWidget.addEventListener(StylesSidebarPaneEvents.InitialUpdateCompleted, () => {
-            this._metricsWidget.show(matchedStylePanesWrapper.element);
+            showMetricsWidgetInStylesPane();
           });
         }
       }
@@ -955,7 +981,6 @@ export class ElementsPanel extends UI.Panel.Panel {
 
     const computedView = new UI.View.SimpleView(Common.UIString.UIString('Computed'));
     computedView.element.classList.add('composite', 'fill');
-    computedStylePanesWrapper.show(computedView.element);
 
     tabbedPane.addEventListener(UI.TabbedPane.Events.TabSelected, tabSelected, this);
     this.sidebarPaneView.appendView(computedView);
