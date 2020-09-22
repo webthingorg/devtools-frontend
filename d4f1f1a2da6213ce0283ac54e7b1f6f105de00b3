@@ -16,6 +16,23 @@
       "revId": "d4f1f1a2da6213ce0283ac54e7b1f6f105de00b3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18064b58_db24396b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-22T09:19:52Z",
+      "side": 1,
+      "message": "LGTM to unblock, but PTAL my comment as I\u0027d love to understand why this patch helps. Maybe we should instead force-update the `npm` version we use on the bots?",
+      "revId": "d4f1f1a2da6213ce0283ac54e7b1f6f105de00b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
