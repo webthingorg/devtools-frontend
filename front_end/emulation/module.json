@@ -121,6 +121,24 @@
       "tags": "device"
     },
     {
+      "type": "setting",
+      "category": "Mobile",
+      "settingName": "emulation.reloadAfterEmulationChange",
+      "settingType": "boolean",
+      "defaultValue": true,
+      "options": [
+        {
+          "value": true,
+          "title": "Do not reload page after rotation or spanning"
+        },
+        {
+          "value": false,
+          "title": "Reload page after rotation or spanning"
+        }
+      ],
+      "tags": "device"
+    },
+    {
       "type": "view",
       "location": "settings-view",
       "id": "devices",

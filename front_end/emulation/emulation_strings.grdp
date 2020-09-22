@@ -39,6 +39,9 @@
   <message name="IDS_DEVTOOLS_55c0b68e68ef5e4d687c6170f80b3d49" desc="Description of the Emulate Idle State select in Sensors tab">
     Forces selected idle state emulation
   </message>
+  <message name="IDS_DEVTOOLS_5af3093a8586c566cd8f5826c5b71fbf" desc="Title of menu item for changing reload behavior setting to not reload">
+    Do not reload page after rotation or spanning
+  </message>
   <message name="IDS_DEVTOOLS_769667ac82abe561c47b57d183f6aa57" desc="Title of a section option in Sensors tab for idle emulation">
     Emulate Idle Detector state
   </message>
@@ -284,6 +287,9 @@
   </message>
   <message name="IDS_DEVTOOLS_a7e2da1e5160847a88912b69027bca09" desc="Stage element title in Sensors View of the Device Toolbar">
     Enable orientation to rotate
+  </message>
+  <message name="IDS_DEVTOOLS_b30d42f27708daa4e5303146238e7fa7" desc="Title of menu item for changing reloading behavior setting to reload">
+    Reload page after rotation or spanning
   </message>
   <message name="IDS_DEVTOOLS_c15b53cb50624f0e86e1a9ef5a9dd120" desc="Title of the span/un-span button">
     Toggle dual-screen mode
