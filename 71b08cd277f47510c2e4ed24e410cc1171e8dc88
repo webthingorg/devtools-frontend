@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7fa29e19_bb2e2294",
+        "filename": "front_end/network/NetworkLogView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1627,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-09-22T06:03:04Z",
+      "side": 0,
+      "message": "I once assumed that similar code is unused and removed it, but it is hooked up into the UI machinery in some weird way.\n\nCould you please double check if this is really safe to remove?",
+      "range": {
+        "startLine": 1624,
+        "startChar": 0,
+        "endLine": 1627,
+        "endChar": 43
+      },
+      "revId": "71b08cd277f47510c2e4ed24e410cc1171e8dc88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

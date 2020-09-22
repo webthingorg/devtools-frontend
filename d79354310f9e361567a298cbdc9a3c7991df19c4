@@ -16,6 +16,64 @@
       "revId": "d79354310f9e361567a298cbdc9a3c7991df19c4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35b14920_34767f77",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-09-22T06:03:04Z",
+      "side": 1,
+      "message": "I fear this will need a 3-way change either way. IMO the path where we loose no coverage is best, so I propose we:\n\n1) In a separate CL: Introduce a new static method on NetworkLogView named `IsNodeFilteredOut` that initially checks the symbol\n2) Rewrite all use sites in layout tests to use the static method instead of checking the symbol directly\n3) Land this CL and re-write `IsNodeFilteredOut` to use the WeakSet instead.\n\nI know its painful, but I strongly prefer this over loosing coverage. We would need 3 CLs either way (disable the tests, land this CL, update the/re-enable the tests).\n\nWdyt?",
+      "parentUuid": "d0d09c80_ff8dd665",
+      "revId": "d79354310f9e361567a298cbdc9a3c7991df19c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f77a476a_c73f2c0a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-09-22T06:03:04Z",
+      "side": 1,
+      "message": "overall lgtm, but some open questions",
+      "revId": "d79354310f9e361567a298cbdc9a3c7991df19c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35687b33_c2416c25",
+        "filename": "front_end/network/NetworkLogView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2204,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-09-22T06:03:04Z",
+      "side": 1,
+      "message": "nit: Wdyt about naming this `filteredNetworkRequests`?",
+      "range": {
+        "startLine": 2204,
+        "startChar": 6,
+        "endLine": 2204,
+        "endChar": 34
+      },
+      "revId": "d79354310f9e361567a298cbdc9a3c7991df19c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
