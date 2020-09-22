@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "23943bcf_70fdbc8e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2020-09-22T08:57:14Z",
+      "side": 1,
+      "message": "Maybe we can use the same pattern we use in the element overlay and show a visual example of the worst contrast combination: https://i.imgur.com/061VXWU.png What do you think?",
+      "revId": "ad6d1e6638acf9d882e497a4a6a9774de71bca51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13a52343_3b554d2e",
         "filename": "front_end/css_overview/CSSOverviewModel.js",
         "patchSetId": 4
