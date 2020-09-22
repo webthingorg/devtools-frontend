@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d22e52e8_9a349187",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-09-22T08:35:29Z",
+      "side": 1,
+      "message": "Third party review: PTAL, adding emscripten-releases as third_party to devtools-frontend via a hook",
+      "revId": "c4ff966e8616fc5f725847bce633ed91f772a27f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
