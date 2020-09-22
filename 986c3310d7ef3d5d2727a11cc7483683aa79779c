@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "216beba2_c8055e25",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-22T13:04:41Z",
+      "side": 1,
+      "message": "PTAL I have checked the color with Peter and it looks good to him.",
+      "revId": "986c3310d7ef3d5d2727a11cc7483683aa79779c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
