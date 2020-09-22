@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "16a555c8_10e10b82",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-09-22T14:16:07Z",
+      "side": 1,
+      "message": "Sigurd/Peter - any further feedback or is this ready to merge?\n\nThis now sets the visibility of the checkbox to false so the functionality is hidden from end users. The test toggles the hidden checkbox so we can still verify this is working as intended. CL description and screenshot have been updated to match latest behavior.",
+      "revId": "15d2a2b44aa0af60cd66587197530f760214e0a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
