@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c6bea214_92d5dad7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-22T10:17:14Z",
+      "side": 1,
+      "message": "Philip answered this one offline: every call to npm shaves off one layer of --",
+      "parentUuid": "351ae50f_c954fba6",
+      "revId": "d4f1f1a2da6213ce0283ac54e7b1f6f105de00b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18064b58_db24396b",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
