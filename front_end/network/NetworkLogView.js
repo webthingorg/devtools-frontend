@@ -2195,6 +2195,13 @@ export class NetworkLogView extends UI.Widget.VBox {
 export const isFilteredOutSymbol = Symbol('isFilteredOut');
 export const _networkNodeSymbol = Symbol('NetworkNode');
 
+/**
+ * @param {!NetworkRequestNode} request
+ */
+export function isRequestFilteredOut(request) {
+  return request[isFilteredOutSymbol] === true;
+}
+
 export const HTTPSchemas = {
   'http': true,
   'https': true,
