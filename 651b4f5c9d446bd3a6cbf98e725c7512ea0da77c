@@ -33,6 +33,24 @@
       "revId": "651b4f5c9d446bd3a6cbf98e725c7512ea0da77c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef7d1ae7_074b7763",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-22T10:04:20Z",
+      "side": 1,
+      "message": "To be clear, it would also be fine (and perhaps better) to change this in a follow-up CL, that also changes the other UI strings in this panel.",
+      "parentUuid": "90b9fb09_06939c8b",
+      "revId": "651b4f5c9d446bd3a6cbf98e725c7512ea0da77c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
