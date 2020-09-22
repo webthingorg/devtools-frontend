@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70848be7_f6c87692",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-22T10:03:36Z",
+      "side": 1,
+      "message": "LGTM % writing standards nit",
+      "revId": "651b4f5c9d446bd3a6cbf98e725c7512ea0da77c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90b9fb09_06939c8b",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-22T10:03:36Z",
+      "side": 1,
+      "message": "Chrome UX writing standards are to use sentence case (\"Text track\", \"No text tracks\"). It\u0027s true that DevTools is not yet doing this consistently but since this is new code, let\u0027s change it? https://carbon.googleplex.com/chrome-ux/pages/introduction",
+      "revId": "651b4f5c9d446bd3a6cbf98e725c7512ea0da77c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
