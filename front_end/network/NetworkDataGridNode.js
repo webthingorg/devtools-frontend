@@ -242,6 +242,13 @@ export class NetworkNode extends DataGrid.SortableDataGrid.SortableDataGridNode 
   }
 
   /**
+   * @return {string}
+   */
+  displayType() {
+    return '';
+  }
+
+  /**
    * @override
    * @param {string} columnId
    * @return {!HTMLElement}
