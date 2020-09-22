@@ -22,6 +22,30 @@
       "revId": "1e2dd0ea032f189bf35179fbf8f27b41cd97ddb7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "761b46c6_7f91dbdd",
+        "filename": "front_end/wasmparser_worker/WasmParserWorker.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-22T13:24:21Z",
+      "side": 0,
+      "message": "The CL that introduced it is here: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2235817\n\nI am not sure if atob would work, maybe Benedikt can explain?",
+      "parentUuid": "c17ae8f2_4b514371",
+      "range": {
+        "startLine": 73,
+        "startChar": 9,
+        "endLine": 73,
+        "endChar": 21
+      },
+      "revId": "1e2dd0ea032f189bf35179fbf8f27b41cd97ddb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
