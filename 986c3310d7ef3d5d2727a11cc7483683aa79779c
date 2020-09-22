@@ -33,6 +33,24 @@
       "revId": "986c3310d7ef3d5d2727a11cc7483683aa79779c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "78051bb5_6105a9cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-22T13:17:03Z",
+      "side": 1,
+      "message": "Added light mode screenshot.",
+      "parentUuid": "6bc2bdfa_61d114d2",
+      "revId": "986c3310d7ef3d5d2727a11cc7483683aa79779c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
