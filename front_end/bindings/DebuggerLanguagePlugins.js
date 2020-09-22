@@ -10,27 +10,131 @@ import {ContentProviderBasedProject} from './ContentProviderBasedProject.js';
 import {DebuggerWorkspaceBinding} from './DebuggerWorkspaceBinding.js';  // eslint-disable-line no-unused-vars
 import {NetworkProject} from './NetworkProject.js';
 
-class SourceVariable extends SDK.RemoteObject.RemoteObjectImpl {
+class SourceType {
+  /**
+   * @param {!TypeInfo} typeInfo
+   * @param {!Array<!SourceType>} members
+   */
+  constructor(typeInfo, members) {
+    /** @type {!TypeInfo} */
+    this.typeInfo = typeInfo;
+    /** @type {!Array<!SourceType>} */
+    this.members = members;
+  }
+
+  /** Create a type graph
+   * @param {!Array<!TypeInfo>} typeInfos
+   * @return {?SourceType}
+   */
+  static create(typeInfos) {
+    if (typeInfos.length === 0) {
+      return null;
+    }
+    /** @type Map<unknown, !SourceType> */
+    const typeMap = new Map();
+    for (const typeInfo of typeInfos) {
+      typeMap.set(typeInfo.typeId, new SourceType(typeInfo, []));
+    }
+
+    for (const sourceType of typeMap.values()) {
+      sourceType.members = sourceType.typeInfo.members.map(({typeId}) => {
+        const memberType = typeMap.get(typeId);
+        if (!memberType) {
+          throw new Error(`Incomplete type information for type ${typeInfos[0].typeName || '<anonymous>'}`);
+        }
+        return memberType;
+      });
+    }
+
+    return typeMap.get(typeInfos[0].typeId) || null;
+  }
+}
+
+class EvalNode extends SDK.RemoteObject.RemoteObjectImpl {
   /**
    * @param {!SDK.DebuggerModel.CallFrame} callFrame
-   * @param {!Variable} variable
    * @param {!DebuggerLanguagePlugin} plugin
-   * @param {!RawLocation} location
+   * @param {!EvalBase} base
+   * @param {!Array<!FieldInfo>} field
+   * @return {!Promise<!SDK.RemoteObject.RemoteObject>}
    */
-  constructor(callFrame, variable, plugin, location) {
-    const variable_type = variable.type.replace(/[ ]/g, '_');
+  static async evaluate(callFrame, plugin, base, field) {
+    const script = callFrame.script;
+    /** @type {!RawLocation}} */
+    const location = {
+      'rawModuleId': script.sourceURL,
+      'codeOffset': callFrame.location().columnNumber - (script.codeOffset() || 0)
+    };
+
+    let evalCode = await plugin.getFormatter({base, field}, location);
+    if (!evalCode) {
+      evalCode = {js: ''};
+    }
+    const response = await callFrame.debuggerModel._agent.invoke_evaluateOnCallFrame({
+      callFrameId: callFrame.id,
+      expression: evalCode.js,
+      generatePreview: true,
+      includeCommandLineAPI: true,
+      objectGroup: 'console',
+      returnByValue: false,
+      silent: false
+    });
+
+    return callFrame.debuggerModel.runtimeModel().createRemoteObject(response.result);
+  }
+
+  /**
+   * @param {!SDK.DebuggerModel.CallFrame} callFrame
+   * @param {!DebuggerLanguagePlugin} plugin
+   * @param {string} expression
+   * @return {!Promise<!SDK.RemoteObject.RemoteObject>}
+   */
+  static async get(callFrame, plugin, expression) {
+    const script = callFrame.script;
+    /** @type {!RawLocation}} */
+    const location = {
+      'rawModuleId': script.sourceURL,
+      'codeOffset': callFrame.location().columnNumber - (script.codeOffset() || 0)
+    };
+
+    const typeInfo = await plugin.getTypeInfo(expression, location);
+    if (!typeInfo) {
+      return new SDK.RemoteObject.LocalJSONObject(undefined);
+    }
+    const {base, typeInfos} = typeInfo;
+    const sourceType = SourceType.create(typeInfos);
+    if (!sourceType) {
+      return new SDK.RemoteObject.LocalJSONObject(undefined);
+    }
+    if (sourceType.typeInfo.hasValue && !sourceType.typeInfo.canExpand && base) {
+      return EvalNode.evaluate(callFrame, plugin, base, []);
+    }
+
+    return new EvalNode(callFrame, plugin, sourceType, base, []);
+  }
+
+  /**
+   * @param {!SDK.DebuggerModel.CallFrame} callFrame
+   * @param {!DebuggerLanguagePlugin} plugin
+   * @param {!SourceType} sourceType
+   * @param {?EvalBase} base
+   * @param {!Array<!FieldInfo>} fieldChain
+   */
+  constructor(callFrame, plugin, sourceType, base, fieldChain) {
+    const variable_type = sourceType.typeInfo.typeName.replace(/[ ]/g, '_');
     super(
         callFrame.debuggerModel.runtimeModel(), /* objectId=*/ undefined,
         /* type=*/ variable_type,
         /* subtype=*/ undefined, /* value=*/ null, /* unserializableValue=*/ undefined,
-        /* customPreview=*/ variable.type);
-    this._variable = variable;
+        /* customPreview=*/ sourceType.typeInfo.typeName);
     this._variable_type = variable_type;
     this._callFrame = callFrame;
     this._plugin = plugin;
-    this._location = location;
-    this._hasChildren = true;
-    this._evaluator = null;
+    /** @type {!SourceType} */
+    this._sourceType = sourceType;
+    this._base = base;
+    this._fieldChain = fieldChain;
+    this._hasChildren = true;  // FIXME for top-level stuff with a value
   }
 
   /**
@@ -42,78 +146,15 @@ class SourceVariable extends SDK.RemoteObject.RemoteObjectImpl {
   }
 
   /**
-   * @return {!Promise<?EvaluatorModule>}
+   * @param {!SourceType} sourceType
+   * @param {!FieldInfo} fieldInfo
+   * @return {!Promise<!SDK.RemoteObject.RemoteObject>}
    */
-  async _getEvaluator() {
-    if (!this._evaluator) {
-      this._evaluator = await this._plugin.evaluateVariable(this._variable.name, this._location).catch(error => {
-        Common.Console.Console.instance().warn(ls`Error in debugger language plugin: ${error.message} (${error.code})`);
-        return null;
-      });
+  async _expandMember(sourceType, fieldInfo) {
+    if (sourceType.typeInfo.hasValue && !sourceType.typeInfo.canExpand && this._base) {
+      return EvalNode.evaluate(this._callFrame, this._plugin, this._base, this._fieldChain.concat(fieldInfo));
     }
-    return this._evaluator;
-  }
-
-  /** Get the representation when value contains a string
-   * @param {!VariableValue} value
-   */
-  _reprString(value) {
-    return value.value;
-  }
-
-  /** Get the representation when value contains a number
-   * @param {!VariableValue} value
-   */
-  _reprNumber(value) {
-    return Number(value.value);
-  }
-
-  /** Get the representation when value is a compound value
-   * @param {!VariableValue} value
-   */
-  _reprCompound(value) {
-    /** @type {!Object<string, *>} */
-    const result = {};
-    for (const property of /** @type {!Array<!VariableValue>} */ (value.value)) {
-      result[property.name] = this._repr(property);
-    }
-    return result;
-  }
-
-  /** Get the representation when value contains an array of values
-   * @param {!VariableValue} value
-   */
-  _reprArray(value) {
-    return /** @type {!Array<!VariableValue>} */ (value.value).map(v => this._repr(v));
-  }
-
-  /**
-   * Get the representation for a variable value
-   * @param {!VariableValue} value
-   * @return {*}
-   */
-  _repr(value) {
-    if (value.js_type === 'array') {
-      return this._reprArray(value);
-    }
-    if (value.js_type === 'object') {
-      return this._reprCompound(value);
-    }
-    if (value.js_type === 'number') {
-      return this._reprNumber(value);
-    }
-    if (value.js_type !== 'string') {
-      Common.Console.Console.instance().warn(ls`Invalid JS type on the evaluation result: ${value.js_type}`);
-    }
-    return this._reprString(value);
-  }
-
-  /** Produce a language specific representation of a variable value
-   * @param {!VariableValue} value
-   * @return {!SDK.RemoteObject.RemoteObject}
-   */
-  _getRepresentation(value) {
-    return new SDK.RemoteObject.LocalJSONObject(this._repr(value));
+    return new EvalNode(this._callFrame, this._plugin, sourceType, this._base, this._fieldChain.concat(fieldInfo));
   }
 
   /**
@@ -124,49 +165,26 @@ class SourceVariable extends SDK.RemoteObject.RemoteObjectImpl {
    * @return {!Promise<!SDK.RemoteObject.GetPropertiesResult>}
    */
   async doGetProperties(ownProperties, accessorPropertiesOnly, generatePreview) {
-    /**
-     * @param {!Promise<(?RawModule|?EvaluatorModule)>} evaluatorPromise
-     * @param {!SDK.DebuggerModel.CallFrame} callFrame
-     * @param {!DebuggerLanguagePlugin} plugin
-     */
-    const getRepr = async (evaluatorPromise, callFrame, plugin) => {
-      const evaluator = await evaluatorPromise;
-      if (!evaluator) {
-        return null;
-      }
-      if ('constantValue' in evaluator && evaluator.constantValue) {
-        return this._getRepresentation(evaluator.constantValue);
-      }
-      if (!evaluator.code) {
-        return null;
-      }
-      // `executeWasmEvaluator` expects a string, but `evaluator.code` is an ArrayBuffer
-      const evaluateResponse = await callFrame.debuggerModel.executeWasmEvaluator(
-          callFrame.id, /** @type {string} */ (/** @type {*} */ (evaluator.code)));
-      if (evaluateResponse.getError()) {
-        console.error(evaluateResponse.getError());
-        return null;
-      }
-      if (evaluateResponse.exceptionDetails) {
-        console.error(
-            /** @type {!Protocol.Runtime.RemoteObject} */ (evaluateResponse.exceptionDetails.exception).description);
-        return null;
-      }
-
-      const value = /** @type {!VariableValue} */ (JSON.parse(/** @type {string} */ (evaluateResponse.result.value)));
-      return this._getRepresentation(value);
-    };
-
-    if (accessorPropertiesOnly) {
+    const {typeInfo} = this._sourceType;
+    if (accessorPropertiesOnly || !typeInfo.canExpand) {
       return /** @type {!SDK.RemoteObject.GetPropertiesResult} */ ({properties: [], internalProperties: []});
     }
 
-    const repr = await getRepr(this._getEvaluator(), this._callFrame, this._plugin);
-    return /** @type {!SDK.RemoteObject.GetPropertiesResult} */ ({
-      properties: [new SDK.RemoteObject.RemoteObjectProperty(
-          'value', repr, /* enumerable=*/ false, /* writable=*/ false, /* isOwn=*/ true, /* wasThrown=*/ false)],
-      internalProperties: []
-    });
+    if (typeInfo.members.length > 0) {
+      // The node is expanded, just make remote objects for its members
+      const members = Promise.all(this._sourceType.members.map(async (memberTypeInfo, idx) => {
+        const fieldInfo = this._sourceType.typeInfo.members[idx];
+        const propertyObject = await this._expandMember(memberTypeInfo, fieldInfo);
+        const name = fieldInfo.name || '';
+        return new SDK.RemoteObject.RemoteObjectProperty(
+            name, propertyObject, /* enumerable=*/ false, /* writable=*/ false, /* isOwn=*/ true,
+            /* wasThrown=*/ false);
+      }));
+      return /** @type {!SDK.RemoteObject.GetPropertiesResult} */ ({properties: await members, internalProperties: []});
+    }
+
+
+    return /** @type {!SDK.RemoteObject.GetPropertiesResult} */ ({properties: [], internalProperties: []});
   }
 }
 
@@ -237,7 +255,7 @@ class SourceScopeRemoteObject extends SDK.RemoteObject.RemoteObjectImpl {
     }
 
     for (const variable of this.variables) {
-      const sourceVar = new SourceVariable(this._callFrame, variable, this._plugin, this._location);
+      const sourceVar = await EvalNode.get(this._callFrame, this._plugin, variable.name);
       if (variable.nestedName && variable.nestedName.length > 1) {
         let parent = namespaces;
         for (let index = 0; index < variable.nestedName.length - 1; index++) {
@@ -757,6 +775,29 @@ export class DebuggerLanguagePluginManager {
   }
 
   /**
+   * @param {string} expression
+   * @param {!SDK.DebuggerModel.CallFrame} callFrame
+   * @returns {!Promise<?SDK.RuntimeModel.EvaluationResult>}
+   */
+  async evaluateExpression(expression, callFrame) {
+    const script = callFrame.script;
+    const plugin = await this._getPluginForScript(script);
+    if (!plugin) {
+      return null;
+    }
+
+    try {
+      return {object: await EvalNode.get(callFrame, plugin, expression), exceptionDetails: undefined};
+    } catch (error) {
+      if (!(error instanceof DebuggerLanguagePluginError)) {
+        throw error;
+      }
+      Common.Console.Console.instance().warn(ls`Error in debugger language plugin: ${error.message} (${error.code})`);
+      return {error: error.message};
+    }
+  }
+
+  /**
    * @param {!SDK.Script.Script} script
    * @return {!Promise<void>}
    */
@@ -869,6 +910,39 @@ export let VariableValue;
 export let EvaluatorModule;
 
 /**
+ * @typedef {{
+ *            name?: string,
+ *            offset: number,
+ *            typeId: unknown
+ *}}
+ */
+// @ts-ignore typedef
+export let FieldInfo;
+/**
+ * @typedef {{
+ *            typeName: string,
+ *            typeId: unknown,
+ *            members: FieldInfo[],
+ *            alignment: number,
+ *            arraySize: number,
+ *            size: number,
+ *            canExpand: boolean,
+ *            hasValue: boolean
+ *          }}
+ */
+// @ts-ignore typedef
+export let TypeInfo;
+
+/**
+ * @typedef {{
+ * rootType: TypeInfo;
+ * payload: unknown
+ *}}
+*/
+// @ts-ignore typedef
+export let EvalBase;
+
+/**
  * @interface
  */
 export class DebuggerLanguagePlugin {
@@ -938,6 +1012,26 @@ export class DebuggerLanguagePlugin {
    * @throws {Bindings.DebuggerLanguagePlugins.DebuggerLanguagePluginError}
    */
   removeRawModule(rawModuleId) {
+    throw new Error('Not implemented yet');
+  }
+
+  /**
+   * @param {string} expression
+   * @param {!RawLocation} context
+   * @return {!Promise<?{typeInfos: !TypeInfo[], base: !EvalBase}>}
+   * @throws {Bindings.DebuggerLanguagePlugins.DebuggerLanguagePluginError}
+   */
+  getTypeInfo(expression, context) {
+    throw new Error('Not implemented yet');
+  }
+
+  /**
+   * @param {string|{base: EvalBase, field: FieldInfo[]}} expressionOrField
+   * @param {!RawLocation} context
+   * @return {!Promise<?{js:string}>}
+   * @throws {Bindings.DebuggerLanguagePlugins.DebuggerLanguagePluginError}
+   */
+  getFormatter(expressionOrField, context) {
     throw new Error('Not implemented yet');
   }
 }
