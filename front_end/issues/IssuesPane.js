@@ -250,10 +250,9 @@ class AffectedResourcesView extends UI.TreeOutline.TreeElement {
     const requests = this._resolveRequestId(request.requestId);
     if (requests.length) {
       const request = requests[0];
-      requestCell.onclick = () => {
+      icon.onclick = () => {
         Network.NetworkPanel.NetworkPanel.selectAndShowRequest(request, Network.NetworkItemView.Tabs.Headers);
       };
-      requestCell.classList.add('link');
       icon.classList.add('link');
       url = request.url();
       filename = extractShortPath(url);
@@ -262,10 +261,12 @@ class AffectedResourcesView extends UI.TreeOutline.TreeElement {
       icon.title = ls`Request unavailable in the network panel, try reloading the inspected page`;
       icon.classList.add('unavailable');
     }
+    const span = document.createElement('span');
+    span.textContent = filename;
     if (url) {
-      requestCell.title = url;
+      span.title = url;
     }
-    requestCell.appendChild(document.createTextNode(filename));
+    requestCell.appendChild(span);
     return requestCell;
   }
 
