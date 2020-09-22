@@ -70,6 +70,24 @@
     },
     {
       "key": {
+        "uuid": "171ab833_e39ca810",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1451147
+      },
+      "writtenOn": "2020-09-22T17:50:17Z",
+      "side": 1,
+      "message": "To avoid adding 4 additional command menu entries, could we implement a use of the meta key? So for any of the different types of screenshots, if the user is pressing the meta key, the resulting image will be copied to the clipboard.",
+      "parentUuid": "72978d53_ed0f549f",
+      "revId": "4c2804a123a6cded07648b09a508b8f811810575",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3ee8b431_3619b119",
         "filename": "front_end/emulation/DeviceModeView.js",
         "patchSetId": 2
