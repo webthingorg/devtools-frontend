@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "13256ad7_1de81481",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1303626
+      },
+      "writtenOn": "2020-09-22T20:21:00Z",
+      "side": 1,
+      "message": "note this was created for chromium tree sheriff reasons to fix the tree, but abandoned because as sheriff I\u0027m not familiar with CSS/devtools code, and don\u0027t want to risk messing up a merge fix.",
+      "revId": "14c1e5c8c5f46ecf13c161e2f0b8cc177a31770b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
