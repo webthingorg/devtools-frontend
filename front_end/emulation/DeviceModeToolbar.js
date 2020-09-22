@@ -43,6 +43,8 @@ export class DeviceModeToolbar {
     this._showUserAgentTypeSetting.addChangeListener(this._updateUserAgentTypeVisibility, this);
 
     this._autoAdjustScaleSetting = Common.Settings.Settings.instance().createSetting('emulation.autoAdjustScale', true);
+    this._reloadAfterEmulationChange =
+        Common.Settings.Settings.instance().createSetting('emulation.reloadAfterEmulationChange', true);
 
     /** @type {!Map<!EmulatedDevice, !Mode>} */
     this._lastMode = new Map();
@@ -361,6 +363,10 @@ export class DeviceModeToolbar {
         contextMenu.headerSection(), this._deviceOutlineSetting, Common.UIString.UIString('Hide device frame'),
         Common.UIString.UIString('Show device frame'), model.type() !== Type.Device);
     appendToggleItem(
+        contextMenu.headerSection(), this._reloadAfterEmulationChange,
+        Common.UIString.UIString('Do not reload page after rotation or spanning'),
+        Common.UIString.UIString('Reload page after rotation or spanning'));
+    appendToggleItem(
         contextMenu.headerSection(), this._showMediaInspectorSetting, Common.UIString.UIString('Hide media queries'),
         Common.UIString.UIString('Show media queries'));
     appendToggleItem(
@@ -533,7 +539,9 @@ export class DeviceModeToolbar {
       return;
     }
     this._model.emulate(this._model.type(), device, newMode, scale);
-    this._model.reloadPage();
+    if (this._reloadAfterEmulationChange.get()) {
+      this._model.reloadPage();
+    }
     return;
   }
 
@@ -560,7 +568,9 @@ export class DeviceModeToolbar {
         device.modes[0].orientation !== device.modes[1].orientation) {
       const scale = autoAdjustScaleSetting.get() ? undefined : model.scaleSetting().get();
       model.emulate(model.type(), model.device(), device.getRotationPartner(model.mode()), scale);
-      this._model.reloadPage();
+      if (this._reloadAfterEmulationChange.get()) {
+        this._model.reloadPage();
+      }
       return;
     }
 
