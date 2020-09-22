@@ -50,6 +50,40 @@
       "revId": "89296ef51e25405bb6b4b074766a8049db213904",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee4ec8c0_5c3bc183",
+        "filename": "front_end/sdk/IOModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-09-22T16:10:28Z",
+      "side": 1,
+      "message": "Should there be the same method for binary data as well? Might not be used as often, but it would give us a uniform API.",
+      "revId": "89296ef51e25405bb6b4b074766a8049db213904",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1282b15_d5c582d8",
+        "filename": "front_end/sdk/IOModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-09-22T16:10:28Z",
+      "side": 1,
+      "message": "We shouldn\u0027t close the handle. From an API perspective, since the caller had to obtain the handle, they should be in charge of closing it. The handle can still be also used (passing offset will reset EOF).",
+      "revId": "89296ef51e25405bb6b4b074766a8049db213904",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
