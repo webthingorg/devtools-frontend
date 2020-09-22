@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "0f48a50d_ab7c20cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-22T09:02:12Z",
+      "side": 1,
+      "message": "Yes, I think we can do that! I like it but would it be clear that it\u0027s about the contrast without a label?",
+      "parentUuid": "23943bcf_70fdbc8e",
+      "revId": "ad6d1e6638acf9d882e497a4a6a9774de71bca51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13a52343_3b554d2e",
         "filename": "front_end/css_overview/CSSOverviewModel.js",
         "patchSetId": 4
