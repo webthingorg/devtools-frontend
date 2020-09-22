@@ -175,6 +175,9 @@ table is empty.
   <message name="IDS_DEVTOOLS_55bce575c41275ddaf5fbd1beb7d6018" desc="Text in Service Workers View of the Application panel">
     #<ph name="INSTALLING_ID">$1s<ex>2</ex></ph> trying to install
   </message>
+  <message name="IDS_DEVTOOLS_55d1b15fea11a7815311d6820a4e8cb0" desc="Alert message for screen reader to announce # of cookies in the table">
+    <ph name="SHOWNCOOKIES_LENGTH">$1s<ex>5</ex></ph> cookies shown in table
+  </message>
   <message name="IDS_DEVTOOLS_579fdc74b6520ab8906ecddf3e62d951" desc="Text in Application Panel Sidebar of the Application panel">
     Application Cache
   </message>
