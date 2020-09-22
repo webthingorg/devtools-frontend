@@ -39,6 +39,30 @@
       "revId": "7e7cf92bb9aaeb9b38aa7a55f9ee2bea3d8a4cd6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0baa4aeb_4b02bd37",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 12
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-09-22T16:13:34Z",
+      "side": 1,
+      "message": "I think it should run after CheckDevtoolsLocalization that does some clean ups to the strings. Added comments :)",
+      "parentUuid": "9504012e_704f1112",
+      "range": {
+        "startLine": 474,
+        "startChar": 5,
+        "endLine": 474,
+        "endChar": 58
+      },
+      "revId": "7e7cf92bb9aaeb9b38aa7a55f9ee2bea3d8a4cd6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
