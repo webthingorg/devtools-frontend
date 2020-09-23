@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "5dc98c9c_10f942d0",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-09-23T09:38:30Z",
+      "side": 1,
+      "message": "I\u0027ll not do this change for now, so the whole text stays a link not only the icon. We can still decide to do this change later if we want to have it.",
+      "parentUuid": "50eb7017_6653ac36",
+      "revId": "4ced6c09209014ace4546d942d02f709e094b426",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4225430_0cd1a5f2",
         "filename": "front_end/issues/issuesTree.css",
         "patchSetId": 5
@@ -56,6 +74,30 @@
       "revId": "4ced6c09209014ace4546d942d02f709e094b426",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b486488_874dd74d",
+        "filename": "front_end/issues/issuesTree.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-09-23T09:38:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4225430_0cd1a5f2",
+      "range": {
+        "startLine": 27,
+        "startChar": 17,
+        "endLine": 27,
+        "endChar": 23
+      },
+      "revId": "4ced6c09209014ace4546d942d02f709e094b426",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -106,6 +148,30 @@
     },
     {
       "key": {
+        "uuid": "842e1211_058be715",
+        "filename": "front_end/issues/issuesTree.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-09-23T09:38:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cfb296f9_793f1158",
+      "range": {
+        "startLine": 31,
+        "startChar": 35,
+        "endLine": 31,
+        "endChar": 43
+      },
+      "revId": "4ced6c09209014ace4546d942d02f709e094b426",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dceb50f7_aa7857d5",
         "filename": "front_end/issues/issuesTree.css",
         "patchSetId": 5
@@ -126,6 +192,30 @@
       "revId": "4ced6c09209014ace4546d942d02f709e094b426",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bd08750_f2b8191c",
+        "filename": "front_end/issues/issuesTree.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-09-23T09:38:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dceb50f7_aa7857d5",
+      "range": {
+        "startLine": 305,
+        "startChar": 10,
+        "endLine": 305,
+        "endChar": 16
+      },
+      "revId": "4ced6c09209014ace4546d942d02f709e094b426",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

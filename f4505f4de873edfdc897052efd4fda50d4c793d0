@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd73ee9c_126abf15",
+        "filename": "front_end/issues/issuesTree.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-09-23T09:38:30Z",
+      "side": 1,
+      "message": "This changes the color of these headers in light theme too. Imo it still looks ok there and it makes getting a high-contrast color for the dark theme more convenient.",
+      "revId": "f4505f4de873edfdc897052efd4fda50d4c793d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
