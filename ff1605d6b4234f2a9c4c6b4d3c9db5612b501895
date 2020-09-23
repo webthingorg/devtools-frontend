@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4d1fabe2_771c4230",
+        "filename": "front_end/css_overview/CSSOverviewCompletedView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-23T11:22:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc6ce6f4_7258408e",
+      "range": {
+        "startLine": 192,
+        "startChar": 12,
+        "endLine": 192,
+        "endChar": 22
+      },
+      "revId": "ff1605d6b4234f2a9c4c6b4d3c9db5612b501895",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fbe8ab9a_22e7d55f",
         "filename": "front_end/css_overview/CSSOverviewCompletedView.js",
         "patchSetId": 7
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "d96e7ac0_97a16d28",
+        "filename": "front_end/css_overview/CSSOverviewCompletedView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 642,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-23T11:22:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbe8ab9a_22e7d55f",
+      "revId": "ff1605d6b4234f2a9c4c6b4d3c9db5612b501895",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9aff8103_276bbba6",
         "filename": "front_end/css_overview/CSSOverviewModel.js",
         "patchSetId": 7
@@ -56,6 +98,24 @@
       "revId": "ff1605d6b4234f2a9c4c6b4d3c9db5612b501895",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39a0ef3d_afe24296",
+        "filename": "front_end/css_overview/CSSOverviewModel.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-23T11:22:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9aff8103_276bbba6",
+      "revId": "ff1605d6b4234f2a9c4c6b4d3c9db5612b501895",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
