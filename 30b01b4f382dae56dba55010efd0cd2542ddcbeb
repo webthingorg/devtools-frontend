@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a838b1e_8cffae28",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-23T06:19:20Z",
+      "side": 1,
+      "message": "No need to mention the bug in the title, it\u0027s already referenced via Bug:",
+      "revId": "30b01b4f382dae56dba55010efd0cd2542ddcbeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "837ecc0d_22f91c28",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-23T06:19:20Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "30b01b4f382dae56dba55010efd0cd2542ddcbeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b13c29f8_89ca6abf",
+        "filename": "test/e2e/sensors/idle_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-23T06:19:20Z",
+      "side": 1,
+      "message": "Could we add that it\u0027s not in the types because it was changed from notifications to idle-detection?",
+      "revId": "30b01b4f382dae56dba55010efd0cd2542ddcbeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
