@@ -89,8 +89,9 @@ export class RequestPreviewView extends RequestResponseView {
       return jsonView;
     }
 
+    const charset = this.request.charset() || 'utf-8';
     const dataURL = TextUtils.ContentProvider.contentAsDataURL(
-        contentData.content, this.request.mimeType, contentData.encoded, this.request.charset());
+        contentData.content, this.request.mimeType, contentData.encoded, charset);
     return dataURL ? new RequestHTMLView(dataURL) : null;
   }
 
