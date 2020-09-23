@@ -50,6 +50,41 @@
       "revId": "8caaf85ea9e2ae1c2d036db3a1b0479312604559",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f805486_24c5c226",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1303398
+      },
+      "writtenOn": "2020-09-23T17:47:32Z",
+      "side": 1,
+      "message": "I think there is a lot of complicated logic going on here which could take a lot of effort to fix properly.\n\nIf you want to submit this go ahead, but I wouldn\u0027t be surprised if adding charset\u003dutf8 by default breaks other cases. Maybe at least add a comment saying that it would be better to add new cdp methods to get raw response data and the real charset chrome is using instead?",
+      "revId": "8caaf85ea9e2ae1c2d036db3a1b0479312604559",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e6ec50a2_a5682d7c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1303398
+      },
+      "writtenOn": "2020-09-23T17:47:32Z",
+      "side": 1,
+      "message": "Yes, the content was likely already decoded using the logic here: https://source.chromium.org/chromium/chromium/src/+/master:third_party/blink/renderer/core/inspector/inspector_page_agent.cc;l\u003d232-260;drc\u003dee9e7e404e5a3f75a3ca0489aaf80490f625ca27\n\nI think that it would be helpful to have a Network.getRawResponseBody method or something which skips this decoding and always returns something base64 encoded, but then we might have to store multiple copies of resources - I thought about doing this before but I didn\u0027t end up doing it, and I don\u0027t remember exactly why.\n\nLooking at this bug, I originally thought that there was something wrong with the iframe since it should have the right \u003cmeta\u003e tag specifying the charset present in the problematic webpage, but now I\u0027m actually rather confused why adding charset\u003dutf8 to the data url actually fixes it if we already mis-decoded it before on the backend.\nDoes anyone know why this is the case?\n\nIn addition to having a Network.getRawResponseBody or something, we would also benefit here from exposing the actual encoding that chrome decided to use over cdp. Assuming that it changes over time as chrome parses the page, I\u0027m not sure if it should be a cdp event or method.\n\nI just found a bug where I talked about having a getRawResponseBody method before: https://bugs.chromium.org/p/chromium/issues/detail?id\u003d771825\nThis might be worth reconsidering and/or reopening. Maybe we could just always store the raw response data and decode it when requested by Network.getResponseBody...?",
+      "parentUuid": "4d320b2e_b0ac6c1c",
+      "revId": "8caaf85ea9e2ae1c2d036db3a1b0479312604559",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
