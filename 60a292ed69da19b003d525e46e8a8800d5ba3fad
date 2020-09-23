@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4c477df9_dabf5df6",
+        "filename": "front_end/lighthouse/LighthouseController.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1347952
+      },
+      "writtenOn": "2020-09-23T20:05:02Z",
+      "side": 1,
+      "message": "The CL auto format is making these indentation changes. Should I get rid of them?",
+      "revId": "60a292ed69da19b003d525e46e8a8800d5ba3fad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
