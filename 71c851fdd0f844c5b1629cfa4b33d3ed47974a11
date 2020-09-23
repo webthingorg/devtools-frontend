@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5117a059_a0d2c4ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-23T11:57:53Z",
+      "side": 1,
+      "message": "@petermueller After some investigation, constrainting the width of the styles pane is not easy to do. I\u0027ll submit this as is and if user feedback demands a minimum width, I\u0027ll invest more time into adding this functionality.",
+      "revId": "71c851fdd0f844c5b1629cfa4b33d3ed47974a11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
