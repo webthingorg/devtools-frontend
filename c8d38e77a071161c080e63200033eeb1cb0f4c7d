@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "e20ec8d1_d09e0644",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-09-23T08:30:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58fb9010_73e869ff",
+      "revId": "c8d38e77a071161c080e63200033eeb1cb0f4c7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ffd89fa_18ab15e4",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 1
@@ -70,6 +88,24 @@
     },
     {
       "key": {
+        "uuid": "cc85305a_fe6ac57a",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-09-23T08:30:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ffd89fa_18ab15e4",
+      "revId": "c8d38e77a071161c080e63200033eeb1cb0f4c7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e41e8f70_e2f078ab",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 1
@@ -84,6 +120,24 @@
       "revId": "c8d38e77a071161c080e63200033eeb1cb0f4c7d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95ee081f_2f08e235",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-09-23T08:30:24Z",
+      "side": 1,
+      "message": "DevTools does not translate strings atm so adding this should not be a problem.",
+      "parentUuid": "e41e8f70_e2f078ab",
+      "revId": "c8d38e77a071161c080e63200033eeb1cb0f4c7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -110,6 +164,30 @@
     },
     {
       "key": {
+        "uuid": "e2631555_07086234",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-09-23T08:30:24Z",
+      "side": 1,
+      "message": "Ah damn, thats a copy and past error. Nice catch and nice GIF!",
+      "parentUuid": "f22d36af_9ea4f70e",
+      "range": {
+        "startLine": 154,
+        "startChar": 73,
+        "endLine": 154,
+        "endChar": 80
+      },
+      "revId": "c8d38e77a071161c080e63200033eeb1cb0f4c7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28e98474_f4c4996d",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 1
@@ -130,6 +208,30 @@
       "revId": "c8d38e77a071161c080e63200033eeb1cb0f4c7d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6b7c84f_4a18df58",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-09-23T08:30:24Z",
+      "side": 1,
+      "message": "Good point! The case I wanted to catch here is already pretty much covered by the dataGrid check above.",
+      "parentUuid": "28e98474_f4c4996d",
+      "range": {
+        "startLine": 185,
+        "startChar": 5,
+        "endLine": 187,
+        "endChar": 5
+      },
+      "revId": "c8d38e77a071161c080e63200033eeb1cb0f4c7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -180,6 +282,30 @@
     },
     {
       "key": {
+        "uuid": "c62b327c_51951e9a",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-09-23T08:30:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21a4344a_b6dac50a",
+      "range": {
+        "startLine": 398,
+        "startChar": 4,
+        "endLine": 399,
+        "endChar": 21
+      },
+      "revId": "c8d38e77a071161c080e63200033eeb1cb0f4c7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24351d50_9777ff93",
         "filename": "front_end/webauthn/webauthn_strings.grdp",
         "patchSetId": 1
@@ -194,6 +320,24 @@
       "revId": "c8d38e77a071161c080e63200033eeb1cb0f4c7d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c4b7a0b_9857d7e1",
+        "filename": "front_end/webauthn/webauthn_strings.grdp",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-09-23T08:30:24Z",
+      "side": 1,
+      "message": "DevTools does not currently translate strings. So adding strings is not a problem.",
+      "parentUuid": "24351d50_9777ff93",
+      "revId": "c8d38e77a071161c080e63200033eeb1cb0f4c7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
