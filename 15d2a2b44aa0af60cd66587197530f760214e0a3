@@ -16,6 +16,24 @@
       "revId": "15d2a2b44aa0af60cd66587197530f760214e0a3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d526da6a_9dcbc1f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-23T11:09:47Z",
+      "side": 1,
+      "message": "Almost LGTM:\n\nIf the categorization is turned on by default, several e2e tests fail. I think the expandIssue helper needs updating.",
+      "parentUuid": "16a555c8_10e10b82",
+      "revId": "15d2a2b44aa0af60cd66587197530f760214e0a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
