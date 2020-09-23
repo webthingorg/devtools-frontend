@@ -160,6 +160,38 @@ export class LanguageExtensionEndpoint {
 
   /**
    * @override
+   * @param {string|!Bindings.DebuggerLanguagePlugins.FieldInfo} expressionOrField
+   * @param {!Bindings.DebuggerLanguagePlugins.RawLocation} context
+   * @return {!Promise<!{typeInfo: !Bindings.DebuggerLanguagePlugins.TypeInfo, base: ?Bindings.DebuggerLanguagePlugins.EvalBase}>}
+   * @throws {Bindings.DebuggerLanguagePlugins.DebuggerLanguagePluginError}
+   */
+  getTypeInfo(expressionOrField, context) {
+    try {
+      return /** @type {!Promise<!{typeInfo: !Bindings.DebuggerLanguagePlugins.TypeInfo, base: ?Bindings.DebuggerLanguagePlugins.EvalBase}>} */ (
+          this._sendRequest(this._commands.GetTypeInfo, {expressionOrField, context}));
+    } catch (error) {
+      throw new Bindings.DebuggerLanguagePlugins.DebuggerLanguagePluginError('EXTENSION_ERROR', error.message);
+    }
+  }
+
+  /**
+   * @override
+   * @param {string|{base: !Bindings.DebuggerLanguagePlugins.EvalBase, field: !Array<!Bindings.DebuggerLanguagePlugins.FieldInfo>}} expressionOrField
+   * @param {!Bindings.DebuggerLanguagePlugins.RawLocation} context
+   * @return {!Promise<!{js: string}>}
+   * @throws {Bindings.DebuggerLanguagePlugins.DebuggerLanguagePluginError}
+   */
+  getFormatter(expressionOrField, context) {
+    try {
+      return /** @type {!Promise<!{js: string}>} */ (
+          this._sendRequest(this._commands.GetFormatter, {expressionOrField, context}));
+    } catch (error) {
+      throw new Bindings.DebuggerLanguagePlugins.DebuggerLanguagePluginError('EXTENSION_ERROR', error.message);
+    }
+  }
+
+  /**
+   * @override
    */
   dispose() {
   }
