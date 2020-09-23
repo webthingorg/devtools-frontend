@@ -36,6 +36,29 @@
     },
     {
       "key": {
+        "uuid": "ee2ff794_1bbc55a3",
+        "filename": "front_end/lighthouse/LighthouseController.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-09-23T07:22:54Z",
+      "side": 1,
+      "message": "I guess this only applies to the main frame, what would happen to iframes on the current page? Worth checking at least, it\u0027s fine if that\u0027s a limitation currently.",
+      "range": {
+        "startLine": 134,
+        "startChar": 78,
+        "endLine": 134,
+        "endChar": 115
+      },
+      "revId": "f4931c3c6a9068a153e22ee3f62062f885b9b2b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "430afc3d_0989f728",
         "filename": "front_end/lighthouse/LighthouseController.js",
         "patchSetId": 7
@@ -47,6 +70,24 @@
       "writtenOn": "2020-09-22T23:38:48Z",
       "side": 1,
       "message": "Peter, should these strings be localized?",
+      "revId": "f4931c3c6a9068a153e22ee3f62062f885b9b2b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15e5e6d0_e0b094cd",
+        "filename": "front_end/lighthouse/LighthouseController.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-09-23T07:22:54Z",
+      "side": 1,
+      "message": "Yes, some languages may translate them, but translators know which terms should be fixed across languages too.",
+      "parentUuid": "430afc3d_0989f728",
       "revId": "f4931c3c6a9068a153e22ee3f62062f885b9b2b3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
