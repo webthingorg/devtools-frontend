@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b0ed6cc_34a93f4d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-09-23T11:15:37Z",
+      "side": 1,
+      "message": "Thanks for the review Tim! Removed the parentheses, and submitting!\n\nKim",
+      "revId": "6ad889a2f93bee161a1d8df0d6aca93de8372fd0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
