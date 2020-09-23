@@ -350,14 +350,16 @@ export class CoverageView extends UI.Widget.VBox {
     const all = {total: 0, unused: 0};
     const filtered = {total: 0, unused: 0};
     let filterApplied = false;
-    for (const info of this._model.entries()) {
-      all.total += info.size();
-      all.unused += info.unusedSize();
-      if (this._isVisible(false, info)) {
-        filtered.total += info.size();
-        filtered.unused += info.unusedSize();
-      } else {
-        filterApplied = true;
+    if (this._model) {
+      for (const info of this._model.entries()) {
+        all.total += info.size();
+        all.unused += info.unusedSize();
+        if (this._isVisible(false, info)) {
+          filtered.total += info.size();
+          filtered.unused += info.unusedSize();
+        } else {
+          filterApplied = true;
+        }
       }
     }
     this._statusMessageElement.textContent =
