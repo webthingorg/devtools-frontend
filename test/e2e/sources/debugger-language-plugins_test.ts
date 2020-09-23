@@ -32,7 +32,8 @@ type RawLocationRange = {
 
 type RawLocation = {
   rawModuleId: string,
-  codeOffset: number
+  codeOffset: number,
+  inlineFrameIndex?: number
 };
 
 type SourceLocation = {
@@ -61,6 +62,10 @@ type EvaluatorModule = {
   constantValue?: VariableValue
 };
 
+type FunctionInfo = {
+  name?: string
+};
+
 interface TestPluginImpl {
   addRawModule?(rawModuleId: string, symbolsURL: string, rawModule: {url: string}): Promise<Array<string>>;
 
@@ -73,6 +78,8 @@ interface TestPluginImpl {
   listVariablesInScope?(rawLocation: RawLocation): Promise<Array<Variable>>;
 
   evaluateVariable?(name: string, location: RawLocation): Promise<EvaluatorModule|null>;
+
+  getFunctionInfo?(rawLocation: RawLocation): Promise<Array<FunctionInfo>>;
 
   dispose?(): void;
 }
@@ -281,6 +288,72 @@ describe('The Debugger Language Plugins', async () => {
               }
               return [];
             }
+
+            async listVariablesInScope(rawLocation: RawLocation) {
+              const {rawLocationRange} = this._modules.get(rawLocation.rawModuleId) || {};
+              if (rawLocationRange && rawLocationRange.startOffset <= rawLocation.codeOffset &&
+                  rawLocation.codeOffset < rawLocationRange.endOffset) {
+                return [
+                  {scope: 'LOCAL', name: 'localX', type: 'int'},
+                  {scope: 'GLOBAL', name: 'n1::n2::globalY', nestedName: ['n1', 'n2', 'globalY'], type: 'float'},
+                ];
+              }
+              return [];
+            }
+          }
+
+          RegisterExtension(
+              extensionAPI, new VariableListingPlugin(), 'Location Mapping',
+              {language: 'WebAssembly', symbol_types: ['None']});
+        }));
+
+    await openSourcesPanel();
+    await click(PAUSE_ON_EXCEPTION_BUTTON);
+    await goToResource('sources/wasm/unreachable.html');
+    await waitFor(RESUME_BUTTON);
+
+    const locals = await getValuesForScope('LOCAL');
+    assert.deepEqual(locals, ['localX: int']);
+    const globals = await getValuesForScope('GLOBAL', 2);
+    assert.deepEqual(globals, ['n1: namespace', 'n2: namespace', 'globalY: float']);
+  });
+
+  it.skip('shows inline frames', async () => {
+    const {frontend} = getBrowserAndPages();
+    await frontend.evaluateHandle(
+        () => globalThis.installExtensionPlugin((extensionServerClient: unknown, extensionAPI: unknown) => {
+          class VariableListingPlugin {
+            _modules: Map<string, {rawLocationRange?: RawLocationRange, sourceLocations?: SourceLocation[]}>;
+            constructor() {
+              this._modules = new Map();
+            }
+
+            async addRawModule(rawModuleId: string, symbols: string, rawModule: RawModule) {
+              const sourceFileURL = new URL('unreachable.ll', rawModule.url || symbols).href;
+              this._modules.set(rawModuleId, {
+                rawLocationRange: {rawModuleId, startOffset: 6, endOffset: 7},
+                sourceLocations: [{rawModuleId, sourceFileURL, lineNumber: 5, columnNumber: 2}],
+              });
+              return [sourceFileURL];
+            }
+
+            async rawLocationToSourceLocation(rawLocation: RawLocation) {
+              const {rawLocationRange, sourceLocations} = this._modules.get(rawLocation.rawModuleId) || {};
+              if (rawLocationRange && sourceLocations && rawLocationRange.startOffset <= rawLocation.codeOffset &&
+                  rawLocation.codeOffset < rawLocationRange.endOffset) {
+                return [sourceLocations[rawLocation.inlineFrameIndex || 0]];
+              }
+              return [];
+            }
+
+            /*async getFunctionInfo(rawLocation: RawLocation) {
+              const {rawLocationRange, sourceLocation} = this._modules.get(rawLocation.rawModuleId) || {};
+              if (rawLocationRange && sourceLocation && rawLocationRange.startOffset <= rawLocation.codeOffset &&
+                  rawLocation.codeOffset < rawLocationRange.endOffset) {
+                return [sourceLocation];
+              }
+              return [];
+            }*/
 
             async listVariablesInScope(rawLocation: RawLocation) {
               const {rawLocationRange} = this._modules.get(rawLocation.rawModuleId) || {};

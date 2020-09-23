@@ -733,7 +733,8 @@ export class DebuggerLanguagePluginManager {
     /** @type {!RawLocation}} */
     const location = {
       'rawModuleId': script.sourceURL,
-      'codeOffset': callFrame.location().columnNumber - (script.codeOffset() || 0)
+      'codeOffset': callFrame.location().columnNumber - (script.codeOffset() || 0),
+      'inlineFrameIndex': callFrame.inlineFrameIndex
     };
 
     try {
@@ -747,6 +748,36 @@ export class DebuggerLanguagePluginManager {
         scope.object().variables.push(variable);
       }
       return Array.from(scopes.values());
+    } catch (error) {
+      if (!(error instanceof DebuggerLanguagePluginError)) {
+        throw error;
+      }
+      Common.Console.Console.instance().warn(ls`Error in debugger language plugin: ${error.message} (${error.code})`);
+      return null;
+    }
+  }
+
+  /**
+   * @param {!SDK.DebuggerModel.CallFrame} callFrame
+   * @return {!Promise<?Array<!FunctionInfo>>}
+   */
+  async getFunctionInfo(callFrame) {
+    if (!callFrame) {
+      return null;
+    }
+    const script = callFrame.script;
+    const plugin = await this._getPluginForScript(script);
+    if (!plugin || !plugin.getFunctionInfo) {
+      return null;
+    }
+    /** @type {!RawLocation}} */
+    const location = {
+      'rawModuleId': script.sourceURL,
+      'codeOffset': callFrame.location().columnNumber - (script.codeOffset() || 0),
+    };
+
+    try {
+      return await plugin.getFunctionInfo(location);
     } catch (error) {
       if (!(error instanceof DebuggerLanguagePluginError)) {
         throw error;
@@ -818,8 +849,9 @@ export let RawLocationRange;
 
 /** Offsets in raw modules
  * @typedef {{
- *            rawModuleId:string,
- *            codeOffset:number
+ *            rawModuleId: string,
+ *            codeOffset: number,
+ *            inlineFrameIndex?: number
  *          }}
  */
 // @ts-ignore typedef
@@ -868,6 +900,14 @@ export let VariableValue;
 // @ts-ignore typedef
 export let EvaluatorModule;
 
+/** Either the code of an evaluator module or a constant representation of a variable
+ * @typedef {{
+ *            name: !string
+ *          }}
+ */
+ // @ts-ignore typedef
+ export let FunctionInfo;
+ 
 /**
  * @interface
  */
@@ -938,6 +978,15 @@ export class DebuggerLanguagePlugin {
    * @throws {Bindings.DebuggerLanguagePlugins.DebuggerLanguagePluginError}
    */
   removeRawModule(rawModuleId) {
+    throw new Error('Not implemented yet');
+  }
+
+  /** Find locations in source files from a location in a raw module
+   * @param {!RawLocation} rawLocation
+   * @return {!Promise<!Array<!FunctionInfo>>}
+   * @throws {DebuggerLanguagePluginError}
+  */
+  async getFunctionInfo(rawLocation) {
     throw new Error('Not implemented yet');
   }
 }
