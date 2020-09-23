@@ -71,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "fcbf391a_8bf5131c",
+        "filename": "front_end/elements/LayoutSidebarPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-23T16:59:58Z",
+      "side": 1,
+      "message": "I see, thanks for the explanation. Would it be possible/desirable to make .descriptor() function to return already localised strings? So that the rest of the code is not concerned with invoking ls and I assume the same setting might be used in multiple places.",
+      "parentUuid": "866ca358_673dd29a",
+      "revId": "5b9df8c123764a701f2472633fc59d9386dc714a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c7af43fe_ca5520fa",
         "filename": "front_end/elements/LayoutSidebarPane.js",
         "patchSetId": 3
