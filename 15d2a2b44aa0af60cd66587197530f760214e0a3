@@ -34,6 +34,24 @@
       "revId": "15d2a2b44aa0af60cd66587197530f760214e0a3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "055d4b61_4117ced6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-09-23T20:58:14Z",
+      "side": 1,
+      "message": "Thanks for catching that Sigurd!\n\nI updated the expandIssue helper to call expandCategory first if categories are enabled. I also updated expandCategory to only click on the category if it isn\u0027t already expanded (so tests don\u0027t have to worry about the call inside expandIssue).",
+      "parentUuid": "d526da6a_9dcbc1f5",
+      "revId": "15d2a2b44aa0af60cd66587197530f760214e0a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
