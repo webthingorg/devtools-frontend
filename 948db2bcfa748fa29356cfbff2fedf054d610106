@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db3ff148_0a44f3b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-23T13:56:24Z",
+      "side": 1,
+      "message": "The sizes of the compressed images have increased a bit, which I wouldn\u0027t have expected. I think I used more aggressive compression parameters on Squoosh. Could you try out setting the max quality to 20 and the effort to 5? That should get us closer to the minimized size.",
+      "revId": "948db2bcfa748fa29356cfbff2fedf054d610106",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
