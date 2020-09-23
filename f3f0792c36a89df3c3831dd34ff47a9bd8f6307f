@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a2cea74b_4608fcd2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-23T10:31:52Z",
+      "side": 1,
+      "message": "After discussing with Peter we came to a conclusion that a separate section for contrast issues might be better. WDYT? PTAL",
+      "revId": "f3f0792c36a89df3c3831dd34ff47a9bd8f6307f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
