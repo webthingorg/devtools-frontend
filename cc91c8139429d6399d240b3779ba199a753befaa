@@ -16,6 +16,103 @@
       "revId": "cc91c8139429d6399d240b3779ba199a753befaa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adb138c8_b69b792f",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-09-23T15:41:51Z",
+      "side": 1,
+      "message": "Ctap2 supports all transports (nfc, ble, usb, cable, internal).",
+      "range": {
+        "startLine": 109,
+        "startChar": 43,
+        "endLine": 109,
+        "endChar": 92
+      },
+      "revId": "cc91c8139429d6399d240b3779ba199a753befaa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "508c84ef_dee129d4",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-09-23T15:41:51Z",
+      "side": 1,
+      "message": "Don\u0027t forget to add cable if it\u0027s enabled.",
+      "revId": "cc91c8139429d6399d240b3779ba199a753befaa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ba59f48_e92148a0",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-09-23T15:41:51Z",
+      "side": 1,
+      "message": "We need some sensible order... Maybe we should sort() by name on _updateEnabledTransportOptions? Or maybe logically by going usb, ble, nfc, cable, internal.",
+      "range": {
+        "startLine": 116,
+        "startChar": 8,
+        "endLine": 118,
+        "endChar": 0
+      },
+      "revId": "cc91c8139429d6399d240b3779ba199a753befaa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6321e1eb_3e758076",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-09-23T15:41:51Z",
+      "side": 1,
+      "message": "Don\u0027t forget to move this logic to _updateNewAuthenticatorSectionOptions.",
+      "revId": "cc91c8139429d6399d240b3779ba199a753befaa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a863b36a_01d1b41c",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-09-23T15:41:51Z",
+      "side": 1,
+      "message": "Question: what happens if the index is invalidated by switching between ctap2 / u2f? I imagine it just works because Web Javascript but would like to double check.",
+      "revId": "cc91c8139429d6399d240b3779ba199a753befaa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
