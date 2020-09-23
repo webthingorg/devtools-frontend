@@ -16,6 +16,23 @@
       "revId": "8caaf85ea9e2ae1c2d036db3a1b0479312604559",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a25fb351_f6c3b790",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-23T14:58:01Z",
+      "side": 1,
+      "message": "LGTM, but note that this does not match exactly what happens in Chromium. charset-free responses get some charset applied to them, and this logic is pretty complex and unintuitive. From https://github.com/GoogleChrome/lighthouse/issues/10023:\n\n\u003e Note that if UTF-8 is detected, the TLD-affiliated encoding is\n\u003e used instead for intentional misdecoding for the same reason why\n\u003e Chrome doesn\u0027t detect UTF-8: To avoid Web authors starting to\n\u003e depend on this stuff. Hence,\n\u003e https://mathiasbynens.be/demo/missing-meta-charset decodes as\n\u003e windows-1252, since .be is a windows-1252-affiliated TLD.)\n\nStill, I think falling back to utf-8 is better than not falling back at all, so LGTM.",
+      "revId": "8caaf85ea9e2ae1c2d036db3a1b0479312604559",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
