@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4553ab8c_0221d535",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-09-23T22:17:14Z",
+      "side": 1,
+      "message": "Can we add before/after images in Chromium as well?  We want to make sure this doesn\u0027t regress anything there as well.",
+      "revId": "648c19124ff5baee64423e945877d637d61d2b06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
