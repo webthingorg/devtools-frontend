@@ -88,6 +88,24 @@
     },
     {
       "key": {
+        "uuid": "fb871f89_c434079b",
+        "filename": "front_end/sdk/IOModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-09-23T08:50:55Z",
+      "side": 1,
+      "message": "It\u0027s fine if we add the second method as soon as we need it!",
+      "parentUuid": "ee4ec8c0_5c3bc183",
+      "revId": "89296ef51e25405bb6b4b074766a8049db213904",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1282b15_d5c582d8",
         "filename": "front_end/sdk/IOModel.js",
         "patchSetId": 2
@@ -116,6 +134,24 @@
       "writtenOn": "2020-09-23T08:48:40Z",
       "side": 1,
       "message": "Done",
+      "parentUuid": "e1282b15_d5c582d8",
+      "revId": "89296ef51e25405bb6b4b074766a8049db213904",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "098116e4_85350144",
+        "filename": "front_end/sdk/IOModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-09-23T08:50:55Z",
+      "side": 1,
+      "message": "Done, thanks!",
       "parentUuid": "e1282b15_d5c582d8",
       "revId": "89296ef51e25405bb6b4b074766a8049db213904",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
