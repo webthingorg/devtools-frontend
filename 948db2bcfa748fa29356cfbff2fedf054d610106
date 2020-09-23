@@ -34,6 +34,24 @@
       "revId": "948db2bcfa748fa29356cfbff2fedf054d610106",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af4b3327_74ff56aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-23T16:23:38Z",
+      "side": 1,
+      "message": "Yeah, sorry for that. I should have written the instructions down in a README. I will make a follow-up CL to add that.",
+      "parentUuid": "5483fadf_e4253cd6",
+      "revId": "948db2bcfa748fa29356cfbff2fedf054d610106",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
