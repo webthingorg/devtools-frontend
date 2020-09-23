@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "211181ad_1d7a53e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-09-23T17:04:23Z",
+      "side": 1,
+      "message": "Now that Lighthouse is bundled, is this change obsolete?",
+      "revId": "fa10cbc5ba7fb2754e57e5612acba298f09d7216",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bcf200b_7621b8e6",
         "filename": "front_end/lighthouse/LighthouseStatusView.js",
         "patchSetId": 1
