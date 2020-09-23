@@ -33,6 +33,23 @@
       "revId": "8caaf85ea9e2ae1c2d036db3a1b0479312604559",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d320b2e_b0ac6c1c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-09-23T16:46:00Z",
+      "side": 1,
+      "message": "Debugging the tools against the site listed in the bug, it appears the string we\u0027re passing to the data-uri may have already been decoded by the time we receive it from the backend. \n\nThis actually makes me wonder if to fix this more generally we either (1) shouldn\u0027t be passing through the charset from the content-type header or (2) need to get the raw bytes to pass base64 encoded. #1 may still have problems when pages explicitly use meta charset in the content (since that will still be present), and for #2 I\u0027m not sure if we have access to the raw bytes.\n\nCurious to hear other\u0027s thoughts.",
+      "revId": "8caaf85ea9e2ae1c2d036db3a1b0479312604559",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
