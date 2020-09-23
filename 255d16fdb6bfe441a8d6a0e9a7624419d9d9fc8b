@@ -16,6 +16,24 @@
       "revId": "255d16fdb6bfe441a8d6a0e9a7624419d9d9fc8b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4c2a9d15_bfcc2f03",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-23T13:07:03Z",
+      "side": 1,
+      "message": "I also don\u0027t like it, but since it\u0027s the original behavior that when both panes have overflowing content, there would be two scrollbars, I\u0027d say we keep them for now.",
+      "parentUuid": "c4f89d8a_b3888d3d",
+      "revId": "255d16fdb6bfe441a8d6a0e9a7624419d9d9fc8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
