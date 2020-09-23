@@ -16,6 +16,29 @@
       "revId": "b323804dd02287ba3f8e0584aa8e97d7da2e6da9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4d221ca_a18666c8",
+        "filename": "front_end/elements/elements_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-23T07:05:53Z",
+      "side": 1,
+      "message": "I definitely agree with locking the term framework because it doesn\u0027t translate well in other languages (at least in Frrench the words \"infrastructure\" or \"cadriciel\" are very awkward and I never heard anyone use them).\nHowever the term listeners is already translated in other places of DevTools (like the sidebar tab title in the Elements pane, or the accordion title in the Sources right sidebar).\nWhat do you think about only locking Framework?",
+      "range": {
+        "startLine": 190,
+        "startChar": 24,
+        "endLine": 190,
+        "endChar": 34
+      },
+      "revId": "b323804dd02287ba3f8e0584aa8e97d7da2e6da9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
