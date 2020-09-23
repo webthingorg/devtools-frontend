@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cc87572d_f44a04a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-09-23T22:53:44Z",
+      "side": 1,
+      "message": "LGTM with suggestion to look into alternate suggestion",
+      "revId": "8f1ea96ecacb14e78f818ae86cbfec3e1b83adbd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d2a4049_6360369c",
+        "filename": "front_end/resources/AppManifestView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-09-23T22:53:44Z",
+      "side": 1,
+      "message": "Generally, I don\u0027t love the practice of accessing an element via previousSibling/nextSibling, but I see that the label element isn\u0027t easily exposed in this case.  \n\nAn alternative solution would be to add the \"flex-basis\" css change to the .report-field-name class directly.  By adding the \"flex-basis\" change to only the Icon list, we mess with the text alignment between the icon section and the ones before it (https://imgur.com/a/Zhyt24e).  I think that is probably some sort of design faux pas.\n\nI\u0027ll give my LGTM now with the suggestion that you look into my alternate solution to see if that works better than the one you have set currently.",
+      "revId": "8f1ea96ecacb14e78f818ae86cbfec3e1b83adbd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
