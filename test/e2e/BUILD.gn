@@ -23,6 +23,7 @@ node_ts_library("tests") {
     "cross_tool_integration",
     "elements",
     "emulation",
+    "fuzzer",
     "host",
     "layers",
     "lighthouse",

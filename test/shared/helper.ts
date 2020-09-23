@@ -6,7 +6,7 @@ import {AssertionError} from 'chai';
 import * as os from 'os';
 import * as puppeteer from 'puppeteer';
 
-import {reloadDevTools} from '../conductor/hooks.js';
+import {reloadDevTools, resetPages} from '../conductor/hooks.js';
 import {getBrowserAndPages, getHostedModeServerPort} from '../conductor/puppeteer-state.js';
 import {AsyncScope} from './mocha-extensions.js';
 
@@ -438,4 +438,4 @@ export const selectOption = async (select: puppeteer.JSHandle<HTMLSelectElement>
   }, value);
 };
 
-export {getBrowserAndPages, getHostedModeServerPort, reloadDevTools};
+export {getBrowserAndPages, getHostedModeServerPort, reloadDevTools, resetPages};
