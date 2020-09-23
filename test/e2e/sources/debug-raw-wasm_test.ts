@@ -232,7 +232,8 @@ describe('Sources Tab', async function() {
     await checkBreakpointDidNotActivate();
   });
 
-  it('is able to step with state in multi-threaded code', async () => {
+  // Temporarily disable this flaky test for the standalone mac bot
+  it.skip('[crbug.com/1131359] is able to step with state in multi-threaded code', async () => {
     const {target, frontend} = getBrowserAndPages();
 
     await step('navigate to a page and open the Sources tab', async () => {
