@@ -16,6 +16,46 @@
       "revId": "ebf2ee6b167d50ec175d9d42900829ec19ba2ac8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd617949_cf911f44",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-23T10:47:50Z",
+      "side": 1,
+      "message": "Almost LGTM, one question. Thanks!",
+      "revId": "ebf2ee6b167d50ec175d9d42900829ec19ba2ac8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e363f55_5bacdc08",
+        "filename": "front_end/issues/issuesTree.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-23T10:47:50Z",
+      "side": 1,
+      "message": "Aren\u0027t there general devtools-adorner styles for darkmode? Or do they not apply?",
+      "range": {
+        "startLine": 398,
+        "startChar": 0,
+        "endLine": 402,
+        "endChar": 1
+      },
+      "revId": "ebf2ee6b167d50ec175d9d42900829ec19ba2ac8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
