@@ -32,6 +32,7 @@ export class AppManifestView extends UI.Widget.VBox {
     this._emptyView.hideWidget();
 
     this._reportView = new UI.ReportView.ReportView(Common.UIString.UIString('App Manifest'));
+    this._reportView.registerRequiredCSS('resources/appManifestView.css');
     this._reportView.show(this.contentElement);
     this._reportView.hideWidget();
 
@@ -215,6 +216,7 @@ export class AppManifestView extends UI.Widget.VBox {
       image.alt = ls`Primary manifest icon from ${url}`;
       const title = ls`Primary icon\nas used by Chrome`;
       const field = this._iconsSection.appendFlexedField(title);
+      this._addClassToIconTitle(field);
       wrapper.appendChild(image);
       field.appendChild(wrapper);
     }
@@ -437,6 +439,7 @@ export class AppManifestView extends UI.Widget.VBox {
     const sizes = icon['sizes'] ? icon['sizes'].replace('x', '×') + 'px' : '';
     const title = sizes + '\n' + (icon['type'] || '');
     const field = section.appendFlexedField(title);
+    this._addClassToIconTitle(field);
     if (!icon.sizes) {
       iconErrors.push(ls`Icon ${iconUrl} does not specify its size in the manifest`);
     } else if (!/^\d+x\d+$/.test(icon.sizes)) {
@@ -459,5 +462,14 @@ export class AppManifestView extends UI.Widget.VBox {
     }
     field.appendChild(wrapper);
     return iconErrors;
+  }
+
+  /**
+   * @param {!Element} iconContainer
+   */
+  _addClassToIconTitle(iconContainer) {
+    if (iconContainer && iconContainer.previousSibling) {
+      iconContainer.previousSibling.classList.add('manifest-icon-field-title');
+    }
   }
 }
