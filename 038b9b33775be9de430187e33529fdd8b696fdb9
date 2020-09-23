@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c50a0005_fc596f07",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-09-23T21:24:10Z",
+      "side": 1,
+      "message": "Hey all,\n\nWe\u0027re seeing a performance regression in breakpoint setting and we\u0027re suspecting this commit is causing the issue.  I\u0027m seeing a regression of about ~10ms from the lab and also from testing locally.  I\u0027ve also tested by timing the _setBreakpoint call using line/col numbers with and without using getPossibleBreakpoints(), and the run using getPossibleBreakpoints() also runs around 10ms faster.\n\nMy hunch is that retrieving the possible breakpoint locations before passing it into _setBreakpoint is more time efficient than letting _setBreakpoint resolve the breakpoint location itself.\n\nLet me know if this is a change we believe is worth keeping.\n\nThanks,\nMichael L.",
+      "revId": "038b9b33775be9de430187e33529fdd8b696fdb9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
