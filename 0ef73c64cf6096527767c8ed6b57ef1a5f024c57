@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "20724324_2dcbcba2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-23T10:23:19Z",
+      "side": 1,
+      "message": "LGTM with nits. Very good indeed 😊",
+      "revId": "0ef73c64cf6096527767c8ed6b57ef1a5f024c57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22921f01_668ac7fd",
+        "filename": "scripts/component_bridges/walk_tree.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-23T10:23:19Z",
+      "side": 1,
+      "message": "nit: if X.y is LitHtml.html",
+      "range": {
+        "startLine": 127,
+        "startChar": 53,
+        "endLine": 127,
+        "endChar": 57
+      },
+      "revId": "0ef73c64cf6096527767c8ed6b57ef1a5f024c57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c0587fe_cfefd366",
+        "filename": "scripts/component_bridges/walk_tree.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-23T10:23:19Z",
+      "side": 1,
+      "message": "nit: check if x is named `html`",
+      "range": {
+        "startLine": 135,
+        "startChar": 52,
+        "endLine": 135,
+        "endChar": 60
+      },
+      "revId": "0ef73c64cf6096527767c8ed6b57ef1a5f024c57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5616792e_8eaa1b75",
+        "filename": "scripts/component_bridges/walk_tree.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-23T10:23:19Z",
+      "side": 1,
+      "message": "I feel like this could do with examples.",
+      "range": {
+        "startLine": 309,
+        "startChar": 6,
+        "endLine": 309,
+        "endChar": 111
+      },
+      "revId": "0ef73c64cf6096527767c8ed6b57ef1a5f024c57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
