@@ -84,6 +84,9 @@
   <message name="IDS_DEVTOOLS_6e394d18cb68d551f58fa35f4dfc70bb" desc="Fast fact in the pop-up dialog when lighthouse is running in the Lighthouse panel">
     As page load time increases from one second to seven seconds, the probability of a mobile site visitor bouncing increases 113%. [Source: <ph name="LOCKED_1">Think with Google</ph>]
   </message>
+  <message name="IDS_DEVTOOLS_7cbe4da8ae03eab686200699d63a7b7b" desc="Warning when important data that is not cleared may affect the Lighthouse scores">
+    There may be important data in these locations: <ph name="LOCATIONS">$1s<ex>Local Storage</ex></ph>. Audit this page in an incognito window to prevent the resources from affecting your scores.
+  </message>
   <message name="IDS_DEVTOOLS_8cae4d24054ecacd0dc3abaff429dab9" desc="Label for view trace button when simulated throttling is enabled">
     View Original Trace
   </message>
