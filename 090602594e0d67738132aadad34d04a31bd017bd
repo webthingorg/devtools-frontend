@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d72420c8_59aae88f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1454107
+      },
+      "writtenOn": "2020-09-23T15:41:21Z",
+      "side": 1,
+      "message": "Re-ran them with max 40 min 10 effort 9 - that kept the details and the image size similar to before.",
+      "revId": "090602594e0d67738132aadad34d04a31bd017bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
