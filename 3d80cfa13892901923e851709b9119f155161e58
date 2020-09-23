@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "324a52e1_adb16d70",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-09-23T12:29:23Z",
+      "side": 1,
+      "message": "lgtm % nits",
+      "revId": "3d80cfa13892901923e851709b9119f155161e58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d760fc13_a0db3a92",
+        "filename": "front_end/network/NetworkPanel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-09-23T12:29:23Z",
+      "side": 1,
+      "message": "nit: Superfluous parenthesis.",
+      "range": {
+        "startLine": 67,
+        "startChar": 31,
+        "endLine": 67,
+        "endChar": 32
+      },
+      "revId": "3d80cfa13892901923e851709b9119f155161e58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "acf2157a_d8354d4b",
+        "filename": "front_end/network/NetworkPanel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-09-23T12:29:23Z",
+      "side": 1,
+      "message": "FYI: These are only reported by VSCode. The build time TS figures these out correctly, so `window` is not strictly needed.",
+      "range": {
+        "startLine": 433,
+        "startChar": 31,
+        "endLine": 433,
+        "endChar": 37
+      },
+      "revId": "3d80cfa13892901923e851709b9119f155161e58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
