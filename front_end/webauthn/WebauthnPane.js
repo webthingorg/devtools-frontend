@@ -91,6 +91,35 @@ export class WebauthnPaneImpl extends UI.Widget.VBox {
     this._setVirtualAuthEnvEnabled(!this._enabled);
   }
 
+  /**
+   * @param {!Array<!Protocol.WebAuthn.AuthenticatorTransport>} enabledOptions
+   */
+  _updateEnabledTransportOptions(enabledOptions) {
+    this._transportSelect.removeChildren();
+
+    for (const option of enabledOptions) {
+      this._transportSelect.appendChild(new Option(option, option));
+    }
+  }
+
+  _updateNewAuthenticatorSectionOptions() {
+    if (this._protocolSelect.value === Protocol.WebAuthn.AuthenticatorProtocol.Ctap2) {
+      this._residentKeyCheckbox.disabled = false;
+      this._userVerificationCheckbox.disabled = false;
+      this._updateEnabledTransportOptions([Protocol.WebAuthn.AuthenticatorTransport.Internal]);
+    } else {
+      this._residentKeyCheckbox.value = false;
+      this._residentKeyCheckbox.disabled = true;
+      this._userVerificationCheckbox.value = false;
+      this._userVerificationCheckbox.disabled = true;
+      this._updateEnabledTransportOptions([
+        Protocol.WebAuthn.AuthenticatorTransport.Nfc,
+        Protocol.WebAuthn.AuthenticatorTransport.Ble,
+        Protocol.WebAuthn.AuthenticatorTransport.Usb,
+      ]);
+    }
+  }
+
   _createNewAuthenticatorSection() {
     this._newAuthenticatorSection = this.contentElement.createChild('div', 'new-authenticator-container');
     const newAuthenticatorTitle = UI.UIUtils.createLabel(ls`New authenticator`, 'new-authenticator-title');
@@ -110,7 +139,7 @@ export class WebauthnPaneImpl extends UI.Widget.VBox {
     Object.values(Protocol.WebAuthn.AuthenticatorProtocol).forEach(option => {
       this._protocolSelect.appendChild(new Option(option, option));
     });
-    this._protocolSelect.selectedIndex = 0;
+    this._protocolSelect.value = Protocol.WebAuthn.AuthenticatorProtocol.Ctap2;
 
     const transportSelectTitle = UI.UIUtils.createLabel(ls`Transport`, 'authenticator-option-label');
     transportGroup.appendChild(transportSelectTitle);
@@ -146,6 +175,9 @@ export class WebauthnPaneImpl extends UI.Widget.VBox {
     addButtonGroup.appendChild(this._addAuthenticatorButton);
     const addAuthenticatorTitle = UI.UIUtils.createLabel(ls`Add authenticator`, '');
     UI.ARIAUtils.bindLabelToControl(addAuthenticatorTitle, this._addAuthenticatorButton);
+
+    this._updateNewAuthenticatorSectionOptions();
+    this._protocolSelect.addEventListener('change', this._updateNewAuthenticatorSectionOptions.bind(this));
   }
 
   async _handleAddAuthenticatorButton() {
