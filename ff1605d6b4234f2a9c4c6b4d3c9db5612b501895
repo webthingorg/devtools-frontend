@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bc6ce6f4_7258408e",
+        "filename": "front_end/css_overview/CSSOverviewCompletedView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-23T10:35:02Z",
+      "side": 1,
+      "message": "Can we drop Array.from here? Array.prototype.map already creates a new array, so we\u0027re not mutating either way.",
+      "range": {
+        "startLine": 192,
+        "startChar": 12,
+        "endLine": 192,
+        "endChar": 22
+      },
+      "revId": "ff1605d6b4234f2a9c4c6b4d3c9db5612b501895",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbe8ab9a_22e7d55f",
+        "filename": "front_end/css_overview/CSSOverviewCompletedView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 642,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-23T10:35:02Z",
+      "side": 1,
+      "message": "nit: use the same syntax as in the DevTools UI modern syntax (i.e. no commas, `deg`)",
+      "revId": "ff1605d6b4234f2a9c4c6b4d3c9db5612b501895",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9aff8103_276bbba6",
+        "filename": "front_end/css_overview/CSSOverviewModel.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-23T10:35:02Z",
+      "side": 1,
+      "message": "nit: add trailing comma",
+      "revId": "ff1605d6b4234f2a9c4c6b4d3c9db5612b501895",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
