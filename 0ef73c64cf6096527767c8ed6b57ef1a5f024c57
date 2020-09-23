@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "c79a3476_f78418cb",
+        "filename": "scripts/component_bridges/walk_tree.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-23T10:50:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22921f01_668ac7fd",
+      "range": {
+        "startLine": 127,
+        "startChar": 53,
+        "endLine": 127,
+        "endChar": 57
+      },
+      "revId": "0ef73c64cf6096527767c8ed6b57ef1a5f024c57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c0587fe_cfefd366",
         "filename": "scripts/component_bridges/walk_tree.ts",
         "patchSetId": 3
@@ -65,6 +89,30 @@
     },
     {
       "key": {
+        "uuid": "2031a1af_40fab65a",
+        "filename": "scripts/component_bridges/walk_tree.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-23T10:50:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c0587fe_cfefd366",
+      "range": {
+        "startLine": 135,
+        "startChar": 52,
+        "endLine": 135,
+        "endChar": 60
+      },
+      "revId": "0ef73c64cf6096527767c8ed6b57ef1a5f024c57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5616792e_8eaa1b75",
         "filename": "scripts/component_bridges/walk_tree.ts",
         "patchSetId": 3
@@ -85,6 +133,30 @@
       "revId": "0ef73c64cf6096527767c8ed6b57ef1a5f024c57",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "563490e6_81d6d053",
+        "filename": "scripts/component_bridges/walk_tree.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-23T10:50:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5616792e_8eaa1b75",
+      "range": {
+        "startLine": 309,
+        "startChar": 6,
+        "endLine": 309,
+        "endChar": 111
+      },
+      "revId": "0ef73c64cf6096527767c8ed6b57ef1a5f024c57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
