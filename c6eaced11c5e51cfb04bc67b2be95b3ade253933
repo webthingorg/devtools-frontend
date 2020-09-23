@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e786f3bc_70f26be8",
+        "filename": "front_end/root/Runtime.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-23T09:09:55Z",
+      "side": 1,
+      "message": "nit: wish this was `{ asBinary: false }`, but I think that\u0027s outside the scope of this CL (given it\u0027s already used above + would mean rewriting the `internalLoadResourcePromise` function)",
+      "range": {
+        "startLine": 97,
+        "startChar": 44,
+        "endLine": 97,
+        "endChar": 49
+      },
+      "revId": "c6eaced11c5e51cfb04bc67b2be95b3ade253933",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
