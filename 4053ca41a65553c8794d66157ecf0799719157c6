@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aae7221e_597a6ea3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-09-23T05:57:04Z",
+      "side": 1,
+      "message": "Hi Tim,\n\ntypescriptify-ing ShortcutsScreen.js, ptal!",
+      "revId": "4053ca41a65553c8794d66157ecf0799719157c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
