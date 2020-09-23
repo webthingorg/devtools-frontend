@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6ab98a4d_23084eaa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-23T13:55:47Z",
+      "side": 1,
+      "message": "I asked around and was told that Joey has done some changes related to encoding recently, so he\u0027s experience might help to review this.",
+      "revId": "8caaf85ea9e2ae1c2d036db3a1b0479312604559",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
