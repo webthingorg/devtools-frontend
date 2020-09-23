@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "d9af6fa0_a0a398e3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2020-09-23T06:26:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "addd86aa_b77234b5",
+      "revId": "30b01b4f382dae56dba55010efd0cd2542ddcbeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "837ecc0d_22f91c28",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 6
@@ -68,6 +86,24 @@
       "revId": "30b01b4f382dae56dba55010efd0cd2542ddcbeb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b382d9a4_b397ee3d",
+        "filename": "test/e2e/sensors/idle_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2020-09-23T06:26:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b13c29f8_89ca6abf",
+      "revId": "30b01b4f382dae56dba55010efd0cd2542ddcbeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
