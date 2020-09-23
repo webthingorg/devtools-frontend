@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "c4ec38c3_4dc08fd8",
+        "filename": "front_end/network/NetworkPanel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-23T13:00:40Z",
+      "side": 1,
+      "message": "They are actually required to cast the value. Without the parenthesis, it errors:\n\n(property) NetworkPanel._toggleRecordAction: UI.Action.Action\n@type — {!UI.Action.Action }\n\nType \u0027Action | null\u0027 is not assignable to type \u0027Action\u0027.\n  Type \u0027null\u0027 is not assignable to type \u0027Action\u0027.ts(2322)",
+      "parentUuid": "d760fc13_a0db3a92",
+      "range": {
+        "startLine": 67,
+        "startChar": 31,
+        "endLine": 67,
+        "endChar": 32
+      },
+      "revId": "3d80cfa13892901923e851709b9119f155161e58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "acf2157a_d8354d4b",
         "filename": "front_end/network/NetworkPanel.js",
         "patchSetId": 1
@@ -62,6 +86,30 @@
       "revId": "3d80cfa13892901923e851709b9119f155161e58",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c5c9abc_885cb0c9",
+        "filename": "front_end/network/NetworkPanel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-23T13:00:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "acf2157a_d8354d4b",
+      "range": {
+        "startLine": 433,
+        "startChar": 31,
+        "endLine": 433,
+        "endChar": 37
+      },
+      "revId": "3d80cfa13892901923e851709b9119f155161e58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
