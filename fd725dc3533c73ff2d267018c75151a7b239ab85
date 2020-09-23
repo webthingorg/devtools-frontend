@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99996e8d_9be732b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-09-23T16:53:49Z",
+      "side": 1,
+      "message": "Not sure why all Lighthouse tests are timing out. https://ci.chromium.org/p/devtools-frontend/builders/try/devtools_frontend_linux_blink_light_rel/7212?\n\nAre there runtime logs of DevTools doing layout tests? I can\u0027t find any associated error message, which  I expect is the cause of the timeout.",
+      "revId": "fd725dc3533c73ff2d267018c75151a7b239ab85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
