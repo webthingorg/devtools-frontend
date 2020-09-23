@@ -33,6 +33,24 @@
       "revId": "8f1ea96ecacb14e78f818ae86cbfec3e1b83adbd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47dbb2be_c49e5209",
+        "filename": "front_end/resources/AppManifestView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-09-23T23:15:43Z",
+      "side": 1,
+      "message": "I didnt want to affect other fields so just applied the change to icons section only. However if it is ok to update all report field names in application pane, it should be a simpler fix without invoking previousSibling.\n\nUpdated, let me know if this looks good.",
+      "parentUuid": "0d2a4049_6360369c",
+      "revId": "8f1ea96ecacb14e78f818ae86cbfec3e1b83adbd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
