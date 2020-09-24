@@ -16,6 +16,24 @@
       "revId": "aa82ddc8c52c65a11a9d89614ec736c3eb427992",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ac85fd0d_7ceff12f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-24T09:01:46Z",
+      "side": 1,
+      "message": "Yes, seems so. Works on my machine (tm).\n\nTim, do you know what I am doing wrong here? I guess I cannot include a .d.ts file in ts_library?",
+      "parentUuid": "50f7e800_dfde9a89",
+      "revId": "aa82ddc8c52c65a11a9d89614ec736c3eb427992",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
