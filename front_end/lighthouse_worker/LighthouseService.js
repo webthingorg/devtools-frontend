@@ -5,6 +5,8 @@
 // @ts-nocheck
 // TODO(crbug.com/1011811): Enable TypeScript compiler checks
 
+import * as Root from '../root/root.js';
+
 /**
  * @interface
  */
@@ -79,6 +81,9 @@ class LighthouseService {  // eslint-disable-line
   }
 
   /**
+   * Finds a locale supported by Lighthouse from the user's system locales.
+   * If no matching locale is found, or if fetching locale data fails, this function returns nothing
+   * and Lighthouse will use `en-US` by default.
    * @param {string[]} locales
    * @return {string|undefined}
    */
@@ -91,18 +96,23 @@ class LighthouseService {  // eslint-disable-line
     }
 
     // Try to load the locale data.
-    const localeResource = `../third_party/lighthouse/locales/${locale}.json`;
+    const remoteBase = Root.Runtime.getRemoteBase();
+    if (!remoteBase.base) {
+      return;
+    }
+    const localeUrl = `${remoteBase.base}third_party/lighthouse/locales/${locale}.json`;
+
     try {
-      // @ts-ignore self.runtime needs to be moved to ESModules so we can import this
-      const module = self.runtime.module('lighthouse_worker');
-      const localeDataText = await module.fetchResource(localeResource);
+      const timeoutPromise =
+          new Promise((resolve, reject) => setTimeout(() => reject(new Error('timed out fetching locale')), 5000));
+      const localeDataTextPromise = await Root.Runtime.Runtime.instance().loadTextResourcePromise(localeUrl);
+      const localeDataText = await Promise.race([timeoutPromise, localeDataTextPromise]);
       const localeData = JSON.parse(localeDataText);
       self.registerLocaleData(locale, localeData);
       return locale;
-    } catch (_) {
+    } catch (err) {
+      console.error(err);
     }
-
-    // If no locale was found, or fetching locale data fails, Lighthouse will use `en-US` by default.
   }
 
   /**
