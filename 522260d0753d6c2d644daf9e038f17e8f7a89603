@@ -19,6 +19,46 @@
     },
     {
       "key": {
+        "uuid": "4098e281_d9c00cc8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-09-24T13:08:58Z",
+      "side": 1,
+      "message": "lgtm % question",
+      "revId": "522260d0753d6c2d644daf9e038f17e8f7a89603",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8da17ce_68dd468f",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-09-24T13:08:58Z",
+      "side": 1,
+      "message": "I assume because link creation moved here, we can move the null check out of the event handler and do it here?\n\nThat should be fine, as long as this._ownerDomNode is not set anywhere else, potentially nulling it again.",
+      "range": {
+        "startLine": 66,
+        "startChar": 4,
+        "endLine": 66,
+        "endChar": 29
+      },
+      "revId": "522260d0753d6c2d644daf9e038f17e8f7a89603",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9a08a48c_69ea6804",
         "filename": "front_end/resources/FrameDetailsView.js",
         "patchSetId": 3
@@ -30,6 +70,24 @@
       "writtenOn": "2020-09-24T12:58:24Z",
       "side": 1,
       "message": "I could put a slightly more general version of this in the Linkifyer itself, WDYT?",
+      "revId": "522260d0753d6c2d644daf9e038f17e8f7a89603",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "333d78bc_b2c63334",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-09-24T13:08:58Z",
+      "side": 1,
+      "message": "I\u0027d say we leave it here until we know of other use-sites that also want to use it.",
+      "parentUuid": "9a08a48c_69ea6804",
       "revId": "522260d0753d6c2d644daf9e038f17e8f7a89603",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
