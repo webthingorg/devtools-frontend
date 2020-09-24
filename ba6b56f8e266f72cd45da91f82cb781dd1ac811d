@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "d9da344e_8ecc4488",
+        "filename": "front_end/component_docs/icon_component/basic.html",
+        "patchSetId": 8
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-24T08:43:40Z",
+      "side": 1,
+      "message": "extra \u003e here",
+      "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7286fa05_0afaab17",
         "filename": "front_end/elements/IconComponent.ts",
         "patchSetId": 8
