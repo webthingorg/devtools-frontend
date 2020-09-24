@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "017c5970_85eb8b6d",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-24T08:30:54Z",
+      "side": 1,
+      "message": "I think you need to use ; in order for the formatter to format it properly.",
+      "parentUuid": "7286fa05_0afaab17",
+      "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ce6e426e_2b8240d5",
         "filename": "front_end/elements/IconComponent.ts",
         "patchSetId": 8
