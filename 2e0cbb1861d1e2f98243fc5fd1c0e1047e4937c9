@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6376a7e4_370f166a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-09-24T11:58:35Z",
+      "side": 1,
+      "message": "ptal, this is a very weird CL indeed",
+      "revId": "2e0cbb1861d1e2f98243fc5fd1c0e1047e4937c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
