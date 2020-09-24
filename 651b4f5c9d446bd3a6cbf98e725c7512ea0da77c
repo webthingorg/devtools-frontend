@@ -51,6 +51,24 @@
       "revId": "651b4f5c9d446bd3a6cbf98e725c7512ea0da77c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a87cda6_62d0da4b",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-09-24T05:48:32Z",
+      "side": 1,
+      "message": "I\u0027ll get a new CL with the sentence case out to you tomorrow.",
+      "parentUuid": "ef7d1ae7_074b7763",
+      "revId": "651b4f5c9d446bd3a6cbf98e725c7512ea0da77c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
