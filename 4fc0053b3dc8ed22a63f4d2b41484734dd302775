@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "96cfadb4_77f50151",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-24T12:06:05Z",
+      "side": 1,
+      "message": "Opted for converting the layout test to a unittest. PTAL again.",
+      "parentUuid": "3bf5e672_8f79ca9d",
+      "revId": "4fc0053b3dc8ed22a63f4d2b41484734dd302775",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03fab6c5_e76ead62",
         "filename": "front_end/coverage/CoverageModel.js",
         "patchSetId": 2
@@ -39,6 +57,30 @@
       "revId": "4fc0053b3dc8ed22a63f4d2b41484734dd302775",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b30f3c47_f592c838",
+        "filename": "front_end/coverage/CoverageModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-24T12:06:05Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "03fab6c5_e76ead62",
+      "range": {
+        "startLine": 175,
+        "startChar": 95,
+        "endLine": 175,
+        "endChar": 107
+      },
+      "revId": "4fc0053b3dc8ed22a63f4d2b41484734dd302775",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
