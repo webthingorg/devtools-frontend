@@ -22,6 +22,30 @@
       "revId": "2d02e0dcf60d66f2da97ca35eb4118a91d2f79f0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd532e74_fb38e834",
+        "filename": "front_end/legacy/legacy-defs.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-24T11:29:12Z",
+      "side": 1,
+      "message": "Yes, but I\u0027ll do it in a follow up CL this afternoon 👍",
+      "parentUuid": "dc04864a_dc2f6125",
+      "range": {
+        "startLine": 160,
+        "startChar": 17,
+        "endLine": 160,
+        "endChar": 34
+      },
+      "revId": "2d02e0dcf60d66f2da97ca35eb4118a91d2f79f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
