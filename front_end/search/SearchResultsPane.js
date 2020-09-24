@@ -2,9 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
 import * as Common from '../common/common.js';
 import * as Components from '../components/components.js';
 import * as TextUtils from '../text_utils/text_utils.js';
@@ -110,7 +107,7 @@ export class SearchResultsTreeElement extends UI.TreeOutline.TreeElement {
 
     this.tooltip = this._searchResult.description();
     this.listItemElement.appendChild(fileNameSpan);
-    const matchesCountSpan = createElement('span');
+    const matchesCountSpan = document.createElement('span');
     matchesCountSpan.className = 'search-result-matches-count';
 
     matchesCountSpan.textContent = `${this._searchResult.matchesCount()}`;
@@ -127,7 +124,7 @@ export class SearchResultsTreeElement extends UI.TreeOutline.TreeElement {
      * @return {!Element}
      */
     function span(text, className) {
-      const span = createElement('span');
+      const span = document.createElement('span');
       span.className = className;
       span.textContent = text;
       return span;
@@ -149,6 +146,7 @@ export class SearchResultsTreeElement extends UI.TreeOutline.TreeElement {
 
     for (let i = fromIndex; i < toIndex; ++i) {
       const lineContent = searchResult.matchLineContent(i).trim();
+      /** @type {!Array<!TextUtils.TextRange.SourceRange>} */
       let matchRanges = [];
       for (let j = 0; j < regexes.length; ++j) {
         matchRanges = matchRanges.concat(this._regexMatchRanges(lineContent, regexes[j]));
@@ -156,7 +154,7 @@ export class SearchResultsTreeElement extends UI.TreeOutline.TreeElement {
 
       const anchor = Components.Linkifier.Linkifier.linkifyRevealable(searchResult.matchRevealable(i), '');
       anchor.classList.add('search-match-link');
-      const labelSpan = createElement('span');
+      const labelSpan = document.createElement('span');
       labelSpan.classList.add('search-match-line-number');
       const resultLabel = searchResult.matchLabel(i);
       labelSpan.textContent = resultLabel;
@@ -213,7 +211,7 @@ export class SearchResultsTreeElement extends UI.TreeOutline.TreeElement {
           matchRanges.map(range => new TextUtils.TextRange.SourceRange(range.offset - trimBy + 1, range.length));
       lineContent = '…' + lineContent;
     }
-    const contentSpan = createElement('span');
+    const contentSpan = document.createElement('span');
     contentSpan.className = 'search-match-content';
     contentSpan.textContent = lineContent;
     UI.ARIAUtils.setAccessibleName(contentSpan, `${lineContent} line`);
