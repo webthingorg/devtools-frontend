@@ -121,6 +121,24 @@
     },
     {
       "key": {
+        "uuid": "61905e76_af2b8924",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-24T08:10:11Z",
+      "side": 1,
+      "message": "Actually, if iconPath is not defined, then iconName must be defined according to the IconComponentData as far as I see.",
+      "parentUuid": "49f941b9_1384e716",
+      "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cf67e5fe_d9267be4",
         "filename": "front_end/elements/IconComponent.ts",
         "patchSetId": 8
