@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e72b86a8_17506f2e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-24T12:56:03Z",
+      "side": 1,
+      "message": "PTAL it\u0027s an initial version and I hope to sync with Peter next week to discus if we need to tweak it (e.g., maybe splitting the contrast into into multiple colors or showing it differently). ",
+      "revId": "c86502b2f127d3f53a244a2b3682e5b9ee4a7b18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
