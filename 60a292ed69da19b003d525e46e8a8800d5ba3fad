@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "2cced177_23769410",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-09-24T08:21:28Z",
+      "side": 1,
+      "message": "Looks like closure is unhappy still, you can check locally with `npm run check-type-closure`",
+      "revId": "60a292ed69da19b003d525e46e8a8800d5ba3fad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4c477df9_dabf5df6",
         "filename": "front_end/lighthouse/LighthouseController.js",
         "patchSetId": 12
@@ -13,6 +30,24 @@
       "writtenOn": "2020-09-23T20:05:02Z",
       "side": 1,
       "message": "The CL auto format is making these indentation changes. Should I get rid of them?",
+      "revId": "60a292ed69da19b003d525e46e8a8800d5ba3fad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "574b6027_4deac643",
+        "filename": "front_end/lighthouse/LighthouseController.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-09-24T08:21:28Z",
+      "side": 1,
+      "message": "If the presubmit lets you get away with it, then yes. Otherwise that\u0027s unfortunate but not much we can do",
+      "parentUuid": "4c477df9_dabf5df6",
       "revId": "60a292ed69da19b003d525e46e8a8800d5ba3fad",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
