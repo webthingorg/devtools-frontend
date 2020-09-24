@@ -497,3 +497,23 @@ export const filterRegex = function(query) {
   }
   return new RegExp(regexString, 'i');
 };
+
+
+/**
+ * @param {number} spacesCount
+ * @return {string}
+ */
+export const spacesPadding = spacesCount => {
+  return '\xA0'.repeat(spacesCount);
+};
+
+/**
+ * @param {number} value
+ * @param {number} symbolsCount
+ * @return {string}
+ */
+export const numberToStringWithSpacesPadding = (value, symbolsCount) => {
+  const numberString = value.toString();
+  const paddingLength = Math.max(0, symbolsCount - numberString.length);
+  return spacesPadding(paddingLength) + numberString;
+};

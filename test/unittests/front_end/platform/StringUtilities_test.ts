@@ -556,4 +556,16 @@ describe('StringUtilities', () => {
       assert.strictEqual(regex.toString(), '/\\{[^\\0\\?]*\\?[^\\0\\}]*\\}/i');
     });
   });
+
+  describe('numberToStringWithSpacesPadding', () => {
+    it('does not pad the number if it is longer than the required padding', () => {
+      const result = StringUtilities.numberToStringWithSpacesPadding(2000, 2);
+      assert.strictEqual(result, '2000');
+    });
+
+    it('pads the number if it is shorter than the given padding', () => {
+      const result = StringUtilities.numberToStringWithSpacesPadding(2, 4);
+      assert.strictEqual(result, '\xA0\xA0\xA02');
+    });
+  });
 });

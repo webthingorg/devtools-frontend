@@ -7,6 +7,7 @@
 
 import * as Common from '../common/common.js';
 import * as Diff from '../diff/diff.js';
+import * as Platform from '../platform/platform.js';
 import * as UI from '../ui/ui.js';
 import * as Workspace from '../workspace/workspace.js';  // eslint-disable-line no-unused-vars
 import * as WorkspaceDiff from '../workspace_diff/workspace_diff.js';
@@ -340,11 +341,13 @@ export class ChangesView extends UI.Widget.VBox {
       showBaseNumber = true;
       showCurrentNumber = true;
     }
-    const base = showBaseNumber ? numberToStringWithSpacesPadding(row.baselineLineNumber, this._maxLineDigits) :
-                                  spacesPadding(this._maxLineDigits);
-    const current = showCurrentNumber ? numberToStringWithSpacesPadding(row.currentLineNumber, this._maxLineDigits) :
-                                        spacesPadding(this._maxLineDigits);
-    return base + spacesPadding(1) + current;
+    const base = showBaseNumber ?
+        Platform.StringUtilities.numberToStringWithSpacesPadding(row.baselineLineNumber, this._maxLineDigits) :
+        Platform.StringUtilities.spacesPadding(this._maxLineDigits);
+    const current = showCurrentNumber ?
+        Platform.StringUtilities.numberToStringWithSpacesPadding(row.currentLineNumber, this._maxLineDigits) :
+        Platform.StringUtilities.spacesPadding(this._maxLineDigits);
+    return base + Platform.StringUtilities.spacesPadding(1) + current;
   }
 }
 
