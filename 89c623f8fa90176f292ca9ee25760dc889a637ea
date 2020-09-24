@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a8f2bf11_a4920d48",
+        "filename": "test/e2e/helpers/issues-helpers.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-09-24T15:00:39Z",
+      "side": 1,
+      "message": "Hmm.. this looks like it will expand an arbitrary category. Are we OK with that?",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 27
+      },
+      "revId": "89c623f8fa90176f292ca9ee25760dc889a637ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
