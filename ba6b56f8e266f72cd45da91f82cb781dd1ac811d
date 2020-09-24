@@ -174,6 +174,23 @@
     },
     {
       "key": {
+        "uuid": "bf7f6af7_880b9a17",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-24T08:36:42Z",
+      "side": 1,
+      "message": "Do we need these default margins? I am not sure it\u0027d work for all use cases.",
+      "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a36f50c5_4dec2760",
         "filename": "front_end/elements/IconComponent.ts",
         "patchSetId": 8
@@ -185,6 +202,23 @@
       "writtenOn": "2020-09-24T08:08:13Z",
       "side": 1,
       "message": "Do we plan to do something for accessibility? E.g. some icons might convey a meaning and some are used for decorative purposes. Maybe accessibility should be handled by the parent component.",
+      "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "625aef53_898ee881",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-24T08:36:42Z",
+      "side": 1,
+      "message": "Should we exclude the -component part from the tag name and the class name?",
       "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
