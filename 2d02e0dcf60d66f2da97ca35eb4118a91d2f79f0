@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc04864a_dc2f6125",
+        "filename": "front_end/legacy/legacy-defs.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-24T11:25:49Z",
+      "side": 1,
+      "message": "Since there are only 2 references to this function, could we move it to a utility? Every time we edit the global `.d.ts` files, we purge the whole Ninja cache, which is quite expensive. Therefore, cleaning up these 2 references is probably a lot cheaper on everyone\u0027s build performance.",
+      "range": {
+        "startLine": 160,
+        "startChar": 17,
+        "endLine": 160,
+        "endChar": 34
+      },
+      "revId": "2d02e0dcf60d66f2da97ca35eb4118a91d2f79f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
