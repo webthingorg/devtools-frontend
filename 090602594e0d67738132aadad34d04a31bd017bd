@@ -50,6 +50,78 @@
       "revId": "090602594e0d67738132aadad34d04a31bd017bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3e9ef4e_76bbe3bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1454107
+      },
+      "writtenOn": "2020-09-24T16:38:03Z",
+      "side": 1,
+      "message": "I did submit the \"individual cla\" a couple of weeks ago",
+      "parentUuid": "0efa0e80_cfea0454",
+      "revId": "090602594e0d67738132aadad34d04a31bd017bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52a53492_4f0f90dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1454107
+      },
+      "writtenOn": "2020-09-24T16:38:03Z",
+      "side": 1,
+      "message": "I did submit the \"individual cla\" a couple of weeks ago",
+      "parentUuid": "0efa0e80_cfea0454",
+      "revId": "090602594e0d67738132aadad34d04a31bd017bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e79bd053_ef29cffb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1454107
+      },
+      "writtenOn": "2020-09-24T16:38:03Z",
+      "side": 1,
+      "message": "I did submit the \"individual cla\" a couple of weeks ago",
+      "parentUuid": "0efa0e80_cfea0454",
+      "revId": "090602594e0d67738132aadad34d04a31bd017bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2311fd48_33a5ef3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1454107
+      },
+      "writtenOn": "2020-09-24T16:38:03Z",
+      "side": 1,
+      "message": "I did submit the \"individual cla\" a couple of weeks ago",
+      "parentUuid": "0efa0e80_cfea0454",
+      "revId": "090602594e0d67738132aadad34d04a31bd017bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
