@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "df79ce1e_bf758a52",
+        "filename": "inspector_overlay/tool_distances.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-24T12:22:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "962dabac_18d88ff9",
+      "range": {
+        "startLine": 17,
+        "startChar": 24,
+        "endLine": 17,
+        "endChar": 27
+      },
+      "revId": "a4748296bd5bf8ccc50a4d8b1ec2be7a3e619caa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "547da8b7_94a749a1",
         "filename": "inspector_overlay/tool_distances_impl.ts",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "a4748296bd5bf8ccc50a4d8b1ec2be7a3e619caa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9aa93a34_cc2e3a5e",
+        "filename": "inspector_overlay/tool_distances_impl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-24T12:22:19Z",
+      "side": 1,
+      "message": "Oh, thanks, I have cleaned it up a bit. I wanted to document what we are receiving and using but some part of the code generates the key names.",
+      "parentUuid": "547da8b7_94a749a1",
+      "range": {
+        "startLine": 8,
+        "startChar": 2,
+        "endLine": 8,
+        "endChar": 15
+      },
+      "revId": "a4748296bd5bf8ccc50a4d8b1ec2be7a3e619caa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
