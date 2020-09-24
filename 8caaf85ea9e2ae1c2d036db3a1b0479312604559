@@ -85,6 +85,24 @@
       "revId": "8caaf85ea9e2ae1c2d036db3a1b0479312604559",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64163395_b06c0a15",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-09-24T17:09:58Z",
+      "side": 1,
+      "message": "I\u0027d guess the site in the bug works with this fix because putting utf-8 in the data-uri is taking precedence over the meta tag in the content. Though that\u0027s assuming the decoded string is ultimately being fed to the iframe as utf-8 instead of utf-16. I\u0027d expect utf-16 since that\u0027s the in-memory representation for JS strings, but we may be going through a serialization step that converts to utf-8 before the string is parsed as part of the iframe. \n\nIf that\u0027s true and consistent across resources it could potentially be \"correct\" to always pass utf-8 and ignore the content-type header. That\u0027s a big if, though.",
+      "parentUuid": "e6ec50a2_a5682d7c",
+      "revId": "8caaf85ea9e2ae1c2d036db3a1b0479312604559",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
