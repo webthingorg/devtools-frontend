@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f647887b_3f5f0906",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-24T12:26:26Z",
+      "side": 1,
+      "message": "These are globals, not installed on built-in prototypes, so I don’t think that bug really applies. But we should probably broaden the scope of that bug to include these global utilities anyway. Will do.",
+      "parentUuid": "9e33deed_b295b21a",
+      "range": {
+        "startLine": 14,
+        "startChar": 3,
+        "endLine": 14,
+        "endChar": 21
+      },
+      "revId": "792ff423ff64349582c476c343fbeef8c4428bfb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0483804b_1e8edc07",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
