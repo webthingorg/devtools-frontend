@@ -122,6 +122,23 @@
       "revId": "090602594e0d67738132aadad34d04a31bd017bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "daa0a6ba_948952b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1454107
+      },
+      "writtenOn": "2020-09-24T16:41:10Z",
+      "side": 1,
+      "message": "Ah, missed the part about adding myself to the authors file :/ ",
+      "revId": "090602594e0d67738132aadad34d04a31bd017bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
