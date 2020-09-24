@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3bf5e672_8f79ca9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-24T11:29:22Z",
+      "side": 1,
+      "message": "Seems like this requires a three-way merge with layout tests 😞",
+      "revId": "4fc0053b3dc8ed22a63f4d2b41484734dd302775",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03fab6c5_e76ead62",
+        "filename": "front_end/coverage/CoverageModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-24T11:29:22Z",
+      "side": 1,
+      "message": "For `console.assert` calls that don\u0027t get passed in a boolean, you have to double-cast it. E.g. `!!(this._suspensionState !\u003d\u003d SuspensionState.Suspended || this._performanceTraceRecording)`",
+      "range": {
+        "startLine": 175,
+        "startChar": 95,
+        "endLine": 175,
+        "endChar": 107
+      },
+      "revId": "4fc0053b3dc8ed22a63f4d2b41484734dd302775",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
