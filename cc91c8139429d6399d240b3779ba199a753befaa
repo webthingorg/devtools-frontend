@@ -59,6 +59,48 @@
     },
     {
       "key": {
+        "uuid": "c4c6fe86_47470275",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-09-24T13:23:58Z",
+      "side": 1,
+      "message": "I added it with a comment as there is currently a crbug to add it properly.",
+      "parentUuid": "508c84ef_dee129d4",
+      "revId": "cc91c8139429d6399d240b3779ba199a753befaa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71f0f41c_1baea66c",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-09-24T13:23:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "adb138c8_b69b792f",
+      "range": {
+        "startLine": 109,
+        "startChar": 43,
+        "endLine": 109,
+        "endChar": 92
+      },
+      "revId": "cc91c8139429d6399d240b3779ba199a753befaa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ba59f48_e92148a0",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 2
@@ -82,6 +124,30 @@
     },
     {
       "key": {
+        "uuid": "f85b6fd2_22d4d595",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-09-24T13:23:58Z",
+      "side": 1,
+      "message": "I went with the logical order you suggested for now. Not sure how often these will change but I think that\u0027s all right for now.",
+      "parentUuid": "6ba59f48_e92148a0",
+      "range": {
+        "startLine": 116,
+        "startChar": 8,
+        "endLine": 118,
+        "endChar": 0
+      },
+      "revId": "cc91c8139429d6399d240b3779ba199a753befaa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6321e1eb_3e758076",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 2
@@ -99,6 +165,24 @@
     },
     {
       "key": {
+        "uuid": "4f241901_f03d3e17",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-09-24T13:23:58Z",
+      "side": 1,
+      "message": "I added a comment saying this will be taken care of in _updateNewAuthenticatorSectionOptions.",
+      "parentUuid": "6321e1eb_3e758076",
+      "revId": "cc91c8139429d6399d240b3779ba199a753befaa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a863b36a_01d1b41c",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 2
@@ -113,6 +197,24 @@
       "revId": "cc91c8139429d6399d240b3779ba199a753befaa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c4434f8_1fe87aa8",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-09-24T13:23:58Z",
+      "side": 1,
+      "message": "I moved this to _updateEnabledTransportOptions method and made it more explicit.",
+      "parentUuid": "a863b36a_01d1b41c",
+      "revId": "cc91c8139429d6399d240b3779ba199a753befaa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
