@@ -50,6 +50,24 @@
       "revId": "df9918b3faced52742d3cd9de72abe17446d538b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d5f3004_1781f579",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-09-24T13:04:26Z",
+      "side": 1,
+      "message": "Yes, that\u0027s a good point. I updated the name accordingly.",
+      "parentUuid": "e7eeb77b_0045f00f",
+      "revId": "df9918b3faced52742d3cd9de72abe17446d538b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
