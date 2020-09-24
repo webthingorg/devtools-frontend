@@ -337,6 +337,7 @@
     "ElementStatePaneWidget.js",
     "ElementsTreeElementHighlighter.js",
     "ImagePreviewPopover.js",
+    "IconComponent_bridge.js",
     "ElementsBreadcrumbs_bridge.js",
     "ElementsPanelLink_bridge.js",
     "LayoutSidebarPane.js",
