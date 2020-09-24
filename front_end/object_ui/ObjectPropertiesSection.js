@@ -1044,6 +1044,14 @@ export class ObjectPropertyTreeElement extends UI.TreeOutline.TreeElement {
     }
     if (this.property.value) {
       contextMenu.appendApplicableItems(this.property.value);
+      if (this.property.parentObject instanceof SDK.RemoteObject.LocalJSONObject) {
+        const {value: {value}} = this.property;
+        /** @type {string|undefined} */
+        const propertyValue = typeof value === 'object' ? JSON.stringify(value, null, 2) : value;
+        const copyPathHandler = Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText.bind(
+            Host.InspectorFrontendHost.InspectorFrontendHostInstance, propertyValue);
+        contextMenu.clipboardSection().appendItem(ls`Copy property value`, copyPathHandler);
+      }
     }
     if (!this.property.synthetic && this.nameElement && this.nameElement.title) {
       const copyPathHandler = Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText.bind(
