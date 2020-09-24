@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "efb2fd4a_9e0fdd5c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-24T09:01:29Z",
+      "side": 1,
+      "message": "LGTM. I\u0027ve added Bug: 1126033 to the description so that it gets tied back to crbug.com 😊",
+      "revId": "3053a36f1bf0e68ec8785b59952a4c0fc0850e7c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
