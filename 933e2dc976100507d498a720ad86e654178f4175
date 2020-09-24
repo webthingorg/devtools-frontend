@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "57e8b02b_2a0c302d",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-09-24T07:58:02Z",
+      "side": 1,
+      "message": "I misunderstood Sigurd\u0027s previous comment on this CL, this goes away",
+      "parentUuid": "6727927a_91d5a63b",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 5
+      },
+      "revId": "933e2dc976100507d498a720ad86e654178f4175",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dda11ab3_03dca821",
         "filename": "front_end/elements/IconComponent.ts",
         "patchSetId": 7
@@ -62,6 +86,30 @@
       "revId": "933e2dc976100507d498a720ad86e654178f4175",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d37f0d71_6196d17a",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-09-24T07:58:02Z",
+      "side": 1,
+      "message": "No, thanks :)",
+      "parentUuid": "dda11ab3_03dca821",
+      "range": {
+        "startLine": 26,
+        "startChar": 51,
+        "endLine": 26,
+        "endChar": 53
+      },
+      "revId": "933e2dc976100507d498a720ad86e654178f4175",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -88,6 +136,30 @@
     },
     {
       "key": {
+        "uuid": "985af8d0_613ca24e",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-09-24T07:58:02Z",
+      "side": 1,
+      "message": "Sigurd suggested not storing the name, only storing the path (the name therefore gets converted to a path in the setter), in order to avoid the possibility of a situation where both are set to different values. As now one of iconPath/iconName is optional for IconComponentData type, we will not return iconName at all.",
+      "parentUuid": "e8780e2c_7c290c12",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 21
+      },
+      "revId": "933e2dc976100507d498a720ad86e654178f4175",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c973520f_e35d0311",
         "filename": "front_end/elements/IconComponent.ts",
         "patchSetId": 7
@@ -99,6 +171,30 @@
       "writtenOn": "2020-09-21T09:54:10Z",
       "side": 1,
       "message": "I think we should store `this.iconName` so we can return it in the `get data()` call rather than always provide `none`.\n\nAnd then I\u0027d move this conditional into the `render` call. So the setter just does `this.iconPath \u003d iconPath` and `this.iconName \u003d data.iconName` and then in the render we do:\n\n```\nconst iconURL \u003d this.iconPath || `Images/${this.iconName}.svg`;\n```",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 87
+      },
+      "revId": "933e2dc976100507d498a720ad86e654178f4175",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "119a2a77_d08689ef",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-09-24T07:58:02Z",
+      "side": 1,
+      "message": "See the comment above:)",
+      "parentUuid": "c973520f_e35d0311",
       "range": {
         "startLine": 40,
         "startChar": 0,
@@ -155,6 +251,30 @@
       "revId": "933e2dc976100507d498a720ad86e654178f4175",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be66229e_f81641a8",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-09-24T07:58:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ec9321b_610e21ff",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 45
+      },
+      "revId": "933e2dc976100507d498a720ad86e654178f4175",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
