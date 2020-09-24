@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89dc4342_a3be6fb4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-24T12:05:21Z",
+      "side": 1,
+      "message": "Could you try changing the type in `snippets/snippets.js` to:\n\n```\n/** @type {!Workspace.Workspace.Project} */\nexport const project \u003d (\n```\n\nI think that the type is only the cast, but then TS incorrectly assumes that `project` could still be undefined. I kind of consider this a bug in `tsc`, but I see why it could be doing this in the first place.",
+      "revId": "9bc2ca62322506e413bf6c478ffe985481927b0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
