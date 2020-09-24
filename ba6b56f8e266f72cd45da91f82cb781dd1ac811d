@@ -16,6 +16,142 @@
       "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7286fa05_0afaab17",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-24T08:08:13Z",
+      "side": 1,
+      "message": "Would it be better to split into multiple lines?",
+      "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce6e426e_2b8240d5",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-24T08:08:13Z",
+      "side": 1,
+      "message": "We can use the new no-comma syntax here (https://css-tricks.com/no-comma-color-functions-in-css/).",
+      "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb326405_9307ac3b",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-24T08:08:13Z",
+      "side": 1,
+      "message": "can width/height/color exist in the styles map?",
+      "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "deacb271_b8a21582",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-24T08:08:13Z",
+      "side": 1,
+      "message": "A template string can used here.",
+      "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e9432ed_57e99ec9",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-24T08:08:13Z",
+      "side": 1,
+      "message": "Would we allow setting a background for the icon somehow? This backgroundColor as far as I understand it is actually the color of the icon because the mask is used.",
+      "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49f941b9_1384e716",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-24T08:08:13Z",
+      "side": 1,
+      "message": "What is some_icon? Perhaps it\u0027d be simpler `data.iconPath ? data.icon.path: `Images/${data.iconName}`` with an assertion that either iconPath or iconName has to be defined?",
+      "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf67e5fe_d9267be4",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-24T08:08:13Z",
+      "side": 1,
+      "message": "I guess it\u0027s the auto formatter bug?",
+      "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a36f50c5_4dec2760",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-24T08:08:13Z",
+      "side": 1,
+      "message": "Do we plan to do something for accessibility? E.g. some icons might convey a meaning and some are used for decorative purposes. Maybe accessibility should be handled by the parent component.",
+      "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
