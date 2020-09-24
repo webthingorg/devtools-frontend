@@ -33,6 +33,23 @@
       "revId": "090602594e0d67738132aadad34d04a31bd017bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0efa0e80_cfea0454",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-24T15:16:10Z",
+      "side": 1,
+      "message": "The presubmit is failing:\n\npossan@possan.se is not in AUTHORS file. If you are a new contributor, please visit\n\nhttps://www.chromium.org/developers/contributing-code and read the \"Legal\" section\n\nIf you are a chromite, verify the contributor signed the CLA.",
+      "revId": "090602594e0d67738132aadad34d04a31bd017bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
