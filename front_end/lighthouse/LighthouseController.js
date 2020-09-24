@@ -23,6 +23,10 @@ export class LighthouseController extends Common.ObjectWrapper.ObjectWrapper {
       preset.setting.addChangeListener(this.recomputePageAuditability.bind(this));
     }
 
+    for (const runtimeSetting of RuntimeSettings) {
+      runtimeSetting.setting.addChangeListener(this.recomputePageAuditability.bind(this));
+    }
+
     SDK.SDKModel.TargetManager.instance().observeModels(SDK.ServiceWorkerManager.ServiceWorkerManager, this);
     SDK.SDKModel.TargetManager.instance().addEventListener(
         SDK.SDKModel.Events.InspectedURLChanged, this.recomputePageAuditability, this);
@@ -120,6 +124,41 @@ export class LighthouseController extends Common.ObjectWrapper.ObjectWrapper {
   /**
    * @return {!Promise<string>}
    */
+  async _hasImportantResourcesNotCleared() {
+    const clearStorageSetting =
+        RuntimeSettings.find(runtimeSetting => runtimeSetting.setting.name === 'lighthouse.clear_storage');
+    if (clearStorageSetting && !clearStorageSetting.setting.get()) {
+      return '';
+    }
+    const mainTarget = this._manager.target();
+    const usageData = await mainTarget.storageAgent().invoke_getUsageAndQuota({origin: mainTarget.inspectedURL()});
+    const locations = usageData.usageBreakdown.filter(usage => usage.usage)
+                          .map(usage => {
+                            switch (usage.storageType) {
+                              case 'local_storage':
+                                return Common.UIString.UIString('Local Storage');
+                              case 'indexeddb':
+                                return Common.UIString.UIString('IndexedDB');
+                              case 'websql':
+                                return Common.UIString.UIString('Web SQL');
+                              default:
+                                return null;
+                            }
+                          })
+                          .filter(resourceString => resourceString)
+                          .join(', ');
+    if (locations) {
+      return Common.UIString.UIString(
+          'There may be important data in these locations: %s. Audit this page in an incognito window to prevent the resources from affecting your scores.',
+          locations,
+      );
+    }
+    return '';
+  }
+
+  /**
+   * @return {!Promise<string>}
+   */
   async _evaluateInspectedURL() {
     const mainTarget = this._manager.target();
     const runtimeModel = mainTarget.model(SDK.RuntimeModel.RuntimeModel);
@@ -207,6 +246,10 @@ export class LighthouseController extends Common.ObjectWrapper.ObjectWrapper {
     }
 
     this.dispatchEventToListeners(Events.PageAuditabilityChanged, {helpText});
+
+    this._hasImportantResourcesNotCleared().then(warning => {
+      this.dispatchEventToListeners(Events.PageWarningsChanged, {warning});
+    });
   }
 }
 
@@ -289,15 +332,16 @@ export const RuntimeSettings = [
   },
 ];
 
-export const Events = {
-  PageAuditabilityChanged: Symbol('PageAuditabilityChanged'),
-  AuditProgressChanged: Symbol('AuditProgressChanged'),
-  RequestLighthouseStart: Symbol('RequestLighthouseStart'),
-  RequestLighthouseCancel: Symbol('RequestLighthouseCancel'),
-};
+    export const Events = {
+      PageAuditabilityChanged: Symbol('PageAuditabilityChanged'),
+      PageWarningsChanged: Symbol('PageWarningsChanged'),
+      AuditProgressChanged: Symbol('AuditProgressChanged'),
+      RequestLighthouseStart: Symbol('RequestLighthouseStart'),
+      RequestLighthouseCancel: Symbol('RequestLighthouseCancel'),
+    };
 
-/** @typedef {{setting: !Common.Settings.Setting, configID: string, title: string, description: string}} */
-export let Preset;
+    /** @typedef {{setting: !Common.Settings.Setting, configID: string, title: string, description: string}} */
+    export let Preset;
 
-/** @typedef {{setting: !Common.Settings.Setting, description: string, setFlags: function(!Object, string), options: (!Array|undefined), title: (string|undefined)}} */
-export let RuntimeSetting;
+    /** @typedef {{setting: !Common.Settings.Setting, description: string, setFlags: function(!Object, string), options: (!Array|undefined), title: (string|undefined)}} */
+    export let RuntimeSetting;
