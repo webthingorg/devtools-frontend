@@ -16,6 +16,24 @@
       "revId": "811ce266de614a03cff5da1b7324e4e29d62f0b5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1345124_129d78a6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-25T07:15:48Z",
+      "side": 1,
+      "message": "Yes. Let me file an issue for this: https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1132197",
+      "parentUuid": "57e8c796_020b779c",
+      "revId": "811ce266de614a03cff5da1b7324e4e29d62f0b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
