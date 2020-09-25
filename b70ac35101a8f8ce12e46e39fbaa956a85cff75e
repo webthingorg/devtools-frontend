@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a37294db_ede0ebff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1427242
+      },
+      "writtenOn": "2020-09-25T03:12:14Z",
+      "side": 1,
+      "message": "I rebased to fix the merge conflict and also noticed a bug where an empty string would get saved in history, so I fixed that.",
+      "revId": "b70ac35101a8f8ce12e46e39fbaa956a85cff75e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
