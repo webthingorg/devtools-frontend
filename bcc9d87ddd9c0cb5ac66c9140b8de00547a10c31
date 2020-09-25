@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "fd0dfbcb_13c22ae7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-25T09:20:54Z",
+      "side": 1,
+      "message": "The \u003cinput\u003es in the video still don\u0027t have a focus ring? Not blocking for this CL necessarily, but seems like an issue we should tackle as well.",
+      "revId": "bcc9d87ddd9c0cb5ac66c9140b8de00547a10c31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "13f149cd_6e6744ef",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 8
