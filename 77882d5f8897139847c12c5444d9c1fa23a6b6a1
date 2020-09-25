@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "47dcfde2_535857d5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-25T05:48:54Z",
+      "side": 1,
+      "message": "Does this solve one or more of the issues mentioned in crbug 1131055? If so, let\u0027s explicitly call that out.",
+      "revId": "77882d5f8897139847c12c5444d9c1fa23a6b6a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a72aed61_6cfe190c",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -16,6 +33,23 @@
       "revId": "77882d5f8897139847c12c5444d9c1fa23a6b6a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82a32fc6_231b4d04",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-25T05:48:54Z",
+      "side": 1,
+      "message": "Unrelated to your patch, but now that we’re here: can `pem` ever contain non-ASCII symbols? It seems we could drop the `;charset\u003dutf-8` bit here.",
+      "revId": "77882d5f8897139847c12c5444d9c1fa23a6b6a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
