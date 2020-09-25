@@ -448,6 +448,21 @@ export class ConsoleHistoryManager {
   }
 
   /**
+   * Removes text from history.
+   * @param {string} text
+   */
+  removeHistoryItem(text) {
+    if (this._uncommittedIsTop) {
+      this._data.pop();
+      delete this._uncommittedIsTop;
+    }
+    this._historyOffset = 1;
+    this._data = this._data.filter(function(historyItem) {
+      return historyItem !== text;
+    });
+  }
+
+  /**
    * Pushes the current (uncommitted) text into the history.
    * @param {string} currentText
    */

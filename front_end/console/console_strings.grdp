@@ -279,4 +279,7 @@
   <message name="IDS_DEVTOOLS_fbb5dc83cad4daf746720c90bfb8d306" desc="Text in Console View of the Console panel">
     Custom levels
   </message>
+  <message name="IDS_DEVTOOLS_fc242185337ce0164575a5a179f5f63b" desc="Title of an action in the console tool to clear the current line from history">
+    Clear line from console history
+  </message>
 </grit-part>
