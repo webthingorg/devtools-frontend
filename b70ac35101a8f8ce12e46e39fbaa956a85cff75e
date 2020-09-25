@@ -33,6 +33,24 @@
       "revId": "b70ac35101a8f8ce12e46e39fbaa956a85cff75e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37371182_8549d8a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1427242
+      },
+      "writtenOn": "2020-09-25T20:07:27Z",
+      "side": 1,
+      "message": "Ok. Thanks. From what Robert said, I thought the keyboard shortcut wouldn\u0027t be merged, but there was a possibility a Command Palette version might be.",
+      "parentUuid": "1eee5be6_eb363afb",
+      "revId": "b70ac35101a8f8ce12e46e39fbaa956a85cff75e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
