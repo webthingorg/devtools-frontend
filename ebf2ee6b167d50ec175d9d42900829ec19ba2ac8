@@ -56,6 +56,30 @@
       "revId": "ebf2ee6b167d50ec175d9d42900829ec19ba2ac8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a23e9b2_734fc00c",
+        "filename": "front_end/issues/issuesTree.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-09-25T13:51:43Z",
+      "side": 1,
+      "message": "Good point, I\u0027ve moved the adorner styles to be generally accessible in https://crrev.com/c/2428843 so this is not needed anymore.",
+      "parentUuid": "5e363f55_5bacdc08",
+      "range": {
+        "startLine": 398,
+        "startChar": 0,
+        "endLine": 402,
+        "endChar": 1
+      },
+      "revId": "ebf2ee6b167d50ec175d9d42900829ec19ba2ac8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
