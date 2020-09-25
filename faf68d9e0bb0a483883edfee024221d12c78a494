@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "73bac7e1_83538e8b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-25T13:34:54Z",
+      "side": 1,
+      "message": "`diff_match_patch.js` is a third_party file that we still need to move into `front_end/third_party`. But yes, we don\u0027t want to typecheck that.",
+      "revId": "faf68d9e0bb0a483883edfee024221d12c78a494",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
