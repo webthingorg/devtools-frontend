@@ -33,6 +33,24 @@
       "revId": "2f9e53f96fd56cb6a916cfcbe1c14bf97be9dac0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ce815e2_b45bd47d",
+        "filename": "inspector_overlay/tool_source_order_impl.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-25T10:18:42Z",
+      "side": 1,
+      "message": "I don\u0027t have a strong opinion on this, but this coding style seems more consistent with the rest of DevTools and Puppeteer.\n\nIMHO the `export` keywords also helps make it clear what the main functionality of this module is (which reduces the need for moving things around).\n\nWDYT, Alex?",
+      "parentUuid": "118dbf05_d2558c07",
+      "revId": "2f9e53f96fd56cb6a916cfcbe1c14bf97be9dac0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
