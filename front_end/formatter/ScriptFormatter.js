@@ -104,6 +104,11 @@ export class ScriptFormatter {
    * @param {!FormatResult} formatResult
    */
   _didFormatContent(formatResult) {
+    if (!formatResult) {
+      this._callback(this._originalContent, new IdentityFormatterSourceMapping());
+      return;
+    }
+
     const originalContentLineEndings = Platform.StringUtilities.findLineEndingIndexes(this._originalContent);
     const formattedContentLineEndings = Platform.StringUtilities.findLineEndingIndexes(formatResult.content);
 
