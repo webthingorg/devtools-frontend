@@ -2,9 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
 import * as Common from '../common/common.js';
 import * as Diff from '../diff/diff.js';
 import * as UI from '../ui/ui.js';
@@ -82,7 +79,7 @@ export class ChangesView extends UI.Widget.VBox {
    */
   _click(event) {
     const selection = this._editor.selection();
-    if (!selection.isEmpty()) {
+    if (!selection.isEmpty() || !this._selectedUISourceCode) {
       return;
     }
     const row = this._diffRows[selection.startLine];
@@ -166,8 +163,9 @@ export class ChangesView extends UI.Widget.VBox {
     let currentLineNumber = 0;
     let baselineLineNumber = 0;
     const paddingLines = 3;
-    const originalLines = [];
-    const currentLines = [];
+
+    const originalLines = /** @type {!Array<string>} */ ([]);
+    const currentLines = /** @type {!Array<string>} */ ([]);
 
     for (let i = 0; i < diff.length; ++i) {
       const token = diff[i];
@@ -364,13 +362,14 @@ export class DiffUILocationRevealer {
    * @override
    * @param {!Object} diffUILocation
    * @param {boolean=} omitFocus
-   * @return {!Promise}
+   * @return {!Promise<void>}
    */
   async reveal(diffUILocation, omitFocus) {
     if (!(diffUILocation instanceof WorkspaceDiff.WorkspaceDiff.DiffUILocation)) {
       throw new Error('Internal error: not a diff ui location');
     }
     /** @type {!ChangesView} */
+    // @ts-ignore self.runtime needs to be moved to ESModules so we can import this.
     const changesView = self.runtime.sharedInstance(ChangesView);
     await UI.ViewManager.ViewManager.instance().showView('changes.changes');
     changesView._changesSidebar.selectUISourceCode(diffUILocation.uiSourceCode, omitFocus);
@@ -385,4 +384,5 @@ export class DiffUILocationRevealer {
  *  type: !RowType
  * }}
  */
+// @ts-ignore https://github.com/microsoft/TypeScript/issues/36375
 export let Row;
