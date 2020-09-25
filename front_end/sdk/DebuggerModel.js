@@ -647,7 +647,7 @@ export class DebuggerModel extends SDKModel {
    */
   async _setDebuggerPausedDetails(debuggerPausedDetails) {
     this._isPausing = false;
-    this._debuggerPausedDetails = debuggerPausedDetails;
+    this._debuggerPausedDetails = debuggerPausedDetails;  // BAD: Racy! Set at end instead?
     if (debuggerPausedDetails) {
       if (this._beforePausedCallback) {
         if (!this._beforePausedCallback.call(null, debuggerPausedDetails)) {
@@ -657,10 +657,26 @@ export class DebuggerModel extends SDKModel {
       // @ts-ignore
       const pluginManager = Bindings.DebuggerWorkspaceBinding.instance().getLanguagePluginManager(this);
       if (pluginManager) {
+        // TODO: Set this._debuggerPausedDetails to null until this is done?
+        // TODO: Map callFrames to potentially multiple inline virtual call frames?
+        /** @type {!Array<!CallFrame>} */
+        const newFrames = [];
         for (const callFrame of debuggerPausedDetails.callFrames) {
+          const functionInfos = await pluginManager.getFunctionInfo(callFrame);
+          if (functionInfos) {
+            for (let i = 0; i < functionInfos.frames.length; i++) {
+              newFrames.push(callFrame.createVirtualCallFrame(i, functionInfos.frames[i].name));
+            }
+          } else {
+            // Leave unchanged.
+            newFrames.push(callFrame);
+          }
+        }
+        for (const callFrame of newFrames) {
           // @ts-ignore
           callFrame.sourceScopeChain = await pluginManager.resolveScopeChain(callFrame);
         }
+        debuggerPausedDetails.callFrames = newFrames;
       }
       // If we resolved a location in auto-stepping callback, reset the
       // step-over marker.
@@ -1288,21 +1304,24 @@ export class Location {
    * @param {string} scriptId
    * @param {number} lineNumber
    * @param {number=} columnNumber
+   * @param {number=} inlineFrameIndex
    */
-  constructor(debuggerModel, scriptId, lineNumber, columnNumber) {
+  constructor(debuggerModel, scriptId, lineNumber, columnNumber, inlineFrameIndex) {
     this.debuggerModel = debuggerModel;
     this.scriptId = scriptId;
     this.lineNumber = lineNumber;
     this.columnNumber = columnNumber || 0;
+    this.inlineFrameIndex = inlineFrameIndex || 0;
   }
 
   /**
    * @param {!DebuggerModel} debuggerModel
    * @param {!Protocol.Debugger.Location} payload
+   * @param {number=} inlineFrameIndex
    * @return {!Location}
    */
-  static fromPayload(debuggerModel, payload) {
-    return new Location(debuggerModel, payload.scriptId, payload.lineNumber, payload.columnNumber);
+  static fromPayload(debuggerModel, payload, inlineFrameIndex) {
+    return new Location(debuggerModel, payload.scriptId, payload.lineNumber, payload.columnNumber, inlineFrameIndex);
   }
 
   /**
@@ -1481,17 +1500,23 @@ export class CallFrame {
    * @param {!DebuggerModel} debuggerModel
    * @param {!Script} script
    * @param {!Protocol.Debugger.CallFrame} payload
+   * @param {number=} inlineFrameIndex
+   * @param {string=} functionName
    */
-  constructor(debuggerModel, script, payload) {
+  constructor(debuggerModel, script, payload, inlineFrameIndex, functionName) {
+    // TODO: Support construction of virtual call frames with same script/id as
+    // real call frame, different function name, location, and scope chain.
     this.debuggerModel = debuggerModel;
     /** @type {?Array<!ScopeChainEntry>} */
     this.sourceScopeChain = null;
     this._script = script;
     this._payload = payload;
-    this._location = Location.fromPayload(debuggerModel, payload.location);
+    this._location = Location.fromPayload(debuggerModel, payload.location, inlineFrameIndex);
     /** @type {!Array<!Scope>} */
     this._scopeChain = [];
     this._localScope = null;
+    this._inlineFrameIndex = inlineFrameIndex || 0;
+    this._functionName = functionName || payload.functionName;
     for (let i = 0; i < payload.scopeChain.length; ++i) {
       const scope = new Scope(this, i);
       this._scopeChain.push(scope);
@@ -1524,6 +1549,14 @@ export class CallFrame {
   }
 
   /**
+   * @param {number=} inlineFrameIndex
+   * @param {string=} functionName
+   */
+  createVirtualCallFrame(inlineFrameIndex, functionName) {
+    return new CallFrame(this.debuggerModel, this._script, this._payload, inlineFrameIndex, functionName);
+  }
+
+  /**
    * @return {!Script}
    */
   get script() {
@@ -1535,6 +1568,13 @@ export class CallFrame {
    */
   get id() {
     return this._payload.callFrameId;
+  }
+
+  /**
+   * @return {number}
+   */
+  get inlineFrameIndex() {
+    return this._inlineFrameIndex;
   }
 
   /**
@@ -1591,7 +1631,7 @@ export class CallFrame {
    * @return {string}
    */
   get functionName() {
-    return this._payload.functionName;
+    return this._functionName;
   }
 
   /**
