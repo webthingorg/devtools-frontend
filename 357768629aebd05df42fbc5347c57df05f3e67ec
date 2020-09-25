@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6453faa1_6a5ed3f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-09-25T14:40:18Z",
+      "side": 1,
+      "message": "lgtm % uber nit: add full stops on comments.",
+      "revId": "357768629aebd05df42fbc5347c57df05f3e67ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
