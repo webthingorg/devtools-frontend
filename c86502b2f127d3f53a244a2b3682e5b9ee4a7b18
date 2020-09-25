@@ -103,6 +103,24 @@
       "revId": "c86502b2f127d3f53a244a2b3682e5b9ee4a7b18",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55a8f77e_403df6ac",
+        "filename": "front_end/css_overview/CSSOverviewCompletedView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 980,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-25T10:46:41Z",
+      "side": 1,
+      "message": "Ok, let\u0027s leave as-is for now then.",
+      "parentUuid": "e45858a9_b4792bc9",
+      "revId": "c86502b2f127d3f53a244a2b3682e5b9ee4a7b18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
