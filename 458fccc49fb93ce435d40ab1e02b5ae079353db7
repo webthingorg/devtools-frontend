@@ -50,6 +50,24 @@
       "revId": "458fccc49fb93ce435d40ab1e02b5ae079353db7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41cbdb78_ede40a6f",
+        "filename": "front_end/resources/CookieItemsView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-09-25T18:19:45Z",
+      "side": 1,
+      "message": "Fixed.  Thanks for the link - it was pretty insightful.  Will keep that in mind moving forward.",
+      "parentUuid": "91792166_54bdafa5",
+      "revId": "458fccc49fb93ce435d40ab1e02b5ae079353db7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
