@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d09a5e89_31f96b31",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-25T12:58:17Z",
+      "side": 1,
+      "message": "typo: the semicolon should be a comma",
+      "range": {
+        "startLine": 401,
+        "startChar": 44,
+        "endLine": 401,
+        "endChar": 45
+      },
+      "revId": "a29b1fe90f3a7ac6b60504c9b8b63eedc8cfbdee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
