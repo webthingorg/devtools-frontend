@@ -16,6 +16,57 @@
       "revId": "be213b9486e14d791fe10f20f99a387770d83cb0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71b01934_813291c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-09-25T14:00:17Z",
+      "side": 1,
+      "message": "LGTM with one nit.",
+      "revId": "be213b9486e14d791fe10f20f99a387770d83cb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4db421fc_a79aa2b8",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-09-25T14:00:17Z",
+      "side": 1,
+      "message": "The other calls got rid of the error code. Should it be removed here as well?",
+      "revId": "be213b9486e14d791fe10f20f99a387770d83cb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "964afdc1_aab362e3",
+        "filename": "front_end/bindings/bindings_strings.grdp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-09-25T14:00:17Z",
+      "side": 1,
+      "message": "When removing the error code below, this message should go as well.",
+      "revId": "be213b9486e14d791fe10f20f99a387770d83cb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
