@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "3a91566e_2b7171bf",
+        "filename": "inspector_overlay/common.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-25T13:27:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "372e4f12_4e4c3ef1",
+      "revId": "73003f895c5607724f8acc52fbd6cfe3c652c98b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0f3411ad_40897ff5",
         "filename": "inspector_overlay/tool_highlight_impl.js",
         "patchSetId": 1
@@ -50,6 +68,24 @@
       "revId": "73003f895c5607724f8acc52fbd6cfe3c652c98b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fcfcaffd_2170ed76",
+        "filename": "inspector_overlay/tool_highlight_impl.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-25T13:27:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f3411ad_40897ff5",
+      "revId": "73003f895c5607724f8acc52fbd6cfe3c652c98b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -70,6 +106,24 @@
     },
     {
       "key": {
+        "uuid": "9cd86f17_2db2c250",
+        "filename": "inspector_overlay/tool_highlight_impl.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-25T13:27:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c1b14476_9f7bc718",
+      "revId": "73003f895c5607724f8acc52fbd6cfe3c652c98b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "525cf2df_c9b5ce66",
         "filename": "inspector_overlay/tool_highlight_impl.js",
         "patchSetId": 1
@@ -87,6 +141,24 @@
     },
     {
       "key": {
+        "uuid": "fbabeab1_3da68cee",
+        "filename": "inspector_overlay/tool_highlight_impl.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-25T13:27:57Z",
+      "side": 1,
+      "message": "I agree, I will address it in a separate CL because this is existing code",
+      "parentUuid": "525cf2df_c9b5ce66",
+      "revId": "73003f895c5607724f8acc52fbd6cfe3c652c98b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6354cbfb_9b716c34",
         "filename": "inspector_overlay/tool_highlight_impl.js",
         "patchSetId": 1
@@ -98,6 +170,24 @@
       "writtenOn": "2020-09-25T12:30:58Z",
       "side": 1,
       "message": "You know what I\u0027m gonna say, right? :P",
+      "revId": "73003f895c5607724f8acc52fbd6cfe3c652c98b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "743892fe_be550e31",
+        "filename": "inspector_overlay/tool_highlight_impl.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-25T13:27:57Z",
+      "side": 1,
+      "message": "I will do it in a separate CL. I guess there are many colors in this code which don\u0027t use the new syntax",
+      "parentUuid": "6354cbfb_9b716c34",
       "revId": "73003f895c5607724f8acc52fbd6cfe3c652c98b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
