@@ -33,6 +33,24 @@
       "revId": "894279a911f4ce11209c078823cdfb5553ad79d9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d424b9c2_36d0ca00",
+        "filename": "front_end/media/PlayerPropertiesView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-09-25T07:18:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4cd41805_fd46834a",
+      "revId": "894279a911f4ce11209c078823cdfb5553ad79d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
