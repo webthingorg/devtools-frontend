@@ -126,7 +126,13 @@ async function loadTargetPageAndDevToolsFrontend(hostedModeServerPort: number) {
       if (msg.location() && msg.location().url) {
         filename = msg.location()!.url!.replace(/^.*\//, '');
       }
-      console.log(`${logLevel} ${filename}:${msg.location().lineNumber}: ${msg.text()}`);
+      const message = `${logLevel} ${filename}:${msg.location().lineNumber}: ${msg.text()}`;
+      if (logLevel === 'E') {
+        console.error(message);
+        fatalErrors.push(message);
+      } else {
+        console.log(message);
+      }
     }
   });
 
@@ -240,4 +246,10 @@ export async function globalTeardown() {
 
   console.log('Stopping hosted mode server');
   hostedModeServer.kill();
+
+  if (fatalErrors.length) {
+    throw new Error('Fatal errors logged:\n' + fatalErrors.join('\n'));
+  }
 }
+
+export const fatalErrors: string[] = [];
