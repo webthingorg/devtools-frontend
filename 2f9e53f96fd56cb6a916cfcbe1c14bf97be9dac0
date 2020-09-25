@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0b679125_2d9b35e2",
+        "filename": "inspector_overlay/tool_source_order_impl.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-25T10:21:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bad7ff25_7f50c0ab",
+      "revId": "2f9e53f96fd56cb6a916cfcbe1c14bf97be9dac0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "118dbf05_d2558c07",
         "filename": "inspector_overlay/tool_source_order_impl.js",
         "patchSetId": 1
@@ -51,6 +69,24 @@
       "revId": "2f9e53f96fd56cb6a916cfcbe1c14bf97be9dac0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5984bd9_e1585729",
+        "filename": "inspector_overlay/tool_source_order_impl.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-25T10:21:20Z",
+      "side": 1,
+      "message": "I think I prefer the main functionality to be at the top as well since multiple things are exported (e.g., for testing)",
+      "parentUuid": "6ce815e2_b45bd47d",
+      "revId": "2f9e53f96fd56cb6a916cfcbe1c14bf97be9dac0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
