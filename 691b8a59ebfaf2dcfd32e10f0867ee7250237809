@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3184df5e_a19ae63a",
+        "filename": "front_end/changes/ChangesView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-25T13:38:04Z",
+      "side": 1,
+      "message": "Nit: this type must be specified on the line before. Right now it is a type-cast.",
+      "range": {
+        "startLine": 167,
+        "startChar": 30,
+        "endLine": 167,
+        "endChar": 52
+      },
+      "revId": "691b8a59ebfaf2dcfd32e10f0867ee7250237809",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42dd0f70_f213b254",
+        "filename": "front_end/changes/ChangesView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-25T13:38:04Z",
+      "side": 1,
+      "message": "This should be `Root.Runtime.Runtime.instance()` with `import * as Root from \u0027../root/root.js\u0027`",
+      "range": {
+        "startLine": 373,
+        "startChar": 24,
+        "endLine": 373,
+        "endChar": 36
+      },
+      "revId": "691b8a59ebfaf2dcfd32e10f0867ee7250237809",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4def96b7_ba7c5652",
+        "filename": "front_end/ui/TextEditor.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-25T13:38:04Z",
+      "side": 1,
+      "message": "JSDoc typedefs do not support the optional type parameter, it is a TypeScript-only notation. Instead, whenever this type is used, you have to specify `undefined` for all of its missing values. For more info see \"Optional property in object type\" in the tips and tricks doc.",
+      "range": {
+        "startLine": 136,
+        "startChar": 27,
+        "endLine": 136,
+        "endChar": 28
+      },
+      "revId": "691b8a59ebfaf2dcfd32e10f0867ee7250237809",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
