@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "14d2b894_385549ad",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-09-25T12:54:13Z",
+      "side": 1,
+      "message": "Yes, it does address the \"Format public key over multiple lines\" part. \nI\u0027m happy to make the commit message more specific but I\u0027m not sure how. \nDo you have a recommendation?",
+      "parentUuid": "47dcfde2_535857d5",
+      "revId": "77882d5f8897139847c12c5444d9c1fa23a6b6a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a72aed61_6cfe190c",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -50,6 +68,24 @@
       "revId": "77882d5f8897139847c12c5444d9c1fa23a6b6a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58b62b44_07b02c8e",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-09-25T12:54:13Z",
+      "side": 1,
+      "message": "The spec states: \nEach line in the file MUST NOT be longer than 72 8-bit bytes excluding line termination characters.\n\nSo I\u0027ll remove the charset part. Thank for catching this!",
+      "parentUuid": "82a32fc6_231b4d04",
+      "revId": "77882d5f8897139847c12c5444d9c1fa23a6b6a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
