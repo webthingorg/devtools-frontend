@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bad7ff25_7f50c0ab",
+        "filename": "inspector_overlay/tool_source_order_impl.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-25T10:11:47Z",
+      "side": 1,
+      "message": "Can you please add a jsdoc @param for canvasHeight?",
+      "revId": "2f9e53f96fd56cb6a916cfcbe1c14bf97be9dac0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "118dbf05_d2558c07",
+        "filename": "inspector_overlay/tool_source_order_impl.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-25T10:11:47Z",
+      "side": 1,
+      "message": "nit: I have a personal preference for having the main class in this module be at the top of the file. So when you open it, you don\u0027t first have to scroll through lines and lines of helper functions you don\u0027t really understand yet, before you\u0027ve seen the actual class that the module contains.\nBut happy to go with whatever is more consistent with the rest of the codebase.",
+      "revId": "2f9e53f96fd56cb6a916cfcbe1c14bf97be9dac0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
