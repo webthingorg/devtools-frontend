@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "317f5620_24eef5c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-09-25T17:18:54Z",
+      "side": 1,
+      "message": "My preference here is to refactor the Promise code to async, which should enable the type matching to be better.",
+      "revId": "d55f8149aeba71bfb77b0e3f245a5208b6a46b1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcbc86e6_815ff991",
+        "filename": "front_end/formatter/ScriptFormatter.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-09-25T17:18:54Z",
+      "side": 1,
+      "message": "I think part of the problem here is that Closure is having trouble navigating the promises. It\u0027s further bad because we\u0027re invoking an asynchronous function from within the constructor.\n\n    constructor(mimeType, content, callback) {\n      // Badness: should not reassign arguments\n      content \u003d ...\n      this._callback \u003d callback;\n      this._originalContent \u003d content;\n\n      this._initialize();\n    }\n\n    async _initialize() {\n      const pool \u003d formatterWorkerPool();\n      const indent \u003d Common.Settings.Settings.instance().moduleSetting(\u0027textEditorIndent\u0027).get();\n      const formatResult \u003d await pool.format(mimeType, this._originalContent, indent);\n      // Closure should now recognize that formatResult can be falsy?\n      if (!formatResult) {\n        this._callback(this._originalContent, new IdentityFormatterSourceMapping());\n      } else {\n        // balance of original _didFormatContent\n      }\n    }\n\nWDYT?",
+      "revId": "d55f8149aeba71bfb77b0e3f245a5208b6a46b1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
