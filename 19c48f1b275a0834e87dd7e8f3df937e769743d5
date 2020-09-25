@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "cdc6f3ec_17054d4a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-09-25T21:42:33Z",
+      "side": 1,
+      "message": "Sorry for the delay on this one! I have updated the CL :)",
+      "parentUuid": "9f14ed55_b1a891c9",
+      "revId": "19c48f1b275a0834e87dd7e8f3df937e769743d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a5c211ac_5f1ad92e",
         "filename": "front_end/console/console_strings.grdp",
         "patchSetId": 5
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "c75fc60b_310371f0",
+        "filename": "front_end/console/console_strings.grdp",
+        "patchSetId": 5
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-09-25T21:42:33Z",
+      "side": 1,
+      "message": "Make sense, I will leave this as is.",
+      "parentUuid": "a5c211ac_5f1ad92e",
+      "revId": "19c48f1b275a0834e87dd7e8f3df937e769743d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81a68fbb_3b4cf55a",
         "filename": "front_end/console/console_strings.grdp",
         "patchSetId": 5
@@ -50,6 +86,24 @@
       "revId": "19c48f1b275a0834e87dd7e8f3df937e769743d5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0679e50e_de3c1677",
+        "filename": "front_end/console/console_strings.grdp",
+        "patchSetId": 5
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-09-25T21:42:33Z",
+      "side": 1,
+      "message": "Good point. Locked other worker as well.",
+      "parentUuid": "81a68fbb_3b4cf55a",
+      "revId": "19c48f1b275a0834e87dd7e8f3df937e769743d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
