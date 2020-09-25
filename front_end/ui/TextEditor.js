@@ -133,16 +133,16 @@ export const Events = {
 
 /**
  * @typedef {{
-  *  bracketMatchingSetting: (!Common.Settings.Setting<*>|undefined),
+  *  bracketMatchingSetting?: (!Common.Settings.Setting<*>|undefined),
   *  devtoolsAccessibleName: (string|undefined),
   *  lineNumbers: boolean,
   *  lineWrapping: boolean,
-  *  mimeType: (string|undefined),
-  *  autoHeight: (boolean|undefined),
-  *  padBottom: (boolean|undefined),
+  *  mimeType?: (string|undefined),
+  *  autoHeight?: (boolean|undefined),
+  *  padBottom?: (boolean|undefined),
   *  maxHighlightLength: (number|undefined),
-  *  placeholder: (string|undefined),
-  *  lineWiseCopyCut: (boolean|undefined)
+  *  placeholder?: (string|undefined),
+  *  lineWiseCopyCut?: (boolean|undefined)
   * }}
   */
 // @ts-ignore typedef
