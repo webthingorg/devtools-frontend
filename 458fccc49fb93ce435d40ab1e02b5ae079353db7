@@ -33,6 +33,23 @@
       "revId": "458fccc49fb93ce435d40ab1e02b5ae079353db7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91792166_54bdafa5",
+        "filename": "front_end/resources/CookieItemsView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-09-25T18:02:52Z",
+      "side": 1,
+      "message": "The way we (at least MS, I can\u0027t speak for Google) tend to try to write strings like this is:\n\n    Number of cookies shown in table: X\n\nThis allows the left-side string to be localized irrespective of the number. (You might read out \"1 cookies shown in table\" with the current design).\n\nSee also: https://devblogs.microsoft.com/oldnewthing/20030929-02/?p\u003d42363",
+      "revId": "458fccc49fb93ce435d40ab1e02b5ae079353db7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
