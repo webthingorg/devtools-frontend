@@ -157,6 +157,20 @@ export class LanguageExtensionEndpoint {
       throw new Bindings.DebuggerLanguagePlugins.DebuggerLanguagePluginError('EXTENSION_ERROR', error.message);
     }
   }
+  /** List all variables in lexical scope at a given location in a raw module
+   * @override
+   * @param {!Bindings.DebuggerLanguagePlugins.RawLocation} rawLocation
+   * @return {!Promise<!Array<!Bindings.DebuggerLanguagePlugins.FunctionInfo>>}
+   * @throws {Bindings.DebuggerLanguagePlugins.DebuggerLanguagePluginError}
+  */
+  getFunctionInfo(rawLocation) {
+    try {
+      return /** @type {!Promise<!Array<!Bindings.DebuggerLanguagePlugins.FunctionInfo>>} */ (
+          this._sendRequest(this._commands.GetFunctionInfo, {rawLocation}));
+    } catch (error) {
+      throw new Bindings.DebuggerLanguagePlugins.DebuggerLanguagePluginError('EXTENSION_ERROR', error.message);
+    }
+  }
 
   /**
    * @override
