@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d663605_fba094c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-09-25T17:53:06Z",
+      "side": 1,
+      "message": "Approved, left an open suggestion.",
+      "revId": "136a202cf14524b3ff893fc10b57d5428cb8ba84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35e79408_579c8871",
+        "filename": "front_end/persistence/Automapping.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-09-25T17:53:06Z",
+      "side": 1,
+      "message": "not a blocker but a suggestion: you can potentially transform this into a \"sanitize\" function and use it here and in line 356.",
+      "range": {
+        "startLine": 377,
+        "startChar": 3,
+        "endLine": 384,
+        "endChar": 5
+      },
+      "revId": "136a202cf14524b3ff893fc10b57d5428cb8ba84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
