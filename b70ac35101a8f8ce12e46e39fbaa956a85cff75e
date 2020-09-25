@@ -16,6 +16,23 @@
       "revId": "b70ac35101a8f8ce12e46e39fbaa956a85cff75e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1eee5be6_eb363afb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-09-25T06:45:22Z",
+      "side": 1,
+      "message": "I\u0027m sorry if I wasn\u0027t clear about this before: I don\u0027t think we should add this to DevTools.",
+      "revId": "b70ac35101a8f8ce12e46e39fbaa956a85cff75e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
