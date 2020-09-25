@@ -16,6 +16,58 @@
       "revId": "609de80dd3b2ee954bbc455308984e365b46df11",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cfec0a23_19880573",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-09-25T18:15:12Z",
+      "side": 1,
+      "message": "Looks like you just found another bug! We should set the first authenticator from the list (if any) as active here [1]. Should be pretty straightforward.\n\n[1] https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/webauthn/WebauthnPane.js;l\u003d491",
+      "parentUuid": "a8f99185_34b41096",
+      "revId": "609de80dd3b2ee954bbc455308984e365b46df11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e7ef03fe_002e78fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-09-25T18:15:12Z",
+      "side": 1,
+      "message": "lgtm %  nits",
+      "revId": "609de80dd3b2ee954bbc455308984e365b46df11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2df7645_a09c7222",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-09-25T18:15:12Z",
+      "side": 1,
+      "message": "nit: full stop after comment (here and everywhere else).",
+      "revId": "609de80dd3b2ee954bbc455308984e365b46df11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
