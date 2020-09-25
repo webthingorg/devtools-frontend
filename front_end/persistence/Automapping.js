@@ -373,7 +373,16 @@ export class Automapping {
     if (networkPath.endsWith('/')) {
       networkPath += 'index.html';
     }
-    const urlDecodedNetworkPath = decodeURI(networkPath);
+
+    let urlDecodedNetworkPath;
+    try {
+      urlDecodedNetworkPath = decodeURI(networkPath);
+    } catch (error) {
+      Common.Console.Console.instance().error(
+          ls`The attempt to bind "${networkPath}" in the workspace failed as this URI is malformed.`);
+      return Promise.resolve(/** @type {?AutomappingStatus} */ (null));
+    }
+
     const similarFiles =
         /** @type {!Array<!Workspace.UISourceCode.UISourceCode>} */ (
             this._filesIndex.similarFiles(urlDecodedNetworkPath).map(path => this._fileSystemUISourceCodes.get(path)));
