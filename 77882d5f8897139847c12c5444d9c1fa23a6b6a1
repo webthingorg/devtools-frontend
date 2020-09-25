@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "2800d505_9441472c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-09-25T13:56:02Z",
+      "side": 1,
+      "message": "We didn\u0027t get a report or anything about this not working.\nI discovered it mainly because I downloaded a file and the lines were super long so it was hard for me to check if the file contained the right content. Not sure if other tools would have had any problems reading this file but now we can be sure that it at least is conforming to the spec.\n64 characters seems to be the most commonly used value.",
+      "parentUuid": "8e463740_ad8c67b4",
+      "revId": "77882d5f8897139847c12c5444d9c1fa23a6b6a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a72aed61_6cfe190c",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
