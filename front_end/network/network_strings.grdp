@@ -483,6 +483,9 @@
   <message name="IDS_DEVTOOLS_d55df13c735b6066e930b3e66c4588ab" desc="Text for toggling header data (e.g. query string parameters) from decoded to encoded in the headers tab">
     View URL encoded
   </message>
+  <message name="IDS_DEVTOOLS_d5b0af54670210d6af101fbd26543900" desc="Context menu item for copying query string/form data value">
+    Copy property value
+  </message>
   <message name="IDS_DEVTOOLS_d68ff2d86e48cad77057a4b0a842089d" desc="Tooltip for group by frame network setting">
     Group requests by top level request frame
   </message>
