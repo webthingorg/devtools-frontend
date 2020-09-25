@@ -16,6 +16,23 @@
       "revId": "73003f895c5607724f8acc52fbd6cfe3c652c98b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f3411ad_40897ff5",
+        "filename": "inspector_overlay/tool_highlight_impl.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-25T12:28:31Z",
+      "side": 1,
+      "message": "hm I think I am creating two canvases by this",
+      "revId": "73003f895c5607724f8acc52fbd6cfe3c652c98b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
