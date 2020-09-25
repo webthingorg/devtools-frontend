@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "268cb231_96e7fe9f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-09-25T13:48:54Z",
+      "side": 1,
+      "message": "Hey Philip,\n\nHere\u0027s the change to fix the error reporting on the front-end side.\nPlease take a look.\n\nThanks,\nBenedikt",
+      "revId": "be213b9486e14d791fe10f20f99a387770d83cb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
