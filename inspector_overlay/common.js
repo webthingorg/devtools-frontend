@@ -28,6 +28,10 @@ export class Overlay {
     this.scrollY = 0;
     this.window = window;
     this.document = window.document;
+    if (!style)
+      return;
+    if (!Array.isArray(style))
+      style = [style];
     this.style = style;
   }
 
@@ -67,7 +71,9 @@ export class Overlay {
 
   setPlatform(platform) {
     if (this.style) {
-      adoptStyleSheet(this.style);
+      for (const style of this.style) {
+        adoptStyleSheet(style);
+      }
     }
     this.platform = platform;
     this.document.body.classList.add('platform-' + platform);
