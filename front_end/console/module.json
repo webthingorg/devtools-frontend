@@ -70,6 +70,13 @@
     {
       "type": "action",
       "category": "Console",
+      "actionId": "console.clear.history-line",
+      "title": "Clear line from console history",
+      "className": "Console.ConsoleView.ActionDelegate"
+    },
+    {
+      "type": "action",
+      "category": "Console",
       "actionId": "console.create-pin",
       "iconClass": "largeicon-visibility",
       "className": "Console.ConsoleView.ActionDelegate",

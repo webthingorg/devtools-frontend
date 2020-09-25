@@ -379,6 +379,15 @@ export class ConsoleView extends UI.Widget.VBox {
     this._prompt.history().setHistoryData([]);
   }
 
+  _clearLineFromHistory() {
+    const text = this._prompt.text();
+    if (text !== '') {
+      this._prompt.history().removeHistoryItem(text);
+      this._consoleHistorySetting.set(this._prompt.history().historyData());
+      this._prompt.setText('');
+    }
+  }
+
   _consoleHistoryAutocompleteChanged() {
     this._prompt.setAddCompletionsFromHistory(this._consoleHistoryAutocompleteSetting.get());
   }
@@ -1672,6 +1681,9 @@ export class ActionDelegate {
         return true;
       case 'console.clear.history':
         ConsoleView.instance()._clearHistory();
+        return true;
+      case 'console.clear.history-line':
+        ConsoleView.instance()._clearLineFromHistory();
         return true;
       case 'console.create-pin':
         ConsoleView.instance()._pinPane.addPin('', true /* userGesture */);
