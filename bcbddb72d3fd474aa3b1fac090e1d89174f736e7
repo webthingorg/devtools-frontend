@@ -33,6 +33,24 @@
       "revId": "bcbddb72d3fd474aa3b1fac090e1d89174f736e7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c347e4a1_ad52affd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-09-28T21:56:57Z",
+      "side": 1,
+      "message": "I think we also discussed a similar idea of generaling this split-pane layout in the Elements Panel, but we wanted to roll this out first because lots of user demand makes this kind of urgent. There\u0027re some details we need to work out too, if we want to go this route. For example, would both sidebar panes be configurable to whatever developers want? Or just the right sidebar pane, and the left sidebar pane will always be the Styles pane? If they are configurable to be any sidebar panes, how would the UX transition look like?\n\nFor this current implementation, we didn\u0027t write an explainer because:\n1. it\u0027s not an entirely new feature, rather a revival + optimization to a previous feature that we took away a while ago, so the user-facing impact is not big and UX adoption is minimal;\n2. it\u0027s already demanded by many highly vocal developers in the issue linked from this CL\u0027s description. (If you\u0027re interested, you could read up the many comments there to get the context).\nBut of course if we want to generalize this idea, it would definitely warrant a design doc/explainer.",
+      "parentUuid": "c80397ec_9122483d",
+      "revId": "bcbddb72d3fd474aa3b1fac090e1d89174f736e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
