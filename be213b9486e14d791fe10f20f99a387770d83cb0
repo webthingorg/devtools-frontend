@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "32cdfe26_122ea20f",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-09-28T12:18:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4db421fc_a79aa2b8",
+      "revId": "be213b9486e14d791fe10f20f99a387770d83cb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "964afdc1_aab362e3",
         "filename": "front_end/bindings/bindings_strings.grdp",
         "patchSetId": 1
@@ -67,6 +85,24 @@
       "revId": "be213b9486e14d791fe10f20f99a387770d83cb0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ad22cc1_1d6b2542",
+        "filename": "front_end/bindings/bindings_strings.grdp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-09-28T12:18:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "964afdc1_aab362e3",
+      "revId": "be213b9486e14d791fe10f20f99a387770d83cb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
