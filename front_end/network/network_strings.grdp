@@ -438,6 +438,9 @@
   <message name="IDS_DEVTOOLS_a65043efa3ffbf89834b6d9c362d56a8" desc="Comment used in decoded X-Client-Data HTTP header output in Headers View of the Network panel">
     Active client experiment variation IDs.
   </message>
+  <message name="IDS_DEVTOOLS_b1ca35491b21791d39387703ccd51dc2" desc="Context menu item for copying query string/form data value">
+    Copy decoded value
+  </message>
   <message name="IDS_DEVTOOLS_bb9fd331bd610fd877425ceff23708a7" desc="Time at which a response was retrieved">
     Retrieval Time: <ph name="THIS__REQUEST_RESPONSERETRIEVALTIME">$1s<ex>Fri Apr 10 2020 17:20:27 GMT-0700 (Pacific Daylight Time)</ex></ph>
   </message>
