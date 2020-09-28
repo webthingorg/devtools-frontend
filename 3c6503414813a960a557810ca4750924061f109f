@@ -16,6 +16,69 @@
       "revId": "3c6503414813a960a557810ca4750924061f109f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80d62153_99aa4ca4",
+        "filename": "inspector_overlay/common.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-28T12:46:50Z",
+      "side": 1,
+      "message": "To avoid these 2 lines, we could define the constructor like so:\n\n   constructor(window, style \u003d []) {",
+      "range": {
+        "startLine": 31,
+        "startChar": 3,
+        "endLine": 32,
+        "endChar": 13
+      },
+      "revId": "3c6503414813a960a557810ca4750924061f109f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56554971_603220ed",
+        "filename": "inspector_overlay/common.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-28T12:46:50Z",
+      "side": 1,
+      "message": "This way, we can also avoid testing if this.style is defined.",
+      "revId": "3c6503414813a960a557810ca4750924061f109f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65f8f067_e4382e58",
+        "filename": "inspector_overlay/tool_highlight_impl.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-28T12:46:50Z",
+      "side": 1,
+      "message": "I believe we don\u0027t need to export this helper function anymore. Do we?",
+      "range": {
+        "startLine": 585,
+        "startChar": 0,
+        "endLine": 585,
+        "endChar": 7
+      },
+      "revId": "3c6503414813a960a557810ca4750924061f109f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
