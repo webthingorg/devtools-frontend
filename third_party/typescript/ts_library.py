@@ -106,6 +106,7 @@ def main():
         tsconfig['references'] = [{'path': src} for src in opts.deps]
     tsconfig['compilerOptions']['declaration'] = True
     tsconfig['compilerOptions']['composite'] = True
+    tsconfig['compilerOptions']['importsNotUsedAsValues'] = 'preserve'
     tsconfig['compilerOptions']['sourceMap'] = True
     tsconfig['compilerOptions']['inlineSources'] = True
     tsconfig['compilerOptions']['module'] = opts.module
