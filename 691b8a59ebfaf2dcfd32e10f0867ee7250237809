@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "51f29b9a_0807e311",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-28T09:43:06Z",
+      "side": 1,
+      "message": "Feedback addressed. PTAL",
+      "revId": "691b8a59ebfaf2dcfd32e10f0867ee7250237809",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3184df5e_a19ae63a",
         "filename": "front_end/changes/ChangesView.js",
         "patchSetId": 2
@@ -25,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "ce3abca2_824492c2",
+        "filename": "front_end/changes/ChangesView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-28T09:43:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3184df5e_a19ae63a",
+      "range": {
+        "startLine": 167,
+        "startChar": 30,
+        "endLine": 167,
+        "endChar": 52
+      },
+      "revId": "691b8a59ebfaf2dcfd32e10f0867ee7250237809",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "42dd0f70_f213b254",
         "filename": "front_end/changes/ChangesView.js",
         "patchSetId": 2
@@ -36,6 +77,30 @@
       "writtenOn": "2020-09-25T13:38:04Z",
       "side": 1,
       "message": "This should be `Root.Runtime.Runtime.instance()` with `import * as Root from \u0027../root/root.js\u0027`",
+      "range": {
+        "startLine": 373,
+        "startChar": 24,
+        "endLine": 373,
+        "endChar": 36
+      },
+      "revId": "691b8a59ebfaf2dcfd32e10f0867ee7250237809",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f2bcdd3_92370be0",
+        "filename": "front_end/changes/ChangesView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-28T09:43:06Z",
+      "side": 1,
+      "message": "I agree, but this is how other TypeScriptified files currently do it: https://source.chromium.org/search?q\u003dfile:%5Ethird_party%2Fdevtools-frontend%2Fsrc%2F%20%22ts-ignore%20self.runtime%22 I propose leaving this as-is for now, and I\u0027ll tackle this along with the other files in a separate follow-up CL. WDYT?",
+      "parentUuid": "42dd0f70_f213b254",
       "range": {
         "startLine": 373,
         "startChar": 24,
@@ -68,6 +133,30 @@
       "revId": "691b8a59ebfaf2dcfd32e10f0867ee7250237809",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "140b44c4_47f052fc",
+        "filename": "front_end/ui/TextEditor.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-28T09:43:06Z",
+      "side": 1,
+      "message": "Thanks, done!",
+      "parentUuid": "4def96b7_ba7c5652",
+      "range": {
+        "startLine": 136,
+        "startChar": 27,
+        "endLine": 136,
+        "endChar": 28
+      },
+      "revId": "691b8a59ebfaf2dcfd32e10f0867ee7250237809",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
