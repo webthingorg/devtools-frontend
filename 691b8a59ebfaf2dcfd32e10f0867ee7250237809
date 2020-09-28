@@ -113,6 +113,30 @@
     },
     {
       "key": {
+        "uuid": "f121a1a3_136bd124",
+        "filename": "front_end/changes/ChangesView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-28T10:22:35Z",
+      "side": 1,
+      "message": "Ah blegh. Yeah that was necessary a while ago, but is no longer a problem. Thanks for cleaning this up in a follow-up CL!",
+      "parentUuid": "5f2bcdd3_92370be0",
+      "range": {
+        "startLine": 373,
+        "startChar": 24,
+        "endLine": 373,
+        "endChar": 36
+      },
+      "revId": "691b8a59ebfaf2dcfd32e10f0867ee7250237809",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4def96b7_ba7c5652",
         "filename": "front_end/ui/TextEditor.js",
         "patchSetId": 2
