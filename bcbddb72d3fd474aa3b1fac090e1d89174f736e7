@@ -16,6 +16,23 @@
       "revId": "bcbddb72d3fd474aa3b1fac090e1d89174f736e7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c80397ec_9122483d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-28T17:24:51Z",
+      "side": 1,
+      "message": "Looks great! I can\u0027t wait to be able to use it. I wonder if it would make sense to generalize this to show other sidebars instead, like Layout. That would be super useful.\nBy the way, was this discussed in an explainer that I perhaps missed?",
+      "revId": "bcbddb72d3fd474aa3b1fac090e1d89174f736e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
