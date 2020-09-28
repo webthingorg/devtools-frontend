@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ba986c1_612421df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-28T10:24:27Z",
+      "side": 1,
+      "message": "The types in this part of the codebase are not particularly great. This seems to be a good compromise though!",
+      "revId": "977a9f83b6dd38c981dae86f111b8fe2710f3271",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13a9f2e0_83773523",
+        "filename": "front_end/timeline_model/TimelineFrameModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-28T10:24:27Z",
+      "side": 1,
+      "message": "Nit: missing bracket",
+      "range": {
+        "startLine": 104,
+        "startChar": 13,
+        "endLine": 104,
+        "endChar": 14
+      },
+      "revId": "977a9f83b6dd38c981dae86f111b8fe2710f3271",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
