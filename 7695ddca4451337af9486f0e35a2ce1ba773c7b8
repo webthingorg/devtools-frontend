@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f9ea461b_6d15472e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1348395
+      },
+      "writtenOn": "2020-09-28T17:26:53Z",
+      "side": 1,
+      "message": "lgtm chrome security as a build/test tool",
+      "revId": "7695ddca4451337af9486f0e35a2ce1ba773c7b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
