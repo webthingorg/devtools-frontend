@@ -33,6 +33,23 @@
       "revId": "5045b2166c47fe8b4c4155a88dcc65ec6ede3155",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ae5716b_06ec4952",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120815
+      },
+      "writtenOn": "2020-09-28T15:48:36Z",
+      "side": 1,
+      "message": "still lgtm, thank you for fixing that bug as well!",
+      "revId": "5045b2166c47fe8b4c4155a88dcc65ec6ede3155",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
