@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f4f6d060_6d9ab287",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-09-28T17:59:19Z",
+      "side": 1,
+      "message": "Nothing changed from the latest approval I just rebased the branch (no idea why this was marked as WIP)",
+      "revId": "e2807e4e6858af720081e04d47812d6d0c67a98f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
