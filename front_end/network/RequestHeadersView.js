@@ -122,6 +122,21 @@ export class RequestHeadersView extends UI.Widget.VBox {
   }
 
   /**
+   * @param {!Event} event
+   * @param {string} value
+   */
+  contextMenuHandler(event, value) {
+    event.consume(true);
+    const contextMenu = new UI.ContextMenu.ContextMenu(event);
+    const decodedValue = decodeURIComponent(value);
+    const copyValueHandler = () => {
+      Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(decodedValue);
+    };
+    contextMenu.clipboardSection().appendItem(ls`Copy decoded value`, copyValueHandler);
+    contextMenu.show();
+  }
+
+  /**
    * @param {string} name
    * @param {string} value
    * @return {!DocumentFragment}
@@ -397,6 +412,9 @@ export class RequestHeadersView extends UI.Widget.VBox {
       }
 
       const paramTreeElement = new UI.TreeOutline.TreeElement(paramNameValue);
+      paramTreeElement.listItemElement.addEventListener('contextmenu', event => {
+        this.contextMenuHandler(event, params[i].value);
+      });
       paramsTreeElement.appendChild(paramTreeElement);
     }
 
