@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f1be536b_4ebe5542",
+        "filename": "test/e2e/sources/debugger-language-plugins_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-09-28T08:31:25Z",
+      "side": 1,
+      "message": "How about \u0027Inlining\u0027 instead?",
+      "revId": "0c010267fae06584df3346d3592c6587dae8531b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
