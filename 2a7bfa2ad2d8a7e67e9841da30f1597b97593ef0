@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "14289080_6b9e3946",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-28T08:56:41Z",
+      "side": 1,
+      "message": "PTAL - there are pros and cons to this solution so let me know if you want to have a chat about it. There may be other solutions I haven\u0027t thought of but this one works quite nicely...",
+      "revId": "2a7bfa2ad2d8a7e67e9841da30f1597b97593ef0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
