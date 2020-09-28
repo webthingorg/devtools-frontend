@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "59664661_84a0695c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-09-28T08:24:03Z",
+      "side": 1,
+      "message": "DebuggerPlugin is overloaded with a class in the front end. We\u0027ve been using \u0027language plugin\u0027 everywhere, I think.",
+      "revId": "99b826de0887f53e6989b02c15b4f7bbaf73c261",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93094e33_2fd4fd6a",
+        "filename": "front_end/extensions/ExtensionAPI.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-09-28T08:24:03Z",
+      "side": 1,
+      "message": "We have no precedent or outlined strategy for this, should we just make the breaking change?",
+      "revId": "99b826de0887f53e6989b02c15b4f7bbaf73c261",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91c66428_f7b931e1",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-09-28T08:24:03Z",
+      "side": 1,
+      "message": "Yes, we probably should.",
+      "revId": "99b826de0887f53e6989b02c15b4f7bbaf73c261",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

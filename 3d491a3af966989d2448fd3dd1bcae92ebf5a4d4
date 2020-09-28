@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "385a90b9_92423e4b",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 778,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-09-28T08:24:03Z",
+      "side": 1,
+      "message": "Isn\u0027t this file is already type-checked with typescript? What\u0027s not working correctly here?",
+      "revId": "3d491a3af966989d2448fd3dd1bcae92ebf5a4d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
