@@ -42,6 +42,9 @@
   <message name="IDS_DEVTOOLS_d50bbea3c85be098dcf221e622cd7718" desc="Text in Java Script Autocomplete">
     Lexical scope variables
   </message>
+  <message name="IDS_DEVTOOLS_d5b0af54670210d6af101fbd26543900" desc="Context menu item for copying property value in request payload">
+    Copy property value
+  </message>
   <message name="IDS_DEVTOOLS_dd73c24f4702950125e2fcb7d26ca5fe" desc="Text of attribute value when text is too long">
     Show more (<ph name="TOTALBYTES">$1s<ex>30 MB</ex></ph>)
   </message>
