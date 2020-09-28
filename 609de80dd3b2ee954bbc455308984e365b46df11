@@ -68,6 +68,24 @@
       "revId": "609de80dd3b2ee954bbc455308984e365b46df11",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a296d17_c9a319e7",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-09-28T08:15:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2df7645_a09c7222",
+      "revId": "609de80dd3b2ee954bbc455308984e365b46df11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
