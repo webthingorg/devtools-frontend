@@ -1,0 +1,66 @@
+<!--
+  Copyright 2020 The Chromium Authors. All rights reserved.
+  Use of this source code is governed by a BSD-style license that can be
+  found in the LICENSE file.
+-->
+<head>
+  <link rel="stylesheet" href="demo-styles.css">
+  <style>
+    div {
+      border: 1px solid red;
+      overflow-y: auto;
+    }
+    .single {
+      height: 200px;
+    }
+    .multiple {
+      height: 500px;
+    }
+    .non-overflow {
+      overflow-y: initial;
+    }
+  </style>
+</head>
+<body>
+  <h2>Single in overflow container</h2>
+  <div class="single">
+    <elements-style-sidebar></elements-style-sidebar>
+  </div>
+  <h2>Multiple in overflow container</h2>
+  <div class="multiple">
+    <elements-style-sidebar></elements-style-sidebar>
+    <elements-style-sidebar></elements-style-sidebar>
+  </div>
+  <h2>Multiple in non-overflow container</h2>
+  <p>Note that this is intended to be overflowing</p>
+  <div class="multiple non-overflow">
+    <elements-style-sidebar></elements-style-sidebar>
+    <elements-style-sidebar></elements-style-sidebar>
+  </div>
+  <script type="module">
+    import '../elements-style-sidebar.js';
+
+    [...document.querySelectorAll('elements-style-sidebar')].forEach(element => element.data = {
+      indentation: 4,
+      selectors: [
+        {
+          selector: 'html',
+          matches: false,
+        },
+        {
+          selector: 'body',
+          matches: true,
+        },
+        {
+          selector: '.whatever',
+          matches: false,
+        },
+      ],
+      rules: Array.from(Array(25)).map(() => ({
+          name: 'color',
+          value: 'red',
+          enabled: true,
+        })),
+    });
+  </script>
+</body>
