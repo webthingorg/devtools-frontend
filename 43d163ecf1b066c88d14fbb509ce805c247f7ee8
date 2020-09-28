@@ -33,6 +33,24 @@
       "revId": "43d163ecf1b066c88d14fbb509ce805c247f7ee8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ddac1b7_f0e5b772",
+        "filename": "front_end/inline_editor/CSSVarSwatch.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-28T13:53:44Z",
+      "side": 1,
+      "message": "No it\u0027s not. It could be 12px or Arial or whatever you can think of. We use the color parser specifically to test if it is a color, cause if it is, we want to show the color swatch, otherwise we don\u0027t.\nThis is the same logic as what we do today here: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/elements/StylePropertyTreeElement.js;l\u003d168-174?q\u003d_processVar%20language:javascript%20-file:%5Eout\nI just moved it to this new component.",
+      "parentUuid": "59cf70e4_02186938",
+      "revId": "43d163ecf1b066c88d14fbb509ce805c247f7ee8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
