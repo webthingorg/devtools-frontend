@@ -71,6 +71,23 @@
     },
     {
       "key": {
+        "uuid": "c49230d3_862b9129",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-28T10:56:23Z",
+      "side": 1,
+      "message": "Thanks for the CL - hope you don\u0027t mind but I jumped in as I\u0027ve been leading the efforts on our side to introduce our components and it\u0027s been useful to chat through all the components people are building to learn how we\u0027re doing and if there\u0027s anything from a DevTools architecture side we can do to make it easier to build/maintain these 😊\n\nPlease shout if anything\u0027s not clear!",
+      "revId": "e058a3c7711ea63b38fa37f99b9676b85719d18a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c765902f_9f22e58f",
         "filename": "front_end/elements/StylePropertyHighlighter.js",
         "patchSetId": 5
