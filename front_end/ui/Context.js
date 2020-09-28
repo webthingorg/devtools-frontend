@@ -4,6 +4,7 @@
 
 import * as Common from '../common/common.js';
 import * as Root from '../root/root.js';  // eslint-disable-line no-unused-vars
+
 import {ContextFlavorListener} from './ContextFlavorListener.js';
 
 /** @type {!Context} */
@@ -133,7 +134,7 @@ export class Context {
     for (const extension of extensions) {
       // @ts-ignore
       // TODO(crbug.com/1058320): Use Runtime.instance() here once Closure is gone or can handle the type.
-      if (self.runtime.isExtensionApplicableToContextTypes(extension, availableFlavors)) {
+      if (Root.Runtime.Runtime.instance().isExtensionApplicableToContextTypes(extension, availableFlavors)) {
         targetExtensionSet.add(extension);
       }
     }
