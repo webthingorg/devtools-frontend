@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a9726f3_db7a53bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-09-28T17:42:12Z",
+      "side": 1,
+      "message": "I see that I can right-click form-data or query strings, but not headers. I don\u0027t really understand why that is. \n\nLet me know your thoughts about my other comments as well. Thanks!",
+      "revId": "2d53230e3e493b49e04e2a0f9f2f9af3acf45cdb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf12955a_6d1246a5",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-09-28T17:42:12Z",
+      "side": 1,
+      "message": "I think you should indicate that the event has been handled. (We used to use `event.consume(true)` for this, but I think we\u0027ve migrated away from that to avoid prototype pollution).\n\nOtherwise a refactor of this might allow the `contextmenu` event to escape the context.",
+      "revId": "2d53230e3e493b49e04e2a0f9f2f9af3acf45cdb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "031bf2e9_2a12c1a7",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-09-28T17:42:12Z",
+      "side": 1,
+      "message": "Why is this function named \"copy PATH handler\"? Doesn\u0027t it copy the property value?\n\nAlso, I\u0027m not sure why we\u0027re using `bind` here. It seems that this can just be written:\n\n    const copyPathHandler \u003d () \u003d\u003e {\n      Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(propertyValue);\n    };\n\n`bind` was common in the ES5 days but we should try to avoid creating new bound functions, and since we\u0027re not writing code that is in line with other cases, i.e., we\u0027re not adding a new context menu item among many existing context menu items, we should just use an arrow.",
+      "revId": "2d53230e3e493b49e04e2a0f9f2f9af3acf45cdb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1d0ff9e_31246bf7",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-09-28T17:42:12Z",
+      "side": 1,
+      "message": "I\u0027m not sure \"property\" is the correct thing here.",
+      "revId": "2d53230e3e493b49e04e2a0f9f2f9af3acf45cdb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
