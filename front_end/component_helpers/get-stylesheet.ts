@@ -131,6 +131,7 @@ export const CSS_RESOURCES_TO_LOAD_INTO_RUNTIME = [
   'emulation/mediaQueryInspector.css',
   'emulation/sensors.css',
   'inline_editor/colorSwatch.css',
+  'inline_editor/cssVarSwatch.css',
   'inspector_main/nodeIcon.css',
   'inspector_main/renderingOptions.css',
   'data_grid/dataGrid.css',

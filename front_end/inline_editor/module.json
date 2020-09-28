@@ -10,7 +10,8 @@
     "ColorSwatch.js",
     "CSSShadowEditor.js",
     "SwatchPopoverHelper.js",
-    "CSSShadowModel.js"
+    "CSSShadowModel.js",
+    "CSSVarSwatch_bridge.js"
   ],
   "resources": [
     "bezierEditor.css",
@@ -18,6 +19,7 @@
     "bezierSwatch.css",
     "cssShadowSwatch.css",
     "cssShadowEditor.css",
-    "swatchPopover.css"
+    "swatchPopover.css",
+    "cssVarSwatch.css"
   ]
 }
