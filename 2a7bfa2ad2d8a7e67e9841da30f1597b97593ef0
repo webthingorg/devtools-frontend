@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "43974e68_5c4051b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-28T10:38:50Z",
+      "side": 1,
+      "message": "My reasoning for this is because I didn\u0027t want to have to have two imports:\n\n```\nimport \u0027./NodeText.js\u0027\nimport {NodeTextData} from \u0027./NodeText.js\u0027\n```\n\nMaybe though if we change this flag to error, and therefore it has to be:\n\n```\nimport \u0027./NodeText.js\u0027;\nimport type {NodeTextData} from \u0027./NodeText.js\u0027\n```\n\nThat\u0027s the best solution? And if the 2nd import didn\u0027t have `type`, tsc would fail. Maybe that\u0027s the best middle ground?",
+      "parentUuid": "40585f19_69f22681",
+      "revId": "2a7bfa2ad2d8a7e67e9841da30f1597b97593ef0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f6f95000_45b8292f",
         "filename": "third_party/typescript/ts_library.py",
         "patchSetId": 1
@@ -47,6 +65,30 @@
       "writtenOn": "2020-09-28T10:33:57Z",
       "side": 1,
       "message": "Nit: If you set a compiler option in `tsconfig.base.json`, then the `tsconfig` here already uses the value. Therefore, it is not necessary to duplicate. Coincidentally, I was cleaning this up in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2431511",
+      "range": {
+        "startLine": 109,
+        "startChar": 4,
+        "endLine": 109,
+        "endChar": 57
+      },
+      "revId": "2a7bfa2ad2d8a7e67e9841da30f1597b97593ef0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1127daee_1f6a37d3",
+        "filename": "third_party/typescript/ts_library.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-28T10:38:50Z",
+      "side": 1,
+      "message": "Ah, TIL! Thanks.",
+      "parentUuid": "f6f95000_45b8292f",
       "range": {
         "startLine": 109,
         "startChar": 4,
