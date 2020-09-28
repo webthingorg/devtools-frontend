@@ -33,6 +33,46 @@
       "revId": "da13770314b8800909fde47472a4536a69ddb080",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80d62b68_6fabc090",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-09-28T12:22:41Z",
+      "side": 1,
+      "message": "lgtm % nit and a question",
+      "revId": "da13770314b8800909fde47472a4536a69ddb080",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7245dfa7_2667f01c",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-09-28T12:22:41Z",
+      "side": 1,
+      "message": "nit: `urlStringElement`, otherwise it looks like we access static class members 😊\n\nq: Could we create the urlStringElement in the constructor (or a helper)? Or does its creation change everytime we update?",
+      "range": {
+        "startLine": 54,
+        "startChar": 10,
+        "endLine": 54,
+        "endChar": 26
+      },
+      "revId": "da13770314b8800909fde47472a4536a69ddb080",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
