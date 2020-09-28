@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "747b8518_0a968b6f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-28T10:40:47Z",
+      "side": 1,
+      "message": "Yes the second solution is what I had in mind. That seems like the best way forward (for now). Ideally, we solve this in standards land, but I fear that is miles off 😞",
+      "parentUuid": "43974e68_5c4051b3",
+      "revId": "2a7bfa2ad2d8a7e67e9841da30f1597b97593ef0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f6f95000_45b8292f",
         "filename": "third_party/typescript/ts_library.py",
         "patchSetId": 1
