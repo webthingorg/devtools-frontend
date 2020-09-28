@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8731e5d9_e2b3b4da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2020-09-28T23:25:57Z",
+      "side": 1,
+      "message": "PTAL.",
+      "revId": "502305d6827a61beefa75e016245d36449e39406",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca955de3_7df22617",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2020-09-28T23:25:57Z",
+      "side": 1,
+      "message": "Does anyone knows if there is an issue stopping in a breakpoint set in a file (at least in a .wasm file) called from a worker in the first reload?\n\nIn this case, I\u0027m repeating this first step on checking that its stop in the main thread first, so in the second refresh of the page, it stops in the expected breakpoint.",
+      "revId": "502305d6827a61beefa75e016245d36449e39406",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
