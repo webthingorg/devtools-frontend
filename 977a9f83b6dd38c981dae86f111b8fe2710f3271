@@ -39,6 +39,30 @@
       "revId": "977a9f83b6dd38c981dae86f111b8fe2710f3271",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "881a8105_8f3b4063",
+        "filename": "front_end/timeline_model/TimelineFrameModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-28T10:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13a9f2e0_83773523",
+      "range": {
+        "startLine": 104,
+        "startChar": 13,
+        "endLine": 104,
+        "endChar": 14
+      },
+      "revId": "977a9f83b6dd38c981dae86f111b8fe2710f3271",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
