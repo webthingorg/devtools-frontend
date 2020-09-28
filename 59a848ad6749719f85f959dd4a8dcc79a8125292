@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ea2b32e1_ef97fb82",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-09-28T08:46:39Z",
+      "side": 1,
+      "message": "We added the file level comments. Thanks for the third party and security reviews!",
+      "revId": "59a848ad6749719f85f959dd4a8dcc79a8125292",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
