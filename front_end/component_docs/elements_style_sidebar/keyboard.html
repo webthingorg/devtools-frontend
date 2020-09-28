@@ -1,0 +1,35 @@
+<!--
+  Copyright 2020 The Chromium Authors. All rights reserved.
+  Use of this source code is governed by a BSD-style license that can be
+  found in the LICENSE file.
+-->
+<head>
+  <link rel="stylesheet" href="demo-styles.css">
+</head>
+<body>
+  <p>Keyboard movement:
+  <ol>
+    <li>Click on the second row</li>
+    <li>Hit arrow up key</li>
+    <li>Hit arrow up key again</li>
+    <li>Hit arrow down key</li>
+  </ol>
+  <div>
+    <devtools-key-value-table></devtools-key-value-table>
+  </div>
+  <script type="module">
+    import '../devtools-key-value-table.js';
+
+    document.querySelector('devtools-key-value-table').data = {
+      mapping: [
+        {key: 'Cookie', value: 'Cookie string'},
+        {key: 'Cookie2', value: 'Cookie string2'},
+        {key: 'Cookie3', value: 'Cookie string3'},
+        {key: 'Cookie4', value: 'Cookie string4'},
+        {key: 'Cookie5', value: 'Cookie string5'},
+        {key: 'Cookie6', value: 'Cookie string6'},
+        {key: 'Cookie7', value: 'Cookie string7'},
+      ],
+    };
+  </script>
+</body>

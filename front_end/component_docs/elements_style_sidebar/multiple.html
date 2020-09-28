@@ -1,0 +1,181 @@
+<!--
+  Copyright 2020 The Chromium Authors. All rights reserved.
+  Use of this source code is governed by a BSD-style license that can be
+  found in the LICENSE file.
+-->
+<head>
+  <link rel="stylesheet" href="demo-styles.css">
+</head>
+<body>
+  <div>
+    <elements-style-sidebar></elements-style-sidebar>
+    <elements-style-sidebar></elements-style-sidebar>
+    <elements-style-sidebar></elements-style-sidebar>
+    <elements-style-sidebar></elements-style-sidebar>
+    <elements-style-sidebar></elements-style-sidebar>
+  </div>
+  <script type="module">
+    import '../elements-style-sidebar.js';
+
+    const selectors = document.querySelectorAll('elements-style-sidebar');
+
+    selectors[0].data = {
+      indentation: 4,
+      selectors: [
+        {
+          selector: 'html',
+          matches: false,
+        },
+        {
+          selector: 'body',
+          matches: true,
+        },
+        {
+          selector: 'whatever',
+          matches: false,
+        },
+      ],
+      rules: [
+        {
+          name: 'padding',
+          value: '0',
+          enabled: true,
+        },
+        {
+          name: 'margin',
+          value: '0',
+          enabled: false,
+        },
+        {
+          name: 'background-color',
+          value: 'red',
+          enabled: true,
+        },
+      ],
+    };
+
+    selectors[1].data = {
+      indentation: 4,
+      selectors: [
+        {
+          selector: 'html',
+          matches: false,
+        },
+        {
+          selector: 'body',
+          matches: false,
+        },
+        {
+          selector: 'whatever',
+          matches: true,
+        },
+      ],
+      rules: [
+        {
+          name: 'padding',
+          value: '0',
+          enabled: true,
+          subRules: [
+            {
+              name: 'padding-top',
+              value: '0',
+            },
+            {
+              name: 'padding-right',
+              value: '0',
+            },
+            {
+              name: 'padding-bottom',
+              value: '0',
+            },
+            {
+              name: 'padding-left',
+              value: '0',
+            },
+          ],
+        },
+        {
+          name: 'margin',
+          value: '0',
+          enabled: false,
+        },
+        {
+          name: 'background-color',
+          value: 'red',
+          enabled: true,
+        },
+      ]
+    };
+
+    selectors[2].data = {
+      indentation: 4,
+      selectors: [
+        {
+          selector: 'html',
+          matches: true,
+        },
+        {
+          selector: 'body',
+          matches: false,
+        },
+        {
+          selector: 'whatever',
+          matches: true,
+        },
+      ],
+      rules: [
+        {
+          name: 'padding',
+          value: '0',
+          enabled: false,
+          subRules: [
+            {
+              name: 'padding-top',
+              value: '0',
+            },
+            {
+              name: 'padding-right',
+              value: '0',
+            },
+            {
+              name: 'padding-bottom',
+              value: '0',
+            },
+            {
+              name: 'padding-left',
+              value: '0',
+            },
+          ],
+        },
+        {
+          name: 'margin',
+          value: '0',
+          enabled: false,
+          subRules: [
+            {
+              name: 'margin-top',
+              value: '0',
+            },
+            {
+              name: 'margin-right',
+              value: '0',
+            },
+            {
+              name: 'margin-bottom',
+              value: '0',
+            },
+            {
+              name: 'margin-left',
+              value: '0',
+            },
+          ],
+        },
+        {
+          name: 'background-color',
+          value: 'red',
+          enabled: true,
+        },
+      ]
+    };
+  </script>
+</body>

@@ -1,0 +1,128 @@
+<!--
+  Copyright 2020 The Chromium Authors. All rights reserved.
+  Use of this source code is governed by a BSD-style license that can be
+  found in the LICENSE file.
+-->
+<head>
+  <link rel="stylesheet" href="demo-styles.css">
+</head>
+<body>
+  <div id="fixture-container">
+
+  </div>
+  <template id="fixture">
+    <elements-style-sidebar></elements-style-sidebar>
+    <div>
+      <button id="add-new-rule">Add new rule</button>
+      <button id="reset">Reset</button>
+    </div>
+  </template>
+  <script type="module">
+    import '../elements-style-sidebar.js';
+
+    const fixtureContainer = document.querySelector('#fixture-container');
+    const fixture = document.querySelector('#fixture');
+    const INITIAL_DATA = {
+      indentation: 4,
+      selectors: [
+        {
+          selector: 'html',
+          matches: false,
+        },
+        {
+          selector: 'body',
+          matches: true,
+        },
+        {
+          selector: '.whatever',
+          matches: false,
+        },
+      ],
+      rules: [
+        {
+          name: 'color',
+          value: 'red',
+          enabled: true,
+        },
+        {
+          name: 'padding',
+          value: '0',
+          enabled: true,
+          subRules: [
+            {
+              name: 'padding-top',
+              value: '0',
+            },
+            {
+              name: 'padding-right',
+              value: '0',
+            },
+            {
+              name: 'padding-bottom',
+              value: '0',
+            },
+            {
+              name: 'padding-left',
+              value: '0',
+            },
+          ],
+        },
+        {
+          name: 'background-color',
+          value: 'last-value',
+          enabled: true,
+        },
+      ],
+    };
+
+    globalThis.reset = function() {
+      fixtureContainer.innerHTML = '';
+      fixtureContainer.append(fixture.content.cloneNode(true));
+
+      const selector = document.querySelector('elements-style-sidebar');
+
+      selector.data = JSON.parse(JSON.stringify(INITIAL_DATA));
+
+      document.querySelector('#add-new-rule').addEventListener('click', () => {
+        const newData = selector.data;
+        newData.selectors.push({
+          selector: '.new',
+          matches: Math.random() > 0.5,
+        });
+
+        selector.data = newData;
+      });
+      document.querySelector('#reset').addEventListener('click', () => {
+        selector.data = JSON.parse(JSON.stringify(INITIAL_DATA));
+      });
+
+      selector.addEventListener('style-value-change', ({name, newValue}) => {
+        selector.data.rules.find(rule => rule.name === name).value = newValue;
+      });
+
+      selector.addEventListener('style-name-change', ({oldName, newName}) => {
+        selector.data.rules.find(rule => rule.name === oldName).name = newName;
+      });
+
+      selector.addEventListener('style-selector-change', ({newSelector}) => {
+        selector.data.selectors = newSelector.split(',').map(name => ({
+          selector: name.trim(),
+          matches: Math.random() > 0.5,
+        }));
+        selector.data = selector.data;
+      });
+
+      selector.addEventListener('style-rule-effect-change', ({name, newEffectStatus}) => {
+        selector.data.rules.find(rule => rule.name === name).enabled = newEffectStatus;
+        selector.data = selector.data;
+      });
+
+      selector.addEventListener('style-rule-paste', ({pastedText, pasteLocation}) => {
+        console.log(`Pasted text: ${pastedText}`);
+        console.log(`Pasted location: ${pasteLocation}`);
+      });
+    };
+
+    globalThis.reset();
+  </script>
+</body>
