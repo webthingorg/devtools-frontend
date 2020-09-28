@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e4b7ae60_ed97b53b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-09-28T19:29:00Z",
+      "side": 1,
+      "message": "Good point, this CL pretty much came from my personal experiences and a parking lot discussion. \nI havent thought of adding it to headers, but yeah there are definitely use cases for copying request/reponse headers.\nI will add, I realized that I am adding event listeners to each list element instead of root list, might have some pref implications, thinking of refactoring.",
+      "parentUuid": "8a9726f3_db7a53bc",
+      "revId": "2d53230e3e493b49e04e2a0f9f2f9af3acf45cdb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bf12955a_6d1246a5",
         "filename": "front_end/network/RequestHeadersView.js",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2020-09-28T17:42:12Z",
       "side": 1,
       "message": "I think you should indicate that the event has been handled. (We used to use `event.consume(true)` for this, but I think we\u0027ve migrated away from that to avoid prototype pollution).\n\nOtherwise a refactor of this might allow the `contextmenu` event to escape the context.",
+      "revId": "2d53230e3e493b49e04e2a0f9f2f9af3acf45cdb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d6bcb74_a720df59",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-09-28T19:29:00Z",
+      "side": 1,
+      "message": "Good point, added `event.consume(true)`\nI tried to find a another example of stopping propagation, please let me know if there is an alternative way.",
+      "parentUuid": "bf12955a_6d1246a5",
       "revId": "2d53230e3e493b49e04e2a0f9f2f9af3acf45cdb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "bcc42f77_ebecc3b8",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-09-28T19:29:00Z",
+      "side": 1,
+      "message": "I thought since its binding it to Host.InspectorFrontendHost.InspectorFrontendHostInstance, it might be required. However it looks like your suggested update works, so binding is not required.\nAlso updated handler function name",
+      "parentUuid": "031bf2e9_2a12c1a7",
+      "revId": "2d53230e3e493b49e04e2a0f9f2f9af3acf45cdb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b1d0ff9e_31246bf7",
         "filename": "front_end/network/RequestHeadersView.js",
         "patchSetId": 4
@@ -67,6 +121,24 @@
       "revId": "2d53230e3e493b49e04e2a0f9f2f9af3acf45cdb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ee5d34c_6d186dc7",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-09-28T19:29:00Z",
+      "side": 1,
+      "message": "Updated to copy decoded value. I will also check with PM.",
+      "parentUuid": "b1d0ff9e_31246bf7",
+      "revId": "2d53230e3e493b49e04e2a0f9f2f9af3acf45cdb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
