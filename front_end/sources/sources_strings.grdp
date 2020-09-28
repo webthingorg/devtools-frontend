@@ -66,6 +66,9 @@
   <message name="IDS_DEVTOOLS_1ee7ea86b29266310a7177ff79cdfb70" desc="A context menu item in the Navigator View of the Sources panel">
     Delete all overrides
   </message>
+  <message name="IDS_DEVTOOLS_1f122e21d502999f8b993033a376bbb7" desc="Text in Breakpoint Edit Dialog of the Sources panel">
+    Tracepoint
+  </message>
   <message name="IDS_DEVTOOLS_1f15646f60fc3c1dea747963f02d51ac" desc="Text in Sources Panel of the Sources panel">
     Group by folder
   </message>
@@ -170,6 +173,9 @@
   </message>
   <message name="IDS_DEVTOOLS_49a4a1505587da9f4475db7ee9958853" desc="Text in Sources Navigator of the Sources panel">
     Sync changes in <ph name="LOCKED_1">DevTools</ph> with the local filesystem
+  </message>
+  <message name="IDS_DEVTOOLS_4b22e0b2f1cacd560238ae312eb1f908" desc="A context menu item in the Debugger Plugin of the Sources panel">
+    Add tracepoint…
   </message>
   <message name="IDS_DEVTOOLS_4b3812a22a58f04fb5a0598658a3bd27" desc="Title of the Filtered List WidgetProvider of Quick Open">
     Go to symbol
