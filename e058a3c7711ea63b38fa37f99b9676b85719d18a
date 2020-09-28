@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "febe49e1_e994d8ab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-28T10:46:58Z",
+      "side": 1,
+      "message": "I think pretty strongly that we should land tests straight up with a component. Unit tests are much easier to write for these new components, so I think it should have tests before it lands, please.",
+      "parentUuid": "ae3d237e_7482ab00",
+      "revId": "e058a3c7711ea63b38fa37f99b9676b85719d18a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "526b46bb_d310749d",
         "filename": "/COMMIT_MSG",
         "patchSetId": 5
@@ -33,6 +51,23 @@
       "revId": "e058a3c7711ea63b38fa37f99b9676b85719d18a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c34bc3a_b54c40a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-28T10:46:58Z",
+      "side": 1,
+      "message": "-1 only because I think we should have at least some tests of the component before we land it if possible please. You can look at https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/test/unittests/front_end/elements/ElementsBreadcrumbs_test.ts;l\u003d1?q\u003dElementsBreadcrumbs_test\u0026sq\u003d\u0026ss\u003dchromium for an example of how we\u0027ve tested other components.",
+      "revId": "e058a3c7711ea63b38fa37f99b9676b85719d18a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -75,6 +110,75 @@
         "startChar": 29,
         "endLine": 56,
         "endChar": 33
+      },
+      "revId": "e058a3c7711ea63b38fa37f99b9676b85719d18a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a8e2877_84eeaab8",
+        "filename": "front_end/inline_editor/CSSVarSwatch.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-28T10:46:58Z",
+      "side": 1,
+      "message": "given this sheet is so small, I think it\u0027s best to define it inline as a `\u003cstyle\u003e`. This stylesheet adoption really exists as a mechanism to adopt legacy stylesheets whilst we\u0027re in this mid-migration components and legacy UI state.",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 86
+      },
+      "revId": "e058a3c7711ea63b38fa37f99b9676b85719d18a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0dd94ea4_8fbf2368",
+        "filename": "front_end/inline_editor/CSSVarSwatch.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-28T10:46:58Z",
+      "side": 1,
+      "message": "nit, but I like the LitHTML classMap for this:\n\n```\nconst classes \u003d {\n  \u0027css-var-link\u0027: true,\n  \u0027undefined\u0027: !isDefined,\n}\n```",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 74
+      },
+      "revId": "e058a3c7711ea63b38fa37f99b9676b85719d18a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "adcf9881_4caae95a",
+        "filename": "front_end/inline_editor/CSSVarSwatch.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-28T10:46:58Z",
+      "side": 1,
+      "message": "We\u0027ve tended to prefix all our components with `devtools-` just so they are easily recognisable (and in the case of the component being one word, you can do `devtools-foo` rather than figuring out where to cram a `-` in!",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 54
       },
       "revId": "e058a3c7711ea63b38fa37f99b9676b85719d18a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
