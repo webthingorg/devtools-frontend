@@ -68,6 +68,24 @@
       "revId": "df6d72939eaa649e66681e09a2fa4387ea4a002a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d06e179_1ccefaff",
+        "filename": "front_end/elements/elements_strings.grdp",
+        "patchSetId": 1
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-09-28T19:50:46Z",
+      "side": 1,
+      "message": "Make sense, thanks for the explanation!",
+      "parentUuid": "8e1f521d_ac9992a0",
+      "revId": "df6d72939eaa649e66681e09a2fa4387ea4a002a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
