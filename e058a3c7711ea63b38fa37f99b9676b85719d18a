@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "ec3e4ea0_5656bd25",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-28T12:29:51Z",
+      "side": 1,
+      "message": "Sure, I was working on them at the same time anyway, I just happened to move them to a different branch so I could track them in a different CL, in order to ease the review process. But I can definitely merge this together in one CL.",
+      "parentUuid": "febe49e1_e994d8ab",
+      "revId": "e058a3c7711ea63b38fa37f99b9676b85719d18a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "526b46bb_d310749d",
         "filename": "/COMMIT_MSG",
         "patchSetId": 5
@@ -51,6 +69,24 @@
       "revId": "e058a3c7711ea63b38fa37f99b9676b85719d18a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d205670c_2831c8b2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-28T12:29:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "526b46bb_d310749d",
+      "revId": "e058a3c7711ea63b38fa37f99b9676b85719d18a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -88,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "1a667d53_f7d7ffc0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-28T12:29:51Z",
+      "side": 1,
+      "message": "Sure. Thanks for the thorough review. I\u0027ll update the code soon.",
+      "parentUuid": "c49230d3_862b9129",
+      "revId": "e058a3c7711ea63b38fa37f99b9676b85719d18a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c765902f_9f22e58f",
         "filename": "front_end/elements/StylePropertyHighlighter.js",
         "patchSetId": 5
@@ -111,6 +165,30 @@
     },
     {
       "key": {
+        "uuid": "e961a72c_1e1b633d",
+        "filename": "front_end/elements/StylePropertyHighlighter.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-28T12:29:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c765902f_9f22e58f",
+      "range": {
+        "startLine": 24,
+        "startChar": 37,
+        "endLine": 24,
+        "endChar": 41
+      },
+      "revId": "e058a3c7711ea63b38fa37f99b9676b85719d18a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f964db48_08ee9543",
         "filename": "front_end/elements/StylePropertyHighlighter.js",
         "patchSetId": 5
@@ -131,6 +209,30 @@
       "revId": "e058a3c7711ea63b38fa37f99b9676b85719d18a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b28475dd_a5b457ef",
+        "filename": "front_end/elements/StylePropertyHighlighter.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-28T12:29:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f964db48_08ee9543",
+      "range": {
+        "startLine": 56,
+        "startChar": 29,
+        "endLine": 56,
+        "endChar": 33
+      },
+      "revId": "e058a3c7711ea63b38fa37f99b9676b85719d18a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
