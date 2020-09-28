@@ -232,7 +232,7 @@ describe('Sources Tab', async function() {
     await checkBreakpointDidNotActivate();
   });
 
-  it('is able to step with state in multi-threaded code', async () => {
+  it('is able to step with state in multi-threaded code in main thread', async () => {
     const {target, frontend} = getBrowserAndPages();
 
     await step('navigate to a page and open the Sources tab', async () => {
@@ -345,6 +345,65 @@ describe('Sources Tab', async function() {
     });
 
     await checkBreakpointDidNotActivate();
+  });
+
+  it('is able to step with state in multi-threaded code in worker thread', async () => {
+    const {target, frontend} = getBrowserAndPages();
+
+    await step('navigate to a page and open the Sources tab', async () => {
+      await openSourceCodeEditorForFile('stepping-with-state.wasm', 'wasm/stepping-with-state-and-threads.html');
+    });
+
+    const numberOfLines = 32;
+
+    await step('check that the main thread is selected', async () => {
+      const selectedThreadElement = await waitFor(SELECTED_THREAD_SELECTOR);
+      const selectedThreadName = await selectedThreadElement.evaluate(element => {
+        return (element as HTMLElement).innerText;
+      });
+      assert.strictEqual(selectedThreadName, 'Main', 'the Main thread is not active');
+    });
+
+    await step('add a breakpoint to line No.23', async () => {
+      await addBreakpointForLine(frontend, 23);
+    });
+
+    await step('reload the page', async () => {
+      await target.reload();
+      // FIXME(crbug/1112692): Refactor test to remove the timeout.
+      await timeout(100);
+    });
+
+    await step('wait for all the source code to appear', async () => {
+      await waitForSourceCodeLines(numberOfLines);
+    });
+
+    await checkBreakpointIsActive(23);
+
+    await step('check that the code has paused on the breakpoint at the correct script location', async () => {
+      const scriptLocation = await retrieveTopCallFrameWithoutResuming();
+      assert.deepEqual(scriptLocation, 'stepping-with-state.wasm:0x60');
+    });
+
+    await step('step two times through the code', async () => {
+      await stepThroughTheCode();
+      await stepThroughTheCode();
+    });
+
+    await step('check that the variables in the scope view show the correct values', async () => {
+      await waitFor(SCOPE_LOCAL_VALUES_SELECTOR);
+      const localScopeView = await waitFor(SCOPE_LOCAL_VALUES_SELECTOR);
+      await waitForFunction(async () => {
+        const local_scope_values = await localScopeView.evaluate(element => {
+          return (element as HTMLElement).innerText;
+        });
+        return local_scope_values === '"": 42';
+      });
+    });
+
+    await step('remove the breakpoint from the 23rd line', async () => {
+      await click(sourceLineNumberSelector(23));
+    });
 
     await step('add a breakpoint to line No.30', async () => {
       await addBreakpointForLine(frontend, 30);
@@ -394,6 +453,65 @@ describe('Sources Tab', async function() {
 
     await step('remove the breakpoint from the 30th line', async () => {
       await click(sourceLineNumberSelector(30));
+    });
+  });
+
+  it('is able to step with state in multi-threaded code in worker thread inside a non exported method', async () => {
+    const {target, frontend} = getBrowserAndPages();
+
+    await step('navigate to a page and open the Sources tab', async () => {
+      await openSourceCodeEditorForFile('stepping-with-state.wasm', 'wasm/stepping-with-state-and-threads.html');
+    });
+
+    const numberOfLines = 32;
+
+    await step('check that the main thread is selected', async () => {
+      const selectedThreadElement = await waitFor(SELECTED_THREAD_SELECTOR);
+      const selectedThreadName = await selectedThreadElement.evaluate(element => {
+        return (element as HTMLElement).innerText;
+      });
+      assert.strictEqual(selectedThreadName, 'Main', 'the Main thread is not active');
+    });
+
+    await step('add a breakpoint to line No.23', async () => {
+      await addBreakpointForLine(frontend, 23);
+    });
+
+    await step('reload the page', async () => {
+      await target.reload();
+      // FIXME(crbug/1112692): Refactor test to remove the timeout.
+      await timeout(100);
+    });
+
+    await step('wait for all the source code to appear', async () => {
+      await waitForSourceCodeLines(numberOfLines);
+    });
+
+    await checkBreakpointIsActive(23);
+
+    await step('check that the code has paused on the breakpoint at the correct script location', async () => {
+      const scriptLocation = await retrieveTopCallFrameWithoutResuming();
+      assert.deepEqual(scriptLocation, 'stepping-with-state.wasm:0x60');
+    });
+
+    await step('step two times through the code', async () => {
+      await stepThroughTheCode();
+      await stepThroughTheCode();
+    });
+
+    await step('check that the variables in the scope view show the correct values', async () => {
+      await waitFor(SCOPE_LOCAL_VALUES_SELECTOR);
+      const localScopeView = await waitFor(SCOPE_LOCAL_VALUES_SELECTOR);
+      await waitForFunction(async () => {
+        const local_scope_values = await localScopeView.evaluate(element => {
+          return (element as HTMLElement).innerText;
+        });
+        return local_scope_values === '"": 42';
+      });
+    });
+
+    await step('remove the breakpoint from the 23rd line', async () => {
+      await click(sourceLineNumberSelector(23));
     });
 
     await step('add a breakpoint to line No.13', async () => {
