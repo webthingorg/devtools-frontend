@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "622f5672_3113b472",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-28T11:47:15Z",
+      "side": 1,
+      "message": "Hey Peter, could you take a look at the `ElementsStyleSidebar_test.ts` file that contains the UX tests for the style component. It uses the `basic.html` document as added in the component_docs. The element itself is not integrated, so you can\u0027t locally inspect, but hopefully the general gist of the UX tests should be understandable even without a working example. Let me know if you have any questions.",
+      "revId": "8cb037adf8621b17ae9fbce595bdc7981e65b963",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
