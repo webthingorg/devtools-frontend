@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "e8908396_4cde451a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-09-28T18:31:01Z",
+      "side": 1,
+      "message": "thanks Christy, left some comments.",
+      "revId": "df6d72939eaa649e66681e09a2fa4387ea4a002a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "662f45e5_b8b4e0e3",
         "filename": "front_end/elements/elements_strings.grdp",
         "patchSetId": 1
@@ -33,6 +50,24 @@
       "revId": "df6d72939eaa649e66681e09a2fa4387ea4a002a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e1f521d_ac9992a0",
+        "filename": "front_end/elements/elements_strings.grdp",
+        "patchSetId": 1
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-09-28T18:31:01Z",
+      "side": 1,
+      "message": "good question, this is my reasoning behind this:\n- shadow DOM: should be locked (technical term)\n- user-agent: in some languages there is a translation for this, so not sure if this one should or not should be locked.\n- user-agent shadow DOM: This seems a term created for this specific setting, I found some references to the whole term in some non-English sites, so I went it with that to avoid disrupting the experience for those users.\n\nif we think user-agent should also be locked we can follow up with another CL. :)",
+      "parentUuid": "662f45e5_b8b4e0e3",
+      "revId": "df6d72939eaa649e66681e09a2fa4387ea4a002a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
