@@ -1,0 +1,17 @@
+:root {
+  --toolbar-bg-color: #f3f3f3;
+  --table-secondary-color: hsl(214deg 70% 97%);
+  --table-divider-color: 1px solid #aaa;
+  --selection-bg-color: #1a73e8;
+  --selection-fg-color: white;
+  --drop-shadow:
+    0 0 0 1px rgb(0 0 0 / 5%),
+    0 2px 4px rgb(0 0 0 / 20%),
+    0 2px 6px rgb(0 0 0 / 10%);
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}

@@ -70,11 +70,11 @@ export const getElementPosition =
 };
 
 export const click = async (
-    selector: string|puppeteer.JSHandle,
+    selector: string|puppeteer.JSHandle|Promise<puppeteer.ElementHandle>,
     options?: {root?: puppeteer.JSHandle; clickOptions?: puppeteer.ClickOptions; maxPixelsFromLeft?: number;}) => {
   const {frontend} = getBrowserAndPages();
   const clickableElement =
-      await getElementPosition(selector, options && options.root, options && options.maxPixelsFromLeft);
+      await getElementPosition(await selector, options && options.root, options && options.maxPixelsFromLeft);
 
   if (!clickableElement) {
     throw new Error(`Unable to locate clickable element "${selector}".`);
@@ -174,6 +174,10 @@ export const $textContent = async (textContent: string, root?: puppeteer.JSHandl
   const {frontend} = getBrowserAndPages();
   const rootElement = root ? root as puppeteer.ElementHandle : frontend;
   const element = await rootElement.$('pierceShadowText/' + textContent);
+
+  if (!element) {
+    throw new Error(`Could not find element with textcontent "${textContent}"`);
+  }
   return element;
 };
 

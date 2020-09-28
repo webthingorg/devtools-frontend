@@ -1,0 +1,75 @@
+<!--
+  Copyright 2020 The Chromium Authors. All rights reserved.
+  Use of this source code is governed by a BSD-style license that can be
+  found in the LICENSE file.
+-->
+<head>
+  <link rel="stylesheet" href="demo-styles.css">
+  <style>
+    div {
+      border: 1px solid red;
+      width: 250px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <elements-style-sidebar></elements-style-sidebar>
+  </div>
+  <script type="module">
+    import '../elements-style-sidebar.js';
+
+    document.querySelector('elements-style-sidebar').data = {
+      indentation: 4,
+      selectors: [
+        {
+          selector: 'html',
+          matches: false,
+        },
+        {
+          selector: 'body',
+          matches: true,
+        },
+        {
+          selector: '.whatever',
+          matches: false,
+        },
+      ],
+      rules: [
+        {
+          name: 'color',
+          value: 'red',
+          enabled: true,
+        },
+        {
+          name: 'padding',
+          value: '0',
+          enabled: true,
+          subRules: [
+            {
+              name: 'padding-top',
+              value: '0',
+            },
+            {
+              name: 'padding-right',
+              value: '0',
+            },
+            {
+              name: 'padding-bottom',
+              value: '0',
+            },
+            {
+              name: 'padding-left',
+              value: '0',
+            },
+          ],
+        },
+        {
+          name: 'background-color',
+          value: 'last-value',
+          enabled: true,
+        },
+      ],
+    };
+  </script>
+</body>
