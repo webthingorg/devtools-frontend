@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90ddffa5_42b02a41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-28T08:57:44Z",
+      "side": 1,
+      "message": "This is failing due to imports being compiled away and the NodeText component not being defined. Working on a fix in https://crrev.com/c/2434525",
+      "revId": "52ac428a3d15a6f25a2c77ab68ec51d484eaa207",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
