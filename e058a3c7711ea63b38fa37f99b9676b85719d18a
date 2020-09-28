@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae3d237e_7482ab00",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-28T09:50:41Z",
+      "side": 1,
+      "message": "non-blocking: Since this is not behind an experiment flag, I\u0027d feel slightly better if the tests were part of the same CL. I\u0027d be okay to land this without tests if we can agree to land the tests CL soon (within the next few days) though.",
+      "revId": "e058a3c7711ea63b38fa37f99b9676b85719d18a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "526b46bb_d310749d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-28T09:50:41Z",
+      "side": 1,
+      "message": "Let\u0027s include a small screenshot/screencast?",
+      "revId": "e058a3c7711ea63b38fa37f99b9676b85719d18a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c765902f_9f22e58f",
+        "filename": "front_end/elements/StylePropertyHighlighter.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-28T09:50:41Z",
+      "side": 1,
+      "message": "typo: given",
+      "range": {
+        "startLine": 24,
+        "startChar": 37,
+        "endLine": 24,
+        "endChar": 41
+      },
+      "revId": "e058a3c7711ea63b38fa37f99b9676b85719d18a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f964db48_08ee9543",
+        "filename": "front_end/elements/StylePropertyHighlighter.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-28T09:50:41Z",
+      "side": 1,
+      "message": "typo: for which\n\nmaybe \"[...] the first tree element for which [...]\"",
+      "range": {
+        "startLine": 56,
+        "startChar": 29,
+        "endLine": 56,
+        "endChar": 33
+      },
+      "revId": "e058a3c7711ea63b38fa37f99b9676b85719d18a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
