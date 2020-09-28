@@ -16,6 +16,23 @@
       "revId": "5045b2166c47fe8b4c4155a88dcc65ec6ede3155",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e8a5af2_924ba4b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-28T08:19:36Z",
+      "side": 1,
+      "message": "I fully defer to Nina for WebAuthn expertise, but LGTM from the DevTools side",
+      "revId": "5045b2166c47fe8b4c4155a88dcc65ec6ede3155",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
