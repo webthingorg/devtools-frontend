@@ -34,6 +34,24 @@
       "revId": "9040fb49e1958dee20c6de6e3bdd83dc91c2dfcf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "689f2f04_0a877f89",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-29T08:39:52Z",
+      "side": 1,
+      "message": "Interesting. The example I noticed was https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2429775/comment/636b1f9f_29860e42/ — let\u0027s move the discussion there.",
+      "parentUuid": "749e4529_873c791b",
+      "revId": "9040fb49e1958dee20c6de6e3bdd83dc91c2dfcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
