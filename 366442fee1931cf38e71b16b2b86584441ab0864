@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e2bdb146_b32ed8e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-29T10:06:25Z",
+      "side": 1,
+      "message": "\u003e From a design perspective all good. Can we show this button only on focus/hover over a specific line? To avoid visually cluttering the UI?\n\u003e \n\u003e If not, it\u0027s not a stopper.\n\nYeah, added this.",
+      "parentUuid": "ff6c6c50_c8dca8e4",
+      "revId": "366442fee1931cf38e71b16b2b86584441ab0864",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3bb49b0b_aa5003ac",
         "filename": "front_end/css_overview/cssOverviewCompletedView.css",
         "patchSetId": 1
