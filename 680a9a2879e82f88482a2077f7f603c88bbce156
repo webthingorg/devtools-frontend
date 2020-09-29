@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "b518d0a4_23ff6743",
+        "filename": "front_end/timeline/TimelineFlameChartNetworkDataProvider.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-09-29T11:34:40Z",
+      "side": 1,
+      "message": "They are, they kind of act as a cast for TS.",
+      "parentUuid": "f99142b9_03cc0447",
+      "range": {
+        "startLine": 41,
+        "startChar": 18,
+        "endLine": 41,
+        "endChar": 19
+      },
+      "revId": "680a9a2879e82f88482a2077f7f603c88bbce156",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bc214b2_9c6712d6",
         "filename": "front_end/timeline/TimelineFlameChartNetworkDataProvider.js",
         "patchSetId": 1
@@ -109,6 +133,30 @@
       "revId": "680a9a2879e82f88482a2077f7f603c88bbce156",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "727a4baf_53a6037b",
+        "filename": "front_end/timeline/TimelineFlameChartNetworkDataProvider.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-09-29T11:34:40Z",
+      "side": 1,
+      "message": "Changed to\n\n return this._group \u0026\u0026 !!this._group.expanded;\n\nas `expanded` can be undefined as well.",
+      "parentUuid": "4b7c4cec_bf836ac8",
+      "range": {
+        "startLine": 442,
+        "startChar": 11,
+        "endLine": 442,
+        "endChar": 56
+      },
+      "revId": "680a9a2879e82f88482a2077f7f603c88bbce156",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
