@@ -50,6 +50,23 @@
       "revId": "38d5f4dc287d972cf6e9b5fe43c705b4fe23ae1a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3488e015_1942f69e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-09-29T20:47:44Z",
+      "side": 1,
+      "message": "adding owner",
+      "revId": "38d5f4dc287d972cf6e9b5fe43c705b4fe23ae1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
