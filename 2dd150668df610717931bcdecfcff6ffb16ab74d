@@ -33,6 +33,24 @@
       "revId": "2dd150668df610717931bcdecfcff6ffb16ab74d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b41b7cf2_ffe3e729",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-09-29T08:55:08Z",
+      "side": 1,
+      "message": "Songtao, maybe you could explain why this was introduced in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2304279",
+      "parentUuid": "ef8251d4_07e21d29",
+      "revId": "2dd150668df610717931bcdecfcff6ffb16ab74d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
