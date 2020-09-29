@@ -133,7 +133,11 @@ export const withMutations = async(
     const matchingNodes = gatherMatchingNodesForExpectedMutation(expectedMutation, observedMutations);
 
     const amountOfMatchingMutations = matchingNodes.length;
-    const maxMutationsAllowed = expectedMutation.max || DEFAULT_MAX_MUTATIONS_LIMIT;
+    // Make sure we check for undefined, not truthyness, as the user could
+    // supply a max of 0.
+    const maxMutationsAllowed =
+        expectedMutation.max === undefined ? DEFAULT_MAX_MUTATIONS_LIMIT : (expectedMutation.max);
+
     if (amountOfMatchingMutations > maxMutationsAllowed) {
       assert.fail(`Expected no more than ${maxMutationsAllowed} mutations for ${
           expectedMutation.type || 'ADD/REMOVE'} ${expectedMutation.tagName}, but got ${amountOfMatchingMutations}`);
