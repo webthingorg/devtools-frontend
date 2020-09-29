@@ -177,7 +177,10 @@ luci.cq_group(
     name = "infra_config",
     watch = cq.refset(
         repo = "https://chromium.googlesource.com/devtools/devtools-frontend",
-        refs = ["refs/heads/infra/config"],
+        refs = [
+          "refs/heads/infra/config",
+          "refs/heads/chromium/.*"
+        ],
     ),
     acls = cq_acls,
     retry_config = cq_retry_config,
