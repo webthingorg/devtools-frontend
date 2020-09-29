@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "490c4e3f_e9ee2a95",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-09-29T02:22:58Z",
+      "side": 1,
+      "message": "LGTM, verified that the tests pass locally. Thanks for un-flaking this",
+      "revId": "502305d6827a61beefa75e016245d36449e39406",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca955de3_7df22617",
         "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
         "patchSetId": 1
@@ -33,6 +50,24 @@
       "revId": "502305d6827a61beefa75e016245d36449e39406",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a911c397_ef625096",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-09-29T02:22:58Z",
+      "side": 1,
+      "message": "Breakpoints aren\u0027t loaded until the devtools load the corresponding UISourceCode, so on first launch it might just be too late to hit the breakpoint by the time that happens. I wouldn\u0027t be surprised if there are other complications with wasm breakpoints too",
+      "parentUuid": "ca955de3_7df22617",
+      "revId": "502305d6827a61beefa75e016245d36449e39406",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
