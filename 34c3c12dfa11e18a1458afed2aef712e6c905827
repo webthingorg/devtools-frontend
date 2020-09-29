@@ -16,6 +16,24 @@
       "revId": "34c3c12dfa11e18a1458afed2aef712e6c905827",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb5db060_f28c18c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-09-29T10:54:38Z",
+      "side": 1,
+      "message": "We could, but it\u0027d be odd for a dev to provide one. Easy to add a check in though - wdyt?",
+      "parentUuid": "6c9ce37c_8eba08a6",
+      "revId": "34c3c12dfa11e18a1458afed2aef712e6c905827",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
