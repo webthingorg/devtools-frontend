@@ -1283,6 +1283,8 @@ export class IssuesPaneImpl extends UI.Widget.VBox {
     this._issuesTree.setShowSelectionOnKeyboardFocus(true);
     this._issuesTree.contentElement.classList.add('issues');
     this.contentElement.appendChild(this._issuesTree.element);
+    this.setDefaultFocusedElement(this._issuesTree.contentElement);
+    this._issuesTree.contentElement.addEventListener('focus', this._selectFirstChildOrCheckbox.bind(this), false);
 
     this._noIssuesMessageDiv = document.createElement('div');
     this._noIssuesMessageDiv.classList.add('issues-pane-no-issues');
@@ -1329,10 +1331,10 @@ export class IssuesPaneImpl extends UI.Widget.VBox {
 
     // TODO(crbug.com/1011811): Remove cast once closure is gone. Closure requires an upcast to 'any' from 'boolean'.
     const thirdPartySetting = /** @type {!Common.Settings.Setting<*>} */ (SDK.Issue.getShowThirdPartyIssuesSetting());
-    const showThirdPartyCheckbox = new UI.Toolbar.ToolbarSettingCheckbox(
+    this._showThirdPartyCheckbox = new UI.Toolbar.ToolbarSettingCheckbox(
         thirdPartySetting, ls`Include cookie Issues caused by third-party sites`,
         ls`Include third-party cookie issues`);
-    rightToolbar.appendToolbarItem(showThirdPartyCheckbox);
+    rightToolbar.appendToolbarItem(this._showThirdPartyCheckbox);
 
     rightToolbar.appendSeparator();
     const toolbarWarnings = document.createElement('div');
@@ -1470,6 +1472,15 @@ export class IssuesPaneImpl extends UI.Widget.VBox {
     if (issueView) {
       issueView.expand();
       issueView.reveal();
+    }
+  }
+
+  _selectFirstChildOrCheckbox() {
+    const firstChild = this._issuesTree.firstChild();
+    if (firstChild) {
+      firstChild.select();
+    } else if (this._showThirdPartyCheckbox) {
+      this._showThirdPartyCheckbox.inputElement.focus();
     }
   }
 }
