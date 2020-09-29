@@ -160,7 +160,7 @@ export class NetworkProject {
    * @return {?SDK.SDKModel.Target} target
    */
   static targetForUISourceCode(uiSourceCode) {
-    return uiSourceCode.project()[_targetSymbol] || null;
+    return uiSourceCode.project()[targetSymbol] || null;
   }
 
   /**
@@ -168,7 +168,7 @@ export class NetworkProject {
    * @param {!SDK.SDKModel.Target} target
    */
   static setTargetForProject(project, target) {
-    project[_targetSymbol] = target;
+    project[targetSymbol] = target;
   }
 
   /**
@@ -187,5 +187,5 @@ export class NetworkProject {
   }
 }
 
-const _targetSymbol = Symbol('target');
+export const targetSymbol = Symbol('target');
 const _frameAttributionSymbol = Symbol('_frameAttributionSymbol');
