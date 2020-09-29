@@ -349,6 +349,8 @@ export class ShortcutListItem {
       }
       shortcutInput.value = shortcut.title();
       shortcutInput.addEventListener('keydown', this._onShortcutInputKeyDown.bind(this, shortcut, shortcutInput));
+      shortcutInput.addEventListener('focus', () => Settings.SettingsScreen.instance().setCloseOnEscape(false));
+      shortcutInput.addEventListener('blur', () => Settings.SettingsScreen.instance().setCloseOnEscape(true));
       const deleteButton = shortcutElement.createChild('button');
       deleteButton.classList.add('keybinds-delete-button');
       deleteButton.appendChild(UI.Icon.Icon.create('largeicon-trash-bin'));

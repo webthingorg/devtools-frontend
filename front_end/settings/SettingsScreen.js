@@ -79,6 +79,8 @@ export class SettingsScreen extends UI.Widget.VBox {
     tabbedPane.selectTab('preferences');
     tabbedPane.addEventListener(UI.TabbedPane.Events.TabInvoked, this._tabInvoked, this);
     this._reportTabOnReveal = false;
+    /** @type {?UI.Dialog.Dialog} */
+    this._dialog = null;
   }
 
   /**
@@ -109,7 +111,7 @@ export class SettingsScreen extends UI.Widget.VBox {
     dialog.setOutsideClickCallback(() => {});
     dialog.setPointerEventsBehavior(UI.GlassPane.PointerEventsBehavior.PierceGlassPane);
     dialog.setOutsideTabIndexBehavior(UI.Dialog.OutsideTabIndexBehavior.PreserveMainViewTabIndex);
-    settingsScreen.show(dialog.contentElement);
+    settingsScreen.showOnDialog(dialog);
     dialog.show();
 
     return settingsScreen;
@@ -129,6 +131,23 @@ export class SettingsScreen extends UI.Widget.VBox {
       tabbedPane.focusSelectedTabHeader();
     } else {
       tabbedPane.focus();
+    }
+  }
+
+  /**
+   * @param {!UI.Dialog.Dialog} dialog
+   */
+  showOnDialog(dialog) {
+    this._dialog = dialog;
+    this.show(dialog.contentElement);
+  }
+
+  /**
+   * @param {boolean} close
+   */
+  setCloseOnEscape(close) {
+    if (this._dialog) {
+      this._dialog.setCloseOnEscape(close);
     }
   }
 

@@ -36,7 +36,6 @@ import {GlassPane, PointerEventsBehavior} from './GlassPane.js';
 import {InspectorView} from './InspectorView.js';
 import {KeyboardShortcut, Keys} from './KeyboardShortcut.js';
 import {SplitWidget} from './SplitWidget.js';  // eslint-disable-line no-unused-vars
-import {isEditing} from './UIUtils.js';
 import {WidgetFocusRestorer} from './Widget.js';
 
 export class Dialog extends GlassPane {
@@ -194,8 +193,7 @@ export class Dialog extends GlassPane {
    * @param {!Event} event
    */
   _onKeyDown(event) {
-    if (!isEditing() && this._closeOnEscape && event.keyCode === Keys.Esc.code &&
-        KeyboardShortcut.hasNoModifiers(event)) {
+    if (this._closeOnEscape && event.keyCode === Keys.Esc.code && KeyboardShortcut.hasNoModifiers(event)) {
       event.consume(true);
       this.hide();
     }
