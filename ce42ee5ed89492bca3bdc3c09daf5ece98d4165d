@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8c812a53_c9b045ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2020-09-29T11:51:47Z",
+      "side": 1,
+      "message": "As I agreed with Yang I will be removing this console and builders. It does not look it was useful for anybody.\n\nPTAL\nThanks!",
+      "revId": "ce42ee5ed89492bca3bdc3c09daf5ece98d4165d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
