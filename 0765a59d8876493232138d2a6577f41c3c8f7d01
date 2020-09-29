@@ -16,6 +16,29 @@
       "revId": "0765a59d8876493232138d2a6577f41c3c8f7d01",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4d6427d_2a49f629",
+        "filename": "front_end/timeline/TimelineDetailsView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-09-29T09:14:36Z",
+      "side": 1,
+      "message": "Ooft this is not the right type but I guess this is how the class uses it right now",
+      "range": {
+        "startLine": 64,
+        "startChar": 4,
+        "endLine": 65,
+        "endChar": 16
+      },
+      "revId": "0765a59d8876493232138d2a6577f41c3c8f7d01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
