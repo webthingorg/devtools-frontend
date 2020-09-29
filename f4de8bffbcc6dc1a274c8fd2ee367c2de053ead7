@@ -34,6 +34,24 @@
       "revId": "f4de8bffbcc6dc1a274c8fd2ee367c2de053ead7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1801e7c6_406f80c9",
+        "filename": "inspector_overlay/common.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-29T09:12:02Z",
+      "side": 1,
+      "message": "It\u0027s in the comment above:\n\n    * Severity: 2 \u003d\u003d error, 1 \u003d\u003d warning, 0 \u003d\u003d off.\n\nI think the rule might be set up correctly (have you tried removing the braces after an `if` in the `frontend` folder?) but eslint might not be running on this directory at all, or possibly is not using the `frontend` config but a different (default?) one by accident.",
+      "parentUuid": "5b4bee87_6080aa7c",
+      "revId": "f4de8bffbcc6dc1a274c8fd2ee367c2de053ead7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
