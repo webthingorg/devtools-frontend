@@ -52,6 +52,24 @@
       "revId": "f4de8bffbcc6dc1a274c8fd2ee367c2de053ead7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d220d1eb_61241966",
+        "filename": "inspector_overlay/common.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-29T09:17:48Z",
+      "side": 1,
+      "message": "Interesting, if I run \"npm run check-lint\" it fixes this instance. But it didn\u0027t fix it as part of presubmit or CI.",
+      "parentUuid": "1801e7c6_406f80c9",
+      "revId": "f4de8bffbcc6dc1a274c8fd2ee367c2de053ead7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
