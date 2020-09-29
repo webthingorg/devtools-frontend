@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ef8251d4_07e21d29",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-09-29T08:30:56Z",
+      "side": 1,
+      "message": "I\u0027m not convinced that we should need a reload at all. When I rotate my mobile device, I don\u0027t expect to trigger a reload. So I wouldn\u0027t expect this from device emulation either.",
+      "revId": "2dd150668df610717931bcdecfcff6ffb16ab74d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
