@@ -39,6 +39,30 @@
       "revId": "0765a59d8876493232138d2a6577f41c3c8f7d01",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f26e2112_5a4e1ba5",
+        "filename": "front_end/timeline/TimelineDetailsView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-09-29T09:19:49Z",
+      "side": 1,
+      "message": "Indeed. There are two alternate solutions to this: 1) Add casts at the use-sites. 2) Insert null checks.\n\n2) changes what the code actually does at runtime, which I am always hesitant about and 1) makes the code even less readable.\n\nIn case the invariant holds that we call `setModel` with a non-null performance model early on, then the type is even kind of right.",
+      "parentUuid": "e4d6427d_2a49f629",
+      "range": {
+        "startLine": 64,
+        "startChar": 4,
+        "endLine": 65,
+        "endChar": 16
+      },
+      "revId": "0765a59d8876493232138d2a6577f41c3c8f7d01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
