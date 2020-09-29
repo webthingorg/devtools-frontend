@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2c31ad8f_a2b2d3ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-29T10:54:22Z",
+      "side": 1,
+      "message": "INFRA approval stamp. Please wait for the other reviewers to approve as well. (Also seems like this has some issues on CQ)",
+      "revId": "d88e17437600c5eee0462a282ade22b42931efe7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
