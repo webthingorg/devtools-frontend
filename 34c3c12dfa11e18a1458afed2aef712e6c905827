@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6c9ce37c_8eba08a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-29T10:50:50Z",
+      "side": 1,
+      "message": "Do we also need to check for negative numbers? Can be done in a follow-up if that seems necessary.",
+      "revId": "34c3c12dfa11e18a1458afed2aef712e6c905827",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
