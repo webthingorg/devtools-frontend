@@ -16,6 +16,80 @@
       "revId": "4a9de37778ba85ae1389f308a79ff90788c1cce5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ecc74785_229dd7e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-29T13:29:12Z",
+      "side": 1,
+      "message": "LGTM with nits",
+      "revId": "4a9de37778ba85ae1389f308a79ff90788c1cce5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "81836dac_0237815a",
+        "filename": "test/e2e/assertion/assertion_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-29T13:29:12Z",
+      "side": 1,
+      "message": "Break this out to assert.equal(fatalErrors.length, 1) so we know there\u0027s only one error, and assert.isTrue(fatalErrors[0].includes(\u0027expected failure 1\u0027))",
+      "revId": "4a9de37778ba85ae1389f308a79ff90788c1cce5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38d9ab06_498e8bbf",
+        "filename": "test/e2e/assertion/assertion_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-29T13:29:12Z",
+      "side": 1,
+      "message": "ultra-nit: blank line between each it",
+      "range": {
+        "startLine": 21,
+        "startChar": 1,
+        "endLine": 21,
+        "endChar": 5
+      },
+      "revId": "4a9de37778ba85ae1389f308a79ff90788c1cce5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a3f7d98_d329618b",
+        "filename": "test/e2e/assertion/assertion_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-29T13:29:12Z",
+      "side": 1,
+      "message": "Same as above.",
+      "revId": "4a9de37778ba85ae1389f308a79ff90788c1cce5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
