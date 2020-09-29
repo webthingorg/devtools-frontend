@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "b4856fd4_5cf0fa1e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-09-29T15:33:46Z",
+      "side": 1,
+      "message": "Please use https://crbug.com/569479 to track this.",
+      "revId": "ca1a68efc629989387445899252a40cfcddae4f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "03d9d384_ed5972c8",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -16,6 +33,29 @@
       "revId": "ca1a68efc629989387445899252a40cfcddae4f3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9df3c105_87b540e6",
+        "filename": "buckets/try.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-09-29T15:33:46Z",
+      "side": 1,
+      "message": "Is this the right place? This is only for the presubmit builder on infra/config. Now we\u0027d have a presubmit builder for beta/stable (not bad) - but we\u0027d rather want the devtools-frontend builders to run on beta/stable. For this we should have two separate CQ groups, so that we can deselect the chromium builders.",
+      "range": {
+        "startLine": 182,
+        "startChar": 10,
+        "endLine": 182,
+        "endChar": 34
+      },
+      "revId": "ca1a68efc629989387445899252a40cfcddae4f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
