@@ -16,6 +16,24 @@
       "revId": "fdc67b6cf4787686de42798a7b043a46ec1d3d9e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8753e55_67561efa",
+        "filename": "front_end/elements/elements_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-09-29T20:49:54Z",
+      "side": 1,
+      "message": "yes, but I want to do that in another CL as I have a couple of follow up questions. On this one usage is pretty straight forward",
+      "parentUuid": "f7f13aa1_085cbc6a",
+      "revId": "fdc67b6cf4787686de42798a7b043a46ec1d3d9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
