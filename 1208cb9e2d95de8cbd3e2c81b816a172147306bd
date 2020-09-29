@@ -34,6 +34,24 @@
       "revId": "1208cb9e2d95de8cbd3e2c81b816a172147306bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25cdc627_0f6c1da5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-29T12:28:43Z",
+      "side": 1,
+      "message": "We don\u0027t have CQ for backmerges, but the original CL (which has exactly the same diff afaict) did pass all CQ checks: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2393463 So I\u0027m also unsure what exactly happened here.",
+      "parentUuid": "74a322d1_750c0de9",
+      "revId": "1208cb9e2d95de8cbd3e2c81b816a172147306bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
