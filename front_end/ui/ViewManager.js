@@ -12,10 +12,124 @@ import * as Root from '../root/root.js';
 import * as ARIAUtils from './ARIAUtils.js';
 import {ContextMenu} from './ContextMenu.js';  // eslint-disable-line no-unused-vars
 import {Icon} from './Icon.js';
+import {Panel} from './Panel.js';  // eslint-disable-line no-unused-vars
 import {Events as TabbedPaneEvents, TabbedPane} from './TabbedPane.js';
 import {Toolbar, ToolbarItem, ToolbarMenuButton} from './Toolbar.js';  // eslint-disable-line no-unused-vars
 import {ProvidedView, TabbedViewLocation, View, ViewLocation, ViewLocationResolver, widgetSymbol,} from './View.js';  // eslint-disable-line no-unused-vars
 import {VBox, Widget} from './Widget.js';  // eslint-disable-line no-unused-vars
+
+/** @type {!Array<!PreRegisteredView>} */
+const registeredViewPanels = [];
+
+/** @enum {string} */
+export const ViewPersistence = {
+  CLOSEABLE: 'closeable',
+  PERMANENT: 'permanent',
+  TRANSIENT: 'transient',
+};
+
+/** @enum {string} */
+export const ViewLocationValues = {
+  PANEL: 'panel',
+};
+
+/**
+ * @typedef {{
+ *  title: string,
+ *  persistence: !ViewPersistence,
+ *  id: string,
+ *  location: !ViewLocationValues,
+ *  hasToolbar: boolean,
+ *  loadView: function():!Promise<!Panel>,
+ *  order: number,
+ * }}
+ */
+// @ts-ignore typedef
+export let ViewRegistration;
+
+/**
+ * @implements {View}
+ */
+class PreRegisteredView {
+  /**
+   * @param {!ViewRegistration} viewRegistration
+   */
+  constructor(viewRegistration) {
+    /** @type {!ViewRegistration} */
+    this._viewRegistration = viewRegistration;
+    this._widgetRequested = false;
+  }
+
+  /**
+   * @override
+   */
+  title() {
+    return this._viewRegistration.title;
+  }
+
+  /**
+   * @override
+   */
+  isCloseable() {
+    return this._viewRegistration.persistence === ViewPersistence.CLOSEABLE;
+  }
+
+  /**
+   * @override
+   */
+  isTransient() {
+    return this._viewRegistration.persistence === ViewPersistence.TRANSIENT;
+  }
+
+  /**
+   * @override
+   */
+  viewId() {
+    return this._viewRegistration.id;
+  }
+
+  location() {
+    return this._viewRegistration.location;
+  }
+
+  order() {
+    return this._viewRegistration.order;
+  }
+
+  /**
+   * @override
+   */
+  async toolbarItems() {
+    return [];
+  }
+
+  /**
+   * @override
+   */
+  async widget() {
+    this._widgetRequested = true;
+    return this._viewRegistration.loadView();
+  }
+
+  /**
+   * @override
+   */
+  async disposeView() {
+    if (!this._widgetRequested) {
+      return;
+    }
+
+    const widget = await this.widget();
+    widget.ownerViewDisposed();
+  }
+}
+
+/**
+ * @param {!ViewRegistration} registration
+ */
+export function registerViewPanel(registration) {
+  registeredViewPanels.push(new PreRegisteredView(registration));
+}
 
 /**
  * @type {!ViewManager}
@@ -39,13 +153,33 @@ export class ViewManager {
     this._locationOverrideSetting = Common.Settings.Settings.instance().createSetting('viewsLocationOverride', {});
     const preferredExtensionLocations = this._locationOverrideSetting.get();
 
+    /** @type {!Array<{id: string, view: (!ProvidedView|!PreRegisteredView)}>} */
+    const unsortedViews = [];
+
     for (const extension of Root.Runtime.Runtime.instance().extensions('view')) {
       const descriptor = extension.descriptor();
       const descriptorId = descriptor['id'];
-      this._views.set(descriptorId, new ProvidedView(extension));
+      unsortedViews.push({id: descriptorId, view: new ProvidedView(extension)});
       // Use the preferred user location if available
       const locationName = preferredExtensionLocations[descriptorId] || descriptor['location'];
       this._locationNameByViewId.set(descriptorId, locationName);
+    }
+
+    for (const registeredView of registeredViewPanels) {
+      const viewId = registeredView.viewId();
+      unsortedViews.push({id: viewId, view: registeredView});
+      // Use the preferred user location if available
+      const locationName = preferredExtensionLocations[viewId] || registeredView.location();
+      this._locationNameByViewId.set(viewId, locationName);
+    }
+
+    // Since we are migrating away from the views being defined in the module.json files,
+    // we need to order the union of both types of views. When the module.json provided
+    // views are removed, we can remove this sorting and sort `reigsteredViewPanels` instead.
+    unsortedViews.sort((firstView, secondView) => firstView.view.order() - secondView.view.order());
+
+    for (const {id, view} of unsortedViews) {
+      this._views.set(id, view);
     }
   }
 
