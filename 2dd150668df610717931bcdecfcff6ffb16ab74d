@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "349b038b_c8ea3dc6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-29T08:41:56Z",
+      "side": 1,
+      "message": "Please add a screenshot, e.g.\n\n    Screenshot: https://i.imgur.com/*.png",
+      "revId": "2dd150668df610717931bcdecfcff6ffb16ab74d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ef8251d4_07e21d29",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 6
