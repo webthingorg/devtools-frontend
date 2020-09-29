@@ -34,6 +34,24 @@
       "revId": "34c3c12dfa11e18a1458afed2aef712e6c905827",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4bb89873_8928867c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-29T10:55:59Z",
+      "side": 1,
+      "message": "I might envision a situation where the result is a computation where the computation produces negative results. But that\u0027s more speculation. Feel free to add it if it is easy.",
+      "parentUuid": "eb5db060_f28c18c6",
+      "revId": "34c3c12dfa11e18a1458afed2aef712e6c905827",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
