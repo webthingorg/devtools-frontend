@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "c1f4f2c2_db2f1e47",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-09-29T08:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "008415cb_a26fde9b",
+      "revId": "8f6c0955f3cca356085ca741bd338c52c6d6d4c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eed7a754_c403d52d",
         "filename": "front_end/sdk/DebuggerModel.js",
         "patchSetId": 5
@@ -50,6 +68,24 @@
       "revId": "8f6c0955f3cca356085ca741bd338c52c6d6d4c9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5188195_b97fd4fc",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 1629,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-09-29T08:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eed7a754_c403d52d",
+      "revId": "8f6c0955f3cca356085ca741bd338c52c6d6d4c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
