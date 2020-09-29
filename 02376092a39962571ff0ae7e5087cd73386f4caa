@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "66c8399f_fc311027",
+        "filename": "scripts/deps/download_emscripten.py",
+        "patchSetId": 11
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-09-29T15:53:42Z",
+      "side": 1,
+      "message": "nit: This patter is prone to lead to returning False on any failures... e.g. random python problems rather than a non-existing stamp file. In this case, we\u0027d always download somewhat silently.\n\nMaybe don\u0027t catch exceptions and rather check for the existence of the stamp file?",
+      "range": {
+        "startLine": 34,
+        "startChar": 11,
+        "endLine": 34,
+        "endChar": 20
+      },
+      "revId": "02376092a39962571ff0ae7e5087cd73386f4caa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c49fb3de_24ffdd0b",
+        "filename": "scripts/deps/download_emscripten.py",
+        "patchSetId": 11
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-09-29T15:53:42Z",
+      "side": 1,
+      "message": "nit, optional: You seem to assume cwd \u003d\u003d project base dir. To make this robust, maybe get the __file__ location, deduce the project dir with dirname and change cwd to it. Or make options.dest absolute by joining it to the project base dir.\n\nSooner or later someone might run this locally from the wrong dir.",
+      "range": {
+        "startLine": 55,
+        "startChar": 25,
+        "endLine": 55,
+        "endChar": 37
+      },
+      "revId": "02376092a39962571ff0ae7e5087cd73386f4caa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a97a8acf_df939d38",
+        "filename": "scripts/deps/download_emscripten.py",
+        "patchSetId": 11
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-09-29T15:53:42Z",
+      "side": 1,
+      "message": "nit: unused.",
+      "range": {
+        "startLine": 70,
+        "startChar": 4,
+        "endLine": 70,
+        "endChar": 17
+      },
+      "revId": "02376092a39962571ff0ae7e5087cd73386f4caa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
