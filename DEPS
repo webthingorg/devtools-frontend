@@ -219,6 +219,7 @@ hooks = [
                '--arch=x64'],
   },
   {
+    # This needs to run after node is available
     'name': 'emscripten',
     'pattern': '.',
     'action': ['python', 'scripts/deps/download_emscripten.py', Var('emscripten_tag'), 'third_party/emscripten-releases'],

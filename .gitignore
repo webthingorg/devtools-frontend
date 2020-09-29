@@ -31,6 +31,9 @@ npm-debug.log
 !/third_party/i18n
 !/third_party/pyjson5
 !/third_party/typescript
+!/third_party/emscripten-releases/
+/third_party/emscripten-releases/*
+!/third_party/emscripten-releases/.emscripten
 
 test/screenshots/.generated
 test/perf/.generated
