@@ -16,6 +16,24 @@
       "revId": "dc2787706c1decf20799e7692b5685b4091b9caa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ec65f46_702585a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-29T12:25:13Z",
+      "side": 1,
+      "message": "I have a fix now. I will create a CL in a second.",
+      "parentUuid": "20f67bcf_74448f7f",
+      "revId": "dc2787706c1decf20799e7692b5685b4091b9caa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
