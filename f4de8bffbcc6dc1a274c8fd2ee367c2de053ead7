@@ -16,6 +16,24 @@
       "revId": "f4de8bffbcc6dc1a274c8fd2ee367c2de053ead7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b4bee87_6080aa7c",
+        "filename": "inspector_overlay/common.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-29T08:50:29Z",
+      "side": 1,
+      "message": "It does not look like it\u0027s set up correctly? https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/.eslintrc.js;l\u003d45;drc\u003d159b8906407936f53ee88fdeba3fcd9bd537287f I am not sure what 2 means",
+      "parentUuid": "636b1f9f_29860e42",
+      "revId": "f4de8bffbcc6dc1a274c8fd2ee367c2de053ead7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
