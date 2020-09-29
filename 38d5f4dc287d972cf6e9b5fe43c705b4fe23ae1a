@@ -33,6 +33,23 @@
       "revId": "38d5f4dc287d972cf6e9b5fe43c705b4fe23ae1a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd31a3dc_a412063d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-09-29T20:04:23Z",
+      "side": 1,
+      "message": "LGTM. Didn\u0027t test. But the before and after images are pretty convincing.",
+      "revId": "38d5f4dc287d972cf6e9b5fe43c705b4fe23ae1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
