@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "636b1f9f_29860e42",
+        "filename": "inspector_overlay/common.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-29T08:39:08Z",
+      "side": 1,
+      "message": "FWIW, here\u0027s the line I noticed apparently eslint didn\u0027t catch? It\u0027s no big deal either way but we probably want to double-check our config is set up correctly.",
+      "revId": "f4de8bffbcc6dc1a274c8fd2ee367c2de053ead7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
