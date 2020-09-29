@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "f111b8fd_839f6de0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-29T13:04:00Z",
+      "side": 1,
+      "message": "It is weird! One thing we could check is: try both out/Default (is_debug\u003dTrue, implicitly) and out/Release (is_debug\u003dFalse) builds. The build works differently for the two. Beta builds are Release builds.",
+      "revId": "7c170a3dd84433f05357e9faaeeeeed9403902ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "23773756_1c28a6ab",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -33,6 +50,24 @@
       "revId": "7c170a3dd84433f05357e9faaeeeeed9403902ff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67d6e1e3_d8930863",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-29T13:04:00Z",
+      "side": 1,
+      "message": "Yes please.",
+      "parentUuid": "91f8318b_e4dfaed9",
+      "revId": "7c170a3dd84433f05357e9faaeeeeed9403902ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
