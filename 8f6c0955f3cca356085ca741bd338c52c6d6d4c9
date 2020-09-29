@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "002f4b86_c00f009a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-09-29T06:51:30Z",
+      "side": 1,
+      "message": "Two minor comments, otherwise LGTM!",
+      "revId": "8f6c0955f3cca356085ca741bd338c52c6d6d4c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "008415cb_a26fde9b",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-09-29T06:51:30Z",
+      "side": 1,
+      "message": "can we create a helper function to create the location based on the callFrame and the script?",
+      "revId": "8f6c0955f3cca356085ca741bd338c52c6d6d4c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eed7a754_c403d52d",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 1629,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-09-29T06:51:30Z",
+      "side": 1,
+      "message": "nit: how about removing the check whether the pluginManager has a plugin, since this is already done in the `evaluateExpression` function anyway?",
+      "revId": "8f6c0955f3cca356085ca741bd338c52c6d6d4c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
