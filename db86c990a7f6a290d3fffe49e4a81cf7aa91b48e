@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d66de956_737f547a",
+        "filename": "test/e2e/performance/performance_profiling_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-09-29T16:58:01Z",
+      "side": 1,
+      "message": "can someone suggest an event that we can wait for that guarantees the execution of main?",
+      "range": {
+        "startLine": 69,
+        "startChar": 6,
+        "endLine": 69,
+        "endChar": 26
+      },
+      "revId": "db86c990a7f6a290d3fffe49e4a81cf7aa91b48e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b151978a_5e9801c0",
+        "filename": "test/e2e/performance/performance_profiling_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-09-29T16:58:01Z",
+      "side": 1,
+      "message": "please let me know if you want to split each check to its own scenario",
+      "range": {
+        "startLine": 90,
+        "startChar": 16,
+        "endLine": 90,
+        "endChar": 21
+      },
+      "revId": "db86c990a7f6a290d3fffe49e4a81cf7aa91b48e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f856534c_7b889280",
+        "filename": "test/e2e/performance/performance_profiling_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-09-29T16:58:01Z",
+      "side": 1,
+      "message": "this operation was done twice because some items need to be scrolled to to be in view",
+      "range": {
+        "startLine": 134,
+        "startChar": 10,
+        "endLine": 137,
+        "endChar": 11
+      },
+      "revId": "db86c990a7f6a290d3fffe49e4a81cf7aa91b48e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90ec77fc_e003d0bd",
+        "filename": "test/e2e/performance/performance_profiling_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-09-29T16:58:01Z",
+      "side": 1,
+      "message": "this was not mentioned in the scenario (https://wasm-dbg-stories.netlify.app/profiling.html) but the this is the behaviour that happened, please let me know if we need to check for it",
+      "range": {
+        "startLine": 164,
+        "startChar": 16,
+        "endLine": 164,
+        "endChar": 27
+      },
+      "revId": "db86c990a7f6a290d3fffe49e4a81cf7aa91b48e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
