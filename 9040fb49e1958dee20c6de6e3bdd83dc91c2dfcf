@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37822b6a_5682c4ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-29T08:30:33Z",
+      "side": 1,
+      "message": "Rubberstamp LGTM \n\nAs a side note, we should enable eslint for inspector_overlay/**.js as well. (I noticed after the fact one of our CLs from the other day had a braceless if, which I think our eslint config for the rest of the codebase bans and auto-fixes.)",
+      "revId": "9040fb49e1958dee20c6de6e3bdd83dc91c2dfcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
