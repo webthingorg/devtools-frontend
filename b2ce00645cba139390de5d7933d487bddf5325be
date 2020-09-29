@@ -39,6 +39,30 @@
       "revId": "b2ce00645cba139390de5d7933d487bddf5325be",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66df65a6_7e5905d0",
+        "filename": "front_end/timeline/UIDevtoolsUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-09-29T11:01:22Z",
+      "side": 1,
+      "message": "They are directly returned to outside call-sites. Even though they are used in a straight-forward way, its a lot of use-sits (in TimlineUIUtils e.g.).\n\nI suggest we refactor this in a follow-up, but leave it as-is for now.",
+      "parentUuid": "26fb9264_025a01e8",
+      "range": {
+        "startLine": 35,
+        "startChar": 12,
+        "endLine": 35,
+        "endChar": 18
+      },
+      "revId": "b2ce00645cba139390de5d7933d487bddf5325be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
