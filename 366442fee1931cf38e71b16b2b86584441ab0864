@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3bb49b0b_aa5003ac",
+        "filename": "front_end/css_overview/cssOverviewCompletedView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-29T06:37:49Z",
+      "side": 1,
+      "message": "I am a bit concerned that it adds to the code duplication but I am not sure if a small component like this is worth a separate component? If you think so, I\u0027d be happy to refactor all usages.",
+      "revId": "366442fee1931cf38e71b16b2b86584441ab0864",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
