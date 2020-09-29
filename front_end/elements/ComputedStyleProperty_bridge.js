@@ -31,6 +31,5 @@ export class ComputedStylePropertyClosureInterface extends HTMLElement {
 * @return {!ComputedStylePropertyClosureInterface}
 */
 export function createComputedStyleProperty() {
-  return /** @type {!ComputedStylePropertyClosureInterface} */ (
-      document.createElement('devtools-computed-style-property'));
+  return /** @type {!ComputedStylePropertyClosureInterface} */ (document.createElement('devtools-computed-style-property'));
 }
