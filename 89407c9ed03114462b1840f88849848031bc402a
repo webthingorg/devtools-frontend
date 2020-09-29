@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0eed339_d25db8bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-09-29T17:43:52Z",
+      "side": 1,
+      "message": "Hi everyone,\n\nthis is not a big change but I would like your opinion as this touches the title of one of the tools. PTAL.",
+      "revId": "89407c9ed03114462b1840f88849848031bc402a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
