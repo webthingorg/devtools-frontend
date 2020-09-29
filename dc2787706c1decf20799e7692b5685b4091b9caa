@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "20f67bcf_74448f7f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-29T11:37:14Z",
+      "side": 1,
+      "message": "`npm run check-type-closure` fails with this CL, making the beta tree red: https://ci.chromium.org/p/devtools-frontend/builders/ci/Stand-alone%20Linux%20beta\n\n```\nJava executable: /usr/bin/java\nCompiling frontend...\nCompiling devtools_compatibility.js...\nVerifying JSDoc comments...\ndevtools_compatibility.js compilation output:\n0 error(s), 0 warning(s), 96.0% typed\n\ndevtools frontend compilation output:\n/b/s/w/ir/tmp/t/tmpuc6CsR/front_end/console/ConsoleViewport.js:480: WARNING - [JSC_UNRECOGNIZED_TYPE_ERROR] Bad type annotation. Unknown type module$b$s$w$ir$tmp$t$tmpuc6CsR$front_end$console$ConsoleViewMessage\n      const element \u003d /** @type {!ConsoleViewMessage} */ (this._providerElement(i));\n                                  ^\n\n0 error(s), 1 warning(s), 91.7% typed\n\nERRORS DETECTED\n```\n\nThe functionality seems to be fine but Closure is unhappy. Patrick, any ideas for a quick fix? If not we\u0027ll have to revert this from the beta branch.",
+      "revId": "dc2787706c1decf20799e7692b5685b4091b9caa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
