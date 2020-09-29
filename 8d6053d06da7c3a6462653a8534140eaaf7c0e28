@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0c230933_c35ee095",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-09-29T16:48:21Z",
+      "side": 1,
+      "message": "PTAL Christy, this is a small change that improves the description on a string to make it easier for translation.",
+      "revId": "8d6053d06da7c3a6462653a8534140eaaf7c0e28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
