@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "9201b6eb_122ca21a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-09-29T12:10:25Z",
+      "side": 1,
+      "message": "nit: Remove",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 6
+      },
+      "revId": "ce42ee5ed89492bca3bdc3c09daf5ece98d4165d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8c812a53_c9b045ab",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
