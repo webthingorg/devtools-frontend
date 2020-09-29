@@ -16,6 +16,23 @@
       "revId": "6d08d61fc4dd2de7e945b3b7544f906e2ec2337e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dea5a209_568f054a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-29T16:59:45Z",
+      "side": 1,
+      "message": "Restoring LGTM",
+      "revId": "6d08d61fc4dd2de7e945b3b7544f906e2ec2337e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

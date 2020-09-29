@@ -69,6 +69,24 @@
       "revId": "2dd150668df610717931bcdecfcff6ffb16ab74d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4da55e30_42d0e4f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-29T16:59:45Z",
+      "side": 1,
+      "message": "Apologies, I misread this discussion earlier. Songtao, it sounds like you\u0027re saying this was accidentally introduced earlier — in that case, this patch removing it LGTM.",
+      "parentUuid": "d4239360_2f9b32bc",
+      "revId": "2dd150668df610717931bcdecfcff6ffb16ab74d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
