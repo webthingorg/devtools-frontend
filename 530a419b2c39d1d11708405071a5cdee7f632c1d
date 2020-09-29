@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "18e29dd2_461385a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-29T11:42:13Z",
+      "side": 1,
+      "message": "LGTM % return nit",
+      "revId": "530a419b2c39d1d11708405071a5cdee7f632c1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a0e2f4f_c73cbc80",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-29T11:42:13Z",
+      "side": 1,
+      "message": "In vanilla DOM, we should avoid relying on return true/false from event handlers, and instead use event.preventDefault() and similar as needed. Is return true/false something special in lit?",
+      "revId": "530a419b2c39d1d11708405071a5cdee7f632c1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
