@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b5de13f5_63245fef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-09-29T11:33:08Z",
+      "side": 1,
+      "message": "Apparently this is causing breakages on the Beta branch: https://ci.chromium.org/p/devtools-frontend/builders/ci/Stand-alone%20Linux%20beta/35\n\nSomething with Closure compiler\u0027s type checking is wrong. Please fix or revert!",
+      "revId": "1208cb9e2d95de8cbd3e2c81b816a172147306bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
