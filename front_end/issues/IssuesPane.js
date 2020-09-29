@@ -1283,6 +1283,8 @@ export class IssuesPaneImpl extends UI.Widget.VBox {
     this._issuesTree.setShowSelectionOnKeyboardFocus(true);
     this._issuesTree.contentElement.classList.add('issues');
     this.contentElement.appendChild(this._issuesTree.element);
+    this.setDefaultFocusedElement(this._issuesTree.contentElement);
+    this._issuesTree.contentElement.addEventListener('focus', this._selectFirstChild.bind(this), false);
 
     this._noIssuesMessageDiv = document.createElement('div');
     this._noIssuesMessageDiv.classList.add('issues-pane-no-issues');
@@ -1471,5 +1473,9 @@ export class IssuesPaneImpl extends UI.Widget.VBox {
       issueView.expand();
       issueView.reveal();
     }
+  }
+
+  _selectFirstChild() {
+    this._issuesTree.firstChild()?.select();
   }
 }
