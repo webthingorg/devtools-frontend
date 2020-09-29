@@ -16,6 +16,24 @@
       "revId": "9040fb49e1958dee20c6de6e3bdd83dc91c2dfcf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "749e4529_873c791b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-09-29T08:32:13Z",
+      "side": 1,
+      "message": "eslint is enabled for inspector_overlay/**.js I do get warnings and auto-fixes when I upload the CL. Maybe the file was there previously? I think eslint runs only on changed files?",
+      "parentUuid": "37822b6a_5682c4ae",
+      "revId": "9040fb49e1958dee20c6de6e3bdd83dc91c2dfcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
