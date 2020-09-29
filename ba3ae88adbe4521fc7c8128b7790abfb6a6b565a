@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "497d0cea_4b0996e2",
+        "filename": "front_end/lighthouse_worker/LighthouseService.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2020-09-29T18:59:27Z",
+      "side": 1,
+      "message": "i dont feel confident everyone is gonna get this 150kb file off of appspot in under 1s.\n\nhow about 5_000 ?",
+      "revId": "ba3ae88adbe4521fc7c8128b7790abfb6a6b565a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2146180a_b03ff0db",
+        "filename": "front_end/lighthouse_worker/LighthouseService.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2020-09-29T18:59:27Z",
+      "side": 1,
+      "message": "i think you don\u0027t want the `await` here since you\u0027re racing next.",
+      "revId": "ba3ae88adbe4521fc7c8128b7790abfb6a6b565a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
