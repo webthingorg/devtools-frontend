@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d5903d3d_448339b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-29T06:59:10Z",
+      "side": 1,
+      "message": "Looks good to me, but I also don\u0027t have a lot of context on the earlier removal.",
+      "revId": "c62ae11f2ee7daa2a316c8b4ef5c854047b4fac8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
