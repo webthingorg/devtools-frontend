@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "33347320_97f9b012",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-09-29T10:41:53Z",
+      "side": 1,
+      "message": "ptal",
+      "revId": "680a9a2879e82f88482a2077f7f603c88bbce156",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bc214b2_9c6712d6",
+        "filename": "front_end/timeline/TimelineFlameChartNetworkDataProvider.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-09-29T10:41:53Z",
+      "side": 1,
+      "message": "`Object` doesn\u0027t have the various fields and I wasn\u0027t able to find the type information for timing :(",
+      "range": {
+        "startLine": 212,
+        "startChar": 4,
+        "endLine": 212,
+        "endChar": 53
+      },
+      "revId": "680a9a2879e82f88482a2077f7f603c88bbce156",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
