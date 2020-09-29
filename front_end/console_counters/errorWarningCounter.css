@@ -5,13 +5,16 @@
  */
 
 :host {
-  cursor: pointer;
   padding: 0 2px;
   min-width: 26px;
 }
 
-:host:hover {
-  color: #333;
+button {
+  cursor: pointer;
+}
+
+button:focus-visible {
+  outline: 1px solid -webkit-focus-ring-color;
 }
 
 .counter-item {
