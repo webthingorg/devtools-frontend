@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "635d530f_d2eac232",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-09-29T21:52:28Z",
+      "side": 1,
+      "message": "Hello! This CL includes some styling changes to the Console and Issues counters shown in the upper-right of DevTools to improve accessibility. Please take a look.",
+      "revId": "fea80f6baaede65c17276ea675d3bce01f534556",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
