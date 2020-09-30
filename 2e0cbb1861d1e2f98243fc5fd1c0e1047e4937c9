@@ -56,6 +56,30 @@
       "revId": "2e0cbb1861d1e2f98243fc5fd1c0e1047e4937c9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56d4c96b_6bdd68c4",
+        "filename": "front_end/media/EventTimelineView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-09-30T08:07:35Z",
+      "side": 1,
+      "message": "As discussed offline, clang-format puts these into a single line, which our magic regexp for closure thing can\u0027t properly parse and then complains.\n\nThe chat log debugging this is hilarious, can recommend.",
+      "parentUuid": "767f7026_289dccee",
+      "range": {
+        "startLine": 49,
+        "startChar": 8,
+        "endLine": 50,
+        "endChar": 27
+      },
+      "revId": "2e0cbb1861d1e2f98243fc5fd1c0e1047e4937c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
