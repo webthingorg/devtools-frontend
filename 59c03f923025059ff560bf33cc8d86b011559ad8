@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3816b752_06106706",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-09-30T17:08:33Z",
+      "side": 1,
+      "message": "A bunch more small issues/questions, but generally LGTM!",
+      "revId": "59c03f923025059ff560bf33cc8d86b011559ad8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b94ee206_36684574",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 882,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-09-30T17:08:33Z",
+      "side": 1,
+      "message": "The ! isn\u0027t required.",
+      "revId": "59c03f923025059ff560bf33cc8d86b011559ad8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59d8efee_892b2fdd",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 958,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-09-30T17:08:33Z",
+      "side": 1,
+      "message": "We got rid of the Error.",
+      "revId": "59c03f923025059ff560bf33cc8d86b011559ad8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e2f7b1e_4f741baa",
+        "filename": "front_end/extensions/LanguageExtensionEndpoint.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-09-30T17:08:33Z",
+      "side": 1,
+      "message": "We don\u0027t throw the error anymore, here. See the other methods, you can also remove the try/catch",
+      "revId": "59c03f923025059ff560bf33cc8d86b011559ad8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7573be9_0cd020b5",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-09-30T17:08:33Z",
+      "side": 1,
+      "message": "This is done.",
+      "revId": "59c03f923025059ff560bf33cc8d86b011559ad8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3e5a472_48f21142",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-09-30T17:08:33Z",
+      "side": 1,
+      "message": "Is that TODO still open?",
+      "revId": "59c03f923025059ff560bf33cc8d86b011559ad8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abe189f0_ee7f5046",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 1507,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-09-30T17:08:33Z",
+      "side": 1,
+      "message": "Is this done?",
+      "revId": "59c03f923025059ff560bf33cc8d86b011559ad8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
