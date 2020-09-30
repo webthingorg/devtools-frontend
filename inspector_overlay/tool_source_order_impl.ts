@@ -28,50 +28,64 @@
 //  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
 //  THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+import {Bounds, createChild, Overlay, ResetData} from './common.js';
+import {buildPath, emptyBounds, PathBounds} from './highlight_common.js';
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
+interface Path {
+  path: Array<string|number>, outlineColor: string;
+  name: string;
+}
 
-import {Overlay} from './common.js';
-import {buildPath, emptyBounds} from './highlight_common.js';
+interface SourceOrderHighlight {
+  sourceOrder: number;
+  paths: Path[];
+}
 
 export class SourceOrderOverlay extends Overlay {
-  reset(resetData) {
+  private sourceOrderContainer = document.createElement('div');
+
+  reset(resetData: ResetData) {
     super.reset(resetData);
     if (this.sourceOrderContainer) {
-      this.sourceOrderContainer.removeChildren();
+      this.sourceOrderContainer.textContent = '';
     }
   }
 
   setPlatform(platform: string) {
     super.setPlatform(platform);
+    const document = this.getDocument();
 
-    this.document.body.classList.add('fill');
+    document.body.classList.add('fill');
 
-    const canvas = this.document.createElement('canvas');
+    const canvas = document.createElement('canvas');
     canvas.id = 'canvas';
     canvas.classList.add('fill');
-    this.document.body.append(canvas);
+    document.body.append(canvas);
 
-    const sourceOrderContainer = this.document.createElement('div');
+    const sourceOrderContainer = document.createElement('div');
     sourceOrderContainer.id = 'source-order-container';
-    this.document.body.append(sourceOrderContainer);
+    document.body.append(sourceOrderContainer);
     this.sourceOrderContainer = sourceOrderContainer;
 
     this.setCanvas(canvas);
   }
 
-  drawSourceOrder(highlight) {
-    const context = this.context;
+  drawSourceOrder(highlight: SourceOrderHighlight) {
+    const sourceOrder = highlight.sourceOrder || 0;
+    const path = highlight.paths.slice().pop();
+
+    if (!path) {
+      throw new Error('No path provided');
+    }
+
+    const context = this.getContext();
 
     context.save();
     const bounds = emptyBounds();
-    const sourceOrder = highlight.sourceOrder || 0;
-    const path = highlight.paths.slice().pop();
     const outlineColor = path.outlineColor;
 
     context.save();
-    _drawPath(context, path.path, outlineColor, !!sourceOrder, bounds);
+    _drawPath(context, path.path, outlineColor, !!sourceOrder, bounds, this.emulationScaleFactor);
     context.restore();
 
     context.save();
@@ -83,16 +97,17 @@ export class SourceOrderOverlay extends Overlay {
     return {bounds: bounds};
   }
 
-  _drawSourceOrderLabel(sourceOrder: string, color: string, bounds: Bounds) {
+  _drawSourceOrderLabel(sourceOrder: number, color: string, bounds: PathBounds) {
     const sourceOrderContainer = this.sourceOrderContainer;
     const otherLabels = sourceOrderContainer.children;
-    const labelContainer = sourceOrderContainer.createChild('div', 'source-order-label-container');
+    const labelContainer = createChild(sourceOrderContainer, 'div', 'source-order-label-container');
     labelContainer.style.color = color;
-    labelContainer.textContent = sourceOrder;
+    labelContainer.textContent = String(sourceOrder);
 
     const labelHeight = labelContainer.offsetHeight;
     const labelWidth = labelContainer.offsetWidth;
-    const labelType = _getLabelType(bounds, labelHeight, labelWidth, otherLabels, this.canvasHeight);
+    const labelType =
+        _getLabelType(bounds, labelHeight, labelWidth, otherLabels as HTMLCollectionOf<HTMLElement>, this.canvasHeight);
     const labelPosition = _getPositionFromLabelType(labelType, bounds, labelHeight);
 
     labelContainer.classList.add(labelType);
@@ -152,19 +167,12 @@ export const LabelTypes = {
   bottomCornerWiderTaller: 'bottom-corner-wider-taller',
 };
 
-interface Bounds {
-  minX: number;
-  maxX: number;
-  minY: number;
-  maxY: number;
-}
-
 /**
  * Calculates the coordinates to place the label based on position type
  */
-export function _getPositionFromLabelType(
-    positionType: string, bounds: Bounds, labelHeight: number): {contentTop: number; contentLeft: number} {
-  let contentTop;
+export function _getPositionFromLabelType(positionType: string, bounds: Omit<Bounds, 'allPoints'>, labelHeight: number):
+    {contentTop: number; contentLeft: number} {
+  let contentTop = 0;
   switch (positionType) {
     case LabelTypes.topCorner:
       contentTop = bounds.minY;
@@ -194,8 +202,8 @@ export function _getPositionFromLabelType(
  * with, avoiding overlaps between other labels
  */
 export function _getLabelType(
-    bounds: Bounds, labelHeight: number, labelWidth: number, otherLabels: HTMLCollection,
-    canvasHeight: number): keyof typeof LabelTypes {
+    bounds: Omit<Bounds, 'allPoints'>, labelHeight: number, labelWidth: number,
+    otherLabels: HTMLCollectionOf<HTMLElement>, canvasHeight: number): string {
   let labelType;
   // Label goes in the top left corner if the element is bigger than the label
   // or if there are too many child nodes
@@ -251,9 +259,10 @@ export function _getLabelType(
 }
 
 function _drawPath(
-    context: CanvasRenderingContext2D, commands, outlineColor?: string, isChild: boolean, bounds: Bounds): Path2D {
+    context: CanvasRenderingContext2D, commands: Array<string|number>, outlineColor: string|undefined, isChild: boolean,
+    bounds: PathBounds, emulationScaleFactor: number): Path2D {
   context.save();
-  const path = buildPath(commands, bounds);
+  const path = buildPath(commands, bounds, emulationScaleFactor);
   if (outlineColor) {
     context.strokeStyle = outlineColor;
     context.lineWidth = 2;

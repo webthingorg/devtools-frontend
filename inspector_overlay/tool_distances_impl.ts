@@ -42,7 +42,7 @@ export class DistancesOverlay extends Overlay {
       return;
     }
     const rect = quadToRect(getVisualQuad(distanceInfo));
-    const context = this.context;
+    const context = this.getContext();
     context.save();
     context.strokeStyle = '#ccc';
     for (const box of distanceInfo.boxes) {
@@ -57,12 +57,13 @@ export class DistancesOverlay extends Overlay {
 
   setPlatform(platform: string) {
     super.setPlatform(platform);
-    this.document.body.classList.add('fill');
+    const document = this.getDocument();
+    document.body.classList.add('fill');
 
-    const canvas = this.document.createElement('canvas');
+    const canvas = document.createElement('canvas');
     canvas.id = 'canvas';
     canvas.classList.add('fill');
-    this.document.body.append(canvas);
+    document.body.append(canvas);
 
     this.setCanvas(canvas);
   }

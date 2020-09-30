@@ -2,29 +2,36 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
 import {Overlay} from './common.js';
 
-let anchor = null;
-let position = null;
+let anchor: {x: number, y: number}|null = null;
+let position: {x: number, y: number}|null = null;
+
+declare global {
+  interface Window {
+    InspectorOverlayHost: {send(data: string): void;}
+  }
+}
 
 export class ScreenshotOverlay extends Overlay {
-  setPlatform(platform) {
-    super.setPlatform();
+  private zone = document.createElement('div');
 
-    this.document.body.onload = this.loaded.bind(this);
+  setPlatform(platform: string) {
+    super.setPlatform(platform);
 
-    const zone = this.document.createElement('div');
+    const document = this.getDocument();
+
+    document.body.onload = this.loaded.bind(this);
+
+    const zone = document.createElement('div');
     zone.id = 'zone';
-    this.document.body.append(zone);
+    document.body.append(zone);
 
     this.zone = zone;
   }
 
   loaded() {
-    const document = this.document;
+    const document = this.getDocument();
 
     document.documentElement.addEventListener('mousedown', event => {
       anchor = {x: event.pageX, y: event.pageY};
@@ -38,7 +45,7 @@ export class ScreenshotOverlay extends Overlay {
       if (anchor && position) {
         const rect = currentRect();
         if (rect.width >= 5 && rect.height >= 5) {
-          InspectorOverlayHost.send(JSON.stringify(rect));
+          this.getWindow().InspectorOverlayHost.send(JSON.stringify(rect));
         }
       }
       cancel();
@@ -85,10 +92,10 @@ export class ScreenshotOverlay extends Overlay {
 
 function currentRect() {
   return {
-    x: Math.min(anchor.x, position.x),
-    y: Math.min(anchor.y, position.y),
-    width: Math.abs(anchor.x - position.x),
-    height: Math.abs(anchor.y - position.y)
+    x: Math.min(anchor!.x, position!.x),
+    y: Math.min(anchor!.y, position!.y),
+    width: Math.abs(anchor!.x - position!.x),
+    height: Math.abs(anchor!.y - position!.y),
   };
 }
 

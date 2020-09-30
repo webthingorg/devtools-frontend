@@ -28,33 +28,33 @@
 //  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
 //  THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
-import {Overlay} from './common.js';
-import {drawLayoutGridHighlight} from './highlight_grid_common.js';
+import {Overlay, ResetData} from './common.js';
+import {drawLayoutGridHighlight, GridHighlight} from './highlight_grid_common.js';
 
 export class HighlightGridOverlay extends Overlay {
-  reset(resetData) {
-    super.reset(resetData);
-    this.gridLabels.removeChildren();
-    this.window._gridLayerCounter = 1;
-    this.window._gridPainted = false;
-    // TODO(alexrudenko): Temporarily expose canvas params globally.
-    window.canvasWidth = this.canvasWidth;
-    window.canvasHeight = this.canvasHeight;
+  private gridLabelState = {
+    gridLayerCounter: 1,
+    ridPainted: false,
   }
 
-  setPlatform(platform) {
+  private gridLabels = document.createElement('div');
+
+  reset(resetData: ResetData) {
+    super.reset(resetData);
+    this.gridLabels.innerHTML = '';
+  }
+
+  setPlatform(platform: string) {
     super.setPlatform(platform);
 
-    this.document.body.classList.add('fill');
+    const document = this.getDocument();
 
-    const canvas = this.document.createElement('canvas');
+    document.body.classList.add('fill');
+
+    const canvas = document.createElement('canvas');
     canvas.id = 'canvas';
     canvas.classList.add('fill');
-    this.document.body.append(canvas);
+    document.body.append(canvas);
 
     this.renderGridMarkup();
 
@@ -62,19 +62,19 @@ export class HighlightGridOverlay extends Overlay {
   }
 
   renderGridMarkup() {
-    const gridLabels = this.document.createElement('div');
+    const document = this.getDocument();
+    const gridLabels = document.createElement('div');
     gridLabels.id = 'grid-label-container';
-    this.document.body.append(gridLabels);
+    document.body.append(gridLabels);
     this.gridLabels = gridLabels;
   }
 
-  drawGridHighlight(highlight) {
-    const context = this.context;
-
+  drawGridHighlight(highlight: GridHighlight) {
+    const context = this.getContext();
     context.save();
-
-    drawLayoutGridHighlight(highlight, context, this.deviceScaleFactor, this.canvasWidth, this.canvasHeight);
-
+    drawLayoutGridHighlight(
+        highlight, context, this.deviceScaleFactor, this.canvasWidth, this.canvasHeight, this.emulationScaleFactor,
+        this.gridLabelState);
     context.restore();
   }
 }
