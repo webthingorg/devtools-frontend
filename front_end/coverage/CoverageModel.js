@@ -259,11 +259,11 @@ export class CoverageModel extends SDK.SDKModel.SDKModel {
    * @param {!TextUtils.ContentProvider.ContentProvider} contentProvider
    * @param {number} startOffset
    * @param {number} endOffset
-   * @return {boolean|undefined}
+   * @return {boolean}
    */
   usageForRange(contentProvider, startOffset, endOffset) {
     const coverageInfo = this._coverageByContentProvider.get(contentProvider);
-    return coverageInfo && coverageInfo.usageForRange(startOffset, endOffset);
+    return !!coverageInfo && coverageInfo.usageForRange(startOffset, endOffset);
   }
 
   _clearCSS() {
