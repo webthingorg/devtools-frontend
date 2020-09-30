@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b8f869dd_c499f386",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-30T06:27:17Z",
+      "side": 1,
+      "message": "LGTM % nits",
+      "revId": "911b308c112f796660ec03210622bc2ccf094062",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5104762_20049e3a",
+        "filename": "front_end/help/ReleaseNoteText.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-30T06:27:17Z",
+      "side": 1,
+      "message": "nit: These subtitles are usually proper sentences, but this one isn\u0027t. How about we change \"Moving\" to \"Move\"?",
+      "revId": "911b308c112f796660ec03210622bc2ccf094062",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b514787b_17bf363d",
+        "filename": "front_end/help/ReleaseNoteText.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-30T06:27:17Z",
+      "side": 1,
+      "message": "nit: needs comma before \"and more\"",
+      "range": {
+        "startLine": 43,
+        "startChar": 28,
+        "endLine": 43,
+        "endChar": 36
+      },
+      "revId": "911b308c112f796660ec03210622bc2ccf094062",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
