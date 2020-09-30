@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "3d9af4e8_e2c57362",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-30T08:06:26Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "937c4c14c60e12c59175dae82c59cae5646838ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb33b68d_aa502d1f",
         "filename": "front_end/timeline/PerformanceModel.js",
         "patchSetId": 1
@@ -35,6 +52,53 @@
         "startChar": 4,
         "endLine": 229,
         "endChar": 5
+      },
+      "revId": "937c4c14c60e12c59175dae82c59cae5646838ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd4f8941_dec97d80",
+        "filename": "front_end/timeline/PerformanceModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-30T08:06:26Z",
+      "side": 1,
+      "message": "Yes, it\u0027s the best way to handle possible nulls/undefined values, I think. If it fires then something will break, which we can then fix and add tests for. Better that than to cast if we can avoid it.",
+      "parentUuid": "cb33b68d_aa502d1f",
+      "range": {
+        "startLine": 227,
+        "startChar": 4,
+        "endLine": 229,
+        "endChar": 5
+      },
+      "revId": "937c4c14c60e12c59175dae82c59cae5646838ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ebfce9de_30e9caa3",
+        "filename": "front_end/timeline/PerformanceModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-30T08:06:26Z",
+      "side": 1,
+      "message": "This feels very uncomfortable, what with Window being an actual pre-existing Web Platform interface. I\u0027m surprised this gets through.",
+      "range": {
+        "startLine": 315,
+        "startChar": 0,
+        "endLine": 317,
+        "endChar": 18
       },
       "revId": "937c4c14c60e12c59175dae82c59cae5646838ca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
