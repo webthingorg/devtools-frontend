@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "726a8d0d_dfaaece5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1455634
+      },
+      "writtenOn": "2020-09-30T21:30:52Z",
+      "side": 1,
+      "message": "I am very much interested and looking to contribute more.\nBut I want to further familiarize myself with the devtools source code first and working on easy issues for now.",
+      "parentUuid": "93560a68_539562d9",
+      "revId": "d94af4ab6ef4e4e7dde0b4db762622de89d9644a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "882a0af4_11b76bd5",
         "filename": "front_end/sources/BreakpointEditDialog.js",
         "patchSetId": 4
