@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f39efaf4_d5e89a4d",
+        "filename": "front_end/settings/keybindsSettingsTab.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-30T07:54:08Z",
+      "side": 1,
+      "message": "I was going to suggest also adding an ellipsis, but testing it locally, I can see the panel has a min-width and those headers are usually very short, so there\u0027s never really a case where it would be useful.",
+      "range": {
+        "startLine": 144,
+        "startChar": 2,
+        "endLine": 144,
+        "endChar": 22
+      },
+      "revId": "5289c8f9b41a6425753837a9e77c7dbc770b414a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
