@@ -56,6 +56,30 @@
       "revId": "1372fe754db345de7c04a7867a78d409e6a050c4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14e86cc9_bbeed917",
+        "filename": "front_end/lighthouse_worker/LighthouseService.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-09-30T18:17:06Z",
+      "side": 1,
+      "message": "Turns out this was the reason the i18n layout test was timing out. two concerns...\n\n1. Why didn\u0027t typescript catch this?\n2. Why can\u0027t the layout test give a better error message / partial output?\n\nThe test is still failing now, but it fails because fetching the remote locale file times out in CI, so the test expectations differ.\n\nThis test worked when initially landed b/c it used a relative path to grab the locale file, which happens to exist in CI. I\u0027d like to use that as a fallback here, so this test goes back to passing. I understand there\u0027s a preference to have no branching based on release/local: I\u0027d like to hear your alternatives. I think you might suggest an e2e test (not familiar with them): perhaps that could be done in a follow up?",
+      "parentUuid": "68a527af_38c4c004",
+      "range": {
+        "startLine": 99,
+        "startChar": 10,
+        "endLine": 99,
+        "endChar": 20
+      },
+      "revId": "1372fe754db345de7c04a7867a78d409e6a050c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
