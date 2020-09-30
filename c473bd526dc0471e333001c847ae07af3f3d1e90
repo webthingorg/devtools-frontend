@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "62b6f892_01696776",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-30T11:56:55Z",
+      "side": 1,
+      "message": "It seems to me that this is the DataGridView, and what you\u0027ve called DataGridView is actually more like a data provider?",
+      "range": {
+        "startLine": 18,
+        "startChar": 23,
+        "endLine": 18,
+        "endChar": 35
+      },
+      "revId": "c473bd526dc0471e333001c847ae07af3f3d1e90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf3716b8_699077bd",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-30T11:56:55Z",
+      "side": 1,
+      "message": "Could you do this where you always scroll to the selected row, and you default that to the last row if there isn\u0027t one already selected?",
+      "range": {
+        "startLine": 37,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 5
+      },
+      "revId": "c473bd526dc0471e333001c847ae07af3f3d1e90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc4a6287_097216d6",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-30T11:56:55Z",
+      "side": 1,
+      "message": "nit: no need for _",
+      "range": {
+        "startLine": 58,
+        "startChar": 12,
+        "endLine": 58,
+        "endChar": 18
+      },
+      "revId": "c473bd526dc0471e333001c847ae07af3f3d1e90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c9d2817_1f3a5a7f",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-30T11:56:55Z",
+      "side": 1,
+      "message": "Maybe if there\u0027s already a selected row we don\u0027t need to worry about that?",
+      "range": {
+        "startLine": 75,
+        "startChar": 2,
+        "endLine": 75,
+        "endChar": 72
+      },
+      "revId": "c473bd526dc0471e333001c847ae07af3f3d1e90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10a15bf8_d669a42f",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-30T11:56:55Z",
+      "side": 1,
+      "message": "Generally I prefer it if we say if (event.key !\u003d\u003d \u0027ArrowDown\u0027 \u0026\u0026 event.key !\u003d\u003d \u0027ArrowUp\u0027) { return; }\n\nRight now there\u0027s an update for all keypresses, which seems unnecessary / error-prone",
+      "range": {
+        "startLine": 77,
+        "startChar": 4,
+        "endLine": 84,
+        "endChar": 5
+      },
+      "revId": "c473bd526dc0471e333001c847ae07af3f3d1e90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8315c5e5_87c8973b",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-30T11:56:55Z",
+      "side": 1,
+      "message": "We can generate one, or use the row\u0027s data as the key?",
+      "range": {
+        "startLine": 178,
+        "startChar": 12,
+        "endLine": 178,
+        "endChar": 158
+      },
+      "revId": "c473bd526dc0471e333001c847ae07af3f3d1e90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "900285e7_bd57253a",
+        "filename": "front_end/ui/components/DataGridUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-30T11:56:55Z",
+      "side": 1,
+      "message": "Guessing the lack of ; has caused clang to be upset.",
+      "range": {
+        "startLine": 19,
+        "startChar": 20,
+        "endLine": 19,
+        "endChar": 28
+      },
+      "revId": "c473bd526dc0471e333001c847ae07af3f3d1e90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e94dbbd_7ca00945",
+        "filename": "front_end/ui/components/DataGridView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-30T11:56:55Z",
+      "side": 1,
+      "message": "What\u0027s the reason for copying the array? Also I think we could do [...rows], which isn\u0027t then misusing slice",
+      "range": {
+        "startLine": 9,
+        "startChar": 9,
+        "endLine": 9,
+        "endChar": 21
+      },
+      "revId": "c473bd526dc0471e333001c847ae07af3f3d1e90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2ee37c6_406855b4",
+        "filename": "test/unittests/front_end/ui/components/DataGrid_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-30T11:56:55Z",
+      "side": 1,
+      "message": "This seems brittle. Querying the applied styles doesn\u0027t tell you that they will be applied correctly by the browser. There could be a raft of reasons why the width applied doesn\u0027t take hold.",
+      "range": {
+        "startLine": 111,
+        "startChar": 6,
+        "endLine": 113,
+        "endChar": 62
+      },
+      "revId": "c473bd526dc0471e333001c847ae07af3f3d1e90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
