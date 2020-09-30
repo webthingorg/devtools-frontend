@@ -33,6 +33,29 @@
       "revId": "8b9b818dea8e8bf670ff9f185dbb8da6bf99880d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "98040566_22132cec",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1286,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-09-30T08:04:08Z",
+      "side": 1,
+      "message": "I was wondering why you didn\u0027t set the default focused element to the firstChild or the thirdPartyCheckbox here directly, instead of adding a focus event listener. But I realized that those elements probably don\u0027t exist yet by the time this line runs.\nIs that the reason?\nIf so, maybe add a line comment above that says something along the lines of \"setting the default focus to the container element but move it to the right issue or checkbox as soon as the panel gains focus\". It wasn\u0027t obvious to me at a quick glance, so a comment like this might help others in the future.",
+      "range": {
+        "startLine": 1286,
+        "startChar": 4,
+        "endLine": 1286,
+        "endChar": 67
+      },
+      "revId": "8b9b818dea8e8bf670ff9f185dbb8da6bf99880d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
