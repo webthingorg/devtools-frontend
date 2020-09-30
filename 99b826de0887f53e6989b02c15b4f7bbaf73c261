@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "15a981d9_6f5dfe70",
+        "filename": "front_end/extensions/ExtensionAPI.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-09-30T16:39:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93094e33_2fd4fd6a",
+      "revId": "99b826de0887f53e6989b02c15b4f7bbaf73c261",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91c66428_f7b931e1",
         "filename": "front_end/sdk/DebuggerModel.js",
         "patchSetId": 3
@@ -50,6 +68,24 @@
       "revId": "99b826de0887f53e6989b02c15b4f7bbaf73c261",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bfbddb53_12a8b996",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-09-30T16:39:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91c66428_f7b931e1",
+      "revId": "99b826de0887f53e6989b02c15b4f7bbaf73c261",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
