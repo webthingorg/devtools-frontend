@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd9c8626_ffdf749e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-30T13:08:31Z",
+      "side": 1,
+      "message": "LGTM with one last minor suggestion",
+      "revId": "626d917b065fc5eaeac0b6c04b6a9abd9eda87a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "373b872b_ad980238",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-30T13:08:31Z",
+      "side": 1,
+      "message": "I know this is not new code, but now that we\u0027re here, if we want to Use The Platform:\n\n    .dataset.authenticatorId",
+      "range": {
+        "startLine": 624,
+        "startChar": 36,
+        "endLine": 624,
+        "endChar": 74
+      },
+      "revId": "626d917b065fc5eaeac0b6c04b6a9abd9eda87a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
