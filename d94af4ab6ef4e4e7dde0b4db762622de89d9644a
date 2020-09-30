@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "93560a68_539562d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-30T16:29:51Z",
+      "side": 1,
+      "message": "Definitely open to any input.\n\nI’m a little bummed out that we can’t accept this patch, despite the effort you put in and the quality of the patch. Let me know if you’d like to work on any other (less contentious) issues within DevTools — I could try to keep an eye out for a nice project for you in case you’re interested.",
+      "parentUuid": "6314ad94_45a427b6",
+      "revId": "d94af4ab6ef4e4e7dde0b4db762622de89d9644a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "882a0af4_11b76bd5",
         "filename": "front_end/sources/BreakpointEditDialog.js",
         "patchSetId": 4
