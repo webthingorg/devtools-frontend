@@ -16,6 +16,40 @@
       "revId": "a9b0877ad228ee10a6fb742ec79ec622f1678794",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18a6b8c6_4be16fe2",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-30T13:00:56Z",
+      "side": 1,
+      "message": "nit: a template literal would be nicer",
+      "revId": "a9b0877ad228ee10a6fb742ec79ec622f1678794",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb7a70b9_1ebf14a0",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-30T13:00:56Z",
+      "side": 1,
+      "message": "Let\u0027s re-use `button` below instead of querying the DOM for the same element again",
+      "revId": "a9b0877ad228ee10a6fb742ec79ec622f1678794",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
