@@ -1533,6 +1533,10 @@ registerCustomElement('div', 'dt-close-button', class extends HTMLDivElement {
       this._buttonElement.tabIndex = -1;
     }
   }
+
+  focus() {
+    this._buttonElement.focus();
+  }
 });
 })();
 

@@ -78,9 +78,14 @@ export class ConsolePinPane extends UI.ThrottledWidget.ThrottledWidget {
    */
   _removePin(pin) {
     pin.element().remove();
+    const newFocusedPin = this._focusedPinAfterDeletion(pin);
     this._pins.delete(pin);
     this._savePins();
-    this._liveExpressionButton.element.focus();
+    if (newFocusedPin) {
+      newFocusedPin.focusDeleteButton();
+    } else {
+      this._liveExpressionButton.element.focus();
+    }
   }
 
   /**
@@ -96,6 +101,26 @@ export class ConsolePinPane extends UI.ThrottledWidget.ThrottledWidget {
       pin.focus();
     }
     this.update();
+  }
+
+  /**
+   * @param {!ConsolePin} deletedPin
+   * @return {?ConsolePin}
+   */
+  _focusedPinAfterDeletion(deletedPin) {
+    const pinArray = Array.from(this._pins);
+    for (let i = 0; i < pinArray.length; i++) {
+      if (pinArray[i] === deletedPin) {
+        if (pinArray.length === 1) {
+          return null;
+        }
+        if (i === pinArray.length - 1) {
+          return pinArray[i - 1];
+        }
+        return pinArray[i + 1];
+      }
+    }
+    return null;
   }
 
   /**
@@ -126,23 +151,23 @@ export class ConsolePin extends Common.ObjectWrapper.ObjectWrapper {
    */
   constructor(expression, pinPane) {
     super();
-    const deletePinIcon = document.createElement('div', {is: 'dt-close-button'});
-    deletePinIcon.gray = true;
-    deletePinIcon.classList.add('close-button');
-    deletePinIcon.setTabbable(true);
+    this._deletePinIcon = document.createElement('div', {is: 'dt-close-button'});
+    this._deletePinIcon.gray = true;
+    this._deletePinIcon.classList.add('close-button');
+    this._deletePinIcon.setTabbable(true);
     if (expression.length) {
-      deletePinIcon.setAccessibleName(ls`Remove expression: ${expression}`);
+      this._deletePinIcon.setAccessibleName(ls`Remove expression: ${expression}`);
     } else {
-      deletePinIcon.setAccessibleName(ls`Remove blank expression`);
+      this._deletePinIcon.setAccessibleName(ls`Remove blank expression`);
     }
-    self.onInvokeElement(deletePinIcon, event => {
+    self.onInvokeElement(this._deletePinIcon, event => {
       pinPane._removePin(this);
       event.consume(true);
     });
 
     const fragment = UI.Fragment.Fragment.build`
     <div class='console-pin'>
-      ${deletePinIcon}
+      ${this._deletePinIcon}
       <div class='console-pin-name' $='name'></div>
       <div class='console-pin-preview' $='preview'>${ls`not available`}</div>
     </div>`;
@@ -206,9 +231,9 @@ export class ConsolePin extends Common.ObjectWrapper.ObjectWrapper {
             this._committedExpression = trimmedText;
             pinPane._savePins();
             if (this._committedExpression.length) {
-              deletePinIcon.setAccessibleName(ls`Remove expression: ${this._committedExpression}`);
+              this._deletePinIcon.setAccessibleName(ls`Remove expression: ${this._committedExpression}`);
             } else {
-              deletePinIcon.setAccessibleName(ls`Remove blank expression`);
+              this._deletePinIcon.setAccessibleName(ls`Remove blank expression`);
             }
             this._editor.setSelection(TextUtils.TextRange.TextRange.createFromLocation(Infinity, Infinity));
           });
@@ -246,6 +271,10 @@ export class ConsolePin extends Common.ObjectWrapper.ObjectWrapper {
     await this._editorPromise;
     this._editor.widget().focus();
     this._editor.setSelection(TextUtils.TextRange.TextRange.createFromLocation(Infinity, Infinity));
+  }
+
+  focusDeleteButton() {
+    this._deletePinIcon.focus();
   }
 
   /**
