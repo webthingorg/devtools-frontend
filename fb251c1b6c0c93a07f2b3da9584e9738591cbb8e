@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57901889_1181bb9a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1161850
+      },
+      "writtenOn": "2020-09-30T16:49:28Z",
+      "side": 1,
+      "message": "lgtm 😊",
+      "revId": "fb251c1b6c0c93a07f2b3da9584e9738591cbb8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2b76934_d172e483",
+        "filename": "front_end/elements/ClassesPaneWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1161850
+      },
+      "writtenOn": "2020-09-30T16:49:28Z",
+      "side": 1,
+      "message": "TIL textContent might be null.",
+      "revId": "fb251c1b6c0c93a07f2b3da9584e9738591cbb8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cf3c8d2_9dbbd95e",
+        "filename": "front_end/elements/ClassesPaneWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1161850
+      },
+      "writtenOn": "2020-09-30T16:49:28Z",
+      "side": 1,
+      "message": "yay TypeScript! Just delete this line? Or set the textPrompt to be disabled? It looks like it wants to set the textPrompt to be disabled when there is no selected DOMNode. But iirc that can only happen when DevTools is not connected to the page, so its not that important.\n\nI don\u0027t know if you are ignoring functional changes in these patches. If so you can ignore me.",
+      "revId": "fb251c1b6c0c93a07f2b3da9584e9738591cbb8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
