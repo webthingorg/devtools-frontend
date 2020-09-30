@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "fc55df3c_7296b0ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-30T08:57:22Z",
+      "side": 1,
+      "message": "I believe it is, yes. If it takes a long time to load from the bundle then there are likely other issues. In any case, bundled loads that take a long time should be handled at the runtime level so we can deal with them universally.",
+      "parentUuid": "211181ad_1d7a53e0",
+      "revId": "fa10cbc5ba7fb2754e57e5612acba298f09d7216",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bcf200b_7621b8e6",
         "filename": "front_end/lighthouse/LighthouseStatusView.js",
         "patchSetId": 1
