@@ -16,6 +16,24 @@
       "revId": "f7b97c08243bec6461541757209a7498eef1319e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "109adf09_d25d520b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-09-30T20:28:36Z",
+      "side": 1,
+      "message": "I like your solution actually. This fix needs to get in before the branch point tomorrow though, so I\u0027ll copy your implementation over",
+      "parentUuid": "d568b3b5_5937ee14",
+      "revId": "f7b97c08243bec6461541757209a7498eef1319e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
