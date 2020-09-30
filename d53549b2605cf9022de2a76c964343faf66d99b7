@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bfcae31e_ff89f6b5",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-30T15:21:42Z",
+      "side": 1,
+      "message": "Nit: if these are local to the file, the `_`-prefix is not necessary. Therefore, we can rename this to just `instances`. (Same with the other names)",
+      "range": {
+        "startLine": 40,
+        "startChar": 6,
+        "endLine": 40,
+        "endChar": 16
+      },
+      "revId": "d53549b2605cf9022de2a76c964343faf66d99b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cac002fe_6d5c8dad",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-30T15:21:42Z",
+      "side": 1,
+      "message": "Nit: Let\u0027s use `@ts-ignore` for now. I have had some trouble with `@ts-expect-error` before when updating the TypeScript compiler and we generally use `@ts-ignore` in the codebase. Once I am more confident that `@ts-expect-error` won\u0027t inadvertently break something, we can use it.",
+      "range": {
+        "startLine": 186,
+        "startChar": 15,
+        "endLine": 186,
+        "endChar": 27
+      },
+      "revId": "d53549b2605cf9022de2a76c964343faf66d99b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7597c11_1fa355a9",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-30T15:21:42Z",
+      "side": 1,
+      "message": "This needs to be:\n\n```\nconst {columnNumber \u003d 0, className \u003d \u0027\u0027} \u003d linkifyURLOptions;\n```",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 43
+      },
+      "revId": "d53549b2605cf9022de2a76c964343faf66d99b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "700c8967_76d1ec7d",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-30T15:21:42Z",
+      "side": 1,
+      "message": "Nit: same here",
+      "range": {
+        "startLine": 592,
+        "startChar": 9,
+        "endLine": 592,
+        "endChar": 25
+      },
+      "revId": "d53549b2605cf9022de2a76c964343faf66d99b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c7ce6de_ebe605e8",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 783,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-09-30T15:21:42Z",
+      "side": 1,
+      "message": "Nit: this is a type-cast, but it should be a type annotation. E.g. move it to line 782 on the line before.",
+      "range": {
+        "startLine": 783,
+        "startChar": 19,
+        "endLine": 783,
+        "endChar": 97
+      },
+      "revId": "d53549b2605cf9022de2a76c964343faf66d99b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
