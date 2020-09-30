@@ -39,6 +39,30 @@
       "revId": "626d917b065fc5eaeac0b6c04b6a9abd9eda87a5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69d7a21a_854edbd7",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-09-30T13:12:42Z",
+      "side": 1,
+      "message": "Didn\u0027t know about that feature yet. Thanks for pointing this out!",
+      "parentUuid": "373b872b_ad980238",
+      "range": {
+        "startLine": 624,
+        "startChar": 36,
+        "endLine": 624,
+        "endChar": 74
+      },
+      "revId": "626d917b065fc5eaeac0b6c04b6a9abd9eda87a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
