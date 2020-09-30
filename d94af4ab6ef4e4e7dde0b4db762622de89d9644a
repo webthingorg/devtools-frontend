@@ -16,6 +16,40 @@
       "revId": "d94af4ab6ef4e4e7dde0b4db762622de89d9644a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7222a16c_72312d61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-30T07:32:50Z",
+      "side": 1,
+      "message": "Thanks for this patch, and for including screenshots in the commit message as we tend to do 👍\n\nI\u0027ve reviewed the patch, and the code changes LGTM.\n\nHowever, I\u0027m not yet convinced about the feature itself. Developers can already add tracepoints by setting a logpoint or a conditional breakpoint with the expression `console.trace(foo)`. Is this specific use case common enough to warrant complicating the UI further? What do y’all think?",
+      "revId": "d94af4ab6ef4e4e7dde0b4db762622de89d9644a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "882a0af4_11b76bd5",
+        "filename": "front_end/sources/BreakpointEditDialog.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-30T07:32:50Z",
+      "side": 1,
+      "message": "I realize you\u0027re following the existing code here, but let\u0027s clean this up while we\u0027re here:\n\n    const isLogpoint \u003d ...;\n    if (isLogpoint) { ... }\n    this._isLogpoint \u003d isLogpoint || preferLogpoint;\n\nSame below",
+      "revId": "d94af4ab6ef4e4e7dde0b4db762622de89d9644a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
