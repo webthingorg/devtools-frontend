@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c436613_67a5dbef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-30T08:59:58Z",
+      "side": 1,
+      "message": "Looks like this needs a rebase on master.",
+      "revId": "85ee9fbb2af6943aed17b291b501fe5fd48f113b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a9f92f8_0c9f37c2",
+        "filename": "front_end/console/ConsolePinPane.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-30T08:59:58Z",
+      "side": 1,
+      "message": "Now I look at this again, I don\u0027t think we even need ls here with an empty string. We should just close the div and be done with it. That way you can avoid any wrangling of console_strings as well.",
+      "range": {
+        "startLine": 141,
+        "startChar": 51,
+        "endLine": 141,
+        "endChar": 58
+      },
+      "revId": "85ee9fbb2af6943aed17b291b501fe5fd48f113b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
