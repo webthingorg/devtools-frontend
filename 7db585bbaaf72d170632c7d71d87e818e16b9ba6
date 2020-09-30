@@ -16,6 +16,23 @@
       "revId": "7db585bbaaf72d170632c7d71d87e818e16b9ba6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "862fa48b_77e902f3",
+        "filename": "front_end/console/ConsolePinPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-09-30T21:22:09Z",
+      "side": 1,
+      "message": "I don\u0027t think this approach makes sense. What if you delete the first pin of three, or the second? In general, I think focus would have gone to the *next* pin. \n\nIt would be preferable to only focus the previous pin if you\u0027re explicitly on the last pin and it\u0027s being deleted.",
+      "revId": "7db585bbaaf72d170632c7d71d87e818e16b9ba6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
