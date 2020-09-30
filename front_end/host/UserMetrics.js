@@ -49,7 +49,7 @@ export class UserMetrics {
   colorFixed(contrastThreshold) {
     const code = ContrastThresholds[contrastThreshold];
     if (code === undefined) {
-      console.warn(`Unknown contrast threshold: ${contrastThreshold}`);
+      console.error(`Unknown contrast threshold: ${contrastThreshold}`);
       return;
     }
     const size = Object.keys(ContrastThresholds).length + 1;

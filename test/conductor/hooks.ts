@@ -29,7 +29,6 @@ const envThrottleRate = process.env['STRESS'] ? 3 : 1;
 const logLevels = {
   log: 'I',
   info: 'I',
-  warning: 'I',
   error: 'E',
   exception: 'E',
   assert: 'E',
@@ -127,13 +126,7 @@ async function loadTargetPageAndDevToolsFrontend(hostedModeServerPort: number) {
       if (msg.location() && msg.location().url) {
         filename = msg.location()!.url!.replace(/^.*\//, '');
       }
-      const message = `${logLevel}> ${filename}:${msg.location().lineNumber}: ${msg.text()}`;
-      if (logLevel === 'E') {
-        console.error(message);
-        fatalErrors.push(message);
-      } else {
-        console.log(message);
-      }
+      console.log(`${logLevel} ${filename}:${msg.location().lineNumber}: ${msg.text()}`);
     }
   });
 
@@ -247,10 +240,4 @@ export async function globalTeardown() {
 
   console.log('Stopping hosted mode server');
   hostedModeServer.kill();
-
-  if (fatalErrors.length) {
-    throw new Error('Fatal errors logged:\n' + fatalErrors.join('\n'));
-  }
 }
-
-export const fatalErrors: string[] = [];
