@@ -157,7 +157,10 @@ luci.cq_group(
     name = "master",
     watch = cq.refset(
         repo = "https://chromium.googlesource.com/devtools/devtools-frontend",
-        refs = ["refs/heads/master"],
+        refs = [
+            "refs/heads/master",
+            "refs/heads/chromium/.*"
+        ],
     ),
     acls = cq_acls,
     tree_status_host = "devtools-status.appspot.com",
