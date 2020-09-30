@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a0083ace_34452a4f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-30T08:14:56Z",
+      "side": 1,
+      "message": "LGTM. Do you know the cause of the bot failure at all?",
+      "revId": "1372fe754db345de7c04a7867a78d409e6a050c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68a527af_38c4c004",
+        "filename": "front_end/lighthouse_worker/LighthouseService.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-30T08:14:56Z",
+      "side": 1,
+      "message": "This could be null, so you need to check for that as well as the base property, I think.",
+      "range": {
+        "startLine": 99,
+        "startChar": 10,
+        "endLine": 99,
+        "endChar": 20
+      },
+      "revId": "1372fe754db345de7c04a7867a78d409e6a050c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
