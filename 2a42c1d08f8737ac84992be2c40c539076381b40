@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c2bf655b_21295bd3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-09-30T21:05:15Z",
+      "side": 1,
+      "message": "Nit consider a better title: \"New context menu to copy a payload from a JSON request\"",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 34
+      },
+      "revId": "2a42c1d08f8737ac84992be2c40c539076381b40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
