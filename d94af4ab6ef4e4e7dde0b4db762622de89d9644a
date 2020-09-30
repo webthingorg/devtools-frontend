@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "6314ad94_45a427b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1455634
+      },
+      "writtenOn": "2020-09-30T16:11:51Z",
+      "side": 1,
+      "message": "Thank you for the review.\n\nI just saw the newly updated status (WontFix) on the issue thread. But I\u0027ll think about this first and if I can\u0027t come up with a strong argument for this then I would abandon the CL.",
+      "parentUuid": "7222a16c_72312d61",
+      "revId": "d94af4ab6ef4e4e7dde0b4db762622de89d9644a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "882a0af4_11b76bd5",
         "filename": "front_end/sources/BreakpointEditDialog.js",
         "patchSetId": 4
