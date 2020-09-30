@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d568b3b5_5937ee14",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-09-30T18:50:39Z",
+      "side": 1,
+      "message": "I ran into a similar situation with Settings Search where I wanted control over the Esc key behavior. I think it\u0027s a good idea here to remove the isEditing check, but I think focus/blur handlers in this implementation would get too complicated when we introduce more text input fields in Settings, as we\u0027d need to add handlers for each one. It\u0027s also a little weird to me that the Settings instance references the Dialog it\u0027s being shown in, as this would prevent the Dialog from being garbage collected after closed.\n\nCheck out the additions to setEscapeKeyCallback in my CL - the Dialog can defer control of the Escape key callback and then check later to determine if the event is consumed. Then in Settings we can expand that callback to consider the context in which Escape is pressed (search field focused, keyboard edit focused, etc) and then decide what to do. It behaves as a sort of escape hatch for the Escape key that other classes can use, which otherwise wouldn\u0027t be possible because the Dialog is always the first to intercept the Escape input event.\n\nWDYT?\n\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2277086\n",
+      "revId": "f7b97c08243bec6461541757209a7498eef1319e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
