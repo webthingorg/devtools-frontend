@@ -5,6 +5,7 @@ group("component_docs") {
   public_deps = [
     "./computed_style_property",
     "./computed_style_trace",
+    "./data_grid",
     "./elements_breadcrumbs",
     "./layout_pane",
     "./perf_piechart",
