@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "510d10ab_39782bb3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-30T07:12:36Z",
+      "side": 1,
+      "message": "I like the use of \u003cbutton\u003e over \u003cdiv\u003e here, and appreciate you providing the before/after videos. Thanks!\n\nThe code changes LGTM % nits, but please wait for Sigurd to also take a look.",
+      "revId": "826cb41a88d9eeef40e247e8313776bd2a914db6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb454bd6_04955bf0",
+        "filename": "front_end/console_counters/WarningErrorCounter.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-30T07:12:36Z",
+      "side": 1,
+      "message": "nit: I would have ordered this the other way around. First make it hidden, then add the event listener. WDYT?",
+      "revId": "826cb41a88d9eeef40e247e8313776bd2a914db6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0d34e57_6f66493a",
+        "filename": "front_end/console_counters/WarningErrorCounter.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-30T07:12:36Z",
+      "side": 1,
+      "message": "nit: Comments should be full sentences, so include a period at the end.",
+      "revId": "826cb41a88d9eeef40e247e8313776bd2a914db6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fa71357_c2285af8",
+        "filename": "front_end/issues/issues_strings.grdp",
+        "patchSetId": 8
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-30T07:12:36Z",
+      "side": 1,
+      "message": "typo: Tooltip",
+      "revId": "826cb41a88d9eeef40e247e8313776bd2a914db6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "964243cf_42147ee3",
+        "filename": "front_end/issues/issues_strings.grdp",
+        "patchSetId": 8
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-09-30T07:12:36Z",
+      "side": 1,
+      "message": "same typo",
+      "range": {
+        "startLine": 132,
+        "startChar": 70,
+        "endLine": 132,
+        "endChar": 76
+      },
+      "revId": "826cb41a88d9eeef40e247e8313776bd2a914db6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
