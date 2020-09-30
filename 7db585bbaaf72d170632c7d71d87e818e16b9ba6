@@ -33,6 +33,24 @@
       "revId": "7db585bbaaf72d170632c7d71d87e818e16b9ba6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7fab293_580e9179",
+        "filename": "front_end/console/ConsolePinPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-09-30T23:45:48Z",
+      "side": 1,
+      "message": "Yeah you\u0027re right. It seems like focusing the next element is the default behavior for when deleting entries in most list-like structures.\n\nNew focus logic:\n- Deleting an expression --\u003e focuses next entry\n- Deleting the only expression --\u003e focus on \"Create Live Expressions\" button\n- Deleting last expression --\u003e focuses previous entry\n\nI changed the focus to the delete button since it seems like a smoother workflow.  In general, if a user is deleting an expression, I\u0027d imagine they would more likely want to delete another expression over wanting to edit an expression.\n\nAlso I added a focus function to the dt-close-button that focuses the delete button element.  It seems like it will be useful to maintain accessibility standards when using this component.",
+      "parentUuid": "862fa48b_77e902f3",
+      "revId": "7db585bbaaf72d170632c7d71d87e818e16b9ba6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
