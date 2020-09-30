@@ -98,6 +98,30 @@
       "revId": "ca1a68efc629989387445899252a40cfcddae4f3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f1c28bd_2de49a66",
+        "filename": "buckets/try.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-09-30T12:52:26Z",
+      "side": 1,
+      "message": "See also my new description on the bug. By just adding the refs in the main CQ config, we\u0027d also run devtools_frontend_linux_blink_light_rel on beta/stable, but it wont work as chromium recipe won\u0027t sync chromium in its beta/stable... Due to that reason, we don\u0027t run those builders in CI on the branches, e.g. https://ci.chromium.org/p/devtools-frontend/g/beta/console\n\nWe only want the trybot counterparts in CQ for beta/stable, whose CI builders also run on beta/stable... i.e. not the chromium builders.\n\nI think this can only be done by generating separate beta and stable CQ config sections with just one ref each. The respective beta and stable ref could be hardcoded and refer to the file that we change on branch cut.\n\nThe trybots could have an extra property, just like the CI bots have somewhere to enable/disable them for beta/stable CQ - or even more.\n\nSide concern: Maybe we even need to make a copy of the tryserver bucket - also in V8? Otherwise, branch try runs will make the caches on bots cold, e.g. by wiping the whole out directory. I remember we have discussed that but don\u0027t remember if we agreed to do without it or not...",
+      "parentUuid": "1fe70285_472c1b47",
+      "range": {
+        "startLine": 182,
+        "startChar": 10,
+        "endLine": 182,
+        "endChar": 34
+      },
+      "revId": "ca1a68efc629989387445899252a40cfcddae4f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
