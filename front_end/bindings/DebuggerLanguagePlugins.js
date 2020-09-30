@@ -584,20 +584,6 @@ export class DebuggerLanguagePluginManager {
   }
 
   /**
-     * @param {!SDK.Script.Script} script
-     * @return {!Promise<?RawModule>}
-     */
-  async _getRawModule(script) {
-    if (!script.sourceURL.startsWith('wasm://')) {
-      return {url: script.sourceURL, code: undefined};
-    }
-    if (script.sourceMapURL === SDK.SourceMap.WasmSourceMap.FAKE_URL) {
-      return {code: await script.getWasmBytecode(), url: script.sourceURL};
-    }
-    return null;
-  }
-
-  /**
    * @param {string} sourceFileURL
    * @param {!SDK.Script.Script} script
    * @return {!Workspace.UISourceCode.UISourceCode}
@@ -655,13 +641,8 @@ export class DebuggerLanguagePluginManager {
    * @param {!SDK.Script.Script} script
    */
   async _loadScript(plugin, script) {
-    const rawModule = await this._getRawModule(script);
-    if (!rawModule) {
-      return null;
-    }
-    const symbolsUrl = (!script.debugSymbols ? script.sourceMapURL : script.debugSymbols.externalURL) || '';
     try {
-      const sourceFileURLs = await plugin.addRawModule(script.sourceURL, symbolsUrl, rawModule);
+      const sourceFileURLs = await plugin.addRawModule(script.sourceURL, script);
       for (const sourceFileURL of sourceFileURLs) {
         this._getOrCreateUISourceCode(sourceFileURL, script);
       }
@@ -858,11 +839,10 @@ export class DebuggerLanguagePlugin {
 
   /** Notify the plugin about a new script
    * @param {string} rawModuleId
-   * @param {string} symbolsURL - URL of a file providing the debug symbols for this module
-   * @param {!RawModule} rawModule
+   * @param {!SDK.Script.Script} script
    * @return {!Promise<!Array<string>>} - An array of URLs for the source files for the raw module
   */
-  async addRawModule(rawModuleId, symbolsURL, rawModule) {
+  async addRawModule(rawModuleId, script) {
     throw new Error('Not implemented yet');
   }
 

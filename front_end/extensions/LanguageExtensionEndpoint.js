@@ -68,12 +68,15 @@ export class LanguageExtensionEndpoint {
   /** Notify the plugin about a new script
    * @override
    * @param {string} rawModuleId
-   * @param {string} symbolsURL - URL of a file providing the debug symbols for this module
-   * @param {!Bindings.DebuggerLanguagePlugins.RawModule} rawModule
+   * @param {!SDK.Script.Script} script
    * @return {!Promise<!Array<string>>} - An array of URLs for the source files for the raw module
   */
-  addRawModule(rawModuleId, symbolsURL, rawModule) {
-    return /** @type {!Promise<!Array<string>>} */ (
+  async addRawModule(rawModuleId, script) {
+    const url = script.sourceURL;
+    const code = script.sourceURL.startsWith('wasm://') ? await script.getWasmBytecode() : undefined;
+    const rawModule = {code, url};
+    const symbolsURL = (!script.debugSymbols ? script.sourceMapURL : script.debugSymbols.externalURL) || '';
+    return await /** @type {!Promise<!Array<string>>} */ (
         this._sendRequest(this._commands.AddRawModule, {rawModuleId, symbolsURL, rawModule}));
   }
 
