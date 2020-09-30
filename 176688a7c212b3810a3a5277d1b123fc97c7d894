@@ -39,6 +39,30 @@
       "revId": "176688a7c212b3810a3a5277d1b123fc97c7d894",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "920e763c_39fc0a64",
+        "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1939,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-09-30T10:01:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ead26cd2_6711cb84",
+      "range": {
+        "startLine": 1939,
+        "startChar": 0,
+        "endLine": 1939,
+        "endChar": 31
+      },
+      "revId": "176688a7c212b3810a3a5277d1b123fc97c7d894",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
