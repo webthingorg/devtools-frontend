@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "c0a24600_344a9342",
+        "filename": "front_end/console_counters/WarningErrorCounter.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-09-30T20:58:49Z",
+      "side": 1,
+      "message": "Good idea, willfix",
+      "parentUuid": "fb454bd6_04955bf0",
+      "revId": "826cb41a88d9eeef40e247e8313776bd2a914db6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9eea879_3dc1d859",
         "filename": "front_end/console_counters/WarningErrorCounter.js",
         "patchSetId": 8
@@ -76,6 +94,30 @@
     },
     {
       "key": {
+        "uuid": "9a235ed0_5f7b6e9e",
+        "filename": "front_end/console_counters/WarningErrorCounter.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-09-30T20:58:49Z",
+      "side": 1,
+      "message": "Good question - previously, there would be experiment checks to see if Spotlight was enabled with initialization and every update call.\n\nAs an \"unstable\" experiment my intuition is that most users have it off. However, with the old logic, each update calls isEnabled and reads from local storage, and the initialization step creates an element that never is shown. Both feel like unnecessary performance hits.\n\nSince DevTools has to be restarted anyway for the experiment to be turned on, I figure it\u0027s better for the check to take place once during initialization, and only create/update the element if it exists. TypeScript recognizes the type as Element|null, so potential null pointer accesses should be prevented as well 😊",
+      "parentUuid": "c9eea879_3dc1d859",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 34
+      },
+      "revId": "826cb41a88d9eeef40e247e8313776bd2a914db6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0d34e57_6f66493a",
         "filename": "front_end/console_counters/WarningErrorCounter.js",
         "patchSetId": 8
@@ -90,6 +132,24 @@
       "revId": "826cb41a88d9eeef40e247e8313776bd2a914db6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "365aefda_f7685922",
+        "filename": "front_end/console_counters/WarningErrorCounter.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-09-30T20:58:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a0d34e57_6f66493a",
+      "revId": "826cb41a88d9eeef40e247e8313776bd2a914db6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -116,6 +176,30 @@
     },
     {
       "key": {
+        "uuid": "507a6e47_ac9f7105",
+        "filename": "front_end/console_counters/WarningErrorCounter.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-09-30T20:58:49Z",
+      "side": 1,
+      "message": "Good question - definitely considered this, but the localization engine makes it difficult. Concatenating the value and the singular / plural variants of the word results in a localized string that\u0027s just composed of two parameters, which is hard to provide context for translation. We also can\u0027t tack on \u0027s\u0027 to the end to make it plural, which would also not fare well with translation. Since the practical limit to the number of counters we show in DevTools is small, I think it\u0027s fine that this code is repeated here.",
+      "parentUuid": "02cc2fb2_a2a9bd33",
+      "range": {
+        "startLine": 144,
+        "startChar": 4,
+        "endLine": 148,
+        "endChar": 5
+      },
+      "revId": "826cb41a88d9eeef40e247e8313776bd2a914db6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8fa71357_c2285af8",
         "filename": "front_end/issues/issues_strings.grdp",
         "patchSetId": 8
@@ -130,6 +214,24 @@
       "revId": "826cb41a88d9eeef40e247e8313776bd2a914db6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40c4a80f_6f7bbbe3",
+        "filename": "front_end/issues/issues_strings.grdp",
+        "patchSetId": 8
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-09-30T20:58:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8fa71357_c2285af8",
+      "revId": "826cb41a88d9eeef40e247e8313776bd2a914db6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -153,6 +255,30 @@
       "revId": "826cb41a88d9eeef40e247e8313776bd2a914db6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee013463_a76bb336",
+        "filename": "front_end/issues/issues_strings.grdp",
+        "patchSetId": 8
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-09-30T20:58:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "964243cf_42147ee3",
+      "range": {
+        "startLine": 132,
+        "startChar": 70,
+        "endLine": 132,
+        "endChar": 76
+      },
+      "revId": "826cb41a88d9eeef40e247e8313776bd2a914db6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30891637_45220360",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-09-30T20:58:49Z",
+      "side": 1,
+      "message": "Thanks for the reviews! Comments have been addressed :) Looks like I need to disable some tests before I can merge.\n\n@Sigurd, can you explain more on what you mean by vertical bars | as separators? The button areas do occupy more width than before, but the vertical toolbar height remains the same.",
+      "revId": "6639e740fb82915acf07f9eda83d11651a87abe5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
