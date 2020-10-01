@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "0edb9edc_e5ffd3d9",
+        "filename": "front_end/elements/ClassesPaneWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-01T10:48:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c2b76934_d172e483",
+      "revId": "fb251c1b6c0c93a07f2b3da9584e9738591cbb8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8cf3c8d2_9dbbd95e",
         "filename": "front_end/elements/ClassesPaneWidget.js",
         "patchSetId": 1
@@ -85,6 +103,24 @@
       "revId": "fb251c1b6c0c93a07f2b3da9584e9738591cbb8e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d962983_f7d662f8",
+        "filename": "front_end/elements/ClassesPaneWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-01T10:48:52Z",
+      "side": 1,
+      "message": "Honestly, I don\u0027t think anybody knows what this code is supposed to do. Therefore, I would like to refrain from making any functional changes. Whenever we get to refactor this feature, we can revisit the behavior and its corresponding implementation.",
+      "parentUuid": "686b2094_9d652bf9",
+      "revId": "fb251c1b6c0c93a07f2b3da9584e9738591cbb8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
