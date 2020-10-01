@@ -118,6 +118,30 @@
     },
     {
       "key": {
+        "uuid": "c236717a_580b81c6",
+        "filename": "front_end/console_counters/WarningErrorCounter.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-01T06:53:59Z",
+      "side": 1,
+      "message": "I don\u0027t think the performance argument is very strong, and the old design was simpler.",
+      "parentUuid": "9a235ed0_5f7b6e9e",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 34
+      },
+      "revId": "826cb41a88d9eeef40e247e8313776bd2a914db6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0d34e57_6f66493a",
         "filename": "front_end/console_counters/WarningErrorCounter.js",
         "patchSetId": 8
@@ -188,6 +212,30 @@
       "side": 1,
       "message": "Good question - definitely considered this, but the localization engine makes it difficult. Concatenating the value and the singular / plural variants of the word results in a localized string that\u0027s just composed of two parameters, which is hard to provide context for translation. We also can\u0027t tack on \u0027s\u0027 to the end to make it plural, which would also not fare well with translation. Since the practical limit to the number of counters we show in DevTools is small, I think it\u0027s fine that this code is repeated here.",
       "parentUuid": "02cc2fb2_a2a9bd33",
+      "range": {
+        "startLine": 144,
+        "startChar": 4,
+        "endLine": 148,
+        "endChar": 5
+      },
+      "revId": "826cb41a88d9eeef40e247e8313776bd2a914db6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "980ebd6f_45e22f6c",
+        "filename": "front_end/console_counters/WarningErrorCounter.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-01T06:53:59Z",
+      "side": 1,
+      "message": "Hmm, I would have thought this is a standard problem for localization (it must come up everywhere), so there should be a standard solution.",
+      "parentUuid": "507a6e47_ac9f7105",
       "range": {
         "startLine": 144,
         "startChar": 4,
