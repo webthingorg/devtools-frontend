@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed7b623f_20a02cd5",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 760,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-01T12:55:24Z",
+      "side": 0,
+      "message": "This line has been moved to a separate internal function `_updateEditorHandles` because it\u0027s used in multiple places, and to TS-ify it, I need to put in an `if` condition, which is a bit more work.",
+      "revId": "a53452769151551e9b244a2bfbcca43a12e43385",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e73359bf_5d47a6bb",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1738,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-01T12:55:24Z",
+      "side": 0,
+      "message": "This function has been moved to the top and changed to an arrow function to avoid binding this.",
+      "range": {
+        "startLine": 1738,
+        "startChar": 4,
+        "endLine": 1738,
+        "endChar": 38
+      },
+      "revId": "a53452769151551e9b244a2bfbcca43a12e43385",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
