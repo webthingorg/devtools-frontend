@@ -411,6 +411,30 @@
       "revId": "af948754fcf6249ee70879d57aab6878d94c2929",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c399f637_49263380",
+        "filename": "inspector_overlay/tool_source_order_impl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-01T09:06:37Z",
+      "side": 1,
+      "message": "Oh ok, isn\u0027t there a way in typescript to define that this will always be an Element then? I mean, without actually having to do document.createElement (which confused me).",
+      "parentUuid": "e0bd0620_470e49de",
+      "range": {
+        "startLine": 45,
+        "startChar": 33,
+        "endLine": 45,
+        "endChar": 62
+      },
+      "revId": "af948754fcf6249ee70879d57aab6878d94c2929",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
