@@ -19,6 +19,69 @@
     },
     {
       "key": {
+        "uuid": "60137750_6bc43bf1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-01T13:25:04Z",
+      "side": 1,
+      "message": "LGTM but maybe wait for @Tim in case he has any thoughts on that enum and ts-ignore. Thanks!",
+      "revId": "3ad5f37548aa56d5735c0d1c53a685a237a23f00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25be7150_c1368cf5",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-01T13:25:04Z",
+      "side": 1,
+      "message": "nit: do you think this is worth defining a typedef?",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 139
+      },
+      "revId": "3ad5f37548aa56d5735c0d1c53a685a237a23f00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f96fe5ff_4b4644dd",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-01T13:25:04Z",
+      "side": 1,
+      "message": "can we be a bit more specific on this type? e.g. I can see further down a highlight result has a `type` field? Or is it too much hassle (may well be!)",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 31
+      },
+      "revId": "3ad5f37548aa56d5735c0d1c53a685a237a23f00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5b99cae1_083df84d",
         "filename": "front_end/elements/ElementsTreeElement.js",
         "patchSetId": 1
@@ -30,6 +93,24 @@
       "writtenOn": "2020-10-01T11:24:43Z",
       "side": 1,
       "message": "I couldn\u0027t seem to get the following line working. Do you maybe have some idea why it\u0027s complaining: `error TS2339: Property \u0027CtrlOrMeta\u0027 does not exist on type \u0027typeof Modifiers\u0027.` while `Modifiers` has defined a getter `CtrlOrMeta`?",
+      "revId": "3ad5f37548aa56d5735c0d1c53a685a237a23f00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88f48ca1_c056457c",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-01T13:25:04Z",
+      "side": 1,
+      "message": "I\u0027m not sure I\u0027m afraid on this one. I think TS struggles at times with enum-esque objects from our Closure land. Not sure if @Tim knows more?",
+      "parentUuid": "5b99cae1_083df84d",
       "revId": "3ad5f37548aa56d5735c0d1c53a685a237a23f00",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
