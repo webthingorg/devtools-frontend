@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3b1bd314_c0f156b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-01T11:22:59Z",
+      "side": 1,
+      "message": "Feel free to loop in others since this is a big TS CL.",
+      "revId": "3ad5f37548aa56d5735c0d1c53a685a237a23f00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
