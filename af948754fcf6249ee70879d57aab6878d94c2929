@@ -555,6 +555,30 @@
       "revId": "af948754fcf6249ee70879d57aab6878d94c2929",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a9d2ef0_1ca36908",
+        "filename": "inspector_overlay/tool_source_order_impl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-01T09:52:00Z",
+      "side": 1,
+      "message": "I believe I can use `Definite Assignment Assertion` here. I have changed to that. Now I wonder if we should do the same for document/window/context. It\u0027s not really type-safe though.",
+      "parentUuid": "e7f32a56_9ce51be2",
+      "range": {
+        "startLine": 45,
+        "startChar": 33,
+        "endLine": 45,
+        "endChar": 62
+      },
+      "revId": "af948754fcf6249ee70879d57aab6878d94c2929",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
