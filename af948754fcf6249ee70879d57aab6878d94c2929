@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "004ccd84_0aac10ea",
+        "filename": "inspector_overlay/common.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-01T08:58:47Z",
+      "side": 1,
+      "message": "I think it\u0027s a good point. I will change it.",
+      "parentUuid": "b32cf4bb_bd22f49d",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 3
+      },
+      "revId": "af948754fcf6249ee70879d57aab6878d94c2929",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f569582c_95dfac56",
         "filename": "inspector_overlay/common.ts",
         "patchSetId": 1
@@ -65,6 +89,30 @@
     },
     {
       "key": {
+        "uuid": "26e96e55_89d6bd9c",
+        "filename": "inspector_overlay/common.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-01T08:58:47Z",
+      "side": 1,
+      "message": "I don\u0027t think I have changed how this function works in the CL. So I don\u0027t actually know what is expected from it. But I\u0027d leave it as is in this CL. I think what was meant by trimEnd here is to make sure strings have max length and end with an ellipsis if it\u0027s longer than needed. We can do it with CSS I believe.",
+      "parentUuid": "f569582c_95dfac56",
+      "range": {
+        "startLine": 178,
+        "startChar": 16,
+        "endLine": 178,
+        "endChar": 23
+      },
+      "revId": "af948754fcf6249ee70879d57aab6878d94c2929",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "175e565f_45a4dd4b",
         "filename": "inspector_overlay/tool_highlight_impl.ts",
         "patchSetId": 1
@@ -76,6 +124,30 @@
       "writtenOn": "2020-10-01T08:49:08Z",
       "side": 1,
       "message": "I wonder if we absolutely need to wrap this counter in an object. Couldn\u0027t we just name the class property `gridLayerCounter` and pass this around as a number wherever we need it, and therefore get rid of the GridLabelState interface?",
+      "range": {
+        "startLine": 57,
+        "startChar": 2,
+        "endLine": 57,
+        "endChar": 49
+      },
+      "revId": "af948754fcf6249ee70879d57aab6878d94c2929",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "692d27f7_ec1a4647",
+        "filename": "inspector_overlay/tool_highlight_impl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-01T08:58:47Z",
+      "side": 1,
+      "message": "The gridLayerCounter is modified in downstream helper functions. So if we provide it as a number the helper won\u0027t be able to update it. In general, I\u0027d try to re-write helpers later on so that they don\u0027t modify input arguments.",
+      "parentUuid": "175e565f_45a4dd4b",
       "range": {
         "startLine": 57,
         "startChar": 2,
@@ -134,6 +206,30 @@
     },
     {
       "key": {
+        "uuid": "ce7dcb30_d8946411",
+        "filename": "inspector_overlay/tool_highlight_impl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-01T08:58:47Z",
+      "side": 1,
+      "message": "I usually define it next to the place where it is used. But I think now it\u0027s used in multiple places so it can be moved to the top.",
+      "parentUuid": "f30af4ac_238b8e84",
+      "range": {
+        "startLine": 345,
+        "startChar": 0,
+        "endLine": 345,
+        "endChar": 24
+      },
+      "revId": "af948754fcf6249ee70879d57aab6878d94c2929",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "18bb1bf1_3364b71b",
         "filename": "inspector_overlay/tool_source_order_impl.ts",
         "patchSetId": 1
@@ -145,6 +241,30 @@
       "writtenOn": "2020-10-01T08:49:08Z",
       "side": 1,
       "message": "I see several overlay classes doing this.\nThe problem I see here is that everywhere else, we now use `getDocument` to make sure we target the right document. But here we don\u0027t.\nI guess right now there\u0027s only one document ever, so this won\u0027t be a problem, but it\u0027s confusing when reading the code.\nCould we use document everywhere? Or getDocument everywhere?\nIf the latter, then I guess we need to have a constructor function instead of the initialization here.",
+      "range": {
+        "startLine": 45,
+        "startChar": 33,
+        "endLine": 45,
+        "endChar": 62
+      },
+      "revId": "af948754fcf6249ee70879d57aab6878d94c2929",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0bd0620_470e49de",
+        "filename": "inspector_overlay/tool_source_order_impl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-01T08:58:47Z",
+      "side": 1,
+      "message": "So the elements like this are created in setPlatform call. I have done the initialisation this way to satisfy the types that the property is always an element. I could do this in a constructor but it means re-defining the constructor just for this. The other way would be to add ifs whenever sourceOrderContainer is accessed. WDYT?",
+      "parentUuid": "18bb1bf1_3364b71b",
       "range": {
         "startLine": 45,
         "startChar": 33,
