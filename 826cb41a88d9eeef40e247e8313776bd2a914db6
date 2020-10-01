@@ -142,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "a9bf4b25_cd1c9c7f",
+        "filename": "front_end/console_counters/WarningErrorCounter.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-10-01T19:48:13Z",
+      "side": 1,
+      "message": "Hmm, I disagree - the old design enables the possibility of an intermediate state where the counter exists but isn\u0027t being used or could be mounted unintentionally (ex crbug 1132775). I feel it\u0027s overall safer to make the element null to remove the chance of that happening, and null checks should be TS-compiler enforced.",
+      "parentUuid": "c236717a_580b81c6",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 34
+      },
+      "revId": "826cb41a88d9eeef40e247e8313776bd2a914db6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0d34e57_6f66493a",
         "filename": "front_end/console_counters/WarningErrorCounter.js",
         "patchSetId": 8
@@ -236,6 +260,30 @@
       "side": 1,
       "message": "Hmm, I would have thought this is a standard problem for localization (it must come up everywhere), so there should be a standard solution.",
       "parentUuid": "507a6e47_ac9f7105",
+      "range": {
+        "startLine": 144,
+        "startChar": 4,
+        "endLine": 148,
+        "endChar": 5
+      },
+      "revId": "826cb41a88d9eeef40e247e8313776bd2a914db6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc487b9a_65cc4f24",
+        "filename": "front_end/console_counters/WarningErrorCounter.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-10-01T19:48:13Z",
+      "side": 1,
+      "message": "Yeah, I agree. Unfortunately loc v1 doesn\u0027t support something like this because localized string declarations are shared across all of DevTools, and a generic concatenation or pluralization string  may not be suitable in context in a different location. Loc v2 is intended to resolve this by enabling strings to be isolated to their respective modules.",
+      "parentUuid": "980ebd6f_45e22f6c",
       "range": {
         "startLine": 144,
         "startChar": 4,

@@ -34,6 +34,24 @@
       "revId": "6639e740fb82915acf07f9eda83d11651a87abe5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "09f22c00_5ac1d125",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-10-01T19:48:13Z",
+      "side": 1,
+      "message": "Ah, I see what you mean. I played around with adding a ToolbarSeparator between the different counter types. The display logic gets a bit more complicated since we don\u0027t want the separator items to show when there aren\u0027t counter values, and the total item width is about the same because the divider itself has padding, so I didn\u0027t pursue it further.",
+      "parentUuid": "5a963c47_ec112173",
+      "revId": "6639e740fb82915acf07f9eda83d11651a87abe5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
