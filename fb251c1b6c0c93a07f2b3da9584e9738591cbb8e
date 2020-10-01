@@ -147,6 +147,30 @@
     },
     {
       "key": {
+        "uuid": "8b845967_fd00ddff",
+        "filename": "front_end/elements/ClassesPaneWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-01T10:55:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4eae77cd_2b8830f0",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 32
+      },
+      "revId": "fb251c1b6c0c93a07f2b3da9584e9738591cbb8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62f697f3_cc49c9f5",
         "filename": "front_end/elements/ClassesPaneWidget.js",
         "patchSetId": 1
@@ -170,6 +194,30 @@
     },
     {
       "key": {
+        "uuid": "96b89e1f_d2454e67",
+        "filename": "front_end/elements/ClassesPaneWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-01T10:55:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62f697f3_cc49c9f5",
+      "range": {
+        "startLine": 338,
+        "startChar": 46,
+        "endLine": 339,
+        "endChar": 103
+      },
+      "revId": "fb251c1b6c0c93a07f2b3da9584e9738591cbb8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fe266b36_5f90f590",
         "filename": "front_end/elements/ClassesPaneWidget.js",
         "patchSetId": 1
@@ -190,6 +238,30 @@
       "revId": "fb251c1b6c0c93a07f2b3da9584e9738591cbb8e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10d10a95_64eb33c0",
+        "filename": "front_end/elements/ClassesPaneWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-01T10:55:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fe266b36_5f90f590",
+      "range": {
+        "startLine": 377,
+        "startChar": 78,
+        "endLine": 377,
+        "endChar": 93
+      },
+      "revId": "fb251c1b6c0c93a07f2b3da9584e9738591cbb8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
