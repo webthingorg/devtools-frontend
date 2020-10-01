@@ -59,6 +59,30 @@
     },
     {
       "key": {
+        "uuid": "711a3dc9_6e835cfc",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-01T13:37:33Z",
+      "side": 1,
+      "message": "I can do that no problem. Thanks for the suggestion.",
+      "parentUuid": "25be7150_c1368cf5",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 139
+      },
+      "revId": "3ad5f37548aa56d5735c0d1c53a685a237a23f00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f96fe5ff_4b4644dd",
         "filename": "front_end/elements/ElementsTreeElement.js",
         "patchSetId": 1
