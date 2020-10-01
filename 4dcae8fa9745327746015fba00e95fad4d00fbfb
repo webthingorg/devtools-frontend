@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e939ef38_50739a7a",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 939,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-01T15:31:39Z",
+      "side": 0,
+      "message": "This call seems to be removed. Was it unnecessary?",
+      "range": {
+        "startLine": 939,
+        "startChar": 6,
+        "endLine": 939,
+        "endChar": 38
+      },
+      "revId": "4dcae8fa9745327746015fba00e95fad4d00fbfb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

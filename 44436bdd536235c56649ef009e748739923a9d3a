@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "754aa261_5ed174d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-01T15:31:39Z",
+      "side": 1,
+      "message": "This was a very large CL. Let\u0027s hope the other files won\u0027t require as much work 😕 Thanks for doing the legwork!",
+      "revId": "44436bdd536235c56649ef009e748739923a9d3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e39a5349_20f241b4",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-01T15:31:39Z",
+      "side": 1,
+      "message": "I guess this readonly property can be transformed into a proper enum, since Host will be loaded at that point in time.",
+      "range": {
+        "startLine": 630,
+        "startChar": 21,
+        "endLine": 630,
+        "endChar": 61
+      },
+      "revId": "44436bdd536235c56649ef009e748739923a9d3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07eae913_58926340",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 910,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-01T15:31:39Z",
+      "side": 1,
+      "message": "Nit: this can be a regular call to `this._tagNameEditingCommitted(element, newTagName, ...)` now.",
+      "range": {
+        "startLine": 910,
+        "startChar": 6,
+        "endLine": 910,
+        "endChar": 41
+      },
+      "revId": "44436bdd536235c56649ef009e748739923a9d3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb0a096f_2d462879",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-01T15:31:39Z",
+      "side": 1,
+      "message": "Nit: same here",
+      "range": {
+        "startLine": 924,
+        "startChar": 6,
+        "endLine": 924,
+        "endChar": 34
+      },
+      "revId": "44436bdd536235c56649ef009e748739923a9d3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f7d77a1_f6cc0616",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-01T15:31:39Z",
+      "side": 1,
+      "message": "Ultra-nit: convert to if-statement to make more readable.",
+      "range": {
+        "startLine": 1065,
+        "startChar": 6,
+        "endLine": 1065,
+        "endChar": 30
+      },
+      "revId": "44436bdd536235c56649ef009e748739923a9d3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07a8b3d9_88f7c413",
+        "filename": "front_end/legacy/legacy-defs.d.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-01T15:31:39Z",
+      "side": 1,
+      "message": "Oh boy.",
+      "range": {
+        "startLine": 143,
+        "startChar": 2,
+        "endLine": 143,
+        "endChar": 21
+      },
+      "revId": "44436bdd536235c56649ef009e748739923a9d3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
