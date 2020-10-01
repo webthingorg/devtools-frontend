@@ -87,6 +87,24 @@
     },
     {
       "key": {
+        "uuid": "d704c4ba_4784f730",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2020-10-01T17:01:31Z",
+      "side": 1,
+      "message": "I have join both worker tests in just one, so now all the main thread tests are in one tests, and both worker tests are in another one. Was that what you mean?",
+      "parentUuid": "0fc6ce10_d16672f9",
+      "revId": "502305d6827a61beefa75e016245d36449e39406",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca955de3_7df22617",
         "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
         "patchSetId": 1
@@ -152,6 +170,24 @@
       "side": 1,
       "message": "This hints at a bug that should not be hidden (thanks for catching it :)). I created a bug report for this: 1134120; could you skip the test with the worker and link the bug? I.e.:\n\n`it.skip(\u0027[crbug.com/1134120] ..`",
       "parentUuid": "0d68b602_19da519c",
+      "revId": "502305d6827a61beefa75e016245d36449e39406",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ab357e9_6ec3a660",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2020-10-01T17:01:31Z",
+      "side": 1,
+      "message": "Thanks Kim for creating the tests!",
+      "parentUuid": "e7af0370_738c7d18",
       "revId": "502305d6827a61beefa75e016245d36449e39406",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
