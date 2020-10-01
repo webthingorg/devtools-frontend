@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a819ad93_965d71a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-10-01T20:25:24Z",
+      "side": 1,
+      "message": "Consider this \"Approved with Suggestions\". I don\u0027t know whether my comment below is actually possible.",
+      "revId": "04e8905de65c23be9aff1905a508bacec290124e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbf2041f_3754e550",
+        "filename": "front_end/screencast/ScreencastView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-10-01T20:25:24Z",
+      "side": 1,
+      "message": "Is it possible to use DOMNode#simpleSelector() here instead of two elements with ID and class name?",
+      "revId": "04e8905de65c23be9aff1905a508bacec290124e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
