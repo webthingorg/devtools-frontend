@@ -1185,7 +1185,7 @@ export class StylePropertiesSection {
       return createTextNode(label);
     }
 
-    if (ruleLocation && rule.styleSheetId && header && !header.isAnonymousInlineStyleSheet()) {
+    if (ruleLocation && rule.styleSheetId && header && !header.isAnonymousInlineStyleSheet() && !header.isInline) {
       return StylePropertiesSection._linkifyRuleLocation(
           matchedStyles.cssModel(), linkifier, rule.styleSheetId, ruleLocation);
     }
