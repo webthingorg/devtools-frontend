@@ -107,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "25d033c7_2d3c1e6d",
+        "filename": "inspector_overlay/common.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-01T09:03:44Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "004ccd84_0aac10ea",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 3
+      },
+      "revId": "af948754fcf6249ee70879d57aab6878d94c2929",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f569582c_95dfac56",
         "filename": "inspector_overlay/common.ts",
         "patchSetId": 1
@@ -178,6 +202,30 @@
     },
     {
       "key": {
+        "uuid": "11faae91_8d235cdc",
+        "filename": "inspector_overlay/common.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-01T09:03:44Z",
+      "side": 1,
+      "message": "Oooh, I had missed the fact that we had overloaded the trimEnd method already:\nString.prototype.trimEnd\n\nSo, you\u0027re right, my bad, we were already using a method that did this.\nWeird that it was named trimEnd, because this already exists on Stings, and does not do what our trimEnd does at all.\n\nI\u0027d suggest renaming our new method to clip or something like this.",
+      "parentUuid": "26e96e55_89d6bd9c",
+      "range": {
+        "startLine": 178,
+        "startChar": 16,
+        "endLine": 178,
+        "endChar": 23
+      },
+      "revId": "af948754fcf6249ee70879d57aab6878d94c2929",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "175e565f_45a4dd4b",
         "filename": "inspector_overlay/tool_highlight_impl.ts",
         "patchSetId": 1
@@ -222,6 +270,30 @@
       "revId": "af948754fcf6249ee70879d57aab6878d94c2929",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "028b098e_f692ba4e",
+        "filename": "inspector_overlay/tool_highlight_impl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-01T09:03:44Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "692d27f7_ec1a4647",
+      "range": {
+        "startLine": 57,
+        "startChar": 2,
+        "endLine": 57,
+        "endChar": 49
+      },
+      "revId": "af948754fcf6249ee70879d57aab6878d94c2929",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
