@@ -20,6 +20,9 @@ READ_LOCATION = path.join(ROOT_DIRECTORY, 'third_party', 'blink', 'renderer', 'c
 def properties_from_file(file_name):
     with open(os.path.abspath(file_name)) as json5_file:
         properties = json5.loads(json5_file.read())
+        for attribute in properties['attributes']:
+            if not 'enum' in attribute:
+                attribute['enum'] = None
         return properties
 
 
