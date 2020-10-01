@@ -282,6 +282,29 @@ export class OpenedWindowDetailsView extends UI.ThrottledWidget.ThrottledWidget 
 
     this._securitySection = this._reportView.appendSection(ls`Security`);
     this._hasDOMAccessValue = this._securitySection.appendField(ls`Access to opener`);
+    const openerElementLinkContainer = this._securitySection.appendField(ls`Opener Frame`);
+    this._securitySection.setFieldVisible(ls`Opener Frame`, false);
+    const openerElementLink = openerElementLinkContainer.createChild('div', 'report-field-value-link devtools-link');
+    openerElementLink.title = ls`Click to reveal in Elements panel`;
+    this._openerElementLinkSpan = openerElementLink.createChild('span');
+    openerElementLink.appendChild(UI.Icon.Icon.create('mediumicon-elements-panel', 'icon-link devtools-link'));
+    /** @type {?SDK.ResourceTreeModel.ResourceTreeFrame} */
+    this._openerFrame = null;
+    /** @type {?SDK.DOMModel.DOMNode} */
+    this._openerDomNode = null;
+    openerElementLink.addEventListener('mouseenter', () => {
+      if (this._openerFrame) {
+        this._openerFrame.highlight();
+      }
+    });
+    openerElementLink.addEventListener('mouseleave', () => {
+      SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight();
+    });
+    openerElementLink.addEventListener('click', () => {
+      if (this._openerDomNode) {
+        Common.Revealer.reveal(this._openerDomNode);
+      }
+    });
 
     this.update();
   }
@@ -294,6 +317,24 @@ export class OpenedWindowDetailsView extends UI.ThrottledWidget.ThrottledWidget 
     this._reportView.setTitle(this.buildTitle());
     this._URLFieldValue.textContent = this._targetInfo.url;
     this._hasDOMAccessValue.textContent = booleanToYesNo(this._targetInfo.canAccessOpener);
+    this.maybeDisplayOpenerFrame();
+  }
+
+  async maybeDisplayOpenerFrame() {
+    const openerFrameId = this._targetInfo.openerFrameId;
+    if (openerFrameId) {
+      const frameManager = SDK.FrameManager.FrameManager.instance();
+      this._openerFrame = frameManager.getFrame(openerFrameId);
+      if (this._openerFrame) {
+        this._openerDomNode = await this._openerFrame.getOwnerDOMNodeOrDocument();
+        if (this._openerDomNode) {
+          this._openerElementLinkSpan.textContent = `<${this._openerDomNode.nodeName().toLocaleLowerCase()}>`;
+          this._securitySection.setFieldVisible(ls`Opener Frame`, true);
+          return;
+        }
+      }
+    }
+    this._securitySection.setFieldVisible(ls`Opener Frame`, false);
   }
 
   /**
