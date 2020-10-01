@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "90db9b21_e67934f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-01T22:25:01Z",
+      "side": 1,
+      "message": "Added \u0027copy value\u0027 to headers.",
+      "parentUuid": "e4b7ae60_ed97b53b",
+      "revId": "2d53230e3e493b49e04e2a0f9f2f9af3acf45cdb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf12955a_6d1246a5",
         "filename": "front_end/network/RequestHeadersView.js",
         "patchSetId": 4
