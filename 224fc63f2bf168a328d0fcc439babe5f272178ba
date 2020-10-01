@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63e9312f_0b41bc64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-10-01T11:35:19Z",
+      "side": 1,
+      "message": "You\u0027ve still got a bunch of TODOs in this change. If they\u0027re fixed, you can remove the comment. Otherwise, could you please file tracking bugs and mention them in the comment?",
+      "revId": "224fc63f2bf168a328d0fcc439babe5f272178ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
