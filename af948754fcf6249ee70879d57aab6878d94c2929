@@ -131,6 +131,30 @@
     },
     {
       "key": {
+        "uuid": "404dcfce_fa871fcc",
+        "filename": "inspector_overlay/common.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-01T09:28:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25d033c7_2d3c1e6d",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 3
+      },
+      "revId": "af948754fcf6249ee70879d57aab6878d94c2929",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f569582c_95dfac56",
         "filename": "inspector_overlay/common.ts",
         "patchSetId": 1
@@ -317,6 +341,30 @@
       "revId": "af948754fcf6249ee70879d57aab6878d94c2929",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad313a3d_a75a31c6",
+        "filename": "inspector_overlay/tool_highlight_impl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-01T09:28:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e009bfd8_24491f9e",
+      "range": {
+        "startLine": 72,
+        "startChar": 4,
+        "endLine": 72,
+        "endChar": 12
+      },
+      "revId": "af948754fcf6249ee70879d57aab6878d94c2929",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
