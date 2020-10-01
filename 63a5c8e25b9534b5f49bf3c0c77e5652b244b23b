@@ -39,6 +39,30 @@
       "revId": "63a5c8e25b9534b5f49bf3c0c77e5652b244b23b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a95ebcf_2d294128",
+        "filename": "front_end/elements/ElementsTreeOutline.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-01T11:12:54Z",
+      "side": 1,
+      "message": "Good catch!",
+      "parentUuid": "a10c8942_2fe68b7d",
+      "range": {
+        "startLine": 97,
+        "startChar": 25,
+        "endLine": 97,
+        "endChar": 62
+      },
+      "revId": "63a5c8e25b9534b5f49bf3c0c77e5652b244b23b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
