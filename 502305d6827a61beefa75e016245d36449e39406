@@ -70,6 +70,23 @@
     },
     {
       "key": {
+        "uuid": "0fc6ce10_d16672f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-01T12:30:44Z",
+      "side": 1,
+      "message": "Hi Jesus!\n\nThanks for your change!\n\nIs the test also flaky if you only split the test into two scenarios; one for the main thread and one for the worker? We would like to keep big scenarios for our e2e tests to catch bugs related to bigger user stories.\n\nAlso; if the breakpoint is not hit, I would remove the additional code that you added and skip the test (as mentioned in the comment below), since this is pointing at a bug that we should fix and not hide.",
+      "revId": "502305d6827a61beefa75e016245d36449e39406",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca955de3_7df22617",
         "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
         "patchSetId": 1
@@ -120,6 +137,24 @@
       "revId": "502305d6827a61beefa75e016245d36449e39406",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e7af0370_738c7d18",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-01T12:30:44Z",
+      "side": 1,
+      "message": "This hints at a bug that should not be hidden (thanks for catching it :)). I created a bug report for this: 1134120; could you skip the test with the worker and link the bug? I.e.:\n\n`it.skip(\u0027[crbug.com/1134120] ..`",
+      "parentUuid": "0d68b602_19da519c",
+      "revId": "502305d6827a61beefa75e016245d36449e39406",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
