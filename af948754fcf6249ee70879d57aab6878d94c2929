@@ -435,6 +435,30 @@
       "revId": "af948754fcf6249ee70879d57aab6878d94c2929",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7f32a56_9ce51be2",
+        "filename": "inspector_overlay/tool_source_order_impl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-01T09:15:27Z",
+      "side": 1,
+      "message": "I think there might be a way (but the problem is that the element is not actually always there)",
+      "parentUuid": "c399f637_49263380",
+      "range": {
+        "startLine": 45,
+        "startChar": 33,
+        "endLine": 45,
+        "endChar": 62
+      },
+      "revId": "af948754fcf6249ee70879d57aab6878d94c2929",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
