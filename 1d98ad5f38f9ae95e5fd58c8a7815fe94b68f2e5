@@ -22,6 +22,30 @@
       "revId": "1d98ad5f38f9ae95e5fd58c8a7815fe94b68f2e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7deb5a99_d08a1c0f",
+        "filename": "test/unittests/front_end/helpers/DOMHelpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2020-10-01T15:30:05Z",
+      "side": 1,
+      "message": "😮, for some reason I thought that was something IE/old Edge only.\nAnyways, I am testing it, and `setImmediate` doesn\u0027t work for this case :(",
+      "parentUuid": "8feb9b2b_232657f2",
+      "range": {
+        "startLine": 129,
+        "startChar": 4,
+        "endLine": 129,
+        "endChar": 22
+      },
+      "revId": "1d98ad5f38f9ae95e5fd58c8a7815fe94b68f2e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
