@@ -82,16 +82,16 @@ export class ScreencastView extends UI.Widget.VBox {
     this._canvasElement.addEventListener('keypress', this._handleKeyEvent.bind(this), false);
     this._canvasElement.addEventListener('blur', this._handleBlurEvent.bind(this), false);
 
-    this._titleElement = this._canvasContainerElement.createChild('div', 'screencast-element-title monospace hidden');
+    this._titleElement =
+        this._canvasContainerElement.createChild('div', 'screencast-element-title monospace hidden -theme-not-patched');
     this._tagNameElement = this._titleElement.createChild('span', 'screencast-tag-name');
     this._nodeIdElement = this._titleElement.createChild('span', 'screencast-node-id');
     this._classNameElement = this._titleElement.createChild('span', 'screencast-class-name');
     this._titleElement.createTextChild(' ');
-    this._nodeWidthElement = this._titleElement.createChild('span');
-    this._titleElement.createChild('span', 'screencast-px').textContent = 'px';
-    this._titleElement.createTextChild(' × ');
-    this._nodeHeightElement = this._titleElement.createChild('span');
-    this._titleElement.createChild('span', 'screencast-px').textContent = 'px';
+    const dimension = this._titleElement.createChild('span', 'screencast-dimension');
+    this._nodeWidthElement = dimension.createChild('span');
+    dimension.createTextChild(' × ');
+    this._nodeHeightElement = dimension.createChild('span');
     this._titleElement.style.top = '0';
     this._titleElement.style.left = '0';
 
@@ -532,13 +532,8 @@ export class ScreencastView extends UI.Widget.VBox {
 
     const lowerCaseName = this._node.localName() || this._node.nodeName().toLowerCase();
     this._tagNameElement.textContent = lowerCaseName;
-    this._nodeIdElement.textContent = this._node.getAttribute('id') ? '#' + this._node.getAttribute('id') : '';
-    this._nodeIdElement.textContent = this._node.getAttribute('id') ? '#' + this._node.getAttribute('id') : '';
-    let className = this._node.getAttribute('class');
-    if (className && className.length > 50) {
-      className = className.substring(0, 50) + '…';
-    }
-    this._classNameElement.textContent = className || '';
+    this._nodeIdElement.textContent = getIdForElementTitle(this._node.getAttribute('id'));
+    this._classNameElement.textContent = getClassNameForElementTitle(this._node.getAttribute('class'));
     this._nodeWidthElement.textContent = this._model.width;
     this._nodeHeightElement.textContent = this._model.height;
 
@@ -847,4 +842,22 @@ export class ProgressTracker {
   _displayProgress(progress) {
     this._element.style.width = (100 * progress) + '%';
   }
+}
+
+function getClassNameForElementTitle(className) {
+  if (!className) {
+    return '';
+  }
+
+  const parts = className.split(' ').map(p => p.trim()).filter(p => !!p);
+  let displayedClassName = '.' + parts.join('.');
+  if (displayedClassName.length > 50) {
+    displayedClassName = displayedClassName.substring(0, 50) + '…';
+  }
+
+  return displayedClassName;
+}
+
+function getIdForElementTitle(id) {
+  return id ? '#' + id : '';
 }
