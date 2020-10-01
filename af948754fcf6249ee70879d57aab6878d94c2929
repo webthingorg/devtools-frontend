@@ -16,6 +16,144 @@
       "revId": "af948754fcf6249ee70879d57aab6878d94c2929",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b32cf4bb_bd22f49d",
+        "filename": "inspector_overlay/common.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-01T08:49:08Z",
+      "side": 1,
+      "message": "How about turning these into getters (get context, get document, get window) so that subclasses have a bit of an nicer API to use. Up to you!",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 3
+      },
+      "revId": "af948754fcf6249ee70879d57aab6878d94c2929",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f569582c_95dfac56",
+        "filename": "inspector_overlay/common.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-01T08:49:08Z",
+      "side": 1,
+      "message": "trimEnd normally removes whitespace from the end of a string. I don\u0027t think this is what this function does anymore. It either returns a copy of the string if it\u0027s shorter than maxLength (without triming spaces), or return a substring if it\u0027s too long with an ellipsis, again without triming spaces.\n\ntrimEndWithMaxLength(\u0027                \u0027, 6)\nwould return \u0027      ...\u0027\n\nDon\u0027t we want to remove the whitespaces?",
+      "range": {
+        "startLine": 178,
+        "startChar": 16,
+        "endLine": 178,
+        "endChar": 23
+      },
+      "revId": "af948754fcf6249ee70879d57aab6878d94c2929",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "175e565f_45a4dd4b",
+        "filename": "inspector_overlay/tool_highlight_impl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-01T08:49:08Z",
+      "side": 1,
+      "message": "I wonder if we absolutely need to wrap this counter in an object. Couldn\u0027t we just name the class property `gridLayerCounter` and pass this around as a number wherever we need it, and therefore get rid of the GridLabelState interface?",
+      "range": {
+        "startLine": 57,
+        "startChar": 2,
+        "endLine": 57,
+        "endChar": 49
+      },
+      "revId": "af948754fcf6249ee70879d57aab6878d94c2929",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e009bfd8_24491f9e",
+        "filename": "inspector_overlay/tool_highlight_impl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-01T08:49:08Z",
+      "side": 1,
+      "message": "Having document as a getter (suggested in another comment) would allow you to do `this.document` here and everywhere else, which would simplify the diff quite a bit actually.",
+      "range": {
+        "startLine": 72,
+        "startChar": 4,
+        "endLine": 72,
+        "endChar": 12
+      },
+      "revId": "af948754fcf6249ee70879d57aab6878d94c2929",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f30af4ac_238b8e84",
+        "filename": "inspector_overlay/tool_highlight_impl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-01T08:49:08Z",
+      "side": 1,
+      "message": "nit: maybe move all interfaces at the top of the file (or bottom) instead of having them throughout the code. But up to you.",
+      "range": {
+        "startLine": 345,
+        "startChar": 0,
+        "endLine": 345,
+        "endChar": 24
+      },
+      "revId": "af948754fcf6249ee70879d57aab6878d94c2929",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18bb1bf1_3364b71b",
+        "filename": "inspector_overlay/tool_source_order_impl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-01T08:49:08Z",
+      "side": 1,
+      "message": "I see several overlay classes doing this.\nThe problem I see here is that everywhere else, we now use `getDocument` to make sure we target the right document. But here we don\u0027t.\nI guess right now there\u0027s only one document ever, so this won\u0027t be a problem, but it\u0027s confusing when reading the code.\nCould we use document everywhere? Or getDocument everywhere?\nIf the latter, then I guess we need to have a constructor function instead of the initialization here.",
+      "range": {
+        "startLine": 45,
+        "startChar": 33,
+        "endLine": 45,
+        "endChar": 62
+      },
+      "revId": "af948754fcf6249ee70879d57aab6878d94c2929",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
