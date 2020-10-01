@@ -82,6 +82,47 @@ export class IOModel extends SDKModel {
     }
     return strings.join();
   }
+
+  /**
+   * @param {!Protocol.IO.StreamHandle} handle
+   * @throws {!Error}
+   */
+  async readToString(handle) {
+    /** @type {!Array<string|ArrayBuffer>} */
+    const buffers = [];
+    for (;;) {
+      const data = await this.read(handle, 1024 * 1024);
+      if (data === null) {
+        break;
+      }
+      buffers.push(data);
+    }
+    if (!buffers.length) {
+      return '';
+    }
+    if (buffers[0] instanceof ArrayBuffer) {
+      // We can assume the whole stream was binary.
+      const joined = this._join(/** @type {!Array<ArrayBuffer>} */ (buffers));
+      const decoder = new TextDecoder();
+      return decoder.decode(joined);
+    }
+    return /** @type {!Array<string>} */ (buffers).join();
+  }
+
+  /**
+   * @param {!Array<ArrayBuffer>} buffers
+   * @returns {!ArrayBuffer}
+   */
+  _join(buffers) {
+    const byteLength = buffers.reduce((size, buffer) => size + buffer.byteLength, 0);
+    const result = new Uint8Array(byteLength);
+    let currentOffset = 0;
+    for (const buffer of buffers) {
+      result.set(new Uint8Array(buffer), currentOffset);
+      currentOffset += buffer.byteLength;
+    }
+    return result.buffer;
+  }
 }
 
 
