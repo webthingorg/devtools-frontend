@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "10a42cd3_dd67edc4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-01T15:39:51Z",
+      "side": 1,
+      "message": "Have we seen this test fail on the bots (I may have just missed it!)?\n\n",
+      "revId": "1d98ad5f38f9ae95e5fd58c8a7815fe94b68f2e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8feb9b2b_232657f2",
         "filename": "test/unittests/front_end/helpers/DOMHelpers.ts",
         "patchSetId": 1
@@ -54,6 +71,30 @@
       "side": 1,
       "message": "😮, for some reason I thought that was something IE/old Edge only.\nAnyways, I am testing it, and `setImmediate` doesn\u0027t work for this case :(",
       "parentUuid": "8feb9b2b_232657f2",
+      "range": {
+        "startLine": 129,
+        "startChar": 4,
+        "endLine": 129,
+        "endChar": 22
+      },
+      "revId": "1d98ad5f38f9ae95e5fd58c8a7815fe94b68f2e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a8b0c55_919d1114",
+        "filename": "test/unittests/front_end/helpers/DOMHelpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-01T15:39:51Z",
+      "side": 1,
+      "message": "would `requestAnimationFrame` work here?\n\nAlso we might have to make this code block `async` and `await` it within the unit test such that the `assert.fail` will be caught correctly in case the click fails to be dispatched.",
+      "parentUuid": "7deb5a99_d08a1c0f",
       "range": {
         "startLine": 129,
         "startChar": 4,
