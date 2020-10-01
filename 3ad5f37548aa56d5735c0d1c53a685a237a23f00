@@ -16,6 +16,23 @@
       "revId": "3ad5f37548aa56d5735c0d1c53a685a237a23f00",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b99cae1_083df84d",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-01T11:24:43Z",
+      "side": 1,
+      "message": "I couldn\u0027t seem to get the following line working. Do you maybe have some idea why it\u0027s complaining: `error TS2339: Property \u0027CtrlOrMeta\u0027 does not exist on type \u0027typeof Modifiers\u0027.` while `Modifiers` has defined a getter `CtrlOrMeta`?",
+      "revId": "3ad5f37548aa56d5735c0d1c53a685a237a23f00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
