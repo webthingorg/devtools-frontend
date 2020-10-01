@@ -62,10 +62,10 @@ export class DeveloperResourcesListView extends UI.Widget.VBox {
 
   /**
    * @param {!UI.ContextMenu.ContextMenu} contextMenu
-   * @param {!GridNode} gridNode
+   * @param {!DataGrid.SortableDataGrid.SortableDataGridNode<!GridNode>} gridNode
    */
   _populateContextMenu(contextMenu, gridNode) {
-    const item = gridNode.item;
+    const item = (/** @type {!GridNode} */ (gridNode)).item;
     contextMenu.clipboardSection().appendItem(ls`Copy URL`, () => {
       Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(item.url);
     });

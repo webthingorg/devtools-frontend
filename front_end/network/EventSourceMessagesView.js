@@ -85,7 +85,7 @@ export class EventSourceMessagesView extends UI.Widget.VBox {
 
   /**
    * @param {!UI.ContextMenu.ContextMenu} contextMenu
-   * @param {!DataGrid.DataGrid.DataGridNode<!EventSourceMessageNode>} node
+   * @param {!DataGrid.SortableDataGrid.SortableDataGridNode<!EventSourceMessageNode>} node
    */
   _onRowContextMenu(contextMenu, node) {
     contextMenu.clipboardSection().appendItem(
@@ -97,6 +97,7 @@ export class EventSourceMessagesView extends UI.Widget.VBox {
 
 /**
  * @unrestricted
+ * @extends {DataGrid.SortableDataGrid.SortableDataGridNode<EventSourceMessageNode>}
  */
 export class EventSourceMessageNode extends DataGrid.SortableDataGrid.SortableDataGridNode {
   /**
