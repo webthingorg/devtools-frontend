@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e63b5f6b_3b12c698",
+        "filename": "front_end/profiler/LiveHeapProfileView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-01T15:34:23Z",
+      "side": 1,
+      "message": "🎉",
+      "range": {
+        "startLine": 166,
+        "startChar": 33,
+        "endLine": 166,
+        "endChar": 42
+      },
+      "revId": "f95d40b94b80f3f766bcb294094fe5f262a376c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
