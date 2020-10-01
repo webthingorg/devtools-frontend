@@ -16,6 +16,24 @@
       "revId": "2832f624a1192c394b54ee38acec4e9c5d955bfe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08f0c2ca_15d9d35a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-10-01T07:32:24Z",
+      "side": 1,
+      "message": "This change initally included a patch for search/SearchConfig.js, but after rebasing it seems to have already been updated to points to string-utilities.js.",
+      "parentUuid": "cc7adbab_fbb0b971",
+      "revId": "2832f624a1192c394b54ee38acec4e9c5d955bfe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
