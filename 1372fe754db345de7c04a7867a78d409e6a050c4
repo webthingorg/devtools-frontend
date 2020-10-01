@@ -80,6 +80,30 @@
       "revId": "1372fe754db345de7c04a7867a78d409e6a050c4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3912e4b9_46f0e29c",
+        "filename": "front_end/lighthouse_worker/LighthouseService.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-01T06:51:02Z",
+      "side": 1,
+      "message": "1. This file isn\u0027t checked by TypeScript yet (see the ts-nocheck at the top)\n2. I don\u0027t really know. Generally I\u0027ve not found layout tests for DevTools to be all that easy to debug, sadly.\n\nI am happy for you to land a fallback, though if the file you mention doesn\u0027t exist on every bot it will likely flake. How confident are you that it will work here?",
+      "parentUuid": "14e86cc9_bbeed917",
+      "range": {
+        "startLine": 99,
+        "startChar": 10,
+        "endLine": 99,
+        "endChar": 20
+      },
+      "revId": "1372fe754db345de7c04a7867a78d409e6a050c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
