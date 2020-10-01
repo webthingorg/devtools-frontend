@@ -66,6 +66,30 @@
     },
     {
       "key": {
+        "uuid": "8ac9168b_df04c8c6",
+        "filename": "inspector_overlay/common.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-01T09:00:51Z",
+      "side": 1,
+      "message": "I like it",
+      "parentUuid": "b32cf4bb_bd22f49d",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 3
+      },
+      "revId": "af948754fcf6249ee70879d57aab6878d94c2929",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f569582c_95dfac56",
         "filename": "inspector_overlay/common.ts",
         "patchSetId": 1
@@ -100,6 +124,30 @@
       "writtenOn": "2020-10-01T08:58:47Z",
       "side": 1,
       "message": "I don\u0027t think I have changed how this function works in the CL. So I don\u0027t actually know what is expected from it. But I\u0027d leave it as is in this CL. I think what was meant by trimEnd here is to make sure strings have max length and end with an ellipsis if it\u0027s longer than needed. We can do it with CSS I believe.",
+      "parentUuid": "f569582c_95dfac56",
+      "range": {
+        "startLine": 178,
+        "startChar": 16,
+        "endLine": 178,
+        "endChar": 23
+      },
+      "revId": "af948754fcf6249ee70879d57aab6878d94c2929",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c239c18_100e547c",
+        "filename": "inspector_overlay/common.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-01T09:00:51Z",
+      "side": 1,
+      "message": "`ellipsify`",
       "parentUuid": "f569582c_95dfac56",
       "range": {
         "startLine": 178,
