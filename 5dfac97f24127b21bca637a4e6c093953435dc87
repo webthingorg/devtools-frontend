@@ -16,6 +16,23 @@
       "revId": "5dfac97f24127b21bca637a4e6c093953435dc87",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f001353f_d61b1ecc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-01T08:05:13Z",
+      "side": 1,
+      "message": "LGTM (rubber stamp)",
+      "revId": "5dfac97f24127b21bca637a4e6c093953435dc87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
