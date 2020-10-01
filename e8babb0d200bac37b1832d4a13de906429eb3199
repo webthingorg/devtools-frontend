@@ -83,6 +83,30 @@
     },
     {
       "key": {
+        "uuid": "1ee1e52d_13f1d104",
+        "filename": "front_end/accessibility/ARIAMetadata.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-01T09:31:03Z",
+      "side": 1,
+      "message": "Ah, right, I missed casting. Let me try that again.",
+      "parentUuid": "e2f34533_a9dd9934",
+      "range": {
+        "startLine": 11,
+        "startChar": 11,
+        "endLine": 11,
+        "endChar": 26
+      },
+      "revId": "e8babb0d200bac37b1832d4a13de906429eb3199",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "68affc6d_402830b5",
         "filename": "front_end/accessibility/ARIAMetadata.js",
         "patchSetId": 2
@@ -103,6 +127,30 @@
       "revId": "e8babb0d200bac37b1832d4a13de906429eb3199",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75700143_d7901acb",
+        "filename": "front_end/accessibility/ARIAMetadata.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-01T09:31:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68affc6d_402830b5",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 5
+      },
+      "revId": "e8babb0d200bac37b1832d4a13de906429eb3199",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
