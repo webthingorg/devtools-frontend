@@ -242,7 +242,7 @@ export class PageResourceLoader extends Common.ObjectWrapper.ObjectWrapper {
           netErrorName: resource.netErrorName,
           message: Host.ResourceLoader.netErrorToMessage(
                        resource.netError, resource.httpStatusCode, resource.netErrorName) ||
-              ls`Unknown error`,
+              '',
           urlValid: undefined
         }
       };
