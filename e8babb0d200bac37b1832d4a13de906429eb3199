@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1509caf3_2c4b8435",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-01T09:10:40Z",
+      "side": 1,
+      "message": "lgtm % nit, thanks!",
+      "revId": "e8babb0d200bac37b1832d4a13de906429eb3199",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e13e5825_3d01cae2",
+        "filename": "front_end/accessibility/ARIAMetadata.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-01T09:10:40Z",
+      "side": 1,
+      "message": "Alternatively we could have typed this as (!Array\u003cstring\u003e|undefined) as to not require the generator changes. But then we would need to cast the object literal to `AttributeConfig` where this is parsed.\n\nI am fine with either solution.",
+      "range": {
+        "startLine": 11,
+        "startChar": 11,
+        "endLine": 11,
+        "endChar": 26
+      },
+      "revId": "e8babb0d200bac37b1832d4a13de906429eb3199",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68affc6d_402830b5",
+        "filename": "front_end/accessibility/ARIAMetadata.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-01T09:10:40Z",
+      "side": 1,
+      "message": "Lets do the old:\n\n const attribute \u003d this._attributes.get(property);\n if (attribute) {\n   return attribute.getEnum();\n }\n\nThen we don\u0027t need the cast.",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 5
+      },
+      "revId": "e8babb0d200bac37b1832d4a13de906429eb3199",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
