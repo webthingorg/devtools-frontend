@@ -22,6 +22,30 @@
       "revId": "b8265a3093143b59922e93c0ad3af6c3e1858c8e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d1b93616_02da3318",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1391,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-10-01T15:42:36Z",
+      "side": 0,
+      "message": "+1",
+      "parentUuid": "45557a49_48149d90",
+      "range": {
+        "startLine": 1391,
+        "startChar": 32,
+        "endLine": 1391,
+        "endChar": 62
+      },
+      "revId": "b8265a3093143b59922e93c0ad3af6c3e1858c8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
