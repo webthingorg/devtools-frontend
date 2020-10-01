@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8feb9b2b_232657f2",
+        "filename": "test/unittests/front_end/helpers/DOMHelpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-01T07:31:58Z",
+      "side": 1,
+      "message": "If I recall correctly, there\u0027s a `setImmediate` function for these cases. It seems to be available to DevTools too: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/text_editor/TextEditorAutocompleteController.js;l\u003d226;drc\u003d9e042a9648294565221d6e2808ba43e665fa7d94",
+      "range": {
+        "startLine": 129,
+        "startChar": 4,
+        "endLine": 129,
+        "endChar": 22
+      },
+      "revId": "1d98ad5f38f9ae95e5fd58c8a7815fe94b68f2e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
