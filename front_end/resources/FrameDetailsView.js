@@ -281,7 +281,35 @@ export class OpenedWindowDetailsView extends UI.ThrottledWidget.ThrottledWidget 
     this._URLFieldValue = this._documentSection.appendField(ls`URL`);
 
     this._securitySection = this._reportView.appendSection(ls`Security`);
-    this._hasDOMAccessValue = this._securitySection.appendField(ls`Access to opener`);
+    this._securitySection.hideWidget();
+    const openerElementField = this._securitySection.appendField(ls`Opener Frame`);
+    const openerElementLink =
+        FrameDetailsView.linkifyIcon('mediumicon-elements-panel', ls`Click to reveal in Elements panel`, () => {
+          if (this._openerDomNode) {
+            Common.Revealer.reveal(this._openerDomNode);
+          }
+        });
+    this._openerElementLinkSpan = document.createElement('span');
+    openerElementLink.insertBefore(this._openerElementLinkSpan, openerElementLink.firstChild);
+    openerElementField.appendChild(openerElementLink);
+
+    const labelForDOMAccessibility = openerElementField.createChild('span', 'inline-name');
+    labelForDOMAccessibility.textContent = ls`Access to opener`;
+    labelForDOMAccessibility.title = ls`Is the opened window able to access its opener via the DOM and vice versa?`;
+    this._valueForDOMAccessibility = openerElementField.createChild('span');
+
+    /** @type {?SDK.ResourceTreeModel.ResourceTreeFrame} */
+    this._openerFrame = null;
+    /** @type {?SDK.DOMModel.DOMNode} */
+    this._openerDomNode = null;
+    openerElementLink.addEventListener('mouseenter', () => {
+      if (this._openerFrame) {
+        this._openerFrame.highlight();
+      }
+    });
+    openerElementLink.addEventListener('mouseleave', () => {
+      SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight();
+    });
 
     this.update();
   }
@@ -293,7 +321,25 @@ export class OpenedWindowDetailsView extends UI.ThrottledWidget.ThrottledWidget 
   async doUpdate() {
     this._reportView.setTitle(this.buildTitle());
     this._URLFieldValue.textContent = this._targetInfo.url;
-    this._hasDOMAccessValue.textContent = booleanToYesNo(this._targetInfo.canAccessOpener);
+    this._valueForDOMAccessibility.textContent = booleanToYesNo(this._targetInfo.canAccessOpener);
+    this.maybeDisplayOpenerFrame();
+  }
+
+  async maybeDisplayOpenerFrame() {
+    const openerFrameId = this._targetInfo.openerFrameId;
+    if (openerFrameId) {
+      const frameManager = SDK.FrameManager.FrameManager.instance();
+      this._openerFrame = frameManager.getFrame(openerFrameId);
+      if (this._openerFrame) {
+        this._openerDomNode = await this._openerFrame.getOwnerDOMNodeOrDocument();
+        if (this._openerDomNode) {
+          this._openerElementLinkSpan.textContent = `<${this._openerDomNode.nodeName().toLocaleLowerCase()}>`;
+          this._securitySection.showWidget();
+          return;
+        }
+      }
+    }
+    this._securitySection.hideWidget();
   }
 
   /**
