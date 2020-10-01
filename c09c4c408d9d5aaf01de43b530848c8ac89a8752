@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "44dcb7fb_9db8befd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-10-01T23:21:47Z",
+      "side": 1,
+      "message": "Please consider this an \"Approved with Suggestions\" because I would prefer to get the name of the function changed up.",
+      "revId": "c09c4c408d9d5aaf01de43b530848c8ac89a8752",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8c88685d_d91f0561",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-10-01T23:21:47Z",
+      "side": 1,
+      "message": "Can we change the name up here to \"_addEntryContextMenuHandler\" or something similar? The name of this function makes it sound as if the Context Menu Event Handler belongs to the top-level control (the RequestHeadersView) rather than the individual entry.",
+      "revId": "c09c4c408d9d5aaf01de43b530848c8ac89a8752",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
