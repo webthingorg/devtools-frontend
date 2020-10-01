@@ -82,6 +82,30 @@
     },
     {
       "key": {
+        "uuid": "e6832203_bf593b2d",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-01T13:36:30Z",
+      "side": 1,
+      "message": "The funny (😂) thing about this is that the items in this array are added in a different file when being passed in a function (yes, in-place edited), which means to properly type it we probably need a typedef shared around. Let me try this and see if I can please both TS and Closure.",
+      "parentUuid": "f96fe5ff_4b4644dd",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 31
+      },
+      "revId": "3ad5f37548aa56d5735c0d1c53a685a237a23f00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5b99cae1_083df84d",
         "filename": "front_end/elements/ElementsTreeElement.js",
         "patchSetId": 1
@@ -111,6 +135,24 @@
       "side": 1,
       "message": "I\u0027m not sure I\u0027m afraid on this one. I think TS struggles at times with enum-esque objects from our Closure land. Not sure if @Tim knows more?",
       "parentUuid": "5b99cae1_083df84d",
+      "revId": "3ad5f37548aa56d5735c0d1c53a685a237a23f00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3998e709_1a982ed6",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-01T13:36:30Z",
+      "side": 1,
+      "message": "There are some precedents of this exact getter property working, for examples, here:\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/ui/FilterBar.js;l\u003d315?q\u003dModifiers.CtrlOrMeta\u0026sq\u003d\u0026ss\u003dchromium%2Fchromium%2Fsrc:third_party%2Fdevtools-frontend%2Fsrc%2F\n\nBut I couldn\u0027t find what\u0027s different from my call site to this call site.",
+      "parentUuid": "88f48ca1_c056457c",
       "revId": "3ad5f37548aa56d5735c0d1c53a685a237a23f00",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
