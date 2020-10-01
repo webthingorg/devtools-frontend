@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "1e62e6b1_75a73317",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 882,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-10-01T10:48:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b94ee206_36684574",
+      "revId": "59c03f923025059ff560bf33cc8d86b011559ad8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59d8efee_892b2fdd",
         "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
         "patchSetId": 8
@@ -67,6 +85,24 @@
       "revId": "59c03f923025059ff560bf33cc8d86b011559ad8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de1c7bef_b817c1f4",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 958,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-10-01T10:48:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59d8efee_892b2fdd",
+      "revId": "59c03f923025059ff560bf33cc8d86b011559ad8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +123,24 @@
     },
     {
       "key": {
+        "uuid": "8640d57a_009f11b0",
+        "filename": "front_end/extensions/LanguageExtensionEndpoint.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-10-01T10:48:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e2f7b1e_4f741baa",
+      "revId": "59c03f923025059ff560bf33cc8d86b011559ad8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7573be9_0cd020b5",
         "filename": "front_end/sdk/DebuggerModel.js",
         "patchSetId": 8
@@ -101,6 +155,24 @@
       "revId": "59c03f923025059ff560bf33cc8d86b011559ad8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5648855f_7df6dae2",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-10-01T10:48:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7573be9_0cd020b5",
+      "revId": "59c03f923025059ff560bf33cc8d86b011559ad8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +193,24 @@
     },
     {
       "key": {
+        "uuid": "f799c0fb_7d852309",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-10-01T10:48:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3e5a472_48f21142",
+      "revId": "59c03f923025059ff560bf33cc8d86b011559ad8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "abe189f0_ee7f5046",
         "filename": "front_end/sdk/DebuggerModel.js",
         "patchSetId": 8
@@ -135,6 +225,24 @@
       "revId": "59c03f923025059ff560bf33cc8d86b011559ad8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8468ceb_8eed995b",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 1507,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-10-01T10:48:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abe189f0_ee7f5046",
+      "revId": "59c03f923025059ff560bf33cc8d86b011559ad8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
