@@ -579,6 +579,30 @@
       "revId": "af948754fcf6249ee70879d57aab6878d94c2929",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbc68f4b_03935f0e",
+        "filename": "inspector_overlay/tool_source_order_impl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-01T09:52:48Z",
+      "side": 1,
+      "message": "A few thoughts:\n\n- what about merging setPlatform and constructor? If setPlatform is always called immediately after instantiating an overlay, we might as well just renamed setPlatform to constructor and therefore fix this issue\n- or, what about always creating a this.container \u003d this.document.createElement(\u0027div\u0027) in the Overlay base class? If most overlays need it, we could create it there, this way no need to have a constructor per sub-class\n\nMy thinking is that creating a fake element in the private field initializer is pretty confusing, I\u0027d love to find a better approach.\nThat said, this can be done in a follow-up. This is a big CL that I don\u0027t want to hold up too long.",
+      "parentUuid": "e7f32a56_9ce51be2",
+      "range": {
+        "startLine": 45,
+        "startChar": 33,
+        "endLine": 45,
+        "endChar": 62
+      },
+      "revId": "af948754fcf6249ee70879d57aab6878d94c2929",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
