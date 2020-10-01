@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c5a4ce5_35106889",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-01T10:31:09Z",
+      "side": 1,
+      "message": "- Does it make sense to only show one line for the opener, and have a \"accessible\" / \"not accessible\" phrase behind it?\n- Can you re-use FrameDetailsView.linkifyIcon?",
+      "revId": "cb46a62957277c90a06020f88ee323616d9f8607",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
