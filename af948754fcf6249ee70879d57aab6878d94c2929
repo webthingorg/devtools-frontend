@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "1020e21a_b215716d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-01T09:01:42Z",
+      "side": 1,
+      "message": "LGTM since this is intended as a direct port of the original code. I like Patrick\u0027s suggestions and would like to see them addressed, but would be fine with that happening in a follow-up CL.",
+      "revId": "af948754fcf6249ee70879d57aab6878d94c2929",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b32cf4bb_bd22f49d",
         "filename": "inspector_overlay/common.ts",
         "patchSetId": 1
