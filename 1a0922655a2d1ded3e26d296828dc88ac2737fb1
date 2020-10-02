@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f56987af_4da22d4f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-02T10:49:38Z",
+      "side": 1,
+      "message": "LGTM, but I think we can use a regular Markdown link to link to the `component_server` doc.",
+      "revId": "1a0922655a2d1ded3e26d296828dc88ac2737fb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "98df0afd_4708a2fc",
+        "filename": "front_end/component_docs/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-02T10:49:38Z",
+      "side": 1,
+      "message": "You should be able to use local Markdown links that use a relative path to link to the `component_server` folder. As example: https://source.chromium.org/chromium/chromium/src/+/master:docs/README.md;l\u003d19;drc\u003d78557c5ac69a2560d4f2dbb5bb5f5d2c14a80085",
+      "range": {
+        "startLine": 5,
+        "startChar": 17,
+        "endLine": 7,
+        "endChar": 147
+      },
+      "revId": "1a0922655a2d1ded3e26d296828dc88ac2737fb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
