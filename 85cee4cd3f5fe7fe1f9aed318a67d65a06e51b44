@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da3a4112_0913b0ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-02T11:05:01Z",
+      "side": 1,
+      "message": "Removing these dead code per our discussion on the team chat. I also ran layout tests locally and it passed.",
+      "revId": "85cee4cd3f5fe7fe1f9aed318a67d65a06e51b44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
