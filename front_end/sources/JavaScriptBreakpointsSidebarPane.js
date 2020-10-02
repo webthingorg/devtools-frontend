@@ -224,6 +224,44 @@ export class JavaScriptBreakpointsSidebarPane extends UI.ThrottledWidget.Throttl
     }
   }
 
+  _ondblclick(event) {
+    if (this._editing) {
+      return;
+    }
+    event.consume(true);
+    const titleDiv = event.currentTarget;
+    const textPrompt = new UI.TextPrompt.TextPrompt();
+    textPrompt.initialize(() => Promise.resolve([]), '');
+    textPrompt.renderAsBlock();
+    const breakpoints = this._breakpointLocations(event).map(breakpointLocation => breakpointLocation.breakpoint);
+    const proxyElement = textPrompt.attachAndStartEditing(titleDiv, () => {
+      this._finishEditing(titleDiv, textPrompt, breakpoints);
+    });
+    textPrompt.setSelectedRange(0, textPrompt.text().length);
+    this._editing = true;
+    proxyElement.addEventListener('keydown', event => {
+      if (isEnterKey(event)) {
+        event.consume(true);
+        this._finishEditing(titleDiv, textPrompt, breakpoints);
+      }
+    });
+  }
+
+  _finishEditing(titleDiv, textPrompt, breakpoints) {
+    this._editing = false;
+    textPrompt.detach();
+    const newExpression = textPrompt.text();
+    // titleDiv.textContent = newExpression;
+    for (const breakpoint of breakpoints) {
+      breakpoint.setTitle(newExpression);
+      const item =
+          this._breakpoints.find(breakpointItem => breakpointItem.locations.some(loc => loc.breakpoint === breakpoint));
+      if (item) {
+        this._list.refreshItem(item);
+      }
+    }
+  }
+
   /**
    * @override
    * @param {!BreakpointItem} item
@@ -236,6 +274,12 @@ export class JavaScriptBreakpointsSidebarPane extends UI.ThrottledWidget.Throttl
     element.tabIndex = this._list.selectedItem() === item ? 0 : -1;
     element.addEventListener('contextmenu', this._breakpointContextMenu.bind(this), true);
     element.addEventListener('click', this._revealLocation.bind(this, element), false);
+
+    const titleDiv = element.createChild('div', 'breakpoint-title');
+    titleDiv.addEventListener('dblclick', this._ondblclick.bind(this));
+    titleDiv.textContent = item.title;
+    element.appendChild(titleDiv);
+
     const checkboxLabel = UI.UIUtils.CheckboxLabel.create('');
 
     const uiLocation = item.locations[0].uiLocation;
@@ -261,7 +305,7 @@ export class JavaScriptBreakpointsSidebarPane extends UI.ThrottledWidget.Throttl
     }
 
     element.addEventListener('keydown', event => {
-      if (event.key === ' ') {
+      if (event.key === ' ' && !this._editing) {
         checkboxLabel.checkboxElement.click();
         event.consume(true);
       }
@@ -378,6 +422,9 @@ export class JavaScriptBreakpointsSidebarPane extends UI.ThrottledWidget.Throttl
    * @param {!Element} element
    */
   _revealLocation(element) {
+    if (this._editing) {
+      return;
+    }
     const uiLocations =
         this._breakpointLocationsForElement(element).map(breakpointLocation => breakpointLocation.uiLocation);
     let uiLocation = null;
@@ -507,6 +554,7 @@ class BreakpointItem {
     this.text = text;
     this.isSelected = isSelected;
     this.showColumn = showColumn;
+    this.title = locations[0].breakpoint._title;
   }
 
   /**

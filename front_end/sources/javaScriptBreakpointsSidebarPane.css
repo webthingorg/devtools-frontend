@@ -20,6 +20,10 @@
   white-space: nowrap;
 }
 
+.breakpoint-title {
+  font-weight: bold;
+}
+
 :not(.breakpoints-list-deactivated) > .breakpoint-entry:hover {
   background-color: #eee;
 }

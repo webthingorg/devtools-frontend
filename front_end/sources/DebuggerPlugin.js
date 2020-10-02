@@ -460,7 +460,8 @@ export class DebuggerPlugin extends Plugin {
       decoration.breakpoint.remove();
       const location = decoration.handle.resolve();
       if (location) {
-        await this._setBreakpoint(location.lineNumber, location.columnNumber, decoration.condition, enabled);
+        await this._setBreakpoint(
+            location.lineNumber, location.columnNumber, decoration.condition, enabled, decoration.title);
       }
     }
   }
@@ -1453,11 +1454,12 @@ export class DebuggerPlugin extends Plugin {
       decoration.breakpoint = breakpoint;
       decoration.condition = breakpoint.condition();
       decoration.enabled = breakpoint.enabled();
+      decoration.title = breakpoint.title();
     } else {
       const handle = this._textEditor.textEditorPositionHandle(editorLocation.lineNumber, editorLocation.columnNumber);
       decoration = new BreakpointDecoration(
           this._textEditor, handle, breakpoint.condition(), breakpoint.enabled(),
-          breakpoint.bound() || !breakpoint.hasBoundScript(), breakpoint);
+          breakpoint.bound() || !breakpoint.hasBoundScript(), breakpoint, breakpoint.title());
       decoration.element.addEventListener('click', this._inlineBreakpointClick.bind(this, decoration), true);
       decoration.element.addEventListener(
           'contextmenu', this._inlineBreakpointContextMenu.bind(this, decoration), true);
@@ -1748,10 +1750,12 @@ export class DebuggerPlugin extends Plugin {
    * @param {number} columnNumber
    * @param {string} condition
    * @param {boolean} enabled
+   * @param {string} title
    */
-  async _setBreakpoint(lineNumber, columnNumber, condition, enabled) {
+  async _setBreakpoint(lineNumber, columnNumber, condition, enabled, title) {
     Common.Settings.Settings.instance().moduleSetting('breakpointsActive').set(true);
-    await this._breakpointManager.setBreakpoint(this._uiSourceCode, lineNumber, columnNumber, condition, enabled);
+    await this._breakpointManager.setBreakpoint(
+        this._uiSourceCode, lineNumber, columnNumber, condition, enabled, title);
     this._breakpointWasSetForTest(lineNumber, columnNumber, condition, enabled);
   }
 
@@ -1854,14 +1858,16 @@ export class BreakpointDecoration {
    * @param {boolean} enabled
    * @param {boolean} bound
    * @param {?Bindings.BreakpointManager.Breakpoint} breakpoint
+   * @param {string} title
    */
-  constructor(textEditor, handle, condition, enabled, bound, breakpoint) {
+  constructor(textEditor, handle, condition, enabled, bound, breakpoint, title) {
     this._textEditor = textEditor;
     this.handle = handle;
     this.condition = condition;
     this.enabled = enabled;
     this.bound = bound;
     this.breakpoint = breakpoint;
+    this.title = title;
     this.element = document.createElement('span');
     this.element.classList.toggle('cm-inline-breakpoint', true);
 

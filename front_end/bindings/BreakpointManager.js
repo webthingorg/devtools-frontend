@@ -105,7 +105,8 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper {
   async copyBreakpoints(fromURL, toSourceCode) {
     const breakpointItems = this._storage.breakpointItems(fromURL);
     for (const item of breakpointItems) {
-      await this.setBreakpoint(toSourceCode, item.lineNumber, item.columnNumber, item.condition, item.enabled);
+      await this.setBreakpoint(
+          toSourceCode, item.lineNumber, item.columnNumber, item.condition, item.enabled, item.title);
     }
   }
 
@@ -121,7 +122,8 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper {
     this._storage.mute();
     const breakpointItems = this._storage.breakpointItems(url);
     for (const item of breakpointItems) {
-      this._innerSetBreakpoint(uiSourceCode, item.lineNumber, item.columnNumber, item.condition, item.enabled);
+      this._innerSetBreakpoint(
+          uiSourceCode, item.lineNumber, item.columnNumber, item.condition, item.enabled, item.title);
     }
     this._storage.unmute();
   }
@@ -149,17 +151,19 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper {
    * @param {number} columnNumber
    * @param {string} condition
    * @param {boolean} enabled
+   * @param {string} title
    * @return {!Promise<!Breakpoint>}
    */
-  async setBreakpoint(uiSourceCode, lineNumber, columnNumber, condition, enabled) {
+  async setBreakpoint(uiSourceCode, lineNumber, columnNumber, condition, enabled, title) {
     let uiLocation = new Workspace.UISourceCode.UILocation(uiSourceCode, lineNumber, columnNumber);
     const normalizedLocation = await this._debuggerWorkspaceBinding.normalizeUILocation(uiLocation);
     if (normalizedLocation.id() !== uiLocation.id()) {
       Common.Revealer.reveal(normalizedLocation);
       uiLocation = normalizedLocation;
     }
+    const titleText = title ? title : 'Breakpoint1';
     return this._innerSetBreakpoint(
-        uiLocation.uiSourceCode, uiLocation.lineNumber, uiLocation.columnNumber, condition, enabled);
+        uiLocation.uiSourceCode, uiLocation.lineNumber, uiLocation.columnNumber, condition, enabled, titleText);
   }
 
   /**
@@ -168,9 +172,10 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper {
    * @param {number} columnNumber
    * @param {string} condition
    * @param {boolean} enabled
+   * @param {string} title
    * @return {!Breakpoint}
    */
-  _innerSetBreakpoint(uiSourceCode, lineNumber, columnNumber, condition, enabled) {
+  _innerSetBreakpoint(uiSourceCode, lineNumber, columnNumber, condition, enabled, title) {
     const itemId = BreakpointManager._breakpointStorageId(uiSourceCode.url(), lineNumber, columnNumber);
     let breakpoint = this._breakpointByStorageId.get(itemId);
     if (breakpoint) {
@@ -179,7 +184,8 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper {
       breakpoint._updateBreakpoint();
       return breakpoint;
     }
-    breakpoint = new Breakpoint(this, uiSourceCode, uiSourceCode.url(), lineNumber, columnNumber, condition, enabled);
+    breakpoint =
+        new Breakpoint(this, uiSourceCode, uiSourceCode.url(), lineNumber, columnNumber, condition, enabled, title);
     this._breakpointByStorageId.set(itemId, breakpoint);
     return breakpoint;
   }
@@ -301,6 +307,18 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper {
 
   /**
    * @param {!Breakpoint} breakpoint
+   * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
+   */
+  updateBreakpointsForUISourceCode(breakpoint, uiSourceCode) {
+    const breakpoints = this._breakpointsForUISourceCode.get(uiSourceCode);
+    if (breakpoints) {
+      // Replace the old breakpoint
+      breakpoints;
+    }
+  }
+
+  /**
+   * @param {!Breakpoint} breakpoint
    * @param {!Workspace.UISourceCode.UILocation} uiLocation
    */
   _uiLocationRemoved(breakpoint, uiLocation) {
@@ -339,12 +357,14 @@ export class Breakpoint {
    * @param {number} columnNumber
    * @param {string} condition
    * @param {boolean} enabled
+   * @param {string} title
    */
-  constructor(breakpointManager, primaryUISourceCode, url, lineNumber, columnNumber, condition, enabled) {
+  constructor(breakpointManager, primaryUISourceCode, url, lineNumber, columnNumber, condition, enabled, title) {
     this._breakpointManager = breakpointManager;
     this._url = url;
     this._lineNumber = lineNumber;
     this._columnNumber = columnNumber;
+    this._title = title ? title : 'Breakpoint2';
 
     /** @type {!Set<!Workspace.UISourceCode.UILocation>} */
     this._uiLocations = new Set();  // Bound locations
@@ -467,6 +487,13 @@ export class Breakpoint {
   }
 
   /**
+   * @return {string}
+   */
+  title() {
+    return this._title;
+  }
+
+  /**
    * @param {!Workspace.UISourceCode.UILocation} uiLocation
    */
   _uiLocationAdded(uiLocation) {
@@ -539,6 +566,19 @@ export class Breakpoint {
    */
   setCondition(condition) {
     this._updateState(condition, this._enabled);
+  }
+
+  /**
+   * @param {string} value
+   */
+  setTitle(value) {
+    this._title = value;
+    this._titleChanged = true;
+    this._breakpointManager._storage._updateBreakpoint(this);
+    this._uiSourceCodes.forEach(sourceCode => {
+      this._breakpointManager.updateBreakpointsForUISourceCode(this, sourceCode);
+    });
+    this._updateBreakpoint();
   }
 
   /**
@@ -716,8 +756,12 @@ export class ModelBreakpoint {
       }
     }
     let newState = null;
-    if (this._breakpoint._isRemoved || !this._breakpoint.enabled() || this._scriptDiverged()) {
+    if (this._breakpoint._isRemoved || !this._breakpoint.enabled() || this._scriptDiverged() ||
+        this._breakpoint._titleChanged) {
       newState = null;
+      if (this._breakpoint._titleChanged) {
+        this._breakpoint._titleChanged = false;
+      }
     } else if (debuggerLocation && debuggerLocation.script()) {
       const script = debuggerLocation.script();
       if (!script) {
@@ -998,6 +1042,7 @@ Storage.Item = class {
     this.columnNumber = breakpoint.columnNumber();
     this.condition = breakpoint.condition();
     this.enabled = breakpoint.enabled();
+    this.title = breakpoint.title();
   }
 };
 

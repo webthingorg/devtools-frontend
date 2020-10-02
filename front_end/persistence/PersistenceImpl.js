@@ -311,7 +311,8 @@ export class PersistenceImpl extends Common.ObjectWrapper.ObjectWrapper {
     await Promise.all(breakpoints.map(breakpoint => {
       breakpoint.remove(false /* keepInStorage */);
       return this._breakpointManager.setBreakpoint(
-          to, breakpoint.lineNumber(), breakpoint.columnNumber(), breakpoint.condition(), breakpoint.enabled());
+          to, breakpoint.lineNumber(), breakpoint.columnNumber(), breakpoint.condition(), breakpoint.enabled(),
+          breakpoint.title());
     }));
   }
 
