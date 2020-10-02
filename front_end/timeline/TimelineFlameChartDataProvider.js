@@ -481,7 +481,9 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     const blackboxingEnabled = !isExtension && Root.Runtime.experiments.isEnabled('blackboxJSFramesOnTimeline');
     let maxStackDepth = 0;
     let group = null;
-    if (track && track.type === TimelineModel.TimelineModel.TrackType.MainThread) {
+    if (track &&
+        (track.type === TimelineModel.TimelineModel.TrackType.MainThread ||
+         track.type === TimelineModel.TimelineModel.TrackType.Worker)) {
       group = this._appendHeader(
           /** @type {string} */ (title), /** @type {!PerfUI.FlameChart.GroupStyle} */ (style), selectable);
       group._track = track;
