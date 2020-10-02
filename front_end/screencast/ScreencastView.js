@@ -82,16 +82,15 @@ export class ScreencastView extends UI.Widget.VBox {
     this._canvasElement.addEventListener('keypress', this._handleKeyEvent.bind(this), false);
     this._canvasElement.addEventListener('blur', this._handleBlurEvent.bind(this), false);
 
-    this._titleElement = this._canvasContainerElement.createChild('div', 'screencast-element-title monospace hidden');
+    this._titleElement =
+        this._canvasContainerElement.createChild('div', 'screencast-element-title monospace hidden -theme-not-patched');
     this._tagNameElement = this._titleElement.createChild('span', 'screencast-tag-name');
-    this._nodeIdElement = this._titleElement.createChild('span', 'screencast-node-id');
-    this._classNameElement = this._titleElement.createChild('span', 'screencast-class-name');
+    this._attributeElement = this._titleElement.createChild('span', 'screencast-attribute');
     this._titleElement.createTextChild(' ');
-    this._nodeWidthElement = this._titleElement.createChild('span');
-    this._titleElement.createChild('span', 'screencast-px').textContent = 'px';
-    this._titleElement.createTextChild(' × ');
-    this._nodeHeightElement = this._titleElement.createChild('span');
-    this._titleElement.createChild('span', 'screencast-px').textContent = 'px';
+    const dimension = this._titleElement.createChild('span', 'screencast-dimension');
+    this._nodeWidthElement = dimension.createChild('span');
+    dimension.createTextChild(' × ');
+    this._nodeHeightElement = dimension.createChild('span');
     this._titleElement.style.top = '0';
     this._titleElement.style.left = '0';
 
@@ -532,13 +531,7 @@ export class ScreencastView extends UI.Widget.VBox {
 
     const lowerCaseName = this._node.localName() || this._node.nodeName().toLowerCase();
     this._tagNameElement.textContent = lowerCaseName;
-    this._nodeIdElement.textContent = this._node.getAttribute('id') ? '#' + this._node.getAttribute('id') : '';
-    this._nodeIdElement.textContent = this._node.getAttribute('id') ? '#' + this._node.getAttribute('id') : '';
-    let className = this._node.getAttribute('class');
-    if (className && className.length > 50) {
-      className = className.substring(0, 50) + '…';
-    }
-    this._classNameElement.textContent = className || '';
+    this._attributeElement.textContent = getAttributesForElementTitle(this._node);
     this._nodeWidthElement.textContent = this._model.width;
     this._nodeHeightElement.textContent = this._model.height;
 
@@ -847,4 +840,20 @@ export class ProgressTracker {
   _displayProgress(progress) {
     this._element.style.width = (100 * progress) + '%';
   }
+}
+
+function getAttributesForElementTitle(node) {
+  const id = node.getAttribute('id');
+  const className = node.getAttribute('class');
+
+  let selector = id ? '#' + id : '';
+  if (className) {
+    selector += '.' + className.trim().replace(/\s+/g, '.');
+  }
+
+  if (selector.length > 50) {
+    selector = selector.substring(0, 50) + '…';
+  }
+
+  return selector;
 }
