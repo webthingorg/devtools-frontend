@@ -2,9 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
 import * as Common from '../common/common.js';
 import * as Root from '../root/root.js';
 import * as SDK from '../sdk/sdk.js';
@@ -19,15 +16,16 @@ export class TimelineJSProfileProcessor {
    */
   static generateTracingEventsFromCpuProfile(jsProfileModel, thread) {
     const idleNode = jsProfileModel.idleNode;
-    const programNode = jsProfileModel.programNode;
+    const programNode = jsProfileModel.programNode || null;
     const gcNode = jsProfileModel.gcNode;
-    const samples = jsProfileModel.samples;
+    const samples = jsProfileModel.samples || [];
     const timestamps = jsProfileModel.timestamps;
     const jsEvents = [];
-    /** @type {!Map<!Object, !Array<!Protocol.Runtime.CallFrame>>} */
+    /** @type {!Map<?Object, !Array<!Protocol.Runtime.CallFrame>>} */
     const nodeToStackMap = new Map();
     nodeToStackMap.set(programNode, []);
     for (let i = 0; i < samples.length; ++i) {
+      /** @type {?SDK.ProfileTreeModel.ProfileNode} */
       let node = jsProfileModel.nodeByIndex(i);
       if (!node) {
         console.error(`Node with unknown id ${samples[i]} at index ${i}`);
@@ -86,8 +84,11 @@ export class TimelineJSProfileProcessor {
       return false;
     }
 
+    /** @type {!Array<!SDK.TracingModel.Event>} */
     const jsFrameEvents = [];
+    /** @type {!Array<!SDK.TracingModel.Event>} */
     const jsFramesStack = [];
+    /** @type {!Array<number>} */
     const lockedJsStackDepth = [];
     let ordinal = 0;
     const showAllEvents = Root.Runtime.experiments.isEnabled('timelineShowAllEvents');
@@ -122,7 +123,7 @@ export class TimelineJSProfileProcessor {
      * @param {!SDK.TracingModel.Event} e
      */
     function onEndEvent(e) {
-      truncateJSStack(lockedJsStackDepth.pop(), e.endTime);
+      truncateJSStack(/** @type {number} */ (lockedJsStackDepth.pop()), /** @type {number} */ (e.endTime));
     }
 
     /**
@@ -131,7 +132,7 @@ export class TimelineJSProfileProcessor {
      */
     function truncateJSStack(depth, time) {
       if (lockedJsStackDepth.length) {
-        const lockedDepth = lockedJsStackDepth.peekLast();
+        const lockedDepth = /** @type {number}*/ (lockedJsStackDepth.peekLast());
         if (depth < lockedDepth) {
           console.error(`Child stack is shallower (${depth}) than the parent stack (${lockedDepth}) at ${time}`);
           depth = lockedDepth;
@@ -204,7 +205,7 @@ export class TimelineJSProfileProcessor {
         if (!equalFrames(newFrame, oldFrame)) {
           break;
         }
-        jsFramesStack[i].setEndTime(Math.max(jsFramesStack[i].endTime, endTime));
+        jsFramesStack[i].setEndTime(Math.max(/** @type {number} */ (jsFramesStack[i].endTime), endTime));
       }
       truncateJSStack(i, e.startTime);
       for (; i < callFrames.length; ++i) {
@@ -256,6 +257,7 @@ export class TimelineJSProfileProcessor {
    * @return {!Array<!SDK.TracingManager.EventPayload>}
    */
   static buildTraceProfileFromCpuProfile(profile, tid, injectPageEvent, name) {
+    /** @type {!Array<!SDK.TracingManager.EventPayload>}} */
     const events = [];
     if (injectPageEvent) {
       appendEvent('TracingStartedInPage', {data: {'sessionId': '1'}}, 0, 0, 'M');
@@ -272,10 +274,13 @@ export class TimelineJSProfileProcessor {
     for (let i = 0; i < nodes.length; ++i) {
       idToNode.set(nodes[i].id, nodes[i]);
     }
+    /** @type {?SDK.TracingManager.EventPayload} */
     let programEvent = null;
+    /** @type {?SDK.TracingManager.EventPayload} */
     let functionEvent = null;
+    /** @type {number} */
     let nextTime = profile.startTime;
-    let currentTime;
+    let currentTime = 0;
     const samples = profile['samples'];
     const timeDeltas = profile['timeDeltas'];
     for (let i = 0; i < samples.length; ++i) {
