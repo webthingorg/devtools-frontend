@@ -16,6 +16,52 @@
       "revId": "ac04a1b8cfb3e495c54e608d336d5b46bed5eeed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a178adb_7f10e87c",
+        "filename": "front_end/timeline_model/TimelineJSProfile.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-02T10:54:30Z",
+      "side": 1,
+      "message": "Why is Root needed?",
+      "range": {
+        "startLine": 9,
+        "startChar": 12,
+        "endLine": 9,
+        "endChar": 16
+      },
+      "revId": "ac04a1b8cfb3e495c54e608d336d5b46bed5eeed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "731df3ae_f4056b04",
+        "filename": "test/unittests/front_end/timeline_model/TimelineJSProfile_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-02T10:54:30Z",
+      "side": 1,
+      "message": "Do we need some after() code to remove / reset side-effects here? My understanding of SDK is that it does change things, and my only concern is that it could therefore affect other tests.",
+      "range": {
+        "startLine": 13,
+        "startChar": 10,
+        "endLine": 13,
+        "endChar": 27
+      },
+      "revId": "ac04a1b8cfb3e495c54e608d336d5b46bed5eeed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
