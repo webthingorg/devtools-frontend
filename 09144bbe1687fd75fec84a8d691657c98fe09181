@@ -22,6 +22,30 @@
       "revId": "09144bbe1687fd75fec84a8d691657c98fe09181",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2c27ec7_415a9efe",
+        "filename": "test/unittests/front_end/helpers/DOMHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2020-10-02T16:22:49Z",
+      "side": 1,
+      "message": "The error is happening locally and in our build system. I have debugged the test, and the button is rendered, the selector for the button is returning the button correctly, the `dispatchEvent` method is returning success. I have tried to remove the `withNoMuations` and it didn\u0027t work, I also have tried to get the item button from inside the `withNoMuatation` and nothing is working. waitForScroll works perfectly, if I debug the test and I click manually the button, the test pass.\n\nAre you testing in windows or Linux? I\u0027m using windows.",
+      "parentUuid": "f76792ba_1c47e908",
+      "range": {
+        "startLine": 137,
+        "startChar": 2,
+        "endLine": 137,
+        "endChar": 5
+      },
+      "revId": "09144bbe1687fd75fec84a8d691657c98fe09181",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
