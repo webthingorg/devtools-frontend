@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2db1e281_fc9c095c",
+        "filename": "front_end/components/TargetDetachedDialog.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-02T13:03:29Z",
+      "side": 1,
+      "message": "What\u0027s making the ts-ignore necessary here?",
+      "range": {
+        "startLine": 56,
+        "startChar": 4,
+        "endLine": 56,
+        "endChar": 17
+      },
+      "revId": "4a13a0185c5b924d30c4c702ab55b9d3b2b7caef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
