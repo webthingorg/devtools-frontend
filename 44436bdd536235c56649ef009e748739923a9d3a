@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7ddc8fb7_e097429f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-02T05:47:12Z",
+      "side": 1,
+      "message": "No problem. There\u0027s one or two big files left in elements/, but then that\u0027s it. Hopefully we can wrap this folder up in this month 😄",
+      "parentUuid": "754aa261_5ed174d5",
+      "revId": "44436bdd536235c56649ef009e748739923a9d3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e39a5349_20f241b4",
         "filename": "front_end/elements/ElementsTreeElement.js",
         "patchSetId": 3
@@ -39,6 +57,30 @@
       "revId": "44436bdd536235c56649ef009e748739923a9d3a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b07177a8_025e2983",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-02T05:47:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e39a5349_20f241b4",
+      "range": {
+        "startLine": 630,
+        "startChar": 21,
+        "endLine": 630,
+        "endChar": 61
+      },
+      "revId": "44436bdd536235c56649ef009e748739923a9d3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "28276c37_cff9c2b2",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 910,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-02T05:47:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07eae913_58926340",
+      "range": {
+        "startLine": 910,
+        "startChar": 6,
+        "endLine": 910,
+        "endChar": 41
+      },
+      "revId": "44436bdd536235c56649ef009e748739923a9d3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bb0a096f_2d462879",
         "filename": "front_end/elements/ElementsTreeElement.js",
         "patchSetId": 3
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "7b76b4dc_a7734264",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-02T05:47:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb0a096f_2d462879",
+      "range": {
+        "startLine": 924,
+        "startChar": 6,
+        "endLine": 924,
+        "endChar": 34
+      },
+      "revId": "44436bdd536235c56649ef009e748739923a9d3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4f7d77a1_f6cc0616",
         "filename": "front_end/elements/ElementsTreeElement.js",
         "patchSetId": 3
@@ -108,6 +198,30 @@
       "revId": "44436bdd536235c56649ef009e748739923a9d3a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0753c9c2_c293f7ee",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-02T05:47:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f7d77a1_f6cc0616",
+      "range": {
+        "startLine": 1065,
+        "startChar": 6,
+        "endLine": 1065,
+        "endChar": 30
+      },
+      "revId": "44436bdd536235c56649ef009e748739923a9d3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {

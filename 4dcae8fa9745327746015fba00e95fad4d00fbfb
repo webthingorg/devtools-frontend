@@ -22,6 +22,30 @@
       "revId": "4dcae8fa9745327746015fba00e95fad4d00fbfb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9c3c529_1caf6e00",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 939,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-02T05:47:12Z",
+      "side": 0,
+      "message": "Good call. I was only searching on TextEditor class and didn\u0027t find any static or dynamically added method called `onResize`. Turns out this `editor` can also be a `CodeMirrorTextEditor`, and that has a `onResize` implemented. Thanks for catching this!",
+      "parentUuid": "e939ef38_50739a7a",
+      "range": {
+        "startLine": 939,
+        "startChar": 6,
+        "endLine": 939,
+        "endChar": 38
+      },
+      "revId": "4dcae8fa9745327746015fba00e95fad4d00fbfb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
