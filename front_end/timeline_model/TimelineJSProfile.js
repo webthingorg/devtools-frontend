@@ -6,6 +6,7 @@
 // TODO(crbug.com/1011811): Enable TypeScript compiler checks
 
 import * as Common from '../common/common.js';
+import * as Root from '../root/root.js';
 import * as SDK from '../sdk/sdk.js';
 
 import {RecordType, TimelineModelImpl} from './TimelineModel.js';
@@ -110,7 +111,9 @@ export class TimelineJSProfileProcessor {
      */
     function onInstantEvent(e, parent) {
       e.ordinal = ++ordinal;
-      if (parent && isJSInvocationEvent(parent)) {
+      // Force JS Samples to show up even if we are not inside a JS invocation event, because we
+      // can be missing the start of JS invocation events if we start tracing half-way through.
+      if ((parent && isJSInvocationEvent(parent)) || e.name === RecordType.JSSample) {
         extractStackTrace(e);
       }
     }
