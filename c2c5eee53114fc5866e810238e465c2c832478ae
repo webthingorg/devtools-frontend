@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0471afd4_e1b8925d",
+        "filename": "front_end/color_picker/Spectrum.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1404,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-02T13:17:40Z",
+      "side": 1,
+      "message": "This is added to fix missing field in ColorSwatchPopoverIcon.js.",
+      "range": {
+        "startLine": 1404,
+        "startChar": 101,
+        "endLine": 1404,
+        "endChar": 143
+      },
+      "revId": "c2c5eee53114fc5866e810238e465c2c832478ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
