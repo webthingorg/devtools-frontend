@@ -143,6 +143,9 @@ export class DebuggerWorkspaceBinding {
    */
   createLiveLocation(rawLocation, updateDelegate, locationPool) {
     const modelData = this._debuggerModelToData.get(rawLocation.script().debuggerModel);
+    if (!modelData) {
+      return null;
+    }
     const liveLocationPromise = modelData._createLiveLocation(rawLocation, updateDelegate, locationPool);
     this._recordLiveLocationChange(liveLocationPromise);
     return liveLocationPromise;
