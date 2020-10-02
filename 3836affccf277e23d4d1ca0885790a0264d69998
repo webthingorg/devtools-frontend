@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cc59bb03_308a55ea",
+        "filename": "front_end/sources/ThreadsSidebarPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-10-02T21:10:02Z",
+      "side": 1,
+      "message": "Should this be moved two lines below, after the item is refreshed and inside the if block?",
+      "revId": "3836affccf277e23d4d1ca0885790a0264d69998",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
