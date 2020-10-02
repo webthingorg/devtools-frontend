@@ -686,6 +686,13 @@ export class Event {
   }
 
   /**
+   * @param {number} startTime
+   */
+  setStartTime(startTime) {
+    this.startTime = startTime;
+  }
+
+  /**
    * @param {number} endTime
    */
   setEndTime(endTime) {

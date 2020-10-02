@@ -457,6 +457,9 @@ Click the reload button <ph name="RELOADBUTTON">$3s<ex>reload</ex></ph> or hit <
   <message name="IDS_DEVTOOLS_6525b37c568c526bde7c02fac8195c73" desc="Number followed by percent sign">
     <ph name="VALUE___THIS__GRANDTOTALTIME______">$1.1f<ex>20</ex></ph> %%
   </message>
+  <message name="IDS_DEVTOOLS_6655d5fc879980d9a71da13973746789" desc="Text in Timeline Flame Chart Data Provider of the Performance panel">
+    User Action
+  </message>
   <message name="IDS_DEVTOOLS_66f1aed235ade25269a561e81cbbb43a" desc="Text in Timeline UIUtils of the Performance panel">
     Scripting
   </message>
