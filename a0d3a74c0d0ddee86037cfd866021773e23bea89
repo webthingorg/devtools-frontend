@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c16f414_46709a65",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-02T14:12:22Z",
+      "side": 1,
+      "message": "lgtm % question and i think a small bug",
+      "revId": "a0d3a74c0d0ddee86037cfd866021773e23bea89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9092361a_4ff4d835",
+        "filename": "front_end/sources/TabbedEditorContainer.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-02T14:12:22Z",
+      "side": 1,
+      "message": "wouldn\u0027t `instanceof` include the falsy check?",
+      "range": {
+        "startLine": 233,
+        "startChar": 50,
+        "endLine": 233,
+        "endChar": 60
+      },
+      "revId": "a0d3a74c0d0ddee86037cfd866021773e23bea89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbed5f87_26a2eccc",
+        "filename": "front_end/sources/TabbedEditorContainer.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-02T14:12:22Z",
+      "side": 1,
+      "message": "If index \u003d\u003d\u003d 0, we would now return -1 instead. I think we really have to work with `has` and then cast the result of `get` to `number`.",
+      "range": {
+        "startLine": 803,
+        "startChar": 4,
+        "endLine": 803,
+        "endChar": 16
+      },
+      "revId": "a0d3a74c0d0ddee86037cfd866021773e23bea89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
