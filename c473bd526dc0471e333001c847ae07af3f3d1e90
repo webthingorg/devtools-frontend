@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "f27556e2_b2935d03",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-10-02T15:53:10Z",
+      "side": 1,
+      "message": "This might be pretty jarring for a tool like Network, or even the protocol monitor: something where new rows may be constantly added, and the user might not always want to scroll to the bottom, even if there aren\u0027t any rows currently selected? I don\u0027t quite recall the existing behavior in that case",
+      "parentUuid": "cf3716b8_699077bd",
+      "range": {
+        "startLine": 37,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 5
+      },
+      "revId": "c473bd526dc0471e333001c847ae07af3f3d1e90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bc4a6287_097216d6",
         "filename": "front_end/ui/components/DataGrid.ts",
         "patchSetId": 2
@@ -105,6 +129,30 @@
       "writtenOn": "2020-09-30T11:56:55Z",
       "side": 1,
       "message": "Generally I prefer it if we say if (event.key !\u003d\u003d \u0027ArrowDown\u0027 \u0026\u0026 event.key !\u003d\u003d \u0027ArrowUp\u0027) { return; }\n\nRight now there\u0027s an update for all keypresses, which seems unnecessary / error-prone",
+      "range": {
+        "startLine": 77,
+        "startChar": 4,
+        "endLine": 84,
+        "endChar": 5
+      },
+      "revId": "c473bd526dc0471e333001c847ae07af3f3d1e90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f315c9a_8b8ed1b4",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-10-02T15:53:10Z",
+      "side": 1,
+      "message": "Might be planned for later, but I\u0027m not sure this method handles cases where treeview like structures are present? For instance: memory tool, indexedDB, some network tool cases when grouped by frame, etc. Legacy grid also supports left/right arrow presses at the base layer to account for tree node expansion and collapsing.",
+      "parentUuid": "10a15bf8_d669a42f",
       "range": {
         "startLine": 77,
         "startChar": 4,

@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "69a32bcf_556324e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-10-02T15:53:10Z",
+      "side": 1,
+      "message": "Hey Jack, I took a quick look at some of this CL, but haven\u0027t really dug into everything yet. For context, I spent quite a bit of time last year updating the accessibility, keyboard navigation, and some bugs just generally related to the legacy datagrid. I\u0027ve left a few comments mostly pertaining to the pitfalls I ran into then, and am happy to go into more detail, but basically there were 2 fundamental issues with the legacy grid that were a pain to work around for Screen reader usage and keyboard navigation:\n\n1) Separate Tables for Header row and Data row: this causes all kinds of problems for screen readers. Most SRs have built in support for providing header row/column context when using a built in html table element, but since the header was in a separate table for Datagrid, we had to do all kinds of nasty work arounds involving a hidden header row in the data table and faking labels, etc.\n2) Focus on the grid element instead of Rows: As you probably have realized here, the legacy datagrid works by keeping focus on the div containing the tables, and using CSS to apply focus like characteristics to the selected row. Again, this caused all sorts of headaches for Screen readers, as the expected table/grid navigation pattern is to give focus to the individual rows and use arrow keys to navigate, and the SR could tell from rows focused what data to read out. We had to basically fake all this using a constantly updating hidden label that would update as selection changed, and didn\u0027t always work well.\nAdditionally, having everything wrapped in a div that got focus caused a ton of problems for \"browse\" mode (used to read out contents on the page instead of interact with them), as we couldn\u0027t mark the grid as a \"table\" since it would dump out all the contents at once instead of reading row by row as expected.\n\nI havent looked into everything, but it looks to me like you are currently planning on keeping the above to friction points in the new implementation (separate header and data tables, focus on the whole table). My guess is that all those accessibility hacks would need to be re-written here to maintain the level of accessibility we currently have. However, it might be possible to address those issues without hacks if some time was spent to change the fundamental component during this re-write.\n\nHappy to discuss more if you have questions, and sorry for the very long comment....",
+      "revId": "c4617ea51473168bf211d7cb185d2e5b37da4409",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bf85097_bd5578ab",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-10-02T15:53:10Z",
+      "side": 1,
+      "message": "This question came up with the first round of A11y work with the legacy datagrid. Pavel\u0027s preference was that the first row wasn\u0027t selected by default, as there were cases where actually selecting  an item in the Memory or Performance grids would trigger a bunch of calculations that didn\u0027t make sense to always do unless the user really wanted to see the data (instead of just tabbing through the devtools, for instance). The compromise we came up with was not selecting the first row by default, and instead waiting until the user clicks a row or presses arrow up/down to select the first/last row. Network tool is a good example of this. We also provided the opportunity to allow select by default if desired, and some of the tables in the performance tool do this.",
+      "range": {
+        "startLine": 90,
+        "startChar": 2,
+        "endLine": 90,
+        "endChar": 72
+      },
+      "revId": "c4617ea51473168bf211d7cb185d2e5b37da4409",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f45e9d65_1e2c54bc",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-10-02T15:53:10Z",
+      "side": 1,
+      "message": "There were several accessibility issues, especially around SR usage and expected patterns that were the result of having the headers in a separate table from the data. Is there any way we could combine and use CSS/JS logic to lock the header to the top of the table and scroll the rest of the Data grid?",
+      "range": {
+        "startLine": 171,
+        "startChar": 4,
+        "endLine": 173,
+        "endChar": 20
+      },
+      "revId": "c4617ea51473168bf211d7cb185d2e5b37da4409",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0debf7c0_cee58b75",
+        "filename": "front_end/ui/components/DataGridController.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-10-02T15:53:10Z",
+      "side": 1,
+      "message": "IIRC, the legacy datagrid allows implementers to define their own comparison for row sorting in addition to a default sorting method?",
+      "range": {
+        "startLine": 68,
+        "startChar": 5,
+        "endLine": 68,
+        "endChar": 49
+      },
+      "revId": "c4617ea51473168bf211d7cb185d2e5b37da4409",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ca550e1_4e25db19",
+        "filename": "front_end/ui/components/DataGridView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-10-02T15:53:10Z",
+      "side": 1,
+      "message": "Are there plans to also create components for the ViewportDatagrid and the SortableDataGrid? For context, these were created specifically for Memory/perf tools, were there were often so many entries for the grid that attaching them all to the DOM would hang the entire tools. Basically, they only attach enough Rows to the DOM to fill the visible view + some entries above and below to allow for smoother scrolling (similar to a newsfeed app, etc).",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 40
+      },
+      "revId": "c4617ea51473168bf211d7cb185d2e5b37da4409",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
