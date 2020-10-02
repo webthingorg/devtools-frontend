@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "18d9d14a_0fd1cf25",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2020-10-02T16:48:39Z",
+      "side": 1,
+      "message": "alexrudenko@, mathias@, can one of you stamp this please? :)",
+      "revId": "55683e71427f1a08b3849b1c7411b9f6c4831006",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
