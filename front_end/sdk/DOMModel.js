@@ -1088,14 +1088,14 @@ export class DOMNode {
     }
     if (lowerCaseName === 'input' && this.getAttribute('type') && !this.getAttribute('id') &&
         !this.getAttribute('class')) {
-      return lowerCaseName + '[type="' + this.getAttribute('type') + '"]';
+      return lowerCaseName + '[type="' + CSS.escape(this.getAttribute('type')) + '"]';
     }
     if (this.getAttribute('id')) {
-      return lowerCaseName + '#' + this.getAttribute('id');
+      return lowerCaseName + '#' + CSS.escape(this.getAttribute('id'));
     }
     if (this.getAttribute('class')) {
-      return (lowerCaseName === 'div' ? '' : lowerCaseName) + '.' +
-          this.getAttribute('class').trim().replace(/\s+/g, '.');
+      const classList = this.getAttribute('class').trim().split(/\s+/g);
+      return (lowerCaseName === 'div' ? '' : lowerCaseName) + '.' + classList.map(cls => CSS.escape(cls)).join('.');
     }
     return lowerCaseName;
   }
