@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b9b5f65c_9071699e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-02T10:53:57Z",
+      "side": 1,
+      "message": "Thanks for taking the time to look into this. If the test is just running for a long time, we need to up the timeout. We can rewrite the test once the DataView is a component are easier to test.\n\nIn any case, if the timeout is not the root cause, we will also learn it from this CL!",
+      "revId": "e50cb8ddf36782fe01a5213a75039af36f396cf1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
