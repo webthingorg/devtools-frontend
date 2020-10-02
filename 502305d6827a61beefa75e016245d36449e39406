@@ -105,6 +105,24 @@
     },
     {
       "key": {
+        "uuid": "75c022aa_1d03f844",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-02T04:39:23Z",
+      "side": 1,
+      "message": "Yes, that\u0027s what I meant, thanks a lot!",
+      "parentUuid": "d704c4ba_4784f730",
+      "revId": "502305d6827a61beefa75e016245d36449e39406",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca955de3_7df22617",
         "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
         "patchSetId": 1
