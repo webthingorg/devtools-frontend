@@ -272,7 +272,7 @@ export class ScreencastView extends UI.Widget.VBox {
       this.highlightInOverlay({node}, this._inspectModeConfig);
       this._domModel.overlayModel().nodeHighlightRequested(node.id);
     } else if (event.type === 'click') {
-      this._domModel.overlayModel().inspectNodeRequested(node.backendNodeId());
+      this._domModel.overlayModel().inspectNodeRequested({backendNodeId: node.backendNodeId()});
     }
   }
 
