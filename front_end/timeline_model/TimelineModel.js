@@ -256,7 +256,6 @@ export class TimelineModelImpl {
         layoutShiftEvents.push(...shifts);
       }
     }
-
     this._processSyncBrowserEvents(tracingModel);
     if (this._browserFrameTracking) {
       this._processThreadsForBrowserFrames(tracingModel);
@@ -275,6 +274,10 @@ export class TimelineModelImpl {
     this._processAsyncBrowserEvents(tracingModel);
     this._buildGPUEvents(tracingModel);
     this._buildLoadingEvents(tracingModel, layoutShiftEvents);
+
+    // Make a copy of the EventDispatch events in Main to be passed to User Action
+    const eventTimingEvents = this._copyEventTimingEvents(tracingModel);
+    this._appendBuiltEventTimingEvents(tracingModel, eventTimingEvents);
     this._resetProcessingState();
   }
 
@@ -541,6 +544,60 @@ export class TimelineModelImpl {
         timelineData.backendNodeId = eventData['impacted_nodes'][0]['node_id'];
       }
     }
+  }
+
+  /**
+   * @param {!SDK.TracingModel.TracingModel} tracingModel
+   * @param {!Array<!SDK.TracingModel.Event>} events
+   */
+  _copyEventTimingEvents(tracingModel) {
+    const thread = tracingModel.threadByName('Renderer', 'CrRendererMain');
+    if (!thread) {
+      return;
+    }
+    const copied = [];
+    thread._events.filter(event => {
+      if (!event) {
+        return false;
+      }
+      if (event.name !== 'EventDispatch') {
+        return true;
+      }
+      if (event.hasCategory('devtools.timeline') && event.name === 'EventDispatch') {
+        if (event.args.data.type === 'mousedown' || event.args.data.type === 'pointerdown' ||
+            event.args.data.type === 'keydown' || event.args.data.type === 'click') {
+          const tempEvent = new SDK.TracingModel.Event(
+              event.categoriesString, event.name, SDK.TracingModel.Phase.Complete, event.startTime, event.thread);
+          // TODO (raphaellucena@) - Change delay values to grab from the tracing data
+          tempEvent.args = {...event.args, data: {...event.args.data}};
+          tempEvent.args.data.beforeDelay = 50;
+          tempEvent.args.data.afterDelay = 50;
+          // raphaellucena@ - Currently including delays into duration as workaround
+          // for TimelineFlameChartDataProvider.decorateEntry()
+          tempEvent.startTime -= tempEvent.args.data.beforeDelay;
+          tempEvent.setEndTime(event.endTime + tempEvent.args.data.afterDelay);
+          copied.push(tempEvent);
+          return false;
+        }
+      }
+    });
+    return copied;
+  }
+
+  /**
+   * @param {!SDK.TracingModel.TracingModel} tracingModel
+   * @param {!Array<!SDK.TracingModel.Event>} events
+   */
+  _appendBuiltEventTimingEvents(tracingModel, events) {
+    const thread = tracingModel.threadByName('Renderer', 'CrRendererMain');
+    if (!thread) {
+      return;
+    }
+    const track = this._ensureNamedTrack(TrackType.UserAction);
+    track.thread = thread;
+    track.events = track.events.concat(events).sort(function(a, b) {
+      return a.startTime - b.startTime;
+    });
   }
 
   _resetProcessingState() {
@@ -1724,7 +1781,9 @@ export const TrackType = {
   Raster: Symbol('Raster'),
   GPU: Symbol('GPU'),
   Experience: Symbol('Experience'),
+  UserAction: Symbol('UserAction'),
   Other: Symbol('Other'),
+
 };
 
 export class PageFrame {

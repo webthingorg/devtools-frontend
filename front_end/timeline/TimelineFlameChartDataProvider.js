@@ -82,6 +82,8 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     this._interactionsHeaderLevel1 = this._buildGroupStyle({useFirstLineForOverview: true});
     this._interactionsHeaderLevel2 = this._buildGroupStyle({padding: 2, nestingLevel: 1});
     this._experienceHeader = this._buildGroupStyle({collapsible: false});
+    this._userActionHeader =
+        this._buildGroupStyle({shareHeaderLine: true, useFirstLineForOverview: true, collapsible: true});
 
     /** @type {!Map<string, number>} */
     this._flowEventIndexById = new Map();
@@ -298,16 +300,18 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
           return 3;
         case TimelineModel.TimelineModel.TrackType.Experience:
           return 4;
+        case TimelineModel.TimelineModel.TrackType.UserAction:
+          return 5;
         case TimelineModel.TimelineModel.TrackType.MainThread:
-          return track.forMainFrame ? 5 : 6;
+          return track.forMainFrame ? 6 : 7;
         case TimelineModel.TimelineModel.TrackType.Worker:
-          return 7;
-        case TimelineModel.TimelineModel.TrackType.Raster:
           return 8;
-        case TimelineModel.TimelineModel.TrackType.GPU:
+        case TimelineModel.TimelineModel.TrackType.Raster:
           return 9;
-        case TimelineModel.TimelineModel.TrackType.Other:
+        case TimelineModel.TimelineModel.TrackType.GPU:
           return 10;
+        case TimelineModel.TimelineModel.TrackType.Other:
+          return 11;
       }
     };
 
@@ -397,6 +401,12 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
         case TimelineModel.TimelineModel.TrackType.Experience: {
           this._appendSyncEvents(
               track, track.events, ls`Experience`, this._experienceHeader, eventEntryType, true /* selectable */);
+          break;
+        }
+
+        case TimelineModel.TimelineModel.TrackType.UserAction: {
+          this._appendSyncEvents(
+              track, track.events, ls`User Action`, this._userActionHeader, eventEntryType, true /* selectable */);
           break;
         }
       }
@@ -912,6 +922,9 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
         return TimelineUIUtils.markerStyleForEvent(event).color;
       }
       if (!SDK.TracingModel.TracingModel.isAsyncPhase(event.phase)) {
+        if (event.args.data && event.args.data.beforeDelay) {
+          return 'yellow';
+        }
         return this._colorForEvent(event);
       }
       if (event.hasCategory(TimelineModel.TimelineModel.TimelineModelImpl.Category.Console) ||
@@ -1029,6 +1042,19 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     const type = this._entryType(entryIndex);
     const entryTypes = EntryType;
 
+    /**
+     * @param {number} begin
+     * @param {number} end
+     * @param {number} y
+     */
+    function drawTick(begin, end, y) {
+      const /** @const */ tickHeightPx = 6;
+      context.moveTo(begin, y - tickHeightPx / 2);
+      context.lineTo(begin, y + tickHeightPx / 2);
+      context.moveTo(begin, y);
+      context.lineTo(end, y);
+    }
+
     if (type === entryTypes.Frame) {
       this._drawFrame(entryIndex, context, text, barX, barY, barWidth, barHeight);
       return true;
@@ -1051,6 +1077,37 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
 
     if (type === entryTypes.Event) {
       const event = /** @type {!SDK.TracingModel.Event} */ (data);
+      // TODO (raphaellucena@): Currently, this event is also getting painted somewhere else by default.
+      // We are currently overwriting that paint with this as a workaround, but most likely,
+      // we will need to find where the default bar is being drawn and move this code there.
+      if (event.args.data && event.args.data.beforeDelay) {
+        const beforeDelay = event.args.data.beforeDelay;
+        const afterDelay = event.args.data.afterDelay;
+        const widthEvent = Math.floor(event.duration * timeToPixels);
+        const widthBefore = Math.floor(beforeDelay * timeToPixels);
+        const widthAfter = Math.floor(afterDelay * timeToPixels);
+        context.fillStyle = 'hsla(0, 100%, 100%, 1)';  // white
+        // Adding +1 to widthEvent to hide the right edge of the original bar that is bleeding through.
+        context.fillRect(barX, barY, widthEvent + 1, barHeight);
+        context.fillStyle = 'hsla(60, 100%, 60%, 0.7)';  // yellow
+        context.fillRect(barX + widthBefore, barY, widthEvent - widthBefore - widthAfter, barHeight);
+        if (!text || !text.length) {
+          return true;
+        }
+        context.fillStyle = this.textColor(entryIndex);
+        text = UI.UIUtils.trimTextMiddle(context, text, widthEvent - widthBefore - widthAfter - 2 * 5);
+        context.fillText(text, barX + widthBefore + 5, barY + barHeight - 5);
+        context.beginPath();
+        context.lineWidth = 1;
+        context.strokeStyle = '#ccc';
+        const lineY = Math.floor(barY + barHeight / 2) + 0.5;
+        const leftTick = barX;
+        const rightTick = barX + widthEvent;
+        drawTick(leftTick, leftTick + widthBefore, lineY);
+        drawTick(rightTick, rightTick - widthAfter, lineY);
+        context.stroke();
+        return true;
+      }
       if (event.hasCategory(TimelineModel.TimelineModel.TimelineModelImpl.Category.LatencyInfo)) {
         const timeWaitingForMainThread =
             TimelineModel.TimelineModel.TimelineData.forEvent(event).timeWaitingForMainThread;

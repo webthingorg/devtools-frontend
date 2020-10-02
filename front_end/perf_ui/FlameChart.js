@@ -165,7 +165,7 @@ export class FlameChart extends UI.Widget.VBox {
     // Keyboard focused group is used to navigate groups irrespective of whether they are selectable or not
     this._keyboardFocusedGroup = -1;
 
-    this._selectedGroupBackroundColor = ThemeSupport.ThemeSupport.instance().patchColorText(
+    this._selectedGroupBackgroundColor = ThemeSupport.ThemeSupport.instance().patchColorText(
         Colors.SelectedGroupBackground, ThemeSupport.ThemeSupport.ColorUsage.Background);
     this._selectedGroupBorderColor = ThemeSupport.ThemeSupport.instance().patchColorText(
         Colors.SelectedGroupBorder, ThemeSupport.ThemeSupport.ColorUsage.Background);
@@ -1109,7 +1109,7 @@ export class FlameChart extends UI.Widget.VBox {
       context.save();
       this._forEachGroupInViewport((offset, index, group, isFirst, groupHeight) => {
         if (this._isGroupFocused(index)) {
-          context.fillStyle = this._selectedGroupBackroundColor;
+          context.fillStyle = this._selectedGroupBackgroundColor;
           context.fillRect(0, offset, width, groupHeight - group.style.padding);
         }
       });
@@ -1563,7 +1563,7 @@ export class FlameChart extends UI.Widget.VBox {
       if (this._isGroupCollapsible(index) && !group.expanded || group.style.shareHeaderLine) {
         const width = this._labelWidthForGroup(context, group) + 2;
         if (this._isGroupFocused(index)) {
-          context.fillStyle = this._selectedGroupBackroundColor;
+          context.fillStyle = this._selectedGroupBackgroundColor;
         } else {
           context.fillStyle = Common.Color.Color.parse(group.style.backgroundColor).setAlpha(0.8).asString(null);
         }
