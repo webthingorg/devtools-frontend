@@ -34,6 +34,24 @@
       "revId": "3836affccf277e23d4d1ca0885790a0264d69998",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06028f5c_4e5da792",
+        "filename": "front_end/sources/ThreadsSidebarPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-10-02T22:54:50Z",
+      "side": 1,
+      "message": "Thanks for clarifying!",
+      "parentUuid": "04a8a83f_46428872",
+      "revId": "3836affccf277e23d4d1ca0885790a0264d69998",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
