@@ -1,0 +1,158 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89061358_efe396e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000675
+      },
+      "writtenOn": "2020-10-02T20:43:51Z",
+      "side": 1,
+      "message": "Note for any future reviewers:\n- This patch is a proof of concept, not for review\n- The EventDispatch copy is temporary, as we wait for Chrome to generate real Trace Events here\n- ...and some of the hardcoded values are specific to testing.",
+      "revId": "3d8e085b037a64718bb4e7c5dff222e3c95f99a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95002260_0c0a2687",
+        "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1090,
+      "author": {
+        "id": 1000675
+      },
+      "writtenOn": "2020-10-02T20:43:51Z",
+      "side": 1,
+      "message": "Instead of adding +1 here, I think you could Math.ceil() instead of Math.floor() to round up in the line the calculates `widthEvent`",
+      "revId": "3d8e085b037a64718bb4e7c5dff222e3c95f99a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a529aa0b_2300308d",
+        "filename": "front_end/timeline/TimelineFlameChartDataProvider.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1095,
+      "author": {
+        "id": 1000675
+      },
+      "writtenOn": "2020-10-02T20:43:51Z",
+      "side": 1,
+      "message": "If you return here, you wont paint ticks when you don\u0027t have text.  Is that the bug when you zoom out?\n\nJust move this to the end, I think?",
+      "revId": "3d8e085b037a64718bb4e7c5dff222e3c95f99a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48063a78_70d5a743",
+        "filename": "front_end/timeline_model/TimelineModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1000675
+      },
+      "writtenOn": "2020-10-02T20:43:51Z",
+      "side": 1,
+      "message": "Nit: there is no `events` param?",
+      "range": {
+        "startLine": 551,
+        "startChar": 4,
+        "endLine": 551,
+        "endChar": 5
+      },
+      "revId": "3d8e085b037a64718bb4e7c5dff222e3c95f99a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6fdd3dd_4e35f603",
+        "filename": "front_end/timeline_model/TimelineModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1000675
+      },
+      "writtenOn": "2020-10-02T20:43:51Z",
+      "side": 1,
+      "message": "So you are aware, this may not always work.  Its fine, but I would add a TODO to confirm you have the right renderer, maybe",
+      "range": {
+        "startLine": 554,
+        "startChar": 0,
+        "endLine": 554,
+        "endChar": 4
+      },
+      "revId": "3d8e085b037a64718bb4e7c5dff222e3c95f99a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "157f8169_6667c038",
+        "filename": "front_end/timeline_model/TimelineModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1000675
+      },
+      "writtenOn": "2020-10-02T20:43:51Z",
+      "side": 1,
+      "message": "You can replace filter() with forEach() and return the return true/false.\n\nFilter() returns a list based on true/false, but here you aren\u0027t using the return value.",
+      "range": {
+        "startLine": 559,
+        "startChar": 19,
+        "endLine": 559,
+        "endChar": 25
+      },
+      "revId": "3d8e085b037a64718bb4e7c5dff222e3c95f99a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "212ea6d5_b7e28934",
+        "filename": "front_end/timeline_model/TimelineModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1000675
+      },
+      "writtenOn": "2020-10-02T20:43:51Z",
+      "side": 1,
+      "message": "I think you can use `RecordType.EventDispatch`, and maybe you can remove the Category check?",
+      "revId": "3d8e085b037a64718bb4e7c5dff222e3c95f99a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcedc2c2_47490155",
+        "filename": "front_end/timeline_model/TimelineModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1000675
+      },
+      "writtenOn": "2020-10-02T20:43:51Z",
+      "side": 1,
+      "message": "Curious: how many event types actually get reported?",
+      "revId": "3d8e085b037a64718bb4e7c5dff222e3c95f99a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
