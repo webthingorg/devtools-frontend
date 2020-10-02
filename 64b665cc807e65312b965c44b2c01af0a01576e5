@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0c2c900_29b246ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-02T08:22:31Z",
+      "side": 1,
+      "message": "Hi Almothana!\n\nThanks a lot for the scenario! Sorry for my late reply, had to check a few things for myself (looking for the console message to be sure that we\u0027re done with executing the program).\n\nComments below :)! We can discuss the items later during our meeting.",
+      "revId": "64b665cc807e65312b965c44b2c01af0a01576e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0fbe9442_9063c593",
+        "filename": "test/e2e/performance/performance_profiling_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-02T08:22:31Z",
+      "side": 1,
+      "message": "See part 1 and part 2 of waiting for console message.",
+      "revId": "64b665cc807e65312b965c44b2c01af0a01576e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "772a3036_c1ddbad0",
+        "filename": "test/e2e/performance/performance_profiling_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-02T08:22:31Z",
+      "side": 1,
+      "message": "Waiting for console message:\n\nPart 1:\nWe can add here:\n\n```\nawait step(\u0027open up the console\u0027, async () \u003d\u003e {\n  await frontend.keyboard.press(\u0027Escape\u0027);\n  await waitFor(\u0027.console-searchable-view\u0027);\n});\n```",
+      "revId": "64b665cc807e65312b965c44b2c01af0a01576e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "513c3ae6_5d06e9cc",
+        "filename": "test/e2e/performance/performance_profiling_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-02T08:22:31Z",
+      "side": 1,
+      "message": "Waiting for console message:\n\nPart 2:\nWe can add here:\n\n```\nawait step(\u0027navigate to console-filter.html and get console messages\u0027, async () \u003d\u003e {\n  await waitFor(\u0027.console-message-text .source-code\u0027);\n});\n```",
+      "revId": "64b665cc807e65312b965c44b2c01af0a01576e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec7b2aaf_b6ef0875",
+        "filename": "test/e2e/performance/performance_profiling_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-02T08:22:31Z",
+      "side": 1,
+      "message": "Why do we navigate to the bottom up tab here? Why not to the summary tab? Do what we do above (without clicking on the link), and then navigate to the bottom up tab from line 100 on?\n\nMaybe this is supposed to be the summary tab?",
+      "revId": "64b665cc807e65312b965c44b2c01af0a01576e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4d9fa3d_6423eb9b",
+        "filename": "test/e2e/performance/performance_profiling_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-02T08:22:31Z",
+      "side": 1,
+      "message": "Why not use \"getTotalTimeFromSummary()\"?",
+      "revId": "64b665cc807e65312b965c44b2c01af0a01576e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93cb0bd3_c7a25b8d",
+        "filename": "test/e2e/performance/performance_profiling_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-02T08:22:31Z",
+      "side": 1,
+      "message": "Can we compute the 6? I.e. have the expected tree elements size -1? E.g.:\n`const numExpectedChildren \u003d expectedActivity.length - 1`\nor something the like?",
+      "revId": "64b665cc807e65312b965c44b2c01af0a01576e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bb63e25_1820d195",
+        "filename": "test/e2e/performance/performance_profiling_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-02T08:22:31Z",
+      "side": 1,
+      "message": "can we have a helper function in performance_helpers that is about expanding the tree? (which would be two times arrow right, I assume?).",
+      "revId": "64b665cc807e65312b965c44b2c01af0a01576e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b3b2370_111dc713",
+        "filename": "test/e2e/performance/performance_profiling_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-02T08:22:31Z",
+      "side": 1,
+      "message": "If we\u0027re using this function twice, can we create a helper function for this within this file?",
+      "revId": "64b665cc807e65312b965c44b2c01af0a01576e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fcaf1262_e0aa561b",
+        "filename": "test/e2e/performance/performance_profiling_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-02T08:22:31Z",
+      "side": 1,
+      "message": "Same as above (using the helper function and calculating the steps)",
+      "revId": "64b665cc807e65312b965c44b2c01af0a01576e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

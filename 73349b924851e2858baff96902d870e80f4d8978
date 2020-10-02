@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3cb9bbd4_be947c04",
+        "filename": "test/e2e/performance/performance_profiling_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-02T08:22:31Z",
+      "side": 1,
+      "message": "Can we create a wasm subfolder here as well?",
+      "revId": "73349b924851e2858baff96902d870e80f4d8978",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
