@@ -33,6 +33,24 @@
       "revId": "fd47d5cd7a6828138d698ee487c62ef4329660f3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ba66b47_192cb91a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-10-02T16:42:38Z",
+      "side": 1,
+      "message": "Edge team has reliability reporting system, so when DevTools throw some uncaught exceptions like these, we will get bugs :)",
+      "parentUuid": "7402fcc5_aed0711d",
+      "revId": "fd47d5cd7a6828138d698ee487c62ef4329660f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
