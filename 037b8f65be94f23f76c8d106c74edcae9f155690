@@ -22,6 +22,30 @@
       "revId": "037b8f65be94f23f76c8d106c74edcae9f155690",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93744c91_34e1cb03",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-10-02T16:03:07Z",
+      "side": 1,
+      "message": "thanks for the comments Peter, I made myself a similar question but decided for \"Group similar messages in console\" just for standardization.",
+      "parentUuid": "6094a655_9408e107",
+      "range": {
+        "startLine": 128,
+        "startChar": 61,
+        "endLine": 128,
+        "endChar": 83
+      },
+      "revId": "037b8f65be94f23f76c8d106c74edcae9f155690",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
