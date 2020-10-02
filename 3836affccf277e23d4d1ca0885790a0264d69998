@@ -16,6 +16,24 @@
       "revId": "3836affccf277e23d4d1ca0885790a0264d69998",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04a8a83f_46428872",
+        "filename": "front_end/sources/ThreadsSidebarPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-10-02T21:26:53Z",
+      "side": 1,
+      "message": "Nope, the fun part about this list is that _selectedModel and the list\u0027s selected item are two different things. _selectedModel is the active thread and is marked by a blue arrow, while the ListControl\u0027s selection just controls focus. We have to refresh _selectedModel to remove the arrow, but that isn\u0027t necessarily the same list item as is selected in the ListControl. So we need to call selectItem on the ListControl to ensure that after it redraws, it scrolls _selectedModel into view rather than scrolling up to the first item in the list.",
+      "parentUuid": "cc59bb03_308a55ea",
+      "revId": "3836affccf277e23d4d1ca0885790a0264d69998",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
