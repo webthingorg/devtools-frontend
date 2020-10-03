@@ -40,6 +40,7 @@ import * as Common from '../common/common.js';
 import * as Components from '../components/components.js';
 import * as Extensions from '../extensions/extensions.js';
 import * as Host from '../host/host.js';
+import * as i18n from '../i18n/i18n.js';
 import * as Persistence from '../persistence/persistence.js';
 import * as Platform from '../platform/platform.js';
 import * as ProtocolClient from '../protocol_client/protocol_client.js';
@@ -89,6 +90,20 @@ export class MainImpl {
     Root.Runtime.Runtime.setPlatform(Host.Platform.platform());
     Root.Runtime.Runtime.setL10nCallback(ls);
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.getPreferences(this._gotPreferences.bind(this));
+    await this.requestAndRegisterLocaleData();
+  }
+
+  async requestAndRegisterLocaleData() {
+    const hostLocale = Root.Runtime.Runtime.queryParam('locale') || 'en-US';
+    i18n.i18n.registerLocale(hostLocale);
+    const locale = i18n.i18n.registeredLocale;
+    if (locale && locale.toLowerCase() !== 'en-us') {
+      const data = await Root.Runtime.loadResourcePromise(`i18n/locales/${locale}.json`);
+      if (data) {
+        const localizedStrings = JSON.parse(data);
+        i18n.i18n.registerLocaleData(locale, localizedStrings);
+      }
+    }
   }
 
   /**
