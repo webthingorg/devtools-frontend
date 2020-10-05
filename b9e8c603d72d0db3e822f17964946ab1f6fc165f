@@ -16,6 +16,46 @@
       "revId": "b9e8c603d72d0db3e822f17964946ab1f6fc165f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b55b84c7_157584d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-05T11:05:14Z",
+      "side": 1,
+      "message": "lgtm % nit",
+      "revId": "b9e8c603d72d0db3e822f17964946ab1f6fc165f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85770040_11de9d71",
+        "filename": "front_end/wasmparser_worker/WasmParserWorker.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-05T11:05:14Z",
+      "side": 1,
+      "message": "nit: Can `method` be missing or null? We check it in the `if` below. Which is weird, since:\n\n if (method !\u003d\u003d \u0027disassemble)\n\nwould already include a check against null, undefined or the empty string. Could you double-check that {string} is indeed the right type here?",
+      "range": {
+        "startLine": 60,
+        "startChar": 17,
+        "endLine": 60,
+        "endChar": 38
+      },
+      "revId": "b9e8c603d72d0db3e822f17964946ab1f6fc165f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
