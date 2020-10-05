@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "092ee335_86b58612",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-05T11:27:24Z",
+      "side": 1,
+      "message": "lgtm % questions and a inversed experiment :)",
+      "revId": "8132e689482d268d9b9d0e8615f388771962ee97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b318b3f_f81f4c19",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-05T11:27:24Z",
+      "side": 1,
+      "message": "Stray exclamation point?",
+      "range": {
+        "startLine": 401,
+        "startChar": 8,
+        "endLine": 401,
+        "endChar": 9
+      },
+      "revId": "8132e689482d268d9b9d0e8615f388771962ee97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07a7f874_4ffeb6dc",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-05T11:27:24Z",
+      "side": 1,
+      "message": "My question is: Did we type forwardedKeyes wrong and its an \"array of arrays of short cuts\" or did this code never work.\n\nThe backend seems to expect a array of dictionaries (https://source.chromium.org/chromium/chromium/src/+/master:chrome/browser/devtools/devtools_window.cc;l\u003d268?q\u003dsetWhitelistedShortcuts\u0026ss\u003dchromium\u0026start\u003d31) so the new code seems \"correct\".",
+      "range": {
+        "startLine": 411,
+        "startChar": 16,
+        "endLine": 411,
+        "endChar": 19
+      },
+      "revId": "8132e689482d268d9b9d0e8615f388771962ee97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d2f8d5f_88fcac84",
+        "filename": "front_end/ui/KeyboardShortcut.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-05T11:27:24Z",
+      "side": 0,
+      "message": "Did I get this right that `keyString` can\u0027t be the empty string due to the negative lookahead of the regex?",
+      "range": {
+        "startLine": 216,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 0
+      },
+      "revId": "e51078b0b92b500d3ebce22aba55f615c13af970",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
