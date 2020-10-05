@@ -70,6 +70,30 @@
       "revId": "09144bbe1687fd75fec84a8d691657c98fe09181",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e52c291_c8670869",
+        "filename": "test/unittests/front_end/helpers/DOMHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-05T09:01:29Z",
+      "side": 1,
+      "message": "For me the test ElementsBreadcrumbs_test.ts fails on my local dev machine on Windows 10.\n\nChrome Headless 88.0.4284.0 (Windows 10) ElementsBreadcrumbs rendering breadcrumbs when the breadcrumbs overflow disables the right button once the user has scrolled to the end FAILED\n        Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves.\nChrome Headless 88.0.4284.0 (Windows 10): Executed 17 of 781 (1 FAILED) (2.354 secs / 2.198 secs)\nUsing Chromium binary (D:\\dev\\chromium\\devtools\\devtools-frontend\\third_party\\chrome\\chrome-win\\chrome.exe)\n\nUsing karma config D:\\dev\\chromium\\devtools\\devtools-frontend\\out\\Default\\gen\\test\\unittests\\karma.conf.js\nERRORS DETECTED",
+      "parentUuid": "8b132dfa_c846dc3d",
+      "range": {
+        "startLine": 137,
+        "startChar": 2,
+        "endLine": 137,
+        "endChar": 5
+      },
+      "revId": "09144bbe1687fd75fec84a8d691657c98fe09181",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
