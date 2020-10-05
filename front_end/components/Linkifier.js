@@ -444,6 +444,14 @@ export class Linkifier {
     Linkifier._unbindUILocation(anchor);
     const uiLocation = await liveLocation.uiLocation();
     if (!uiLocation) {
+      const header = (/** @type {!Bindings.CSSWorkspaceBinding.LiveLocation} */ (liveLocation))._header;
+      if (header && header.ownerNode) {
+        anchor.addEventListener('click', event => {
+          event.consume(true);
+          Common.Revealer.reveal(header.ownerNode || null);
+        }, false);
+        Linkifier._setTrimmedText(anchor, '<style>');
+      }
       return;
     }
 
