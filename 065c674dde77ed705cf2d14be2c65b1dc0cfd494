@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f3c804cf_33f90f80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1459232
+      },
+      "writtenOn": "2020-10-05T17:15:50Z",
+      "side": 1,
+      "message": "Are there plans to add more functionality to this menu again now or will this exclusively be for adding a new selector? \n\nI am asking as this clashes with the location of the planned font tooling and we now need to either add this function to this menu (and make it accessible to all, not only on hover) or find another place to put the font icon.",
+      "revId": "065c674dde77ed705cf2d14be2c65b1dc0cfd494",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
