@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4edfb8a0_a11e82bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-05T11:49:32Z",
+      "side": 1,
+      "message": "lgtm % suggestion",
+      "revId": "f250bfc737932b91a9e0b04e1593418be06b830d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "60080f40_7fe32389",
+        "filename": "front_end/js_main/JsMain.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-05T11:49:32Z",
+      "side": 1,
+      "message": "nit: Same suggestion as on Benedikts CL: https://crrev.com/c/2449590",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 46
+      },
+      "revId": "f250bfc737932b91a9e0b04e1593418be06b830d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
