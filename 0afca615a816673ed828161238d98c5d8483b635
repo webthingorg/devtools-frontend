@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cf658488_9ffe2bb6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-10-05T13:51:15Z",
+      "side": 1,
+      "message": "Err, damnit, forgot to upload the actual patch to fix the exclamation mark...",
+      "revId": "0afca615a816673ed828161238d98c5d8483b635",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
