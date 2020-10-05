@@ -16,6 +16,23 @@
       "revId": "da7040d644189bb9a847f9f2a6fedea6bb228c2f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "de16ca80_5b3723e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-05T05:25:20Z",
+      "side": 1,
+      "message": "These code changes LGTM (regardless of whether or not they fully fix the issue you\u0027ve mentioned)",
+      "revId": "da7040d644189bb9a847f9f2a6fedea6bb228c2f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
