@@ -2,9 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
 class HARBase {
   /**
    * @param {*} data
@@ -13,6 +10,8 @@ class HARBase {
     if (!data || typeof data !== 'object') {
       throw 'First parameter is expected to be an object';
     }
+    /** @type {!Map<string, any>} */
+    this._custom = new Map();
   }
 
   /**
@@ -60,9 +59,10 @@ class HARBase {
    * @return {string|undefined}
    */
   customAsString(name) {
-    // Har specification says starting with '_' is a custom property, but closure uses '_' as a private property.
-    const value = /** @type {!Object} */ (this)['_' + name];
-    return value !== undefined ? String(value) : undefined;
+    if (!this._custom.has(name)) {
+      return undefined;
+    }
+    return String(this._custom.get(name));
   }
 
   /**
@@ -70,24 +70,25 @@ class HARBase {
    * @return {number|undefined}
    */
   customAsNumber(name) {
-    // Har specification says starting with '_' is a custom property, but closure uses '_' as a private property.
-    let value = /** @type {!Object} */ (this)['_' + name];
-    if (value === undefined) {
-      return;
+    if (!this._custom.has(name)) {
+      return undefined;
     }
-    value = Number(value);
+    const value = Number(this._custom.get(name));
     if (Number.isNaN(value)) {
-      return;
+      return undefined;
     }
     return value;
   }
 
   /**
    * @param {string} name
-   * @return {!Array|undefined}
+   * @return {!Array<any>|undefined}
    */
   customAsArray(name) {
-    const value = /** @type {!Object} */ (this)['_' + name];
+    if (!this._custom.has(name)) {
+      return undefined;
+    }
+    const value = this._custom.get(name);
     return Array.isArray(value) ? value : undefined;
   }
 }
@@ -176,11 +177,11 @@ export class HAREntry extends HARBase {
     this.comment = HARBase._optionalString(data['comment']);
 
     // Chrome specific.
-    this._fromCache = HARBase._optionalString(data['_fromCache']);
-    this._initiator = this._importInitiator(data['_initiator']);
-    this._priority = HARBase._optionalString(data['_priority']);
-    this._resourceType = HARBase._optionalString(data['_resourceType']);
-    this._webSocketMessages = this._importWebSocketMessages(data['_webSocketMessages']);
+    this._custom.set('fromCache', HARBase._optionalString(data['_fromCache']));
+    this._custom.set('initiator', this._importInitiator(data['_initiator']));
+    this._custom.set('priority', HARBase._optionalString(data['_priority']));
+    this._custom.set('resourceType', HARBase._optionalString(data['_resourceType']));
+    this._custom.set('webSocketMessages', this._importWebSocketMessages(data['_webSocketMessages']));
   }
 
   /**
@@ -197,7 +198,7 @@ export class HAREntry extends HARBase {
 
   /**
    * @param {*} inputMessages
-   * @return {!Array<!HARInitiator>|undefined}
+   * @return {!Array<!HARWebSocketMessage>|undefined}
    */
   _importWebSocketMessages(inputMessages) {
     if (!Array.isArray(inputMessages)) {
@@ -252,8 +253,8 @@ class HARResponse extends HARBase {
     this.comment = HARBase._optionalString(data['comment']);
 
     // Chrome specific.
-    this._transferSize = HARBase._optionalNumber(data['_transferSize']);
-    this._error = HARBase._optionalString(data['_error']);
+    this._custom.set('transferSize', HARBase._optionalNumber(data['_transferSize']));
+    this._custom.set('error', HARBase._optionalString(data['_error']));
   }
 }
 
@@ -356,8 +357,8 @@ export class HARTimings extends HARBase {
     this.comment = HARBase._optionalString(data['comment']);
 
     // Chrome specific.
-    this._blocked_queueing = HARBase._optionalNumber(data['_blocked_queueing']);
-    this._blocked_proxy = HARBase._optionalNumber(data['_blocked_proxy']);
+    this._custom.set('blocked_queueing', HARBase._optionalNumber(data['_blocked_queueing']));
+    this._custom.set('blocked_proxy', HARBase._optionalNumber(data['_blocked_proxy']));
   }
 }
 
