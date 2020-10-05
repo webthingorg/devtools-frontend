@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "e98c2d3d_c531008d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-10-05T15:27:32Z",
+      "side": 1,
+      "message": "Ah, that makes sense! Thanks for taking the time to respond and explain the status of the rewrite! I\u0027m excited to hear y\u0027all also want to improve a11y of datagrid using as much of the platform as possible. I\u0027m happy to take a look at any reviews you have in the future or answer any questions.\n\nAs far as focus, as you start to think of how best to approach it, these might be some helpful resources. I feel like the current behavior of the datagrids we have in the tools today is closer to role\u003d\u0027grid\u0027, but many cases don\u0027t need focus on individual cells unless editing.\nhttps://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Grid_Role\nhttps://w3c.github.io/aria-practices/#grid\nhttps://w3c.github.io/aria-practices/#table",
+      "parentUuid": "47b3ba09_6fe1a3ca",
+      "revId": "c4617ea51473168bf211d7cb185d2e5b37da4409",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6bf85097_bd5578ab",
         "filename": "front_end/ui/components/DataGrid.ts",
         "patchSetId": 3
