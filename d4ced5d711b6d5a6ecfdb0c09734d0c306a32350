@@ -76,6 +76,30 @@
     },
     {
       "key": {
+        "uuid": "e211a19c_3bb167d7",
+        "filename": "front_end/component_docs/webvitals/webvitals.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-05T08:02:50Z",
+      "side": 1,
+      "message": "I think it did work but now I\u0027m not sure anymore. But I removed the function for now anyways because it was not needed anymore.",
+      "parentUuid": "993a1aac_626921b4",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 26
+      },
+      "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9df28a35_f6271230",
         "filename": "front_end/timeline/TimelineFlameChartNetworkDataProvider.js",
         "patchSetId": 1
@@ -99,6 +123,30 @@
     },
     {
       "key": {
+        "uuid": "32646449_b428e9cf",
+        "filename": "front_end/timeline/TimelineFlameChartNetworkDataProvider.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-05T08:02:50Z",
+      "side": 1,
+      "message": "I think I\u0027ll remove that change for now.",
+      "parentUuid": "9df28a35_f6271230",
+      "range": {
+        "startLine": 42,
+        "startChar": 30,
+        "endLine": 42,
+        "endChar": 68
+      },
+      "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2995137e_22d822c5",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
         "patchSetId": 1
@@ -119,6 +167,30 @@
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54dfe912_0d535c1f",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-05T08:02:50Z",
+      "side": 1,
+      "message": "Good Idea, thanks!\nBut we should also clarify the actual numbers.",
+      "parentUuid": "2995137e_22d822c5",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 26
+      },
+      "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -169,6 +241,30 @@
     },
     {
       "key": {
+        "uuid": "47fca727_3cb144e5",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-05T08:02:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "010dba53_83d19de4",
+      "range": {
+        "startLine": 49,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 50
+      },
+      "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eedddbaa_fd16f858",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
         "patchSetId": 1
@@ -189,6 +285,30 @@
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bddc463c_aaca1093",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-05T08:02:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eedddbaa_fd16f858",
+      "range": {
+        "startLine": 53,
+        "startChar": 2,
+        "endLine": 57,
+        "endChar": 29
+      },
+      "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -239,6 +359,30 @@
     },
     {
       "key": {
+        "uuid": "edc788e3_28b7568e",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-05T08:02:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3847f22f_ba839b85",
+      "range": {
+        "startLine": 63,
+        "startChar": 2,
+        "endLine": 67,
+        "endChar": 4
+      },
+      "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44564a39_6d8b26f2",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
         "patchSetId": 1
@@ -259,6 +403,30 @@
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78d5efa1_130996f5",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-05T08:02:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44564a39_6d8b26f2",
+      "range": {
+        "startLine": 136,
+        "startChar": 4,
+        "endLine": 168,
+        "endChar": 24
+      },
+      "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -285,6 +453,30 @@
     },
     {
       "key": {
+        "uuid": "4ad8befb_fcde0f04",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-05T08:02:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9af81f1a_6e0905a8",
+      "range": {
+        "startLine": 171,
+        "startChar": 25,
+        "endLine": 171,
+        "endChar": 27
+      },
+      "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c5263e3d_fe6c0e18",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
         "patchSetId": 1
@@ -305,6 +497,30 @@
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "660bab2f_af231ab7",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-05T08:02:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5263e3d_fe6c0e18",
+      "range": {
+        "startLine": 198,
+        "startChar": 0,
+        "endLine": 220,
+        "endChar": 6
+      },
+      "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -354,6 +570,30 @@
     },
     {
       "key": {
+        "uuid": "0244cbda_d4a7de94",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-05T08:02:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdc1d64b_140eaa6a",
+      "range": {
+        "startLine": 250,
+        "startChar": 10,
+        "endLine": 250,
+        "endChar": 12
+      },
+      "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dfa93f8e_5e338ed2",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
         "patchSetId": 1
@@ -374,6 +614,30 @@
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1d0665d_36fa1482",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-05T08:02:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfa93f8e_5e338ed2",
+      "range": {
+        "startLine": 311,
+        "startChar": 4,
+        "endLine": 311,
+        "endChar": 17
+      },
+      "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
