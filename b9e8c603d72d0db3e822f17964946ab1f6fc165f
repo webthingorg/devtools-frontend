@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e5bda757_eb154061",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-10-05T10:20:13Z",
+      "side": 1,
+      "message": "Hey Simon,\n\nHere\u0027s another one. Please take a look.\n\nThanks,\nBenedikt",
+      "revId": "b9e8c603d72d0db3e822f17964946ab1f6fc165f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
