@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e116cab_8f6ef1f9",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-05T08:54:24Z",
+      "side": 1,
+      "message": "I think this _might_ cause the bridges generator to error ( you will need to rebase ) because I think I added code to ensure that enums are string enums (e.g. `Good \u003d \"Good\"`). Is that going to block you / cause problems? If so we can change it to allow numbers too (and I am happy to do that ASAP).",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 0
+      },
+      "revId": "d52f4bf7fd528bce73bc6c458837b0c21574f54d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7cc46ea3_82f08ad7",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-05T08:54:24Z",
+      "side": 1,
+      "message": "any particular reason this isn\u0027t an enum?",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 2
+      },
+      "revId": "d52f4bf7fd528bce73bc6c458837b0c21574f54d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c70f9f4_aecd212b",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-05T08:54:24Z",
+      "side": 1,
+      "message": "I\u0027d check with aerotwist@ but I think you could initialize these in the constructor and then you wouldn\u0027t need to ignore them. Given the constructor only runs when one of these is created (rather than appended into DOM) I think that\u0027s fine. That\u0027s what we do with the shadow root.",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 48
+      },
+      "revId": "d52f4bf7fd528bce73bc6c458837b0c21574f54d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13800fc7_da4e9fcc",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-05T08:54:24Z",
+      "side": 1,
+      "message": "I would expect this (and the other methods) to take a `marker` param that\u0027s of the enum type `MarkerType`. Or is that not possible / is the data coming in from elsewhere?",
+      "range": {
+        "startLine": 97,
+        "startChar": 35,
+        "endLine": 97,
+        "endChar": 41
+      },
+      "revId": "d52f4bf7fd528bce73bc6c458837b0c21574f54d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af769218_92508555",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-05T08:54:24Z",
+      "side": 1,
+      "message": "nit, but could we have the setter at the top so it\u0027s more easily found if someone is loading up the component file to look at / work on?",
+      "range": {
+        "startLine": 470,
+        "startChar": 0,
+        "endLine": 470,
+        "endChar": 41
+      },
+      "revId": "d52f4bf7fd528bce73bc6c458837b0c21574f54d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2d97e99_e0eac3c5",
+        "filename": "test/unittests/front_end/timeline/WebVitalsTimeline_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-05T08:54:24Z",
+      "side": 1,
+      "message": "ping me if you need any help with the tests. I recognise this component is doing a lot so could be tough to test but I think having some would be really great 😊",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 43
+      },
+      "revId": "d52f4bf7fd528bce73bc6c458837b0c21574f54d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
