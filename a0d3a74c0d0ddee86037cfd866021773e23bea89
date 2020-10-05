@@ -134,6 +134,30 @@
       "revId": "a0d3a74c0d0ddee86037cfd866021773e23bea89",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cce2b380_d0a5b23a",
+        "filename": "front_end/sources/TabbedEditorContainer.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-05T11:50:21Z",
+      "side": 1,
+      "message": "Thats what reviewers are for :) I like the !\u003d\u003d undefined solution even better xD",
+      "parentUuid": "ee2a4a8b_b05fce14",
+      "range": {
+        "startLine": 803,
+        "startChar": 4,
+        "endLine": 803,
+        "endChar": 16
+      },
+      "revId": "a0d3a74c0d0ddee86037cfd866021773e23bea89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
