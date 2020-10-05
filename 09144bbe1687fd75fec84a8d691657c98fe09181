@@ -94,6 +94,30 @@
       "revId": "09144bbe1687fd75fec84a8d691657c98fe09181",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58508875_2e82b830",
+        "filename": "test/unittests/front_end/helpers/DOMHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-05T09:29:49Z",
+      "side": 1,
+      "message": "Thanks Patrick that\u0027s really useful. I\u0027m curious that it doesn\u0027t seem to fail on our Windows bots.\n\nIf you run the test in debug mode, does it still fail?\n\nI\u0027m in the middle of setting up a Windows machine so hopefully I\u0027ll be able to recreate the problem soon too.",
+      "parentUuid": "4e52c291_c8670869",
+      "range": {
+        "startLine": 137,
+        "startChar": 2,
+        "endLine": 137,
+        "endChar": 5
+      },
+      "revId": "09144bbe1687fd75fec84a8d691657c98fe09181",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
