@@ -110,6 +110,30 @@
       "revId": "a0d3a74c0d0ddee86037cfd866021773e23bea89",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee2a4a8b_b05fce14",
+        "filename": "front_end/sources/TabbedEditorContainer.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-05T11:40:21Z",
+      "side": 1,
+      "message": "FYI this was indeed what was failing the e2e-tests. Thanks for catching this!",
+      "parentUuid": "9da88f57_4b282314",
+      "range": {
+        "startLine": 803,
+        "startChar": 4,
+        "endLine": 803,
+        "endChar": 16
+      },
+      "revId": "a0d3a74c0d0ddee86037cfd866021773e23bea89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
