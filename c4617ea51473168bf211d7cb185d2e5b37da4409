@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "47b3ba09_6fe1a3ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-05T08:45:41Z",
+      "side": 1,
+      "message": "Hey Brandon,\n\nThanks for the comment! Firstly to be clear, this was a very much WIP CL that was uploaded to ask for some opinions on something, and it was no where near done. In fact, much behaviour (and a11y) is missing and is currently being worked on. So please don\u0027t take this CL as the way we are going to build the data grid; in fact since I uploaded this it\u0027s changed a lot locally and I just haven\u0027t uploaded it again (because it\u0027s not yet ready for review).\n\nRegarding 1), we are very much not keeping this approach. We\u0027re very keen to have one table and this CL is implemented as such. We dislike the separate tables approach and don\u0027t want to have to hack a11y and other features in that we\u0027ll get \"for free\".\n\n2) Focus is something I barely have looked at other than implementing the bare minimum to start figuring out how best to do it. Appreciate your pointers here and we\u0027re keen again to embrace the browser and the a11y tools built-in. \n\nWe definitely want to improve the a11y of the data-grid, that\u0027s one of the main motivations behind rebuilding it, and generally on DevTools in the past six months our approach has been to let the platform do the work when possible, and lose all the horrid hacks that exist in the codebase, so that\u0027s the direction we\u0027re taking.\n\nI\u0027m going to mark this CL as abandoned as it\u0027s so far out from where we\u0027re at now and where it\u0027ll be when it\u0027s ready for review, but I\u0027m happy to add you as a reviewer when that CL is up so you can take a look and happy to chat further. Thanks again for your comment 👍",
+      "parentUuid": "69a32bcf_556324e6",
+      "revId": "c4617ea51473168bf211d7cb185d2e5b37da4409",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6bf85097_bd5578ab",
         "filename": "front_end/ui/components/DataGrid.ts",
         "patchSetId": 3
