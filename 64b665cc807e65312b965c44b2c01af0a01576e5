@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "1204432b_f279f35c",
+        "filename": "test/e2e/performance/performance_profiling_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-10-05T13:31:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fbe9442_9063c593",
+      "revId": "64b665cc807e65312b965c44b2c01af0a01576e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "772a3036_c1ddbad0",
         "filename": "test/e2e/performance/performance_profiling_test.ts",
         "patchSetId": 5
@@ -50,6 +68,24 @@
       "revId": "64b665cc807e65312b965c44b2c01af0a01576e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d842ce12_87f480c7",
+        "filename": "test/e2e/performance/performance_profiling_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-10-05T13:31:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "772a3036_c1ddbad0",
+      "revId": "64b665cc807e65312b965c44b2c01af0a01576e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -70,6 +106,24 @@
     },
     {
       "key": {
+        "uuid": "8dcdb78a_ac93cec9",
+        "filename": "test/e2e/performance/performance_profiling_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-10-05T13:31:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "513c3ae6_5d06e9cc",
+      "revId": "64b665cc807e65312b965c44b2c01af0a01576e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ec7b2aaf_b6ef0875",
         "filename": "test/e2e/performance/performance_profiling_test.ts",
         "patchSetId": 5
@@ -84,6 +138,24 @@
       "revId": "64b665cc807e65312b965c44b2c01af0a01576e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd6bfe69_7be5e753",
+        "filename": "test/e2e/performance/performance_profiling_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-10-05T13:31:13Z",
+      "side": 1,
+      "message": "Done, I might have duplicated the bottom-up step by mistake",
+      "parentUuid": "ec7b2aaf_b6ef0875",
+      "revId": "64b665cc807e65312b965c44b2c01af0a01576e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -104,6 +176,24 @@
     },
     {
       "key": {
+        "uuid": "e0f5b42c_ebb68877",
+        "filename": "test/e2e/performance/performance_profiling_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-10-05T13:31:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4d9fa3d_6423eb9b",
+      "revId": "64b665cc807e65312b965c44b2c01af0a01576e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "93cb0bd3_c7a25b8d",
         "filename": "test/e2e/performance/performance_profiling_test.ts",
         "patchSetId": 5
@@ -115,6 +205,24 @@
       "writtenOn": "2020-10-02T08:22:31Z",
       "side": 1,
       "message": "Can we compute the 6? I.e. have the expected tree elements size -1? E.g.:\n`const numExpectedChildren \u003d expectedActivity.length - 1`\nor something the like?",
+      "revId": "64b665cc807e65312b965c44b2c01af0a01576e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "defe705b_8e30aea6",
+        "filename": "test/e2e/performance/performance_profiling_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-10-05T13:31:13Z",
+      "side": 1,
+      "message": "I don\u0027t think that could be easily calculated because the elements do not appear in the DOM until we expand the tree.\nHowever it seems that the number of times we press the right arrow has no effect after expanding the tree fully, if you want we can fix the number of times we expand the tree (e.g. 20).",
+      "parentUuid": "93cb0bd3_c7a25b8d",
       "revId": "64b665cc807e65312b965c44b2c01af0a01576e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -138,6 +246,24 @@
     },
     {
       "key": {
+        "uuid": "2436bf0c_b9276b7b",
+        "filename": "test/e2e/performance/performance_profiling_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-10-05T13:31:13Z",
+      "side": 1,
+      "message": "I am not sure if the would be helpful because then the function would work in a very specific situation (i.e. when we are in the performance tab with an activity selected).\nHowever if you we can encapsulate this entire step (I think it would be clearer what the function does this way).",
+      "parentUuid": "1bb63e25_1820d195",
+      "revId": "64b665cc807e65312b965c44b2c01af0a01576e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5b3b2370_111dc713",
         "filename": "test/e2e/performance/performance_profiling_test.ts",
         "patchSetId": 5
@@ -155,6 +281,24 @@
     },
     {
       "key": {
+        "uuid": "828d62b9_f35512e9",
+        "filename": "test/e2e/performance/performance_profiling_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-10-05T13:31:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b3b2370_111dc713",
+      "revId": "64b665cc807e65312b965c44b2c01af0a01576e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fcaf1262_e0aa561b",
         "filename": "test/e2e/performance/performance_profiling_test.ts",
         "patchSetId": 5
@@ -166,6 +310,24 @@
       "writtenOn": "2020-10-02T08:22:31Z",
       "side": 1,
       "message": "Same as above (using the helper function and calculating the steps)",
+      "revId": "64b665cc807e65312b965c44b2c01af0a01576e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f532c19_4e38571c",
+        "filename": "test/e2e/performance/performance_profiling_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-10-05T13:31:13Z",
+      "side": 1,
+      "message": "same comments as above",
+      "parentUuid": "fcaf1262_e0aa561b",
       "revId": "64b665cc807e65312b965c44b2c01af0a01576e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true

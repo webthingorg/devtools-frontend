@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "cfc140fc_42a77740",
+        "filename": "test/e2e/performance/performance_profiling_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-10-05T13:31:13Z",
+      "side": 1,
+      "message": "Done, it worked",
+      "parentUuid": "a8173fae_15fea5b1",
+      "range": {
+        "startLine": 69,
+        "startChar": 6,
+        "endLine": 69,
+        "endChar": 26
+      },
+      "revId": "db86c990a7f6a290d3fffe49e4a81cf7aa91b48e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b151978a_5e9801c0",
         "filename": "test/e2e/performance/performance_profiling_test.ts",
         "patchSetId": 2
@@ -93,6 +117,30 @@
       "revId": "db86c990a7f6a290d3fffe49e4a81cf7aa91b48e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a47b4a0_2ba7b6e7",
+        "filename": "test/e2e/performance/performance_profiling_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-10-05T13:31:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8780a60a_c2b335f4",
+      "range": {
+        "startLine": 90,
+        "startChar": 16,
+        "endLine": 90,
+        "endChar": 21
+      },
+      "revId": "db86c990a7f6a290d3fffe49e4a81cf7aa91b48e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -143,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "aaae093c_aee820fb",
+        "filename": "test/e2e/performance/performance_profiling_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-10-05T13:31:13Z",
+      "side": 1,
+      "message": "No what I meant is that in the call tree tab some of the items in the table are not scrolled into view when the tree is fully expanded. This is why in this particular step we retrieved the table items twice, once before we expand the tree and once after.\n\nEdit: after leaving out \u0027minor gc\u0027 the whole list is in view when fully expanded so there is no need to do it twice anyway",
+      "parentUuid": "0b50f380_576c9056",
+      "range": {
+        "startLine": 134,
+        "startChar": 10,
+        "endLine": 137,
+        "endChar": 11
+      },
+      "revId": "db86c990a7f6a290d3fffe49e4a81cf7aa91b48e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90ec77fc_e003d0bd",
         "filename": "test/e2e/performance/performance_profiling_test.ts",
         "patchSetId": 2
@@ -178,6 +250,30 @@
       "side": 1,
       "message": "We can leave out the minor gc, it might happen or not happen; and it\u0027s not so relevant to what we\u0027re investigating.",
       "parentUuid": "90ec77fc_e003d0bd",
+      "range": {
+        "startLine": 164,
+        "startChar": 16,
+        "endLine": 164,
+        "endChar": 27
+      },
+      "revId": "db86c990a7f6a290d3fffe49e4a81cf7aa91b48e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82f69385_b60f7d2e",
+        "filename": "test/e2e/performance/performance_profiling_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-10-05T13:31:13Z",
+      "side": 1,
+      "message": "Done, removed the check for minor gc",
+      "parentUuid": "7dc84d0f_c1905b2a",
       "range": {
         "startLine": 164,
         "startChar": 16,

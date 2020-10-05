@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0be8879a_fa85ae7b",
+        "filename": "test/e2e/performance/wasm/performance_profiling_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-10-05T13:31:13Z",
+      "side": 1,
+      "message": "the test flickers on this condition, can someone suggest a better way for waiting until the tree is fully expanded?",
+      "range": {
+        "startLine": 148,
+        "startChar": 6,
+        "endLine": 148,
+        "endChar": 54
+      },
+      "revId": "96f7a460d745006bc0c0a6a1245fd382192e1c57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
