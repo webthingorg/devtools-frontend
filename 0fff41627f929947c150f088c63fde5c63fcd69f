@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7250c0bf_9741d737",
+        "filename": "front_end/media/PlayerMessagesView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-05T09:34:45Z",
+      "side": 1,
+      "message": "the type casts here are...eurgh...but any other combination did not play nicely with Closure at all :(",
+      "range": {
+        "startLine": 262,
+        "startChar": 4,
+        "endLine": 269,
+        "endChar": 14
+      },
+      "revId": "0fff41627f929947c150f088c63fde5c63fcd69f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
