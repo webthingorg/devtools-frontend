@@ -263,12 +263,16 @@ export class Linkifier {
     if (!pool) {
       return null;
     }
-    Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance()
-        .createLiveLocation(rawLocation, this._updateAnchor.bind(this, anchor), pool)
-        .then(liveLocation => {
-          info.liveLocation = liveLocation;
-          this._onLiveLocationUpdate();
-        });
+    const liveLocationPromise =
+        Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().createLiveLocation(
+            rawLocation, this._updateAnchor.bind(this, anchor), pool);
+    if (!liveLocationPromise) {
+      return null;
+    }
+    liveLocationPromise.then(liveLocation => {
+      info.liveLocation = liveLocation;
+      this._onLiveLocationUpdate();
+    });
 
     const anchors = /** @type {!Array<!Element>} */ (this._anchorsByTarget.get(rawLocation.debuggerModel.target()));
     anchors.push(anchor);
