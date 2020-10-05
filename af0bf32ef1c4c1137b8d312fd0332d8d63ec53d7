@@ -56,6 +56,30 @@
       "revId": "af0bf32ef1c4c1137b8d312fd0332d8d63ec53d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c461cc1a_2c4cf469",
+        "filename": "front_end/worker_main/WorkerMain.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-05T11:57:38Z",
+      "side": 1,
+      "message": "FWIW I\u0027ve done an update in my CL to do that: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2449591, so assuming that lands you should be able to rebase and remove the undefined 😊",
+      "parentUuid": "e761e96e_b186acb8",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 46
+      },
+      "revId": "af0bf32ef1c4c1137b8d312fd0332d8d63ec53d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
