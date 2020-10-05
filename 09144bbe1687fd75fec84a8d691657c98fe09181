@@ -142,6 +142,30 @@
       "revId": "09144bbe1687fd75fec84a8d691657c98fe09181",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37496cc7_55426eda",
+        "filename": "test/unittests/front_end/helpers/DOMHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2020-10-05T17:55:07Z",
+      "side": 1,
+      "message": "Thanks Patrick for your help. In my case the error is very similar:\n\n`Chrome Headless 87.0.4274.0 (Windows 10): Executed 767 of 768 (1 FAILED) (skipped 1) (2.819 secs / 2.522 secs)`",
+      "parentUuid": "8db54a27_b9da1688",
+      "range": {
+        "startLine": 137,
+        "startChar": 2,
+        "endLine": 137,
+        "endChar": 5
+      },
+      "revId": "09144bbe1687fd75fec84a8d691657c98fe09181",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
