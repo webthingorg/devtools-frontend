@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "76ea073f_52d8752f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-05T11:14:40Z",
+      "side": 1,
+      "message": "Looking into whether this causes layout test failures.",
+      "parentUuid": "be0ac83a_9d4d10ad",
+      "revId": "56701b7731d943097fbe2e1897b52dcc22057e75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dbed950e_887c0e4a",
         "filename": "front_end/screencast/ScreencastView.js",
         "patchSetId": 1
@@ -80,6 +98,30 @@
       "revId": "56701b7731d943097fbe2e1897b52dcc22057e75",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f61b007c_28c9f697",
+        "filename": "front_end/screencast/ScreencastView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-05T11:14:40Z",
+      "side": 1,
+      "message": "This is a handler for an event. It takes a InspectNodeRequestedEvent as argument, so the old code was wrong (and no one noticed).",
+      "parentUuid": "b89be63e_cd7775a4",
+      "range": {
+        "startLine": 275,
+        "startChar": 6,
+        "endLine": 275,
+        "endChar": 96
+      },
+      "revId": "56701b7731d943097fbe2e1897b52dcc22057e75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
