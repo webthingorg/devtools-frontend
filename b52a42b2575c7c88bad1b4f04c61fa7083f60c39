@@ -39,6 +39,30 @@
       "revId": "b52a42b2575c7c88bad1b4f04c61fa7083f60c39",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce0bfc32_bc68816c",
+        "filename": "front_end/coverage/CoverageView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-05T13:17:41Z",
+      "side": 1,
+      "message": "Number(undefined) is NaN, so option ? option.value : Number.NaN is right.",
+      "parentUuid": "31982803_32fa46c3",
+      "range": {
+        "startLine": 198,
+        "startChar": 32,
+        "endLine": 198,
+        "endChar": 55
+      },
+      "revId": "b52a42b2575c7c88bad1b4f04c61fa7083f60c39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
