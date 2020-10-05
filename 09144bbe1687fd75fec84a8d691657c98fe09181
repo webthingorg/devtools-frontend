@@ -118,6 +118,30 @@
       "revId": "09144bbe1687fd75fec84a8d691657c98fe09181",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8db54a27_b9da1688",
+        "filename": "test/unittests/front_end/helpers/DOMHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-05T10:02:32Z",
+      "side": 1,
+      "message": "Yes, it still seems to fail in debug mode (set DEBUG\u003d1) on windows.\nIt\u0027s really odd, it started (for me) about a week or 2 ago. When it did, I made sure it wasn\u0027t caused by some work I was doing locally, and then saw that it wasn\u0027t failing in CQ, so I sort of forgot about it. But it\u0027s constantly failing for me locally now.",
+      "parentUuid": "58508875_2e82b830",
+      "range": {
+        "startLine": 137,
+        "startChar": 2,
+        "endLine": 137,
+        "endChar": 5
+      },
+      "revId": "09144bbe1687fd75fec84a8d691657c98fe09181",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
