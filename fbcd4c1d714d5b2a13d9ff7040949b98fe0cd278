@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "47c64298_f83816ee",
+        "filename": "front_end/sources/SourcesView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-05T13:27:09Z",
+      "side": 0,
+      "message": "I think we should still reset `this._placeholderOptionArray` to the empty array.\n\nIf _placeholderElement() is called multiple times then the array will have different values now.",
+      "range": {
+        "startLine": 124,
+        "startChar": 4,
+        "endLine": 124,
+        "endChar": 38
+      },
+      "revId": "fbcd4c1d714d5b2a13d9ff7040949b98fe0cd278",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

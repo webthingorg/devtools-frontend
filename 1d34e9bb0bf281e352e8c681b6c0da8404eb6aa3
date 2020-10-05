@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "01dda18a_cab58b3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-05T13:27:09Z",
+      "side": 1,
+      "message": "lgtm % suggestions",
+      "revId": "1d34e9bb0bf281e352e8c681b6c0da8404eb6aa3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd68ff73_f547ac5d",
+        "filename": "front_end/sources/SourcesView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-05T13:27:09Z",
+      "side": 1,
+      "message": "Drive-by cleanup?:\n\n for (const project of projects) {\n   unsavedSourceCodes.push(...project.uiSourceCodes().filter(\n     sourceCode \u003d\u003e sourceCode.isDirty()));\n }\n\nThen `unsavedSourceCodes can be const :)",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 0
+      },
+      "revId": "1d34e9bb0bf281e352e8c681b6c0da8404eb6aa3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
