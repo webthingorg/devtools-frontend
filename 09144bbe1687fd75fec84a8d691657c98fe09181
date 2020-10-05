@@ -46,6 +46,30 @@
       "revId": "09144bbe1687fd75fec84a8d691657c98fe09181",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b132dfa_c846dc3d",
+        "filename": "test/unittests/front_end/helpers/DOMHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-05T08:37:29Z",
+      "side": 1,
+      "message": "I\u0027m testing on a Mac personally but the bots that get run on CLs run the tests on Linux, Mac and Windows. To my knowledge the test hasn\u0027t flaked on the Chromium infrastructure which makes me wonder if there\u0027s something different about your build system (I\u0027m assuming it\u0027s an internal system so you can\u0027t point me to a flake?) that\u0027s causing it. I wonder if this is an Edge vs Chromium difference (although unlikely!) ? \n\nTo be clear, I\u0027m not adverse to landing a fix if it\u0027s causing flakes locally on Windows machines, but I\u0027d like to understand the exact problem to land a fix that can make all future tests robust (else we\u0027ll end up either having to repeat this CL N times for every test, or end up with seemingly random timeouts in our unit tests).",
+      "parentUuid": "d2c27ec7_415a9efe",
+      "range": {
+        "startLine": 137,
+        "startChar": 2,
+        "endLine": 137,
+        "endChar": 5
+      },
+      "revId": "09144bbe1687fd75fec84a8d691657c98fe09181",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
