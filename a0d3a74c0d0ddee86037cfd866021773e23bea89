@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "3a930a6c_817ec5c2",
+        "filename": "front_end/sources/TabbedEditorContainer.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-05T10:55:17Z",
+      "side": 1,
+      "message": "It would, but in this case the `SourceFrameImpl` always has a `_textEditor`.",
+      "parentUuid": "9092361a_4ff4d835",
+      "range": {
+        "startLine": 233,
+        "startChar": 50,
+        "endLine": 233,
+        "endChar": 60
+      },
+      "revId": "a0d3a74c0d0ddee86037cfd866021773e23bea89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dbed5f87_26a2eccc",
         "filename": "front_end/sources/TabbedEditorContainer.js",
         "patchSetId": 1
@@ -62,6 +86,30 @@
       "revId": "a0d3a74c0d0ddee86037cfd866021773e23bea89",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9da88f57_4b282314",
+        "filename": "front_end/sources/TabbedEditorContainer.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-05T10:55:17Z",
+      "side": 1,
+      "message": "`index !\u003d\u003d undefined` works 😊",
+      "parentUuid": "dbed5f87_26a2eccc",
+      "range": {
+        "startLine": 803,
+        "startChar": 4,
+        "endLine": 803,
+        "endChar": 16
+      },
+      "revId": "a0d3a74c0d0ddee86037cfd866021773e23bea89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
