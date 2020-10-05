@@ -12,12 +12,15 @@ devtools_module("inline_editor") {
     "CSSShadowEditor.js",
     "CSSShadowModel.js",
     "ColorSwatch.js",
+    "FontEditor.js",
     "SwatchPopoverHelper.js",
   ]
 
   deps = [
     "../common:bundle",
+    "../css_overview:bundle",
     "../platform:bundle",
+    "../sdk:bundle",
     "../text_utils:bundle",
     "../ui:bundle",
   ]
@@ -30,5 +33,9 @@ copy_to_gen("legacy_css") {
 devtools_entrypoint("bundle") {
   entrypoint = "inline_editor.js"
 
-  deps = [ ":inline_editor" ]
+  deps = [
+    ":inline_editor",
+    "../css_overview:bundle",
+    "../sdk:bundle",
+  ]
 }

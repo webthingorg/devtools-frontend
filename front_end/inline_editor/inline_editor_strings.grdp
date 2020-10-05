@@ -3,8 +3,20 @@
   <message name="IDS_DEVTOOLS_180bc3b1c5619aaef40e803f49921012" desc="Text in CSSShadow Editor of the inline editor in the Styles tab">
     Spread
   </message>
+  <message name="IDS_DEVTOOLS_1ef0054faf96b87acdea23847bf263e8" desc="Line height slider label for Font Editor">
+    Line Height
+  </message>
   <message name="IDS_DEVTOOLS_2134e3ae0c489ce87a007a082d6a9a29" desc="Text in CSSShadow Editor of the inline editor in the Styles tab">
     X offset
+  </message>
+  <message name="IDS_DEVTOOLS_26729eed161f50a0c67cacc2971a6730" desc="Label for Font Editor property text input">
+    <ph name="THIS__PROPERTYNAME">$1s<ex>font-size</ex></ph> Text Input
+  </message>
+  <message name="IDS_DEVTOOLS_45f0d4fa9a30e9c5571dbaa9ad1be931" desc="Font size slider label for Font Editor">
+    Font Size
+  </message>
+  <message name="IDS_DEVTOOLS_47a9a61c03a89363e598f370f3dfcb1f" desc="Label for Font Editor alert in CSS Properties section when toggling inputs">
+    Toggle Input Type
   </message>
   <message name="IDS_DEVTOOLS_575ed851c8964c290e73055ffdc085a6" desc="Text in CSSShadow Editor of the inline editor in the Styles tab">
     Y offset
@@ -12,13 +24,55 @@
   <message name="IDS_DEVTOOLS_5e9fb94d2ec46e6f829196c229e2b194" desc="Outset button text content in CSSShadow Editor of the inline editor in the Styles tab">
     Outset
   </message>
+  <message name="IDS_DEVTOOLS_6184141f3ad2584cff257e2bfbbb8d0b" desc="Font weight slider label for Font Editor">
+    Font Weight
+  </message>
+  <message name="IDS_DEVTOOLS_627b24abf27e2d03d38537f84e81cb2e" desc="Label for letter-spacing labels">
+    Spacing
+  </message>
+  <message name="IDS_DEVTOOLS_78a32b5502c1f48c57f43b08284c40a2" desc="Label for Font Editor alert in CSS Properties section when toggling inputs">
+    Selector Input Mode
+  </message>
+  <message name="IDS_DEVTOOLS_873709207ad56d0b7bb9949ae36c75b0" desc="Section header for CSS property inputs">
+    CSS Properties
+  </message>
+  <message name="IDS_DEVTOOLS_882277bdf25efaeb8295e842ebcb3d11" desc="Font editor label for fallback font selector">
+    Fallback
+  </message>
+  <message name="IDS_DEVTOOLS_8b1b1aa6c2a4785ab415c8fbf20e70d9" desc="Label for Font Editor button to delete font family/fallback selectors">
+    Delete <ph name="LABEL">$1s<ex>Fallback 1</ex></ph>
+  </message>
   <message name="IDS_DEVTOOLS_8b52de510bc5497ac43abfe566be48ab" desc="Text in CSSShadow Editor of the inline editor in the Styles tab">
     Blur
+  </message>
+  <message name="IDS_DEVTOOLS_9029ce046818cc804c9397a7355aec5e" desc="Label for Font Editor unit input">
+    <ph name="THIS__PROPERTYNAME">$1s<ex>font-size</ex></ph> Unit Input
+  </message>
+  <message name="IDS_DEVTOOLS_990ab2a88bb4291591daad9cfba27386" desc="Error message for unsupported or unknown property names">
+    Unknown property name: <ph name="THIS__PROPERTYNAME">$1s<ex>font-style</ex></ph>
+  </message>
+  <message name="IDS_DEVTOOLS_aa6ca9aab00f41b6ad8248a50b4513ca" desc="Label for Font Editor alert in CSS Properties section when toggling inputs">
+    Slider Input Mode
   </message>
   <message name="IDS_DEVTOOLS_b56d315e49178ba86341ff3b4e337c6b" desc="Inset button text content in CSSShadow Editor of the inline editor in the Styles tab">
     Inset
   </message>
+  <message name="IDS_DEVTOOLS_d40a18f2b7255547b2a944d0eeca36f0" desc="Label for Font Editor selector input">
+    <ph name="THIS__PROPERTYNAME">$1s<ex>font-size</ex></ph> Selector Values
+  </message>
   <message name="IDS_DEVTOOLS_d65b5983f317c42c6f6dff5678e628ca" desc="Icon element title in Color Swatch of the inline editor in the Styles tab">
     Shift-click to change color format
+  </message>
+  <message name="IDS_DEVTOOLS_db40a5d4b654151bf70f2e25e73263dc" desc="Font editor label for font family selector">
+    Font Family
+  </message>
+  <message name="IDS_DEVTOOLS_e1e406d7c7135668b394aba062803603" desc="Warning message for Font Editor invalid text input">
+    * Please enter a valid value for <ph name="PROPERTYNAME">$1s<ex>font-size</ex></ph> text input
+  </message>
+  <message name="IDS_DEVTOOLS_e5771a362d88a71a657bfcd21ca54b3f" desc="Font Editor units text box label">
+    Units
+  </message>
+  <message name="IDS_DEVTOOLS_ed0d032d982e79eaa9284f607bea4b80" desc="Label for numbered fallback selectors">
+    Fallback <ph name="THIS__FONTSELECTORS_LENGTH">$1s<ex>2</ex></ph>
   </message>
 </grit-part>
