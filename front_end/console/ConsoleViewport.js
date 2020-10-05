@@ -369,25 +369,30 @@ export class ConsoleViewport {
    */
   _updateSelectionModel(selection) {
     const range = selection && selection.rangeCount ? selection.getRangeAt(0) : null;
-    if (!range || (!selection || selection.isCollapsed) || !this.element.hasSelection()) {
+    if (!range || selection.isCollapsed || !this.element.hasSelection()) {
       this._headSelection = null;
       this._anchorSelection = null;
       return false;
     }
 
-    let firstSelectedIndex = Number.MAX_VALUE;
-    let lastSelectedIndex = -1;
+    let firstSelected = Number.MAX_VALUE;
+    let lastSelected = -1;
 
     let hasVisibleSelection = false;
     for (let i = 0; i < this._renderedItems.length; ++i) {
       if (range.intersectsNode(this._renderedItems[i].element())) {
         const index = i + this._firstActiveIndex;
-        firstSelectedIndex = Math.min(firstSelectedIndex, index);
-        lastSelectedIndex = Math.max(lastSelectedIndex, index);
+        firstSelected = Math.min(firstSelected, index);
+        lastSelected = Math.max(lastSelected, index);
         hasVisibleSelection = true;
       }
     }
-
+    if (hasVisibleSelection) {
+      firstSelected =
+          this._createSelectionModel(firstSelected, /** @type {!Node} */ (range.startContainer), range.startOffset);
+      lastSelected =
+          this._createSelectionModel(lastSelected, /** @type {!Node} */ (range.endContainer), range.endOffset);
+    }
     const topOverlap = range.intersectsNode(this._topGapElement) && this._topGapElement._active;
     const bottomOverlap = range.intersectsNode(this._bottomGapElement) && this._bottomGapElement._active;
     if (!topOverlap && !bottomOverlap && !hasVisibleSelection) {
@@ -405,17 +410,9 @@ export class ConsoleViewport {
     const isBackward = this._isSelectionBackwards(selection);
     const startSelection = this._selectionIsBackward ? this._headSelection : this._anchorSelection;
     const endSelection = this._selectionIsBackward ? this._anchorSelection : this._headSelection;
-    let firstSelected = null;
-    let lastSelected = null;
-    if (hasVisibleSelection) {
-      firstSelected = this._createSelectionModel(
-          firstSelectedIndex, /** @type {!Node} */ (range.startContainer), range.startOffset);
-      lastSelected =
-          this._createSelectionModel(lastSelectedIndex, /** @type {!Node} */ (range.endContainer), range.endOffset);
-    }
     if (topOverlap && bottomOverlap && hasVisibleSelection) {
-      firstSelected = (firstSelected && firstSelected.item < startSelection.item) ? firstSelected : startSelection;
-      lastSelected = (lastSelected && lastSelected.item > endSelection.item) ? lastSelected : endSelection;
+      firstSelected = firstSelected.item < startSelection.item ? firstSelected : startSelection;
+      lastSelected = lastSelected.item > endSelection.item ? lastSelected : endSelection;
     } else if (!hasVisibleSelection) {
       firstSelected = startSelection;
       lastSelected = endSelection;
@@ -440,34 +437,27 @@ export class ConsoleViewport {
    * @param {?Selection} selection
    */
   _restoreSelection(selection) {
-    let anchorElement = null;
-    let anchorOffset;
-    if (this._firstActiveIndex <= this._anchorSelection.item && this._anchorSelection.item <= this._lastActiveIndex) {
-      anchorElement = this._anchorSelection.node;
-      anchorOffset = this._anchorSelection.offset;
-    } else {
-      if (this._anchorSelection.item < this._firstActiveIndex) {
-        anchorElement = this._topGapElement;
-      } else if (this._anchorSelection.item > this._lastActiveIndex) {
-        anchorElement = this._bottomGapElement;
-      }
-      anchorOffset = this._selectionIsBackward ? 1 : 0;
+    if (!selection || !this._anchorSelection || !this._headSelection) {
+      return;
     }
 
-    let headElement = null;
-    let headOffset;
-    if (this._firstActiveIndex <= this._headSelection.item && this._headSelection.item <= this._lastActiveIndex) {
-      headElement = this._headSelection.node;
-      headOffset = this._headSelection.offset;
-    } else {
-      if (this._headSelection.item < this._firstActiveIndex) {
-        headElement = this._topGapElement;
-      } else if (this._headSelection.item > this._lastActiveIndex) {
-        headElement = this._bottomGapElement;
+    /**
+     * @param {!{item: number, node: !Node, offset: number}} selection
+     * @param {boolean} isSelectionBackwards
+     * @return {!{element: !Node, offset: number}}
+     */
+    const clampSelection = (selection, isSelectionBackwards) => {
+      if (this._firstActiveIndex <= selection.item && selection.item <= this._lastActiveIndex) {
+        return {element: selection.node, offset: selection.offset};
       }
-      headOffset = this._selectionIsBackward ? 0 : 1;
-    }
 
+      const element = selection.item < this._firstActiveIndex ? this._topGapElement : this._bottomGapElement;
+      return {element, offset: isSelectionBackwards ? 1 : 0};
+    };
+
+    const {element: anchorElement, offset: anchorOffset} =
+        clampSelection(this._anchorSelection, !!this._selectionIsBackward);
+    const {element: headElement, offset: headOffset} = clampSelection(this._headSelection, !this._selectionIsBackward);
     selection.setBaseAndExtent(anchorElement, anchorOffset, headElement, headOffset);
   }
 
