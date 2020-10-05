@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9860585e_b55b748c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-05T12:09:24Z",
+      "side": 1,
+      "message": "Hi Benedikt,\n\nthis CL skips the tests that are testing on the faulty naming (empty naming) and I will update them as soon as your changes have rolled into the devtools-frontend.\n\nPTAL",
+      "revId": "8b5d7423d7dc19230e5409363ebedbee2d9eb230",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
