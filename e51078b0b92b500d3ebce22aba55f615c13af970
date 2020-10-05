@@ -22,6 +22,30 @@
       "revId": "e51078b0b92b500d3ebce22aba55f615c13af970",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5b2181a_bae58300",
+        "filename": "front_end/ui/KeyboardShortcut.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-10-05T13:37:58Z",
+      "side": 0,
+      "message": "modifierStrings would be empty if there\u0027s no keyString, yes.",
+      "parentUuid": "6d2f8d5f_88fcac84",
+      "range": {
+        "startLine": 216,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 0
+      },
+      "revId": "e51078b0b92b500d3ebce22aba55f615c13af970",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
