@@ -1,7 +1,6 @@
 {
   "comments": [
     {
-      "unresolved": false,
       "key": {
         "uuid": "1b3a3559_d5bd1d12",
         "filename": "/PATCHSET_LEVEL",
@@ -15,10 +14,28 @@
       "side": 1,
       "message": "@Jesus @Patrick we spent some time debugging this on a Windows machine and were able to recreate the bug.\n\nWe think https://crrev.com/c/2449984 fixes it (it was very subtle!). Please let me know if you still see the failures once that CL lands.\n\nI think that means we can mark this CL as abandoned now. ",
       "revId": "09144bbe1687fd75fec84a8d691657c98fe09181",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
-      "unresolved": true,
+      "key": {
+        "uuid": "b3c47c49_d54aec44",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2020-10-06T16:28:53Z",
+      "side": 1,
+      "message": "I have downloaded your CL and looks like it is working good :)\nThanks for the fix!",
+      "parentUuid": "1b3a3559_d5bd1d12",
+      "revId": "09144bbe1687fd75fec84a8d691657c98fe09181",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
       "key": {
         "uuid": "f76792ba_1c47e908",
         "filename": "test/unittests/front_end/helpers/DOMHelpers.ts",
@@ -38,10 +55,10 @@
         "endChar": 5
       },
       "revId": "09144bbe1687fd75fec84a8d691657c98fe09181",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     },
     {
-      "unresolved": true,
       "key": {
         "uuid": "d2c27ec7_415a9efe",
         "filename": "test/unittests/front_end/helpers/DOMHelpers.ts",
@@ -62,10 +79,10 @@
         "endChar": 5
       },
       "revId": "09144bbe1687fd75fec84a8d691657c98fe09181",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     },
     {
-      "unresolved": true,
       "key": {
         "uuid": "8b132dfa_c846dc3d",
         "filename": "test/unittests/front_end/helpers/DOMHelpers.ts",
@@ -86,10 +103,10 @@
         "endChar": 5
       },
       "revId": "09144bbe1687fd75fec84a8d691657c98fe09181",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     },
     {
-      "unresolved": true,
       "key": {
         "uuid": "4e52c291_c8670869",
         "filename": "test/unittests/front_end/helpers/DOMHelpers.ts",
@@ -110,10 +127,10 @@
         "endChar": 5
       },
       "revId": "09144bbe1687fd75fec84a8d691657c98fe09181",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     },
     {
-      "unresolved": true,
       "key": {
         "uuid": "58508875_2e82b830",
         "filename": "test/unittests/front_end/helpers/DOMHelpers.ts",
@@ -134,10 +151,10 @@
         "endChar": 5
       },
       "revId": "09144bbe1687fd75fec84a8d691657c98fe09181",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     },
     {
-      "unresolved": true,
       "key": {
         "uuid": "8db54a27_b9da1688",
         "filename": "test/unittests/front_end/helpers/DOMHelpers.ts",
@@ -158,10 +175,10 @@
         "endChar": 5
       },
       "revId": "09144bbe1687fd75fec84a8d691657c98fe09181",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     },
     {
-      "unresolved": true,
       "key": {
         "uuid": "37496cc7_55426eda",
         "filename": "test/unittests/front_end/helpers/DOMHelpers.ts",
@@ -182,7 +199,8 @@
         "endChar": 5
       },
       "revId": "09144bbe1687fd75fec84a8d691657c98fe09181",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
