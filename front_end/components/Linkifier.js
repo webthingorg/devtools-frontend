@@ -202,7 +202,7 @@ export class Linkifier {
    * @param {string} sourceURL
    * @param {number} lineNumber
    * @param {!LinkifyOptions=} options
-   * @return {?Element}
+   * @return {?HTMLElement}
    */
   maybeLinkifyScriptLocation(target, scriptId, sourceURL, lineNumber, options) {
     let fallbackAnchor = null;
@@ -281,7 +281,7 @@ export class Linkifier {
    * @param {string} sourceURL
    * @param {number} lineNumber
    * @param {!LinkifyOptions=} options
-   * @return {!Element}
+   * @return {!HTMLElement}
    */
   linkifyScriptLocation(target, scriptId, sourceURL, lineNumber, options) {
     const scriptLink = this.maybeLinkifyScriptLocation(target, scriptId, sourceURL, lineNumber, options);
@@ -315,7 +315,7 @@ export class Linkifier {
    * @param {?SDK.SDKModel.Target} target
    * @param {!Protocol.Runtime.CallFrame} callFrame
    * @param {!LinkifyOptions=} options
-   * @return {?Element}
+   * @return {?HTMLElement}
    */
   maybeLinkifyConsoleCallFrame(target, callFrame, options) {
     const linkifyOptions = {
@@ -331,7 +331,7 @@ export class Linkifier {
    * @param {!SDK.SDKModel.Target} target
    * @param {!Protocol.Runtime.StackTrace} stackTrace
    * @param {string=} classes
-   * @return {!Element}
+   * @return {!HTMLElement}
    */
   linkifyStackTraceTopFrame(target, stackTrace, classes) {
     console.assert(!!stackTrace.callFrames && !!stackTrace.callFrames.length);
@@ -494,7 +494,7 @@ export class Linkifier {
   /**
    * @param {string} url
    * @param  {!LinkifyURLOptions=} options
-   * @return {!Element}
+   * @return {!HTMLElement}
    */
   static linkifyURL(url, options) {
     options = options || {
@@ -515,7 +515,7 @@ export class Linkifier {
     const maxLength = options.maxLength || UI.UIUtils.MaxLengthForDisplayedURLs;
     const bypassURLTrimming = options.bypassURLTrimming;
     if (!url || url.trim().toLowerCase().startsWith('javascript:')) {
-      const element = document.createElement('span');
+      const element = /** @type {!HTMLElement} */ (document.createElement('span'));
       if (className) {
         element.className = className;
       }
@@ -547,7 +547,7 @@ export class Linkifier {
    * @param {!Object} revealable
    * @param {string} text
    * @param {string=} fallbackHref
-   * @return {!Element}
+   * @return {!HTMLElement}
    */
   static linkifyRevealable(revealable, text, fallbackHref) {
     const createLinkOptions = {
@@ -571,7 +571,7 @@ export class Linkifier {
    * @param {string} text
    * @param {string} className
    * @param {!_CreateLinkOptions=} options
-   * @returns {!Element}
+   * @returns {!HTMLElement}
    */
   static _createLink(text, className, options) {
     options = options || {
