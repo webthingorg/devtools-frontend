@@ -698,3 +698,34 @@ describe('User Metrics for Grid Overlay', () => {
     await endCatchEvents(frontend);
   });
 });
+
+describe('User Metrics for CSS custom properties in the Styles pane', () => {
+  beforeEach(async () => {
+    const {frontend} = getBrowserAndPages();
+    await beginCatchEvents(frontend);
+    await goToResource('elements/css-variables.html');
+    await navigateToSidePane('Styles');
+    await waitForElementsStyleSection();
+    await waitForContentOfSelectedElementsNode('<body>\u200B');
+  });
+
+  it('dispatch events when capture overview button hit', async () => {
+    const {frontend} = getBrowserAndPages();
+    await frontend.keyboard.press('ArrowRight');
+    await waitForContentOfSelectedElementsNode('<div id=\u200B"properties-to-inspect">\u200B</div>\u200B');
+
+    await click('.css-var-link');
+
+    await assertCapturedEvents([
+      {
+        name: 'DevTools.ActionTaken',
+        value: 47,  // CustomPropertyLinkClicked
+      },
+    ]);
+  });
+
+  afterEach(async () => {
+    const {frontend} = getBrowserAndPages();
+    await endCatchEvents(frontend);
+  });
+});
