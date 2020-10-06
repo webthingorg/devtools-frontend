@@ -247,6 +247,24 @@
     },
     {
       "key": {
+        "uuid": "40f0bde4_99b45cd9",
+        "filename": "test/e2e/performance/performance_profiling_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-10-06T13:31:32Z",
+      "side": 1,
+      "message": "Done, we now extract it from the length of expected activities",
+      "parentUuid": "2b7dbf52_bf6536d3",
+      "revId": "64b665cc807e65312b965c44b2c01af0a01576e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1bb63e25_1820d195",
         "filename": "test/e2e/performance/performance_profiling_test.ts",
         "patchSetId": 5
@@ -297,6 +315,24 @@
       "revId": "64b665cc807e65312b965c44b2c01af0a01576e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e15e784c_75ee9b9d",
+        "filename": "test/e2e/performance/performance_profiling_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-10-06T13:31:32Z",
+      "side": 1,
+      "message": "Done, let me know if this encapsulation made things clearer or not",
+      "parentUuid": "705fa3e0_e74ff3fb",
+      "revId": "64b665cc807e65312b965c44b2c01af0a01576e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -367,6 +403,24 @@
       "revId": "64b665cc807e65312b965c44b2c01af0a01576e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "929d8232_b2445746",
+        "filename": "test/e2e/performance/performance_profiling_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2020-10-06T13:31:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f532c19_4e38571c",
+      "revId": "64b665cc807e65312b965c44b2c01af0a01576e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
