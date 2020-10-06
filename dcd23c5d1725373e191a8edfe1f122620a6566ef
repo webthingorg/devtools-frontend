@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "dcd23c5d1725373e191a8edfe1f122620a6566ef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35248c7c_b1dfc54d",
+        "filename": "front_end/sdk/ConsoleModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-06T15:43:09Z",
+      "side": 1,
+      "message": "Note: this was an actual bug.",
+      "range": {
+        "startLine": 348,
+        "startChar": 30,
+        "endLine": 348,
+        "endChar": 39
+      },
+      "revId": "dcd23c5d1725373e191a8edfe1f122620a6566ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
