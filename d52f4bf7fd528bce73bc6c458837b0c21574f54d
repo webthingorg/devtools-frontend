@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "e8c7ce00_bb778bca",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-06T13:11:54Z",
+      "side": 1,
+      "message": "So the number here is just a timestamp for where to render the good marker? Maybe `markerTimestamp` is a better name? This is a nit though and you\u0027re more familiar with the code than me so feel free to go with what you think.",
+      "parentUuid": "9906b9d9_ccbba1a2",
+      "range": {
+        "startLine": 97,
+        "startChar": 35,
+        "endLine": 97,
+        "endChar": 41
+      },
+      "revId": "d52f4bf7fd528bce73bc6c458837b0c21574f54d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "af769218_92508555",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
         "patchSetId": 3
