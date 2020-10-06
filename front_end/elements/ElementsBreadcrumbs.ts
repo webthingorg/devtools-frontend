@@ -24,10 +24,12 @@ export class ElementsBreadcrumbs extends HTMLElement {
   private overflowing = false;
   private userScrollPosition: UserScrollPosition = 'start';
   private isObservingResize = false;
+  private userHasManuallyScrolled = false;
 
   set data(data: ElementsBreadcrumbsData) {
     this.selectedDOMNode = data.selectedNode;
     this.crumbsData = data.crumbs;
+    this.userHasManuallyScrolled = false;
     this.update();
   }
 
@@ -157,6 +159,7 @@ export class ElementsBreadcrumbs extends HTMLElement {
 
   private onOverflowClick(direction: 'left'|'right') {
     return () => {
+      this.userHasManuallyScrolled = true;
       const scrollWindow = this.shadow.querySelector('.crumbs-window');
 
       if (!scrollWindow) {
@@ -309,14 +312,26 @@ export class ElementsBreadcrumbs extends HTMLElement {
   }
 
   private ensureSelectedNodeIsVisible() {
-    if (!this.selectedDOMNode || !this.shadow || !this.overflowing) {
+    /*
+     * If the user has manually scrolled the crumbs in either direction, we
+     * effectively hand control over the scrolling down to them. This is to
+     * prevent the user manually scrolling to the end, and then us scrolling
+     * them back to the selected node. The moment they click either scroll
+     * button we set userHasManuallyScrolled, and we reset it when we get new
+     * data in. This means if the user clicks on a different element in the
+     * tree, we will auto-scroll that element into view, because we'll get new
+     * data and hence the flag will be reset.
+     */
+    if (!this.selectedDOMNode || !this.shadow || !this.overflowing || this.userHasManuallyScrolled) {
       return;
     }
     const activeCrumbId = this.selectedDOMNode.id;
     const activeCrumb = this.shadow.querySelector(`.crumb[data-node-id="${activeCrumbId}"]`);
 
     if (activeCrumb) {
-      activeCrumb.scrollIntoView();
+      activeCrumb.scrollIntoView({
+        behavior: 'smooth',
+      });
     }
   }
 }
