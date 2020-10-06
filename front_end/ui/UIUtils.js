@@ -1408,9 +1408,9 @@ export class DevToolsIconLabel extends HTMLSpanElement {
   }
 }
 
-(function() {
 let labelId = 0;
-registerCustomElement('span', 'dt-radio', class extends HTMLSpanElement {
+
+class DevToolsRadioButton extends HTMLSpanElement {
   constructor() {
     super();
     this.radioElement = this.createChild('input', 'dt-radio-button');
@@ -1424,7 +1424,9 @@ registerCustomElement('span', 'dt-radio', class extends HTMLSpanElement {
     root.createChild('slot');
     this.addEventListener('click', radioClickHandler, false);
   }
-});
+}
+
+registerCustomElement('span', 'dt-radio', DevToolsRadioButton);
 
 /**
    * @param {!Event} event
@@ -1441,7 +1443,7 @@ function radioClickHandler(event) {
 
 registerCustomElement('span', 'dt-icon-label', DevToolsIconLabel);
 
-registerCustomElement('span', 'dt-slider', class extends HTMLSpanElement {
+class DevToolsSlider extends HTMLSpanElement {
   constructor() {
     super();
     const root = createShadowRootWithCoreStyles(this, 'ui/slider.css');
@@ -1465,9 +1467,11 @@ registerCustomElement('span', 'dt-slider', class extends HTMLSpanElement {
   get value() {
     return this.sliderElement.value;
   }
-});
+}
 
-registerCustomElement('span', 'dt-small-bubble', class extends HTMLSpanElement {
+registerCustomElement('span', 'dt-slider', DevToolsSlider);
+
+export class DevToolsSmallBubble extends HTMLSpanElement {
   constructor() {
     super();
     const root = createShadowRootWithCoreStyles(this, 'ui/smallBubble.css');
@@ -1483,9 +1487,11 @@ registerCustomElement('span', 'dt-small-bubble', class extends HTMLSpanElement {
   set type(type) {
     this._textElement.className = type;
   }
-});
+}
 
-registerCustomElement('div', 'dt-close-button', class extends HTMLDivElement {
+registerCustomElement('span', 'dt-small-bubble', DevToolsSmallBubble);
+
+export class DevToolsCloseButton extends HTMLDivElement {
   constructor() {
     super();
     const root = createShadowRootWithCoreStyles(this, 'ui/closeButton.css');
@@ -1533,8 +1539,9 @@ registerCustomElement('div', 'dt-close-button', class extends HTMLDivElement {
       this._buttonElement.tabIndex = -1;
     }
   }
-});
-})();
+}
+
+registerCustomElement('div', 'dt-close-button', DevToolsCloseButton);
 
 /**
  * @param {!Element} input
