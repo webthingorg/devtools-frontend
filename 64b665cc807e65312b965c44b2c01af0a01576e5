@@ -229,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "2b7dbf52_bf6536d3",
+        "filename": "test/e2e/performance/performance_profiling_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-06T12:01:58Z",
+      "side": 1,
+      "message": "Right, but we have the expected activities (the ones used in later in assert.deepEqual), and the number of steps is a multiple of the expected activities - 1, right?",
+      "parentUuid": "defe705b_8e30aea6",
+      "revId": "64b665cc807e65312b965c44b2c01af0a01576e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1bb63e25_1820d195",
         "filename": "test/e2e/performance/performance_profiling_test.ts",
         "patchSetId": 5
@@ -258,6 +276,24 @@
       "side": 1,
       "message": "I am not sure if the would be helpful because then the function would work in a very specific situation (i.e. when we are in the performance tab with an activity selected).\nHowever if you we can encapsulate this entire step (I think it would be clearer what the function does this way).",
       "parentUuid": "1bb63e25_1820d195",
+      "revId": "64b665cc807e65312b965c44b2c01af0a01576e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "705fa3e0_e74ff3fb",
+        "filename": "test/e2e/performance/performance_profiling_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-06T12:01:58Z",
+      "side": 1,
+      "message": "Not necessarily as a helper function in the performance-helpers, but one within this test might make it clearer what we\u0027re doing.",
+      "parentUuid": "2436bf0c_b9276b7b",
       "revId": "64b665cc807e65312b965c44b2c01af0a01576e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
