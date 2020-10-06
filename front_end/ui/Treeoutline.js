@@ -449,6 +449,7 @@ export class TreeElement {
   constructor(title, expandable) {
     /** @type {?TreeOutline} */
     this.treeOutline = null;
+    /** @type {?TreeElement} */
     this.parent = null;
     this.previousSibling = null;
     this.nextSibling = null;
