@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "18ae1abd_8cdc7545",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-06T07:20:16Z",
+      "side": 1,
+      "message": "I made a suggestion, but leave it up to you to address or not. LGTM.",
+      "revId": "dfaddbf928f1c76bf9e8eb63e5e68340d67c1cf5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "021088ea_bb30b998",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-06T07:20:16Z",
+      "side": 1,
+      "message": "It might be easier to always return a promise (so Promise.resolve(null) here). This way the return type can be {!Promise\u003c?Location\u003e}",
+      "range": {
+        "startLine": 147,
+        "startChar": 13,
+        "endLine": 147,
+        "endChar": 18
+      },
+      "revId": "dfaddbf928f1c76bf9e8eb63e5e68340d67c1cf5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96509a7c_29249406",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-06T07:20:16Z",
+      "side": 1,
+      "message": "If you always return a promise from createLiveLocation, you don\u0027t have to do this, you can use .then and do your null check inside of it.",
+      "range": {
+        "startLine": 269,
+        "startChar": 4,
+        "endLine": 271,
+        "endChar": 5
+      },
+      "revId": "dfaddbf928f1c76bf9e8eb63e5e68340d67c1cf5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
