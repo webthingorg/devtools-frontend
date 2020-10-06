@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "67643d49_b5f0f86c",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-10-06T16:38:35Z",
+      "side": 1,
+      "message": "Good suggestion - I like this change especially since it doesn\u0027t change the return type.",
+      "parentUuid": "021088ea_bb30b998",
+      "range": {
+        "startLine": 147,
+        "startChar": 13,
+        "endLine": 147,
+        "endChar": 18
+      },
+      "revId": "dfaddbf928f1c76bf9e8eb63e5e68340d67c1cf5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96509a7c_29249406",
         "filename": "front_end/components/Linkifier.js",
         "patchSetId": 5
@@ -62,6 +86,30 @@
       "revId": "dfaddbf928f1c76bf9e8eb63e5e68340d67c1cf5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ed93c0b_7a2350dd",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-10-06T16:38:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96509a7c_29249406",
+      "range": {
+        "startLine": 269,
+        "startChar": 4,
+        "endLine": 271,
+        "endChar": 5
+      },
+      "revId": "dfaddbf928f1c76bf9e8eb63e5e68340d67c1cf5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
