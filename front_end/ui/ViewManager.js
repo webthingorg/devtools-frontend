@@ -88,8 +88,10 @@ export class ViewManager {
    * Moves a view to a new location
    * @param {string} viewId
    * @param {string} locationName
+   * @param {boolean=} selectTab
+   * @param {boolean=} overrideSaving
    */
-  moveView(viewId, locationName) {
+  moveView(viewId, locationName, selectTab, overrideSaving) {
     if (!viewId || !locationName) {
       return;
     }
@@ -99,13 +101,15 @@ export class ViewManager {
       return;
     }
 
-    // Update the inner map of locations
-    this._locationNameByViewId.set(viewId, locationName);
+    if (!overrideSaving) {
+      // Update the inner map of locations
+      this._locationNameByViewId.set(viewId, locationName);
 
-    // Update the settings of location overwrites
-    const locations = this._locationOverrideSetting.get();
-    locations[viewId] = locationName;
-    this._locationOverrideSetting.set(locations);
+      // Update the settings of location overwrites
+      const locations = this._locationOverrideSetting.get();
+      locations[viewId] = locationName;
+      this._locationOverrideSetting.set(locations);
+    }
 
     // Find new location and show view there
     this.resolveLocation(locationName).then(location => {
@@ -113,7 +117,7 @@ export class ViewManager {
         throw new Error('Move view: Could not resolve location for view: ' + viewId);
       }
       location._reveal();
-      return location.showView(view, undefined, true /* userGesture*/);
+      return location.showView(view, undefined, true /* userGesture*/, false, selectTab);
     });
   }
 
@@ -677,11 +681,14 @@ export class _TabbedLocation extends _Location {
    * @param {?View=} insertBefore
    * @param {boolean=} userGesture
    * @param {boolean=} omitFocus
+   * @param {boolean=} selectTab
    * @return {!Promise<*>}
    */
-  showView(view, insertBefore, userGesture, omitFocus) {
+  showView(view, insertBefore, userGesture, omitFocus, selectTab = true) {
     this.appendView(view, insertBefore);
-    this._tabbedPane.selectTab(view.viewId(), userGesture);
+    if (selectTab) {
+      this._tabbedPane.selectTab(view.viewId(), userGesture);
+    }
     if (!omitFocus) {
       this._tabbedPane.focus();
     }
