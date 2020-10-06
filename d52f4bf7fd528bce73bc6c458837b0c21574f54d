@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0cc353df_65ba7845",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-06T10:15:36Z",
+      "side": 1,
+      "message": "I can also change this to strings - no worries.",
+      "parentUuid": "2e116cab_8f6ef1f9",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 0
+      },
+      "revId": "d52f4bf7fd528bce73bc6c458837b0c21574f54d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7cc46ea3_82f08ad7",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "d52f4bf7fd528bce73bc6c458837b0c21574f54d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2eac211f_b64d897b",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-06T10:15:36Z",
+      "side": 1,
+      "message": "I\u0027ll change this",
+      "parentUuid": "7cc46ea3_82f08ad7",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 2
+      },
+      "revId": "d52f4bf7fd528bce73bc6c458837b0c21574f54d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "bd4fcabd_69771f9e",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-06T10:15:36Z",
+      "side": 1,
+      "message": "Sounds good!",
+      "parentUuid": "4c70f9f4_aecd212b",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 48
+      },
+      "revId": "d52f4bf7fd528bce73bc6c458837b0c21574f54d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13800fc7_da4e9fcc",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2020-10-05T08:54:24Z",
       "side": 1,
       "message": "I would expect this (and the other methods) to take a `marker` param that\u0027s of the enum type `MarkerType`. Or is that not possible / is the data coming in from elsewhere?",
+      "range": {
+        "startLine": 97,
+        "startChar": 35,
+        "endLine": 97,
+        "endChar": 41
+      },
+      "revId": "d52f4bf7fd528bce73bc6c458837b0c21574f54d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9906b9d9_ccbba1a2",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-06T10:15:36Z",
+      "side": 1,
+      "message": "Markers (for now) are just timestamps and can be of different types (good, medium, bad).\nDo you think I should change the naming?",
+      "parentUuid": "13800fc7_da4e9fcc",
       "range": {
         "startLine": 97,
         "startChar": 35,
@@ -114,6 +210,30 @@
       "revId": "d52f4bf7fd528bce73bc6c458837b0c21574f54d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2462ac9_c91d8756",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-06T10:15:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af769218_92508555",
+      "range": {
+        "startLine": 470,
+        "startChar": 0,
+        "endLine": 470,
+        "endChar": 41
+      },
+      "revId": "d52f4bf7fd528bce73bc6c458837b0c21574f54d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
