@@ -16,6 +16,40 @@
       "revId": "e79afffa640ed21147ccda640a38fc8fac089497",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9734e9cf_bf511fa0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-06T06:02:26Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "e79afffa640ed21147ccda640a38fc8fac089497",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70ae5ae4_7659652d",
+        "filename": "front_end/theme_support/theme_support_impl.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-06T06:02:26Z",
+      "side": 1,
+      "message": "nit: While we\u0027re here, how about simplifying this to for-of for readability?",
+      "revId": "e79afffa640ed21147ccda640a38fc8fac089497",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
