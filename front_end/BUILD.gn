@@ -20,7 +20,7 @@ group("front_end") {
     "client_variations:bundle",
     "cm_modes:bundle",
     "color_picker:bundle",
-    "common:bundle",
+    "common:legacy",
     "component_docs",
     "component_helpers:bundle",
     "components:bundle",

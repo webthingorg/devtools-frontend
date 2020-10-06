@@ -131,9 +131,19 @@ class ReleaseBuilder(object):
                 # Resources are already baked into _module.
                 del module['resources']
                 if not module_type == 'autostart':
+                    # We load the entrypoint of a module no matter what.
+                    # Therefore, we don't need to declare any files for
+                    # the default case. However, if a module still has
+                    # a legacy file, the Runtime performs an array
+                    # contains check and will load that instead.
+                    module_files_to_load = []
+                    declared_module_files = module.get('modules', [])
+                    legacyFileName = name + '-legacy.js'
+                    if legacyFileName in declared_module_files:
+                        module_files_to_load += [legacyFileName]
                     # Non-autostart modules are vulcanized.
-                    module['modules'] = [name + '_module.js'] + module.get(
-                        'modules', [])
+                    module['modules'] = [name + '_module.js'
+                                         ] + declared_module_files
             result.append(module)
         return json.dumps(result)
 
@@ -166,7 +176,9 @@ class ReleaseBuilder(object):
                 if len(non_autostart_deps):
                     bail_error(
                         'Non-autostart dependencies specified for the autostarted module "%s": %s' % (name, non_autostart_deps))
-                self._rollup_module(name, desc.get('modules', []))
+                modules = desc.get('modules')
+                if modules and not desc.get('pre_generates_legacy'):
+                    self._rollup_module(name, modules)
             else:
                 non_autostart.add(name)
 
@@ -192,7 +204,7 @@ class ReleaseBuilder(object):
         if resources:
             output.write("import * as RootModule from '../root/root.js';")
             self._write_module_resources(resources, output)
-        if modules:
+        if modules and not module.get('pre_generates_legacy'):
             self._rollup_module(module_name, modules)
         output_file_path = concatenated_module_filename(module_name, self.output_dir)
         write_file(output_file_path, minify_js(output.getvalue()))
