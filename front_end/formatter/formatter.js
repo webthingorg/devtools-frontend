@@ -6,6 +6,6 @@ import * as FormatterWorkerPool from './FormatterWorkerPool.js';
 import * as ScriptFormatter from './ScriptFormatter.js';
 import * as SourceFormatter from './SourceFormatter.js';
 
-export const sourceFormatter = new SourceFormatter.SourceFormatter();
+export const getSourceFormatter = SourceFormatter.getSourceFormatter;
 
 export {FormatterWorkerPool, ScriptFormatter, SourceFormatter};
