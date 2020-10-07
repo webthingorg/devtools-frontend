@@ -31,7 +31,7 @@ export class ScriptFormatterEditorAction {
     this._updateButton(uiSourceCode);
 
     if (this._isFormatableScript(uiSourceCode) && this._pathsToFormatOnLoad.has(uiSourceCode.url()) &&
-        !FormatterModule.sourceFormatter.hasFormatted(uiSourceCode)) {
+        !FormatterModule.getSourceFormatter().hasFormatted(uiSourceCode)) {
       this._showFormatted(uiSourceCode);
     }
   }
@@ -46,7 +46,7 @@ export class ScriptFormatterEditorAction {
     if (wasSelected) {
       this._updateButton(null);
     }
-    const original = await FormatterModule.sourceFormatter.discardFormattedUISourceCode(uiSourceCode);
+    const original = await FormatterModule.getSourceFormatter().discardFormattedUISourceCode(uiSourceCode);
     if (original) {
       this._pathsToFormatOnLoad.delete(original.url());
     }
@@ -135,7 +135,7 @@ export class ScriptFormatterEditorAction {
    * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
    */
   async _showFormatted(uiSourceCode) {
-    const formatData = await FormatterModule.sourceFormatter.format(uiSourceCode);
+    const formatData = await FormatterModule.getSourceFormatter().format(uiSourceCode);
     if (uiSourceCode !== this._sourcesView.currentUISourceCode()) {
       return;
     }
