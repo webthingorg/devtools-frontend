@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d64d52b1_a416eec4",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1252,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-07T12:57:16Z",
+      "side": 0,
+      "message": "Wut.",
+      "range": {
+        "startLine": 1249,
+        "startChar": 0,
+        "endLine": 1252,
+        "endChar": 11
+      },
+      "revId": "e1f2ce586075d2812acc97d1fa36baa1ab0264e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ec4e4a7_750749ae",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1266,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-07T12:57:16Z",
+      "side": 0,
+      "message": "This line has been removed, but it is not clear as to why. Should it be replaced by a WeakMap instead or was it simply unused code?",
+      "range": {
+        "startLine": 1266,
+        "startChar": 0,
+        "endLine": 1266,
+        "endChar": 31
+      },
+      "revId": "e1f2ce586075d2812acc97d1fa36baa1ab0264e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
