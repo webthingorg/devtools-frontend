@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": false,
       "key": {
         "uuid": "526e0b1c_ffc0c2c9",
         "filename": "/PATCHSET_LEVEL",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "PTAL",
       "revId": "25c44f15c18002f967157e99760182afc182b99c",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "fdf2bf80_e7579241",
         "filename": "/PATCHSET_LEVEL",
@@ -31,10 +32,10 @@
       "side": 1,
       "message": "I\u0027m adding Yang Guo because Benedikt is on vacation according with his status.\nPTAL\n\nThanks!",
       "revId": "25c44f15c18002f967157e99760182afc182b99c",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "7106a572_092f9a1d",
         "filename": "/PATCHSET_LEVEL",
@@ -48,8 +49,24 @@
       "side": 1,
       "message": "Friendly ping. PTAL.",
       "revId": "25c44f15c18002f967157e99760182afc182b99c",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b891d02_e0a010b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2020-10-07T21:17:42Z",
+      "side": 1,
+      "message": "PTAL.",
+      "revId": "25c44f15c18002f967157e99760182afc182b99c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
