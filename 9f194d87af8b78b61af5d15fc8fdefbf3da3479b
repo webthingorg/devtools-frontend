@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "38023fd7_ba97ca25",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-10-07T21:37:42Z",
+      "side": 1,
+      "message": "Out of curiosity, since we spoke about offline, how did you end up testing this?",
+      "range": {
+        "startLine": 14,
+        "startChar": 30,
+        "endLine": 15,
+        "endChar": 15
+      },
+      "revId": "9f194d87af8b78b61af5d15fc8fdefbf3da3479b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a0bc60e9_9f98ad72",
         "filename": "front_end/ui/TabbedPane.js",
         "patchSetId": 2
