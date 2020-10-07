@@ -69,6 +69,30 @@
       },
       "revId": "e1f2ce586075d2812acc97d1fa36baa1ab0264e2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6667d593_73f17590",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1266,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-07T14:41:49Z",
+      "side": 0,
+      "message": "I searched for `[^\\s\\(]\\brequest\\b` as well and can\u0027t find any references. Let\u0027s remove it for now and see if we observe any regressions.",
+      "parentUuid": "29362478_d67b5603",
+      "range": {
+        "startLine": 1266,
+        "startChar": 0,
+        "endLine": 1266,
+        "endChar": 31
+      },
+      "revId": "e1f2ce586075d2812acc97d1fa36baa1ab0264e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
