@@ -16,6 +16,57 @@
       "message": "LGTM! thanks",
       "revId": "7a4c745c2edaf483e4bd0ef0b2fec304c5751bb8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7485d144_bce80d84",
+        "filename": "front_end/lighthouse/lighthouseStartView.css",
+        "patchSetId": 19
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-10-07T19:43:34Z",
+      "side": 1,
+      "message": "instead of trailing space, can you using margin-right?",
+      "revId": "7a4c745c2edaf483e4bd0ef0b2fec304c5751bb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "700b7037_9fb452c0",
+        "filename": "test/webtests/http/tests/devtools/lighthouse/lighthouse-clear-data-warning.js",
+        "patchSetId": 19
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-10-07T19:43:34Z",
+      "side": 1,
+      "message": "When this lands, can you follow up with adding this test to Lighthouse?",
+      "revId": "7a4c745c2edaf483e4bd0ef0b2fec304c5751bb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40743b5a_93bf8ca8",
+        "filename": "test/webtests/http/tests/devtools/lighthouse/resources/lighthouse-indexeddb.html",
+        "patchSetId": 19
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-10-07T19:43:34Z",
+      "side": 1,
+      "message": "Can you add one more storage tech?",
+      "revId": "7a4c745c2edaf483e4bd0ef0b2fec304c5751bb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
