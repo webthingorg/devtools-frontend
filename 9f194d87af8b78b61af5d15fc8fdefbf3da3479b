@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0bc60e9_9f98ad72",
+        "filename": "front_end/ui/TabbedPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-10-07T21:21:14Z",
+      "side": 1,
+      "message": "I believe `onResize` won\u0027t be invoked if you have a virtual screen size (virtual pixel dimensions) which is the same on both screens. Consider listening with a media query, as in the example found on MDN: https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio#Monitoring_screen_resolution_or_zoom_level_changes",
+      "revId": "9f194d87af8b78b61af5d15fc8fdefbf3da3479b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
