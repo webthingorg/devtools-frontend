@@ -124,6 +124,7 @@ interface Element {
   createChild(tagName: string, className?: string, content?: string): Element;
   createTextChild(text: string): Text;
   hasFocus(): boolean;
+  isScrolledToBottom(): boolean;
   positionAt(x: (number|undefined), y: (number|undefined), relativeTo?: Element): void;
   removeChildren(): void;
   scrollIntoViewIfNeeded(center?: boolean): void;
