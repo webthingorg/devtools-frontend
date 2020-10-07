@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20b714ed_631e7c5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-07T06:47:45Z",
+      "side": 1,
+      "message": "Hi Almothana!\n\nI have added a new \"selector\"; or rather a waitForFunction that checks how many elements are expanded. I hope this helps with the flickering test? It runs through for me; so I hope it does for you too.\n\nI have also fixed a few more things (replaced variable naming with \u0027_\u0027 to only use camel case, using \u0027mainWasm\u0027 instead of \u0027main\u0027 to make it unique as that failed for me, and some minor other changes).\n\nI hope it is fine that I uploaded a patch set; I figured that if I already have the changes it would make sense to directly upload them.\n\nPTAL, otherwise it looks good to me :)! If you commit, please make sure to change the commit message such that you\u0027re the author of the CL. I\u0027m adding Benedikt also as reviewer now.",
+      "revId": "9e9aed208ac0904cc320525255819cd0af66c433",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

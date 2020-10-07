@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": false,
       "key": {
         "uuid": "fb0ac215_bb86d1b8",
         "filename": "/PATCHSET_LEVEL",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "Thanks for the changes Almothana!\nI need to investigate regarding your question of a better selector, but here\u0027s the remaining review :).",
       "revId": "96f7a460d745006bc0c0a6a1245fd382192e1c57",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "117ab31f_f029736e",
         "filename": "test/e2e/helpers/performance-helpers.ts",
@@ -31,10 +32,10 @@
       "side": 1,
       "message": "nit: maybe `retrieveSelectedAndExpandedActivityItems`?",
       "revId": "96f7a460d745006bc0c0a6a1245fd382192e1c57",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "15d8902c_85015281",
         "filename": "test/e2e/helpers/performance-helpers.ts",
@@ -49,10 +50,10 @@
       "message": "Done",
       "parentUuid": "117ab31f_f029736e",
       "revId": "96f7a460d745006bc0c0a6a1245fd382192e1c57",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "2498d3df_1ee1d537",
         "filename": "test/e2e/performance/wasm/performance_profiling_test.ts",
@@ -66,10 +67,10 @@
       "side": 1,
       "message": "lines 106 - 135 can be reused in the other test cases. What about having a `beforeEach()` hook?",
       "revId": "96f7a460d745006bc0c0a6a1245fd382192e1c57",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "2d5e1931_115758ea",
         "filename": "test/e2e/performance/wasm/performance_profiling_test.ts",
@@ -84,10 +85,10 @@
       "message": "Done",
       "parentUuid": "2498d3df_1ee1d537",
       "revId": "96f7a460d745006bc0c0a6a1245fd382192e1c57",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "0be8879a_fa85ae7b",
         "filename": "test/e2e/performance/wasm/performance_profiling_test.ts",
@@ -107,10 +108,10 @@
         "endChar": 54
       },
       "revId": "96f7a460d745006bc0c0a6a1245fd382192e1c57",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "241f75f3_6e375404",
         "filename": "test/e2e/performance/wasm/performance_profiling_test.ts",
@@ -131,8 +132,31 @@
         "endChar": 54
       },
       "revId": "96f7a460d745006bc0c0a6a1245fd382192e1c57",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d95893d_55b7053a",
+        "filename": "test/e2e/performance/wasm/performance_profiling_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-07T06:47:45Z",
+      "side": 1,
+      "message": "I have added a new waitFor function, ptal!",
+      "parentUuid": "241f75f3_6e375404",
+      "range": {
+        "startLine": 148,
+        "startChar": 6,
+        "endLine": 148,
+        "endChar": 54
+      },
+      "revId": "96f7a460d745006bc0c0a6a1245fd382192e1c57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
