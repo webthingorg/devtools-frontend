@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "b7b6fe6c4b5f938d40c949cccff2525eb6761ef7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8746c7f0_6e4da137",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-07T09:03:04Z",
+      "side": 1,
+      "message": "I have tried the fix on YouTube website and it does not seem to work as expected. The change seems to affect the page and it takes a screenshot of a different element instead. Could you reproduce this issue? ",
+      "revId": "b7b6fe6c4b5f938d40c949cccff2525eb6761ef7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
