@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "3b47a56b_73d761d9",
         "filename": "front_end/screencast/InputModel.js",
@@ -20,10 +21,10 @@
         "endChar": 34
       },
       "revId": "2ed97a1e189b62402e08eb29b26b7ae3901a7f86",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "253d2052_d94e158c",
         "filename": "front_end/screencast/InputModel.js",
@@ -44,10 +45,10 @@
         "endChar": 34
       },
       "revId": "2ed97a1e189b62402e08eb29b26b7ae3901a7f86",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "8e8adca3_0a1b84cf",
         "filename": "front_end/screencast/InputModel.js",
@@ -68,8 +69,31 @@
         "endChar": 34
       },
       "revId": "2ed97a1e189b62402e08eb29b26b7ae3901a7f86",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d956ff50_2695be95",
+        "filename": "front_end/screencast/InputModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-07T08:39:11Z",
+      "side": 1,
+      "message": "Enum does not seem to work because enums are also missing the index types so TS complains about the lookup `types[eventType]`.",
+      "parentUuid": "8e8adca3_0a1b84cf",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 34
+      },
+      "revId": "2ed97a1e189b62402e08eb29b26b7ae3901a7f86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
