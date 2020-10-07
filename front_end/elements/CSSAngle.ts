@@ -1,0 +1,296 @@
+// Copyright (c) 2020 The Chromium Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+import * as Common from '../common/common.js';
+import * as ComponentHelpers from '../component_helpers/component_helpers.js';
+import * as LitHtml from '../third_party/lit-html/lit-html.js';
+
+const {render, html} = LitHtml;
+const styleMap = LitHtml.Directives.styleMap;
+
+export const Regex = /(?<value>[+-]?\d*\.?\d+)(?<unit>deg|grad|rad|turn)/;
+
+export const enum AngleUnit {
+  Deg = 'deg',
+  Grad = 'grad',
+  Rad = 'rad',
+  Turn = 'turn',
+}
+
+const parseText = (text: string): {value: number, unit: AngleUnit}|null => {
+  const result = text.match(Regex);
+  if (!result || !result.groups) {
+    return null;
+  }
+
+  return {
+    value: Number(result.groups.value),
+    unit: result.groups.unit as AngleUnit,
+  };
+};
+
+const degreesToGradients = (deg: number): number => deg / 9 * 10;
+const degreesToRadians = (deg: number): number => deg / 180 * Math.PI;
+const degreesToTurns = (deg: number): number => deg / 360;
+
+const getAngleFromDegree = (deg: number, targetUnit: AngleUnit): number => {
+  switch (targetUnit) {
+    case AngleUnit.Grad:
+      return degreesToGradients(deg);
+    case AngleUnit.Rad:
+      return degreesToRadians(deg);
+    case AngleUnit.Turn:
+      return degreesToTurns(deg);
+  }
+
+  return deg;
+};
+
+export class PopoverToggledEvent extends Event {
+  data: {open: boolean};
+
+  constructor(open: boolean) {
+    super('popover-toggled', {});
+    this.data = {open};
+  }
+}
+
+export class CSSAngle extends HTMLElement {
+  private readonly shadow = this.attachShadow({mode: 'open'});
+  private angle = 0;
+  private unit = AngleUnit.Deg;
+  private mousemoveThrottler = new Common.Throttler.Throttler(16.67 /* 60fps */);
+  private popoverOpen = false;
+  private onDocumentMousedown = this.minify.bind(this);
+
+  set data(data: {value: number, unit: AngleUnit}) {
+    this.angle = data.value;
+    this.unit = data.unit;
+    this.render();
+  }
+
+  setText(text: string): void {
+    const data = parseText(text);
+    if (data) {
+      this.data = data;
+    }
+  }
+
+  // We bind and unbind mouse event listeners upon popping over and minifying,
+  // because we anticipate most of the time this widget is minified even when
+  // it's attached to the DOM tree.
+  popover(): void {
+    this.popoverOpen = true;
+    this.dispatchEvent(new PopoverToggledEvent(true));
+    document.addEventListener('mousedown', this.onDocumentMousedown);
+    this.render();
+  }
+
+  minify(): void {
+    this.popoverOpen = false;
+    this.dispatchEvent(new PopoverToggledEvent(false));
+    document.removeEventListener('mousedown', this.onDocumentMousedown);
+    this.render();
+  }
+
+  private onPreviewClick(event: Event): void {
+    event.stopPropagation();
+    this.popoverOpen ? this.minify() : this.popover();
+  }
+
+  private onMouseDown(event: MouseEvent): void {
+    event.stopPropagation();
+    this.updateAngleFromMousePosition(event.pageX, event.pageY);
+  }
+
+  private onMouseMove(event: MouseEvent): void {
+    const isPressed = event.buttons === 1;
+    if (!isPressed) {
+      return;
+    }
+
+    this.mousemoveThrottler.schedule(() => {
+      this.updateAngleFromMousePosition(event.pageX, event.pageY);
+      return Promise.resolve();
+    });
+  }
+
+  private updateAngleFromMousePosition(mouseX: number, mouseY: number): void {
+    const popover = this.shadow.querySelector('.popover');
+    if (!popover) {
+      return;
+    }
+    // TODO: investigate the possibility of caching these
+    const {top, right, bottom, left} = popover.getBoundingClientRect();
+    const popoverCenterX = left + (right - left) / 2;
+    const popoverCenterY = bottom + (top - bottom) / 2;
+    const degree = -Math.atan2(mouseX - popoverCenterX, mouseY - popoverCenterY) * 180 / Math.PI + 180;
+    const rawAngle = getAngleFromDegree(degree, this.unit);
+    // TODO: it currently rounds to 2 decimal points (if it has more than 2 decimal points)
+    // we should determine if we need a finer strategy for rounding up
+    this.angle = Math.round(rawAngle * 100) / 100;
+    this.render();
+    return;
+  }
+
+  private render() {
+    // Disabled until https://crbug.com/1079231 is fixed.
+    // clang-format off
+    render(html`
+      <style>
+        .css-type {
+          display: inline-block;
+          position: relative;
+        }
+
+        .preview {
+          display: inline-block;
+        }
+        .mini-icon {
+          position: relative;
+          display: inline-block;
+          margin-bottom: -2px;
+          width: 1em;
+          height: 1em;
+          background-color: #5a5a5a;
+          border: 1px solid rgb(214 214 214);
+          border-radius: 1em;
+        }
+
+        .mini-hand {
+          height: 15px;
+          width: 2px;
+          background: linear-gradient(to top, transparent 50%, white 50%);
+        }
+
+        .popover {
+          --color: #d0d0d0;
+          --dial-color: #a3a3a3;
+          --border-color: #555555;
+          position: fixed;
+          margin-top: 5px;
+          width: 9em;
+          height: 9em;
+          background-color: var(--color);
+          border: 0.5em solid var(--border-color);
+          border-radius: 9em;
+          transform: translateX(calc(-50% + 0.5em));
+        }
+
+        ${ComponentHelpers.GetStylesheet.DARK_MODE_CLASS} .popover {
+          --color: #5a5a5a;
+        }
+
+        .pointer, .center, .hand, .dial, .mini-hand {
+          position: absolute;
+        }
+
+        .pointer {
+          margin: auto;
+          top: -12px;
+          left: 0;
+          right: 0;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 0 0.9em 0.9em 0.9em;
+          border-color: transparent transparent var(--border-color) transparent;
+        }
+
+        .center, .hand, .mini-hand, .dial {
+          margin: auto;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+        }
+
+        .center {
+          width: 0.7em;
+          height: 0.7em;
+          background-color: white;
+          border-radius: 10px;
+        }
+
+        .dial {
+          width: 2px;
+          height: 100%;
+          background: linear-gradient(to top, transparent 90%, var(--dial-color) 10%);
+          border-radius: 1px;
+        }
+
+        .hand {
+          height: 100%;
+          width: 0.3em;
+          background: linear-gradient(to top, transparent 50%, white 50%);
+        }
+
+        .hand::before {
+          content: '';
+          display: inline-block;
+          position: absolute;
+          top: -0.6em;
+          left: -0.4em;
+          width: 1em;
+          height: 1em;
+          background-color: white;
+          border-radius: 1em;
+        }
+      </style>
+
+      <div class="css-type">
+        <div class="preview" @mousedown=${this.onPreviewClick}>
+          <div class="mini-icon">
+            <span
+              class="mini-hand"
+              style=${styleMap({transform: `rotate(${this.angle}${this.unit})`})}>
+            </span>
+          </div>
+          ${this.angle}${this.unit}
+        </div>
+        ${this.popoverOpen ? this.renderPopover() : null}
+      </div>
+    `, this.shadow, {
+      eventContext: this,
+    });
+    // clang-format on
+  }
+
+  private renderPopover() {
+    // Disabled until https://crbug.com/1079231 is fixed.
+    // clang-format off
+    return html`
+      <div class="popover popover-css-angle" @mousedown=${this.onMouseDown} @mousemove=${this.onMouseMove}>
+        <span class="pointer"></span>
+        <span class="center"></span>
+        ${this.renderDials()}
+        <div
+          class="hand"
+          style=${styleMap({transform: `rotate(${this.angle}${this.unit})`})}>
+        </div>
+      </div>
+    `;
+    // clang-format on
+  }
+
+  private renderDials() {
+    // Disabled until https://crbug.com/1079231 is fixed.
+    // clang-format off
+    return [0, 45, 90, 135, 180, 225, 270, 315].map(deg => html`
+      <span
+        class="dial"
+        style=${styleMap({transform: `rotate(${deg}deg)`})}>
+      </span>
+    `);
+    // clang-format on
+  }
+}
+
+customElements.define('devtools-css-angle', CSSAngle);
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'devtools-css-angle': CSSAngle;
+  }
+}
