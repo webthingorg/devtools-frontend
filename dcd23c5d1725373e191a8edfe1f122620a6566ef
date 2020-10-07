@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fff73017_240d4afb",
+        "filename": "front_end/sdk/ConsoleModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-07T12:36:03Z",
+      "side": 1,
+      "message": "Nit: only bail out if it is truthy",
+      "range": {
+        "startLine": 174,
+        "startChar": 8,
+        "endLine": 174,
+        "endChar": 25
+      },
+      "revId": "dcd23c5d1725373e191a8edfe1f122620a6566ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "35248c7c_b1dfc54d",
         "filename": "front_end/sdk/ConsoleModel.js",
         "patchSetId": 1
@@ -36,6 +59,122 @@
         "startChar": 30,
         "endLine": 348,
         "endChar": 39
+      },
+      "revId": "dcd23c5d1725373e191a8edfe1f122620a6566ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2a67fd6_5ab09144",
+        "filename": "front_end/sdk/ConsoleModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-07T12:36:03Z",
+      "side": 1,
+      "message": "Nice, good find.",
+      "parentUuid": "35248c7c_b1dfc54d",
+      "range": {
+        "startLine": 348,
+        "startChar": 30,
+        "endLine": 348,
+        "endChar": 39
+      },
+      "revId": "dcd23c5d1725373e191a8edfe1f122620a6566ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3be705f3_8b148b5a",
+        "filename": "front_end/sdk/ConsoleModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-07T12:36:03Z",
+      "side": 1,
+      "message": "Nit: Same here.",
+      "range": {
+        "startLine": 428,
+        "startChar": 8,
+        "endLine": 428,
+        "endChar": 25
+      },
+      "revId": "dcd23c5d1725373e191a8edfe1f122620a6566ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7351d60b_9bc38121",
+        "filename": "front_end/sdk/ConsoleModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-07T12:36:03Z",
+      "side": 1,
+      "message": "Oh boy. Can we file a CRBug to clean this up? I wasn\u0027t aware of us manipulating the global scope here in this weird way.",
+      "range": {
+        "startLine": 460,
+        "startChar": 6,
+        "endLine": 460,
+        "endChar": 47
+      },
+      "revId": "dcd23c5d1725373e191a8edfe1f122620a6566ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fffca557_86da69e1",
+        "filename": "front_end/sdk/ConsoleModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-07T12:36:03Z",
+      "side": 1,
+      "message": "Nit: file a CRBug for this and use that for the other TODO as well. Then somebody else could pick this up if they have free cycles.",
+      "range": {
+        "startLine": 496,
+        "startChar": 10,
+        "endLine": 496,
+        "endChar": 17
+      },
+      "revId": "dcd23c5d1725373e191a8edfe1f122620a6566ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81124988_0927b89b",
+        "filename": "front_end/sdk/ConsoleModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-07T12:36:03Z",
+      "side": 1,
+      "message": "Same here",
+      "range": {
+        "startLine": 675,
+        "startChar": 18,
+        "endLine": 675,
+        "endChar": 25
       },
       "revId": "dcd23c5d1725373e191a8edfe1f122620a6566ef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
