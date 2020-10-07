@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0abcca27_0bf82662",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-10-07T21:47:58Z",
+      "side": 1,
+      "message": "Debugged the Devtools with devtools and had a breakpoint set in the ZoomManager here: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/ui/ZoomManager.js;l\u003d68?q\u003dzoommanager\u0026ss\u003dchromium\n\nI then went into windows settings and changed the DPI and logged the zoom factor. Zoom factor stays the same when changing DPI, but not when using ctrl+/- to zoom in or out. \n\nI also took a look at: https://source.chromium.org/chromium/chromium/src/+/master:third_party/blink/renderer/core/inspector/dev_tools_host.cc;l\u003d145?q\u003ddevtools_host\u0026ss\u003dchromium\nand debugged the same as above and discussed it with someone on the platform team, and we agree this was intentionally trying to \"negate\" the DPI part of zoom, and instead isolate just the zoom factor applied from zooming in or out. So, ZoomManager is behaving as intended, but it means the tabbedPane left out the DPI change scenario in a resize calculation",
+      "parentUuid": "38023fd7_ba97ca25",
+      "range": {
+        "startLine": 14,
+        "startChar": 30,
+        "endLine": 15,
+        "endChar": 15
+      },
+      "revId": "9f194d87af8b78b61af5d15fc8fdefbf3da3479b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a0bc60e9_9f98ad72",
         "filename": "front_end/ui/TabbedPane.js",
         "patchSetId": 2
