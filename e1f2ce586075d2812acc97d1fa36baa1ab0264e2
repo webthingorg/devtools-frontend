@@ -45,6 +45,30 @@
       },
       "revId": "e1f2ce586075d2812acc97d1fa36baa1ab0264e2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29362478_d67b5603",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1266,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-07T14:31:25Z",
+      "side": 0,
+      "message": "I forgot to add a comment on the CL for this one. I searched everywhere, but couldn\u0027t find any call site of `request` on a Element.\n\nI searched both for \".request\" as well as \"[\u0027request\u0027]\". Not sure if it is safe to remove or if we should just @ts-ignore it for now.",
+      "parentUuid": "9ec4e4a7_750749ae",
+      "range": {
+        "startLine": 1266,
+        "startChar": 0,
+        "endLine": 1266,
+        "endChar": 31
+      },
+      "revId": "e1f2ce586075d2812acc97d1fa36baa1ab0264e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
