@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "359d6902_ecd6bcb2",
+        "filename": "test/e2e/host/user-metrics_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-10-07T18:04:40Z",
+      "side": 1,
+      "message": "I know most existing tests also do this in `beforeEach`, but what do you think about moving the call to `beginCatchEvents` to just before `await click(\u0027.css-var-link\u0027)`? \n\nThen the test should only capture the new `CustomPropertyLinkClicked` event. That should make the test less likely to break in the future if another new event gets introduced somewhere in this flow.",
+      "revId": "6efe86bf57cae266fe969c691737503ecf0cd8a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
