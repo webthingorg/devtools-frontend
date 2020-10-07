@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "2db1e281_fc9c095c",
         "filename": "front_end/components/TargetDetachedDialog.js",
@@ -20,8 +21,31 @@
         "endChar": 17
       },
       "revId": "4a13a0185c5b924d30c4c702ab55b9d3b2b7caef",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c523308_61305385",
+        "filename": "front_end/components/TargetDetachedDialog.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-10-07T16:04:46Z",
+      "side": 1,
+      "message": "As done in https://crrev.com/c/2450033 this is to work around the type mismatch between \u0027UI.Dialog.Dialog.show()\u0027 and \u0027UI.GlassPane.GlassPane.show()\u0027",
+      "parentUuid": "2db1e281_fc9c095c",
+      "range": {
+        "startLine": 56,
+        "startChar": 4,
+        "endLine": 56,
+        "endChar": 17
+      },
+      "revId": "4a13a0185c5b924d30c4c702ab55b9d3b2b7caef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
