@@ -33,6 +33,23 @@
       "message": "Adding a reviewer from chromium. PTAL.",
       "revId": "fa6c029a01f8cff646032343e4a930113ed1dc80",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7dc1d47c_6577efb2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-07T19:21:48Z",
+      "side": 1,
+      "message": "Sigurd, could you PTAL? Thanks.",
+      "revId": "fa6c029a01f8cff646032343e4a930113ed1dc80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
