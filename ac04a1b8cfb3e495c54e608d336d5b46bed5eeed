@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": false,
       "key": {
         "uuid": "1aa46629_f1c8b8f1",
         "filename": "/PATCHSET_LEVEL",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "Paul PTAL",
       "revId": "ac04a1b8cfb3e495c54e608d336d5b46bed5eeed",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "5a178adb_7f10e87c",
         "filename": "front_end/timeline_model/TimelineJSProfile.js",
@@ -37,10 +38,34 @@
         "endChar": 16
       },
       "revId": "ac04a1b8cfb3e495c54e608d336d5b46bed5eeed",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f526cb85_633ba033",
+        "filename": "front_end/timeline_model/TimelineJSProfile.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-10-07T14:04:44Z",
+      "side": 1,
+      "message": "For line 94, we use Root but don\u0027t import it. This would be needed for TS-ification IIUC",
+      "parentUuid": "5a178adb_7f10e87c",
+      "range": {
+        "startLine": 9,
+        "startChar": 12,
+        "endLine": 9,
+        "endChar": 16
+      },
+      "revId": "ac04a1b8cfb3e495c54e608d336d5b46bed5eeed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "731df3ae_f4056b04",
         "filename": "test/unittests/front_end/timeline_model/TimelineJSProfile_test.ts",
@@ -60,8 +85,31 @@
         "endChar": 27
       },
       "revId": "ac04a1b8cfb3e495c54e608d336d5b46bed5eeed",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d0bb9d2_556c9a1b",
+        "filename": "test/unittests/front_end/timeline_model/TimelineJSProfile_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-10-07T14:04:44Z",
+      "side": 1,
+      "message": "We tear down the settings changes with resetSettingsStorage in the afterEach.\n\nNot sure about SDK - all we do is construct TracingModel, Process and Thread, non of which do anything exotic in the constructor to register themselves globally so I think it\u0027s OK",
+      "parentUuid": "731df3ae_f4056b04",
+      "range": {
+        "startLine": 13,
+        "startChar": 10,
+        "endLine": 13,
+        "endChar": 27
+      },
+      "revId": "ac04a1b8cfb3e495c54e608d336d5b46bed5eeed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
