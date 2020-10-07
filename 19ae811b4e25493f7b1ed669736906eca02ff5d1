@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10e26cb0_d634016b",
+        "filename": "front_end/network/NetworkTimeCalculator.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-07T12:36:33Z",
+      "side": 1,
+      "message": "Love this change.",
+      "range": {
+        "startLine": 222,
+        "startChar": 2,
+        "endLine": 226,
+        "endChar": 3
+      },
+      "revId": "19ae811b4e25493f7b1ed669736906eca02ff5d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
