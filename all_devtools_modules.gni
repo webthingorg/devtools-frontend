@@ -220,6 +220,7 @@ all_typescript_module_sources = [
   "inline_editor/CSSVarSwatch.js",
   "inline_editor/CSSVarSwatch_bridge.js",
   "inline_editor/ColorSwatch.js",
+  "inline_editor/FontEditor.js",
   "inline_editor/SwatchPopoverHelper.js",
   "input/InputModel.js",
   "input/InputTimeline.js",
