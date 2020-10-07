@@ -113,6 +113,7 @@ generated_typescript_entrypoint_sources = [
   "$resources_out_dir/devices/devices.js",
   "$resources_out_dir/diff/diff.js",
   "$resources_out_dir/dom_extension/dom_extension.js",
+  "$resources_out_dir/elements/elements-meta.js",
   "$resources_out_dir/elements/elements.js",
   "$resources_out_dir/emulation/emulation.js",
   "$resources_out_dir/event_listeners/event_listeners.js",

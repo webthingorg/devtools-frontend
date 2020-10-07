@@ -10,8 +10,8 @@ import * as Host from '../host/host.js';
 import * as Platform from '../platform/platform.js';
 import * as Root from '../root/root.js';
 
-import {Action} from './Action.js';                  // eslint-disable-line no-unused-vars
-import {ActionRegistry} from './ActionRegistry.js';  // eslint-disable-line no-unused-vars
+import {ActionInterface} from './Action.js';  // eslint-disable-line no-unused-vars
+import {ActionRegistration, ActionRegistry, Binding, PreRegisteredAction} from './ActionRegistry.js';  // eslint-disable-line no-unused-vars
 import {Context} from './Context.js';
 import {Dialog} from './Dialog.js';
 import {Descriptor, KeyboardShortcut, Modifiers, Type} from './KeyboardShortcut.js';  // eslint-disable-line no-unused-vars
@@ -19,6 +19,16 @@ import {isEditing} from './UIUtils.js';
 
 /** @type {!ShortcutRegistry} */
 let shortcutRegistryInstance;
+
+/** @type {!Array<!PreRegisteredAction>} */
+const registeredActionExtensions = [];
+
+/**
+ * @param {!ActionRegistration} registration
+ */
+export function registerShorcutActionExtension(registration) {
+  registeredActionExtensions.push(new PreRegisteredAction(registration));
+}
 
 export class ShortcutRegistry {
   /**
@@ -72,16 +82,16 @@ export class ShortcutRegistry {
   /**
    * @param {number} key
    * @param {!Object.<string, function():Promise.<boolean>>=} handlers
-   * @return {!Array.<!Action>}
+   * @return {!Promise<!Array.<!ActionInterface>>}
    */
-  _applicableActions(key, handlers = {}) {
+  async _applicableActions(key, handlers = {}) {
     let actions = [];
     const keyMap = this._activePrefixKey || this._keyMap;
     const keyNode = keyMap.getNode(key);
     if (keyNode) {
       actions = keyNode.actions();
     }
-    const applicableActions = this._actionRegistry.applicableActions(actions, Context.instance());
+    const applicableActions = await this._actionRegistry.applicableActions(actions, Context.instance());
     if (keyNode) {
       for (const actionId of Object.keys(handlers)) {
         if (keyNode.actions().indexOf(actionId) >= 0) {
@@ -118,13 +128,13 @@ export class ShortcutRegistry {
   }
 
   /**
-   * @return {!Array<number>}
+   * @return {!Promise<!Array<number>>}
    */
-  globalShortcutKeys() {
+  async globalShortcutKeys() {
     const keys = [];
     for (const node of this._keyMap.chords().values()) {
       const actions = node.actions();
-      const applicableActions = this._actionRegistry.applicableActions(actions, Context.instance());
+      const applicableActions = await this._actionRegistry.applicableActions(actions, Context.instance());
       if (applicableActions.length || node.hasChords()) {
         keys.push(node.key());
       }
@@ -220,7 +230,8 @@ export class ShortcutRegistry {
     const keyModifiers = key >> 8;
     const hasHandlersOrPrefixKey = !!handlers || !!this._activePrefixKey;
     const keyMapNode = this._keyMap.getNode(key);
-    const maybeHasActions = this._applicableActions(key, handlers).length > 0 || (keyMapNode && keyMapNode.hasChords());
+    const maybeHasActions =
+        (await this._applicableActions(key, handlers)).length > 0 || (keyMapNode && keyMapNode.hasChords());
     if ((!hasHandlersOrPrefixKey && isPossiblyInputKey()) || !maybeHasActions ||
         KeyboardShortcut.isModifier(KeyboardShortcut.keyCodeAndModifiersFromKey(key).keyCode)) {
       return;
@@ -309,7 +320,7 @@ export class ShortcutRegistry {
    * @this {!ShortcutRegistry}
    */
     async function maybeExecuteActionForKey() {
-      const actions = this._applicableActions(key, handlers);
+      const actions = await this._applicableActions(key, handlers);
       if (!actions.length) {
         return false;
       }
@@ -416,16 +427,26 @@ export class ShortcutRegistry {
         }
       }, this);
     }
-    extensions.forEach(registerExtension, this);
+    const unionOfActionExtension = [
+      ...extensions.map(extension => {
+        return {
+          actionId: extension.descriptor().actionId,
+          bindings: extension.descriptor().bindings,
+        };
+      }),
+      ...registeredActionExtensions.map(registeredAction => {
+        return {actionId: registeredAction.id(), bindings: registeredAction.bindings()};
+      })
+    ];
+    unionOfActionExtension.forEach(registerActionExtension, this);
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.setWhitelistedShortcuts(JSON.stringify(forwardedKeys));
 
     /**
-     * @param {!Root.Runtime.Extension} extension
+     * @param {!{actionId:?string, bindings: (!Array<!Binding>|undefined)}} actionExtension
      * @this {ShortcutRegistry}
      */
-    function registerExtension(extension) {
-      const descriptor = extension.descriptor();
-      const bindings = descriptor.bindings;
+    function registerActionExtension(actionExtension) {
+      const bindings = actionExtension.bindings;
       for (let i = 0; bindings && i < bindings.length; ++i) {
         const keybindSets = bindings[i].keybindSets;
         if (!platformMatches(bindings[i].platform) || !keybindSetsMatch(keybindSets)) {
@@ -434,7 +455,7 @@ export class ShortcutRegistry {
         const keys = bindings[i].shortcut.split(/\s+/);
         const shortcutDescriptors = keys.map(KeyboardShortcut.makeDescriptorFromBindingShortcut);
         if (shortcutDescriptors.length > 0) {
-          const actionId = /** @type {string} */ (descriptor.actionId);
+          const actionId = /** @type {string} */ (actionExtension.actionId);
 
           if (this._isDisabledDefault(shortcutDescriptors, actionId)) {
             this._devToolsDefaultShortcutActions.add(actionId);

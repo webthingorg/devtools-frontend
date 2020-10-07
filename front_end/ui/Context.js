@@ -5,6 +5,7 @@
 import * as Common from '../common/common.js';
 import * as Root from '../root/root.js';  // eslint-disable-line no-unused-vars
 
+import {PreRegisteredAction} from './ActionRegistry.js';  // eslint-disable-line no-unused-vars
 import {ContextFlavorListener} from './ContextFlavorListener.js';
 
 /** @type {!Context} */

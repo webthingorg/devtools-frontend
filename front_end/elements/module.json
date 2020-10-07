@@ -1,14 +1,6 @@
 {
   "extensions": [
     {
-      "type": "view",
-      "location": "panel",
-      "id": "elements",
-      "title": "Elements",
-      "order": 10,
-      "className": "Elements.ElementsPanel"
-    },
-    {
       "type": "@UI.ContextMenu.Provider",
       "contextTypes": [
         "SDK.RemoteObject",
@@ -139,21 +131,6 @@
       "className": "Elements.StylesSidebarPane.ButtonProvider",
       "order": 100,
       "location": "styles-sidebarpane-toolbar"
-    },
-    {
-      "type": "action",
-      "actionId": "elements.hide-element",
-      "category": "Elements",
-      "title": "Hide element",
-      "contextTypes": [
-        "Elements.ElementsPanel"
-      ],
-      "className": "Elements.ElementsActionDelegate",
-      "bindings": [
-        {
-          "shortcut": "H"
-        }
-      ]
     },
     {
       "type": "action",
