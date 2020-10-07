@@ -1,0 +1,343 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08de4711_a4bd6f96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-07T16:06:54Z",
+      "side": 1,
+      "message": "Initial structure is looking really good, nice work! There are quite a few comments, but most of them are small tweaks/improvements we could make. The overall approach is looking 💯\n\nThe biggest question we should think about is using the Map-like structure and define the registration in a `.ts` file. However, I don\u0027t know how we can convince Closure to like that. Since we are on our way to burn Closure away, I think we might get away with a small workaround in `run_type_check.py` for the registration file only. The logic would be similar to what we already do for `_types.js`, but then we would extend it to define a specially crafted file for solely the registrations. E.g. if Closure tries to import the \"ActionRegistration.js\", we return a hand-crafted `_types.js` which defines the registration with JSDoc. The registration would be more relaxed than the `.ts` version, but that\u0027s fine as we use TS to enforce the full usage. Let me know if that\u0027s unclear and we can pair program it.",
+      "revId": "f8aeb5a3320fb6f7aa8374f47856a403b198ee4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b1cf878_c2f2f288",
+        "filename": "front_end/elements/elements-meta.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-07T16:06:54Z",
+      "side": 1,
+      "message": "Given the benefits of the Map-checking in TypeScript, I think we should actively consider putting these registration methods in a `.ts` file. Then we can have a lot stricter type checking. However, that requires fiddling with Closure to make it happy. We could look into a bridge-like solution to convince Closure about the function, but I am not sure if that is possible.\n\nThe current solution suffices for now, but I think it would be good if we figure out a solution to use a `.ts` file instead. Let\u0027s ponder about it in the coming days.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 41
+      },
+      "revId": "f8aeb5a3320fb6f7aa8374f47856a403b198ee4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0639c275_8abace6e",
+        "filename": "front_end/elements/elements-meta.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-07T16:06:54Z",
+      "side": 1,
+      "message": "I think using a global Map for these action IDs is a good solution, like we chatted about before. The only problem is that the registration is defined in JavaScript. Could you try to define this map in TypeScript only and see if you can prevent the \"duplicate action ID declaration\" problem?\n\nAs an example, see the definition of `document.createElement` (https://github.com/microsoft/TypeScript/blob/f34220980b1ccf4a129253faa05b0b4731190f55/lib/lib.dom.d.ts#L4635) and its corresponding map (https://github.com/microsoft/TypeScript/blob/f34220980b1ccf4a129253faa05b0b4731190f55/src/lib/dom.generated.d.ts#L19293)\n\nIf we were to define `registerActionExtension` solely in Typescript, you can use the `keyof` as a generic type in the function definition, to ensure that the action id you specified exists in the map.",
+      "range": {
+        "startLine": 30,
+        "startChar": 12,
+        "endLine": 30,
+        "endChar": 60
+      },
+      "revId": "f8aeb5a3320fb6f7aa8374f47856a403b198ee4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc220df8_5f9cf496",
+        "filename": "front_end/elements/elements-meta.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-07T16:06:54Z",
+      "side": 1,
+      "message": "Given that these categories are probably shared across all namespaces, defining this enum in the `ActionRegistry` (or a file that is shared by both ActionRegistry and ShortcutRegistry) makes sense. 👍",
+      "range": {
+        "startLine": 31,
+        "startChar": 12,
+        "endLine": 31,
+        "endChar": 53
+      },
+      "revId": "f8aeb5a3320fb6f7aa8374f47856a403b198ee4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01110fef_c5be1e23",
+        "filename": "front_end/elements/elements-meta.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-07T16:06:54Z",
+      "side": 1,
+      "message": "Nit: use the DevTools localization system on these titles. We should look into making this required for `title` by changing the return type of `ls`, but I am not sure if that is possible.\n\n```\nls`Hide element`\n```",
+      "range": {
+        "startLine": 32,
+        "startChar": 9,
+        "endLine": 32,
+        "endChar": 23
+      },
+      "revId": "f8aeb5a3320fb6f7aa8374f47856a403b198ee4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "971e2160_2b5c0399",
+        "filename": "front_end/elements/elements-meta.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-07T16:06:54Z",
+      "side": 1,
+      "message": "Let\u0027s not use the runtime for any of these registrations. Instead, we should define an `instance` method on the `ElementsActionDelegate` like we did for the other singletons.",
+      "range": {
+        "startLine": 35,
+        "startChar": 11,
+        "endLine": 35,
+        "endChar": 57
+      },
+      "revId": "f8aeb5a3320fb6f7aa8374f47856a403b198ee4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e359bb3a_6945f177",
+        "filename": "front_end/elements/elements-meta.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-07T16:06:54Z",
+      "side": 1,
+      "message": "This value would benefit from the same map-checking as the action ID I talked above. E.g. how do we prevent two different actions from defining the same shortcut key. Ideally, we would be able to split these up into multiple definitions for each platform, as one platform might use different combinations. Let me know what works/doesn\u0027t work.",
+      "range": {
+        "startLine": 43,
+        "startChar": 16,
+        "endLine": 43,
+        "endChar": 19
+      },
+      "revId": "f8aeb5a3320fb6f7aa8374f47856a403b198ee4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45906f9a_802bfcb5",
+        "filename": "front_end/ui/ActionRegistry.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-07T16:06:54Z",
+      "side": 1,
+      "message": "If I understand correctly, the actions in question require the context solely to lookup the global types. Since we are using proper type references, I don\u0027t think we need to perform the roundtrip to the context to obtain the types.\n\nSpecifically, for the implementation of `ElementsActionDelegate`, I see that we are already using the `Context.instance()` right there. A quick browse through all action delegates, it seems that none of them use the passed in context. Therefore, I think it is better to remove this particular argument.\n\nIn other words: anything we can opt to not carry over from the legacy Runtime/context/etc... would be ideal, as to have a clean slate. Only when we really need the information, we can carry it over to the new registration system.",
+      "range": {
+        "startLine": 104,
+        "startChar": 33,
+        "endLine": 104,
+        "endChar": 51
+      },
+      "revId": "f8aeb5a3320fb6f7aa8374f47856a403b198ee4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21760124_20e99372",
+        "filename": "front_end/ui/ActionRegistry.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-07T16:06:54Z",
+      "side": 1,
+      "message": "Nit: if a category needs to be localized, let\u0027s define that in the categories enum.",
+      "range": {
+        "startLine": 160,
+        "startChar": 11,
+        "endLine": 160,
+        "endChar": 13
+      },
+      "revId": "f8aeb5a3320fb6f7aa8374f47856a403b198ee4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc571f38_8fdc7beb",
+        "filename": "front_end/ui/ActionRegistry.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-07T16:06:54Z",
+      "side": 1,
+      "message": "This is probably taken from the old code, but I am having trouble following what is going on here. Do we need this logic specifically? If yes, could you add some clarifying comments what is going on here? If not, I would prefer to remove this.",
+      "range": {
+        "startLine": 192,
+        "startChar": 10,
+        "endLine": 192,
+        "endChar": 35
+      },
+      "revId": "f8aeb5a3320fb6f7aa8374f47856a403b198ee4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "280761ce_c7c82bbf",
+        "filename": "front_end/ui/ActionRegistry.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-07T16:06:54Z",
+      "side": 1,
+      "message": "Rather than returning undefined, does returning an empty array make more sense? I am not sure how the logic that uses this method can handle it, but that feels more natural to me.",
+      "range": {
+        "startLine": 233,
+        "startChar": 6,
+        "endLine": 233,
+        "endChar": 12
+      },
+      "revId": "f8aeb5a3320fb6f7aa8374f47856a403b198ee4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4299abff_f9eb416e",
+        "filename": "front_end/ui/ActionRegistry.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-07T16:06:54Z",
+      "side": 1,
+      "message": "Rather than having two separate registrations, it\u0027s probably better if we factor out the registration-bit and put it in a separate file. Then that one file has the array contents and both ActionRegistry and ShotcutRegistry can use that. That allows us to remove the duplicate array definition and makes sure we don\u0027t create a dependency on ShotcutRegistry here in ActionRegistry.",
+      "range": {
+        "startLine": 261,
+        "startChar": 2,
+        "endLine": 261,
+        "endChar": 32
+      },
+      "revId": "f8aeb5a3320fb6f7aa8374f47856a403b198ee4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fcbb361_ad62ad40",
+        "filename": "front_end/ui/ActionRegistry.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-07T16:06:54Z",
+      "side": 1,
+      "message": "If this is required (and I think it is?) we should update the type to enforce it. E.g. remove `|undefined` from the category field. If it is not required, then we should not have a `console.error` here.",
+      "range": {
+        "startLine": 292,
+        "startChar": 23,
+        "endLine": 292,
+        "endChar": 88
+      },
+      "revId": "f8aeb5a3320fb6f7aa8374f47856a403b198ee4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08ee9a48_0875ea59",
+        "filename": "front_end/ui/ActionRegistry.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-07T16:06:54Z",
+      "side": 1,
+      "message": "Could you add a comment to either this one or the `else`-branch to denote which one is considered the \"legacy\" variant? E.g. similar to what I defined in the `ViewManager.js` where one of the lookups is scheduled for removal.",
+      "range": {
+        "startLine": 351,
+        "startChar": 8,
+        "endLine": 351,
+        "endChar": 39
+      },
+      "revId": "f8aeb5a3320fb6f7aa8374f47856a403b198ee4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f23106a6_df3adc28",
+        "filename": "front_end/ui/Context.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-07T16:06:54Z",
+      "side": 1,
+      "message": "I don\u0027t see this used anywhere, is this is a leftover maybe?",
+      "range": {
+        "startLine": 8,
+        "startChar": 8,
+        "endLine": 8,
+        "endChar": 27
+      },
+      "revId": "f8aeb5a3320fb6f7aa8374f47856a403b198ee4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
