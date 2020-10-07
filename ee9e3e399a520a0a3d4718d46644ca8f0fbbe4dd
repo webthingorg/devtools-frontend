@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64b29235_aa0fd642",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-10-07T17:32:59Z",
+      "side": 1,
+      "message": "PTAL. Not sure if there\u0027s a more idiomatic way to do this in our codebase, open to ideas",
+      "revId": "ee9e3e399a520a0a3d4718d46644ca8f0fbbe4dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
