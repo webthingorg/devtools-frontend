@@ -16,6 +16,23 @@
       "message": "LGTM",
       "revId": "6d2f4a78f48945608414715b11ee56a87bd5c708",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a512ad64_ac40ff5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-07T14:35:20Z",
+      "side": 1,
+      "message": "I agree that `host-context` is a better replacement of the older functions. However, please be aware that Apple has stated they are not going to implement this feature in WebKit: https://github.com/webcomponents/shadycss/issues/74#issuecomment-291350193 Therefore, we have a risk of introducing compatibility issues, where `host-context` might get removed from the spec for lack of cross-browser implementation. I am okay with keeping this for now, but I think we need to actively consider a different solution to this problem. Sadly, I am not aware of any off the top of my head.",
+      "revId": "6d2f4a78f48945608414715b11ee56a87bd5c708",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
