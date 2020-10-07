@@ -93,3 +93,20 @@ export async function reveal(obj, category) {
     return Common.Revealer.reveal(candidates[0]);
   }
 }
+
+/**
+  * @template {!SDK.Issue.Issue} T
+  * @param {!IssuesAssociatable} obj
+  * @param {function(new:T, ...?)} issueClass
+  * @return {!Array<T>}
+  */
+export function hasIssueOfInstance(obj, issueClass) {
+  const issues = Array.from(IssuesManager.instance().issues());
+  const issuesOfInstance = [];
+  for (const issue of issuesAssociatedWith(issues, obj)) {
+    if (issue instanceof issueClass) {
+      issuesOfInstance.push(issue);
+    }
+  }
+  return issuesOfInstance;
+}
