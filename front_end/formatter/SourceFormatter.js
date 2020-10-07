@@ -12,6 +12,16 @@ import * as Workspace from '../workspace/workspace.js';
 
 import {FormatterInterface, FormatterSourceMapping} from './ScriptFormatter.js';  // eslint-disable-line no-unused-vars
 
+/** @type {?SourceFormatter} */
+let sourceFormatter = null;
+
+export function getSourceFormatter() {
+  if (!sourceFormatter) {
+    sourceFormatter = new SourceFormatter();
+  }
+  return sourceFormatter;
+}
+
 export class SourceFormatData {
   /**
    * @param {!Workspace.UISourceCode.UISourceCode} originalSourceCode

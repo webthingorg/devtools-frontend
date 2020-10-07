@@ -14,6 +14,7 @@ group("front_end") {
     "dom_extension",
     "elements",
     "formatter_worker",
+    "imports",
     "inline_editor",
     "issues",
     "media",
