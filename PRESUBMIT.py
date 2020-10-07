@@ -346,6 +346,9 @@ def _CollectStrings(input_api, output_api):
     affected_front_end_files = _getAffectedFiles(input_api,
                                                  [devtools_front_end], ['D'],
                                                  ['.js'])
+    # Exclude third_party && front_end/third_party files.
+    affected_front_end_files = filter(lambda path: "third_party" not in path,
+                                      affected_front_end_files)
     if len(affected_front_end_files) == 0:
         return [
             output_api.PresubmitNotifyResult(
