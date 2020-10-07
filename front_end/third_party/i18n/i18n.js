@@ -4109,12 +4109,10 @@ function getRendererFormattedStrings(locale) {
   const localeMessages = locales[locale];
   if (!localeMessages) throw new Error(`Unsupported locale '${locale}'`);
 
-  const icuMessageIds = Object.keys(localeMessages).filter(f => f.includes('core/report/html/'));
+  const icuMessageIds = Object.keys(localeMessages).filter(f => f.includes('ModuleUIStrings'));
   const strings = /** @type {LH.I18NRendererStrings} */ ({});
   for (const icuMessageId of icuMessageIds) {
     const [filename, varName] = icuMessageId.split(' | ');
-    if (!filename.endsWith('util.js')) throw new Error(`Unexpected message: ${icuMessageId}`);
-
     const key = /** @type {keyof LH.I18NRendererStrings} */ (varName);
     strings[key] = localeMessages[icuMessageId].message;
   }

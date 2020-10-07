@@ -20,6 +20,12 @@ export const registerLocaleData = i18nBundle.registerLocaleData;
 export let registeredLocale;
 
 /**
+ * The locale that DevTools displays
+ * @type {!object}
+ */
+let moduleUIStrings;
+
+/**
  * Take the locale passed in from the browser(host), run through the fallback logic (example: es-419 -> es)
  * to find the DevTools supported locale and register it.
  * @param {string} locale
@@ -47,6 +53,7 @@ export function getLocalizedString(str_, id, values = {}) {
  * @return {function(string, ?Object):string} return function to generate the string ids.
  */
 export function registerUIStrings(path, UIStrings) {
+  moduleUIStrings = moduleUIStrings || i18nBundle.getRendererFormattedStrings(registeredLocale);
   /**
    * Convert a message string & replacement values into an
    * indexed id value in the form '{messageid} | # {index}'.
@@ -59,6 +66,15 @@ export function registerUIStrings(path, UIStrings) {
       const i18nInstance = i18nBundle.createMessageInstanceIdFn(path, UIStrings);
       return i18nInstance(id, value);
     } catch (e) {
+      // ID was not in the main file search for module.json strings
+      if (e && e.message && e.message.includes('Could not locate')) {
+        const stringMappingArray = Object.getOwnPropertyNames(moduleUIStrings);
+        const index = stringMappingArray.indexOf(id);
+        if (index >= 0) {
+          return stringMappingArray[index];
+        }
+      }
+
       return id;
     }
   };
