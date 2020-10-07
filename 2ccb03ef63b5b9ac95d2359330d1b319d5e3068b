@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "78896498_f3d0b3fe",
+        "filename": "front_end/quick_open/CommandMenu.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-07T14:29:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ca9540a3_453cbabf",
+      "range": {
+        "startLine": 344,
+        "startChar": 24,
+        "endLine": 344,
+        "endChar": 25
+      },
+      "revId": "2ccb03ef63b5b9ac95d2359330d1b319d5e3068b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a0e71ae_351715fd",
