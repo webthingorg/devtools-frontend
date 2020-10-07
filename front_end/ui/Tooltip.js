@@ -28,6 +28,7 @@ export class Tooltip {
     doc.addEventListener('mousedown', this._hide.bind(this, true), true);
     doc.addEventListener('mouseleave', this._hide.bind(this, false), true);
     doc.addEventListener('keydown', this._hide.bind(this, true), true);
+    doc[_symbol] = this;
     ZoomManager.instance().addEventListener(ZoomManagerEvents.ZoomChanged, this._reset, this);
     doc.defaultView.addEventListener('resize', this._reset.bind(this), false);
   }
@@ -51,6 +52,27 @@ export class Tooltip {
       return;
     }
     element[_symbol] = {content: tooltipContent, actionId: actionId, options: options || {}};
+    let timeout;
+    element.addEventListener('focus', event => {
+      let tooltipInstance = element.ownerDocument[_symbol];
+      if (!tooltipInstance) {
+        Tooltip.installHandler(element.ownerDocument);
+        tooltipInstance = element.ownerDocument[_symbol];
+      }
+      timeout = setTimeout(() => {
+        if (element.matches(':focus-visible')) {
+          tooltipInstance._show(element, event);
+        }
+        timeout = null;
+      }, Timing.OpeningDelay);
+    });
+    element.addEventListener('blur', () => {
+      if (timeout) {
+        clearTimeout(timeout);
+        timeout = null;
+      }
+      element.ownerDocument[_symbol]._hide();
+    });
   }
 
   /**
@@ -109,7 +131,7 @@ export class Tooltip {
     this._tooltipElement.style.maxHeight = '';
     const tooltipWidth = this._tooltipElement.offsetWidth;
     const tooltipHeight = this._tooltipElement.offsetHeight;
-    const anchorTooltipAtElement = this._anchorTooltipAtElement();
+    const anchorTooltipAtElement = this._anchorTooltipAtElement() || event.x === undefined;
     let tooltipX = anchorTooltipAtElement ? anchorBox.x : event.x + cursorOffset;
     tooltipX = Platform.NumberUtilities.clamp(
         tooltipX, containerBox.x + pageMargin, containerBox.x + containerBox.width - tooltipWidth - pageMargin);
