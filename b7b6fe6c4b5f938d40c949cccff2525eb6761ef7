@@ -33,6 +33,24 @@
       "message": "I have tried the fix on YouTube website and it does not seem to work as expected. The change seems to affect the page and it takes a screenshot of a different element instead. Could you reproduce this issue? ",
       "revId": "b7b6fe6c4b5f938d40c949cccff2525eb6761ef7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d4f09d8_c1344e0e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1451147
+      },
+      "writtenOn": "2020-10-08T05:05:34Z",
+      "side": 1,
+      "message": "I wasn\u0027t able to reproduce this part:\n \"it takes a screenshot of a different element instead\" \n\nTo test this, I used Chrome Version 85.0.4183.121 at the following url:\nhttps://www.youtube.com/results?search_query\u003dPlanet+earth\n\nI shortened the viewport to appear like the following: \n(the element in question is the far right image with the text \u0027planet earth\u0027)\nhttps://imgur.com/fUZVQ4A\n\nIf I select that element in Chrome, and use the command \u0027capture node screenshot\u0027, I get the following image: \nhttps://imgur.com/cugNve4\n\nThe image is clearly cut off here. This is the bug described in the commit message.\n\nWith my code change in Chromium, when I select the element and use the command \u0027capture node screenshot\u0027, I get the following image:\nhttps://imgur.com/MPkyV3d\n\nThe full node appears here.",
+      "parentUuid": "8746c7f0_6e4da137",
+      "revId": "b7b6fe6c4b5f938d40c949cccff2525eb6761ef7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
