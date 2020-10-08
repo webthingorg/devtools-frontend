@@ -780,7 +780,7 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
 
     // Emulate full size device if necessary.
     let deviceMetrics;
-    if (fullSize) {
+    if (fullSize || clip) {
       const metrics = await screenCaptureModel.fetchLayoutMetrics();
       if (!metrics) {
         return null;
@@ -800,7 +800,9 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
         deviceMetrics.displayFeature = displayFeature;
       }
 
-      clip = {x: 0, y: 0, width: deviceMetrics.width, height: deviceMetrics.height, scale: 1};
+      if (fullSize) {
+        clip = {x: 0, y: 0, width: deviceMetrics.width, height: deviceMetrics.height, scale: 1};
+      }
 
       if (this._device) {
         const screenOrientation = this._mode.orientation === Horizontal ?
