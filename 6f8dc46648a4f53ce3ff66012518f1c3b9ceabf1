@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": false,
       "key": {
         "uuid": "95480b2f_f590ec77",
         "filename": "/PATCHSET_LEVEL",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "Couple of nits, which would bring this code in line with the rest of the code (which does embrace early exits).",
       "revId": "6f8dc46648a4f53ce3ff66012518f1c3b9ceabf1",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "eb28bcd2_dfea2c48",
         "filename": "front_end/issues/IssuesPane.js",
@@ -37,10 +38,34 @@
         "endChar": 7
       },
       "revId": "6f8dc46648a4f53ce3ff66012518f1c3b9ceabf1",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2bf6207_e0719e83",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1435,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-08T13:03:27Z",
+      "side": 1,
+      "message": "We should make this a linter rule if we want to consistently enforce this.",
+      "parentUuid": "eb28bcd2_dfea2c48",
+      "range": {
+        "startLine": 1433,
+        "startChar": 6,
+        "endLine": 1435,
+        "endChar": 7
+      },
+      "revId": "6f8dc46648a4f53ce3ff66012518f1c3b9ceabf1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
       "key": {
         "uuid": "2cbe84e5_50814277",
         "filename": "front_end/sources/NavigatorView.js",
@@ -60,8 +85,7 @@
         "endChar": 15
       },
       "revId": "6f8dc46648a4f53ce3ff66012518f1c3b9ceabf1",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
