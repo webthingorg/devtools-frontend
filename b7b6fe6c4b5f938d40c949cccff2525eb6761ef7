@@ -51,6 +51,24 @@
       "parentUuid": "8746c7f0_6e4da137",
       "revId": "b7b6fe6c4b5f938d40c949cccff2525eb6761ef7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96056bfa_ed14861b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-08T06:56:27Z",
+      "side": 1,
+      "message": "I have recorded a video of where it happens https://imgur.com/a/LXZj2rp \n\nI used the latest chromium build but I think it should happen with M85 as well.",
+      "parentUuid": "6d4f09d8_c1344e0e",
+      "revId": "b7b6fe6c4b5f938d40c949cccff2525eb6761ef7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
