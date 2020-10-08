@@ -39,6 +39,30 @@
       },
       "revId": "9ce3b99915f85d6676560776f4c4cd482c87dcd9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0f4f593_7cec28c8",
+        "filename": "front_end/console/ConsoleViewport.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 838,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-08T15:02:02Z",
+      "side": 1,
+      "message": "I added a missing override annotation. I thought it was fine to sneak it in here.",
+      "parentUuid": "ebafb65a_62e517f3",
+      "range": {
+        "startLine": 837,
+        "startChar": 0,
+        "endLine": 838,
+        "endChar": 3
+      },
+      "revId": "9ce3b99915f85d6676560776f4c4cd482c87dcd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
