@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8831e76c_71c217d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-10-08T13:31:29Z",
+      "side": 1,
+      "message": "Hey Philip,\n\nHere\u0027s a fix for the consistent typing of Scope vs. ScopeChainEntry.\nPlease take a look.\n\nThanks,\nBenedikt",
+      "revId": "0a9ac012931cbb6e76da41171a6584016ccc0636",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
