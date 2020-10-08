@@ -6,6 +6,7 @@ import * as Action from './Action.js';
 import * as ActionDelegate from './ActionDelegate.js';
 import * as ActionRegistry from './ActionRegistry.js';
 import * as ARIAUtils from './ARIAUtils.js';
+import * as Components from './components/components.js';
 import * as Context from './Context.js';
 import * as ContextFlavorListener from './ContextFlavorListener.js';
 import * as ContextMenu from './ContextMenu.js';
@@ -68,12 +69,13 @@ export {
   ActionDelegate,
   ActionRegistry,
   ARIAUtils,
+  Components,
   Context,
   ContextFlavorListener,
   ContextMenu,
   Dialog,
-  DropTarget,
   DockController,
+  DropTarget,
   EmptyWidget,
   FilterBar,
   FilterSuggestionBuilder,

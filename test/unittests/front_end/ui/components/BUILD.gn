@@ -1,0 +1,16 @@
+import("../../../../../third_party/typescript/typescript.gni")
+
+ts_library("components") {
+  testonly = true
+  sources = [
+    "DataGridController_test.ts",
+    "DataGridHelpers.ts",
+    "DataGridUtils_test.ts",
+    "DataGrid_test.ts",
+  ]
+
+  deps = [
+    "../../../../../front_end/ui/components:bundle",
+    "../../helpers",
+  ]
+}

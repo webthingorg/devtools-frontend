@@ -27,5 +27,6 @@ group("front_end") {
     "test_setup",
     "text_utils",
     "ui",
+    "ui/components",
   ]
 }
