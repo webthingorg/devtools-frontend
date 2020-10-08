@@ -309,6 +309,10 @@ export class Section {
 
     this._toolbar = section.createToolbar();
     this._toolbar.renderAsLinks();
+    this._showNetwork = new UI.Toolbar.ToolbarButton(
+        Common.UIString.UIString('Show network in drawer'), undefined, Common.UIString.UIString('Network'));
+    this._showNetwork.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._showNetworkClicked, this);
+    this._toolbar.appendToolbarItem(this._showNetwork);
     this._updateButton =
         new UI.Toolbar.ToolbarButton(Common.UIString.UIString('Update'), undefined, Common.UIString.UIString('Update'));
     this._updateButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._updateButtonClicked, this);
@@ -540,6 +544,13 @@ export class Section {
    */
   _updateButtonClicked(event) {
     this._manager.updateRegistration(this._registration.id);
+  }
+
+  /**
+   * @param {!Common.EventTarget.EventTargetEvent} event
+   */
+  async _showNetworkClicked(event) {
+    await UI.ViewManager.ViewManager.instance().showViewInLocation('network', 'drawer-view');
   }
 
   /**
