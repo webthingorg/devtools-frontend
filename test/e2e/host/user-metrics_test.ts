@@ -5,7 +5,7 @@
 import {assert} from 'chai';
 import * as puppeteer from 'puppeteer';
 
-import {$, click, enableExperiment, getBrowserAndPages, goToResource, platform, reloadDevTools, waitFor} from '../../shared/helper.js';
+import {$, click, enableExperiment, getBrowserAndPages, goToResource, platform, reloadDevTools, showElement, waitFor} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {navigateToCssOverviewTab} from '../helpers/css-overview-helpers.js';
 import {expandSelectedNodeRecursively, INACTIVE_GRID_ADORNER_SELECTOR, navigateToSidePane, openLayoutPane, toggleElementCheckboxInLayoutPane, toggleGroupComputedProperties, waitForContentOfSelectedElementsNode, waitForElementsStyleSection} from '../helpers/elements-helpers.js';
@@ -632,20 +632,39 @@ describe('User Metrics for Computed Styles grouping', () => {
 describe('User Metrics for Issue Panel', () => {
   beforeEach(async () => {
     await openPanelViaMoreTools('Issues');
+    await goToResource('elements/element-reveal-inline-issue.html');
     const {frontend} = getBrowserAndPages();
     await beginCatchEvents(frontend);
   });
 
   it('dispatch events when expand an issue', async () => {
-    await goToResource('host/cookie-issue.html');
     await waitFor('.issue');
-
     await click('.issue');
 
     await assertCapturedEvents([
       {
         name: 'DevTools.IssuesPanelIssueExpanded',
-        value: 2,  // SameSiteCookie
+        value: 4,  // ContentSecurityPolicy
+      },
+    ]);
+  });
+
+  it('dispatch events when a link to an element is click', async () => {
+    await waitFor('.issue');
+    await click('.issue');
+
+    await waitFor('.element-reveal-icon');
+    await showElement('.element-reveal-icon');
+    await click('.element-reveal-icon');
+
+    await assertCapturedEvents([
+      {
+        name: 'DevTools.IssuesPanelIssueExpanded',
+        value: 4,  // ContentSecurityPolicy
+      },
+      {
+        name: 'DevTools.IssuesPanelResourceOpened',
+        value: 7,  // ContentSecurityPolicyElement
       },
     ]);
   });
