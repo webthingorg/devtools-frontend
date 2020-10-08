@@ -16,59 +16,77 @@ declare global {
 export class ScreenshotOverlay extends Overlay {
   private zone!: HTMLElement;
 
-  setPlatform(platform: string) {
-    super.setPlatform(platform);
+  constructor(window: Window, style: CSSStyleSheet[] = []) {
+    super(window, style);
+    this.onMouseDown = this.onMouseDown.bind(this);
+    this.onMouseUp = this.onMouseUp.bind(this);
+    this.onMouseMove = this.onMouseMove.bind(this);
+    this.onKeyDown = this.onKeyDown.bind(this);
+  }
 
-    this.document.body.onload = this.loaded.bind(this);
+  install() {
+    this.document.documentElement.addEventListener('mousedown', this.onMouseDown, true);
+    this.document.documentElement.addEventListener('mouseup', this.onMouseUp, true);
+    this.document.documentElement.addEventListener('mousemove', this.onMouseMove, true);
+    this.document.documentElement.addEventListener('keydown', this.onKeyDown, true);
 
     const zone = this.document.createElement('div');
     zone.id = 'zone';
     this.document.body.append(zone);
 
     this.zone = zone;
+
+    super.install();
   }
 
-  loaded() {
-    this.document.documentElement.addEventListener('mousedown', event => {
-      anchor = {x: event.pageX, y: event.pageY};
-      position = anchor;
-      this.updateZone();
-      event.stopPropagation();
-      event.preventDefault();
-    }, true);
+  uninstall() {
+    this.document.body.innerHTML = '';
+    this.document.documentElement.removeEventListener('mousedown', this.onMouseDown, true);
+    this.document.documentElement.removeEventListener('mouseup', this.onMouseUp, true);
+    this.document.documentElement.removeEventListener('mousemove', this.onMouseMove, true);
+    this.document.documentElement.removeEventListener('keydown', this.onKeyDown, true);
+    super.uninstall();
+  }
 
-    this.document.documentElement.addEventListener('mouseup', event => {
-      if (anchor && position) {
-        const rect = currentRect();
-        if (rect.width >= 5 && rect.height >= 5) {
-          this.window.InspectorOverlayHost.send(JSON.stringify(rect));
-        }
+  onMouseDown(event: MouseEvent) {
+    anchor = {x: event.pageX, y: event.pageY};
+    position = anchor;
+    this.updateZone();
+    event.stopPropagation();
+    event.preventDefault();
+  }
+
+  onMouseUp(event: MouseEvent) {
+    if (anchor && position) {
+      const rect = currentRect();
+      if (rect.width >= 5 && rect.height >= 5) {
+        this.window.InspectorOverlayHost.send(JSON.stringify(rect));
       }
+    }
+    cancel();
+    this.updateZone();
+    event.stopPropagation();
+    event.preventDefault();
+  }
+
+  onMouseMove(event: MouseEvent) {
+    if (anchor && event.buttons === 1) {
+      position = {x: event.pageX, y: event.pageY};
+    } else {
+      anchor = null;
+    }
+    this.updateZone();
+    event.stopPropagation();
+    event.preventDefault();
+  }
+
+  onKeyDown(event: KeyboardEvent) {
+    if (anchor && event.key === 'Escape') {
       cancel();
       this.updateZone();
       event.stopPropagation();
       event.preventDefault();
-    }, true);
-
-    this.document.documentElement.addEventListener('mousemove', event => {
-      if (anchor && event.buttons === 1) {
-        position = {x: event.pageX, y: event.pageY};
-      } else {
-        anchor = null;
-      }
-      this.updateZone();
-      event.stopPropagation();
-      event.preventDefault();
-    }, true);
-
-    this.document.documentElement.addEventListener('keydown', event => {
-      if (anchor && event.key === 'Escape') {
-        cancel();
-        this.updateZone();
-        event.stopPropagation();
-        event.preventDefault();
-      }
-    }, true);
+    }
   }
 
   updateZone() {
