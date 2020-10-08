@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a46cd556_d5a4efc1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-08T11:47:21Z",
+      "side": 1,
+      "message": "ptal",
+      "revId": "d6269f7b39a5d94416038fab32b84cd904dabbf3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2eb0da55_5e46c306",
+        "filename": "front_end/network/EventSourceMessagesView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-08T11:47:21Z",
+      "side": 1,
+      "message": "Couldn\u0027t think of a better way, short of @ts-ignoring the field access. Do you have a better idea?",
+      "range": {
+        "startLine": 125,
+        "startChar": 11,
+        "endLine": 125,
+        "endChar": 61
+      },
+      "revId": "d6269f7b39a5d94416038fab32b84cd904dabbf3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
