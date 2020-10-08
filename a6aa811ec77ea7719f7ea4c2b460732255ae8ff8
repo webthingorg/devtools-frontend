@@ -39,6 +39,30 @@
       },
       "revId": "a6aa811ec77ea7719f7ea4c2b460732255ae8ff8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bf1b9eb_dfc7b700",
+        "filename": "inspector_overlay/tool_distances_impl.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-08T19:21:55Z",
+      "side": 1,
+      "message": "I think we could re-use the canvas but clear it instead. Not all tools need a canvas though and until now the code had an expectation that it gets a new canvas every time so I kept the code that way to avoid any bugs which might happen if the canvas is re-used.",
+      "parentUuid": "7a7e8631_e8817c70",
+      "range": {
+        "startLine": 60,
+        "startChar": 5,
+        "endLine": 62,
+        "endChar": 25
+      },
+      "revId": "a6aa811ec77ea7719f7ea4c2b460732255ae8ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
