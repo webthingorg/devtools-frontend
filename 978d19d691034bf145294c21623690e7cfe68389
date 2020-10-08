@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d70232a_67ba5230",
+        "filename": "inspector_overlay/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-08T13:33:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a2eaf32f_59a0b8b3",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 104
+      },
+      "revId": "978d19d691034bf145294c21623690e7cfe68389",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "60ba9171_fe690625",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-10-08T13:24:30Z",
       "side": 1,
       "message": "Knowing that to properly install an overlay, the method `install()` needs to be called, do we really need a setter here?",
+      "range": {
+        "startLine": 161,
+        "startChar": 2,
+        "endLine": 163,
+        "endChar": 3
+      },
+      "revId": "978d19d691034bf145294c21623690e7cfe68389",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ed6c898_3479c108",
+        "filename": "inspector_overlay/common.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-08T13:33:20Z",
+      "side": 1,
+      "message": "I planned to use but ended up not using it. So I will remove it.",
+      "parentUuid": "60ba9171_fe690625",
       "range": {
         "startLine": 161,
         "startChar": 2,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "662f4f12_3f0a4e13",
+        "filename": "inspector_overlay/main.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-08T13:33:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fee320ab_518452e4",
+      "range": {
+        "startLine": 51,
+        "startChar": 39,
+        "endLine": 51,
+        "endChar": 59
+      },
+      "revId": "978d19d691034bf145294c21623690e7cfe68389",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c666404e_df6d880f",
@@ -83,6 +155,30 @@
       "writtenOn": "2020-10-08T13:24:30Z",
       "side": 1,
       "message": "I really like this, it\u0027s much easier to understand the code now that this is called install, and setPlatform is just handled by the parent class.",
+      "range": {
+        "startLine": 49,
+        "startChar": 2,
+        "endLine": 49,
+        "endChar": 9
+      },
+      "revId": "978d19d691034bf145294c21623690e7cfe68389",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59b8b5c6_fce994b6",
+        "filename": "inspector_overlay/tool_highlight_grid_impl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-08T13:33:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c666404e_df6d880f",
       "range": {
         "startLine": 49,
         "startChar": 2,
