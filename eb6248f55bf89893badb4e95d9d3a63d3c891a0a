@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "eb6248f55bf89893badb4e95d9d3a63d3c891a0a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32a2d0ef_c2d281ca",
+        "filename": "front_end/console/ConsolePrompt.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-08T13:36:34Z",
+      "side": 1,
+      "message": "Nit: I think this can be `[...words, ...historyWords]` instead.",
+      "range": {
+        "startLine": 407,
+        "startChar": 11,
+        "endLine": 407,
+        "endChar": 60
+      },
+      "revId": "eb6248f55bf89893badb4e95d9d3a63d3c891a0a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
