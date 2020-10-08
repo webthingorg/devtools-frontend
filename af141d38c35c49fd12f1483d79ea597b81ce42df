@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e74dbd4f_35d31a71",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-08T08:04:28Z",
+      "side": 1,
+      "message": "ptal",
+      "revId": "af141d38c35c49fd12f1483d79ea597b81ce42df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2227451a_95385393",
+        "filename": "front_end/network/NetworkLogViewColumns.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 641,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-08T08:04:28Z",
+      "side": 1,
+      "message": "Could this be a ToT TS bug? I only saw it on the command-line version, not in VSCode.",
+      "range": {
+        "startLine": 637,
+        "startChar": 0,
+        "endLine": 641,
+        "endChar": 46
+      },
+      "revId": "af141d38c35c49fd12f1483d79ea597b81ce42df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

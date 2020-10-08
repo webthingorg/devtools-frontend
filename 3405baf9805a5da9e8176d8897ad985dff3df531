@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa3781ca_dfb7cabf",
+        "filename": "front_end/network/NetworkLogViewColumns.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-08T08:04:28Z",
+      "side": 0,
+      "message": "This is not a thing, why did this work?",
+      "range": {
+        "startLine": 202,
+        "startChar": 88,
+        "endLine": 202,
+        "endChar": 95
+      },
+      "revId": "3405baf9805a5da9e8176d8897ad985dff3df531",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
