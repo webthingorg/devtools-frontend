@@ -227,10 +227,6 @@
   color: var(--selection-fg-color);
 }
 
-.data-grid:focus tr.selected .devtools-link {
-  color: var(--selection-fg-color);
-}
-
 .data-grid:focus tr.parent.selected td.disclosure::before {
   background-color: var(--selection-fg-color);
   -webkit-mask-position: 0 0;
