@@ -39,6 +39,53 @@
       },
       "revId": "da39a2b7f94c2abd2126d2d65e626aaf89d42a29",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "deb4f207_dd012d2e",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-08T08:56:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4b326efe_dad316c9",
+      "range": {
+        "startLine": 340,
+        "startChar": 10,
+        "endLine": 340,
+        "endChar": 24
+      },
+      "revId": "da39a2b7f94c2abd2126d2d65e626aaf89d42a29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa4621a4_3e52b4eb",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-08T08:56:34Z",
+      "side": 1,
+      "message": "Should we maybe do an `instanceof` check instead? If that doesn\u0027t work, then let\u0027s keep the @ts-ignore indeed.",
+      "range": {
+        "startLine": 538,
+        "startChar": 8,
+        "endLine": 538,
+        "endChar": 64
+      },
+      "revId": "da39a2b7f94c2abd2126d2d65e626aaf89d42a29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
