@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb49b27e_925007a7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-08T05:40:19Z",
+      "side": 1,
+      "message": "I only realized this now, but is there a tracking bug for all the i18n work on crbug? It would help us find relevant CLs in the future and track the overall progress :)",
+      "revId": "c814ca199b9e196ad2f9e4edeff4175378df7581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c4d4a756_4c939c73",
@@ -14,6 +31,46 @@
       "writtenOn": "2020-10-08T02:47:16Z",
       "side": 1,
       "message": "PTAL",
+      "revId": "c814ca199b9e196ad2f9e4edeff4175378df7581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "193f2be1_ff10f60e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-08T05:40:19Z",
+      "side": 1,
+      "message": "lgtm % one suggestion",
+      "revId": "c814ca199b9e196ad2f9e4edeff4175378df7581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adbd55ea_35508585",
+        "filename": "front_end/i18n/i18nImpl.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-08T05:40:19Z",
+      "side": 1,
+      "message": "This feels rather brittle. Could we solve this via the type system by throwing a custom exception sub-class and checking for that with `instanceof`?\n\nKeeping the diff between upstream and DevTools i18n minimal could bite us here, as we would have to manually check that the error is thrown in the same way. Also modifying the throwing side would somewhat guard us against that while being more work (maybe).",
+      "range": {
+        "startLine": 70,
+        "startChar": 6,
+        "endLine": 70,
+        "endChar": 69
+      },
       "revId": "c814ca199b9e196ad2f9e4edeff4175378df7581",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
