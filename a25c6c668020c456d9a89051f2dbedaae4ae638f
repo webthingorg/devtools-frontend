@@ -127,6 +127,30 @@
       },
       "revId": "a25c6c668020c456d9a89051f2dbedaae4ae638f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad700130_83e0fa90",
+        "filename": "front_end/console/ConsoleSidebar.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-08T11:39:01Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0ed2ef68_e05b868c",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 35
+      },
+      "revId": "a25c6c668020c456d9a89051f2dbedaae4ae638f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
