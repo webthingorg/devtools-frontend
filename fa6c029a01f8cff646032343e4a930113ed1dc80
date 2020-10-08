@@ -50,6 +50,23 @@
       "message": "Sigurd, could you PTAL? Thanks.",
       "revId": "fa6c029a01f8cff646032343e4a930113ed1dc80",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee7e246b_c9936c2d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-08T05:58:37Z",
+      "side": 1,
+      "message": "Thanks for discovering this!\n\nThis was introduced in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2303882/35, which is missing a test for this case. Could you add a test please?",
+      "revId": "fa6c029a01f8cff646032343e4a930113ed1dc80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
