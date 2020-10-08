@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cffbb623_449df4dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-08T12:19:51Z",
+      "side": 1,
+      "message": "LGTM % comments",
+      "revId": "5c6dbb67e28e08799836896f303ac6c1d17612a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4262fb84_19bf7f29",
+        "filename": "inspector_overlay/debug/main.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-08T12:19:51Z",
+      "side": 1,
+      "message": "2020",
+      "revId": "5c6dbb67e28e08799836896f303ac6c1d17612a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5125d67c_b12348e6",
+        "filename": "inspector_overlay/tool_paused_impl.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-08T12:19:51Z",
+      "side": 1,
+      "message": "Why not use .key (or .code) here as well? That way we could get rid of the inline comment.\n\n    .key \u003d\u003d \u0027\\\\\u0027\n    .code \u003d\u003d\u003d \u0027Backslash\u0027\n\nhttps://w3c.github.io/uievents/tools/key-event-viewer.html",
+      "range": {
+        "startLine": 22,
+        "startChar": 64,
+        "endLine": 22,
+        "endChar": 85
+      },
+      "revId": "5c6dbb67e28e08799836896f303ac6c1d17612a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ef24f0a_70f90535",
+        "filename": "inspector_overlay/tool_paused_impl.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-08T12:19:51Z",
+      "side": 1,
+      "message": "Same here",
+      "range": {
+        "startLine": 24,
+        "startChar": 72,
+        "endLine": 24,
+        "endChar": 112
+      },
+      "revId": "5c6dbb67e28e08799836896f303ac6c1d17612a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a696fa1_5deb85b8",
+        "filename": "inspector_overlay/tool_screenshot_impl.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-08T12:19:51Z",
+      "side": 1,
+      "message": "If we want to cut down on repetition and improve readability:\n\n    const root \u003d this.document.documentElement;",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 33
+      },
+      "revId": "5c6dbb67e28e08799836896f303ac6c1d17612a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab11421d_e52d201a",
+        "filename": "inspector_overlay/tool_screenshot_impl.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-08T12:19:51Z",
+      "side": 1,
+      "message": "Same here",
+      "revId": "5c6dbb67e28e08799836896f303ac6c1d17612a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
