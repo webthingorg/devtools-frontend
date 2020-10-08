@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "29c5f0a5_34555c19",
+        "filename": "front_end/console/ConsoleSidebar.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-08T11:27:34Z",
+      "side": 1,
+      "message": "Great catch, thanks!",
+      "parentUuid": "85c00e8d_28b7c8d5",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 5
+      },
+      "revId": "a25c6c668020c456d9a89051f2dbedaae4ae638f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2756b656_fadbb2cd",
@@ -71,6 +95,30 @@
       "writtenOn": "2020-10-07T07:14:39Z",
       "side": 1,
       "message": "Both call sites use `super(filter.name, filter)`. Whats the reason for making it two arguments?",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 35
+      },
+      "revId": "a25c6c668020c456d9a89051f2dbedaae4ae638f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ed2ef68_e05b868c",
+        "filename": "front_end/console/ConsoleSidebar.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-08T11:27:34Z",
+      "side": 1,
+      "message": "title and filter don\u0027t have something to do with each other intrinsically, it is the two derived classes that tie it together.",
+      "parentUuid": "2756b656_fadbb2cd",
       "range": {
         "startLine": 117,
         "startChar": 0,
