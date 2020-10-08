@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2eaf32f_59a0b8b3",
+        "filename": "inspector_overlay/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-08T13:24:30Z",
+      "side": 1,
+      "message": "Thank you for maintaining this doc. This is super useful.",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 104
+      },
+      "revId": "978d19d691034bf145294c21623690e7cfe68389",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60ba9171_fe690625",
+        "filename": "inspector_overlay/common.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-08T13:24:30Z",
+      "side": 1,
+      "message": "Knowing that to properly install an overlay, the method `install()` needs to be called, do we really need a setter here?",
+      "range": {
+        "startLine": 161,
+        "startChar": 2,
+        "endLine": 163,
+        "endChar": 3
+      },
+      "revId": "978d19d691034bf145294c21623690e7cfe68389",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fee320ab_518452e4",
+        "filename": "inspector_overlay/main.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-08T13:24:30Z",
+      "side": 1,
+      "message": "Can you initialize a const to this value? This would make this call simpler to understand.",
+      "range": {
+        "startLine": 51,
+        "startChar": 39,
+        "endLine": 51,
+        "endChar": 59
+      },
+      "revId": "978d19d691034bf145294c21623690e7cfe68389",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c666404e_df6d880f",
+        "filename": "inspector_overlay/tool_highlight_grid_impl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-08T13:24:30Z",
+      "side": 1,
+      "message": "I really like this, it\u0027s much easier to understand the code now that this is called install, and setPlatform is just handled by the parent class.",
+      "range": {
+        "startLine": 49,
+        "startChar": 2,
+        "endLine": 49,
+        "endChar": 9
+      },
+      "revId": "978d19d691034bf145294c21623690e7cfe68389",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
