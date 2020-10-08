@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "34e9fe54120c64ca3b62e86dfeb82ff5dfab2fc4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "104e145e_5f929f01",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-08T05:52:45Z",
+      "side": 1,
+      "message": "Overall looks good to me. Lets bikeshed if we want to introduce a short-hand syntax (see comment).\n\nPaul: I think someone from LON/architecture should be involved in reviewing this CL :)",
+      "revId": "34e9fe54120c64ca3b62e86dfeb82ff5dfab2fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "caf055f5_4c1de195",
+        "filename": "front_end/settings/FrameworkBlackboxSettingsTab.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-08T05:52:45Z",
+      "side": 1,
+      "message": "General question: Should we introduce a short-hand syntax similar to `ls`?\n\nThis is, should we add something like:\n\n const i18n \u003d i18n.i18n.getLocalizedString.bind(undefined, str_);\n\nThen all the use-sites here would simply become:\n\n i18n(UIStrings.debuggerWillSkipThroughThe);\n\nor\n\n i18n(UIStrings.blackboxScriptsWhoseNamesMatchS, {PH1: item.pattern});",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 96
+      },
+      "revId": "34e9fe54120c64ca3b62e86dfeb82ff5dfab2fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
