@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee8d7f22_a83f4d33",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1433,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-08T15:23:45Z",
+      "side": 1,
+      "message": "nit: I would prefer if (!view.parent) { continue; } as it we expect parents to be there in the main case, and also it\u0027s more consistent with the rest of the codebase, which tends to use early returns.",
+      "range": {
+        "startLine": 1433,
+        "startChar": 7,
+        "endLine": 1433,
+        "endChar": 24
+      },
+      "revId": "54cde835b12204db361e2deb530ebab6c1ef8358",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c55dadbd_c3bfe0fa",
+        "filename": "front_end/sources/NavigatorView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-08T15:23:45Z",
+      "side": 1,
+      "message": "Why is this necessary? The param specifies a non-null NavigatorTreeNode.",
+      "range": {
+        "startLine": 901,
+        "startChar": 4,
+        "endLine": 903,
+        "endChar": 5
+      },
+      "revId": "54cde835b12204db361e2deb530ebab6c1ef8358",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d20872d_820afae5",
+        "filename": "front_end/sources/NavigatorView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 941,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-08T15:23:45Z",
+      "side": 1,
+      "message": "nit: \n\nif (!shouldRemove) {\n  return;\n}\n\nproject.remove();",
+      "range": {
+        "startLine": 939,
+        "startChar": 10,
+        "endLine": 941,
+        "endChar": 11
+      },
+      "revId": "54cde835b12204db361e2deb530ebab6c1ef8358",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
