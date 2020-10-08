@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0f59b02_3ccf3c2a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-08T07:06:53Z",
+      "side": 1,
+      "message": "Looks like I also need a +1 from an owner of UserMetrics.js",
+      "revId": "7cabf11e7f3763d11fc8bbd9c0aeacc0a0133dcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
