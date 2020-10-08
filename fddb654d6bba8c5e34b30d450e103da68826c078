@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "087a0102_1b0f7cd2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-08T13:01:28Z",
+      "side": 1,
+      "message": "lgtm % super-nit",
+      "revId": "fddb654d6bba8c5e34b30d450e103da68826c078",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e544b319_77ecdea5",
+        "filename": "front_end/animation/AnimationModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-08T13:01:28Z",
+      "side": 1,
+      "message": "nit: Should we make this more readable?\n\n const payload \u003d await this._animationModel._agent.invoke_resolveAnimation({animationId: this.id()});\n if (payload) {\n   return this._animationModel._runtimeModel.createRemoteObject(payload.remoteObject));\n }\n return null;",
+      "range": {
+        "startLine": 383,
+        "startChar": 0,
+        "endLine": 384,
+        "endChar": 113
+      },
+      "revId": "fddb654d6bba8c5e34b30d450e103da68826c078",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
