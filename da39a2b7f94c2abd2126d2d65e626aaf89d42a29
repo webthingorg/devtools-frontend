@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c78a7cd_71f26c92",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-08T07:33:31Z",
+      "side": 1,
+      "message": "ptal",
+      "revId": "da39a2b7f94c2abd2126d2d65e626aaf89d42a29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b326efe_dad316c9",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-08T07:33:31Z",
+      "side": 1,
+      "message": "We need to extract a temporary here or the l10n presubmit scripts will complain.",
+      "range": {
+        "startLine": 340,
+        "startChar": 10,
+        "endLine": 340,
+        "endChar": 24
+      },
+      "revId": "da39a2b7f94c2abd2126d2d65e626aaf89d42a29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
