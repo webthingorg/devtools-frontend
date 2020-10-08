@@ -16,6 +16,29 @@
       "message": "ptal",
       "revId": "f1a587d51beeb018ca3f9461bc54b7ccd9fba39f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17f7225d_2a8d2c66",
+        "filename": "front_end/network/ResourceWebSocketFrameView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-08T12:13:18Z",
+      "side": 1,
+      "message": "Why do we need the cast here? Can we specify all missing information instead? I would prefer that over having to turn of clang-format and working around Closure.",
+      "range": {
+        "startLine": 60,
+        "startChar": 68,
+        "endLine": 60,
+        "endChar": 112
+      },
+      "revId": "f1a587d51beeb018ca3f9461bc54b7ccd9fba39f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
