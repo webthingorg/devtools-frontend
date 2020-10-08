@@ -241,6 +241,13 @@ export class FileSystem extends Workspace.Workspace.ProjectStore {
   /**
    * @return {string}
    */
+  fileSystemType() {
+    return this._fileSystem.type();
+  }
+
+  /**
+   * @return {string}
+   */
   fileSystemPath() {
     return this._fileSystemPath;
   }
