@@ -16,6 +16,46 @@
       "message": "OK the layout tests rely on Formatter.sourceFormatter existing. I\u0027ll update them if you think this approach/naming is suitable - rather than do it now and have to change it again",
       "revId": "8e5f8d1ea1fa21a135b17ee3c37559399a366dbc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f10a6b28_4288791d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-08T08:59:42Z",
+      "side": 1,
+      "message": "Rather than adding this special method on the module scope, it would be better to reuse the singleton pattern we use throughout the codebase. E.g. define the `instance()` static method on the class and instantiate the formatter if necessary. Other than that, no objections to this approach.",
+      "revId": "8e5f8d1ea1fa21a135b17ee3c37559399a366dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a98242df_1599a5df",
+        "filename": "front_end/formatter/SourceFormatter.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-08T08:59:42Z",
+      "side": 1,
+      "message": "Since this essentially implements the singleton pattern, to be consistent with the rest of the singletons, let\u0027s make this a static method `instance()` on the class instead.",
+      "range": {
+        "startLine": 18,
+        "startChar": 16,
+        "endLine": 18,
+        "endChar": 34
+      },
+      "revId": "8e5f8d1ea1fa21a135b17ee3c37559399a366dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
