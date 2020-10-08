@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a626b24_ea2a220f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-08T16:32:44Z",
+      "side": 1,
+      "message": "Aha, this builds upon the CSS change in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2421702? LGTM!",
+      "revId": "63d523bb3886aafa7f5ffef7fe705b562c8c3525",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
