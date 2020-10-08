@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "646105ff_9c8e09c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-10-08T15:36:56Z",
+      "side": 1,
+      "message": "LGTM! Really excited to see this getting cleaned up! have a question below on canvas reuse, but more for understanding and not blocking",
+      "revId": "a6aa811ec77ea7719f7ea4c2b460732255ae8ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a7e8631_e8817c70",
+        "filename": "inspector_overlay/tool_distances_impl.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-10-08T15:36:56Z",
+      "side": 1,
+      "message": "this is more of a question for my understanding: do we know if it would be more performant to reuse the same canvas for all tools instead of re-installing one every time? or does the fact that we have a new tool mean that we swap out the overlay frame and need a new canvas",
+      "range": {
+        "startLine": 60,
+        "startChar": 5,
+        "endLine": 62,
+        "endChar": 25
+      },
+      "revId": "a6aa811ec77ea7719f7ea4c2b460732255ae8ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
