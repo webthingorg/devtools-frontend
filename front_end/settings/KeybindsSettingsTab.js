@@ -40,6 +40,8 @@ export class KeybindsSettingsTab extends UI.Widget.VBox {
       userShortcutsSetting.set([]);
       keybindsSetSetting.set(UI.ShortcutRegistry.DefaultShortcutSetting);
     }));
+    this.contentElement.appendChild(UI.UIUtils.createDocumentationLink(
+        'iterate/inspect-styles/shortcuts', ls`Full list of DevTools keyboard shortcuts and gestures`));
     /** @type {?UI.Action.Action} */
     this._editingItem = null;
     /** @type {?ShortcutListItem} */
