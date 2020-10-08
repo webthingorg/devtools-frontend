@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ca521ff_3d5cd8b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-08T15:16:03Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "dfc27593a212c7aad9c200d8eede39829a4e4341",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c49f204_ff9616af",
@@ -31,6 +48,30 @@
       "writtenOn": "2020-10-08T10:54:59Z",
       "side": 1,
       "message": "Should we add this or replace `setImmediate` with something native at the call-site?",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 71
+      },
+      "revId": "dfc27593a212c7aad9c200d8eede39829a4e4341",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bebccee_16f8de95",
+        "filename": "front_end/legacy/legacy-defs.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-08T15:16:03Z",
+      "side": 1,
+      "message": "This is a level of indirection that we probably don\u0027t need, but I don\u0027t feel that strongly about it.",
+      "parentUuid": "3c49f204_ff9616af",
       "range": {
         "startLine": 169,
         "startChar": 0,
