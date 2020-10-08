@@ -86,6 +86,30 @@
       },
       "revId": "da39a2b7f94c2abd2126d2d65e626aaf89d42a29",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cedd202b_354a0e20",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-08T09:15:11Z",
+      "side": 1,
+      "message": "I mean we know that `section` is guaranteed to be a `RootElement` (unless the constructor does something weird). I am just unsure whether the property is then still used somewhere or if `section` is cast to a normal section at a later point.",
+      "parentUuid": "aa4621a4_3e52b4eb",
+      "range": {
+        "startLine": 538,
+        "startChar": 8,
+        "endLine": 538,
+        "endChar": 64
+      },
+      "revId": "da39a2b7f94c2abd2126d2d65e626aaf89d42a29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
