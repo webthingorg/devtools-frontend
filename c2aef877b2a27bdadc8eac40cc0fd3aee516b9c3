@@ -16,6 +16,23 @@
       "message": "Awesome, thanks for doing this!",
       "revId": "c2aef877b2a27bdadc8eac40cc0fd3aee516b9c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3971839d_226cab76",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-08T16:37:57Z",
+      "side": 1,
+      "message": "WDYT about also logging the last few CDP messages and printing them on error?",
+      "revId": "c2aef877b2a27bdadc8eac40cc0fd3aee516b9c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
