@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a25aaf8e_d6c4c4e1",
+        "filename": "front_end/sdk/NetworkLog.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-08T09:41:56Z",
+      "side": 1,
+      "message": "nullish coalescing would make this even nicer (but our tooling likely doesn’t support it yet)",
+      "revId": "1ef6de8195bd45686c2b768ec964a78e730608d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
