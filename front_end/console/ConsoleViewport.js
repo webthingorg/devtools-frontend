@@ -833,4 +833,7 @@ export class ConsoleViewportElement {
    */
   element() {
   }
+
+  focusLastChildOrSelf() {
+  }
 }

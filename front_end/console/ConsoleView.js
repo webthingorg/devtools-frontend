@@ -1607,7 +1607,7 @@ export class ConsoleViewFilter {
 export class ConsoleCommand extends ConsoleViewMessage {
   /**
    * @override
-   * @return {!Element}
+   * @return {!HTMLElement}
    */
   contentElement() {
     if (!this._contentElement) {
@@ -1647,7 +1647,7 @@ export class ConsoleCommand extends ConsoleViewMessage {
 class ConsoleCommandResult extends ConsoleViewMessage {
   /**
    * @override
-   * @return {!Element}
+   * @return {!HTMLElement}
    */
   contentElement() {
     const element = super.contentElement();
