@@ -52,6 +52,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc007cf4_7ca9e8f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-10-08T19:34:05Z",
+      "side": 1,
+      "message": "Minor comments :)",
+      "revId": "c814ca199b9e196ad2f9e4edeff4175378df7581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "adbd55ea_35508585",
@@ -70,6 +87,46 @@
         "startChar": 6,
         "endLine": 70,
         "endChar": 69
+      },
+      "revId": "c814ca199b9e196ad2f9e4edeff4175378df7581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e58d0523_233317ff",
+        "filename": "front_end/i18n/i18nImpl.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-10-08T19:34:05Z",
+      "side": 1,
+      "message": "If this is just checking the id is in moduleJSONStrings object, could it be \nif (moduleJSONStrings.hasOwnProperty(id)){\n return id;\n}",
+      "revId": "c814ca199b9e196ad2f9e4edeff4175378df7581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47ed59d0_d1271dab",
+        "filename": "front_end/third_party/i18n/README.chromium",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-10-08T19:34:05Z",
+      "side": 1,
+      "message": "nit: I think this is i18n.js now?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 14
       },
       "revId": "c814ca199b9e196ad2f9e4edeff4175378df7581",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
