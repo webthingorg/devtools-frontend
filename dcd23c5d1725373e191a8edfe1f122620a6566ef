@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5498fad2_756d9906",
+        "filename": "front_end/sdk/ConsoleModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-08T11:08:35Z",
+      "side": 1,
+      "message": "I think the type of the result is a disjoint union, which explicitly allows error to be undefined / the empty string, so this is more accurate.",
+      "parentUuid": "fff73017_240d4afb",
+      "range": {
+        "startLine": 174,
+        "startChar": 8,
+        "endLine": 174,
+        "endChar": 25
+      },
+      "revId": "dcd23c5d1725373e191a8edfe1f122620a6566ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35248c7c_b1dfc54d",
@@ -113,6 +137,54 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d3db26e4_a0504c8d",
+        "filename": "front_end/sdk/ConsoleModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-08T11:08:35Z",
+      "side": 1,
+      "message": "See above.",
+      "parentUuid": "3be705f3_8b148b5a",
+      "range": {
+        "startLine": 428,
+        "startChar": 8,
+        "endLine": 428,
+        "endChar": 25
+      },
+      "revId": "dcd23c5d1725373e191a8edfe1f122620a6566ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a1b4e12_fb39ee1f",
+        "filename": "front_end/sdk/ConsoleModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-08T11:08:35Z",
+      "side": 1,
+      "message": "See above.",
+      "parentUuid": "3be705f3_8b148b5a",
+      "range": {
+        "startLine": 428,
+        "startChar": 8,
+        "endLine": 428,
+        "endChar": 25
+      },
+      "revId": "dcd23c5d1725373e191a8edfe1f122620a6566ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "7351d60b_9bc38121",
         "filename": "front_end/sdk/ConsoleModel.js",
         "patchSetId": 1
@@ -124,6 +196,30 @@
       "writtenOn": "2020-10-07T12:36:03Z",
       "side": 1,
       "message": "Oh boy. Can we file a CRBug to clean this up? I wasn\u0027t aware of us manipulating the global scope here in this weird way.",
+      "range": {
+        "startLine": 460,
+        "startChar": 6,
+        "endLine": 460,
+        "endChar": 47
+      },
+      "revId": "dcd23c5d1725373e191a8edfe1f122620a6566ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20c0d941_cb80a6f8",
+        "filename": "front_end/sdk/ConsoleModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-08T11:08:35Z",
+      "side": 1,
+      "message": "This is WAI AFAICS, it is the right-click \"Store as variable\" feature. It needs to modify the global object to expose the value.",
+      "parentUuid": "7351d60b_9bc38121",
       "range": {
         "startLine": 460,
         "startChar": 6,
@@ -157,6 +253,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fdcebdc_faa59903",
+        "filename": "front_end/sdk/ConsoleModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-08T11:08:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fffca557_86da69e1",
+      "range": {
+        "startLine": 496,
+        "startChar": 10,
+        "endLine": 496,
+        "endChar": 17
+      },
+      "revId": "dcd23c5d1725373e191a8edfe1f122620a6566ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "81124988_0927b89b",
@@ -170,6 +290,30 @@
       "writtenOn": "2020-10-07T12:36:03Z",
       "side": 1,
       "message": "Same here",
+      "range": {
+        "startLine": 675,
+        "startChar": 18,
+        "endLine": 675,
+        "endChar": 25
+      },
+      "revId": "dcd23c5d1725373e191a8edfe1f122620a6566ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33a8dfaa_cf944659",
+        "filename": "front_end/sdk/ConsoleModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-08T11:08:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81124988_0927b89b",
       "range": {
         "startLine": 675,
         "startChar": 18,
