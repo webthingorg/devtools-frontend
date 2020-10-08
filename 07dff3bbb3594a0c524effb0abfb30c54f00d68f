@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dffc4673_4ebbdfda",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-10-08T14:31:43Z",
+      "side": 1,
+      "message": "Hey Philip, Peter,\n\nHere\u0027s a CL to add support for icons and localizable names in the Scope view of language plugins. It\u0027s currently implemented via a getScopeInfo() method in the extension API, up for discussion whether that\u0027s the best way to do it.\nPlease take a look.\n\nThanks,\nBenedikt",
+      "revId": "07dff3bbb3594a0c524effb0abfb30c54f00d68f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
