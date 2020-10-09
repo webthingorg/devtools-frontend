@@ -39,6 +39,30 @@
       },
       "revId": "f1a587d51beeb018ca3f9461bc54b7ccd9fba39f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c40c9916_6a782e27",
+        "filename": "front_end/network/ResourceWebSocketFrameView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-09T05:49:31Z",
+      "side": 1,
+      "message": "Done, somehow I thought the structure had a ton of fields, while it actually doesn\u0027t...",
+      "parentUuid": "17f7225d_2a8d2c66",
+      "range": {
+        "startLine": 60,
+        "startChar": 68,
+        "endLine": 60,
+        "endChar": 112
+      },
+      "revId": "f1a587d51beeb018ca3f9461bc54b7ccd9fba39f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
