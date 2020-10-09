@@ -56,6 +56,30 @@
       },
       "revId": "8e5f8d1ea1fa21a135b17ee3c37559399a366dbc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fea6724a_16f5f7d9",
+        "filename": "front_end/formatter/SourceFormatter.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-10-09T12:29:54Z",
+      "side": 1,
+      "message": "That\u0027s what I was vaguely but not quite remembering, thanks. Done",
+      "parentUuid": "a98242df_1599a5df",
+      "range": {
+        "startLine": 18,
+        "startChar": 16,
+        "endLine": 18,
+        "endChar": 34
+      },
+      "revId": "8e5f8d1ea1fa21a135b17ee3c37559399a366dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
