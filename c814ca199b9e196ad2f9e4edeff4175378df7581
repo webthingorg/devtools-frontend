@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "51d530d3_67c5cc17",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-10-09T02:00:14Z",
+      "side": 1,
+      "message": "agree, I created this:\nhttps://bugs.chromium.org/p/chromium/issues/detail?id\u003d1136655\n\nI also compiled a list of the previous CLs associated with the localization V2 work and added it to the issue. Thanks for the nice feedback.",
+      "parentUuid": "fb49b27e_925007a7",
+      "revId": "c814ca199b9e196ad2f9e4edeff4175378df7581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c4d4a756_4c939c73",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
@@ -92,6 +110,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a95edd96_5cf67183",
+        "filename": "front_end/i18n/i18nImpl.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-10-09T02:00:14Z",
+      "side": 1,
+      "message": "good point, as you mention I was trying to keep the diff minimal but I\u0027m ok with either solution.",
+      "parentUuid": "adbd55ea_35508585",
+      "range": {
+        "startLine": 70,
+        "startChar": 6,
+        "endLine": 70,
+        "endChar": 69
+      },
+      "revId": "c814ca199b9e196ad2f9e4edeff4175378df7581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e58d0523_233317ff",
@@ -109,6 +151,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0eb20642_9d71c321",
+        "filename": "front_end/i18n/i18nImpl.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-10-09T02:00:14Z",
+      "side": 1,
+      "message": "yes, but we also need to access the item and moduleJSONString is only a simple array (not an associative array) so it cannot be access by the property name only by the property index.",
+      "parentUuid": "e58d0523_233317ff",
+      "revId": "c814ca199b9e196ad2f9e4edeff4175378df7581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47ed59d0_d1271dab",
@@ -122,6 +182,30 @@
       "writtenOn": "2020-10-08T19:34:05Z",
       "side": 1,
       "message": "nit: I think this is i18n.js now?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 14
+      },
+      "revId": "c814ca199b9e196ad2f9e4edeff4175378df7581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70fc381d_6df6b929",
+        "filename": "front_end/third_party/i18n/README.chromium",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-10-09T02:00:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47ed59d0_d1271dab",
       "range": {
         "startLine": 23,
         "startChar": 0,
