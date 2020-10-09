@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "664b97eb_b439187e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-10-09T22:44:25Z",
+      "side": 1,
+      "message": "For locked terms in V2, Lighthouse scripts has everything set up but there is one tiny change we need to make. See the description for details, and please let me know if you have any thoughts/concerns with this approach 😊",
+      "revId": "58c4c0418a3c3d3011f72fe5a1a885ddc44e3bd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
