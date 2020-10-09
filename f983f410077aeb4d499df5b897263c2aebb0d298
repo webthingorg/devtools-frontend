@@ -39,6 +39,30 @@
       },
       "revId": "f983f410077aeb4d499df5b897263c2aebb0d298",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea4e50c1_97a0b164",
+        "filename": "front_end/console/ConsoleViewMessage.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 1238,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-09T11:17:28Z",
+      "side": 1,
+      "message": "The required cleanup to get rid of this is more verbose, so I\u0027ve chosen to do this.",
+      "parentUuid": "bc76316c_fa923490",
+      "range": {
+        "startLine": 1224,
+        "startChar": 0,
+        "endLine": 1238,
+        "endChar": 5
+      },
+      "revId": "f983f410077aeb4d499df5b897263c2aebb0d298",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
