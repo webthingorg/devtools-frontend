@@ -130,6 +130,7 @@ interface Element {
   scrollIntoViewIfNeeded(center?: boolean): void;
   totalOffsetTop(): number;
   totalOffsetLeft(): number;
+  createTextChildren(...children: string[]): void;
 }
 
 interface DocumentFragment {
@@ -159,6 +160,7 @@ interface Node {
   traverseNextNode(stayWithin?: Node): Node|null;
   deepTextContent(): string
   window(): Window;
+  childTextNodes(): [Node];
 }
 
 declare function base64ToSize(content: string|null): number;
