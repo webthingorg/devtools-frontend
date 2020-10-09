@@ -186,6 +186,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "284fcd02_b9661826",
+        "filename": "front_end/settings/FrameworkBlackboxSettingsTab.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-10-09T00:35:27Z",
+      "side": 1,
+      "message": "Synced offline. We will stick with PH[1-9] to standardize placeholder names , and we already have examples for placeholders to help with translation, so re-using the old phname from grdp wont bring much benefit.",
+      "parentUuid": "9fffd60c_f64aa425",
+      "range": {
+        "startLine": 51,
+        "startChar": 20,
+        "endLine": 51,
+        "endChar": 23
+      },
+      "revId": "34e9fe54120c64ca3b62e86dfeb82ff5dfab2fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "caf055f5_4c1de195",
@@ -280,6 +304,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "07630c1f_d1685457",
+        "filename": "front_end/settings/FrameworkBlackboxSettingsTab.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-10-09T00:35:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1fa61540_ca3a413d",
+      "range": {
+        "startLine": 152,
+        "startChar": 99,
+        "endLine": 152,
+        "endChar": 102
+      },
+      "revId": "34e9fe54120c64ca3b62e86dfeb82ff5dfab2fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "97172535_4ce2923a",
@@ -317,6 +365,30 @@
       "side": 1,
       "message": "I thought I fixed this in one of my LocV2 presubmit CLs 😮 Guess it was lost when I rebased the CL after LocV1 presubmit refactor... I will fix this soon and the settings_strings.grdp can be removed .",
       "parentUuid": "97172535_4ce2923a",
+      "range": {
+        "startLine": 6,
+        "startChar": 13,
+        "endLine": 6,
+        "endChar": 22
+      },
+      "revId": "34e9fe54120c64ca3b62e86dfeb82ff5dfab2fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c0423f2_8209fa2b",
+        "filename": "front_end/settings/ModuleUIStrings.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-10-09T00:35:27Z",
+      "side": 1,
+      "message": "I put out a fix here:  https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2461794",
+      "parentUuid": "8a880b07_b9089b44",
       "range": {
         "startLine": 6,
         "startChar": 13,
