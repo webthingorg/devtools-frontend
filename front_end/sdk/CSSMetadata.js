@@ -237,6 +237,15 @@ export class CSSMetadata {
    * @param {string} propertyName
    * @return {boolean}
    */
+  isFontAwareProperty(propertyName) {
+    propertyName = propertyName.toLowerCase();
+    return !!_fontAwareProperties.has(propertyName) || this.isCustomProperty(propertyName);
+  }
+
+  /**
+   * @param {string} propertyName
+   * @return {boolean}
+   */
   isCustomProperty(propertyName) {
     return propertyName.startsWith('--');
   }
@@ -380,6 +389,7 @@ export class CSSMetadata {
 
 export const VariableRegex = /(var\(--.*?\))/g;
 export const URLRegex = /url\(\s*('.+?'|".+?"|[^)]+)\s*\)/g;
+export const FontRegex = /([\-0-9.]+(px|em|rem|%|vh|vw|)|[a-zA-z'"\-, ]+)/g;
 
 /**
  * Matches an instance of a grid area 'row' definition.
@@ -470,6 +480,8 @@ const _bezierAwareProperties = new Set([
   'animation', 'animation-timing-function', 'transition', 'transition-timing-function', '-webkit-animation',
   '-webkit-animation-timing-function', '-webkit-transition', '-webkit-transition-timing-function'
 ]);
+
+const _fontAwareProperties = new Set(['font-size', 'line-height', 'font-weight', 'font-family', 'letter-spacing']);
 
 const _colorAwareProperties = new Set([
   'background',
