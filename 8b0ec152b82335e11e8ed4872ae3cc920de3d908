@@ -16,6 +16,23 @@
       "message": "small presubmit fix, PTAL, thanks! ",
       "revId": "8b0ec152b82335e11e8ed4872ae3cc920de3d908",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b107843_bc5eaf73",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-09T05:56:41Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "8b0ec152b82335e11e8ed4872ae3cc920de3d908",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
