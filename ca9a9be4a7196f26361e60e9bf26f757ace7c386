@@ -16,6 +16,52 @@
       "message": "This CL needs to get back-merged, so could you please just add the test and move the cleanup to a follow-up CL?",
       "revId": "ca9a9be4a7196f26361e60e9bf26f757ace7c386",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "927213e0_f5f0472a",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-09T07:37:29Z",
+      "side": 1,
+      "message": "I think it might be clearer if this was called scrollElementIntoView",
+      "range": {
+        "startLine": 442,
+        "startChar": 13,
+        "endLine": 442,
+        "endChar": 24
+      },
+      "revId": "ca9a9be4a7196f26361e60e9bf26f757ace7c386",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a233c40_ada32ca6",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-09T07:37:29Z",
+      "side": 1,
+      "message": "Why not just use $ to return a single element (or null if not found)?",
+      "range": {
+        "startLine": 443,
+        "startChar": 25,
+        "endLine": 443,
+        "endChar": 27
+      },
+      "revId": "ca9a9be4a7196f26361e60e9bf26f757ace7c386",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
