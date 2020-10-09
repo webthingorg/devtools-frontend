@@ -320,11 +320,21 @@ export const focusCSSPropertyValue = async (selector: string, propertyName: stri
   await click('.value', {root: property});
 };
 
+/**
+ * Edit a CSS property value in a given rule
+ * @param selector The selector of the rule to be updated. Note that because of the way the Styles populates, it is
+ * important to provide a rule selector that is unique here, to avoid editing a property in the wrong rule.
+ * @param propertyName The name of the property to be found and edited. If several properties have the same names, the
+ * first one is edited.
+ * @param newValue The new value to be used.
+ */
 export async function editCSSProperty(selector: string, propertyName: string, newValue: string) {
   await focusCSSPropertyValue(selector, propertyName);
 
   const {frontend} = getBrowserAndPages();
-  await frontend.keyboard.type(newValue);
+  // A delay while typing is important to let the required StylePropertyTreeElement get removed and
+  // re-added, and therefore the full update of the Styles pane to take place.
+  await frontend.keyboard.type(newValue, {delay: 100});
   await frontend.keyboard.press('Enter');
 }
 
