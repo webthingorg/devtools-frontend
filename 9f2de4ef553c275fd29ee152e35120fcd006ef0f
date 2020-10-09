@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c7405be_a4963fcd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-09T10:27:04Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "9f2de4ef553c275fd29ee152e35120fcd006ef0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b72a20f_4e62627e",
@@ -48,6 +65,30 @@
       "writtenOn": "2020-10-09T06:06:40Z",
       "side": 1,
       "message": "Unfortunately, if we specify the two fields explicitly with `undefined` and forgo the cast, then layout tests start to fail. The structure is JSON#stringified and added to the output at some point.",
+      "range": {
+        "startLine": 289,
+        "startChar": 20,
+        "endLine": 289,
+        "endChar": 46
+      },
+      "revId": "9f2de4ef553c275fd29ee152e35120fcd006ef0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25956d47_73da8bea",
+        "filename": "front_end/sdk/HARLog.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-09T10:27:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9b72a20f_4e62627e",
       "range": {
         "startLine": 289,
         "startChar": 20,
