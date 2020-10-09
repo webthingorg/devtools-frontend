@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "710a5cea_209792c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-09T11:07:22Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "f983f410077aeb4d499df5b897263c2aebb0d298",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc76316c_fa923490",
+        "filename": "front_end/console/ConsoleViewMessage.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 1238,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-09T11:07:22Z",
+      "side": 1,
+      "message": "This has the potential to be very confusing, but given that protected properties are not a thing, this seems the most feasible solution.",
+      "range": {
+        "startLine": 1224,
+        "startChar": 0,
+        "endLine": 1238,
+        "endChar": 5
+      },
+      "revId": "f983f410077aeb4d499df5b897263c2aebb0d298",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
