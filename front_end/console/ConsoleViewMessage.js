@@ -1212,6 +1212,24 @@ export class ConsoleViewMessage {
   }
 
   /**
+   * @protected
+   * @param {!HTMLElement} element
+   */
+  setContentElement(element) {
+    console.assert(!this._contentElement, 'Cannot set content element twice');
+    this._contentElement = element;
+  }
+
+
+  /**
+   * @protected
+   * @return {?HTMLElement}
+   */
+  getContentElement() {
+    return this._contentElement;
+  }
+
+  /**
    * @return {!HTMLElement}
    */
   contentElement() {
@@ -1336,10 +1354,10 @@ export class ConsoleViewMessage {
       iconType = 'smallicon-error';
       accessibleName = ls`Error`;
     }
-    if (!iconType && !this._messageLevelIcon) {
-      return;
-    }
-    if (iconType && !this._messageLevelIcon) {
+    if (!this._messageLevelIcon) {
+      if (!iconType) {
+        return;
+      }
       this._messageLevelIcon = UI.Icon.Icon.create('', 'message-level-icon');
       if (this._contentElement) {
         this._contentElement.insertBefore(this._messageLevelIcon, this._contentElement.firstChild);
