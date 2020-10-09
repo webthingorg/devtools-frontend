@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b429c953_cad5c090",
+        "filename": "front_end/lighthouse/LighthouseStatusView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-09T11:53:47Z",
+      "side": 1,
+      "message": "Without this TS complains:\n\n../../front_end/lighthouse/LighthouseStatusView.js(99,23): error TS2345: Argument of type \u0027Element\u0027 is not assignable to parameter of type \u0027Document\u0027.\n  Type \u0027Element\u0027 is missing the following properties from type \u0027Document\u0027: URL, alinkColor, all, anchors, and 172 more.\n\nthis._dialog.show takes a Document or Element or undefined, so it is a total mystery why the dialogRenderElement (an Element) does not qualify.",
+      "range": {
+        "startLine": 99,
+        "startChar": 4,
+        "endLine": 99,
+        "endChar": 62
+      },
+      "revId": "45294dc0513752ae10ecf341160888de6e18f4f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
