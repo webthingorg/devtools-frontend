@@ -39,6 +39,30 @@
       },
       "revId": "e136fb437ba4aec906c69ea4ae4c3d7b1d4b22a2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0dba6d20_e4ccfdef",
+        "filename": "front_end/console/ConsoleViewport.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-09T10:59:06Z",
+      "side": 1,
+      "message": "I don\u0027t think so. Thanks for pointing this out, removed.",
+      "parentUuid": "f45e3f92_023244b2",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 105
+      },
+      "revId": "e136fb437ba4aec906c69ea4ae4c3d7b1d4b22a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
