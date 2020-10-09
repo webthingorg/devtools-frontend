@@ -62,6 +62,30 @@
       },
       "revId": "ca9a9be4a7196f26361e60e9bf26f757ace7c386",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08dc7ec8_7cf98d70",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2020-10-09T16:07:11Z",
+      "side": 1,
+      "message": "You are right, for some reason I though that $ didn\u0027t look into shadow DOM. Thanks!",
+      "parentUuid": "5a233c40_ada32ca6",
+      "range": {
+        "startLine": 443,
+        "startChar": 25,
+        "endLine": 443,
+        "endChar": 27
+      },
+      "revId": "ca9a9be4a7196f26361e60e9bf26f757ace7c386",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
