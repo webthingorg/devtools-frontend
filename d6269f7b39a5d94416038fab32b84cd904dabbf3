@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2c8373d_fa022bc4",
+        "filename": "front_end/network/EventSourceMessagesView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-09T05:53:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38177626_c8739623",
+      "range": {
+        "startLine": 34,
+        "startChar": 68,
+        "endLine": 34,
+        "endChar": 112
+      },
+      "revId": "d6269f7b39a5d94416038fab32b84cd904dabbf3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2eb0da55_5e46c306",
@@ -78,6 +102,30 @@
       "side": 1,
       "message": "I guess we gotta do this 😭 Can we return a `number` though instead of `any`?",
       "parentUuid": "2eb0da55_5e46c306",
+      "range": {
+        "startLine": 125,
+        "startChar": 11,
+        "endLine": 125,
+        "endChar": 61
+      },
+      "revId": "d6269f7b39a5d94416038fab32b84cd904dabbf3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac5f9fad_dd099127",
+        "filename": "front_end/network/EventSourceMessagesView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-09T05:53:58Z",
+      "side": 1,
+      "message": "`eventName` and `eventId` are strings. This still works as there exists a \"string less then\".\n\nChanged the type from `any` to `(number|string)` though.",
+      "parentUuid": "faf81c34_f77053e2",
       "range": {
         "startLine": 125,
         "startChar": 11,
