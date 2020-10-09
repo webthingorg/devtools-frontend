@@ -7,8 +7,7 @@ import * as ExtensionsModule from './extensions.js';
 self.Extensions = self.Extensions || {};
 Extensions = Extensions || {};
 
-Extensions.extensionAPI = {};
-ExtensionsModule.ExtensionAPI.defineCommonExtensionSymbols(Extensions.extensionAPI);
+Extensions.extensionAPI = ExtensionsModule.ExtensionAPI.extensionAPI;
 
 /** @constructor */
 Extensions.ExtensionSidebarPane = ExtensionsModule.ExtensionPanel.ExtensionSidebarPane;

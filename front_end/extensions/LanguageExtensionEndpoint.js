@@ -2,11 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
 import * as Bindings from '../bindings/bindings.js';  // eslint-disable-line no-unused-vars
 import * as SDK from '../sdk/sdk.js';                 // eslint-disable-line no-unused-vars
+
+import {LanguageExtensionPluginCommands} from './ExtensionAPI.js';
 
 /**
  * @implements {Bindings.DebuggerLanguagePlugins.DebuggerLanguagePlugin}
@@ -18,7 +17,6 @@ export class LanguageExtensionEndpoint {
    * @param {!MessagePort} port
    */
   constructor(pluginName, supportedScriptTypes, port) {
-    this._commands = Extensions.extensionAPI.LanguageExtensionPluginCommands;
     this._pluginName = pluginName;
     this._supportedScriptTypes = supportedScriptTypes;
     this._port = port;
@@ -40,6 +38,10 @@ export class LanguageExtensionEndpoint {
     });
   }
 
+  /**
+   * @param {!MessageEvent<{requestId: string, result: ?, error: (!Error|undefined)}>} data
+   * @return {?}
+   */
   _onResponse({data: {requestId, result, error}}) {
     if (!this._pendingRequests.has(requestId)) {
       console.error(`No pending request ${requestId}`);
@@ -74,7 +76,7 @@ export class LanguageExtensionEndpoint {
   */
   addRawModule(rawModuleId, symbolsURL, rawModule) {
     return /** @type {!Promise<!Array<string>>} */ (
-        this._sendRequest(this._commands.AddRawModule, {rawModuleId, symbolsURL, rawModule}));
+        this._sendRequest(LanguageExtensionPluginCommands.AddRawModule, {rawModuleId, symbolsURL, rawModule}));
   }
 
   /**
@@ -84,7 +86,8 @@ export class LanguageExtensionEndpoint {
    * @return {!Promise<undefined>}
    */
   removeRawModule(rawModuleId) {
-    return /** @type {!Promise<undefined>} */ (this._sendRequest(this._commands.RemoveRawModule, {rawModuleId}));
+    return /** @type {!Promise<undefined>} */ (
+        this._sendRequest(LanguageExtensionPluginCommands.RemoveRawModule, {rawModuleId}));
   }
 
   /** Find locations in raw modules from a location in a source file
@@ -94,7 +97,7 @@ export class LanguageExtensionEndpoint {
   */
   sourceLocationToRawLocation(sourceLocation) {
     return /** @type {!Promise<!Array<!Bindings.DebuggerLanguagePlugins.RawLocationRange>>} */ (
-        this._sendRequest(this._commands.SourceLocationToRawLocation, {sourceLocation}));
+        this._sendRequest(LanguageExtensionPluginCommands.SourceLocationToRawLocation, {sourceLocation}));
   }
 
   /** Find locations in source files from a location in a raw module
@@ -104,7 +107,7 @@ export class LanguageExtensionEndpoint {
   */
   rawLocationToSourceLocation(rawLocation) {
     return /** @type {!Promise<!Array<!Bindings.DebuggerLanguagePlugins.SourceLocation>>} */ (
-        this._sendRequest(this._commands.RawLocationToSourceLocation, {rawLocation}));
+        this._sendRequest(LanguageExtensionPluginCommands.RawLocationToSourceLocation, {rawLocation}));
   }
 
   /**
@@ -122,7 +125,7 @@ export class LanguageExtensionEndpoint {
   */
   listVariablesInScope(rawLocation) {
     return /** @type {!Promise<!Array<!Bindings.DebuggerLanguagePlugins.Variable>>} */ (
-        this._sendRequest(this._commands.ListVariablesInScope, {rawLocation}));
+        this._sendRequest(LanguageExtensionPluginCommands.ListVariablesInScope, {rawLocation}));
   }
 
   /** Evaluate the content of a variable in a given lexical scope
@@ -133,7 +136,7 @@ export class LanguageExtensionEndpoint {
   */
   evaluateVariable(name, location) {
     return /** @type {!Promise<?Bindings.DebuggerLanguagePlugins.EvaluatorModule>}*/ (
-        this._sendRequest(this._commands.EvaluateVariable, {name, location}));
+        this._sendRequest(LanguageExtensionPluginCommands.EvaluateVariable, {name, location}));
   }
   /** List all variables in lexical scope at a given location in a raw module
    * @override
@@ -142,7 +145,7 @@ export class LanguageExtensionEndpoint {
   */
   getFunctionInfo(rawLocation) {
     return /** @type {!Promise<?{frames: !Array<!Bindings.DebuggerLanguagePlugins.FunctionInfo>}>} */ (
-        this._sendRequest(this._commands.GetFunctionInfo, {rawLocation}));
+        this._sendRequest(LanguageExtensionPluginCommands.GetFunctionInfo, {rawLocation}));
   }
 
   /**
