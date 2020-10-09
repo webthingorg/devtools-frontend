@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36d5b1a2_04bf7eac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-10-09T22:47:09Z",
+      "side": 1,
+      "message": "Left some comments, otherwise works well.",
+      "revId": "3b362296f806339af7f7e97d95e5774cb14786a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f1ae42c_29832cc4",
+        "filename": "front_end/ui/Tooltip.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-10-09T22:47:09Z",
+      "side": 1,
+      "message": "In what circumstances will this be the case (no tooltipInstance on document)? My impression is that the Tooltip Handler has to be installed on manually the documents before Tooltips are.",
+      "revId": "3b362296f806339af7f7e97d95e5774cb14786a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e5e5a95_3973de5d",
+        "filename": "front_end/ui/Tooltip.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-10-09T22:47:09Z",
+      "side": 1,
+      "message": "What does event.x reference?",
+      "revId": "3b362296f806339af7f7e97d95e5774cb14786a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
