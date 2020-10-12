@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "94c835ff024396e9ac416dac28ddf4b605a032cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0781d91c_2d164174",
+        "filename": "front_end/security/SecurityModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-12T14:59:03Z",
+      "side": 1,
+      "message": "is there any reason not for this to be an empty map by default? It might not be worth it, I\u0027m just wondering.",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 34
+      },
+      "revId": "94c835ff024396e9ac416dac28ddf4b605a032cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
