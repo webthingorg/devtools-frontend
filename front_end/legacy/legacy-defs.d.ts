@@ -131,6 +131,7 @@ interface Element {
   scrollIntoViewIfNeeded(center?: boolean): void;
   totalOffsetTop(): number;
   totalOffsetLeft(): number;
+  createTextChildren(...children: string[]): void;
 }
 
 interface DocumentFragment {
