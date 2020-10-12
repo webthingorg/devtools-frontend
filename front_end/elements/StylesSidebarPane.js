@@ -1181,6 +1181,11 @@ export class StylePropertiesSection {
 
     const header = rule.styleSheetId ? matchedStyles.cssModel().styleSheetHeaderForId(rule.styleSheetId) : null;
 
+    if (ruleLocation && rule.styleSheetId && header && !header.isAnonymousInlineStyleSheet()) {
+      return StylePropertiesSection._linkifyRuleLocation(
+          matchedStyles.cssModel(), linkifier, rule.styleSheetId, ruleLocation);
+    }
+
     if (header && header.isMutable) {
       const label = header.isConstructed ? Common.UIString.UIString('constructed stylesheet') : '<style>';
       if (header.ownerNode) {
@@ -1189,11 +1194,6 @@ export class StylePropertiesSection {
         return link;
       }
       return createTextNode(label);
-    }
-
-    if (ruleLocation && rule.styleSheetId && header && !header.isAnonymousInlineStyleSheet()) {
-      return StylePropertiesSection._linkifyRuleLocation(
-          matchedStyles.cssModel(), linkifier, rule.styleSheetId, ruleLocation);
     }
 
     if (rule.isUserAgent()) {
