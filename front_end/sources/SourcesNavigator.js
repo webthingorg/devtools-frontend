@@ -318,8 +318,12 @@ export class SnippetsNavigatorView extends NavigatorView {
   async _handleSaveAs(uiSourceCode) {
     uiSourceCode.commitWorkingCopy();
     const {content} = await uiSourceCode.requestContent();
-    Workspace.FileManager.FileManager.instance().save(uiSourceCode.url(), content || '', true);
-    Workspace.FileManager.FileManager.instance().close(uiSourceCode.url());
+    let fileName = decodeURI(uiSourceCode.url());
+    if (!fileName.endsWith('.js')) {
+      fileName = fileName + '.js';
+    }
+    Workspace.FileManager.FileManager.instance().save(fileName, content || '', true);
+    Workspace.FileManager.FileManager.instance().close(fileName);
   }
 }
 
