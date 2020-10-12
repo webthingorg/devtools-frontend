@@ -123,6 +123,24 @@
       "parentUuid": "27bf000d_0f2382a9",
       "revId": "9f194d87af8b78b61af5d15fc8fdefbf3da3479b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78e8545e_257b9da6",
+        "filename": "front_end/ui/TabbedPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-10-12T17:22:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a093088_d0ca6c6e",
+      "revId": "9f194d87af8b78b61af5d15fc8fdefbf3da3479b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
