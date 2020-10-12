@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79f92850_9ae70aec",
+        "filename": "front_end/extensions/ExtensionAPI.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-10-12T14:54:54Z",
+      "side": 0,
+      "message": "This function is stringified and then evaluated inside the extension context. Pulling the enums out of this function means they\u0027re lost during transfer, unless you also stringify them too.",
+      "revId": "723d5437e6a053d40c3a3c5af3058496d5573a90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
