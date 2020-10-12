@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3dd6c02_83f54b46",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2020-10-12T13:51:44Z",
+      "side": 1,
+      "message": "The general idea of this change is to emulate device with screen big enough to capture the whole page, and then capture the desired element. \nIt wouldn\u0027t work if user already emulated some device: https://imgur.com/a/EiZ1aHL",
+      "revId": "e877bacc2a24cd65dde9222618ffb2f016c97d3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68e6cd85_ac931904",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 833,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2020-10-12T13:51:44Z",
+      "side": 1,
+      "message": "This line returns emulation to the initial state. Should be done with clip as well.",
+      "revId": "e877bacc2a24cd65dde9222618ffb2f016c97d3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
