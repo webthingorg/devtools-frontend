@@ -146,6 +146,14 @@ export class CallStackSidebarPane extends UI.View.SimpleView {
     if (!asyncStackTrace && details.asyncStackTraceId) {
       if (details.asyncStackTraceId.debuggerId) {
         debuggerModel = SDK.DebuggerModel.DebuggerModel.modelForDebuggerId(details.asyncStackTraceId.debuggerId);
+        if (!debuggerModel) {
+          const dbgModels = SDK.SDKModel.TargetManager.instance().models(SDK.DebuggerModel.DebuggerModel);
+          for (let i = 0; i < dbgModels.length; ++i) {
+            const dbgModel = dbgModels[i];
+            await dbgModel.syncDebuggerId();
+          }
+          debuggerModel = SDK.DebuggerModel.DebuggerModel.modelForDebuggerId(details.asyncStackTraceId.debuggerId);
+        }
       }
       asyncStackTrace = debuggerModel ? await debuggerModel.fetchAsyncStackTrace(details.asyncStackTraceId) : null;
     }

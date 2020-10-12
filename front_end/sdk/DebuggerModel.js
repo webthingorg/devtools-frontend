@@ -218,6 +218,14 @@ export class DebuggerModel extends SDKModel {
     await enablePromise;
   }
 
+  async syncDebuggerId() {
+    const isRemoteFrontend = Root.Runtime.Runtime.queryParam('remoteFrontend') || Root.Runtime.Runtime.queryParam('ws');
+    const maxScriptsCacheSize = isRemoteFrontend ? 10e6 : 100e6;
+    const enablePromise = this._agent.invoke_enable({maxScriptsCacheSize});
+    enablePromise.then(this._registerDebugger.bind(this));
+    return enablePromise;
+  }
+
   /**
    * @param {!Protocol.Debugger.EnableResponse} response
    */
