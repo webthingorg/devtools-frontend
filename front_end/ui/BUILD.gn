@@ -11,6 +11,7 @@ devtools_module("ui") {
     "Action.js",
     "ActionDelegate.js",
     "ActionRegistry.js",
+    "ActionRegistryUtils.js",
     "Context.js",
     "ContextFlavorListener.js",
     "ContextMenu.js",

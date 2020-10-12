@@ -653,6 +653,7 @@ all_typescript_module_sources = [
   "ui/Action.js",
   "ui/ActionDelegate.js",
   "ui/ActionRegistry.js",
+  "ui/ActionRegistryUtils.js",
   "ui/Context.js",
   "ui/ContextFlavorListener.js",
   "ui/ContextMenu.js",

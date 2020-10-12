@@ -4,29 +4,33 @@
 
 import * as path from 'path';
 
-// `path.dirname` does not include trailing slashes. If we would always
-// use `path.dirname` and then later perform comparisons on the paths that
-// it returns, we could run into false positives. For example, given the
-// the following two paths:
-//
-//     front_end/timeline_model/TimelineModel.js
-//     front_end/timeline/Timeline.js
-//
-// And that would have the following values for `path.dirname`:
-//
-//     front_end/timeline_model
-//     front_end/timeline
-//
-// If we would do a simple `.startswith` on the `path.dirname` of both of
-// these paths, then the first path would start with the dirname of the
-// second. However, they *are* part of different folders. To fix that problem,
-// we need to force a path separator after each folder. That makes sure we
-// and up with the following comparison of path dirnames:
-//
-//     front_end/timeline_model/
-//     front_end/timeline/
-//
-// Now, the first path does *not* start with the second one, as expected.
+/**
+ * `path.dirname` does not include trailing slashes. If we would always
+ * use `path.dirname` and then later perform comparisons on the paths that
+ * it returns, we could run into false positives. For example, given the
+ * the following two paths:
+ *
+ *     front_end/timeline_model/TimelineModel.js
+ *     front_end/timeline/Timeline.js
+ *
+ * And that would have the following values for `path.dirname`:
+ *
+ *     front_end/timeline_model
+ *     front_end/timeline
+ *
+ * If we would do a simple `.startswith` on the `path.dirname` of both of
+ * these paths, then the first path would start with the dirname of the
+ * second. However, they *are* part of different folders. To fix that problem,
+ * we need to force a path separator after each folder. That makes sure we
+ * and up with the following comparison of path dirnames:
+ *
+ *     front_end/timeline_model/
+ *     front_end/timeline/
+ *
+ * Now, the first path does *not* start with the second one, as expected.
+ *
+ * @param {string} file
+ */
 function dirnameWithSeparator(file) {
   return path.dirname(file) + path.sep;
 }
@@ -41,6 +45,7 @@ export default {
   plugins:
       [
         (() => {
+          /** @type {string} */
           let entrypointDirectory;
           return {
             name: 'devtools-plugin',
@@ -57,6 +62,10 @@ export default {
               const absoluteInputPath = path.normalize(path.join(process.cwd(), inputFile));
               entrypointDirectory = dirnameWithSeparator(absoluteInputPath);
             },
+            /**
+             * @param {string} source
+             * @param {string} importer
+             */
             resolveId(source, importer) {
               if (!importer) {
                 return null;
@@ -87,7 +96,9 @@ export default {
                 return null;
               }
 
-              const isExternal = !importedFileDirectory.startsWith(entrypointDirectory);
+              const isExternal = !importedFileDirectory.startsWith(entrypointDirectory) ||
+                  // -meta.ts files import the entrypoint directly via a dynamic import
+                  `${path.basename(entrypointDirectory)}.js` === path.basename(importedFilelocation);
 
               return {
                 id: importedFilelocation,
