@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0cb06fd_4ea23d72",
+        "filename": "front_end/ui/Tooltip.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-10-12T19:46:01Z",
+      "side": 1,
+      "message": "My thinking was that we\u0027d want to install one if it was missing, but I guess that\u0027d be different from how we handle mouseover activation. Removed",
+      "parentUuid": "6f1ae42c_29832cc4",
+      "revId": "3b362296f806339af7f7e97d95e5774cb14786a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9e5e5a95_3973de5d",
@@ -48,6 +66,24 @@
       "writtenOn": "2020-10-09T22:47:09Z",
       "side": 1,
       "message": "What does event.x reference?",
+      "revId": "3b362296f806339af7f7e97d95e5774cb14786a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "830ea1ff_81748837",
+        "filename": "front_end/ui/Tooltip.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-10-12T19:46:01Z",
+      "side": 1,
+      "message": "The position of the cursor--this method was designed to work with MouseEvents, so it tries to position the tooltip based on the cursor\u0027s location. Event.x isn\u0027t defined on FocusEvents so without this check some tooltips will appear at the top left of the window instead of near their element.",
+      "parentUuid": "9e5e5a95_3973de5d",
       "revId": "3b362296f806339af7f7e97d95e5774cb14786a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
