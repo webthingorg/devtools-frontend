@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1ad2e43e_47952a5d",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2020-10-12T20:27:49Z",
+      "side": 1,
+      "message": "UPD: The main issue is that a clip for a given node is calculated BEFORE emulation, while emulation changes the position of the node, which leads to making a screenshot of the wrong area.\n\nOne of the approaches to solve the issue can be like in the example: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2466178",
+      "parentUuid": "e3dd6c02_83f54b46",
+      "revId": "e877bacc2a24cd65dde9222618ffb2f016c97d3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "68e6cd85_ac931904",
         "filename": "front_end/emulation/DeviceModeModel.js",
         "patchSetId": 3
