@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "844d692d_66d3227e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-10-12T21:26:44Z",
+      "side": 1,
+      "message": "Hey Alex, Patrick\n\nSince yall have been working on css styles lately, I figure yall might be able to help me figure out if this is an acceptable fix for the bug. Alex, I\u0027m pretty sure this is related to the constructed stylesheet work you did, and you might have some good test cases for me to make sure this doesn\u0027t break things?",
+      "revId": "f28f70746e138692ae294056eab238882af85ead",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
