@@ -16,6 +16,24 @@
       "message": "This function is stringified and then evaluated inside the extension context. Pulling the enums out of this function means they\u0027re lost during transfer, unless you also stringify them too.",
       "revId": "723d5437e6a053d40c3a3c5af3058496d5573a90",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34c6f86c_9e05cb74",
+        "filename": "front_end/extensions/ExtensionAPI.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-12T15:05:02Z",
+      "side": 0,
+      "message": "I am sorry I don\u0027t understand what you mean. Could you maybe take over this CL to typescriptify, since you have more domain knowledge?",
+      "parentUuid": "79f92850_9ae70aec",
+      "revId": "723d5437e6a053d40c3a3c5af3058496d5573a90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
