@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8aaec476_a56c0292",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-10-12T09:54:00Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nHere\u0027s a fix to show issues from WasmParser and not leave the UI stuck.\nPlease take a look.\n\nThanks,\nBenedikt",
+      "revId": "22c180993136dfd9abc6709abd1dce642576e0bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
