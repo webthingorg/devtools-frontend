@@ -22,6 +22,30 @@
       },
       "revId": "45294dc0513752ae10ecf341160888de6e18f4f0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38e18d2c_6834bfde",
+        "filename": "front_end/lighthouse/LighthouseStatusView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-12T08:24:45Z",
+      "side": 1,
+      "message": "Ack. I don\u0027t really understand it either unless it\u0027s a bug in TS parsing the JSDoc. Doesn\u0027t feel worth fighting it.",
+      "parentUuid": "b429c953_cad5c090",
+      "range": {
+        "startLine": 99,
+        "startChar": 4,
+        "endLine": 99,
+        "endChar": 62
+      },
+      "revId": "45294dc0513752ae10ecf341160888de6e18f4f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
