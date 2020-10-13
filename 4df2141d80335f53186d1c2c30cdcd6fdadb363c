@@ -16,6 +16,69 @@
       "message": "PT(another)L :)",
       "revId": "4df2141d80335f53186d1c2c30cdcd6fdadb363c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5141c86_3f714ce1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-13T14:21:10Z",
+      "side": 1,
+      "message": "LGTM with some nits.\n\nMight be worth putting all the svgs through something like https://jakearchibald.github.io/svgomg/ to compress them as much as we can.",
+      "revId": "4df2141d80335f53186d1c2c30cdcd6fdadb363c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ec8829d_7564138d",
+        "filename": "front_end/elements/Icon.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-13T14:21:10Z",
+      "side": 1,
+      "message": "is this really how clang formats this?! 😞\n\nMaybe we could pull this into a helper or something so it gets formatted more nicely?",
+      "range": {
+        "startLine": 71,
+        "startChar": 2,
+        "endLine": 83,
+        "endChar": 33
+      },
+      "revId": "4df2141d80335f53186d1c2c30cdcd6fdadb363c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "957742df_1837bd46",
+        "filename": "front_end/elements/Icon.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-13T14:21:10Z",
+      "side": 1,
+      "message": "in this case I\u0027d get rid of `update()` and just call `this.render()` from the setter directly.",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 3
+      },
+      "revId": "4df2141d80335f53186d1c2c30cdcd6fdadb363c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
