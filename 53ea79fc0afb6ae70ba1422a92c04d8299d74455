@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65e37062_f075127d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-13T15:58:09Z",
+      "side": 1,
+      "message": "I\u0027m not particularly familiar with how constructable stylesheets are handled in the frontend, but this definitely seems like a reasonable fix.\nIt might be good to test on websites that use constructable stylesheets, just to double check. Maybe using devtools on devtools is a good test case since devtools itself uses constructable sheets.",
+      "revId": "53ea79fc0afb6ae70ba1422a92c04d8299d74455",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
