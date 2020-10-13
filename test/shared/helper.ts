@@ -192,6 +192,13 @@ export const $$textContent = async (textContent: string, root?: puppeteer.JSHand
 
 export const timeout = (duration: number) => new Promise(resolve => setTimeout(resolve, duration));
 
+export const dragAndDrop = async (frontend: puppeteer.Page, fromX: number, fromY: number, toX: number, toY: number) => {
+  await frontend.mouse.move(fromX, fromY);
+  await frontend.mouse.down();
+  await frontend.mouse.move(toX, toY);
+  await frontend.mouse.up();
+};
+
 export const waitFor = async (selector: string, root?: puppeteer.JSHandle, asyncScope = new AsyncScope()) => {
   return await asyncScope.exec(() => waitForFunction(async () => {
                                  const element = await $(selector, root);
