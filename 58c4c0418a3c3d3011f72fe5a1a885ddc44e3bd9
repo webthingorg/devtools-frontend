@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0176b2d_d8491656",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-10-13T19:08:16Z",
+      "side": 1,
+      "message": "Im not sure how this will interfere that work either, but if we ever need to revisit this to revolve any conflict with that work, Id be happy to do so :)",
+      "parentUuid": "4b5bee70_7d202e88",
+      "revId": "58c4c0418a3c3d3011f72fe5a1a885ddc44e3bd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fde31a07_0ee697db",
@@ -65,6 +83,30 @@
       "writtenOn": "2020-10-13T06:51:01Z",
       "side": 1,
       "message": "Not",
+      "range": {
+        "startLine": 91,
+        "startChar": 8,
+        "endLine": 91,
+        "endChar": 13
+      },
+      "revId": "58c4c0418a3c3d3011f72fe5a1a885ddc44e3bd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1213918b_60d8e7e5",
+        "filename": "docs/localization/adding_strings_V2.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-10-13T19:08:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fde31a07_0ee697db",
       "range": {
         "startLine": 91,
         "startChar": 8,
