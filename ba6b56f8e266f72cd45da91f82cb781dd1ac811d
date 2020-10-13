@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": false,
       "key": {
         "uuid": "9b5335f2_93127afe",
         "filename": "/PATCHSET_LEVEL",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "PT(another)L:)",
       "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "d9da344e_8ecc4488",
         "filename": "front_end/component_docs/icon_component/basic.html",
@@ -31,10 +32,28 @@
       "side": 1,
       "message": "extra \u003e here",
       "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5c3ffbb_d9cafe7b",
+        "filename": "front_end/component_docs/icon_component/basic.html",
+        "patchSetId": 8
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-10-13T13:34:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9da344e_8ecc4488",
+      "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "7286fa05_0afaab17",
         "filename": "front_end/elements/IconComponent.ts",
@@ -48,10 +67,10 @@
       "side": 1,
       "message": "Would it be better to split into multiple lines?",
       "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "017c5970_85eb8b6d",
         "filename": "front_end/elements/IconComponent.ts",
@@ -66,10 +85,28 @@
       "message": "I think you need to use ; in order for the formatter to format it properly.",
       "parentUuid": "7286fa05_0afaab17",
       "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2232e467_1322453d",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-10-13T13:34:13Z",
+      "side": 1,
+      "message": "Changed to multiple lines, hopefully the autoformatter will accept that",
+      "parentUuid": "017c5970_85eb8b6d",
+      "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "ce6e426e_2b8240d5",
         "filename": "front_end/elements/IconComponent.ts",
@@ -83,10 +120,28 @@
       "side": 1,
       "message": "We can use the new no-comma syntax here (https://css-tricks.com/no-comma-color-functions-in-css/).",
       "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "92b9c80b_d10c938e",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-10-13T13:34:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce6e426e_2b8240d5",
+      "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "cb326405_9307ac3b",
         "filename": "front_end/elements/IconComponent.ts",
@@ -100,10 +155,28 @@
       "side": 1,
       "message": "can width/height/color exist in the styles map?",
       "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cecf665_0de77e29",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-10-13T13:34:13Z",
+      "side": 1,
+      "message": "Color is added via a styleMap already (that is background-color), width/height can, of course, be too, but it would be duplicated, as these are same for coloured icons and \u0027simple\u0027 icons.",
+      "parentUuid": "cb326405_9307ac3b",
+      "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "deacb271_b8a21582",
         "filename": "front_end/elements/IconComponent.ts",
@@ -117,10 +190,28 @@
       "side": 1,
       "message": "A template string can used here.",
       "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d47180ea_319ff6af",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-10-13T13:34:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "deacb271_b8a21582",
+      "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "4e9432ed_57e99ec9",
         "filename": "front_end/elements/IconComponent.ts",
@@ -134,10 +225,28 @@
       "side": 1,
       "message": "Would we allow setting a background for the icon somehow? This backgroundColor as far as I understand it is actually the color of the icon because the mask is used.",
       "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "eaf39111_c06ee1ec",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-10-13T13:34:13Z",
+      "side": 1,
+      "message": "Setting a background colour to the icon (which would really colour the background) can be done via adding styles to the \u003cdevtools-icon-(component)\u003e. Here, correctly, the background-color means the colour of the actual icon",
+      "parentUuid": "4e9432ed_57e99ec9",
+      "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "49f941b9_1384e716",
         "filename": "front_end/elements/IconComponent.ts",
@@ -151,10 +260,10 @@
       "side": 1,
       "message": "What is some_icon? Perhaps it\u0027d be simpler `data.iconPath ? data.icon.path: `Images/${data.iconName}`` with an assertion that either iconPath or iconName has to be defined?",
       "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "61905e76_af2b8924",
         "filename": "front_end/elements/IconComponent.ts",
@@ -169,10 +278,28 @@
       "message": "Actually, if iconPath is not defined, then iconName must be defined according to the IconComponentData as far as I see.",
       "parentUuid": "49f941b9_1384e716",
       "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "aef03e5b_4da8d9f8",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-10-13T13:34:13Z",
+      "side": 1,
+      "message": "Yes, one of iconPath/iconName must be defined, but we have to check \u0027iconPath\u0027 in data ?... because this field can be not there (when we set iconName instead) and same for iconName, or else the typechecker starts complaining. If I am not mistaken, there is no way to leave out the part after : (for the iconName part), or is there? But we have to think of a better name instead of some_icon, even though that case should/can never occur.",
+      "parentUuid": "61905e76_af2b8924",
+      "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "cf67e5fe_d9267be4",
         "filename": "front_end/elements/IconComponent.ts",
@@ -186,10 +313,28 @@
       "side": 1,
       "message": "I guess it\u0027s the auto formatter bug?",
       "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b10ddfa2_3bf3bf19",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-10-13T13:34:13Z",
+      "side": 1,
+      "message": "Yes, that was autoformatted, I\u0027ll make it look nicer, but we\u0027ll see how the formatter reacts",
+      "parentUuid": "cf67e5fe_d9267be4",
+      "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "bf7f6af7_880b9a17",
         "filename": "front_end/elements/IconComponent.ts",
@@ -203,10 +348,28 @@
       "side": 1,
       "message": "Do we need these default margins? I am not sure it\u0027d work for all use cases.",
       "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d70f9ba1_0431ea77",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-10-13T13:34:13Z",
+      "side": 1,
+      "message": "After experimentally replacing more icons I figured we don\u0027t need these values there after all",
+      "parentUuid": "bf7f6af7_880b9a17",
+      "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "a36f50c5_4dec2760",
         "filename": "front_end/elements/IconComponent.ts",
@@ -220,10 +383,28 @@
       "side": 1,
       "message": "Do we plan to do something for accessibility? E.g. some icons might convey a meaning and some are used for decorative purposes. Maybe accessibility should be handled by the parent component.",
       "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "af49d0f4_79fbf69e",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-10-13T13:34:13Z",
+      "side": 1,
+      "message": "Currently, the idea is to use the data setter to change these styles if needed. (Did I understand you correctly, was the comment regarding this?)",
+      "parentUuid": "a36f50c5_4dec2760",
+      "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "625aef53_898ee881",
         "filename": "front_end/elements/IconComponent.ts",
@@ -237,8 +418,25 @@
       "side": 1,
       "message": "Should we exclude the -component part from the tag name and the class name?",
       "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26ca527e_a506e864",
+        "filename": "front_end/elements/IconComponent.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-10-13T13:34:13Z",
+      "side": 1,
+      "message": "That\u0027s a good idea, that can be done, thanks!",
+      "parentUuid": "625aef53_898ee881",
+      "revId": "ba6b56f8e266f72cd45da91f82cb781dd1ac811d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
