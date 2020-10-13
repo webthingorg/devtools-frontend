@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "d64d3ef7e2d1d2fae38c95c07b1f5f2881e9c15a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "647acf68_6fa70bed",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 2050,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-13T07:42:13Z",
+      "side": 1,
+      "message": "Wouldn\u0027t we get informed via this event of workers as well?",
+      "range": {
+        "startLine": 2050,
+        "startChar": 81,
+        "endLine": 2050,
+        "endChar": 94
+      },
+      "revId": "d64d3ef7e2d1d2fae38c95c07b1f5f2881e9c15a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
