@@ -312,20 +312,20 @@ export class ConsoleViewMessage {
     }
     const messageElement = /** @type {!HTMLElement} */ (document.createElement('span'));
     if (this._message.level === SDK.ConsoleModel.MessageLevel.Error) {
-      messageElement.createTextChild(request.requestMethod + ' ');
+      UI.UIUtils.createTextChild(messageElement, request.requestMethod + ' ');
       const linkElement = Components.Linkifier.Linkifier.linkifyRevealable(request, request.url(), request.url());
       // Focus is handled by the viewport.
       linkElement.tabIndex = -1;
       this._selectableChildren.push({element: linkElement, forceSelect: () => linkElement.focus()});
       messageElement.appendChild(linkElement);
       if (request.failed) {
-        messageElement.createTextChildren(' ', request.localizedFailDescription || '');
+        UI.UIUtils.createTextChildren(messageElement, ' ', request.localizedFailDescription || '');
       }
       if (request.statusCode !== 0) {
-        messageElement.createTextChildren(' ', String(request.statusCode));
+        UI.UIUtils.createTextChildren(messageElement, ' ', String(request.statusCode));
       }
       if (request.statusText) {
-        messageElement.createTextChildren(' (', request.statusText, ')');
+        UI.UIUtils.createTextChildren(messageElement, ' (', request.statusText, ')');
       }
     } else {
       const messageText = this._message.messageText;
@@ -370,7 +370,7 @@ export class ConsoleViewMessage {
       const anchorWrapperElement = /** @type {!HTMLElement} */ (document.createElement('span'));
       anchorWrapperElement.classList.add('console-message-anchor');
       anchorWrapperElement.appendChild(anchorElement);
-      anchorWrapperElement.createTextChild(' ');
+      UI.UIUtils.createTextChild(anchorWrapperElement, ' ');
       return anchorWrapperElement;
     }
     return null;
@@ -523,7 +523,7 @@ export class ConsoleViewMessage {
           /** @type {string} **/ (parameters[0].description), parameters.slice(1), formattedResult);
       parameters = result.unusedSubstitutions;
       if (parameters.length) {
-        formattedResult.createTextChild(' ');
+        UI.UIUtils.createTextChild(formattedResult, ' ');
       }
     }
 
@@ -536,7 +536,7 @@ export class ConsoleViewMessage {
         formattedResult.appendChild(this._formatParameter(parameters[i], false, true));
       }
       if (i < parameters.length - 1) {
-        formattedResult.createTextChild(' ');
+        UI.UIUtils.createTextChild(formattedResult, ' ');
       }
     }
     return formattedResult;
@@ -616,7 +616,7 @@ export class ConsoleViewMessage {
           document.createElement('span'), description, Console.ConsoleViewMessage._LongStringVisibleLength);
       result.appendChild(propertyValue.element);
     } else {
-      result.createTextChild(description);
+      UI.UIUtils.createTextChild(result, description);
     }
     if (obj.objectId) {
       result.addEventListener('contextmenu', this._contextMenuEventFired.bind(this, obj), false);
@@ -640,7 +640,7 @@ export class ConsoleViewMessage {
       ObjectUI.ObjectPropertiesSection.ObjectPropertiesSection.formatObjectAsFunction(obj, functionElement, false);
       titleElement.classList.add('object-value-function');
     } else {
-      titleElement.createTextChild(obj.description || '');
+      UI.UIUtils.createTextChild(titleElement, obj.description || '');
     }
 
     if (!obj.hasChildren || obj.customPreview()) {
