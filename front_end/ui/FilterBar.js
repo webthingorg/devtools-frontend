@@ -30,15 +30,15 @@
 
 import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
-import * as ARIAUtils from './ARIAUtils.js';
 
+import * as ARIAUtils from './ARIAUtils.js';
 import {Icon} from './Icon.js';
 import {KeyboardShortcut, Modifiers} from './KeyboardShortcut.js';
 import {bindCheckbox} from './SettingsUI.js';
 import {Suggestions} from './SuggestBox.js';  // eslint-disable-line no-unused-vars
 import {Events, TextPrompt} from './TextPrompt.js';
 import {ToolbarButton, ToolbarSettingToggle} from './Toolbar.js';  // eslint-disable-line no-unused-vars
-import {CheckboxLabel} from './UIUtils.js';
+import {CheckboxLabel, createTextChild} from './UIUtils.js';
 import {HBox} from './Widget.js';
 
 /**
@@ -400,7 +400,7 @@ export class NamedBitSetFilterUI extends Common.ObjectWrapper.ObjectWrapper {
     const typeFilterElement = /** @type {!HTMLElement} */ (this._filtersElement.createChild('span', name));
     typeFilterElement.tabIndex = -1;
     this._typeFilterElementTypeNames.set(typeFilterElement, name);
-    typeFilterElement.createTextChild(label);
+    createTextChild(typeFilterElement, label);
     ARIAUtils.markAsOption(typeFilterElement);
     if (title) {
       typeFilterElement.title = title;
