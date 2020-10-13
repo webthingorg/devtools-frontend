@@ -39,6 +39,30 @@
       },
       "revId": "d64d3ef7e2d1d2fae38c95c07b1f5f2881e9c15a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e9fb4dd_f79f7493",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 2050,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-10-13T07:48:24Z",
+      "side": 1,
+      "message": "Yes we do, and initially I went down this road. But when the `TargetCreated` event is sent, the target has not been attached yet. Therefore we do not know the target\u0027s parent at that time, which means we don\u0027t know exactly where to create the new node in the frame tree.\n\nWe don\u0027t run into this problem by going the `TargetManager.observeTargets()` route.",
+      "parentUuid": "647acf68_6fa70bed",
+      "range": {
+        "startLine": 2050,
+        "startChar": 81,
+        "endLine": 2050,
+        "endChar": 94
+      },
+      "revId": "d64d3ef7e2d1d2fae38c95c07b1f5f2881e9c15a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
