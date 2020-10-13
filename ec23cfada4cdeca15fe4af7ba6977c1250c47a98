@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b0a1488_53e22c3c",
+        "filename": "front_end/sources/DebuggerPlugin.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 845,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-13T11:07:54Z",
+      "side": 0,
+      "message": "Could you explain a little bit why this call is removed? Thanks!",
+      "revId": "ec23cfada4cdeca15fe4af7ba6977c1250c47a98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

@@ -33,6 +33,23 @@
       "message": "Thanks for this contribution btw!",
       "revId": "9bf818d83b173bae8dc12ee392d3e663d09c1edf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d7fdf2f_fae9640d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-13T11:07:54Z",
+      "side": 1,
+      "message": "Thanks for contributing! I definitely like this feature, and I just have a small question.",
+      "revId": "9bf818d83b173bae8dc12ee392d3e663d09c1edf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
