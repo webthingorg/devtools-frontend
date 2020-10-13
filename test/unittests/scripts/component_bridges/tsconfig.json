@@ -4,6 +4,7 @@
     "outDir": "./gen"
   },
   "include": [
-    "*_test.ts"
+    "*.ts",
+    "../../../../scripts/component_bridges/*.ts",
   ]
 }

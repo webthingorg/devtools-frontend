@@ -3,7 +3,8 @@
   "compilerOptions": {
     "module": "commonjs",
     "moduleResolution": "node",
-    "outDir": "./gen"
+    "outDir": "./gen",
+    "rootDir": "../../"
   },
   "include": [
     "*.ts"
