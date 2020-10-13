@@ -39,6 +39,30 @@
       },
       "revId": "94c835ff024396e9ac416dac28ddf4b605a032cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4aaa676f_90807311",
+        "filename": "front_end/security/SecurityModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-13T08:23:51Z",
+      "side": 1,
+      "message": "Null makes it clearer that it is not ready to use.",
+      "parentUuid": "0781d91c_2d164174",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 34
+      },
+      "revId": "94c835ff024396e9ac416dac28ddf4b605a032cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
