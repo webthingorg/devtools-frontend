@@ -104,6 +104,30 @@
       },
       "revId": "2d17dc2db83f9fe9fee5436e3fcb6fcb7fc8077e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "251b99ce_1dc54700",
+        "filename": "front_end/network/NetworkLogView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 2103,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-13T11:40:06Z",
+      "side": 1,
+      "message": "Yes, --data-raw behaves similar to --data but --data-binary does have a difference to --data:\n\n\u003e If you start the data with the letter @, the rest should be a filename. Data is posted in a similar manner as -d, --data does, except that newlines and carriage returns are preserved and conversions are never done.",
+      "parentUuid": "7b6ed4b6_407c4fb2",
+      "range": {
+        "startLine": 2103,
+        "startChar": 47,
+        "endLine": 2103,
+        "endChar": 57
+      },
+      "revId": "2d17dc2db83f9fe9fee5436e3fcb6fcb7fc8077e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
