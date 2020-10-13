@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1748ef7_06bbbcd7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-13T13:44:09Z",
+      "side": 1,
+      "message": "Thanks for solving this! I didn\u0027t know about that setting.",
+      "revId": "b35fdae7f45da14be5d562e8dc29f663c981ca7b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
