@@ -62,6 +62,7 @@ export class LayoutSidebarPane extends UI.ThrottledWidget.ThrottledWidget {
     this._layoutPane = createLayoutPane();
     this.contentElement.appendChild(this._layoutPane);
     this._settings = ['showGridLineLabels', 'showGridTrackSizes', 'showGridAreas', 'extendGridLines'];
+    this._uaShadowDOMSetting = Common.Settings.Settings.instance().moduleSetting('showUAShadowDOM');
     this._boundOnSettingChanged = this.onSettingChanged.bind(this);
     this._domModels = [];
   }
@@ -94,7 +95,14 @@ export class LayoutSidebarPane extends UI.ThrottledWidget.ThrottledWidget {
 
       nodes.push(...nodeIds.map(id => domModel.nodeForId(id)).filter(node => node !== null));
     }
-    return nodes;
+
+    const showUAShadowDOM = this._uaShadowDOMSetting.get();
+    return nodes.filter(node => {
+      if (showUAShadowDOM) {
+        return true;
+      }
+      return !node.ancestorUserAgentShadowRoot();
+    });
   }
 
   _mapSettings() {
@@ -153,6 +161,7 @@ export class LayoutSidebarPane extends UI.ThrottledWidget.ThrottledWidget {
     this._domModels = [];
     SDK.SDKModel.TargetManager.instance().observeModels(SDK.DOMModel.DOMModel, this);
     UI.Context.Context.instance().addFlavorChangeListener(SDK.DOMModel.DOMNode, this.update, this);
+    this._uaShadowDOMSetting.addChangeListener(this.update, this);
     this.update();
   }
 
@@ -166,5 +175,6 @@ export class LayoutSidebarPane extends UI.ThrottledWidget.ThrottledWidget {
     this._layoutPane.removeEventListener('setting-changed', this._boundOnSettingChanged);
     SDK.SDKModel.TargetManager.instance().unobserveModels(SDK.DOMModel.DOMModel, this);
     UI.Context.Context.instance().removeFlavorChangeListener(SDK.DOMModel.DOMNode, this.update, this);
+    this._uaShadowDOMSetting.removeChangeListener(this.update, this);
   }
 }
