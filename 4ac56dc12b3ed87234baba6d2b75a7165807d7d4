@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "661fccb0_e5b0a810",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-13T08:53:05Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "4ac56dc12b3ed87234baba6d2b75a7165807d7d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2a211169_781c30ca",
@@ -48,6 +65,30 @@
       "writtenOn": "2020-10-13T08:47:12Z",
       "side": 1,
       "message": "How was it possible to pass `undefined` here before? Closure ignored it or did we cast?",
+      "range": {
+        "startLine": 284,
+        "startChar": 3,
+        "endLine": 284,
+        "endChar": 41
+      },
+      "revId": "4ac56dc12b3ed87234baba6d2b75a7165807d7d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20c281d4_d455cfd7",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-13T08:53:05Z",
+      "side": 1,
+      "message": "Courtesy of closure :) See ConsoleViewMessage.js around L1600 for an example.",
+      "parentUuid": "2a211169_781c30ca",
       "range": {
         "startLine": 284,
         "startChar": 3,
