@@ -127,6 +127,30 @@
       },
       "revId": "d64d3ef7e2d1d2fae38c95c07b1f5f2881e9c15a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be2b2922_0a937be9",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 2313,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-10-13T08:31:30Z",
+      "side": 1,
+      "message": "Kind of, I noticed it was missing when creating css selectors for the e2e tests",
+      "parentUuid": "2c474dba_2640ef6f",
+      "range": {
+        "startLine": 2313,
+        "startChar": 6,
+        "endLine": 2313,
+        "endChar": 71
+      },
+      "revId": "d64d3ef7e2d1d2fae38c95c07b1f5f2881e9c15a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
