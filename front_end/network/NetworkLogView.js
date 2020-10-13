@@ -2098,7 +2098,10 @@ export class NetworkLogView extends UI.Widget.VBox {
       ignoredHeaders.add('content-length');
       inferredMethod = 'POST';
     } else if (formData) {
-      data.push('--data-binary ' + escapeString(formData));
+      // Fall back to using --data-raw if formData starts with an @
+      // to mitigate the security issue reported in crbug.com/1093791.
+      const parameter = formData[0] === '@' ? '--data-raw' : '--data-binary';
+      data.push(`${parameter} ${escapeString(formData)}`);
       ignoredHeaders.add('content-length');
       inferredMethod = 'POST';
     }
