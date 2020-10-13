@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9980d7d_5363d5e6",
+        "filename": "front_end/worker_service/ServiceDispatcher.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-13T14:16:51Z",
+      "side": 1,
+      "message": "out of interest, why this rather than type the func as Promise\u003cvoid\u003e ?",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 180,
+        "endChar": 33
+      },
+      "revId": "3b683ee50e848271cf50e3937fe52071e1045db7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
