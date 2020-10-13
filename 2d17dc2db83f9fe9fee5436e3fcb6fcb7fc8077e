@@ -63,6 +63,23 @@
       },
       "revId": "2d17dc2db83f9fe9fee5436e3fcb6fcb7fc8077e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc8f4690_466414d0",
+        "filename": "front_end/network/NetworkLogView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 2103,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-13T09:33:01Z",
+      "side": 1,
+      "message": "Why don\u0027t we just always use `--data-raw`?",
+      "revId": "2d17dc2db83f9fe9fee5436e3fcb6fcb7fc8077e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
