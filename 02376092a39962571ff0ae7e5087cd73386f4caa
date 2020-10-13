@@ -1,6 +1,24 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7f39b23_23723020",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-10-13T07:33:13Z",
+      "side": 1,
+      "message": "Addressing post-commit comments in crrev.com/c/2466179.",
+      "revId": "02376092a39962571ff0ae7e5087cd73386f4caa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "66c8399f_fc311027",
         "filename": "scripts/deps/download_emscripten.py",
@@ -20,10 +38,34 @@
         "endChar": 20
       },
       "revId": "02376092a39962571ff0ae7e5087cd73386f4caa",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5782fa6_d3852302",
+        "filename": "scripts/deps/download_emscripten.py",
+        "patchSetId": 11
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-10-13T07:33:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66c8399f_fc311027",
+      "range": {
+        "startLine": 34,
+        "startChar": 11,
+        "endLine": 34,
+        "endChar": 20
+      },
+      "revId": "02376092a39962571ff0ae7e5087cd73386f4caa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "c49fb3de_24ffdd0b",
         "filename": "scripts/deps/download_emscripten.py",
@@ -43,10 +85,34 @@
         "endChar": 37
       },
       "revId": "02376092a39962571ff0ae7e5087cd73386f4caa",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a9e8ab8_8510c347",
+        "filename": "scripts/deps/download_emscripten.py",
+        "patchSetId": 11
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-10-13T07:33:13Z",
+      "side": 1,
+      "message": "I don\u0027t see where I\u0027m making that assumption here. options.dest specificies a path to the destination directory relative to cwd implicitely, do you think that\u0027s confusing to a user? For me, if a tool takes a path argument it\u0027s relative to cwd, do you think people might automatically assume it\u0027s not?",
+      "parentUuid": "c49fb3de_24ffdd0b",
+      "range": {
+        "startLine": 55,
+        "startChar": 25,
+        "endLine": 55,
+        "endChar": 37
+      },
+      "revId": "02376092a39962571ff0ae7e5087cd73386f4caa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "a97a8acf_df939d38",
         "filename": "scripts/deps/download_emscripten.py",
@@ -66,8 +132,31 @@
         "endChar": 17
       },
       "revId": "02376092a39962571ff0ae7e5087cd73386f4caa",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3db25a5_5422e052",
+        "filename": "scripts/deps/download_emscripten.py",
+        "patchSetId": 11
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-10-13T07:33:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a97a8acf_df939d38",
+      "range": {
+        "startLine": 70,
+        "startChar": 4,
+        "endLine": 70,
+        "endChar": 17
+      },
+      "revId": "02376092a39962571ff0ae7e5087cd73386f4caa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "93891e82_198af896",
         "filename": "scripts/deps/download_emscripten.py",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "Question: Could we also do by using raw:\nupload_to_google_storage.py/download_from_google_storage.py?",
       "revId": "eec8b41a578ab90d7068ade174e435b1d3bbb516",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "841b34e9_c0eaba38",
         "filename": "scripts/deps/download_emscripten.py",
@@ -32,10 +33,10 @@
       "message": "I couldn\u0027t figure out how. If I understand the tool correctly it doesn\u0027t allow me to specify a key to download from the webassembly bucket directly. Am I misunderstanding how the tool works?",
       "parentUuid": "93891e82_198af896",
       "revId": "eec8b41a578ab90d7068ade174e435b1d3bbb516",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "f65bc654_ead6a7aa",
         "filename": "scripts/deps/download_emscripten.py",
@@ -50,10 +51,28 @@
       "message": "Sorry for not following up sooner. This is probably ok for now. When using the depot_tools hooks the files also need to be uploaded with upload_to_google_storage. Then they are stored with a tar file just named as a hash. The hash is stored in a sha1 file (not in the DEPS file). To update the hash, the content of that sha1 file needs to be changed. That\u0027s something our autoroller can\u0027t do yet. So if you want to roll this regularly, this approach here is probably easier.\n\nWe might need to teach a roller to also bump these sha1 files as part of https://crbug.com/926972 at some point.",
       "parentUuid": "841b34e9_c0eaba38",
       "revId": "eec8b41a578ab90d7068ade174e435b1d3bbb516",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "82126245_7e9dc7a3",
+        "filename": "scripts/deps/download_emscripten.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-10-13T07:33:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f65bc654_ead6a7aa",
+      "revId": "eec8b41a578ab90d7068ade174e435b1d3bbb516",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "6b58cefc_9c121e93",
         "filename": "scripts/deps/download_emscripten.py",
@@ -73,10 +92,10 @@
         "endChar": 14
       },
       "revId": "eec8b41a578ab90d7068ade174e435b1d3bbb516",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "43903fb7_4af8a7e7",
         "filename": "scripts/deps/download_emscripten.py",
@@ -97,10 +116,10 @@
         "endChar": 14
       },
       "revId": "eec8b41a578ab90d7068ade174e435b1d3bbb516",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "8fc48d04_17e37587",
         "filename": "scripts/deps/download_emscripten.py",
@@ -114,10 +133,10 @@
       "side": 1,
       "message": "I just had a look at the DOWNLOAD_URL. It seems as if there\u0027s only linux builds, and nothing for osx or win? For MVP we would start with linux anyway, but since you\u0027ve added the info here do you know of any available builds for non linux?",
       "revId": "eec8b41a578ab90d7068ade174e435b1d3bbb516",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "eeeea421_2d447a5c",
         "filename": "scripts/deps/download_emscripten.py",
@@ -132,8 +151,7 @@
       "message": "Builds are available for mac and windows, see how the URL is put together here. Fixed the os_name for mac in a later patchset!",
       "parentUuid": "8fc48d04_17e37587",
       "revId": "eec8b41a578ab90d7068ade174e435b1d3bbb516",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
