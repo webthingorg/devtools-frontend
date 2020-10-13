@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3670cba_e36c78c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-10-13T08:03:46Z",
+      "side": 1,
+      "message": "This config file is read by emcc when its run and sets up paths to the various tools it needs.",
+      "revId": "9b39654f8a6d379f375606d9d72454f15462de64",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
