@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b800d76c_f65bbfba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1316595
+      },
+      "writtenOn": "2020-10-13T21:27:40Z",
+      "side": 1,
+      "message": "@Sigurds Looks like the tryjobs are failing because the protocol hasn\u0027t been updated yet.\nIs there a way to force that?",
+      "revId": "0ede6a7725c5ba9d6cfd45a235021641d3f62cef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
