@@ -53,7 +53,10 @@ generate_ci_configs(
             name = "Linux Compile Debug",
             recipe_name = "devtools/devtools-frontend",
             excluded_from = ["chromium"],
-            properties = {"builder_config": "Debug"},
+            properties = {
+                "builder_config": "Debug",
+                "$recipe_engine/isolated": {"server":"https://isolateserver.appspot.com"}
+            },
         ),
         builder_descriptor(
             name = "Stand-alone Mac",
