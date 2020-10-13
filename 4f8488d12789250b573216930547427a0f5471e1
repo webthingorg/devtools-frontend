@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4a93569_a0f84edf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-10-13T05:28:08Z",
+      "side": 1,
+      "message": "This is to ensure debugger id is resynced. Still WIP as backend change is still reviewed. But PTAL. Thanks.",
+      "revId": "4f8488d12789250b573216930547427a0f5471e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
