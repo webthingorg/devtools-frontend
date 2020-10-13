@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f421a634_bca8f042",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-13T09:36:43Z",
+      "side": 1,
+      "message": "Alex, please also take a look, especially at the test changes in inspector_overlay.",
+      "revId": "b3d9e0cf4575dc579feff86472b8c167fd9ab850",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
