@@ -39,6 +39,30 @@
       },
       "revId": "2d17dc2db83f9fe9fee5436e3fcb6fcb7fc8077e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aafec353_2a5fa2f6",
+        "filename": "front_end/network/NetworkLogView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 2103,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-13T09:31:13Z",
+      "side": 1,
+      "message": "According to the documentation, --data-binary behaves slightly different:\nhttps://curl.haxx.se/docs/manpage.html#--data-binary\nSo I wanted to make sure that I change the existing behaviour only in the case where it is required because of the @ character.",
+      "parentUuid": "c07c1f6a_a560c41a",
+      "range": {
+        "startLine": 2103,
+        "startChar": 47,
+        "endLine": 2103,
+        "endChar": 57
+      },
+      "revId": "2d17dc2db83f9fe9fee5436e3fcb6fcb7fc8077e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
