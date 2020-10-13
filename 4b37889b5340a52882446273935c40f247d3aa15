@@ -33,6 +33,24 @@
       "message": "Should the tooltipInstance check be moved outside the event handler, before the event handlers are registered? The only scenario that I think might warrant checking every time the event fires, is if the element is moved across documents, but I don\u0027t know of any instances of that in DevTools.",
       "revId": "4b37889b5340a52882446273935c40f247d3aa15",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96ada0a3_55a385f0",
+        "filename": "front_end/ui/Tooltip.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-10-13T23:05:50Z",
+      "side": 1,
+      "message": "I\u0027m inclined to leave it where it is because while we\u0027re probably not going to run into issues with elements moving between documents, this strikes me as the kind of thing that we\u0027d eventually get telemetry about unhandled exceptions for if we don\u0027t check right before accessing it.",
+      "parentUuid": "e4d55b5b_49ca8284",
+      "revId": "4b37889b5340a52882446273935c40f247d3aa15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
