@@ -80,6 +80,30 @@
       "message": "Why don\u0027t we just always use `--data-raw`?",
       "revId": "2d17dc2db83f9fe9fee5436e3fcb6fcb7fc8077e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b6ed4b6_407c4fb2",
+        "filename": "front_end/network/NetworkLogView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 2103,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-13T09:35:04Z",
+      "side": 1,
+      "message": "Hah, I posted the same comment as Sigurd before seeing his comment. \n\nJan, where in the docs do you see that --data-binary behaves differently? I didn\u0027t reach that conclusion. The docs say:\n\n\u003e --data-raw (HTTP) This posts data similarly to -d, --data but without the special interpretation of the @ character.\n\nSounds like they\u0027re the same, except for the @ behavior?",
+      "parentUuid": "aafec353_2a5fa2f6",
+      "range": {
+        "startLine": 2103,
+        "startChar": 47,
+        "endLine": 2103,
+        "endChar": 57
+      },
+      "revId": "2d17dc2db83f9fe9fee5436e3fcb6fcb7fc8077e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
