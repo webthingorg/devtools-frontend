@@ -368,6 +368,7 @@ export const Action = {
   ShortcutModified: 46,
   CustomPropertyLinkClicked: 47,
   CustomPropertyEdited: 48,
+  ServiceWorkerNetworkClicked: 49,
 };
 
 /** @type {!Object<string, number>} */

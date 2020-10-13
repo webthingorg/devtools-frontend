@@ -8,9 +8,11 @@
 import * as Common from '../common/common.js';
 import * as Components from '../components/components.js';
 import * as MobileThrottling from '../mobile_throttling/mobile_throttling.js';
+import * as Network from '../network/network.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
+let serviceWorkerViewInstance;
 /**
  * @implements {SDK.SDKModel.SDKModelObserver<!SDK.ServiceWorkerManager.ServiceWorkerManager>}
  */
@@ -115,6 +117,19 @@ export class ServiceWorkersView extends UI.Widget.VBox {
     this._securityOriginManager = null;
   }
 
+  closeServiceWorkerNetwork() {
+    UI.ViewManager.ViewManager.instance().showViewInLocation('network', 'panel', false);
+  }
+
+  /**
+   * @return {!ServiceWorkersView}
+   */
+  static instance() {
+    if (!serviceWorkerViewInstance) {
+      serviceWorkerViewInstance = new ServiceWorkersView();
+    }
+    return serviceWorkerViewInstance;
+  }
 
   /**
    * @param {!SDK.ServiceWorkerManager.ServiceWorkerRegistration} registration
@@ -309,6 +324,10 @@ export class Section {
 
     this._toolbar = section.createToolbar();
     this._toolbar.renderAsLinks();
+    this._showNetwork = new UI.Toolbar.ToolbarButton(
+        Common.UIString.UIString('Show network in drawer'), undefined, Common.UIString.UIString('Network'));
+    this._showNetwork.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._showNetworkClicked, this);
+    this._toolbar.appendToolbarItem(this._showNetwork);
     this._updateButton =
         new UI.Toolbar.ToolbarButton(Common.UIString.UIString('Update'), undefined, Common.UIString.UIString('Update'));
     this._updateButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._updateButtonClicked, this);
@@ -540,6 +559,36 @@ export class Section {
    */
   _updateButtonClicked(event) {
     this._manager.updateRegistration(this._registration.id);
+  }
+
+  /**
+   * @param {!Common.EventTarget.EventTargetEvent} event
+   */
+  async _showNetworkClicked(event) {
+    UI.ViewManager.ViewManager.instance().showViewInLocation('network', 'drawer-view');
+
+    // Common.Settings.Settings.instance().createSetting('serviceWorkerNetworkTimelineOpened', true, Common.Settings.SettingStorageType.Session);
+
+    Network.NetworkPanel.NetworkPanel.revealAndFilter([
+      {
+        filterType: Network.NetworkLogView.FilterType.Is,
+        filterValue: Network.NetworkLogView.IsFilterType.ServiceWorkerIntercepted,
+      },
+    ]);
+
+    const requests = SDK.NetworkLog.NetworkLog.instance().requests();
+    const lastRequest = requests.reduce((acc, request) => {
+      if (!acc && request.fetchedViaServiceWorker) {
+        return request;
+      }
+      if (request.fetchedViaServiceWorker && acc.responseReceivedTime < request.responseReceivedTime) {
+        return request;
+      }
+      return acc;
+    }, null);
+    Network.NetworkPanel.NetworkPanel.selectAndShowRequest(lastRequest, Network.NetworkItemView.Tabs.Timing, false);
+
+    Host.userMetrics.actionTaken(Host.UserMetrics.Action.ServiceWorkerNetworkClicked);
   }
 
   /**

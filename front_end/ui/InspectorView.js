@@ -294,6 +294,10 @@ export class InspectorView extends VBox {
     if (!this._drawerTabbedPane.isShowing()) {
       return;
     }
+
+    ViewManager.instance().showViewInLocation('network', 'panel', false);
+    // self.runtime.sharedInstance(ServiceWorkerNetworkView)
+
     if (this._focusRestorer) {
       this._focusRestorer.restore();
     }
