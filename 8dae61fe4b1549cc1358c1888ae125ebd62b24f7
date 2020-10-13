@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b7dfeee_2182974c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000379
+      },
+      "writtenOn": "2020-10-13T05:40:02Z",
+      "side": 1,
+      "message": "This looks good to me, but I am not working on DevTools frontend anymore 😊 Please pick an owner from this list: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/COMMON_OWNERS.",
+      "revId": "8dae61fe4b1549cc1358c1888ae125ebd62b24f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
