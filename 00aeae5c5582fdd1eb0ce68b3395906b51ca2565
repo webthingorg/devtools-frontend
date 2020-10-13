@@ -16,6 +16,29 @@
       "message": "PTAL, thanks!",
       "revId": "00aeae5c5582fdd1eb0ce68b3395906b51ca2565",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1dc4f0e_38a60804",
+        "filename": "front_end/sdk/EmulationModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-13T13:08:16Z",
+      "side": 1,
+      "message": "note that this changes the return of this function; the `invoke_X` return objects of the form: `{ foo: value }` whereas the non `invoke_` methods return the `value`. So we should check call-sites of this method.",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 68
+      },
+      "revId": "00aeae5c5582fdd1eb0ce68b3395906b51ca2565",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
