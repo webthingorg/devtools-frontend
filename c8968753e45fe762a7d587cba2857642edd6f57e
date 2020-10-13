@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eda452b8_021efca6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-13T13:34:23Z",
+      "side": 1,
+      "message": "Do you feel comfortable reviewing the cut down CL as-is, or do you want me to cut out more?",
+      "revId": "c8968753e45fe762a7d587cba2857642edd6f57e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
