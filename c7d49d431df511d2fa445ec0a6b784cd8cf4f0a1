@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5223d709_892db353",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-13T12:27:49Z",
+      "side": 1,
+      "message": "Thanks for the comments, I\u0027ll re-upload once all the CLs I split-off of here have landed.",
+      "revId": "c7d49d431df511d2fa445ec0a6b784cd8cf4f0a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df178cbc_302a5ad9",
@@ -31,6 +48,30 @@
       "writtenOn": "2020-10-12T16:12:05Z",
       "side": 1,
       "message": "Nit: The datagrid is always defined per the line above. Instead, it would be better to refactor to:\n\n```\nconst dataGrid \u003d DataGrid...\nthis._dataGrid \u003d dataGrid;\ndataGrid.setStriped(true);\n\u003c...\u003e\n```",
+      "range": {
+        "startLine": 220,
+        "startChar": 10,
+        "endLine": 220,
+        "endChar": 24
+      },
+      "revId": "c7d49d431df511d2fa445ec0a6b784cd8cf4f0a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e900b55_d93f9745",
+        "filename": "front_end/console/ConsoleViewMessage.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-13T12:27:49Z",
+      "side": 1,
+      "message": "That wouldn\u0027t help, because SortableDataGrid.create might return null...",
+      "parentUuid": "df178cbc_302a5ad9",
       "range": {
         "startLine": 220,
         "startChar": 10,
@@ -64,6 +105,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cf520a7_5374e027",
+        "filename": "front_end/console/ConsoleViewMessage.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-13T12:27:49Z",
+      "side": 1,
+      "message": "I think this is the better option, no strong opinion though.",
+      "parentUuid": "d36b0a17_7158c91f",
+      "range": {
+        "startLine": 344,
+        "startChar": 8,
+        "endLine": 344,
+        "endChar": 51
+      },
+      "revId": "c7d49d431df511d2fa445ec0a6b784cd8cf4f0a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9c4a2f0d_caabcbec",
@@ -77,6 +142,30 @@
       "writtenOn": "2020-10-12T16:12:05Z",
       "side": 1,
       "message": "Nit: If this is only used once in the listeners below, we can probably inline it as well.",
+      "range": {
+        "startLine": 433,
+        "startChar": 10,
+        "endLine": 433,
+        "endChar": 26
+      },
+      "revId": "c7d49d431df511d2fa445ec0a6b784cd8cf4f0a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee50e715_2bb4b38d",
+        "filename": "front_end/console/ConsoleViewMessage.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-13T12:27:49Z",
+      "side": 1,
+      "message": "Ack, but this won\u0027t make it more readable.",
+      "parentUuid": "9c4a2f0d_caabcbec",
       "range": {
         "startLine": 433,
         "startChar": 10,
@@ -112,6 +201,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c9f02aa5_e08f25ce",
+        "filename": "front_end/console/ConsoleViewMessage.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-13T12:27:49Z",
+      "side": 1,
+      "message": "This is a helper method for a test runner. It is probably not worth fixing.\n\nTo fix it, we could use another weak map and offer a getExpanStackTraceFromElementForText in this module.",
+      "parentUuid": "0658c222_46a26b02",
+      "range": {
+        "startLine": 446,
+        "startChar": 4,
+        "endLine": 446,
+        "endChar": 17
+      },
+      "revId": "c7d49d431df511d2fa445ec0a6b784cd8cf4f0a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "40e30d5e_87dd6105",
         "filename": "front_end/console/ConsoleViewMessage.js",
         "patchSetId": 2
@@ -123,6 +236,30 @@
       "writtenOn": "2020-10-12T16:12:05Z",
       "side": 1,
       "message": "Ultra-nit: this creates a new function every time. Instead of doing `.bind`, I think it is better to do:\n\n```\nrawParameters.map(param \u003d\u003e this._parameterToRemoteObject(param))\n```",
+      "range": {
+        "startLine": 530,
+        "startChar": 68,
+        "endLine": 530,
+        "endChar": 79
+      },
+      "revId": "c7d49d431df511d2fa445ec0a6b784cd8cf4f0a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d96a3be_630b846d",
+        "filename": "front_end/console/ConsoleViewMessage.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-13T12:27:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40e30d5e_87dd6105",
       "range": {
         "startLine": 530,
         "startChar": 68,
@@ -156,6 +293,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "64f16d51_a1083afa",
+        "filename": "front_end/console/console-legacy.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-13T12:27:49Z",
+      "side": 1,
+      "message": "Created \nhttps://crrev.com/c/2467837\nhttps://crrev.com/c/2467936\nhttps://crrev.com/c/2467838",
+      "parentUuid": "25fa8e8a_5c2ca77e",
+      "range": {
+        "startLine": 76,
+        "startChar": 7,
+        "endLine": 76,
+        "endChar": 69
+      },
+      "revId": "c7d49d431df511d2fa445ec0a6b784cd8cf4f0a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "91031277_ecf15abe",
@@ -179,6 +340,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "728e1b05_b5f4876f",
+        "filename": "front_end/data_grid/SortableDataGrid.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-13T12:27:49Z",
+      "side": 1,
+      "message": "String is simply incorrect here. values is being used to construct the argument to the constructor SortableDataGridNode, which accepts  @param {?Object.\u003cstring, *\u003e\u003d} data.",
+      "parentUuid": "91031277_ecf15abe",
+      "range": {
+        "startLine": 79,
+        "startChar": 21,
+        "endLine": 79,
+        "endChar": 22
+      },
+      "revId": "c7d49d431df511d2fa445ec0a6b784cd8cf4f0a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d8ebf56_0d4433ce",
+        "filename": "front_end/data_grid/SortableDataGrid.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-13T12:27:49Z",
+      "side": 1,
+      "message": "Created https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2466185 with explanation.",
+      "parentUuid": "91031277_ecf15abe",
+      "range": {
+        "startLine": 79,
+        "startChar": 21,
+        "endLine": 79,
+        "endChar": 22
+      },
+      "revId": "c7d49d431df511d2fa445ec0a6b784cd8cf4f0a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "524df5bd_6fee1b79",
@@ -192,6 +401,30 @@
       "writtenOn": "2020-10-12T16:12:05Z",
       "side": 1,
       "message": "Since this is only used in 3 places in `ConsoleViewMessage`, it would be better to refactor these usages. Changing the `legacy-defs.d.ts` would pure all GN build caches. Since removing these usages seems fairly straightforward, it would be better to refactor them away than to incur a build cache cost for all DevTools engineers.",
+      "range": {
+        "startLine": 134,
+        "startChar": 2,
+        "endLine": 134,
+        "endChar": 20
+      },
+      "revId": "c7d49d431df511d2fa445ec0a6b784cd8cf4f0a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f76f1ba_96b3cc14",
+        "filename": "front_end/legacy/legacy-defs.d.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-13T12:27:49Z",
+      "side": 1,
+      "message": "Created https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2466182",
+      "parentUuid": "524df5bd_6fee1b79",
       "range": {
         "startLine": 134,
         "startChar": 2,
