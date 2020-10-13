@@ -34,6 +34,24 @@
       "parentUuid": "9831d7ae_f9bdbc43",
       "revId": "8729325f9a1303eaad0ce4ed82dcb30c463796e0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d27749af_a56dcc8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-13T11:37:58Z",
+      "side": 1,
+      "message": "It looks like the image size is different from the element size (in px)?",
+      "parentUuid": "5de98bb5_cc46d0fb",
+      "revId": "8729325f9a1303eaad0ce4ed82dcb30c463796e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
