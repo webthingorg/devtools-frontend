@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "706a5ace_c2d60aa7",
+        "filename": "test/unittests/scripts/component_bridges/tsconfig.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-13T09:45:38Z",
+      "side": 1,
+      "message": "Iiuc, the unittests depend on the scripts implementation to exist. E.g. there is a dependency edge from unittests to scripts. If that is the case, then the unittests shouldn\u0027t extend the tsconfig, but instead use a path reference. That would remove the need for the `rootDir` and fix the error in question.",
+      "range": {
+        "startLine": 2,
+        "startChar": 3,
+        "endLine": 2,
+        "endChar": 67
+      },
+      "revId": "f0a9239db3832948e67d0a2d247593d401617579",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
