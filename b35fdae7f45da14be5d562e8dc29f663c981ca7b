@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "65690b2a_8dc86ea4",
+        "filename": "front_end/elements/LayoutSidebarPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-13T16:56:13Z",
+      "side": 1,
+      "message": "Good point, will simplify it, thanks.",
+      "parentUuid": "65e35b5f_66183a28",
+      "range": {
+        "startLine": 99,
+        "startChar": 8,
+        "endLine": 105,
+        "endChar": 51
+      },
+      "revId": "b35fdae7f45da14be5d562e8dc29f663c981ca7b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1f0f1780_0bc21d8a",
         "filename": "test/e2e/helpers/elements-helpers.ts",
         "patchSetId": 3
@@ -71,6 +95,30 @@
       "writtenOn": "2020-10-13T16:32:02Z",
       "side": 1,
       "message": "just curious, what was this addition solving?",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 38
+      },
+      "revId": "b35fdae7f45da14be5d562e8dc29f663c981ca7b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd5838f9_ab5769b7",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-13T16:56:13Z",
+      "side": 1,
+      "message": "This is to make sure the panel is populated before returning. Since opening the panel is an async process, I thought it was better to make sure the content was in the DOM before proceeding with the test.",
+      "parentUuid": "1f0f1780_0bc21d8a",
       "range": {
         "startLine": 36,
         "startChar": 4,
