@@ -16,6 +16,40 @@
       "message": "Alex, please also take a look, especially at the test changes in inspector_overlay.",
       "revId": "b3d9e0cf4575dc579feff86472b8c167fd9ab850",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a181d9b_967bb2d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-13T09:42:27Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "b3d9e0cf4575dc579feff86472b8c167fd9ab850",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "285206b5_957a17e7",
+        "filename": "test/unittests/inspector_overlay/common_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-13T09:42:27Z",
+      "side": 1,
+      "message": "Nice, thanks! we actually removed DOM extensions from the overlay code but it looks like the frontend extensions were still applying in tests.",
+      "revId": "b3d9e0cf4575dc579feff86472b8c167fd9ab850",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
