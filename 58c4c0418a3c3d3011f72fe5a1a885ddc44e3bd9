@@ -33,6 +33,46 @@
       "message": "lgtm (i think, not sure if this change will interfere once we want to translate the markdown issue descriptions)",
       "revId": "58c4c0418a3c3d3011f72fe5a1a885ddc44e3bd9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d96633be_2408c607",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-10-13T06:51:01Z",
+      "side": 1,
+      "message": "Simon PTAL too",
+      "revId": "58c4c0418a3c3d3011f72fe5a1a885ddc44e3bd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fde31a07_0ee697db",
+        "filename": "docs/localization/adding_strings_V2.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-10-13T06:51:01Z",
+      "side": 1,
+      "message": "Not",
+      "range": {
+        "startLine": 91,
+        "startChar": 8,
+        "endLine": 91,
+        "endChar": 13
+      },
+      "revId": "58c4c0418a3c3d3011f72fe5a1a885ddc44e3bd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
