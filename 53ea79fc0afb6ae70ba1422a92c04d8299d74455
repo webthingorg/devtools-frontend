@@ -51,6 +51,24 @@
       "message": "Need a different solution, this messes with the constructed style sheet behavior",
       "revId": "53ea79fc0afb6ae70ba1422a92c04d8299d74455",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70a74557_00cc2750",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-10-13T19:08:43Z",
+      "side": 1,
+      "message": "Updated solution fixes the issue and correctly respects style sheets above.",
+      "parentUuid": "be32666e_dd96f12f",
+      "revId": "53ea79fc0afb6ae70ba1422a92c04d8299d74455",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
