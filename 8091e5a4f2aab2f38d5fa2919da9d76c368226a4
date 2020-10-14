@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63bd179a_3def37d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-14T12:18:06Z",
+      "side": 1,
+      "message": "This looks dope! Thanks for including the screencasts.\n\nOverall LGTM. Have we tested this for values where only a part of the value is an \u003cangle\u003e?",
+      "revId": "8091e5a4f2aab2f38d5fa2919da9d76c368226a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "397a0b35_d308479d",
+        "filename": "front_end/elements/CSSAngleUtils.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-14T12:18:06Z",
+      "side": 1,
+      "message": "Nit: comments should read like sentences (start with capital letter, end with period)\n\nsame below",
+      "revId": "8091e5a4f2aab2f38d5fa2919da9d76c368226a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
