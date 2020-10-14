@@ -56,6 +56,13 @@ import {VBox, WidgetFocusRestorer} from './Widget.js';
 let inspectorViewInstance;
 
 /**
+ * Drawer change callback function
+ *
+ * @callback drawerChangeSubscriber
+ * @param {boolean} isDrawerOpen
+ */
+
+/**
  * @implements {ViewLocationResolver}
  * @unrestricted
  */
@@ -72,6 +79,9 @@ export class InspectorView extends VBox {
     this._drawerSplitWidget.show(this.element);
 
     this._tabDelegate = new InspectorViewTabDelegate();
+
+    /** @type {drawerChangeSubscriber} */
+    this._drawerChangeSubscriber = null;
 
     // Create drawer tabbed pane.
     this._drawerTabbedLocation =
@@ -242,6 +252,17 @@ export class InspectorView extends VBox {
   }
 
   /**
+   * @param {drawerChangeSubscriber} subscriber
+   */
+  subscribeToDrawerChange(subscriber) {
+    this._drawerChangeSubscriber = subscriber;
+  }
+
+  removeSubscriberToDrawerChange() {
+    this._drawerChangeSubscriber = null;
+  }
+
+  /**
    * @param {string} tabId
    * @return {?TabbedPane}
    */
@@ -281,6 +302,9 @@ export class InspectorView extends VBox {
     } else {
       this._focusRestorer = null;
     }
+    if (this._drawerChangeSubscriber) {
+      this._drawerChangeSubscriber(true);
+    }
   }
 
   /**
@@ -298,6 +322,10 @@ export class InspectorView extends VBox {
       this._focusRestorer.restore();
     }
     this._drawerSplitWidget.hideSidebar(true);
+
+    if (this._drawerChangeSubscriber) {
+      this._drawerChangeSubscriber(false);
+    }
   }
 
   /**

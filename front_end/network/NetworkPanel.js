@@ -227,10 +227,11 @@ export class NetworkPanel extends UI.Panel.Panel {
   /**
    * @param {!SDK.NetworkRequest.NetworkRequest} request
    * @param {!NetworkItemViewTabs} tab
+   * @param {boolean=} clearFilter
    */
-  static async selectAndShowRequest(request, tab) {
+  static async selectAndShowRequest(request, tab, clearFilter) {
     const panel = NetworkPanel._instance();
-    await panel.selectAndActivateRequest(request, tab);
+    await panel.selectAndActivateRequest(request, tab, clearFilter);
   }
 
   /**
@@ -529,11 +530,12 @@ export class NetworkPanel extends UI.Panel.Panel {
   /**
    * @param {!SDK.NetworkRequest.NetworkRequest} request
    * @param {!NetworkItemViewTabs=} shownTab
+   * @param {boolean=} clearFilter
    * @return {!Promise<?NetworkItemView>}
    */
-  async selectAndActivateRequest(request, shownTab) {
+  async selectAndActivateRequest(request, shownTab, clearFilter) {
     await UI.ViewManager.ViewManager.instance().showView('network');
-    this._networkLogView.selectRequest(request);
+    this._networkLogView.selectRequest(request, clearFilter);
     this._showRequestPanel(shownTab);
     return this._networkItemView;
   }
