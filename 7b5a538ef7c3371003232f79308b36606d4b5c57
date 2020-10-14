@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "20fceb94_4bed8b9b",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 20
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-10-14T21:58:17Z",
+      "side": 1,
+      "message": "Good catch! This came from and old CL that somehow is still \"linked\" although it is really not (you can see that it does not appear in the link chain).",
+      "parentUuid": "86f26cd9_ab2a38be",
+      "revId": "7b5a538ef7c3371003232f79308b36606d4b5c57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c0b97499_82e73cbd",
@@ -48,6 +66,30 @@
       "writtenOn": "2020-10-14T18:41:57Z",
       "side": 1,
       "message": "I think this wont return the localized version anymore since they are not UIStrings.id, should we add those section names to UIStrings (the names in explicitSectionOrder )?",
+      "range": {
+        "startLine": 370,
+        "startChar": 41,
+        "endLine": 370,
+        "endChar": 64
+      },
+      "revId": "7b5a538ef7c3371003232f79308b36606d4b5c57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b401dae_7022c869",
+        "filename": "front_end/settings/SettingsScreen.js",
+        "patchSetId": 20
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-10-14T21:58:17Z",
+      "side": 1,
+      "message": "That is an option but I think we will find this pattern along the migration so my mental model is:\n- Do an \"in-place\" replacement, just change V1 calls to V2 as much as possible.\n- Any terms where localization is not applied can be either:\n  - Fixed as a bug, so that the code is refactored and the string is correctly added to UIStrings.\n  - Fallback into a \"special\" scenario, similar to what we do for module.json, this should only be temporary as I prefer to have them fixed in the right way.",
+      "parentUuid": "c0b97499_82e73cbd",
       "range": {
         "startLine": 370,
         "startChar": 41,
