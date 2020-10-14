@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6f84eaa_d9134673",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-10-14T15:45:56Z",
+      "side": 1,
+      "message": "Hey Philip,\n\nHere\u0027s the fix to show the origin of source files for language plugins similar to what we already do for source maps. Please take a look.\n\nThanks,\nBenedikt",
+      "revId": "744c749c4331baa57cd65ca3587759ef77be54bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
