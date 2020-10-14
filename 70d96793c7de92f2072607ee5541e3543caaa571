@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eab0502c_f9180769",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-10-14T01:37:44Z",
+      "side": 1,
+      "message": "Hi, I\u0027ve added everyone who +1\u0027d the keyboard shortcuts explainer as a reviewer--I\u0027d appreciate it if someone from chromium weigh in on the removal of the old static shortcuts screen. Thanks!",
+      "revId": "70d96793c7de92f2072607ee5541e3543caaa571",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
