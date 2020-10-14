@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6553a7b_f19273cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-14T08:15:10Z",
+      "side": 1,
+      "message": "LGTM with nits.",
+      "revId": "739e570c859088294d9fb6242e444bc8c76e6850",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba621505_552d4196",
+        "filename": "front_end/components/TargetDetachedDialog.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-14T08:15:10Z",
+      "side": 1,
+      "message": "nit: you could do {reason} here instead of event and it would destructure for you.",
+      "range": {
+        "startLine": 26,
+        "startChar": 11,
+        "endLine": 26,
+        "endChar": 16
+      },
+      "revId": "739e570c859088294d9fb6242e444bc8c76e6850",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "377c5612_3ef02d24",
+        "filename": "front_end/components/TargetDetachedDialog.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-14T08:15:10Z",
+      "side": 1,
+      "message": "This will be a Promise so we should convert the function to an async one and await this.",
+      "range": {
+        "startLine": 67,
+        "startChar": 33,
+        "endLine": 67,
+        "endChar": 63
+      },
+      "revId": "739e570c859088294d9fb6242e444bc8c76e6850",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
