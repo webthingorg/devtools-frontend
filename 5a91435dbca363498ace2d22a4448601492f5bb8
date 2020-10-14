@@ -22,6 +22,30 @@
       },
       "revId": "5a91435dbca363498ace2d22a4448601492f5bb8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7aefe7e_c300b5e2",
+        "filename": ".gitignore",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-10-14T15:31:16Z",
+      "side": 1,
+      "message": "The install script currently doesn\u0027t delete the old files yet, good catch!\n\nThis ignores just the .emscripten config file, any other files are still gitignored. Can we just git clean the ignored files? The archive contents come in an \u0027install\u0027 folder under which all the stale files would be, so we could also just delete that.\n\nRe: nit: The devtools presubmit prevents changing third_party and not-third_party in one commit so it has to be separate :(",
+      "parentUuid": "c09ee1a8_4a8160fc",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 45
+      },
+      "revId": "5a91435dbca363498ace2d22a4448601492f5bb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
