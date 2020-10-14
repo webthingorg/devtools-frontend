@@ -52,6 +52,24 @@
       "parentUuid": "c5d363b4_fb097005",
       "revId": "ec23cfada4cdeca15fe4af7ba6977c1250c47a98",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9251c72e_5d0cf7e4",
+        "filename": "front_end/sources/DebuggerPlugin.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 845,
+      "author": {
+        "id": 1455634
+      },
+      "writtenOn": "2020-10-14T20:19:27Z",
+      "side": 0,
+      "message": "Thank you for the dry run.\n\nI\u0027m quite sure this won\u0027t break other call sites\u0027 behavior. I\u0027ve run the code through the debugger and also compare the behavior.\n\nIn the original code, none of the _showContinueToLocations calls - with its related functionalities/operations - depends on the valueWidgets being cleared when the CTRL key is pressed.\nAnd this CL doesn\u0027t effect how the valueWidgets is shown.\n\nIn this CL, the valueWidgets will still be cleared when the debugger goes out of the scope the valueWidgets is in. This is the same behavior with the original code.\n\nIn this CL, pressing a key (or more accurately, releasing a key - onKeyUp) without CTRL will still clear the valueWidgets. This is also the same behavior with the original code.\n\nI also tried searching for issues and revisions that might be related, the closest thing I could find is:\nhttps://chromium-review.googlesource.com/c/chromium/src/+/1066708\nbut this CL does not effect that part of the code, or any other part where the valueWidgets need to be cleared.\n\nSo I think the change will be fine. But let me know if I miss something or if I need to check anything else.",
+      "parentUuid": "da12d637_43846e03",
+      "revId": "ec23cfada4cdeca15fe4af7ba6977c1250c47a98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
