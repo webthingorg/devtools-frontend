@@ -33,6 +33,24 @@
       "message": "Do you think it would make sense to capitalize the \u0027S\u0027 to \u0027domStorageAgent\u0027? What else would I need to change to update the auto-generated agent\u0027s name accordingly?",
       "revId": "df52707095e31810e02dadbabe4302a07a27a4ce",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e7d57e6_9da34d1d",
+        "filename": "front_end/protocol_client/InspectorBackend.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 739,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-14T11:30:19Z",
+      "side": 1,
+      "message": "I imagine it\u0027s downcasing the protocol namespace (https://chromedevtools.github.io/devtools-protocol/tot/DOMStorage/) and then adding `Agent`. I\u0027m not sure it\u0027s worth fighting this to be honest.",
+      "parentUuid": "e375669a_c4099486",
+      "revId": "df52707095e31810e02dadbabe4302a07a27a4ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
