@@ -37,6 +37,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1f9f9311_9e0033de",
+        "filename": "front_end/elements/Icon.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-14T08:18:06Z",
+      "side": 1,
+      "message": "I think this could be `this.iconPath \u003d \u0027iconPath\u0027 in data ? data.iconPath : `Images/${data.iconName}.svg`;` (seems to compile fine)",
+      "revId": "4df2141d80335f53186d1c2c30cdcd6fdadb363c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1ec8829d_7564138d",
         "filename": "front_end/elements/Icon.ts",
         "patchSetId": 12
