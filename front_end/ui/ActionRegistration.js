@@ -5,7 +5,6 @@
 import * as Common from '../common/common.js';
 import * as Root from '../root/root.js';
 
-import {ActionDelegate} from './ActionDelegate.js';  // eslint-disable-line no-unused-vars
 import {Context} from './Context.js';
 
 class ActionRuntimeExtensionDescriptor extends  // eslint-disable-line no-unused-vars
@@ -42,7 +41,7 @@ class ActionRuntimeExtensionDescriptor extends  // eslint-disable-line no-unused
   }
 }
 
-export class Action extends Common.ObjectWrapper.ObjectWrapper {
+export class LegacyActionRegistration extends Common.ObjectWrapper.ObjectWrapper {
   /**
    * @param {!Root.Runtime.Extension} extension
    */
@@ -143,6 +142,7 @@ export class Action extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
+   * @override
    * @return {string}
    */
   title() {
@@ -191,3 +191,17 @@ export const Events = {
   Enabled: Symbol('Enabled'),
   Toggled: Symbol('Toggled')
 };
+
+/**
+ * @interface
+ */
+export class ActionDelegate {
+  /**
+   * @param {!Context} context
+   * @param {string} actionId
+   * @return {boolean}
+   */
+  handleAction(context, actionId) {
+    throw new Error('not implemented');
+  }
+}

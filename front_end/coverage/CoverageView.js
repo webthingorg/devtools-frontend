@@ -53,7 +53,7 @@ export class CoverageView extends UI.Widget.VBox {
     this._coverageTypeComboBox.setEnabled(true);
     toolbar.appendToolbarItem(this._coverageTypeComboBox);
 
-    /** @type {!UI.Action.Action} */
+    /** @type {!UI.ActionRegistration.LegacyActionRegistration }*/
     this._toggleRecordAction = (UI.ActionRegistry.ActionRegistry.instance().action('coverage.toggle-recording'));
     this._toggleRecordButton = UI.Toolbar.Toolbar.createActionButton(this._toggleRecordAction);
     toolbar.appendToolbarItem(this._toggleRecordButton);
@@ -64,7 +64,7 @@ export class CoverageView extends UI.Widget.VBox {
       /** @type {?Element} */
       this._inlineReloadButton = null;
       const startWithReloadAction =
-          /** @type {!UI.Action.Action }*/ (
+          /** @type {!UI.ActionRegistration.LegacyActionRegistration }*/ (
               UI.ActionRegistry.ActionRegistry.instance().action('coverage.start-with-reload'));
       this._startWithReloadButton = UI.Toolbar.Toolbar.createActionButton(startWithReloadAction);
       toolbar.appendToolbarItem(this._startWithReloadButton);
@@ -449,7 +449,7 @@ export class CoverageView extends UI.Widget.VBox {
 CoverageView._extensionBindingsURLPrefix = 'extensions::';
 
 /**
- * @implements {UI.ActionDelegate.ActionDelegate}
+ * @implements {UI.ActionRegistration.ActionDelegate}
  */
 export class ActionDelegate {
   /**

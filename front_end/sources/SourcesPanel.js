@@ -66,17 +66,22 @@ export class SourcesPanel extends UI.Panel.Panel {
     this._workspace = Workspace.Workspace.WorkspaceImpl.instance();
 
     this._togglePauseAction =
-        /** @type {!UI.Action.Action }*/ (UI.ActionRegistry.ActionRegistry.instance().action('debugger.toggle-pause'));
+        /** @type {!UI.ActionRegistration.LegacyActionRegistration }*/ (
+            UI.ActionRegistry.ActionRegistry.instance().action('debugger.toggle-pause'));
     this._stepOverAction =
-        /** @type {!UI.Action.Action }*/ (UI.ActionRegistry.ActionRegistry.instance().action('debugger.step-over'));
+        /** @type {!UI.ActionRegistration.LegacyActionRegistration }*/ (
+            UI.ActionRegistry.ActionRegistry.instance().action('debugger.step-over'));
     this._stepIntoAction =
-        /** @type {!UI.Action.Action }*/ (UI.ActionRegistry.ActionRegistry.instance().action('debugger.step-into'));
+        /** @type {!UI.ActionRegistration.LegacyActionRegistration }*/ (
+            UI.ActionRegistry.ActionRegistry.instance().action('debugger.step-into'));
     this._stepOutAction =
-        /** @type {!UI.Action.Action }*/ (UI.ActionRegistry.ActionRegistry.instance().action('debugger.step-out'));
+        /** @type {!UI.ActionRegistration.LegacyActionRegistration }*/ (
+            UI.ActionRegistry.ActionRegistry.instance().action('debugger.step-out'));
     this._stepAction =
-        /** @type {!UI.Action.Action }*/ (UI.ActionRegistry.ActionRegistry.instance().action('debugger.step'));
+        /** @type {!UI.ActionRegistration.LegacyActionRegistration }*/ (
+            UI.ActionRegistry.ActionRegistry.instance().action('debugger.step'));
     this._toggleBreakpointsActiveAction =
-        /** @type {!UI.Action.Action }*/ (
+        /** @type {!UI.ActionRegistration.LegacyActionRegistration }*/ (
             UI.ActionRegistry.ActionRegistry.instance().action('debugger.toggle-breakpoints-active'));
 
     this._debugToolbar = this._createDebugToolbar();
@@ -1163,7 +1168,7 @@ export class DebuggerPausedDetailsRevealer {
 }
 
 /**
- * @implements {UI.ActionDelegate.ActionDelegate}
+ * @implements {UI.ActionRegistration.ActionDelegate}
  * @unrestricted
  */
 export class RevealingActionDelegate {
@@ -1188,7 +1193,7 @@ export class RevealingActionDelegate {
 }
 
 /**
- * @implements {UI.ActionDelegate.ActionDelegate}
+ * @implements {UI.ActionRegistration.ActionDelegate}
  * @unrestricted
  */
 export class DebuggingActionDelegate {
