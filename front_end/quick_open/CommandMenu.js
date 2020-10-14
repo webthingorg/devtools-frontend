@@ -166,7 +166,7 @@ export class CommandMenu {
 
 /**
  * @typedef {{
- *   action: !UI.Action.Action,
+ *   action: !UI.ActionRegistration.LegacyActionRegistration,
  *   userActionCode: (!Host.UserMetrics.Action|undefined),
  * }}
  */
@@ -394,7 +394,7 @@ export class Command {
 }
 
 /**
- * @implements {UI.ActionDelegate.ActionDelegate}
+ * @implements {UI.ActionRegistration.ActionDelegate}
  * @unrestricted
  */
 export class ShowActionDelegate {
