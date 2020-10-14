@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac7cc2ed_b9186f66",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-10-14T04:26:37Z",
+      "side": 1,
+      "message": "Addressed feedback.PTAL\n\n@szuend Thanks for the feedback I addressed the proposed shorthand in the linked CL as it required some follow up changes like documentation, testing and presubmit updates. So I preferred to scope this one only to migration.",
+      "revId": "f4d59b76e2c915aca3e23333c3b8fe1ed0b03929",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

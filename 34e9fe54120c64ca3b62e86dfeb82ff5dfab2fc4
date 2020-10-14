@@ -116,6 +116,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfeac266_bef842f1",
+        "filename": "front_end/main/MainImpl.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-10-14T04:26:37Z",
+      "side": 1,
+      "message": "fixed 😊",
+      "parentUuid": "c7e659a9_64d52292",
+      "range": {
+        "startLine": 97,
+        "startChar": 23,
+        "endLine": 97,
+        "endChar": 64
+      },
+      "revId": "34e9fe54120c64ca3b62e86dfeb82ff5dfab2fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "59e71fa4_1ad039b2",
@@ -177,6 +201,30 @@
       "side": 1,
       "message": "Our plan for Chrome at least is to bundle en-US and fetch other locales on demand. Bundling everything will be a huge impact on binary size. So yes, following the LH approach",
       "parentUuid": "e2124ffa_58b1e9e8",
+      "range": {
+        "startLine": 101,
+        "startChar": 19,
+        "endLine": 101,
+        "endChar": 89
+      },
+      "revId": "34e9fe54120c64ca3b62e86dfeb82ff5dfab2fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fab8884a_f2491c8c",
+        "filename": "front_end/main/MainImpl.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-10-14T04:26:37Z",
+      "side": 1,
+      "message": "I can do a similar change to what LH has, but my understanding was that the whole infrastructure was moving away from remote modules (2416511: Remove support for remote modules | https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2416511). Would i18n be an exception?",
+      "parentUuid": "25e186ad_052404e1",
       "range": {
         "startLine": 101,
         "startChar": 19,
@@ -305,6 +353,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cf8216c_dd7d672c",
+        "filename": "front_end/settings/FrameworkBlackboxSettingsTab.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-10-14T04:26:37Z",
+      "side": 1,
+      "message": "Great idea Simon, I changed it to i18nString to keep the i18n import in sync with the rest of the modules. But I can change to anything else if you have a better option. 😊\n\nNote: this change required me to change some documentation, testing and presubmit scripts so I fixed this in the linked CL:\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2469903",
+      "parentUuid": "7b74f8d9_7998ea02",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 96
+      },
+      "revId": "34e9fe54120c64ca3b62e86dfeb82ff5dfab2fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1fa61540_ca3a413d",
@@ -413,6 +485,30 @@
       "side": 1,
       "message": "I put out a fix here:  https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2461794",
       "parentUuid": "8a880b07_b9089b44",
+      "range": {
+        "startLine": 6,
+        "startChar": 13,
+        "endLine": 6,
+        "endChar": 22
+      },
+      "revId": "34e9fe54120c64ca3b62e86dfeb82ff5dfab2fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5cbb558_28126df3",
+        "filename": "front_end/settings/ModuleUIStrings.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-10-14T04:26:37Z",
+      "side": 1,
+      "message": "Thanks Christy, adding changes related to those fixes.",
+      "parentUuid": "5c0423f2_8209fa2b",
       "range": {
         "startLine": 6,
         "startChar": 13,
