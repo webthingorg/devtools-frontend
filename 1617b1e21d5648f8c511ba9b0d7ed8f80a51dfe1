@@ -1,0 +1,112 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8aa2c264_ee3bb14d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-14T09:07:06Z",
+      "side": 1,
+      "message": "Generally LGTM, but the use of invoke_ functions means we need to handle Promises wherever we do that.",
+      "revId": "1617b1e21d5648f8c511ba9b0d7ed8f80a51dfe1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7717580b_b51fbb95",
+        "filename": "front_end/sdk/EmulationModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-14T09:07:06Z",
+      "side": 1,
+      "message": "This is a Promise (since it\u0027s invoke_*), which means we should likely await it or do something to prevent a race if a user issues a lot of changes quickly.",
+      "revId": "1617b1e21d5648f8c511ba9b0d7ed8f80a51dfe1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52523b0d_8f55986d",
+        "filename": "front_end/sdk/EmulationModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-14T09:07:06Z",
+      "side": 1,
+      "message": "Same here.",
+      "revId": "1617b1e21d5648f8c511ba9b0d7ed8f80a51dfe1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91620be1_7429bf68",
+        "filename": "front_end/sdk/EmulationModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-14T09:07:06Z",
+      "side": 1,
+      "message": "nit: Promise\u003cvoid\u003e would be more consistent with other points in the codebase, I think.",
+      "range": {
+        "startLine": 118,
+        "startChar": 23,
+        "endLine": 118,
+        "endChar": 24
+      },
+      "revId": "1617b1e21d5648f8c511ba9b0d7ed8f80a51dfe1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1f1fb4b_2a112111",
+        "filename": "front_end/sdk/EmulationModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-14T09:07:06Z",
+      "side": 1,
+      "message": "Needs to be an await, really",
+      "revId": "1617b1e21d5648f8c511ba9b0d7ed8f80a51dfe1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "daacbe0e_7fcbadf3",
+        "filename": "front_end/sdk/EmulationModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-14T09:07:06Z",
+      "side": 1,
+      "message": "And here, too",
+      "revId": "1617b1e21d5648f8c511ba9b0d7ed8f80a51dfe1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
