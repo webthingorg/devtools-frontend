@@ -16,6 +16,46 @@
       "message": "LGTM thanks",
       "revId": "7b5a538ef7c3371003232f79308b36606d4b5c57",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86f26cd9_ab2a38be",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 20
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-10-14T18:41:57Z",
+      "side": 1,
+      "message": "I think this gets added by accident?",
+      "revId": "7b5a538ef7c3371003232f79308b36606d4b5c57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0b97499_82e73cbd",
+        "filename": "front_end/settings/SettingsScreen.js",
+        "patchSetId": 20
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-10-14T18:41:57Z",
+      "side": 1,
+      "message": "I think this wont return the localized version anymore since they are not UIStrings.id, should we add those section names to UIStrings (the names in explicitSectionOrder )?",
+      "range": {
+        "startLine": 370,
+        "startChar": 41,
+        "endLine": 370,
+        "endChar": 64
+      },
+      "revId": "7b5a538ef7c3371003232f79308b36606d4b5c57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
