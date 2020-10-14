@@ -34,10 +34,10 @@ Code example:
   ```javascript
   // in example.js file, where you want to call the string
 
-  const message1 = i18n.i18n.getLocalizedString(str_, UIStrings.addThisString);
+  const message1 = i18nString(UIStrings.addThisString);
   console.log(message1); // The new string I want to add
 
-  const message2 = i18n.i18n.getLocalizedString(str_, UIStrings.addAnotherString, {PH1: 'a placeholder'});
+  const message2 = i18nString(UIStrings.addAnotherString, {PH1: 'a placeholder'});
   console.log(message2); // Another new string I want to add, with a placeholder
   ```
 1. If there is already `UIStrings = {}` declared in the file, add your string to it.

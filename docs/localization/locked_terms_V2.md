@@ -15,7 +15,7 @@ const UIStrings = {
 };
 const str_ = i18n.i18n.registerUIStrings('example.js', UIStrings);
 
-const message = i18n.i18n.getLocalizedString(str_, UIStrings.requestMessage, {PH1: 'robots.txt'});
+const message = i18nString(UIStrings.requestMessage, {PH1: 'robots.txt'});
 ```
 
 ## What should not be localized?
