@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "478e694b_814967a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-14T21:39:37Z",
+      "side": 1,
+      "message": "@yangguo I\u0027m not an owner for `sources/DebuggerPlugin.js` for some reason. Could you take a look and help LGTM this? Thanks!",
+      "revId": "22e9522eba88f9bef133468a1a9c79ceab8cd404",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
