@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "276ed866_cfe5f3ad",
+        "filename": "third_party/emscripten-releases/.emscripten",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-10-14T16:20:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe5d2b4b_5e38b99e",
+      "range": {
+        "startLine": 3,
+        "startChar": 7,
+        "endLine": 3,
+        "endChar": 15
+      },
+      "revId": "fdb6c7552ff6db87f16a4478c6144882d9f26008",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b4ff9eeb_dacd0a26",
@@ -54,6 +78,30 @@
       "writtenOn": "2020-10-14T15:16:12Z",
       "side": 1,
       "message": "Maybe properly path.join those as well?",
+      "range": {
+        "startLine": 14,
+        "startChar": 31,
+        "endLine": 14,
+        "endChar": 48
+      },
+      "revId": "fdb6c7552ff6db87f16a4478c6144882d9f26008",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "497d094d_23a42272",
+        "filename": "third_party/emscripten-releases/.emscripten",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-10-14T16:20:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4ff9eeb_dacd0a26",
       "range": {
         "startLine": 14,
         "startChar": 31,
