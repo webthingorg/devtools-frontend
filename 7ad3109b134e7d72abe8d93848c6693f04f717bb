@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bc7f22f_7517accc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-14T07:52:27Z",
+      "side": 1,
+      "message": "lgtm (plus a random thought)",
+      "revId": "7ad3109b134e7d72abe8d93848c6693f04f717bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f89505ed_c31df8fa",
+        "filename": "front_end/media/MainView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-14T07:52:27Z",
+      "side": 1,
+      "message": "Interesting, I prefer inverting the condition with no early return in such cases. Do you find this more readable code style wise?",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 40
+      },
+      "revId": "7ad3109b134e7d72abe8d93848c6693f04f717bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
