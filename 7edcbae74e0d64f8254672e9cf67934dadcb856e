@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdd699aa_daf16b7c",
+        "filename": "front_end/emulation/DeviceModeToolbar.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-14T10:33:41Z",
+      "side": 1,
+      "message": "Can we make this boolean? (At least that\u0027s what I am inferring from the code below). If that is not possible, then that\u0027s acceptable as well.",
+      "range": {
+        "startLine": 20,
+        "startChar": 38,
+        "endLine": 20,
+        "endChar": 39
+      },
+      "revId": "7edcbae74e0d64f8254672e9cf67934dadcb856e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d91df6ad_7ee6c220",
+        "filename": "front_end/emulation/DeviceModeToolbar.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-14T10:33:41Z",
+      "side": 1,
+      "message": "Same",
+      "range": {
+        "startLine": 21,
+        "startChar": 38,
+        "endLine": 21,
+        "endChar": 39
+      },
+      "revId": "7edcbae74e0d64f8254672e9cf67934dadcb856e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
