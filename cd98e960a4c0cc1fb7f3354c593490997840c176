@@ -16,6 +16,24 @@
       "message": "Nice cleanup!",
       "revId": "cd98e960a4c0cc1fb7f3354c593490997840c176",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7253cb61_6e848cb7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-14T11:02:10Z",
+      "side": 1,
+      "message": "Thanks, also almost 22KB saved in android binary size",
+      "parentUuid": "5a1efbaa_8a4ee4b2",
+      "revId": "cd98e960a4c0cc1fb7f3354c593490997840c176",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
