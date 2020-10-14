@@ -324,7 +324,7 @@ export class SnippetsNavigatorView extends NavigatorView {
 }
 
 /**
- * @implements {UI.ActionDelegate.ActionDelegate}
+ * @implements {UI.ActionRegistration.ActionDelegate}
  */
 export class ActionDelegate {
   /**
