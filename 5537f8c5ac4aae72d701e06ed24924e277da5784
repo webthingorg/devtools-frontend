@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "5537f8c5ac4aae72d701e06ed24924e277da5784",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bce6a2b_177efcc3",
+        "filename": "AUTHORS",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-14T21:41:20Z",
+      "side": 1,
+      "message": "Could you remove these two new lines so that it could be consistent with the original AUTHORS file? Thanks!",
+      "revId": "5537f8c5ac4aae72d701e06ed24924e277da5784",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
