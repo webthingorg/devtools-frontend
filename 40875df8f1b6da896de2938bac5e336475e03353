@@ -16,6 +16,40 @@
       "message": "There is a lot going on this CL. Can we split it up to make it easier to review/land and potentially rollback if necessary?\n\nI think I can identify these scopes:\n1. The introduction of additional keyboard shortcuts that also depend on backend changes (this includes numerous refactorings in places like `sdk/`)\n2. The removal of the shortcutsscreen\n3. The removal of the experiment flag\n4. Stylistic changes with regards to the existing keybindssettingstab",
       "revId": "40875df8f1b6da896de2938bac5e336475e03353",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38035a39_007e5f7d",
+        "filename": "front_end/layer_viewer/TransformController.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-14T10:51:17Z",
+      "side": 1,
+      "message": "Why is this needed?",
+      "revId": "40875df8f1b6da896de2938bac5e336475e03353",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cac968dd_f3771e6d",
+        "filename": "front_end/layer_viewer/TransformController.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-14T10:51:17Z",
+      "side": 1,
+      "message": "Why is this needed?",
+      "revId": "40875df8f1b6da896de2938bac5e336475e03353",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
