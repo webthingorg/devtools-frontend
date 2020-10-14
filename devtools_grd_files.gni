@@ -1026,6 +1026,7 @@ grd_files_debug_sources = [
   "front_end/ui/Panel.js",
   "front_end/ui/PopoverHelper.js",
   "front_end/ui/ProgressIndicator.js",
+  "front_end/ui/RegisteredActionExtensions.js",
   "front_end/ui/RemoteDebuggingTerminatedScreen.js",
   "front_end/ui/ReportView.js",
   "front_end/ui/ResizerWidget.js",

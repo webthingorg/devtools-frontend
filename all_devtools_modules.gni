@@ -681,6 +681,7 @@ all_typescript_module_sources = [
   "ui/Panel.js",
   "ui/PopoverHelper.js",
   "ui/ProgressIndicator.js",
+  "ui/RegisteredActionExtensions.js",
   "ui/RemoteDebuggingTerminatedScreen.js",
   "ui/ReportView.js",
   "ui/ResizerWidget.js",

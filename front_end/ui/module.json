@@ -18,6 +18,7 @@
     "InspectorView.js",
     "ActionRegistration.js",
     "ActionRegistry.js",
+    "RegisteredActionExtensions.js",
     "ShortcutRegistry.js",
     "Context.js",
     "ContextMenu.js",

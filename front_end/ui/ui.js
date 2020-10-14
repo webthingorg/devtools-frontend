@@ -30,6 +30,7 @@ import * as ListWidget from './ListWidget.js';
 import * as Panel from './Panel.js';
 import * as PopoverHelper from './PopoverHelper.js';
 import * as ProgressIndicator from './ProgressIndicator.js';
+import * as RegisteredActionExtensions from './RegisteredActionExtensions.js';
 import * as RemoteDebuggingTerminatedScreen from './RemoteDebuggingTerminatedScreen.js';
 import * as ReportView from './ReportView.js';
 import * as ResizerWidget from './ResizerWidget.js';
@@ -91,6 +92,7 @@ export {
   Panel,
   PopoverHelper,
   ProgressIndicator,
+  RegisteredActionExtensions,
   RemoteDebuggingTerminatedScreen,
   ReportView,
   ResizerWidget,

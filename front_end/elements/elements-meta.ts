@@ -25,3 +25,30 @@ UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.PANEL,
   order: 10,
 });
+
+UI.RegisteredActionExtensions.registerActionExtension({
+  actionId: 'elements.hide-element',
+  category: UI.ActionRegistration.ActionCategory.ELEMENTS,
+  title: ls`Hide element`,
+  async loadActionDelegate() {
+    const Elements = await loadElementsModule();
+    return Elements.ElementsPanel.ElementsActionDelegate.instance();
+  },
+  async loadContextTypes() {
+    const Elements = await loadElementsModule();
+    return [Elements.ElementsPanel.ElementsPanel];
+  },
+  bindings: [
+    {
+      shortcut: 'H',
+      platform: undefined,
+      keybindSets: undefined,
+    },
+  ],
+  iconClass: undefined,
+  toggleWithRedColor: undefined,
+  toggledIconClass: undefined,
+  tags: undefined,
+  toggleable: undefined,
+  options: undefined,
+});
