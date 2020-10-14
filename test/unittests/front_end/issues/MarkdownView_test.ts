@@ -85,5 +85,17 @@ ${paragraphText}
       assert.strictEqual(listItems.length, 2);
       assert.deepStrictEqual(listItems.map(item => item.textContent), listItemTexts);
     });
+
+    it('renders basic escaped html', () => {
+      const component = new MarkdownView();
+      renderElementIntoDOM(component);
+
+      component.data = {tokens: Marked.Marked.lexer('`<meta>`')};
+
+      assertShadowRoot(component.shadowRoot);
+
+      const codeBlock = Array.from(component.shadowRoot.querySelectorAll('code'))[0];
+      assert.strictEqual(codeBlock.innerHTML, '<!---->&lt;meta&gt;<!---->');
+    });
   });
 });
