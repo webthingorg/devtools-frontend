@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f53341cb_4c543587",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-14T09:00:24Z",
+      "side": 1,
+      "message": "PTAL for the implementation side, thanks! I\u0027ll go over the design with Adam again later today, and add tests in the same CL, therefore I\u0027ve marked this -1 for now.",
+      "revId": "46342ba6e5f9b3406016183c7e19fb99c0de0bc9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
