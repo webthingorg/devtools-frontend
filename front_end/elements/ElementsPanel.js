@@ -1258,9 +1258,11 @@ export class CSSPropertyRevealer {
   }
 }
 
+/** @type {!ElementsActionDelegate} */
+let elementsActionDelegateIntance;
 
 /**
- * @implements {UI.ActionDelegate.ActionDelegate}
+ * @implements {UI.ActionRegistration.ActionDelegate}
  * @unrestricted
  */
 export class ElementsActionDelegate {
@@ -1297,6 +1299,19 @@ export class ElementsActionDelegate {
         return true;
     }
     return false;
+  }
+
+  /**
+   * @param {{forceNew: ?boolean}=} opts
+   * @return {!ElementsActionDelegate}
+   */
+  static instance(opts = {forceNew: null}) {
+    const {forceNew} = opts;
+    if (!elementsActionDelegateIntance || forceNew) {
+      elementsActionDelegateIntance = new ElementsActionDelegate();
+    }
+
+    return elementsActionDelegateIntance;
   }
 }
 
