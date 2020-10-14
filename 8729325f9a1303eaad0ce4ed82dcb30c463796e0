@@ -69,6 +69,24 @@
       "message": "The resulting image appears to have its size in pixels determined by the naturalWidth and naturalHeight properties calculated here, rather than the size of the node as it appears on the screen.",
       "revId": "8729325f9a1303eaad0ce4ed82dcb30c463796e0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abad12f6_425f9b7f",
+        "filename": "front_end/emulation/DeviceModeView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2020-10-14T07:23:43Z",
+      "side": 1,
+      "message": "`_saveScreenshotBase64` gets a base64 presentation of the screenshot and saves it as a picture for user. The screenshot is already taken at this moment by the call `this._model.captureScreenshot` few line above. \nThe `naturalWidth` and `naturalHeight` are taken from the screenshot itself.",
+      "parentUuid": "c80ef412_792f653a",
+      "revId": "8729325f9a1303eaad0ce4ed82dcb30c463796e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
