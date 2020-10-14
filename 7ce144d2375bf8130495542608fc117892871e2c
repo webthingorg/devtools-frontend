@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7171e64_b8843499",
+        "filename": "docs/localization/adding_strings_V2.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-10-14T20:49:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6566298b_c803497a",
+      "revId": "7ce144d2375bf8130495542608fc117892871e2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6eaa4258_183d10d5",
@@ -65,6 +83,30 @@
       "writtenOn": "2020-10-14T08:19:38Z",
       "side": 1,
       "message": "nit: Superfluous?",
+      "range": {
+        "startLine": 18,
+        "startChar": 27,
+        "endLine": 18,
+        "endChar": 31
+      },
+      "revId": "7ce144d2375bf8130495542608fc117892871e2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4c94090_3389c334",
+        "filename": "docs/localization/locked_terms_V2.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-10-14T20:49:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6eaa4258_183d10d5",
       "range": {
         "startLine": 18,
         "startChar": 27,
@@ -98,6 +140,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5941e59_c2d01c43",
+        "filename": "scripts/localization/localizationV2Checks.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-10-14T20:49:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3017927_2ca56fd6",
+      "range": {
+        "startLine": 167,
+        "startChar": 44,
+        "endLine": 167,
+        "endChar": 48
+      },
+      "revId": "7ce144d2375bf8130495542608fc117892871e2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2787208b_5c1af0b8",
@@ -121,6 +187,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d530155_a72c2201",
+        "filename": "scripts/localization/utils/check_localizability.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-10-14T20:49:54Z",
+      "side": 1,
+      "message": "it could be, but the truth is that we want to eventually disappear this API 😊 and let the creation of the component to a different module.",
+      "parentUuid": "2787208b_5c1af0b8",
+      "range": {
+        "startLine": 182,
+        "startChar": 16,
+        "endLine": 182,
+        "endChar": 40
+      },
+      "revId": "7ce144d2375bf8130495542608fc117892871e2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "14ddac8e_90892d23",
@@ -134,6 +224,30 @@
       "writtenOn": "2020-10-14T08:59:07Z",
       "side": 1,
       "message": "nit: argument",
+      "range": {
+        "startLine": 203,
+        "startChar": 97,
+        "endLine": 203,
+        "endChar": 98
+      },
+      "revId": "7ce144d2375bf8130495542608fc117892871e2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14e6fe40_572078d1",
+        "filename": "scripts/localization/utils/check_localizability.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-10-14T20:49:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14ddac8e_90892d23",
       "range": {
         "startLine": 203,
         "startChar": 97,
