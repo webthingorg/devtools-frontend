@@ -22,6 +22,30 @@
       },
       "revId": "3b683ee50e848271cf50e3937fe52071e1045db7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf5451c8_ad2e2895",
+        "filename": "front_end/worker_service/ServiceDispatcher.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-14T09:18:21Z",
+      "side": 1,
+      "message": "The ServicePort specifies send as returning Promise\u003cboolean\u003e (according to legacy-defs) so I opted to bring this in line.",
+      "parentUuid": "b9980d7d_5363d5e6",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 180,
+        "endChar": 33
+      },
+      "revId": "3b683ee50e848271cf50e3937fe52071e1045db7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
