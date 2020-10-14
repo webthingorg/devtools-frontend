@@ -62,6 +62,52 @@
       },
       "revId": "7ce144d2375bf8130495542608fc117892871e2c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2787208b_5c1af0b8",
+        "filename": "scripts/localization/utils/check_localizability.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-10-14T08:59:07Z",
+      "side": 1,
+      "message": "should this be \u0027format\u0027, there\u0027s no format args?",
+      "range": {
+        "startLine": 182,
+        "startChar": 16,
+        "endLine": 182,
+        "endChar": 40
+      },
+      "revId": "7ce144d2375bf8130495542608fc117892871e2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14ddac8e_90892d23",
+        "filename": "scripts/localization/utils/check_localizability.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-10-14T08:59:07Z",
+      "side": 1,
+      "message": "nit: argument",
+      "range": {
+        "startLine": 203,
+        "startChar": 97,
+        "endLine": 203,
+        "endChar": 98
+      },
+      "revId": "7ce144d2375bf8130495542608fc117892871e2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
