@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a82fe4f3_6e38cb3d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-14T14:34:45Z",
+      "side": 1,
+      "message": "Nice find!\n\nThe tests indicates that some double escaping might be going on:\nAssertionError: expected \u0027\u003c!----\u003e\u0026amp;lt;meta\u0026amp;gt;\u003c!----\u003e\u0027 to equal \u0027\u003c!----\u003e\u0026lt;meta\u0026gt;\u003c!----\u003e\u0027",
+      "revId": "d44490af4f94f68f299f1068c27350b4df188dcd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
