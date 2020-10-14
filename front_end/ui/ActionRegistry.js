@@ -4,7 +4,7 @@
 
 import * as Root from '../root/root.js';  // eslint-disable-line no-unused-vars
 
-import {Action} from './Action.js';
+import {LegacyActionRegistration} from './ActionRegistration.js';  // eslint-disable-line no-unused-vars
 import {Context} from './Context.js';  // eslint-disable-line no-unused-vars
 
 /** @type {!ActionRegistry} */
@@ -15,7 +15,7 @@ export class ActionRegistry {
    * @private
    */
   constructor() {
-    /** @type {!Map.<string, !Action>} */
+    /** @type {!Map.<string, !LegacyActionRegistration>} */
     this._actionsById = new Map();
     this._registerActions();
   }
@@ -47,7 +47,7 @@ export class ActionRegistry {
       }
       console.assert(!this._actionsById.get(actionId));
 
-      const action = new Action(extension);
+      const action = new LegacyActionRegistration(extension);
       if (!action.category() || action.title()) {
         this._actionsById.set(actionId, action);
       } else {
@@ -60,14 +60,14 @@ export class ActionRegistry {
   }
 
   /**
-   * @return {!Array.<!Action>}
+   * @return {!Array.<!LegacyActionRegistration>}
    */
   availableActions() {
     return this.applicableActions([...this._actionsById.keys()], Context.instance());
   }
 
   /**
-   * @return {!Array.<!Action>}
+   * @return {!Array.<!LegacyActionRegistration>}
    */
   actions() {
     return [...this._actionsById.values()];
@@ -76,7 +76,7 @@ export class ActionRegistry {
   /**
    * @param {!Array.<string>} actionIds
    * @param {!Context} context
-   * @return {!Array.<!Action>}
+   * @return {!Array.<!LegacyActionRegistration>}
    */
   applicableActions(actionIds, context) {
     const extensions = [];
@@ -90,18 +90,18 @@ export class ActionRegistry {
 
     /**
      * @param {!Root.Runtime.Extension} extension
-     * @return {!Action}
+     * @return {!LegacyActionRegistration}
      * @this {ActionRegistry}
      */
     function extensionToAction(extension) {
       const actionId = /** @type {string} */ (extension.descriptor().actionId);
-      return /** @type {!Action} */ (this.action(actionId));
+      return /** @type {!LegacyActionRegistration} */ (this.action(actionId));
     }
   }
 
   /**
    * @param {string} actionId
-   * @return {?Action}
+   * @return {?LegacyActionRegistration}
    */
   action(actionId) {
     return this._actionsById.get(actionId) || null;
