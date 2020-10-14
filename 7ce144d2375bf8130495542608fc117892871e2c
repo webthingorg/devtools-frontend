@@ -18,6 +18,40 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "33903fbc_6acfe1e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-10-14T17:28:14Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "7ce144d2375bf8130495542608fc117892871e2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6566298b_c803497a",
+        "filename": "docs/localization/adding_strings_V2.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-10-14T17:28:14Z",
+      "side": 1,
+      "message": "Add the new call to this example \nconst i18nString \u003d i18n.i18n.getLocalizedString.bind(undefined, str_);",
+      "revId": "7ce144d2375bf8130495542608fc117892871e2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6eaa4258_183d10d5",
