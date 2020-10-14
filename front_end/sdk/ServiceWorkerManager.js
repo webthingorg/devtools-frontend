@@ -56,6 +56,23 @@ export class ServiceWorkerManager extends SDKModel {
     }
     this._forceUpdateSetting.addChangeListener(this._forceUpdateSettingChanged, this);
     new ServiceWorkerContextNamer(target, this);
+
+    /** @type {boolean} */
+    this._serviceWorkerNetworkClicked = false;
+  }
+
+  /**
+   * @return {boolean}
+   */
+  get serviceWorkerNetworkClicked() {
+    return this._serviceWorkerNetworkClicked;
+  }
+
+  /**
+   * @param {boolean} serviceWorkerNetworkClicked
+   */
+  set serviceWorkerNetworkClicked(serviceWorkerNetworkClicked) {
+    this._serviceWorkerNetworkClicked = serviceWorkerNetworkClicked;
   }
 
   async enable() {
