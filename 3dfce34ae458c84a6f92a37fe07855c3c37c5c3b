@@ -33,6 +33,24 @@
       "message": "lgtm",
       "revId": "3dfce34ae458c84a6f92a37fe07855c3c37c5c3b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c09f5c26_525af03f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-14T09:02:47Z",
+      "side": 1,
+      "message": "The fastest lgtm in the west.. :) thanks!",
+      "parentUuid": "c2dff07e_62acac97",
+      "revId": "3dfce34ae458c84a6f92a37fe07855c3c37c5c3b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
