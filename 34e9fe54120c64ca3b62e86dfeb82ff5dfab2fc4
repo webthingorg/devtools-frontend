@@ -237,6 +237,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c771152b_8bd5ca82",
+        "filename": "front_end/main/MainImpl.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-10-14T09:08:48Z",
+      "side": 1,
+      "message": "Yep we will keep i18n as the exception. We are pulling json files rather than JS to execute so it\u0027s a bit different.",
+      "parentUuid": "fab8884a_f2491c8c",
+      "range": {
+        "startLine": 101,
+        "startChar": 19,
+        "endLine": 101,
+        "endChar": 89
+      },
+      "revId": "34e9fe54120c64ca3b62e86dfeb82ff5dfab2fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9fffd60c_f64aa425",
         "filename": "front_end/settings/FrameworkBlackboxSettingsTab.js",
         "patchSetId": 13
