@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9f996e2_ed17eefb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-10-14T15:16:12Z",
+      "side": 1,
+      "message": "Rubber stamp on all those locations...",
+      "revId": "fdb6c7552ff6db87f16a4478c6144882d9f26008",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe5d2b4b_5e38b99e",
+        "filename": "third_party/emscripten-releases/.emscripten",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-10-14T15:16:12Z",
+      "side": 1,
+      "message": "nit: alpha sort imports",
+      "range": {
+        "startLine": 3,
+        "startChar": 7,
+        "endLine": 3,
+        "endChar": 15
+      },
+      "revId": "fdb6c7552ff6db87f16a4478c6144882d9f26008",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4ff9eeb_dacd0a26",
+        "filename": "third_party/emscripten-releases/.emscripten",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-10-14T15:16:12Z",
+      "side": 1,
+      "message": "Maybe properly path.join those as well?",
+      "range": {
+        "startLine": 14,
+        "startChar": 31,
+        "endLine": 14,
+        "endChar": 48
+      },
+      "revId": "fdb6c7552ff6db87f16a4478c6144882d9f26008",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
