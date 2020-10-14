@@ -34,6 +34,24 @@
       "parentUuid": "8b0a1488_53e22c3c",
       "revId": "ec23cfada4cdeca15fe4af7ba6977c1250c47a98",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da12d637_43846e03",
+        "filename": "front_end/sources/DebuggerPlugin.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 845,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-14T04:35:42Z",
+      "side": 0,
+      "message": "I see. What I\u0027m concerned is that `_showContinueToLocations` has three call sites. Are we certain that the removal of `_clearValueWidget()` in this function won\u0027t break other call sites\u0027 behavior? Could you try to verify this? Thanks!\n\nLet me dry run it through a variety of tests first to see if it breaks anything.",
+      "parentUuid": "c5d363b4_fb097005",
+      "revId": "ec23cfada4cdeca15fe4af7ba6977c1250c47a98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
