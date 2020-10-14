@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c09ee1a8_4a8160fc",
+        "filename": ".gitignore",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-10-14T15:11:37Z",
+      "side": 1,
+      "message": "Hmm... how is the download script ensuring we don\u0027t get stale files in here? E.g. a file that\u0027s part of an older archive, but not present any longer in a newer?\n\nIf we conservatively delete the folder, we\u0027d delete this file.\n\nnit: Maybe add this change in the subsequent CL where you add this file?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 45
+      },
+      "revId": "5a91435dbca363498ace2d22a4448601492f5bb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
