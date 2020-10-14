@@ -114,6 +114,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a0c62fef_cb56621d",
+        "filename": "scripts/deps/download_emscripten.py",
+        "patchSetId": 11
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-10-14T15:06:24Z",
+      "side": 1,
+      "message": "Ack. It\u0027s probably fine. Btw: Is the dest location git-ignored?",
+      "parentUuid": "2a9e8ab8_8510c347",
+      "range": {
+        "startLine": 55,
+        "startChar": 25,
+        "endLine": 55,
+        "endChar": 37
+      },
+      "revId": "02376092a39962571ff0ae7e5087cd73386f4caa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a97a8acf_df939d38",
         "filename": "scripts/deps/download_emscripten.py",
         "patchSetId": 11
