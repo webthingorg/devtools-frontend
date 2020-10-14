@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95b12a12_ad182572",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-14T07:32:50Z",
+      "side": 1,
+      "message": "Hi Paul, PTAL. It looks like _onSecurityStateChanged, and many of the function it\ncalls, are dead code. From the commit history, you seemed to have worked on the panel with Mandy, could you advise on what to do with the dead code?",
+      "revId": "a8675af39e8fd5da85d407d1b34be3fa9c46be53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
