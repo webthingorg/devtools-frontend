@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e353476_ddf0699f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-14T12:52:49Z",
+      "side": 1,
+      "message": "Adding Patrick to CC since he will be working on ColorSwatch componentization.",
+      "revId": "8091e5a4f2aab2f38d5fa2919da9d76c368226a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "397a0b35_d308479d",
