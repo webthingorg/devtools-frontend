@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c0d8cf2_f060e583",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-10-14T11:15:32Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "df52707095e31810e02dadbabe4302a07a27a4ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e375669a_c4099486",
+        "filename": "front_end/protocol_client/InspectorBackend.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 739,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-10-14T11:15:32Z",
+      "side": 1,
+      "message": "Do you think it would make sense to capitalize the \u0027S\u0027 to \u0027domStorageAgent\u0027? What else would I need to change to update the auto-generated agent\u0027s name accordingly?",
+      "revId": "df52707095e31810e02dadbabe4302a07a27a4ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
