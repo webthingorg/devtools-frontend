@@ -16,6 +16,24 @@
       "message": "I\u0027m concerned that this change can result in distinctly named snippets having the same filename. I\u0027m also concerned that it adds another one-off url escaping/unescaping call. We should land the change to do this in a consistent way.",
       "revId": "b739bd61fb778e4ef37564535f893dcea7d53c2b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3db94f42_93ead39f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-10-14T07:14:24Z",
+      "side": 1,
+      "message": "Imo this is a usability improvement with low risk, since we only unescape to make a suggestion for the file name. Maybe we can land this fix and worry about making this the overall file name and url handling consistent later on? I\u0027d hate to block on the latter.",
+      "parentUuid": "8720922c_a912ce9f",
+      "revId": "b739bd61fb778e4ef37564535f893dcea7d53c2b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
