@@ -1260,7 +1260,7 @@ export class CSSPropertyRevealer {
 
 
 /**
- * @implements {UI.ActionDelegate.ActionDelegate}
+ * @implements {UI.ActionRegistration.ActionDelegate}
  * @unrestricted
  */
 export class ElementsActionDelegate {
