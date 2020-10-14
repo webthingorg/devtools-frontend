@@ -65,9 +65,9 @@ export class BackgroundServiceView extends UI.Widget.VBox {
         SDK.SecurityOriginManager.Events.MainSecurityOriginChanged, () => this._onOriginChanged());
 
 
-    /** @const {!UI.Action.Action} */
+    /** @const {!UI.ActionRegistration.LegacyActionRegistration} */
     this._recordAction =
-        /** @type {!UI.Action.Action} */ (
+        /** @type {!UI.ActionRegistration.LegacyActionRegistration} */ (
             UI.ActionRegistry.ActionRegistry.instance().action('background-service.toggle-recording'));
     /** @type {?UI.Toolbar.ToolbarButton} */
     this._recordButton = null;
@@ -434,7 +434,7 @@ export class EventDataNode extends DataGrid.DataGrid.DataGridNode {
 }
 
 /**
- * @implements {UI.ActionDelegate.ActionDelegate}
+ * @implements {UI.ActionRegistration.ActionDelegate}
  * @unrestricted
  */
 export class ActionDelegate {

@@ -84,7 +84,8 @@ export class ProfilesPanel extends UI.Panel.PanelWithSidebar {
     const toolbar = new UI.Toolbar.Toolbar('', toolbarContainerLeft);
 
     this._toggleRecordAction =
-        /** @type {!UI.Action.Action }*/ (UI.ActionRegistry.ActionRegistry.instance().action(recordingActionId));
+        /** @type {!UI.ActionRegistration.LegacyActionRegistration }*/ (
+            UI.ActionRegistry.ActionRegistry.instance().action(recordingActionId));
     this._toggleRecordButton = UI.Toolbar.Toolbar.createActionButton(this._toggleRecordAction);
     toolbar.appendToolbarItem(this._toggleRecordButton);
 
@@ -705,7 +706,7 @@ export class ProfilesSidebarTreeElement extends UI.TreeOutline.TreeElement {
 }
 
 /**
- * @implements {UI.ActionDelegate.ActionDelegate}
+ * @implements {UI.ActionRegistration.ActionDelegate}
  */
 export class JSProfilerPanel extends ProfilesPanel {
   constructor() {

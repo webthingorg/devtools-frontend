@@ -2,8 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as Action from './Action.js';
-import * as ActionDelegate from './ActionDelegate.js';
+import * as ActionRegistration from './ActionRegistration.js';
 import * as ActionRegistry from './ActionRegistry.js';
 import * as ARIAUtils from './ARIAUtils.js';
 import * as Context from './Context.js';
@@ -64,16 +63,15 @@ import * as XWidget from './XWidget.js';
 import * as ZoomManager from './ZoomManager.js';
 
 export {
-  Action,
-  ActionDelegate,
+  ActionRegistration,
   ActionRegistry,
   ARIAUtils,
   Context,
   ContextFlavorListener,
   ContextMenu,
   Dialog,
-  DropTarget,
   DockController,
+  DropTarget,
   EmptyWidget,
   FilterBar,
   FilterSuggestionBuilder,
