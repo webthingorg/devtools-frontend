@@ -15,9 +15,6 @@
   <message name="IDS_DEVTOOLS_40612c2ed525fba29c5e56172567ce70" desc="Title of Animation Previews listbox">
     Animation previews
   </message>
-  <message name="IDS_DEVTOOLS_535236850b0286b586c8bc7ca796f0fa" desc="Title of an animation keyframe group">
-    <ph name="THIS__ANIMATION_NAME__">$1s<ex>anilogo</ex></ph> slider
-  </message>
   <message name="IDS_DEVTOOLS_5cfdd8643d823e56b0537cf1db3174ea" desc="Title of an Animation Keyframe point">
     Animation Keyframe slider
   </message>
