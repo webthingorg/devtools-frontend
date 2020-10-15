@@ -759,16 +759,17 @@ export class DebuggerLanguagePluginManager {
 
   /**
    * @param {!SDK.DebuggerModel.CallFrame} callFrame
-   * @return {!Promise<?{frames: !Array<!FunctionInfo>}>}
+   * @return {!Promise<!{frames: !Array<!FunctionInfo>}>}
    */
   async getFunctionInfo(callFrame) {
+    const noDwarfInfo = {frames: []};
     if (!callFrame) {
-      return null;
+      return noDwarfInfo;
     }
     const script = callFrame.script;
     const plugin = await this._getPluginForScript(script);
     if (!plugin) {
-      return null;
+      return noDwarfInfo;
     }
     /** @type {!RawLocation}} */
     const location = {
@@ -783,7 +784,7 @@ export class DebuggerLanguagePluginManager {
       return await plugin.getFunctionInfo(location);
     } catch (error) {
       Common.Console.Console.instance().warn(ls`Error in debugger language plugin: ${error.message}`);
-      return null;
+      return noDwarfInfo;
     }
   }
 
@@ -980,7 +981,7 @@ export class DebuggerLanguagePlugin {
 
   /** Find locations in source files from a location in a raw module
    * @param {!RawLocation} rawLocation
-   * @return {!Promise<?{frames: !Array<!FunctionInfo>}>}
+   * @return {!Promise<!{frames: !Array<!FunctionInfo>}>}
   */
   async getFunctionInfo(rawLocation) {
     throw new Error('Not implemented yet');
