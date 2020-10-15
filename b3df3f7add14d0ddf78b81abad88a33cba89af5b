@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4d9c771_1d1e883d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-15T07:24:56Z",
+      "side": 1,
+      "message": "LGTM provided everything looks the same % nit.",
+      "revId": "b3df3f7add14d0ddf78b81abad88a33cba89af5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "87b3581b_0b7f3deb",
@@ -36,6 +53,29 @@
         "startChar": 0,
         "endLine": 215,
         "endChar": 43
+      },
+      "revId": "b3df3f7add14d0ddf78b81abad88a33cba89af5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13a36dc5_4031adb1",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-15T07:24:56Z",
+      "side": 1,
+      "message": "nit: icon.classList.add(\u0027link\u0027, \u0027elements-panel\u0027)",
+      "range": {
+        "startLine": 214,
+        "startChar": 6,
+        "endLine": 215,
+        "endChar": 42
       },
       "revId": "b3df3f7add14d0ddf78b81abad88a33cba89af5b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
