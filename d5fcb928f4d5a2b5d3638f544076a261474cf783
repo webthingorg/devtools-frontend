@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5590b91_5c53800d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-15T14:55:48Z",
+      "side": 1,
+      "message": "PTAL - a lot of nullable things that aren\u0027t treated as nullable so this was a bit of a hefty one...I have visually checked it\u0027s still rendering the queries correctly.",
+      "revId": "d5fcb928f4d5a2b5d3638f544076a261474cf783",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
