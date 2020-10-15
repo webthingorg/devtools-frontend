@@ -56,6 +56,24 @@ export class ServiceWorkerManager extends SDKModel {
     }
     this._forceUpdateSetting.addChangeListener(this._forceUpdateSettingChanged, this);
     new ServiceWorkerContextNamer(target, this);
+
+    /** @type {boolean} */
+    this._serviceWorkerNetworkRequestsPanelOpen = false;
+  }
+
+  /**
+   * Status of service worker network requests panel
+   * @return {boolean}
+   */
+  get serviceWorkerNetworkRequestsPanelOpen() {
+    return this._serviceWorkerNetworkRequestsPanelOpen;
+  }
+
+  /**
+   * @param {boolean} serviceWorkerNetworkRequestsPanelOpen
+   */
+  set serviceWorkerNetworkRequestsPanelOpen(serviceWorkerNetworkRequestsPanelOpen) {
+    this._serviceWorkerNetworkRequestsPanelOpen = serviceWorkerNetworkRequestsPanelOpen;
   }
 
   async enable() {
