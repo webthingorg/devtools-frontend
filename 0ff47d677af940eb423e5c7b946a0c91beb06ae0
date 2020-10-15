@@ -50,6 +50,23 @@
       "message": "Tim PTAL for build POV",
       "revId": "0ff47d677af940eb423e5c7b946a0c91beb06ae0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3d7df75_45a7d613",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-15T11:54:15Z",
+      "side": 1,
+      "message": "INFRA LGTM\n\nFor future migrations, would it be possible to perform some of them per-file instead of per-folder? Some folders are rather large and performing all changes in 1 go will lead to sizeable CLs. Preferably, whenever a folder is significantly large, we would be able to split up that work per file.",
+      "revId": "0ff47d677af940eb423e5c7b946a0c91beb06ae0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
