@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2926b9d_ef86aee9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-10-15T13:10:32Z",
+      "side": 1,
+      "message": "Hey Philip,\n\nHere\u0027s a little improvement to enable mouse hover support for WebAssembly disassembly.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "023371ab721468f8a306ce32d9b7f6365a15cbf2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
