@@ -691,6 +691,13 @@ export class TargetBase {
   }
 
   /**
+   * @return {!ProtocolProxyApi.BackgroundServiceApi}
+   */
+  backgroundServiceAgent() {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
+
+  /**
    * @return {!ProtocolProxyApi.CacheStorageApi}
    */
   cacheStorageAgent() {
@@ -899,6 +906,13 @@ export class TargetBase {
    * @param {!ProtocolProxyApi.AuditsDispatcher} dispatcher
    */
   registerAuditsDispatcher(dispatcher) {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
+
+  /**
+   * @param {!ProtocolProxyApi.BackgroundServiceDispatcher} dispatcher
+   */
+  registerBackgroundServiceDispatcher(dispatcher) {
     throw new Error('Implemented in InspectorBackend.js');
   }
 
