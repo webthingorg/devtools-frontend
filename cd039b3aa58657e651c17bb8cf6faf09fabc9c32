@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5db5196c_fff4ce09",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-15T08:01:05Z",
+      "side": 1,
+      "message": "LGTM with nits.",
+      "revId": "cd039b3aa58657e651c17bb8cf6faf09fabc9c32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98abcf09_e349ae63",
+        "filename": "front_end/resources/ServiceWorkerCacheViews.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-15T08:01:05Z",
+      "side": 1,
+      "message": "nit: move to the line before the field init.",
+      "range": {
+        "startLine": 68,
+        "startChar": 8,
+        "endLine": 68,
+        "endChar": 106
+      },
+      "revId": "cd039b3aa58657e651c17bb8cf6faf09fabc9c32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd4b723a_4b0cd78d",
+        "filename": "front_end/resources/ServiceWorkerCacheViews.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-15T08:01:05Z",
+      "side": 1,
+      "message": "nit: @return {!DataGrid.DataGrid.DataGridImpl\u003c!DataGridNode\u003e} should work here.",
+      "range": {
+        "startLine": 118,
+        "startChar": 4,
+        "endLine": 118,
+        "endChar": 49
+      },
+      "revId": "cd039b3aa58657e651c17bb8cf6faf09fabc9c32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8af6560_7e18abd7",
+        "filename": "front_end/resources/ServiceWorkerCacheViews.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-15T08:01:05Z",
+      "side": 1,
+      "message": "nit: /** @type {function(!DataGridNode, !DataGridNode): number} */\n\nThen the comment for children.sort\u0027s argument can be removed.",
+      "range": {
+        "startLine": 167,
+        "startChar": 4,
+        "endLine": 167,
+        "endChar": 41
+      },
+      "revId": "cd039b3aa58657e651c17bb8cf6faf09fabc9c32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
