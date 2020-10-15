@@ -33,6 +33,23 @@
       "message": "thanks! lgtm",
       "revId": "ed57be1bc7db18c5550d685c7ab4a1dbefec7ae1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22ac18bb_e19ffa40",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-15T09:12:02Z",
+      "side": 1,
+      "message": "I wanted to have the text inside the SVG, so that it would be visible to developers that open the sprit in Inkscape. Does this make sense? It would be similar to the grid numbering text that is already in there (i.e. outside the page) and should not interfere with the icon sprite usage in devtools.",
+      "revId": "ed57be1bc7db18c5550d685c7ab4a1dbefec7ae1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
