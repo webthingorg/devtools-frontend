@@ -16,6 +16,24 @@
       "message": "Are there any tests?",
       "revId": "bbb9bfedf0fcc64b7a643c10a6f8751739307616",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1b4484f_a336a80e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-15T09:10:47Z",
+      "side": 1,
+      "message": "Just added unit tests.",
+      "parentUuid": "053f2c25_08f4ff86",
+      "revId": "bbb9bfedf0fcc64b7a643c10a6f8751739307616",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

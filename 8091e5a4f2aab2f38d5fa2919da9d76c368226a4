@@ -50,6 +50,24 @@
       "message": "Nit: comments should read like sentences (start with capital letter, end with period)\n\nsame below",
       "revId": "8091e5a4f2aab2f38d5fa2919da9d76c368226a4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ae82a21_612c7566",
+        "filename": "front_end/elements/CSSAngleUtils.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-15T09:10:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "397a0b35_d308479d",
+      "revId": "8091e5a4f2aab2f38d5fa2919da9d76c368226a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
