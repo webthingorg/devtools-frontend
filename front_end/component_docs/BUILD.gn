@@ -8,5 +8,6 @@ group("component_docs") {
     "./elements_breadcrumbs",
     "./layout_pane",
     "./perf_piechart",
+    "./webvitals",
   ]
 }

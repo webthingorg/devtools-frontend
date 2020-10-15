@@ -171,6 +171,39 @@ export class TimelineModelImpl {
 
   /**
    * @param {!SDK.TracingModel.Event} event
+   * @return {boolean}
+   */
+  isFCPEvent(event) {
+    return event.name === RecordType.MarkFCP && event.args['frame'] === this._mainFrame.frameId;
+  }
+
+  /**
+   * @param {!SDK.TracingModel.Event} event
+   * @return {boolean}
+   */
+  isLongRunningTask(event) {
+    return event.name === RecordType.Task &&
+        TimelineData.forEvent(event).warning === TimelineModelImpl.WarningType.LongTask;
+  }
+
+  /**
+   * @param {!SDK.TracingModel.Event} event
+   * @return {boolean}
+   */
+  isNavigationStartEvent(event) {
+    return event.name === RecordType.NavigationStart;
+  }
+
+  /**
+   * @param {!SDK.TracingModel.Event} event
+   * @return {boolean}
+   */
+  isMainFrameNavigationStartEvent(event) {
+    return this.isNavigationStartEvent(event) && event.args['data']['isLoadingMainFrame'];
+  }
+
+  /**
+   * @param {!SDK.TracingModel.Event} event
    * @param {string} field
    * @return {string}
    */
