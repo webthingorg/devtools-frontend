@@ -307,6 +307,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "47cf4b44_119e0e32",
+        "filename": "front_end/main/MainImpl.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-10-15T17:58:32Z",
+      "side": 1,
+      "message": "agreed. Thanks Peter!",
+      "parentUuid": "741b48e9_4d60d787",
+      "range": {
+        "startLine": 101,
+        "startChar": 19,
+        "endLine": 101,
+        "endChar": 89
+      },
+      "revId": "34e9fe54120c64ca3b62e86dfeb82ff5dfab2fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9fffd60c_f64aa425",

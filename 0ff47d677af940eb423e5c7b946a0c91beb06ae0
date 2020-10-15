@@ -67,6 +67,24 @@
       "message": "INFRA LGTM\n\nFor future migrations, would it be possible to perform some of them per-file instead of per-folder? Some folders are rather large and performing all changes in 1 go will lead to sizeable CLs. Preferably, whenever a folder is significantly large, we would be able to split up that work per file.",
       "revId": "0ff47d677af940eb423e5c7b946a0c91beb06ae0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86558680_76226fd3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-10-15T17:58:32Z",
+      "side": 1,
+      "message": "Yes we can, but we will potentially lose the ability to restrict v1 and v2 on the same module. Today, we verify that a user does not uses i18n v1 APIs in a module that has already been migrated to v2. We can probably set a limit at 5 (or any other number) JS files (excluding grd(p), build and json changes as this will be rather common). I\u0027ll sync with Christy around this, as she already has another module ready to be migrated and we can discuss more on this issue in that CL. Thanks for the feedback!",
+      "parentUuid": "d3d7df75_45a7d613",
+      "revId": "0ff47d677af940eb423e5c7b946a0c91beb06ae0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
