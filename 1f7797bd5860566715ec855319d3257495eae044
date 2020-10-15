@@ -39,6 +39,30 @@
       },
       "revId": "1f7797bd5860566715ec855319d3257495eae044",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "314180d5_45b3dd31",
+        "filename": "front_end/Images/readme.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-10-15T11:51:40Z",
+      "side": 1,
+      "message": "I\u0027ve submitted it to CQ before I saw your update, I\u0027ll do a follow-up now",
+      "parentUuid": "71e9135b_194cb89d",
+      "range": {
+        "startLine": 24,
+        "startChar": 11,
+        "endLine": 24,
+        "endChar": 35
+      },
+      "revId": "1f7797bd5860566715ec855319d3257495eae044",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
