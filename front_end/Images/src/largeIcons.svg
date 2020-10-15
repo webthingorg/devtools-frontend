@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- This file should not be changed as we want to stop using spritesheets
+     and switch to the Icon component.
+     See readme.md in 'front_end/Images' for a new way of adding icons. -->
+
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
