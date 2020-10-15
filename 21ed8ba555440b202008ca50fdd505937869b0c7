@@ -22,6 +22,30 @@
       },
       "revId": "21ed8ba555440b202008ca50fdd505937869b0c7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0c843c0_a17c5665",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-15T08:42:03Z",
+      "side": 1,
+      "message": "Bug: chromium:1125465",
+      "parentUuid": "0d07ac08_77f928b3",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 3
+      },
+      "revId": "21ed8ba555440b202008ca50fdd505937869b0c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
