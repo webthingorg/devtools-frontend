@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af9cc2df_f4005b39",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-10-15T02:38:22Z",
+      "side": 1,
+      "message": "PTAL! This CL removes the dependencies on ShortcutsScreen without removing the class itself--that\u0027s reserved for another CL",
+      "revId": "004efb26503b38c66bfcd75b8db310a9c74eeb7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
