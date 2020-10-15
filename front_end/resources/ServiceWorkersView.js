@@ -8,6 +8,7 @@
 import * as Common from '../common/common.js';
 import * as Components from '../components/components.js';
 import * as MobileThrottling from '../mobile_throttling/mobile_throttling.js';
+import * as Network from '../network/network.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
@@ -71,6 +72,8 @@ export class ServiceWorkersView extends UI.Widget.VBox {
     this._eventListeners = new Map();
     SDK.SDKModel.TargetManager.instance().observeModels(SDK.ServiceWorkerManager.ServiceWorkerManager, this);
     this._updateListVisibility();
+
+    UI.InspectorView.InspectorView.instance().subscribeToDrawerChange(this._drawerChangeCallback.bind(this));
   }
 
   /**
@@ -114,7 +117,6 @@ export class ServiceWorkersView extends UI.Widget.VBox {
     this._manager = null;
     this._securityOriginManager = null;
   }
-
 
   /**
    * @param {!SDK.ServiceWorkerManager.ServiceWorkerRegistration} registration
@@ -286,6 +288,17 @@ export class ServiceWorkersView extends UI.Widget.VBox {
   _updateListVisibility() {
     this.contentElement.classList.toggle('service-worker-list-empty', this._sections.size === 0);
   }
+
+  /**
+   * @param {boolean} isDrawerOpen
+   */
+  _drawerChangeCallback(isDrawerOpen) {
+    if (!isDrawerOpen && this._manager.serviceWorkerNetworkClicked) {
+      UI.ViewManager.ViewManager.instance().showViewInLocation('network', 'panel', false);
+      Network.NetworkPanel.NetworkPanel.revealAndFilter([]);
+      this._manager.serviceWorkerNetworkClicked = false;
+    }
+  }
 }
 
 export class Section {
@@ -309,6 +322,10 @@ export class Section {
 
     this._toolbar = section.createToolbar();
     this._toolbar.renderAsLinks();
+    this._showNetwork = new UI.Toolbar.ToolbarButton(
+        Common.UIString.UIString('Network requests'), undefined, Common.UIString.UIString('Network requests'));
+    this._showNetwork.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._showNetworkClicked, this);
+    this._toolbar.appendToolbarItem(this._showNetwork);
     this._updateButton =
         new UI.Toolbar.ToolbarButton(Common.UIString.UIString('Update'), undefined, Common.UIString.UIString('Update'));
     this._updateButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._updateButtonClicked, this);
@@ -540,6 +557,36 @@ export class Section {
    */
   _updateButtonClicked(event) {
     this._manager.updateRegistration(this._registration.id);
+  }
+
+  /**
+   * @param {!Common.EventTarget.EventTargetEvent} event
+   */
+  async _showNetworkClicked(event) {
+    UI.ViewManager.ViewManager.instance().showViewInLocation('network', 'drawer-view');
+
+    Network.NetworkPanel.NetworkPanel.revealAndFilter([
+      {
+        filterType: Network.NetworkLogView.FilterType.Is,
+        filterValue: Network.NetworkLogView.IsFilterType.ServiceWorkerIntercepted,
+      },
+    ]);
+
+    const requests = SDK.NetworkLog.NetworkLog.instance().requests();
+    const lastRequest = requests.reduce((acc, request) => {
+      if (!acc && request.fetchedViaServiceWorker) {
+        return request;
+      }
+      if (request.fetchedViaServiceWorker && acc.responseReceivedTime < request.responseReceivedTime) {
+        return request;
+      }
+      return acc;
+    }, null);
+    if (lastRequest) {
+      Network.NetworkPanel.NetworkPanel.selectAndShowRequest(lastRequest, Network.NetworkItemView.Tabs.Timing, false);
+    }
+
+    this._manager.serviceWorkerNetworkClicked = true;
   }
 
   /**

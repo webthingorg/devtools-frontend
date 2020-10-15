@@ -73,6 +73,9 @@ export class InspectorView extends VBox {
 
     this._tabDelegate = new InspectorViewTabDelegate();
 
+    /** @type {function(!boolean)} */
+    this._drawerChangeSubscriber = null;
+
     // Create drawer tabbed pane.
     this._drawerTabbedLocation =
         ViewManager.instance().createTabbedLocation(this._showDrawer.bind(this, false), 'drawer-view', true, true);
@@ -242,6 +245,17 @@ export class InspectorView extends VBox {
   }
 
   /**
+   * @param {function(!boolean)} subscriber
+   */
+  subscribeToDrawerChange(subscriber) {
+    this._drawerChangeSubscriber = subscriber;
+  }
+
+  removeSubscriberToDrawerChange() {
+    this._drawerChangeSubscriber = null;
+  }
+
+  /**
    * @param {string} tabId
    * @return {?TabbedPane}
    */
@@ -281,6 +295,9 @@ export class InspectorView extends VBox {
     } else {
       this._focusRestorer = null;
     }
+    if (this._drawerChangeSubscriber) {
+      this._drawerChangeSubscriber(true);
+    }
   }
 
   /**
@@ -298,6 +315,10 @@ export class InspectorView extends VBox {
       this._focusRestorer.restore();
     }
     this._drawerSplitWidget.hideSidebar(true);
+
+    if (this._drawerChangeSubscriber) {
+      this._drawerChangeSubscriber(false);
+    }
   }
 
   /**
