@@ -172,6 +172,7 @@ all_devtools_files = [
   "front_end/layers_test_runner/layers_test_runner.js",
   "front_end/layers_test_runner/module.json",
   "front_end/layers/module.json",
+  "front_end/linear_memory_inspector/module.json",
   "front_end/main/module.json",
   "front_end/marked/module.json",
   "front_end/media/eventDisplayTable.css",

@@ -1,0 +1,52 @@
+# Copyright 2020 The Chromium Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+import("../../scripts/build/ninja/devtools_entrypoint.gni")
+import("../../scripts/build/ninja/devtools_module.gni")
+
+devtools_module("linear_memory_inspector") {
+  sources = [
+    "LinearMemoryInspector.ts",
+    "LinearMemoryInspectorPane.js",
+    "LinearMemoryInspectorUtils.ts",
+    "LinearMemoryInspector_bridge.js",
+    "LinearMemoryNavigator.ts",
+    "LinearMemoryValueInterpreter.ts",
+    "LinearMemoryViewer.ts",
+  ]
+
+  deps = [
+    "../common:bundle",
+    "../components:bundle",
+    "../coverage:bundle",
+    "../diff:bundle",
+    "../extensions:bundle",
+    "../formatter:bundle",
+    "../host:bundle",
+    "../inline_editor:bundle",
+    "../object_ui:bundle",
+    "../persistence:bundle",
+    "../platform:bundle",
+    "../quick_open:bundle",
+    "../sdk:bundle",
+    "../search:bundle",
+    "../snippets:bundle",
+    "../source_frame:bundle",
+    "../sources:bundle",
+    "../text_editor:bundle",
+    "../text_utils:bundle",
+    "../third_party/lit-html:bundle",
+    "../ui:bundle",
+    "../workspace:bundle",
+    "../workspace_diff:bundle",
+  ]
+
+  visibility = [ "../component_docs/*" ]
+}
+
+devtools_entrypoint("bundle") {
+  entrypoint = "linear_memory_inspector.js"
+
+  deps = [ ":linear_memory_inspector" ]
+}

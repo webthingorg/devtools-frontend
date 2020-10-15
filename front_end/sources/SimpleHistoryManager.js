@@ -39,7 +39,11 @@ export class HistoryEntry {
     throw new Error('not implemented');
   }
 
-  reveal() {}
+  /**
+   * @override
+   */
+  reveal() {
+  }
 }
 
 /**

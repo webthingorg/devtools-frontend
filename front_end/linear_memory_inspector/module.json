@@ -1,0 +1,34 @@
+{
+  "extensions": [
+    {
+      "type": "view",
+      "location": "drawer-view",
+      "id": "linear-memory-inspector",
+      "title": "Memory Inspector",
+      "order": 1,
+      "className": "LinearMemoryInspector.LinearMemoryInspectorPane.Wrapper"
+    },
+    {
+      "type": "@UI.ContextMenu.Provider",
+      "actionId": "linear-memory-inspector.open-memory-inspector",
+      "className": "LinearMemoryInspector.LinearMemoryInspectorPane.Wrapper",
+      "title": "Open memory inspector",
+      "contextTypes": [
+        "ObjectUI.ObjectPropertyTreeElement"
+      ]
+    }
+  ],
+  "dependencies": [
+    "ui",
+    "components",
+    "sources"
+  ],
+  "modules": [
+    "linear_memory_inspector.js",
+    "linear_memory_inspector-legacy.js",
+    "LinearMemoryInspectorPane.js",
+    "LinearMemoryInspector_bridge.js"
+  ],
+  "resources": [
+  ]
+}
