@@ -16,6 +16,23 @@
       "message": "Addressing latest feedback. \nAlso a friendly ping😊 As this change tends to get easily out of sync (because of string changes).",
       "revId": "0ff47d677af940eb423e5c7b946a0c91beb06ae0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ff67a1a_c2201386",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-10-15T00:12:02Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "0ff47d677af940eb423e5c7b946a0c91beb06ae0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

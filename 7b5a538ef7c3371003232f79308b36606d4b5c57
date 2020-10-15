@@ -98,6 +98,30 @@
       },
       "revId": "7b5a538ef7c3371003232f79308b36606d4b5c57",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "027825fe_d142e150",
+        "filename": "front_end/settings/SettingsScreen.js",
+        "patchSetId": 20
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-10-15T00:12:02Z",
+      "side": 1,
+      "message": "Sounds good to me, lets address this as a bug fix then :)",
+      "parentUuid": "9b401dae_7022c869",
+      "range": {
+        "startLine": 370,
+        "startChar": 41,
+        "endLine": 370,
+        "endChar": 64
+      },
+      "revId": "7b5a538ef7c3371003232f79308b36606d4b5c57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
