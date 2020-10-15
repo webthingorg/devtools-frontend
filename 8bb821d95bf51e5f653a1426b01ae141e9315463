@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcb25201_228f4959",
+        "filename": "front_end/layer_viewer/TransformController.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-10-15T08:44:15Z",
+      "side": 1,
+      "message": "Sorry, I had typed a response to your comment on the other CL but I must have lost it somehow before hitting send.\n\nEssentially, ShortcutRegistry uses the return value to determine whether the shortcut has been handled or not so that if there are other candidate actions for the given keys, it can try them if the first candidate fails. Returning true here ensures that if there\u0027s another shortcut bound to the same key we don\u0027t end up triggering it as well.",
+      "parentUuid": "b6fb08eb_376e123d",
+      "revId": "8bb821d95bf51e5f653a1426b01ae141e9315463",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "86e96fb6_98876e94",
@@ -31,6 +49,24 @@
       "writtenOn": "2020-10-15T05:30:17Z",
       "side": 1,
       "message": "Why is this needed?",
+      "revId": "8bb821d95bf51e5f653a1426b01ae141e9315463",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bb5dc29_a0f0d103",
+        "filename": "front_end/layer_viewer/TransformController.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-10-15T08:44:15Z",
+      "side": 1,
+      "message": "same as above",
+      "parentUuid": "86e96fb6_98876e94",
       "revId": "8bb821d95bf51e5f653a1426b01ae141e9315463",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
