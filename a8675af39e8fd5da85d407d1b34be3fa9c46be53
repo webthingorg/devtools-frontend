@@ -68,6 +68,29 @@
       "parentUuid": "705eafd5_d9b1011c",
       "revId": "a8675af39e8fd5da85d407d1b34be3fa9c46be53",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54fb8d37_fb227748",
+        "filename": "front_end/security/SecurityPanel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 768,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-15T10:38:27Z",
+      "side": 1,
+      "message": "I love this.",
+      "range": {
+        "startLine": 768,
+        "startChar": 7,
+        "endLine": 768,
+        "endChar": 46
+      },
+      "revId": "a8675af39e8fd5da85d407d1b34be3fa9c46be53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
