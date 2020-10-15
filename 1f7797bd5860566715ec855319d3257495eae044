@@ -16,6 +16,29 @@
       "message": "Awesome, thanks!",
       "revId": "1f7797bd5860566715ec855319d3257495eae044",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71e9135b_194cb89d",
+        "filename": "front_end/Images/readme.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-15T10:47:08Z",
+      "side": 1,
+      "message": "Should this file be made publicly readable, and an public URL be put here?",
+      "range": {
+        "startLine": 24,
+        "startChar": 11,
+        "endLine": 24,
+        "endChar": 35
+      },
+      "revId": "1f7797bd5860566715ec855319d3257495eae044",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
