@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c0bf6e7_f8c3f944",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-10-15T13:50:18Z",
+      "side": 1,
+      "message": "Good idea, thanks!",
+      "parentUuid": "9cb5600a_2cb41708",
+      "range": {
+        "startLine": 255,
+        "startChar": 10,
+        "endLine": 255,
+        "endChar": 52
+      },
+      "revId": "16cb83048ded37d2ad8ef206f6d3540ca747dead",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e034946_a354c039",
@@ -54,6 +78,30 @@
       "writtenOn": "2020-10-15T11:16:35Z",
       "side": 1,
       "message": "This should either return the element OR modify partent, but not both (returning the element seems to provide better compositionality).",
+      "range": {
+        "startLine": 256,
+        "startChar": 11,
+        "endLine": 256,
+        "endChar": 31
+      },
+      "revId": "16cb83048ded37d2ad8ef206f6d3540ca747dead",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b971a0f_7c503bf8",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-10-15T13:50:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e034946_a354c039",
       "range": {
         "startLine": 256,
         "startChar": 11,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c057028_5fdb86f3",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-10-15T13:50:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cfd8fa4_f9f165d2",
+      "range": {
+        "startLine": 260,
+        "startChar": 2,
+        "endLine": 260,
+        "endChar": 26
+      },
+      "revId": "16cb83048ded37d2ad8ef206f6d3540ca747dead",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "10270f03_d5de4747",
@@ -100,6 +172,30 @@
       "writtenOn": "2020-10-15T11:16:35Z",
       "side": 1,
       "message": "What if we return here but elementLink was falsy?",
+      "range": {
+        "startLine": 329,
+        "startChar": 8,
+        "endLine": 329,
+        "endChar": 15
+      },
+      "revId": "16cb83048ded37d2ad8ef206f6d3540ca747dead",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "861f458f_7688215b",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-10-15T13:50:18Z",
+      "side": 1,
+      "message": "Thanks, fixed.",
+      "parentUuid": "10270f03_d5de4747",
       "range": {
         "startLine": 329,
         "startChar": 8,
