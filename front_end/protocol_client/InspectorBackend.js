@@ -747,6 +747,13 @@ export class TargetBase {
   }
 
   /**
+   * @return {!ProtocolProxyApi.IndexedDBApi}
+   */
+  indexedDBAgent() {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
+
+  /**
    * @return {!ProtocolProxyApi.InputApi}
    */
   inputAgent() {
