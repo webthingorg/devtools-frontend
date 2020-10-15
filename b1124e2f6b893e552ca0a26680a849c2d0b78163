@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59d685cc_4c8fad94",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-10-15T02:19:47Z",
+      "side": 1,
+      "message": "Thanks for the feedback, I\u0027ve split off three CLs from this:\n\nRemoving dependencies on ShortcutsScreen: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2472674\n\nRemoving ShortcutsScreen: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2473197\n\nAdding the docs link to the new shortcuts screen (minor): https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2472846",
+      "revId": "b1124e2f6b893e552ca0a26680a849c2d0b78163",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
