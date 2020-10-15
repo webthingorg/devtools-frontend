@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b6ba9d00_1219b106",
+        "filename": "front_end/resources/ServiceWorkersView.js",
+        "patchSetId": 26
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-15T18:18:07Z",
+      "side": 1,
+      "message": "Updated to `serviceWorkerNetworkRequestsPanelOpen`\nWe set this variable to true when user clicks on network requests button below",
+      "parentUuid": "c3445e50_aa2bd130",
+      "range": {
+        "startLine": 299,
+        "startChar": 6,
+        "endLine": 299,
+        "endChar": 56
+      },
+      "revId": "cd1219c995cfcf438d800c36ed9f0b63f1b0e12b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "13189ba4_89cd2bcd",
         "filename": "front_end/resources/ServiceWorkersView.js",
         "patchSetId": 26
@@ -54,6 +78,30 @@
       "writtenOn": "2020-10-15T16:25:54Z",
       "side": 1,
       "message": "Related to the comments above: maybe name \"serviceWorkerNetworkClicked\" something close to \"should refresh view\". This way the drawerChangeCallback above is easier to read.\n\nSeparate question: what happens if you click \"Network requests\", then close devtools, and then there is a drawer change?",
+      "range": {
+        "startLine": 589,
+        "startChar": 4,
+        "endLine": 589,
+        "endChar": 53
+      },
+      "revId": "cd1219c995cfcf438d800c36ed9f0b63f1b0e12b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a50912a2_16ffd0da",
+        "filename": "front_end/resources/ServiceWorkersView.js",
+        "patchSetId": 26
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-15T18:18:07Z",
+      "side": 1,
+      "message": "Yeah there is a problem with memory leak with subscriber model, I thought of unsubscribing when service worker view is unloaded. So changed it to event emitter isntead.",
+      "parentUuid": "13189ba4_89cd2bcd",
       "range": {
         "startLine": 589,
         "startChar": 4,
@@ -89,6 +137,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4806fd76_ee0bd3c4",
+        "filename": "front_end/sdk/ServiceWorkerManager.js",
+        "patchSetId": 26
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-15T18:18:07Z",
+      "side": 1,
+      "message": "Changed it to `serviceWorkerNetworkRequestsPanelOpen`, let me know if this works",
+      "parentUuid": "a48a1a60_55f17e3f",
+      "range": {
+        "startLine": 67,
+        "startChar": 6,
+        "endLine": 67,
+        "endChar": 35
+      },
+      "revId": "cd1219c995cfcf438d800c36ed9f0b63f1b0e12b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "70ddefb2_6598df5c",
         "filename": "front_end/ui/InspectorView.js",
         "patchSetId": 26
@@ -100,6 +172,30 @@
       "writtenOn": "2020-10-15T16:25:54Z",
       "side": 1,
       "message": "Not sure if we should just create an event and add a listener?",
+      "range": {
+        "startLine": 76,
+        "startChar": 4,
+        "endLine": 77,
+        "endChar": 40
+      },
+      "revId": "cd1219c995cfcf438d800c36ed9f0b63f1b0e12b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6733d062_c2d8b58d",
+        "filename": "front_end/ui/InspectorView.js",
+        "patchSetId": 26
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-15T18:18:07Z",
+      "side": 1,
+      "message": "I was thinking of either using a event listener or subscriber, then I ended up using a subscriber for some reason. I changed it back to event listener.",
+      "parentUuid": "70ddefb2_6598df5c",
       "range": {
         "startLine": 76,
         "startChar": 4,
@@ -135,6 +231,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "650d5c9b_fc10f086",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 26
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-15T18:18:07Z",
+      "side": 1,
+      "message": "Added",
+      "parentUuid": "2c4afcec_e0083ea3",
+      "range": {
+        "startLine": 92,
+        "startChar": 6,
+        "endLine": 93,
+        "endChar": 37
+      },
+      "revId": "cd1219c995cfcf438d800c36ed9f0b63f1b0e12b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9a951614_63cf7113",
         "filename": "test/e2e/application/service-worker-network_test.ts",
         "patchSetId": 26
@@ -158,6 +278,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "03a9a095_645b6620",
+        "filename": "test/e2e/application/service-worker-network_test.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-15T18:18:07Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "9a951614_63cf7113",
+      "range": {
+        "startLine": 26,
+        "startChar": 6,
+        "endLine": 26,
+        "endChar": 130
+      },
+      "revId": "cd1219c995cfcf438d800c36ed9f0b63f1b0e12b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3dcce664_19684721",
         "filename": "test/e2e/application/service-worker-network_test.ts",
         "patchSetId": 26
@@ -169,6 +313,30 @@
       "writtenOn": "2020-10-15T16:25:54Z",
       "side": 1,
       "message": "Same here",
+      "range": {
+        "startLine": 28,
+        "startChar": 28,
+        "endLine": 28,
+        "endChar": 35
+      },
+      "revId": "cd1219c995cfcf438d800c36ed9f0b63f1b0e12b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8a9c8a1_5529b4cb",
+        "filename": "test/e2e/application/service-worker-network_test.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-15T18:18:07Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "3dcce664_19684721",
       "range": {
         "startLine": 28,
         "startChar": 28,
