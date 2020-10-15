@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b491ad06_ba6e3991",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-15T07:22:29Z",
+      "side": 1,
+      "message": "lgtm, thanks!",
+      "revId": "b3df3f7add14d0ddf78b81abad88a33cba89af5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87b3581b_0b7f3deb",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-15T07:22:29Z",
+      "side": 1,
+      "message": "question for Jack: What\u0027s the guidance here? Do we set classes in the parent (like here), or should we pass them via a `classes` field in the data. (Although its weird to mix \"style\" and plain content data)",
+      "range": {
+        "startLine": 214,
+        "startChar": 0,
+        "endLine": 215,
+        "endChar": 43
+      },
+      "revId": "b3df3f7add14d0ddf78b81abad88a33cba89af5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
