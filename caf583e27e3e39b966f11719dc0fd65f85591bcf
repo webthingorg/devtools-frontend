@@ -81,6 +81,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fb18fb2_b241cb7a",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-10-15T11:03:38Z",
+      "side": 1,
+      "message": "I integrated it into the new \u0027maybeShowLinkToElementsPanel\u0027 function.",
+      "parentUuid": "2c274e0b_f51c47a6",
+      "range": {
+        "startLine": 305,
+        "startChar": 4,
+        "endLine": 312,
+        "endChar": 7
+      },
+      "revId": "caf583e27e3e39b966f11719dc0fd65f85591bcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c175e11_46af5b38",
@@ -94,6 +118,30 @@
       "writtenOn": "2020-10-14T10:43:10Z",
       "side": 1,
       "message": "Let\u0027s clear this._openerDomNode and this._openerFrame in the else-cases so we always return in a consistent state.",
+      "range": {
+        "startLine": 328,
+        "startChar": 8,
+        "endLine": 328,
+        "endChar": 31
+      },
+      "revId": "caf583e27e3e39b966f11719dc0fd65f85591bcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50a8dcfa_6845ebb3",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-10-15T11:03:38Z",
+      "side": 1,
+      "message": "After refactoring those variables are not needed anymore.",
+      "parentUuid": "4c175e11_46af5b38",
       "range": {
         "startLine": 328,
         "startChar": 8,
