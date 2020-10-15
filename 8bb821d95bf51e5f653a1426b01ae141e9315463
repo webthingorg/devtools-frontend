@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6fb08eb_376e123d",
+        "filename": "front_end/layer_viewer/TransformController.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-15T05:30:17Z",
+      "side": 1,
+      "message": "Why is this needed?",
+      "revId": "8bb821d95bf51e5f653a1426b01ae141e9315463",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86e96fb6_98876e94",
+        "filename": "front_end/layer_viewer/TransformController.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-15T05:30:17Z",
+      "side": 1,
+      "message": "Why is this needed?",
+      "revId": "8bb821d95bf51e5f653a1426b01ae141e9315463",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
