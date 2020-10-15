@@ -16,6 +16,23 @@
       "message": "Small CL to fix autocomplete for the filter bars in Network and Console",
       "revId": "5cbb86d2539ef34028206728cd22161c748602bf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35e0a7ef_a2b639e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-10-15T18:56:57Z",
+      "side": 1,
+      "message": "Got it, looks good. Thanks!",
+      "revId": "5cbb86d2539ef34028206728cd22161c748602bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
