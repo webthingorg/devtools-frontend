@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "267fb71d_047feb81",
+        "filename": "front_end/layer_viewer/TransformController.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-15T08:53:16Z",
+      "side": 1,
+      "message": "I see. Thanks for clarifying!",
+      "parentUuid": "bcb25201_228f4959",
+      "revId": "8bb821d95bf51e5f653a1426b01ae141e9315463",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "86e96fb6_98876e94",
