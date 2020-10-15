@@ -310,6 +310,9 @@ table is empty.
   <message name="IDS_DEVTOOLS_9350cbb84e8ab827898a783d8f724951" desc="Text in Service Workers View of the Application panel">
     inspect
   </message>
+  <message name="IDS_DEVTOOLS_93ca868aee99565902f13a75d4b6af74" desc="Label for link to Opener Frame in Detail View for Opened Window">
+    Opener Frame
+  </message>
   <message name="IDS_DEVTOOLS_94aa6cfa461998abe42d53963f1344c3" desc="Error msg element text content in Database Table View of the Application panel">
     An error occurred trying to
 read the &quot;<ph name="THIS_TABLENAME">$1s<ex>database</ex></ph>&quot; table.
@@ -341,6 +344,9 @@ read the &quot;<ph name="THIS_TABLENAME">$1s<ex>database</ex></ph>&quot; table.
   <message name="IDS_DEVTOOLS_a0394c82ef53a78ef470b18ecbf960b4" desc="Label for the primary icon loaded from the manifest">
     Primary icon
 as used by <ph name="LOCKED_1">Chrome</ph>
+  </message>
+  <message name="IDS_DEVTOOLS_a065e12702f7d2e1d31e317001e75bff" desc="Description for the 'Access to Opener' field">
+    Is the opened window able to access its opener via the DOM and vice versa?
   </message>
   <message name="IDS_DEVTOOLS_a20961082dd1a8a90cb08914b976639b" desc="Explanatory text in the Frame Details view">
     Localhost is always a secure context
