@@ -54,6 +54,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d592f34_b27af826",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1451147
+      },
+      "writtenOn": "2020-10-15T05:00:36Z",
+      "side": 1,
+      "message": "I tried capturing a screenshot of the same node three times with varying window zoom levels (90%, 100%, 110%). \n\nIn each case, the saved image dimensions were the result of multiplying the element dimensions by the value of window.devicePixelRatio (1.799, 2.000, and 2.200 respective to the zoom levels mentioned)\n\nSo at 90% zoom, window.devicePixelRatio was equal to 1.799. The element dimensions were 264 x 148 (rounded down) at the time of capture, and the final image dimensions were 474 x 266.\n\nThis seems to explain the difference in image size from element size in my case.",
+      "parentUuid": "d27749af_a56dcc8a",
+      "revId": "8729325f9a1303eaad0ce4ed82dcb30c463796e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c80ef412_792f653a",
