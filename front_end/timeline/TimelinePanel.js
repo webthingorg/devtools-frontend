@@ -53,6 +53,7 @@ import {TimelineLoader} from './TimelineLoader.js';
 import {TimelineUIUtils} from './TimelineUIUtils.js';
 import {UIDevtoolsController} from './UIDevtoolsController.js';
 import {UIDevtoolsUtils} from './UIDevtoolsUtils.js';
+import {createWebVitalsTimeline} from './WebVitalsTimeline_bridge.js';
 
 /** @type {!TimelinePanel} */
 let timelinePanelInstance;
@@ -147,6 +148,15 @@ export class TimelinePanel extends UI.Panel.Panel {
     this._flameChart.setSearchableView(this._searchableView);
     this._searchableView.hideWidget();
 
+    if (Root.Runtime.experiments.isEnabled('showWebVitalsInPerformancePanel')) {
+      // this._webvitalsTimeline = createWebVitalsTimeline();
+      // this._webvitalsTimeline.addEventListener(
+      //     'timeline-window-changed', this._onWebvitalsTimelineWindowChanged.bind(this));
+      // this._timelinePane.element.prepend(this._webvitalsTimeline);
+    } else {
+      this._webvitalsTimeline = null;
+    }
+
     this._onModeChanged();
     this._populateToolbar();
     this._showLandingPage();
@@ -214,6 +224,12 @@ export class TimelinePanel extends UI.Panel.Panel {
     const left = event.data.startTime;
     const right = event.data.endTime;
     this._performanceModel.setWindow({left, right}, /* animate */ true);
+    if (this._webvitalsTimeline) {
+      this._webvitalsTimeline.data = {
+        startTime: left - this._performanceModel.timelineModel().minimumRecordTime(),
+        duration: right - left,
+      };
+    }
   }
 
   /**
@@ -222,6 +238,24 @@ export class TimelinePanel extends UI.Panel.Panel {
   _onModelWindowChanged(event) {
     const window = /** @type {!Window} */ (event.data.window);
     this._overviewPane.setWindowTimes(window.left, window.right);
+    if (this._webvitalsTimeline) {
+      this._webvitalsTimeline.data = {
+        startTime: window.left - this._performanceModel.timelineModel().minimumRecordTime(),
+        duration: window.right - window.left,
+      };
+    }
+  }
+
+  /**
+   * @param {!TimelineWindowChangedEvent} event
+   */
+  _onWebvitalsTimelineWindowChanged(event) {
+    const minimumRecordTime = this._performanceModel.timelineModel().minimumRecordTime();
+    const left = event.startTime + minimumRecordTime;
+    const right = left + event.duration;
+
+    this._overviewPane.setWindowTimes(left, right);
+    this._performanceModel.setWindow({left, right}, /* animate */ true);
   }
 
   /**
@@ -729,6 +763,42 @@ export class TimelinePanel extends UI.Panel.Panel {
       this._flameChart.resizeToPreferredHeights();
     }
     this._updateTimelineControls();
+
+
+    if (model && this._webvitalsTimeline) {
+      const timelineModel = model.timelineModel();
+      const events = timelineModel.tracks().reduce((prev, curr) => prev.concat(curr.events), []);
+
+      const prepareEvents = f => events.filter(f).map(e => e.startTime - timelineModel.minimumRecordTime());
+
+      const lcpEvents =
+          events.filter(e => timelineModel.isLCPCandidateEvent(e) || timelineModel.isLCPInvalidateEvent(e));
+      const lcpEventsByNavigationId = new Map();
+      for (const e of lcpEvents) {
+        const navigationId = e.args['data']['navigationId'];
+        const previousLastEvent = lcpEventsByNavigationId.get(navigationId);
+        if (!previousLastEvent || previousLastEvent.args['data']['candidateIndex'] < e.args['data']['candidateIndex']) {
+          lcpEventsByNavigationId.set(navigationId, e);
+        }
+      }
+
+      const latestLcpCandidatesByNavigationId = Array.from(lcpEventsByNavigationId.values());
+      const latestLcpEvents = latestLcpCandidatesByNavigationId.filter(e => timelineModel.isLCPCandidateEvent(e));
+
+      const longTasks = events.filter(e => timelineModel.isLongRunningTask(e))
+                            .map(e => ({start: e.startTime - timelineModel.minimumRecordTime(), duration: e.duration}));
+
+      this._webvitalsTimeline.data = {
+        start: model.window().left - timelineModel.minimumRecordTime(),
+        duration: model.window().right - model.window().left,
+        maxDuration: timelineModel.maximumRecordTime() - timelineModel.minimumRecordTime(),
+        fcps: prepareEvents(e => timelineModel.isFCPEvent(e)),
+        lcps: latestLcpEvents.map(e => e.startTime - timelineModel.minimumRecordTime()),
+        layoutShifts: prepareEvents(e => timelineModel.isLayoutShiftEvent(e)),
+        longTasks,
+        mainFrameNavigations: prepareEvents(e => timelineModel.isMainFrameNavigationStartEvent(e)),
+      };
+    }
   }
 
   _recordingStarted() {

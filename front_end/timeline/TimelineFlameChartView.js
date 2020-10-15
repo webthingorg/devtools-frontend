@@ -21,6 +21,63 @@ import {TimelineFlameChartNetworkDataProvider} from './TimelineFlameChartNetwork
 import {TimelineModeViewDelegate, TimelineSelection} from './TimelinePanel.js';  // eslint-disable-line no-unused-vars
 import {AggregatedTimelineTreeView} from './TimelineTreeView.js';
 import {TimelineMarkerStyle, TimelineUIUtils} from './TimelineUIUtils.js';  // eslint-disable-line no-unused-vars
+import {createWebVitalsTimeline} from './WebVitalsTimeline_bridge.js';
+
+/**
+ * @unrestricted
+ * @implements {PerfUI.ChartViewport.ChartViewportDelegate}
+ */
+class WebVitals extends UI.Widget.VBox {
+  constructor(delegate, model) {
+    super();
+    this._model = model;
+    this.delegate = delegate;
+    this._chartViewport = new PerfUI.ChartViewport.ChartViewport(this);
+    this._chartViewport.show(this.contentElement);
+
+    this.webVitalsTimeline = createWebVitalsTimeline();
+    this._chartViewport.viewportElement.appendChild(this.webVitalsTimeline);
+  }
+
+  /**
+   * @param {number} startTime
+   * @param {number} endTime
+   * @param {boolean} animate
+   */
+  windowChanged(startTime, endTime, animate) {
+    this.delegate.windowChanged(startTime, endTime, animate);
+  }
+
+  /**
+   * @param {number} startTime
+   * @param {number} endTime
+   */
+  updateRangeSelection(startTime, endTime) {
+    this.delegate.updateRangeSelection(startTime, endTime);
+  }
+
+  /**
+   * @param {number} width
+   * @param {number} height
+   */
+  setSize(width, height) {
+    // debugger;
+  }
+
+  update() {
+    // debugger;
+    this.webVitalsTimeline.render();
+  }
+}
+
+class MainWidget extends UI.Widget.VBox {
+  constructor(tmp, model, delegate) {
+    super();
+    this.webVitals = new WebVitals(delegate, model);
+    this.webVitals.show(this.contentElement);
+    tmp.show(this.contentElement);
+  }
+}
 
 /**
  * @implements {PerfUI.FlameChart.FlameChartDelegate}
@@ -68,12 +125,38 @@ export class TimelineFlameChartView extends UI.Widget.VBox {
     this._networkPane = new UI.Widget.VBox();
     this._networkPane.setMinimumSize(23, 23);
     this._networkFlameChart.show(this._networkPane.element);
+    this._webvitalsTimeline = createWebVitalsTimeline();
+
+    this._networkFlameChart.enableRuler(false);
+
+    // this._webvitalsTimeline.data = {
+    //   startTime: 0,
+    //   duration: 1000,
+    //   maxDuration: 15000,
+    //   fcps: [0, 250, 500, 750, 1000, 1250, 1500, 2000, 3000, 4000, 5000].map(t => ({ timestamp: t })),
+    //   lcps: [190, 380, 700].map(t => ({ timestamp: t })),
+    //   layoutshifts: [200, 210, 220, 222, 225, 227, 230, 500].map(t => ({ timestamp: t })),
+    //   longTasks: [
+    //     { start: 300, duration: 400 },
+    //     { start: 850, duration: 50 },
+    //   ],
+    //   mainFrameNavigations: [500, 1500, 12000]
+    // };
+
+    this._mainWidget = new MainWidget(this._mainFlameChart, this._model, this);
+
+    // this._mainWidget.webVitalsTimeline.setWindowTimes(
+    //   dataProvider.minimumBoundary(), dataProvider.minimumBoundary() + dataProvider.totalTime());
+
     this._splitResizer = this._networkPane.element.createChild('div', 'timeline-flamechart-resizer');
     this._networkSplitWidget.hideDefaultResizer(true);
     this._networkSplitWidget.installResizer(this._splitResizer);
 
-    this._networkSplitWidget.setMainWidget(this._mainFlameChart);
+    this._networkSplitWidget.setMainWidget(this._mainWidget);
     this._networkSplitWidget.setSidebarWidget(this._networkPane);
+
+    // @ts-ignore
+    // this._networkSplitWidget._mainElement.prepend(this._webvitalsTimeline);
 
     // Create counters chart splitter.
     this._chartSplitWidget = new UI.SplitWidget.SplitWidget(false, true, 'timelineCountersSplitViewState');
@@ -131,6 +214,11 @@ export class TimelineFlameChartView extends UI.Widget.VBox {
     this._mainFlameChart.setWindowTimes(window.left, window.right, animate);
     this._networkFlameChart.setWindowTimes(window.left, window.right, animate);
     this._networkDataProvider.setWindowTimes(window.left, window.right);
+    this._mainWidget.webVitals._chartViewport.setWindowTimes(window.left, window.right, animate);
+    this._mainWidget.webVitals.webVitalsTimeline.data = {
+      startTime: window.left,
+      duration: window.right - window.left,
+    };
     this._updateSearchResults(false, false);
   }
 
@@ -142,6 +230,11 @@ export class TimelineFlameChartView extends UI.Widget.VBox {
    */
   windowChanged(windowStartTime, windowEndTime, animate) {
     this._model.setWindow({left: windowStartTime, right: windowEndTime}, animate);
+
+    // this._webvitalsTimeline.data = {
+    //   startTime: windowStartTime - this._model.timelineModel().minimumRecordTime(),
+    //   duration: windowEndTime - windowStartTime,
+    // };
   }
 
   /**
@@ -195,6 +288,58 @@ export class TimelineFlameChartView extends UI.Widget.VBox {
     this._nextExtensionIndex = 0;
     this._appendExtensionData();
     this._refresh();
+
+    const timelineModel = this._model.timelineModel();
+    const events = timelineModel.tracks().reduce((prev, curr) => prev.concat(curr.events), []);
+
+    const prepareEvents = f => events.filter(f).map(e => e.startTime);
+
+    const lcpEvents = events.filter(e => timelineModel.isLCPCandidateEvent(e) || timelineModel.isLCPInvalidateEvent(e));
+    const lcpEventsByNavigationId = new Map();
+    for (const e of lcpEvents) {
+      const navigationId = e.args['data']['navigationId'];
+      const previousLastEvent = lcpEventsByNavigationId.get(navigationId);
+      if (!previousLastEvent || previousLastEvent.args['data']['candidateIndex'] < e.args['data']['candidateIndex']) {
+        lcpEventsByNavigationId.set(navigationId, e);
+      }
+    }
+
+    const latestLcpCandidatesByNavigationId = Array.from(lcpEventsByNavigationId.values());
+    const latestLcpEvents = latestLcpCandidatesByNavigationId.filter(e => timelineModel.isLCPCandidateEvent(e));
+
+    const longTasks =
+        events.filter(e => timelineModel.isLongRunningTask(e)).map(e => ({start: e.startTime, duration: e.duration}));
+
+    this._webvitalsTimeline.data = {
+      startTime: model.window().left,
+      duration: model.window().right - model.window().left,
+      maxDuration: timelineModel.maximumRecordTime(),
+      fcps: prepareEvents(e => timelineModel.isFCPEvent(e)).map(t => ({timestamp: t})),
+      lcps: latestLcpEvents.map(e => e.startTime).map(t => ({timestamp: t})),
+      layoutShifts: prepareEvents(e => timelineModel.isLayoutShiftEvent(e)).map(t => ({timestamp: t})),
+      longTasks,
+      mainFrameNavigations: prepareEvents(e => timelineModel.isMainFrameNavigationStartEvent(e)),
+    };
+
+    this._mainWidget.webVitals._model = model;
+    this._mainWidget.webVitals._chartViewport.setBoundaries(
+        model.window().left,
+        model.window().right - model.window().left,
+    );
+    this._mainWidget.webVitals._chartViewport.setWindowTimes(
+        model.window().left,
+        model.window().right,
+    );
+    this._mainWidget.webVitals.webVitalsTimeline.data = {
+      startTime: model.window().left,
+      duration: model.window().right,
+      maxDuration: timelineModel.maximumRecordTime(),
+      fcps: prepareEvents(e => timelineModel.isFCPEvent(e)).map(t => ({timestamp: t})),
+      lcps: latestLcpEvents.map(e => e.startTime).map(t => ({timestamp: t})),
+      layoutShifts: prepareEvents(e => timelineModel.isLayoutShiftEvent(e)).map(t => ({timestamp: t})),
+      longTasks,
+      mainFrameNavigations: prepareEvents(e => timelineModel.isMainFrameNavigationStartEvent(e)),
+    };
   }
 
   _updateTrack() {
@@ -326,12 +471,13 @@ export class TimelineFlameChartView extends UI.Widget.VBox {
       this._needsResizeToPreferredHeights = true;
       return;
     }
+    this._webvitalsTimeline.render();
     this._needsResizeToPreferredHeights = false;
     this._networkPane.element.classList.toggle(
         'timeline-network-resizer-disabled', !this._networkDataProvider.isExpanded());
     this._networkSplitWidget.setSidebarSize(
         this._networkDataProvider.preferredHeight() + this._splitResizer.clientHeight + PerfUI.FlameChart.HeaderHeight +
-        2);
+        this._webvitalsTimeline.offsetHeight + 2);
   }
 
   /**
