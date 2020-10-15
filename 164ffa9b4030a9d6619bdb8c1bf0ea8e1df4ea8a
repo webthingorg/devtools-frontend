@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3df5200b_38569298",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-10-15T15:53:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ecbaca1c_9228473d",
+      "range": {
+        "startLine": 313,
+        "startChar": 40,
+        "endLine": 313,
+        "endChar": 114
+      },
+      "revId": "164ffa9b4030a9d6619bdb8c1bf0ea8e1df4ea8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc18b217_7c6e6d44",
@@ -71,6 +95,30 @@
       "writtenOn": "2020-10-15T13:56:16Z",
       "side": 1,
       "message": "I don\u0027t think we should hide everything, because just because we can\u0027t get the element in the front-end shouldn\u0027t prevent us from showing useful information. (i.e. in this case we should at least show the _valueForDOMAccessibility bit.",
+      "range": {
+        "startLine": 337,
+        "startChar": 4,
+        "endLine": 337,
+        "endChar": 39
+      },
+      "revId": "164ffa9b4030a9d6619bdb8c1bf0ea8e1df4ea8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33a67a37_0b5b0009",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-10-15T15:53:05Z",
+      "side": 1,
+      "message": "Valid point, I put the \"Access to opener\" back onto a separate line so that the 2 lines can be shown independently of each other.",
+      "parentUuid": "cc18b217_7c6e6d44",
       "range": {
         "startLine": 337,
         "startChar": 4,
