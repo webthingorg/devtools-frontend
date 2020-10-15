@@ -283,6 +283,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "741b48e9_4d60d787",
+        "filename": "front_end/main/MainImpl.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-10-15T07:38:27Z",
+      "side": 1,
+      "message": "SGTM. We are planning to load the non-en-US locales remotely due to size so we won\u0027t bundle them. If Edge makes a different decision we can account for both options in the code base",
+      "parentUuid": "cab26dfc_6cbbae62",
+      "range": {
+        "startLine": 101,
+        "startChar": 19,
+        "endLine": 101,
+        "endChar": 89
+      },
+      "revId": "34e9fe54120c64ca3b62e86dfeb82ff5dfab2fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9fffd60c_f64aa425",
