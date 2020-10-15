@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c12a077_e2fd8fd2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-15T09:59:22Z",
+      "side": 1,
+      "message": "It appears that the angle component appears in the wrong place if the styles panel is scrolled. Also, it does not disappear on scrolling. ",
+      "revId": "e330597a7b080b7f9bd9e5f074f7c0c08c5c008f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
