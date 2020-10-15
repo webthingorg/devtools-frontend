@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f40c86b5_a9b9937b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-15T15:44:51Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "0175f340dfd64cf2b3d496646edb1b352573dcaf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ae93b68_1112fd69",
+        "filename": "front_end/resources/IndexedDBModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-15T15:44:51Z",
+      "side": 1,
+      "message": "I recommend casting to !SecurityOriginManager here, as creation cannot fail.",
+      "range": {
+        "startLine": 45,
+        "startChar": 34,
+        "endLine": 45,
+        "endChar": 96
+      },
+      "revId": "0175f340dfd64cf2b3d496646edb1b352573dcaf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
