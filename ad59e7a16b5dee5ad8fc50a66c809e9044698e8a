@@ -16,6 +16,24 @@
       "message": "This actually seems, in a way, like a bigger issue than just about the Developer Tools.\nIf you notice, none of the other user-interface elements of the browser (the toolbar, or the history screen, for example) supports this behavior. While I am in favor of adding accessibility features generally, it makes sense to make this a cross-product behavior rather than only the behavior of a specific browser feature (thus creating an inconsistency).\nWas this discussed with any Chrome user interface lead? Are there Monorail issues for other parts of the browser to get a similar treatment (web user interface history, or the toolbar or any other)?",
       "revId": "ad59e7a16b5dee5ad8fc50a66c809e9044698e8a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "396462b5_8ca69c6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-10-15T21:30:51Z",
+      "side": 1,
+      "message": "Hmmm, I was pretty much just focused on the DevTools when I made this change, so I didn\u0027t talk to the Chrome UI folks. We actually went back and forth a bit on whether to make this change internally and ultimately only decided to go forward with the ~half second delay after focusing. \nAs far as I know there aren\u0027t any comparable efforts on the browser side--if you think that the Chrome UI team would be bothered by the inconsistency then maybe we should consider a revert?",
+      "parentUuid": "9240ff2e_b68efdca",
+      "revId": "ad59e7a16b5dee5ad8fc50a66c809e9044698e8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
