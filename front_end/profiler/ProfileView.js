@@ -121,7 +121,6 @@ export class ProfileView extends UI.View.SimpleView {
       [ViewTypes.Flame, ls`Chart`],
       [ViewTypes.Heavy, ls`Heavy (Bottom Up)`],
       [ViewTypes.Tree, ls`Tree (Top Down)`],
-      [ViewTypes.Text, ls`Text (Top Down)`],
     ]);
 
     const options =
@@ -303,21 +302,6 @@ export class ProfileView extends UI.View.SimpleView {
     return this._linkifier;
   }
 
-  _ensureTextViewCreated() {
-    if (this._textView) {
-      return;
-    }
-    this._textView = new UI.View.SimpleView(ls`Call tree`);
-    this._textView.registerRequiredCSS('profiler/profilesPanel.css');
-    this.populateTextView(this._textView);
-  }
-
-  /**
-   * @param {!UI.View.SimpleView} view
-   */
-  populateTextView(view) {
-  }
-
   /**
    * @return {!ProfileFlameChartDataProvider}
    */
@@ -386,11 +370,6 @@ export class ProfileView extends UI.View.SimpleView {
         this._sortProfile();
         this._visibleView = this.dataGrid.asWidget();
         this._searchableElement = this.profileDataGridTree;
-        break;
-      case ViewTypes.Text:
-        this._ensureTextViewCreated();
-        this._visibleView = this._textView;
-        this._searchableElement = this._textView;
         break;
     }
 
