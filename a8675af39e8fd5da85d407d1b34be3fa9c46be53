@@ -16,6 +16,23 @@
       "message": "Hi Paul, PTAL. It looks like _onSecurityStateChanged, and many of the function it\ncalls, are dead code. From the commit history, you seemed to have worked on the panel with Mandy, could you advise on what to do with the dead code?",
       "revId": "a8675af39e8fd5da85d407d1b34be3fa9c46be53",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20326a9b_42a49a13",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-15T09:18:56Z",
+      "side": 1,
+      "message": "Tim, PTAL at the typescriptification. \n\nPaul, I\u0027ll address eventual comments of yours regarding dead code in a follow-up.",
+      "revId": "a8675af39e8fd5da85d407d1b34be3fa9c46be53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
