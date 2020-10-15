@@ -33,6 +33,24 @@
       "message": "If we treat `null` and `[]` the same here, how about changing the signature to `!Promise\u003c!Array\u003c!FunctionInfo\u003e\u003e` and adjusting all the places that currently return `null` to return `[]` instead? That way future extension developers will not need to wonder whether there\u0027s a semantic difference between `null` and `[]`?",
       "revId": "3e542556e06e296d87d6547e1e8f3b80517b4cd4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f970f2af_8ce971f3",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-10-15T10:54:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e80bb6d_919db248",
+      "revId": "3e542556e06e296d87d6547e1e8f3b80517b4cd4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
