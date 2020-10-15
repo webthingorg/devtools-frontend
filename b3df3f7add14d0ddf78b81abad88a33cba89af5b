@@ -79,6 +79,30 @@
       },
       "revId": "b3df3f7add14d0ddf78b81abad88a33cba89af5b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "853b62c8_1ed613ef",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-15T08:17:38Z",
+      "side": 1,
+      "message": "It\u0027s fine to set classes on the components themselves if we need to - I don\u0027t think this is an issue here, particularly for icons where sometimes they need a bit of extra CSS to be positioned just right. We should be wary of doing it too much, though.",
+      "parentUuid": "87b3581b_0b7f3deb",
+      "range": {
+        "startLine": 214,
+        "startChar": 0,
+        "endLine": 215,
+        "endChar": 43
+      },
+      "revId": "b3df3f7add14d0ddf78b81abad88a33cba89af5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
