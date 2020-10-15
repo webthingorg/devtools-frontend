@@ -16,6 +16,69 @@
       "message": "Addressed the comments",
       "revId": "164ffa9b4030a9d6619bdb8c1bf0ea8e1df4ea8a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c62c361_2256373c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-15T13:56:16Z",
+      "side": 1,
+      "message": "LGTM once final comments are addressed. Please update the screenshots if necessary.",
+      "revId": "164ffa9b4030a9d6619bdb8c1bf0ea8e1df4ea8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecbaca1c_9228473d",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-15T13:56:16Z",
+      "side": 1,
+      "message": "I would suggest: `Shows whether the opened window is able to access its opener and vice versa`",
+      "range": {
+        "startLine": 313,
+        "startChar": 40,
+        "endLine": 313,
+        "endChar": 114
+      },
+      "revId": "164ffa9b4030a9d6619bdb8c1bf0ea8e1df4ea8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc18b217_7c6e6d44",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-15T13:56:16Z",
+      "side": 1,
+      "message": "I don\u0027t think we should hide everything, because just because we can\u0027t get the element in the front-end shouldn\u0027t prevent us from showing useful information. (i.e. in this case we should at least show the _valueForDOMAccessibility bit.",
+      "range": {
+        "startLine": 337,
+        "startChar": 4,
+        "endLine": 337,
+        "endChar": 39
+      },
+      "revId": "164ffa9b4030a9d6619bdb8c1bf0ea8e1df4ea8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
