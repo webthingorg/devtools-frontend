@@ -104,6 +104,30 @@
       },
       "revId": "a07048f4b92b61c4f0e5a51a9f6433883eae5f96",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "990496e6_c24abe6b",
+        "filename": "front_end/issues/descriptions/cspURLViolation.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-10-15T08:24:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f09fc5a_6a813010",
+      "range": {
+        "startLine": 5,
+        "startChar": 243,
+        "endLine": 5,
+        "endChar": 251
+      },
+      "revId": "a07048f4b92b61c4f0e5a51a9f6433883eae5f96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
