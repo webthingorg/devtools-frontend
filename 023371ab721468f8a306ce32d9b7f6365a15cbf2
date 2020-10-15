@@ -33,6 +33,24 @@
       "message": "Although the change is fairly small, could you add a testcase for it?",
       "revId": "023371ab721468f8a306ce32d9b7f6365a15cbf2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed789965_109c629c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-10-15T15:39:15Z",
+      "side": 1,
+      "message": "Sure.",
+      "parentUuid": "1616473c_7f834f64",
+      "revId": "023371ab721468f8a306ce32d9b7f6365a15cbf2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
