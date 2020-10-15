@@ -1849,9 +1849,12 @@ export class NetworkLogView extends UI.Widget.VBox {
   /**
    * @override
    * @param {!SDK.NetworkRequest.NetworkRequest} request
+   * @param {boolean=} clearFilter
    */
-  selectRequest(request) {
-    this.setTextFilterValue('');
+  selectRequest(request, clearFilter = true) {
+    if (clearFilter) {
+      this.setTextFilterValue('');
+    }
     const node = this._reveal(request);
     if (node) {
       node.select();
