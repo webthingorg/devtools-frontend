@@ -33,6 +33,23 @@
       "message": "LGTM! Thanks!",
       "revId": "1f7a191276edbb48bdc735d52c38a7665641f6e1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "618f4617_25b0a389",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-16T10:49:44Z",
+      "side": 1,
+      "message": "Hi Jack,\n\nexporting the data input types from the icon component, ptal!",
+      "revId": "1f7a191276edbb48bdc735d52c38a7665641f6e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
