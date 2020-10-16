@@ -58,6 +58,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3427c4f5_a7c7c499",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 29
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2020-10-16T16:48:21Z",
+      "side": 1,
+      "message": "This doesnt work if the Application panel is already in the bottom drawer",
+      "revId": "2b917d030ef1d47e69915561d221fc1e9598bcb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4585d18_070abbb5",
