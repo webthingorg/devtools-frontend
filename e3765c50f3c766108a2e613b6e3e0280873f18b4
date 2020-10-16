@@ -16,6 +16,57 @@
       "message": "PTAL :)",
       "revId": "e3765c50f3c766108a2e613b6e3e0280873f18b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03221eb9_b93264ae",
+        "filename": "front_end/source_frame/SourceFrame.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-16T12:05:59Z",
+      "side": 1,
+      "message": "The condition here is slightly different. Are we sure when `content !\u003d\u003d null`, it always means `error \u003d\u003d\u003d null`?",
+      "revId": "e3765c50f3c766108a2e613b6e3e0280873f18b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8608351_98382313",
+        "filename": "front_end/source_frame/SourceFrame.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-16T12:05:59Z",
+      "side": 1,
+      "message": "The original line also had \"error\" assigned, and now `content.error` is not assigned anymore. It seems like this \"error\" variable is not used much in the TS-ified version. Could you explain a bit behind the reasoning here? Thanks!",
+      "revId": "e3765c50f3c766108a2e613b6e3e0280873f18b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fa8b88a_0b2cb41a",
+        "filename": "front_end/source_frame/SourceFrame.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-16T12:05:59Z",
+      "side": 1,
+      "message": "Same above.",
+      "revId": "e3765c50f3c766108a2e613b6e3e0280873f18b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
