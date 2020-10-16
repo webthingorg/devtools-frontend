@@ -60,6 +60,37 @@ export class ClearStorageView extends UI.ThrottledWidget.ThrottledWidget {
     usageBreakdownRow.classList.add('usage-breakdown-row');
     usageBreakdownRow.appendChild(this._pieChart);
 
+    this._quotaOverridden = false;
+    this._enableButtonText = 'Enable';
+    this._disableButtonText = 'Disable';
+    const quotaOverrideCheckboxRow = quota.appendRow();
+    this._quotaOverrideCheckbox = UI.UIUtils.CheckboxLabel.create('Simulate custom storage quota', false, '');
+    quotaOverrideCheckboxRow.appendChild(this._quotaOverrideCheckbox);
+    const quotaOverrideControlRow = quota.appendRow();
+    const quotaOverrideEditor =
+        quotaOverrideControlRow.createChild('input', 'quota-override-notification-quotaOverrideEditor');
+    quotaOverrideControlRow.appendChild(UI.UIUtils.createLabel(Common.UIString.UIString('Bytes')));
+    quotaOverrideControlRow.classList.add('hidden');
+    quotaOverrideEditor.addEventListener('keyup', async e => {
+      const shortcutKey = UI.KeyboardShortcut.KeyboardShortcut.makeKeyFromEvent(/** @type {!KeyboardEvent} */ (e));
+      if (shortcutKey === 13) {
+        await this._quotaOverrideButtonClicked(e);
+      }
+    });
+
+    const quotaOverrideButton =
+        UI.UIUtils.createTextButton(this._enableButtonText, this._quotaOverrideButtonClicked.bind(this));
+    quotaOverrideButton.type = 'submit';
+    const errorMessage = quotaOverrideControlRow.createChild('div', 'quota-override-error');
+    errorMessage.textContent = '';
+
+    this._quotaOverrideControlRow = /** @type {!Element} */ (quotaOverrideControlRow);
+    this._quotaOverrideButton = /** @type {!Element} */ (quotaOverrideButton);
+    this._quotaOverrideEditor = /** @type {!HTMLDataElement} */ (quotaOverrideEditor);
+    this._quotaOverrideErrorMessage = /** @type {!Element} */ (errorMessage);
+    quotaOverrideButton.addEventListener('click', this._quotaOverrideButtonClicked.bind(this));
+
+
     const clearButtonSection = this._reportView.appendSection('', 'clear-storage-button').appendRow();
     this._clearButton = UI.UIUtils.createTextButton(ls`Clear site data`, this._clear.bind(this));
     clearButtonSection.appendChild(this._clearButton);
@@ -108,6 +139,8 @@ export class ClearStorageView extends UI.ThrottledWidget.ThrottledWidget {
         securityOriginManager.mainSecurityOrigin(), securityOriginManager.unreachableMainSecurityOrigin());
     securityOriginManager.addEventListener(
         SDK.SecurityOriginManager.Events.MainSecurityOriginChanged, this._originChanged, this);
+    this._quotaOverrideCheckbox.checkboxElement.addEventListener(
+        'click', this._onClickCheckbox.bind(this, target, securityOriginManager.mainSecurityOrigin()), false);
   }
 
   /**
@@ -138,15 +171,92 @@ export class ClearStorageView extends UI.ThrottledWidget.ThrottledWidget {
    * @param {?string} unreachableMainOrigin
    */
   _updateOrigin(mainOrigin, unreachableMainOrigin) {
+    const oldOrigin = this._securityOrigin;
     if (unreachableMainOrigin) {
-      this._securityOrigin = unreachableMainOrigin;
-      this._reportView.setSubtitle(ls`${unreachableMainOrigin} (failed to load)`);
     } else {
       this._securityOrigin = mainOrigin;
       this._reportView.setSubtitle(mainOrigin);
     }
 
-    this.doUpdate();
+    if (oldOrigin !== this._securityOrigin) {
+      this._quotaOverrideEditor.nodeValue = '';
+      this._quotaOverrideErrorMessage.textContent = '';
+      if (this._target) {
+        this._overrideQuotaForOrigin(this._target, oldOrigin, -1).then(() => this.doUpdate());
+      }
+    } else {
+      this.doUpdate();
+    }
+  }
+
+  /**
+   * @param {!Event} event
+   */
+  async _quotaOverrideButtonClicked(event) {
+    /**
+     * @param {string} str
+     * @return {boolean}
+     */
+    function isFloat(str) {
+      return /^\-?[0-9]+(\.[0-9]+)?$/.test(str);
+    }
+
+    event.consume(true);
+    this._quotaOverrideErrorMessage.textContent = '';
+    const editorString = this._quotaOverrideEditor.value;
+    if (!editorString) {
+      this._quotaOverrideErrorMessage.textContent = ls`empty input`;
+      return;
+    }
+    if (!isFloat(editorString)) {
+      this._quotaOverrideErrorMessage.textContent = ls`illegal input`;
+      return;
+    }
+    const quota = parseFloat(editorString);
+    if (quota < 0) {
+      this._quotaOverrideErrorMessage.textContent = ls`negative input`;
+      return;
+    }
+
+    if (this._target) {
+      await this._overrideQuotaForOrigin(this._target, this._securityOrigin, quota);
+    }
+  }
+
+  /**
+   * @param {!SDK.SDKModel.Target} target
+   * @param {?string} origin
+   * @param {!number} quotaInMB
+   */
+  async _overrideQuotaForOrigin(target, origin, quotaInMB) {
+    if (!origin) {
+      return;
+    }
+
+    if (quotaInMB && quotaInMB > -1) {
+      this._quotaOverridden = true;
+      this._quotaOverrideButton.textContent = this._disableButtonText;
+    } else {
+      this._quotaOverridden = false;
+      this._quotaOverrideButton.textContent = this._enableButtonText;
+    }
+    const originToOverride = /** @type {string} */ (origin);
+    await target.storageAgent().invoke_overrideQuotaForOrigin({origin: originToOverride, quotaSize: quotaInMB});
+  }
+
+  /**
+   * @param {!SDK.SDKModel.Target} target
+   * @param {!string} origin
+   */
+  async _onClickCheckbox(target, origin) {
+    if (this._quotaOverrideControlRow.classList.contains('hidden')) {
+      this._quotaOverrideControlRow.classList.remove('hidden');
+      this._quotaOverrideErrorMessage.textContent = '';
+    } else {
+      this._quotaOverrideControlRow.classList.add('hidden');
+      await target.storageAgent().invoke_overrideQuotaForOrigin({origin});
+      this._quotaOverrideEditor.value = '';
+    }
   }
 
   _clear() {
