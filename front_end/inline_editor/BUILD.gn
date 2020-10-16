@@ -15,6 +15,9 @@ devtools_module("inline_editor") {
     "CSSVarSwatch.ts",
     "CSSVarSwatch_bridge.js",
     "ColorSwatch.js",
+    "FontEditor.js",
+    "FontEditorUnitConverter.js",
+    "FontEditorUtils.js",
     "SwatchPopoverHelper.js",
   ]
 
@@ -23,7 +26,9 @@ devtools_module("inline_editor") {
     "../common:bundle",
     "../component_helpers:bundle",
     "../components:bundle",
+    "../css_overview:bundle",
     "../platform:bundle",
+    "../sdk:bundle",
     "../text_utils:bundle",
     "../third_party/lit-html:bundle",
     "../ui:bundle",
@@ -37,7 +42,11 @@ copy_to_gen("legacy_css") {
 devtools_entrypoint("bundle") {
   entrypoint = "inline_editor.js"
 
-  deps = [ ":inline_editor" ]
+  deps = [
+    ":inline_editor",
+    "../css_overview:bundle",
+    "../sdk:bundle",
+  ]
 }
 
 devtools_entrypoint("legacy") {

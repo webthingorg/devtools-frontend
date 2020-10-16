@@ -246,6 +246,15 @@ export class CSSMetadata {
    * @param {string} propertyName
    * @return {boolean}
    */
+  isFontAwareProperty(propertyName) {
+    propertyName = propertyName.toLowerCase();
+    return !!_fontAwareProperties.has(propertyName) || this.isCustomProperty(propertyName);
+  }
+
+  /**
+   * @param {string} propertyName
+   * @return {boolean}
+   */
   isCustomProperty(propertyName) {
     return propertyName.startsWith('--');
   }
@@ -479,6 +488,8 @@ const _bezierAwareProperties = new Set([
   'animation', 'animation-timing-function', 'transition', 'transition-timing-function', '-webkit-animation',
   '-webkit-animation-timing-function', '-webkit-transition', '-webkit-transition-timing-function'
 ]);
+
+const _fontAwareProperties = new Set(['font-size', 'line-height', 'font-weight', 'font-family', 'letter-spacing']);
 
 const _colorAwareProperties = new Set([
   'background',
