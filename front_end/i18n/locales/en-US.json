@@ -68,6 +68,9 @@
   "settings/KeybindsSettingsTab.js | removeShortcut": {
     "message": "Remove shortcut"
   },
+  "settings/KeybindsSettingsTab.js | resetShortcutsForAction": {
+    "message": "Reset shortcuts for {PH1}"
+  },
   "settings/KeybindsSettingsTab.js | restoreDefaultShortcuts": {
     "message": "Restore default shortcuts"
   },
