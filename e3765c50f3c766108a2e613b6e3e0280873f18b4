@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "77c2cee9_ede8519e",
+        "filename": "front_end/source_frame/SourceFrame.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-10-16T12:14:58Z",
+      "side": 1,
+      "message": "deferedContent has type\n`\n * @typedef {{\n *    content: string,\n *    isEncoded: boolean,\n * }|{\n *    content: null,\n *    error: string,\n *    isEncoded: boolean,\n * }}\n`\nso the check `content !\u003d\u003d null` tells typescript whether or not we are in the left or right side of the union. So if this typedef is imprecise then we might have a problem here.",
+      "parentUuid": "03221eb9_b93264ae",
+      "revId": "e3765c50f3c766108a2e613b6e3e0280873f18b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a8608351_98382313",
         "filename": "front_end/source_frame/SourceFrame.js",
         "patchSetId": 2
@@ -48,6 +66,24 @@
       "writtenOn": "2020-10-16T12:05:59Z",
       "side": 1,
       "message": "The original line also had \"error\" assigned, and now `content.error` is not assigned anymore. It seems like this \"error\" variable is not used much in the TS-ified version. Could you explain a bit behind the reasoning here? Thanks!",
+      "revId": "e3765c50f3c766108a2e613b6e3e0280873f18b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "801ac102_72743d7b",
+        "filename": "front_end/source_frame/SourceFrame.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-10-16T12:14:58Z",
+      "side": 1,
+      "message": "This is related to the answer above. The type of `deferedContent` is either an object with no `error` property and a `content` property with a string or an object where `content` is null and `error` contains a string. In either case, we cannot assign a string to both `error` and `content`.\nBut this is again assuming that the DeferedContent type is good.",
+      "parentUuid": "a8608351_98382313",
       "revId": "e3765c50f3c766108a2e613b6e3e0280873f18b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
