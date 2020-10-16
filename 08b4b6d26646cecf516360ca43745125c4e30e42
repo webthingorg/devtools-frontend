@@ -22,6 +22,30 @@
       },
       "revId": "08b4b6d26646cecf516360ca43745125c4e30e42",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b5f0147_438b1e33",
+        "filename": "front_end/bindings/ResourceScriptMapping.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-10-16T11:42:17Z",
+      "side": 0,
+      "message": "The tests are green, so about as confident as we are in the tests 😊\n\nI could bring the getter back and return ?Script instead, would that be better?",
+      "parentUuid": "58ec4201_5db255d6",
+      "range": {
+        "startLine": 470,
+        "startChar": 0,
+        "endLine": 476,
+        "endChar": 3
+      },
+      "revId": "08b4b6d26646cecf516360ca43745125c4e30e42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
