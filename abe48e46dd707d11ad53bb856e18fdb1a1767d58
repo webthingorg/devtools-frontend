@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "317e15a3_9813b212",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 36
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1385776
+      },
+      "writtenOn": "2020-10-16T00:02:45Z",
+      "side": 1,
+      "message": "Couple comments, I\u0027m not quite done but wanted to save my progress 😊",
+      "revId": "abe48e46dd707d11ad53bb856e18fdb1a1767d58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "072d384a_8ba4260b",
+        "filename": "front_end/elements/ColorSwatchPopoverIcon.js",
+        "patchSetId": 36
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1385776
+      },
+      "writtenOn": "2020-10-16T00:02:45Z",
+      "side": 1,
+      "message": "Should this be _propertyValueMap here?",
+      "revId": "abe48e46dd707d11ad53bb856e18fdb1a1767d58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3f5171b_829d8a0a",
+        "filename": "front_end/sdk/CSSMetadata.js",
+        "patchSetId": 36
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1385776
+      },
+      "writtenOn": "2020-10-16T00:02:45Z",
+      "side": 1,
+      "message": "Would it make sense to have more than one regex and list of properties since all of the properties don\u0027t have exactly the same valid content?",
+      "revId": "abe48e46dd707d11ad53bb856e18fdb1a1767d58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
