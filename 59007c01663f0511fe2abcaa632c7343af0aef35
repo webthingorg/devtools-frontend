@@ -16,6 +16,23 @@
       "message": "PTAL, just a link change :)",
       "revId": "59007c01663f0511fe2abcaa632c7343af0aef35",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81cd02b5_01cc98b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-16T10:38:48Z",
+      "side": 1,
+      "message": "Please put the direct link to the doc in the document.",
+      "revId": "59007c01663f0511fe2abcaa632c7343af0aef35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
