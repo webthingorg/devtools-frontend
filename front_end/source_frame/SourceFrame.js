@@ -28,9 +28,6 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
 import * as Common from '../common/common.js';
 import * as Formatter from '../formatter/formatter.js';
 import * as Platform from '../platform/platform.js';
@@ -46,7 +43,6 @@ import {Events, SourcesTextEditor, SourcesTextEditorDelegate} from './SourcesTex
  * @implements {UI.SearchableView.Replaceable}
  * @implements {SourcesTextEditorDelegate}
  * @implements {Transformer}
- * @unrestricted
  */
 export class SourceFrameImpl extends UI.View.SimpleView {
   /**
@@ -72,7 +68,7 @@ export class SourceFrameImpl extends UI.View.SimpleView {
     this._shouldAutoPrettyPrint = false;
     this._prettyToggle.setVisible(false);
 
-    this._progressToolbarItem = new UI.Toolbar.ToolbarItem(createElement('div'));
+    this._progressToolbarItem = new UI.Toolbar.ToolbarItem(document.createElement('div'));
 
     this._textEditor = new SourcesTextEditor(this, codeMirrorOptions);
     this._textEditor.show(this.element);
@@ -84,6 +80,7 @@ export class SourceFrameImpl extends UI.View.SimpleView {
     this._searchConfig = null;
     this._delayedFindSearchMatches = null;
     this._currentSearchResultIndex = -1;
+    /** @type {!Array<!TextUtils.TextRange.TextRange>} */
     this._searchResults = [];
     this._searchRegex = null;
     this._loadError = false;
@@ -162,7 +159,7 @@ export class SourceFrameImpl extends UI.View.SimpleView {
 
   /**
    * @param {boolean} value
-   * @return {!Promise}
+   * @return {!Promise<void>}
    */
   async _setPretty(value) {
     this._pretty = value;
@@ -318,12 +315,16 @@ export class SourceFrameImpl extends UI.View.SimpleView {
       progressIndicator.setTotalWork(100);
       this._progressToolbarItem.element.appendChild(progressIndicator.element);
 
-      let {content, error} = (await this._lazyContent());
-      this._rawContent = error || content || '';
+      const deferedContent = (await this._lazyContent());
+      if (deferedContent.content === null) {
+        this._rawContent = deferedContent.error;
+      } else {
+        this._rawContent = deferedContent.content;
+      }
 
       progressIndicator.setWorked(1);
 
-      if (!error && this._highlighterType === 'application/wasm') {
+      if ((deferedContent.content !== null) && this._highlighterType === 'application/wasm') {
         const worker = new Common.Worker.WorkerWrapper('wasmparser_worker_entrypoint');
         /** @type {!Promise<!{source: string, offsets: !Array<number>, functionBodyOffsets: !Array<{start: number, end: number}>}>} */
         const promise = new Promise((resolve, reject) => {
@@ -348,13 +349,13 @@ export class SourceFrameImpl extends UI.View.SimpleView {
           };
           worker.onerror = reject;
         });
-        worker.postMessage({method: 'disassemble', params: {content}});
+        worker.postMessage({method: 'disassemble', params: {content: deferedContent.content}});
         try {
           const {source, offsets, functionBodyOffsets} = await promise;
-          this._rawContent = content = source;
+          this._rawContent = deferedContent.content = source;
           this._wasmDisassembly = new Common.WasmDisassembly.WasmDisassembly(offsets, functionBodyOffsets);
         } catch (e) {
-          this._rawContent = content = error = e.message;
+          this._rawContent = deferedContent.content = e.message;
         } finally {
           worker.terminate();
         }
@@ -367,8 +368,8 @@ export class SourceFrameImpl extends UI.View.SimpleView {
       this._formattedMap = null;
       this._prettyToggle.setEnabled(true);
 
-      if (error) {
-        this.setContent(null, error);
+      if (deferedContent.content === null) {
+        this.setContent(null, deferedContent.error);
         this._prettyToggle.setEnabled(false);
 
         // Occasionally on load, there can be a race in which it appears the CodeMirror plugin
@@ -382,7 +383,7 @@ export class SourceFrameImpl extends UI.View.SimpleView {
         // CRBug 1011445
         setTimeout(() => this.setHighlighterType('text/plain'), 50);
       } else {
-        if (this._shouldAutoPrettyPrint && TextUtils.TextUtils.isMinified(content || '')) {
+        if (this._shouldAutoPrettyPrint && TextUtils.TextUtils.isMinified(deferedContent.content)) {
           await this._setPretty(true);
         } else {
           this.setContent(this._rawContent, null);
@@ -398,6 +399,7 @@ export class SourceFrameImpl extends UI.View.SimpleView {
     if (this._formattedContentPromise) {
       return this._formattedContentPromise;
     }
+    /** @type {function({content: string, map: !Formatter.ScriptFormatter.FormatterSourceMapping}): void} */
     let fulfill;
     this._formattedContentPromise = new Promise(x => {
       fulfill = x;
@@ -761,6 +763,9 @@ export class SourceFrameImpl extends UI.View.SimpleView {
     return true;
   }
 
+  /**
+   * @param {number} index
+   */
   jumpToSearchResult(index) {
     if (!this.loaded || !this._searchResults.length) {
       return;
@@ -843,6 +848,9 @@ export class SourceFrameImpl extends UI.View.SimpleView {
     this._textEditor.setSelection(TextUtils.TextRange.TextRange.createFromLocation(lastLineNumber, lastColumnNumber));
   }
 
+  /**
+   * @param {!RegExp} regexObject
+   */
   _collectRegexMatches(regexObject) {
     const ranges = [];
     for (let i = 0; i < this._textEditor.linesCount; ++i) {
@@ -866,7 +874,9 @@ export class SourceFrameImpl extends UI.View.SimpleView {
 
   /**
    * @override
-   * @return {!Promise}
+   * @param {!UI.ContextMenu.ContextMenu} contextMenu
+   * @param {number} editorLineNumber
+   * @return {!Promise<void>}
    */
   populateLineGutterContextMenu(contextMenu, editorLineNumber) {
     return Promise.resolve();
@@ -874,7 +884,10 @@ export class SourceFrameImpl extends UI.View.SimpleView {
 
   /**
    * @override
-   * @return {!Promise}
+   * @param {!UI.ContextMenu.ContextMenu} contextMenu
+   * @param {number} editorLineNumber
+   * @param {number} editorColumnNumber
+   * @return {!Promise<void>}
    */
   populateTextAreaContextMenu(contextMenu, editorLineNumber, editorColumnNumber) {
     return Promise.resolve();
