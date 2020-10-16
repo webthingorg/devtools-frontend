@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2d0cd1e_322317c1",
+        "filename": "front_end/emulation/DeviceModeWrapper.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-16T11:13:27Z",
+      "side": 1,
+      "message": "Rather than keeping this old pattern, it would be better to refactor this class to the `instance`-pattern as well. You can then mark this constructor as private and figure out what its usages are (and migrate these to call `.instance()` instead)",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 33
+      },
+      "revId": "53bca907af267b6252aaa7326b3043598aa963e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6961813_a79ec633",
+        "filename": "front_end/emulation/DeviceModeWrapper.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-16T11:13:27Z",
+      "side": 1,
+      "message": "Ultra-nit: once `DeviceModelViewWrapper` has an `instance` method, call that instead of using the variable.",
+      "range": {
+        "startLine": 118,
+        "startChar": 8,
+        "endLine": 118,
+        "endChar": 37
+      },
+      "revId": "53bca907af267b6252aaa7326b3043598aa963e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
