@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "99723c76_cffd10dc",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-16T08:01:41Z",
+      "side": 1,
+      "message": "scripts/component_bridges/gen folder can be deleted and it should not be committed (it\u0027s a left-over from a recent refactoring)",
+      "parentUuid": "19c86a02_a5db82ef",
+      "revId": "e877bacc2a24cd65dde9222618ffb2f016c97d3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "68e6cd85_ac931904",
         "filename": "front_end/emulation/DeviceModeModel.js",
         "patchSetId": 3
