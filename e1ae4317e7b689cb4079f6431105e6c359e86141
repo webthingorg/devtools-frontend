@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87c8a952_613f1af4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-16T09:48:50Z",
+      "side": 1,
+      "message": "lgtm % nits",
+      "revId": "e1ae4317e7b689cb4079f6431105e6c359e86141",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26635d5e_358b0dc8",
+        "filename": "front_end/timeline_model/TimelineProfileTree.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-16T09:48:50Z",
+      "side": 1,
+      "message": "nit: I feel that\n\n const actualEndTime \u003d e.endTime !\u003d\u003d undefined ? Math.min(e.endTime, endTime) : endTime;\n const duration \u003d actualEndTime - Math.max(...);\n\nslightly more readable. Wdyt? (Would apply to all other use-sites of this pattern as well).",
+      "range": {
+        "startLine": 165,
+        "startChar": 10,
+        "endLine": 165,
+        "endChar": 74
+      },
+      "revId": "e1ae4317e7b689cb4079f6431105e6c359e86141",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a38bbfd_360239cc",
+        "filename": "front_end/timeline_model/TimelineProfileTree.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-16T09:48:50Z",
+      "side": 1,
+      "message": "Do we call this with `false`? If not we could have kept the old method and hoist it into the interface. No strong opinion though if you like this solution better.",
+      "range": {
+        "startLine": 536,
+        "startChar": 0,
+        "endLine": 538,
+        "endChar": 3
+      },
+      "revId": "e1ae4317e7b689cb4079f6431105e6c359e86141",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a7d8589_d4646739",
+        "filename": "front_end/timeline_model/TimelineProfileTree.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-16T09:48:50Z",
+      "side": 1,
+      "message": "nit: Lets associate the TypeScript bug with this, otherwise we will never find the TODO again.\n\n // TODO(crbug.com/1011811): ....",
+      "range": {
+        "startLine": 644,
+        "startChar": 7,
+        "endLine": 644,
+        "endChar": 11
+      },
+      "revId": "e1ae4317e7b689cb4079f6431105e6c359e86141",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
