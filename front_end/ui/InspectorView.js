@@ -242,6 +242,13 @@ export class InspectorView extends VBox {
   }
 
   /**
+   * @param {boolean} isDrawerOpen
+   */
+  _emitDrawerOpenEvent(isDrawerOpen) {
+    Common.EventTarget.fireEvent(Events.DrawerChange, {isDrawerOpen}, document.body);
+  }
+
+  /**
    * @param {string} tabId
    * @return {?TabbedPane}
    */
@@ -281,6 +288,7 @@ export class InspectorView extends VBox {
     } else {
       this._focusRestorer = null;
     }
+    this._emitDrawerOpenEvent(true);
   }
 
   /**
@@ -298,6 +306,8 @@ export class InspectorView extends VBox {
       this._focusRestorer.restore();
     }
     this._drawerSplitWidget.hideSidebar(true);
+
+    this._emitDrawerOpenEvent(false);
   }
 
   /**
@@ -536,3 +546,8 @@ export class InspectorViewTabDelegate {
     }
   }
 }
+
+/** @enum {string} */
+export const Events = {
+  DrawerChange: 'drawerchange',
+};
