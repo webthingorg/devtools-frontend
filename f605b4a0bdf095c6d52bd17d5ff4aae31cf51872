@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e2d5c12_d4beee1f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-16T11:18:07Z",
+      "side": 1,
+      "message": "I think this is the clearest signal that moving to a build-first setup would prevent this kind of issues. But as we concluded, let\u0027s not do that for component-bridges, given they are short-lived",
+      "revId": "f605b4a0bdf095c6d52bd17d5ff4aae31cf51872",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
