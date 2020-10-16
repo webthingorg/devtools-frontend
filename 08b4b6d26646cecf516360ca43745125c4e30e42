@@ -46,6 +46,30 @@
       },
       "revId": "08b4b6d26646cecf516360ca43745125c4e30e42",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f108bc60_5b598094",
+        "filename": "front_end/bindings/ResourceScriptMapping.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-16T11:47:39Z",
+      "side": 0,
+      "message": "You could do that, or do `return this._script || \u0027\u0027`. \n\nGiven that unfortunately the unit test coverage isn\u0027t great, we tend to be more conservative in the TS migration work than we would otherwise be.",
+      "parentUuid": "3b5f0147_438b1e33",
+      "range": {
+        "startLine": 470,
+        "startChar": 0,
+        "endLine": 476,
+        "endChar": 3
+      },
+      "revId": "08b4b6d26646cecf516360ca43745125c4e30e42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
