@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c591fcb_94b94531",
+        "filename": "front_end/settings/keybindsSettingsTab.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-10-16T19:30:20Z",
+      "side": 1,
+      "message": "This is a nit, but it looks a little odd to me that the text from the link and the button in the flex container at the bottom don\u0027t line up in the center, but that might just be a personal preference. wdyt about centering them? or does it look worse 😄",
+      "range": {
+        "startLine": 172,
+        "startChar": 2,
+        "endLine": 180,
+        "endChar": 25
+      },
+      "revId": "cb5f0c82b163156f6fdebe028847ca1919014391",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
