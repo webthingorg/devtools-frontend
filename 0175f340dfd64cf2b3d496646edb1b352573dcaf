@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "40842e81_23376a12",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-16T06:54:07Z",
+      "side": 1,
+      "message": "Looks like layout tests are reaching into the Database class and are confused by your refactoring from object to Map.",
+      "revId": "0175f340dfd64cf2b3d496646edb1b352573dcaf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1ae93b68_1112fd69",
