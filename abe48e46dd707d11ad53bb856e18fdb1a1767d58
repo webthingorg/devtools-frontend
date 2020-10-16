@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "14c83519_c1b9a301",
+        "filename": "front_end/elements/ColorSwatchPopoverIcon.js",
+        "patchSetId": 36
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-10-16T09:50:08Z",
+      "side": 1,
+      "message": "I meant for this to be _treeElementMap, but I actually don\u0027t think we even need this check as long as the Styles pane repopulates as expected.\n\nChanges:\n- removing the else part of the check\n- changing _propertyValueMap to a const to make things simpler",
+      "parentUuid": "072d384a_8ba4260b",
+      "revId": "abe48e46dd707d11ad53bb856e18fdb1a1767d58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d3f5171b_829d8a0a",
@@ -48,6 +66,24 @@
       "writtenOn": "2020-10-16T00:02:45Z",
       "side": 1,
       "message": "Would it make sense to have more than one regex and list of properties since all of the properties don\u0027t have exactly the same valid content?",
+      "revId": "abe48e46dd707d11ad53bb856e18fdb1a1767d58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7eca42b_856ba4f6",
+        "filename": "front_end/sdk/CSSMetadata.js",
+        "patchSetId": 36
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-10-16T09:50:08Z",
+      "side": 1,
+      "message": "We don\u0027t necessarily need one for each property, but I think it might be useful to break apart the \u0027font-size\u0027, \u0027line-height\u0027, \u0027font-weight\u0027 and \u0027letter-spacing\u0027 properties from the font family.  The font family regex would be extremely general which we wouldn\u0027t want to apply to all font properties.\n\nChanges:\n- moved regexes from CSSMetadata.js to FontEditorUtils.js\n- improved regexes + created new regex for font-family property\n- checking specifically for font-family to apply that regex",
+      "parentUuid": "d3f5171b_829d8a0a",
       "revId": "abe48e46dd707d11ad53bb856e18fdb1a1767d58",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
