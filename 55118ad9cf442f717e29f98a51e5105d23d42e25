@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a0ba2a7_6630c005",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-16T14:50:10Z",
+      "side": 1,
+      "message": "Tested successfully on Windows 10 just now. ",
+      "revId": "55118ad9cf442f717e29f98a51e5105d23d42e25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
