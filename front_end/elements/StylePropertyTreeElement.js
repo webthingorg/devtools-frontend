@@ -215,6 +215,15 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   /**
+   * @param {string} text
+   * @return {!Node}
+   */
+  _processFont(text) {
+    this.section().registerFontProperty(this);
+    return document.createTextNode(text);
+  }
+
+  /**
    * @param {string} propertyValue
    * @param {string} propertyName
    * @return {!Node}
@@ -498,6 +507,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
       propertyRenderer.setVarHandler(this._processVar.bind(this));
       propertyRenderer.setColorHandler(this._processColor.bind(this));
       propertyRenderer.setBezierHandler(this._processBezier.bind(this));
+      propertyRenderer.setFontHandler(this._processFont.bind(this));
       propertyRenderer.setShadowHandler(this._processShadow.bind(this));
       propertyRenderer.setGridHandler(this._processGrid.bind(this));
       propertyRenderer.setAngleHandler(this._processAngle.bind(this));
@@ -1256,7 +1266,9 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     // This occurs when deleting the last index of a StylePropertiesSection as this._style._allProperties array gets updated
     // before we index it when setting the value for updatedProperty
     const deleteProperty = majorChange && !styleText.length;
-    if (!deleteProperty && updatedProperty) {
+    if (deleteProperty) {
+      this.section().resetToolbars();
+    } else if (!deleteProperty && updatedProperty) {
       this.property = updatedProperty;
     }
 
