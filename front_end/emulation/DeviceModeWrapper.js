@@ -42,20 +42,38 @@ export class DeviceModeWrapper extends UI.Widget.VBox {
     this._showDeviceModeSetting.set(!this._showDeviceModeSetting.get());
   }
 
+  async _getNodeClip(node) {
+    const object = await node.resolveToObject();
+    const result = await object.callFunction(function() {
+      const rect = this.getBoundingClientRect();
+      const docRect = this.ownerDocument.documentElement.getBoundingClientRect();
+      return JSON.stringify(
+          {x: rect.left - docRect.left, y: rect.top - docRect.top, width: rect.width, height: rect.height, scale: 1});
+    });
+    const clip = /** @type {!Protocol.Page.Viewport} */ (JSON.parse(/** @type {string} */ (result.object.value)));
+    const response = await node.domModel().target().pageAgent().invoke_getLayoutMetrics({});
+    const page_zoom = !response[ProtocolClient.InspectorBackend.ProtocolError] && response.visualViewport.zoom || 1;
+    clip.x *= page_zoom;
+    clip.y *= page_zoom;
+    clip.width *= page_zoom;
+    clip.height *= page_zoom;
+    return clip;
+  }
+
   /**
    * @param {boolean=} fullSize
-   * @param {!Protocol.Page.Viewport=} clip
+   * @param {function()=} getClip returns Protocol.Page.Viewport
    * @return {boolean}
    */
-  _captureScreenshot(fullSize, clip) {
+  _captureScreenshot(fullSize, getClip) {
     if (!this._deviceModeView) {
       this._deviceModeView = new DeviceModeView();
     }
     this._deviceModeView.setNonEmulatedAvailableSize(this._inspectedPagePlaceholder.element);
     if (fullSize) {
       this._deviceModeView.captureFullSizeScreenshot();
-    } else if (clip) {
-      this._deviceModeView.captureAreaScreenshot(clip);
+    } else if (getClip) {
+      this._deviceModeView.captureAreaScreenshot(getClip);
     } else {
       this._deviceModeView.captureScreenshot();
     }
@@ -67,7 +85,9 @@ export class DeviceModeWrapper extends UI.Widget.VBox {
    */
   _screenshotRequestedFromOverlay(event) {
     const clip = /** @type {!Protocol.Page.Viewport} */ (event.data);
-    this._captureScreenshot(false, clip);
+    this._captureScreenshot(false, async function() {
+      return clip;
+    });
   }
 
   /**
@@ -123,28 +143,9 @@ export class ActionDelegate {
             return true;
           }
           async function captureClip() {
-            const object = await node.resolveToObject();
-            const result = await object.callFunction(function() {
-              const rect = this.getBoundingClientRect();
-              const docRect = this.ownerDocument.documentElement.getBoundingClientRect();
-              return JSON.stringify({
-                x: rect.left - docRect.left,
-                y: rect.top - docRect.top,
-                width: rect.width,
-                height: rect.height,
-                scale: 1
-              });
+            DeviceModeView.wrapperInstance._captureScreenshot(false, async function() {
+              return await DeviceModeView.wrapperInstance._getNodeClip(node);
             });
-            const clip =
-                /** @type {!Protocol.Page.Viewport} */ (JSON.parse(/** @type {string} */ (result.object.value)));
-            const response = await node.domModel().target().pageAgent().invoke_getLayoutMetrics({});
-            const page_zoom =
-                !response[ProtocolClient.InspectorBackend.ProtocolError] && response.visualViewport.zoom || 1;
-            clip.x *= page_zoom;
-            clip.y *= page_zoom;
-            clip.width *= page_zoom;
-            clip.height *= page_zoom;
-            DeviceModeView.wrapperInstance._captureScreenshot(false, clip);
           }
           captureClip();
           return true;

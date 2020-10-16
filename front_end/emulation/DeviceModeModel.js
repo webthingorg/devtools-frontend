@@ -763,10 +763,11 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
 
   /**
    * @param {boolean} fullSize
-   * @param {!Protocol.Page.Viewport=} clip
+   * @param {function()=} getClip returns Protocol.Page.Viewport
    * @return {!Promise<?string>}
    */
-  async captureScreenshot(fullSize, clip) {
+
+  async captureScreenshot(fullSize, getClip) {
     const screenCaptureModel =
         this._emulationModel ? this._emulationModel.target().model(SDK.ScreenCaptureModel.ScreenCaptureModel) : null;
     if (!screenCaptureModel) {
@@ -779,8 +780,9 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
     }
 
     // Emulate full size device if necessary.
+    let clip;
     let deviceMetrics;
-    if (fullSize) {
+    if (fullSize || getClip) {
       const metrics = await screenCaptureModel.fetchLayoutMetrics();
       if (!metrics) {
         return null;
@@ -800,7 +802,9 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
         deviceMetrics.displayFeature = displayFeature;
       }
 
-      clip = {x: 0, y: 0, width: deviceMetrics.width, height: deviceMetrics.height, scale: 1};
+      if (fullSize) {
+        clip = {x: 0, y: 0, width: deviceMetrics.width, height: deviceMetrics.height, scale: 1};
+      }
 
       if (this._device) {
         const screenOrientation = this._mode.orientation === Horizontal ?
@@ -812,10 +816,14 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
       }
       await this._emulationModel.resetPageScaleFactor();
       await this._emulationModel.emulateDevice(deviceMetrics);
+
+      if (getClip) {
+        clip = await getClip();
+      }
     }
     const screenshot =
         await screenCaptureModel.captureScreenshot(Protocol.Page.CaptureScreenshotRequestFormat.Png, 100, clip);
-    if (fullSize) {
+    if (fullSize || getClip) {
       if (this._device) {
         const orientation = this._device.orientationByName(this._mode.orientation);
         deviceMetrics.width = orientation.width;

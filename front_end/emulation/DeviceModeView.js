@@ -458,11 +458,11 @@ export class DeviceModeView extends UI.Widget.VBox {
   }
 
   /**
-   * @param {!Protocol.Page.Viewport=} clip
+   * @param {function()=} getClip returns Protocol.Page.Viewport
    * @return {!Promise}
    */
-  async captureAreaScreenshot(clip) {
-    const screenshot = await this._model.captureScreenshot(false, clip);
+  async captureAreaScreenshot(getClip) {
+    const screenshot = await this._model.captureScreenshot(false, getClip);
     if (screenshot === null) {
       return;
     }
