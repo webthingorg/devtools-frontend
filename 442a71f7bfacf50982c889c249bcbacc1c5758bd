@@ -34,6 +34,24 @@
       "parentUuid": "8f581e28_a78aeb8b",
       "revId": "442a71f7bfacf50982c889c249bcbacc1c5758bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34ede4ae_212c645d",
+        "filename": "front_end/inline_editor/FontEditorUnitConverter.js",
+        "patchSetId": 37
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-10-16T20:51:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d99b7ef9_c0929428",
+      "revId": "442a71f7bfacf50982c889c249bcbacc1c5758bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

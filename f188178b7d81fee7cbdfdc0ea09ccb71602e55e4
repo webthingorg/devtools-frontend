@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6b74259_bf545284",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 39
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-10-16T20:51:05Z",
+      "side": 1,
+      "message": "Fixed linting in added files",
+      "revId": "f188178b7d81fee7cbdfdc0ea09ccb71602e55e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
