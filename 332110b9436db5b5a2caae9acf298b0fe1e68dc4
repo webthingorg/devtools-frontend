@@ -88,6 +88,24 @@
       "parentUuid": "9e80a3a5_afec76f6",
       "revId": "332110b9436db5b5a2caae9acf298b0fe1e68dc4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "012e9995_617c701a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-16T12:14:20Z",
+      "side": 1,
+      "message": "I think CQ didn\u0027t catch this, because we don\u0027t run a Default build on CQ. That is tracked in crbug.com/1110804",
+      "parentUuid": "c815348e_09111ebe",
+      "revId": "332110b9436db5b5a2caae9acf298b0fe1e68dc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
