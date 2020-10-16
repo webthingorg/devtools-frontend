@@ -28,5 +28,6 @@ group("front_end") {
     "text_utils",
     "timeline_model",
     "ui",
+    "ui/components",
   ]
 }
