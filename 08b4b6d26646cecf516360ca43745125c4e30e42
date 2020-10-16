@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8db158d4_11819ad4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-16T11:05:44Z",
+      "side": 1,
+      "message": "lgtm % nits",
+      "revId": "08b4b6d26646cecf516360ca43745125c4e30e42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b37ffce_35a91965",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-16T11:05:44Z",
+      "side": 1,
+      "message": "nit: I\u0027d change this to `!Promise\u003c?\u003e`, as we simply do not care about the resolve type. If we wanted to use the value, TS would require us to add an explicit cast. (`?` is equivalent to `unknown` in TS)",
+      "range": {
+        "startLine": 119,
+        "startChar": 22,
+        "endLine": 119,
+        "endChar": 26
+      },
+      "revId": "08b4b6d26646cecf516360ca43745125c4e30e42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25f4721b_097a9912",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-16T11:05:44Z",
+      "side": 1,
+      "message": "With the above change, the added `.then()` here and below would no longer be required.",
+      "range": {
+        "startLine": 156,
+        "startChar": 54,
+        "endLine": 156,
+        "endChar": 61
+      },
+      "revId": "08b4b6d26646cecf516360ca43745125c4e30e42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bdb20d1_65e018bb",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-16T11:05:44Z",
+      "side": 1,
+      "message": "Love this change :)",
+      "range": {
+        "startLine": 441,
+        "startChar": 4,
+        "endLine": 441,
+        "endChar": 30
+      },
+      "revId": "08b4b6d26646cecf516360ca43745125c4e30e42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
