@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e071b48d_340529ad",
+        "filename": "front_end/profiler/ProfileView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-10-16T07:21:34Z",
+      "side": 0,
+      "message": "Any css to remove?",
+      "range": {
+        "startLine": 311,
+        "startChar": 63,
+        "endLine": 311,
+        "endChar": 66
+      },
+      "revId": "61aa96cc7a59f696c977ae1ddc4e01acc5e17f55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
