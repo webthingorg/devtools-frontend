@@ -21,6 +21,16 @@ import {TimelineFlameChartNetworkDataProvider} from './TimelineFlameChartNetwork
 import {TimelineModeViewDelegate, TimelineSelection} from './TimelinePanel.js';  // eslint-disable-line no-unused-vars
 import {AggregatedTimelineTreeView} from './TimelineTreeView.js';
 import {TimelineMarkerStyle, TimelineUIUtils} from './TimelineUIUtils.js';  // eslint-disable-line no-unused-vars
+import {WebVitalsIntegrator} from './WebVitalsTimelineUtils.js';
+
+class MainWidget extends UI.Widget.VBox {
+  constructor(mainFlameChart, model, delegate) {
+    super();
+    this.webVitals = new WebVitalsIntegrator(delegate, model);
+    this.webVitals.show(this.contentElement);
+    mainFlameChart.show(this.contentElement);
+  }
+}
 
 /**
  * @implements {PerfUI.FlameChart.FlameChartDelegate}
@@ -68,12 +78,21 @@ export class TimelineFlameChartView extends UI.Widget.VBox {
     this._networkPane = new UI.Widget.VBox();
     this._networkPane.setMinimumSize(23, 23);
     this._networkFlameChart.show(this._networkPane.element);
+
+    this._networkFlameChart.enableRuler(false);
+
+    this._mainWidget = new MainWidget(this._mainFlameChart, this._model, this);
+
+    // this._mainWidget.webVitalsTimeline.setWindowTimes(
+    //   dataProvider.minimumBoundary(), dataProvider.minimumBoundary() + dataProvider.totalTime());
+
     this._splitResizer = this._networkPane.element.createChild('div', 'timeline-flamechart-resizer');
     this._networkSplitWidget.hideDefaultResizer(true);
     this._networkSplitWidget.installResizer(this._splitResizer);
 
-    this._networkSplitWidget.setMainWidget(this._mainFlameChart);
+    this._networkSplitWidget.setMainWidget(this._mainWidget);
     this._networkSplitWidget.setSidebarWidget(this._networkPane);
+
 
     // Create counters chart splitter.
     this._chartSplitWidget = new UI.SplitWidget.SplitWidget(false, true, 'timelineCountersSplitViewState');
@@ -131,6 +150,11 @@ export class TimelineFlameChartView extends UI.Widget.VBox {
     this._mainFlameChart.setWindowTimes(window.left, window.right, animate);
     this._networkFlameChart.setWindowTimes(window.left, window.right, animate);
     this._networkDataProvider.setWindowTimes(window.left, window.right);
+    this._mainWidget.webVitals.chartViewport.setWindowTimes(window.left, window.right, animate);
+    this._mainWidget.webVitals.webVitalsTimeline.data = {
+      startTime: window.left - this._model.timelineModel().minimumRecordTime(),
+      duration: window.right - window.left,
+    };
     this._updateSearchResults(false, false);
   }
 
@@ -195,6 +219,49 @@ export class TimelineFlameChartView extends UI.Widget.VBox {
     this._nextExtensionIndex = 0;
     this._appendExtensionData();
     this._refresh();
+
+    const timelineModel = this._model.timelineModel();
+    const events = timelineModel.tracks().reduce((prev, curr) => prev.concat(curr.events), []);
+    const minimumBoundary = this._model.timelineModel().minimumRecordTime();
+
+    const prepareEvents = f => events.filter(f).map(e => e.startTime);
+
+    const lcpEvents = events.filter(e => timelineModel.isLCPCandidateEvent(e) || timelineModel.isLCPInvalidateEvent(e));
+    const lcpEventsByNavigationId = new Map();
+    for (const e of lcpEvents) {
+      const navigationId = e.args['data']['navigationId'];
+      const previousLastEvent = lcpEventsByNavigationId.get(navigationId);
+      if (!previousLastEvent || previousLastEvent.args['data']['candidateIndex'] < e.args['data']['candidateIndex']) {
+        lcpEventsByNavigationId.set(navigationId, e);
+      }
+    }
+
+    const latestLcpCandidatesByNavigationId = Array.from(lcpEventsByNavigationId.values());
+    const latestLcpEvents = latestLcpCandidatesByNavigationId.filter(e => timelineModel.isLCPCandidateEvent(e));
+
+    const longTasks = events.filter(e => timelineModel.isLongRunningTask(e))
+                          .map(e => ({start: e.startTime - minimumBoundary, duration: e.duration}));
+
+    this._mainWidget.webVitals._model = model;
+    this._mainWidget.webVitals.chartViewport.setBoundaries(
+        model.window().left,
+        model.window().right - model.window().left,
+    );
+    this._mainWidget.webVitals.chartViewport.setWindowTimes(
+        model.window().left,
+        model.window().right,
+    );
+    this._mainWidget.webVitals.webVitalsTimeline.data = {
+      startTime: model.window().left - this._model.timelineModel().minimumRecordTime(),
+      duration: model.window().right - model.window().left,
+      maxDuration: timelineModel.maximumRecordTime(),
+      fcps: prepareEvents(e => timelineModel.isFCPEvent(e)).map(t => ({timestamp: t - minimumBoundary})),
+      lcps: latestLcpEvents.map(e => e.startTime).map(t => ({timestamp: t - minimumBoundary})),
+      layoutShifts:
+          prepareEvents(e => timelineModel.isLayoutShiftEvent(e)).map(t => ({timestamp: t - minimumBoundary})),
+      longTasks,
+      mainFrameNavigations: prepareEvents(e => timelineModel.isMainFrameNavigationStartEvent(e)),
+    };
   }
 
   _updateTrack() {
