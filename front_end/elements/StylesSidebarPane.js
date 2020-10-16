@@ -2658,9 +2658,8 @@ export class CSSPropertyPrompt extends UI.TextPrompt.TextPrompt {
      * @return {!Element}
      */
     function swatchRenderer(color) {
-      const swatch = InlineEditor.ColorSwatch.ColorSwatch.create();
-      swatch.hideText(true);
-      swatch.setColor(color);
+      const swatch = InlineEditor.ColorSwatch.createColorSwatch();
+      swatch.renderColor(color);
       swatch.style.pointerEvents = 'none';
       return swatch;
     }
