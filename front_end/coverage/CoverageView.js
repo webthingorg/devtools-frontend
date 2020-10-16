@@ -52,9 +52,11 @@ export class CoverageView extends UI.Widget.VBox {
     this._coverageTypeComboBox.setSelectedIndex(this._coverageTypeComboBoxSetting.get());
     this._coverageTypeComboBox.setEnabled(true);
     toolbar.appendToolbarItem(this._coverageTypeComboBox);
+    console
+        .log('test')
 
-    /** @type {!UI.Action.Action} */
-    this._toggleRecordAction = (UI.ActionRegistry.ActionRegistry.instance().action('coverage.toggle-recording'));
+        /** @type {!UI.Action.Action} */
+        this._toggleRecordAction = (UI.ActionRegistry.ActionRegistry.instance().action('coverage.toggle-recording'));
     this._toggleRecordButton = UI.Toolbar.Toolbar.createActionButton(this._toggleRecordAction);
     toolbar.appendToolbarItem(this._toggleRecordButton);
 
