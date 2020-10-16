@@ -1152,7 +1152,7 @@ export class TimelineUIUtils {
             eventTime = event.startTime - navStartTime.startTime;
           }
         }
-
+        
         contentHelper.appendTextRow(ls`Timestamp`, Number.preciseMillisToString(eventTime, 1));
         contentHelper.appendElementRow(ls`Details`, TimelineUIUtils.buildDetailsNodeForPerformanceEvent(event));
         break;

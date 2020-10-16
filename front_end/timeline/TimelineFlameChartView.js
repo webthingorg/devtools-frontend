@@ -12,15 +12,25 @@ import * as SDK from '../sdk/sdk.js';
 import * as TimelineModel from '../timeline_model/timeline_model.js';
 import * as UI from '../ui/ui.js';
 
-import {CountersGraph} from './CountersGraph.js';
-import {Events as PerformanceModelEvents, PerformanceModel, Window} from './PerformanceModel.js';  // eslint-disable-line no-unused-vars
-import {TimelineDetailsView} from './TimelineDetailsView.js';
-import {TimelineRegExp} from './TimelineFilters.js';
-import {Events as TimelineFlameChartDataProviderEvents, TimelineFlameChartDataProvider} from './TimelineFlameChartDataProvider.js';
-import {TimelineFlameChartNetworkDataProvider} from './TimelineFlameChartNetworkDataProvider.js';
-import {TimelineModeViewDelegate, TimelineSelection} from './TimelinePanel.js';  // eslint-disable-line no-unused-vars
-import {AggregatedTimelineTreeView} from './TimelineTreeView.js';
-import {TimelineMarkerStyle, TimelineUIUtils} from './TimelineUIUtils.js';  // eslint-disable-line no-unused-vars
+import { CountersGraph } from './CountersGraph.js';
+import { Events as PerformanceModelEvents, PerformanceModel, Window } from './PerformanceModel.js';  // eslint-disable-line no-unused-vars
+import { TimelineDetailsView } from './TimelineDetailsView.js';
+import { TimelineRegExp } from './TimelineFilters.js';
+import { Events as TimelineFlameChartDataProviderEvents, TimelineFlameChartDataProvider } from './TimelineFlameChartDataProvider.js';
+import { TimelineFlameChartNetworkDataProvider } from './TimelineFlameChartNetworkDataProvider.js';
+import { TimelineModeViewDelegate, TimelineSelection } from './TimelinePanel.js';  // eslint-disable-line no-unused-vars
+import { AggregatedTimelineTreeView } from './TimelineTreeView.js';
+import { TimelineMarkerStyle, TimelineUIUtils } from './TimelineUIUtils.js';  // eslint-disable-line no-unused-vars
+import { WebVitalsIntegrator } from './WebVitalsTimelineUtils.js';
+
+class MainWidget extends UI.Widget.VBox {
+  constructor(mainFlameChart, model, delegate) {
+    super();
+    this.webVitals = new WebVitalsIntegrator(delegate, model);
+    this.webVitals.show(this.contentElement);
+    mainFlameChart.show(this.contentElement);
+  }
+}
 
 /**
  * @implements {PerfUI.FlameChart.FlameChartDelegate}
@@ -48,32 +58,41 @@ export class TimelineFlameChartView extends UI.Widget.VBox {
     this._networkSplitWidget = new UI.SplitWidget.SplitWidget(false, false, 'timelineFlamechartMainView', 150);
 
     const mainViewGroupExpansionSetting =
-        Common.Settings.Settings.instance().createSetting('timelineFlamechartMainViewGroupExpansion', {});
+      Common.Settings.Settings.instance().createSetting('timelineFlamechartMainViewGroupExpansion', {});
     this._mainDataProvider = new TimelineFlameChartDataProvider();
     this._mainDataProvider.addEventListener(
-        TimelineFlameChartDataProviderEvents.DataChanged, () => this._mainFlameChart.scheduleUpdate());
+      TimelineFlameChartDataProviderEvents.DataChanged, () => this._mainFlameChart.scheduleUpdate());
     this._mainFlameChart =
-        new PerfUI.FlameChart.FlameChart(this._mainDataProvider, this, mainViewGroupExpansionSetting);
+      new PerfUI.FlameChart.FlameChart(this._mainDataProvider, this, mainViewGroupExpansionSetting);
     this._mainFlameChart.alwaysShowVerticalScroll();
     this._mainFlameChart.enableRuler(false);
 
     this._networkFlameChartGroupExpansionSetting =
-        Common.Settings.Settings.instance().createSetting('timelineFlamechartNetworkViewGroupExpansion', {});
+      Common.Settings.Settings.instance().createSetting('timelineFlamechartNetworkViewGroupExpansion', {});
     this._networkDataProvider = new TimelineFlameChartNetworkDataProvider();
     this._networkFlameChart =
-        new PerfUI.FlameChart.FlameChart(this._networkDataProvider, this, this._networkFlameChartGroupExpansionSetting);
+      new PerfUI.FlameChart.FlameChart(this._networkDataProvider, this, this._networkFlameChartGroupExpansionSetting);
     this._networkFlameChart.alwaysShowVerticalScroll();
     this._networkFlameChart.disableRangeSelection();
 
     this._networkPane = new UI.Widget.VBox();
     this._networkPane.setMinimumSize(23, 23);
     this._networkFlameChart.show(this._networkPane.element);
+
+    this._networkFlameChart.enableRuler(false);
+
+    this._mainWidget = new MainWidget(this._mainFlameChart, this._model, this);
+
+    // this._mainWidget.webVitalsTimeline.setWindowTimes(
+    //   dataProvider.minimumBoundary(), dataProvider.minimumBoundary() + dataProvider.totalTime());
+
     this._splitResizer = this._networkPane.element.createChild('div', 'timeline-flamechart-resizer');
     this._networkSplitWidget.hideDefaultResizer(true);
     this._networkSplitWidget.installResizer(this._splitResizer);
 
-    this._networkSplitWidget.setMainWidget(this._mainFlameChart);
+    this._networkSplitWidget.setMainWidget(this._mainWidget);
     this._networkSplitWidget.setSidebarWidget(this._networkPane);
+
 
     // Create counters chart splitter.
     this._chartSplitWidget = new UI.SplitWidget.SplitWidget(false, true, 'timelineCountersSplitViewState');
@@ -81,7 +100,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox {
     this._chartSplitWidget.setMainWidget(this._networkSplitWidget);
     this._chartSplitWidget.setSidebarWidget(this._countersView);
     this._chartSplitWidget.hideDefaultResizer();
-    this._chartSplitWidget.installResizer(/** @type {!Element} */ (this._countersView.resizerElement()));
+    this._chartSplitWidget.installResizer(/** @type {!Element} */(this._countersView.resizerElement()));
     this._updateCountersGraphToggle();
 
     // Create top level properties splitter.
@@ -107,7 +126,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox {
 
     this._mainDataProvider.setEventColorMapping(TimelineUIUtils.eventColor);
     this._groupBySetting = Common.Settings.Settings.instance().createSetting(
-        'timelineTreeGroupBy', AggregatedTimelineTreeView.GroupBy.None);
+      'timelineTreeGroupBy', AggregatedTimelineTreeView.GroupBy.None);
     this._groupBySetting.addChangeListener(this._updateColorMapper, this);
     this._updateColorMapper();
   }
@@ -131,6 +150,11 @@ export class TimelineFlameChartView extends UI.Widget.VBox {
     this._mainFlameChart.setWindowTimes(window.left, window.right, animate);
     this._networkFlameChart.setWindowTimes(window.left, window.right, animate);
     this._networkDataProvider.setWindowTimes(window.left, window.right);
+    this._mainWidget.webVitals.chartViewport.setWindowTimes(window.left, window.right, animate);
+    this._mainWidget.webVitals.webVitalsTimeline.data = {
+      startTime: window.left - this._model.timelineModel().minimumRecordTime(),
+      duration: window.right - window.left,
+    };
     this._updateSearchResults(false, false);
   }
 
@@ -141,7 +165,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox {
    * @param {boolean} animate
    */
   windowChanged(windowStartTime, windowEndTime, animate) {
-    this._model.setWindow({left: windowStartTime, right: windowEndTime}, animate);
+    this._model.setWindow({ left: windowStartTime, right: windowEndTime }, animate);
   }
 
   /**
@@ -195,6 +219,51 @@ export class TimelineFlameChartView extends UI.Widget.VBox {
     this._nextExtensionIndex = 0;
     this._appendExtensionData();
     this._refresh();
+
+    const timelineModel = this._model.timelineModel();
+    const events = timelineModel.tracks().reduce((prev, curr) => prev.concat(curr.events), []);
+    const minimumBoundary = this._model.timelineModel().minimumRecordTime();
+
+    const prepareEvents = f => events.filter(f).map(e => e.startTime - minimumBoundary);
+
+
+    const lcpEvents = events.filter(e => timelineModel.isLCPCandidateEvent(e) || timelineModel.isLCPInvalidateEvent(e));
+    const lcpEventsByNavigationId = new Map();
+    for (const e of lcpEvents) {
+      const navigationId = e.args['data']['navigationId'];
+      const previousLastEvent = lcpEventsByNavigationId.get(navigationId);
+      if (!previousLastEvent || previousLastEvent.args['data']['candidateIndex'] < e.args['data']['candidateIndex']) {
+        lcpEventsByNavigationId.set(navigationId, e);
+      }
+    }
+
+    const latestLcpCandidatesByNavigationId = Array.from(lcpEventsByNavigationId.values());
+    const latestLcpEvents = latestLcpCandidatesByNavigationId.filter(e => timelineModel.isLCPCandidateEvent(e));
+
+    const longTasks = events.filter(e => SDK.TracingModel.TracingModel.isCompletePhase(e.phase) && timelineModel.isLongRunningTask(e))
+      .map(e => ({ start: e.startTime - minimumBoundary, duration: e.duration }));
+
+    this._mainWidget.webVitals._model = model;
+    this._mainWidget.webVitals.chartViewport.setBoundaries(
+      model.window().left,
+      model.window().right - model.window().left,
+    );
+    this._mainWidget.webVitals.chartViewport.setWindowTimes(
+      model.window().left,
+      model.window().right,
+    );
+
+    this._mainWidget.webVitals.webVitalsTimeline.data = {
+      startTime: model.window().left - this._model.timelineModel().minimumRecordTime(),
+      duration: model.window().right - model.window().left,
+      maxDuration: timelineModel.maximumRecordTime(),
+      fcps: events.filter(e => timelineModel.isFCPEvent(e)).map(e => ({ timestamp: e.startTime - minimumBoundary, e})),
+      lcps: latestLcpEvents.map(e => e.startTime).map(t => ({ timestamp: t - minimumBoundary })),
+      layoutShifts:
+        prepareEvents(e => timelineModel.isLayoutShiftEvent(e)).map(t => ({ timestamp: t })),
+      longTasks,
+      mainFrameNavigations: prepareEvents(e => timelineModel.isMainFrameNavigationStartEvent(e)),
+    };
   }
 
   _updateTrack() {
@@ -254,7 +323,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox {
    */
   highlightEvent(event) {
     const entryIndex =
-        event ? this._mainDataProvider.entryIndexForSelection(TimelineSelection.fromTraceEvent(event)) : -1;
+      event ? this._mainDataProvider.entryIndexForSelection(TimelineSelection.fromTraceEvent(event)) : -1;
     if (entryIndex >= 0) {
       this._mainFlameChart.highlightEntry(entryIndex);
     } else {
@@ -318,7 +387,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox {
       }
     }
     this._delegate.select(
-        /** @type {!TimelineFlameChartNetworkDataProvider} */ (dataProvider).createSelection(entryIndex));
+        /** @type {!TimelineFlameChartNetworkDataProvider} */(dataProvider).createSelection(entryIndex));
   }
 
   resizeToPreferredHeights() {
@@ -328,10 +397,10 @@ export class TimelineFlameChartView extends UI.Widget.VBox {
     }
     this._needsResizeToPreferredHeights = false;
     this._networkPane.element.classList.toggle(
-        'timeline-network-resizer-disabled', !this._networkDataProvider.isExpanded());
+      'timeline-network-resizer-disabled', !this._networkDataProvider.isExpanded());
     this._networkSplitWidget.setSidebarSize(
-        this._networkDataProvider.preferredHeight() + this._splitResizer.clientHeight + PerfUI.FlameChart.HeaderHeight +
-        2);
+      this._networkDataProvider.preferredHeight() + this._splitResizer.clientHeight + PerfUI.FlameChart.HeaderHeight +
+      2);
   }
 
   /**
@@ -351,8 +420,8 @@ export class TimelineFlameChartView extends UI.Widget.VBox {
       return;
     }
     const index = typeof this._selectedSearchResult !== 'undefined' ?
-        this._searchResults.indexOf(this._selectedSearchResult) :
-        -1;
+      this._searchResults.indexOf(this._selectedSearchResult) :
+      -1;
     this._selectSearchResult(Platform.NumberUtilities.mod(index + 1, this._searchResults.length));
   }
 
@@ -364,7 +433,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox {
       return;
     }
     const index =
-        typeof this._selectedSearchResult !== 'undefined' ? this._searchResults.indexOf(this._selectedSearchResult) : 0;
+      typeof this._selectedSearchResult !== 'undefined' ? this._searchResults.indexOf(this._selectedSearchResult) : 0;
     this._selectSearchResult(Platform.NumberUtilities.mod(index - 1, this._searchResults.length));
   }
 
