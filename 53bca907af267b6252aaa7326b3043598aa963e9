@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "22745bef_85d3e664",
+        "filename": "front_end/emulation/DeviceModeWrapper.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-16T11:29:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2d0cd1e_322317c1",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 33
+      },
+      "revId": "53bca907af267b6252aaa7326b3043598aa963e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b6961813_a79ec633",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-10-16T11:13:27Z",
       "side": 1,
       "message": "Ultra-nit: once `DeviceModelViewWrapper` has an `instance` method, call that instead of using the variable.",
+      "range": {
+        "startLine": 118,
+        "startChar": 8,
+        "endLine": 118,
+        "endChar": 37
+      },
+      "revId": "53bca907af267b6252aaa7326b3043598aa963e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ceacca05_cf1489ca",
+        "filename": "front_end/emulation/DeviceModeWrapper.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-16T11:29:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6961813_a79ec633",
       "range": {
         "startLine": 118,
         "startChar": 8,
