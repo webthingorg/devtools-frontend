@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "876d67b0_22f95cae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1450943
+      },
+      "writtenOn": "2020-10-16T21:30:34Z",
+      "side": 1,
+      "message": "Thanks Simon! This is my first contribution. I just fixed the merge conflict. Is it time to trigger the CQ Dry Run?",
+      "revId": "67954d56c8679f8849b69ff37991286f99e990a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
