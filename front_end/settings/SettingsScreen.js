@@ -113,15 +113,9 @@ export class SettingsScreen extends UI.Widget.VBox {
     tabbedPane.setShrinkableTabs(false);
     tabbedPane.makeVerticalTabLayout();
 
-    if (!Root.Runtime.experiments.isEnabled('customKeyboardShortcuts')) {
-      const shortcutsView = new UI.View.SimpleView(i18nString(UIStrings.shortcuts));
-      UI.ShortcutsScreen.ShortcutsScreen.instance().createShortcutsTabView().show(shortcutsView.element);
-      this._tabbedLocation.appendView(shortcutsView);
-    } else {
-      UI.ViewManager.ViewManager.instance().view('keybinds').widget().then(widget => {
-        this._keybindsTab = widget;
-      });
-    }
+    UI.ViewManager.ViewManager.instance().view('keybinds').widget().then(widget => {
+      this._keybindsTab = widget;
+    });
     tabbedPane.show(this.contentElement);
     tabbedPane.selectTab('preferences');
     tabbedPane.addEventListener(UI.TabbedPane.Events.TabInvoked, this._tabInvoked, this);
@@ -455,7 +449,6 @@ export class ActionDelegate {
    * @return {boolean}
    */
   handleAction(context, actionId) {
-    let screen;
     switch (actionId) {
       case 'settings.show':
         SettingsScreen._showSettingsScreen({focusTabHeader: true});
@@ -465,11 +458,7 @@ export class ActionDelegate {
             UI.UIUtils.addReferrerToURL('https://developers.google.com/web/tools/chrome-devtools/'));
         return true;
       case 'settings.shortcuts':
-        screen = {name: i18nString(UIStrings.shortcuts), focusTabHeader: true};
-        if (Root.Runtime.experiments.isEnabled('customKeyboardShortcuts')) {
-          screen = {name: 'keybinds', focusTabHeader: true};
-        }
-        SettingsScreen._showSettingsScreen(screen);
+        SettingsScreen._showSettingsScreen({name: 'keybinds', focusTabHeader: true});
         return true;
     }
     return false;
