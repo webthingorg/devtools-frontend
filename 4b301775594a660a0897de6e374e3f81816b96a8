@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65a8dca1_c6505a83",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-16T11:48:18Z",
+      "side": 1,
+      "message": "FYI: This would have been fine as `Promise\u003cvoid\u003e`. _recordLiveLocationChange adds a custom then handler to the incoming promise that always guarantees to return void. It was just the resolve type of the passed in promise of _recordLiveLocationChange that we didn\u0027t care about.\n\nBut this is super nit-picky so we can leave it as-is :)",
+      "range": {
+        "startLine": 48,
+        "startChar": 30,
+        "endLine": 48,
+        "endChar": 31
+      },
+      "revId": "4b301775594a660a0897de6e374e3f81816b96a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
