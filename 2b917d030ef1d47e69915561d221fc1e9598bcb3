@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "68e47586_43199a0b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 29
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-16T19:52:14Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "741e760f_de93fa22",
+      "range": {
+        "startLine": 17,
+        "startChar": 11,
+        "endLine": 17,
+        "endChar": 26
+      },
+      "revId": "2b917d030ef1d47e69915561d221fc1e9598bcb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "390d935b_32f49684",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 29
@@ -75,6 +99,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "df6db524_52ddf0cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 29
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-16T19:52:14Z",
+      "side": 1,
+      "message": "Good catch, I did not consider this case. I updated so if application panel is in bottom drawer, then network panel will show up in main panel.",
+      "parentUuid": "3427c4f5_a7c7c499",
+      "revId": "2b917d030ef1d47e69915561d221fc1e9598bcb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4585d18_070abbb5",
@@ -88,6 +130,30 @@
       "writtenOn": "2020-10-16T16:32:05Z",
       "side": 1,
       "message": "look at other addEventListener calls, do not add it to window directly",
+      "range": {
+        "startLine": 76,
+        "startChar": 3,
+        "endLine": 76,
+        "endChar": 27
+      },
+      "revId": "2b917d030ef1d47e69915561d221fc1e9598bcb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96e8a37b_4768d43a",
+        "filename": "front_end/resources/ServiceWorkersView.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-16T19:52:14Z",
+      "side": 1,
+      "message": "One other place I saw `Common.EventTarget.fireEvent` being used uses document.body. I switched it to that now. \nOr the alternative is emitting the event on InspectorView._drawerSplitWidget and addeventlistner on it in ServiceWorkerView. \nI figured window is the cleanest approach.",
+      "parentUuid": "f4585d18_070abbb5",
       "range": {
         "startLine": 76,
         "startChar": 3,
@@ -121,6 +187,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a07832f_59098cf5",
+        "filename": "front_end/ui/InspectorView.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-16T19:52:14Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "861105b4_89552785",
+      "range": {
+        "startLine": 248,
+        "startChar": 55,
+        "endLine": 248,
+        "endChar": 67
+      },
+      "revId": "2b917d030ef1d47e69915561d221fc1e9598bcb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4dc217c8_ee67e06a",
@@ -134,6 +224,30 @@
       "writtenOn": "2020-10-16T16:32:05Z",
       "side": 1,
       "message": "should this be \"shouldSelectTab\u003dtrue\" ?",
+      "range": {
+        "startLine": 95,
+        "startChar": 33,
+        "endLine": 95,
+        "endChar": 48
+      },
+      "revId": "2b917d030ef1d47e69915561d221fc1e9598bcb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82e06cc8_cb486de9",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-16T19:52:14Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "4dc217c8_ee67e06a",
       "range": {
         "startLine": 95,
         "startChar": 33,
@@ -169,6 +283,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3eb45b18_3b9bbcb3",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-16T19:52:14Z",
+      "side": 1,
+      "message": "It will show the view in desired location, closing and reopening devtools will close the view.\nI believe this should be the ideal behavior.",
+      "parentUuid": "efc84d87_0c1d5bc9",
+      "range": {
+        "startLine": 144,
+        "startChar": 2,
+        "endLine": 144,
+        "endChar": 20
+      },
+      "revId": "2b917d030ef1d47e69915561d221fc1e9598bcb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0e1d1f83_4f66ba9d",
         "filename": "front_end/ui/ViewManager.js",
         "patchSetId": 29
@@ -180,6 +318,30 @@
       "writtenOn": "2020-10-16T16:32:05Z",
       "side": 1,
       "message": "why is this called forceMove if it maps to \"shouldSelectTab\" ?",
+      "range": {
+        "startLine": 150,
+        "startChar": 40,
+        "endLine": 150,
+        "endChar": 49
+      },
+      "revId": "2b917d030ef1d47e69915561d221fc1e9598bcb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "458f2ae4_2d739971",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-16T19:52:14Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "0e1d1f83_4f66ba9d",
       "range": {
         "startLine": 150,
         "startChar": 40,
@@ -215,6 +377,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "75ffd4b0_8dce62f6",
+        "filename": "test/e2e/application/service-worker-network_test.ts",
+        "patchSetId": 29
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-16T19:52:14Z",
+      "side": 1,
+      "message": "It looks like application panel cannot be closed, however I added a test case where application panel is in drawer.",
+      "parentUuid": "28a629c0_fe543495",
+      "range": {
+        "startLine": 43,
+        "startChar": 19,
+        "endLine": 43,
+        "endChar": 52
+      },
+      "revId": "2b917d030ef1d47e69915561d221fc1e9598bcb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "aad62633_6c34ca3b",
         "filename": "test/e2e/helpers/cross-tool-helper.ts",
         "patchSetId": 29
@@ -226,6 +412,30 @@
       "writtenOn": "2020-10-16T16:32:05Z",
       "side": 1,
       "message": "workflow_tests.ts already has this definitions, do not re define them here. If you need move them to a common place",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 65
+      },
+      "revId": "2b917d030ef1d47e69915561d221fc1e9598bcb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68d7a47c_5cbcbb66",
+        "filename": "test/e2e/helpers/cross-tool-helper.ts",
+        "patchSetId": 29
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-16T19:52:14Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "aad62633_6c34ca3b",
       "range": {
         "startLine": 28,
         "startChar": 0,
@@ -259,6 +469,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e831f434_b2b3034a",
+        "filename": "test/e2e/helpers/cross-tool-helper.ts",
+        "patchSetId": 29
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-16T19:52:14Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "490c833b_440df778",
+      "range": {
+        "startLine": 41,
+        "startChar": 13,
+        "endLine": 41,
+        "endChar": 34
+      },
+      "revId": "2b917d030ef1d47e69915561d221fc1e9598bcb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4a33d3a1_776afa47",
@@ -282,6 +516,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7d115ad_b92b5e36",
+        "filename": "test/e2e/helpers/quick_open-helpers.ts",
+        "patchSetId": 29
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-16T19:52:14Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "4a33d3a1_776afa47",
+      "range": {
+        "startLine": 59,
+        "startChar": 13,
+        "endLine": 59,
+        "endChar": 32
+      },
+      "revId": "2b917d030ef1d47e69915561d221fc1e9598bcb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bd17083f_27143496",
@@ -295,6 +553,30 @@
       "writtenOn": "2020-10-16T16:32:05Z",
       "side": 1,
       "message": "do you need this empty file?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 0
+      },
+      "revId": "2b917d030ef1d47e69915561d221fc1e9598bcb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e50e135_4fcd0445",
+        "filename": "test/e2e/resources/application/main.css",
+        "patchSetId": 29
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-16T19:52:14Z",
+      "side": 1,
+      "message": "Yes, I am loading the css file in service worker and caching it for testing.",
+      "parentUuid": "bd17083f_27143496",
       "range": {
         "startLine": 1,
         "startChar": 0,
