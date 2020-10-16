@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe9c53fc_d69fcede",
+        "filename": "front_end/network/NetworkPanel.js",
+        "patchSetId": 35
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-16T23:01:53Z",
+      "side": 1,
+      "message": "Default value is true. I initially added default argument value only for the last function, now added it here as well.",
+      "parentUuid": "dd898797_6fb0050a",
+      "range": {
+        "startLine": 230,
+        "startChar": 85,
+        "endLine": 230,
+        "endChar": 126
+      },
+      "revId": "94adfb496242696ecad3eebf2961532a8f8947b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "536672d6_07b7bb62",
@@ -54,6 +78,30 @@
       "writtenOn": "2020-10-16T22:46:53Z",
       "side": 1,
       "message": "can requests by any chance be empty?",
+      "range": {
+        "startLine": 582,
+        "startChar": 24,
+        "endLine": 582,
+        "endChar": 39
+      },
+      "revId": "94adfb496242696ecad3eebf2961532a8f8947b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c53a8cd4_ac279817",
+        "filename": "front_end/resources/ServiceWorkersView.js",
+        "patchSetId": 35
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-16T23:01:53Z",
+      "side": 1,
+      "message": "requests can be empty array []. Added Array.isArray() just in case.",
+      "parentUuid": "536672d6_07b7bb62",
       "range": {
         "startLine": 582,
         "startChar": 24,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00deb501_d73c2638",
+        "filename": "test/e2e/resources/application/main.css",
+        "patchSetId": 35
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-16T23:01:53Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "a456c409_feedc34b",
+      "range": {
+        "startLine": 2,
+        "startChar": 13,
+        "endLine": 2,
+        "endChar": 17
+      },
+      "revId": "94adfb496242696ecad3eebf2961532a8f8947b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "191dbcdb_b2819c13",
@@ -100,6 +172,30 @@
       "writtenOn": "2020-10-16T22:46:53Z",
       "side": 1,
       "message": "2020?",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "94adfb496242696ecad3eebf2961532a8f8947b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c3557fc_48907806",
+        "filename": "test/e2e/resources/application/service-worker.js",
+        "patchSetId": 35
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-16T23:01:53Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "191dbcdb_b2819c13",
       "range": {
         "startLine": 1,
         "startChar": 13,
