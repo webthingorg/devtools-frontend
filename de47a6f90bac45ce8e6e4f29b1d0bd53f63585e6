@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd662780_32557170",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-16T14:26:59Z",
+      "side": 1,
+      "message": "lgtm % nit",
+      "revId": "de47a6f90bac45ce8e6e4f29b1d0bd53f63585e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4b06a1f_5043944d",
+        "filename": "front_end/bindings/SASSSourceMapping.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-16T14:26:59Z",
+      "side": 1,
+      "message": "nit: lower case, as its a variable and not a type :)",
+      "range": {
+        "startLine": 40,
+        "startChar": 6,
+        "endLine": 40,
+        "endChar": 32
+      },
+      "revId": "de47a6f90bac45ce8e6e4f29b1d0bd53f63585e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
