@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "19c86a02_a5db82ef",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1451147
+      },
+      "writtenOn": "2020-10-16T04:02:09Z",
+      "side": 1,
+      "message": "@Maksim PTAL. I followed the approach outlined in your draft. We now emulate the device before capturing the clip. It appears to work in all cases. \n\nI\u0027m not sure where all these extra added scripts/component_bridges/... files came from however - maybe you can provide some insight into what they may be? I did rebase before implementing the changes and thought that may be the cause.",
+      "parentUuid": "1ad2e43e_47952a5d",
+      "revId": "e877bacc2a24cd65dde9222618ffb2f016c97d3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "68e6cd85_ac931904",
         "filename": "front_end/emulation/DeviceModeModel.js",
         "patchSetId": 3
