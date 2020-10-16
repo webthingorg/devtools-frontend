@@ -33,6 +33,24 @@
       "message": "Please put the direct link to the doc in the document.",
       "revId": "59007c01663f0511fe2abcaa632c7343af0aef35",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bb3f505_e1664f1f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-10-16T11:19:19Z",
+      "side": 1,
+      "message": "Changed to the direct one!",
+      "parentUuid": "81cd02b5_01cc98b8",
+      "revId": "59007c01663f0511fe2abcaa632c7343af0aef35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
