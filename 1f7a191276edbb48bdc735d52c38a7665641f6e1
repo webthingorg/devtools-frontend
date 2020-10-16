@@ -16,6 +16,23 @@
       "message": "Hi Kateryna!\n\nI\u0027m exporting the input data types so that they can be used\nin typescript, ptal!",
       "revId": "1f7a191276edbb48bdc735d52c38a7665641f6e1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "053ce0c3_93a48b0a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2020-10-16T10:15:42Z",
+      "side": 1,
+      "message": "LGTM! Thanks!",
+      "revId": "1f7a191276edbb48bdc735d52c38a7665641f6e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
