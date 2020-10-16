@@ -179,8 +179,6 @@ export class MainImpl {
     Root.Runtime.experiments.register('sourceOrderViewer', 'Source order viewer');
     Root.Runtime.experiments.register('spotlight', 'Spotlight', true);
     Root.Runtime.experiments.register('webauthnPane', 'WebAuthn Pane');
-    Root.Runtime.experiments.register(
-        'customKeyboardShortcuts', 'Enable custom keyboard shortcuts settings tab (requires reload)');
     Root.Runtime.experiments.register('keyboardShortcutEditor', 'Enable keyboard shortcut editor', true);
 
     // Timeline
@@ -215,7 +213,6 @@ export class MainImpl {
       'backgroundServicesNotifications',
       'backgroundServicesPushMessaging',
       'backgroundServicesPaymentHandler',
-      'customKeyboardShortcuts',
       'webauthnPane',
     ]);
 
