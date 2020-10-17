@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8363db74_0a94b8f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1302791
+      },
+      "writtenOn": "2020-10-17T00:38:33Z",
+      "side": 1,
+      "message": "PTAL\n\nTests will fail because of browser_protocol.pdl not landing yet.",
+      "revId": "5c0b63110829994a053af7db79da8e13a3b7bc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fd0f6ee_df6b1382",
+        "filename": "front_end/resources/ClearStorageView.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1302791
+      },
+      "writtenOn": "2020-10-17T00:38:33Z",
+      "side": 1,
+      "message": "Struggling in figuring out how to surround the Usage title with SVGs. Could you point me to an example of this elsewhere in devtools code?",
+      "revId": "5c0b63110829994a053af7db79da8e13a3b7bc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
