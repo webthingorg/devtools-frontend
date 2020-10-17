@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd969eb5_606dbe93",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1459949
+      },
+      "writtenOn": "2020-10-17T21:04:39Z",
+      "side": 1,
+      "message": "PTAL.  \n\nThis is my second contribution, please instruct me if something needs to be done.  \n\nIf code review is positive, request reviewer run try jobs via CQ Dry Run.\n\nThank you!",
+      "revId": "1e1147cdd423cba78fd7b700d0eb32c93e09c36e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
