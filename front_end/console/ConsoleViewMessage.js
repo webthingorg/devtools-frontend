@@ -183,7 +183,11 @@ export class ConsoleViewMessage {
       /** @type {!Array<!Protocol.Runtime.PropertyPreview|!{name:(string|symbol), type: !Protocol.Runtime.PropertyPreviewType, value: (string|undefined)}>} */
       let rowSubProperties;
       if (rowProperty.valuePreview) {
-        rowSubProperties = rowProperty.valuePreview.properties;
+        if (rowProperty.valuePreview.properties.length > 0) {
+          rowSubProperties = rowProperty.valuePreview.properties;
+        } else {
+          rowSubProperties = [{name: rawValueColumnSymbol, type: rowProperty.type, value: rowProperty.value}];
+        }
       } else if (rowProperty.value) {
         rowSubProperties = [{name: rawValueColumnSymbol, type: rowProperty.type, value: rowProperty.value}];
       } else {
