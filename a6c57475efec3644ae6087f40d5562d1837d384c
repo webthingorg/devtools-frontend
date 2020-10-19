@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "96be1e6a_f4cb060b",
+        "filename": "front_end/network/NetworkLogView.js",
+        "patchSetId": 36
+      },
+      "lineNbr": 1854,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-19T21:33:01Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "de2efaf9_95b0a5cd",
+      "revId": "a6c57475efec3644ae6087f40d5562d1837d384c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bedf3fed_7898d180",
         "filename": "front_end/network/NetworkPanel.js",
         "patchSetId": 36
@@ -48,6 +66,24 @@
       "writtenOn": "2020-10-19T18:32:04Z",
       "side": 1,
       "message": "I\u0027m hesitant to introduce a new boolean flag parameter here (and below). It\u0027s less clear that it\u0027s valuable because it\u0027s a single parameter being introduced (as opposed to two), but for these optional properties, it\u0027s easier to grow \"options\" when they\u0027re added in an object.",
+      "revId": "a6c57475efec3644ae6087f40d5562d1837d384c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02071953_4ed43183",
+        "filename": "front_end/network/NetworkPanel.js",
+        "patchSetId": 36
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-19T21:33:01Z",
+      "side": 1,
+      "message": "Updated param to be object.",
+      "parentUuid": "bedf3fed_7898d180",
       "revId": "a6c57475efec3644ae6087f40d5562d1837d384c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3dd7126_430869bc",
+        "filename": "front_end/resources/ServiceWorkersView.js",
+        "patchSetId": 36
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-19T21:33:01Z",
+      "side": 1,
+      "message": "Updated.",
+      "parentUuid": "a099cf59_19970bde",
+      "revId": "a6c57475efec3644ae6087f40d5562d1837d384c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd6af35f_112847b4",
@@ -82,6 +136,24 @@
       "writtenOn": "2020-10-19T18:32:04Z",
       "side": 1,
       "message": "There doesn\u0027t seem to be any value in making this a private property and guarding it with accessors when you just let it be set all willy-nilly.",
+      "revId": "a6c57475efec3644ae6087f40d5562d1837d384c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca791d2a_0d96929f",
+        "filename": "front_end/sdk/ServiceWorkerManager.js",
+        "patchSetId": 36
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-19T21:33:01Z",
+      "side": 1,
+      "message": "Updated.",
+      "parentUuid": "dd6af35f_112847b4",
       "revId": "a6c57475efec3644ae6087f40d5562d1837d384c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -103,6 +175,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9949e144_a230f999",
+        "filename": "front_end/ui/InspectorView.js",
+        "patchSetId": 36
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-19T21:33:01Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "c5f355fc_3dd93264",
+      "revId": "a6c57475efec3644ae6087f40d5562d1837d384c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "026b541f_0a6f4a38",
@@ -116,6 +206,24 @@
       "writtenOn": "2020-10-19T18:32:04Z",
       "side": 1,
       "message": "I would prefer we just add one \"options\" parameter here than two flags, e.g.:\n\n    moveView(viewId, locationName, { shouldSelectTab, overrideSaving })\n\nI don\u0027t believe the Closure syntax has a way to express the types of the decomposed parameters, so you\u0027ll probably need to rather write\n\n    moveView(viewId, locationName, options) \n\nand then write the @typedef or @interface declaration for the options that expresses that it has those two properties.",
+      "revId": "a6c57475efec3644ae6087f40d5562d1837d384c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fa69c99_578dadd5",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 36
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-19T21:33:01Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "026b541f_0a6f4a38",
       "revId": "a6c57475efec3644ae6087f40d5562d1837d384c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -137,6 +245,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d21e951_1d2007ca",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 36
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-19T21:33:01Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "85653549_1381f108",
+      "revId": "a6c57475efec3644ae6087f40d5562d1837d384c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a98398c_38b1449a",
@@ -150,6 +276,24 @@
       "writtenOn": "2020-10-19T18:32:04Z",
       "side": 1,
       "message": "It feels like you should define one rule here. I understand that we don\u0027t necessarily do so in other tests, but this feels incomplete with ONLY a comment.",
+      "revId": "a6c57475efec3644ae6087f40d5562d1837d384c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d86e3168_0b0dcdf8",
+        "filename": "test/e2e/resources/application/main.css",
+        "patchSetId": 36
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-19T21:33:01Z",
+      "side": 1,
+      "message": "Added",
+      "parentUuid": "3a98398c_38b1449a",
       "revId": "a6c57475efec3644ae6087f40d5562d1837d384c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
