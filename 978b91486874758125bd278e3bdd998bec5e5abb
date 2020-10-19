@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e59e2fd7_34d086ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-10-19T09:10:43Z",
+      "side": 1,
+      "message": "Generally looks good, but do you think there is a way to test this?",
+      "revId": "978b91486874758125bd278e3bdd998bec5e5abb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "963e7924_566f0250",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1081,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-10-19T09:10:43Z",
+      "side": 1,
+      "message": "Could you add a sentence why this information is necessary here and below?",
+      "revId": "978b91486874758125bd278e3bdd998bec5e5abb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
