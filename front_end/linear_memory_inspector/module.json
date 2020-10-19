@@ -1,0 +1,6 @@
+{
+  "modules": [
+    "linear_memory_inspector.js",
+    "linear_memory_inspector-legacy.js"
+  ]
+}
