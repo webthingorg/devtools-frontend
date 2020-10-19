@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b14fe860_632d5d6c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-19T12:13:42Z",
+      "side": 1,
+      "message": "I see. I didn\u0027t realise it were only animation events. I thought it would be all the different trace events when we collect a profile.\n\nIf this is indeed the case then no worries from my side :) Feel free to land.",
+      "parentUuid": "73e3971b_710b235c",
+      "revId": "27f0de6b5237554d3ac30b2ff1b59354e85ae0c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "afef632c_8a834aa5",
