@@ -142,6 +142,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "abf63062_a1c10439",
+        "filename": "front_end/animation/AnimationTimeline.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-19T14:12:33Z",
+      "side": 1,
+      "message": "Ah got ya.",
+      "parentUuid": "710abbfc_4fc42fe0",
+      "range": {
+        "startLine": 837,
+        "startChar": 0,
+        "endLine": 837,
+        "endChar": 41
+      },
+      "revId": "212fe27aaca290e964e04eaf9cc27e255a82a149",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cec946a1_632959a0",
