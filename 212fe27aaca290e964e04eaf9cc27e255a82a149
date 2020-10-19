@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "98719332_1dd14c71",
+        "filename": "front_end/animation/AnimationTimeline.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-19T14:10:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79c9d2de_210b64be",
+      "range": {
+        "startLine": 338,
+        "startChar": 0,
+        "endLine": 338,
+        "endChar": 85
+      },
+      "revId": "212fe27aaca290e964e04eaf9cc27e255a82a149",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "560bf7d4_3b738107",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-10-19T13:39:47Z",
       "side": 1,
       "message": "should this be in a different conditional that just checks for `nodeUI`? Previously this code would be called if `node` was `null` but now it won\u0027t be. Is that OK?",
+      "range": {
+        "startLine": 653,
+        "startChar": 0,
+        "endLine": 653,
+        "endChar": 34
+      },
+      "revId": "212fe27aaca290e964e04eaf9cc27e255a82a149",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "240a901b_9ecc9187",
+        "filename": "front_end/animation/AnimationTimeline.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-19T14:10:04Z",
+      "side": 1,
+      "message": "It would call nodeUI.nodeResolved, but nodeUI could be undefined (according to line 658), which would cause that line to fail. It doesn\u0027t, so my assumption is that this is unlikely to happen. Because both node and nodeUI can be null / undefined, I figured we should put them both inside the if.",
+      "parentUuid": "560bf7d4_3b738107",
       "range": {
         "startLine": 653,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "710abbfc_4fc42fe0",
+        "filename": "front_end/animation/AnimationTimeline.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-19T14:10:04Z",
+      "side": 1,
+      "message": "Yeah, so in TS you\u0027d type event as unknown as {x: number}. Here you\u0027re limited to event as {x: number} which causes TS to be unhappy:\n\nProperty \u0027x\u0027 is missing in type \u0027Event\u0027 but required in type \u0027{ x: number; }\u0027",
+      "parentUuid": "fd9c8ca2_0d889281",
+      "range": {
+        "startLine": 837,
+        "startChar": 0,
+        "endLine": 837,
+        "endChar": 41
+      },
+      "revId": "212fe27aaca290e964e04eaf9cc27e255a82a149",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cec946a1_632959a0",
@@ -93,6 +165,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6ebbc23_1417eb8c",
+        "filename": "front_end/animation/AnimationTimeline.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 861,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-19T14:10:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cec946a1_632959a0",
+      "range": {
+        "startLine": 861,
+        "startChar": 0,
+        "endLine": 861,
+        "endChar": 41
+      },
+      "revId": "212fe27aaca290e964e04eaf9cc27e255a82a149",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a7e4b245_e9eacac8",
@@ -106,6 +202,30 @@
       "writtenOn": "2020-10-19T13:39:47Z",
       "side": 1,
       "message": "same Q RE typing as x: number",
+      "range": {
+        "startLine": 872,
+        "startChar": 0,
+        "endLine": 872,
+        "endChar": 41
+      },
+      "revId": "212fe27aaca290e964e04eaf9cc27e255a82a149",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa0bdc19_a53887f7",
+        "filename": "front_end/animation/AnimationTimeline.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-19T14:10:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a7e4b245_e9eacac8",
       "range": {
         "startLine": 872,
         "startChar": 0,
