@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee73b92d_b2fdd8d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-19T09:03:20Z",
+      "side": 1,
+      "message": "Lots of files in this one! Seems mechanical though.",
+      "revId": "f1aa80b29bdd4dfda5c2a7bcd84e57e632ff05c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
