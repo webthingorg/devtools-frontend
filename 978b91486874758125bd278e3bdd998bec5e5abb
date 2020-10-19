@@ -33,6 +33,40 @@
       "message": "Could you add a sentence why this information is necessary here and below?",
       "revId": "978b91486874758125bd278e3bdd998bec5e5abb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c0a3160_3d19dfda",
+        "filename": "front_end/extensions/LanguageExtensionEndpoint.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-19T10:01:50Z",
+      "side": 1,
+      "message": "super nit: adding empty line",
+      "revId": "978b91486874758125bd278e3bdd998bec5e5abb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a59f5acb_13ce0265",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-19T10:01:50Z",
+      "side": 1,
+      "message": "Should we support stepOut with a skipList in the v8 back-end? If we use stepOver on a stepOut, don\u0027t we stay in the same wasm function (even if we skip the inlined parts)?\n\nWhy don\u0027t we exclude the current position too (as done in stepOut, using `_computeAutoStepSkipList`)?",
+      "revId": "978b91486874758125bd278e3bdd998bec5e5abb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
