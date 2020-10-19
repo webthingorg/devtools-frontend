@@ -75,7 +75,7 @@ interface Highlight {
 export class HighlightOverlay extends Overlay {
   private tooltip!: HTMLElement;
   private gridOverlay?: HighlightGridOverlay;
-  private gridLabelState = {gridLayerCounter: 0, gridPainted: false};
+  private gridLabelState = {gridLayerCounter: 1, gridPainted: false};
 
   reset(resetData: ResetData) {
     super.reset(resetData);

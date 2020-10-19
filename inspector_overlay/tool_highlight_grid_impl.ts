@@ -33,7 +33,7 @@ import {drawLayoutGridHighlight, GridHighlight} from './highlight_grid_common.js
 
 export class HighlightGridOverlay extends Overlay {
   private gridLabelState = {
-    gridLayerCounter: 0,
+    gridLayerCounter: 1,
     gridPainted: false,
   }
 
