@@ -16,6 +16,23 @@
       "message": "Thanks for taking a stab at this! I think, however, we want it to look like this https://imgur.com/a/kt7YFWM and although this CL is an improvement, this CL doesn\u0027t make it look like that. \n\nIt looks to me as if the object is rendered after the table instead of in the correct table cell.",
       "revId": "d95a50f47d3a31e86d4e0e6b7a87d60e7c03945e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8180e9fa_c881206b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-19T09:30:35Z",
+      "side": 1,
+      "message": "This will introduce a bug for \n\nconsole.table({ int: 123, date: {x:12} });",
+      "revId": "d95a50f47d3a31e86d4e0e6b7a87d60e7c03945e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
