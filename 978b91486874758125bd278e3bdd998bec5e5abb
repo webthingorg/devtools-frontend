@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd40e679_c19f4f13",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-10-19T13:07:22Z",
+      "side": 1,
+      "message": "I\u0027m hoping to add testing to the full end-to-end suite with the extension, but it\u0027s harder to test just the front end. We don\u0027t currently have any front_end tests that do stepping.",
+      "parentUuid": "e59e2fd7_34d086ee",
+      "revId": "978b91486874758125bd278e3bdd998bec5e5abb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "963e7924_566f0250",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c179d0f_e0010b4c",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1081,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-10-19T13:07:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "963e7924_566f0250",
+      "revId": "978b91486874758125bd278e3bdd998bec5e5abb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c0a3160_3d19dfda",
@@ -48,6 +84,24 @@
       "writtenOn": "2020-10-19T10:01:50Z",
       "side": 1,
       "message": "super nit: adding empty line",
+      "revId": "978b91486874758125bd278e3bdd998bec5e5abb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3473b64_a5b5fdf9",
+        "filename": "front_end/extensions/LanguageExtensionEndpoint.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-10-19T13:07:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c0a3160_3d19dfda",
       "revId": "978b91486874758125bd278e3bdd998bec5e5abb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -82,6 +136,24 @@
       "writtenOn": "2020-10-19T12:38:28Z",
       "side": 1,
       "message": "Resolved offline",
+      "parentUuid": "a59f5acb_13ce0265",
+      "revId": "978b91486874758125bd278e3bdd998bec5e5abb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5efb310a_c4e55501",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-10-19T13:07:22Z",
+      "side": 1,
+      "message": "The range here is the entire inline call frame that we\u0027re in so there\u0027s no need to add the current position.",
       "parentUuid": "a59f5acb_13ce0265",
       "revId": "978b91486874758125bd278e3bdd998bec5e5abb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
