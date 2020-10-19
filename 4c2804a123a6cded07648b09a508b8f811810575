@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "b0585f94_92850e9f",
         "filename": "/COMMIT_MSG",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "For other commits that introduce UI changes, we tend to include a line like this:\n\n    Screenshot: https://i.imgur.com/...\n\nConsider doing the same here?",
       "revId": "4c2804a123a6cded07648b09a508b8f811810575",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "0bda34e4_2f05f013",
         "filename": "/PATCHSET_LEVEL",
@@ -31,10 +32,10 @@
       "side": 1,
       "message": "Thank you for the review",
       "revId": "4c2804a123a6cded07648b09a508b8f811810575",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "97d30434_f45b48e2",
         "filename": "/PATCHSET_LEVEL",
@@ -48,10 +49,10 @@
       "side": 1,
       "message": "Mathias PTAL as well",
       "revId": "4c2804a123a6cded07648b09a508b8f811810575",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "72978d53_ed0f549f",
         "filename": "/PATCHSET_LEVEL",
@@ -65,10 +66,10 @@
       "side": 1,
       "message": "Please double-check that this works even when \"Emulate a focused page\" is enabled. This is an interesting case, since only pages in active tabs can write to the clipboard without requesting permission — and so, we want to make sure DevTools is still considered to be \"active\" even when we\u0027re pretending another document is the active one.\n\nThe code LGTM % nits, but I have some additional comments. We have different types of screenshots:\n\n- \"area screenshot\"\n- \"full size screenshot\"\n- \"node screenshot\"\n- \"screenshot\"\n\nThis CL only adds the copy option to one of them. We could do the same for the others, but that would be adding lots of additional command menu entries… PeMu, do you have any thoughts here? Is there a better way?",
       "revId": "4c2804a123a6cded07648b09a508b8f811810575",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "171ab833_e39ca810",
         "filename": "/PATCHSET_LEVEL",
@@ -83,10 +84,10 @@
       "message": "To avoid adding 4 additional command menu entries, could we implement a use of the meta key? So for any of the different types of screenshots, if the user is pressing the meta key, the resulting image will be copied to the clipboard.",
       "parentUuid": "72978d53_ed0f549f",
       "revId": "4c2804a123a6cded07648b09a508b8f811810575",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "864f24c2_13e1f64f",
         "filename": "/PATCHSET_LEVEL",
@@ -101,10 +102,28 @@
       "message": "I like that idea!",
       "parentUuid": "171ab833_e39ca810",
       "revId": "4c2804a123a6cded07648b09a508b8f811810575",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bca54d7_239c8e83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-19T05:49:50Z",
+      "side": 1,
+      "message": "Checking back in here. Danny, do you still wanna take this on?",
+      "parentUuid": "864f24c2_13e1f64f",
+      "revId": "4c2804a123a6cded07648b09a508b8f811810575",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "3ee8b431_3619b119",
         "filename": "front_end/emulation/DeviceModeView.js",
@@ -124,10 +143,10 @@
         "endChar": 28
       },
       "revId": "4c2804a123a6cded07648b09a508b8f811810575",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "46957881_fa11947e",
         "filename": "front_end/emulation/DeviceModeView.js",
@@ -147,10 +166,10 @@
         "endChar": 58
       },
       "revId": "4c2804a123a6cded07648b09a508b8f811810575",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "aaaa7027_b55b718c",
         "filename": "front_end/emulation/DeviceModeView.js",
@@ -170,10 +189,10 @@
         "endChar": 18
       },
       "revId": "4c2804a123a6cded07648b09a508b8f811810575",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "73f123f2_8ff7d086",
         "filename": "front_end/emulation/DeviceModeView.js",
@@ -193,8 +212,7 @@
         "endChar": 58
       },
       "revId": "4c2804a123a6cded07648b09a508b8f811810575",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
