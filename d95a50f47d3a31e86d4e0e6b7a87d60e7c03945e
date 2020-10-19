@@ -33,6 +33,23 @@
       "message": "This will introduce a bug for \n\nconsole.table({ int: 123, date: {x:12} });",
       "revId": "d95a50f47d3a31e86d4e0e6b7a87d60e7c03945e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d2c472d_edc47333",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-19T12:49:58Z",
+      "side": 1,
+      "message": "It is unclear to me what the desired behavior here is (in particular if the value of a cell is a complex object). I\u0027ve CC\u0027d our UX lead on the referenced bug.",
+      "revId": "d95a50f47d3a31e86d4e0e6b7a87d60e7c03945e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
