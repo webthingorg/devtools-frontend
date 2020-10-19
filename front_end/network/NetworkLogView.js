@@ -1849,9 +1849,14 @@ export class NetworkLogView extends UI.Widget.VBox {
   /**
    * @override
    * @param {!SDK.NetworkRequest.NetworkRequest} request
+   * @param {import('./NetworkPanel.js').FilterOptions=} options - Optional parameters to change filter behavior
    */
-  selectRequest(request) {
-    this.setTextFilterValue('');
+  selectRequest(request, options) {
+    const defaultOptions = {clearFilter: true};
+    const {clearFilter} = options || defaultOptions;
+    if (clearFilter) {
+      this.setTextFilterValue('');
+    }
     const node = this._reveal(request);
     if (node) {
       node.select();
