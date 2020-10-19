@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c75b8aa_0fd18148",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1455634
+      },
+      "writtenOn": "2020-10-19T03:33:12Z",
+      "side": 1,
+      "message": "@Yang Guo. Repinging. I\u0027m not familiar about the submitting process. Is there anything else I should do?",
+      "revId": "339438c4c7d2b85b1c2c6010ae0775933d3b05f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
