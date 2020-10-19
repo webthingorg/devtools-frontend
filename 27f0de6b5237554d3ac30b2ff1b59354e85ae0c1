@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "166bb668_497b848d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-19T12:19:54Z",
+      "side": 1,
+      "message": "I have done an artificial benchmark for this case, and the case with WeakMap appears to be 4 times slower (13ms vs 51ms). So it is indeed quite slow and I am not sure if we can get tons of input/animation events here. Do you know if it\u0027s possible to use symbols with TS and extend the Event type somehow?",
+      "parentUuid": "b14fe860_632d5d6c",
+      "revId": "27f0de6b5237554d3ac30b2ff1b59354e85ae0c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "afef632c_8a834aa5",
