@@ -16,6 +16,23 @@
       "message": "A bunch of comments but mostly nits, on the whole this looks good to me and I love the tests, thank you. Please shout if anything isn\u0027t clear :)",
       "revId": "b68d073602f85b36c20ccde34e50e8dec8fec37e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbc2faa1_e7b83a11",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-19T20:48:25Z",
+      "side": 1,
+      "message": "LGTM % the nits mentioned by Jack. This is really exciting 😊",
+      "revId": "b68d073602f85b36c20ccde34e50e8dec8fec37e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

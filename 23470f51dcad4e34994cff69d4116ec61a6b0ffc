@@ -118,6 +118,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3ef5e6d5_6d5adc41",
+        "filename": "front_end/inline_editor/ColorSwatch.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-19T20:48:25Z",
+      "side": 1,
+      "message": "+1 on using the native stop{Immediate}Propagation().",
+      "parentUuid": "d4143264_65be82dd",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 16
+      },
+      "revId": "23470f51dcad4e34994cff69d4116ec61a6b0ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "73ab7ef0_7936154f",
         "filename": "front_end/inline_editor/Swatches.js",
         "patchSetId": 1
