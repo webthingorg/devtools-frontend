@@ -125,6 +125,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4475f32e_3c7c9884",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1451147
+      },
+      "writtenOn": "2020-10-19T20:21:44Z",
+      "side": 1,
+      "message": "Still interested, but I plan to wait to see how this CL turns out, since the \u0027node screenshot\u0027 could be impacted: \n\nhttps://chromium-review.googlesource.com/c/chromium/src/+/2470876\n\nWhat do you think?",
+      "parentUuid": "7bca54d7_239c8e83",
+      "revId": "4c2804a123a6cded07648b09a508b8f811810575",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3ee8b431_3619b119",
         "filename": "front_end/emulation/DeviceModeView.js",
         "patchSetId": 2
