@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "214dfa68_dad0a628",
+        "filename": "front_end/linear_memory_inspector/linear_memory_inspector.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-19T08:05:01Z",
+      "side": 1,
+      "message": "Placeholder at the moment.",
+      "revId": "a2645a6f364fafedf0a4aa386f973a48f1042252",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
