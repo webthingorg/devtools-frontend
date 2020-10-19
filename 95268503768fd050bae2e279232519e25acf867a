@@ -16,6 +16,24 @@
       "message": "TBH, I’d feel slightly more comfortable if we already had the backend CL ready, so we could land them as closely together as possible. But I trust you to get both CLs in before branch point :)",
       "revId": "95268503768fd050bae2e279232519e25acf867a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b8533f1_20793b3b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-19T11:23:09Z",
+      "side": 1,
+      "message": "Makes sense, thanks! Here is the backend CL: crrev.com/c/2484429",
+      "parentUuid": "60586043_0e2c5f2f",
+      "revId": "95268503768fd050bae2e279232519e25acf867a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
