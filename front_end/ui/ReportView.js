@@ -234,7 +234,7 @@ export class Section extends VBox {
   }
 
   /**
-   * @return {!Element}
+   * @return {!HTMLElement}
    */
   appendRow() {
     return this._fieldList.createChild('div', 'report-row');
