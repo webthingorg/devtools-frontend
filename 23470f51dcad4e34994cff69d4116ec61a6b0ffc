@@ -1,0 +1,205 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83b66e3c_18f43102",
+        "filename": "front_end/inline_editor/ColorSwatch.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-19T10:00:45Z",
+      "side": 1,
+      "message": "nit, but in TS-land we\u0027ve tended to move away from the `_` prefix, given we can actually mark them as `private` and get proper type-checking on that.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 38
+      },
+      "revId": "23470f51dcad4e34994cff69d4116ec61a6b0ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fc08a5e_ccc5b7f5",
+        "filename": "front_end/inline_editor/ColorSwatch.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-19T10:00:45Z",
+      "side": 1,
+      "message": "could we set the default value here (the ls`...`) in the declaration for the tooltip? `private tooltip \u003d ls`foo`?\n\nOr do you think it\u0027s clearer here?",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 70
+      },
+      "revId": "23470f51dcad4e34994cff69d4116ec61a6b0ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d26f3738_c34406c3",
+        "filename": "front_end/inline_editor/ColorSwatch.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-19T10:00:45Z",
+      "side": 1,
+      "message": "nit, I wonder if it\u0027s best to not destructure `render` because reading this code I thought you\u0027d forgotten the `this.` prefix before realising it was LitHtml\u0027s render. If this line started `LitHtml.render` it might be clearer.",
+      "range": {
+        "startLine": 74,
+        "startChar": 4,
+        "endLine": 74,
+        "endChar": 10
+      },
+      "revId": "23470f51dcad4e34994cff69d4116ec61a6b0ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "387cb154_f45086bf",
+        "filename": "front_end/inline_editor/ColorSwatch.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-19T10:00:45Z",
+      "side": 1,
+      "message": "is it worth a comment in this file explaining the use of `slot` or linking to an example? Or using the component docs server to create an example or two of this in action?",
+      "range": {
+        "startLine": 84,
+        "startChar": 6,
+        "endLine": 84,
+        "endChar": 47
+      },
+      "revId": "23470f51dcad4e34994cff69d4116ec61a6b0ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4143264_65be82dd",
+        "filename": "front_end/inline_editor/ColorSwatch.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-19T10:00:45Z",
+      "side": 1,
+      "message": "we\u0027d like to get rid of the devtools custom prototype methods, could we try to avoid this if possible? If we need the event to not propagate we can just call stop{Immediate}Propagation() directly.",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 16
+      },
+      "revId": "23470f51dcad4e34994cff69d4116ec61a6b0ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73ab7ef0_7936154f",
+        "filename": "front_end/inline_editor/Swatches.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-19T10:00:45Z",
+      "side": 1,
+      "message": "what\u0027s the reason for these components not being new TS custom elements?",
+      "revId": "23470f51dcad4e34994cff69d4116ec61a6b0ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edb09093_9197a9db",
+        "filename": "test/unittests/front_end/inline_editor/ColorSwatch_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-19T10:00:45Z",
+      "side": 1,
+      "message": "If you do:\n\n```\nconst swatchElm \u003d swatch.shadowRoot.querySelector(\u0027.color-swatch\u0027)\nassertElement(swatchElm, HTMLElement)\n```\n\nYou get the typing, not-null and `instanceof` check all in one 😊\n\nThere\u0027s also `assertElements` if you\u0027re querying for multiple. They are defined in DOMHelpers.",
+      "range": {
+        "startLine": 15,
+        "startChar": 2,
+        "endLine": 20,
+        "endChar": 24
+      },
+      "revId": "23470f51dcad4e34994cff69d4116ec61a6b0ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "974b51ad_48b82147",
+        "filename": "test/unittests/front_end/inline_editor/ColorSwatch_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-19T10:00:45Z",
+      "side": 1,
+      "message": "nit, but I\u0027d probably lose this test on the basis that if this is failing all the others will fail too.",
+      "range": {
+        "startLine": 47,
+        "startChar": 1,
+        "endLine": 52,
+        "endChar": 0
+      },
+      "revId": "23470f51dcad4e34994cff69d4116ec61a6b0ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e98f2891_08eb759e",
+        "filename": "test/unittests/front_end/inline_editor/ColorSwatch_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-19T10:00:45Z",
+      "side": 1,
+      "message": "nice!",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 5
+      },
+      "revId": "23470f51dcad4e34994cff69d4116ec61a6b0ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

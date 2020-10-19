@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20fbfa80_c784aed5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-19T10:00:45Z",
+      "side": 1,
+      "message": "A bunch of comments but mostly nits, on the whole this looks good to me and I love the tests, thank you. Please shout if anything isn\u0027t clear :)",
+      "revId": "b68d073602f85b36c20ccde34e50e8dec8fec37e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
