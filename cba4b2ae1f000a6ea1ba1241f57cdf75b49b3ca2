@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "12c5057e_874564b8",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-19T09:20:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81e290ae_920ec8fd",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 91
+      },
+      "revId": "cba4b2ae1f000a6ea1ba1241f57cdf75b49b3ca2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cbf60cf1_32c0b1ef",
@@ -54,6 +78,30 @@
       "writtenOn": "2020-10-19T08:44:56Z",
       "side": 1,
       "message": "could you make this a `const enum`? `export const enum ...`\n\nAnd also please give the members explicit string values (else TypeScript uses numbers, which is less clear):\n\n```\nconst enum Navigation {\n  Backward \u003d \u0027Backward\u0027\n  Forward \u003d \u0027Forward\u0027\n}\n```\n\nUsing `const` means at compile time TypeScript will inline the actual values so it saves us some code in production.\n\nThis blog post is a good reference if you\u0027d like to know more, or just ping me! https://2ality.com/2020/01/typescript-enums.html#the-basics",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 1
+      },
+      "revId": "cba4b2ae1f000a6ea1ba1241f57cdf75b49b3ca2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41f01f88_01a5c8d3",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryNavigator.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-19T09:20:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbf60cf1_32c0b1ef",
       "range": {
         "startLine": 14,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f2d1e3a_e7fb650b",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryNavigator.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-19T09:20:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebd06b38_275d781c",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 91
+      },
+      "revId": "cba4b2ae1f000a6ea1ba1241f57cdf75b49b3ca2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d5f03d5_644caab5",
@@ -100,6 +172,30 @@
       "writtenOn": "2020-10-19T08:44:56Z",
       "side": 1,
       "message": "do we need this file? Should this file export the component?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 0
+      },
+      "revId": "cba4b2ae1f000a6ea1ba1241f57cdf75b49b3ca2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "171ea6fd_ccb5ee89",
+        "filename": "front_end/linear_memory_inspector/linear_memory_inspector.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-19T09:20:37Z",
+      "side": 1,
+      "message": "I think we need it, but I\u0027m not super familiar with the build system and don\u0027t know how I would do without it.\n\nWe need the linear_memory_inspector to be built and copied over to gen/ as we need it in the component_docs.\n\nIn order to accomplish the above, I tried to:\n* only keep the `devtools_module(\"linear_memory_inspector\") {` part in the linear_memory_inspector/BUILD.gn, and additions of  \"linear_memory_inspector_module.js\"\n* above with `shell.json` change \n* adding the `devtools_entrypoint(\"bundle\") {` without entry point or empty entry point\n\nSince the mentioned combinations failed I added the \u0027linear_memory_inspector.js\u0027 as entry point. It will be populated later with more additions to the linear memory inspector which are not available here yet. \n\nAny input on how I can remove this file are welcome! This would definitely make it cleaner as it is empty right now.",
+      "parentUuid": "7d5f03d5_644caab5",
       "range": {
         "startLine": 1,
         "startChar": 0,

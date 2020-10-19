@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f05ba595_8408fa2e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-19T09:20:37Z",
+      "side": 1,
+      "message": "Thanks for reviewing Jack and Alex! \n\nWill take care of the tests in a follow up patch, but I updated the other\nparts in the latest patchset.",
+      "revId": "35afc85f4553611a819ff3bbe6954d5ac54069f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
