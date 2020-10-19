@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c067e6e4_6b5e93fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-19T07:18:33Z",
+      "side": 1,
+      "message": "LGTM but please wait for Paul who, unlike me, actually knows TypeScript",
+      "revId": "564c876cda1d584392a7ad774cc5697f297d92c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba593d25_9e5e5a65",
+        "filename": "front_end/source_frame/SourceFrame.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-19T07:18:33Z",
+      "side": 1,
+      "message": "typo: deferred",
+      "revId": "564c876cda1d584392a7ad774cc5697f297d92c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
