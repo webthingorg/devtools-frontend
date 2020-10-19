@@ -332,13 +332,6 @@ class HeapProfilerDispatcher {
   }
 
   /**
-   * @return {!Protocol.UsesObjectNotation}
-   */
-  usesObjectNotation() {
-    return true;
-  }
-
-  /**
    * @override
    * @param {!Protocol.HeapProfiler.HeapStatsUpdateEvent} event
    */
