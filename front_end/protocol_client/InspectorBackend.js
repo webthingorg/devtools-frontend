@@ -719,6 +719,13 @@ export class TargetBase {
   }
 
   /**
+   * @return {!ProtocolProxyApi.DeviceOrientationApi}
+   */
+  deviceOrientationAgent() {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
+
+  /**
    * @return {!ProtocolProxyApi.DOMApi}
    */
   domAgent() {
@@ -743,6 +750,13 @@ export class TargetBase {
    * @return {!ProtocolProxyApi.DOMStorageApi}
    */
   domstorageAgent() {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
+
+  /**
+   * @return {!ProtocolProxyApi.EmulationApi}
+   */
+  emulationAgent() {
     throw new Error('Implemented in InspectorBackend.js');
   }
 
