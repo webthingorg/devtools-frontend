@@ -213,6 +213,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63749f28_ad9532c4",
+        "filename": "front_end/sdk/CSSModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 642,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-19T13:38:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a54e565_488d83b3",
+      "range": {
+        "startLine": 639,
+        "startChar": 4,
+        "endLine": 642,
+        "endChar": 70
+      },
+      "revId": "d351bcc96c0c3c9fdb526cab5b4094dc9e3d151c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4218a143_d6685865",
