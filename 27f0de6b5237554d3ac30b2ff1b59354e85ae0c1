@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f53d8d42_8a52e866",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-19T09:01:37Z",
+      "side": 1,
+      "message": "Not sure if falling back to Number.MAX_SAFE_INTEGER is equivalent to passing undefined to the underlying code. But I assume it should be more correct given the types for the underlying code.",
+      "revId": "27f0de6b5237554d3ac30b2ff1b59354e85ae0c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
