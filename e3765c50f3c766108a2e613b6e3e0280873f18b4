@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5d52ede_9b5c13c6",
+        "filename": "front_end/source_frame/SourceFrame.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-19T21:00:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "77c2cee9_ede8519e",
+      "revId": "e3765c50f3c766108a2e613b6e3e0280873f18b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a8608351_98382313",
@@ -88,6 +106,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5452b157_cbd268d8",
+        "filename": "front_end/source_frame/SourceFrame.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-19T21:00:22Z",
+      "side": 1,
+      "message": "Makes sense. Now I do remember dealing with this `deferedContent` and the type was throwing me off. Thanks for the explanation.",
+      "parentUuid": "801ac102_72743d7b",
+      "revId": "e3765c50f3c766108a2e613b6e3e0280873f18b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5fa8b88a_0b2cb41a",
@@ -101,6 +137,24 @@
       "writtenOn": "2020-10-16T12:05:59Z",
       "side": 1,
       "message": "Same above.",
+      "revId": "e3765c50f3c766108a2e613b6e3e0280873f18b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7eb0dee1_28c86018",
+        "filename": "front_end/source_frame/SourceFrame.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-19T21:00:22Z",
+      "side": 1,
+      "message": "Explained above.",
+      "parentUuid": "5fa8b88a_0b2cb41a",
       "revId": "e3765c50f3c766108a2e613b6e3e0280873f18b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
