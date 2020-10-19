@@ -16,6 +16,24 @@
       "message": "lgtm. sorry for the delay :)",
       "revId": "9dbbbe94d776c147bc6892f8d9ae187af3ae8bf7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b29c781_bbf80f48",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1455634
+      },
+      "writtenOn": "2020-10-19T15:26:23Z",
+      "side": 1,
+      "message": ":) that\u0027s fine and thank you.\nAfter this step, do I submit this?\nI\u0027m sorry as I\u0027m not really sure.",
+      "parentUuid": "42f2a619_5b4b8f98",
+      "revId": "9dbbbe94d776c147bc6892f8d9ae187af3ae8bf7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
