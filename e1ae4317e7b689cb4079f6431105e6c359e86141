@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b749d5c_4e416aa3",
+        "filename": "front_end/timeline_model/TimelineProfileTree.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-19T08:40:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26635d5e_358b0dc8",
+      "range": {
+        "startLine": 165,
+        "startChar": 10,
+        "endLine": 165,
+        "endChar": 74
+      },
+      "revId": "e1ae4317e7b689cb4079f6431105e6c359e86141",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5a38bbfd_360239cc",
@@ -66,6 +90,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "590d58c3_e5e4b7c9",
+        "filename": "front_end/timeline_model/TimelineProfileTree.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-19T08:40:02Z",
+      "side": 1,
+      "message": "We don\u0027t call it with `false` but I\u0027d prefer the `setHasChildren(value)` version because it\u0027s a more typical setter.",
+      "parentUuid": "5a38bbfd_360239cc",
+      "range": {
+        "startLine": 536,
+        "startChar": 0,
+        "endLine": 538,
+        "endChar": 3
+      },
+      "revId": "e1ae4317e7b689cb4079f6431105e6c359e86141",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1a7d8589_d4646739",
         "filename": "front_end/timeline_model/TimelineProfileTree.js",
         "patchSetId": 1
@@ -77,6 +125,30 @@
       "writtenOn": "2020-10-16T09:48:50Z",
       "side": 1,
       "message": "nit: Lets associate the TypeScript bug with this, otherwise we will never find the TODO again.\n\n // TODO(crbug.com/1011811): ....",
+      "range": {
+        "startLine": 644,
+        "startChar": 7,
+        "endLine": 644,
+        "endChar": 11
+      },
+      "revId": "e1ae4317e7b689cb4079f6431105e6c359e86141",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b7e9aba_d0853355",
+        "filename": "front_end/timeline_model/TimelineProfileTree.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-19T08:40:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a7d8589_d4646739",
       "range": {
         "startLine": 644,
         "startChar": 7,
