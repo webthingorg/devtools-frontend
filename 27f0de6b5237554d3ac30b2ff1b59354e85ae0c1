@@ -16,6 +16,46 @@
       "message": "Not sure if falling back to Number.MAX_SAFE_INTEGER is equivalent to passing undefined to the underlying code. But I assume it should be more correct given the types for the underlying code.",
       "revId": "27f0de6b5237554d3ac30b2ff1b59354e85ae0c1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e1ae87d_0a0be95d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-19T11:26:19Z",
+      "side": 1,
+      "message": "I am slightly hesitant to +1 this code: The Number.MAX_SAFE_INTEGER approach seems fine to me, but the eventsToPhase map could have possible performance implications. Trace events is something we can have thousands of, so depending on how many events we have, and how often we do a lookup in the map, this might be noticeable.\n\nCould you run a performance trace where this code is exercised with and without this CL and make sure we don\u0027t suddenly take a lot longer? That would ease my mind xD Thanks!\n\nlgtm",
+      "revId": "27f0de6b5237554d3ac30b2ff1b59354e85ae0c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afef632c_8a834aa5",
+        "filename": "front_end/timeline_model/TimelineIRModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-19T11:26:19Z",
+      "side": 1,
+      "message": "nit: Instead of doing Number.MAX_SAFE_INTEGER, we could do:\n\n if (first.endTime \u003d\u003d\u003d undefined) {\n   return false;\n }\n return first.endTime \u003c second.startTime \u0026\u0026 second.startTime \u003c first.endTime + threshold;\n\nSame result, imo more readable, wdyt?",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 94
+      },
+      "revId": "27f0de6b5237554d3ac30b2ff1b59354e85ae0c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
