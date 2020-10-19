@@ -16,6 +16,24 @@
       "message": "Thanks Simon! This is my first contribution. I just fixed the merge conflict. Is it time to trigger the CQ Dry Run?",
       "revId": "67954d56c8679f8849b69ff37991286f99e990a2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03b9d59d_29fd51ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-19T05:17:00Z",
+      "side": 1,
+      "message": "Indeed. We usually leave the satisfaction of clicking the \u0027Submit\u0027 button to the CL author, but I forgot that for external contributors the reviewer has to do that ;)",
+      "parentUuid": "876d67b0_22f95cae",
+      "revId": "67954d56c8679f8849b69ff37991286f99e990a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
