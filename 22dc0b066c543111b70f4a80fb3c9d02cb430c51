@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcb7e735_ebd46e87",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-19T11:55:36Z",
+      "side": 1,
+      "message": "Let\u0027s link to the tracking issue in the commit message (for both CLs)",
+      "revId": "22dc0b066c543111b70f4a80fb3c9d02cb430c51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
