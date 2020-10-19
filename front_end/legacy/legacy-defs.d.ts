@@ -124,6 +124,7 @@ interface HTMLElement {
 interface Element {
   boxInWindow(targetWindow?: Window): AnchorBox;
   createChild(tagName: string, className?: string, content?: string): Element;
+  createSVGChild(childType: string, className?: string): HTMLElement;
   hasFocus(): boolean;
   positionAt(x: (number|undefined), y: (number|undefined), relativeTo?: Element): void;
   removeChildren(): void;
