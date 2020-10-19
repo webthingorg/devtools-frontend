@@ -191,6 +191,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5a54e565_488d83b3",
+        "filename": "front_end/sdk/CSSModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 642,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-19T13:01:48Z",
+      "side": 1,
+      "message": "I thought of this:\n\n    let frameIdToStyleSheetIds \u003d this._styleSheetIdsForURL.get(url);\n    if (!frameIdToStyleSheetIds) {\n      frameIdToStyleSheetIds \u003d new Map();\n      this._styleSheetIdsForURL.set(url, frameIdToStyleSheetIds);\n    }",
+      "parentUuid": "746eb058_1d734b72",
+      "range": {
+        "startLine": 639,
+        "startChar": 4,
+        "endLine": 642,
+        "endChar": 70
+      },
+      "revId": "d351bcc96c0c3c9fdb526cab5b4094dc9e3d151c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4218a143_d6685865",
         "filename": "front_end/sdk/CSSModel.js",
         "patchSetId": 1
@@ -226,6 +250,30 @@
       "side": 1,
       "message": "The conditional is reversed here. I would like to keep this as-is to make it more understandable.",
       "parentUuid": "4218a143_d6685865",
+      "range": {
+        "startLine": 855,
+        "startChar": 10,
+        "endLine": 855,
+        "endChar": 34
+      },
+      "revId": "d351bcc96c0c3c9fdb526cab5b4094dc9e3d151c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "997d518c_52627731",
+        "filename": "front_end/sdk/CSSModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-19T13:01:48Z",
+      "side": 1,
+      "message": "I think it would be more understandable if it was merged in the conditional above.",
+      "parentUuid": "3d195111_a76a8260",
       "range": {
         "startLine": 855,
         "startChar": 10,
