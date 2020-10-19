@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79c9d2de_210b64be",
+        "filename": "front_end/animation/AnimationTimeline.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-19T13:39:47Z",
+      "side": 1,
+      "message": "should we be storing `playbackRate` in a map of `button` \u003d\u003e `playbackRate` or something? Setting `button` (which afaict should be an HTMLButtonElement) to any feels a bit off.",
+      "range": {
+        "startLine": 338,
+        "startChar": 0,
+        "endLine": 338,
+        "endChar": 85
+      },
+      "revId": "212fe27aaca290e964e04eaf9cc27e255a82a149",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "560bf7d4_3b738107",
+        "filename": "front_end/animation/AnimationTimeline.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-19T13:39:47Z",
+      "side": 1,
+      "message": "should this be in a different conditional that just checks for `nodeUI`? Previously this code would be called if `node` was `null` but now it won\u0027t be. Is that OK?",
+      "range": {
+        "startLine": 653,
+        "startChar": 0,
+        "endLine": 653,
+        "endChar": 34
+      },
+      "revId": "212fe27aaca290e964e04eaf9cc27e255a82a149",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd9c8ca2_0d889281",
+        "filename": "front_end/animation/AnimationTimeline.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-19T13:39:47Z",
+      "side": 1,
+      "message": "any reason to not type this as `{x: number}`?",
+      "range": {
+        "startLine": 837,
+        "startChar": 0,
+        "endLine": 837,
+        "endChar": 41
+      },
+      "revId": "212fe27aaca290e964e04eaf9cc27e255a82a149",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cec946a1_632959a0",
+        "filename": "front_end/animation/AnimationTimeline.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 861,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-19T13:39:47Z",
+      "side": 1,
+      "message": "same Q RE typing as x: number",
+      "range": {
+        "startLine": 861,
+        "startChar": 0,
+        "endLine": 861,
+        "endChar": 41
+      },
+      "revId": "212fe27aaca290e964e04eaf9cc27e255a82a149",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7e4b245_e9eacac8",
+        "filename": "front_end/animation/AnimationTimeline.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-19T13:39:47Z",
+      "side": 1,
+      "message": "same Q RE typing as x: number",
+      "range": {
+        "startLine": 872,
+        "startChar": 0,
+        "endLine": 872,
+        "endChar": 41
+      },
+      "revId": "212fe27aaca290e964e04eaf9cc27e255a82a149",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
