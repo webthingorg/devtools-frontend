@@ -16,6 +16,98 @@
       "message": "Hello!\n\nAdding the first component of the linear memory inspector. \n\nMore CSS work and tests need to be added for this component, but I\u0027m first concentrating on having the components added to devtools, and will add clean ups, features and tests as I go.\n\nPTAL!",
       "revId": "cba4b2ae1f000a6ea1ba1241f57cdf75b49b3ca2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81e290ae_920ec8fd",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-19T08:44:56Z",
+      "side": 1,
+      "message": "Please could you change this to no underscores, and stick with just dashes? That\u0027s the HTML tag convention that most (if not all) codebases stick to :)",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 91
+      },
+      "revId": "cba4b2ae1f000a6ea1ba1241f57cdf75b49b3ca2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbf60cf1_32c0b1ef",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryNavigator.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-19T08:44:56Z",
+      "side": 1,
+      "message": "could you make this a `const enum`? `export const enum ...`\n\nAnd also please give the members explicit string values (else TypeScript uses numbers, which is less clear):\n\n```\nconst enum Navigation {\n  Backward \u003d \u0027Backward\u0027\n  Forward \u003d \u0027Forward\u0027\n}\n```\n\nUsing `const` means at compile time TypeScript will inline the actual values so it saves us some code in production.\n\nThis blog post is a good reference if you\u0027d like to know more, or just ping me! https://2ality.com/2020/01/typescript-enums.html#the-basics",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 1
+      },
+      "revId": "cba4b2ae1f000a6ea1ba1241f57cdf75b49b3ca2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebd06b38_275d781c",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryNavigator.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-19T08:44:56Z",
+      "side": 1,
+      "message": "same thing RE dashes not underscores",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 91
+      },
+      "revId": "cba4b2ae1f000a6ea1ba1241f57cdf75b49b3ca2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d5f03d5_644caab5",
+        "filename": "front_end/linear_memory_inspector/linear_memory_inspector.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-19T08:44:56Z",
+      "side": 1,
+      "message": "do we need this file? Should this file export the component?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 0
+      },
+      "revId": "cba4b2ae1f000a6ea1ba1241f57cdf75b49b3ca2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

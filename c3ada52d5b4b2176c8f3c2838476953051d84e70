@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cde08965_d5987dd3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-19T08:44:56Z",
+      "side": 1,
+      "message": "This LGTM with some small nits and ideally a test.\n\nI would like at least some tests to be added before landing - they don\u0027t have to be vast and cover everything, but generally I think we should get into the habit of adding some.",
+      "revId": "c3ada52d5b4b2176c8f3c2838476953051d84e70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
