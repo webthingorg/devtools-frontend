@@ -145,6 +145,7 @@ interface Event {
 
 interface Node {
   enclosingNodeOrSelfWithClass(className: string, stayWithin?: Element): Element;
+  enclosingNodeOrSelfWithNodeName(nodeName: string): Node|null;
   getComponentRoot(): Document|DocumentFragment|null;
   getComponentSelection(): Selection|null;
   hasSameShadowRoot(other: Node): boolean;
