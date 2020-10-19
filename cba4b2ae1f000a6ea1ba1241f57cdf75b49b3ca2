@@ -228,6 +228,30 @@
       },
       "revId": "cba4b2ae1f000a6ea1ba1241f57cdf75b49b3ca2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52ebc9a3_3e2c53c4",
+        "filename": "front_end/linear_memory_inspector/linear_memory_inspector.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-19T16:16:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c1909ee_5e6c288a",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 0
+      },
+      "revId": "cba4b2ae1f000a6ea1ba1241f57cdf75b49b3ca2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
