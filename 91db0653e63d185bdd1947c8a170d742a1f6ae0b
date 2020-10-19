@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fd92113_a6892d96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-19T13:03:18Z",
+      "side": 1,
+      "message": "LGTM (rubber stamp)\n\nPlease hold of landing until the back-end change is in.",
+      "revId": "91db0653e63d185bdd1947c8a170d742a1f6ae0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
