@@ -107,6 +107,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0604908_fe6e89be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-20T05:46:31Z",
+      "side": 1,
+      "message": "Tim \u0026 Paul, please see the discussion above about performance of weak maps. What would you suggest in this case? 1) adding a property to the Event type? 2) keeping the WeakMap? 3) trying to extend the Event type in TS somehow? ",
+      "revId": "27f0de6b5237554d3ac30b2ff1b59354e85ae0c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "afef632c_8a834aa5",
