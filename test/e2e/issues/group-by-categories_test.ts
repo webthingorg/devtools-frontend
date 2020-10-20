@@ -6,6 +6,7 @@ import {goToResource} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {assertCategoryName, assertIssueTitle, expandCategory, expandIssue, getGroupByCategoryChecked, navigateToIssuesTab, toggleGroupByCategory} from '../helpers/issues-helpers.js';
 
+
 describe('The Issues tab categories checkbox', async () => {
   it('should group issues by associated categories when checked', async () => {
     await goToResource('elements/element-reveal-inline-issue.html');
