@@ -329,6 +329,30 @@
       },
       "revId": "d52f4bf7fd528bce73bc6c458837b0c21574f54d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f06e127_ac02be31",
+        "filename": "test/unittests/front_end/timeline/WebVitalsTimeline_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-20T12:59:23Z",
+      "side": 1,
+      "message": "We need to unit test the unit testable things, really, especially as we don\u0027t have screenshot testing infra as yet. Jan, it\u0027s best to work with Jack to figure out what can be tested and how (there\u0027s precedent in the Breadcrumbs element, for example), and we can augment with e2e / pptr-based testing \u0026 screenshots as makes sense and as availability allows.",
+      "parentUuid": "6721c895_c4b1a833",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 43
+      },
+      "revId": "d52f4bf7fd528bce73bc6c458837b0c21574f54d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
