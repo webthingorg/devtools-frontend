@@ -9,5 +9,6 @@ group("component_docs") {
     "./icon_component",
     "./layout_pane",
     "./perf_piechart",
+    "./webvitals",
   ]
 }
