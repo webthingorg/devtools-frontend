@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": false,
       "key": {
         "uuid": "88f010b1_51956038",
         "filename": "/PATCHSET_LEVEL",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "A first peek into the WebVitals Toollane. I changed the implementation to use canvas because it did not scroll smoothly when connected to the rest of the performance panel.\nIt\u0027s still WIP",
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "b9c93e2e_05203218",
         "filename": "/PATCHSET_LEVEL",
@@ -31,10 +32,10 @@
       "side": 1,
       "message": "Really great to see this coming together - quite a few questions and comments for you 😊\n\nAlso adding Jack as a reviewer, just to get his take on the component in particular.",
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "be327b4e_2a8cec87",
         "filename": "/PATCHSET_LEVEL",
@@ -48,10 +49,10 @@
       "side": 1,
       "message": "Minor nits but LGTM!",
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "993a1aac_626921b4",
         "filename": "front_end/component_docs/webvitals/webvitals.html",
@@ -71,10 +72,10 @@
         "endChar": 26
       },
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "e211a19c_3bb167d7",
         "filename": "front_end/component_docs/webvitals/webvitals.html",
@@ -95,10 +96,10 @@
         "endChar": 26
       },
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "9df28a35_f6271230",
         "filename": "front_end/timeline/TimelineFlameChartNetworkDataProvider.js",
@@ -118,10 +119,10 @@
         "endChar": 68
       },
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "32646449_b428e9cf",
         "filename": "front_end/timeline/TimelineFlameChartNetworkDataProvider.js",
@@ -142,10 +143,10 @@
         "endChar": 68
       },
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "2995137e_22d822c5",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
@@ -165,10 +166,10 @@
         "endChar": 26
       },
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "54dfe912_0d535c1f",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
@@ -189,10 +190,10 @@
         "endChar": 26
       },
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "f1484b85_d5c90d6e",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
@@ -212,10 +213,10 @@
         "endChar": 50
       },
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "010dba53_83d19de4",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
@@ -236,10 +237,10 @@
         "endChar": 50
       },
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "47fca727_3cb144e5",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
@@ -260,10 +261,10 @@
         "endChar": 50
       },
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "eedddbaa_fd16f858",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
@@ -283,10 +284,10 @@
         "endChar": 29
       },
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "bddc463c_aaca1093",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
@@ -307,10 +308,10 @@
         "endChar": 29
       },
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "6be9781c_bac0a4aa",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
@@ -330,10 +331,10 @@
         "endChar": 4
       },
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "3847f22f_ba839b85",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
@@ -354,10 +355,10 @@
         "endChar": 4
       },
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "edc788e3_28b7568e",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
@@ -378,10 +379,10 @@
         "endChar": 4
       },
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "44564a39_6d8b26f2",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
@@ -401,10 +402,10 @@
         "endChar": 24
       },
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "78d5efa1_130996f5",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
@@ -425,10 +426,10 @@
         "endChar": 24
       },
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "9af81f1a_6e0905a8",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
@@ -448,10 +449,10 @@
         "endChar": 27
       },
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "4ad8befb_fcde0f04",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
@@ -472,10 +473,10 @@
         "endChar": 27
       },
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "c5263e3d_fe6c0e18",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
@@ -495,10 +496,10 @@
         "endChar": 6
       },
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "660bab2f_af231ab7",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
@@ -519,10 +520,10 @@
         "endChar": 6
       },
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "a3af6b85_efbb49a8",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
@@ -542,10 +543,34 @@
         "endChar": 43
       },
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad1b440d_588310dd",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-20T12:29:06Z",
+      "side": 1,
+      "message": "This has been addressed by using the ChartViewport class",
+      "parentUuid": "a3af6b85_efbb49a8",
+      "range": {
+        "startLine": 246,
+        "startChar": 9,
+        "endLine": 246,
+        "endChar": 43
+      },
+      "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "fdc1d64b_140eaa6a",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
@@ -565,10 +590,10 @@
         "endChar": 12
       },
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "0244cbda_d4a7de94",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
@@ -589,10 +614,10 @@
         "endChar": 12
       },
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "dfa93f8e_5e338ed2",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
@@ -612,10 +637,10 @@
         "endChar": 17
       },
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "f1d0665d_36fa1482",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
@@ -636,10 +661,10 @@
         "endChar": 17
       },
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "c05483d4_237ed469",
         "filename": "test/unittests/front_end/timeline/WebVitalsTimeline_test.ts",
@@ -659,8 +684,31 @@
         "endChar": 3
       },
       "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be02442e_7ea3fa40",
+        "filename": "test/unittests/front_end/timeline/WebVitalsTimeline_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-20T12:29:06Z",
+      "side": 1,
+      "message": "I removed it for now because I think screenshot testing is the more valuable approach for this component.",
+      "parentUuid": "c05483d4_237ed469",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 3
+      },
+      "revId": "d4ced5d711b6d5a6ecfdb0c09734d0c306a32350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

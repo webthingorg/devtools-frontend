@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "2e116cab_8f6ef1f9",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
@@ -20,10 +21,10 @@
         "endChar": 0
       },
       "revId": "d52f4bf7fd528bce73bc6c458837b0c21574f54d",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "0cc353df_65ba7845",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
@@ -44,10 +45,10 @@
         "endChar": 0
       },
       "revId": "d52f4bf7fd528bce73bc6c458837b0c21574f54d",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "7cc46ea3_82f08ad7",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
@@ -67,10 +68,10 @@
         "endChar": 2
       },
       "revId": "d52f4bf7fd528bce73bc6c458837b0c21574f54d",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "2eac211f_b64d897b",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
@@ -91,10 +92,10 @@
         "endChar": 2
       },
       "revId": "d52f4bf7fd528bce73bc6c458837b0c21574f54d",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "4c70f9f4_aecd212b",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
@@ -114,10 +115,10 @@
         "endChar": 48
       },
       "revId": "d52f4bf7fd528bce73bc6c458837b0c21574f54d",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "bd4fcabd_69771f9e",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
@@ -138,10 +139,10 @@
         "endChar": 48
       },
       "revId": "d52f4bf7fd528bce73bc6c458837b0c21574f54d",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "13800fc7_da4e9fcc",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
@@ -161,10 +162,10 @@
         "endChar": 41
       },
       "revId": "d52f4bf7fd528bce73bc6c458837b0c21574f54d",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "9906b9d9_ccbba1a2",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
@@ -185,10 +186,10 @@
         "endChar": 41
       },
       "revId": "d52f4bf7fd528bce73bc6c458837b0c21574f54d",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "e8c7ce00_bb778bca",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
@@ -209,10 +210,34 @@
         "endChar": 41
       },
       "revId": "d52f4bf7fd528bce73bc6c458837b0c21574f54d",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "93c6c659_2324c700",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-20T12:29:06Z",
+      "side": 1,
+      "message": "I changed the semantics to instead use an object like {timestamp: \u0027\u0027}",
+      "parentUuid": "e8c7ce00_bb778bca",
+      "range": {
+        "startLine": 97,
+        "startChar": 35,
+        "endLine": 97,
+        "endChar": 41
+      },
+      "revId": "d52f4bf7fd528bce73bc6c458837b0c21574f54d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "af769218_92508555",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
@@ -232,10 +257,10 @@
         "endChar": 41
       },
       "revId": "d52f4bf7fd528bce73bc6c458837b0c21574f54d",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "e2462ac9_c91d8756",
         "filename": "front_end/timeline/WebVitalsTimeline.ts",
@@ -256,10 +281,10 @@
         "endChar": 41
       },
       "revId": "d52f4bf7fd528bce73bc6c458837b0c21574f54d",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "f2d97e99_e0eac3c5",
         "filename": "test/unittests/front_end/timeline/WebVitalsTimeline_test.ts",
@@ -279,8 +304,31 @@
         "endChar": 43
       },
       "revId": "d52f4bf7fd528bce73bc6c458837b0c21574f54d",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6721c895_c4b1a833",
+        "filename": "test/unittests/front_end/timeline/WebVitalsTimeline_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-20T12:29:06Z",
+      "side": 1,
+      "message": "I think, in this case screenshot testing is probably the way to go.",
+      "parentUuid": "f2d97e99_e0eac3c5",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 43
+      },
+      "revId": "d52f4bf7fd528bce73bc6c458837b0c21574f54d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
