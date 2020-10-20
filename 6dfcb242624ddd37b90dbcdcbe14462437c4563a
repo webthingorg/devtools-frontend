@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3781c00d_ca29e5cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-20T08:52:38Z",
+      "side": 1,
+      "message": "LGTM % nit, thanks!",
+      "revId": "6dfcb242624ddd37b90dbcdcbe14462437c4563a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41fefe82_93f7df88",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-20T08:52:38Z",
+      "side": 1,
+      "message": "nit: let\u0027s check without the negation (and switch consequence and alternative accordingly), that is easier to read.",
+      "range": {
+        "startLine": 410,
+        "startChar": 8,
+        "endLine": 410,
+        "endChar": 21
+      },
+      "revId": "6dfcb242624ddd37b90dbcdcbe14462437c4563a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
