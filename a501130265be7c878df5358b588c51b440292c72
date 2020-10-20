@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "863acef6_a698a26d",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 2636,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-20T09:29:04Z",
+      "side": 1,
+      "message": "If we cache on this instance, when will we invalidate the cache? If it\u0027s OK to persist this cache across multiple calls to `_buildPropertyCompletions` at different times, then I guess there is some value to caching on the instance. Otherwise I think it\u0027s fine as is.",
+      "revId": "a501130265be7c878df5358b588c51b440292c72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
