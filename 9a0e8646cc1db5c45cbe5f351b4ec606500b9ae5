@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc969db2_f00b484f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-10-20T14:44:03Z",
+      "side": 1,
+      "message": "Cherry pick to M87 to fix inspector-stylesheet references in Styles pane. PTAL!",
+      "revId": "9a0e8646cc1db5c45cbe5f351b4ec606500b9ae5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
