@@ -39,6 +39,30 @@
       },
       "revId": "f5f887227ff4699943f3cc4e114f350d9987d9e0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7d392b7_bcc2ffa0",
+        "filename": "front_end/issues/descriptions/mixedContent.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-10-20T08:41:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cfd40129_f56c434f",
+      "range": {
+        "startLine": 5,
+        "startChar": 20,
+        "endLine": 5,
+        "endChar": 21
+      },
+      "revId": "f5f887227ff4699943f3cc4e114f350d9987d9e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
