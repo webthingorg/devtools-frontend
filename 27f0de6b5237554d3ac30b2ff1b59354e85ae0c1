@@ -124,6 +124,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c32734a0_c6a11ca6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-20T09:45:29Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "27f0de6b5237554d3ac30b2ff1b59354e85ae0c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "afef632c_8a834aa5",
@@ -137,6 +154,30 @@
       "writtenOn": "2020-10-19T11:26:19Z",
       "side": 1,
       "message": "nit: Instead of doing Number.MAX_SAFE_INTEGER, we could do:\n\n if (first.endTime \u003d\u003d\u003d undefined) {\n   return false;\n }\n return first.endTime \u003c second.startTime \u0026\u0026 second.startTime \u003c first.endTime + threshold;\n\nSame result, imo more readable, wdyt?",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 94
+      },
+      "revId": "27f0de6b5237554d3ac30b2ff1b59354e85ae0c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "257c49e3_943872ea",
+        "filename": "front_end/timeline_model/TimelineIRModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-20T09:45:29Z",
+      "side": 1,
+      "message": "+1 to this suggestion.",
+      "parentUuid": "afef632c_8a834aa5",
       "range": {
         "startLine": 209,
         "startChar": 0,
