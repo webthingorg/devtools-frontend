@@ -24,6 +24,9 @@
   <message name="IDS_DEVTOOLS_4a3aaf1edf15288e9ff3994088e2277a" desc="Pattern title in Framework Blackbox Settings Tab of the Settings">
     Blackbox scripts whose names match &apos;<ph name="ITEM_PATTERN">$1s<ex>ad.*?</ex></ph>&apos;
   </message>
+  <message name="IDS_DEVTOOLS_4b0cf762c3ea866548fa781d2616752d" desc="Button label in the keyboard shortcut editor that discards changes to the shortcuts being edited.">
+    Discard Changes
+  </message>
   <message name="IDS_DEVTOOLS_57391192dfa1f247ad015a0fe2eca48e" desc="Aria accessible name in Framework Blackbox Settings Tab of the Settings">
     Pattern
   </message>
@@ -62,9 +65,6 @@
   </message>
   <message name="IDS_DEVTOOLS_8ef2494e10ba96444744adaecb2ceddd" desc="Text appearing before a select control offering users their choice of keyboard shortcut presets.">
     Match shortcuts from preset
-  </message>
-  <message name="IDS_DEVTOOLS_98313f623bb6f464b9a154eca0b99bf3" desc="Label for a button in the settings pane that discards changes to the shortcut being edited">
-    Discard changes
   </message>
   <message name="IDS_DEVTOOLS_a89b8b9966ec3e3321ae2d3135e238e3" desc="Label for a button in the settings pane that resets all shortcuts to defaults">
     Restore default shortcuts
