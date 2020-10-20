@@ -22,6 +22,30 @@
       },
       "revId": "154718d770f1e6815ddc2bb184dfd5d85c1e9345",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a1e783b_f3cbbf5f",
+        "filename": "front_end/snippets/ScriptSnippetFileSystem.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-10-20T13:44:02Z",
+      "side": 1,
+      "message": "Yes. The type \u0027TextUtils.ContentProvider.DeferredContent\u0027 this function returns is defined in such a way that if the field \u0027content\u0027 is null, then an \u0027error\u0027 must be defined. The former implementation never defined an error, even when \u0027content\u0027 is null, and TypeScript noticed. This change asserts that this is always the case.",
+      "parentUuid": "a975d4d4_67581a3f",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 99
+      },
+      "revId": "154718d770f1e6815ddc2bb184dfd5d85c1e9345",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
