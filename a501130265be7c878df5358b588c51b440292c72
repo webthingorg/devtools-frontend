@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9084ac63_c395f5e2",
+        "filename": "front_end/Images/src/flex-direction-icon.svg",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-20T12:56:21Z",
+      "side": 1,
+      "message": "I didn\u0027t write the file by hand so probably indentation is wrong. Also, the icon is temporary and will be replaced later.",
+      "parentUuid": "39c383a2_855d3d2b",
+      "revId": "a501130265be7c878df5358b588c51b440292c72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9aa9090b_bb315be0",
         "filename": "front_end/elements/StylesSidebarPane.js",
         "patchSetId": 3
@@ -100,6 +118,24 @@
       "writtenOn": "2020-10-20T12:49:24Z",
       "side": 1,
       "message": "Would it make sense to set the max-height in CSS instead?",
+      "revId": "a501130265be7c878df5358b588c51b440292c72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b44aa362_7937534a",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 2658,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-20T12:56:21Z",
+      "side": 1,
+      "message": "I thought about it but found a few arguments against it: 1) the icon is given to another component that renders it, so it would require adding the styles for the icon there and the icon is not always present or is not always of that size. 2) The max height is the same as the width \u0026 height defined in JS for the Icon component so it\u0027s convenient to have them in one place because these values should be changed together.\n\nActually, I only needed the max height because the flexbox layout would stretch the icon for some reason. I guess it might be possible to set the max height inside the Icon component because I cannot think of a case when a fixed size icon would need to be stretched.",
+      "parentUuid": "b22c96fc_ec746887",
       "revId": "a501130265be7c878df5358b588c51b440292c72",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
