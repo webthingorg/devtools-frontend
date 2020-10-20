@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e909999c_1025bbe4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-10-20T22:43:55Z",
+      "side": 1,
+      "message": "I\u0027m surprised to see this function doesn\u0027t already exist. LGTM",
+      "revId": "b9275fab3c6bd813bc6e96be8fe9f174c9dd51f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
