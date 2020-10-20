@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "633e2ef5_f07249af",
+        "filename": "test/e2e/helpers/issues-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-20T11:13:19Z",
+      "side": 1,
+      "message": "consolidate into one function that takes a single argument?",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 1
+      },
+      "revId": "757b9b9a8fa09de39ddad8850fa0042f083a0170",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efd724c0_af25ea3e",
+        "filename": "test/e2e/resources/network/csp-report-only.rawresponse",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-20T11:13:19Z",
+      "side": 1,
+      "message": "Let\u0027s use an inline script violation, that should work just as well and we don\u0027t need any external URLs.",
+      "range": {
+        "startLine": 12,
+        "startChar": 22,
+        "endLine": 12,
+        "endChar": 55
+      },
+      "revId": "757b9b9a8fa09de39ddad8850fa0042f083a0170",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
