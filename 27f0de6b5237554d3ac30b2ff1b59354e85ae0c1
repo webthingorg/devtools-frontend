@@ -141,6 +141,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f6cc609_5f4e381f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-20T09:59:16Z",
+      "side": 1,
+      "message": "Let\u0027s choose option 2 for now.",
+      "parentUuid": "e0604908_fe6e89be",
+      "revId": "27f0de6b5237554d3ac30b2ff1b59354e85ae0c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "afef632c_8a834aa5",
