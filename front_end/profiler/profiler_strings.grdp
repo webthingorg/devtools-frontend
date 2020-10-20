@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <grit-part>
-  <message name="IDS_DEVTOOLS_00018e8c8fc32e1ec073c0cdbadb5575" desc="Text in Heap Profile View of a profiler tool">
-    <ph name="NUMBER_WITHTHOUSANDSSEPARATOR_VALUE________">$1s<ex>1,021</ex></ph> KB
-  </message>
   <message name="IDS_DEVTOOLS_02184526968aa861a744df910647fcf0" desc="Text in Heap Snapshot Data Grids of a profiler tool">
     Freed Size
-  </message>
-  <message name="IDS_DEVTOOLS_0257542bea15eb6baa3fc0364cd3ba24" desc="Text in Heap Snapshot View of a profiler tool">
-    <ph name="NUMBER_WITHTHOUSANDSSEPARATOR_MATH_ROUND_VALUE_________">$1s<ex>1,021</ex></ph> KB
   </message>
   <message name="IDS_DEVTOOLS_030361ea56fa177ebcbefe708a45b0f2" desc="Text in Heap Snapshot Data Grids of a profiler tool">
     # Deleted
@@ -86,6 +80,9 @@
   </message>
   <message name="IDS_DEVTOOLS_35066690e799cd4e59123262e41b29c5" desc="Text in CPUProfile View of a profiler tool">
     Stop CPU profiling
+  </message>
+  <message name="IDS_DEVTOOLS_35a4c6bdd0db713a89d334b6e3fa6381" desc="Text in Heap Snapshot View of a profiler tool">
+    <ph name="NUMBER_WITHTHOUSANDSSEPARATOR_MATH_ROUND_VALUE_________">$1s<ex>1,021</ex></ph> kB
   </message>
   <message name="IDS_DEVTOOLS_3a9619400e054970a7ab8b67c4ce5109" desc="Tooltip text that appears when hovering over the largeicon refresh button in the Profile View of a profiler tool">
     Restore all functions
@@ -265,6 +262,9 @@
   </message>
   <message name="IDS_DEVTOOLS_9e854bf5f75e670228f33f9fe857793d" desc="Text in Heap Snapshot Data Grids of a profiler tool">
     Size of the object plus the graph it retains in bytes
+  </message>
+  <message name="IDS_DEVTOOLS_a4c37e46a1c8f2af39582eab69eb69aa" desc="Text in Heap Profile View of a profiler tool">
+    <ph name="NUMBER_WITHTHOUSANDSSEPARATOR_VALUE________">$1s<ex>1,021</ex></ph> kB
   </message>
   <message name="IDS_DEVTOOLS_a6122a65eaa676f700ae68d393054a37" desc="Control button text content in Profile Launcher View of a profiler tool">
     Start
