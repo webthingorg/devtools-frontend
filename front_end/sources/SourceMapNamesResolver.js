@@ -350,7 +350,7 @@ export const resolveThisObject = function(callFrame) {
    * @return {!Promise<?SDK.RemoteObject.RemoteObject>}
    */
   function onScopeResolved(namesMapping) {
-    const thisMappings = namesMapping.inverse().get('this');
+    const thisMappings = Platform.MapUtilities.inverse(namesMapping).get('this');
     if (!thisMappings || thisMappings.size !== 1) {
       return Promise.resolve(callFrame.thisObject());
     }
