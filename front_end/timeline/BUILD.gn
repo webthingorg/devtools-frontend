@@ -28,6 +28,10 @@ devtools_module("timeline") {
     "TimelineUIUtils.js",
     "UIDevtoolsController.js",
     "UIDevtoolsUtils.js",
+    "WebVitalsLane.ts",
+    "WebVitalsTimeline.ts",
+    "WebVitalsTimelineUtils.js",
+    "WebVitalsTimeline_bridge.js",
   ]
 
   deps = [
@@ -40,6 +44,7 @@ devtools_module("timeline") {
     "../perf_ui:bundle",
     "../profiler:bundle",
     "../theme_support:bundle",
+    "../third_party/lit-html:bundle",
     "../timeline_model:bundle",
   ]
 }
