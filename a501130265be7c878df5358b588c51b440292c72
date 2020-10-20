@@ -1,6 +1,57 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f60ed644_c2ce1738",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-20T12:49:24Z",
+      "side": 1,
+      "message": "LGTM % comments",
+      "revId": "a501130265be7c878df5358b588c51b440292c72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39c383a2_855d3d2b",
+        "filename": "front_end/Images/src/flex-direction-icon.svg",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-20T12:49:24Z",
+      "side": 1,
+      "message": "Should this be 2-space indentation, like for most other files?",
+      "revId": "a501130265be7c878df5358b588c51b440292c72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9aa9090b_bb315be0",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 2415,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-20T12:49:24Z",
+      "side": 1,
+      "message": "This is being used as a map, so let\u0027s make it one. We can then avoid for-in (and its prototype lookups!) further down in the code.",
+      "revId": "a501130265be7c878df5358b588c51b440292c72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "863acef6_a698a26d",
@@ -32,6 +83,23 @@
       "side": 1,
       "message": "I need to see if the prompt instance is created for every time you start editing the styles or if it\u0027s persisted somewhere. If it\u0027s the former, I think we can cache on the prompt instance.",
       "parentUuid": "863acef6_a698a26d",
+      "revId": "a501130265be7c878df5358b588c51b440292c72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b22c96fc_ec746887",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 2658,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-20T12:49:24Z",
+      "side": 1,
+      "message": "Would it make sense to set the max-height in CSS instead?",
       "revId": "a501130265be7c878df5358b588c51b440292c72",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
