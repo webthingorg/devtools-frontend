@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fe7ce36_48fa8bde",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-20T16:35:33Z",
+      "side": 1,
+      "message": "This was reverted due to our CQ bots not being able to deal with retry shards and devtools CLs that introduce new files at the same time, see https://crbug.com/1140485",
+      "revId": "8aba0177a4e80b702e32e7cf0a379d3ebc25cc55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
