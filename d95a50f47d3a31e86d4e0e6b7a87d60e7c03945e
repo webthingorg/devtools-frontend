@@ -50,6 +50,24 @@
       "message": "It is unclear to me what the desired behavior here is (in particular if the value of a cell is a complex object). I\u0027ve CC\u0027d our UX lead on the referenced bug.",
       "revId": "d95a50f47d3a31e86d4e0e6b7a87d60e7c03945e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25838cbd_26f2b717",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1459949
+      },
+      "writtenOn": "2020-10-20T20:05:28Z",
+      "side": 1,
+      "message": "Hello.  Thank you for taking the time to look this CL.  In an attempt to clarify my statements about this CL and why it addresses the bug, I have written some thoughts and included pics.\n\nhttps://imgur.com/a/3inKp5M\n\nAttached is PIC1 which displays the current Chrome build with the current behavior of console.table. (including the bug \u0027new Date()\u0027 not displayed inside of console.table).  PIC1 also includes current behavior for similar \u0027constructor created objects\u0027 such as \u0027new Boolean()\u0027 and also an example introduced by the reviewer.  (please note \u0027Chrome\u0027 is displayed at top left)\n\nAttached PIC2 which is the \u0027patched\u0027 behavior.  The only change is that the date is rendered as \u0027value\u0027 inside of the cell.  (please note \u0027Chromium\u0027 is displayed at top left).\n\nIn regards your first comment,  \u0027It looks to me as if the object is rendered after the table instead of in the correct table cell.\u0027  That is the current behavior for console.table().  This was not introduced with this patch, as indicated by PIC1.\n\nTo your second point \"This patch will introduce a bug for console.table({ int: 123, date: {x:12} });\".  I am unsure what bug you are referring to since the current behavior is the same as the \u0027patched behavior\u0027, as noted in PIC2.\n\nIn regards to your third point, I have not noticed similar \u0027constructor created objects\u0027 returned displayed as \u0027dynamic objects\u0027 in the consoleTable cell (as noted in PIC1).  It is true that they create a new column named \u0027PrimitiveValue\u0027 and insert the \u0027value\u0027 into the cell.   This patch inserts the \u0027value\u0027 into the value column simply because those properties do not exist on the \u0027new Date()\u0027 object in the \u0027properties\u0027 array (inside of _buildTableMessage) where they are accessed with other types of objects.\n\nThank you for your time and consideration.",
+      "parentUuid": "7d2c472d_edc47333",
+      "revId": "d95a50f47d3a31e86d4e0e6b7a87d60e7c03945e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
