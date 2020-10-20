@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a420d246_0f795c80",
+        "filename": "front_end/Images/flex-direction-icon.svg",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-20T20:50:47Z",
+      "side": 0,
+      "message": "Why do we have 2 svg files for this icon?",
+      "revId": "94ba82d9a22a6b63dd48ded4baaf4745b491eb99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

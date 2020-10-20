@@ -55,6 +55,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "83f21615_1661ae2a",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 2411,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-20T20:50:47Z",
+      "side": 1,
+      "message": "I think this also needs to take writing-mode into account.\nHere is the list of all possible scenarios I can see:\n\ndirection ltr + no writing-mode\ndirection ltr + tb writing-mode\ndirection ltr + vertical-lr writing-mode\ndirection ltr + vertical-rl writing-mode\ndirection rtl + no writing-mode\ndirection rtl + tb writing-mode\ndirection rtl + vertical-lr writing-mode\ndirection rtl + vertical-rl writing-mode\n\nNow, I\u0027m not an expert in this, I don\u0027t know whether these are actually used together or not, but testing quickly locally, these combinations sure lead to different directions for row/column[-reverse], so we should probably handle it.",
+      "range": {
+        "startLine": 2411,
+        "startChar": 12,
+        "endLine": 2411,
+        "endChar": 64
+      },
+      "revId": "a501130265be7c878df5358b588c51b440292c72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9aa9090b_bb315be0",
         "filename": "front_end/elements/StylesSidebarPane.js",
         "patchSetId": 3
@@ -107,6 +130,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7d34b841_550b03b6",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 2636,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-20T20:50:47Z",
+      "side": 1,
+      "message": "Looks like its created when you start editing: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/elements/StylePropertyTreeElement.js;l\u003d814?q\u003dCSSPropertyPrompt%20-file:%5Eout\n\nIt\u0027d be good to measure (on a slow machine) if adding this step (even just once on start editing) is slowing down the appearing of the autocomplete popup. If it does slow it down too much, we could think of a few things:\n- only getting the computed style properties we use (direction and writingMode for now)\n- getting this async, in a non-blocking way, so the autocomplete appears and the icons appear lazily when ready\n- storing the style at the DOM node level instead, and invalidating this cache when some style event occurs (don\u0027t we have this now for the adorners?)",
+      "parentUuid": "aa5927c8_180f2b24",
+      "revId": "a501130265be7c878df5358b588c51b440292c72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b22c96fc_ec746887",
         "filename": "front_end/elements/StylesSidebarPane.js",
         "patchSetId": 3
@@ -136,6 +177,24 @@
       "side": 1,
       "message": "I thought about it but found a few arguments against it: 1) the icon is given to another component that renders it, so it would require adding the styles for the icon there and the icon is not always present or is not always of that size. 2) The max height is the same as the width \u0026 height defined in JS for the Icon component so it\u0027s convenient to have them in one place because these values should be changed together.\n\nActually, I only needed the max height because the flexbox layout would stretch the icon for some reason. I guess it might be possible to set the max height inside the Icon component because I cannot think of a case when a fixed size icon would need to be stretched.",
       "parentUuid": "b22c96fc_ec746887",
+      "revId": "a501130265be7c878df5358b588c51b440292c72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcb57746_f4bdd1ee",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 2658,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-20T20:50:47Z",
+      "side": 1,
+      "message": "\"because the flexbox layout would stretch the icon for some reason\" :) Sounds like this new flexbox tool is going to be helpful to us too.\n\nI don\u0027t know yet how the autcomplete lays elements out, but if it\u0027s a simple row direction flex container, then the items are stretched along the cross axis by default. If you don\u0027t want this to happen you could simply set a align-self:center on the icon only, and let the width/height of 13px do its thing. I don\u0027t think we need the max-height.",
+      "parentUuid": "b44aa362_7937534a",
       "revId": "a501130265be7c878df5358b588c51b440292c72",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
