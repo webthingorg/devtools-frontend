@@ -99,6 +99,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "100ec1a0_7f66e9bb",
+        "filename": "front_end/inline_editor/ColorSwatch.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-20T08:53:03Z",
+      "side": 1,
+      "message": "Yes I would say a comment would be enough, otherwise in the future other folks might be trying to format the template, and we will have a styling issue then.",
+      "parentUuid": "080371f2_78034142",
+      "range": {
+        "startLine": 81,
+        "startChar": 6,
+        "endLine": 81,
+        "endChar": 10
+      },
+      "revId": "b68d073602f85b36c20ccde34e50e8dec8fec37e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e08b50fd_54e82189",
@@ -136,6 +160,30 @@
       "side": 1,
       "message": "Some call sites don\u0027t append light dom child. I wanted to preserve how this was done, so I included the default value here.",
       "parentUuid": "e08b50fd_54e82189",
+      "range": {
+        "startLine": 83,
+        "startChar": 19,
+        "endLine": 83,
+        "endChar": 45
+      },
+      "revId": "b68d073602f85b36c20ccde34e50e8dec8fec37e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b7c5494_2ca482d5",
+        "filename": "front_end/inline_editor/ColorSwatch.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-20T08:53:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7b5353c1_7089dda2",
       "range": {
         "startLine": 83,
         "startChar": 19,
