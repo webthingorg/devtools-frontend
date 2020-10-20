@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2c81f10_cf43b535",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-20T08:44:55Z",
+      "side": 1,
+      "message": "Thanks for the reviews. I\u0027m addressing the comments now and will push a new version in a minute.",
+      "revId": "b68d073602f85b36c20ccde34e50e8dec8fec37e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ecdbb8d9_a2385e87",
@@ -60,6 +77,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "080371f2_78034142",
+        "filename": "front_end/inline_editor/ColorSwatch.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-20T08:44:55Z",
+      "side": 1,
+      "message": "I was actually doing this on purpose since the span establishes an inline formatting context, whitespace text nodes were pushing the swatch and the text after it further apart than I wanted. So instead of using a font-size:0 trick, I decided to just remove the whitespace text nodes instead.\nWould you rather I do it differently? Would a comment about this in the code be enough?",
+      "parentUuid": "ecdbb8d9_a2385e87",
+      "range": {
+        "startLine": 81,
+        "startChar": 6,
+        "endLine": 81,
+        "endChar": 10
+      },
+      "revId": "b68d073602f85b36c20ccde34e50e8dec8fec37e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e08b50fd_54e82189",
         "filename": "front_end/inline_editor/ColorSwatch.ts",
         "patchSetId": 3
@@ -71,6 +112,30 @@
       "writtenOn": "2020-10-20T04:58:29Z",
       "side": 1,
       "message": "Is this still necessary if we\u0027re creating light DOMs from call sites, via `swatch.createChild(\u0027span\u0027).textContent \u003d text`?",
+      "range": {
+        "startLine": 83,
+        "startChar": 19,
+        "endLine": 83,
+        "endChar": 45
+      },
+      "revId": "b68d073602f85b36c20ccde34e50e8dec8fec37e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b5353c1_7089dda2",
+        "filename": "front_end/inline_editor/ColorSwatch.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-20T08:44:55Z",
+      "side": 1,
+      "message": "Some call sites don\u0027t append light dom child. I wanted to preserve how this was done, so I included the default value here.",
+      "parentUuid": "e08b50fd_54e82189",
       "range": {
         "startLine": 83,
         "startChar": 19,

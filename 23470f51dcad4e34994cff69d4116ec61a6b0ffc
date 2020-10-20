@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "219ab086_6739367f",
+        "filename": "front_end/inline_editor/ColorSwatch.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-20T08:44:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83b66e3c_18f43102",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 38
+      },
+      "revId": "23470f51dcad4e34994cff69d4116ec61a6b0ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3fc08a5e_ccc5b7f5",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-10-19T10:00:45Z",
       "side": 1,
       "message": "could we set the default value here (the ls`...`) in the declaration for the tooltip? `private tooltip \u003d ls`foo`?\n\nOr do you think it\u0027s clearer here?",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 70
+      },
+      "revId": "23470f51dcad4e34994cff69d4116ec61a6b0ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3c26335_c924e2a0",
+        "filename": "front_end/inline_editor/ColorSwatch.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-20T08:44:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fc08a5e_ccc5b7f5",
       "range": {
         "startLine": 67,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a7da6c4_33ef0c80",
+        "filename": "front_end/inline_editor/ColorSwatch.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-20T08:44:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d26f3738_c34406c3",
+      "range": {
+        "startLine": 74,
+        "startChar": 4,
+        "endLine": 74,
+        "endChar": 10
+      },
+      "revId": "23470f51dcad4e34994cff69d4116ec61a6b0ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "387cb154_f45086bf",
@@ -83,6 +155,30 @@
       "writtenOn": "2020-10-19T10:00:45Z",
       "side": 1,
       "message": "is it worth a comment in this file explaining the use of `slot` or linking to an example? Or using the component docs server to create an example or two of this in action?",
+      "range": {
+        "startLine": 84,
+        "startChar": 6,
+        "endLine": 84,
+        "endChar": 47
+      },
+      "revId": "23470f51dcad4e34994cff69d4116ec61a6b0ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e9d5dec_4664dcf4",
+        "filename": "front_end/inline_editor/ColorSwatch.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-20T08:44:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "387cb154_f45086bf",
       "range": {
         "startLine": 84,
         "startChar": 6,
@@ -140,6 +236,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "64e1468d_1d75c91d",
+        "filename": "front_end/inline_editor/ColorSwatch.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-20T08:44:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4143264_65be82dd",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 16
+      },
+      "revId": "23470f51dcad4e34994cff69d4116ec61a6b0ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "73ab7ef0_7936154f",
@@ -159,6 +279,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "22dea6d3_ca76cd70",
+        "filename": "front_end/inline_editor/Swatches.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-20T08:44:55Z",
+      "side": 1,
+      "message": "The reason is I was just focusing on the color swatch for now since I needed it for the css-var-swatch. But these should be migrated too. Probably in a separate CL.",
+      "parentUuid": "73ab7ef0_7936154f",
+      "revId": "23470f51dcad4e34994cff69d4116ec61a6b0ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "edb09093_9197a9db",
         "filename": "test/unittests/front_end/inline_editor/ColorSwatch_test.ts",
         "patchSetId": 1
@@ -170,6 +308,30 @@
       "writtenOn": "2020-10-19T10:00:45Z",
       "side": 1,
       "message": "If you do:\n\n```\nconst swatchElm \u003d swatch.shadowRoot.querySelector(\u0027.color-swatch\u0027)\nassertElement(swatchElm, HTMLElement)\n```\n\nYou get the typing, not-null and `instanceof` check all in one 😊\n\nThere\u0027s also `assertElements` if you\u0027re querying for multiple. They are defined in DOMHelpers.",
+      "range": {
+        "startLine": 15,
+        "startChar": 2,
+        "endLine": 20,
+        "endChar": 24
+      },
+      "revId": "23470f51dcad4e34994cff69d4116ec61a6b0ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34f4484a_0086c1ab",
+        "filename": "test/unittests/front_end/inline_editor/ColorSwatch_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-20T08:44:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "edb09093_9197a9db",
       "range": {
         "startLine": 15,
         "startChar": 2,
@@ -203,6 +365,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffc65fd9_32ea6dae",
+        "filename": "test/unittests/front_end/inline_editor/ColorSwatch_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-20T08:44:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "974b51ad_48b82147",
+      "range": {
+        "startLine": 47,
+        "startChar": 1,
+        "endLine": 52,
+        "endChar": 0
+      },
+      "revId": "23470f51dcad4e34994cff69d4116ec61a6b0ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e98f2891_08eb759e",
@@ -216,6 +402,30 @@
       "writtenOn": "2020-10-19T10:00:45Z",
       "side": 1,
       "message": "nice!",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 5
+      },
+      "revId": "23470f51dcad4e34994cff69d4116ec61a6b0ffc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed6a4211_f0ab4d55",
+        "filename": "test/unittests/front_end/inline_editor/ColorSwatch_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-20T08:44:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e98f2891_08eb759e",
       "range": {
         "startLine": 128,
         "startChar": 0,
