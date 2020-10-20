@@ -33,6 +33,52 @@
       "message": "LGTM % the nits mentioned by Jack. This is really exciting 😊",
       "revId": "b68d073602f85b36c20ccde34e50e8dec8fec37e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecdbb8d9_a2385e87",
+        "filename": "front_end/inline_editor/ColorSwatch.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-20T04:58:29Z",
+      "side": 1,
+      "message": "nit: could this be manually formatted a little? I know that we probably don\u0027t have an automatic / standard way to format LitHTML template code, but maybe just formatting it like regular HTML will make this easier to read. WDYT?",
+      "range": {
+        "startLine": 81,
+        "startChar": 6,
+        "endLine": 81,
+        "endChar": 10
+      },
+      "revId": "b68d073602f85b36c20ccde34e50e8dec8fec37e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e08b50fd_54e82189",
+        "filename": "front_end/inline_editor/ColorSwatch.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-20T04:58:29Z",
+      "side": 1,
+      "message": "Is this still necessary if we\u0027re creating light DOMs from call sites, via `swatch.createChild(\u0027span\u0027).textContent \u003d text`?",
+      "range": {
+        "startLine": 83,
+        "startChar": 19,
+        "endLine": 83,
+        "endChar": 45
+      },
+      "revId": "b68d073602f85b36c20ccde34e50e8dec8fec37e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
