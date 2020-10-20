@@ -135,7 +135,7 @@ export class Section {
 
   /**
    * @param {string} label
-   * @param {function(?):*} handler
+   * @param {function(...*):*} handler
    * @param {boolean=} disabled
    * @return {!Item}
    */
