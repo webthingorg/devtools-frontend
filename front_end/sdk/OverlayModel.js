@@ -457,6 +457,7 @@ export class OverlayModel extends SDKModel {
       showAccessibilityInfo: showDetailedToolip,
       showExtensionLines: showRulers,
       gridHighlightConfig: {},
+      flexContainerHighlightConfig: {},
     };
 
     if (mode === 'all' || mode === 'content') {
@@ -489,6 +490,13 @@ export class OverlayModel extends SDKModel {
         columnLineColor: Common.Color.PageHighlight.GridColumnLine.toProtocolRGBA(),
         rowLineDash: true,
         columnLineDash: true,
+      };
+
+      highlightConfig.flexContainerHighlightConfig = {
+        border: {
+          color: Common.Color.PageHighlight.FlexContainerBorder.toProtocolRGBA(),
+          dashed: true,
+        }
       };
     }
 
