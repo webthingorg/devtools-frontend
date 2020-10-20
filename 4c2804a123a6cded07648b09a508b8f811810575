@@ -143,6 +143,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6b880299_47f8ab0a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-20T05:24:31Z",
+      "side": 1,
+      "message": "I don’t think this CL is blocked on that one. The other CL impacts the screenshot that is generated, but is orthogonal to adding copy-to-clipboard functionality.",
+      "parentUuid": "4475f32e_3c7c9884",
+      "revId": "4c2804a123a6cded07648b09a508b8f811810575",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3ee8b431_3619b119",
         "filename": "front_end/emulation/DeviceModeView.js",
         "patchSetId": 2
