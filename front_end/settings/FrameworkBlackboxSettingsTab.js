@@ -2,14 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
 import * as Common from '../common/common.js';
 import * as UI from '../ui/ui.js';
 
 /**
- * @implements {UI.ListWidget.Delegate}
+ * @implements {UI.ListWidget.Delegate<Common.Settings.RegExpSettingItem>}
  * @unrestricted
  */
 export class FrameworkBlackboxSettingsTab extends UI.Widget.VBox {
@@ -45,7 +42,9 @@ export class FrameworkBlackboxSettingsTab extends UI.Widget.VBox {
     UI.ARIAUtils.setAccessibleName(addPatternButton, ls`Add filename pattern`);
     this.contentElement.appendChild(addPatternButton);
 
-    this._setting = Common.Settings.Settings.instance().moduleSetting('skipStackFramesPattern');
+    /** @type {!Common.Settings.RegExpSetting} */
+    this._setting = /** @type {!Common.Settings.RegExpSetting} */ (
+        Common.Settings.Settings.instance().moduleSetting('skipStackFramesPattern'));
     this._setting.addChangeListener(this._settingUpdated, this);
 
     this.setDefaultFocusedElement(addPatternButton);
@@ -73,7 +72,7 @@ export class FrameworkBlackboxSettingsTab extends UI.Widget.VBox {
 
   /**
    * @override
-   * @param {*} item
+   * @param {!Common.Settings.RegExpSettingItem} item
    * @param {boolean} editable
    * @return {!Element}
    */
@@ -94,7 +93,7 @@ export class FrameworkBlackboxSettingsTab extends UI.Widget.VBox {
 
   /**
    * @override
-   * @param {*} item
+   * @param {!Common.Settings.RegExpSettingItem} item
    * @param {number} index
    */
   removeItemRequested(item, index) {
@@ -105,8 +104,8 @@ export class FrameworkBlackboxSettingsTab extends UI.Widget.VBox {
 
   /**
    * @override
-   * @param {*} item
-   * @param {!UI.ListWidget.Editor} editor
+   * @param {!Common.Settings.RegExpSettingItem} item
+   * @param {!UI.ListWidget.Editor<!Common.Settings.RegExpSettingItem>} editor
    * @param {boolean} isNew
    */
   commitEdit(item, editor, isNew) {
@@ -122,8 +121,8 @@ export class FrameworkBlackboxSettingsTab extends UI.Widget.VBox {
 
   /**
    * @override
-   * @param {*} item
-   * @return {!UI.ListWidget.Editor}
+   * @param {!Common.Settings.RegExpSettingItem} item
+   * @return {!UI.ListWidget.Editor<!Common.Settings.RegExpSettingItem>}
    */
   beginEdit(item) {
     const editor = this._createEditor();
@@ -133,7 +132,7 @@ export class FrameworkBlackboxSettingsTab extends UI.Widget.VBox {
   }
 
   /**
-   * @return {!UI.ListWidget.Editor}
+   * @return {!UI.ListWidget.Editor<!Common.Settings.RegExpSettingItem>}
    */
   _createEditor() {
     if (this._editor) {
@@ -161,7 +160,7 @@ export class FrameworkBlackboxSettingsTab extends UI.Widget.VBox {
     return editor;
 
     /**
-     * @param {*} item
+     * @param {!Common.Settings.RegExpSettingItem} item
      * @param {number} index
      * @param {!HTMLInputElement|!HTMLSelectElement} input
      * @this {FrameworkBlackboxSettingsTab}
@@ -189,17 +188,17 @@ export class FrameworkBlackboxSettingsTab extends UI.Widget.VBox {
       if (!regex) {
         return {valid: false, errorMessage: ls`Pattern must be a valid regular expression`};
       }
-      return {valid: true};
+      return {valid: true, errorMessage: undefined};
     }
 
     /**
-     * @param {*} item
+     * @param {!Common.Settings.RegExpSettingItem} item
      * @param {number} index
      * @param {!HTMLInputElement|!HTMLSelectElement} input
      * @return {!UI.ListWidget.ValidatorResult}
      */
     function behaviorValidator(item, index, input) {
-      return {valid: true};
+      return {valid: true, errorMessage: undefined};
     }
   }
 }
