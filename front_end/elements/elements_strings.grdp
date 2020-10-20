@@ -39,9 +39,6 @@
   <message name="IDS_DEVTOOLS_1cdc076b28f70afac5fcedadf99fa119" desc="Title of an Elements panel action to undo changes.">
     Undo
   </message>
-  <message name="IDS_DEVTOOLS_20bfc7bb53e1d2639556bce9852c32d8" desc="Tooltip text that appears on the setting when hovering over it in Event Listeners Widget of the Elements panel">
-    Resolve event listeners bound with framework
-  </message>
   <message name="IDS_DEVTOOLS_21c12abe8367dcbdf5d3fee56a4ae9d8" desc="Title of a setting under the Elements category in Settings">
     Show detailed inspect tooltip
   </message>
@@ -188,9 +185,6 @@
   </message>
   <message name="IDS_DEVTOOLS_78e0b69d17e0287aaae4f79171e5b059" desc="Title of a setting under the Elements category that can be invoked through the Command Menu">
     Disable DOM word wrap
-  </message>
-  <message name="IDS_DEVTOOLS_795630f9fe735d5c002f28f851d78fac" desc="Title of show framework listeners setting in event listeners widget of the elements panel">
-    <ph name="LOCKED_1">Framework</ph> listeners
   </message>
   <message name="IDS_DEVTOOLS_7c90d60be6418bb4a858b3733b2560a8" desc="Text in Styles Sidebar Pane of the Elements panel">
     Unknown property name

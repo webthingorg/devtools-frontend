@@ -9,8 +9,6 @@ import * as EventListenersModule from './event_listeners.js';
 self.EventListeners = self.EventListeners || {};
 EventListeners = EventListeners || {};
 
-EventListeners.frameworkEventListeners = EventListenersModule.EventListenersUtils.frameworkEventListeners;
-
 /** @constructor */
 EventListeners.EventListenersView = EventListenersModule.EventListenersView.EventListenersView;
 

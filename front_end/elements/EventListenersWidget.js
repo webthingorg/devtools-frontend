@@ -51,10 +51,6 @@ export class EventListenersWidget extends UI.ThrottledWidget.ThrottledWidget {
         Common.Settings.Settings.instance().createSetting('eventListenerDispatchFilterType', DispatchFilterBy.All);
     this._dispatchFilterBySetting.addChangeListener(this.update.bind(this));
 
-    this._showFrameworkListenersSetting =
-        Common.Settings.Settings.instance().createSetting('showFrameowkrListeners', true);
-    this._showFrameworkListenersSetting.setTitle(Common.UIString.UIString('Framework listeners'));
-    this._showFrameworkListenersSetting.addChangeListener(this._showFrameworkListenersChanged.bind(this));
     this._eventListenersView = new EventListeners.EventListenersView.EventListenersView(this.update.bind(this));
     this._eventListenersView.show(this.element);
 
@@ -83,8 +79,6 @@ export class EventListenersWidget extends UI.ThrottledWidget.ThrottledWidget {
     addDispatchFilterOption.call(this, Common.UIString.UIString('Blocking'), DispatchFilterBy.Blocking);
     dispatchFilter.setMaxWidth(200);
     this._toolbarItems.push(dispatchFilter);
-    this._toolbarItems.push(new UI.Toolbar.ToolbarSettingCheckbox(
-        this._showFrameworkListenersSetting, Common.UIString.UIString('Resolve event listeners bound with framework')));
 
     UI.Context.Context.instance().addFlavorChangeListener(SDK.DOMModel.DOMNode, this.update, this);
     this.update();
@@ -131,9 +125,14 @@ export class EventListenersWidget extends UI.ThrottledWidget.ThrottledWidget {
       }
       promises.push(this._windowObjectInNodeContext(node));
     }
-    return Promise.all(promises)
-        .then(this._eventListenersView.addObjects.bind(this._eventListenersView))
-        .then(this._showFrameworkListenersChanged.bind(this));
+    return Promise.all(promises).then(this._eventListenersView.addObjects.bind(this._eventListenersView)).then(() => {
+      const dispatchFilter = this._dispatchFilterBySetting.get();
+
+      const showPassive = dispatchFilter === DispatchFilterBy.All || dispatchFilter === DispatchFilterBy.Passive;
+      const showBlocking = dispatchFilter === DispatchFilterBy.All || dispatchFilter === DispatchFilterBy.Blocking;
+
+      this._eventListenersView.showListeners(showPassive, showBlocking);
+    });
   }
 
   /**
@@ -150,14 +149,6 @@ export class EventListenersWidget extends UI.ThrottledWidget.ThrottledWidget {
   _onDispatchFilterTypeChanged(event) {
     const filter = /** @type {!HTMLInputElement} */ (event.target);
     this._dispatchFilterBySetting.set(filter.value);
-  }
-
-  _showFrameworkListenersChanged() {
-    const dispatchFilter = this._dispatchFilterBySetting.get();
-    const showPassive = dispatchFilter === DispatchFilterBy.All || dispatchFilter === DispatchFilterBy.Passive;
-    const showBlocking = dispatchFilter === DispatchFilterBy.All || dispatchFilter === DispatchFilterBy.Blocking;
-    this._eventListenersView.showFrameworkListeners(
-        this._showFrameworkListenersSetting.get(), showPassive, showBlocking);
   }
 
   /**

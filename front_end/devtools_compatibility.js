@@ -1056,7 +1056,6 @@
       'shortcutPanelSwitch',
       'showAdvancedHeapSnapshotProperties',
       'showEventListenersForAncestors',
-      'showFrameowkrListeners',
       'showHeaSnapshotObjectsHiddenProperties',
       'showInheritedComputedStyleProperties',
       'showMediaQueryInspector',

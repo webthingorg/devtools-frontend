@@ -11,8 +11,6 @@ import * as ObjectUI from '../object_ui/object_ui.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
-import {frameworkEventListeners, FrameworkEventListenersObject} from './EventListenersUtils.js';  // eslint-disable-line no-unused-vars
-
 /**
  * @unrestricted
  */
@@ -75,8 +73,6 @@ export class EventListenersView extends UI.Widget.VBox {
   _addObject(object) {
     /** @type {!Array<!SDK.DOMDebuggerModel.EventListener>} */
     let eventListeners;
-    /** @type {?FrameworkEventListenersObject}*/
-    let frameworkEventListenersObject = null;
 
     const promises = [];
     const domDebuggerModel = object.runtimeModel().target().model(SDK.DOMDebuggerModel.DOMDebuggerModel);
@@ -84,8 +80,7 @@ export class EventListenersView extends UI.Widget.VBox {
     if (domDebuggerModel) {
       promises.push(domDebuggerModel.eventListeners(object).then(storeEventListeners));
     }
-    promises.push(frameworkEventListeners(object).then(storeFrameworkEventListenersObject));
-    return Promise.all(promises).then(markInternalEventListeners).then(addEventListeners.bind(this));
+    return Promise.all(promises).then(addEventListeners.bind(this));
 
     /**
      * @param {!Array<!SDK.DOMDebuggerModel.EventListener>} result
@@ -95,63 +90,10 @@ export class EventListenersView extends UI.Widget.VBox {
     }
 
     /**
-     * @param {?FrameworkEventListenersObject} result
-     */
-    function storeFrameworkEventListenersObject(result) {
-      frameworkEventListenersObject = result;
-    }
-
-    /**
-     * @return {!Promise<undefined>}
-     */
-    function markInternalEventListeners() {
-      if (!frameworkEventListenersObject.internalHandlers) {
-        return Promise.resolve(undefined);
-      }
-      return frameworkEventListenersObject.internalHandlers.object()
-          .callFunctionJSON(isInternalEventListener, eventListeners.map(handlerArgument))
-          .then(setIsInternal);
-
-      /**
-       * @param {!SDK.DOMDebuggerModel.EventListener} listener
-       * @return {!Protocol.Runtime.CallArgument}
-       */
-      function handlerArgument(listener) {
-        return SDK.RemoteObject.RemoteObject.toCallArgument(listener.handler());
-      }
-
-      /**
-       * @suppressReceiverCheck
-       * @return {!Array<boolean>}
-       * @this {Array<*>}
-       */
-      function isInternalEventListener() {
-        const isInternal = [];
-        const internalHandlersSet = new Set(this);
-        for (const handler of arguments) {
-          isInternal.push(internalHandlersSet.has(handler));
-        }
-        return isInternal;
-      }
-
-      /**
-       * @param {!Array<boolean>} isInternal
-       */
-      function setIsInternal(isInternal) {
-        for (let i = 0; i < eventListeners.length; ++i) {
-          if (isInternal[i]) {
-            eventListeners[i].markAsFramework();
-          }
-        }
-      }
-    }
-
-    /**
      * @this {EventListenersView}
      */
     function addEventListeners() {
       this._addObjectEventListeners(object, eventListeners);
-      this._addObjectEventListeners(object, frameworkEventListenersObject.eventListeners);
     }
   }
 
@@ -170,23 +112,15 @@ export class EventListenersView extends UI.Widget.VBox {
   }
 
   /**
-   * @param {boolean} showFramework
    * @param {boolean} showPassive
    * @param {boolean} showBlocking
    */
-  showFrameworkListeners(showFramework, showPassive, showBlocking) {
+  showListeners(showPassive, showBlocking) {
     const eventTypes = this._treeOutline.rootElement().children();
     for (const eventType of eventTypes) {
       let hiddenEventType = true;
       for (const listenerElement of eventType.children()) {
-        const listenerOrigin = listenerElement.eventListener().origin();
         let hidden = false;
-        if (listenerOrigin === SDK.DOMDebuggerModel.EventListener.Origin.FrameworkUser && !showFramework) {
-          hidden = true;
-        }
-        if (listenerOrigin === SDK.DOMDebuggerModel.EventListener.Origin.Framework && showFramework) {
-          hidden = true;
-        }
         if (!showPassive && listenerElement.eventListener().passive()) {
           hidden = true;
         }
@@ -199,6 +133,7 @@ export class EventListenersView extends UI.Widget.VBox {
       eventType.hidden = hiddenEventType;
     }
   }
+
 
   /**
    * @param {string} type

@@ -6,10 +6,7 @@ import("../../scripts/build/ninja/devtools_entrypoint.gni")
 import("../../scripts/build/ninja/devtools_module.gni")
 
 devtools_module("event_listeners") {
-  sources = [
-    "EventListenersUtils.js",
-    "EventListenersView.js",
-  ]
+  sources = [ "EventListenersView.js" ]
 
   deps = [
     "../common:bundle",
