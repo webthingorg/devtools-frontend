@@ -138,9 +138,7 @@ export const resolveScope = function(scope) {
       const promise = resolveSourceName(id).then(onSourceNameResolved.bind(null, namesMapping, id));
       promises.push(promise);
     }
-    return Promise.all(promises)
-        .then(() => Sources.SourceMapNamesResolver._scopeResolvedForTest())
-        .then(() => namesMapping);
+    return Promise.all(promises).then(getScopeResolvedForTest()).then(() => namesMapping);
   }
 
   /**
@@ -602,3 +600,16 @@ export class RemoteObject extends SDK.RemoteObject.RemoteObject {
     return this._object.isNode();
   }
 }
+
+let _scopeResolvedForTest = function() {};
+
+export const getScopeResolvedForTest = () => {
+  return _scopeResolvedForTest;
+};
+
+/**
+ * @param {function(...*):*} scope
+ */
+export const setScopeResolvedForTest = scope => {
+  _scopeResolvedForTest = scope;
+};
