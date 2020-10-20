@@ -138,9 +138,7 @@ export const resolveScope = function(scope) {
       const promise = resolveSourceName(id).then(onSourceNameResolved.bind(null, namesMapping, id));
       promises.push(promise);
     }
-    return Promise.all(promises)
-        .then(() => Sources.SourceMapNamesResolver._scopeResolvedForTest())
-        .then(() => namesMapping);
+    return Promise.all(promises).then(getScopeResolvedForTest()).then(() => namesMapping);
   }
 
   /**
@@ -352,7 +350,7 @@ export const resolveThisObject = function(callFrame) {
    * @return {!Promise<?SDK.RemoteObject.RemoteObject>}
    */
   function onScopeResolved(namesMapping) {
-    const thisMappings = namesMapping.inverse().get('this');
+    const thisMappings = Platform.MapUtilities.inverse(namesMapping).get('this');
     if (!thisMappings || thisMappings.size !== 1) {
       return Promise.resolve(callFrame.thisObject());
     }
@@ -602,3 +600,23 @@ export class RemoteObject extends SDK.RemoteObject.RemoteObject {
     return this._object.isNode();
   }
 }
+
+/**
+ * @type {function(...*):*} scope
+ */
+let _scopeResolvedForTest = function() {};
+
+
+/**
+ * @return {function(...*):*} scope
+ */
+export const getScopeResolvedForTest = () => {
+  return _scopeResolvedForTest;
+};
+
+/**
+ * @param {function(...*):*} scope
+ */
+export const setScopeResolvedForTest = scope => {
+  _scopeResolvedForTest = scope;
+};
