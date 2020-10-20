@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a847399f_1bbe0d6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-20T08:07:15Z",
+      "side": 1,
+      "message": "Nice, tests look great % nit with assertShadowRoot.",
+      "revId": "0263feaebeaa16ab765aca7bd7ac95ad81e7a59a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ba7cc7c_81fb1be7",
+        "filename": "test/unittests/front_end/linear_memory_inspector/LinearMemoryInspector_test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-20T08:07:15Z",
+      "side": 1,
+      "message": "If you do \n\n```\nconst shadowRoot \u003d component.shadowRoot;\nassertShadowRoot(shadowRoot)\nconst input \u003d shadowRoot.querySelector(...)\n```\n\nYou don\u0027t need the `!` after `shadowRoot`",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 100
+      },
+      "revId": "0263feaebeaa16ab765aca7bd7ac95ad81e7a59a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e53cc76_f63eaa29",
+        "filename": "test/unittests/front_end/linear_memory_inspector/LinearMemoryNavigator_test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-20T08:07:15Z",
+      "side": 1,
+      "message": "we should always `assertShadowRoot` before using it (means we\u0027ll get nicer test failures if it doesn\u0027t exist, and saves the need for !)",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 103
+      },
+      "revId": "0263feaebeaa16ab765aca7bd7ac95ad81e7a59a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22e81f1a_3e6aad75",
+        "filename": "test/unittests/front_end/linear_memory_inspector/LinearMemoryNavigator_test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-20T08:07:15Z",
+      "side": 1,
+      "message": "assertShadowRoot again :)",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 70
+      },
+      "revId": "0263feaebeaa16ab765aca7bd7ac95ad81e7a59a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b06006ca_0249d1aa",
+        "filename": "test/unittests/front_end/linear_memory_inspector/LinearMemoryNavigator_test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-20T08:07:15Z",
+      "side": 1,
+      "message": "assertShadowRoot again :)",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 70
+      },
+      "revId": "0263feaebeaa16ab765aca7bd7ac95ad81e7a59a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8e0a5ab_8507c369",
+        "filename": "test/unittests/front_end/linear_memory_inspector/LinearMemoryNavigator_test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-20T08:07:15Z",
+      "side": 1,
+      "message": "assertShadowRoot again :)",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 87
+      },
+      "revId": "0263feaebeaa16ab765aca7bd7ac95ad81e7a59a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
