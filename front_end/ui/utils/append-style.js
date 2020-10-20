@@ -11,9 +11,12 @@ import * as ThemeSupport from '../../theme_support/theme_support.js';
 /**
  * @param {!Node} node
  * @param {string} cssFile
+ * @param {!{enableLegacyPatching: ?boolean}=} options
  * @suppressGlobalPropertiesCheck
  */
-export function appendStyle(node, cssFile) {
+export function appendStyle(node, cssFile, options = {
+  enableLegacyPatching: true
+}) {
   const content = Root.Runtime.cachedResources.get(cssFile) || '';
   if (!content) {
     console.error(cssFile + ' not preloaded. Check module.json');
@@ -21,6 +24,11 @@ export function appendStyle(node, cssFile) {
   let styleElement = createElement('style');
   styleElement.textContent = content;
   node.appendChild(styleElement);
+
+  const enableLegacyPatching = 'enableLegacyPatching' in options && options.enableLegacyPatching === true;
+  if (!enableLegacyPatching) {
+    return;
+  }
 
   const themeStyleSheet = ThemeSupport.ThemeSupport.instance().themeStyleSheet(cssFile, content);
   if (themeStyleSheet) {

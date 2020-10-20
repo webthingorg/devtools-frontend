@@ -69,7 +69,7 @@ export class StylesSidebarPane extends ElementsSidebarPane {
   constructor() {
     super(true /* delegatesFocus */);
     this.setMinimumSize(96, 26);
-    this.registerRequiredCSS('elements/stylesSidebarPane.css');
+    this.registerRequiredCSS('elements/stylesSidebarPane.css', {enableLegacyPatching: false});
 
     Common.Settings.Settings.instance().moduleSetting('colorFormat').addChangeListener(this.update.bind(this));
     Common.Settings.Settings.instance().moduleSetting('textEditorIndent').addChangeListener(this.update.bind(this));

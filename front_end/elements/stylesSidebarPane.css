@@ -22,7 +22,7 @@
 }
 
 .styles-section.read-only {
-  background-color: #fafafa;
+  background-color: var(--dark-mode-prototype-bg-color-1);
   font-style: italic;
 }
 
