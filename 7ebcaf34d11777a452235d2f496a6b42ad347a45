@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "505c0e58_4e40b7ed",
+        "filename": "front_end/animation/AnimationUI.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-20T10:12:57Z",
+      "side": 1,
+      "message": "Is it possible to make this a `Map` instead? There appears to be only 1 other reference to it in AnimationGroupPreviewUI.js",
+      "range": {
+        "startLine": 524,
+        "startChar": 13,
+        "endLine": 524,
+        "endChar": 19
+      },
+      "revId": "7ebcaf34d11777a452235d2f496a6b42ad347a45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "553e051b_57f4c39f",
+        "filename": "front_end/legacy/legacy-defs.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-20T10:12:57Z",
+      "side": 1,
+      "message": "There are only a few usages of this method. Can we do a cleanup instead to refactor these to a helper method?",
+      "range": {
+        "startLine": 127,
+        "startChar": 2,
+        "endLine": 127,
+        "endChar": 16
+      },
+      "revId": "7ebcaf34d11777a452235d2f496a6b42ad347a45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
