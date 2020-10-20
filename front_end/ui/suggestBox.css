@@ -48,6 +48,8 @@
   border: 1px solid transparent;
   white-space: nowrap;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .suggest-box-content-item.secondary {
