@@ -33,6 +33,24 @@
       "message": "I always thought that the \"data setters\" would calculate all the necessary data and the render would then simply collect and display them. This CL goes against that convention (guideline?) by having `getStyles` do some computation.\n\nI\u0027ll leave the review to Jack, as I am a bit unsure about the finer points of component architecture.\n\n",
       "revId": "12e450c96de1d0c16327d1e9d9883897384e234a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "423c83dc_df95e0fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-21T08:20:32Z",
+      "side": 1,
+      "message": "Right, but in practice it\u0027d be only re-computed upon re-render (setStyles call is right before render) so I think there should be no difference (?) and it does not seem like we need to store the styles.",
+      "parentUuid": "00c6050f_af1f7245",
+      "revId": "12e450c96de1d0c16327d1e9d9883897384e234a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
