@@ -132,6 +132,30 @@
       },
       "revId": "d95a50f47d3a31e86d4e0e6b7a87d60e7c03945e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90040e62_7c1ee14b",
+        "filename": "front_end/console/ConsoleViewMessage.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1459949
+      },
+      "writtenOn": "2020-10-21T20:21:31Z",
+      "side": 1,
+      "message": "PTAL\n\nThank you for taking the time to work with me and to review this patch.  I agree with your recommendations and have implemented them into patch set 6.  \n\n(If code review is positive, request reviewer run try jobs via CQ Dry Run)",
+      "parentUuid": "ae6d2674_f994a8fe",
+      "range": {
+        "startLine": 185,
+        "startChar": 10,
+        "endLine": 185,
+        "endChar": 34
+      },
+      "revId": "d95a50f47d3a31e86d4e0e6b7a87d60e7c03945e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
