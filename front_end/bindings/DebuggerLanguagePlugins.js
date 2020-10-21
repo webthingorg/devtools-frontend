@@ -17,12 +17,12 @@ class SourceType {
   /**
    * @param {!TypeInfo} typeInfo
    * @param {!Array<!SourceType>} members
+   * @param {!Map<*, !SourceType>} typeMap
    */
-  constructor(typeInfo, members) {
-    /** @type {!TypeInfo} */
+  constructor(typeInfo, members, typeMap) {
     this.typeInfo = typeInfo;
-    /** @type {!Array<!SourceType>} */
     this.members = members;
+    this.typeMap = typeMap;
   }
 
   /** Create a type graph
@@ -36,7 +36,7 @@ class SourceType {
     /** @type Map<*, !SourceType> */
     const typeMap = new Map();
     for (const typeInfo of typeInfos) {
-      typeMap.set(typeInfo.typeId, new SourceType(typeInfo, []));
+      typeMap.set(typeInfo.typeId, new SourceType(typeInfo, [], typeMap));
     }
 
     for (const sourceType of typeMap.values()) {
@@ -66,15 +66,58 @@ function getRawLocation(callFrame) {
   };
 }
 
+/**
+ * @param {!SDK.DebuggerModel.CallFrame} callFrame
+ * @param {!SDK.RemoteObject.RemoteObject} object
+ * @return {!Promise<*>}
+ */
+async function resolveRemoteObject(callFrame, object) {
+  if (typeof object.value !== 'undefined') {
+    return object.value;
+  }
+
+  const response = await callFrame.debuggerModel.target().runtimeAgent().invoke_callFunctionOn(
+      {functionDeclaration: 'function() { return JSON.stringify(this); }', objectId: object.objectId});
+  const {result} = response;
+  if (!result) {
+    return undefined;
+  }
+  const {value} = result;
+  if (!value || typeof value !== 'string') {
+    return undefined;
+  }
+  return JSON.parse(value);
+}
+
+/**
+ * @param {!SDK.RemoteObject.RemoteObject} object
+ * @param {...string} properties
+ * @return {!Promise<!Object<string, !SDK.RemoteObject.RemoteObject|undefined>>}
+ */
+async function getRemoteObjectProperties(object, ...properties) {
+  /** @type {!Object<string, !SDK.RemoteObject.RemoteObject|undefined>} */
+  const result = {};
+  for (const prop of (await object.getOwnProperties(false)).properties || []) {
+    if (properties.indexOf(prop.name) >= 0) {
+      if (prop.value) {
+        result[prop.name] = prop.value;
+      }
+    }
+  }
+  return result;
+}
+
+
 class EvalNode extends SDK.RemoteObject.RemoteObjectImpl {
   /**
    * @param {!SDK.DebuggerModel.CallFrame} callFrame
    * @param {!DebuggerLanguagePlugin} plugin
+   * @param {!SourceType} sourceType
    * @param {!EvalBase} base
    * @param {!Array<!FieldInfo>} field
    * @return {!Promise<!SDK.RemoteObject.RemoteObject>}
    */
-  static async evaluate(callFrame, plugin, base, field) {
+  static async evaluate(callFrame, plugin, sourceType, base, field) {
     const location = getRawLocation(callFrame);
 
     let evalCode = await plugin.getFormatter({base, field}, location);
@@ -84,14 +127,99 @@ class EvalNode extends SDK.RemoteObject.RemoteObjectImpl {
     const response = await callFrame.debuggerModel.target().debuggerAgent().invoke_evaluateOnCallFrame({
       callFrameId: callFrame.id,
       expression: evalCode.js,
-      generatePreview: true,
+      generatePreview: false,
       includeCommandLineAPI: true,
       objectGroup: 'console',
       returnByValue: false,
       silent: false
     });
 
-    return callFrame.debuggerModel.runtimeModel().createRemoteObject(response.result);
+    class FormatterValueHook {
+      constructor() {
+        /** @type {?string} */
+        this.className = null;
+        /** @type {?SDK.RemoteObject.RemoteObject} */
+        this.symbol = null;
+      }
+
+      /**
+       * @param {!SDK.RemoteObject.RemoteObject} object
+       * @return {!Promise<?SDK.RemoteObject.RemoteObject>}
+       */
+      async unpackObject(object) {
+        const {tag, value} = await getRemoteObjectProperties(object, 'tag', 'value');
+        if (!tag || !value) {
+          return null;
+        }
+        const {className, symbol} = await getRemoteObjectProperties(tag, 'className', 'symbol');
+        if (!className || !symbol) {
+          return null;
+        }
+        const resolvedClassName = className.value;
+        if (typeof resolvedClassName !== 'string' || typeof symbol.objectId === 'undefined') {
+          return null;
+        }
+        this.className = resolvedClassName;
+        this.symbol = symbol;
+        return value;
+      }
+
+      /**
+       * @param {!SDK.RemoteObject.RemoteObject} object
+       * @return {!Promise<!SDK.RemoteObject.RemoteObject>}
+       */
+      async hook(object) {
+        const {className} = object;
+        if (className !== this.className || !this.symbol) {
+          return object;
+        }
+
+        const symbol = this.symbol.objectId;
+        const objectId = object.objectId;
+        if (!symbol || !objectId) {
+          return object;
+        }
+        const response = await callFrame.debuggerModel.target().runtimeAgent().invoke_callFunctionOn(
+            {functionDeclaration: 'function(sym) { return this[sym]; }', objectId, arguments: [{objectId: symbol}]});
+        const {result} = response;
+        if (!result || result.type === 'undefined') {
+          return object;
+        }
+
+        const baseObject = callFrame.debuggerModel.runtimeModel().createRemoteObject(result);
+        const {payload, rootType} = await getRemoteObjectProperties(baseObject, 'payload', 'rootType');
+        if (typeof payload === 'undefined' || typeof rootType === 'undefined') {
+          return object;
+        }
+        const value = await resolveRemoteObject(callFrame, payload);
+        const {typeId} = await getRemoteObjectProperties(rootType, 'typeId', 'rootType');
+        if (typeof value === 'undefined' || typeof typeId === 'undefined') {
+          return object;
+        }
+
+        const newSourceType = sourceType.typeMap.get(typeId.value);
+        if (!newSourceType) {
+          return object;
+        }
+
+        const base = {payload: value, rootType: newSourceType.typeInfo};
+        if (newSourceType.typeInfo.hasValue && !newSourceType.typeInfo.canExpand && base) {
+          return EvalNode.evaluate(callFrame, plugin, newSourceType, base, []);
+        }
+
+        return new EvalNode(callFrame, plugin, newSourceType, base, []);
+      }
+    }
+
+    const hook = new FormatterValueHook();
+    const object = callFrame.debuggerModel.runtimeModel().createRemoteObject(response.result, hook.hook.bind(hook));
+    const result = await hook.unpackObject(object) || object;
+
+    if (typeof result.value === 'undefined') {
+      result.description = sourceType.typeInfo.typeNames[0];
+    }
+
+    return result;
   }
 
   /**
@@ -113,7 +241,7 @@ class EvalNode extends SDK.RemoteObject.RemoteObjectImpl {
       return new SDK.RemoteObject.LocalJSONObject(undefined);
     }
     if (sourceType.typeInfo.hasValue && !sourceType.typeInfo.canExpand && base) {
-      return EvalNode.evaluate(callFrame, plugin, base, []);
+      return EvalNode.evaluate(callFrame, plugin, sourceType, base, []);
     }
 
     return new EvalNode(callFrame, plugin, sourceType, base, []);
@@ -130,10 +258,11 @@ class EvalNode extends SDK.RemoteObject.RemoteObjectImpl {
     const typeName = sourceType.typeInfo.typeNames[0] || '<anonymous>';
     const variableType = 'object';
     super(
-        callFrame.debuggerModel.runtimeModel(), /* objectId=*/ undefined,
+        callFrame.debuggerModel.runtimeModel(),
+        /* objectId=*/ undefined,
         /* type=*/ variableType,
         /* subtype=*/ undefined, /* value=*/ null, /* unserializableValue=*/ undefined,
-        /* description=*/ typeName);
+        /* description=*/ typeName, /* preview=*/ undefined, /* customPreview=*/ undefined, /* className=*/ typeName);
     this._variableType = variableType;
     this._callFrame = callFrame;
     this._plugin = plugin;
@@ -159,7 +288,8 @@ class EvalNode extends SDK.RemoteObject.RemoteObjectImpl {
    */
   async _expandMember(sourceType, fieldInfo) {
     if (sourceType.typeInfo.hasValue && !sourceType.typeInfo.canExpand && this._base) {
-      return EvalNode.evaluate(this._callFrame, this._plugin, this._base, this._fieldChain.concat(fieldInfo));
+      return EvalNode.evaluate(
+          this._callFrame, this._plugin, sourceType, this._base, this._fieldChain.concat(fieldInfo));
     }
     return new EvalNode(this._callFrame, this._plugin, sourceType, this._base, this._fieldChain.concat(fieldInfo));
   }
