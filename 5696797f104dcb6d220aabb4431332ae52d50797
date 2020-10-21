@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67cc38c1_dc464fb2",
+        "filename": "front_end/ui/SuggestBox.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-21T12:16:59Z",
+      "side": 1,
+      "message": "This part should be temporary as I opened a CL to improve the new icon component https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2489422",
+      "revId": "5696797f104dcb6d220aabb4431332ae52d50797",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
