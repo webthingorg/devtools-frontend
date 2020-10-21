@@ -193,6 +193,9 @@ table is empty.
   <message name="IDS_DEVTOOLS_5e76cbfe956a74b7dda68e1e2e0dd716" desc="Title for ad frame type field">
     Ad Status
   </message>
+  <message name="IDS_DEVTOOLS_61ae82d095f7c723d2f7963ab5181b5f" desc="Label for subtitle of frame details view">
+    Frame ID
+  </message>
   <message name="IDS_DEVTOOLS_625bee64c286ac3018d57e87162f44e9" desc="Text of button in Indexed DBViews of the Application panel">
     Delete database
   </message>

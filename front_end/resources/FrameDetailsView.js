@@ -5,6 +5,7 @@
 import * as Bindings from '../bindings/bindings.js';
 import * as Common from '../common/common.js';
 import * as Network from '../network/network.js';
+import * as Root from '../root/root.js';
 import * as SDK from '../sdk/sdk.js';  // eslint-disable-line no-unused-vars
 import * as UI from '../ui/ui.js';
 import * as Workspace from '../workspace/workspace.js';
@@ -20,11 +21,15 @@ export class FrameDetailsView extends UI.ThrottledWidget.ThrottledWidget {
    */
   constructor(frame) {
     super();
+    this._protocolMonitorExperimentEnabled = Root.Runtime.experiments.isEnabled('protocolMonitor');
     this.registerRequiredCSS('resources/frameDetailsReportView.css');
     this._frame = frame;
     this.contentElement.classList.add('frame-details-container');
 
     this._reportView = new UI.ReportView.ReportView(frame.displayName());
+    if (this._protocolMonitorExperimentEnabled) {
+      this._reportView.setSubtitle(`${ls`Frame ID`}: ${frame.id}`);
+    }
     this._reportView.registerRequiredCSS('resources/frameDetailsReportView.css');
     this._reportView.show(this.contentElement);
     this._reportView.element.classList.add('frame-details-report-container');
