@@ -1,6 +1,57 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0dd4ef3d_ce56baf2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-21T12:24:00Z",
+      "side": 1,
+      "message": "Still LGTM. Some final nits, PTAL. ",
+      "revId": "5696797f104dcb6d220aabb4431332ae52d50797",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "958d19cd_bf1e8251",
+        "filename": "front_end/elements/CSSPropertyIconResolver.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-21T12:24:00Z",
+      "side": 1,
+      "message": "nit:\n\n    // Default to LTR and no writing mode.",
+      "revId": "5696797f104dcb6d220aabb4431332ae52d50797",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d361e204_7b217477",
+        "filename": "front_end/elements/CSSPropertyIconResolver.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-21T12:24:00Z",
+      "side": 1,
+      "message": "Instead of checking for `!resolver`, it seems simpler to check for `resolver`:\n\n    if (resolver) {\n      resolver(...);\n    }\n    return null;\n\n(You could then even drop the `return null` since callsites only check for falsiness, although you could also keep it if you think it\u0027s more readable.)",
+      "revId": "5696797f104dcb6d220aabb4431332ae52d50797",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67cc38c1_dc464fb2",
@@ -14,6 +65,41 @@
       "writtenOn": "2020-10-21T12:16:59Z",
       "side": 1,
       "message": "This part should be temporary as I opened a CL to improve the new icon component https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2489422",
+      "revId": "5696797f104dcb6d220aabb4431332ae52d50797",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73d7c3ee_34452857",
+        "filename": "front_end/ui/SuggestBox.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-21T12:24:00Z",
+      "side": 1,
+      "message": "Ack; nice touch!",
+      "parentUuid": "67cc38c1_dc464fb2",
+      "revId": "5696797f104dcb6d220aabb4431332ae52d50797",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "171302fd_78dde1ae",
+        "filename": "test/unittests/front_end/elements/CSSPropertyIconResolver_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-21T12:24:00Z",
+      "side": 1,
+      "message": "Since you need both `key` and `value` here, let\u0027s just use `Object.entries` instead? You could then even drop the loop by doing:\n\n    const result \u003d new Map(Object.entries(style));",
       "revId": "5696797f104dcb6d220aabb4431332ae52d50797",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
