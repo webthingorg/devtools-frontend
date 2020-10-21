@@ -100,6 +100,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f359bc2a_1488c9e0",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 2650,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-21T16:47:02Z",
+      "side": 1,
+      "message": "I think I might know what\u0027s going on: the icon is wider than it is tall. The reason for this is that there appears to be white-space next to the span we use for the icon (inside the shadow DOM). So the icon component is something like 16px wide, by 13px high.\nWhen we rotate it 90deg, the 16px is along the vertical axis, so the max-height is useful there.\nBut really the fix should be to remove the whitespace. You could either remove the line breaks inside the html`` rendered string, or setting the font-size to 0 on the :host.",
+      "range": {
+        "startLine": 2650,
+        "startChar": 8,
+        "endLine": 2650,
+        "endChar": 38
+      },
+      "revId": "5696797f104dcb6d220aabb4431332ae52d50797",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "08ec7184_919c3598",
         "filename": "front_end/elements/elements.js",
         "patchSetId": 8
