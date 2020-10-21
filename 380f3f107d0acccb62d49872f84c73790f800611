@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "18a9573c_8f25ab8e",
+        "filename": "front_end/resources/ApplicationCacheItemsView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-10-21T05:50:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c1435a5_dcf35f9f",
+      "range": {
+        "startLine": 124,
+        "startChar": 10,
+        "endLine": 124,
+        "endChar": 27
+      },
+      "revId": "380f3f107d0acccb62d49872f84c73790f800611",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4f94c386_20815550",
@@ -54,6 +78,30 @@
       "writtenOn": "2020-10-20T10:01:27Z",
       "side": 1,
       "message": "I assume that the `node` does not have a param type. Why are we not able to type it as-is?",
+      "range": {
+        "startLine": 306,
+        "startChar": 2,
+        "endLine": 306,
+        "endChar": 15
+      },
+      "revId": "380f3f107d0acccb62d49872f84c73790f800611",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "733f7537_46e476ce",
+        "filename": "front_end/resources/ApplicationCacheItemsView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-10-21T05:50:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f94c386_20815550",
       "range": {
         "startLine": 306,
         "startChar": 2,
