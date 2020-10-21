@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a006767_66411b61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-21T07:34:00Z",
+      "side": 1,
+      "message": "LGTM once final comment is addressed, thanks for increasing our test coverage!",
+      "revId": "970982f3e4f94e26fe482db68a6e8c656ddeda85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ebbb40b_b9142654",
+        "filename": "test/e2e/helpers/issues-helpers.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-21T07:34:00Z",
+      "side": 1,
+      "message": "These two lines are the same for both cases (use the status variable). Please refactor accordingly.",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 56
+      },
+      "revId": "970982f3e4f94e26fe482db68a6e8c656ddeda85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
