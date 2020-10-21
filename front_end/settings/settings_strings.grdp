@@ -6,6 +6,9 @@
   <message name="IDS_DEVTOOLS_0f653ae68147586eb189d7baf37a696a" desc="Text of button in Settings Screen of the Settings">
     Restore defaults and reload
   </message>
+  <message name="IDS_DEVTOOLS_201a1a9b804325a1a87cbad4d2693986" desc="Label for a button in the shortcut editor that resets all shortcuts for the current action.">
+    Reset shortcuts for action
+  </message>
   <message name="IDS_DEVTOOLS_2cce43a6505a5d1bdf7ea98bf7fd1bc8" desc="Blackbox label in Framework Blackbox Settings Tab of the Settings">
     Blackbox
   </message>
