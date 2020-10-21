@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c95f2f50_4c6feae9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-21T16:35:02Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "2ed9b3288194904c924f41130f9f2ff9e580477b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25667c9d_9b2e512b",
+        "filename": "front_end/sdk/EmulationModel.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-21T16:35:02Z",
+      "side": 1,
+      "message": "Should we Promise.all these?",
+      "range": {
+        "startLine": 148,
+        "startChar": 27,
+        "endLine": 148,
+        "endChar": 58
+      },
+      "revId": "2ed9b3288194904c924f41130f9f2ff9e580477b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
