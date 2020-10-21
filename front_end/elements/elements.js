@@ -24,6 +24,7 @@ import './ElementsPanel.js';
 import './ClassesPaneWidget.js';
 import './ElementStatePaneWidget.js';
 import './ElementsTreeElementHighlighter.js';
+import './CSSPropertyIconResolver.js';
 
 import * as Adorner from './Adorner.js';
 import * as ClassesPaneWidget from './ClassesPaneWidget.js';
