@@ -353,6 +353,30 @@
       },
       "revId": "d52f4bf7fd528bce73bc6c458837b0c21574f54d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6752bde6_e4d747fc",
+        "filename": "test/unittests/front_end/timeline/WebVitalsTimeline_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-21T15:14:31Z",
+      "side": 1,
+      "message": "PTAL at the comment from Jack.",
+      "parentUuid": "2f06e127_ac02be31",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 43
+      },
+      "revId": "d52f4bf7fd528bce73bc6c458837b0c21574f54d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
