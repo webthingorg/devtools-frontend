@@ -78,6 +78,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8fe7fcab_9aa8a40a",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 2411,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-21T12:11:49Z",
+      "side": 1,
+      "message": "I have refactored the code and implemented these cases. Not sure if it\u0027s the best way to implement this kind of logic. PTAL",
+      "parentUuid": "83f21615_1661ae2a",
+      "range": {
+        "startLine": 2411,
+        "startChar": 12,
+        "endLine": 2411,
+        "endChar": 64
+      },
+      "revId": "a501130265be7c878df5358b588c51b440292c72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9aa9090b_bb315be0",
         "filename": "front_end/elements/StylesSidebarPane.js",
         "patchSetId": 3
@@ -142,6 +166,24 @@
       "side": 1,
       "message": "Looks like its created when you start editing: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/elements/StylePropertyTreeElement.js;l\u003d814?q\u003dCSSPropertyPrompt%20-file:%5Eout\n\nIt\u0027d be good to measure (on a slow machine) if adding this step (even just once on start editing) is slowing down the appearing of the autocomplete popup. If it does slow it down too much, we could think of a few things:\n- only getting the computed style properties we use (direction and writingMode for now)\n- getting this async, in a non-blocking way, so the autocomplete appears and the icons appear lazily when ready\n- storing the style at the DOM node level instead, and invalidating this cache when some style event occurs (don\u0027t we have this now for the adorners?)",
       "parentUuid": "aa5927c8_180f2b24",
+      "revId": "a501130265be7c878df5358b588c51b440292c72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26ad25c2_c5c0cee6",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 2636,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-21T12:11:49Z",
+      "side": 1,
+      "message": "I have moved the cache to the prompt instance. Let\u0027s see how it performs. In general, I think getting computed styles for a node is quite fast.",
+      "parentUuid": "7d34b841_550b03b6",
       "revId": "a501130265be7c878df5358b588c51b440292c72",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
