@@ -403,11 +403,17 @@ class AffectedDirectivesView extends AffectedResourcesView {
 
   /**
    * @param {!Element} element
+   * @param {boolean} isReportOnly
    */
-  _appendBlockedStatus(element) {
+  _appendStatus(element, isReportOnly) {
     const status = document.createElement('td');
-    status.classList.add('affected-resource-blocked-status');
-    status.textContent = ls`blocked`;
+    if (isReportOnly) {
+      status.classList.add('affected-resource-report-only-status');
+      status.textContent = ls`report-only`;
+    } else {
+      status.classList.add('affected-resource-blocked-status');
+      status.textContent = ls`blocked`;
+    }
     element.appendChild(status);
   }
 
@@ -518,6 +524,13 @@ class AffectedDirectivesView extends AffectedResourcesView {
       this._appendSourceCodeColumnTitle(header);
       this._appendDirectiveColumnTitle(header);
       this._appendStatusColumnTitle(header);
+    } else if (this._issue.code() === SDK.ContentSecurityPolicyIssue.trustedTypesSinkViolationCode) {
+      this._appendSourceCodeColumnTitle(header);
+      this._appendStatusColumnTitle(header);
+    } else if (this._issue.code() === SDK.ContentSecurityPolicyIssue.trustedTypesPolicyViolationCode) {
+      this._appendSourceCodeColumnTitle(header);
+      this._appendDirectiveColumnTitle(header);
+      this._appendStatusColumnTitle(header);
     } else {
       this.updateAffectedResourceCount(0);
       return;
@@ -543,17 +556,24 @@ class AffectedDirectivesView extends AffectedResourcesView {
       this._appendViolatedDirective(element, cspIssueDetails.violatedDirective);
       this._appendBlockedElement(element, cspIssueDetails.violatingNodeId, cspIssue.model());
       this._appendSourceLocation(element, cspIssueDetails.sourceCodeLocation);
-      this._appendBlockedStatus(element);
+      this._appendStatus(element, cspIssueDetails.isReportOnly);
     } else if (this._issue.code() === SDK.ContentSecurityPolicyIssue.urlViolationCode) {
       const url = cspIssueDetails.blockedURL ? cspIssueDetails.blockedURL : '';
       this._appendBlockedURL(element, url);
-      this._appendBlockedStatus(element);
+      this._appendStatus(element, cspIssueDetails.isReportOnly);
       this._appendViolatedDirective(element, cspIssueDetails.violatedDirective);
       this._appendSourceLocation(element, cspIssueDetails.sourceCodeLocation);
     } else if (this._issue.code() === SDK.ContentSecurityPolicyIssue.evalViolationCode) {
       this._appendSourceLocation(element, cspIssueDetails.sourceCodeLocation);
       this._appendViolatedDirective(element, cspIssueDetails.violatedDirective);
-      this._appendBlockedStatus(element);
+      this._appendStatus(element, cspIssueDetails.isReportOnly);
+    } else if (this._issue.code() === SDK.ContentSecurityPolicyIssue.trustedTypesSinkViolationCode) {
+      this._appendSourceLocation(element, cspIssueDetails.sourceCodeLocation);
+      this._appendStatus(element, cspIssueDetails.isReportOnly);
+    } else if (this._issue.code() === SDK.ContentSecurityPolicyIssue.trustedTypesPolicyViolationCode) {
+      this._appendSourceLocation(element, cspIssueDetails.sourceCodeLocation);
+      this._appendViolatedDirective(element, cspIssueDetails.violatedDirective);
+      this._appendStatus(element, cspIssueDetails.isReportOnly);
     } else {
       return;
     }
