@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "199e959678ad86d7dce74ab06281678accd0545a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e24e4ff1_12ca9e9c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-21T16:33:51Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "199e959678ad86d7dce74ab06281678accd0545a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7df153df_7d38e5f4",
+        "filename": "front_end/layer_viewer/PaintProfilerView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-21T16:33:51Z",
+      "side": 1,
+      "message": "nit: this and the var below probably don\u0027t need underscores in their name",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 15
+      },
+      "revId": "199e959678ad86d7dce74ab06281678accd0545a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
