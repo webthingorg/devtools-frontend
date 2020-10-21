@@ -159,6 +159,9 @@
   <message name="IDS_DEVTOOLS_35d4892bb81c31af26ec7047ef5c8872" desc="Resolution for SameSiteCookie issue">
     Specify <ph name="LOCKED_1">|SameSite=Strict|</ph> or <ph name="LOCKED_1">|SameSite=Lax|</ph> if the cookie should not be set by cross-site requests
   </message>
+  <message name="IDS_DEVTOOLS_37418a2eb6d2b3239e5793f17f8378cc" desc="Title for Trusted Types policy violation issue link">
+    Learn more: Trusted Types - Policy violation
+  </message>
   <message name="IDS_DEVTOOLS_3ac7af4285bb17e9dbc72fdd675dd2be" desc="Title of a setting that turns on grid track size labels">
     Show track sizes
   </message>
@@ -574,6 +577,9 @@
   </message>
   <message name="IDS_DEVTOOLS_c5d59568835d0760e318829b800ee06d" desc="Text in Debugger Model">
     Catch
+  </message>
+  <message name="IDS_DEVTOOLS_c636cf8ad9b66dc1f30942d5a84c50c0" desc="Title for Trusted Types sink violation issue link">
+    Learn more: Trusted Types - Fix violation
   </message>
   <message name="IDS_DEVTOOLS_c64d5c0d5233c7d6e85a41c6dd3c3a3f" desc="Text in the Event Listener Breakpoints Panel of the JavaScript Debugger in the Sources Panel">
     Resume AudioContext
