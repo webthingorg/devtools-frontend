@@ -24,6 +24,8 @@ async function expandActivityTree(frontend: puppeteer.Page, numExpectedActivitie
 }
 
 describe('The Performance panel', async function() {
+  // Increasing the timeout since this is running into problems on MAC frequently.
+  this.timeout(20000);
   beforeEach(async () => {
     const {target, frontend} = getBrowserAndPages();
 
