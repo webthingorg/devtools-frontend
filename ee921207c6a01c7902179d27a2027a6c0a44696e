@@ -95,6 +95,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "33cc9095_f6056976",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-21T15:16:49Z",
+      "side": 1,
+      "message": "Is that a globally available type? I think you could add it to the set here: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/scripts/component_bridges/walk_tree.ts;l\u003d497?q\u003dwalk_tree.ts\u0026ss\u003dchromium.",
+      "parentUuid": "0ff51752_7f94ff3c",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 3
+      },
+      "revId": "ee921207c6a01c7902179d27a2027a6c0a44696e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a7233f8a_44224c1c",
