@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ac6dd56_6111cd11",
+        "filename": "front_end/timeline/WebVitalsLane.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-21T13:14:47Z",
+      "side": 1,
+      "message": "can these (and the ones in the class above) be marked as private?",
+      "range": {
+        "startLine": 303,
+        "startChar": 2,
+        "endLine": 306,
+        "endChar": 3
+      },
+      "revId": "ee921207c6a01c7902179d27a2027a6c0a44696e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb550f5e_78276c04",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-21T13:14:47Z",
+      "side": 1,
+      "message": "Is the bridges generator missing functionality / doing something wrong here that\u0027s worth fixing? Why was this needed?",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 3
+      },
+      "revId": "ee921207c6a01c7902179d27a2027a6c0a44696e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7233f8a_44224c1c",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-21T13:14:47Z",
+      "side": 1,
+      "message": "do these need to be public or could they be private? (same goes for all public methods in this class - we try to keep them to a minimum so asking the question 👍)",
+      "range": {
+        "startLine": 194,
+        "startChar": 1,
+        "endLine": 205,
+        "endChar": 3
+      },
+      "revId": "ee921207c6a01c7902179d27a2027a6c0a44696e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c351025_ef0be392",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-21T13:14:47Z",
+      "side": 1,
+      "message": "I think this should be private; the only way for something to cause a render is to pass in more data.",
+      "range": {
+        "startLine": 270,
+        "startChar": 0,
+        "endLine": 270,
+        "endChar": 18
+      },
+      "revId": "ee921207c6a01c7902179d27a2027a6c0a44696e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7508e9f3_fc801b5c",
+        "filename": "front_end/timeline/WebVitalsTimeline_bridge.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-21T13:14:47Z",
+      "side": 1,
+      "message": "as I said in another comment, quite a few public methods here. Please could you check if we can make them private?",
+      "range": {
+        "startLine": 107,
+        "startChar": 2,
+        "endLine": 107,
+        "endChar": 3
+      },
+      "revId": "ee921207c6a01c7902179d27a2027a6c0a44696e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fca0aa3d_49066da9",
+        "filename": "test/unittests/front_end/timeline/WebVitalsTimeline_test.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-21T13:14:47Z",
+      "side": 1,
+      "message": "nit: I think you might be able to do `assert.instanceOf`, which might be worthwhile as the error message will be clearer.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 53
+      },
+      "revId": "ee921207c6a01c7902179d27a2027a6c0a44696e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e18e6f2_262a2ae2",
+        "filename": "test/unittests/front_end/timeline/WebVitalsTimeline_test.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-21T13:14:47Z",
+      "side": 1,
+      "message": "👍\n\nJan and I chatted over VC about testing this component and concluded there\u0027s really no good way to do it; it\u0027s hard to unit test because canvas, it\u0027s hard to test the data processing functions because of legacy SDK models being hard to create in tests, and really screenshots are the way forward here.",
+      "range": {
+        "startLine": 24,
+        "startChar": 9,
+        "endLine": 33,
+        "endChar": 3
+      },
+      "revId": "ee921207c6a01c7902179d27a2027a6c0a44696e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
