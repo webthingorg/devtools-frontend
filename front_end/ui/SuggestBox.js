@@ -240,6 +240,9 @@ export class SuggestBox {
       const subtitleElement = element.createChild('span', 'suggestion-subtitle');
       subtitleElement.textContent = item.subtitle.trimEndWithMaxLength(maxTextLength - displayText.length);
     }
+    if (item.iconElement) {
+      element.appendChild(item.iconElement);
+    }
     return element;
   }
 
@@ -271,10 +274,24 @@ export class SuggestBox {
   selectedItemChanged(from, to, fromElement, toElement) {
     if (fromElement) {
       fromElement.classList.remove('selected', 'force-white-icons');
+      const icon = /** @type {*} */ (fromElement.querySelector('devtools-icon'));
+      if (icon) {
+        icon.data = {
+          ...icon.data,
+          color: 'black',
+        };
+      }
     }
     if (toElement) {
       toElement.classList.add('selected');
       toElement.classList.add('force-white-icons');
+      const icon = /** @type {*} */ (toElement.querySelector('devtools-icon'));
+      if (icon) {
+        icon.data = {
+          ...icon.data,
+          color: 'white',
+        };
+      }
     }
     this._applySuggestion(true);
   }
@@ -405,7 +422,8 @@ export class SuggestBox {
   *      isSecondary: (boolean|undefined),
   *      subtitleRenderer: ((function():!Element)|undefined),
   *      selectionRange: ({startColumn: number, endColumn: number}|undefined),
-  *      hideGhostText: (boolean|undefined)
+  *      hideGhostText: (boolean|undefined),
+  *      iconElement: (!HTMLElement|undefined),
   * }}
   */
 // @ts-ignore typedef
