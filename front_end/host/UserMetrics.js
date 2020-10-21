@@ -523,6 +523,12 @@ export const KeyboardShortcutAction = {
   'timeline.save-to-file': 90,
   'timeline.show-history': 91,
   'timeline.toggle-recording': 92,
+  'sources.increment-css': 93,
+  'sources.increment-css-by-ten': 94,
+  'sources.decrement-css': 95,
+  'sources.decrement-css-by-ten': 96,
+  'layers.reset-view': 97,
+  'layers.pan-mode': 98,
 };
 
 /** @enum {number} */
