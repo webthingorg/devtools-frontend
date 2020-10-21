@@ -16,6 +16,57 @@
       "message": "PTAL",
       "revId": "8db3f0002c5e4f7f0d06f67f32d86850dd393ef8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1a09209_a831aa05",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-10-21T09:54:42Z",
+      "side": 1,
+      "message": "LGTM with nits",
+      "revId": "8db3f0002c5e4f7f0d06f67f32d86850dd393ef8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57ec979e_29a1fcb9",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-10-21T09:54:42Z",
+      "side": 1,
+      "message": "nit: ... banner WHICH can be ...",
+      "revId": "8db3f0002c5e4f7f0d06f67f32d86850dd393ef8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a570c788_c3507b92",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-10-21T09:54:42Z",
+      "side": 1,
+      "message": "nit: remove is",
+      "revId": "8db3f0002c5e4f7f0d06f67f32d86850dd393ef8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
