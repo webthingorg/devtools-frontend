@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bed572f6_eb2fdc20",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-21T13:07:13Z",
+      "side": 1,
+      "message": "LGTM % nit, thanks for the quick fix!",
+      "revId": "b86192c319efe7d033902f977618922cdac54e9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "527af1ee_25ee46eb",
+        "filename": "test/e2e/performance/wasm/performance_profiling_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-21T13:07:13Z",
+      "side": 1,
+      "message": "nit: remove comment",
+      "range": {
+        "startLine": 31,
+        "startChar": 2,
+        "endLine": 31,
+        "endChar": 105
+      },
+      "revId": "b86192c319efe7d033902f977618922cdac54e9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
