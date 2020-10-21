@@ -16,6 +16,24 @@
       "message": "For future relands, please use the \"reland\" button on the original CL, or the \"revert\" button on the revert CL. This will create a clean reland, which you can then later modify. This will allow Gerrit to show the diff between the original and the changes you made in the reland.\n\nI have verified the changes made in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2485079/2/front_end/host/UserMetrics.js are the ones that are partially reverted. The keys that have been removed are:\n\n  \u0027layers.rotate-mode\u0027: 99,\n  \u0027layers.zoom-in\u0027: 100,\n  \u0027layers.zoom-out\u0027: 101,\n  \u0027layers.up\u0027: 102,\n  \u0027layers.down\u0027: 103,\n  \u0027layers.left\u0027: 104,\n  \u0027layers.right\u0027: 105,\n\nGiven that these are all related to `layers`, should we maybe remove `layers.reset-view` and `layers.pan-mode` for now, until the limit has been increased, to remove all shortcuts to `layers` for now?",
       "revId": "65abf1802046346bb66e041c353cb47cc698a70c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2757ec3c_48e76890",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-10-21T20:09:16Z",
+      "side": 1,
+      "message": "I tried to do that but it complained about merge conflicts--I think my issue was I hit reland on the revert instead of the original. I\u0027ll keep that in mind for the next one.\n\nGood call on the last two layers items, I\u0027ve removed them",
+      "parentUuid": "5537a3c1_bc3b89a4",
+      "revId": "65abf1802046346bb66e041c353cb47cc698a70c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
