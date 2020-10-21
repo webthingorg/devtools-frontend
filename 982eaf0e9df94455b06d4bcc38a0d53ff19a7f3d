@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "982eaf0e9df94455b06d4bcc38a0d53ff19a7f3d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dee552b_51c4e58f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-21T13:33:51Z",
+      "side": 1,
+      "message": "What about adding its own section and making it look nice, as it will be visible for everyone who has the protocol monitor experiment enabled. Also add a tooltip on the section header explaining that the section is visible due to the protocol monitor experiment.",
+      "revId": "982eaf0e9df94455b06d4bcc38a0d53ff19a7f3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
