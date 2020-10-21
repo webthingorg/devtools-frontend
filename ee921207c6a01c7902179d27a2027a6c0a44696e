@@ -119,6 +119,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e33139a2_4ee7f7ca",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-21T15:23:44Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "33cc9095_f6056976",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 3
+      },
+      "revId": "ee921207c6a01c7902179d27a2027a6c0a44696e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a7233f8a_44224c1c",
