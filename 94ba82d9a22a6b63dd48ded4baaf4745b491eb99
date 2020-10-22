@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbd12fbf_78073216",
+        "filename": "front_end/elements/Icon.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-22T09:11:14Z",
+      "side": 0,
+      "message": "For example, in this case if the caller set the iconName in the data setter, the component would return the iconPath instead. \n\nI have checked the usages I could find and it seems the getter is not actually used.",
+      "revId": "94ba82d9a22a6b63dd48ded4baaf4745b491eb99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
