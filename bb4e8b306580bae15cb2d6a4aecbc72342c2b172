@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5170b369_7b61e729",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-22T05:37:52Z",
+      "side": 1,
+      "message": "mostly lgtm, one comment though",
+      "revId": "bb4e8b306580bae15cb2d6a4aecbc72342c2b172",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "162c6c60_c18b8cc8",
+        "filename": "front_end/resources/DOMStorageItemsView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-22T05:37:52Z",
+      "side": 1,
+      "message": "superfluous \u0027;\u0027, closure complains about this one.",
+      "range": {
+        "startLine": 178,
+        "startChar": 41,
+        "endLine": 178,
+        "endChar": 42
+      },
+      "revId": "bb4e8b306580bae15cb2d6a4aecbc72342c2b172",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4927019b_062c06e4",
+        "filename": "front_end/resources/DOMStorageItemsView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-22T05:37:52Z",
+      "side": 1,
+      "message": "next closure quirk, for builtins like `string` it\u0027s `string` for non-null and `?string` for the null-able version.",
+      "range": {
+        "startLine": 254,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 29
+      },
+      "revId": "bb4e8b306580bae15cb2d6a4aecbc72342c2b172",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d39927f9_c585c346",
+        "filename": "front_end/resources/DOMStorageItemsView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-22T05:37:52Z",
+      "side": 1,
+      "message": "Usually we prefer to keep roughly the same semantics. This refactoring changes the case for `entry.data.value` being falsy:\n\nOld version we call: `this._showPreview(null, value)`\n\nNew version force casts `entry.data.value` to a string (even though it might be null or the empty string) and constructs a preview for it. We now rely on StaticContentProvider#fromString and PreviewFactory#createPreview handle this case correctly and are possible lying to them about the parameter we pass.",
+      "range": {
+        "startLine": 321,
+        "startChar": 4,
+        "endLine": 321,
+        "endChar": 30
+      },
+      "revId": "bb4e8b306580bae15cb2d6a4aecbc72342c2b172",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
