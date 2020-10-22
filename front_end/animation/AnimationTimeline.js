@@ -704,7 +704,6 @@ export class NodeUI {
   constructor(animationEffect) {
     this.element = createElementWithClass('div', 'animation-node-row');
     this._description = this.element.createChild('div', 'animation-node-description');
-    this._description.tabIndex = 0;
     this._timelineElement = this.element.createChild('div', 'animation-node-timeline');
   }
 
@@ -718,15 +717,7 @@ export class NodeUI {
     }
     this._node = node;
     this._nodeChanged();
-    Common.Linkifier.linkify(node, {preventKeyboardFocus: true}).then(link => {
-      this._description.appendChild(link);
-      this._description.addEventListener('keydown', event => {
-        if (isEnterOrSpaceKey(event) && this._node) {
-          Common.Revealer.reveal(node, false);
-          event.consume(true);
-        }
-      });
-    });
+    Common.Linkifier.linkify(node).then(link => this._description.appendChild(link));
     if (!node.ownerDocument) {
       this.nodeRemoved();
     }
