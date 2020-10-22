@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff9b771c_00bcb726",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-22T09:42:06Z",
+      "side": 1,
+      "message": "There is some pre-work that needs to be done: The failing test needs to be split into a protocol inspector test that verifies the protocol yields the correct previews, and a devtools e2e test that verifies devtools is displaying things correctly.",
+      "revId": "f03a9a7fdbd2332e9121968eabe5401dc4c9dec3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
