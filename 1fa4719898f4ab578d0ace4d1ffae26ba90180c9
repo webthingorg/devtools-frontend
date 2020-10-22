@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f36730a_02bfe9cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-22T10:32:07Z",
+      "side": 1,
+      "message": "PTAL I changed it back to use separate attributes and removed the data getter.",
+      "revId": "1fa4719898f4ab578d0ace4d1ffae26ba90180c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
