@@ -38,7 +38,7 @@ export class NodeConnectionsPanel extends UI.Panel.Panel {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _devicesDiscoveryConfigChanged(event) {
     this._config = /** @type {!Adb.Config} */ (event.data);

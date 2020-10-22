@@ -399,7 +399,7 @@ export class AnimationTimeline extends UI.Widget.VBox {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _animationGroupStarted(event) {
     this._addAnimationGroup(/** @type {!AnimationGroup} */ (event.data));
@@ -586,7 +586,7 @@ export class AnimationTimeline extends UI.Widget.VBox {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _nodeRemoved(event) {
     const node = event.data.node;

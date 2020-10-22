@@ -209,7 +209,7 @@ export class ModelInfo {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _styleSheetAdded(event) {
     const header = /** @type {!SDK.CSSStyleSheetHeader.CSSStyleSheetHeader} */ (event.data);
@@ -226,7 +226,7 @@ export class ModelInfo {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _styleSheetRemoved(event) {
     const header = /** @type {!SDK.CSSStyleSheetHeader.CSSStyleSheetHeader} */ (event.data);

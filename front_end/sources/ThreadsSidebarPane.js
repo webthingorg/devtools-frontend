@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
@@ -64,7 +63,7 @@ export class ThreadsSidebarPane extends UI.Widget.VBox {
     }
 
     /**
-     * @param {!Common.EventTarget.EventTargetEvent} event
+     * @param {!Common.Event} event
      */
     function targetNameChanged(event) {
       const target = /** @type {!SDK.SDKModel.Target} */ (event.data);
@@ -153,7 +152,7 @@ export class ThreadsSidebarPane extends UI.Widget.VBox {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _targetFlavorChanged(event) {
     const hadFocus = this.hasFocus();

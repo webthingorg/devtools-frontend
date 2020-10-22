@@ -27,7 +27,6 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
 import * as Host from '../host/host.js';
 import * as ObjectUI from '../object_ui/object_ui.js';
 import * as SDK from '../sdk/sdk.js';
@@ -66,7 +65,7 @@ export class PropertiesWidget extends UI.ThrottledWidget.ThrottledWidget {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _setNode(event) {
     this._node = /** @type {?SDK.DOMModel.DOMNode} */ (event.data);
@@ -163,7 +162,7 @@ export class PropertiesWidget extends UI.ThrottledWidget.ThrottledWidget {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onNodeChange(event) {
     if (!this._node) {

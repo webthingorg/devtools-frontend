@@ -284,14 +284,14 @@ export class ServiceWorkerCacheView extends UI.View.SimpleView {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _refreshButtonClicked(event) {
     this._updateData(true);
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _cacheContentUpdated(event) {
     const nameAndOrigin = event.data;

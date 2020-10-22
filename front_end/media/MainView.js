@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
-
 /**
  * @implements {SDK.SDKModelObserver<!Media.MediaModel>}
  */
@@ -118,21 +116,21 @@ Media.MainView = class extends UI.PanelWithSidebar {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _propertiesChanged(event) {
     this.renderChanges(event.data.playerId, event.data.properties, Media.MediaModel.MediaChangeTypeKeys.Property);
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _eventsAdded(event) {
     this.renderChanges(event.data.playerId, event.data.events, Media.MediaModel.MediaChangeTypeKeys.Event);
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _playersCreated(event) {
     const playerlist = /** @type {!Iterable.<string>} */ (event.data);

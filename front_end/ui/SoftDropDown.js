@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
-
 import * as ARIAUtils from './ARIAUtils.js';
 import {Size} from './Geometry.js';
 import {AnchorBehavior, GlassPane, MarginBehavior, PointerEventsBehavior} from './GlassPane.js';
@@ -231,7 +229,7 @@ export class SoftDropDown {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _itemsReplaced(event) {
     const removed = /** @type {!Array<T>} */ (event.data.removed);

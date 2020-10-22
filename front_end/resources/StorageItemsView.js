@@ -56,7 +56,7 @@ export class StorageItemsView extends UI.Widget.VBox {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _filterChanged(event) {
     const text = /** @type {?string} */ (event.data);

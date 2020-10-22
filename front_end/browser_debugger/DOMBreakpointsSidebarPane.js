@@ -179,14 +179,14 @@ export class DOMBreakpointsSidebarPane extends UI.Widget.VBox {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _breakpointAdded(event) {
     this._addBreakpoint(/** @type {!SDK.DOMDebuggerModel.DOMBreakpoint} */ (event.data));
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _breakpointToggled(event) {
     const hadFocus = this.hasFocus();
@@ -198,7 +198,7 @@ export class DOMBreakpointsSidebarPane extends UI.Widget.VBox {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _breakpointsRemoved(event) {
     const hadFocus = this.hasFocus();

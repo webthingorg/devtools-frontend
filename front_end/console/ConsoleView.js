@@ -357,7 +357,7 @@ export class ConsoleView extends UI.Widget.VBox {
     self.Common.console.addEventListener(Common.Console.Events.MessageAdded, messageAdded, this);
 
     /**
-     * @param {!Common.EventTarget.EventTargetEvent} event
+     * @param {!Common.Event} event
      * @this {ConsoleView}
      */
     function messageAdded(event) {
@@ -513,7 +513,7 @@ export class ConsoleView extends UI.Widget.VBox {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onConsoleMessageAdded(event) {
     const message = /** @type {!SDK.ConsoleModel.ConsoleMessage} */ (event.data);
@@ -581,7 +581,7 @@ export class ConsoleView extends UI.Widget.VBox {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onConsoleMessageUpdated(event) {
     const message = /** @type {!SDK.ConsoleModel.ConsoleMessage} */ (event.data);
@@ -683,7 +683,7 @@ export class ConsoleView extends UI.Widget.VBox {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    * @return {!Promise}
    */
   async _onMessageResized(event) {
@@ -1019,7 +1019,7 @@ export class ConsoleView extends UI.Widget.VBox {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _commandEvaluated(event) {
     const data =
@@ -1393,7 +1393,7 @@ export class ConsoleViewFilter {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _showLevelContextMenu(event) {
     const mouseEvent = /** @type {!Event} */ (event.data);

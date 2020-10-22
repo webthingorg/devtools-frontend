@@ -52,7 +52,7 @@ export class NodeChildTargetManager extends SDK.SDKModel.SDKModel {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _devicesDiscoveryConfigChanged(event) {
     const config = /** @type {!Adb.Config} */ (event.data);

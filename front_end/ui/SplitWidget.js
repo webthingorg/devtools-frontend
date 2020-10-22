@@ -773,14 +773,14 @@ export class SplitWidget extends Widget {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onResizeStart(event) {
     this._resizeStartSizeDIP = this._sidebarSizeDIP;
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onResizeUpdate(event) {
     const offset = event.data.currentPosition - event.data.startPosition;
@@ -799,7 +799,7 @@ export class SplitWidget extends Widget {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onResizeEnd(event) {
     this._resizeStartSizeDIP = 0;
@@ -925,7 +925,7 @@ export class SplitWidget extends Widget {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onZoomChanged(event) {
     this._forceUpdateLayout();
@@ -942,7 +942,7 @@ export class SplitWidget extends Widget {
     this._updateShowHideSidebarButton();
 
     /**
-     * @param {!Common.EventTarget.EventTargetEvent} event
+     * @param {!Common.Event} event
      * @this {SplitWidget}
      */
     function buttonClicked(event) {

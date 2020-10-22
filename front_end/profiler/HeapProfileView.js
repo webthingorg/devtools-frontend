@@ -65,7 +65,7 @@ export class HeapProfileView extends ProfileView {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onIdsRangeChanged(event) {
     const minId = /** @type {number} */ (event.data.minId);
@@ -86,7 +86,7 @@ export class HeapProfileView extends ProfileView {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onStatsUpdate(event) {
     const profile = event.data;

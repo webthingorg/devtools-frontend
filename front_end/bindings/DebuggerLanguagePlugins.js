@@ -335,7 +335,7 @@ export class DebuggerLanguagePluginManager {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   async _newScriptSource(event) {
     const script = /** @type {!SDK.Script.Script} */ (event.data);
@@ -356,7 +356,7 @@ export class DebuggerLanguagePluginManager {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _executionContextDestroyed(event) {
     const executionContext = /** @type {!SDK.RuntimeModel.ExecutionContext} */ (event.data);

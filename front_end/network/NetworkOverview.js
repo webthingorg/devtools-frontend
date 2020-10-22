@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
 import * as PerfUI from '../perf_ui/perf_ui.js';
 import * as SDK from '../sdk/sdk.js';
 
@@ -61,7 +60,7 @@ export class NetworkOverview extends PerfUI.TimelineOverviewPane.TimelineOvervie
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _loadEventFired(event) {
     const time = /** @type {number} */ (event.data.loadTime);
@@ -72,7 +71,7 @@ export class NetworkOverview extends PerfUI.TimelineOverviewPane.TimelineOvervie
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _domContentLoadedEventFired(event) {
     const data = /** @type {number} */ (event.data);

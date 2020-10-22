@@ -93,7 +93,7 @@ export class ConsoleSidebar extends UI.Widget.VBox {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _selectionChanged(event) {
     this._selectedTreeElement = /** @type {!UI.TreeOutline.TreeElement} */ (event.data);

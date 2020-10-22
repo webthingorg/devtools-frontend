@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
-
 import {CookieModel} from './CookieModel.js';
 import {Issue} from './Issue.js';
 import {Events, NetworkManager} from './NetworkManager.js';
@@ -96,7 +94,7 @@ export class IssuesModel extends SDKModel {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _handleRequestFinished(event) {
     const request = /** @type {!NetworkRequest} */ (event.data);

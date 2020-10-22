@@ -73,7 +73,7 @@ export class LinkDecorator extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _bindingChanged(event) {
     const binding = /** @type {!PersistenceBinding} */ (event.data);

@@ -312,7 +312,7 @@ export class NetworkLog extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onMainFrameNavigated(event) {
     const mainFrame = /** @type {!ResourceTreeFrame} */ (event.data);
@@ -398,7 +398,7 @@ export class NetworkLog extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onRequestStarted(event) {
     const request = /** @type {!NetworkRequest} */ (event.data);
@@ -413,7 +413,7 @@ export class NetworkLog extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onRequestUpdated(event) {
     const request = /** @type {!NetworkRequest} */ (event.data);
@@ -424,7 +424,7 @@ export class NetworkLog extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onRequestRedirect(event) {
     const request = /** @type {!NetworkRequest} */ (event.data);
@@ -433,7 +433,7 @@ export class NetworkLog extends Common.ObjectWrapper.ObjectWrapper {
 
   /**
    * @param {!ResourceTreeModel} resourceTreeModel
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onDOMContentLoaded(resourceTreeModel, event) {
     const networkManager = resourceTreeModel.target().model(NetworkManager);
@@ -444,7 +444,7 @@ export class NetworkLog extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onLoad(event) {
     const networkManager = event.data.resourceTreeModel.target().model(NetworkManager);
@@ -469,7 +469,7 @@ export class NetworkLog extends Common.ObjectWrapper.ObjectWrapper {
 
   /**
    * @param {!NetworkManager} networkManager
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _networkMessageGenerated(networkManager, event) {
     const message = /** @type {!Message} */ (event.data);

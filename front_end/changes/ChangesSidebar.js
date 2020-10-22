@@ -54,7 +54,7 @@ export class ChangesSidebar extends UI.Widget.Widget {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _uiSourceCodeMofiedStatusChanged(event) {
     if (event.data.isModified) {

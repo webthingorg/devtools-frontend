@@ -28,9 +28,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
 import * as Host from '../host/host.js';
-
 import {SoftContextMenu} from './SoftContextMenu.js';
 
 /**
@@ -396,7 +394,7 @@ export class ContextMenu extends SubMenu {
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.addEventListener(
         Host.InspectorFrontendHostAPI.Events.SetUseSoftMenu, setUseSoftMenu);
     /**
-     * @param {!Common.EventTarget.EventTargetEvent} event
+     * @param {!Common.Event} event
      */
     function setUseSoftMenu(event) {
       ContextMenu._useSoftMenu = /** @type {boolean} */ (event.data);
@@ -520,7 +518,7 @@ export class ContextMenu extends SubMenu {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onItemSelected(event) {
     this._itemSelected(/** @type {string} */ (event.data));

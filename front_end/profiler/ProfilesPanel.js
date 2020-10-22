@@ -238,7 +238,7 @@ export class ProfilesPanel extends UI.Panel.PanelWithSidebar {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onProfileTypeSelected(event) {
     this._selectedProfileType = /** @type {!ProfileType} */ (event.data);
@@ -289,7 +289,7 @@ export class ProfilesPanel extends UI.Panel.PanelWithSidebar {
         'contextmenu', this._handleContextMenuEvent.bind(this), false);
 
     /**
-     * @param {!Common.EventTarget.EventTargetEvent} event
+     * @param {!Common.Event} event
      * @this {ProfilesPanel}
      */
     function onAddProfileHeader(event) {
@@ -297,7 +297,7 @@ export class ProfilesPanel extends UI.Panel.PanelWithSidebar {
     }
 
     /**
-     * @param {!Common.EventTarget.EventTargetEvent} event
+     * @param {!Common.Event} event
      * @this {ProfilesPanel}
      */
     function onRemoveProfileHeader(event) {
@@ -305,7 +305,7 @@ export class ProfilesPanel extends UI.Panel.PanelWithSidebar {
     }
 
     /**
-     * @param {!Common.EventTarget.EventTargetEvent} event
+     * @param {!Common.Event} event
      * @this {ProfilesPanel}
      */
     function profileComplete(event) {

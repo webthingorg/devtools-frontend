@@ -58,7 +58,7 @@ export class SourceMapManager extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _inspectedURLChanged(event) {
     if (event.data !== this._target) {

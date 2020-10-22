@@ -60,7 +60,7 @@ export class NetworkNavigatorView extends NavigatorView {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _inspectedURLChanged(event) {
     const mainTarget = self.SDK.targetManager.mainTarget();
@@ -159,7 +159,7 @@ export class OverridesNavigatorView extends NavigatorView {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onProjectAddOrRemoved(event) {
     const project = /** @type {!Workspace.Workspace.Project} */ (event.data);

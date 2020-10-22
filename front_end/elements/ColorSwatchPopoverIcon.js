@@ -65,7 +65,7 @@ export class BezierPopoverIcon {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _bezierChanged(event) {
     this._swatch.setBezierText(/** @type {string} */ (event.data));
@@ -205,14 +205,14 @@ export class ColorSwatchPopoverIcon {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _spectrumResized(event) {
     this._swatchPopoverHelper.reposition();
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _spectrumChanged(event) {
     const color = Common.Color.Color.parse(/** @type {string} */ (event.data));
@@ -320,7 +320,7 @@ export class ShadowSwatchPopoverHelper {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _shadowChanged(event) {
     this._shadowSwatch.setCSSShadow(/** @type {!InlineEditor.CSSShadowModel.CSSShadowModel} */ (event.data));

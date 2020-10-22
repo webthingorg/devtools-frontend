@@ -154,7 +154,7 @@ export class WatchExpressionsSidebarPane extends UI.ThrottledWidget.ThrottledWid
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _watchExpressionUpdated(event) {
     const watchExpression = /** @type {!WatchExpression} */ (event.data);

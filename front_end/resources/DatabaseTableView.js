@@ -148,7 +148,7 @@ export class DatabaseTableView extends UI.View.SimpleView {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _refreshButtonClicked(event) {
     this.update();

@@ -209,7 +209,7 @@ export class CompilerScriptMapping {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _sourceMapWillAttach(event) {
     const script = /** @type {!SDK.Script.Script} */ (event.data);
@@ -219,7 +219,7 @@ export class CompilerScriptMapping {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _sourceMapFailedToAttach(event) {
     const script = /** @type {!SDK.Script.Script} */ (event.data);
@@ -227,7 +227,7 @@ export class CompilerScriptMapping {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _sourceMapAttached(event) {
     const script = /** @type {!SDK.Script.Script} */ (event.data.client);
@@ -244,7 +244,7 @@ export class CompilerScriptMapping {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _sourceMapDetached(event) {
     const script = /** @type {!SDK.Script.Script} */ (event.data.client);

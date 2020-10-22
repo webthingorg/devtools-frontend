@@ -458,7 +458,7 @@ export class DeviceModeToolbar {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _modeMenuClicked(event) {
     const device = this._model.device();

@@ -329,7 +329,7 @@ export class SourcesView extends UI.Widget.VBox {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _uiSourceCodeAdded(event) {
     const uiSourceCode = /** @type {!Workspace.UISourceCode.UISourceCode} */ (event.data);
@@ -469,7 +469,7 @@ export class SourcesView extends UI.Widget.VBox {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _editorClosed(event) {
     const uiSourceCode = /** @type {!Workspace.UISourceCode.UISourceCode} */ (event.data);
@@ -492,7 +492,7 @@ export class SourcesView extends UI.Widget.VBox {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _editorSelected(event) {
     const previousSourceFrame = event.data.previousView instanceof UISourceCodeFrame ? event.data.previousView : null;

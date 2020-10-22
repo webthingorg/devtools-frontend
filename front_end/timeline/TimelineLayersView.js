@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
 import * as LayerViewer from '../layer_viewer/layer_viewer.js';
 import * as SDK from '../sdk/sdk.js';                                  // eslint-disable-line no-unused-vars
 import * as TimelineModel from '../timeline_model/timeline_model.js';  // eslint-disable-line no-unused-vars
@@ -68,7 +67,7 @@ export class TimelineLayersView extends UI.SplitWidget.SplitWidget {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onPaintProfilerRequested(event) {
     const selection = /** @type {!LayerViewer.LayerViewHost.Selection} */ (event.data);

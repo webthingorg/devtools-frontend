@@ -247,7 +247,7 @@ export class DOMDebuggerModel extends SDKModel {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _nodeRemoved(event) {
     const node = /** @type {!DOMNode} */ (event.data.node);

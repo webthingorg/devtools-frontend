@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
@@ -142,7 +141,7 @@ export class AccessibilitySidebarView extends UI.ThrottledWidget.ThrottledWidget
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onAttrChange(event) {
     if (!this.node()) {
@@ -156,7 +155,7 @@ export class AccessibilitySidebarView extends UI.ThrottledWidget.ThrottledWidget
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onNodeChange(event) {
     if (!this.node()) {

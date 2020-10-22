@@ -609,7 +609,7 @@ class ServiceWorkerContextNamer {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _registrationsUpdated(event) {
     this._versionByTargetId.clear();
@@ -625,7 +625,7 @@ class ServiceWorkerContextNamer {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _executionContextCreated(event) {
     const executionContext = /** @type {!ExecutionContext} */ (event.data);

@@ -216,7 +216,7 @@ export class HeapSnapshotView extends UI.View.SimpleView {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onHeapStatsUpdate(event) {
     const samples = event.data;
@@ -323,7 +323,7 @@ export class HeapSnapshotView extends UI.View.SimpleView {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onIdsRangeChanged(event) {
     const minId = event.data.minId;
@@ -532,7 +532,7 @@ export class HeapSnapshotView extends UI.View.SimpleView {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _selectionChanged(event) {
     const selectedNode = /** @type {!HeapSnapshotGridNode} */ (event.data);
@@ -541,7 +541,7 @@ export class HeapSnapshotView extends UI.View.SimpleView {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onSelectAllocationNode(event) {
     const selectedNode = /** @type {!DataGrid.DataGrid.DataGridNode} */ (event.data);
@@ -550,7 +550,7 @@ export class HeapSnapshotView extends UI.View.SimpleView {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _inspectedObjectChanged(event) {
     const selectedNode = /** @type {!DataGrid.DataGrid.DataGridNode} */ (event.data);
@@ -766,7 +766,7 @@ export class HeapSnapshotView extends UI.View.SimpleView {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onReceiveSnapshot(event) {
     this._updateControls();
@@ -775,7 +775,7 @@ export class HeapSnapshotView extends UI.View.SimpleView {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onProfileHeaderRemoved(event) {
     const profile = event.data;
@@ -1215,7 +1215,7 @@ export class HeapSnapshotProfileType extends ProfileType {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _addHeapSnapshotChunk(event) {
     if (!this.profileBeingRecorded()) {
@@ -1226,7 +1226,7 @@ export class HeapSnapshotProfileType extends ProfileType {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _reportHeapSnapshotProgress(event) {
     const profile = this.profileBeingRecorded();
@@ -1241,7 +1241,7 @@ export class HeapSnapshotProfileType extends ProfileType {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _resetProfiles(event) {
     const heapProfilerModel = /** @type {!SDK.HeapProfilerModel.HeapProfilerModel} */ (event.data);
@@ -1295,7 +1295,7 @@ export class TrackingHeapSnapshotProfileType extends HeapSnapshotProfileType {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _heapStatsUpdate(event) {
     if (!this._profileSamples) {
@@ -1314,7 +1314,7 @@ export class TrackingHeapSnapshotProfileType extends HeapSnapshotProfileType {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _lastSeenObjectId(event) {
     const profileSamples = this._profileSamples;
@@ -1469,7 +1469,7 @@ export class TrackingHeapSnapshotProfileType extends HeapSnapshotProfileType {
 
   /**
    * @override
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _resetProfiles(event) {
     const wasRecording = this._recording;

@@ -20,7 +20,7 @@ export class ScriptFormatterEditorAction {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _editorSelected(event) {
     const uiSourceCode = /** @type {!Workspace.UISourceCode.UISourceCode} */ (event.data);
@@ -33,7 +33,7 @@ export class ScriptFormatterEditorAction {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _editorClosed(event) {
     const uiSourceCode = /** @type {!Workspace.UISourceCode.UISourceCode} */ (event.data.uiSourceCode);
@@ -101,7 +101,7 @@ export class ScriptFormatterEditorAction {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _toggleFormatScriptSource(event) {
     const uiSourceCode = this._sourcesView.currentUISourceCode();

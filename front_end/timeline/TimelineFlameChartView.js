@@ -119,7 +119,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onWindowChanged(event) {
     const window = /** @type {!Timeline.PerformanceModel.Window} */ (event.data.window);
@@ -224,7 +224,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} commonEvent
+   * @param {!Common.Event} commonEvent
    */
   _onEntryHighlighted(commonEvent) {
     SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight();
@@ -304,7 +304,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox {
 
   /**
    * @param {!PerfUI.FlameChart.FlameChartDataProvider} dataProvider
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onEntrySelected(dataProvider, event) {
     const entryIndex = /** @type{number} */ (event.data);

@@ -22,7 +22,7 @@ export class FilteredUISourceCodeListProvider extends QuickOpen.FilteredListWidg
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _projectRemoved(event) {
     const project = /** @type {!Workspace.Workspace.Project} */ (event.data);
@@ -217,7 +217,7 @@ export class FilteredUISourceCodeListProvider extends QuickOpen.FilteredListWidg
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _uiSourceCodeAdded(event) {
     const uiSourceCode = /** @type {!Workspace.UISourceCode.UISourceCode} */ (event.data);

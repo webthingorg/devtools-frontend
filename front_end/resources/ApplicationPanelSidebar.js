@@ -345,7 +345,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _treeElementAdded(event) {
     const selection = this._panel.lastSelectedItemPath();
@@ -373,7 +373,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _frameNavigated(event) {
     const frame = /** @type {!SDK.ResourceTreeModel.ResourceTreeFrame} */ (event.data);
@@ -390,7 +390,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _databaseAdded(event) {
     const database = /** @type {!DatabaseModelDatabase} */ (event.data);
@@ -417,7 +417,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _domStorageAdded(event) {
     const domStorage = /** @type {!DOMStorage} */ (event.data);
@@ -440,7 +440,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _domStorageRemoved(event) {
     const domStorage = /** @type {!DOMStorage} */ (event.data);
@@ -537,7 +537,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   async _updateDatabaseTables(event) {
     const database = /** @type {!DatabaseModelDatabase} */ (event.data);
@@ -1032,7 +1032,7 @@ export class ServiceWorkerCacheTreeElement extends StorageCategoryTreeElement {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _cacheAdded(event) {
     const cache = /** @type {!SDK.ServiceWorkerCacheModel.Cache} */ (event.data.cache);
@@ -1051,7 +1051,7 @@ export class ServiceWorkerCacheTreeElement extends StorageCategoryTreeElement {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _cacheRemoved(event) {
     const cache = /** @type {!SDK.ServiceWorkerCacheModel.Cache} */ (event.data.cache);
@@ -1323,7 +1323,7 @@ export class IndexedDBTreeElement extends StorageCategoryTreeElement {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _indexedDBAdded(event) {
     const databaseId = /** @type {!DatabaseId} */ (event.data.databaseId);
@@ -1343,7 +1343,7 @@ export class IndexedDBTreeElement extends StorageCategoryTreeElement {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _indexedDBRemoved(event) {
     const databaseId = /** @type {!DatabaseId} */ (event.data.databaseId);
@@ -1367,7 +1367,7 @@ export class IndexedDBTreeElement extends StorageCategoryTreeElement {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _indexedDBLoaded(event) {
     const database = /** @type {!IndexedDBModelDatabase} */ (event.data.database);
@@ -1387,7 +1387,7 @@ export class IndexedDBTreeElement extends StorageCategoryTreeElement {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _indexedDBContentUpdated(event) {
     const databaseId = /** @type {!DatabaseId} */ (event.data.databaseId);

@@ -144,7 +144,7 @@ export class DeviceModeView extends UI.Widget.VBox {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onResizeStart(event) {
     this._slowPositionStart = null;
@@ -155,7 +155,7 @@ export class DeviceModeView extends UI.Widget.VBox {
   /**
    * @param {number} widthFactor
    * @param {number} heightFactor
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onResizeUpdate(widthFactor, heightFactor, event) {
     if (event.data.shiftKey !== !!this._slowPositionStart) {
@@ -191,7 +191,7 @@ export class DeviceModeView extends UI.Widget.VBox {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onResizeEnd(event) {
     delete this._resizeStart;

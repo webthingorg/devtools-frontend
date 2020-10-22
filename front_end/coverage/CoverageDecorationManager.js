@@ -201,7 +201,7 @@ export class CoverageDecorationManager {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onUISourceCodeAdded(event) {
     const uiSourceCode = /** @type !Workspace.UISourceCode.UISourceCode */ (event.data);

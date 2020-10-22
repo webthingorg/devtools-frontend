@@ -101,7 +101,7 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _uiSourceCodeAdded(event) {
     const uiSourceCode = /** @type {!Workspace.UISourceCode.UISourceCode} */ (event.data);
@@ -696,7 +696,7 @@ export class ModelBreakpoint {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _breakpointResolved(event) {
     this._addResolvedLocation(/** @type {!SDK.DebuggerModel.Location}*/ (event.data));

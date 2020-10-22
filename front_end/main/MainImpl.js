@@ -335,7 +335,7 @@ export class MainImpl {
         continue;
       }
       /**
-       * @param {!Common.EventTarget.EventTargetEvent} event
+       * @param {!Common.Event} event
        */
       async function changeListener(event) {
         if (!event.data) {
@@ -371,7 +371,7 @@ export class MainImpl {
     self.Common.console.addEventListener(Common.Console.Events.MessageAdded, messageAdded);
 
     /**
-     * @param {!Common.EventTarget.EventTargetEvent} event
+     * @param {!Common.Event} event
      */
     function messageAdded(event) {
       const message = /** @type {!Common.Console.Message} */ (event.data);
@@ -382,7 +382,7 @@ export class MainImpl {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _revealSourceLine(event) {
     const url = /** @type {string} */ (event.data['url']);
@@ -396,7 +396,7 @@ export class MainImpl {
     }
 
     /**
-     * @param {!Common.EventTarget.EventTargetEvent} event
+     * @param {!Common.Event} event
      */
     function listener(event) {
       const uiSourceCode = /** @type {!Workspace.UISourceCode.UISourceCode} */ (event.data);
@@ -710,7 +710,7 @@ export class PauseListener {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _debuggerPaused(event) {
     self.SDK.targetManager.removeModelListener(

@@ -431,7 +431,7 @@ export class TabbedPane extends VBox {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _zoomChanged(event) {
     for (let i = 0; i < this._tabs.length; ++i) {

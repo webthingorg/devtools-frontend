@@ -190,7 +190,7 @@ export class NetworkManager extends SDKModel {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _cacheDisabledSettingChanged(event) {
     const enabled = /** @type {boolean} */ (event.data);

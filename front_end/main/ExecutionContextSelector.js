@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';  // eslint-disable-line no-unused-vars
 
@@ -70,7 +69,7 @@ export class ExecutionContextSelector {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _executionContextChanged(event) {
     const newContext = /** @type {?SDK.RuntimeModel.ExecutionContext} */ (event.data);
@@ -91,7 +90,7 @@ export class ExecutionContextSelector {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _targetChanged(event) {
     const newTarget = /** @type {?SDK.SDKModel.Target} */ (event.data);
@@ -157,14 +156,14 @@ export class ExecutionContextSelector {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onExecutionContextCreated(event) {
     this._switchContextIfNecessary(/** @type {!SDK.RuntimeModel.ExecutionContext} */ (event.data));
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onExecutionContextDestroyed(event) {
     const executionContext = /** @type {!SDK.RuntimeModel.ExecutionContext}*/ (event.data);
@@ -174,7 +173,7 @@ export class ExecutionContextSelector {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onExecutionContextOrderChanged(event) {
     const runtimeModel = /** @type {!SDK.RuntimeModel.RuntimeModel} */ (event.data);

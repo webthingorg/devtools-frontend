@@ -225,7 +225,7 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _securityOriginAdded(event) {
     const securityOrigin = /** @type {string} */ (event.data);
@@ -233,7 +233,7 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _securityOriginRemoved(event) {
     const securityOrigin = /** @type {string} */ (event.data);

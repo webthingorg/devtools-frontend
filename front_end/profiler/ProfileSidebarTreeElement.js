@@ -48,7 +48,7 @@ export class ProfileSidebarTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _updateStatus(event) {
     const statusUpdate = event.data;

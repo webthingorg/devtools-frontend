@@ -28,8 +28,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import {Color, Format} from './Color.js';                            // eslint-disable-line no-unused-vars
-import {EventDescriptor, EventTargetEvent} from './EventTarget.js';  // eslint-disable-line no-unused-vars
+import {Color, Format} from './Color.js';  // eslint-disable-line no-unused-vars
 import {ObjectWrapper} from './Object.js';
 
 /**
@@ -281,16 +280,16 @@ export class Setting {
   }
 
   /**
-   * @param {function(!EventTargetEvent)} listener
+   * @param {function(!Common.Event)} listener
    * @param {!Object=} thisObject
-   * @return {!EventDescriptor}
+   * @return {!Common.EventTarget.EventDescriptor}
    */
   addChangeListener(listener, thisObject) {
     return this._eventSupport.addEventListener(this._name, listener, thisObject);
   }
 
   /**
-   * @param {function(!EventTargetEvent)} listener
+   * @param {function(!Common.Event)} listener
    * @param {!Object=} thisObject
    */
   removeChangeListener(listener, thisObject) {

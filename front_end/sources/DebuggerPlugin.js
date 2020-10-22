@@ -362,7 +362,7 @@ export class DebuggerPlugin extends Plugin {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _workingCopyCommitted(event) {
     this._scriptsPanel.updateLastModificationTime();
@@ -1358,7 +1358,7 @@ export class DebuggerPlugin extends Plugin {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    * @return {boolean}
    */
   _shouldIgnoreExternalBreakpointEvents(event) {
@@ -1378,7 +1378,7 @@ export class DebuggerPlugin extends Plugin {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _breakpointAdded(event) {
     if (this._shouldIgnoreExternalBreakpointEvents(event)) {
@@ -1465,7 +1465,7 @@ export class DebuggerPlugin extends Plugin {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _breakpointRemoved(event) {
     if (this._shouldIgnoreExternalBreakpointEvents(event)) {
@@ -1608,7 +1608,7 @@ export class DebuggerPlugin extends Plugin {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   async _handleGutterClick(event) {
     if (this._muted) {

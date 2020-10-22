@@ -100,7 +100,7 @@ export class ClassesPaneWidget extends UI.Widget.Widget {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onDOMMutated(event) {
     const node = /** @type {!SDK.DOMModel.DOMNode} */ (event.data);
@@ -112,7 +112,7 @@ export class ClassesPaneWidget extends UI.Widget.Widget {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onSelectedNodeChanged(event) {
     if (this._previousTarget && this._prompt.text()) {

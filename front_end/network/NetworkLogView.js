@@ -651,7 +651,7 @@ export class NetworkLogView extends UI.Widget.VBox {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _filterChanged(event) {
     this.removeAllNodeHighlights();
@@ -985,7 +985,7 @@ export class NetworkLogView extends UI.Widget.VBox {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _loadEventFired(event) {
     if (!this._recording) {
@@ -1000,7 +1000,7 @@ export class NetworkLogView extends UI.Widget.VBox {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _domContentLoadedEventFired(event) {
     if (!this._recording) {
@@ -1231,7 +1231,7 @@ export class NetworkLogView extends UI.Widget.VBox {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onRequestUpdated(event) {
     const request = /** @type {!SDK.NetworkRequest.NetworkRequest} */ (event.data);

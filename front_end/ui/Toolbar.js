@@ -223,7 +223,7 @@ export class Toolbar {
     }
 
     /**
-     * @param {!Common.EventTarget.EventTargetEvent} event
+     * @param {!Common.Event} event
      */
     function enabledChanged(event) {
       button.setEnabled(/** @type {boolean} */ (event.data));

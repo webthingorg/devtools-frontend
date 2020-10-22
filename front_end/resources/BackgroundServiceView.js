@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import * as Bindings from '../bindings/bindings.js';
-import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
 import * as DataGrid from '../data_grid/data_grid.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
@@ -165,7 +164,7 @@ export class BackgroundServiceView extends UI.Widget.VBox {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onRecordingStateChanged(event) {
     const state = /** @type {!Resources.BackgroundServiceModel.RecordingState} */ (event.data);
@@ -182,7 +181,7 @@ export class BackgroundServiceView extends UI.Widget.VBox {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onEventReceived(event) {
     const serviceEvent = /** @type {!Protocol.BackgroundService.BackgroundServiceEvent} */ (event.data);

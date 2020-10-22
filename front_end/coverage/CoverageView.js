@@ -427,7 +427,7 @@ export class ActionDelegate {
  */
 export class LineDecorator {
   constructor() {
-    /** @type {!WeakMap<!TextEditor.CodeMirrorTextEditor.CodeMirrorTextEditor, function(!Common.EventTarget.EventTargetEvent)>} */
+    /** @type {!WeakMap<!TextEditor.CodeMirrorTextEditor.CodeMirrorTextEditor, function(!Common.Event)>} */
     this._listeners = new WeakMap();
   }
 
@@ -473,7 +473,7 @@ export class LineDecorator {
 
   /**
    * @param {string} url - the url of the file  this click handler will select in the coverage drawer
-   * @return {function(!Common.EventTarget.EventTargetEvent)}
+   * @return {function(!Common.Event)}
    */
   makeGutterClickHandler(url) {
     function handleGutterClick(event) {

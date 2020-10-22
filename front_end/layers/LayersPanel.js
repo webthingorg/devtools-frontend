@@ -152,7 +152,7 @@ export class LayersPanel extends UI.Panel.PanelWithSidebar {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onLayerPainted(event) {
     if (!this._model) {
@@ -166,7 +166,7 @@ export class LayersPanel extends UI.Panel.PanelWithSidebar {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onPaintProfileRequested(event) {
     const selection = /** @type {!LayerViewer.LayerViewHost.Selection} */ (event.data);
@@ -186,7 +186,7 @@ export class LayersPanel extends UI.Panel.PanelWithSidebar {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onTabClosed(event) {
     if (event.data.tabId !== DetailsViewTabs.Profiler || !this._layerBeingProfiled) {
@@ -205,7 +205,7 @@ export class LayersPanel extends UI.Panel.PanelWithSidebar {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onScaleChanged(event) {
     this._paintProfilerView.setScale(/** @type {number} */ (event.data));

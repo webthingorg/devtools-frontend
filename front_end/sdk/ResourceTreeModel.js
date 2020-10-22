@@ -259,7 +259,7 @@ export class ResourceTreeModel extends SDKModel {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onRequestFinished(event) {
     if (!this._cachedResourcesProcessed) {
@@ -278,7 +278,7 @@ export class ResourceTreeModel extends SDKModel {
   }
 
   /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
+   * @param {!Common.Event} event
    */
   _onRequestUpdateDropped(event) {
     if (!this._cachedResourcesProcessed) {

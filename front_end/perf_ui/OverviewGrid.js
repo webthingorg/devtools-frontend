@@ -107,7 +107,7 @@ export class OverviewGrid {
 
   /**
    * @param {symbol} eventType
-   * @param {function(!Common.EventTarget.EventTargetEvent)} listener
+   * @param {function(!Common.Event)} listener
    * @param {!Object=} thisObject
    * @return {!Common.EventTarget.EventDescriptor}
    */
