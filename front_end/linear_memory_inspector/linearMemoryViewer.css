@@ -1,0 +1,58 @@
+:host {
+  flex: auto;
+  display: flex;
+}
+
+.memory-inspector-view {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+
+  --selected-cell-color: #1a1aa6;
+}
+
+.memory-inspector-view-row {
+  display: flex;
+  height: 20px;
+}
+
+.memory-inspector-cell {
+  text-align: center;
+  border: 1px solid transparent;
+  border-radius: 2px;
+}
+
+.memory-inspector-cell.selected {
+  border-color: var(--selected-cell-color);
+  color: var(--selected-cell-color);
+  background-color: #cfe8fc;
+}
+
+.memory-inspector-byte-cell {
+  min-width: 21px;
+}
+
+.memory-inspector-byte-group-margin {
+  margin-left: 8px;
+}
+
+.memory-inspector-text-cell {
+  min-width: 14px;
+  color: var(--selected-cell-color);
+}
+
+.memory-inspector-view-address {
+  font-size: 11px;
+  color: #9aa0a6;
+}
+
+.memory-inspector-view-address.selected {
+  font-weight: bold;
+  color: #333;
+}
+
+.memory-inspector-divider {
+  width: 1px;
+  background-color: #ccc;
+  margin: 0 4px 0 4px;
+}
