@@ -137,22 +137,23 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
    * @return {!Node}
    */
   _processColor(text) {
-    // We can be called with valid non-color values of |text| (like 'none' from border style)
-    const color = Common.Color.Color.parse(text);
-    if (!color) {
-      return createTextNode(text);
-    }
+    const useUserSettingFormat = this._editable();
+    const shiftClickMessage = Common.UIString.UIString('Shift + Click to change color format.');
+    const tooltip =
+        this._editable() ? Common.UIString.UIString('Open color picker. %s', shiftClickMessage) : shiftClickMessage;
 
-    if (!this._editable()) {
-      const swatch = InlineEditor.ColorSwatch.ColorSwatch.create();
-      swatch.setColor(color);
-      return swatch;
-    }
+    const swatch = InlineEditor.ColorSwatch.createColorSwatch();
+    swatch.renderColor(text, useUserSettingFormat, tooltip);
+    const value = swatch.createChild('span');
+    value.textContent = swatch.color ? swatch.color.asString(swatch.format) : text;
 
-    const swatch = InlineEditor.ColorSwatch.ColorSwatch.create();
-    swatch.setColor(color);
-    swatch.setFormat(Common.Settings.detectColorFormat(swatch.color()));
-    this._addColorContrastInfo(swatch);
+    swatch.addEventListener('format-changed', event => {
+      value.textContent = event.data.text;
+    });
+
+    if (this._editable()) {
+      this._addColorContrastInfo(swatch);
+    }
 
     return swatch;
   }
@@ -178,7 +179,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   /**
-   * @param {!InlineEditor.ColorSwatch.ColorSwatch} swatch
+   * @param {!InlineEditor.ColorSwatch.ColorSwatchClosureInterface} swatch
    */
   async _addColorContrastInfo(swatch) {
     const swatchPopoverHelper = this._parentPane.swatchPopoverHelper();
@@ -208,7 +209,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
       return createTextNode(text);
     }
     const swatchPopoverHelper = this._parentPane.swatchPopoverHelper();
-    const swatch = InlineEditor.ColorSwatch.BezierSwatch.create();
+    const swatch = InlineEditor.Swatches.BezierSwatch.create();
     swatch.setBezierText(text);
     new BezierPopoverIcon(this, swatchPopoverHelper, swatch);
     return swatch;
@@ -239,7 +240,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
         container.appendChild(createTextNode(', '));
       }  // Add back commas and spaces between each shadow.
       // TODO(flandy): editing the property value should use the original value with all spaces.
-      const cssShadowSwatch = InlineEditor.ColorSwatch.CSSShadowSwatch.create();
+      const cssShadowSwatch = InlineEditor.Swatches.CSSShadowSwatch.create();
       cssShadowSwatch.setCSSShadow(shadows[i]);
       new ShadowSwatchPopoverHelper(this, swatchPopoverHelper, cssShadowSwatch);
       const colorSwatch = cssShadowSwatch.colorSwatch();
