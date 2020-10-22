@@ -33,6 +33,24 @@
       "message": "Could it be that we are still checking on the last activity here? There\u0027s always just one that is selected, but could it be that we\u0027re getting to this point even after having pressed arrow right twice, since the UI hasn\u0027t updated yet? If we\u0027re not sure we can also wait and see whether this is still flickering.\n\n(If it is a problem: we could use a `waitForFunction` that waits until `\u0027.data-grid-data-grid-node.selected.revealed .activity-name\u0027`  is equal to the expectedActivities[index])",
       "revId": "ab5d2e3949cfe0f7799fe4d826dee39bf913af44",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb249932_a90f633c",
+        "filename": "test/e2e/performance/wasm/performance_profiling_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-22T06:51:08Z",
+      "side": 1,
+      "message": "So you are saying that the modification made the tree green because the test isn\u0027t testing what it should anymore?",
+      "parentUuid": "e6c2f346_f86837f3",
+      "revId": "ab5d2e3949cfe0f7799fe4d826dee39bf913af44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
