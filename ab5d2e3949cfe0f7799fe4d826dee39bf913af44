@@ -51,6 +51,24 @@
       "parentUuid": "e6c2f346_f86837f3",
       "revId": "ab5d2e3949cfe0f7799fe4d826dee39bf913af44",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6794db0b_93afeea6",
+        "filename": "test/e2e/performance/wasm/performance_profiling_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-22T07:09:09Z",
+      "side": 1,
+      "message": "Sorry for being unclear! \n\nIt is testing what it should in the sense that there\u0027s an assert in line 21 which is correct. However, my concern is that this test may still be flaky, because we *might* not wait for the correct update. \n\nI.e. if we have \n`const expandedActivities[\u0027a\u0027,\u0027b\u0027]`, in the first iteration we\u0027ll wait for one to be selected (which is \u0027a\u0027). Afterwards we expand the tree and wait for the selector that picks the current selected tree element. Depending on whether or not the UI had time to update for \u0027b\u0027 to be the selected element, we might just see \u0027a\u0027 again instead of \u0027b\u0027.",
+      "parentUuid": "fb249932_a90f633c",
+      "revId": "ab5d2e3949cfe0f7799fe4d826dee39bf913af44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
