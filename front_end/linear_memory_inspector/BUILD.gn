@@ -11,6 +11,7 @@ devtools_module("linear_memory_inspector") {
     "LinearMemoryInspectorUtils.ts",
     "LinearMemoryInspector_bridge.js",
     "LinearMemoryNavigator.ts",
+    "LinearMemoryViewer.ts",
   ]
 
   deps = [
@@ -23,6 +24,10 @@ devtools_module("linear_memory_inspector") {
     "../../test/unittests/front_end/linear_memory_inspector",
     "../component_docs/*",
   ]
+}
+
+copy_to_gen("legacy_css") {
+  sources = [ "linearMemoryViewer.css" ]
 }
 
 devtools_entrypoint("bundle") {

@@ -94,6 +94,7 @@ export const CSS_RESOURCES_TO_LOAD_INTO_RUNTIME = [
   'ui/treeoutline.css',
   'ui/viewContainers.css',
   'elements/layoutPane.css',
+  'linear_memory_inspector/linearMemoryViewer.css',
   'components/imagePreview.css',
   'components/jsUtils.css',
   'persistence/editFileSystemView.css',
