@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {DataGridImpl, DataGridNode, Parameters} from './DataGrid.js';  // eslint-disable-line no-unused-vars
+import {DataGridImpl, DataGridNode} from './DataGrid.js';
 
 /**
  * @unrestricted
@@ -11,7 +11,7 @@ import {DataGridImpl, DataGridNode, Parameters} from './DataGrid.js';  // eslint
  */
 export class ViewportDataGrid extends DataGridImpl {
   /**
-   * @param {!Parameters} dataGridParameters
+   * @param {!DataGrid.Parameters} dataGridParameters
    */
   constructor(dataGridParameters) {
     super(dataGridParameters);

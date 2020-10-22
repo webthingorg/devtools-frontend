@@ -62,10 +62,10 @@ export class NetworkLogViewColumns {
 
   /**
    * @param {!Network.NetworkLogViewColumns.Descriptor} columnConfig
-   * @return {!DataGrid.DataGrid.ColumnDescriptor}
+   * @return {!DataGrid.ColumnDescriptor}
    */
   static _convertToDataGridDescriptor(columnConfig) {
-    return /** @type {!DataGrid.DataGrid.ColumnDescriptor} */ ({
+    return /** @type {!DataGrid.ColumnDescriptor} */ ({
       id: columnConfig.id,
       title: columnConfig.title,
       sortable: columnConfig.sortable,
