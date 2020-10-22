@@ -16,6 +16,29 @@
       "message": "Reland the localization migration for the settings module.\nRelevant changes from the last version are in the check_localized_strings.js file (added some comments to make them easier to spot). The rest string conflict resolutions as there were some changes on the settings folder between the last revision and this one. PTAL",
       "revId": "5ea3d156276daa351aa07ffba571886f260eac49",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6f6ee13_55a6619e",
+        "filename": "scripts/localization/utils/check_localized_strings.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-10-22T02:13:56Z",
+      "side": 1,
+      "message": "This is what changed between the reverted code and this one, but please feel free to review everything at your consideration.",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 46
+      },
+      "revId": "5ea3d156276daa351aa07ffba571886f260eac49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
