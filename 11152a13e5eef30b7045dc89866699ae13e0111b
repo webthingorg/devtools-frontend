@@ -16,6 +16,23 @@
       "message": "Hey Philip,\n\nSome refactoring to reduce time waiting. Please take a look.\n\ncheers,\nBenedikt",
       "revId": "11152a13e5eef30b7045dc89866699ae13e0111b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1724e1a5_1386896b",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-10-22T13:56:01Z",
+      "side": 1,
+      "message": "Doesn\u0027t this modification carry over into the next iteration?",
+      "revId": "11152a13e5eef30b7045dc89866699ae13e0111b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
