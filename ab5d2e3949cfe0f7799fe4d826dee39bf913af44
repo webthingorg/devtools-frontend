@@ -69,6 +69,24 @@
       "parentUuid": "fb249932_a90f633c",
       "revId": "ab5d2e3949cfe0f7799fe4d826dee39bf913af44",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a46190f5_7ca70536",
+        "filename": "test/e2e/performance/wasm/performance_profiling_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-22T07:21:52Z",
+      "side": 1,
+      "message": "Ah, thanks for explaining. I had a similar problem where we needed to wait for expansion of a data grid tree element, although in our case there is logic in devtools that will do the expanding for us. Maybe that can serve as inspiration, the code is here: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/test/e2e/helpers/memory-helpers.ts;l\u003d168;drc\u003da1f84f4a730074d194fbebcf94251fe68b9395ec",
+      "parentUuid": "6794db0b_93afeea6",
+      "revId": "ab5d2e3949cfe0f7799fe4d826dee39bf913af44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
