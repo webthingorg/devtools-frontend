@@ -2,16 +2,16 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {Row, RowType} from './ChangesView.js';  // eslint-disable-line no-unused-vars
+import {RowType} from './ChangesView.js';
 
 /**
  * @param {!Object} config
- * @param {{diffRows: !Array<!Row>, baselineLines: !Array<string>, currentLines: !Array<string>, mimeType: string}} parserConfig
+ * @param {{diffRows: !Array<!Changes.ChangesView.Row>, baselineLines: !Array<string>, currentLines: !Array<string>, mimeType: string}} parserConfig
  * @return {{
- *  startState: function():!DiffState,
- *  token: function(!CodeMirror.StringStream, !DiffState):string,
- *  blankLine: function(!DiffState):string,
- *  copyState: function(!DiffState):DiffState
+ *  startState: function():!Changes.ChangesHighlighter.DiffState,
+ *  token: function(!CodeMirror.StringStream, !Changes.ChangesHighlighter.DiffState):string,
+ *  blankLine: function(!Changes.ChangesHighlighter.DiffState):string,
+ *  copyState: function(!Changes.ChangesHighlighter.DiffState):Changes.ChangesHighlighter.DiffState
  * }}
  */
 export function ChangesHighlighter(config, parserConfig) {
@@ -21,7 +21,7 @@ export function ChangesHighlighter(config, parserConfig) {
   const syntaxHighlightMode = CodeMirror.getMode({}, parserConfig.mimeType);
 
   /**
-   * @param {!DiffState} state
+   * @param {!Changes.ChangesHighlighter.DiffState} state
    * @param {number} baselineLineNumber
    * @param {number} currentLineNumber
    */
@@ -59,7 +59,7 @@ export function ChangesHighlighter(config, parserConfig) {
 
   return {
     /**
-     * @return {!DiffState}
+     * @return {!Changes.ChangesHighlighter.DiffState}
      */
     startState: function() {
       return {
@@ -78,7 +78,7 @@ export function ChangesHighlighter(config, parserConfig) {
 
     /**
      * @param {!CodeMirror.StringStream} stream
-     * @param {!DiffState} state
+     * @param {!Changes.ChangesHighlighter.DiffState} state
      * @return {string}
      */
     token: function(stream, state) {
@@ -130,7 +130,7 @@ export function ChangesHighlighter(config, parserConfig) {
     },
 
     /**
-     * @param {!DiffState} state
+     * @param {!Changes.ChangesHighlighter.DiffState} state
      * @return {string}
      */
     blankLine: function(state) {
@@ -157,32 +157,16 @@ export function ChangesHighlighter(config, parserConfig) {
     },
 
     /**
-     * @param {!DiffState} state
-     * @return {!DiffState}
+     * @param {!Changes.ChangesHighlighter.DiffState} state
+     * @return {!Changes.ChangesHighlighter.DiffState}
      */
     copyState: function(state) {
       const newState = Object.assign({}, state);
       newState.currentSyntaxState = CodeMirror.copyState(syntaxHighlightMode, state.currentSyntaxState);
       newState.baselineSyntaxState = CodeMirror.copyState(syntaxHighlightMode, state.baselineSyntaxState);
-      return /** @type {!DiffState} */ (newState);
+      return /** @type {!Changes.ChangesHighlighter.DiffState} */ (newState);
     }
   };
 }
 
 CodeMirror.defineMode('devtools-diff', ChangesHighlighter);
-
-/**
- * @typedef {!{
- *  rowNumber: number,
- *  diffTokenIndex: number,
- *  currentLineNumber: number,
- *  baselineLineNumber: number,
- *  currentSyntaxState: !Object,
- *  baselineSyntaxState: !Object,
- *  syntaxPosition: number,
- *  diffPosition: number,
- *  syntaxStyle: string,
- *  diffStyle: string
- * }}
- */
-export let DiffState;
