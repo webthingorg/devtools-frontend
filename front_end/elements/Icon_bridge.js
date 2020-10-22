@@ -38,12 +38,6 @@ export let IconWithName;
 // eslint-disable-next-line no-unused-vars
 export class IconClosureInterface extends HTMLElement {
   /**
-  * @return {!IconData}
-  */
-  get data() {
-    throw new Error('Not implemented in _bridge.js');
-  }
-  /**
   * @param {!IconData} data
   */
   set data(data) {
