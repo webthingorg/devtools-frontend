@@ -128,6 +128,30 @@
       },
       "revId": "1fa4719898f4ab578d0ace4d1ffae26ba90180c9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf44345a_b06f39d3",
+        "filename": "front_end/component_docs/icon_component/basic.html",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-22T12:57:51Z",
+      "side": 1,
+      "message": "Ah I missed that, good point. We might have to do that then (as TS will enforce the getter and setter use the same type).",
+      "parentUuid": "a73f1848_78452469",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 54
+      },
+      "revId": "1fa4719898f4ab578d0ace4d1ffae26ba90180c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
