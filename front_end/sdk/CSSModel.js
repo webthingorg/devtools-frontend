@@ -123,7 +123,7 @@ export class CSSModel extends SDKModel {
     return locations;
     /**
      * @param {!CSSStyleSheetHeader} a
-     * @param {!CSSStyleSheetHeader} b
+     * @param {!SDK.CSSStyleSheetHeader} b
      * @return {number}
      */
     function stylesheetComparator(a, b) {
@@ -335,7 +335,7 @@ export class CSSModel extends SDKModel {
 
   /**
    * @param {number} nodeId
-   * @return {!Promise<?ContrastInfo>}
+   * @return {!Promise<?CSSModel.ContrastInfo>}
    */
   async backgroundColorsPromise(nodeId) {
     const response = this._agent.invoke_getBackgroundColors({nodeId});
@@ -361,7 +361,7 @@ export class CSSModel extends SDKModel {
     const values = [...this._styleSheetIdToHeader.values()];
     /**
      * @param {!CSSStyleSheetHeader} a
-     * @param {!CSSStyleSheetHeader} b
+     * @param {!SDK.CSSStyleSheetHeader} b
      * @return {number}
      */
     function styleSheetComparator(a, b) {
@@ -908,7 +908,7 @@ class ComputedStyleLoader {
 export class InlineStyleResult {
   /**
    * @param {?CSSStyleDeclaration} inlineStyle
-   * @param {?CSSStyleDeclaration} attributesStyle
+   * @param {?SDK.CSSStyleDeclaration} attributesStyle
    */
   constructor(inlineStyle, attributesStyle) {
     this.inlineStyle = inlineStyle;
@@ -917,6 +917,3 @@ export class InlineStyleResult {
 }
 
 SDKModel.register(CSSModel, Capability.DOM, true);
-
-/** @typedef {{backgroundColors: ?Array<string>, computedFontSize: string, computedFontWeight: string}} */
-export let ContrastInfo;

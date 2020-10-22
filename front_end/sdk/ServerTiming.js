@@ -4,8 +4,6 @@
 
 import * as Common from '../common/common.js';
 
-import {NameValue} from './NetworkRequest.js';  // eslint-disable-line no-unused-vars
-
 /**
  * @unrestricted
  */
@@ -22,7 +20,7 @@ export class ServerTiming {
   }
 
   /**
-   * @param {!Array<!NameValue>} headers
+   * @param {!Array<!SDK.NetworkRequest.NameValue>} headers
    * @return {?Array<!ServerTiming>}
    */
   static parseHeaders(headers) {

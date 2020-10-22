@@ -89,18 +89,18 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
 
     /** @type {!Common.ResourceType.ResourceType} */
     this._resourceType = Common.ResourceType.resourceTypes.Other;
-    /** @type {?Promise<!ContentData>} */
+    /** @type {?Promise<!SDK.NetworkRequest.ContentData>} */
     this._contentData = null;
-    /** @type {!Array.<!WebSocketFrame>} */
+    /** @type {!Array.<!SDK.NetworkRequest.WebSocketFrame>} */
     this._frames = [];
-    /** @type {!Array.<!EventSourceMessage>} */
+    /** @type {!Array.<!SDK.NetworkRequest.EventSourceMessage>} */
     this._eventSourceMessages = [];
 
     /** @type {!Object<string, (string|undefined)>} */
     this._responseHeaderValues = {};
     this._responseHeadersText = '';
 
-    /** @type {!Array<!NameValue>} */
+    /** @type {!Array<!SDK.NetworkRequest.NameValue>} */
     this._requestHeaders = [];
     /** @type {!Object<string, (string|undefined)>} */
     this._requestHeaderValues = {};
@@ -117,7 +117,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
 
     /** @type {string} */
     this.connectionId = '0';
-    /** @type {?Promise<?Array.<!NameValue>>} */
+    /** @type {?Promise<?Array.<!SDK.NetworkRequest.NameValue>>} */
     this._formParametersPromise = null;
     // Assume no body initially
     /** @type {?Promise<?string>} */
@@ -128,9 +128,9 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
     /** @type {boolean} */
     this._hasExtraResponseInfo = false;
 
-    /** @type {!Array<!BlockedCookieWithReason>} */
+    /** @type {!Array<!SDK.NetworkRequest.BlockedCookieWithReason>} */
     this._blockedRequestCookies = [];
-    /** @type {!Array<!BlockedSetCookieWithReason>} */
+    /** @type {!Array<!SDK.NetworkRequest.BlockedSetCookieWithReason>} */
     this._blockedResponseCookies = [];
   }
 
@@ -716,14 +716,14 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @return {!Array.<!NameValue>}
+   * @return {!Array.<!SDK.NetworkRequest.NameValue>}
    */
   requestHeaders() {
     return this._requestHeaders;
   }
 
   /**
-   * @param {!Array.<!NameValue>} headers
+   * @param {!Array.<!SDK.NetworkRequest.NameValue>} headers
    */
   setRequestHeaders(headers) {
     this._requestHeaders = headers;
@@ -818,14 +818,14 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @return {!Array.<!NameValue>}
+   * @return {!Array.<!SDK.NetworkRequest.NameValue>}
    */
   get responseHeaders() {
     return this._responseHeaders || [];
   }
 
   /**
-   * @param {!Array.<!NameValue>} x
+   * @param {!Array.<!SDK.NetworkRequest.NameValue>} x
    */
   set responseHeaders(x) {
     this._responseHeaders = x;
@@ -854,7 +854,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @return {!Array.<!NameValue>}
+   * @return {!Array.<!SDK.NetworkRequest.NameValue>}
    */
   get sortedResponseHeaders() {
     if (this._sortedResponseHeaders !== undefined) {
@@ -942,7 +942,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @return {?Array.<!NameValue>}
+   * @return {?Array.<!SDK.NetworkRequest.NameValue>}
    */
   get queryParameters() {
     if (this._parsedQueryParameters) {
@@ -957,7 +957,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @return {!Promise<?Array<!NameValue>>}
+   * @return {!Promise<?Array<!SDK.NetworkRequest.NameValue>>}
    */
   async _parseFormParameters() {
     const requestContentType = this.requestContentType();
@@ -997,7 +997,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @return {!Promise<?Array<!NameValue>>}
+   * @return {!Promise<?Array<!SDK.NetworkRequest.NameValue>>}
    */
   formParameters() {
     if (!this._formParametersPromise) {
@@ -1025,7 +1025,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
 
   /**
    * @param {string} queryString
-   * @return {!Array.<!NameValue>}
+   * @return {!Array.<!SDK.NetworkRequest.NameValue>}
    */
   _parseParameters(queryString) {
     function parseNameValue(pair) {
@@ -1054,7 +1054,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
    *
    * @param {string} data
    * @param {string} boundary
-   * @return {!Array.<!NameValue>}
+   * @return {!Array.<!SDK.NetworkRequest.NameValue>}
    */
   _parseMultipartFormDataParameters(data, boundary) {
     const sanitizedBoundary = boundary.escapeForRegExp();
@@ -1074,9 +1074,9 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
     return fields.reduce(parseMultipartField, []);
 
     /**
-     * @param {!Array.<!NameValue>} result
+     * @param {!Array.<!SDK.NetworkRequest.NameValue>} result
      * @param {string} field
-     * @return {!Array.<!NameValue>}
+     * @return {!Array.<!SDK.NetworkRequest.NameValue>}
      */
     function parseMultipartField(result, field) {
       const [match, name, filename, contentType, value] = field.match(keyValuePattern) || [];
@@ -1093,7 +1093,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @param {!Array.<!NameValue>} headers
+   * @param {!Array.<!SDK.NetworkRequest.NameValue>} headers
    * @param {string} headerName
    * @return {string|undefined}
    */
@@ -1117,7 +1117,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @return {!Promise<!ContentData>}
+   * @return {!Promise<!SDK.NetworkRequest.ContentData>}
    */
   contentData() {
     if (this._contentData) {
@@ -1132,7 +1132,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @param {function():!Promise<!ContentData>} dataProvider
+   * @param {function():!Promise<!SDK.NetworkRequest.ContentData>} dataProvider
    */
   setContentDataProvider(dataProvider) {
     console.assert(!this._contentData, 'contentData can only be set once.');
@@ -1287,7 +1287,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @return {!Array.<!WebSocketFrame>}
+   * @return {!Array.<!SDK.NetworkRequest.WebSocketFrame>}
    */
   frames() {
     return this._frames;
@@ -1319,7 +1319,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @param {!WebSocketFrame} frame
+   * @param {!SDK.NetworkRequest.WebSocketFrame} frame
    */
   addFrame(frame) {
     this._frames.push(frame);
@@ -1327,7 +1327,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @return {!Array.<!EventSourceMessage>}
+   * @return {!Array.<!SDK.NetworkRequest.EventSourceMessage>}
    */
   eventSourceMessages() {
     return this._eventSourceMessages;
@@ -1381,7 +1381,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @param {!ExtraRequestInfo} extraRequestInfo
+   * @param {!SDK.NetworkRequest.ExtraRequestInfo} extraRequestInfo
    */
   addExtraRequestInfo(extraRequestInfo) {
     this._blockedRequestCookies = extraRequestInfo.blockedRequestCookies;
@@ -1398,14 +1398,14 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @return {!Array<!BlockedCookieWithReason>}
+   * @return {!Array<!SDK.NetworkRequest.BlockedCookieWithReason>}
    */
   blockedRequestCookies() {
     return this._blockedRequestCookies;
   }
 
   /**
-   * @param {!ExtraResponseInfo} extraResponseInfo
+   * @param {!SDK.NetworkRequest.ExtraResponseInfo} extraResponseInfo
    */
   addExtraResponseInfo(extraResponseInfo) {
     this._blockedResponseCookies = extraResponseInfo.blockedResponseCookies;
@@ -1441,7 +1441,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @return {!Array<!BlockedSetCookieWithReason>}
+   * @return {!Array<!SDK.NetworkRequest.BlockedSetCookieWithReason>}
    */
   blockedResponseCookies() {
     return this._blockedResponseCookies;
@@ -1615,33 +1615,8 @@ export let WebSocketFrame;
   */
 export let BlockedSetCookieWithReason;
 
-/**
- * @typedef {!{
- *   blockedReasons: !Array<!Protocol.Network.CookieBlockedReason>,
- *   cookie: !Cookie
- * }}
- */
-export let BlockedCookieWithReason;
-
 /** @typedef {!{error: ?string, content: ?string, encoded: boolean}} */
 export let ContentData;
 
 /** @typedef {!{time: number, eventName: string, eventId: string, data: string}} */
 export let EventSourceMessage;
-
-/**
-  * @typedef {!{
-  *   blockedRequestCookies: !Array<!BlockedCookieWithReason>,
-  *   requestHeaders: !Array<!NameValue>
-  * }}
-  */
-export let ExtraRequestInfo;
-
-/**
-  * @typedef {!{
-  *   blockedResponseCookies: !Array<!BlockedSetCookieWithReason>,
-  *   responseHeaders: !Array<!NameValue>,
-  *   responseHeadersText: (string|undefined)
-  * }}
-  */
-export let ExtraResponseInfo;

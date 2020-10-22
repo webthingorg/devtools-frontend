@@ -273,7 +273,7 @@ export class Entry {
   }
 
   /**
-   * @return {!Timing}
+   * @return {!SDK.HARLog.Entry.Timing}
    */
   _buildTimings() {
     // Order of events: request_start = 0, [proxy], [dns], [connect [ssl]], [send], duration
@@ -454,16 +454,3 @@ export class Entry {
     return this._request.resourceSize - this.responseBodySize;
   }
 }
-
-/** @typedef {!{
- blocked: number,
- dns: number,
- ssl: number,
- connect: number,
- send: number,
- wait: number,
- receive: number,
- _blocked_queueing: number,
- _blocked_proxy: (number|undefined)
-}} */
-export let Timing;

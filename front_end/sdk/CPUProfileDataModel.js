@@ -319,7 +319,7 @@ export class CPUProfileDataModel extends ProfileTreeModel {
     }
     /**
      * @param {!ProfileNode} node
-     * @return {!ProfileNode}
+     * @return {!SDK.ProfileNode}
      */
     function bottomNode(node) {
       while (node.parent && node.parent.parent) {

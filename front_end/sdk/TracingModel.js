@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {EventPayload} from './TracingManager.js';  // eslint-disable-line no-unused-vars
-
 export class TracingModel {
   /**
    * @param {!BackingStorage} backingStorage
@@ -74,7 +72,7 @@ export class TracingModel {
   }
 
   /**
-   * @param {!EventPayload} payload
+   * @param {!SDK.TracingManager.EventPayload} payload
    * @return {string|undefined}
    */
   static _extractId(payload) {
@@ -137,7 +135,7 @@ export class TracingModel {
   }
 
   /**
-   * @param {!Array.<!EventPayload>} events
+   * @param {!Array.<!SDK.TracingManager.EventPayload>} events
    */
   addEvents(events) {
     for (let i = 0; i < events.length; ++i) {
@@ -188,7 +186,7 @@ export class TracingModel {
   }
 
   /**
-   * @param {!EventPayload} payload
+   * @param {!SDK.TracingManager.EventPayload} payload
    */
   _addEvent(payload) {
     let process = this._processById.get(payload.pid);
@@ -557,7 +555,7 @@ export class Event {
 
   /**
    * @this {null}
-   * @param {!EventPayload} payload
+   * @param {!SDK.TracingManager.EventPayload} payload
    * @param {!Thread} thread
    * @return {!Event}
    */
@@ -673,7 +671,7 @@ export class ObjectSnapshot extends Event {
   /**
    * @override
    * @this {null}
-   * @param {!EventPayload} payload
+   * @param {!SDK.TracingManager.EventPayload} payload
    * @param {!Thread} thread
    * @return {!ObjectSnapshot}
    */
@@ -888,7 +886,7 @@ export class Process extends NamedObject {
   }
 
   /**
-   * @param {!EventPayload} payload
+   * @param {!SDK.TracingManager.EventPayload} payload
    * @return {?Event} event
    */
   _addEvent(payload) {
@@ -952,7 +950,7 @@ export class Thread extends NamedObject {
   }
 
   /**
-   * @param {!EventPayload} payload
+   * @param {!SDK.TracingManager.EventPayload} payload
    * @return {?Event} event
    */
   _addEvent(payload) {

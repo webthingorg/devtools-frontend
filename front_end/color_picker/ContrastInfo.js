@@ -6,7 +6,7 @@ import * as Common from '../common/common.js';
 
 export class ContrastInfo extends Common.ObjectWrapper.ObjectWrapper {
   /**
-   * @param {?ContrastInfoType} contrastInfo
+   * @param {?SDK.CSSModel.ContrastInfo} contrastInfo
    */
   constructor(contrastInfo) {
     super();
@@ -156,6 +156,3 @@ const _ContrastThresholds = {
   largeFont: {aa: 3.0, aaa: 4.5},
   normalFont: {aa: 4.5, aaa: 7.0}
 };
-
-/** @typedef {{backgroundColors: ?Array<string>, computedFontSize: string, computedFontWeight: string}} */
-export let ContrastInfoType;

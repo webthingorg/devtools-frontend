@@ -27,8 +27,7 @@ import * as Common from '../common/common.js';
 import * as ProtocolModule from '../protocol/protocol.js';
 
 import {DebuggerModel, Location} from './DebuggerModel.js';  // eslint-disable-line no-unused-vars
-import {ResourceTreeModel} from './ResourceTreeModel.js';
-import {ExecutionContext} from './RuntimeModel.js';  // eslint-disable-line no-unused-vars
+import {ExecutionContext} from './RuntimeModel.js';          // eslint-disable-line no-unused-vars
 
 /**
  * @implements {Common.ContentProvider.ContentProvider}
@@ -387,7 +386,7 @@ export class Script {
 const frameIdSymbol = Symbol('frameid');
 
 /**
- * @param {!Script} script
+ * @param {!SDK.Script} script
  * @return {string}
  */
 function frameIdForScript(script) {
@@ -396,7 +395,7 @@ function frameIdForScript(script) {
     return executionContext.frameId || '';
   }
   // This is to overcome compilation cache which doesn't get reset.
-  const resourceTreeModel = script.debuggerModel.target().model(ResourceTreeModel);
+  const resourceTreeModel = script.debuggerModel.target().model(SDK.ResourceTreeModel);
   if (!resourceTreeModel || !resourceTreeModel.mainFrame) {
     return '';
   }

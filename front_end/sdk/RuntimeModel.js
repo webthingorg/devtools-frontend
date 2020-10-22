@@ -32,7 +32,7 @@ import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
 import * as ProtocolModule from '../protocol/protocol.js';
 
-import {DebuggerModel, FunctionDetails} from './DebuggerModel.js';  // eslint-disable-line no-unused-vars
+import {DebuggerModel} from './DebuggerModel.js';
 import {HeapProfilerModel} from './HeapProfilerModel.js';
 import {RemoteFunction, RemoteObject,
         RemoteObjectImpl,  // eslint-disable-line no-unused-vars
@@ -67,7 +67,7 @@ export class RuntimeModel extends SDKModel {
   }
 
   /**
-   * @param {!EvaluationResult} response
+   * @param {!SDK.RuntimeModel.EvaluationResult} response
    * @return {boolean}
    */
   static isSideEffectFailure(response) {
@@ -229,7 +229,7 @@ export class RuntimeModel extends SDKModel {
   }
 
   /**
-   * @param {!EvaluationResult} result
+   * @param {!SDK.RuntimeModel.EvaluationResult} result
    */
   releaseEvaluationResult(result) {
     if (result.object) {
@@ -259,7 +259,7 @@ export class RuntimeModel extends SDKModel {
    * @param {string} sourceURL
    * @param {boolean} persistScript
    * @param {number} executionContextId
-   * @return {!Promise<?CompileScriptResult>}
+   * @return {!Promise<?SDK.RuntimeModel.CompileScriptResult>}
    */
   async compileScript(expression, sourceURL, persistScript, executionContextId) {
     const response = await this._agent.invoke_compileScript({
@@ -285,7 +285,7 @@ export class RuntimeModel extends SDKModel {
    * @param {boolean=} returnByValue
    * @param {boolean=} generatePreview
    * @param {boolean=} awaitPromise
-   * @return {!Promise<!EvaluationResult>}
+   * @return {!Promise<!SDK.RuntimeModel.EvaluationResult>}
    */
   async runScript(
       scriptId, executionContextId, objectGroup, silent, includeCommandLineAPI, returnByValue, generatePreview,
@@ -311,7 +311,7 @@ export class RuntimeModel extends SDKModel {
 
   /**
    * @param {!RemoteObject} prototype
-   * @return {!Promise<!QueryObjectResult>}
+   * @return {!Promise<!SDK.RuntimeModel.QueryObjectResult>}
    */
   async queryObjects(prototype) {
     if (!prototype.objectId) {
@@ -370,7 +370,7 @@ export class RuntimeModel extends SDKModel {
     }
 
     /**
-     * @param {?FunctionDetails} response
+     * @param {?SDK.DebuggerModel.FunctionDetails} response
      */
     function didGetDetails(response) {
       object.release();
@@ -693,7 +693,7 @@ export class ExecutionContext {
 
     /**
      * @param {!Target} target
-     * @return {!Array<!Target>}
+     * @return {!Array<!SDK.Target>}
      */
     function targetPath(target) {
       let currentTarget = target;
@@ -743,10 +743,10 @@ export class ExecutionContext {
   }
 
   /**
-   * @param {!EvaluationOptions} options
+   * @param {!SDK.RuntimeModel.EvaluationOptions} options
    * @param {boolean} userGesture
    * @param {boolean} awaitPromise
-   * @return {!Promise<!EvaluationResult>}
+   * @return {!Promise<!SDK.RuntimeModel.EvaluationResult>}
    */
   evaluate(options, userGesture, awaitPromise) {
     // FIXME: It will be moved to separate ExecutionContext.
@@ -759,7 +759,7 @@ export class ExecutionContext {
       return this._evaluateGlobal(options, userGesture, awaitPromise);
     }
 
-    /** @type {!EvaluationResult} */
+    /** @type {!SDK.RuntimeModel.EvaluationResult} */
     const unsupportedError = {error: 'Side-effect checks not supported by backend.'};
     if (this.runtimeModel.hasSideEffectSupport() === false) {
       return Promise.resolve(unsupportedError);
@@ -776,7 +776,7 @@ export class ExecutionContext {
   /**
    * @param {string} objectGroup
    * @param {boolean} generatePreview
-   * @return {!Promise<!EvaluationResult>}
+   * @return {!Promise<!SDK.RuntimeModel.EvaluationResult>}
    */
   globalObject(objectGroup, generatePreview) {
     return this._evaluateGlobal(
@@ -792,10 +792,10 @@ export class ExecutionContext {
   }
 
   /**
-   * @param {!EvaluationOptions} options
+   * @param {!SDK.RuntimeModel.EvaluationOptions} options
    * @param {boolean} userGesture
    * @param {boolean} awaitPromise
-   * @return {!Promise<!EvaluationResult>}
+   * @return {!Promise<!SDK.RuntimeModel.EvaluationResult>}
    */
   async _evaluateGlobal(options, userGesture, awaitPromise) {
     if (!options.expression) {
@@ -876,32 +876,3 @@ SDKModel.register(RuntimeModel, Capability.JS, true);
  *  }}
  */
 export let EvaluationResult;
-
-/** @typedef {{
- *    scriptId: (Protocol.Runtime.ScriptId|undefined),
- *    exceptionDetails: (!Protocol.Runtime.ExceptionDetails|undefined)
- *  }}
- */
-export let CompileScriptResult;
-
-/** @typedef {{
- *    expression: string,
- *    objectGroup: (string|undefined),
- *    includeCommandLineAPI: (boolean|undefined),
- *    silent: (boolean|undefined),
- *    returnByValue: (boolean|undefined),
- *    generatePreview: (boolean|undefined),
- *    throwOnSideEffect: (boolean|undefined),
- *    timeout: (number|undefined),
- *    disableBreaks: (boolean|undefined),
- *    replMode: (boolean|undefined)
- *  }}
- */
-export let EvaluationOptions;
-
-/** @typedef {{
- *    objects: (!RemoteObject|undefined),
- *    error: (!Protocol.Error|undefined)}
- *  }}
- */
-export let QueryObjectResult;

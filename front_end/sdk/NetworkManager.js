@@ -33,7 +33,7 @@ import * as Host from '../host/host.js';
 import * as ProtocolModule from '../protocol/protocol.js';
 
 import {Cookie} from './Cookie.js';
-import {ContentData, Events as NetworkRequestEvents, ExtraRequestInfo, ExtraResponseInfo, NameValue, NetworkRequest} from './NetworkRequest.js';  // eslint-disable-line no-unused-vars
+import {Events as NetworkRequestEvents, NetworkRequest} from './NetworkRequest.js';
 import {Capability, SDKModel, SDKModelObserver, Target} from './SDKModel.js';  // eslint-disable-line no-unused-vars
 
 /**
@@ -110,7 +110,7 @@ export class NetworkManager extends SDKModel {
 
   /**
    * @param {!NetworkRequest} request
-   * @return {!Promise<!ContentData>}
+   * @return {!Promise<!SDK.NetworkRequest.ContentData>}
    */
   static async requestContentData(request) {
     if (request.resourceType() === Common.ResourceType.resourceTypes.WebSocket) {
@@ -142,7 +142,7 @@ export class NetworkManager extends SDKModel {
   }
 
   /**
-   * @param {!Conditions} conditions
+   * @param {!SDK.NetworkManager.Conditions} conditions
    * @return {!Protocol.Network.ConnectionType}
    * TODO(allada): this belongs to NetworkConditionsSelector, which should hardcode/guess it.
    */
@@ -233,15 +233,15 @@ const _MIMETypes = {
   'application/pdf': {'document': true},
 };
 
-/** @type {!Conditions} */
+/** @type {!SDK.NetworkManager.Conditions} */
 export const NoThrottlingConditions = {
-  title: Common.UIString.UIString('Online'),
+  title: ls`Online`,
   download: -1,
   upload: -1,
   latency: 0
 };
 
-/** @type {!Conditions} */
+/** @type {!SDK.NetworkManager.Conditions} */
 export const OfflineConditions = {
   title: Common.UIString.UIString('Offline'),
   download: 0,
@@ -249,7 +249,7 @@ export const OfflineConditions = {
   latency: 0,
 };
 
-/** @type {!Conditions} */
+/** @type {!SDK.NetworkManager.Conditions} */
 export const Slow3GConditions = {
   title: Common.UIString.UIString('Slow 3G'),
   download: 500 * 1024 / 8 * .8,
@@ -257,7 +257,7 @@ export const Slow3GConditions = {
   latency: 400 * 5,
 };
 
-/** @type {!Conditions} */
+/** @type {!SDK.NetworkManager.Conditions} */
 export const Fast3GConditions = {
   title: Common.UIString.UIString('Fast 3G'),
   download: 1.6 * 1024 * 1024 / 8 * .9,
@@ -288,7 +288,7 @@ export class NetworkDispatcher {
 
   /**
    * @param {!Protocol.Network.Headers} headersMap
-   * @return {!Array.<!NameValue>}
+   * @return {!Array.<!SDK.NetworkRequest.NameValue>}
    */
   _headersMapToHeadersArray(headersMap) {
     const result = [];
@@ -819,7 +819,7 @@ export class NetworkDispatcher {
    * @param {!Protocol.Network.Headers} headers
    */
   requestWillBeSentExtraInfo(requestId, blockedCookies, headers) {
-    /** @type {!ExtraRequestInfo} */
+    /** @type {!SDK.NetworkRequest.ExtraRequestInfo} */
     const extraRequestInfo = {
       blockedRequestCookies: blockedCookies.map(blockedCookie => {
         return {blockedReasons: blockedCookie.blockedReasons, cookie: Cookie.fromProtocolCookie(blockedCookie.cookie)};
@@ -837,7 +837,7 @@ export class NetworkDispatcher {
    * @param {string=} headersText
    */
   responseReceivedExtraInfo(requestId, blockedCookies, headers, headersText) {
-    /** @type {!ExtraResponseInfo} */
+    /** @type {!SDK.NetworkRequest.ExtraResponseInfo} */
     const extraResponseInfo = {
       blockedResponseCookies: blockedCookies.map(blockedCookie => {
         return {
@@ -1017,7 +1017,7 @@ export class MultitargetNetworkManager extends Common.ObjectWrapper.ObjectWrappe
     this._agents = new Set();
     /** @type {!Map<string, !NetworkRequest>} */
     this._inflightMainResourceRequests = new Map();
-    /** @type {!Conditions} */
+    /** @type {!SDK.NetworkManager.Conditions} */
     this._networkConditions = NoThrottlingConditions;
     /** @type {?Promise} */
     this._updatingInterceptionPatternsPromise = null;
@@ -1028,7 +1028,7 @@ export class MultitargetNetworkManager extends Common.ObjectWrapper.ObjectWrappe
     this._effectiveBlockedURLs = [];
     this._updateBlockedPatterns();
 
-    /** @type {!Platform.Multimap<!RequestInterceptor, !InterceptionPattern>} */
+    /** @type {!Platform.Multimap<!SDK.MultitargetNetworkManager.RequestInterceptor, !SDK.MultitargetNetworkManager.InterceptionPattern>} */
     this._urlsForRequestInterceptor = new Platform.Multimap();
 
     self.SDK.targetManager.observeModels(NetworkManager, this);
@@ -1107,7 +1107,7 @@ export class MultitargetNetworkManager extends Common.ObjectWrapper.ObjectWrappe
   }
 
   /**
-   * @param {!Conditions} conditions
+   * @param {!SDK.NetworkManager.Conditions} conditions
    */
   setNetworkConditions(conditions) {
     this._networkConditions = conditions;
@@ -1118,7 +1118,7 @@ export class MultitargetNetworkManager extends Common.ObjectWrapper.ObjectWrappe
   }
 
   /**
-   * @return {!Conditions}
+   * @return {!SDK.NetworkManager.Conditions}
    */
   networkConditions() {
     return this._networkConditions;
@@ -1193,7 +1193,7 @@ export class MultitargetNetworkManager extends Common.ObjectWrapper.ObjectWrappe
 
   // TODO(allada) Move all request blocking into interception and let view manage blocking.
   /**
-   * @return {!Array<!BlockedPattern>}
+   * @return {!Array<!SDK.NetworkManager.BlockedPattern>}
    */
   blockedPatterns() {
     return this._blockedPatternsSetting.get().slice();
@@ -1214,7 +1214,7 @@ export class MultitargetNetworkManager extends Common.ObjectWrapper.ObjectWrappe
   }
 
   /**
-   * @param {!Array<!BlockedPattern>} patterns
+   * @param {!Array<!SDK.NetworkManager.BlockedPattern>} patterns
    */
   setBlockedPatterns(patterns) {
     this._blockedPatternsSetting.set(patterns);
@@ -1261,8 +1261,8 @@ export class MultitargetNetworkManager extends Common.ObjectWrapper.ObjectWrappe
   }
 
   /**
-   * @param {!Array<!InterceptionPattern>} patterns
-   * @param {!RequestInterceptor} requestInterceptor
+   * @param {!Array<!SDK.MultitargetNetworkManager.InterceptionPattern>} patterns
+   * @param {!SDK.MultitargetNetworkManager.RequestInterceptor} requestInterceptor
    * @return {!Promise}
    */
   setInterceptionHandlerForPatterns(patterns, requestInterceptor) {
@@ -1461,7 +1461,7 @@ export class InterceptedRequest {
   }
 
   /**
-   * @return {!Promise<!ContentData>}
+   * @return {!Promise<!SDK.NetworkRequest.ContentData>}
    */
   async responseBody() {
     const response =
@@ -1483,9 +1483,9 @@ class RedirectExtraInfoBuilder {
   constructor(deleteCallback) {
     /** @type {!Array<!NetworkRequest>} */
     this._requests = [];
-    /** @type {!Array<?ExtraRequestInfo>} */
+    /** @type {!Array<?SDK.NetworkRequest.ExtraRequestInfo>} */
     this._requestExtraInfos = [];
-    /** @type {!Array<?ExtraResponseInfo>} */
+    /** @type {!Array<?SDK.NetworkRequest.ExtraResponseInfo>} */
     this._responseExtraInfos = [];
     /** @type {boolean} */
     this._finished = false;
@@ -1504,7 +1504,7 @@ class RedirectExtraInfoBuilder {
   }
 
   /**
-   * @param {!ExtraRequestInfo} info
+   * @param {!SDK.NetworkRequest.ExtraRequestInfo} info
    */
   addRequestExtraInfo(info) {
     this._hasExtraInfo = true;
@@ -1513,7 +1513,7 @@ class RedirectExtraInfoBuilder {
   }
 
   /**
-   * @param {!ExtraResponseInfo} info
+   * @param {!SDK.NetworkRequest.ExtraResponseInfo} info
    */
   addResponseExtraInfo(info) {
     this._responseExtraInfos.push(info);
@@ -1579,12 +1579,3 @@ export let Conditions;
 
 /** @typedef {{url: string, enabled: boolean}} */
 export let BlockedPattern;
-
-/** @typedef {{message: string, requestId: string, warning: boolean}} */
-export let Message;
-
-/** @typedef {!{urlPattern: string, interceptionStage: !Protocol.Network.InterceptionStage}} */
-export let InterceptionPattern;
-
-/** @typedef {!function(!InterceptedRequest):!Promise} */
-export let RequestInterceptor;

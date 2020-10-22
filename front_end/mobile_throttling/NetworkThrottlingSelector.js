@@ -5,11 +5,11 @@
 import * as Common from '../common/common.js';
 import * as SDK from '../sdk/sdk.js';
 
-import {networkPresets, NetworkThrottlingConditionsGroup} from './ThrottlingPresets.js';  // eslint-disable-line no-unused-vars
+import {networkPresets} from './ThrottlingPresets.js';
 
 export class NetworkThrottlingSelector {
   /**
-   * @param {function(!Array<!NetworkThrottlingConditionsGroup>):!Array<?SDK.NetworkManager.Conditions>} populateCallback
+   * @param {function(!Array<!MobileThrottling.NetworkThrottlingConditionsGroup>):!Array<?SDK.NetworkManager.Conditions>} populateCallback
    * @param {function(number)} selectCallback
    * @param {!Common.Settings.Setting<!Array<!SDK.NetworkManager.Conditions>>} customNetworkConditionsSetting
    */
