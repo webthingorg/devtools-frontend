@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dcd946bb_743e0ffe",
+        "filename": "front_end/elements/CSSPropertyIconResolver.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-22T07:52:16Z",
+      "side": 1,
+      "message": "Oh, I just realize now, row is not going to appear in the suggestions list for animation-name... so we might be fine for this particular use case.\nBut we might have problems elsewhere. I still think that filtering based on property name would be safer.",
+      "parentUuid": "2dc6a388_d5947763",
+      "range": {
+        "startLine": 58,
+        "startChar": 23,
+        "endLine": 58,
+        "endChar": 28
+      },
+      "revId": "5696797f104dcb6d220aabb4431332ae52d50797",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d361e204_7b217477",
         "filename": "front_end/elements/CSSPropertyIconResolver.js",
         "patchSetId": 8
