@@ -110,6 +110,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d91b3dd3_cf7b28c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-22T08:52:17Z",
+      "side": 1,
+      "message": "I think the types would highlight this issue as well. This component is a bit special because it has the getter for data and I think it makes sense if the returned object is exactly the same as the set one: otherwise, we would need to re-assemble the properties back into data. I think it\u0027s done this way to allow icon updates, e.g. changing the color without having the full data object at hand.",
+      "parentUuid": "34178e9b_d52c6ebd",
+      "revId": "12e450c96de1d0c16327d1e9d9883897384e234a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8e099e54_7c1819be",
@@ -123,6 +141,30 @@
       "writtenOn": "2020-10-22T08:37:38Z",
       "side": 1,
       "message": "nit: I wonder about this being `isString`.",
+      "range": {
+        "startLine": 23,
+        "startChar": 6,
+        "endLine": 23,
+        "endChar": 13
+      },
+      "revId": "12e450c96de1d0c16327d1e9d9883897384e234a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88bffba5_6e64e72e",
+        "filename": "front_end/elements/Icon.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-22T08:52:17Z",
+      "side": 1,
+      "message": "good point!",
+      "parentUuid": "8e099e54_7c1819be",
       "range": {
         "startLine": 23,
         "startChar": 6,
@@ -158,6 +200,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "13c30f46_28b9577c",
+        "filename": "front_end/elements/Icon.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-22T08:52:17Z",
+      "side": 1,
+      "message": "Good point, I have simplified the code. Actually, I didn\u0027t intend to use `this.data`. \n\nRegarding splitting into separate properties, please see my other comment about the getter for data.",
+      "parentUuid": "b0199bf6_e4681124",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 6
+      },
+      "revId": "12e450c96de1d0c16327d1e9d9883897384e234a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b920927b_44df6c8a",
         "filename": "front_end/elements/Icon.ts",
         "patchSetId": 1
@@ -169,6 +235,30 @@
       "writtenOn": "2020-10-22T08:37:38Z",
       "side": 1,
       "message": "nice, I like this change.\n\nIs there ever a situation where we can\u0027t use CSS, I wonder? Maybe that should be the only way we allow support for changing the colour? WDYT?",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 60
+      },
+      "revId": "12e450c96de1d0c16327d1e9d9883897384e234a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a738633_e5124de8",
+        "filename": "front_end/elements/Icon.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-22T08:52:17Z",
+      "side": 1,
+      "message": "I guess sometimes you could have automatically generated colors and it could be easier to specify them via data. Of course, I think you can always do `el.style[\u0027--icon-color\u0027] \u003d generatedColor`. It\u0027s probably possible to go with CSS alone but I am not sure if I\u0027d break some usages so I\u0027d leave it for a follow-up.\n\nActually, I think almost all properties can be set via CSS (width, height, path etc). But I guess it\u0027d be less type safe and less self-documenting.",
+      "parentUuid": "b920927b_44df6c8a",
       "range": {
         "startLine": 60,
         "startChar": 0,
