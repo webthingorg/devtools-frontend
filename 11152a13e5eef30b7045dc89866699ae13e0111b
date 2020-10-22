@@ -33,6 +33,24 @@
       "message": "Doesn\u0027t this modification carry over into the next iteration?",
       "revId": "11152a13e5eef30b7045dc89866699ae13e0111b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6eb59f26_8a65d8c9",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-10-22T17:22:13Z",
+      "side": 1,
+      "message": "Good catch. This worked by accident, since the virtual call frames are identical modulo the inlined index.",
+      "parentUuid": "1724e1a5_1386896b",
+      "revId": "11152a13e5eef30b7045dc89866699ae13e0111b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
