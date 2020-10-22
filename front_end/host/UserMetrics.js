@@ -614,7 +614,8 @@ export const DevtoolsExperiments = {
   'dualScreenSupport': 32,
   'cssGridFeatures': 33,
   'keyboardShortcutEditor': 35,
-  '__lastValidEnumPosition': 35,
+  'cssFlexboxFeatures': 36,
+  '__lastValidEnumPosition': 36,
 };
 
 /** @type {!Object<string, number>} */
