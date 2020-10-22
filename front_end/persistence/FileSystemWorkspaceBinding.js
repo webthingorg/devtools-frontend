@@ -310,7 +310,7 @@ export class FileSystem extends Workspace.Workspace.ProjectStore {
   /**
    * @override
    * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
-   * @returns {!Promise<!Common.ContentProvider.DeferredContent>}
+   * @returns {!Promise<!Common.DeferredContent>}
    */
   requestFileContent(uiSourceCode) {
     const filePath = this._filePathForUISourceCode(uiSourceCode);

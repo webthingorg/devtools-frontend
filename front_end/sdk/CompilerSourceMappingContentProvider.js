@@ -70,7 +70,7 @@ export class CompilerSourceMappingContentProvider {
 
   /**
    * @override
-   * @return {!Promise<!Common.ContentProvider.DeferredContent>}
+   * @return {!Promise<!Common.DeferredContent>}
    */
   requestContent() {
     return new Promise(resolve => {

@@ -111,7 +111,7 @@ export class Project {
 
   /**
    * @param {!UISourceCode} uiSourceCode
-   * @returns {!Promise<!Common.ContentProvider.DeferredContent>}
+   * @returns {!Promise<!Common.DeferredContent>}
    */
   requestFileContent(uiSourceCode) {
   }

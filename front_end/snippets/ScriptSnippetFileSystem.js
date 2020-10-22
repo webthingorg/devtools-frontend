@@ -60,7 +60,7 @@ class SnippetFileSystem extends Persistence.PlatformFileSystem.PlatformFileSyste
   /**
    * @override
    * @param {string} path
-   * @returns {!Promise<!Common.ContentProvider.DeferredContent>}
+   * @returns {!Promise<!Common.DeferredContent>}
    */
   async requestFileContent(path) {
     const name = unescape(path.substring(1));

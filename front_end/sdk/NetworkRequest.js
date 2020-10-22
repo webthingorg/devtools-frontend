@@ -1165,11 +1165,11 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper {
 
   /**
    * @override
-   * @return {!Promise<!Common.ContentProvider.DeferredContent>}
+   * @return {!Promise<!Common.DeferredContent>}
    */
   async requestContent() {
     const {content, error, encoded} = await this.contentData();
-    return /** @type{!Common.ContentProvider.DeferredContent} */ ({
+    return /** @type{!Common.DeferredContent} */ ({
       content,
       error,
       isEncoded: encoded,

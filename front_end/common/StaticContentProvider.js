@@ -2,8 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {ContentProvider, DeferredContent, SearchMatch} from './ContentProvider.js';  // eslint-disable-line no-unused-vars
-import {ResourceType} from './ResourceType.js';  // eslint-disable-line no-unused-vars
+import {ContentProvider, SearchMatch} from './ContentProvider.js';  // eslint-disable-line no-unused-vars
+import {ResourceType} from './ResourceType.js';                     // eslint-disable-line no-unused-vars
 
 /**
  * @implements {ContentProvider}
@@ -13,7 +13,7 @@ export class StaticContentProvider {
   /**
    * @param {string} contentURL
    * @param {!ResourceType} contentType
-   * @param {function():!Promise<!DeferredContent>} lazyContent
+   * @param {function():!Promise<!Common.DeferredContent>} lazyContent
    */
   constructor(contentURL, contentType, lazyContent) {
     this._contentURL = contentURL;
@@ -58,7 +58,7 @@ export class StaticContentProvider {
 
   /**
    * @override
-   * @return {!Promise<!DeferredContent>}
+   * @return {!Promise<!Common.DeferredContent>}
    */
   requestContent() {
     return this._lazyContent();
