@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d26adf7d_abb837e2",
+        "filename": "front_end/elements/CSSPropertyIconResolver.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-22T08:25:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "958d19cd_bf1e8251",
+      "revId": "5696797f104dcb6d220aabb4431332ae52d50797",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2dc6a388_d5947763",
@@ -82,6 +100,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f1da8ac_7a939ea5",
+        "filename": "front_end/elements/CSSPropertyIconResolver.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-22T08:25:09Z",
+      "side": 1,
+      "message": "It\u0027s a good point. I have not thought of it: I am sure there will be potential conflicts. I will switch to using `property: value` for lookups.",
+      "parentUuid": "dcd946bb_743e0ffe",
+      "range": {
+        "startLine": 58,
+        "startChar": 23,
+        "endLine": 58,
+        "endChar": 28
+      },
+      "revId": "5696797f104dcb6d220aabb4431332ae52d50797",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d361e204_7b217477",
@@ -99,6 +141,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "feea789b_2ff00e23",
+        "filename": "front_end/elements/CSSPropertyIconResolver.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-22T08:25:09Z",
+      "side": 1,
+      "message": "Type checking complains if there is no return value. Even if I change the type to allow returning undefined. I think I will keep the null to keep the types simple. I have changed the if check.",
+      "parentUuid": "d361e204_7b217477",
+      "revId": "5696797f104dcb6d220aabb4431332ae52d50797",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d25065b_adee0b0a",
@@ -112,6 +172,30 @@
       "writtenOn": "2020-10-21T16:25:50Z",
       "side": 1,
       "message": "nit: perhaps rename this to _selectedNodeComputedStyles to make it clearer what computed styles we\u0027re talking about here.",
+      "range": {
+        "startLine": 2440,
+        "startChar": 9,
+        "endLine": 2440,
+        "endChar": 24
+      },
+      "revId": "5696797f104dcb6d220aabb4431332ae52d50797",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f5767a0_c16cdc90",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 2440,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-22T08:25:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d25065b_adee0b0a",
       "range": {
         "startLine": 2440,
         "startChar": 9,
@@ -168,6 +252,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9663edc_f3ab2922",
+        "filename": "front_end/elements/elements.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-22T08:25:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08ec7184_919c3598",
+      "range": {
+        "startLine": 27,
+        "startChar": 8,
+        "endLine": 27,
+        "endChar": 36
+      },
+      "revId": "5696797f104dcb6d220aabb4431332ae52d50797",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67cc38c1_dc464fb2",
@@ -203,6 +311,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe2f9700_d9b7b893",
+        "filename": "front_end/ui/SuggestBox.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-22T08:25:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73d7c3ee_34452857",
+      "revId": "5696797f104dcb6d220aabb4431332ae52d50797",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "171302fd_78dde1ae",
@@ -216,6 +342,24 @@
       "writtenOn": "2020-10-21T12:24:00Z",
       "side": 1,
       "message": "Since you need both `key` and `value` here, let\u0027s just use `Object.entries` instead? You could then even drop the loop by doing:\n\n    const result \u003d new Map(Object.entries(style));",
+      "revId": "5696797f104dcb6d220aabb4431332ae52d50797",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e004ef02_5c1c3661",
+        "filename": "test/unittests/front_end/elements/CSSPropertyIconResolver_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-22T08:25:09Z",
+      "side": 1,
+      "message": "Interestingly, the types are not happy about this. The current version resolves to Map\u003cstring, string\u003e somehow and the suggested option is Map\u003cstring, string|undefined\u003e.",
+      "parentUuid": "171302fd_78dde1ae",
       "revId": "5696797f104dcb6d220aabb4431332ae52d50797",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
