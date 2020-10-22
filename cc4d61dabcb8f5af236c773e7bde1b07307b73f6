@@ -16,6 +16,23 @@
       "message": "Thanks for the speedy fix!",
       "revId": "cc4d61dabcb8f5af236c773e7bde1b07307b73f6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ac9d232_18a29b85",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-22T16:00:05Z",
+      "side": 1,
+      "message": "LGTM. Thanks for the speedy fix!",
+      "revId": "cc4d61dabcb8f5af236c773e7bde1b07307b73f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
