@@ -1,0 +1,214 @@
+// Copyright (c) 2020 The Chromium Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+import * as ComponentHelpers from '../component_helpers/component_helpers.js';
+import * as LitHtml from '../third_party/lit-html/lit-html.js';
+
+import {toHexString} from './LinearMemoryInspectorUtils.js';
+
+const getStyleSheets = ComponentHelpers.GetStylesheet.getStyleSheets;
+
+const {render, html} = LitHtml;
+
+export interface LinearMemoryViewerData {
+  memory: Uint8Array;
+  address: number;
+}
+
+export class ByteSelectedEvent extends Event {
+  data: number
+
+  constructor(address: number) {
+    super('byte-selected');
+    this.data = address;
+  }
+}
+
+export class LinearMemoryViewer extends HTMLElement {
+  private static BYTE_GROUP_MARGIN = 8;
+  private readonly shadow = this.attachShadow({mode: 'open'});
+
+  private readonly resizeObserver = new ResizeObserver(() => this.update());
+  private isObservingResize = false;
+
+  private memory = new Uint8Array();
+  private address = 0;
+  private byteGroupSize = 4;
+
+  private currentRow = 0;
+  private numRows = 1;
+  private numBytesPerRow = this.byteGroupSize;
+
+  constructor() {
+    super();
+    this.shadow.adoptedStyleSheets = [
+      ...getStyleSheets('linear_memory_inspector/linearMemoryViewer.css', {patchThemeSupport: false}),
+    ];
+  }
+
+  set data(data: LinearMemoryViewerData) {
+    this.memory = data.memory;
+    this.address = data.address;
+    this.update();
+  }
+
+  disconnectedCallback() {
+    this.isObservingResize = false;
+    this.resizeObserver.disconnect();
+  }
+
+  private update() {
+    this.currentRow = this.getRowForAddress(this.address);
+    this.recomputeSize();
+    this.render();
+    this.engageResizeObserver();
+  }
+
+  private getRowForAddress(address: number) {
+    return Math.floor((address) / this.numBytesPerRow);
+  }
+
+  /** Recomputes the number of rows and (byte) columns that fit into the current view. */
+  private recomputeSize() {
+    if (this.clientWidth === 0 || this.clientHeight === 0 || !this.shadowRoot) {
+      return;
+    }
+
+    // We initially just plot one row with one byte group (here: byte group size of 4).
+    // Depending on that initially plotted row we can determine how many rows and
+    // bytes per rows we can fit:
+    // > 0000000 | b0 b1 b2 b4 | a0 a1 a2 a3       <
+    //             ^-^           ^-^
+    //             byteCellWidth textCellWidth
+    //             ^-------------------------------^
+    //                 widthToFill
+
+    const firstByteCell = this.shadowRoot.querySelector('.memory-inspector-byte-cell');
+    const textCell = this.shadowRoot.querySelector('.memory-inspector-text-cell');
+    const divider = this.shadowRoot.querySelector('.memory-inspector-divider');
+    const rowElement = this.shadowRoot.querySelector('.memory-inspector-view-row');
+
+    if (!firstByteCell || !textCell || !divider || !rowElement) {
+      return;
+    }
+
+    // Calculate the width required for each (unsplittable) group of bytes.
+    const byteCellWidth = firstByteCell.getBoundingClientRect().width;
+    const textCellWidth = textCell.getBoundingClientRect().width;
+    const groupWidth = this.byteGroupSize * (byteCellWidth + textCellWidth) + LinearMemoryViewer.BYTE_GROUP_MARGIN;
+
+    // Calculate the width to fill.
+    const dividerWidth = divider.getBoundingClientRect().width;
+    const widthToFill = this.clientWidth - firstByteCell.getBoundingClientRect().left - dividerWidth;
+    if (widthToFill < groupWidth) {
+      this.numBytesPerRow = this.byteGroupSize;
+      this.numRows = 1;
+      return;
+    }
+
+    this.numBytesPerRow = Math.floor(widthToFill / groupWidth) * this.byteGroupSize;
+    const maxNumRows = Math.ceil(this.memory.length / this.numBytesPerRow);
+    this.numRows = Math.min(Math.floor(this.clientHeight / rowElement.getBoundingClientRect().height), maxNumRows);
+  }
+
+  private engageResizeObserver() {
+    if (!this.resizeObserver || this.isObservingResize) {
+      return;
+    }
+
+    this.resizeObserver.observe(this);
+    this.isObservingResize = true;
+  }
+
+  private render() {
+    // Disabled until https://crbug.com/1079231 is fixed.
+    // clang-format off
+    render(html`
+      <div class="memory-inspector-view">
+          ${this.renderView()}
+      </div>
+      `, this.shadow, {eventContext: this});
+  }
+
+  private renderView() {
+    const itemTemplates = [];
+    for (let i = 0; i < this.numRows; ++i) {
+      itemTemplates.push(this.renderRow(i));
+    }
+    return html`${itemTemplates}`;
+  }
+
+  private renderRow(row: number) {
+    const startIndex = row * this.numBytesPerRow;
+    const endIndex = startIndex + this.numBytesPerRow;
+
+    const classMap = {
+      'memory-inspector-view-address': true,
+      selected: this.currentRow === row,
+    };
+    return html`
+    <div class="memory-inspector-view-row">
+      <span class="${LitHtml.Directives.classMap(classMap)}">${toHexString(startIndex, 8)}</span>
+      <span class="memory-inspector-divider"></span>
+      ${this.renderByteValues(startIndex, endIndex)}
+      <span class="memory-inspector-divider"></span>
+      ${this.renderCharacterValues(startIndex, endIndex)}
+    </div>
+    `;
+  }
+
+  private renderByteValues(startIndex: number, endIndex: number) {
+    const cells = [];
+    for (let i = startIndex; i < endIndex; ++i) {
+      // Add margin after each group of bytes of size byteGroupSize.
+      const addMargin = i !== startIndex && (i - startIndex) % this.byteGroupSize === 0;
+      const classMap = {
+        'memory-inspector-cell': true,
+        'memory-inspector-byte-cell': true,
+        'memory-inspector-byte-group-margin': addMargin,
+        selected: i === this.address,
+      };
+      const byteValue = i < this.memory.length ? html`${toHexString(this.memory[i], 2)}` : '';
+      cells.push(html`
+        <span class="${LitHtml.Directives.classMap(classMap)}" @click=${this.onSelectedByte(i)}>
+          ${byteValue}
+        </span>`);
+    }
+    return html`${cells}`;
+  }
+
+  private renderCharacterValues(startIndex: number, endIndex: number) {
+    const cells = [];
+    for (let i = startIndex; i < endIndex; ++i) {
+      const classMap = {
+        'memory-inspector-cell': true,
+        'memory-inspector-text-cell': true,
+        selected: this.address === i,
+      };
+      const value = i < this.memory.length ? html`${this.toAscii(this.memory[i])}` : '';
+      cells.push(html`<span class="${LitHtml.Directives.classMap(classMap)}">${value}</span>`);
+    }
+    return html`${cells}`;
+  }
+
+  private toAscii(byte: number) {
+    if (byte >= 20 && byte <= 0x7F) {
+      return String.fromCharCode(byte);
+    }
+    return '.';
+  }
+
+  private onSelectedByte(index: number) {
+    return () => {
+      this.dispatchEvent(new ByteSelectedEvent(index));
+    };
+  }
+}
+
+customElements.define('devtools-linear-memory-inspector-viewer', LinearMemoryViewer);
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'devtools-linear-memory-inspector-viewer': LinearMemoryViewer;
+  }
+}
