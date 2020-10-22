@@ -224,6 +224,30 @@
       },
       "revId": "1fa4719898f4ab578d0ace4d1ffae26ba90180c9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d044b253_8efc69ac",
+        "filename": "front_end/component_docs/icon_component/basic.html",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-22T13:57:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ae656420_ae7919cc",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 54
+      },
+      "revId": "1fa4719898f4ab578d0ace4d1ffae26ba90180c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
