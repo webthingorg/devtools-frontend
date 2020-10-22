@@ -324,6 +324,8 @@ export class ShortcutListItem {
 
     this._errorMessageElement = this.element.createChild('div', 'keybinds-info keybinds-error hidden');
     UI.ARIAUtils.markAsAlert(this._errorMessageElement);
+    this.element.appendChild(this._createIconButton(
+        ls`Reset shortcuts for action`, 'largeicon-undo', '', this._resetShortcutsToDefaults.bind(this)));
     this._confirmButton = this._createIconButton(
         ls`Confirm changes`, 'largeicon-checkmark', 'keybinds-confirm-button',
         () => this._settingsTab.commitChanges(this._item, this._editedShortcuts));
@@ -447,6 +449,26 @@ export class ShortcutListItem {
       return descriptor.name.slice(0, descriptor.name.lastIndexOf('+'));
     }
     return descriptor.name;
+  }
+
+  _resetShortcutsToDefaults() {
+    this._editedShortcuts.clear();
+    for (const shortcut of this._shortcuts) {
+      if (shortcut.type === UI.KeyboardShortcut.Type.UnsetShortcut) {
+        const index = this._shortcuts.indexOf(shortcut);
+        this._shortcuts.splice(index, 1);
+      } else if (shortcut.type === UI.KeyboardShortcut.Type.UserShortcut) {
+        this._editedShortcuts.set(shortcut, null);
+      } else {
+        this._editedShortcuts.delete(shortcut);
+      }
+    }
+    const disabledDefaults = UI.ShortcutRegistry.ShortcutRegistry.instance().disabledDefaultsForAction(this._item.id());
+    disabledDefaults.forEach(shortcut => {
+      this._shortcuts.push(shortcut);
+      this._editedShortcuts.set(shortcut, shortcut.descriptors);
+    });
+    this._update();
   }
 
   /**
