@@ -267,6 +267,30 @@
       },
       "revId": "12e450c96de1d0c16327d1e9d9883897384e234a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0641dcb7_c0fabf51",
+        "filename": "front_end/elements/Icon.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-22T09:06:34Z",
+      "side": 1,
+      "message": "I have checked some usages and it looks like in many places it\u0027s invoked with a css var like `color: \u0027var(--issue-link)\u0027`. I think it would work as well instead of using a variable inside the Icon component. It feels a bit awkward though. WDYT?",
+      "parentUuid": "7a738633_e5124de8",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 60
+      },
+      "revId": "12e450c96de1d0c16327d1e9d9883897384e234a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
