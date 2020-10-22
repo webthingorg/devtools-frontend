@@ -161,6 +161,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bd1adf83_844de1db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1451147
+      },
+      "writtenOn": "2020-10-22T01:32:11Z",
+      "side": 1,
+      "message": "Noted - I\u0027ll keep at it. \n\nI\u0027ve found a way to account for 3 of the 4 screenshot types (Capture screenshot, Capture full size screenshot, \u0026 Capture node screenshot), using the state of event.metaKey when the command is clicked/entered. \n\nI am still working on finding a solution for `Capture area screenshot`, which has the intermediate step of a user highlighting the region of the viewport they wish to capture, causing a loss of the event data.",
+      "parentUuid": "6b880299_47f8ab0a",
+      "revId": "4c2804a123a6cded07648b09a508b8f811810575",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3ee8b431_3619b119",
         "filename": "front_end/emulation/DeviceModeView.js",
         "patchSetId": 2
