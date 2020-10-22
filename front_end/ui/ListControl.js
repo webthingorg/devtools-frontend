@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as ARIAUtils from './ARIAUtils.js';
 import {Events as ListModelEvents, ListModel} from './ListModel.js';  // eslint-disable-line no-unused-vars
 import {measurePreferredSize} from './UIUtils.js';
 
@@ -90,7 +89,7 @@ export class ListControl {
     this.element.tabIndex = -1;
     this.element.addEventListener('click', this._onClick.bind(this), false);
     this.element.addEventListener('keydown', this._onKeyDown.bind(this), false);
-    ARIAUtils.markAsListBox(this.element);
+    UI.ARIAUtils.markAsListBox(this.element);
 
     this._delegate = delegate;
     this._mode = mode || ListMode.EqualHeightItems;
@@ -441,8 +440,8 @@ export class ListControl {
     let element = this._itemToElement.get(item);
     if (!element) {
       element = this._delegate.createElementForItem(item);
-      if (!ARIAUtils.hasRole(element)) {
-        ARIAUtils.markAsOption(element);
+      if (!UI.ARIAUtils.hasRole(element)) {
+        UI.ARIAUtils.markAsOption(element);
       }
       this._itemToElement.set(item, element);
     }
@@ -496,12 +495,12 @@ export class ListControl {
     this._delegate.selectedItemChanged(oldItem, newItem, /** @type {?Element} */ (oldElement), newElement);
     if (!this._delegate.updateSelectedItemARIA(/** @type {?Element} */ (oldElement), newElement)) {
       if (oldElement) {
-        ARIAUtils.setSelected(oldElement, false);
+        UI.ARIAUtils.setSelected(oldElement, false);
       }
       if (newElement) {
-        ARIAUtils.setSelected(newElement, true);
+        UI.ARIAUtils.setSelected(newElement, true);
       }
-      ARIAUtils.setActiveDescendant(this.element, newElement);
+      UI.ARIAUtils.setActiveDescendant(this.element, newElement);
     }
   }
 

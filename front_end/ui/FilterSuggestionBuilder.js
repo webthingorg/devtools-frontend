@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {Suggestions} from './SuggestBox.js';  // eslint-disable-line no-unused-vars
-
 export class FilterSuggestionBuilder {
   /**
    * @param {!Array<string>} keys
@@ -20,7 +18,7 @@ export class FilterSuggestionBuilder {
    * @param {string} expression
    * @param {string} prefix
    * @param {boolean=} force
-   * @return {!Promise<!Suggestions>}
+   * @return {!Promise<!UI.SuggestBox.Suggestions>}
    */
   completions(expression, prefix, force) {
     if (!prefix && !force) {

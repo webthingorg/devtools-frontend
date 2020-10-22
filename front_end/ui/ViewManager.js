@@ -3,8 +3,6 @@
 // found in the LICENSE file.
 
 import * as Common from '../common/common.js';
-
-import * as ARIAUtils from './ARIAUtils.js';
 import {ContextMenu} from './ContextMenu.js';  // eslint-disable-line no-unused-vars
 import {Icon} from './Icon.js';
 import {Events as TabbedPaneEvents, TabbedPane} from './TabbedPane.js';
@@ -180,8 +178,8 @@ export class ContainerWidget extends VBox {
     this.element.classList.add('flex-auto', 'view-container', 'overflow-auto');
     this._view = view;
     this.element.tabIndex = -1;
-    ARIAUtils.markAsTabpanel(this.element);
-    ARIAUtils.setAccessibleName(this.element, ls`${view.title()} panel`);
+    UI.ARIAUtils.markAsTabpanel(this.element);
+    UI.ARIAUtils.setAccessibleName(this.element, ls`${view.title()} panel`);
     this.setDefaultFocusedElement(this.element);
   }
 
@@ -242,19 +240,19 @@ export class _ExpandableContainerWidget extends VBox {
     this.registerRequiredCSS('ui/viewContainers.css');
 
     this._titleElement = createElementWithClass('div', 'expandable-view-title');
-    ARIAUtils.markAsButton(this._titleElement);
+    UI.ARIAUtils.markAsButton(this._titleElement);
     this._titleExpandIcon = Icon.create('smallicon-triangle-right', 'title-expand-icon');
     this._titleElement.appendChild(this._titleExpandIcon);
     const titleText = view.title();
     this._titleElement.createTextChild(titleText);
-    ARIAUtils.setAccessibleName(this._titleElement, titleText);
-    ARIAUtils.setExpanded(this._titleElement, false);
+    UI.ARIAUtils.setAccessibleName(this._titleElement, titleText);
+    UI.ARIAUtils.setExpanded(this._titleElement, false);
     this._titleElement.tabIndex = 0;
     self.onInvokeElement(this._titleElement, this._toggleExpanded.bind(this));
     this._titleElement.addEventListener('keydown', this._onTitleKeyDown.bind(this), false);
     this.contentElement.insertBefore(this._titleElement, this.contentElement.firstChild);
 
-    ARIAUtils.setControls(this._titleElement, this.contentElement.createChild('slot'));
+    UI.ARIAUtils.setControls(this._titleElement, this.contentElement.createChild('slot'));
     this._view = view;
     view[_ExpandableContainerWidget._symbol] = this;
   }
@@ -300,7 +298,7 @@ export class _ExpandableContainerWidget extends VBox {
       return this._materialize();
     }
     this._titleElement.classList.add('expanded');
-    ARIAUtils.setExpanded(this._titleElement, true);
+    UI.ARIAUtils.setExpanded(this._titleElement, true);
     this._titleExpandIcon.setIconType('smallicon-triangle-down');
     return this._materialize().then(() => this._widget.show(this.element));
   }
@@ -310,7 +308,7 @@ export class _ExpandableContainerWidget extends VBox {
       return;
     }
     this._titleElement.classList.remove('expanded');
-    ARIAUtils.setExpanded(this._titleElement, false);
+    UI.ARIAUtils.setExpanded(this._titleElement, false);
     this._titleExpandIcon.setIconType('smallicon-triangle-right');
     this._materialize().then(() => this._widget.detach());
   }
@@ -513,7 +511,7 @@ export class _TabbedLocation extends _Location {
   /**
    * @override
    * @param {!View} view
-   * @param {?View=} insertBefore
+   * @param {?UI.View=} insertBefore
    */
   appendView(view, insertBefore) {
     if (this._tabbedPane.hasTab(view.viewId())) {
@@ -561,7 +559,7 @@ export class _TabbedLocation extends _Location {
   /**
    * @override
    * @param {!View} view
-   * @param {?View=} insertBefore
+   * @param {?UI.View=} insertBefore
    * @param {boolean=} userGesture
    * @param {boolean=} omitFocus
    * @return {!Promise}
@@ -664,7 +662,7 @@ class _StackLocation extends _Location {
   /**
    * @override
    * @param {!View} view
-   * @param {?View=} insertBefore
+   * @param {?UI.View=} insertBefore
    */
   appendView(view, insertBefore) {
     const oldLocation = view[_Location.symbol];
@@ -690,7 +688,7 @@ class _StackLocation extends _Location {
   /**
    * @override
    * @param {!View} view
-   * @param {?View=} insertBefore
+   * @param {?UI.View=} insertBefore
    * @return {!Promise}
    */
   showView(view, insertBefore) {

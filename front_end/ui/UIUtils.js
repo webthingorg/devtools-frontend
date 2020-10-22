@@ -29,11 +29,9 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-
 import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
 
-import * as ARIAUtils from './ARIAUtils.js';
 import {Dialog} from './Dialog.js';
 import {Size} from './Geometry.js';
 import {GlassPane, PointerEventsBehavior, SizeBehavior} from './GlassPane.js';
@@ -1305,7 +1303,7 @@ export function createLabel(title, className, associatedControl) {
   const element = createElementWithClass('label', className || '');
   element.textContent = title;
   if (associatedControl) {
-    ARIAUtils.bindLabelToControl(element, associatedControl);
+    UI.ARIAUtils.bindLabelToControl(element, associatedControl);
   }
 
   return element;
@@ -1521,8 +1519,8 @@ registerCustomElement('div', 'dt-close-button', class extends HTMLDivElement {
     super();
     const root = createShadowRootWithCoreStyles(this, 'ui/closeButton.css');
     this._buttonElement = root.createChild('div', 'close-button');
-    ARIAUtils.setAccessibleName(this._buttonElement, ls`Close`);
-    ARIAUtils.markAsButton(this._buttonElement);
+    UI.ARIAUtils.setAccessibleName(this._buttonElement, ls`Close`);
+    UI.ARIAUtils.markAsButton(this._buttonElement);
     const regularIcon = Icon.create('smallicon-cross', 'default-icon');
     this._hoverIcon = Icon.create('mediumicon-red-cross-hover', 'hover-icon');
     this._activeIcon = Icon.create('mediumicon-red-cross-active', 'active-icon');
@@ -1550,7 +1548,7 @@ registerCustomElement('div', 'dt-close-button', class extends HTMLDivElement {
    * @this {Element}
    */
   setAccessibleName(name) {
-    ARIAUtils.setAccessibleName(this._buttonElement, name);
+    UI.ARIAUtils.setAccessibleName(this._buttonElement, name);
   }
 
   /**
@@ -2082,7 +2080,7 @@ export class ConfirmDialog {
     const dialog = new Dialog();
     dialog.setSizeBehavior(SizeBehavior.MeasureContent);
     dialog.setDimmed(true);
-    ARIAUtils.setAccessibleName(dialog.contentElement, message);
+    UI.ARIAUtils.setAccessibleName(dialog.contentElement, message);
     const shadowRoot = createShadowRootWithCoreStyles(dialog.contentElement, 'ui/confirmDialog.css');
     const content = shadowRoot.createChild('div', 'widget');
     content.createChild('div', 'message').createChild('span').textContent = message;
@@ -2124,7 +2122,7 @@ export function createInlineButton(toolbarButton) {
 export class Renderer {
   /**
    * @param {!Object} object
-   * @param {!Options=} options
+   * @param {!UI.Renderer.Options=} options
    * @return {!Promise<?{node: !Node, tree: ?TreeOutline}>}
    */
   render(object, options) {
@@ -2133,7 +2131,7 @@ export class Renderer {
 
 /**
    * @param {!Object} object
-   * @param {!Options=} options
+   * @param {!UI.Renderer.Options=} options
    * @return {!Promise<?{node: !Node, tree: ?TreeOutline}>}
    */
 Renderer.render = async function(object, options) {

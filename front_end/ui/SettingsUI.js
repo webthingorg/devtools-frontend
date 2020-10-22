@@ -29,8 +29,6 @@
  */
 
 import * as Common from '../common/common.js';
-
-import * as ARIAUtils from './ARIAUtils.js';
 import {CheckboxLabel} from './UIUtils.js';
 
 /**
@@ -75,7 +73,7 @@ const createSettingSelect = function(name, options, setting, subtitle) {
     settingSelectElement.classList.add('chrome-select-label');
     label.createChild('p').textContent = subtitle;
   }
-  ARIAUtils.bindLabelToControl(label, select);
+  UI.ARIAUtils.bindLabelToControl(label, select);
 
   for (let i = 0; i < options.length; ++i) {
     // The "raw" flag indicates text is non-i18n-izable.
@@ -135,7 +133,7 @@ export const createCustomSetting = function(name, element) {
   const fieldsetElement = p.createChild('fieldset');
   const label = fieldsetElement.createChild('label');
   label.textContent = name;
-  ARIAUtils.bindLabelToControl(label, element);
+  UI.ARIAUtils.bindLabelToControl(label, element);
   fieldsetElement.appendChild(element);
   return p;
 };

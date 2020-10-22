@@ -7,9 +7,9 @@ import {registerCustomElement} from './utils/register-custom-element.js';
 export class Icon extends HTMLSpanElement {
   constructor() {
     super();
-    /** @type {?Descriptor} */
+    /** @type {?Icon.Descriptor} */
     this._descriptor = null;
-    /** @type {?SpriteSheet} */
+    /** @type {?Icon.SpriteSheet} */
     this._spriteSheet = null;
     /** @type {string} */
     this._iconType = '';
@@ -96,7 +96,7 @@ export class Icon extends HTMLSpanElement {
 
 const _positionRegex = /^[a-z][1-9][0-9]*$/;
 
-/** @enum {!SpriteSheet} */
+/** @enum {!Icon.SpriteSheet} */
 const SpriteSheets = {
   'smallicons': {cellWidth: 10, cellHeight: 10, padding: 10},
   'mediumicons': {cellWidth: 16, cellHeight: 16, padding: 0},
@@ -104,7 +104,7 @@ const SpriteSheets = {
   'arrowicons': {cellWidth: 19, cellHeight: 19, padding: 0}
 };
 
-/** @enum {!Descriptor} */
+/** @enum {!Icon.Descriptor} */
 export const Descriptors = {
   'smallicon-bezier': {position: 'a5', spritesheet: 'smallicons', isMask: true},
   'smallicon-checkmark': {position: 'b5', spritesheet: 'smallicons'},
@@ -254,9 +254,3 @@ export const Descriptors = {
   'mediumicon-arrow-left': {position: 'a2', spritesheet: 'arrowicons'},
   'mediumicon-arrow-right': {position: 'a1', spritesheet: 'arrowicons'}
 };
-
-/** @typedef {{position: string, spritesheet: string, isMask: (boolean|undefined), coordinates: ({x: number, y: number}|undefined), invert: (boolean|undefined)}} */
-export let Descriptor;
-
-/** @typedef {{cellWidth: number, cellHeight: number, padding: number}} */
-export let SpriteSheet;

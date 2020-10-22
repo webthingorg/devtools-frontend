@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as ARIAUtils from './ARIAUtils.js';
 import {Keys} from './KeyboardShortcut.js';
 import {ElementFocusRestorer, markBeingEdited} from './UIUtils.js';
 
@@ -13,7 +12,7 @@ export class InplaceEditor {
   /**
    * @param {!Element} element
    * @param {!InplaceEditor.Config=} config
-   * @return {?Controller}
+   * @return {?InplaceEditor.Controller}
    */
   static startEditing(element, config) {
     if (!InplaceEditor._defaultInstance) {
@@ -40,7 +39,7 @@ export class InplaceEditor {
     element.setAttribute('contenteditable', 'plaintext-only');
 
     const oldRole = element.getAttribute('role');
-    ARIAUtils.markAsTextBox(element);
+    UI.ARIAUtils.markAsTextBox(element);
     editingContext.oldRole = oldRole;
 
     const oldTabIndex = element.getAttribute('tabIndex');
@@ -86,7 +85,7 @@ export class InplaceEditor {
   /**
    * @param {!Element} element
    * @param {!InplaceEditor.Config=} config
-   * @return {?Controller}
+   * @return {?InplaceEditor.Controller}
    */
   startEditing(element, config) {
     if (!markBeingEdited(element, true)) {
@@ -247,8 +246,3 @@ export class Config {
     this.postKeydownFinishHandler = postKeydownFinishHandler;
   }
 }
-
-/**
- * @typedef {{cancel: function(), commit: function()}}
- */
-export let Controller;

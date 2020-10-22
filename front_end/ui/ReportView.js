@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as ARIAUtils from './ARIAUtils.js';
 import {Toolbar} from './Toolbar.js';
 import {VBox} from './Widget.js';
 
@@ -21,7 +20,7 @@ export class ReportView extends VBox {
     this._headerElement = this._contentBox.createChild('div', 'report-header vbox');
     this._titleElement = this._headerElement.createChild('div', 'report-title');
     this._titleElement.textContent = title;
-    ARIAUtils.markAsHeading(this._titleElement, 1);
+    UI.ARIAUtils.markAsHeading(this._titleElement, 1);
 
     this._sectionList = this._contentBox.createChild('div', 'vbox');
   }
@@ -131,7 +130,7 @@ export class Section extends VBox {
     this._headerElement = this.element.createChild('div', 'report-section-header');
     this._titleElement = this._headerElement.createChild('div', 'report-section-title');
     this.setTitle(title);
-    ARIAUtils.markAsHeading(this._titleElement, 2);
+    UI.ARIAUtils.markAsHeading(this._titleElement, 2);
     this._fieldList = this.element.createChild('div', 'vbox');
     /** @type {!Map.<string, !Element>} */
     this._fieldMap = new Map();
@@ -159,8 +158,8 @@ export class Section extends VBox {
    * @param {string} groupTitle
    */
   setUiGroupTitle(groupTitle) {
-    ARIAUtils.markAsGroup(this.element);
-    ARIAUtils.setAccessibleName(this.element, groupTitle);
+    UI.ARIAUtils.markAsGroup(this.element);
+    UI.ARIAUtils.setAccessibleName(this.element, groupTitle);
   }
 
   /**
@@ -253,8 +252,8 @@ export class Section extends VBox {
   }
 
   markFieldListAsGroup() {
-    ARIAUtils.markAsGroup(this._fieldList);
-    ARIAUtils.setAccessibleName(this._fieldList, this.title());
+    UI.ARIAUtils.markAsGroup(this._fieldList);
+    UI.ARIAUtils.setAccessibleName(this._fieldList, this.title());
   }
 
   /**
