@@ -2,13 +2,16 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/** @typedef {{tooltip: (string|undefined), preventKeyboardFocus: (boolean|undefined)}} */
+export let Options;
+
 /**
  * @interface
  */
 export class Linkifier {
   /**
    * @param {!Object} object
-   * @param {!Options=} options
+   * @param {!Common.Linkifier.Options=} options
    * @return {!Node}
    */
   linkify(object, options) {
@@ -16,7 +19,7 @@ export class Linkifier {
 
   /**
    * @param {?Object} object
-   * @param {!Options=} options
+   * @param {!Common.Linkifier.Options=} options
    * @return {!Promise<!Node>}
    */
   static linkify(object, options) {
@@ -26,6 +29,3 @@ export class Linkifier {
     return self.runtime.extension(Linkifier, object).instance().then(linkifier => linkifier.linkify(object, options));
   }
 }
-
-/** @typedef {{tooltip: (string|undefined), preventKeyboardFocus: (boolean|undefined)}} */
-export let Options;
