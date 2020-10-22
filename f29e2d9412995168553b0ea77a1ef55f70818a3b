@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3128eda0_1da12f74",
+        "filename": "test/unittests/front_end/issues/MarkdownView_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-22T13:17:28Z",
+      "side": 1,
+      "message": "nit for when we come back and enable these once we solve it, you can use `paragraph.innerText` to get the text and lose the `\u003c!--\u003e` nodes.",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 103
+      },
+      "revId": "f29e2d9412995168553b0ea77a1ef55f70818a3b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
