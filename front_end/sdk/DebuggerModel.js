@@ -677,23 +677,19 @@ export class DebuggerModel extends SDKModel {
       // @ts-ignore
       const pluginManager = Bindings.DebuggerWorkspaceBinding.instance().getLanguagePluginManager(this);
       if (pluginManager) {
-        /** @type {!Array<!CallFrame>} */
-        const newFrames = [];
-        for (const callFrame of debuggerPausedDetails.callFrames) {
-          const functionInfos = await pluginManager.getFunctionInfo(callFrame);
-          if (functionInfos.frames.length) {
-            for (let i = 0; i < functionInfos.frames.length; i++) {
-              newFrames.push(callFrame.createVirtualCallFrame(i, functionInfos.frames[i].name));
-            }
-          } else {
-            // Leave unchanged.
-            newFrames.push(callFrame);
-          }
-        }
-        for (const callFrame of newFrames) {
-          // @ts-ignore
-          callFrame.sourceScopeChain = await pluginManager.resolveScopeChain(callFrame);
-        }
+        const newFrames = (await Promise.all(debuggerPausedDetails.callFrames.map(async callFrame => {
+                            /** @type {!{frames: !Array<!{name: string}>}} */
+                            const {frames} = await pluginManager.getFunctionInfo(callFrame);
+                            if (frames.length) {
+                              return Promise.all(frames.map(async (frame, index) => {
+                                callFrame = callFrame.createVirtualCallFrame(index, frame.name);
+                                callFrame.sourceScopeChain = await pluginManager.resolveScopeChain(callFrame);
+                                return callFrame;
+                              }));
+                            }
+                            callFrame.sourceScopeChain = await pluginManager.resolveScopeChain(callFrame);
+                            return callFrame;
+                          }))).flat();
         debuggerPausedDetails.callFrames = newFrames;
       }
       this._isPausing = false;
