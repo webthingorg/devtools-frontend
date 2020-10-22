@@ -16,6 +16,46 @@
       "message": "PTAL I changed it back to use separate attributes and removed the data getter.",
       "revId": "1fa4719898f4ab578d0ace4d1ffae26ba90180c9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecc1f49a_69f87574",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-22T10:54:34Z",
+      "side": 1,
+      "message": "LGTM % the component doc example that relied on the data getter. Thanks!",
+      "revId": "1fa4719898f4ab578d0ace4d1ffae26ba90180c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4deec179_99be8aa0",
+        "filename": "front_end/component_docs/icon_component/basic.html",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-22T10:54:34Z",
+      "side": 1,
+      "message": "Now you\u0027ve got rid of the getter, I don\u0027t think this will work. We should either keep this working, or remove the example. I have no strong opinion on which is best :)",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 54
+      },
+      "revId": "1fa4719898f4ab578d0ace4d1ffae26ba90180c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
