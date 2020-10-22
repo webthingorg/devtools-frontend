@@ -64,8 +64,7 @@ export class AdvancedApp {
 
     this._inspectedPagePlaceholder = InspectedPagePlaceholder.instance();
     this._inspectedPagePlaceholder.addEventListener(Events.Update, this._onSetInspectedPageBounds.bind(this), this);
-    this._deviceModeView =
-        DeviceModeWrapper.instance({inspectedPagePlaceholder: this._inspectedPagePlaceholder, forceNew: false});
+    this._deviceModeView = new DeviceModeWrapper(this._inspectedPagePlaceholder);
 
     UI.DockController.DockController.instance().addEventListener(
         UI.DockController.Events.BeforeDockSideChanged, this._onBeforeDockSideChange, this);
