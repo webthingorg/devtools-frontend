@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f8954eb_73ce45d3",
+        "filename": "front_end/sdk/DOMModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1044,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-22T15:53:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf9d889d_a62f8c5f",
+      "revId": "d8c7718458031a9ef93f093bb760bb3eb2453a01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6b4a5581_75f79c19",
@@ -65,6 +83,24 @@
       "writtenOn": "2020-10-19T09:01:48Z",
       "side": 1,
       "message": "Does this need an await?",
+      "revId": "d8c7718458031a9ef93f093bb760bb3eb2453a01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7a13cac_5c4e651c",
+        "filename": "front_end/sdk/DOMModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1096,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-22T15:53:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b4a5581_75f79c19",
       "revId": "d8c7718458031a9ef93f093bb760bb3eb2453a01",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -86,6 +122,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85e4f1ab_c22eb341",
+        "filename": "front_end/sdk/DOMModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1259,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-22T15:53:05Z",
+      "side": 1,
+      "message": "Awaiting is unfortunately not possible in constructors.",
+      "parentUuid": "b9545f38_7d09a510",
+      "revId": "d8c7718458031a9ef93f093bb760bb3eb2453a01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4da42168_6c843dd8",
@@ -99,6 +153,24 @@
       "writtenOn": "2020-10-19T09:01:48Z",
       "side": 1,
       "message": "Does this need an await?",
+      "revId": "d8c7718458031a9ef93f093bb760bb3eb2453a01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8321ff9_912c2bbf",
+        "filename": "front_end/sdk/DOMModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 2052,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-22T15:53:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4da42168_6c843dd8",
       "revId": "d8c7718458031a9ef93f093bb760bb3eb2453a01",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -120,6 +192,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef0fab3d_39903ad1",
+        "filename": "front_end/sdk/DOMModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 2066,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-22T15:53:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8b657af_d0a35f2c",
+      "revId": "d8c7718458031a9ef93f093bb760bb3eb2453a01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cfd91e36_ed4ddaae",
@@ -133,6 +223,24 @@
       "writtenOn": "2020-10-19T09:01:48Z",
       "side": 1,
       "message": "Same here",
+      "revId": "d8c7718458031a9ef93f093bb760bb3eb2453a01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc2d0669_167d4ea8",
+        "filename": "front_end/sdk/DOMModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 2078,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-22T15:53:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cfd91e36_ed4ddaae",
       "revId": "d8c7718458031a9ef93f093bb760bb3eb2453a01",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
