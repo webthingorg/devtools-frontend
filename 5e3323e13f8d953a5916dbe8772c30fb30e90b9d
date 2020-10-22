@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2281be1_20bbf58d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-22T10:20:55Z",
+      "side": 1,
+      "message": "LGTM with nits",
+      "revId": "5e3323e13f8d953a5916dbe8772c30fb30e90b9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a744dd5e_1f6e0885",
+        "filename": "front_end/timeline/WebVitalsLane.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-22T10:20:55Z",
+      "side": 1,
+      "message": "There may be devices where this font is unavailable. Wonder if we should default to whichever font is the DevTools default on that particular platform?",
+      "range": {
+        "startLine": 122,
+        "startChar": 4,
+        "endLine": 122,
+        "endChar": 55
+      },
+      "revId": "5e3323e13f8d953a5916dbe8772c30fb30e90b9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b038baf_13958330",
+        "filename": "front_end/timeline/WebVitalsLane.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-22T10:20:55Z",
+      "side": 1,
+      "message": "Maybe throw in a comment explaining why these are here but not implemented? I\u0027m guessing to match the delegate pattern.",
+      "range": {
+        "startLine": 303,
+        "startChar": 2,
+        "endLine": 306,
+        "endChar": 3
+      },
+      "revId": "5e3323e13f8d953a5916dbe8772c30fb30e90b9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c10a207_de6fce14",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-22T10:20:55Z",
+      "side": 1,
+      "message": "Ah cool. Yeah we should use this in the other code which is currently using Helvetica Neue",
+      "range": {
+        "startLine": 295,
+        "startChar": 34,
+        "endLine": 295,
+        "endChar": 61
+      },
+      "revId": "5e3323e13f8d953a5916dbe8772c30fb30e90b9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
