@@ -401,6 +401,7 @@ export class CSSPlugin extends Plugin {
         subtitleRenderer: undefined,
         selectionRange: undefined,
         hideGhostText: undefined,
+        iconElement: undefined,
       };
     }));
   }
