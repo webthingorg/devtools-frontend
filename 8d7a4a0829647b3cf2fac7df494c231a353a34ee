@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "21ced94d_e6fbf8f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 42
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-23T18:02:16Z",
+      "side": 1,
+      "message": "I added them to the review.",
+      "parentUuid": "594d9675_3c44e6a0",
+      "revId": "8d7a4a0829647b3cf2fac7df494c231a353a34ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8f7ef664_28cc6c54",
@@ -31,6 +49,24 @@
       "writtenOn": "2020-10-23T09:49:52Z",
       "side": 1,
       "message": "nit: I feel like maybe to use `const` instead of `let` to declare `lastRequest` here, we\u0027re sacrificing some readability? If we were to do:\n```\nlet lastRequest \u003d null;\nif (Array.isArray(requests)) {\n  for (const request of requests) {\n    if (matches the conditions) {\n      lastRequest \u003d request;\n    }\n  }\n}\nif (lastRequest) {...}\n```\n\nOr if you want to stay with the functional side of JS, do you think maybe `.filter(conditions)` and `.pop()` would be cleaner? Maybes it\u0027s me but I sometimes find `.reduce` is not the most easily understood function.",
+      "revId": "8d7a4a0829647b3cf2fac7df494c231a353a34ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78d46999_cdd453b9",
+        "filename": "front_end/resources/ServiceWorkersView.js",
+        "patchSetId": 42
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-23T18:02:16Z",
+      "side": 1,
+      "message": "I wanted to do it in a functional way so I went with reduce, the only problem with using filter and pop would be it would iterate through the requests array twice. Once for filtering out the service worker intercepted requests and second one to find the actual last request fetched by service worker.\n\nThe suggested code would definitely work, it is more straightforward and imperative in nature than the declarative way I opted. I kind of like reduce 😊, however if you strongly feel against using reduce, let me know, I will change it.",
+      "parentUuid": "8f7ef664_28cc6c54",
       "revId": "8d7a4a0829647b3cf2fac7df494c231a353a34ee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e7162b3_5847f963",
+        "filename": "front_end/ui/InspectorView.js",
+        "patchSetId": 42
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-23T18:02:16Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "1f6bba3b_b3195abd",
+      "revId": "8d7a4a0829647b3cf2fac7df494c231a353a34ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cd4f3ae5_0a3a22d1",
@@ -65,6 +119,24 @@
       "writtenOn": "2020-10-23T09:49:52Z",
       "side": 1,
       "message": "Could we directly dispatch the `drawerchange` event here, instead of going through one level of indirection?",
+      "revId": "8d7a4a0829647b3cf2fac7df494c231a353a34ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35a5e5ab_0bc9255c",
+        "filename": "front_end/ui/InspectorView.js",
+        "patchSetId": 42
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-23T18:02:16Z",
+      "side": 1,
+      "message": "Having a common function would reduce repetition of code for dispatching events.",
+      "parentUuid": "cd4f3ae5_0a3a22d1",
       "revId": "8d7a4a0829647b3cf2fac7df494c231a353a34ee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
