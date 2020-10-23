@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c47a1ef_2e0cc00a",
+        "filename": "front_end/common/Settings.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1574,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-10-23T16:51:06Z",
+      "side": 1,
+      "message": "Some settings that appear in the settings tab don\u0027t have an order. For instance \u0027shortcutPanelSwitch\u0027. We might want to add an order to these ones when migrating anyways to keep the order in which they currently appear on screen intact.",
+      "range": {
+        "startLine": 1574,
+        "startChar": 5,
+        "endLine": 1574,
+        "endChar": 10
+      },
+      "revId": "08f4c1d31ae267b9753d9896fdbe9b3aa74e625a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
