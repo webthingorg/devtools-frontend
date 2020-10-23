@@ -1,10 +1,9 @@
 // Copyright 2014 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
-
 import * as Root from '../root/root.js';  // eslint-disable-line no-unused-vars
 
-import {LegacyActionRegistration} from './ActionRegistration.js';  // eslint-disable-line no-unused-vars
+import {ActionRegistrationInterface, getRegisteredActionExtensions, LegacyActionRegistration, PreRegisteredAction} from './ActionRegistration.js';  // eslint-disable-line no-unused-vars
 import {Context} from './Context.js';  // eslint-disable-line no-unused-vars
 
 /** @type {!ActionRegistry} */
@@ -15,7 +14,7 @@ export class ActionRegistry {
    * @private
    */
   constructor() {
-    /** @type {!Map.<string, !LegacyActionRegistration>} */
+    /** @type {!Map.<string, !ActionRegistrationInterface>} */
     this._actionsById = new Map();
     this._registerActions();
   }
@@ -33,6 +32,16 @@ export class ActionRegistry {
   }
 
   _registerActions() {
+    const registeredActionExtensions = getRegisteredActionExtensions();
+    for (let i = 0; i < registeredActionExtensions.length; ++i) {
+      const action = registeredActionExtensions[i];
+      this._actionsById.set(action.id(), action);
+      if (!action.canInstantiate()) {
+        action.setEnabled(false);
+      }
+    }
+    // This call is done for the legacy Actions in module.json
+    // TODO(crbug.com/X): Remove this call when all actions are migrated
     Root.Runtime.Runtime.instance().extensions('action').forEach(registerExtension, this);
 
     /**
@@ -60,14 +69,14 @@ export class ActionRegistry {
   }
 
   /**
-   * @return {!Array.<!LegacyActionRegistration>}
+   * @return {!Promise<!Array.<!ActionRegistrationInterface>>}
    */
-  availableActions() {
-    return this.applicableActions([...this._actionsById.keys()], Context.instance());
+  async availableActions() {
+    return await this.applicableActions([...this._actionsById.keys()], Context.instance());
   }
 
   /**
-   * @return {!Array.<!LegacyActionRegistration>}
+   * @return {!Array.<!ActionRegistrationInterface>}
    */
   actions() {
     return [...this._actionsById.values()];
@@ -76,17 +85,29 @@ export class ActionRegistry {
   /**
    * @param {!Array.<string>} actionIds
    * @param {!Context} context
-   * @return {!Array.<!LegacyActionRegistration>}
+   * @return {!Promise<!Array.<!ActionRegistrationInterface>>}
    */
-  applicableActions(actionIds, context) {
+  async applicableActions(actionIds, context) {
+    /** @type {!Array<!Root.Runtime.Extension>} */
     const extensions = [];
+    /** @type {!Array<!PreRegisteredAction>} */
+    const applicablePreRegisteredActions = [];
     for (const actionId of actionIds) {
       const action = this._actionsById.get(actionId);
       if (action && action.enabled()) {
-        extensions.push(action.extension());
+        if (action instanceof LegacyActionRegistration) {
+          // This call is done for the legacy Actions in module.json
+          // TODO(crbug.com/X): Remove this call when all actions are migrated
+          extensions.push(action.extension());
+        } else if (await isActionApplicableToContextTypes(
+                       /** @type {!PreRegisteredAction} */ (action), context.flavors())) {
+          applicablePreRegisteredActions.push(/** @type {!PreRegisteredAction} */ (action));
+        }
       }
     }
-    return [...context.applicableExtensions(extensions)].map(extensionToAction.bind(this));
+    const applicableActionExtensions = [...context.applicableExtensions(extensions)].map(extensionToAction.bind(this));
+
+    return [...applicableActionExtensions, ...applicablePreRegisteredActions];
 
     /**
      * @param {!Root.Runtime.Extension} extension
@@ -97,11 +118,28 @@ export class ActionRegistry {
       const actionId = /** @type {string} */ (extension.descriptor().actionId);
       return /** @type {!LegacyActionRegistration} */ (this.action(actionId));
     }
+
+    /**
+     * @param {!PreRegisteredAction} action
+     * @param {!Set.<function(new:Object, ...?):void>} currentContextTypes
+     * @return {!Promise<boolean>}
+     */
+    async function isActionApplicableToContextTypes(action, currentContextTypes) {
+      const contextTypes = await action.contextTypes();
+      for (let i = 0; i < contextTypes.length; ++i) {
+        const contextType = contextTypes[i];
+        const isMatching = !!contextType && currentContextTypes.has(contextType);
+        if (isMatching) {
+          return true;
+        }
+      }
+      return false;
+    }
   }
 
   /**
    * @param {string} actionId
-   * @return {?LegacyActionRegistration}
+   * @return {?ActionRegistrationInterface}
    */
   action(actionId) {
     return this._actionsById.get(actionId) || null;
