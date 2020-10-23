@@ -69,6 +69,24 @@
       "parentUuid": "d75aa158_1c75f2c7",
       "revId": "0021b6a229fddf44ea581cc5c6c905f0342e3048",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0bd1a50_9d81d07a",
+        "filename": "front_end/browser_debugger/XHRBreakpointsSidebarPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-23T08:49:20Z",
+      "side": 1,
+      "message": "Yes, I tried to find usages. The element the URL was set on is not exposed anywhere (it seems). I have verified that the panel still works. Since _url is quite common it\u0027s hard to say if none of the usages actually refer to it. I guess it might be accessed by some layout tests? So I hope dry run will catch it. Otherwise, it looks like it\u0027s not used.",
+      "parentUuid": "20d5cb6d_736388b2",
+      "revId": "0021b6a229fddf44ea581cc5c6c905f0342e3048",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
