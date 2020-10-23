@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "594d9675_3c44e6a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 42
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-23T09:49:52Z",
+      "side": 1,
+      "message": "Generally LGTM. I\u0027ll defer the review of feature-related logic to Benediktand Paul, who LGTM\u0027ed the explainer.",
+      "revId": "8d7a4a0829647b3cf2fac7df494c231a353a34ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f7ef664_28cc6c54",
+        "filename": "front_end/resources/ServiceWorkersView.js",
+        "patchSetId": 42
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-23T09:49:52Z",
+      "side": 1,
+      "message": "nit: I feel like maybe to use `const` instead of `let` to declare `lastRequest` here, we\u0027re sacrificing some readability? If we were to do:\n```\nlet lastRequest \u003d null;\nif (Array.isArray(requests)) {\n  for (const request of requests) {\n    if (matches the conditions) {\n      lastRequest \u003d request;\n    }\n  }\n}\nif (lastRequest) {...}\n```\n\nOr if you want to stay with the functional side of JS, do you think maybe `.filter(conditions)` and `.pop()` would be cleaner? Maybes it\u0027s me but I sometimes find `.reduce` is not the most easily understood function.",
+      "revId": "8d7a4a0829647b3cf2fac7df494c231a353a34ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f6bba3b_b3195abd",
+        "filename": "front_end/ui/InspectorView.js",
+        "patchSetId": 42
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-23T09:49:52Z",
+      "side": 1,
+      "message": "Could we directly call `document.body.dispatchEvent(...)` here, instead of using this internal `Common.EventTarget.fireEvent`? It seems like this helper is not widely used, and it doesn\u0027t provide much help, except hard-coding some event parameters.",
+      "revId": "8d7a4a0829647b3cf2fac7df494c231a353a34ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd4f3ae5_0a3a22d1",
+        "filename": "front_end/ui/InspectorView.js",
+        "patchSetId": 42
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-23T09:49:52Z",
+      "side": 1,
+      "message": "Could we directly dispatch the `drawerchange` event here, instead of going through one level of indirection?",
+      "revId": "8d7a4a0829647b3cf2fac7df494c231a353a34ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
