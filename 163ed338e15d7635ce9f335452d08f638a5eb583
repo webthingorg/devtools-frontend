@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b0c26fb8_24e90876",
+        "filename": "front_end/elements/CSSPropertyIconResolver.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-23T13:19:04Z",
+      "side": 1,
+      "message": "Thanks, I will address it in the next CL.",
+      "parentUuid": "f6826fc6_e3cb00d0",
+      "range": {
+        "startLine": 17,
+        "startChar": 1,
+        "endLine": 42,
+        "endChar": 3
+      },
+      "revId": "163ed338e15d7635ce9f335452d08f638a5eb583",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1b29cf22_05939649",
         "filename": "front_end/elements/StylesSidebarPane.js",
         "patchSetId": 12
