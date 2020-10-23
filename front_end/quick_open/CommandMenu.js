@@ -48,17 +48,17 @@ export class CommandMenu {
   }
 
   /**
-   * @param {!Root.Runtime.Extension} extension
+   * @param {!{category: (string|null), tags: (string|null), reloadRequired: (boolean|null), settingName: string}} extension
    * @param {string} title
    * @param {V} value
    * @return {!Command}
    * @template V
    */
   static createSettingCommand(extension, title, value) {
-    const category = extension.descriptor()['category'] || '';
-    const tags = extension.descriptor()['tags'] || '';
-    const reloadRequired = !!extension.descriptor()['reloadRequired'];
-    const setting = Common.Settings.Settings.instance().moduleSetting(extension.descriptor()['settingName']);
+    const category = extension.category || '';
+    const tags = extension.tags || '';
+    const reloadRequired = !!extension.reloadRequired;
+    const setting = Common.Settings.Settings.instance().moduleSetting(extension.settingName);
     return CommandMenu.createCommand({
       category: ls(category),
       keys: tags,
@@ -123,6 +123,7 @@ export class CommandMenu {
   }
 
   _loadCommands() {
+    // TODO(crbug.com/X): replace this implementation for the one on _loadCommandsFromPreRegisteredExtensions once all settings have been migrated.
     const locations = new Map();
     Root.Runtime.Runtime.instance().extensions(UI.View.ViewLocationResolver).forEach(extension => {
       const category = extension.descriptor()['category'];
@@ -146,11 +147,38 @@ export class CommandMenu {
     // Populate allowlisted settings.
     const settingExtensions = Root.Runtime.Runtime.instance().extensions('setting');
     for (const extension of settingExtensions) {
-      const options = extension.descriptor()['options'];
-      if (!options || !extension.descriptor()['category']) {
+      const descriptor = extension.descriptor();
+      const options = descriptor.options;
+      if (!options || !descriptor.category) {
         continue;
       }
       for (const pair of options) {
+        const extension = {
+          category: descriptor.category,
+          tags: descriptor.tags,
+          reloadRequired: descriptor.reloadRequired || null,
+          settingName: descriptor.settingName,
+        };
+        this._commands.push(CommandMenu.createSettingCommand(extension, ls(pair['title']), pair['value']));
+      }
+    }
+    this._loadCommandsFromPreRegisteredExtensions();
+  }
+
+  _loadCommandsFromPreRegisteredExtensions() {
+    const settings = Common.Settings.getRegisteredSettings();
+    for (const setting of settings) {
+      const options = setting.options;
+      if (!options || !setting.category) {
+        continue;
+      }
+      for (const pair of options) {
+        const extension = {
+          category: setting.category,
+          tags: setting.tags || null,
+          reloadRequired: setting.reloadRequired || null,
+          settingName: setting.settingName,
+        };
         this._commands.push(CommandMenu.createSettingCommand(extension, ls(pair['title']), pair['value']));
       }
     }
