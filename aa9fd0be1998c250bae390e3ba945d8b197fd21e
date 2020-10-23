@@ -16,6 +16,23 @@
       "message": "I\u0027ll add some unit tests to the newly added utility functions. Feel free to take a look at the implementation now.",
       "revId": "aa9fd0be1998c250bae390e3ba945d8b197fd21e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6dcdae1c_b07b27a1",
+        "filename": "front_end/elements/CSSAngleUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-23T14:01:04Z",
+      "side": 1,
+      "message": "I just realised: we already have a few functions dealing with angles in ui/Geometry. I believe there is some overlap with functions here. Should we re-use?",
+      "revId": "aa9fd0be1998c250bae390e3ba945d8b197fd21e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
