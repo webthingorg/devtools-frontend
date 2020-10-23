@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Common from '../common/common.js';
 import {ls} from '../platform/platform.js';
 import * as Root from '../root/root.js';
 import * as UI from '../ui/ui.js';
@@ -51,4 +52,20 @@ UI.ActionRegistration.registerActionExtension({
   tags: undefined,
   toggleable: undefined,
   options: undefined,
+});
+
+Common.Settings.registerSettingExtension({
+  category: Common.Settings.SettingCategory.ELEMENTS,
+  order: 1,
+  title: ls`Show user agent shadow DOM`,
+  settingName: 'showUAShadowDOM',
+  settingType: Common.Settings.SettingType.BOOLEAN,
+  defaultValue: false,
+  tags: undefined,
+  isRegex: undefined,
+  options: undefined,
+  reloadRequired: undefined,
+  storageType: undefined,
+  titleMac: undefined,
+  userActionCondition: undefined,
 });

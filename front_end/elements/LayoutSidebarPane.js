@@ -107,20 +107,15 @@ export class LayoutSidebarPane extends UI.ThrottledWidget.ThrottledWidget {
     return this._settings
         .map(settingName => {
           const setting = Common.Settings.Settings.instance().moduleSetting(settingName);
-          const ext = setting.extension();
-          if (!ext) {
-            return null;
-          }
-          const descriptor = ext.descriptor();
           return {
-            type: descriptor.settingType,
-            name: descriptor.settingName,
-            title: ls(descriptor.title),
+            type: setting.type(),
+            name: setting.name(),
+            title: ls(setting.title()),
             value: setting.get(),
-            options: descriptor.options.map(opt => ({
-                                              title: ls(opt.title),
-                                              value: opt.value,
-                                            }))
+            options: setting.options().map(opt => ({
+                                             title: ls(opt.title),
+                                             value: opt.value,
+                                           }))
           };
         })
         .filter(descriptor => descriptor !== null);
