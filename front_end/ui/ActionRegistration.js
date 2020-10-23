@@ -41,6 +41,106 @@ class ActionRuntimeExtensionDescriptor extends  // eslint-disable-line no-unused
   }
 }
 
+/**
+ * @interface
+ */
+export class ActionRegistrationInterface {
+  /**
+   * @return {string}
+   */
+  id() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @override
+   * @return {!Promise.<boolean>}
+   */
+  async execute() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @return {string|undefined}
+   */
+  icon() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @return {string|undefined}
+   */
+  toggledIcon() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @return {boolean}
+   */
+  toggleWithRedColor() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @param {boolean} enabled
+   */
+  setEnabled(enabled) {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @return {boolean}
+   */
+  enabled() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @return {string}
+   */
+  category() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @return {string|undefined}
+   */
+  tags() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @return {boolean}
+   */
+  toggleable() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @return {string|undefined}
+   */
+  title() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @return {boolean}
+   */
+  toggled() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @param {boolean} toggled
+   */
+  setToggled(toggled) {
+    throw new Error('not implemented');
+  }
+}
+
+/**
+ * @implements {ActionRegistrationInterface}
+ */
 export class LegacyActionRegistration extends Common.ObjectWrapper.ObjectWrapper {
   /**
    * @param {!Root.Runtime.Extension} extension
@@ -55,6 +155,7 @@ export class LegacyActionRegistration extends Common.ObjectWrapper.ObjectWrapper
   }
 
   /**
+   * @override
    * @return {string}
    */
   id() {
@@ -69,6 +170,7 @@ export class LegacyActionRegistration extends Common.ObjectWrapper.ObjectWrapper
   }
 
   /**
+   * @override
    * @return {!Promise.<boolean>}
    */
   async execute() {
@@ -81,6 +183,7 @@ export class LegacyActionRegistration extends Common.ObjectWrapper.ObjectWrapper
   }
 
   /**
+   * @override
    * @return {string}
    */
   icon() {
@@ -88,6 +191,7 @@ export class LegacyActionRegistration extends Common.ObjectWrapper.ObjectWrapper
   }
 
   /**
+   * @override
    * @return {string}
    */
   toggledIcon() {
@@ -95,6 +199,7 @@ export class LegacyActionRegistration extends Common.ObjectWrapper.ObjectWrapper
   }
 
   /**
+   * @override
    * @return {boolean}
    */
   toggleWithRedColor() {
@@ -102,6 +207,7 @@ export class LegacyActionRegistration extends Common.ObjectWrapper.ObjectWrapper
   }
 
   /**
+   * @override
    * @param {boolean} enabled
    */
   setEnabled(enabled) {
@@ -114,6 +220,7 @@ export class LegacyActionRegistration extends Common.ObjectWrapper.ObjectWrapper
   }
 
   /**
+   * @override
    * @return {boolean}
    */
   enabled() {
@@ -121,6 +228,7 @@ export class LegacyActionRegistration extends Common.ObjectWrapper.ObjectWrapper
   }
 
   /**
+   * @override
    * @return {string}
    */
   category() {
@@ -128,6 +236,7 @@ export class LegacyActionRegistration extends Common.ObjectWrapper.ObjectWrapper
   }
 
   /**
+   * @override
    * @return {string}
    */
   tags() {
@@ -135,6 +244,7 @@ export class LegacyActionRegistration extends Common.ObjectWrapper.ObjectWrapper
   }
 
   /**
+   * @override
    * @return {boolean}
    */
   toggleable() {
@@ -142,6 +252,7 @@ export class LegacyActionRegistration extends Common.ObjectWrapper.ObjectWrapper
   }
 
   /**
+   * @override
    * @return {string}
    */
   title() {
@@ -158,6 +269,7 @@ export class LegacyActionRegistration extends Common.ObjectWrapper.ObjectWrapper
   }
 
   /**
+   * @override
    * @return {boolean}
    */
   toggled() {
@@ -165,6 +277,7 @@ export class LegacyActionRegistration extends Common.ObjectWrapper.ObjectWrapper
   }
 
   /**
+   * @override
    * @param {boolean} toggled
    */
   setToggled(toggled) {
@@ -185,12 +298,6 @@ export class LegacyActionRegistration extends Common.ObjectWrapper.ObjectWrapper
   }
 }
 
-/** @enum {symbol} */
-export const Events = {
-  Enabled: Symbol('Enabled'),
-  Toggled: Symbol('Toggled')
-};
-
 /**
  * @interface
  */
@@ -204,3 +311,289 @@ export class ActionDelegate {
     throw new Error('not implemented');
   }
 }
+
+/**
+ * @implements {ActionRegistrationInterface}
+ */
+export class PreRegisteredAction extends Common.ObjectWrapper.ObjectWrapper {
+  /**
+   * @param {!ActionRegistration} actionRegistration
+   */
+  constructor(actionRegistration) {
+    super();
+    this._actionRegistration = actionRegistration;
+    /** @type {boolean} */
+    this._enabled = true;
+    /** @type {boolean} */
+    this._toggled = false;
+  }
+
+  /**
+   * @override
+   * @return {string}
+   */
+  id() {
+    return this._actionRegistration.actionId;
+  }
+
+  /**
+   * @override
+   * @return {!Promise<boolean>}
+   */
+  async execute() {
+    if (!this._actionRegistration.loadActionDelegate) {
+      return false;
+    }
+    const delegate = /** @type {!ActionDelegate} */ (await this._actionRegistration.loadActionDelegate());
+    const actionId = this.id();
+    return delegate.handleAction(Context.instance(), actionId);
+  }
+
+  /**
+   * @override
+   * @return {string|undefined}
+   */
+  icon() {
+    return this._actionRegistration.iconClass;
+  }
+
+  /**
+   * @override
+   * @return {string|undefined}
+   */
+  toggledIcon() {
+    return this._actionRegistration.toggledIconClass;
+  }
+
+  /**
+   * @override
+   * @return {boolean}
+   */
+  toggleWithRedColor() {
+    return !!this._actionRegistration.toggleWithRedColor;
+  }
+
+  /**
+   * @override
+   * @param {boolean} enabled
+   */
+  setEnabled(enabled) {
+    if (this._enabled === enabled) {
+      return;
+    }
+
+    this._enabled = enabled;
+    this.dispatchEventToListeners(Events.Enabled, enabled);
+  }
+
+  /**
+   * @override
+   * @return {boolean}
+   */
+  enabled() {
+    return this._enabled;
+  }
+
+  /**
+   * @override
+   * @return {string}
+   */
+  category() {
+    return this._actionRegistration.category;
+  }
+
+  /**
+   * @override
+   * @return {string|undefined}
+   */
+  tags() {
+    return this._actionRegistration.tags;
+  }
+
+  /**
+   * @override
+   * @return {boolean}
+   */
+  toggleable() {
+    return !!this._actionRegistration.toggleable;
+  }
+
+  /**
+   * @override
+   * @return {string|undefined}
+   */
+  title() {
+    let title = this._actionRegistration.title;
+    const options = this._actionRegistration.options;
+    if (options) {
+      // Actions with an 'options' property don't have a title field. Instead, the displayed
+      // title is taken from the 'title' property of the option that is not active. Only one of the
+      // two options can be active at a given moment and the 'toggled' property of the action along
+      // with the 'value' of the options are used to determine which one it is.
+
+      for (const pair of options) {
+        if (pair.value !== this._toggled) {
+          title = pair.title;
+        }
+      }
+    }
+    return title;
+  }
+
+  /**
+   * @override
+   * @return {boolean}
+   */
+  toggled() {
+    return this._toggled;
+  }
+
+  /**
+   * @override
+   * @param {boolean} toggled
+   */
+  setToggled(toggled) {
+    console.assert(this.toggleable(), 'Shouldn\'t be toggling an untoggleable action', this.id());
+    if (this._toggled === toggled) {
+      return;
+    }
+
+    this._toggled = toggled;
+    this.dispatchEventToListeners(Events.Toggled, toggled);
+  }
+
+  /**
+   * @return {undefined|!Array<!ExtensionOption>}
+   */
+  options() {
+    return this._actionRegistration.options;
+  }
+
+  /**
+   * @return {!Promise<!Array<function(new:Object, ...*):void>>}
+   */
+  async contextTypes() {
+    if (!this._actionRegistration.loadContextTypes) {
+      return [];
+    }
+    return await this._actionRegistration.loadContextTypes();
+  }
+
+  /**
+   * @return {boolean}
+   */
+  canInstantiate() {
+    return !!this._actionRegistration.loadActionDelegate;
+  }
+
+  /**
+   * @return {!Array<!Binding>|undefined}
+   */
+  bindings() {
+    return this._actionRegistration.bindings;
+  }
+}
+
+/** @type {!Array<!PreRegisteredAction>} */
+const registeredActionExtensions = [];
+
+/** @type {!Map<string,!Set<string>>} */
+const shortcutsByPlatformMap = new Map();
+
+/** @type {!Set<string>} */
+const actionIdSet = new Set();
+
+/**
+ * @enum {string}
+ */
+export const Platform = {
+  All: 'All platforms',
+  Mac: 'mac',
+  WindowsLinux: 'windows,linux',
+  Android: 'Android',
+};
+
+/**
+ * @param {!ActionRegistration} registration
+ */
+export function registerActionExtension(registration) {
+  const preRegisteredAction = new PreRegisteredAction(registration);
+  const actionId = preRegisteredAction.id();
+  if (actionIdSet.has(actionId)) {
+    console.error(`Duplicate Action id '${actionId}'`);
+    return;
+  }
+  const bindings = preRegisteredAction.bindings();
+  for (let i = 0; bindings && i < bindings.length; i++) {
+    const shortcut = bindings[i].shortcut;
+    const platform = bindings[i].platform || Platform.All;
+    const currentPlatformShortcuts = shortcutsByPlatformMap.get(platform) || new Set();
+    const allPlatformsShortcuts = shortcutsByPlatformMap.get(Platform.All) || new Set();
+    if (allPlatformsShortcuts.has(shortcut) || currentPlatformShortcuts.has(shortcut)) {
+      console.error(`Duplicate shortcut binding for shortcut '${shortcut}' on platform '${platform}'`);
+      continue;
+    }
+    currentPlatformShortcuts.add(shortcut);
+    shortcutsByPlatformMap.set(platform, currentPlatformShortcuts);
+  }
+  registeredActionExtensions.push(preRegisteredAction);
+}
+
+/**
+ * @return {!Array.<!PreRegisteredAction>}
+ */
+export function getRegisteredActionExtensions() {
+  return registeredActionExtensions;
+}
+
+
+/** @enum {symbol} */
+export const Events = {
+  Enabled: Symbol('Enabled'),
+  Toggled: Symbol('Toggled')
+};
+
+/** @enum {string} */
+export const ActionCategory = {
+  ELEMENTS: ls`Elements`
+};
+
+
+/**
+ * @typedef {{
+  *  value: boolean,
+  *  title: string,
+  *  text: (string|undefined),
+  * }}
+  */
+// @ts-ignore typedef
+export let ExtensionOption;
+
+/**
+ * @typedef {{
+  *  platform: (Platform|undefined),
+  *  shortcut: string,
+  *  keybindSets: (!Array<string>|undefined),
+  * }}
+  */
+// @ts-ignore typedef
+export let Binding;
+
+/**
+ * @typedef {{
+  *  actionId: string,
+  *  category: !ActionCategory,
+  *  title: (string|undefined),
+  *  iconClass: (string|undefined),
+  *  toggledIconClass: (string|undefined),
+  *  toggleWithRedColor: (boolean|undefined),
+  *  tags: (string|undefined),
+  *  toggleable: (boolean|undefined),
+  *  loadActionDelegate: (undefined|function():!Promise<ActionDelegate>),
+  *  options: (undefined|!Array<!ExtensionOption>),
+  *  loadContextTypes: (undefined|function():!Promise<!Array<function(new:Object, ...*):void>>),
+  *  bindings: (!Array<!Binding>|undefined)
+  * }}
+  */
+// @ts-ignore typedef
+export let ActionRegistration;
