@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6826fc6_e3cb00d0",
+        "filename": "front_end/elements/CSSPropertyIconResolver.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-23T12:55:25Z",
+      "side": 1,
+      "message": "We don\u0027t have to do this now, but it would be good to extract this into a helper function. Something like getFlexDirections(computedStyles) which returns the actual physical directions for the main and cross axes. This way the flexDirectionRowIcon, and all other flex-related icon functions in the future will be able to use it.",
+      "range": {
+        "startLine": 17,
+        "startChar": 1,
+        "endLine": 42,
+        "endChar": 3
+      },
+      "revId": "163ed338e15d7635ce9f335452d08f638a5eb583",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b29cf22_05939649",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 2646,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-23T12:55:25Z",
+      "side": 1,
+      "message": "nit: storing this as a const somewhere else might make sense (if we really can\u0027t have those defined in CSS). In fact this could be an exported const on the icon resolver module.",
+      "range": {
+        "startLine": 2645,
+        "startChar": 8,
+        "endLine": 2646,
+        "endChar": 30
+      },
+      "revId": "163ed338e15d7635ce9f335452d08f638a5eb583",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
