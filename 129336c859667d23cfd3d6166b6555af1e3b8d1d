@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3410c47_21ba0c0c",
+        "filename": "front_end/mobile_throttling/ThrottlingSettingsTab.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-10-23T08:37:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7a2b3fd_dc6c0117",
+      "range": {
+        "startLine": 265,
+        "startChar": 41,
+        "endLine": 265,
+        "endChar": 45
+      },
+      "revId": "129336c859667d23cfd3d6166b6555af1e3b8d1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "57de551b_ffdcaa58",
@@ -71,6 +95,30 @@
       "writtenOn": "2020-10-21T11:52:20Z",
       "side": 1,
       "message": "MB/s",
+      "range": {
+        "startLine": 268,
+        "startChar": 43,
+        "endLine": 268,
+        "endChar": 47
+      },
+      "revId": "129336c859667d23cfd3d6166b6555af1e3b8d1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23886a9c_e1a273ac",
+        "filename": "front_end/mobile_throttling/ThrottlingSettingsTab.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-10-23T08:37:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57de551b_ffdcaa58",
       "range": {
         "startLine": 268,
         "startChar": 43,
@@ -104,6 +152,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a2e7e5c_5c3d501c",
+        "filename": "front_end/mobile_throttling/ThrottlingSettingsTab.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-10-23T08:37:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72681cfb_333ee48e",
+      "range": {
+        "startLine": 270,
+        "startChar": 39,
+        "endLine": 270,
+        "endChar": 43
+      },
+      "revId": "129336c859667d23cfd3d6166b6555af1e3b8d1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dc5d3c19_48b4bce1",
@@ -117,6 +189,24 @@
       "writtenOn": "2020-10-21T11:52:20Z",
       "side": 1,
       "message": "Hmm, I realize this is not new code in this CL (just moved around), but is this correct? I think \u003cex\u003e is supposed to contain an example value, to help translators understand the context. Am I misunderstanding?",
+      "revId": "129336c859667d23cfd3d6166b6555af1e3b8d1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c89c4b42_5309d156",
+        "filename": "front_end/timeline/timeline_strings.grdp",
+        "patchSetId": 5
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-10-23T08:37:43Z",
+      "side": 1,
+      "message": "You\u0027re right, the example is messed up. Fixed it for a few other occurrences as well.",
+      "parentUuid": "dc5d3c19_48b4bce1",
       "revId": "129336c859667d23cfd3d6166b6555af1e3b8d1d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
