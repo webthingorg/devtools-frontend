@@ -249,6 +249,8 @@ export class ServiceWorkerManager extends SDKModel {
       if (!registration) {
         continue;
       }
+
+      this._dispatchVersionUpdateEventIfNecessary(registration, payload);
       registration._updateVersion(payload);
       registrations.add(registration);
     }
@@ -259,6 +261,26 @@ export class ServiceWorkerManager extends SDKModel {
       } else {
         this.dispatchEventToListeners(Events.RegistrationUpdated, registration);
       }
+    }
+  }
+
+  /**
+   * @param {!ServiceWorkerRegistration} registration
+   * @param {!Protocol.ServiceWorker.ServiceWorkerVersion} payload
+   */
+  _dispatchVersionUpdateEventIfNecessary(registration, payload) {
+    let version = registration.versions.get(payload.versionId);
+    if (!version) {
+      registration.OnNewVersion();
+      return;
+    }
+
+    if (payload.status === Protocol.ServiceWorker.ServiceWorkerVersionStatus.Installed && version.isInstalling()) {
+      this.dispatchEventToListeners(Events.VersionInstalled, {registration});
+    }
+
+    if (payload.status === Protocol.ServiceWorker.ServiceWorkerVersionStatus.Activated && version.isActivating()) {
+      this.dispatchEventToListeners(Events.VersionActivated, {registration});
     }
   }
 
@@ -291,7 +313,9 @@ export class ServiceWorkerManager extends SDKModel {
 export const Events = {
   RegistrationUpdated: Symbol('RegistrationUpdated'),
   RegistrationErrorAdded: Symbol('RegistrationErrorAdded'),
-  RegistrationDeleted: Symbol('RegistrationDeleted')
+  RegistrationDeleted: Symbol('RegistrationDeleted'),
+  VersionInstalled: Symbol('VersionInstalled'),
+  VersionActivated: Symbol('VersionActivated'),
 };
 
 /**
@@ -335,6 +359,22 @@ class ServiceWorkerDispatcher {
   }
 }
 
+export class ServiceWorkerVersionState {
+  /**
+   *
+   * @param {!Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus} runningStatus
+   * @param {!Protocol.ServiceWorker.ServiceWorkerVersionStatus} status
+   * @param {?number} timestamp
+   * @param {?ServiceWorkerVersionState} previousState;
+   */
+  constructor(runningStatus, status, timestamp, previousState) {
+    this.runningStatus = runningStatus;
+    this.status = status;
+    this.timestamp = timestamp;
+    this.previousState = previousState;
+  }
+}
+
 export class ServiceWorkerVersion {
   /**
    * @param {!ServiceWorkerRegistration} registration
@@ -345,12 +385,11 @@ export class ServiceWorkerVersion {
     /** @type {string} */ this.scriptURL;
     /** @type {!Common.ParsedURL.ParsedURL} */ this.parsedURL;
     /** @type {string} */ this.securityOrigin;
-    /** @type {!Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus} */ this.runningStatus;
-    /** @type {!Protocol.ServiceWorker.ServiceWorkerVersionStatus} */ this.status;
     /** @type {number|undefined} */ this.scriptLastModified;
     /** @type {number|undefined} */ this.scriptResponseTime;
     /** @type {!Array<!Protocol.Target.TargetID>} */ this.controlledClients;
     /** @type {?Protocol.Target.TargetID} */ this.targetId;
+    /** @type {!ServiceWorkerVersionState} */ this.currentState;
     this.registration = registration;
     this._update(payload);
   }
@@ -359,12 +398,13 @@ export class ServiceWorkerVersion {
    * @param {!Protocol.ServiceWorker.ServiceWorkerVersion} payload
    */
   _update(payload) {
+    this.previousState = this.currentState;
     this.id = payload.versionId;
     this.scriptURL = payload.scriptURL;
     const parsedURL = new Common.ParsedURL.ParsedURL(payload.scriptURL);
     this.securityOrigin = parsedURL.securityOrigin();
-    this.runningStatus = payload.runningStatus;
-    this.status = payload.status;
+    this.currentState =
+        new ServiceWorkerVersionState(payload.runningStatus, payload.status, Date.now(), this.currentState);
     this.scriptLastModified = payload.scriptLastModified;
     this.scriptResponseTime = payload.scriptResponseTime;
     if (payload.controlledClients) {
@@ -386,78 +426,92 @@ export class ServiceWorkerVersion {
    * @return {boolean}
    */
   isStoppedAndRedundant() {
-    return this.runningStatus === Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus.Stopped &&
-        this.status === Protocol.ServiceWorker.ServiceWorkerVersionStatus.Redundant;
+    return this.runningStatus() === Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus.Stopped &&
+        this.status() === Protocol.ServiceWorker.ServiceWorkerVersionStatus.Redundant;
   }
 
   /**
    * @return {boolean}
    */
   isStopped() {
-    return this.runningStatus === Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus.Stopped;
+    return this.runningStatus() === Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus.Stopped;
   }
 
   /**
    * @return {boolean}
    */
   isStarting() {
-    return this.runningStatus === Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus.Starting;
+    return this.runningStatus() === Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus.Starting;
   }
 
   /**
    * @return {boolean}
    */
   isRunning() {
-    return this.runningStatus === Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus.Running;
+    return this.runningStatus() === Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus.Running;
   }
 
   /**
    * @return {boolean}
    */
   isStopping() {
-    return this.runningStatus === Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus.Stopping;
+    return this.runningStatus() === Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus.Stopping;
   }
 
   /**
    * @return {boolean}
    */
   isNew() {
-    return this.status === Protocol.ServiceWorker.ServiceWorkerVersionStatus.New;
+    return this.status() === Protocol.ServiceWorker.ServiceWorkerVersionStatus.New;
   }
 
   /**
    * @return {boolean}
    */
   isInstalling() {
-    return this.status === Protocol.ServiceWorker.ServiceWorkerVersionStatus.Installing;
+    return this.status() === Protocol.ServiceWorker.ServiceWorkerVersionStatus.Installing;
   }
 
   /**
    * @return {boolean}
    */
   isInstalled() {
-    return this.status === Protocol.ServiceWorker.ServiceWorkerVersionStatus.Installed;
+    return this.status() === Protocol.ServiceWorker.ServiceWorkerVersionStatus.Installed;
   }
 
   /**
    * @return {boolean}
    */
   isActivating() {
-    return this.status === Protocol.ServiceWorker.ServiceWorkerVersionStatus.Activating;
+    return this.status() === Protocol.ServiceWorker.ServiceWorkerVersionStatus.Activating;
   }
 
   /**
    * @return {boolean}
    */
   isActivated() {
-    return this.status === Protocol.ServiceWorker.ServiceWorkerVersionStatus.Activated;
+    return this.status() === Protocol.ServiceWorker.ServiceWorkerVersionStatus.Activated;
   }
 
   /**
    * @return {boolean}
    */
   isRedundant() {
-    return this.status === Protocol.ServiceWorker.ServiceWorkerVersionStatus.Redundant;
+    return this.status() === Protocol.ServiceWorker.ServiceWorkerVersionStatus.Redundant;
+  }
+
+  /**
+   * @returns {!Protocol.ServiceWorker.ServiceWorkerVersionStatus}
+   */
+  status() {
+    return this.currentState.status;
+  }
+
+  /**
+   * @returns {!Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus}
+   */
+  runningStatus() {
+    return this.currentState.runningStatus;
   }
 
   /**
@@ -525,6 +579,11 @@ export class ServiceWorkerRegistration {
     this._deleting = false;
     /** @type {!Array<!Protocol.ServiceWorker.ServiceWorkerErrorMessage>} */
     this.errors = [];
+
+    /** @type {!Array<!Protocol.CacheStorage.DataEntry>} */
+    this._cacheEntriesInstallation = [];
+    /** @type {!Array<!Protocol.CacheStorage.DataEntry>} */
+    this._cacheEntriesActivation = [];
   }
 
   /**
@@ -556,6 +615,27 @@ export class ServiceWorkerRegistration {
       result.set(version.mode(), version);
     }
     return result;
+  }
+
+  OnNewVersion() {
+    this._cacheEntriesInstallation = [];
+    this._cacheEntriesActivation = [];
+  }
+
+  /**
+   *
+   * @param {!Protocol.CacheStorage.DataEntry []} entries
+   */
+  AddCacheEntriesInstallation(entries) {
+    this._cacheEntriesInstallation = this._cacheEntriesInstallation.concat(entries);
+  }
+
+  /**
+   *
+   * @param {!Protocol.CacheStorage.DataEntry []} entries
+   */
+  AddCacheEntriesActivation(entries) {
+    this._cacheEntriesActivation = this._cacheEntriesInstallation.concat(entries);
   }
 
   /**
@@ -688,7 +768,7 @@ class ServiceWorkerContextNamer {
     }
     const parsedUrl = Common.ParsedURL.ParsedURL.fromString(context.origin);
     const label = parsedUrl ? parsedUrl.lastPathComponentWithFragment() : context.name;
-    const localizedStatus = ServiceWorkerVersion.Status[version.status];
+    const localizedStatus = ServiceWorkerVersion.Status[version.status()];
     context.setLabel(ls`${label} #${version.id} (${localizedStatus})`);
   }
 }

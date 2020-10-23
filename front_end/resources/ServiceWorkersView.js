@@ -10,6 +10,7 @@ import * as Components from '../components/components.js';
 import * as MobileThrottling from '../mobile_throttling/mobile_throttling.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
+import {ServiceWorkerUpdateCycleView} from './ServiceWorkerUpdateCycleView.js';
 
 /**
  * @implements {SDK.SDKModel.SDKModelObserver<!SDK.ServiceWorkerManager.ServiceWorkerManager>}
@@ -37,6 +38,8 @@ export class ServiceWorkersView extends UI.Widget.VBox {
     this._manager = null;
     /** @type {?SDK.SecurityOriginManager.SecurityOriginManager} */
     this._securityOriginManager = null;
+    /** @type {?SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel} */
+    this._cacheModel = null;
 
     const othersDiv = this.contentElement.createChild('div', 'service-workers-other-origin');
     const othersView = new UI.ReportView.ReportView();
@@ -83,12 +86,15 @@ export class ServiceWorkersView extends UI.Widget.VBox {
     }
     this._manager = serviceWorkerManager;
     this._securityOriginManager = serviceWorkerManager.target().model(SDK.SecurityOriginManager.SecurityOriginManager);
+    this._cacheModel = serviceWorkerManager.target().model(SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel);
 
     for (const registration of this._manager.registrations().values()) {
       this._updateRegistration(registration);
     }
 
     this._eventListeners.set(serviceWorkerManager, [
+      this._manager.addEventListener(SDK.ServiceWorkerManager.Events.VersionInstalled, this._versionInstalled, this),
+      this._manager.addEventListener(SDK.ServiceWorkerManager.Events.VersionActivated, this._versionActivated, this),
       this._manager.addEventListener(
           SDK.ServiceWorkerManager.Events.RegistrationUpdated, this._registrationUpdated, this),
       this._manager.addEventListener(
@@ -187,6 +193,32 @@ export class ServiceWorkersView extends UI.Widget.VBox {
     const registration = /** @type {!SDK.ServiceWorkerManager.ServiceWorkerRegistration} */ (event.data);
     this._updateRegistration(registration);
     this._gcRegistrations();
+  }
+
+  /**
+   * @param {!Common.EventTarget.EventTargetEvent} event
+   */
+  _versionInstalled(event) {
+    const registration = /** @type {!SDK.ServiceWorkerManager.ServiceWorkerRegistration} */ (event.data);
+    const caches = this._cacheModel.caches();
+    for (cache of caches) {
+      this._cacheModel.loadAllCacheData(cache, '', (entries, num) => {
+        registration.AddCacheEntriesInstallation(entries);
+      });
+    }
+  }
+
+  /**
+   * @param {!Common.EventTarget.EventTargetEvent} event
+   */
+  _versionActivated(event) {
+    const registration = /** @type {!SDK.ServiceWorkerManager.ServiceWorkerRegistration} */ (event.data);
+    const caches = this._cacheModel.caches();
+    for (cache of caches) {
+      this._cacheModel.loadAllCacheData(cache, '', (entries, num) => {
+        registration.AddCacheEntriesActivation(entries);
+      });
+    }
   }
 
   _gcRegistrations() {
@@ -309,6 +341,12 @@ export class Section {
 
     this._toolbar = section.createToolbar();
     this._toolbar.renderAsLinks();
+
+    this._updateView = new ServiceWorkerUpdateCycleView(manager, registration);
+    this._showDetailsButton = new UI.Toolbar.ToolbarButton(
+        Common.UIString.UIString('Details'), undefined, Common.UIString.UIString('Details'));
+    //this._showDetailsButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._showDetailsClicked, this);
+    this._toolbar.appendToolbarItem(this._showDetailsButton);
     this._updateButton =
         new UI.Toolbar.ToolbarButton(Common.UIString.UIString('Update'), undefined, Common.UIString.UIString('Update'));
     this._updateButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._updateButtonClicked, this);
@@ -331,6 +369,7 @@ export class Section {
     this._createSyncNotificationField(
         ls`Periodic Sync`, this._periodicSyncTagNameSetting.get(), ls`Periodic Sync tag`,
         tag => this._periodicSync(tag));
+    this._createUpdateCycleView();
 
     this._linkifier = new Components.Linkifier.Linkifier();
     /** @type {!Map<string, !Protocol.Target.TargetInfo>} */
@@ -464,7 +503,8 @@ export class Section {
 
     if (active) {
       this._updateSourceField(active);
-      const localizedRunningStatus = SDK.ServiceWorkerManager.ServiceWorkerVersion.RunningStatus[active.runningStatus];
+      const localizedRunningStatus =
+          SDK.ServiceWorkerManager.ServiceWorkerVersion.RunningStatus[active.currentState.runningStatus];
       const activeEntry = this._addVersion(
           versionsStack, 'service-worker-active-circle', ls`#${active.id} activated and is ${localizedRunningStatus}`);
 
@@ -508,6 +548,9 @@ export class Section {
             installingEntry, Common.UIString.UIString('inspect'), this._inspectButtonClicked.bind(this, installing.id));
       }
     }
+    if (this._updateView) {
+      this._updateView.refresh(this._registration);
+    }
     return Promise.resolve();
   }
 
@@ -533,6 +576,13 @@ export class Section {
    */
   _unregisterButtonClicked(event) {
     this._manager.deleteRegistration(this._registration.id);
+  }
+
+  _createUpdateCycleView() {
+    const table = this._updateView.tableElement();
+    this._updateCycleForm =
+        this._wrapWidget(this._section.appendField('Update Cycle')).createChild('form', 'service-worker-timing-line');
+    this._updateCycleForm.appendChild(table);
   }
 
   /**

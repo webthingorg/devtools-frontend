@@ -109,8 +109,6 @@ table.network-timing-table > tr:not(.network-timing-table-header):not(.network-t
 }
 
 .network-timing-bar.connecting,
-.network-timing-bar.serviceworker,
-.network-timing-bar.serviceworker-preparation,
 .-theme-preserve {
   background-color: #ff9800;
 }
@@ -166,6 +164,18 @@ table.network-timing-table > tr:not(.network-timing-table-header):not(.network-t
   width: fit-content;
 }
 
+.network-timing-bar.activate {
+  background-color: #ff9800;
+}
+
+.network-timing-bar.install {
+  background-color: #9c27b0;
+}
+
+.network-timing-bar.ellipsis {
+  background-color: #a8a3ff;
+}
+
 .network-fetch-details-treeitem {
   width: max-content;
 }
@@ -195,6 +205,15 @@ table.network-timing-table > tr:not(.network-timing-table-header):not(.network-t
 .-theme-preserve {
   background-color: #ddd;
 }
+
+.-theme-preserve {
+  background-color: #8cdbff;
+}
+
+.-theme-preserve {
+  background-color: #03a9f4;
+}
+
 
 .network-timing-table td.network-timing-metric {
   white-space: nowrap;
