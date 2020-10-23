@@ -7,7 +7,7 @@ import * as Host from '../host/host.js';
 import * as Platform from '../platform/platform.js';
 import * as Root from '../root/root.js';
 
-import {Action} from './Action.js';                  // eslint-disable-line no-unused-vars
+import {LegacyActionRegistration} from './ActionRegistration.js';  // eslint-disable-line no-unused-vars
 import {ActionRegistry} from './ActionRegistry.js';  // eslint-disable-line no-unused-vars
 import {Context} from './Context.js';
 import {Dialog} from './Dialog.js';
@@ -65,7 +65,7 @@ export class ShortcutRegistry {
   /**
    * @param {number} key
    * @param {!Object.<string, function():Promise.<boolean>>=} handlers
-   * @return {!Array.<!Action>}
+   * @return {!Array.<!LegacyActionRegistration>}
    */
   _applicableActions(key, handlers = {}) {
     /** @type {!Array<string>} */
@@ -189,8 +189,10 @@ export class ShortcutRegistry {
     shortcuts.forEach(shortcut => {
       allowlistKeyMap.addKeyMapping(shortcut.descriptors.map(descriptor => descriptor.key), shortcut.action);
     });
-
-    element.addEventListener('keydown', event => {
+    /**
+     * @param {!Event} event
+     */
+    const eventListener = event => {
       const key = KeyboardShortcut.makeKeyFromEvent(/** @type {!KeyboardEvent} */ (event));
       const keyMap = this._activePrefixKey ? allowlistKeyMap.getNode(this._activePrefixKey.key()) : allowlistKeyMap;
       if (!keyMap) {
@@ -199,7 +201,8 @@ export class ShortcutRegistry {
       if (keyMap.getNode(key)) {
         this.handleShortcut(/** @type {!KeyboardEvent} */ (event), handlers);
       }
-    });
+    };
+    element.addEventListener('keydown', eventListener);
   }
 
   /**

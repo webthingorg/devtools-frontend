@@ -397,7 +397,7 @@ export class ExperimentsSettingsTab extends SettingsTab {
 }
 
 /**
- * @implements {UI.ActionDelegate.ActionDelegate}
+ * @implements {UI.ActionRegistration.ActionDelegate}
  * @unrestricted
  */
 export class ActionDelegate {
