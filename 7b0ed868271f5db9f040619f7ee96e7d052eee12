@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c3f5744_f773288b",
+        "filename": "front_end/common/Settings.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-10-23T02:47:49Z",
+      "side": 1,
+      "message": "This is used to emulate the behavior of \u0027setting.setTitle(extension.title())\u0027 currently done by the legacy registration, which does the following magic look up on the extension descriptor: \n\u0027const title \u003d this._descriptor[\u0027title-\u0027 + runtimePlatform] || this._descriptor[\u0027title\u0027]\u0027. \n\nThis is originally used to allow for different titles depending on the platform, but it seems there is only one setting which has a dedicated title for a specific platform: the setting \u0027shortcutPanelSwitch\u0027 in main/ . We should then consider if it is worth it to keep this verification for this case solely.",
+      "range": {
+        "startLine": 107,
+        "startChar": 25,
+        "endLine": 107,
+        "endChar": 33
+      },
+      "revId": "7b0ed868271f5db9f040619f7ee96e7d052eee12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
