@@ -51,6 +51,24 @@
       "parentUuid": "40c18e4c_749898c9",
       "revId": "0021b6a229fddf44ea581cc5c6c905f0342e3048",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20d5cb6d_736388b2",
+        "filename": "front_end/browser_debugger/XHRBreakpointsSidebarPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-23T08:45:44Z",
+      "side": 1,
+      "message": "Just to clarify, you verified that its not used anywhere else in DevTools? Or just this file?",
+      "parentUuid": "d75aa158_1c75f2c7",
+      "revId": "0021b6a229fddf44ea581cc5c6c905f0342e3048",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
