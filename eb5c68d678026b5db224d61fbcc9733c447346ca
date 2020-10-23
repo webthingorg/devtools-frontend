@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d053225d_c7184ae6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-10-23T16:33:34Z",
+      "side": 1,
+      "message": "LGTM, just had one question to make sure I\u0027m understanding the need for some of the changes correctly.",
+      "revId": "eb5c68d678026b5db224d61fbcc9733c447346ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72ba2847_64f4bada",
+        "filename": "front_end/sources/CSSPlugin.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-10-23T16:33:34Z",
+      "side": 1,
+      "message": "Just for my understanding, did this need to change because ColorSwatchClosureInterface is just part of the _bridge types and doesn\u0027t represent a runtime construct? And does using the ColorSwatch type from the TS file not work because it wouldn\u0027t type-check correctly with Closure?",
+      "revId": "eb5c68d678026b5db224d61fbcc9733c447346ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
