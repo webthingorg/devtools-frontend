@@ -582,9 +582,9 @@ export class ConsoleViewMessage {
       return /** @type {!HTMLElement} */ ((new ObjectUI.CustomPreviewComponent.CustomPreviewComponent(output)).element);
     }
 
-    const type = forceObjectFormat ? 'object' : (output.subtype || output.type);
+    const outputType = forceObjectFormat ? 'object' : (output.subtype || output.type);
     let element;
-    switch (type) {
+    switch (outputType) {
       case 'error':
         element = this._formatParameterAsError(output);
         break;
@@ -621,13 +621,14 @@ export class ConsoleViewMessage {
       case 'symbol':
       case 'undefined':
       case 'bigint':
+      case 'trustedtype':
         element = this._formatParameterAsValue(output);
         break;
       default:
         element = this._formatParameterAsValue(output);
-        console.error('Tried to format remote object of unknown type.');
+        console.error('Tried to format remote object of unknown type \'' + outputType + '\'.');
     }
-    element.classList.add('object-value-' + type);
+    element.classList.add('object-value-' + outputType);
     element.classList.add('source-code');
     return element;
   }
