@@ -134,21 +134,6 @@
     },
     {
       "type": "action",
-      "actionId": "elements.hide-element",
-      "category": "Elements",
-      "title": "Hide element",
-      "contextTypes": [
-        "Elements.ElementsPanel"
-      ],
-      "className": "Elements.ElementsActionDelegate",
-      "bindings": [
-        {
-          "shortcut": "H"
-        }
-      ]
-    },
-    {
-      "type": "action",
       "actionId": "elements.edit-as-html",
       "category": "Elements",
       "title": "Edit as HTML",
