@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a0dc9a6_1cf08deb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-23T06:22:00Z",
+      "side": 1,
+      "message": "Please give it a final look. I intend to merge it and start working on adding more icons. ",
+      "revId": "ede1626e9b34aa334a2db60b5c6f7038caad5d8d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

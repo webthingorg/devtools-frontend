@@ -335,6 +335,24 @@
       "parentUuid": "dcb57746_f4bdd1ee",
       "revId": "a501130265be7c878df5358b588c51b440292c72",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fad8860_930459ca",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 2658,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-23T06:22:00Z",
+      "side": 1,
+      "message": "I will keep setting the maxHeight/Width for now. I will try to figure out a better solution later.",
+      "parentUuid": "8bc7115d_d3fc7336",
+      "revId": "a501130265be7c878df5358b588c51b440292c72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

@@ -231,6 +231,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6e0fb0f2_f1f87989",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 2650,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-23T06:22:00Z",
+      "side": 1,
+      "message": "I have tried removed the whitespace but it didn\u0027t help. Setting font-size to 0 helped in this case but it had some regressions in other places where the icon is rendered inline with the text.",
+      "parentUuid": "f359bc2a_1488c9e0",
+      "range": {
+        "startLine": 2650,
+        "startChar": 8,
+        "endLine": 2650,
+        "endChar": 38
+      },
+      "revId": "5696797f104dcb6d220aabb4431332ae52d50797",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "08ec7184_919c3598",
         "filename": "front_end/elements/elements.js",
         "patchSetId": 8
