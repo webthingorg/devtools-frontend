@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f1241a2_c6b04b0f",
+        "filename": "front_end/sources/SourcesPanel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-23T10:42:07Z",
+      "side": 0,
+      "message": "To double-check, this variable was unused throughout the codebase?",
+      "range": {
+        "startLine": 60,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 26
+      },
+      "revId": "fa97163464b70f113a17725e66b8c51bf3967c3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
