@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4d19cb8_9aed6785",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-23T10:19:16Z",
+      "side": 1,
+      "message": "LGTM % nits",
+      "revId": "524ce027ab9b878a23ecadced813fc484c453448",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53d4c925_adc541d1",
+        "filename": "front_end/console/ConsoleViewMessage.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-23T10:19:16Z",
+      "side": 1,
+      "message": "nit: use `... ${outputType}`",
+      "range": {
+        "startLine": 629,
+        "startChar": 22,
+        "endLine": 629,
+        "endChar": 93
+      },
+      "revId": "524ce027ab9b878a23ecadced813fc484c453448",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1fd6594_07441fbe",
+        "filename": "front_end/console/ConsoleViewMessage.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-23T10:19:16Z",
+      "side": 1,
+      "message": "since you are cleaning up, use `` as well here please.",
+      "range": {
+        "startLine": 631,
+        "startChar": 40,
+        "endLine": 631,
+        "endChar": 46
+      },
+      "revId": "524ce027ab9b878a23ecadced813fc484c453448",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
