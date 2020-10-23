@@ -35,6 +35,7 @@ class ActionRuntimeExtensionDescriptor extends  // eslint-disable-line no-unused
      *   value: boolean,
      *   title: string,
      *   raw: undefined,
+     *   text: undefined,
      * }>|undefined}
      */
     this.options;
