@@ -94,8 +94,12 @@ devtools_entrypoint("bundle") {
   deps = [ ":elements" ]
 }
 
-devtools_entrypoint("legacy") {
-  entrypoint = "elements-legacy.js"
+devtools_entrypoint("meta") {
+  entrypoint = "elements-meta.ts"
 
-  deps = [ ":bundle" ]
+  deps = [
+    ":bundle",
+    "../root:bundle",
+    "../ui:bundle",
+  ]
 }
