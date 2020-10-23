@@ -22,6 +22,30 @@
       },
       "revId": "fa97163464b70f113a17725e66b8c51bf3967c3a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88c9ac37_4c4f38c2",
+        "filename": "front_end/sources/SourcesPanel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-10-23T11:04:43Z",
+      "side": 0,
+      "message": "Yup, probably a remnant of the singleton-instance migration.",
+      "parentUuid": "2f1241a2_c6b04b0f",
+      "range": {
+        "startLine": 60,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 26
+      },
+      "revId": "fa97163464b70f113a17725e66b8c51bf3967c3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

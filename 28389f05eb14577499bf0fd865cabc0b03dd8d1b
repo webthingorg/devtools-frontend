@@ -22,6 +22,30 @@
       },
       "revId": "28389f05eb14577499bf0fd865cabc0b03dd8d1b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63658eb1_ea3e29f7",
+        "filename": "front_end/sources/SourcesPanel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-10-23T11:04:43Z",
+      "side": 1,
+      "message": "It does!",
+      "parentUuid": "c8eff151_d353be3d",
+      "range": {
+        "startLine": 67,
+        "startChar": 8,
+        "endLine": 67,
+        "endChar": 40
+      },
+      "revId": "28389f05eb14577499bf0fd865cabc0b03dd8d1b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
