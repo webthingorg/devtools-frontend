@@ -5,10 +5,13 @@
 import * as Common from '../common/common.js';
 import * as LitHtml from '../third_party/lit-html/lit-html.js';
 
-import {AngleUnit, getAngleFromDegree, parseText, roundAngleByUnit} from './CSSAngleUtils.js';
+import {AngleUnit, get2DTranslationsForAngle, getAngleFromDegrees, parseText, roundAngleByUnit} from './CSSAngleUtils.js';
 
 const {render, html} = LitHtml;
 const styleMap = LitHtml.Directives.styleMap;
+
+const MiniIconWidth = 11;
+const ClockDialLength = 6;
 
 export class PopoverToggledEvent extends Event {
   data: {open: boolean};
@@ -29,7 +32,7 @@ export class ValueChangedEvent extends Event {
 }
 
 export interface CSSAngleData {
-  propertyText: string;
+  angleText: string;
   containingPane: HTMLElement;
 }
 
@@ -41,10 +44,12 @@ export class CSSAngle extends HTMLElement {
   private containingPane?: HTMLElement;
   private popoverOpen = false;
   private popoverStyleTop = '';
+  private clockRadius = 77 / 2;  // By default the clock is 77 * 77.
   private onMinifyingAction = this.minify.bind(this);
+  private dialTemplates?: LitHtml.TemplateResult[];
 
   set data(data: CSSAngleData) {
-    const parsedResult = parseText(data.propertyText);
+    const parsedResult = parseText(data.angleText);
     if (!parsedResult) {
       return;
     }
@@ -125,16 +130,22 @@ export class CSSAngle extends HTMLElement {
       return;
     }
     const {top, right, bottom, left} = clock.getBoundingClientRect();
-    const clockCenterX = left + (right - left) / 2;
-    const clockCenterY = bottom + (top - bottom) / 2;
+    this.clockRadius = (right - left) / 2;
+    const clockCenterX = (left + right) / 2;
+    const clockCenterY = (bottom + top) / 2;
     const degree = -Math.atan2(mouseX - clockCenterX, mouseY - clockCenterY) * 180 / Math.PI + 180;
-    const rawAngle = getAngleFromDegree(degree, this.unit);
+    const rawAngle = getAngleFromDegrees(degree, this.unit);
     this.angle = roundAngleByUnit(rawAngle, this.unit);
     this.render();
     this.dispatchEvent(new ValueChangedEvent(`${this.angle}${this.unit}`));
   }
 
   private render() {
+    const {translateX, translateY} = get2DTranslationsForAngle(this.angle, this.unit, MiniIconWidth / 4);
+    const miniHandStyle = {
+      transform: `translate(${translateX}px, ${translateY}px) rotate(${this.angle}${this.unit})`,
+    };
+
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
     render(html`
@@ -162,9 +173,10 @@ export class CSSAngle extends HTMLElement {
         }
 
         .mini-hand {
-          height: 15px;
+          height: 55%;
           width: 2px;
-          background: linear-gradient(to top, transparent 45%, var(--accent-fg-color) 45%);
+          background-color: var(--accent-fg-color);
+          border-radius: 5px;
         }
 
         .popover {
@@ -190,7 +202,7 @@ export class CSSAngle extends HTMLElement {
           background-color: var(--color);
           border: 0.5em solid var(--border-color);
           border-radius: 9em;
-          box-shadow: var(--drop-shadow);
+          box-shadow: var(--drop-shadow), inset 0 0 15px hsl(0 0% 0% / 25%);
           transform: translateX(-3em);
         }
 
@@ -228,15 +240,16 @@ export class CSSAngle extends HTMLElement {
 
         .dial {
           width: 2px;
-          height: 100%;
-          background: linear-gradient(to top, transparent 90%, var(--dial-color) 10%);
-          border-radius: 1px;
+          height: ${ClockDialLength}px;
+          background-color: var(--dial-color);
+          border-radius: 2px;
         }
 
         .hand {
-          height: 100%;
+          height: 50%;
           width: 0.3em;
-          background: linear-gradient(to top, transparent 50%, white 50%);
+          background: white;
+          box-shadow: var(--drop-shadow);
         }
 
         .hand::before {
@@ -266,10 +279,7 @@ export class CSSAngle extends HTMLElement {
       <div class="css-type">
         <div class="preview">
           <div class="mini-icon" @mousedown=${this.onMiniIconClick}>
-            <span
-              class="mini-hand"
-              style=${styleMap({transform: `rotate(${this.angle}${this.unit})`})}>
-            </span>
+            <span class="mini-hand" style=${styleMap(miniHandStyle)}></span>
           </div>
           <slot></slot>
         </div>
@@ -282,17 +292,21 @@ export class CSSAngle extends HTMLElement {
   }
 
   private renderPopover() {
+    const {translateX, translateY} = get2DTranslationsForAngle(this.angle, this.unit, this.clockRadius / 2);
+    const handStyles = {
+      transform: `translate(${translateX}px, ${translateY}px) rotate(${this.angle}${this.unit})`,
+    };
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
     return html`
       <div class="popover popover-css-angle" style=${styleMap({top: this.popoverStyleTop})}>
         <span class="pointer"></span>
-        <div class="clock" @mousedown=${this.onMouseDown} @mousemove=${this.onMouseMove}>
+        <div
+          class="clock"
+          @mousedown=${this.onMouseDown}
+          @mousemove=${this.onMouseMove}>
           ${this.renderDials()}
-          <div
-            class="hand"
-            style=${styleMap({transform: `rotate(${this.angle}${this.unit})`})}>
-          </div>
+          <div class="hand" style=${styleMap(handStyles)}></div>
           <span class="center"></span>
         </div>
       </div>
@@ -301,15 +315,21 @@ export class CSSAngle extends HTMLElement {
   }
 
   private renderDials() {
-    // Disabled until https://crbug.com/1079231 is fixed.
-    // clang-format off
-    return [0, 45, 90, 135, 180, 225, 270, 315].map(deg => html`
-      <span
-        class="dial"
-        style=${styleMap({transform: `rotate(${deg}deg)`})}>
-      </span>
-    `);
-    // clang-format on
+    if (!this.dialTemplates) {
+      // Disabled until https://crbug.com/1079231 is fixed.
+      // clang-format off
+      this.dialTemplates = [0, 45, 90, 135, 180, 225, 270, 315].map(deg => {
+        const radius = this.clockRadius - ClockDialLength - 3 /* clock border */;
+        const {translateX, translateY} = get2DTranslationsForAngle(deg, AngleUnit.Deg, radius);
+        const dialStyles = {
+          transform: `translate(${translateX}px, ${translateY}px) rotate(${deg}deg)`,
+        };
+        return html`<span class="dial" style=${styleMap(dialStyles)}></span>`;
+      });
+      // clang-format on
+    }
+
+    return this.dialTemplates;
   }
 }
 
