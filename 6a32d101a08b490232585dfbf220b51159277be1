@@ -16,6 +16,24 @@
       "message": "Hi, thanks for your contribution! \nI checked out your changes but there seems to be a visual difference to other checkboxes - especially in dark mode: https://imgur.com/a/QtJFZly\nCould you check how the other checkboxes get their focus styles and do the same in the WebAuthn Panel?\nMaybe it\u0027s already enough to change \nresidentKeyGroup.appendChild(this._residentKeyCheckbox);\nto\nresidentKeyGroup.appendChild(this._residentKeyCheckboxLabel);",
       "revId": "6a32d101a08b490232585dfbf220b51159277be1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddcb17be_056634d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1458742
+      },
+      "writtenOn": "2020-10-24T16:37:25Z",
+      "side": 1,
+      "message": "Thank you for the advice. I matched the WebAuthn Panel checkbox focus style to that of other checkbox styles, as seen in your attachment.",
+      "parentUuid": "a285c929_35039a05",
+      "revId": "6a32d101a08b490232585dfbf220b51159277be1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
