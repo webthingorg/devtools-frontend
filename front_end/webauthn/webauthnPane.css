@@ -101,6 +101,10 @@
   top: 2px;
 }
 
+.authenticator-option-checkbox:focus {
+  outline: auto 5px -webkit-focus-ring-color;
+}
+
 .authenticator-option {
   display: flex;
   padding-bottom: 10px;
