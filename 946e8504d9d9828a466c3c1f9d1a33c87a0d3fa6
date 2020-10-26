@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57de372f_4770b53b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-10-26T10:54:06Z",
+      "side": 1,
+      "message": "In a couple places I\u0027m adding null-checks just to appease the typechecker, but being null would actually be an error, like when this._editor is null. Can I do better than early return if a null-check fails? console.assert isn\u0027t picked up by the typechecker.",
+      "revId": "946e8504d9d9828a466c3c1f9d1a33c87a0d3fa6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
