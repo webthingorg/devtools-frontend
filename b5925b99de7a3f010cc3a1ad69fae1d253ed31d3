@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f28a535_f847b561",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-26T21:00:23Z",
+      "side": 1,
+      "message": "Thanks Anthony! You didn\u0027t everything you need, and especially on including before and after screenshots -- that was a very nice touch. I\u0027ll submit this directly.",
+      "revId": "b5925b99de7a3f010cc3a1ad69fae1d253ed31d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
