@@ -22,6 +22,30 @@
       },
       "revId": "431220ae35eb60f8b9b3465598a1da0f9f42a7e6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ab792e4_16ed74b4",
+        "filename": "front_end/elements/CSSPropertyIconResolver.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-26T13:48:51Z",
+      "side": 1,
+      "message": "You are right, thanks! I removed it from the list.",
+      "parentUuid": "47940f47_e95a1af3",
+      "range": {
+        "startLine": 144,
+        "startChar": 24,
+        "endLine": 144,
+        "endChar": 47
+      },
+      "revId": "431220ae35eb60f8b9b3465598a1da0f9f42a7e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
