@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17dd0c97_80dc1848",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-10-26T18:08:12Z",
+      "side": 1,
+      "message": "General direction LGTM, as per previous discussions. +1 to Eric\u0027s feedback.",
+      "revId": "c8ecaf70830d6ac2f325d8ffb2df48c172bc3aee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fcd45057_74ef68ab",
@@ -14,6 +31,30 @@
       "writtenOn": "2020-10-26T15:29:47Z",
       "side": 1,
       "message": "Might be a little simpler to return this, and add the returnByValue:true option, and then not do a JSON.parse.",
+      "range": {
+        "startLine": 80,
+        "startChar": 42,
+        "endLine": 80,
+        "endChar": 70
+      },
+      "revId": "c8ecaf70830d6ac2f325d8ffb2df48c172bc3aee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94284d37_19ee2e23",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-10-26T18:08:12Z",
+      "side": 1,
+      "message": "That seems to match what we\u0027re doing otherwise more closely. +1",
+      "parentUuid": "fcd45057_74ef68ab",
       "range": {
         "startLine": 80,
         "startChar": 42,
