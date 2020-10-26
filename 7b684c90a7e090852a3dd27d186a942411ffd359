@@ -33,6 +33,24 @@
       "message": "consistency nit: missing `.` at the end",
       "revId": "7b684c90a7e090852a3dd27d186a942411ffd359",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dcc8dcf_76697a5b",
+        "filename": "front_end/settings/KeybindsSettingsTab.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-10-26T19:06:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74c744b5_22c98054",
+      "revId": "7b684c90a7e090852a3dd27d186a942411ffd359",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
