@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "73b6fad6_eac4a765",
+        "filename": "front_end/linear_memory_inspector/linearMemoryViewer.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-26T10:29:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6bcff21_0c6b8df0",
+      "revId": "a48739bf8391bc0032caec8a3178427e31bf13fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "11ac64d6_d73fc617",
@@ -84,6 +102,30 @@
       "writtenOn": "2020-10-26T09:14:09Z",
       "side": 1,
       "message": "Is there a reason you went with a separate stylesheet? I think sticking to the inline \u003cstyle\u003e tags is best for now as the loading of the stylesheets is a bit legacy and a patch to unblock loading in legacy styles that are required. For new styles we should ideally stick to them being inline unless there\u0027s a good reason not to.",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 1
+      },
+      "revId": "a48739bf8391bc0032caec8a3178427e31bf13fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23c51fc8_6c32196a",
+        "filename": "front_end/linear_memory_inspector/linearMemoryViewer.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-26T10:29:16Z",
+      "side": 1,
+      "message": "Ok, moved to inline tags! I thought that it was a bit bloated in the file, and I saw that it was also moved to a separate css file in one of the other web components so I moved it out initially.",
+      "parentUuid": "11ac64d6_d73fc617",
       "range": {
         "startLine": 54,
         "startChar": 0,
