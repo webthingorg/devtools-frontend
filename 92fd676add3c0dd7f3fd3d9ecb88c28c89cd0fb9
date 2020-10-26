@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45c32272_0e6a71a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-10-26T13:02:03Z",
+      "side": 1,
+      "message": "Awesome! This seems like a good solution here.\nI\u0027ve added three mac bot tryjobs. The mac bot is rarely used so it shouldn\u0027t bother anyone and it was by far the most likely to fail.",
+      "revId": "92fd676add3c0dd7f3fd3d9ecb88c28c89cd0fb9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
