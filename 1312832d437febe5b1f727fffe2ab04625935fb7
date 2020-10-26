@@ -56,6 +56,30 @@
       },
       "revId": "1312832d437febe5b1f727fffe2ab04625935fb7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcb3889c_4c3bd217",
+        "filename": "front_end/root/Runtime.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-26T09:59:52Z",
+      "side": 1,
+      "message": "Good question. I think it\u0027s defined on all settings that LayoutSidebarPane consumes but I cannot be sure about all descriptors out there. It\u0027s better to make it optional probably. Could you share an example of subclasses for descriptors? Is there one for setting?",
+      "parentUuid": "6b0c6ebc_aed93727",
+      "range": {
+        "startLine": 578,
+        "startChar": 0,
+        "endLine": 579,
+        "endChar": 15
+      },
+      "revId": "1312832d437febe5b1f727fffe2ab04625935fb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
