@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddc43778_666816fe",
+        "filename": "front_end/console/ConsoleViewMessage.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-26T09:59:58Z",
+      "side": 1,
+      "message": "nit: null",
+      "range": {
+        "startLine": 769,
+        "startChar": 77,
+        "endLine": 769,
+        "endChar": 79
+      },
+      "revId": "5bd7845d77e1bb729efd95a8508cb9842ebd1a72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccf6b32b_3731c724",
+        "filename": "front_end/object_ui/RemoteObjectPreviewFormatter.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-26T09:59:58Z",
+      "side": 1,
+      "message": "nit: ordering\nI think it should be ?string\u003d\n (null instead of undefined)",
+      "range": {
+        "startLine": 274,
+        "startChar": 5,
+        "endLine": 274,
+        "endChar": 41
+      },
+      "revId": "5bd7845d77e1bb729efd95a8508cb9842ebd1a72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
