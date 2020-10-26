@@ -138,6 +138,10 @@ textToIconResolver.set('flex-direction: row', flexDirectionIcon('row'));
 textToIconResolver.set('flex-direction: column', flexDirectionIcon('column'));
 textToIconResolver.set('flex-direction: column-reverse', flexDirectionIcon('column-reverse'));
 textToIconResolver.set('flex-direction: row-reverse', flexDirectionIcon('row-reverse'));
+textToIconResolver.set('flex-direction: initial', flexDirectionIcon('row'));
+textToIconResolver.set('flex-direction: unset', flexDirectionIcon('row'));
+textToIconResolver.set('flex-direction: revert', flexDirectionIcon('row'));
+textToIconResolver.set('flex-direction: inherit', flexDirectionIcon('row'));
 
 /**
  * @param {string} text
