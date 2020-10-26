@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5618a53b_33b4ae9a",
+        "filename": "AUTHORS",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-26T11:35:54Z",
+      "side": 1,
+      "message": "Please add a newline at the end of the file",
+      "revId": "1f37f33bfd8ed20da042af9755b520d720fc6730",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
