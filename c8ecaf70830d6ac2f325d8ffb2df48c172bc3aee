@@ -91,6 +91,30 @@
       },
       "revId": "c8ecaf70830d6ac2f325d8ffb2df48c172bc3aee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fae8425_c7a2d57d",
+        "filename": "front_end/sdk/RemoteObject.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-10-26T18:06:00Z",
+      "side": 1,
+      "message": "Pulling this feature into EvalNode or my own subclass would mean basically copying RemoteObjectImpl. I don\u0027t think that\u0027s reasonable. If you don\u0027t like the hook mechanism, what do you think about replacing it with an overridable _createRemoteObject method on RemoteObjectImpl?",
+      "parentUuid": "aac06778_22207481",
+      "range": {
+        "startLine": 357,
+        "startChar": 64,
+        "endLine": 357,
+        "endChar": 76
+      },
+      "revId": "c8ecaf70830d6ac2f325d8ffb2df48c172bc3aee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
