@@ -51,6 +51,47 @@
       "parentUuid": "b80ba5a9_c5040d37",
       "revId": "a48739bf8391bc0032caec8a3178427e31bf13fb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6bcff21_0c6b8df0",
+        "filename": "front_end/linear_memory_inspector/linearMemoryViewer.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-26T09:14:09Z",
+      "side": 1,
+      "message": "Agree, because we\u0027re in the Shadow DOM we don\u0027t need the explicitness of the prefix.",
+      "parentUuid": "b80ba5a9_c5040d37",
+      "revId": "a48739bf8391bc0032caec8a3178427e31bf13fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11ac64d6_d73fc617",
+        "filename": "front_end/linear_memory_inspector/linearMemoryViewer.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-26T09:14:09Z",
+      "side": 1,
+      "message": "Is there a reason you went with a separate stylesheet? I think sticking to the inline \u003cstyle\u003e tags is best for now as the loading of the stylesheets is a bit legacy and a patch to unblock loading in legacy styles that are required. For new styles we should ideally stick to them being inline unless there\u0027s a good reason not to.",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 1
+      },
+      "revId": "a48739bf8391bc0032caec8a3178427e31bf13fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
