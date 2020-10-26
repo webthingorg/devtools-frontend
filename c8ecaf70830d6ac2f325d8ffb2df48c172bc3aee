@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcd45057_74ef68ab",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-10-26T15:29:47Z",
+      "side": 1,
+      "message": "Might be a little simpler to return this, and add the returnByValue:true option, and then not do a JSON.parse.",
+      "range": {
+        "startLine": 80,
+        "startChar": 42,
+        "endLine": 80,
+        "endChar": 70
+      },
+      "revId": "c8ecaf70830d6ac2f325d8ffb2df48c172bc3aee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "820fdfd8_ebe3a92e",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-10-26T15:29:47Z",
+      "side": 1,
+      "message": "hook is not a very descriptive name, please choose a name giving it a clearer purpose",
+      "range": {
+        "startLine": 171,
+        "startChar": 12,
+        "endLine": 171,
+        "endChar": 16
+      },
+      "revId": "c8ecaf70830d6ac2f325d8ffb2df48c172bc3aee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86d43556_9518b7d7",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-10-26T15:29:47Z",
+      "side": 1,
+      "message": "Another reason not to name it hook.",
+      "range": {
+        "startLine": 215,
+        "startChar": 94,
+        "endLine": 215,
+        "endChar": 114
+      },
+      "revId": "c8ecaf70830d6ac2f325d8ffb2df48c172bc3aee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aac06778_22207481",
+        "filename": "front_end/sdk/RemoteObject.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-10-26T15:29:47Z",
+      "side": 1,
+      "message": "If you make these changes to EvalNode or a new subclass you won\u0027t need to worry about disabling the test and we\u0027ll be able to make additional customizations without mixing our code with the code for handling JavaScript.",
+      "range": {
+        "startLine": 357,
+        "startChar": 64,
+        "endLine": 357,
+        "endChar": 76
+      },
+      "revId": "c8ecaf70830d6ac2f325d8ffb2df48c172bc3aee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
