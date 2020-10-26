@@ -158,6 +158,30 @@
       },
       "revId": "a48739bf8391bc0032caec8a3178427e31bf13fb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9eb96ee_2f4a46f7",
+        "filename": "front_end/linear_memory_inspector/linearMemoryViewer.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-26T20:30:29Z",
+      "side": 1,
+      "message": "Ok, thanks for the explanation! :)",
+      "parentUuid": "d9e7c845_1bfbddf4",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 1
+      },
+      "revId": "a48739bf8391bc0032caec8a3178427e31bf13fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
