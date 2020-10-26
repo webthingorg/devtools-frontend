@@ -16,6 +16,46 @@
       "message": "In a couple places I\u0027m adding null-checks just to appease the typechecker, but being null would actually be an error, like when this._editor is null. Can I do better than early return if a null-check fails? console.assert isn\u0027t picked up by the typechecker.",
       "revId": "946e8504d9d9828a466c3c1f9d1a33c87a0d3fa6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5640986_0d5c4d21",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-26T10:58:58Z",
+      "side": 1,
+      "message": "LGTM with one nit.\n\nRegarding null checks, you can either do what you\u0027ve done or sometimes we\u0027ve also done a:\n\n```\nif (!crucialThing) {\n  throw new Error(\u0027Could not find crucialThing...\u0027)\n}\n```.\n\nUp to you really. Recognise that neither of these options are ideal but we\u0027re limiting the scope here to TS-ifiying rather than fixing all issues we find along the way.",
+      "revId": "946e8504d9d9828a466c3c1f9d1a33c87a0d3fa6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6150a4b_21beceac",
+        "filename": "front_end/sources/BreakpointEditDialog.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-26T10:58:58Z",
+      "side": 1,
+      "message": "if this is a callback style function, this probably returns `void` rather than `?`. Can we see if where it\u0027s called we care about the return value?",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 75
+      },
+      "revId": "946e8504d9d9828a466c3c1f9d1a33c87a0d3fa6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
