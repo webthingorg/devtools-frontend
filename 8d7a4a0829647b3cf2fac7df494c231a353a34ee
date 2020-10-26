@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "96b69d34_460c903b",
+        "filename": "front_end/resources/ServiceWorkersView.js",
+        "patchSetId": 42
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-26T20:57:46Z",
+      "side": 1,
+      "message": "Let\u0027s see if others have some suggestions on this part. Otherwise I don\u0027t feel strongly either way. It would be nice to add a comment or rename the variable to explain this is to get the last request that\u0027s fetched by service worker.",
+      "parentUuid": "78d46999_cdd453b9",
+      "revId": "8d7a4a0829647b3cf2fac7df494c231a353a34ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1f6bba3b_b3195abd",
         "filename": "front_end/ui/InspectorView.js",
         "patchSetId": 42
@@ -137,6 +155,24 @@
       "side": 1,
       "message": "Having a common function would reduce repetition of code for dispatching events.",
       "parentUuid": "cd4f3ae5_0a3a22d1",
+      "revId": "8d7a4a0829647b3cf2fac7df494c231a353a34ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "371af658_a90392d0",
+        "filename": "front_end/ui/InspectorView.js",
+        "patchSetId": 42
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-26T20:57:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "35a5e5ab_0bc9255c",
       "revId": "8d7a4a0829647b3cf2fac7df494c231a353a34ee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
