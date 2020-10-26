@@ -10,38 +10,74 @@ const writingModesAffectingFlexDirection = new Set([
 ]);
 
 /**
+ * Returns absolute directions for row and column values of flex-direction
+ * taking into account the direction and writing-mode attributes.
+ *
  * @param {!Map<string, string>} computedStyles
- * @return {!IconInfo}
+ * @return {!{row: string, column: string}}
  */
-function flexDirectionRowIcon(computedStyles) {
+export function getActualFlexDirections(computedStyles) {
   const isRtl = computedStyles.get('direction') === 'rtl';
   const writingMode = computedStyles.get('writing-mode');
   const isVertical = writingMode && writingModesAffectingFlexDirection.has(writingMode);
 
-  // Default to LTR and no writing mode.
+  if (isRtl && !isVertical) {
+    return {
+      row: 'right-to-left',
+      column: 'top-to-bottom',
+    };
+  }
+
+  if (isRtl && isVertical) {
+    return {
+      row: 'bottom-to-top',
+      column: writingMode === 'vertical-lr' ? 'left-to-right' : 'right-to-left',
+    };
+  }
+
+  if (!isRtl && isVertical) {
+    return {
+      row: 'top-to-bottom',
+      column: writingMode === 'vertical-lr' ? 'left-to-right' : 'right-to-left',
+    };
+  }
+
+  return {
+    row: 'left-to-right',
+    column: 'top-to-bottom',
+  };
+}
+
+/**
+ * Rotates the flex direction icon in such way that it indicates
+ * the desired `direction` and the arrow in the icon is always at the bottom
+ * or at the right.
+ *
+ * By default, the icon is pointing top-down with the arrow on the right-hand side.
+ *
+ * @param {string} direction
+ * @return {!IconInfo}
+ */
+export function rotateFlexDirectionIcon(direction) {
+  // Default to LTR.
   let flipX = true;
   let flipY = false;
   let rotate = -90;
 
-  if (isRtl && !isVertical) {
+  if (direction === 'right-to-left') {
     rotate = 90;
+    flipY = false;
+    flipX = false;
+  } else if (direction === 'top-to-bottom') {
+    rotate = 0;
     flipX = false;
     flipY = false;
-  }
-
-  if (isRtl && isVertical) {
+  } else if (direction === 'bottom-to-top') {
     rotate = 0;
     flipX = false;
     flipY = true;
   }
 
-  if (!isRtl && isVertical) {
-    rotate = 0;
-    flipX = false;
-    flipY = false;
-  }
-
-  // The icon is pointing top-down by default with the arrow on the right-hand side.
   return {
     iconName: 'flex-direction-icon',
     rotate: rotate,
@@ -51,11 +87,53 @@ function flexDirectionRowIcon(computedStyles) {
 }
 
 /**
+ * @param {!Map<string, string>} computedStyles
+ * @return {!IconInfo}
+ */
+function flexDirectionRowIcon(computedStyles) {
+  const directions = getActualFlexDirections(computedStyles);
+  return rotateFlexDirectionIcon(directions.row);
+}
+
+/**
+ * @param {!Map<string, string>} computedStyles
+ * @return {!IconInfo}
+ */
+function flexDirectionColumnIcon(computedStyles) {
+  const directions = getActualFlexDirections(computedStyles);
+  return rotateFlexDirectionIcon(directions.column);
+}
+
+/**
+ * @param {!Map<string, string>} computedStyles
+ * @return {!IconInfo}
+ */
+function flexDirectionColumnReverseIcon(computedStyles) {
+  const info = flexDirectionColumnIcon(computedStyles);
+  info.scaleY *= -1;
+  return info;
+}
+
+/**
+ * @param {!Map<string, string>} computedStyles
+ * @return {!IconInfo}
+ */
+function flexDirectionRowReverseIcon(computedStyles) {
+  const info = flexDirectionRowIcon(computedStyles);
+  info.scaleY *= -1;
+  return info;
+}
+
+
+/**
  * @type {!Map<string, function(!Map<string, string>):!IconInfo>}
  */
 const textToIconResolver = new Map();
 
 textToIconResolver.set('flex-direction: row', flexDirectionRowIcon);
+textToIconResolver.set('flex-direction: column', flexDirectionColumnIcon);
+textToIconResolver.set('flex-direction: column-reverse', flexDirectionColumnReverseIcon);
+textToIconResolver.set('flex-direction: row-reverse', flexDirectionRowReverseIcon);
 
 /**
  * @param {string} text
