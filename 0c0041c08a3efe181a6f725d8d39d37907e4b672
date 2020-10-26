@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1da2daf5_11ff9d6a",
+        "filename": "front_end/elements/CSSPropertyIconResolver.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-26T09:36:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62e4bb7a_98e835f7",
+      "range": {
+        "startLine": 19,
+        "startChar": 19,
+        "endLine": 19,
+        "endChar": 25
+      },
+      "revId": "0c0041c08a3efe181a6f725d8d39d37907e4b672",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3c11681_67d8677c",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-10-26T08:59:08Z",
       "side": 1,
       "message": "Could we move these string values into a const enum at the top of the file? Less chances for typos this way.",
+      "range": {
+        "startLine": 26,
+        "startChar": 20,
+        "endLine": 26,
+        "endChar": 34
+      },
+      "revId": "0c0041c08a3efe181a6f725d8d39d37907e4b672",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0de09561_6f8fe0f6",
+        "filename": "front_end/elements/CSSPropertyIconResolver.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-26T09:36:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3c11681_67d8677c",
       "range": {
         "startLine": 26,
         "startChar": 20,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "45052ffb_cd560f53",
+        "filename": "front_end/elements/CSSPropertyIconResolver.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-26T09:36:54Z",
+      "side": 1,
+      "message": "Good idea, thanks!",
+      "parentUuid": "0a3aae66_22680cfc",
+      "range": {
+        "startLine": 31,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 4
+      },
+      "revId": "0c0041c08a3efe181a6f725d8d39d37907e4b672",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bfd5eae8_eaa59d3d",
@@ -83,6 +155,30 @@
       "writtenOn": "2020-10-26T08:59:08Z",
       "side": 1,
       "message": "Using an enum with its own defined type would allow us to also more strongly type this parameter.",
+      "range": {
+        "startLine": 44,
+        "startChar": 10,
+        "endLine": 44,
+        "endChar": 28
+      },
+      "revId": "0c0041c08a3efe181a6f725d8d39d37907e4b672",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f1163e3_028a64c4",
+        "filename": "front_end/elements/CSSPropertyIconResolver.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-26T09:36:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfd5eae8_eaa59d3d",
       "range": {
         "startLine": 44,
         "startChar": 10,
