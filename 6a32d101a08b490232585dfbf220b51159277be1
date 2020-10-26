@@ -52,6 +52,24 @@
       "parentUuid": "ddcb17be_056634d6",
       "revId": "6a32d101a08b490232585dfbf220b51159277be1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c72c4d00_ee21fb06",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1458742
+      },
+      "writtenOn": "2020-10-26T17:17:05Z",
+      "side": 1,
+      "message": "The proposed change did fix the problem. I made the necessary adjustments. This is my first CL. Thank you for reviewing.",
+      "parentUuid": "89051662_78a0d072",
+      "revId": "6a32d101a08b490232585dfbf220b51159277be1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
