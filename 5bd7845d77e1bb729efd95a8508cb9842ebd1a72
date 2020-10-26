@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e14e3417_6e4a0681",
+        "filename": "front_end/console/ConsoleViewMessage.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-10-26T10:15:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ddc43778_666816fe",
+      "range": {
+        "startLine": 769,
+        "startChar": 77,
+        "endLine": 769,
+        "endChar": 79
+      },
+      "revId": "5bd7845d77e1bb729efd95a8508cb9842ebd1a72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ccf6b32b_3731c724",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-10-26T09:59:58Z",
       "side": 1,
       "message": "nit: ordering\nI think it should be ?string\u003d\n (null instead of undefined)",
+      "range": {
+        "startLine": 274,
+        "startChar": 5,
+        "endLine": 274,
+        "endChar": 41
+      },
+      "revId": "5bd7845d77e1bb729efd95a8508cb9842ebd1a72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41b243ba_35bdf51a",
+        "filename": "front_end/object_ui/RemoteObjectPreviewFormatter.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-10-26T10:15:49Z",
+      "side": 1,
+      "message": "Better let\u0027s keep both null and undefined since both can happen.",
+      "parentUuid": "ccf6b32b_3731c724",
       "range": {
         "startLine": 274,
         "startChar": 5,
