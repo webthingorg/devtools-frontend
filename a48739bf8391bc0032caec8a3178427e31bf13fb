@@ -33,6 +33,24 @@
       "message": "a thought: since it\u0027s in Shadow DOM you could remove the `memory-inspector-` prefix from class names. The advantage of longer names is that it\u0027s easier to search for them in the code base. But I am not sure if we prefer longer or shorter names. \n\nJack, WDYT?",
       "revId": "a48739bf8391bc0032caec8a3178427e31bf13fb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0140e41e_999abc6b",
+        "filename": "front_end/linear_memory_inspector/linearMemoryViewer.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-26T08:54:33Z",
+      "side": 1,
+      "message": "Sure can do! Will wait for Jack too before pushing changes.",
+      "parentUuid": "b80ba5a9_c5040d37",
+      "revId": "a48739bf8391bc0032caec8a3178427e31bf13fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
