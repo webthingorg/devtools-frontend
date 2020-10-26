@@ -33,6 +33,23 @@
       "message": "Jack, could you also PTAL?",
       "revId": "6ff4ceddd3face65ad0a81fa43c4536b53388117",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a33b64e4_55307559",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-26T08:14:03Z",
+      "side": 1,
+      "message": "Hey Danny, thanks for the ping. The code change LGTM for the behavior. Let’s wait to hear from Jack who has more background on desired behavior in these cases. (E.g. There are some use cases in the performance panel, like navigating timeline entries, that we don\u0027t want to accidentally break.)",
+      "revId": "6ff4ceddd3face65ad0a81fa43c4536b53388117",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
