@@ -16,6 +16,57 @@
       "message": "Hey Philip,\n\nPlease take a look.\n\nThanks,\nBenedikt",
       "revId": "0b866f63a10daac9079d87edf9ca9e0dc1b33dfe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d43bd4fd_c2ecc262",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-10-26T10:31:14Z",
+      "side": 1,
+      "message": "LGTM, two optional inline suggestsions.",
+      "revId": "0b866f63a10daac9079d87edf9ca9e0dc1b33dfe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69902720_1e193fc1",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-10-26T10:31:14Z",
+      "side": 1,
+      "message": "you could introduce the scriptsForUISourceCode in the plugin manager as well.",
+      "revId": "0b866f63a10daac9079d87edf9ca9e0dc1b33dfe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "623fa610_5a3d999b",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-10-26T10:31:14Z",
+      "side": 1,
+      "message": "Why not just return the set?",
+      "revId": "0b866f63a10daac9079d87edf9ca9e0dc1b33dfe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
