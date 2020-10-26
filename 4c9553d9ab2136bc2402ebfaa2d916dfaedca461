@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93400bcd_d7da8381",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1464573
+      },
+      "writtenOn": "2020-10-26T20:28:08Z",
+      "side": 1,
+      "message": "Hi Changhao, this is my first time contributing. This is ready for review, please let me know if you need anything else.",
+      "revId": "4c9553d9ab2136bc2402ebfaa2d916dfaedca461",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
