@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62e4bb7a_98e835f7",
+        "filename": "front_end/elements/CSSPropertyIconResolver.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-26T08:59:08Z",
+      "side": 1,
+      "message": "nit: maybe Physical (rather than Actual) makes more sense.",
+      "range": {
+        "startLine": 19,
+        "startChar": 19,
+        "endLine": 19,
+        "endChar": 25
+      },
+      "revId": "0c0041c08a3efe181a6f725d8d39d37907e4b672",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3c11681_67d8677c",
+        "filename": "front_end/elements/CSSPropertyIconResolver.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-26T08:59:08Z",
+      "side": 1,
+      "message": "Could we move these string values into a const enum at the top of the file? Less chances for typos this way.",
+      "range": {
+        "startLine": 26,
+        "startChar": 20,
+        "endLine": 26,
+        "endChar": 34
+      },
+      "revId": "0c0041c08a3efe181a6f725d8d39d37907e4b672",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a3aae66_22680cfc",
+        "filename": "front_end/elements/CSSPropertyIconResolver.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-26T08:59:08Z",
+      "side": 1,
+      "message": "Just an idea: what do you think about adding row-reverse and column-reverse properties in this object? This way, no need to scatter the logic of finding out directions and rotating icons to the flexDirection*Icon functions as well.\nThese simple functions could therefore become just 1 simple wrapper like:\n\n  function flexDirectionIcon(computedStyles, value) {\n    const physicalDirection \u003d getPhysicalFlexDirections(computedStyles)[value];\n    return rotateFlexDirectionIcon(physicalDirection);\n  }",
+      "range": {
+        "startLine": 31,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 4
+      },
+      "revId": "0c0041c08a3efe181a6f725d8d39d37907e4b672",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfd5eae8_eaa59d3d",
+        "filename": "front_end/elements/CSSPropertyIconResolver.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-26T08:59:08Z",
+      "side": 1,
+      "message": "Using an enum with its own defined type would allow us to also more strongly type this parameter.",
+      "range": {
+        "startLine": 44,
+        "startChar": 10,
+        "endLine": 44,
+        "endChar": 28
+      },
+      "revId": "0c0041c08a3efe181a6f725d8d39d37907e4b672",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
