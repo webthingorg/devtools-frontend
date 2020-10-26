@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a298cbc0_6160921c",
+        "filename": "test/e2e/elements/style-pane-properties_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-26T10:40:10Z",
+      "side": 0,
+      "message": "Note: replaced by new tests in test/e2e/inline_editor/color-swatch_test.ts 👍",
+      "revId": "4c63602bdb60e8d81a9d96be26503cebc2cc1df9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b57d69b_28b08e28",
+        "filename": "test/unittests/front_end/inline_editor/CSSVarSwatch_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-26T10:40:10Z",
+      "side": 0,
+      "message": "Is there any reasonable way we can restructure the code to let us write unit tests for (some) of the new behavior?",
+      "revId": "4c63602bdb60e8d81a9d96be26503cebc2cc1df9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
