@@ -33,6 +33,24 @@
       "message": "Just for my understanding, did this need to change because ColorSwatchClosureInterface is just part of the _bridge types and doesn\u0027t represent a runtime construct? And does using the ColorSwatch type from the TS file not work because it wouldn\u0027t type-check correctly with Closure?",
       "revId": "eb5c68d678026b5db224d61fbcc9733c447346ca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "462c3e54_fe809264",
+        "filename": "front_end/sources/CSSPlugin.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-26T09:00:07Z",
+      "side": 1,
+      "message": "Correct, for both assessments!",
+      "parentUuid": "72ba2847_64f4bada",
+      "revId": "eb5c68d678026b5db224d61fbcc9733c447346ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
