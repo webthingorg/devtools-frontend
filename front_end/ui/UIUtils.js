@@ -1241,9 +1241,10 @@ export const createTextChildren = (element, ...childrenText) => {
  * @param {function(!Event):*=} clickHandler
  * @param {string=} className
  * @param {boolean=} primary
+ * @param {string=} alternativeEvent
  * @return {!HTMLButtonElement}
  */
-export function createTextButton(text, clickHandler, className, primary) {
+export function createTextButton(text, clickHandler, className, primary, alternativeEvent) {
   const element = /** @type {!HTMLButtonElement} */ (document.createElement('button'));
   if (className) {
     element.className = className;
@@ -1254,11 +1255,16 @@ export function createTextButton(text, clickHandler, className, primary) {
     element.classList.add('primary-button');
   }
   if (clickHandler) {
-    element.addEventListener('click', clickHandler, false);
+    if (alternativeEvent) {
+      element.addEventListener(alternativeEvent, clickHandler, false);
+    } else {
+      element.addEventListener('click', clickHandler, false);
+    }
   }
   element.type = 'button';
   return element;
 }
+
 
 /**
  * @param {string=} className
