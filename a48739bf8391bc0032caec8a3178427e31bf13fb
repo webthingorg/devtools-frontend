@@ -134,6 +134,30 @@
       },
       "revId": "a48739bf8391bc0032caec8a3178427e31bf13fb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9e7c845_1bfbddf4",
+        "filename": "front_end/linear_memory_inspector/linearMemoryViewer.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-26T10:34:02Z",
+      "side": 1,
+      "message": "It definitely is a bit bloated and non ideal :( We\u0027re hoping that they will move into separate CSS files, but we need to improve the build story for how we load CSS in - rather than load in more CSS into the legacy Runtime cache, which we don\u0027t want to build new code off of for now.",
+      "parentUuid": "23c51fc8_6c32196a",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 1
+      },
+      "revId": "a48739bf8391bc0032caec8a3178427e31bf13fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
