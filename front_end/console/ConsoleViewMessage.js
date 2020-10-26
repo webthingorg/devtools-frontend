@@ -560,8 +560,11 @@ export class ConsoleViewMessage {
     for (let i = 0; i < parameters.length; ++i) {
       // Inline strings when formatting.
       if (shouldFormatMessage && parameters[i].type === 'string') {
+        console.error('Format1: ' + parameters[i].type);
         formattedResult.appendChild(this._linkifyStringAsFragment(parameters[i].description || ''));
       } else {
+        console.error('Format2: ' + parameters[i].type);
+
         formattedResult.appendChild(this._formatParameter(parameters[i], false, true));
       }
       if (i < parameters.length - 1) {
@@ -582,9 +585,9 @@ export class ConsoleViewMessage {
       return /** @type {!HTMLElement} */ ((new ObjectUI.CustomPreviewComponent.CustomPreviewComponent(output)).element);
     }
 
-    const type = forceObjectFormat ? 'object' : (output.subtype || output.type);
+    const outputType = forceObjectFormat ? 'object' : (output.subtype || output.type);
     let element;
-    switch (type) {
+    switch (outputType) {
       case 'error':
         element = this._formatParameterAsError(output);
         break;
@@ -623,11 +626,14 @@ export class ConsoleViewMessage {
       case 'bigint':
         element = this._formatParameterAsValue(output);
         break;
+      case 'trustedtype':
+        element = this._formatParameterAsTrustedType(output);
+        break;
       default:
         element = this._formatParameterAsValue(output);
-        console.error('Tried to format remote object of unknown type.');
+        console.error(`Tried to format remote object of unknown type ${outputType}.`);
     }
-    element.classList.add('object-value-' + type);
+    element.classList.add(`object-value-${outputType}`);
     element.classList.add('source-code');
     return element;
   }
@@ -655,10 +661,26 @@ export class ConsoleViewMessage {
 
   /**
    * @param {!SDK.RemoteObject.RemoteObject} obj
+   * @return {!HTMLElement}
+   * @suppress {accessControls}
+   */
+  _formatParameterAsTrustedType(obj) {
+    const result = /** @type {!HTMLElement} */ (document.createElement('span'));
+    const trustedContentSpan = document.createElement('span');
+    trustedContentSpan.appendChild(this._formatParameterAsString(obj));
+    trustedContentSpan.classList.add('object-value-string');
+    result.appendChild(trustedContentSpan);
+    result.innerHTML = obj.className + ' ' + result.innerHTML;
+    return result;
+  }
+
+  /**
+   * @param {!SDK.RemoteObject.RemoteObject} obj
    * @param {boolean=} includePreview
    * @return {!HTMLElement}
    */
   _formatParameterAsObject(obj, includePreview) {
+    console.error('Format as object');
     const titleElement = /** @type {!HTMLElement} */ (document.createElement('span'));
     titleElement.classList.add('console-object');
     if (includePreview && obj.preview) {
@@ -746,7 +768,7 @@ export class ConsoleViewMessage {
       return this._formatAsAccessorProperty(object, propertyPath.map(property => property.name.toString()), false);
     }
     return this._previewFormatter.renderPropertyPreview(
-        property.type, 'subtype' in property ? property.subtype : undefined, property.value);
+        property.type, 'subtype' in property ? property.subtype : undefined, '', property.value);
   }
 
   /**
@@ -817,7 +839,8 @@ export class ConsoleViewMessage {
    * @return {!HTMLElement}
    */
   _formatAsArrayEntry(output) {
-    return this._previewFormatter.renderPropertyPreview(output.type, output.subtype, output.description);
+    return this._previewFormatter.renderPropertyPreview(
+        output.type, output.subtype, output.className ? output.className : '', output.description);
   }
 
   /**
@@ -853,6 +876,7 @@ export class ConsoleViewMessage {
         const maxLength = 100;
         const type = object.type;
         const subtype = object.subtype;
+        const className = object.className ? object.className : '';
         let description = '';
         if (type !== 'function' && object.description) {
           if (type === 'string' || subtype === 'regexp') {
@@ -861,7 +885,7 @@ export class ConsoleViewMessage {
             description = object.description.trimEndWithMaxLength(maxLength);
           }
         }
-        rootElement.appendChild(this._previewFormatter.renderPropertyPreview(type, subtype, description));
+        rootElement.appendChild(this._previewFormatter.renderPropertyPreview(type, subtype, className, description));
       }
     }
 
