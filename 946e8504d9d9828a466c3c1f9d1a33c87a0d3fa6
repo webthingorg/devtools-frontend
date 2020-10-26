@@ -128,6 +128,30 @@
       },
       "revId": "946e8504d9d9828a466c3c1f9d1a33c87a0d3fa6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edd127a7_cb86885d",
+        "filename": "front_end/sources/BreakpointEditDialog.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-26T12:07:51Z",
+      "side": 1,
+      "message": "I want to avoid it because it\u0027s pointless them returning anything because the code that will execute that callback doesn\u0027t care about it.\n\nSo if I\u0027m creating a `BreakpointEditDialog` with:\n\n```\nonFinish: function() { \n  // do stuff async\n  return 4;\n}\n```\n\nI want a type error there, because that return value will be lost and never used by the caller. Therefore we can catch that error at compile time by typing this function correctly as a Promise\u003cvoid\u003e, which signifies to the caller that we expect `onFinish` to be async, but we don\u0027t expect (or deal with) any return value.\n\nUsing ? only serves to reduce the effectiveness of the compiler in this case and if I\u0027m the developer who has misunderstood the `onFinish` function and think I have to return a particular value, I want my compiler to shout at me when I get it wrong.",
+      "parentUuid": "42ba8e11_15313c54",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 75
+      },
+      "revId": "946e8504d9d9828a466c3c1f9d1a33c87a0d3fa6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
