@@ -34,6 +34,24 @@
       "parentUuid": "5618a53b_33b4ae9a",
       "revId": "1f37f33bfd8ed20da042af9755b520d720fc6730",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c60b229_a5e07016",
+        "filename": "AUTHORS",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-26T13:10:38Z",
+      "side": 1,
+      "message": "Congrats on submitting your first patch! I\u0027m landing it right now. 🎉",
+      "parentUuid": "93cf6dee_712e9adc",
+      "revId": "1f37f33bfd8ed20da042af9755b520d720fc6730",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
