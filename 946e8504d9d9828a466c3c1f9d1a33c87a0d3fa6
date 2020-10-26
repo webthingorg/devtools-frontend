@@ -104,6 +104,30 @@
       },
       "revId": "946e8504d9d9828a466c3c1f9d1a33c87a0d3fa6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42ba8e11_15313c54",
+        "filename": "front_end/sources/BreakpointEditDialog.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-10-26T12:01:05Z",
+      "side": 1,
+      "message": "`void` would be wrong here, since the caller is returning a Promise. But why force the caller to use a particular return type at all? We don\u0027t care, so we\u0027re narrowing the interface for no particular effect besides making it harder to use. If the caller wants to return something, even if it\u0027s just a Promise like in this case, why forbid it?",
+      "parentUuid": "2565516c_a4758471",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 75
+      },
+      "revId": "946e8504d9d9828a466c3c1f9d1a33c87a0d3fa6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
