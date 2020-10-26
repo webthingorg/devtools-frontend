@@ -54,6 +54,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9d60b250_fb678b1e",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-10-26T11:38:05Z",
+      "side": 1,
+      "message": "That makes a lot of sense.",
+      "parentUuid": "69902720_1e193fc1",
+      "revId": "0b866f63a10daac9079d87edf9ca9e0dc1b33dfe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "623fa610_5a3d999b",
         "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
         "patchSetId": 1
@@ -65,6 +83,24 @@
       "writtenOn": "2020-10-26T10:31:14Z",
       "side": 1,
       "message": "Why not just return the set?",
+      "revId": "0b866f63a10daac9079d87edf9ca9e0dc1b33dfe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b5797f5_8f8596a8",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-10-26T11:38:05Z",
+      "side": 1,
+      "message": "Sets aren\u0027t particularly convenient at this time in EcmaScript, i.e. there\u0027s no `every()` method for them. So I\u0027m sticking to arrays here :-)",
+      "parentUuid": "623fa610_5a3d999b",
       "revId": "0b866f63a10daac9079d87edf9ca9e0dc1b33dfe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
