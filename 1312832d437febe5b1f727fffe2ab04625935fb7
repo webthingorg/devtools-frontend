@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "1312832d437febe5b1f727fffe2ab04625935fb7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f00b7e3_fa2fd2cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-26T09:49:44Z",
+      "side": 1,
+      "message": "lgtm % question",
+      "revId": "1312832d437febe5b1f727fffe2ab04625935fb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b0c6ebc_aed93727",
+        "filename": "front_end/root/Runtime.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-26T09:49:44Z",
+      "side": 1,
+      "message": "Is this really present on all extension descriptors? (i.e. in module.json).\n\nIn the past I introduced subclasses for different kinds of descriptors, in case there were required fields for descriptors, but given that Tim/LON is currently re-working the module.json thing, I am fine with putting it here (either as `string` or `?string`).",
+      "range": {
+        "startLine": 578,
+        "startChar": 0,
+        "endLine": 579,
+        "endChar": 15
+      },
+      "revId": "1312832d437febe5b1f727fffe2ab04625935fb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
