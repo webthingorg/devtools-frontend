@@ -16,6 +16,24 @@
       "message": "Why is this needed? (Do we need a comment explaining this?)",
       "revId": "de0f29681025949695bd6d8f08ec4fe12d94905c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18ef173b_666d38aa",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 2646,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-26T14:58:23Z",
+      "side": 1,
+      "message": "Yeah, I was confused too, but forgot to add a comment about it. Maybe a before/after shot would help us understand.",
+      "parentUuid": "eb884761_19ff81b3",
+      "revId": "de0f29681025949695bd6d8f08ec4fe12d94905c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
