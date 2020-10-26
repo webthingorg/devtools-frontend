@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eeee784e_4d50b139",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1453243
+      },
+      "writtenOn": "2020-10-26T19:55:51Z",
+      "side": 1,
+      "message": "\u003e Patch Set 1:\n\u003e \n\u003e This change is ready for review.\n\nThank you for also taking a look at this bug.  This was a very straight forward and simple one.  Just deleted the option from the drop down menu so there should be no issues!  Let me know if you need anything else for this one.",
+      "revId": "b228e2980afa55c1e055462442939f6eabb15aaa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
