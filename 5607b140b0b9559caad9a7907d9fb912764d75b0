@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d8f80d5_7889b5b2",
+        "filename": "front_end/console/ConsoleViewMessage.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-10-26T09:52:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b81ffc9e_377f6700",
+      "range": {
+        "startLine": 693,
+        "startChar": 6,
+        "endLine": 695,
+        "endChar": 5
+      },
+      "revId": "5607b140b0b9559caad9a7907d9fb912764d75b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "92e21f35_4c5954a8",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dea4db49_a0d07c40",
+        "filename": "front_end/object_ui/RemoteObjectPreviewFormatter.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-10-26T09:52:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92e21f35_4c5954a8",
+      "range": {
+        "startLine": 275,
+        "startChar": 13,
+        "endLine": 275,
+        "endChar": 20
+      },
+      "revId": "5607b140b0b9559caad9a7907d9fb912764d75b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "89b118b6_23145503",
@@ -77,6 +125,30 @@
       "writtenOn": "2020-10-26T08:29:11Z",
       "side": 1,
       "message": "let\u0027s not refactor here.",
+      "range": {
+        "startLine": 286,
+        "startChar": 6,
+        "endLine": 286,
+        "endChar": 11
+      },
+      "revId": "5607b140b0b9559caad9a7907d9fb912764d75b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e319d799_83852706",
+        "filename": "front_end/object_ui/RemoteObjectPreviewFormatter.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-10-26T09:52:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89b118b6_23145503",
       "range": {
         "startLine": 286,
         "startChar": 6,

@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "28f7c0fe_10c0b48f",
+        "filename": "front_end/console/ConsoleViewMessage.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-10-26T09:52:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53d4c925_adc541d1",
+      "range": {
+        "startLine": 629,
+        "startChar": 22,
+        "endLine": 629,
+        "endChar": 93
+      },
+      "revId": "524ce027ab9b878a23ecadced813fc484c453448",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b1fd6594_07441fbe",
@@ -54,6 +78,30 @@
       "writtenOn": "2020-10-23T10:19:16Z",
       "side": 1,
       "message": "since you are cleaning up, use `` as well here please.",
+      "range": {
+        "startLine": 631,
+        "startChar": 40,
+        "endLine": 631,
+        "endChar": 46
+      },
+      "revId": "524ce027ab9b878a23ecadced813fc484c453448",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f91b4935_28db8207",
+        "filename": "front_end/console/ConsoleViewMessage.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-10-26T09:52:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1fd6594_07441fbe",
       "range": {
         "startLine": 631,
         "startChar": 40,
