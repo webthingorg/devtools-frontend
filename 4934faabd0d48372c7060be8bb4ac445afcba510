@@ -16,6 +16,46 @@
       "message": "Thanks, addressed the comments, pt(another)l!",
       "revId": "4934faabd0d48372c7060be8bb4ac445afcba510",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "669a9f99_6b92ec6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-26T10:38:57Z",
+      "side": 1,
+      "message": "This looks great!",
+      "revId": "4934faabd0d48372c7060be8bb4ac445afcba510",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "922a3b0d_55424127",
+        "filename": "test/unittests/front_end/linear_memory_inspector/LinearMemoryInspector_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-26T10:38:57Z",
+      "side": 1,
+      "message": "nit: I think I would not bother with this extra describe, or I\u0027d have:\n\n```\ndescribe(\u0027rendering\u0027, () \u003d\u003e {\n  it(\u0027renders the navigator component\u0027, ...\n\n  it(\u0027renders the viewer component, ...\n})\n```\n\nI understand you were going for the bits to form a full sentence, but I think it reads slightly better when the `it` part is a full sentence - e.g. I prefer `it(\u0027renders the...\u0027)` over `it(\u0027navigator component\u0027)`.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 33
+      },
+      "revId": "4934faabd0d48372c7060be8bb4ac445afcba510",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
