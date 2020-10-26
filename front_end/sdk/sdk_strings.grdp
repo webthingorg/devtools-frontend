@@ -159,6 +159,9 @@
   <message name="IDS_DEVTOOLS_35d4892bb81c31af26ec7047ef5c8872" desc="Resolution for SameSiteCookie issue">
     Specify <ph name="LOCKED_1">|SameSite=Strict|</ph> or <ph name="LOCKED_1">|SameSite=Lax|</ph> if the cookie should not be set by cross-site requests
   </message>
+  <message name="IDS_DEVTOOLS_37418a2eb6d2b3239e5793f17f8378cc" desc="Title for Trusted Types policy violation issue link">
+    Learn more: Trusted Types - Policy violation
+  </message>
   <message name="IDS_DEVTOOLS_3ac7af4285bb17e9dbc72fdd675dd2be" desc="Title of a setting that turns on grid track size labels">
     Show track sizes
   </message>
@@ -202,6 +205,9 @@
   </message>
   <message name="IDS_DEVTOOLS_68379f916c7ed8dd3ab30adaa20635fe" desc="Title of a setting that turns on grid line number labels">
     Show line numbers
+  </message>
+  <message name="IDS_DEVTOOLS_6bb387adbaea00bf0037f0e691d8cdd1" desc="Title for Trusted Types sink violation issue link">
+    Learn more: Trusted Types - Fix violations
   </message>
   <message name="IDS_DEVTOOLS_6e434cf220a5334cfb7c8b8944686adf" desc="Title for CSS Grid tooling option">
     Show grid track sizes
