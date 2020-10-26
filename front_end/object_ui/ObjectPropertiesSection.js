@@ -308,6 +308,7 @@ export class ObjectPropertiesSection extends UI.TreeOutline.TreeOutlineInShadow 
     const type = value.type;
     const subtype = value.subtype;
     const description = value.description;
+    const className = value.className;
     if (type === 'object' && subtype === 'internal#location') {
       const rawLocation = value.debuggerModel().createRawLocationByScriptId(
           value.value.scriptId, value.value.lineNumber, value.value.columnNumber);
@@ -316,7 +317,11 @@ export class ObjectPropertiesSection extends UI.TreeOutline.TreeOutlineInShadow 
       }
       propertyValue = new ObjectPropertyValue(createUnknownInternalLocationElement());
     } else if (type === 'string' && typeof description === 'string') {
+      console.error('createStringElement()');
       propertyValue = createStringElement();
+    } else if (type === 'object' && subtype === 'trustedtype') {
+      console.error('TT createPropertyValue');
+      propertyValue = createTTElement();
     } else if (type === 'function') {
       propertyValue = new ObjectPropertyValue(ObjectPropertiesSection.valueElementForFunctionDescription(description));
     } else if (type === 'object' && subtype === 'node' && description) {
@@ -384,6 +389,28 @@ export class ObjectPropertiesSection extends UI.TreeOutline.TreeOutlineInShadow 
         valueElement.title = description || '';
       }
       valueElement.createChild('span', 'object-value-string-quote').textContent = '"';
+      return propertyValue;
+    }
+
+    /**
+     * @return {!ObjectPropertyValue}
+     */
+    function createTTElement() {
+      const valueElement = /** @type {!HTMLElement} */ (document.createElement('span'));
+      valueElement.classList.add('object-value-trustedtype');
+      const text = (className + ' "' + description + '"');
+      let propertyValue;
+      if (text.length >
+          (self.ObjectUI.ObjectPropertiesSection._maxRenderableStringLength || maxRenderableStringLength)) {
+        propertyValue = new ExpandableTextPropertyValue(valueElement, text, 50);
+      } else {
+        const contentString = createStringElement();
+        UI.UIUtils.createTextChild(valueElement, className + ' ');
+        valueElement.appendChild(contentString.element);
+        propertyValue = new ObjectPropertyValue(valueElement);
+        valueElement.title = text;
+      }
+
       return propertyValue;
     }
 
