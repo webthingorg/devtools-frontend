@@ -16,6 +16,40 @@
       "message": "PTAL",
       "revId": "9e4f5ec1fe457eb73368d75b13f24d630bf5fdf5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "324f7bce_5db41f35",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-10-26T16:04:44Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "9e4f5ec1fe457eb73368d75b13f24d630bf5fdf5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcb42afb_049be3e2",
+        "filename": "front_end/console/ConsoleViewMessage.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-10-26T16:04:44Z",
+      "side": 1,
+      "message": "Maybe initialize to null?",
+      "revId": "9e4f5ec1fe457eb73368d75b13f24d630bf5fdf5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
