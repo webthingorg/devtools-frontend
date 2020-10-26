@@ -80,6 +80,30 @@
       },
       "revId": "1312832d437febe5b1f727fffe2ab04625935fb7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa7168ca_fcfaf89d",
+        "filename": "front_end/root/Runtime.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-26T10:07:47Z",
+      "side": 1,
+      "message": "https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/ui/Action.js;l\u003d11?q\u003dAction.js%20-filepath:out\u0026ss\u003dchromium\n\nThe type is never really constructed, only used in type-checking the code.\n\nBut again, this will go away, so I am fine with the current solution (modulo null-check maybe).",
+      "parentUuid": "bcb3889c_4c3bd217",
+      "range": {
+        "startLine": 578,
+        "startChar": 0,
+        "endLine": 579,
+        "endChar": 15
+      },
+      "revId": "1312832d437febe5b1f727fffe2ab04625935fb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
