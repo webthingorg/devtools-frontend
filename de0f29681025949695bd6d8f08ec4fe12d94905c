@@ -34,6 +34,24 @@
       "parentUuid": "eb884761_19ff81b3",
       "revId": "de0f29681025949695bd6d8f08ec4fe12d94905c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "678efad7_7b74651c",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 2646,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-26T16:18:26Z",
+      "side": 1,
+      "message": "It was a bit too big and caused an overflow which I didn\u0027t notice initially. The SuggestBox computes the height in JS and it\u0027s quite sensitive about the height of the items inside. 13px icon would cause the height of the item to be 16.9 instead of 16,7 for iconless items.",
+      "parentUuid": "18ef173b_666d38aa",
+      "revId": "de0f29681025949695bd6d8f08ec4fe12d94905c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
