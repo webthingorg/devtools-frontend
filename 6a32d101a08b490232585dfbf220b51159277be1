@@ -34,6 +34,24 @@
       "parentUuid": "a285c929_35039a05",
       "revId": "6a32d101a08b490232585dfbf220b51159277be1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89051662_78a0d072",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-26T08:45:42Z",
+      "side": 1,
+      "message": "Thanks for updating the patch! I would prefer if we could find a solution in which we don\u0027t have to duplicate styles because that will probably lead to issues in the future if we decide to change the styles. Therefor it would be best if we could just reuse the functionality from the other buttons. Could you check if the proposed change:\nresidentKeyGroup.appendChild(this._residentKeyCheckbox);\nto\nresidentKeyGroup.appendChild(this._residentKeyCheckboxLabel);\nis already fixing the problem? Thanks!",
+      "parentUuid": "ddcb17be_056634d6",
+      "revId": "6a32d101a08b490232585dfbf220b51159277be1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
