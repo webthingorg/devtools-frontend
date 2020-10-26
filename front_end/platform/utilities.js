@@ -454,17 +454,8 @@ Set.prototype.firstValue = function() {
   return this.values().next().value;
 };
 
-/**
- * @return {!Platform.Multimap<!KEY, !VALUE>}
- */
-Map.prototype.inverse = function() {
-  const result = new Platform.Multimap();
-  for (const key of this.keys()) {
-    const value = this.get(key);
-    result.set(value, key);
-  }
-  return result;
-};
+Map.prototype.inverse = Platform.MapUtilities.inverse;
+
 
 /**
  * @template K, V
