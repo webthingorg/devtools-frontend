@@ -19,7 +19,6 @@ import * as https from 'https';
 import * as os from 'os';
 import * as path from 'path';
 import * as URL from 'url';
-import { promisify } from 'util';
 
 import { assert } from '../common/assert.js';
 import { Browser } from '../common/Browser.js';
@@ -30,8 +29,6 @@ import { WebSocketTransport } from '../common/WebSocketTransport.js';
 import { BrowserFetcher } from './BrowserFetcher.js';
 import { BrowserRunner } from './BrowserRunner.js';
 
-const mkdtempAsync = promisify(fs.mkdtemp);
-const writeFileAsync = promisify(fs.writeFile);
 /**
  * @internal
  */

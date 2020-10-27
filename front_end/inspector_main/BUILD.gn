@@ -17,6 +17,7 @@ devtools_module("inspector_main") {
     "../host:bundle",
     "../mobile_throttling:bundle",
     "../sdk:bundle",
+    "../third_party/puppeteer:bundle",
     "../ui:bundle",
   ]
 }

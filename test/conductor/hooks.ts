@@ -128,12 +128,12 @@ async function loadTargetPageAndDevToolsFrontend(hostedModeServerPort: number) {
   await frontend.goto(frontendUrl, {waitUntil: ['networkidle2', 'domcontentloaded']});
 
   frontend.on('error', error => {
-    console.log('STDOUT:');
-    console.log(stdout);
-    console.log();
-    console.log('STDERR:');
-    console.log(stderr);
-    console.log();
+    // console.log('STDOUT:');
+    // console.log(stdout);
+    // console.log();
+    // console.log('STDERR:');
+    // console.log(stderr);
+    // console.log();
     throw new Error(`Error in Frontend: ${error}`);
   });
 

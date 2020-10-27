@@ -24,8 +24,6 @@ import * as path from 'path';
 import { getProxyForUrl } from 'proxy-from-env';
 import removeRecursive from 'rimraf';
 import * as URL from 'url';
-import * as util from 'util';
-import { promisify } from 'util';
 
 import { assert } from '../common/assert.js';
 import { debug } from '../common/Debug.js';
