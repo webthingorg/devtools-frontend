@@ -252,6 +252,30 @@
       },
       "revId": "c8ecaf70830d6ac2f325d8ffb2df48c172bc3aee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7aa4475_492a9cd1",
+        "filename": "front_end/sdk/RemoteObject.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-10-27T16:54:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5dc0733f_97dabd1a",
+      "range": {
+        "startLine": 357,
+        "startChar": 64,
+        "endLine": 357,
+        "endChar": 76
+      },
+      "revId": "c8ecaf70830d6ac2f325d8ffb2df48c172bc3aee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
