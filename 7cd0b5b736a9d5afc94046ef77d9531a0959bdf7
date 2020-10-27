@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbe7c9bb_b6c73ee6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-27T09:19:07Z",
+      "side": 1,
+      "message": "This CL does a little more than just rolling Puppeteer. Let\u0027s either update the description or split this up into a roll CL + a CL that hooks it up for use in the front-end.",
+      "revId": "7cd0b5b736a9d5afc94046ef77d9531a0959bdf7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
