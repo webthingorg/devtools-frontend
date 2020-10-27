@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "207cbe58_cd9f6051",
+        "filename": "test/e2e/puppeteer/puppeteer_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-27T09:18:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a77c9177_4eb90f4c",
+      "range": {
+        "startLine": 12,
+        "startChar": 24,
+        "endLine": 12,
+        "endChar": 33
+      },
+      "revId": "e417ac9764eb292bf7dec50fcc4ea5377628ef2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be5477d3_d2cf6a58",
@@ -71,6 +95,30 @@
       "writtenOn": "2020-10-27T09:06:23Z",
       "side": 1,
       "message": "Can we bump this to a constant? I\u0027m not sure what the param is or why we set it to an empty string.",
+      "range": {
+        "startLine": 68,
+        "startChar": 50,
+        "endLine": 68,
+        "endChar": 52
+      },
+      "revId": "e417ac9764eb292bf7dec50fcc4ea5377628ef2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b06a42eb_603d581c",
+        "filename": "test/e2e/puppeteer/puppeteer_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-27T09:18:28Z",
+      "side": 1,
+      "message": "This is aligned with https://github.com/puppeteer/puppeteer/blob/f63a123ecef86693e6457b07437a96f108f3e3c5/src/common/BrowserConnector.ts#L72",
+      "parentUuid": "be5477d3_d2cf6a58",
       "range": {
         "startLine": 68,
         "startChar": 50,
