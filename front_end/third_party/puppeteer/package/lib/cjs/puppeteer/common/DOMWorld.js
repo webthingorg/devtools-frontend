@@ -14,8 +14,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DOMWorld = void 0;
+exports.WaitTask = exports.DOMWorld = void 0;
 const assert_js_1 = require("./assert.js");
 const helper_js_1 = require("./helper.js");
 const LifecycleWatcher_js_1 = require("./LifecycleWatcher.js");
@@ -35,18 +54,30 @@ class DOMWorld {
          * internal
          */
         this._waitTasks = new Set();
+        // Contains mapping from functions that should be bound to Puppeteer functions.
+        this._boundFunctions = new Map();
+        // Set of bindings that have been registered in the current context.
+        this._ctxBindings = new Set();
+        // If multiple waitFor are set up asynchronously, we need to wait for the
+        // first one to set up the binding in the page before running the others.
+        this._settingUpBinding = null;
         this._frameManager = frameManager;
         this._frame = frame;
         this._timeoutSettings = timeoutSettings;
         this._setContext(null);
+        frameManager._client.on('Runtime.bindingCalled', (event) => this._onBindingCalled(event));
     }
     frame() {
         return this._frame;
     }
-    _setContext(context) {
+    async _setContext(context) {
         if (context) {
             this._contextResolveCallback.call(null, context);
             this._contextResolveCallback = null;
+            this._ctxBindings.clear();
+            for (const name of this._boundFunctions.keys()) {
+                await this.addBindingToContext(name);
+            }
             for (const waitTask of this._waitTasks)
                 waitTask.rerun();
         }
@@ -67,7 +98,7 @@ class DOMWorld {
     }
     executionContext() {
         if (this._detached)
-            throw new Error(`Execution Context is not available in detached frame "${this._frame.url()}" (are you trying to evaluate?)`);
+            throw new Error(`Execution context is not available in detached frame "${this._frame.url()}" (are you trying to evaluate?)`);
         return this._contextPromise;
     }
     async evaluateHandle(pageFunction, ...args) {
@@ -163,12 +194,8 @@ class DOMWorld {
             if (!environment_js_1.isNode) {
                 throw new Error('Cannot pass a filepath to addScriptTag in the browser environment.');
             }
-            // eslint-disable-next-line @typescript-eslint/no-var-requires
-            const fs = require('fs');
-            // eslint-disable-next-line @typescript-eslint/no-var-requires
-            const { promisify } = require('util');
-            const readFileAsync = promisify(fs.readFile);
-            let contents = await readFileAsync(path, 'utf8');
+            const fs = await Promise.resolve().then(() => __importStar(require('fs')));
+            let contents = await fs.promises.readFile(path, 'utf8');
             contents += '//# sourceURL=' + path.replace(/\n/g, '');
             const context = await this.executionContext();
             return (await context.evaluateHandle(addScriptContent, contents, type)).asElement();
@@ -228,12 +255,8 @@ class DOMWorld {
             if (!environment_js_1.isNode) {
                 throw new Error('Cannot pass a filepath to addStyleTag in the browser environment.');
             }
-            // eslint-disable-next-line @typescript-eslint/no-var-requires
-            const fs = require('fs');
-            // eslint-disable-next-line @typescript-eslint/no-var-requires
-            const { promisify } = require('util');
-            const readFileAsync = promisify(fs.readFile);
-            let contents = await readFileAsync(path, 'utf8');
+            const fs = await Promise.resolve().then(() => __importStar(require('fs')));
+            let contents = await fs.promises.readFile(path, 'utf8');
             contents += '/*# sourceURL=' + path.replace(/\n/g, '') + '*/';
             const context = await this.executionContext();
             return (await context.evaluateHandle(addStyleContent, contents)).asElement();
@@ -295,7 +318,6 @@ class DOMWorld {
     }
     async tap(selector) {
         const handle = await this.$(selector);
-        assert_js_1.assert(handle, 'No node found for selector: ' + selector);
         await handle.tap();
         await handle.dispose();
     }
@@ -305,58 +327,150 @@ class DOMWorld {
         await handle.type(text, options);
         await handle.dispose();
     }
-    waitForSelector(selector, options) {
-        return this._waitForSelectorOrXPath(selector, false, options);
+    async waitForSelector(selector, options) {
+        const { updatedSelector, queryHandler } = QueryHandler_js_1.getQueryHandlerAndSelector(selector);
+        return queryHandler.waitFor(this, updatedSelector, options);
     }
-    waitForXPath(xpath, options) {
-        return this._waitForSelectorOrXPath(xpath, true, options);
+    /**
+     * @internal
+     */
+    async addBindingToContext(name) {
+        // Previous operation added the binding so we are done.
+        if (this._ctxBindings.has(name))
+            return;
+        // Wait for other operation to finish
+        if (this._settingUpBinding) {
+            await this._settingUpBinding;
+            return this.addBindingToContext(name);
+        }
+        const bind = async (name) => {
+            const expression = helper_js_1.helper.pageBindingInitString('internal', name);
+            try {
+                const context = await this.executionContext();
+                await context._client.send('Runtime.addBinding', {
+                    name,
+                    executionContextId: context._contextId,
+                });
+                await context.evaluate(expression);
+            }
+            catch (error) {
+                // We could have tried to evaluate in a context which was already
+                // destroyed. This happens, for example, if the page is navigated while
+                // we are trying to add the binding
+                const ctxDestroyed = error.message.includes('Execution context was destroyed');
+                const ctxNotFound = error.message.includes('Cannot find context with specified id');
+                if (ctxDestroyed || ctxNotFound) {
+                    // Retry adding the binding in the next context
+                    await bind(name);
+                }
+                else {
+                    helper_js_1.debugError(error);
+                    return;
+                }
+            }
+            this._ctxBindings.add(name);
+        };
+        this._settingUpBinding = bind(name);
+        await this._settingUpBinding;
+        this._settingUpBinding = null;
+    }
+    /**
+     * @internal
+     */
+    async addBinding(name, puppeteerFunction) {
+        this._boundFunctions.set(name, puppeteerFunction);
+        await this.addBindingToContext(name);
+    }
+    async _onBindingCalled(event) {
+        let payload;
+        try {
+            payload = JSON.parse(event.payload);
+        }
+        catch {
+            // The binding was either called by something in the page or it was
+            // called before our wrapper was initialized.
+            return;
+        }
+        const { type, name, seq, args } = payload;
+        if (type !== 'internal' || !this._ctxBindings.has(name))
+            return;
+        if (!this._hasContext())
+            return;
+        const context = await this.executionContext();
+        if (context._contextId !== event.executionContextId)
+            return;
+        try {
+            const result = await this._boundFunctions.get(name)(...args);
+            await context.evaluate(deliverResult, name, seq, result);
+        }
+        catch (error) {
+            // The WaitTask may already have been resolved by timing out, or the
+            // exection context may have been destroyed.
+            // In both caes, the promises above are rejected with a protocol error.
+            // We can safely ignores these, as the WaitTask is re-installed in
+            // the next execution context if needed.
+            if (error.message.includes('Protocol error'))
+                return;
+            helper_js_1.debugError(error);
+        }
+        function deliverResult(name, seq, result) {
+            globalThis[name].callbacks.get(seq).resolve(result);
+            globalThis[name].callbacks.delete(seq);
+        }
+    }
+    /**
+     * @internal
+     */
+    async waitForSelectorInPage(queryOne, selector, options) {
+        const { visible: waitForVisible = false, hidden: waitForHidden = false, timeout = this._timeoutSettings.timeout(), } = options;
+        const polling = waitForVisible || waitForHidden ? 'raf' : 'mutation';
+        const title = `selector \`${selector}\`${waitForHidden ? ' to be hidden' : ''}`;
+        async function predicate(selector, waitForVisible, waitForHidden) {
+            const node = predicateQueryHandler
+                ? (await predicateQueryHandler(document, selector))
+                : document.querySelector(selector);
+            return checkWaitForOptions(node, waitForVisible, waitForHidden);
+        }
+        const waitTask = new WaitTask(this, helper_js_1.helper.makePredicateString(predicate, queryOne), title, polling, timeout, selector, waitForVisible, waitForHidden);
+        const jsHandle = await waitTask.promise;
+        const elementHandle = jsHandle.asElement();
+        if (!elementHandle) {
+            await jsHandle.dispose();
+            return null;
+        }
+        return elementHandle;
+    }
+    async waitForXPath(xpath, options) {
+        const { visible: waitForVisible = false, hidden: waitForHidden = false, timeout = this._timeoutSettings.timeout(), } = options;
+        const polling = waitForVisible || waitForHidden ? 'raf' : 'mutation';
+        const title = `XPath \`${xpath}\`${waitForHidden ? ' to be hidden' : ''}`;
+        function predicate(xpath, waitForVisible, waitForHidden) {
+            const node = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+            return checkWaitForOptions(node, waitForVisible, waitForHidden);
+        }
+        const waitTask = new WaitTask(this, helper_js_1.helper.makePredicateString(predicate), title, polling, timeout, xpath, waitForVisible, waitForHidden);
+        const jsHandle = await waitTask.promise;
+        const elementHandle = jsHandle.asElement();
+        if (!elementHandle) {
+            await jsHandle.dispose();
+            return null;
+        }
+        return elementHandle;
     }
     waitForFunction(pageFunction, options = {}, ...args) {
         const { polling = 'raf', timeout = this._timeoutSettings.timeout(), } = options;
-        return new WaitTask(this, pageFunction, undefined, 'function', polling, timeout, ...args).promise;
+        return new WaitTask(this, pageFunction, 'function', polling, timeout, ...args).promise;
     }
     async title() {
         return this.evaluate(() => document.title);
     }
-    async _waitForSelectorOrXPath(selectorOrXPath, isXPath, options = {}) {
-        const { visible: waitForVisible = false, hidden: waitForHidden = false, timeout = this._timeoutSettings.timeout(), } = options;
-        const polling = waitForVisible || waitForHidden ? 'raf' : 'mutation';
-        const title = `${isXPath ? 'XPath' : 'selector'} "${selectorOrXPath}"${waitForHidden ? ' to be hidden' : ''}`;
-        const { updatedSelector, queryHandler } = QueryHandler_js_1.getQueryHandlerAndSelector(selectorOrXPath);
-        const waitTask = new WaitTask(this, predicate, queryHandler.queryOne, title, polling, timeout, updatedSelector, isXPath, waitForVisible, waitForHidden);
-        const handle = await waitTask.promise;
-        if (!handle.asElement()) {
-            await handle.dispose();
-            return null;
-        }
-        return handle.asElement();
-        function predicate(selectorOrXPath, isXPath, waitForVisible, waitForHidden) {
-            const node = isXPath
-                ? document.evaluate(selectorOrXPath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue
-                : predicateQueryHandler
-                    ? predicateQueryHandler(document, selectorOrXPath)
-                    : document.querySelector(selectorOrXPath);
-            if (!node)
-                return waitForHidden;
-            if (!waitForVisible && !waitForHidden)
-                return node;
-            const element = node.nodeType === Node.TEXT_NODE
-                ? node.parentElement
-                : node;
-            const style = window.getComputedStyle(element);
-            const isVisible = style && style.visibility !== 'hidden' && hasVisibleBoundingBox();
-            const success = waitForVisible === isVisible || waitForHidden === !isVisible;
-            return success ? node : null;
-            function hasVisibleBoundingBox() {
-                const rect = element.getBoundingClientRect();
-                return !!(rect.top || rect.bottom || rect.width || rect.height);
-            }
-        }
-    }
 }
 exports.DOMWorld = DOMWorld;
+/**
+ * @internal
+ */
 class WaitTask {
-    constructor(domWorld, predicateBody, predicateQueryHandlerBody, title, polling, timeout, ...args) {
+    constructor(domWorld, predicateBody, title, polling, timeout, ...args) {
         this._runCount = 0;
         this._terminated = false;
         if (helper_js_1.helper.isString(polling))
@@ -365,22 +479,15 @@ class WaitTask {
             assert_js_1.assert(polling > 0, 'Cannot poll with non-positive interval: ' + polling);
         else
             throw new Error('Unknown polling options: ' + polling);
-        function getPredicateBody(predicateBody, predicateQueryHandlerBody) {
+        function getPredicateBody(predicateBody) {
             if (helper_js_1.helper.isString(predicateBody))
                 return `return (${predicateBody});`;
-            if (predicateQueryHandlerBody) {
-                return `
-          return (function wrapper(args) {
-            const predicateQueryHandler = ${predicateQueryHandlerBody};
-            return (${predicateBody})(...args);
-          })(args);`;
-            }
             return `return (${predicateBody})(...args);`;
         }
         this._domWorld = domWorld;
         this._polling = polling;
         this._timeout = timeout;
-        this._predicateBody = getPredicateBody(predicateBody, predicateQueryHandlerBody);
+        this._predicateBody = getPredicateBody(predicateBody);
         this._args = args;
         this._runCount = 0;
         domWorld._waitTasks.add(this);
@@ -425,19 +532,27 @@ class WaitTask {
             await success.dispose();
             return;
         }
-        // When the page is navigated, the promise is rejected.
-        // We will try again in the new execution context.
-        if (error && error.message.includes('Execution context was destroyed'))
-            return;
-        // We could have tried to evaluate in a context which was already
-        // destroyed.
-        if (error &&
-            error.message.includes('Cannot find context with specified id'))
-            return;
-        if (error)
+        // When frame is detached the task should have been terminated by the DOMWorld.
+        // This can fail if we were adding this task while the frame was detached,
+        // so we terminate here instead.
+        if (error) {
+            if (error.message.includes('Execution context is not available in detached frame')) {
+                this.terminate(new Error('waitForFunction failed: frame got detached.'));
+                return;
+            }
+            // When the page is navigated, the promise is rejected.
+            // We will try again in the new execution context.
+            if (error.message.includes('Execution context was destroyed'))
+                return;
+            // We could have tried to evaluate in a context which was already
+            // destroyed.
+            if (error.message.includes('Cannot find context with specified id'))
+                return;
             this._reject(error);
-        else
+        }
+        else {
             this._resolve(success);
+        }
         this._cleanup();
     }
     _cleanup() {
@@ -445,6 +560,7 @@ class WaitTask {
         this._domWorld._waitTasks.delete(this);
     }
 }
+exports.WaitTask = WaitTask;
 async function waitForPredicatePageFunction(predicateBody, polling, timeout, ...args) {
     const predicate = new Function('...args', predicateBody);
     let timedOut = false;
