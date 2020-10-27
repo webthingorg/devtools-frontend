@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7449bac7_98f4981b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-27T16:37:47Z",
+      "side": 1,
+      "message": "LGTM once comment is addressed.",
+      "revId": "1fe3c305fba300e301aaf29408d4f9440ab45884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05f20e66_76ffe63b",
+        "filename": "front_end/input/InputModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-27T16:37:47Z",
+      "side": 1,
+      "message": "From the spec:\n\nThe returned timeoutID is a positive integer value which identifies the timer created by the call to setTimeout(); this value can be passed to clearTimeout() to cancel the timeout.\nhttps://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout\n\nThis means you could turns this into a number, initialize to 0, and get rid of the conditionals (since clearTimeout(0) is a NOP):\n\nPassing an invalid ID to clearTimeout() silently does nothing\nhttps://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/clearTimeout",
+      "range": {
+        "startLine": 15,
+        "startChar": 9,
+        "endLine": 15,
+        "endChar": 29
+      },
+      "revId": "1fe3c305fba300e301aaf29408d4f9440ab45884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
