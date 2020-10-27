@@ -39,6 +39,30 @@
       },
       "revId": "947797f4c94c6c1bfadc318fb1a9c689e7a7d76f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84e1eec1_ad9ee828",
+        "filename": "front_end/inline_editor/ColorSwatch_bridge.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-27T11:37:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9f1995eb_dcdd9374",
+      "range": {
+        "startLine": 18,
+        "startChar": 7,
+        "endLine": 19,
+        "endChar": 32
+      },
+      "revId": "947797f4c94c6c1bfadc318fb1a9c689e7a7d76f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
