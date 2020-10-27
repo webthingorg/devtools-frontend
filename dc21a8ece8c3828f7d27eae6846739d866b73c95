@@ -51,6 +51,24 @@
       "parentUuid": "a2f55071_ee8f2571",
       "revId": "dc21a8ece8c3828f7d27eae6846739d866b73c95",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "584dcb45_0a9f19a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-27T14:06:12Z",
+      "side": 1,
+      "message": "I see. It\u0027s a little annoying that we now have two copies of Puppeteer — I wonder if there’s a reasonable way to avoid that. Either way, I look forward to your work on automating this front_end roll!",
+      "parentUuid": "fc74a14f_28ab30b9",
+      "revId": "dc21a8ece8c3828f7d27eae6846739d866b73c95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
