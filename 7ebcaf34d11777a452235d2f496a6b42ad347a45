@@ -93,6 +93,30 @@
       },
       "revId": "7ebcaf34d11777a452235d2f496a6b42ad347a45",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2eccea8_48d28320",
+        "filename": "front_end/legacy/legacy-defs.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-27T15:59:12Z",
+      "side": 1,
+      "message": "I\u0027d personally prefer to do it before this CL, as it allows us to refrain from changing legacy-defs, which purges everyone\u0027s Ninja cache. Feel free to choose whatever order you prefer the most.",
+      "parentUuid": "8bbb7f89_184f3d09",
+      "range": {
+        "startLine": 127,
+        "startChar": 2,
+        "endLine": 127,
+        "endChar": 16
+      },
+      "revId": "7ebcaf34d11777a452235d2f496a6b42ad347a45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
