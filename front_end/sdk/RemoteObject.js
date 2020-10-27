@@ -29,7 +29,7 @@
  */
 
 import {DebuggerModel, FunctionDetails} from './DebuggerModel.js';  // eslint-disable-line no-unused-vars
-import {RuntimeModel} from './RuntimeModel.js';    // eslint-disable-line no-unused-vars
+import {RuntimeModel} from './RuntimeModel.js';                     // eslint-disable-line no-unused-vars
 
 export class RemoteObject {
   /**
@@ -232,6 +232,11 @@ export class RemoteObject {
     throw 'Not implemented';
   }
 
+  /** @param {string|undefined} description*/
+  set description(description) {
+    throw 'Not implemented';
+  }
+
   /** @return {boolean} */
   get hasChildren() {
     throw 'Not implemented';
@@ -349,11 +354,18 @@ export class RemoteObjectImpl extends RemoteObject {
    * @param {!Protocol.Runtime.ObjectPreview=} preview
    * @param {!Protocol.Runtime.CustomPreview=} customPreview
    * @param {string=} className
+   * @param {function(!RemoteObject): !Promise<!RemoteObject>=} propertyHook
    */
   constructor(
-      runtimeModel, objectId, type, subtype, value, unserializableValue, description, preview, customPreview,
-      className) {
+      runtimeModel, objectId, type, subtype, value, unserializableValue, description, preview, customPreview, className,
+      propertyHook) {
     super();
+
+    /**
+     * @param {!RemoteObject} p
+     */
+    const id = p => Promise.resolve(p);
+    this._propertyHook = propertyHook || id;
 
     this._runtimeModel = runtimeModel;
     this._runtimeAgent = runtimeModel.target().runtimeAgent();
@@ -454,6 +466,14 @@ export class RemoteObjectImpl extends RemoteObject {
 
   /**
    * @override
+   * @param {string|undefined} description
+   */
+  set description(description) {
+    this._description = description;
+  }
+
+  /**
+   * @override
    * @return {boolean}
    */
   get hasChildren() {
@@ -518,7 +538,9 @@ export class RemoteObjectImpl extends RemoteObject {
     const {result: properties = [], internalProperties = [], privateProperties = []} = response;
     const result = [];
     for (const property of properties) {
-      const propertyValue = property.value ? this._runtimeModel.createRemoteObject(property.value) : null;
+      const propertyValue = property.value ?
+          await this._propertyHook(this._runtimeModel.createRemoteObject(property.value, this._propertyHook)) :
+          null;
       const propertySymbol = property.symbol ? this._runtimeModel.createRemoteObject(property.symbol) : null;
       const remoteProperty = new RemoteObjectProperty(
           property.name, propertyValue, !!property.enumerable, !!property.writable, !!property.isOwn,

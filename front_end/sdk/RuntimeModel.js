@@ -170,13 +170,14 @@ export class RuntimeModel extends SDKModel {
 
   /**
    * @param {!Protocol.Runtime.RemoteObject} payload
+   * @param {function(!RemoteObject): !Promise<!RemoteObject>=} propertyHook
    * @return {!RemoteObject}
    */
-  createRemoteObject(payload) {
+  createRemoteObject(payload, propertyHook) {
     console.assert(typeof payload === 'object', 'Remote object payload should only be an object');
     return new RemoteObjectImpl(
         this, payload.objectId, payload.type, payload.subtype, payload.value, payload.unserializableValue,
-        payload.description, payload.preview, payload.customPreview, payload.className);
+        payload.description, payload.preview, payload.customPreview, payload.className, propertyHook);
   }
 
   /**
