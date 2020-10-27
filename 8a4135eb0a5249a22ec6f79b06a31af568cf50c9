@@ -46,6 +46,30 @@
       },
       "revId": "8a4135eb0a5249a22ec6f79b06a31af568cf50c9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ed892f0_8ba79661",
+        "filename": "front_end/formatter/SourceFormatter.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-27T15:44:44Z",
+      "side": 0,
+      "message": "Ahh, you are right I missed where the `await uiSourceCode.requestContent()` moved into the Promise construction.\n\nAt least the new code is cleaner with one less promise indirection gone.",
+      "parentUuid": "3ead619b_7b11de63",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 67
+      },
+      "revId": "8a4135eb0a5249a22ec6f79b06a31af568cf50c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a62fdb89_8ba19610",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-27T15:44:44Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "25f0d688b3c5919d06eccc7e8f490c5e6718aa6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7dc52beb_136e03da",
@@ -55,6 +72,30 @@
       "side": 1,
       "message": "I honestly don\u0027t know what that check was doing, since `objectToFormattingResult` contains `FormatData`. Since `UISourceCode` does not implement that interface, the check would always return `false`. Hence, I removed it.",
       "parentUuid": "7dc52beb_136e03da",
+      "range": {
+        "startLine": 305,
+        "startChar": 6,
+        "endLine": 305,
+        "endChar": 66
+      },
+      "revId": "25f0d688b3c5919d06eccc7e8f490c5e6718aa6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3577c673_66c379f1",
+        "filename": "front_end/formatter/SourceFormatter.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-27T15:44:44Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "56098fc4_838f3bed",
       "range": {
         "startLine": 305,
         "startChar": 6,
