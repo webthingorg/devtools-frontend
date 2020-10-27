@@ -51,6 +51,24 @@
       "parentUuid": "ee017fab_7939672a",
       "revId": "949e67d80e5b959c517e308b2596a839f8587fc4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36b8adb7_fd8586cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-27T15:00:36Z",
+      "side": 1,
+      "message": "Let\u0027s backport to 87 but not 86.",
+      "parentUuid": "26d6b589_6e14f788",
+      "revId": "949e67d80e5b959c517e308b2596a839f8587fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
