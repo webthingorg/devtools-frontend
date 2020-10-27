@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang=en-GB>
+      <head>
+      </head>
+      <body>
+            <div id=clickme>
+               <button value="Fetch something" id="FetchButton1" onclick="fetch1()">Fetch</button>
+               <button value="Fetch2" id="FetchButton2" onclick="fetch2()">Fetch XHR</button>
+            </div>
+            <script>
+                  async function fetch1() {
+                        const response = await fetch('/hello.txt');
+                        console.log(await response.text());
+                  }
+
+                  function fetch2() {
+                        const xhr = new XMLHttpRequest();
+                        xhr.open('GET', '/hello.txt');
+
+                        xhr.send();
+
+                        xhr.onload = function() {
+                          let responseObj = xhr.response;
+                          console.log(responseObj);
+                        };
+                  }
+            </script>
+            <script>
+                  if('serviceWorker' in navigator) {
+                    navigator.serviceWorker
+                             .register('/sw.js')
+                             .then(function() { console.log("Service Worker Registered"); });
+                  }
+            </script>
+      </body>
+
+</html>
