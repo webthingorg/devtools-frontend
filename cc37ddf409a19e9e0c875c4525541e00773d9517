@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "062c93ea_3383d11a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-27T09:02:53Z",
+      "side": 1,
+      "message": "LGTM. Please resolve the merge conflict in AUTHORS and I\u0027m happy to land your first contribution to DevTools. Thanks for your contributing!",
+      "revId": "cc37ddf409a19e9e0c875c4525541e00773d9517",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
