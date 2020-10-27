@@ -7,11 +7,13 @@
 
 import * as Common from '../common/common.js';
 import * as Components from '../components/components.js';
+import * as Host from '../host/host.js';
 import * as MobileThrottling from '../mobile_throttling/mobile_throttling.js';
 import * as Network from '../network/network.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
+const PANEL_CLOSE_CUTOFF_TIME_IN_MS = 2000;
 /**
  * @implements {SDK.SDKModel.SDKModelObserver<!SDK.ServiceWorkerManager.ServiceWorkerManager>}
  */
@@ -75,11 +77,22 @@ export class ServiceWorkersView extends UI.Widget.VBox {
 
     document.body.addEventListener(UI.InspectorView.Events.DrawerChange, event => {
       const {detail: {isDrawerOpen}} = event;
-      if (!isDrawerOpen && this._manager.serviceWorkerNetworkRequestsPanelOpen) {
+      const {serviceWorkerNetworkRequestsPanelStatus: {isOpen, openedAt}} = this._manager;
+      if (!isDrawerOpen && isOpen) {
         const networkLocation = UI.ViewManager.ViewManager.instance().locationNameForViewId('network');
         UI.ViewManager.ViewManager.instance().showViewInLocation('network', networkLocation, false);
         Network.NetworkPanel.NetworkPanel.revealAndFilter([]);
-        this._manager.serviceWorkerNetworkRequestsPanelOpen = false;
+
+        const currentTime = Date.now();
+        const timeDifference = currentTime - openedAt;
+        if (timeDifference < PANEL_CLOSE_CUTOFF_TIME_IN_MS) {
+          Host.userMetrics.actionTaken(Host.UserMetrics.Action.ServiceWorkerNetworkRequestClosedQuickly);
+        }
+
+        this._manager.serviceWorkerNetworkRequestsPanelStatus = {
+          isOpen: false,
+          openedAt: 0,
+        };
       }
     });
   }
@@ -586,7 +599,11 @@ export class Section {
           lastRequest, Network.NetworkItemView.Tabs.Timing, {clearFilter: false});
     }
 
-    this._manager.serviceWorkerNetworkRequestsPanelOpen = true;
+    this._manager.serviceWorkerNetworkRequestsPanelStatus = {
+      isOpen: true,
+      openedAt: Date.now(),
+    };
+    Host.userMetrics.actionTaken(Host.UserMetrics.Action.ServiceWorkerNetworkRequestClicked);
   }
 
   /**
