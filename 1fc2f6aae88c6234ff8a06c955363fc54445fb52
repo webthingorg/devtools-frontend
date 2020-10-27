@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d781bfba_50e2d62f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-27T14:27:37Z",
+      "side": 1,
+      "message": "I think the history could be stored in the LinearMemoryInspector component if the users of the LinearMemoryInspector are not concerned with the history data and there is no need to control it from the outside (it\u0027s always a trade-off, in the extreme case we can store the entire app state in a redux-like store).\n\nI see two alternative ways to implement it:\n- accept an instance of SimpleHistoryManager as a dependency (LinearMemoryInspector can define a history manager interface instead of relying on the specific implementation of the SimpleHistoryManager).\n- send events about history actions to the parent of the LinearMemoryInspector and handle the SimpleHistoryManager at that level (I guess it\u0027s in Sources?).\n\nBtw, I looked into the SimpleHistoryManager implementation and I curious why it needs locking? Can it be simplified? I guess I lack the context about SimpleHistoryManager.",
+      "parentUuid": "fee640af_cab74593",
+      "revId": "1fc2f6aae88c6234ff8a06c955363fc54445fb52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ecfeb6fd_bbccb3e7",
@@ -84,6 +102,23 @@
       "side": 1,
       "message": "First off: thanks a lot for taking your time, investigating and writing that response Tim!\n\n* Yes, normally the component should not implement business logic on its own; this was also a discussion point on the design doc:\nhttps://docs.google.com/document/u/1/d/1LUOat3Q3pQ08IsnBQLrvL-4zWXSTgIuArb5ig3lEm-Y/edit?usp\u003dsharing\n\nTLDR (discussion in comment added by Alex): this component is actually only rendering its subcomponents, and the suggestion was to not forward all events of its subcomponents, but instead to handle them within this component. This would guarantee that all the subcomponents are always in *sync*. Initially the design had a delegate that would take care of everything (\u0027the user of the component\u0027).\n\nI\u0027ll add Jack and Alex to the CL too.\n\n* I wouldn\u0027t necessarily need to rely on sources, but I just wanted to reuse the history manager (which we could implement by ourselves if necessary to break any dependencies).\n\n* I\u0027ll create a bug for the dependency issue",
       "parentUuid": "07560a4f_ac2ae080",
+      "revId": "1fc2f6aae88c6234ff8a06c955363fc54445fb52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7c9a934_2af96c8d",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-27T14:27:37Z",
+      "side": 1,
+      "message": "I think HistoryEntry is an interface (according to jsdoc definitions). Could AddressHistoryEntry implement the interface without explicitly defining it? I guess even without extending the class, AddressHistoryEntry would still conform to the required interface.",
       "revId": "1fc2f6aae88c6234ff8a06c955363fc54445fb52",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
