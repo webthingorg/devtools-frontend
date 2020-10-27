@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "242eaabe_686df204",
+        "filename": "front_end/emulation/DeviceModeView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-27T15:02:55Z",
+      "side": 1,
+      "message": "Nit: I think TypeScript is smart enough to figure out the structure if this type is specified before the attribute. That would allow you to remove this property from the constructor as well. E.g.:\n\n  /** @type {!HTMLElement} */\n  this._contentClip \u003d (this.contentElement.createChild(\u0027div\u0027, \u0027device-mode-content-clip vbox\u0027));\n\nThen you can remove `this._contentClip` from the constructor and in theory that should work.",
+      "range": {
+        "startLine": 88,
+        "startChar": 8,
+        "endLine": 88,
+        "endChar": 35
+      },
+      "revId": "4387fc2788c57549d9548fc8577bc56cd7fa812f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
