@@ -16,6 +16,24 @@
       "message": "Do you want to add tests for the other functions as well?",
       "revId": "6b1665af6706613b9b7ba80160d0ce4a1acf2edb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9eb3db42_e80addf5",
+        "filename": "test/unittests/front_end/elements/CSSAngle_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-27T14:46:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6e8535c_b499e76f",
+      "revId": "6b1665af6706613b9b7ba80160d0ce4a1acf2edb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
