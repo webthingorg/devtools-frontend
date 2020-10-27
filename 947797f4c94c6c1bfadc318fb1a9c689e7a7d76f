@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c85d4f60_9b80a312",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-27T10:02:39Z",
+      "side": 1,
+      "message": "@Tim, @Paul PTAL.\n\n@Patrick just an FYI as I had to change ColorSwatch.ts slightly to satisfy the bridges generation. The error was hidden by the PRESUBMIT check not working properly (my bad!).",
+      "revId": "947797f4c94c6c1bfadc318fb1a9c689e7a7d76f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
