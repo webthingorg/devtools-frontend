@@ -302,17 +302,21 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   /**
+   * @param {string} propertyName
    * @param {string} propertyValue
+   * @param {string} angleText
    */
-  _processAngle(propertyValue) {
+  _processAngle(propertyName, propertyValue, angleText) {
     if (!this._editable()) {
-      return document.createTextNode(propertyValue);
+      return document.createTextNode(angleText);
     }
     const cssAngle = createCSSAngle();
     const valueElement = document.createElement('span');
-    valueElement.textContent = propertyValue;
+    valueElement.textContent = angleText;
     cssAngle.data = {
-      angleText: propertyValue,
+      propertyName,
+      propertyValue,
+      angleText,
       containingPane:
           /** @type {!HTMLElement} */ (this._parentPane.element.enclosingNodeOrSelfWithClass('style-panes-wrapper')),
     };
@@ -321,7 +325,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     /**
      * @param {!Event} event
      */
-    const popOverToggled = event => {
+    const popoverToggled = event => {
       const section = this.section();
       if (!section) {
         return;
@@ -341,9 +345,12 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
 
       valueElement.textContent = data.value;
       this.applyStyleText(this.renderedPropertyText(), false);
+      const propertyName = this.nameElement ? this.nameElement.textContent : '';
+      const propertyValue = this.valueElement ? this.valueElement.textContent : '';
+      cssAngle.updateProperty(propertyName || '', propertyValue || '');
     };
 
-    cssAngle.addEventListener('popover-toggled', popOverToggled);
+    cssAngle.addEventListener('popover-toggled', popoverToggled);
     cssAngle.addEventListener('value-changed', valueChanged);
 
     return cssAngle;

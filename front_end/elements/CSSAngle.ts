@@ -12,6 +12,7 @@ const styleMap = LitHtml.Directives.styleMap;
 
 const MiniIconWidth = 11;
 const ClockDialLength = 6;
+const ContextAwareProperties = ['color', 'background', 'background-color'];
 
 export class PopoverToggledEvent extends Event {
   data: {open: boolean};
@@ -32,6 +33,8 @@ export class ValueChangedEvent extends Event {
 }
 
 export interface CSSAngleData {
+  propertyName: string;
+  propertyValue: string;
   angleText: string;
   containingPane: HTMLElement;
 }
@@ -40,8 +43,10 @@ export class CSSAngle extends HTMLElement {
   private readonly shadow = this.attachShadow({mode: 'open'});
   private angle = 0;
   private unit = AngleUnit.Deg;
-  private mousemoveThrottler = new Common.Throttler.Throttler(16.67 /* 60fps */);
+  private propertyName?: string;
+  private propertyValue?: string;
   private containingPane?: HTMLElement;
+  private mousemoveThrottler = new Common.Throttler.Throttler(16.67 /* 60fps */);
   private popoverOpen = false;
   private popoverStyleTop = '';
   private clockRadius = 77 / 2;  // By default the clock is 77 * 77.
@@ -55,6 +60,8 @@ export class CSSAngle extends HTMLElement {
     }
     this.angle = parsedResult.value;
     this.unit = parsedResult.unit;
+    this.propertyName = data.propertyName;
+    this.propertyValue = data.propertyValue;
     this.containingPane = data.containingPane;
     // TODO(changhaohan): crbug.com/1138633 render based on the type of the property value
     this.render();
@@ -102,6 +109,12 @@ export class CSSAngle extends HTMLElement {
     this.render();
   }
 
+  updateProperty(name: string, value: string): void {
+    this.propertyName = name;
+    this.propertyValue = value;
+    this.render();
+  }
+
   private onMiniIconClick(event: Event): void {
     event.stopPropagation();
     this.popoverOpen ? this.minify() : this.popover();
@@ -136,7 +149,6 @@ export class CSSAngle extends HTMLElement {
     const degree = -Math.atan2(mouseX - clockCenterX, mouseY - clockCenterY) * 180 / Math.PI + 180;
     const rawAngle = getAngleFromDegrees(degree, this.unit);
     this.angle = roundAngleByUnit(rawAngle, this.unit);
-    this.render();
     this.dispatchEvent(new ValueChangedEvent(`${this.angle}${this.unit}`));
   }
 
@@ -294,6 +306,13 @@ export class CSSAngle extends HTMLElement {
   }
 
   private renderPopover() {
+    const clockStyles = {
+      background: '',
+    };
+    if (this.propertyName && ContextAwareProperties.includes(this.propertyName)) {
+      clockStyles.background = this.propertyValue || '';
+    }
+
     const {translateX, translateY} = get2DTranslationsForAngle(this.angle, this.unit, this.clockRadius / 2);
     const handStyles = {
       transform: `translate(${translateX}px, ${translateY}px) rotate(${this.angle}${this.unit})`,
@@ -305,6 +324,7 @@ export class CSSAngle extends HTMLElement {
         <span class="pointer"></span>
         <div
           class="clock"
+          style=${styleMap(clockStyles)}
           @mousedown=${this.onMouseDown}
           @mousemove=${this.onMouseMove}>
           ${this.renderDials()}

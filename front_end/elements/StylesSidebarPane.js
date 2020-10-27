@@ -2733,7 +2733,7 @@ export class StylesSidebarPropertyRenderer {
     this._gridHandler = null;
     /** @type {?function(string):!Node} */
     this._varHandler = createTextNode;
-    /** @type {?function(string):!Node} */
+    /** @type {?function(string, string, string):!Node} */
     this._angleHandler = null;
   }
 
@@ -2773,7 +2773,7 @@ export class StylesSidebarPropertyRenderer {
   }
 
   /**
-   * @param {function(string):!Node} handler
+   * @param {function(string, string, string):!Node} handler
    */
   setAngleHandler(handler) {
     this._angleHandler = handler;
@@ -2832,7 +2832,7 @@ export class StylesSidebarPropertyRenderer {
     if (this._angleHandler && metadata.isAngleAwareProperty(this._propertyName)) {
       // TODO(changhaohan): crbug.com/1138628 refactor this to handle unitless 0 cases
       regexes.push(CSSAngleRegex);
-      processors.push(this._angleHandler);
+      processors.push(this._angleHandler.bind(this, this._propertyName, this._propertyValue));
     }
     const results = TextUtils.TextUtils.Utils.splitStringByRegexes(this._propertyValue, regexes);
     for (let i = 0; i < results.length; i++) {
