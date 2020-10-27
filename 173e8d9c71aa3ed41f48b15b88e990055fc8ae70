@@ -16,6 +16,24 @@
       "message": "Can we have test(s)?",
       "revId": "173e8d9c71aa3ed41f48b15b88e990055fc8ae70",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbbdf5fe_0a73f02a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-10-27T15:12:04Z",
+      "side": 1,
+      "message": "Absolutely, seems like I did that at the same time just while you were reviewing.",
+      "parentUuid": "5c316788_174d3ef6",
+      "revId": "173e8d9c71aa3ed41f48b15b88e990055fc8ae70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
