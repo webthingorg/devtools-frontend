@@ -16,6 +16,92 @@
       "message": "This is a first test of running puppeteer not only in the browser but inside of DevTools while reusing the same connection that DevTools is using. PTAL",
       "revId": "e417ac9764eb292bf7dec50fcc4ea5377628ef2a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38351055_390f2840",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-27T09:06:23Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "e417ac9764eb292bf7dec50fcc4ea5377628ef2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a77c9177_4eb90f4c",
+        "filename": "test/e2e/puppeteer/puppeteer_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-27T09:06:23Z",
+      "side": 1,
+      "message": "nit: browser?",
+      "range": {
+        "startLine": 12,
+        "startChar": 24,
+        "endLine": 12,
+        "endChar": 33
+      },
+      "revId": "e417ac9764eb292bf7dec50fcc4ea5377628ef2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be5477d3_d2cf6a58",
+        "filename": "test/e2e/puppeteer/puppeteer_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-27T09:06:23Z",
+      "side": 1,
+      "message": "Can we bump this to a constant? I\u0027m not sure what the param is or why we set it to an empty string.",
+      "range": {
+        "startLine": 68,
+        "startChar": 50,
+        "endLine": 68,
+        "endChar": 52
+      },
+      "revId": "e417ac9764eb292bf7dec50fcc4ea5377628ef2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0d21f55_ec01960b",
+        "filename": "test/e2e/puppeteer/puppeteer_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-27T09:06:23Z",
+      "side": 1,
+      "message": "This is all very meta. Using Puppeteer to inject Puppeteer. My head hurts.",
+      "range": {
+        "startLine": 73,
+        "startChar": 4,
+        "endLine": 73,
+        "endChar": 34
+      },
+      "revId": "e417ac9764eb292bf7dec50fcc4ea5377628ef2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
