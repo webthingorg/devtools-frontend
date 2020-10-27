@@ -33,6 +33,7 @@ devtools_entrypoint("bundle") {
     "../sdk:legacy",
     "../services:legacy",
     "../text_utils:legacy",
+    "../third_party/puppeteer:bundle",
     "../ui:legacy",
     "../workspace:legacy",
   ]

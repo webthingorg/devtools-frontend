@@ -13,16 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import * as fs from 'fs';
-import { promisify } from 'util';
-
 import { assert } from './assert.js';
 import { debug } from './Debug.js';
 import { TimeoutError } from './Errors.js';
 
-const openAsync = promisify(fs.open);
-const writeAsync = promisify(fs.write);
-const closeAsync = promisify(fs.close);
 export const debugError = debug('puppeteer:error');
 function getExceptionMessage(exceptionDetails) {
     if (exceptionDetails.exception)

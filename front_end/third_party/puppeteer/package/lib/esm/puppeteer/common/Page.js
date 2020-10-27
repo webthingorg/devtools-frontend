@@ -13,10 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import * as fs from 'fs';
-import * as mime from 'mime';
-import { promisify } from 'util';
-
 import { Accessibility } from './Accessibility.js';
 import { assert } from './assert.js';
 import { CDPSessionEmittedEvents, Connection, } from './Connection.js';
@@ -36,7 +32,6 @@ import { TimeoutSettings } from './TimeoutSettings.js';
 import { Tracing } from './Tracing.js';
 import { WebWorker } from './WebWorker.js';
 
-const writeFileAsync = promisify(fs.writeFile);
 class ScreenshotTaskQueue {
     constructor() {
         this._chain = Promise.resolve(undefined);
