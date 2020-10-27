@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fee640af_cab74593",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-27T13:24:53Z",
+      "side": 1,
+      "message": "Hi Jack, hi Alex!\n\nHere\u0027s a CL to allow page navigation and history navigation in the linear\nmemory inspector. As is the CL does not work because of a infrastructure dependency bug that is introduced if the component depends on the sources bundle, which it does because I\u0027m reusing\nthe SimpleHistoryManager for keeping track of the history (which I could reimplement, \nbut I\u0027d rather reuse it if we already have something).\n\nAnyway, the question came up (by Tim who investigated the dependency bug) whether the LinearMemoryInspector should take care of business logic here, i.e. whether\nit should record the history at all. Alex and I had a discussion on the design doc\nabout this:\n\nhttps://docs.google.com/document/u/1/d/1LUOat3Q3pQ08IsnBQLrvL-4zWXSTgIuArb5ig3lEm-Y/edit?usp\u003dsharing\n\nand we agreed that since this component is basically just rendering its subcomponents\nit could contain state. \n\nJack, do you have any opinion on this? ",
+      "revId": "1fc2f6aae88c6234ff8a06c955363fc54445fb52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ecfeb6fd_bbccb3e7",
@@ -49,6 +66,24 @@
       "side": 1,
       "message": "The problem why this error occurs is that `snippets/` has a side-effect in ScriptSnippetFileSystem.js:259 where it instructs the file system to add a new snippetsfilesystem. E.g. `snippets/` is not self-contained and has side-effect state on load.\n\nI think this error is happening, because the import graph changes when you add this particular import. E.g. the order in which all modules are being loaded changes, which means we are currently relying on a side-effect order loading (probably in `main/`). I think that\u0027s happening in `Main.MainImpl.MainImpl._createAppUI` which creates a `Persistence.FileSystemWorkspaceBinding.FileSystemWorkspaceBinding`.\n\nThat said, I am not sure why we have to rely on `sources/` for this component. If I understand correctly, the component should not implement business logic on its own. It should fire an event to fire the navigation event and the user of `linear-memory-inspector` would then implement the functionality. I don\u0027t see a reference to a user of this component yet, is it unused right now?\n\nWould it be possible to refactor this component such that it does not rely on the business logic, but instead let the user of the component handle the navigation history? My assumption is that `sources/` itself will use this component. This would hopefully remove the circular dependency between `sources/` and this component and hopefully resolve the side-effect loading issue that we are currently relying on with `MainImpl`.\n\nIt might also be good to file a CRBug to explain that we are currently relying on `MainImpl` ordering and that `snippets/` performs side-effect tasks upon module loading. `snippets/` should not perform such actions on loading, which would prevent these kind of issues as well.\n\nLet me know if that was useful. If not, feel free to set up a VC and we can pair debug the issue.",
       "parentUuid": "ecfeb6fd_bbccb3e7",
+      "revId": "1fc2f6aae88c6234ff8a06c955363fc54445fb52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46a49633_ddf8fcd9",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-27T13:24:53Z",
+      "side": 1,
+      "message": "First off: thanks a lot for taking your time, investigating and writing that response Tim!\n\n* Yes, normally the component should not implement business logic on its own; this was also a discussion point on the design doc:\nhttps://docs.google.com/document/u/1/d/1LUOat3Q3pQ08IsnBQLrvL-4zWXSTgIuArb5ig3lEm-Y/edit?usp\u003dsharing\n\nTLDR (discussion in comment added by Alex): this component is actually only rendering its subcomponents, and the suggestion was to not forward all events of its subcomponents, but instead to handle them within this component. This would guarantee that all the subcomponents are always in *sync*. Initially the design had a delegate that would take care of everything (\u0027the user of the component\u0027).\n\nI\u0027ll add Jack and Alex to the CL too.\n\n* I wouldn\u0027t necessarily need to rely on sources, but I just wanted to reuse the history manager (which we could implement by ourselves if necessary to break any dependencies).\n\n* I\u0027ll create a bug for the dependency issue",
+      "parentUuid": "07560a4f_ac2ae080",
       "revId": "1fc2f6aae88c6234ff8a06c955363fc54445fb52",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
