@@ -51,6 +51,24 @@
       "parentUuid": "7dee1f2e_a7acc4b9",
       "revId": "dbce89ace71c025f14aed65f48456b83897a28dd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad2f5dbe_674e3ff6",
+        "filename": "front_end/console/ConsoleViewMessage.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-10-27T10:38:05Z",
+      "side": 1,
+      "message": "I see. In my opinion it was a bit easier to read without the nested functions, that\u0027s why I asked.",
+      "parentUuid": "56efd6ca_6cfa751e",
+      "revId": "dbce89ace71c025f14aed65f48456b83897a28dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
