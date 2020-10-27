@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9280efe8_4f747cef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1458742
+      },
+      "writtenOn": "2020-10-27T13:14:43Z",
+      "side": 1,
+      "message": "I have fixed the merge conflict in AUTHORS",
+      "revId": "5fd182c8f23a216848ac94bd2ff45210cca8a865",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
