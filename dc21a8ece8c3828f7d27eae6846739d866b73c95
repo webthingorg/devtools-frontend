@@ -33,6 +33,24 @@
       "message": "Where is the change to scripts/deps/manage_node_deps.py?",
       "revId": "dc21a8ece8c3828f7d27eae6846739d866b73c95",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc74a14f_28ab30b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-27T13:46:17Z",
+      "side": 1,
+      "message": "This change updates the puppeteer version in front_end/third_party and not the one in node_modules.",
+      "parentUuid": "a2f55071_ee8f2571",
+      "revId": "dc21a8ece8c3828f7d27eae6846739d866b73c95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

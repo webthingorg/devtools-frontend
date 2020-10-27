@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3273e68_528f0a53",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-27T13:46:17Z",
+      "side": 1,
+      "message": "I added a script to update all the relevant build files. Could you take a look\nat it? And do you have an idea how to handle which version to roll? I would have \nprefered to always roll the latest but that does not seem to be straight forward.",
+      "revId": "7e270c709072159bf15476dd8639fd878e944583",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
