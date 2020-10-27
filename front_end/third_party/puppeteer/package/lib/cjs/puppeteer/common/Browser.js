@@ -23,7 +23,7 @@ const EventEmitter_js_1 = require("./EventEmitter.js");
 const Connection_js_1 = require("./Connection.js");
 /**
  * A Browser is created when Puppeteer connects to a Chromium instance, either through
- * {@link Puppeteer.launch} or {@link Puppeteer.connect}.
+ * {@link PuppeteerNode.launch} or {@link Puppeteer.connect}.
  *
  * @remarks
  *
@@ -461,10 +461,11 @@ class BrowserContext extends EventEmitter_js_1.EventEmitter {
             ['clipboard-read', 'clipboardReadWrite'],
             ['clipboard-write', 'clipboardReadWrite'],
             ['payment-handler', 'paymentHandler'],
+            ['idle-detection', 'idleDetection'],
             // chrome-specific permissions we have.
             ['midi-sysex', 'midiSysex'],
         ]);
-        permissions = permissions.map((permission) => {
+        const protocolPermissions = permissions.map((permission) => {
             const protocolPermission = webPermissionToProtocol.get(permission);
             if (!protocolPermission)
                 throw new Error('Unknown permission: ' + permission);
@@ -473,7 +474,7 @@ class BrowserContext extends EventEmitter_js_1.EventEmitter {
         await this._connection.send('Browser.grantPermissions', {
             origin,
             browserContextId: this._id || undefined,
-            permissions,
+            permissions: protocolPermissions,
         });
     }
     /**
