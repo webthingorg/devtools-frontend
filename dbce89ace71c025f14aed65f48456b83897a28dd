@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "dbce89ace71c025f14aed65f48456b83897a28dd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7dee1f2e_a7acc4b9",
+        "filename": "front_end/console/ConsoleViewMessage.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-10-27T08:24:59Z",
+      "side": 1,
+      "message": "Why did you extract this function from ConsoleViewMessage? Wouldn\u0027t it still work as part of the class?",
+      "revId": "dbce89ace71c025f14aed65f48456b83897a28dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
