@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f43a549_bf4a28ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-27T15:15:26Z",
+      "side": 1,
+      "message": "two questions, otherwise lgtm",
+      "revId": "25f0d688b3c5919d06eccc7e8f490c5e6718aa6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7dc52beb_136e03da",
+        "filename": "front_end/formatter/SourceFormatter.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-27T15:15:26Z",
+      "side": 1,
+      "message": "Can the identity case no longer happen here? i.e. why is checking for\n\n objectToFormattingResult.get(uiSourceCode) \u003d\u003d\u003d uiSourceCode\n\nno longer necessary?",
+      "range": {
+        "startLine": 305,
+        "startChar": 6,
+        "endLine": 305,
+        "endChar": 66
+      },
+      "revId": "25f0d688b3c5919d06eccc7e8f490c5e6718aa6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

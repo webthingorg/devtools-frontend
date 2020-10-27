@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6276e0b8_844a91de",
+        "filename": "front_end/formatter/SourceFormatter.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-27T15:15:26Z",
+      "side": 0,
+      "message": "I stared at this code for like 5 minutes. I *think* your transformation is fine, expect one thing:\n\nThe old code updated `this._formattedSourceCodes` before we retrieve the content and format. Could this potentially lead to a race where we format the same source code twice? E.g. if we run this code and meanwhile some other piece of code checks `this._formattedSourceCodes`, then in the old version there would already be an entry in there and it would be enough to just wait for the result promise, now we would queue a second formatting operation.",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 67
+      },
+      "revId": "8a4135eb0a5249a22ec6f79b06a31af568cf50c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
