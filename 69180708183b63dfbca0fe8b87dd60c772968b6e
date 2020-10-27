@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bb41e2a_90db1a20",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-27T08:49:45Z",
+      "side": 1,
+      "message": "Can you help me understand this a bit more? AFAIU, this is a \"counter\" for \"error warnings\" (warnings for errors). How does that not match the naming convention of ElementsPanel for \"elements panel\" etc.?\n\nCan we not instead rename the module?",
+      "revId": "69180708183b63dfbca0fe8b87dd60c772968b6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "6786f2f3_4b85a2c8",
@@ -31,6 +48,23 @@
       "writtenOn": "2020-10-27T00:21:09Z",
       "side": 1,
       "message": "Some small CSS updates to the recent console Counters changes. Need owner sign off, PTAL, thanks! ",
+      "revId": "69180708183b63dfbca0fe8b87dd60c772968b6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93eaf77e_f41d310d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-27T08:49:45Z",
+      "side": 1,
+      "message": "LGTM with a question",
       "revId": "69180708183b63dfbca0fe8b87dd60c772968b6e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
