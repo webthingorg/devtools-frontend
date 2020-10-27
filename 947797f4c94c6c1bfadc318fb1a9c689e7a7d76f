@@ -16,6 +16,29 @@
       "message": "@Tim, @Paul PTAL.\n\n@Patrick just an FYI as I had to change ColorSwatch.ts slightly to satisfy the bridges generation. The error was hidden by the PRESUBMIT check not working properly (my bad!).",
       "revId": "947797f4c94c6c1bfadc318fb1a9c689e7a7d76f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f1995eb_dcdd9374",
+        "filename": "front_end/inline_editor/ColorSwatch_bridge.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-27T10:04:00Z",
+      "side": 1,
+      "message": "I think this is a bug in the bridges generation (I think the `|undefined` is superfluous here) but:\n\n1) Closure lets it go\n2) I\u0027d like to either fix it in a separate, follow-up CL, or TBH I think we would be OK leaving it in if it\u0027s not causing any problems.",
+      "range": {
+        "startLine": 18,
+        "startChar": 7,
+        "endLine": 19,
+        "endChar": 32
+      },
+      "revId": "947797f4c94c6c1bfadc318fb1a9c689e7a7d76f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
