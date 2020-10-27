@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6acff7d_07c9e277",
+        "filename": "front_end/elements/ElementsTreeElementHighlighter.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-27T11:38:29Z",
+      "side": 1,
+      "message": "Ultra-nit: this can be an async lambda, so you can remove the return statement.",
+      "range": {
+        "startLine": 48,
+        "startChar": 6,
+        "endLine": 48,
+        "endChar": 31
+      },
+      "revId": "65813757d98684ac7e3fafbdabe02e5511c0da60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
