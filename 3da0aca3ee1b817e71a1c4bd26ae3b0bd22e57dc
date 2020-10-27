@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34f3c618_532ea63c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-27T12:14:38Z",
+      "side": 1,
+      "message": "Thanks!\n\nIt looks like the patch needs to be rebased before we can merge this. Want to give that a go? ",
+      "revId": "3da0aca3ee1b817e71a1c4bd26ae3b0bd22e57dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
