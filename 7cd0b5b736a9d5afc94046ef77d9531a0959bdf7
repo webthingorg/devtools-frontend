@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f62f3ac0_2505997a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-27T14:17:06Z",
+      "side": 1,
+      "message": "Sure, I\u0027m happy to split the cl. I had to modify some of the puppeteer files though because they relied on node modules to be available.",
+      "parentUuid": "bbe7c9bb_b6c73ee6",
+      "revId": "7cd0b5b736a9d5afc94046ef77d9531a0959bdf7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3765c79e_be3bd9f7",
@@ -49,6 +67,30 @@
       "writtenOn": "2020-10-27T10:14:40Z",
       "side": 1,
       "message": "this is very exciting that it works!",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 0
+      },
+      "revId": "7cd0b5b736a9d5afc94046ef77d9531a0959bdf7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eff51cad_3a8148cf",
+        "filename": "test/e2e/puppeteer/puppeteer_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-27T14:17:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3765c79e_be3bd9f7",
       "range": {
         "startLine": 70,
         "startChar": 0,
