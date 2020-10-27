@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import {CSSAngle, CSSAngleData, PopoverToggledEvent} from '../../../../front_end/elements/CSSAngle.js';
-import {AngleUnit, getAngleFromDegrees, parseText, roundAngleByUnit} from '../../../../front_end/elements/CSSAngleUtils.js';
+import {AngleUnit, getAngleFromDegrees, getRadiansFromAngle, parseText, roundAngleByUnit} from '../../../../front_end/elements/CSSAngleUtils.js';
 import {assertShadowRoot, renderElementIntoDOM} from '../helpers/DOMHelpers.js';
 
 const {assert} = chai;
@@ -105,6 +105,13 @@ describe('CSSAngle', () => {
       assert.strictEqual(getAngleFromDegrees(45, AngleUnit.Rad), 0.7853981633974483);
       assert.strictEqual(getAngleFromDegrees(45, AngleUnit.Turn), 0.125);
       assert.strictEqual(getAngleFromDegrees(45, AngleUnit.Deg), 45);
+    });
+
+    it('converts angles in other units to radians correctly', () => {
+      assert.strictEqual(getRadiansFromAngle(50, AngleUnit.Grad), 0.7853981633974483);
+      assert.strictEqual(getRadiansFromAngle(45, AngleUnit.Deg), 0.7853981633974483);
+      assert.strictEqual(getRadiansFromAngle(0.125, AngleUnit.Turn), 0.7853981633974483);
+      assert.strictEqual(getRadiansFromAngle(1, AngleUnit.Rad), 1);
     });
 
     it('rounds angles by units correctly', () => {
