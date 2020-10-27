@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd231476_20c593e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-27T09:36:29Z",
+      "side": 1,
+      "message": "Hi Tim!\n\nI\u0027m having difficulties to use the SimpleHistoryManager from the sources bundle.\nI annotated the relevant code below; I don\u0027t really know what\u0027s going wrong here :(.\nAny suggestions would be of great help!",
+      "revId": "1fc2f6aae88c6234ff8a06c955363fc54445fb52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecfeb6fd_bbccb3e7",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-27T09:36:29Z",
+      "side": 1,
+      "message": "Here\u0027s the import of Sources; as soon as it is used in e.g. line 21 it throws an error:\n\n```\nUncaught Error: Unable to create settings: global and local storage must be provided: Error\n      at Function.instance (front_end/common/Settings.js:76:98 \u003c- out/Default/gen/front_end/common/Settings.js:68:106)\n      at IsolatedFileSystemManager._initExcludePatterSetting (front_end/persistence/IsolatedFileSystemManager.js:305:75 \u003c- out/Default/gen/front_end/persistence/IsolatedFileSystemManager.js:270:79)\n      at new IsolatedFileSystemManager (front_end/persistence/IsolatedFileSystemManager.js:79:10 \u003c- out/Default/gen/front_end/persistence/IsolatedFileSystemManager.js:63:14)\n      at Function.instance (front_end/persistence/IsolatedFileSystemManager.js:92:43 \u003c- out/Default/gen/front_end/persistence/IsolatedFileSystemManager.js:74:49)\n      at front_end/snippets/ScriptSnippetFileSystem.js:259:65 \u003c- out/Default/gen/front_end/snippets/ScriptSnippetFileSystem.js:226:65\n  at front_end/common/Settings.js:76:15 \u003c- out/Default/gen/front_end/common/Settings.js:68:23\n\n  Error: Unable to create settings: global and local storage must be provided: Error\n      at Function.instance (front_end/common/Settings.js:76:98 \u003c- out/Default/gen/front_end/common/Settings.js:68:106)\n      at IsolatedFileSystemManager._initExcludePatterSetting (front_end/persistence/IsolatedFileSystemManager.js:305:75 \u003c- out/Default/gen/front_end/persistence/IsolatedFileSystemManager.js:270:79)\n      at new IsolatedFileSystemManager (front_end/persistence/IsolatedFileSystemManager.js:79:10 \u003c- out/Default/gen/front_end/persistence/IsolatedFileSystemManager.js:63:14)\n      at Function.instance (front_end/persistence/IsolatedFileSystemManager.js:92:43 \u003c- out/Default/gen/front_end/persistence/IsolatedFileSystemManager.js:74:49)\n      at front_end/snippets/ScriptSnippetFileSystem.js:259:65 \u003c- out/Default/gen/front_end/snippets/ScriptSnippetFileSystem.js:226:65\n      at Function.instance (front_end/common/Settings.js:76:15 \u003c- out/Default/gen/front_end/common/Settings.js:68:23)\n      at IsolatedFileSystemManager._initExcludePatterSetting (front_end/persistence/IsolatedFileSystemManager.js:305:75 \u003c- out/Default/gen/front_end/persistence/IsolatedFileSystemManager.js:270:79)\n      at new IsolatedFileSystemManager (front_end/persistence/IsolatedFileSystemManager.js:79:10 \u003c- out/Default/gen/front_end/persistence/IsolatedFileSystemManager.js:63:14)\n      at Function.instance (front_end/persistence/IsolatedFileSystemManager.js:92:43 \u003c- out/Default/gen/front_end/persistence/IsolatedFileSystemManager.js:74:49)\n      at front_end/snippets/ScriptSnippetFileSystem.js:259:65 \u003c- out/Default/gen/front_end/snippets/ScriptSnippetFileSystem.js:226:65\n```",
+      "revId": "1fc2f6aae88c6234ff8a06c955363fc54445fb52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
