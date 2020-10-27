@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f1119b3_dcdd3cda",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-27T08:55:51Z",
+      "side": 1,
+      "message": "This is a first test of running puppeteer not only in the browser but inside of DevTools while reusing the same connection that DevTools is using. PTAL",
+      "revId": "e417ac9764eb292bf7dec50fcc4ea5377628ef2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
