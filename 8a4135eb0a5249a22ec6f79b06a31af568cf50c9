@@ -22,6 +22,30 @@
       },
       "revId": "8a4135eb0a5249a22ec6f79b06a31af568cf50c9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ead619b_7b11de63",
+        "filename": "front_end/formatter/SourceFormatter.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-27T15:39:01Z",
+      "side": 0,
+      "message": "Yeah, this diff is quite unfortunate 😞\n\nIiuc, the callback in the promise runs in the next task, which would be after we return in `format` here, would it not? E.g. we request the content and format it in the callback, which afaik runs after we called `this._formattedSourceCodes.set`.\n\nEven then, I don\u0027t think we will run into this race-condition for now. However, I do agree that this code could use a cleanup to restructure how all the infra is wired.",
+      "parentUuid": "6276e0b8_844a91de",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 67
+      },
+      "revId": "8a4135eb0a5249a22ec6f79b06a31af568cf50c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
