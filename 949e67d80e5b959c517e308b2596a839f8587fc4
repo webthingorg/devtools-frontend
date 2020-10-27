@@ -33,6 +33,24 @@
       "message": "Does this require back-porting?",
       "revId": "949e67d80e5b959c517e308b2596a839f8587fc4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26d6b589_6e14f788",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-10-27T14:09:58Z",
+      "side": 1,
+      "message": "Yes, I can see the incorrect labels both in Beta 87 and Stable 86.",
+      "parentUuid": "ee017fab_7939672a",
+      "revId": "949e67d80e5b959c517e308b2596a839f8587fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
