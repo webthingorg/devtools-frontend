@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "f14670e8_6e43dd85",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-10-27T18:01:43Z",
+      "side": 1,
+      "message": "The explanation is simpler than you think 😊\n\nThe module was named \"WarningErrorCounter.js\" but the CSS file was named \"errorWarningCounter.css\". The word \"warning\" and \"error\" were swapped in the CSS file name, which seems to be a mistake.",
+      "parentUuid": "9bb41e2a_90db1a20",
+      "revId": "69180708183b63dfbca0fe8b87dd60c772968b6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "6786f2f3_4b85a2c8",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -65,6 +83,23 @@
       "writtenOn": "2020-10-27T08:49:45Z",
       "side": 1,
       "message": "LGTM with a question",
+      "revId": "69180708183b63dfbca0fe8b87dd60c772968b6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d0360ca_6189745a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-10-27T18:01:43Z",
+      "side": 1,
+      "message": "Thanks for the quick review!",
       "revId": "69180708183b63dfbca0fe8b87dd60c772968b6e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
