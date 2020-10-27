@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b602ca76_1ab77db2",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-10-27T09:56:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94284d37_19ee2e23",
+      "range": {
+        "startLine": 80,
+        "startChar": 42,
+        "endLine": 80,
+        "endChar": 70
+      },
+      "revId": "c8ecaf70830d6ac2f325d8ffb2df48c172bc3aee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "820fdfd8_ebe3a92e",
@@ -88,6 +112,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "927384aa_13dd43e8",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-10-27T09:56:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "820fdfd8_ebe3a92e",
+      "range": {
+        "startLine": 171,
+        "startChar": 12,
+        "endLine": 171,
+        "endChar": 16
+      },
+      "revId": "c8ecaf70830d6ac2f325d8ffb2df48c172bc3aee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "86d43556_9518b7d7",
@@ -101,6 +149,30 @@
       "writtenOn": "2020-10-26T15:29:47Z",
       "side": 1,
       "message": "Another reason not to name it hook.",
+      "range": {
+        "startLine": 215,
+        "startChar": 94,
+        "endLine": 215,
+        "endChar": 114
+      },
+      "revId": "c8ecaf70830d6ac2f325d8ffb2df48c172bc3aee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f79aa54_98ded50a",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-10-27T09:56:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86d43556_9518b7d7",
       "range": {
         "startLine": 215,
         "startChar": 94,
