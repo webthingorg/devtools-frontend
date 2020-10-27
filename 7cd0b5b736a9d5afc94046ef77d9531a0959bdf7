@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "96ac8121_926f87ee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-27T10:43:00Z",
+      "side": 1,
+      "message": "Now that the roll moved to a separate CL, let\u0027s not forget to update the commit message before landing this!",
+      "parentUuid": "bbe7c9bb_b6c73ee6",
+      "revId": "7cd0b5b736a9d5afc94046ef77d9531a0959bdf7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3765c79e_be3bd9f7",
         "filename": "test/e2e/puppeteer/puppeteer_test.ts",
         "patchSetId": 3
