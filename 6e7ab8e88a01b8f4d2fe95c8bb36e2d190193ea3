@@ -16,6 +16,46 @@
       "message": "LGTM, thanks!",
       "revId": "6e7ab8e88a01b8f4d2fe95c8bb36e2d190193ea3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "863dc604_d97d6511",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-28T10:35:39Z",
+      "side": 1,
+      "message": "% 1 nit",
+      "revId": "6e7ab8e88a01b8f4d2fe95c8bb36e2d190193ea3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a65d979_7bc2a8d0",
+        "filename": "front_end/sdk/ContentSecurityPolicyIssue.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-28T10:35:39Z",
+      "side": 1,
+      "message": "nit: don\u0027t add the learn more here, it should be added by the rendering logic",
+      "range": {
+        "startLine": 110,
+        "startChar": 65,
+        "endLine": 110,
+        "endChar": 76
+      },
+      "revId": "6e7ab8e88a01b8f4d2fe95c8bb36e2d190193ea3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
