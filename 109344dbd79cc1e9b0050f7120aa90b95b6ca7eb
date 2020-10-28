@@ -33,6 +33,24 @@
       "message": "Not usually — always! `file://` is the scheme (similar to `https://`). `/foo/bar` is the path. The \"third slash\" is the start of the absolute path.",
       "revId": "109344dbd79cc1e9b0050f7120aa90b95b6ca7eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a4b2134_1aa16058",
+        "filename": "docs/workflows.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-28T09:02:36Z",
+      "side": 1,
+      "message": "Do we not support relative paths in that place?",
+      "parentUuid": "bd06e5f6_42742781",
+      "revId": "109344dbd79cc1e9b0050f7120aa90b95b6ca7eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
