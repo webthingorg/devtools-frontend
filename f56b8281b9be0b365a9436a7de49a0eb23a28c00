@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "98573265_c4f7234c",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-10-28T16:41:40Z",
+      "side": 1,
+      "message": "Currently I don\u0027t think there is need to have custom CSS styles, since the TT follow the same style as object, which does not have custom styles. However, if in the future it would be needed to add custom style directives it would be easy.",
+      "parentUuid": "7544e657_3b5ed677",
+      "range": {
+        "startLine": 398,
+        "startChar": 34,
+        "endLine": 398,
+        "endChar": 58
+      },
+      "revId": "f56b8281b9be0b365a9436a7de49a0eb23a28c00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "761bbbf6_60a7a36d",
@@ -165,6 +189,30 @@
       "writtenOn": "2020-10-28T15:22:33Z",
       "side": 1,
       "message": "nit: `${className}`",
+      "range": {
+        "startLine": 352,
+        "startChar": 38,
+        "endLine": 352,
+        "endChar": 53
+      },
+      "revId": "f56b8281b9be0b365a9436a7de49a0eb23a28c00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8a0bf12_8478e85a",
+        "filename": "front_end/object_ui/RemoteObjectPreviewFormatter.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-10-28T16:41:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2c4d469_1d3c315e",
       "range": {
         "startLine": 352,
         "startChar": 38,
