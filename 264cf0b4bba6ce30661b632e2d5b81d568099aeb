@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6a21f84_8505302e",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-28T09:16:34Z",
+      "side": 1,
+      "message": "could it receive a negative address?",
+      "revId": "264cf0b4bba6ce30661b632e2d5b81d568099aeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8b24c80_339c6f82",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-28T09:16:34Z",
+      "side": 1,
+      "message": "does not the history manager handle empty history?",
+      "revId": "264cf0b4bba6ce30661b632e2d5b81d568099aeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d555d3df_8f3d671a",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-28T09:16:34Z",
+      "side": 1,
+      "message": "Won\u0027t history.push handle the case when makeHistoryEntry \u003d\u003d false with its locks?",
+      "revId": "264cf0b4bba6ce30661b632e2d5b81d568099aeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
