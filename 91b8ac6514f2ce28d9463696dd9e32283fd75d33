@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58be6480_004cb5d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-10-28T23:39:54Z",
+      "side": 1,
+      "message": "Migrating coverage to Loc V2. PTAL, thanks :)",
+      "revId": "91b8ac6514f2ce28d9463696dd9e32283fd75d33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
