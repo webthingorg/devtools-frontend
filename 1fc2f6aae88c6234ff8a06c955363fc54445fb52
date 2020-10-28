@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "528603ff_aef75212",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-28T07:08:11Z",
+      "side": 1,
+      "message": "Would it make sense to put LinearMemoryInspectorPane into sources dir?",
+      "parentUuid": "2f6b6110_6c02d11c",
+      "revId": "1fc2f6aae88c6234ff8a06c955363fc54445fb52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ecfeb6fd_bbccb3e7",
