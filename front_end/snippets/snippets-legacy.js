@@ -19,3 +19,6 @@ Snippets.project = SnippetsModule.project;
  * @constructor
  */
 Snippets.SnippetsQuickOpen = SnippetsModule.SnippetsQuickOpen.SnippetsQuickOpen;
+
+Snippets.ScriptSnippetFileSystem = {};
+Snippets.ScriptSnippetFileSystem.findSnippetsProject = SnippetsModule.ScriptSnippetFileSystem.findSnippetsProject;
