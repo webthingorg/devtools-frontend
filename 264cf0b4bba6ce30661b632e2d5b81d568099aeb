@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d5ff9723_82510c02",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-28T09:53:26Z",
+      "side": 1,
+      "message": "I would then throw in the constructor and return true in the valid() method, perhaps?",
+      "parentUuid": "f64f9a82_ff4c0af8",
+      "revId": "264cf0b4bba6ce30661b632e2d5b81d568099aeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8b24c80_339c6f82",
         "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
         "patchSetId": 4
