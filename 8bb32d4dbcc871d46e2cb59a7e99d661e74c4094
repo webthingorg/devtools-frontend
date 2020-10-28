@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "249efd8c_1531e3e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-28T10:03:20Z",
+      "side": 1,
+      "message": "This is looking great, Kim! Few minor tweaks and nits but otherwise LGTM.",
+      "revId": "8bb32d4dbcc871d46e2cb59a7e99d661e74c4094",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "60032e5e_42ae3387",
