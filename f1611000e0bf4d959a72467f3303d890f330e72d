@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e89bfffb_3b420763",
+        "filename": "front_end/console/ConsoleViewMessage.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-10-28T11:50:27Z",
+      "side": 1,
+      "message": "Yes, the description of a Trusted Type should follow the same guidelines as string.",
+      "parentUuid": "e4f12b1c_9b5d9aef",
+      "range": {
+        "startLine": 796,
+        "startChar": 14,
+        "endLine": 796,
+        "endChar": 55
+      },
+      "revId": "f1611000e0bf4d959a72467f3303d890f330e72d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3cb86233_5d80067e",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-10-28T11:22:01Z",
       "side": 1,
       "message": "nit: what if the TrustedHTML wraps an empty string? note that !!\u0027\u0027 \u003d\u003d\u003d false",
+      "range": {
+        "startLine": 293,
+        "startChar": 58,
+        "endLine": 293,
+        "endChar": 70
+      },
+      "revId": "f1611000e0bf4d959a72467f3303d890f330e72d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f2e571d_24af4c82",
+        "filename": "front_end/object_ui/RemoteObjectPreviewFormatter.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-10-28T11:50:27Z",
+      "side": 1,
+      "message": "Good catch!",
+      "parentUuid": "3cb86233_5d80067e",
       "range": {
         "startLine": 293,
         "startChar": 58,
