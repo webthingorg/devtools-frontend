@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "891f6e28_87fe778b",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-28T14:04:42Z",
+      "side": 1,
+      "message": "SG! Done.",
+      "parentUuid": "d5ff9723_82510c02",
+      "revId": "264cf0b4bba6ce30661b632e2d5b81d568099aeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f2ac221_afb3ca90",
@@ -84,6 +102,30 @@
       "writtenOn": "2020-10-28T10:03:20Z",
       "side": 1,
       "message": "nit (and sorry, we should add this to the go/building-devtools-ui doc) but we should camel case these: `@pageNavigation` as it\u0027s closer to most of the built-in APIs in JS which are camelCased.",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 47
+      },
+      "revId": "264cf0b4bba6ce30661b632e2d5b81d568099aeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d4ade31_aad5b17d",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-28T14:04:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f2ac221_afb3ca90",
       "range": {
         "startLine": 77,
         "startChar": 0,
@@ -152,6 +194,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "962c2070_097c26aa",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-28T14:04:42Z",
+      "side": 1,
+      "message": "I\u0027m removing the switch case here as Alex suggested, then we don\u0027t have the default case either. But I tested to run without default case and it seems that TS/JS allow us to have a switch without default case :).",
+      "parentUuid": "d7de076a_36aa2030",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 23
+      },
+      "revId": "264cf0b4bba6ce30661b632e2d5b81d568099aeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dc5fe1f5_5529a291",
@@ -165,6 +231,30 @@
       "writtenOn": "2020-10-28T10:03:20Z",
       "side": 1,
       "message": "I\u0027d make this API:\n\nthis.jumpToAddress({ makeHistoryEntry: true, address: newAddress })\n\nAnd that way you don\u0027t need the comment next to the boolean flag. Also means if this API has to have more options in the future it\u0027s easily extensible.",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 64
+      },
+      "revId": "264cf0b4bba6ce30661b632e2d5b81d568099aeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11a9eaf1_3ea146dd",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-28T14:04:42Z",
+      "side": 1,
+      "message": "Ah, makes sense! Will remember that for future changes. The code has been updated such that makeHistoryEntry is not required anymore, so in this case I\u0027ll leave it as is (just the `newAddress` as parameter).",
+      "parentUuid": "dc5fe1f5_5529a291",
       "range": {
         "startLine": 122,
         "startChar": 0,

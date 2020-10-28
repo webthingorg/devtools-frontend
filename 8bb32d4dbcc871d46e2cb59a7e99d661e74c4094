@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85cf3497_e41bd2c5",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-28T14:04:42Z",
+      "side": 1,
+      "message": "I assume you mean `e.data \u003d\u003d\u003d Navigation.Forward? ...`, if yes, done!",
+      "parentUuid": "60032e5e_42ae3387",
+      "revId": "8bb32d4dbcc871d46e2cb59a7e99d661e74c4094",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35c87e6f_a70a50c6",
@@ -65,6 +83,24 @@
       "writtenOn": "2020-10-28T10:01:01Z",
       "side": 1,
       "message": "same here",
+      "revId": "8bb32d4dbcc871d46e2cb59a7e99d661e74c4094",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f395af57_c1955c3d",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-28T14:04:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35c87e6f_a70a50c6",
       "revId": "8bb32d4dbcc871d46e2cb59a7e99d661e74c4094",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
