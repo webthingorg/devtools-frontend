@@ -63,6 +63,30 @@
       },
       "revId": "00aeae5c5582fdd1eb0ce68b3395906b51ca2565",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6288bfe_588b5714",
+        "filename": "front_end/sdk/EmulationModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-28T12:33:03Z",
+      "side": 1,
+      "message": "Ah I missed that! Thanks, that makes sense.",
+      "parentUuid": "7e42e186_be963282",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 68
+      },
+      "revId": "00aeae5c5582fdd1eb0ce68b3395906b51ca2565",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
