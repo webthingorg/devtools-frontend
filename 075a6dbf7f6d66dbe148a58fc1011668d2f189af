@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3466e376_1554f96a",
+        "filename": "front_end/ui/UIUtils.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1247,
+      "author": {
+        "id": 1453243
+      },
+      "writtenOn": "2020-10-28T20:19:08Z",
+      "side": 1,
+      "message": "Thanks for the feedback.  The changes were made, tested, and uploaded.",
+      "parentUuid": "aa41e63a_8675ab00",
+      "range": {
+        "startLine": 1247,
+        "startChar": 39,
+        "endLine": 1247,
+        "endChar": 51
+      },
+      "revId": "075a6dbf7f6d66dbe148a58fc1011668d2f189af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7147475f_afd15a8b",
@@ -37,6 +61,24 @@
       "writtenOn": "2020-10-27T14:35:17Z",
       "side": 1,
       "message": "Could also do:\n\n    element.addEventListener(alternativeEvent || \u0027click\u0027, handler);\n\nwithout the `if`/`else`",
+      "revId": "075a6dbf7f6d66dbe148a58fc1011668d2f189af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a890d773_55f5a170",
+        "filename": "front_end/ui/UIUtils.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1259,
+      "author": {
+        "id": 1453243
+      },
+      "writtenOn": "2020-10-28T20:19:08Z",
+      "side": 1,
+      "message": "I looked all of this over and it looks good.  I made both these changes and will upload right now.",
+      "parentUuid": "7147475f_afd15a8b",
       "revId": "075a6dbf7f6d66dbe148a58fc1011668d2f189af",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

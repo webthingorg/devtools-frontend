@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fd7745d_6e6e9c57",
+        "filename": "front_end/ui/ListWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1453243
+      },
+      "writtenOn": "2020-10-28T20:19:08Z",
+      "side": 1,
+      "message": "I made changes so that it matches the _commitClicked.bind code.  Thank you for the feedback.  This change will be in the current patchset.",
+      "parentUuid": "d494b100_a4225cbc",
+      "revId": "9df435da2834a1e52aaaf3d3709351edcb5b442b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7c8965e3_524403b5",
@@ -48,6 +66,24 @@
       "writtenOn": "2020-10-27T14:33:11Z",
       "side": 1,
       "message": "`false` is the default, so let\u0027s drop the third param altogether (here and on line 1261)",
+      "revId": "9df435da2834a1e52aaaf3d3709351edcb5b442b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a808279_5450955b",
+        "filename": "front_end/ui/UIUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1259,
+      "author": {
+        "id": 1453243
+      },
+      "writtenOn": "2020-10-28T20:19:08Z",
+      "side": 1,
+      "message": "This was changed when we replaced the if/else statement.  Good find and thank you for being so meticulous!",
+      "parentUuid": "7c8965e3_524403b5",
       "revId": "9df435da2834a1e52aaaf3d3709351edcb5b442b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
