@@ -50,6 +50,24 @@
       "message": "Julain, kindly rebase your CL :) (Either via GUI or locally), then I can submit it afterwards, thanks!",
       "revId": "63d24d2e05a2cd6fe72beb8fa3371470e8533f1c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0abe720_e303b455",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1420124
+      },
+      "writtenOn": "2020-10-28T19:25:03Z",
+      "side": 1,
+      "message": "Done, thanks for taking the time!",
+      "parentUuid": "5ed27850_6e4a1519",
+      "revId": "63d24d2e05a2cd6fe72beb8fa3371470e8533f1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
