@@ -50,6 +50,23 @@
       "message": "This LGTM - in an absolute ideal dream world we wouldn\u0027t need to hang tests off event listeners and use the UI, I recognise this isn\u0027t always doable and so I think this is a good solution.\n\nAs a general comment (to be clear, aimed at us the team, not any one person!), we should be careful not to allow this pattern to grow until we\u0027re suddenly hanging tonnes of test data off `window.__Foo` for the sake of e2e tests (if we stop testing UI, the value of the e2e tests drop rapidly in my opinion).",
       "revId": "c71a6f2c3287e7dadbc5cbdeb564d1b44e8e9685",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "948c90bb_8d77d4c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-10-28T10:25:39Z",
+      "side": 1,
+      "message": "Thanks! Landing...",
+      "revId": "c71a6f2c3287e7dadbc5cbdeb564d1b44e8e9685",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
