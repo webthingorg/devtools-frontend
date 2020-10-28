@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "2c4448b2ac425cf1b503108981faae2a56cd4948",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b81a3585_c46f7b17",
+        "filename": "front_end/resources/ServiceWorkersView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-28T17:05:20Z",
+      "side": 1,
+      "message": "Nit: `version.scriptResponseTime !\u003d\u003d undefined` (since 0 is falsy). I think that\u0027s also the case for the other usages.",
+      "range": {
+        "startLine": 455,
+        "startChar": 8,
+        "endLine": 455,
+        "endChar": 34
+      },
+      "revId": "2c4448b2ac425cf1b503108981faae2a56cd4948",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
