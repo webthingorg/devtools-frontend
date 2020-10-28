@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd835e44_2dd13257",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-28T12:25:04Z",
+      "side": 1,
+      "message": "PTAL code-wise. Adam will take a look at the feature MTV-time in the morning. Thanks!",
+      "revId": "e89b1487c6263a3fae9b6e7983734ef17556ec79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
