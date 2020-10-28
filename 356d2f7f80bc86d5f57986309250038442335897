@@ -50,6 +50,24 @@
       "message": "Do we need legacy exports for SimpleHistoryManager?",
       "revId": "356d2f7f80bc86d5f57986309250038442335897",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8da74c45_667fcef5",
+        "filename": "front_end/common/common-legacy.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-28T08:08:46Z",
+      "side": 1,
+      "message": "No, we don\u0027t; removed it! Thanks!",
+      "parentUuid": "60fefa03_79f09a5f",
+      "revId": "356d2f7f80bc86d5f57986309250038442335897",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
