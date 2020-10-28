@@ -17,6 +17,7 @@ devtools_module("linear_memory_inspector") {
   deps = [
     "../components:bundle",
     "../elements:bundle",
+    "../sources:bundle",
     "../third_party/lit-html:bundle",
   ]
 
