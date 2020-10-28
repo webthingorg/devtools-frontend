@@ -32,7 +32,7 @@
     "check-type": "echo \"If you want to typecheck with TypeScript, run \\\"autoninja -C out/X\\\". If you want to typecheck with Closure, run \\\"npm run check-type-closure\\\"\"",
     "check-type-closure": "python scripts/test/run_type_check.py",
     "components-server": "third_party/node/node.py --output scripts/component_server/server.js",
-    "debug-e2etest": "DEBUG=1 python scripts/test/run_test_suite.py --test-suite=e2e",
+    "debug-e2etest": "set DEBUG=1 && python scripts/test/run_test_suite.py --test-suite=e2e",
     "debug-test": "third_party/node/node.py --output scripts/npm_test.js --debug-devtools",
     "debug-unittest": "DEBUG=1 npm run unittest",
     "e2etest": "python scripts/test/run_test_suite.py --test-suite=e2e",
