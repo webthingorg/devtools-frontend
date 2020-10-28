@@ -33,6 +33,98 @@
       "message": "Tim, I told Alfonso to add you but only later saw that you are an owner of objec_ui/ by being a top-level owner.\n\nSimon, could you please take a look?",
       "revId": "f56b8281b9be0b365a9436a7de49a0eb23a28c00",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7544e657_3b5ed677",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-28T15:22:33Z",
+      "side": 1,
+      "message": "Do you need to add CSS styles to for this class?",
+      "range": {
+        "startLine": 398,
+        "startChar": 34,
+        "endLine": 398,
+        "endChar": 58
+      },
+      "revId": "f56b8281b9be0b365a9436a7de49a0eb23a28c00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "761bbbf6_60a7a36d",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-28T15:22:33Z",
+      "side": 1,
+      "message": "nit: `${className} \"${description}\"`",
+      "range": {
+        "startLine": 399,
+        "startChar": 19,
+        "endLine": 399,
+        "endChar": 58
+      },
+      "revId": "f56b8281b9be0b365a9436a7de49a0eb23a28c00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb604f8d_aa2b8064",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-28T15:22:33Z",
+      "side": 1,
+      "message": "nit: `${className} `",
+      "range": {
+        "startLine": 406,
+        "startChar": 49,
+        "endLine": 406,
+        "endChar": 64
+      },
+      "revId": "f56b8281b9be0b365a9436a7de49a0eb23a28c00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2c4d469_1d3c315e",
+        "filename": "front_end/object_ui/RemoteObjectPreviewFormatter.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-28T15:22:33Z",
+      "side": 1,
+      "message": "nit: `${className}`",
+      "range": {
+        "startLine": 352,
+        "startChar": 38,
+        "endLine": 352,
+        "endChar": 53
+      },
+      "revId": "f56b8281b9be0b365a9436a7de49a0eb23a28c00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
