@@ -21,6 +21,43 @@ export class ByteSelectedEvent extends Event {
   }
 }
 
+// Helper class to gather the data on the view which is actually shown,
+// which corresponds to one 'page' in the viewer.
+class PageView {
+  readonly pageStartAddress: number;
+  readonly selectedRow: number;
+  readonly selectedAddress: number;
+  readonly numRows: number;
+  readonly numBytesPerRow: number;
+
+  constructor(address: number, numRows: number, numBytesPerRow: number) {
+    this.numRows = numRows;
+    this.numBytesPerRow = numBytesPerRow;
+    this.selectedAddress = address;
+
+    const bytesPerPage = this.getNumBytesPerPage();
+    const pageNumber = Math.floor(this.selectedAddress / bytesPerPage);
+    this.pageStartAddress = pageNumber * this.getNumBytesPerPage();
+
+    const selectedAddressOffset = this.getOffsetFromPageStart(this.selectedAddress);
+    this.selectedRow = Math.floor(selectedAddressOffset / this.numBytesPerRow);
+  }
+
+  getRowIndexRange(row: number) {
+    const startIndex = this.pageStartAddress + row * this.numBytesPerRow;
+    const endIndex = startIndex + this.numBytesPerRow;
+    return {startIndex, endIndex};
+  }
+
+  getNumBytesPerPage() {
+    return this.numBytesPerRow * this.numRows;
+  }
+
+  private getOffsetFromPageStart(address: number) {
+    return Math.max(address - this.pageStartAddress, 0);
+  }
+}
+
 export class LinearMemoryViewer extends HTMLElement {
   private static BYTE_GROUP_MARGIN = 8;
   private readonly shadow = this.attachShadow({mode: 'open'});
@@ -32,9 +69,7 @@ export class LinearMemoryViewer extends HTMLElement {
   private address = 0;
   private byteGroupSize = 4;
 
-  private currentRow = 0;
-  private numRows = 1;
-  private numBytesPerRow = this.byteGroupSize;
+  private pageView = new PageView(this.address, 1 /* numRows */, this.byteGroupSize);
 
   set data(data: LinearMemoryViewerData) {
     this.memory = data.memory;
@@ -47,20 +82,21 @@ export class LinearMemoryViewer extends HTMLElement {
     this.resizeObserver.disconnect();
   }
 
+  getNumBytesPerPage() {
+    return this.pageView.getNumBytesPerPage();
+  }
+
   private update() {
-    this.currentRow = this.getRowForAddress(this.address);
-    this.recomputeSize();
+    this.updatePageView();
     this.render();
     this.engageResizeObserver();
   }
 
-  private getRowForAddress(address: number) {
-    return Math.floor((address) / this.numBytesPerRow);
-  }
-
   /** Recomputes the number of rows and (byte) columns that fit into the current view. */
-  private recomputeSize() {
+  private updatePageView() {
+    const fallbackPageView = new PageView(this.address, 1 /* numRows */, this.byteGroupSize);
     if (this.clientWidth === 0 || this.clientHeight === 0 || !this.shadowRoot) {
+      this.pageView = fallbackPageView;
       return;
     }
 
@@ -79,6 +115,7 @@ export class LinearMemoryViewer extends HTMLElement {
     const rowElement = this.shadowRoot.querySelector('.row');
 
     if (!firstByteCell || !textCell || !divider || !rowElement) {
+      this.pageView = fallbackPageView;
       return;
     }
 
@@ -91,14 +128,15 @@ export class LinearMemoryViewer extends HTMLElement {
     const dividerWidth = divider.getBoundingClientRect().width;
     const widthToFill = this.clientWidth - firstByteCell.getBoundingClientRect().left - dividerWidth;
     if (widthToFill < groupWidth) {
-      this.numBytesPerRow = this.byteGroupSize;
-      this.numRows = 1;
+      this.pageView = fallbackPageView;
       return;
     }
 
-    this.numBytesPerRow = Math.floor(widthToFill / groupWidth) * this.byteGroupSize;
-    const maxNumRows = Math.ceil(this.memory.length / this.numBytesPerRow);
-    this.numRows = Math.min(Math.floor(this.clientHeight / rowElement.getBoundingClientRect().height), maxNumRows);
+    const numBytesPerRow = Math.floor(widthToFill / groupWidth) * this.byteGroupSize;
+    const maxNumRows = Math.ceil(this.memory.length / numBytesPerRow);
+    const numRows = Math.min(Math.floor(this.clientHeight / rowElement.getBoundingClientRect().height), maxNumRows);
+
+    this.pageView = new PageView(this.address, numRows, numBytesPerRow);
   }
 
   private engageResizeObserver() {
@@ -181,19 +219,18 @@ export class LinearMemoryViewer extends HTMLElement {
 
   private renderView() {
     const itemTemplates = [];
-    for (let i = 0; i < this.numRows; ++i) {
+    for (let i = 0; i < this.pageView.numRows; ++i) {
       itemTemplates.push(this.renderRow(i));
     }
     return html`${itemTemplates}`;
   }
 
   private renderRow(row: number) {
-    const startIndex = row * this.numBytesPerRow;
-    const endIndex = startIndex + this.numBytesPerRow;
+    const {startIndex, endIndex} = this.pageView.getRowIndexRange(row);
 
     const classMap = {
       'address': true,
-      selected: this.currentRow === row,
+      selected: this.pageView.selectedRow === row,
     };
     return html`
     <div class="row">
