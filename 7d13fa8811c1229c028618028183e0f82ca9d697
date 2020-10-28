@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1842a1eb_391ef36d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-28T10:40:35Z",
+      "side": 1,
+      "message": "PTAL this has regressed in M88 so it\u0027s great Changhao noticed it. I think we should make the rendering of the labels stateless in the future. ",
+      "revId": "7d13fa8811c1229c028618028183e0f82ca9d697",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
