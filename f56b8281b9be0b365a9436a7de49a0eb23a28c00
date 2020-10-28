@@ -16,6 +16,23 @@
       "message": "LGTM, thanks!",
       "revId": "f56b8281b9be0b365a9436a7de49a0eb23a28c00",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed2b415e_df748082",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-28T15:03:50Z",
+      "side": 1,
+      "message": "Tim, I told Alfonso to add you but only later saw that you are an owner of objec_ui/ by being a top-level owner.\n\nSimon, could you please take a look?",
+      "revId": "f56b8281b9be0b365a9436a7de49a0eb23a28c00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
