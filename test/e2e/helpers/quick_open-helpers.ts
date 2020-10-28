@@ -4,7 +4,7 @@
 
 import {$$, click, getBrowserAndPages, platform, typeText, waitFor} from '../../shared/helper.js';
 
-const QUICK_OPEN_SELECTOR = '[aria-label="Quick open"]';
+export const QUICK_OPEN_SELECTOR = '[aria-label="Quick open"]';
 
 export const openCommandMenu = async () => {
   const {frontend} = getBrowserAndPages();
@@ -60,4 +60,10 @@ export const closeDrawer = async () => {
   const closeButtonSelector = '[aria-label="Close drawer"]';
   await waitFor(closeButtonSelector);
   await click(closeButtonSelector);
+};
+
+export const getSelectedItemText = async () => {
+  const quickOpenElement = await waitFor(QUICK_OPEN_SELECTOR);
+  const selectedRow = await waitFor('.filtered-list-widget-item.selected', quickOpenElement);
+  return await (await selectedRow.getProperty('textContent')).jsonValue();
 };
