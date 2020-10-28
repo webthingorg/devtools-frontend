@@ -33,6 +33,7 @@
  * extensions but in the mean time if an old func in here depends on one
  * that has been migrated it will need to be imported
  */
+import {inverse} from './map-utilities.js';
 import {caseInsensetiveComparator, escapeCharacters, regexSpecialCharacters, sprintf} from './string-utilities.js';
 
 // Still used in the test runners that can't use ES modules :(
@@ -454,16 +455,8 @@ Set.prototype.firstValue = function() {
   return this.values().next().value;
 };
 
-/**
- * @return {!Platform.Multimap<!KEY, !VALUE>}
- */
 Map.prototype.inverse = function() {
-  const result = new Platform.Multimap();
-  for (const key of this.keys()) {
-    const value = this.get(key);
-    result.set(value, key);
-  }
-  return result;
+  inverse(this);
 };
 
 /**
