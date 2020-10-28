@@ -67,6 +67,24 @@
       "message": "Thanks! Landing...",
       "revId": "c71a6f2c3287e7dadbc5cbdeb564d1b44e8e9685",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14535c29_3f15ae55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-28T10:26:13Z",
+      "side": 1,
+      "message": "Hmm, good point. I think provided there are UI tests in combination with hanging things off events it\u0027s doable. Events alone would leave us here: https://testing.googleblog.com/2020/10/testing-on-toilet-testing-ui-logic.html",
+      "parentUuid": "eb365b5e_bca20a83",
+      "revId": "c71a6f2c3287e7dadbc5cbdeb564d1b44e8e9685",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
