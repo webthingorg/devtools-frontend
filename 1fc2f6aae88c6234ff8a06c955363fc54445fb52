@@ -125,6 +125,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e35db4d_c766b899",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-28T09:01:30Z",
+      "side": 1,
+      "message": "Latest patchset using common/SimpleHistoryManager now.",
+      "parentUuid": "4cfd8278_018fbce1",
+      "revId": "1fc2f6aae88c6234ff8a06c955363fc54445fb52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ecfeb6fd_bbccb3e7",
