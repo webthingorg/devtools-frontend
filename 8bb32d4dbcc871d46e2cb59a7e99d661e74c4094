@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf106b3c_2a998b60",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-28T13:44:41Z",
+      "side": 1,
+      "message": "Removing myself as reviewer as the root issue has been resolved. Let me know if you need further assistance.",
+      "revId": "8bb32d4dbcc871d46e2cb59a7e99d661e74c4094",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "60032e5e_42ae3387",
