@@ -33,6 +33,24 @@
       "message": "Jan, does the Puppeteer build failure ring a bell? It seems unrelated to this patch.",
       "revId": "810660cb46b78bf647d529954060438173d8a7e6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79baed6d_7a371088",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-28T13:48:08Z",
+      "side": 1,
+      "message": "Yes, it seems related to my patch but it has already been reverted.",
+      "parentUuid": "e3dd4314_8798ec6f",
+      "revId": "810660cb46b78bf647d529954060438173d8a7e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
