@@ -323,6 +323,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1342d80_12862fe0",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryViewer.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-28T14:29:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb0ea093_4753a290",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 73
+      },
+      "revId": "264cf0b4bba6ce30661b632e2d5b81d568099aeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4bd3f6c_eab7e917",
@@ -336,6 +360,30 @@
       "writtenOn": "2020-10-28T10:03:20Z",
       "side": 1,
       "message": "nit: you don\u0027t need the quotes around address here",
+      "range": {
+        "startLine": 232,
+        "startChar": 0,
+        "endLine": 232,
+        "endChar": 22
+      },
+      "revId": "264cf0b4bba6ce30661b632e2d5b81d568099aeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bda8102_ef573709",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryViewer.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-28T14:29:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4bd3f6c_eab7e917",
       "range": {
         "startLine": 232,
         "startChar": 0,
@@ -369,6 +417,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "26f148b6_1b634528",
+        "filename": "test/unittests/front_end/helpers/DOMHelpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-28T14:29:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "740b9bbb_58a69e04",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 78
+      },
+      "revId": "264cf0b4bba6ce30661b632e2d5b81d568099aeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e51c298b_90cd5622",
@@ -382,6 +454,30 @@
       "writtenOn": "2020-10-28T10:03:20Z",
       "side": 1,
       "message": "why do we need the Math.max here? Isn\u0027t it a bug if expectedAddressAfter goes below 0 ?",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 72
+      },
+      "revId": "264cf0b4bba6ce30661b632e2d5b81d568099aeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b80f8dfe_7aec5d1d",
+        "filename": "test/unittests/front_end/linear_memory_inspector/LinearMemoryInspector_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-28T14:29:38Z",
+      "side": 1,
+      "message": "It actually has to do with timing (unfortunately). We plot it once to know how many bytes we can fit in the view, afterwards another time to fill the whole view. By the time we turn the page forward in this test, we have only seen a few bytes (that were initially plotted). In the meantime we have now filled the whole parent component, this also means that we have a different number of bytes per page (a larger one). Turning back the page (from computing expectedAddressAfter) can therefore go below 0.",
+      "parentUuid": "e51c298b_90cd5622",
       "range": {
         "startLine": 122,
         "startChar": 0,

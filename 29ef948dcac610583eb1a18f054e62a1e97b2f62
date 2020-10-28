@@ -16,6 +16,23 @@
       "message": "Thanks a lot for the reviews and the help! Updated a patch to address the requests.",
       "revId": "29ef948dcac610583eb1a18f054e62a1e97b2f62",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bc45f02_e5aaf54b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-28T14:29:38Z",
+      "side": 1,
+      "message": "Sorry, I missed a few comments. Addressed them now, pt(another)l!",
+      "revId": "29ef948dcac610583eb1a18f054e62a1e97b2f62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
