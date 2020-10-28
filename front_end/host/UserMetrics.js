@@ -613,6 +613,7 @@ export const DevtoolsExperiments = {
   'wasmDWARFDebugging': 31,
   'dualScreenSupport': 32,
   'cssGridFeatures': 33,
+  'fontEditor': 34,
   'keyboardShortcutEditor': 35,
   'cssFlexboxFeatures': 36,
   'showWebVitalsInPerformancePanel': 37,
