@@ -28,9 +28,6 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
 import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
 
@@ -58,16 +55,20 @@ export class DockController extends Common.ObjectWrapper.ObjectWrapper {
         Host.InspectorFrontendHost.InspectorFrontendHostInstance.closeWindow.bind(
             Host.InspectorFrontendHost.InspectorFrontendHostInstance));
 
+    this._states = [State.DockedToRight, State.DockedToBottom, State.DockedToLeft, State.Undocked];
+    this._currentDockStateSetting = Common.Settings.Settings.instance().moduleSetting('currentDockState');
+    this._lastDockStateSetting = Common.Settings.Settings.instance().createSetting('lastDockState', 'bottom');
+
+    /** @type {string} */
+    this._dockSide;
+
     if (!canDock) {
       this._dockSide = State.Undocked;
       this._closeButton.setVisible(false);
       return;
     }
 
-    this._states = [State.DockedToRight, State.DockedToBottom, State.DockedToLeft, State.Undocked];
-    this._currentDockStateSetting = Common.Settings.Settings.instance().moduleSetting('currentDockState');
     this._currentDockStateSetting.addChangeListener(this._dockSideChanged, this);
-    this._lastDockStateSetting = Common.Settings.Settings.instance().createSetting('lastDockState', 'bottom');
     if (this._states.indexOf(this._currentDockStateSetting.get()) === -1) {
       this._currentDockStateSetting.set('right');
     }
@@ -161,7 +162,7 @@ export class DockController extends Common.ObjectWrapper.ObjectWrapper {
   _setIsDockedResponse(eventData) {
     this.dispatchEventToListeners(Events.AfterDockSideChanged, eventData);
     if (this._savedFocus) {
-      this._savedFocus.focus();
+      /** @type {!HTMLElement} */ (this._savedFocus).focus();
       this._savedFocus = null;
     }
   }
