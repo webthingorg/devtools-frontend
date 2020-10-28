@@ -113,6 +113,12 @@ Common.Setting = CommonModule.Settings.Setting;
 
 Common.settingForTest = CommonModule.Settings.settingForTest;
 
+/** @constructor */
+Common.SimpleHistoryManager = CommonModule.SimpleHistoryManager.SimpleHistoryManager;
+
+/** @interface */
+Common.HistoryEntry = CommonModule.SimpleHistoryManager.HistoryEntry;
+
 /**
  * @constructor
  */
