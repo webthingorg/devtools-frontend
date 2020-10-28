@@ -1,0 +1,13 @@
+{
+  "dependencies": [
+    "ui",
+    "persistence"
+  ],
+  "modules": [
+    "recorder.js",
+    "recorder-legacy.js",
+    "RecordingFileSystem.js",
+    "RecorderModel.js"
+  ],
+  "resources": []
+}
