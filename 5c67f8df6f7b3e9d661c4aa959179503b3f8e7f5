@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "61b91cca_6234c3d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-28T14:45:00Z",
+      "side": 1,
+      "message": "Good question! Currently we just apply the whole property value, and visually it should be OK, because when the property value contains an angle, it means it has one background-image layer as a gradient, which should be valid and can render (otherwise the whole property value will be \"crossed out\"). If the images are not loadable, then it automatically only shows the valid background layer, which is the gradient layer.\n\nThat being said, this will generate network errors and they will be logged to the console, so I think we should do something to prevent this. I have two options:\n1. we can parse everything properly, and only apply the contextual background from the most immediate ancestor (i.e. the layer with the gradient). This falls under the v2 work with CSS value parsing refactors.\n2. we can ignore background property value that contains \"url\" for now, and cover the majority of cases.\n\nI have updated the code with plan 2 and added a TODO for plan 1, but I\u0027m happy to hear other thoughts on this.",
+      "parentUuid": "99fe05db_aba9e48c",
+      "revId": "5c67f8df6f7b3e9d661c4aa959179503b3f8e7f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2c2004a7_f42fcdfc",
         "filename": "front_end/elements/CSSAngle.ts",
         "patchSetId": 5
@@ -31,6 +49,24 @@
       "writtenOn": "2020-10-28T12:52:59Z",
       "side": 1,
       "message": "Let\u0027s make this a Set",
+      "revId": "5c67f8df6f7b3e9d661c4aa959179503b3f8e7f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99e23d77_d09c8a78",
+        "filename": "front_end/elements/CSSAngle.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-28T14:45:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c2004a7_f42fcdfc",
       "revId": "5c67f8df6f7b3e9d661c4aa959179503b3f8e7f5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
