@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f6b6110_6c02d11c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-28T07:00:33Z",
+      "side": 1,
+      "message": "Thanks for outlining the options Alex!\n\nAfter our discussion, I still agree with you that the state can be in the LinearMemoryInspector. Since I implemented a different version before (forwarding the events to the parent, Option 3), it wasn\u0027t very nice imho, since we split up the functionality that is \"kind of\" internal to the linear memory inspector. I guess the user may only be concerned about how many entries it should have, but other than that the user shouldn\u0027t care.\n\nOption 2: accepting an instance sounds also fine to me! (This would however not solve the dependency bug that I ran into if we still use the SimpleHistoryManager as the implementation, since the parent is going to be a LinearMemoryInspectorPane class, which I haven\u0027t pushed yet, and which is also within this directory. The parent will be a drawer that opens at the bottom of DevTools.)\n\nHmm I\u0027m not sure why the SimpleHistoryManager is using locks. For my case conflicting accesses will not happen, but I assume in general you could have async accesses to the history which may mess it up when updating it. We could simplify it, but the lock is actually not a real lock (it doesn\u0027t use any mutexes but only a counter; not sure why), and as is this should not be expensive. But again, we could implement our own history if we want.",
+      "parentUuid": "d781bfba_50e2d62f",
+      "revId": "1fc2f6aae88c6234ff8a06c955363fc54445fb52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ecfeb6fd_bbccb3e7",
@@ -119,6 +137,24 @@
       "writtenOn": "2020-10-27T14:27:37Z",
       "side": 1,
       "message": "I think HistoryEntry is an interface (according to jsdoc definitions). Could AddressHistoryEntry implement the interface without explicitly defining it? I guess even without extending the class, AddressHistoryEntry would still conform to the required interface.",
+      "revId": "1fc2f6aae88c6234ff8a06c955363fc54445fb52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d171c2c2_4149231d",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-28T07:00:33Z",
+      "side": 1,
+      "message": "Oops - Yes, changed to:\n\n```\nclass AddressHistoryEntry implements Sources.SimpleHistoryManager.HistoryEntry {\n```\n\nThanks a lot for catching this!",
+      "parentUuid": "b7c9a934_2af96c8d",
       "revId": "1fc2f6aae88c6234ff8a06c955363fc54445fb52",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
