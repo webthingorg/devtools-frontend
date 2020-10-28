@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "67f4fca4_60c84102",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-28T22:37:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1879127_add6b7d4",
+      "revId": "46b20f132f4c792af9a9640825f24c2763df2cbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2c35f60a_5240711e",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "155b2464_d4472cca",
+        "filename": "front_end/elements/CSSAngle.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-28T22:37:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c35f60a_5240711e",
+      "revId": "46b20f132f4c792af9a9640825f24c2763df2cbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5991bf3f_9114e085",
@@ -48,6 +84,24 @@
       "writtenOn": "2020-10-28T16:55:51Z",
       "side": 1,
       "message": "parsing?",
+      "revId": "46b20f132f4c792af9a9640825f24c2763df2cbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b0ca80a_75307ae8",
+        "filename": "front_end/elements/CSSAngle.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-28T22:37:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5991bf3f_9114e085",
       "revId": "46b20f132f4c792af9a9640825f24c2763df2cbf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -71,6 +125,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b54b7e9b_88272d01",
+        "filename": "front_end/elements/CSSAngle.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-28T22:37:11Z",
+      "side": 1,
+      "message": "Didn\u0027t know that color before :P\n\nI updated the regex to be more precise.",
+      "parentUuid": "54b11002_e4f36494",
+      "revId": "46b20f132f4c792af9a9640825f24c2763df2cbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1c627617_5166d074",
         "filename": "front_end/elements/CSSAngle.ts",
         "patchSetId": 6
@@ -82,6 +154,24 @@
       "writtenOn": "2020-10-28T16:55:51Z",
       "side": 1,
       "message": "Would it work CSS variables?",
+      "revId": "46b20f132f4c792af9a9640825f24c2763df2cbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60932475_4a36b5b0",
+        "filename": "front_end/elements/CSSAngle.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-28T22:37:11Z",
+      "side": 1,
+      "message": "It should be able to now, since it\u0027s now using the computed value.",
+      "parentUuid": "1c627617_5166d074",
       "revId": "46b20f132f4c792af9a9640825f24c2763df2cbf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
