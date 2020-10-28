@@ -107,6 +107,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cfd8278_018fbce1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-28T07:52:48Z",
+      "side": 1,
+      "message": "Capturing offline chat on locking and SimpleHistoryManager:\n* the SimpleHistoryManager doesn\u0027t have async accesses that need to be synchronized, but on on rolling back or over, it calls reveal() which is a function to be implemented by the implementing class. The lock is used in order to make sure that the reveal() function does not alter the history while we\u0027re changing it.\n\n* Alex suggested to move the SimpleHistoryManager to common/. This makes sense as this is independent of sources. It also solves my dependency issue :D.\nCL here: \nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2505130",
+      "parentUuid": "c1e9e103_ba8a3387",
+      "revId": "1fc2f6aae88c6234ff8a06c955363fc54445fb52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ecfeb6fd_bbccb3e7",
