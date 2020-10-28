@@ -89,6 +89,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1e9e103_ba8a3387",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-28T07:11:54Z",
+      "side": 1,
+      "message": "Hmm I\u0027m not entirely sure. In the design doc there were requests to also use it in the network tab for incoming messages, and as such I\u0027d think that it\u0027s better located outside of sources. However, I don\u0027t have a very strong opinion on that. WDYT?",
+      "parentUuid": "528603ff_aef75212",
+      "revId": "1fc2f6aae88c6234ff8a06c955363fc54445fb52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ecfeb6fd_bbccb3e7",
