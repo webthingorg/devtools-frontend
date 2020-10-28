@@ -74,6 +74,7 @@ devtools_module("ui") {
     "../platform:bundle",
     "../text_utils:bundle",
     "../theme_support:bundle",
+    "components:bundle",
     "utils:bundle",
   ]
 }
