@@ -26,7 +26,7 @@ function unescapeSnippetName(name) {
   return unescape(name);
 }
 
-class SnippetFileSystem extends Persistence.PlatformFileSystem.PlatformFileSystem {
+export class SnippetFileSystem extends Persistence.PlatformFileSystem.PlatformFileSystem {
   constructor() {
     super('snippet://', 'snippets');
     this._lastSnippetIdentifierSetting =
@@ -255,9 +255,6 @@ export function isSnippetsProject(project) {
   return project.type() === Workspace.Workspace.projectTypes.FileSystem &&
       Persistence.FileSystemWorkspaceBinding.FileSystemWorkspaceBinding.fileSystemType(project) === 'snippets';
 }
-
-Persistence.IsolatedFileSystemManager.IsolatedFileSystemManager.instance().addPlatformFileSystem(
-    'snippet://', new SnippetFileSystem());
 
 /** @type {!Workspace.Workspace.Project} */
 export const project =
