@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9588132d_c7c6b7d4",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-28T16:13:44Z",
+      "side": 1,
+      "message": "these will change in time, these are placeholders for now. I\u0027d like to defer this work until we get it into DevTools and can pick the right values.",
+      "range": {
+        "startLine": 242,
+        "startChar": 3,
+        "endLine": 245,
+        "endChar": 38
+      },
+      "revId": "320ef63ace01d46f425651ecf5eab6a6a81320e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf0cd6f8_6276a560",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-28T16:13:44Z",
+      "side": 1,
+      "message": "these are placeholder; again would like to defer to a UX chat with Peter M once it\u0027s in DevTools and we can see it in situ",
+      "range": {
+        "startLine": 314,
+        "startChar": 0,
+        "endLine": 331,
+        "endChar": 7
+      },
+      "revId": "320ef63ace01d46f425651ecf5eab6a6a81320e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

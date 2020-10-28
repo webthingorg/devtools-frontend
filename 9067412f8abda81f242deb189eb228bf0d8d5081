@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89705ac2_64ae10df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-28T16:13:44Z",
+      "side": 1,
+      "message": "PTAL at the first pass. There\u0027s time in your calendars tomorrow to talk through, as discussed.",
+      "revId": "9067412f8abda81f242deb189eb228bf0d8d5081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
