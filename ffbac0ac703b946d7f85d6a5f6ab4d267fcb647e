@@ -33,6 +33,58 @@
       "message": "Paul, since Connor is OOO, could you PTAL, thanks!",
       "revId": "ffbac0ac703b946d7f85d6a5f6ab4d267fcb647e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "037daa1c_4834827d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1347952
+      },
+      "writtenOn": "2020-10-28T19:18:58Z",
+      "side": 1,
+      "message": "Paul and Connor are both OOO, but I can fill in...",
+      "parentUuid": "f7308b8c_b10044c2",
+      "revId": "ffbac0ac703b946d7f85d6a5f6ab4d267fcb647e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7ccc364_021369ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1347952
+      },
+      "writtenOn": "2020-10-28T19:18:58Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "ffbac0ac703b946d7f85d6a5f6ab4d267fcb647e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00a2a9a9_e8a57f49",
+        "filename": "front_end/sdk/NetworkManager.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1347952
+      },
+      "writtenOn": "2020-10-28T19:18:58Z",
+      "side": 1,
+      "message": "LH defines these presets separately, so LH scores should not be affected by this change but LH will use slightly different throttling settings for Slow/Fast 3G.",
+      "revId": "ffbac0ac703b946d7f85d6a5f6ab4d267fcb647e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
