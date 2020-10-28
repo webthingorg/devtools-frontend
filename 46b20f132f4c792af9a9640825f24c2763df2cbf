@@ -141,6 +141,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cf96693_380966ae",
+        "filename": "front_end/elements/CSSAngle.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-28T22:49:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b54b7e9b_88272d01",
+      "revId": "46b20f132f4c792af9a9640825f24c2763df2cbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1c627617_5166d074",
@@ -172,6 +190,24 @@
       "side": 1,
       "message": "It should be able to now, since it\u0027s now using the computed value.",
       "parentUuid": "1c627617_5166d074",
+      "revId": "46b20f132f4c792af9a9640825f24c2763df2cbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2dd9da41_b743db0a",
+        "filename": "front_end/elements/CSSAngle.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-28T22:49:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "60932475_4a36b5b0",
       "revId": "46b20f132f4c792af9a9640825f24c2763df2cbf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
