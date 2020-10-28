@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31c420e7_22fb663d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-28T07:46:48Z",
+      "side": 1,
+      "message": "Hi Alex,\n\nthis is the CL to move the SimpleHistoryManager to common, ptal!\n\nI also added a comment to the SimpleHistoryManager about why locking\nis used.",
+      "revId": "356d2f7f80bc86d5f57986309250038442335897",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
