@@ -16,6 +16,29 @@
       "message": "ptal",
       "revId": "7b2e679eb60f8d2ad7ecd8d51ae9ef925fcbaf49",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a44e858_cd66aa63",
+        "filename": "front_end/ui/DockController.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-28T17:17:49Z",
+      "side": 1,
+      "message": "Ultra-nit: can this be a const in the module scope? I did a quick check and I couldn\u0027t spot any code that would alter these states.",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 58,
+        "endChar": 16
+      },
+      "revId": "7b2e679eb60f8d2ad7ecd8d51ae9ef925fcbaf49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
