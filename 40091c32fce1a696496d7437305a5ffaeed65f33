@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80caeb98_2f22ab16",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-29T11:14:07Z",
+      "side": 0,
+      "message": "I searched in the entire chromium + devtools frontend codebase, and didn\u0027t find anything related. I also searched online to see maybe I\u0027m missing something from standard DOM API but still nothing turns up. I feel like it\u0027s safe to remove this function entirely.",
+      "revId": "40091c32fce1a696496d7437305a5ffaeed65f33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
