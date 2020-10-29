@@ -132,6 +132,24 @@
       "parentUuid": "cc5fb581_f0c82e03",
       "revId": "a2861ba1b6c6913d78c9d9655d65b8ae54e8f993",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff3c97fe_9cc117e0",
+        "filename": "inspector_overlay/tool_highlight_impl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-29T16:06:02Z",
+      "side": 1,
+      "message": "Should we perhaps use the same format then (an array of numbers)?",
+      "parentUuid": "7b1f6ffb_9258f446",
+      "revId": "a2861ba1b6c6913d78c9d9655d65b8ae54e8f993",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
