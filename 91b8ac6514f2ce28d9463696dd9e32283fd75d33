@@ -16,6 +16,46 @@
       "message": "Migrating coverage to Loc V2. PTAL, thanks :)",
       "revId": "91b8ac6514f2ce28d9463696dd9e32283fd75d33",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e24fc2dc_32fff00a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-29T08:32:19Z",
+      "side": 1,
+      "message": "Thanks! lgtm",
+      "revId": "91b8ac6514f2ce28d9463696dd9e32283fd75d33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e9997de_e8639c99",
+        "filename": "front_end/i18n/i18nImpl.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-29T08:32:19Z",
+      "side": 1,
+      "message": "Closure doesn\u0027t know this syntax. Does the `ArrayLike` not work? `!Object\u003cstring, *\u003e` might also be an option here.",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 45
+      },
+      "revId": "91b8ac6514f2ce28d9463696dd9e32283fd75d33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
