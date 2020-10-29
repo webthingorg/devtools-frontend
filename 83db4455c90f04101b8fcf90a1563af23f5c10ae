@@ -46,6 +46,30 @@
       },
       "revId": "83db4455c90f04101b8fcf90a1563af23f5c10ae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e11ee41b_433e4df3",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-29T13:51:42Z",
+      "side": 1,
+      "message": "Ah I see. In that case, all usages of this variable should be migrated to the static instance pattern as well. I am a bit confused though, as when I search for `StylesSidebarPane\\._instance` in the codebase, I only see references in this file.\n\nI think what you meant was the `this._stylesWidget \u003d new StylesSidebarPane();` in the ElementsPanel, is that correct? In that case, that should be migrated to `this._stylesWidget \u003d StylesSidebarPane.instance();`. You can also make sure we don\u0027t regress by adding `@private` to the constructor of `StylesSidebarPane` to make sure every usage of the pane always uses the static instance method.",
+      "parentUuid": "28128dd1_75e20d84",
+      "range": {
+        "startLine": 137,
+        "startChar": 4,
+        "endLine": 137,
+        "endChar": 38
+      },
+      "revId": "83db4455c90f04101b8fcf90a1563af23f5c10ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
