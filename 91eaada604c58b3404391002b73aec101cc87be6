@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20de337d_16196812",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2020-10-29T03:03:11Z",
+      "side": 1,
+      "message": "One line fix; this is causing accessibility nodes which have unloaded children not to be styled correctly in the accessibility panel.",
+      "revId": "91eaada604c58b3404391002b73aec101cc87be6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
