@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4dcf8aa_773a670e",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-29T12:48:31Z",
+      "side": 1,
+      "message": "This line should now be removed, as the static instance method handles it.",
+      "range": {
+        "startLine": 137,
+        "startChar": 4,
+        "endLine": 137,
+        "endChar": 38
+      },
+      "revId": "83db4455c90f04101b8fcf90a1563af23f5c10ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
