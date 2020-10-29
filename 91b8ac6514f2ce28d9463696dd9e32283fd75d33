@@ -52,6 +52,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "db65462e_2c4c4ca4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-10-29T15:56:57Z",
+      "side": 1,
+      "message": "LGTM % comment.",
+      "revId": "91b8ac6514f2ce28d9463696dd9e32283fd75d33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0e9997de_e8639c99",
@@ -70,6 +87,29 @@
         "startChar": 0,
         "endLine": 89,
         "endChar": 45
+      },
+      "revId": "91b8ac6514f2ce28d9463696dd9e32283fd75d33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80b5af38_7b4d9945",
+        "filename": "front_end/i18n/i18nImpl.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-10-29T15:56:57Z",
+      "side": 1,
+      "message": "Why are we changing the default type?",
+      "range": {
+        "startLine": 92,
+        "startChar": 57,
+        "endLine": 92,
+        "endChar": 69
       },
       "revId": "91b8ac6514f2ce28d9463696dd9e32283fd75d33",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
