@@ -24,6 +24,99 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "734358f1_73140147",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-29T16:42:25Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "783305f6_3d90098c",
+      "range": {
+        "startLine": 292,
+        "startChar": 0,
+        "endLine": 298,
+        "endChar": 0
+      },
+      "revId": "5bdbf98b7807ace12626019143a0593ff472513b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa51a23d_c73f4194",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-29T16:42:25Z",
+      "side": 1,
+      "message": "Nit: 0 is falsy, this might short-circuit incorrectly if `this._scale \u003d\u003d\u003d 0`. Maybe instead initialize `this._scale \u003d 1` in the constructor?",
+      "range": {
+        "startLine": 317,
+        "startChar": 11,
+        "endLine": 317,
+        "endChar": 22
+      },
+      "revId": "5bdbf98b7807ace12626019143a0593ff472513b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab7a76fb_ebd1d9f4",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-29T16:42:25Z",
+      "side": 1,
+      "message": "Aw yeah 🎉",
+      "range": {
+        "startLine": 371,
+        "startChar": 38,
+        "endLine": 371,
+        "endChar": 47
+      },
+      "revId": "5bdbf98b7807ace12626019143a0593ff472513b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fd6beb3_d6b6a3f4",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-29T16:42:25Z",
+      "side": 1,
+      "message": "Ultra-nit: since you already throw after this, the console.assert can be removed.",
+      "range": {
+        "startLine": 535,
+        "startChar": 0,
+        "endLine": 535,
+        "endChar": 103
+      },
+      "revId": "5bdbf98b7807ace12626019143a0593ff472513b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cf8797df_925a605a",
@@ -37,6 +130,30 @@
       "writtenOn": "2020-10-29T15:28:34Z",
       "side": 1,
       "message": "this also probably has a protocol type...watch this space",
+      "range": {
+        "startLine": 733,
+        "startChar": 3,
+        "endLine": 746,
+        "endChar": 18
+      },
+      "revId": "5bdbf98b7807ace12626019143a0593ff472513b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0e32929_2821fed4",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 746,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-29T16:42:25Z",
+      "side": 1,
+      "message": "I think it is `Protocol.Emulation.SetDeviceMetricsOverrideRequest`",
+      "parentUuid": "cf8797df_925a605a",
       "range": {
         "startLine": 733,
         "startChar": 3,
@@ -88,6 +205,53 @@
         "startChar": 26,
         "endLine": 879,
         "endChar": 9
+      },
+      "revId": "5bdbf98b7807ace12626019143a0593ff472513b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83e3bd64_9f817f1b",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 879,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-29T16:42:25Z",
+      "side": 1,
+      "message": "I see it referenced in SetDeviceMetricsOverrideRequest, but it is declared on `Protocol.Emulation` instead of `Protocol.Page`. That might be it?",
+      "parentUuid": "c53912a5_8a30940f",
+      "range": {
+        "startLine": 874,
+        "startChar": 26,
+        "endLine": 879,
+        "endChar": 9
+      },
+      "revId": "5bdbf98b7807ace12626019143a0593ff472513b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1f4683a_db223758",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 919,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-29T16:42:25Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 919,
+        "startChar": 0,
+        "endLine": 919,
+        "endChar": 103
       },
       "revId": "5bdbf98b7807ace12626019143a0593ff472513b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
