@@ -941,24 +941,23 @@ export class NetworkRequestNode extends NetworkNode {
   /**
    * @param {!HTMLElement} element
    * @param {string} text
+   * @param {string=} title
    */
-  _setTextAndTitle(element, text) {
+  _setTextAndTitle(element, text, title) {
     UI.UIUtils.createTextChild(element, text);
-    element.title = text;
+    element.title = title || text;
   }
 
   /**
    * @param {!HTMLElement} element
    * @param {string} cellText
-   * @param {string} linkText
    * @param {function():void} handler
    */
-  _setTextAndTitleAndLink(element, cellText, linkText, handler) {
-    UI.UIUtils.createTextChild(element, cellText);
+  _setTextAndTitleAndLink(element, cellText, handler) {
     element.createChild('span', 'separator-in-cell');
     const link = document.createElement('span');
     link.classList.add('devtools-link');
-    link.textContent = linkText;
+    link.textContent = cellText;
     link.addEventListener('click', handler);
     element.appendChild(link);
     element.title = cellText;
@@ -1160,7 +1159,8 @@ export class NetworkRequestNode extends NetworkNode {
     cell.classList.toggle(
         'network-dim-cell', !this._isFailed() && (this._request.cached() || !this._request.statusCode));
 
-    if (this._request.failed && !this._request.canceled && !this._request.wasBlocked()) {
+    const corsErrorStatus = this._request.corsErrorStatus();
+    if (this._request.failed && !this._request.canceled && !this._request.wasBlocked() && !corsErrorStatus) {
       const failText = Common.UIString.UIString('(failed)');
       if (this._request.localizedFailDescription) {
         UI.UIUtils.createTextChild(cell, failText);
@@ -1227,13 +1227,17 @@ export class NetworkRequestNode extends NetworkNode {
           break;
       }
       if (displayShowHeadersLink) {
-        this._setTextAndTitleAndLink(cell, Common.UIString.UIString('(blocked:%s)', reason), 'View Headers', () => {
+        this._setTextAndTitleAndLink(cell, Common.UIString.UIString('(blocked:%s)', reason), () => {
           /** @type {!Common.EventTarget.EventTarget} */ (/** @type {*} */ (this.parentView()))
               .dispatchEventToListeners(Events.RequestActivated, {showPanel: true, tab: NetworkItemViewTabs.Headers});
         });
       } else {
         this._setTextAndTitle(cell, Common.UIString.UIString('(blocked:%s)', reason));
       }
+    } else if (corsErrorStatus) {
+      this._setTextAndTitle(
+          cell, Common.UIString.UIString('Cors error'),
+          ls`Cross-origin resource sharing error: ${corsErrorStatus.corsError}`);
     } else if (this._request.finished) {
       this._setTextAndTitle(cell, Common.UIString.UIString('Finished'));
     } else {
