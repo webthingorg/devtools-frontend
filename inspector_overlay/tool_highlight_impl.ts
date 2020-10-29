@@ -30,7 +30,7 @@
 
 import {contrastRatio, rgbaToHsla} from '../front_end/common/ColorUtils.js';
 
-import {Bounds, constrainNumber, createChild, createElement, createTextChild, ellipsify, Overlay, ResetData} from './common.js';
+import {Bounds, constrainNumber, createChild, createElement, createTextChild, ellipsify, Overlay, Position, ResetData} from './common.js';
 import {buildPath, emptyBounds, PathBounds} from './highlight_common.js';
 import {drawLayoutGridHighlight, GridHighlight} from './highlight_grid_common.js';
 import {HighlightGridOverlay} from './tool_highlight_grid_impl.js';
@@ -63,6 +63,19 @@ interface ElementInfo {
   layoutObjectName?: string;
 }
 
+interface LineStyle {
+  color?: string;
+  dashed?: boolean;
+  dotted?: boolean;
+}
+
+interface FlexContainerHighlight {
+  containerBorder: Array<string|number>;
+  items: Array<Array<string|number>>;
+  lines: Array<Array<string|number>>;
+  flexContainerHighlightConfig: {containerBorder?: LineStyle; lineSeparator?: LineStyle; itemSeparator?: LineStyle;};
+}
+
 interface Highlight {
   paths: Path[];
   showRulers: boolean;
@@ -70,6 +83,25 @@ interface Highlight {
   elementInfo: ElementInfo;
   colorFormat: string;
   gridInfo: GridHighlight[];
+  flexInfo: FlexContainerHighlight[];
+}
+
+interface Quad {
+  p1: Position;
+  p2: Position;
+  p3: Position;
+  p4: Position;
+}
+
+interface FlexItem {
+  path: Array<string|number>;
+  quad: Quad;
+}
+
+interface FlexLine {
+  min: number;
+  max: number;
+  items: Array<FlexItem>;
 }
 
 export class HighlightOverlay extends Overlay {
@@ -161,6 +193,12 @@ export class HighlightOverlay extends Overlay {
         drawLayoutGridHighlight(
             grid, this.context, this.deviceScaleFactor, this.canvasWidth, this.canvasHeight, this.emulationScaleFactor,
             this.gridLabelState);
+      }
+    }
+    if (highlight.flexInfo) {
+      for (const flex of highlight.flexInfo) {
+        drawLayoutFlexContainerHighlight(
+            flex, this.context, this.deviceScaleFactor, this.canvasWidth, this.canvasHeight, this.emulationScaleFactor);
       }
     }
     this.context.restore();
@@ -364,11 +402,12 @@ function computeIsLargeFont(contrast: ContrastInfo) {
  * @return {String|null} The layout type of the object, or null if none was found
  */
 function _getElementLayoutType(elementInfo: ElementInfo): string|null {
-  // TODO(patrickbrosset): elementInfo.layoutObjectName can be any of the values returned by
-  // LayoutObject.GetName on the backend. For now we only care about grid. In the future, modify this code
-  // to allow other layout object types. See CRBug 1099682.
   if (elementInfo.layoutObjectName && elementInfo.layoutObjectName.endsWith('Grid')) {
     return 'grid';
+  }
+
+  if (elementInfo.layoutObjectName && elementInfo.layoutObjectName === 'LayoutNGFlexibleBox') {
+    return 'flex';
   }
 
   return null;
@@ -669,4 +708,48 @@ function drawRulers(
   }
 
   context.restore();
+}
+
+function drawLayoutFlexContainerHighlight(
+    highlight: FlexContainerHighlight, context: CanvasRenderingContext2D, deviceScaleFactor: number,
+    canvasWidth: number, canvasHeight: number, emulationScaleFactor: number) {
+  const config = highlight.flexContainerHighlightConfig;
+  const bounds = emptyBounds();
+  const borderPath = buildPath(highlight.containerBorder, bounds, emulationScaleFactor);
+  drawPathWithLineStyle(context, borderPath, config.containerBorder);
+
+  if (!highlight.items || !highlight.items.length) {
+    return;
+  }
+
+  if (highlight.lines && highlight.lines.length > 1) {
+    for (const line of highlight.lines) {
+      const bounds = emptyBounds();
+      const linePath = buildPath(line, bounds, emulationScaleFactor);
+      drawPathWithLineStyle(context, linePath, config.lineSeparator);
+    }
+  }
+
+  for (const item of highlight.items) {
+    const bounds = emptyBounds();
+    const linePath = buildPath(item, bounds, emulationScaleFactor);
+    drawPathWithLineStyle(context, linePath, config.itemSeparator);
+  }
+}
+
+function drawPathWithLineStyle(context: CanvasRenderingContext2D, path: Path2D, lineStyle?: LineStyle) {
+  if (lineStyle && lineStyle.color) {
+    context.save();
+    context.translate(0.5, 0.5);
+    context.lineWidth = 1;
+    if (lineStyle.dashed) {
+      context.setLineDash([3, 3]);
+    }
+    if (lineStyle.dotted) {
+      context.setLineDash([2, 2]);
+    }
+    context.strokeStyle = lineStyle.color;
+    context.stroke(path);
+    context.restore();
+  }
 }
