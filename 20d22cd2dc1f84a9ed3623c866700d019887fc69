@@ -37,6 +37,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "da1ff6ea_cdabb058",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-10-29T09:06:17Z",
+      "side": 1,
+      "message": "Thank you for the suggestions! All comments have been addressed in a followup CL:\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2507109",
+      "parentUuid": "486b0383_4526ace0",
+      "revId": "20d22cd2dc1f84a9ed3623c866700d019887fc69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a2fff3df_a06d8e57",
         "filename": "front_end/console/ConsoleViewMessage.js",
         "patchSetId": 16
@@ -129,6 +147,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "842ae049_21e2323e",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-10-29T09:06:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "470be0ae_36455e47",
+      "range": {
+        "startLine": 403,
+        "startChar": 76,
+        "endLine": 403,
+        "endChar": 78
+      },
+      "revId": "20d22cd2dc1f84a9ed3623c866700d019887fc69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "178d44c6_66f5360f",
@@ -142,6 +184,30 @@
       "writtenOn": "2020-10-29T07:55:19Z",
       "side": 1,
       "message": "ultra-nit: Preserve ordering of parameters in JSDoc and the function itself.",
+      "range": {
+        "startLine": 273,
+        "startChar": 0,
+        "endLine": 274,
+        "endChar": 44
+      },
+      "revId": "20d22cd2dc1f84a9ed3623c866700d019887fc69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "674459fc_ecbd86a0",
+        "filename": "front_end/object_ui/RemoteObjectPreviewFormatter.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-10-29T09:06:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "178d44c6_66f5360f",
       "range": {
         "startLine": 273,
         "startChar": 0,
