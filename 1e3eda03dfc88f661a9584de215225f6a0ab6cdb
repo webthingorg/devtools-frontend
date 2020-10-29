@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf0e79ae_51a9bc31",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-29T10:56:29Z",
+      "side": 1,
+      "message": "INFRA LGTM. Mathias can you do a domain review?",
+      "revId": "1e3eda03dfc88f661a9584de215225f6a0ab6cdb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "150b8107_9c67c5fd",
+        "filename": "test/e2e/inline_editor/color-swatch_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-29T10:56:29Z",
+      "side": 1,
+      "message": "Nit: initialize this argument to `\u0027inline_editor/default.html\u0027` to save some duplication.",
+      "range": {
+        "startLine": 12,
+        "startChar": 48,
+        "endLine": 12,
+        "endChar": 52
+      },
+      "revId": "1e3eda03dfc88f661a9584de215225f6a0ab6cdb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
