@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "486b0383_4526ace0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-29T08:30:51Z",
+      "side": 1,
+      "message": "Thanks Simon, Alfonso, would you create a follow-up CL?",
+      "revId": "20d22cd2dc1f84a9ed3623c866700d019887fc69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a2fff3df_a06d8e57",
         "filename": "front_end/console/ConsoleViewMessage.js",
         "patchSetId": 16
@@ -31,6 +48,30 @@
       "writtenOn": "2020-10-29T07:55:19Z",
       "side": 1,
       "message": "IIRC we usually avoid the usage of `innerHTML` as it opens the door for XSS. For the future, in cases as this, simply use two spans.",
+      "range": {
+        "startLine": 587,
+        "startChar": 4,
+        "endLine": 587,
+        "endChar": 62
+      },
+      "revId": "20d22cd2dc1f84a9ed3623c866700d019887fc69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcb732f8_2a88047c",
+        "filename": "front_end/console/ConsoleViewMessage.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-29T08:30:51Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "a2fff3df_a06d8e57",
       "range": {
         "startLine": 587,
         "startChar": 4,
@@ -54,6 +95,30 @@
       "writtenOn": "2020-10-29T07:55:19Z",
       "side": 1,
       "message": "nit: Either a constant or a comment with the argument name `/** maxLength */ 50`, increases readability here. I had to look up the maxLength :)",
+      "range": {
+        "startLine": 403,
+        "startChar": 76,
+        "endLine": 403,
+        "endChar": 78
+      },
+      "revId": "20d22cd2dc1f84a9ed3623c866700d019887fc69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "470be0ae_36455e47",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-29T08:30:51Z",
+      "side": 1,
+      "message": "This is copied from L383, but yes, so extracting a constant for both seems the way to go.",
+      "parentUuid": "7b1d25e2_4aadf48a",
       "range": {
         "startLine": 403,
         "startChar": 76,
