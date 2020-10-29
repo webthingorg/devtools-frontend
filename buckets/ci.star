@@ -62,6 +62,12 @@ generate_ci_configs(
             properties = {"builder_config": "Debug"},
         ),
         builder_descriptor(
+            name = "Linux Compile Full Release",
+            recipe_name = "devtools/devtools-frontend",
+            excluded_from = ["chromium"],
+            properties = {"is_full_builder": True},
+        ),
+        builder_descriptor(
             name = "Stand-alone Mac",
             recipe_name = "devtools/devtools-frontend",
             dims = dimensions.mac,
