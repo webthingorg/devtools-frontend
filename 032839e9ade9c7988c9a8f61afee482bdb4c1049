@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46164a39_bd415edf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-29T08:25:33Z",
+      "side": 1,
+      "message": "Assuming the fix is in the diff between PS1 \u003c-\u003e PS7 then this lgtm (modulo the package.json change).",
+      "revId": "032839e9ade9c7988c9a8f61afee482bdb4c1049",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61788e57_057d476e",
+        "filename": "package.json",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-29T08:25:33Z",
+      "side": 1,
+      "message": "This breaks `debug-e2etest` on Linux. We might need to add a `--debug` flag to `run_test_suite.py` to make this work cross-platform.",
+      "range": {
+        "startLine": 35,
+        "startChar": 21,
+        "endLine": 35,
+        "endChar": 92
+      },
+      "revId": "032839e9ade9c7988c9a8f61afee482bdb4c1049",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
