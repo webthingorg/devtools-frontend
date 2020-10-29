@@ -11,9 +11,14 @@ ts_library("helpers") {
     "InspectorOverlayHelpers.ts",
     "MutationHelpers.ts",
     "MutationHelpers_test.ts",
+    "TestConnection.ts",
   ]
 
   deps = [
+    "../../../../front_end/common:bundle",
+    "../../../../front_end/protocol_client:bundle",
+    "../../../../front_end/root:bundle",
+    "../../../../front_end/sdk:bundle",
     "../../../../front_end/third_party/lit-html:bundle",
     "../../../../inspector_overlay",
   ]
