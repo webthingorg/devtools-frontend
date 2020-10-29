@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "783305f6_3d90098c",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-29T15:28:34Z",
+      "side": 1,
+      "message": "I couldn\u0027t work out with 100% confidence that _outlineRect is always defined, hence this change. I\u0027m still not 100% confident in it TBH.",
+      "range": {
+        "startLine": 292,
+        "startChar": 0,
+        "endLine": 298,
+        "endChar": 0
+      },
+      "revId": "5bdbf98b7807ace12626019143a0593ff472513b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf8797df_925a605a",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 746,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-29T15:28:34Z",
+      "side": 1,
+      "message": "this also probably has a protocol type...watch this space",
+      "range": {
+        "startLine": 733,
+        "startChar": 3,
+        "endLine": 746,
+        "endChar": 18
+      },
+      "revId": "5bdbf98b7807ace12626019143a0593ff472513b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8113827_42e2b90a",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-29T15:28:34Z",
+      "side": 1,
+      "message": "thinking about it, I suspect this type is also one from the protocol, so I will update this.",
+      "range": {
+        "startLine": 821,
+        "startChar": 2,
+        "endLine": 828,
+        "endChar": 14
+      },
+      "revId": "5bdbf98b7807ace12626019143a0593ff472513b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c53912a5_8a30940f",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 879,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-29T15:28:34Z",
+      "side": 1,
+      "message": "is there a better fix here? is our protocol.d.ts out of date?",
+      "range": {
+        "startLine": 874,
+        "startChar": 26,
+        "endLine": 879,
+        "endChar": 9
+      },
+      "revId": "5bdbf98b7807ace12626019143a0593ff472513b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
