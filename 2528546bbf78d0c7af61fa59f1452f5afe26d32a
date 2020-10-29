@@ -39,6 +39,53 @@
       },
       "revId": "2528546bbf78d0c7af61fa59f1452f5afe26d32a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "797d2844_78225df3",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-29T12:16:17Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "42552695_77ff346e",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 37
+      },
+      "revId": "2528546bbf78d0c7af61fa59f1452f5afe26d32a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c582e49e_594af920",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 2917,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-29T12:16:17Z",
+      "side": 1,
+      "message": "These would need to use the static instance method as well. Otherwise, it could be the case that this particular function runs before the pane itself is created.",
+      "range": {
+        "startLine": 2917,
+        "startChar": 4,
+        "endLine": 2917,
+        "endChar": 29
+      },
+      "revId": "2528546bbf78d0c7af61fa59f1452f5afe26d32a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
