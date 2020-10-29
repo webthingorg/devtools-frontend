@@ -22,6 +22,30 @@
       },
       "revId": "35e474b837c05153b749ebbb7157df2e644a7ab2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bef175f_bb2a2da5",
+        "filename": "front_end/platform/utilities.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-10-29T13:30:48Z",
+      "side": 1,
+      "message": "Some layout tests reference this property in the prototype:\n\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/blink/web_tests/http/tests/devtools/console/console-correct-suggestions.js;drc\u003d77578ccb4082ae20a9326d9e673225f1189ebb63;l\u003d74",
+      "parentUuid": "0a0bd66f_a7fccd82",
+      "range": {
+        "startLine": 462,
+        "startChar": 0,
+        "endLine": 462,
+        "endChar": 36
+      },
+      "revId": "35e474b837c05153b749ebbb7157df2e644a7ab2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
