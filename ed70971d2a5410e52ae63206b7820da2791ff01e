@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e217f76_8cb69aa5",
+        "filename": "front_end/recorder/recorder-legacy.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-10-29T15:18:27Z",
+      "side": 1,
+      "message": "I think because this is a new module and we don\u0027t access anything from it via globals (always import) we don\u0027t need -legacy.js at all. You could try removing it?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 68
+      },
+      "revId": "ed70971d2a5410e52ae63206b7820da2791ff01e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33b606fb_c02426df",
+        "filename": "front_end/recorder/recorder_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-10-29T15:18:27Z",
+      "side": 1,
+      "message": "WDYT about using the new localization v2 format for this new directory? There\u0027s docs here: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/docs/localization/\n\nThe front_end/settings dir is already migrated if you want to see a live example.\n\nThat way we don\u0027t need to migrate this in the future (also if you run into any problem that would be useful feedback to the MS team)",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 12
+      },
+      "revId": "ed70971d2a5410e52ae63206b7820da2791ff01e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4b568c7_0e9cd573",
+        "filename": "front_end/sources/RecorderPlugin.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-10-29T15:18:27Z",
+      "side": 1,
+      "message": "2020?",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "ed70971d2a5410e52ae63206b7820da2791ff01e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec53202f_137b6d2d",
+        "filename": "front_end/sources/RecorderPlugin.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-10-29T15:18:27Z",
+      "side": 1,
+      "message": "Plugins are basically a mechanism for adding a sub-pane to sources, is that right?",
+      "range": {
+        "startLine": 15,
+        "startChar": 13,
+        "endLine": 15,
+        "endChar": 27
+      },
+      "revId": "ed70971d2a5410e52ae63206b7820da2791ff01e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18cb511d_05de8971",
+        "filename": "front_end/sources/sources_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-10-29T15:18:27Z",
+      "side": 1,
+      "message": "These will need descriptions before landing",
+      "range": {
+        "startLine": 573,
+        "startChar": 64,
+        "endLine": 573,
+        "endChar": 71
+      },
+      "revId": "ed70971d2a5410e52ae63206b7820da2791ff01e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
