@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a0bd66f_a7fccd82",
+        "filename": "front_end/platform/utilities.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-29T10:59:54Z",
+      "side": 1,
+      "message": "I think we can remove this one now, to make sure we don\u0027t accidentally regress and add more call-sides that rely on the prototype hijacking.",
+      "range": {
+        "startLine": 462,
+        "startChar": 0,
+        "endLine": 462,
+        "endChar": 36
+      },
+      "revId": "35e474b837c05153b749ebbb7157df2e644a7ab2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
