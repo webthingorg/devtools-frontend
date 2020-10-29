@@ -291,6 +291,13 @@ export class CSSModel extends SDKModel {
   }
 
   /**
+   * @param {!{webp:boolean, avif:boolean}} types
+   */
+  setDisabledImageTypes(types) {
+    return /** @type {*} */ (this._agent).invoke_setDisabledImageTypes(types);
+  }
+
+  /**
    * @return {!Promise<void>}
    */
   async stopCoverage() {
