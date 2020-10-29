@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c495ac25_d0395136",
+        "filename": "front_end/search/SearchView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-29T09:39:49Z",
+      "side": 0,
+      "message": "Don\u0027t we still want to do this every time the search is reset? I\u0027m not quite sure on why you moved this call up into the clear button event listener - would you mind explaining? Thanks!",
+      "range": {
+        "startLine": 272,
+        "startChar": 0,
+        "endLine": 272,
+        "endChar": 31
+      },
+      "revId": "07a68b23bbca4797e34c046758389f1cc849f971",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
