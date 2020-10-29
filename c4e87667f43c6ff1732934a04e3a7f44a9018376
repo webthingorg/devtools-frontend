@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f6e4b3f_a0a7953a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-29T11:57:45Z",
+      "side": 1,
+      "message": "The selectors that are used should not be based on the DOM structure, but instead rely on naming. Most of the selectors are fine, but I spotted a couple that still rely on structure.\n\nPatrick, could you perform a domain review?",
+      "revId": "c4e87667f43c6ff1732934a04e3a7f44a9018376",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c05794b_7d8a9900",
+        "filename": "test/e2e/helpers/settings-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-29T11:57:45Z",
+      "side": 1,
+      "message": "Is there a descriptive aria selector we could use instead of class selectors?",
+      "range": {
+        "startLine": 78,
+        "startChar": 18,
+        "endLine": 78,
+        "endChar": 34
+      },
+      "revId": "c4e87667f43c6ff1732934a04e3a7f44a9018376",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "756e20f3_99349ea0",
+        "filename": "test/e2e/settings/shortcut_settings_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-29T11:57:45Z",
+      "side": 1,
+      "message": "This is brittle if the ordering or key bindings change. Can we use a name for the setting instead?",
+      "range": {
+        "startLine": 72,
+        "startChar": 19,
+        "endLine": 72,
+        "endChar": 68
+      },
+      "revId": "c4e87667f43c6ff1732934a04e3a7f44a9018376",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67c1d023_0da5f8fd",
+        "filename": "test/e2e/settings/shortcut_settings_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-29T11:57:45Z",
+      "side": 1,
+      "message": "Same here",
+      "range": {
+        "startLine": 98,
+        "startChar": 19,
+        "endLine": 98,
+        "endChar": 68
+      },
+      "revId": "c4e87667f43c6ff1732934a04e3a7f44a9018376",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
