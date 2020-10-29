@@ -16,6 +16,23 @@
       "message": "PTAL\nThanks!",
       "revId": "513a3f197197610fe15a54702502e2f706c9fde3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0a06f16_6ae66c3e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2020-10-29T16:24:46Z",
+      "side": 1,
+      "message": "Besides the name... as discussed \"full\" is a fuzzy term and used differently in other builders across the infra. But since it\u0027s also named like this in the bug it\u0027s probably ok.",
+      "revId": "513a3f197197610fe15a54702502e2f706c9fde3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
