@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "62bba8e5_d1ab8d76",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-29T07:38:37Z",
+      "side": 1,
+      "message": "Yes, I will roll the protocol separately once the backend CL lands. I am submitting it here if in the meantime anyone would want to test the CLs locally.",
+      "parentUuid": "d5ffd203_47e5da2b",
+      "revId": "7a8c07169bdfe4b3864054edf2f79690fcd1285e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "73d1abb4_69d93034",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1851099c_9a8da1d0",
+        "filename": "front_end/sdk/module.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-29T07:38:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73d1abb4_69d93034",
+      "revId": "7a8c07169bdfe4b3864054edf2f79690fcd1285e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d99679a3_9f991d0c",
@@ -48,6 +84,30 @@
       "writtenOn": "2020-10-29T07:33:44Z",
       "side": 1,
       "message": "same here",
+      "range": {
+        "startLine": 533,
+        "startChar": 27,
+        "endLine": 533,
+        "endChar": 31
+      },
+      "revId": "7a8c07169bdfe4b3864054edf2f79690fcd1285e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ff168f1_7e887eb3",
+        "filename": "front_end/sdk/module.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-29T07:38:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d99679a3_9f991d0c",
       "range": {
         "startLine": 533,
         "startChar": 27,
