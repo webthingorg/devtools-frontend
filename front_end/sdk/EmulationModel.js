@@ -100,6 +100,27 @@ export class EmulationModel extends SDKModel {
       this._setLocalFontsDisabled(localFontsDisabledSetting.get());
     }
 
+    const avifFormatDisabledSetting = Common.Settings.Settings.instance().moduleSetting('avifFormatDisabled');
+    const webpFormatDisabledSetting = Common.Settings.Settings.instance().moduleSetting('webpFormatDisabled');
+
+    const updateDisabledImageFormats = () => {
+      const types = [];
+      if (avifFormatDisabledSetting.get()) {
+        types.push('avif');
+      }
+      if (webpFormatDisabledSetting.get()) {
+        types.push('webp');
+      }
+      this._setDisabledImageTypes(types);
+    };
+
+    avifFormatDisabledSetting.addChangeListener(updateDisabledImageFormats);
+    webpFormatDisabledSetting.addChangeListener(updateDisabledImageFormats);
+
+    if (webpFormatDisabledSetting.get() || avifFormatDisabledSetting.get()) {
+      updateDisabledImageFormats();
+    }
+
     this._touchEnabled = false;
     this._touchMobile = false;
     this._customTouchEnabled = false;
@@ -241,6 +262,10 @@ export class EmulationModel extends SDKModel {
 
   _setLocalFontsDisabled(disabled) {
     this._cssModel.setLocalFontsEnabled(!disabled);
+  }
+
+  _setDisabledImageTypes(imageTypes) {
+    this._emulationAgent.invoke_setDisabledImageTypes({imageTypes});
   }
 
   /**
