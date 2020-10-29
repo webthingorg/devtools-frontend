@@ -5,6 +5,7 @@
 import * as Common from '../common/common.js';
 import * as Components from '../components/components.js';
 import * as MobileThrottling from '../mobile_throttling/mobile_throttling.js';
+import * as Network from '../network/network.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
@@ -76,6 +77,21 @@ export class ServiceWorkersView extends UI.Widget.VBox {
     this._updateListVisibility();
     /** @type {!WeakMap<!UI.ReportView.Section, !SDK.ServiceWorkerManager.ServiceWorkerRegistration>} */
     this._sectionToRegistration = new WeakMap();
+
+    /**
+     * @param {!Event} event
+     */
+    const drawerChangeHandler = event => {
+      // @ts-ignore: No support for custom event listener
+      const isDrawerOpen = event.detail && event.detail.isDrawerOpen;
+      if (this._manager && !isDrawerOpen && this._manager.serviceWorkerNetworkRequestsPanelOpen) {
+        const networkLocation = UI.ViewManager.ViewManager.instance().locationNameForViewId('network');
+        UI.ViewManager.ViewManager.instance().showViewInLocation('network', networkLocation, false);
+        Network.NetworkPanel.NetworkPanel.revealAndFilter([]);
+        this._manager.serviceWorkerNetworkRequestsPanelOpen = false;
+      }
+    };
+    document.body.addEventListener(UI.InspectorView.Events.DrawerChange, drawerChangeHandler);
   }
 
   /**
@@ -121,7 +137,6 @@ export class ServiceWorkersView extends UI.Widget.VBox {
     this._manager = null;
     this._securityOriginManager = null;
   }
-
 
   /**
    * @param {!SDK.ServiceWorkerManager.ServiceWorkerRegistration} registration
@@ -169,12 +184,15 @@ export class ServiceWorkersView extends UI.Widget.VBox {
     }
 
     this._currentWorkersView.sortSections((aSection, bSection) => {
-      const aRegistration = this._sectionToRegistration.get(aSection);
-      const bRegistration = this._sectionToRegistration.get(bSection);
-      const aTimestamp = aRegistration ? this._getTimeStamp(aRegistration) : 0;
-      const bTimestamp = bRegistration ? this._getTimeStamp(bRegistration) : 0;
-      // the newest (largest timestamp value) should be the first
-      return bTimestamp - aTimestamp;
+      if (this._sectionToRegistration) {
+        const aRegistration = this._sectionToRegistration.get(aSection);
+        const bRegistration = this._sectionToRegistration.get(bSection);
+        const aTimestamp = aRegistration ? this._getTimeStamp(aRegistration) : 0;
+        const bTimestamp = bRegistration ? this._getTimeStamp(bRegistration) : 0;
+        // the newest (largest timestamp value) should be the first
+        return bTimestamp - aTimestamp;
+      }
+      return 0;
     });
 
     for (const section of this._sections.values()) {
@@ -253,7 +271,9 @@ export class ServiceWorkersView extends UI.Widget.VBox {
       }
       const uiSection = reportView.appendSection(title);
       uiSection.setUiGroupTitle(ls`Service worker for ${title}`);
-      this._sectionToRegistration.set(uiSection, registration);
+      if (this._sectionToRegistration) {
+        this._sectionToRegistration.set(uiSection, registration);
+      }
       section = new Section(
           /** @type {!SDK.ServiceWorkerManager.ServiceWorkerManager} */ (this._manager), uiSection, registration);
       this._sections.set(registration, section);
@@ -322,6 +342,10 @@ export class Section {
 
     this._toolbar = section.createToolbar();
     this._toolbar.renderAsLinks();
+    this._networkRequests = new UI.Toolbar.ToolbarButton(
+        Common.UIString.UIString('Network requests'), undefined, Common.UIString.UIString('Network requests'));
+    this._networkRequests.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._networkRequestsClicked, this);
+    this._toolbar.appendToolbarItem(this._networkRequests);
     this._updateButton =
         new UI.Toolbar.ToolbarButton(Common.UIString.UIString('Update'), undefined, Common.UIString.UIString('Update'));
     this._updateButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._updateButtonClicked, this);
@@ -570,6 +594,42 @@ export class Section {
    */
   _updateButtonClicked(event) {
     this._manager.updateRegistration(this._registration.id);
+  }
+
+  /**
+   * @param {!Common.EventTarget.EventTargetEvent} event
+   */
+  _networkRequestsClicked(event) {
+    const applicationTabLocation = UI.ViewManager.ViewManager.instance().locationNameForViewId('resources');
+    const networkTabLocation = applicationTabLocation === 'drawer-view' ? 'panel' : 'drawer-view';
+    UI.ViewManager.ViewManager.instance().showViewInLocation('network', networkTabLocation);
+
+    Network.NetworkPanel.NetworkPanel.revealAndFilter([
+      {
+        filterType: Network.NetworkLogView.FilterType.Is,
+        filterValue: Network.NetworkLogView.IsFilterType.ServiceWorkerIntercepted,
+      },
+    ]);
+
+    const requests = SDK.NetworkLog.NetworkLog.instance().requests();
+    let lastRequest = null;
+    if (Array.isArray(requests)) {
+      for (const request of requests) {
+        if (!lastRequest && request.fetchedViaServiceWorker) {
+          lastRequest = request;
+        }
+        if (request.fetchedViaServiceWorker && lastRequest &&
+            lastRequest.responseReceivedTime < request.responseReceivedTime) {
+          lastRequest = request;
+        }
+      }
+    }
+    if (lastRequest) {
+      Network.NetworkPanel.NetworkPanel.selectAndShowRequest(
+          lastRequest, Network.NetworkItemView.Tabs.Timing, {clearFilter: false});
+    }
+
+    this._manager.serviceWorkerNetworkRequestsPanelOpen = true;
   }
 
   /**
