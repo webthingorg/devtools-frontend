@@ -20,6 +20,69 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7bf8fef7_c86bb45f",
+        "filename": "test/e2e/helpers/quick_open-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-29T14:52:37Z",
+      "side": 1,
+      "message": "While you\u0027re at it, could you move this to a const at the top of the file (same for the selector used in getAvailableSnippets)?",
+      "range": {
+        "startLine": 61,
+        "startChar": 37,
+        "endLine": 61,
+        "endChar": 72
+      },
+      "revId": "c4e87667f43c6ff1732934a04e3a7f44a9018376",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7d989f2_7a456292",
+        "filename": "test/e2e/helpers/settings-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-29T14:52:37Z",
+      "side": 1,
+      "message": "What do you think about moving all of these new functions to a shortcut-settings-helpers.ts file?\nI know the helpers (so far) are at the panel level, but splitting further would make things easier to understand.",
+      "revId": "c4e87667f43c6ff1732934a04e3a7f44a9018376",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3005e558_b6788e1d",
+        "filename": "test/e2e/helpers/settings-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-29T14:52:37Z",
+      "side": 1,
+      "message": "Could you consider renaming this to getShortcutListItemElement? With the \u0027get\u0027 prefix, it\u0027s not super obvious what this function does.",
+      "range": {
+        "startLine": 56,
+        "startChar": 13,
+        "endLine": 56,
+        "endChar": 36
+      },
+      "revId": "c4e87667f43c6ff1732934a04e3a7f44a9018376",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4c05794b_7d8a9900",
         "filename": "test/e2e/helpers/settings-helpers.ts",
         "patchSetId": 3
@@ -37,6 +100,23 @@
         "endLine": 78,
         "endChar": 34
       },
+      "revId": "c4e87667f43c6ff1732934a04e3a7f44a9018376",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5731ed66_2a403488",
+        "filename": "test/e2e/settings/shortcut_settings_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-29T14:52:37Z",
+      "side": 1,
+      "message": "It would be good to add a test like: start editing a shortcut, then cancel the edit with the cross icon, assert that the old shortcut is still here.",
       "revId": "c4e87667f43c6ff1732934a04e3a7f44a9018376",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
