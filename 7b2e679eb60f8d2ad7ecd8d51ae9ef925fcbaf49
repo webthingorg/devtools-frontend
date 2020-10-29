@@ -39,6 +39,30 @@
       },
       "revId": "7b2e679eb60f8d2ad7ecd8d51ae9ef925fcbaf49",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce6826d3_83a57575",
+        "filename": "front_end/ui/DockController.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-10-29T08:55:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a44e858_cd66aa63",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 58,
+        "endChar": 16
+      },
+      "revId": "7b2e679eb60f8d2ad7ecd8d51ae9ef925fcbaf49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
