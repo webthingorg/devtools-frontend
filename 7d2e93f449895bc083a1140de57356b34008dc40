@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "557df335_025f7331",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-29T18:53:41Z",
+      "side": 1,
+      "message": "Hi Sigurd,\nI added some checks for _sectionToRegistration in ServiceWorkerView.js becuase it was throwing undefined reference errors, please review.\nThank you.",
+      "revId": "7d2e93f449895bc083a1140de57356b34008dc40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19cc6154_d32a879a",
+        "filename": "front_end/resources/ServiceWorkersView.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-29T18:53:41Z",
+      "side": 1,
+      "message": "@sigurds@chromium.org I had to add this because it is throwing with cannot get of undefined.",
+      "revId": "7d2e93f449895bc083a1140de57356b34008dc40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
