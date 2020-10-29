@@ -46,6 +46,30 @@
       },
       "revId": "35e474b837c05153b749ebbb7157df2e644a7ab2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94b52100_3dcda4ef",
+        "filename": "front_end/platform/utilities.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-29T13:48:42Z",
+      "side": 1,
+      "message": "Aha I see. The layout tests would then also need to be updated to remove the prototype method. If that isn\u0027t too much work, please go ahead. If it turns out to be a can of worms, then let\u0027s keep the current situation.",
+      "parentUuid": "5bef175f_bb2a2da5",
+      "range": {
+        "startLine": 462,
+        "startChar": 0,
+        "endLine": 462,
+        "endChar": 36
+      },
+      "revId": "35e474b837c05153b749ebbb7157df2e644a7ab2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
