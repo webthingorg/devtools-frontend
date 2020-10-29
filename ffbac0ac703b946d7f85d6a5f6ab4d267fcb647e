@@ -85,6 +85,24 @@
       "message": "LH defines these presets separately, so LH scores should not be affected by this change but LH will use slightly different throttling settings for Slow/Fast 3G.",
       "revId": "ffbac0ac703b946d7f85d6a5f6ab4d267fcb647e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89c7ac13_c01a9bb6",
+        "filename": "front_end/sdk/NetworkManager.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-10-29T09:31:01Z",
+      "side": 1,
+      "message": "Thanks for making this clear! Since this will only affect DevTools\u0027 throttling settings then, I\u0027ll go ahead with these changes.",
+      "parentUuid": "00a2a9a9_e8a57f49",
+      "revId": "ffbac0ac703b946d7f85d6a5f6ab4d267fcb647e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
