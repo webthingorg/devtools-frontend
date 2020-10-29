@@ -30,7 +30,7 @@
 
 import {contrastRatio, rgbaToHsla} from '../front_end/common/ColorUtils.js';
 
-import {Bounds, constrainNumber, createChild, createElement, createTextChild, ellipsify, Overlay, ResetData} from './common.js';
+import {Bounds, constrainNumber, createChild, createElement, createTextChild, ellipsify, Overlay, Position, ResetData} from './common.js';
 import {buildPath, emptyBounds, PathBounds} from './highlight_common.js';
 import {drawLayoutGridHighlight, GridHighlight} from './highlight_grid_common.js';
 import {HighlightGridOverlay} from './tool_highlight_grid_impl.js';
@@ -71,7 +71,9 @@ interface LineStyle {
 
 interface FlexContainerHighlight {
   containerBorder: Array<string|number>;
-  flexContainerHighlightConfig: {containerBorder?: LineStyle;}
+  items: Array<Array<string|number>>;
+  lines: Array<Array<string|number>>;
+  flexContainerHighlightConfig: {containerBorder?: LineStyle; lineSeparator?: LineStyle; itemSeparator?: LineStyle;};
 }
 
 interface Highlight {
@@ -82,6 +84,24 @@ interface Highlight {
   colorFormat: string;
   gridInfo: GridHighlight[];
   flexInfo: FlexContainerHighlight[];
+}
+
+interface Quad {
+  p1: Position;
+  p2: Position;
+  p3: Position;
+  p4: Position;
+}
+
+interface FlexItem {
+  path: Array<string|number>;
+  quad: Quad;
+}
+
+interface FlexLine {
+  min: number;
+  max: number;
+  items: Array<FlexItem>;
 }
 
 export class HighlightOverlay extends Overlay {
@@ -696,19 +716,40 @@ function drawLayoutFlexContainerHighlight(
   const config = highlight.flexContainerHighlightConfig;
   const bounds = emptyBounds();
   const borderPath = buildPath(highlight.containerBorder, bounds, emulationScaleFactor);
+  drawPathWithLineStyle(context, borderPath, config.containerBorder);
 
-  if (config.containerBorder && config.containerBorder.color) {
+  if (!highlight.items || !highlight.items.length) {
+    return;
+  }
+
+  if (highlight.lines && highlight.lines.length > 1) {
+    for (const line of highlight.lines) {
+      const bounds = emptyBounds();
+      const linePath = buildPath(line, bounds, emulationScaleFactor);
+      drawPathWithLineStyle(context, linePath, config.lineSeparator);
+    }
+  }
+
+  for (const item of highlight.items) {
+    const bounds = emptyBounds();
+    const linePath = buildPath(item, bounds, emulationScaleFactor);
+    drawPathWithLineStyle(context, linePath, config.itemSeparator);
+  }
+}
+
+function drawPathWithLineStyle(context: CanvasRenderingContext2D, path: Path2D, lineStyle?: LineStyle) {
+  if (lineStyle && lineStyle.color) {
     context.save();
     context.translate(0.5, 0.5);
     context.lineWidth = 1;
-    if (config.containerBorder.dashed) {
+    if (lineStyle.dashed) {
       context.setLineDash([3, 3]);
     }
-    if (config.containerBorder.dotted) {
+    if (lineStyle.dotted) {
       context.setLineDash([2, 2]);
     }
-    context.strokeStyle = config.containerBorder.color;
-    context.stroke(borderPath);
+    context.strokeStyle = lineStyle.color;
+    context.stroke(path);
     context.restore();
   }
 }

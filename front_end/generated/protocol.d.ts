@@ -8343,6 +8343,7 @@ declare namespace Protocol {
        * The grid layout highlight configuration (default: all transparent).
        */
       gridHighlightConfig?: GridHighlightConfig;
+      flexContainerHighlightConfig?: Object;
     }
 
     export enum ColorFormat {
