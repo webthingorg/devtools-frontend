@@ -16,6 +16,24 @@
       "message": "LGTM\n\nIs this your first contribution to the devtools-frontend repo? In that case you\u0027ll need to add yourself to AUTHORS.",
       "revId": "b4cbcb4adafe6aa327cb55eb1d4fb068fe8f8cfb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d930b789_ee3806be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1453243
+      },
+      "writtenOn": "2020-10-29T14:58:35Z",
+      "side": 1,
+      "message": "Thank you for checking but no this is not my first. I am in the AUTHORS file already.",
+      "parentUuid": "0cb0e195_d20c8dda",
+      "revId": "b4cbcb4adafe6aa327cb55eb1d4fb068fe8f8cfb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
