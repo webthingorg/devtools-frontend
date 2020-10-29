@@ -33,6 +33,42 @@
       "message": "LGTM as well. Thanks!",
       "revId": "7721356f74cd0657aa1a8514597991d5faa40e4a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04dfc353_3e324947",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1453243
+      },
+      "writtenOn": "2020-10-29T14:58:47Z",
+      "side": 1,
+      "message": "Thank you for taking a look at this!",
+      "parentUuid": "f4dbaba0_dc0e6c66",
+      "revId": "7721356f74cd0657aa1a8514597991d5faa40e4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "607f98a4_5927da4b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1453243
+      },
+      "writtenOn": "2020-10-29T14:58:47Z",
+      "side": 1,
+      "message": "Thanks for taking a look at this.",
+      "parentUuid": "51769f71_742ef8ea",
+      "revId": "7721356f74cd0657aa1a8514597991d5faa40e4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

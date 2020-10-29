@@ -16,6 +16,24 @@
       "message": "Thank you for reviewing this CL.  Paul, we had discussed this before so I included you on this and Alex, you were the recommended reviewer for this patch.  Please let me know if anything can be done on my end to help.  The only error that I saw with the presubmit checks was that I am not in AUTHORS yet, however that is being taken care of on a previous patch that I recently submitted.",
       "revId": "1787c97a4f91edffacdbafad3fa2837e0c0e17c8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7d1705b_00e749fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1453243
+      },
+      "writtenOn": "2020-10-29T14:58:47Z",
+      "side": 1,
+      "message": "Going back over this CL, we could instead write out a function on each panel of sources so that when we focus in on them instead it runs the clear function potentially, however I think this solution is easier and everything functions how it should already.  Just a thought on a different solution that I have been playing with.",
+      "parentUuid": "9977c315_7420da30",
+      "revId": "1787c97a4f91edffacdbafad3fa2837e0c0e17c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
