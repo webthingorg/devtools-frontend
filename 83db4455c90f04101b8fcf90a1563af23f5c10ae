@@ -22,6 +22,30 @@
       },
       "revId": "83db4455c90f04101b8fcf90a1563af23f5c10ae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28128dd1_75e20d84",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-29T13:04:55Z",
+      "side": 1,
+      "message": "I\u0027m not sure because if we remove this line, then the StylesSidebarPane instance we serve in `static instance()` is not the same instance we create when we initialize StylesSidebarPane in the Elements panel. This would mean that `StylesSidebarPane.instance()` calls will access the StylesSidebarPane instance that\u0027s not appended inside the Elements panel, and that might be a problem.",
+      "parentUuid": "f4dcf8aa_773a670e",
+      "range": {
+        "startLine": 137,
+        "startChar": 4,
+        "endLine": 137,
+        "endChar": 38
+      },
+      "revId": "83db4455c90f04101b8fcf90a1563af23f5c10ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
