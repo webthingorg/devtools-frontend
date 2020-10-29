@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5ffd203_47e5da2b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-29T07:33:44Z",
+      "side": 1,
+      "message": "LGTM\n\nIt might be easier to do the protocol roll in a separate CL, in case we need to revert it (happened a few times before). Up to you.",
+      "revId": "7a8c07169bdfe4b3864054edf2f79690fcd1285e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73d1abb4_69d93034",
+        "filename": "front_end/sdk/module.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-29T07:33:44Z",
+      "side": 1,
+      "message": "nit: WebP",
+      "revId": "7a8c07169bdfe4b3864054edf2f79690fcd1285e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d99679a3_9f991d0c",
+        "filename": "front_end/sdk/module.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-10-29T07:33:44Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 533,
+        "startChar": 27,
+        "endLine": 533,
+        "endChar": 31
+      },
+      "revId": "7a8c07169bdfe4b3864054edf2f79690fcd1285e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
