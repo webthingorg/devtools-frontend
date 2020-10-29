@@ -35,6 +35,46 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1852fcbb_34766438",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-10-29T15:57:46Z",
+      "side": 1,
+      "message": "LGTM, with small comment",
+      "revId": "a2861ba1b6c6913d78c9d9655d65b8ae54e8f993",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48231677_18ab3d85",
+        "filename": "front_end/generated/protocol.d.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 8346,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-10-29T15:57:46Z",
+      "side": 1,
+      "message": "hmm, does this normally get generated with a deps roll? Maybe this was left over from local e2e testing?",
+      "range": {
+        "startLine": 8346,
+        "startChar": 6,
+        "endLine": 8346,
+        "endChar": 44
+      },
+      "revId": "a2861ba1b6c6913d78c9d9655d65b8ae54e8f993",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc5fb581_f0c82e03",
