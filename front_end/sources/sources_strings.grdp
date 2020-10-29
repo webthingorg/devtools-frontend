@@ -48,8 +48,14 @@
   <message name="IDS_DEVTOOLS_14acf8c40287aedb6124add396f6d1c5" desc="A context menu item in the Gutter Diff Plugin of the Sources panel">
     Local Modifications...
   </message>
+  <message name="IDS_DEVTOOLS_14ecf092d07023957cb33619e0ff8f75" desc="">
+    Recordings
+  </message>
   <message name="IDS_DEVTOOLS_160023e58c0251b10b570f6b43914bfc" desc="Text that appears when user drag and drop something (for example, a file) in Sources Panel of the Sources panel">
     Drop workspace folder here
+  </message>
+  <message name="IDS_DEVTOOLS_1aff765143dc4bf8ef68f698234e10f6" desc="">
+    Recorder
   </message>
   <message name="IDS_DEVTOOLS_1cd54499835432c724e9654327ca5788" desc="Title of a setting under the Sources category in Settings">
     Code folding
@@ -231,6 +237,9 @@
   <message name="IDS_DEVTOOLS_6121be69f70b38551bf15d90d0806778" desc="Title of a setting under the Sources category that can be invoked through the Command Menu">
     Automatically reveal files in sidebar
   </message>
+  <message name="IDS_DEVTOOLS_616441e888d288a636d301cbc873e776" desc="">
+    Start Recording
+  </message>
   <message name="IDS_DEVTOOLS_61cb6bc6751fc6b516847995380fdced" desc="Text in Sources Navigator of the Sources panel">
     New snippet
   </message>
@@ -282,6 +291,9 @@
   <message name="IDS_DEVTOOLS_7129472c5eb598faf47e4e877f2618fd" desc="Text in Breakpoint Edit Dialog of the Sources panel">
     Breakpoint
   </message>
+  <message name="IDS_DEVTOOLS_7212ec4b32d2f4ad99d9c66e82eee795" desc="">
+    Record and replay browser interactions
+  </message>
   <message name="IDS_DEVTOOLS_728618db1e2c850d3f7363ff2768d6b6" desc="Text in the Shortcuts page to explain a keyboard shortcut (increment CSS unit by 10 in Styles pane)">
     Increment CSS unit by 10
   </message>
@@ -317,6 +329,9 @@
   </message>
   <message name="IDS_DEVTOOLS_7e469e0762bb1a977747a18457c2e66f" desc="Show all link text content in Call Stack Sidebar Pane of the Sources panel">
     Show blackboxed frames
+  </message>
+  <message name="IDS_DEVTOOLS_7e586f472253a5cfbdd12bb1cbd0f7ab" desc="">
+    Run Recording
   </message>
   <message name="IDS_DEVTOOLS_80bd21c435b5e5ba6890161f3bc4bfd7" desc="Text in Navigator View of the Sources panel">
     Search in folder
@@ -495,6 +510,9 @@
   <message name="IDS_DEVTOOLS_c79e1cbadc868bad54f2eabe113c06f0" desc="Text in Debugger Plugin of the Sources panel">
     Enable breakpoint
   </message>
+  <message name="IDS_DEVTOOLS_dbd92f0d69c038a1dba721deba3b7d90" desc="">
+    Add recording
+  </message>
   <message name="IDS_DEVTOOLS_dd92c3884d43902407a4c2f0d8cc0eb1" desc="Text in the Shortcuts page to explain a keyboard shortcut (toggle breakpoint in debugger)">
     Toggle breakpoint
   </message>
@@ -551,6 +569,9 @@
   </message>
   <message name="IDS_DEVTOOLS_de1b7eb1c5cad7712d521bade538de6e" desc="Title of a setting under the Sources category that can be invoked through the Command Menu">
     Search in anonymous and content scripts
+  </message>
+  <message name="IDS_DEVTOOLS_dea8aa3a33332645c621288d22d7276c" desc="">
+    Create new recording
   </message>
   <message name="IDS_DEVTOOLS_e00091b180f1cf683d5271820cd71b4f" desc="Text in Debugger Plugin of the Sources panel">
     The debugger will skip stepping through this script, and will not stop on exceptions.
