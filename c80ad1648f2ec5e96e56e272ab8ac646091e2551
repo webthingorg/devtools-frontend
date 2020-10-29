@@ -16,6 +16,23 @@
       "message": "Wolfgang, adding you for +1",
       "revId": "c80ad1648f2ec5e96e56e272ab8ac646091e2551",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d1646ce_f1f525c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-10-29T11:50:05Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "c80ad1648f2ec5e96e56e272ab8ac646091e2551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
