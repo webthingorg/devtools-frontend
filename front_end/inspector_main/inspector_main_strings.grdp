@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <grit-part>
+  <message name="IDS_DEVTOOLS_0be4f0bb4e24b859862492218cd025e0" desc="Subtitle for a checkbox in the Rendering panel">
+    Disables support for the WEBP image format. Requires a page reload to apply and disables caching for image requests.
+  </message>
+  <message name="IDS_DEVTOOLS_4064ba4fc5cefa7ae1e4a3c7d4394837" desc="Title for a checkbox in the Rendering panel">
+    Disable AVIF image format
+  </message>
   <message name="IDS_DEVTOOLS_79eabc5ef01281e5513568fb4f8674d2" desc="Text in Rendering Options">
     Frame Rendering Stats
   </message>
@@ -111,8 +117,14 @@
   <message name="IDS_DEVTOOLS_e99c5958dd97b67bea019c65ddb0d971" desc="Accessibility subtitle for checkbox in Rendering tool">
     Emulates a focused page.
   </message>
+  <message name="IDS_DEVTOOLS_ed809bd0a7d511663c4ea606aa4d9007" desc="Title for a checkbox in the Rendering panel">
+    Disable WEBP image format
+  </message>
   <message name="IDS_DEVTOOLS_f23c9ba06e7123f0b4c906de90fbcc9f" desc="Title of a setting under the DevTools category that can be invoked through the Command Menu">
     Auto-open <ph name="LOCKED_1">DevTools</ph> for popups
+  </message>
+  <message name="IDS_DEVTOOLS_fe46a2792dafeb1972e3270e13cacd54" desc="Subtitle for a checkbox in the Rendering panel">
+    Disables support for the AVIF image format. Requires a page reload to apply and disables caching for image requests.
   </message>
   <message name="IDS_DEVTOOLS_fe904c39945840470511a9ff798e9812" desc="Accessibility subtitle for vision deficiency select element in Rendering tool">
     Forces vision deficiency emulation
