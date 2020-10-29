@@ -16,6 +16,40 @@
       "message": "this cannot land yet since we need a backend CL that I\u0027m still working on (plus it depends on previous frontend+backend CLs that haven\u0027t landed yet either), but this can probably get a first review round.",
       "revId": "a2861ba1b6c6913d78c9d9655d65b8ae54e8f993",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "001b89d1_05057286",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-29T15:41:56Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "a2861ba1b6c6913d78c9d9655d65b8ae54e8f993",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc5fb581_f0c82e03",
+        "filename": "inspector_overlay/tool_highlight_impl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-29T15:41:56Z",
+      "side": 1,
+      "message": "I think we might have interface for quads already? (not sure)",
+      "revId": "a2861ba1b6c6913d78c9d9655d65b8ae54e8f993",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
