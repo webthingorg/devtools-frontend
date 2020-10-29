@@ -77,6 +77,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ba10b32c_ea26438e",
+        "filename": "front_end/generated/protocol.d.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 8346,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-29T16:03:11Z",
+      "side": 1,
+      "message": "Whoops, yes, this is a left over from local testing. I\u0027ll remove it before landing. Thanks.",
+      "parentUuid": "48231677_18ab3d85",
+      "range": {
+        "startLine": 8346,
+        "startChar": 6,
+        "endLine": 8346,
+        "endChar": 44
+      },
+      "revId": "a2861ba1b6c6913d78c9d9655d65b8ae54e8f993",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cc5fb581_f0c82e03",
         "filename": "inspector_overlay/tool_highlight_impl.ts",
         "patchSetId": 2
@@ -88,6 +112,24 @@
       "writtenOn": "2020-10-29T15:41:56Z",
       "side": 1,
       "message": "I think we might have interface for quads already? (not sure)",
+      "revId": "a2861ba1b6c6913d78c9d9655d65b8ae54e8f993",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b1f6ffb_9258f446",
+        "filename": "inspector_overlay/tool_highlight_impl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-10-29T16:03:11Z",
+      "side": 1,
+      "message": "It looks like we have a type called Quad in the distance tool, but it\u0027s not structured the same, it\u0027s just an array of numbers.",
+      "parentUuid": "cc5fb581_f0c82e03",
       "revId": "a2861ba1b6c6913d78c9d9655d65b8ae54e8f993",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
