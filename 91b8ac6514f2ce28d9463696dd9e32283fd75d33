@@ -92,6 +92,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3df7df87_6e8510b0",
+        "filename": "front_end/i18n/i18nImpl.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-10-29T19:26:07Z",
+      "side": 1,
+      "message": "Yep, the call sites complain about the ArrayLike, but !Object\u003cstring, *\u003e works. Thanks!",
+      "parentUuid": "0e9997de_e8639c99",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 45
+      },
+      "revId": "91b8ac6514f2ce28d9463696dd9e32283fd75d33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "80b5af38_7b4d9945",
@@ -105,6 +129,30 @@
       "writtenOn": "2020-10-29T15:56:57Z",
       "side": 1,
       "message": "Why are we changing the default type?",
+      "range": {
+        "startLine": 92,
+        "startChar": 57,
+        "endLine": 92,
+        "endChar": 69
+      },
+      "revId": "91b8ac6514f2ce28d9463696dd9e32283fd75d33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c11fee6a_5efc7b7f",
+        "filename": "front_end/i18n/i18nImpl.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-10-29T19:26:07Z",
+      "side": 1,
+      "message": "I removed it because this function should only be used when there are DOM element placeholders that needs to be added to a localized string, so the value is expected to be passed in. But If we dont want to be that strict I can put a default value back (it should be {}), wdyt Vidal?",
+      "parentUuid": "80b5af38_7b4d9945",
       "range": {
         "startLine": 92,
         "startChar": 57,
