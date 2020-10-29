@@ -129,6 +129,9 @@
   <message name="IDS_DEVTOOLS_266bd94230e7c7d11ab8b04c755f99c0" desc="Tooltip to explain why a cookie was blocked due to Schemeful Same-Site">
     This Set-Cookie was blocked because it had the &quot;SameSite=Strict&quot; attribute but came from a cross-site response which was not the response to a top-level navigation. This response is considered cross-site because the URL has a different scheme than the current site.
   </message>
+  <message name="IDS_DEVTOOLS_27a940a4cc62c1cc7cba471eb0776920" desc="Title of a setting that disables AVIF format">
+    Disable AVIF format
+  </message>
   <message name="IDS_DEVTOOLS_28e486be4b3bad598b6e9eaa34ebec76" desc="Text in Network Manager">
     Set-Cookie header is ignored in response from url: <ph name="RESPONSE_URL">$1s<ex>https://example.com</ex></ph>. Cookie length should be less than or equal to 4096 characters.
   </message>
@@ -194,6 +197,12 @@
   <message name="IDS_DEVTOOLS_4cbb2bdce4db02a995cdd7a237a63d69" desc="Title of a setting under the Grid category that turns CSS Grid Area highlighting on">
     Show grid named areas
   </message>
+  <message name="IDS_DEVTOOLS_4e1ab9f9a4a908e71bb0dc21f30eb52f" desc="Title of a setting that disables WebP format">
+    Disable WEBP format
+  </message>
+  <message name="IDS_DEVTOOLS_555f7c08e60aa12de4d89252f1a5cb43" desc="Title of a setting that enables WebP format">
+    Enable WEBP format
+  </message>
   <message name="IDS_DEVTOOLS_5662edf029fe42e222f435fbc9ae73a2" desc="Title for Trusted Types policy violation issue link">
     Trusted Types - Fix violations
   </message>
@@ -223,6 +232,9 @@
   </message>
   <message name="IDS_DEVTOOLS_9485d0acccd869b51a96f2b35fd0b620" desc="Title of a setting under the Rendering drawer that can be invoked through the Command Menu">
     Do not emulate CSS prefers-reduced-data
+  </message>
+  <message name="IDS_DEVTOOLS_9696d05ebc70b0e74183e8c81250f3c5" desc="Title of a setting that enables AVIF format">
+    Enable AVIF format
   </message>
   <message name="IDS_DEVTOOLS_96a5cc95cb5e6812861254286a5764af" desc="Tooltip to explain why a cookie was blocked due to Schemeful Same-Site">
     This Set-Cookie didn&apos;t specify a &quot;SameSite&quot; attribute, was defaulted to &quot;SameSite=Lax&quot;, and was blocked because it came from a cross-site response which was not the response to a top-level navigation. This response is considered cross-site because the URL has a different scheme than the current site.
