@@ -2398,6 +2398,11 @@ declare namespace ProtocolProxyApi {
      */
     frameNavigated(params: Protocol.Page.FrameNavigatedEvent): void;
 
+    /**
+     * Fired when document has been closed after it has been written to.
+     */
+    documentClosed(params: Protocol.Page.DocumentClosedEvent): void;
+
     frameResized(): void;
 
     /**

@@ -280,6 +280,10 @@ export namespace ProtocolMapping {
      * Fired once navigation of the frame has completed. Frame is now associated with the new loader.
      */
     'Page.frameNavigated': [Protocol.Page.FrameNavigatedEvent];
+    /**
+     * Fired when document has been closed after it has been written to.
+     */
+    'Page.documentClosed': [Protocol.Page.DocumentClosedEvent];
     'Page.frameResized': [];
     /**
      * Fired when a renderer-initiated navigation is requested.

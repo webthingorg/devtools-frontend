@@ -6730,6 +6730,12 @@ domain Page
       # Frame object.
       Frame frame
 
+  # Fired when document has been closed after it has been written to.
+  experimental event documentClosed
+    parameters
+      # Frame object.
+      Frame frame
+
   experimental event frameResized
 
   # Fired when a renderer-initiated navigation is requested.
