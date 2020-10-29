@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3459c673_339b128e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1459949
+      },
+      "writtenOn": "2020-10-29T03:27:59Z",
+      "side": 1,
+      "message": "PTAL\n\n(If code review is positive, request reviewer run Try Jobs via CQ Dry Run)",
+      "revId": "c4a6ec842c04fe7df809fde07c2da046ec21c03f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
