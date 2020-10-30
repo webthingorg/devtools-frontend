@@ -18,6 +18,46 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c3ac434_c3fa3f20",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-30T07:45:21Z",
+      "side": 1,
+      "message": "Thanks for spotting this, please see my comments!",
+      "revId": "7d2e93f449895bc083a1140de57356b34008dc40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1c8b5ce_cf64e9e7",
+        "filename": "front_end/resources/ServiceWorkersView.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-30T07:45:21Z",
+      "side": 1,
+      "message": "This needs to be initialized before  this._updateListVisibility() is called. Please move it up to around L38 to be super safe.",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 48
+      },
+      "revId": "7d2e93f449895bc083a1140de57356b34008dc40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "19cc6154_d32a879a",
@@ -31,6 +71,24 @@
       "writtenOn": "2020-10-29T18:53:41Z",
       "side": 1,
       "message": "@sigurds@chromium.org I had to add this because it is throwing with cannot get of undefined.",
+      "revId": "7d2e93f449895bc083a1140de57356b34008dc40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f0ffe8f_9275de65",
+        "filename": "front_end/resources/ServiceWorkersView.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-30T07:45:21Z",
+      "side": 1,
+      "message": "This is not the correct fix, please remove this and instead act on my other comment, thanks!",
+      "parentUuid": "19cc6154_d32a879a",
       "revId": "7d2e93f449895bc083a1140de57356b34008dc40",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
