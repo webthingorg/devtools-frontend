@@ -37,6 +37,42 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "db36b985_5c410451",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-30T16:45:47Z",
+      "side": 1,
+      "message": "The error looks like it could not find the record action but that should be defined in the module.json. Could you maybe clear your out dir and try again?",
+      "parentUuid": "1230b76d_86005b7e",
+      "revId": "2ada2b7c240e0b7b98a849ad06fe226e0f5aae7e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f136374_581d8044",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-30T16:45:47Z",
+      "side": 1,
+      "message": "I included the changes from the cl you linked.",
+      "parentUuid": "d34fd0f0_1e9809b5",
+      "revId": "2ada2b7c240e0b7b98a849ad06fe226e0f5aae7e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0a69f64e_7e3cacd4",
         "filename": "front_end/recorder/RecordingFileSystem.js",
         "patchSetId": 7
@@ -48,6 +84,30 @@
       "writtenOn": "2020-10-30T14:02:58Z",
       "side": 1,
       "message": "This looks similar to the snippet file system, which is what I think you took this from? Please be aware that Kim ran into issues there which we had to resolve. https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2503953 contains the fixes, which I think we need to apply here as well.",
+      "range": {
+        "startLine": 215,
+        "startChar": 0,
+        "endLine": 225,
+        "endChar": 0
+      },
+      "revId": "2ada2b7c240e0b7b98a849ad06fe226e0f5aae7e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ae133f7_887dde9d",
+        "filename": "front_end/recorder/RecordingFileSystem.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-30T16:45:47Z",
+      "side": 1,
+      "message": "Thanks for pointing this out! I updated the cl accordingly.",
+      "parentUuid": "0a69f64e_7e3cacd4",
       "range": {
         "startLine": 215,
         "startChar": 0,
@@ -81,6 +141,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac3cdb0c_81d68636",
+        "filename": "front_end/sources/JavaScriptCompilerPlugin.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-30T16:45:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2522f5b4_e11621a4",
+      "range": {
+        "startLine": 66,
+        "startChar": 31,
+        "endLine": 66,
+        "endChar": 34
+      },
+      "revId": "2ada2b7c240e0b7b98a849ad06fe226e0f5aae7e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "adc4677f_f6afceb1",
@@ -94,6 +178,30 @@
       "writtenOn": "2020-10-30T13:53:28Z",
       "side": 1,
       "message": "d",
+      "range": {
+        "startLine": 29,
+        "startChar": 40,
+        "endLine": 29,
+        "endChar": 41
+      },
+      "revId": "2ada2b7c240e0b7b98a849ad06fe226e0f5aae7e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d212d9d9_c93df183",
+        "filename": "scripts/eslint_rules/lib/es_modules_import.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-30T16:45:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "adc4677f_f6afceb1",
       "range": {
         "startLine": 29,
         "startChar": 40,
