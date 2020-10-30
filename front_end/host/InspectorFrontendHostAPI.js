@@ -375,7 +375,9 @@ export class InspectorFrontendHostAPI {
     label: (string|undefined),
     enabled: (boolean|undefined),
     checked: (boolean|undefined),
-    subItems: (!Array.<!ContextMenuDescriptor>|undefined)
+    subItems: (!Array.<!ContextMenuDescriptor>|undefined),
+    element: (Element|undefined),
+    shortcut: (string|null),
 }} */
 // @ts-ignore typedef
 export let ContextMenuDescriptor;
