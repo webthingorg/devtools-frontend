@@ -16,6 +16,138 @@
       "message": "PTAL, thanks!",
       "revId": "0d90fcc09408938f3565d3be5406d337d15611e6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c51a5e36_a974137d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-30T09:33:39Z",
+      "side": 1,
+      "message": "Mostly LGTM with a few Qs 😊 Thanks!",
+      "revId": "0d90fcc09408938f3565d3be5406d337d15611e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fce41102_9e9ec8bb",
+        "filename": "front_end/sources/DebuggerPlugin.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-30T09:33:39Z",
+      "side": 1,
+      "message": "why the ignore here?",
+      "range": {
+        "startLine": 717,
+        "startChar": 0,
+        "endLine": 717,
+        "endChar": 21
+      },
+      "revId": "0d90fcc09408938f3565d3be5406d337d15611e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc033529_0aba0ab2",
+        "filename": "front_end/sources/DebuggerPlugin.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 779,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-30T09:33:39Z",
+      "side": 1,
+      "message": "and here?",
+      "range": {
+        "startLine": 779,
+        "startChar": 0,
+        "endLine": 779,
+        "endChar": 19
+      },
+      "revId": "0d90fcc09408938f3565d3be5406d337d15611e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48bd6d7a_50bb1467",
+        "filename": "front_end/sources/DebuggerPlugin.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 788,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-30T09:33:39Z",
+      "side": 1,
+      "message": "I think you need to add `callback()` to actually call it.",
+      "range": {
+        "startLine": 785,
+        "startChar": 6,
+        "endLine": 788,
+        "endChar": 9
+      },
+      "revId": "0d90fcc09408938f3565d3be5406d337d15611e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2b399d7_a44e0fb5",
+        "filename": "front_end/sources/DebuggerPlugin.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1276,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-30T09:33:39Z",
+      "side": 1,
+      "message": "same Q :)",
+      "range": {
+        "startLine": 1276,
+        "startChar": 0,
+        "endLine": 1276,
+        "endChar": 19
+      },
+      "revId": "0d90fcc09408938f3565d3be5406d337d15611e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d4bf038_30e5aae9",
+        "filename": "front_end/sources/DebuggerPlugin.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2025,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-30T09:33:39Z",
+      "side": 1,
+      "message": "and again. Presumably this one is for layout tests or similar (given the elementSymbolForTest name)?\n\nif so, we\u0027re probably fine to leave this, maybe with a comment?",
+      "range": {
+        "startLine": 2023,
+        "startChar": 115,
+        "endLine": 2025,
+        "endChar": 77
+      },
+      "revId": "0d90fcc09408938f3565d3be5406d337d15611e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
