@@ -84,6 +84,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "efaebb4f_f4006f0e",
+        "filename": "front_end/sources/DebuggerPlugin.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-30T11:21:32Z",
+      "side": 1,
+      "message": "This sounds like an issue with TS not knowing if to use Node\u0027s setTimeout or the browser\u0027s. I think you could make this `window.setTimeout` to make it realise.",
+      "parentUuid": "b91bfb95_0a48dcae",
+      "range": {
+        "startLine": 717,
+        "startChar": 0,
+        "endLine": 717,
+        "endChar": 21
+      },
+      "revId": "0d90fcc09408938f3565d3be5406d337d15611e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dc033529_0aba0ab2",
         "filename": "front_end/sources/DebuggerPlugin.js",
         "patchSetId": 2
