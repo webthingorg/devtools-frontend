@@ -16,6 +16,24 @@
       "message": "Hmm, it looks like there is a change in ContextMenu.js missing? I would encourage you to do a huge CL locally where you enable TS for ContextMenu and SoftContextMenu at once and fix everything, this will help you find the problems.",
       "revId": "cd6152924f02261bbd9a848e82cb9a6292cfaaeb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab4002a2_b7d928ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-30T09:44:46Z",
+      "side": 1,
+      "message": "ContextMenu.js is not typescriptfied yet. So currently this just codifies type expectations of SoftContextMenu.",
+      "parentUuid": "1649dda7_19ab0260",
+      "revId": "cd6152924f02261bbd9a848e82cb9a6292cfaaeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
