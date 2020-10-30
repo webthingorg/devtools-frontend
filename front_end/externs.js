@@ -1231,7 +1231,7 @@ class InspectorFrontendHostAPI {
    * @param {string} url
    * @param {string} headers
    * @param {number} streamId
-   * @param {function(!InspectorFrontendHostAPI.LoadNetworkResourceResult)} callback
+   * @param {function(!InspectorFrontendHostAPI.LoadNetworkResourceResult): void} callback
    */
   loadNetworkResource(url, headers, streamId, callback) {
   }
@@ -1341,6 +1341,20 @@ class InspectorFrontendHostAPI {
   }
 
   /**
+   * @param {string} trigger
+   * @param {function(!InspectorFrontendHostAPI.ShowSurveyResult): void} callback
+   */
+  showSurvey(trigger, callback) {
+  }
+
+  /**
+   * @param {string} trigger
+   * @param {function(InspectorFrontendHostAPI.CanShowSurveyResult): void} callback
+   */
+  canShowSurvey(trigger, callback) {
+  }
+
+  /**
    * @return {number}
    */
   zoomFactor() {
@@ -1416,6 +1430,18 @@ InspectorFrontendHostAPI.ContextMenuDescriptor;
     messageOverride: (string|undefined)
 }} */
 InspectorFrontendHostAPI.LoadNetworkResourceResult;
+
+/** @typedef
+{{
+  surveyShown: boolean
+}} */
+InspectorFrontendHostAPI.ShowSurveyResult;
+
+/** @typedef
+{{
+  canShowSurvey: boolean
+}} */
+InspectorFrontendHostAPI.CanShowSurveyResult;
 
 /**
  * Enum for recordEnumeratedHistogram

@@ -1240,6 +1240,28 @@ class IssueView extends UI.TreeOutline.TreeElement {
       linkListItem.appendChild(link);
     }
     this.appendChild(linkWrapper);
+    // Survey link.
+    const linkIcon = UI.Icon.Icon.create('mediumicon-feedback', 'link pad-icon-to-large');
+    const link = document.createElement('a');
+    link.classList.add('link', 'devtools-link');
+    link.onclick = () => {
+      link.innerText = ls`Opening survey …`;
+      link.prepend(linkIcon);
+      link.classList.add('pending-link');
+      Host.InspectorFrontendHost.InspectorFrontendHostInstance.showSurvey('', response => {
+        /* eslint-disable no-console */
+        link.innerText = ls`Is this issue message helpful to you?`;
+        link.prepend(linkIcon);
+        link.classList.remove('pending-link');
+        console.log('getSurveyAPIKey response:', response);
+      });
+    };
+    link.innerText = ls`Is this issue message helpful to you?`;
+    link.prepend(linkIcon);
+
+    linkList.createChild('li').appendChild(link);
+
+    this.appendChild(linkWrapper);
   }
 
   update() {

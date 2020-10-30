@@ -378,6 +378,16 @@ ul > li.plain-enum::before {
   background-color: var(--issue-warning);
 }
 
+.pad-icon-to-large {
+  margin: 0 7px;
+}
+
+.pending-link {
+  opacity: 75%;
+  pointer-events: none;
+  cursor: default;
+}
+
 .affected-resources > .parent {
   margin-top: 0;
   padding: 2px 5px 0 5px;
