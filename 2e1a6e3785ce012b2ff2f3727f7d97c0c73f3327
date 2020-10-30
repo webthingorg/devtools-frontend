@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2cf2145_28449b84",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-30T16:00:31Z",
+      "side": 1,
+      "message": "@All, this is ready for a review now. Arrow key logic has been tidied up and had way more tests added. Test helpers have cleared up some of the tests, and the columns are now done on weightings.",
+      "revId": "2e1a6e3785ce012b2ff2f3727f7d97c0c73f3327",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
