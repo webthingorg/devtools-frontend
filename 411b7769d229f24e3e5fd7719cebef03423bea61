@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "304777c5_e8d203c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-10-30T16:16:26Z",
+      "side": 1,
+      "message": "I started the BreakpointManager modifications.\n\nWe should investigate if it is possible for source mapped code to have the same problem, because if so I don\u0027t think this is the right solution.",
+      "revId": "411b7769d229f24e3e5fd7719cebef03423bea61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
