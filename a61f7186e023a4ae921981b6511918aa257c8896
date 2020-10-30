@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e10de688_c97c6720",
+        "filename": "front_end/sources/FilteredUISourceCodeListProvider.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-30T15:46:49Z",
+      "side": 1,
+      "message": "Typically, we reset arrays by initializing with an empty array (e.g. `this._uiSourcecodes \u003d []`). I suppose this works and we can keep it for now, but it is not common to see this code on the web afaik.",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 35
+      },
+      "revId": "a61f7186e023a4ae921981b6511918aa257c8896",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
