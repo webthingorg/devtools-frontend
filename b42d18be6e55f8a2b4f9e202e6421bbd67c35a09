@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a475e7e_8d1356ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-30T11:40:43Z",
+      "side": 1,
+      "message": "@Tim: Could you take a look at my change in `es_modules_import.js`?",
+      "revId": "b42d18be6e55f8a2b4f9e202e6421bbd67c35a09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
