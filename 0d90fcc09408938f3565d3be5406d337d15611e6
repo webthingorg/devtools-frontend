@@ -106,6 +106,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "641e96f9_868a6126",
+        "filename": "front_end/sources/DebuggerPlugin.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-30T11:41:43Z",
+      "side": 1,
+      "message": "Yes, that resolved the issue. Thanks!",
+      "parentUuid": "efaebb4f_f4006f0e",
+      "range": {
+        "startLine": 717,
+        "startChar": 0,
+        "endLine": 717,
+        "endChar": 21
+      },
+      "revId": "0d90fcc09408938f3565d3be5406d337d15611e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dc033529_0aba0ab2",
