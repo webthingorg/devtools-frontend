@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f5a3744_84a1c196",
+        "filename": "front_end/lighthouse/LighthouseReportRenderer.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-30T14:35:16Z",
+      "side": 1,
+      "message": "Yeah it is put on the global scope in the Lighthouse bundle: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/third_party/lighthouse/report-assets/report.js;l\u003d4786;drc\u003db8265a3093143b59922e93c0ad3af6c3e1858c8e",
+      "parentUuid": "1018f6b3_f8c443de",
+      "range": {
+        "startLine": 26,
+        "startChar": 46,
+        "endLine": 26,
+        "endChar": 61
+      },
+      "revId": "19e3acf2003eaea805deb273b2c418e95941769f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e62bb4a7_a51205cf",
@@ -54,6 +78,30 @@
       "writtenOn": "2020-10-30T13:01:43Z",
       "side": 1,
       "message": "nit: implemented",
+      "range": {
+        "startLine": 84,
+        "startChar": 25,
+        "endLine": 84,
+        "endChar": 34
+      },
+      "revId": "19e3acf2003eaea805deb273b2c418e95941769f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27c91425_90c4b0b1",
+        "filename": "front_end/lighthouse/LighthouseReporterTypes.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-30T14:35:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e62bb4a7_a51205cf",
       "range": {
         "startLine": 84,
         "startChar": 25,
