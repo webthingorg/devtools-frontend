@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e21e175a_3f126600",
+        "filename": "front_end/elements/CSSPropertyIconResolver.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-30T07:14:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e5b37a1_1edd199b",
+      "range": {
+        "startLine": 120,
+        "startChar": 26,
+        "endLine": 120,
+        "endChar": 31
+      },
+      "revId": "5468f2cef2b6b07a001d758adce0d1e4a6819af5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c0edfaa0_da0fad4a",
@@ -54,6 +78,30 @@
       "writtenOn": "2020-10-29T15:00:59Z",
       "side": 1,
       "message": "missing \u0027icon\u0027 in this sentence",
+      "range": {
+        "startLine": 292,
+        "startChar": 17,
+        "endLine": 292,
+        "endChar": 20
+      },
+      "revId": "5468f2cef2b6b07a001d758adce0d1e4a6819af5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5dac23c6_b06e4a74",
+        "filename": "test/unittests/front_end/elements/CSSPropertyIconResolver_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-30T07:14:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0edfaa0_da0fad4a",
       "range": {
         "startLine": 292,
         "startChar": 17,
