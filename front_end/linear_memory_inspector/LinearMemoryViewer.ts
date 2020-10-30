@@ -132,7 +132,8 @@ export class LinearMemoryViewer extends HTMLElement {
 
     // Calculate the width to fill.
     const dividerWidth = divider.getBoundingClientRect().width;
-    const widthToFill = this.clientWidth - firstByteCell.getBoundingClientRect().left - dividerWidth;
+    const widthToFill = this.clientWidth -
+        (firstByteCell.getBoundingClientRect().left - this.getBoundingClientRect().left) - dividerWidth;
     if (widthToFill < groupWidth) {
       this.pageView = fallbackPageView;
       return;

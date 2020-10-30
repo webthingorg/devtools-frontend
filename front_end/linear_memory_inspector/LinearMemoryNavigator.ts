@@ -67,6 +67,11 @@ export class LinearMemoryNavigator extends HTMLElement {
           align-items: center;
         }
 
+        .navigator-item {
+          white-space: nowrap;
+          overflow: hidde;
+        }
+
         input {
           text-align: center;
         }
@@ -80,11 +85,11 @@ export class LinearMemoryNavigator extends HTMLElement {
         }
       </style>
       <div class="navigator">
-        <div>
+        <div class="navigator-item">
           ${this.createButton('ic_undo_16x16_icon', new HistoryNavigationEvent(Navigation.Backward))}
           ${this.createButton('ic_redo_16x16_icon', new HistoryNavigationEvent(Navigation.Forward))}
         </div>
-        <div>
+        <div class="navigator-item">
           ${this.createButton('ic_page_prev_16x16_icon', new PageNavigationEvent(Navigation.Backward))}
           <input data-input="true" contenteditable="true" value="0x${toHexString(this.address, 8)}"/>
           ${this.createButton('ic_page_next_16x16_icon', new PageNavigationEvent(Navigation.Forward))}
