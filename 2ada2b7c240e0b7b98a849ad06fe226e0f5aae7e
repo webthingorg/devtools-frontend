@@ -18,6 +18,69 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d34fd0f0_1e9809b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-30T14:02:58Z",
+      "side": 1,
+      "message": "INFRA LGTM For the filesystem changes please see the other CL to how to resolve the issues. Let me know if you need any help.",
+      "revId": "2ada2b7c240e0b7b98a849ad06fe226e0f5aae7e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a69f64e_7e3cacd4",
+        "filename": "front_end/recorder/RecordingFileSystem.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-30T14:02:58Z",
+      "side": 1,
+      "message": "This looks similar to the snippet file system, which is what I think you took this from? Please be aware that Kim ran into issues there which we had to resolve. https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2503953 contains the fixes, which I think we need to apply here as well.",
+      "range": {
+        "startLine": 215,
+        "startChar": 0,
+        "endLine": 225,
+        "endChar": 0
+      },
+      "revId": "2ada2b7c240e0b7b98a849ad06fe226e0f5aae7e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2522f5b4_e11621a4",
+        "filename": "front_end/sources/JavaScriptCompilerPlugin.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-30T14:02:58Z",
+      "side": 1,
+      "message": "`any` does not exist in JSDoc. I think you will need to use `*`?",
+      "range": {
+        "startLine": 66,
+        "startChar": 31,
+        "endLine": 66,
+        "endChar": 34
+      },
+      "revId": "2ada2b7c240e0b7b98a849ad06fe226e0f5aae7e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "adc4677f_f6afceb1",
