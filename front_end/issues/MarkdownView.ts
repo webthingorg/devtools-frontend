@@ -92,13 +92,27 @@ const renderChildTokens = (token: any) => {
   return token.tokens.map(renderToken);
 };
 
+const unescape = (text: string): string => {
+  /** @type {Record<string,string>} */
+  const escapeReplacements: Record<string, string> = {
+    '&amp;': '&',
+    '&lt;': '<',
+    '&gt;': '>',
+    '&quot;': '"',
+    '&#39;': '\'',
+  };
+  return text.replace(/&(amp|lt|gt|quot|#39);/g, (matched_str: string, _) => {
+    const replacement = escapeReplacements[matched_str];
+    return replacement ? replacement : matched_str;
+  });
+};
 // TODO(crbug.com/1108699): Fix types when they are available.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const renderText = (token: any) => {
   if (token.tokens && token.tokens.length > 0) {
     return html`${renderChildTokens(token)}`;
   }
-  return html`${token.text}`;
+  return html`${unescape(token.text)}`;
 };
 
 // TODO(crbug.com/1108699): Fix types when they are available.
@@ -108,7 +122,7 @@ const tokenRenderers = new Map<string, (token: any) => LitHtml.TemplateResult>([
   ['list', token => html`<ul>${token.items.map(renderToken)}</ul>`],
   ['list_item', token => html`<li>${renderChildTokens(token)}</li>`],
   ['text', renderText],
-  ['codespan', token => html`<code>${token.text}</code>`],
+  ['codespan', token => html`<code>${unescape(token.text)}</code>`],
   ['space', () => html``],
 ]);
 
