@@ -46,6 +46,30 @@
       },
       "revId": "a61f7186e023a4ae921981b6511918aa257c8896",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b365c2c5_920df4d2",
+        "filename": "front_end/sources/FilteredUISourceCodeListProvider.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-10-30T15:54:44Z",
+      "side": 1,
+      "message": "Makes sense.",
+      "parentUuid": "65d123d1_7d2c39b7",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 35
+      },
+      "revId": "a61f7186e023a4ae921981b6511918aa257c8896",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
