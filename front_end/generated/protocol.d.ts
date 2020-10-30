@@ -9904,6 +9904,16 @@ declare namespace Protocol {
     }
 
     /**
+     * Fired when document has been closed after it has been written to.
+     */
+    export interface DocumentClosedEvent {
+      /**
+       * Frame object.
+       */
+      frame: Frame;
+    }
+
+    /**
      * Fired when a renderer-initiated navigation is requested.
      * Navigation may still be cancelled after the event is issued.
      */

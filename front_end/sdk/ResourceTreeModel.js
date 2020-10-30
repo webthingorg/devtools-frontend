@@ -1063,6 +1063,16 @@ export class PageDispatcher {
   }
 
   /**
+ * @override
+ * @param {!Protocol.Page.DocumentClosedEvent} event
+ */
+  documentClosed({frame}) {
+    // TODO(wolfi): make sure 'frameNavigated' does not cause unintended side
+    // effects when the only goal here is to update the frame tree
+    this._resourceTreeModel._frameNavigated(frame);
+  }
+
+  /**
    * @override
    * @param {!Protocol.Page.FrameDetachedEvent} event
    */
