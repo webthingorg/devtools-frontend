@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "985e16ee_eae33fcf",
+        "filename": "test/e2e/helpers/quick_open-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-10-30T05:04:52Z",
+      "side": 1,
+      "message": "Sure, I\u0027ve done the same for the shortcuts selectors as well.",
+      "parentUuid": "7bf8fef7_c86bb45f",
+      "range": {
+        "startLine": 61,
+        "startChar": 37,
+        "endLine": 61,
+        "endChar": 72
+      },
+      "revId": "c4e87667f43c6ff1732934a04e3a7f44a9018376",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e7d989f2_7a456292",
@@ -58,6 +82,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f482b6ad_818b09a9",
+        "filename": "test/e2e/helpers/settings-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-10-30T05:04:52Z",
+      "side": 1,
+      "message": "Sure, moved",
+      "parentUuid": "e7d989f2_7a456292",
+      "revId": "c4e87667f43c6ff1732934a04e3a7f44a9018376",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3005e558_b6788e1d",
@@ -71,6 +113,30 @@
       "writtenOn": "2020-10-29T14:52:37Z",
       "side": 1,
       "message": "Could you consider renaming this to getShortcutListItemElement? With the \u0027get\u0027 prefix, it\u0027s not super obvious what this function does.",
+      "range": {
+        "startLine": 56,
+        "startChar": 13,
+        "endLine": 56,
+        "endChar": 36
+      },
+      "revId": "c4e87667f43c6ff1732934a04e3a7f44a9018376",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b92ea86_5117691b",
+        "filename": "test/e2e/helpers/settings-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-10-30T05:04:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3005e558_b6788e1d",
       "range": {
         "startLine": 56,
         "startChar": 13,
@@ -104,6 +170,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cd188f9_6edb6ed8",
+        "filename": "test/e2e/helpers/settings-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-10-30T05:04:52Z",
+      "side": 1,
+      "message": "We can wait for the add shortcut link to appear instead, because it always appears when the editor is open and never does otherwise. Changed all instances",
+      "parentUuid": "4c05794b_7d8a9900",
+      "range": {
+        "startLine": 78,
+        "startChar": 18,
+        "endLine": 78,
+        "endChar": 34
+      },
+      "revId": "c4e87667f43c6ff1732934a04e3a7f44a9018376",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5731ed66_2a403488",
@@ -117,6 +207,24 @@
       "writtenOn": "2020-10-29T14:52:37Z",
       "side": 1,
       "message": "It would be good to add a test like: start editing a shortcut, then cancel the edit with the cross icon, assert that the old shortcut is still here.",
+      "revId": "c4e87667f43c6ff1732934a04e3a7f44a9018376",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0eb74999_f1bbf22f",
+        "filename": "test/e2e/settings/shortcut_settings_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-10-30T05:04:52Z",
+      "side": 1,
+      "message": "Good idea, added.",
+      "parentUuid": "5731ed66_2a403488",
       "revId": "c4e87667f43c6ff1732934a04e3a7f44a9018376",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -144,6 +252,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "655d78bc_ca67d76c",
+        "filename": "test/e2e/settings/shortcut_settings_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-10-30T05:04:52Z",
+      "side": 1,
+      "message": "I\u0027ve added a helper to wait for the shortcut input by value. Do you think I should just add a name or label to each input instead?",
+      "parentUuid": "756e20f3_99349ea0",
+      "range": {
+        "startLine": 72,
+        "startChar": 19,
+        "endLine": 72,
+        "endChar": 68
+      },
+      "revId": "c4e87667f43c6ff1732934a04e3a7f44a9018376",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67c1d023_0da5f8fd",
@@ -157,6 +289,30 @@
       "writtenOn": "2020-10-29T11:57:45Z",
       "side": 1,
       "message": "Same here",
+      "range": {
+        "startLine": 98,
+        "startChar": 19,
+        "endLine": 98,
+        "endChar": 68
+      },
+      "revId": "c4e87667f43c6ff1732934a04e3a7f44a9018376",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe0609c8_7ef0ac5a",
+        "filename": "test/e2e/settings/shortcut_settings_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-10-30T05:04:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "67c1d023_0da5f8fd",
       "range": {
         "startLine": 98,
         "startChar": 19,
