@@ -70,6 +70,23 @@
       "parentUuid": "d56963dd_2d4a761a",
       "revId": "cd6152924f02261bbd9a848e82cb9a6292cfaaeb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc68a08f_f3232ff6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-30T10:07:08Z",
+      "side": 1,
+      "message": "LGTM % synchonization with ContextMenu.js TS-ification (Tim).",
+      "revId": "cd6152924f02261bbd9a848e82cb9a6292cfaaeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
