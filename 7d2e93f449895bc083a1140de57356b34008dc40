@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4bbd6df_1ea966ec",
+        "filename": "front_end/resources/ServiceWorkersView.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-30T17:06:56Z",
+      "side": 1,
+      "message": "Done, updated",
+      "parentUuid": "c1c8b5ce_cf64e9e7",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 48
+      },
+      "revId": "7d2e93f449895bc083a1140de57356b34008dc40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "19cc6154_d32a879a",
@@ -89,6 +113,24 @@
       "side": 1,
       "message": "This is not the correct fix, please remove this and instead act on my other comment, thanks!",
       "parentUuid": "19cc6154_d32a879a",
+      "revId": "7d2e93f449895bc083a1140de57356b34008dc40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "edb8b587_05861123",
+        "filename": "front_end/resources/ServiceWorkersView.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-10-30T17:06:56Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1f0ffe8f_9275de65",
       "revId": "7d2e93f449895bc083a1140de57356b34008dc40",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
