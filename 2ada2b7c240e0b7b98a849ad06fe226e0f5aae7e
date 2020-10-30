@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1230b76d_86005b7e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-10-30T13:53:28Z",
+      "side": 1,
+      "message": "I\u0027m getting this error after opening a new recording file when I compile this on linux:\n\n Uncaught (in promise) TypeError: Cannot read property \u0027toggleable\u0027 of null\n    at Function.createActionButton (Toolbar.js:191)\n    at Function.createActionButtonForId (Toolbar.js:262)\n    at RecorderPlugin.leftToolbarItems (RecorderPlugin.js:51)\n    at UISourceCodeFrame.toolbarItems (UISourceCodeFrame.js:641)",
+      "revId": "2ada2b7c240e0b7b98a849ad06fe226e0f5aae7e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adc4677f_f6afceb1",
+        "filename": "scripts/eslint_rules/lib/es_modules_import.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-10-30T13:53:28Z",
+      "side": 1,
+      "message": "d",
+      "range": {
+        "startLine": 29,
+        "startChar": 40,
+        "endLine": 29,
+        "endChar": 41
+      },
+      "revId": "2ada2b7c240e0b7b98a849ad06fe226e0f5aae7e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
