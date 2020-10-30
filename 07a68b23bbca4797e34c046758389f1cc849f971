@@ -22,6 +22,30 @@
       },
       "revId": "07a68b23bbca4797e34c046758389f1cc849f971",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a5ce705_17c9db27",
+        "filename": "front_end/search/SearchView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1459949
+      },
+      "writtenOn": "2020-10-30T01:18:50Z",
+      "side": 0,
+      "message": "I moved _onSearchInputClear off of _resetSearch because we do not want to clear the search input each time _resetSearch is invoked.  We do want to clear the search input each time the clearButton is pressed. \n \n_resetSearch is also called by _startSearch to reset the values of previous searches on each new search.  If we keep _onSearchInputClear inside of _resetSearch, each time _startSearch runs it will return search results with no reference keyword.  \n\nBy moving _onSearchInputClear onto the clearButton eventListener,  _startSearch will return results and keep the reference keyword in the search input, which is the desired result.\n\nPlease see image and note keyword search input: https://imgur.com/a/TmterTp\n\nAdditionally, _onSearchInputClear was refactored off of clearButton eventListener in this CL: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2462922\n\nThanks!",
+      "parentUuid": "c495ac25_d0395136",
+      "range": {
+        "startLine": 272,
+        "startChar": 0,
+        "endLine": 272,
+        "endChar": 31
+      },
+      "revId": "07a68b23bbca4797e34c046758389f1cc849f971",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
