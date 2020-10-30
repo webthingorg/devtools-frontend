@@ -50,6 +50,24 @@
       "message": "nit: I believe it\u0027s usually all-caps \u0027CORS\u0027",
       "revId": "25d0ac27e86bad320f8a17750c9bb15c3312be02",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9da279a3_30b15ff2",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 1241,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-30T08:11:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f5f6b5b_1cf53e50",
+      "revId": "25d0ac27e86bad320f8a17750c9bb15c3312be02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
