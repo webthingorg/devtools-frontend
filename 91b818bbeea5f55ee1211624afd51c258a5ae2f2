@@ -107,6 +107,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f2d72768_8c76b910",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-30T14:04:07Z",
+      "side": 1,
+      "message": "Does `import type` work in our codebase? I think it could be used to differentiate between type only imports vs code",
+      "parentUuid": "5b030db0_46bd0cd4",
+      "revId": "91b818bbeea5f55ee1211624afd51c258a5ae2f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1e1b8087_6e91de18",
         "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
         "patchSetId": 3
