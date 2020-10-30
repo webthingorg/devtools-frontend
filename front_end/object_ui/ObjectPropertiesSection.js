@@ -622,10 +622,6 @@ export class RootElement extends UI.TreeOutline.TreeElement {
   }
 }
 
-// Number of initially visible children in an ObjectPropertyTreeElement.
-// Remaining children are shown as soon as requested via a show more properties button.
-export const InitialVisibleChildrenLimit = 200;
-
 /**
  * @unrestricted
  */
@@ -643,7 +639,6 @@ export class ObjectPropertyTreeElement extends UI.TreeOutline.TreeElement {
     /** @type {!Array.<!Object>} */
     this._highlightChanges = [];
     this._linkifier = linkifier;
-    this._maxNumPropertiesToShow = InitialVisibleChildrenLimit;
     this.listItemElement.addEventListener('contextmenu', this._contextMenuFired.bind(this), false);
     UI.ARIAUtils.setAccessibleName(this.listItemElement, this.property.name);
   }
@@ -855,32 +850,6 @@ export class ObjectPropertyTreeElement extends UI.TreeOutline.TreeElement {
     }
   }
 
-  /**
-   * @param {!UI.TreeOutline.TreeElement} element
-   * @return boolean
-   */
-  _showAllPropertiesElementSelected(element) {
-    this.removeChild(element);
-    this.children().forEach(x => {
-      x.hidden = false;
-    });
-    return false;
-  }
-
-  _createShowAllPropertiesButton() {
-    const element = document.createElement('div');
-    element.classList.add('object-value-calculate-value-button');
-    element.textContent = Common.UIString.UIString('(...)');
-    element.title = Common.UIString.UIString('Show all %d', this.childCount());
-    const children = this.children();
-    for (let i = this._maxNumPropertiesToShow; i < this.childCount(); ++i) {
-      children[i].hidden = true;
-    }
-    const showAllPropertiesButton = new UI.TreeOutline.TreeElement(element);
-    showAllPropertiesButton.onselect = this._showAllPropertiesElementSelected.bind(this, showAllPropertiesButton);
-    this.appendChild(showAllPropertiesButton);
-  }
-
   revertHighlightChanges() {
     UI.UIUtils.revertDomChanges(this._highlightChanges);
     this._highlightChanges = [];
@@ -897,9 +866,6 @@ export class ObjectPropertyTreeElement extends UI.TreeOutline.TreeElement {
     const targetValue = this.property.name !== '__proto__' ? propertyValue : this.property.parentObject;
     await ObjectPropertyTreeElement._populate(
         this, propertyValue, skipProto, this._linkifier, undefined, undefined, undefined, targetValue);
-    if (this.childCount() > this._maxNumPropertiesToShow) {
-      this._createShowAllPropertiesButton();
-    }
   }
 
   /**
