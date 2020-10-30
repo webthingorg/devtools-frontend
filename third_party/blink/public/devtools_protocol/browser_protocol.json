@@ -14543,6 +14543,18 @@
                     ]
                 },
                 {
+                    "name": "documentClosed",
+                    "description": "Fired when document has been closed after it has been written to.",
+                    "experimental": true,
+                    "parameters": [
+                        {
+                            "name": "frame",
+                            "description": "Frame object.",
+                            "$ref": "Frame"
+                        }
+                    ]
+                },
+                {
                     "name": "frameResized",
                     "experimental": true
                 },
