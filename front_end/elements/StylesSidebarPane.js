@@ -41,7 +41,6 @@ import * as TextUtils from '../text_utils/text_utils.js';
 import * as UI from '../ui/ui.js';
 
 import {ComputedStyleModel} from './ComputedStyleModel.js';
-import {CSSAngleRegex} from './CSSAngleRegex.js';
 import {findIcon} from './CSSPropertyIconResolver.js';
 import {linkifyDeferredNodeReference} from './DOMLinkifier.js';
 import {ElementsSidebarPane} from './ElementsSidebarPane.js';
@@ -830,6 +829,11 @@ export class StylesSidebarPane extends ElementsSidebarPane {
     this._swatchPopoverHelper.hide();
     this._imagePreviewPopover.hide();
     super.willHide();
+  }
+
+  popoverWillShow() {
+    this._swatchPopoverHelper.hide();
+    this._imagePreviewPopover.hide();
   }
 
   /**
@@ -2850,7 +2854,7 @@ export class StylesSidebarPropertyRenderer {
     }
     if (this._angleHandler && metadata.isAngleAwareProperty(this._propertyName)) {
       // TODO(changhaohan): crbug.com/1138628 refactor this to handle unitless 0 cases
-      regexes.push(CSSAngleRegex);
+      regexes.push(InlineEditor.CSSAngleRegex.CSSAngleRegex);
       processors.push(this._angleHandler);
     }
     const results = TextUtils.TextUtils.Utils.splitStringByRegexes(this._propertyValue, regexes);
