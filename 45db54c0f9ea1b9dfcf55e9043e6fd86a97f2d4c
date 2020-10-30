@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4d2d25f_11fc66aa",
+        "filename": "front_end/lighthouse/LighthouseController.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-30T14:29:08Z",
+      "side": 1,
+      "message": "teeeeeeeeeeeeniest of nits, I\u0027d probably define these up the top so they are defined before they are used (in terms of reading the file from top to bottom)",
+      "range": {
+        "startLine": 262,
+        "startChar": 0,
+        "endLine": 267,
+        "endChar": 0
+      },
+      "revId": "45db54c0f9ea1b9dfcf55e9043e6fd86a97f2d4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
