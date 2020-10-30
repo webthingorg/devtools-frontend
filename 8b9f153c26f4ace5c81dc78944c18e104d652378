@@ -16,6 +16,23 @@
       "message": "Thanks for the feedback. I\u0027ve removed most of the css class-based selectors, but there are a few that aren\u0027t replaceable without actually adding new labels or ids to the frontend. Do you think it\u0027s worth doing that?",
       "revId": "8b9f153c26f4ace5c81dc78944c18e104d652378",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f78290c_b8edeefe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-30T11:07:24Z",
+      "side": 1,
+      "message": "INFRA LGTM. Once Patrick gave a domain LGTM you can submit.",
+      "revId": "8b9f153c26f4ace5c81dc78944c18e104d652378",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
