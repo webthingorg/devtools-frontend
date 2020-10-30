@@ -27,6 +27,7 @@
     { "name": "timeline_model" },
     { "name": "web_audio" },
     { "name": "webauthn"},
+    { "name": "recorder"},
     { "name": "media" }
   ],
   "extends": "shell"

@@ -29,6 +29,7 @@ import * as Common from '../common/common.js';
 import * as Extensions from '../extensions/extensions.js';
 import * as Host from '../host/host.js';
 import * as ObjectUI from '../object_ui/object_ui.js';
+import * as Recorder from '../recorder/recorder.js';
 import * as Root from '../root/root.js';
 import * as SDK from '../sdk/sdk.js';
 import * as Snippets from '../snippets/snippets.js';
@@ -600,6 +601,35 @@ export class SourcesPanel extends UI.Panel.Panel {
     }
   }
 
+  _toggleRecording() {
+    const uiSourceCode = this._sourcesView.currentUISourceCode();
+    if (uiSourceCode) {
+      const target = UI.Context.Context.instance().flavor(SDK.SDKModel.Target);
+      if (!target) {
+        return;
+      }
+      const recorderModel = target.model(Recorder.RecorderModel.RecorderModel);
+      if (!recorderModel) {
+        return;
+      }
+      recorderModel.toggleRecording(uiSourceCode);
+    }
+  }
+
+  _runRecording() {
+    const uiSourceCode = this._sourcesView.currentUISourceCode();
+    if (uiSourceCode) {
+      const target = UI.Context.Context.instance().flavor(SDK.SDKModel.Target);
+      if (!target) {
+        return;
+      }
+      const recorderModel = target.model(Recorder.RecorderModel.RecorderModel);
+      if (!recorderModel) {
+        return;
+      }
+      recorderModel.runRecording(uiSourceCode);
+    }
+  }
   /**
    * @param {!Common.EventTarget.EventTargetEvent} event
    */
@@ -1228,6 +1258,14 @@ export class DebuggingActionDelegate {
       }
       case 'debugger.run-snippet': {
         panel._runSnippet();
+        return true;
+      }
+      case 'recorder.toggle-recording': {
+        panel._toggleRecording();
+        return true;
+      }
+      case 'recorder.run': {
+        panel._runRecording();
         return true;
       }
       case 'debugger.toggle-breakpoints-active': {
