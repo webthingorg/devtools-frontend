@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0c85499_3658bded",
+        "filename": "front_end/recorder/recorder-legacy.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-30T11:15:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e217f76_8cb69aa5",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 68
+      },
+      "revId": "ed70971d2a5410e52ae63206b7820da2791ff01e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "33b606fb_c02426df",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-10-29T15:18:27Z",
       "side": 1,
       "message": "WDYT about using the new localization v2 format for this new directory? There\u0027s docs here: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/docs/localization/\n\nThe front_end/settings dir is already migrated if you want to see a live example.\n\nThat way we don\u0027t need to migrate this in the future (also if you run into any problem that would be useful feedback to the MS team)",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 12
+      },
+      "revId": "ed70971d2a5410e52ae63206b7820da2791ff01e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6709da33_d69ca6e7",
+        "filename": "front_end/recorder/recorder_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-30T11:15:52Z",
+      "side": 1,
+      "message": "Sounds good, I\u0027ll give it a try.",
+      "parentUuid": "33b606fb_c02426df",
       "range": {
         "startLine": 1,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2bc1d0d_764a7a5b",
+        "filename": "front_end/sources/RecorderPlugin.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-30T11:15:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4b568c7_0e9cd573",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "ed70971d2a5410e52ae63206b7820da2791ff01e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ec53202f_137b6d2d",
@@ -93,6 +165,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc4ddcc7_89781a53",
+        "filename": "front_end/sources/RecorderPlugin.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-30T11:15:52Z",
+      "side": 1,
+      "message": "In this case I\u0027m using it to add the actions to the toolbar. Not sure if a plugin can also do different stuff.",
+      "parentUuid": "ec53202f_137b6d2d",
+      "range": {
+        "startLine": 15,
+        "startChar": 13,
+        "endLine": 15,
+        "endChar": 27
+      },
+      "revId": "ed70971d2a5410e52ae63206b7820da2791ff01e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "18cb511d_05de8971",
@@ -106,6 +202,30 @@
       "writtenOn": "2020-10-29T15:18:27Z",
       "side": 1,
       "message": "These will need descriptions before landing",
+      "range": {
+        "startLine": 573,
+        "startChar": 64,
+        "endLine": 573,
+        "endChar": 71
+      },
+      "revId": "ed70971d2a5410e52ae63206b7820da2791ff01e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b0b1140_0a13c485",
+        "filename": "front_end/sources/sources_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-30T11:15:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18cb511d_05de8971",
       "range": {
         "startLine": 573,
         "startChar": 64,
