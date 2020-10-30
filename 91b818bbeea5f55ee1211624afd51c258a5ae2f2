@@ -159,6 +159,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "34e1f16a_68151a21",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-30T20:52:00Z",
+      "side": 1,
+      "message": "Thanks for the clarification, Jack!",
+      "parentUuid": "30501832_98a249ea",
+      "revId": "91b818bbeea5f55ee1211624afd51c258a5ae2f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1e1b8087_6e91de18",
@@ -178,6 +196,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "29a42b69_10f7c1a3",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-30T20:52:00Z",
+      "side": 1,
+      "message": "Ah, good catch; I have replaced it with a constant now that is exported from the `ValueInterpreterDisplay` class. \n\nWe also want to show Strings up to a certain number of bytes (we haven\u0027t decided yet though how long this String should be), therefore I set it to 100 initially. Since at this point in time the String representation is not shown yet, I have set it to the max number of bytes that are currently shown (i.e. 8 bytes).",
+      "parentUuid": "1e1b8087_6e91de18",
+      "revId": "91b818bbeea5f55ee1211624afd51c258a5ae2f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fe4595e8_140c862b",
         "filename": "front_end/linear_memory_inspector/LinearMemoryValueInterpreter.ts",
         "patchSetId": 3
@@ -189,6 +225,30 @@
       "writtenOn": "2020-10-30T13:54:23Z",
       "side": 1,
       "message": "why do we re-export these here?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 46
+      },
+      "revId": "91b818bbeea5f55ee1211624afd51c258a5ae2f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db947e4c_cf6aa42d",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryValueInterpreter.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-30T20:52:00Z",
+      "side": 1,
+      "message": "This was just a thought: Any class that makes use of the `LinearMemoryValueInterpreter` class would then also need to include the `ValueInterpreterDisplayUtils.js` although using the explicit `ValueInterpreterDisplay` is somehow implementation specific. If we export it here, the outer parent doesn\u0027t need to care where these definitions come from.\n\nI don\u0027t have a very strong opinion about this though, so I\u0027d happily change it to `LinearMemoryInspector.ts` just importing `ValueInterpreterDisplayUtils.js`. WDYT?",
+      "parentUuid": "fe4595e8_140c862b",
       "range": {
         "startLine": 13,
         "startChar": 0,
@@ -234,6 +294,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8197231b_72ce02e4",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryValueInterpreter.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-30T20:52:00Z",
+      "side": 1,
+      "message": "Yes, it should be a select element! I have added this as a placeholder (I didn\u0027t think more about what element it should be at this point, since I haven\u0027t implemented this part). But I understand your concerns, have swapped this with a div!",
+      "parentUuid": "41252ccd_5d64a027",
+      "revId": "91b818bbeea5f55ee1211624afd51c258a5ae2f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af1b12e3_bd72fcdc",
@@ -247,6 +325,30 @@
       "writtenOn": "2020-10-30T13:54:23Z",
       "side": 1,
       "message": "nit: you don\u0027t need to reference this param if you don\u0027t use it - this can be (mode, valueType) \u003d\u003e ...",
+      "range": {
+        "startLine": 31,
+        "startChar": 52,
+        "endLine": 31,
+        "endChar": 56
+      },
+      "revId": "91b818bbeea5f55ee1211624afd51c258a5ae2f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a81d59d_5557f4ab",
+        "filename": "front_end/linear_memory_inspector/ValueInterpreterDisplay.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-30T20:52:00Z",
+      "side": 1,
+      "message": "Ahh, thanks!",
+      "parentUuid": "af1b12e3_bd72fcdc",
       "range": {
         "startLine": 31,
         "startChar": 52,
@@ -280,6 +382,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7da695a_53db30f0",
+        "filename": "front_end/linear_memory_inspector/ValueInterpreterDisplay.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-30T20:52:00Z",
+      "side": 1,
+      "message": "Makes sense! Moved it out of the class.",
+      "parentUuid": "763b5d73_a6087d67",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 26
+      },
+      "revId": "91b818bbeea5f55ee1211624afd51c258a5ae2f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b5c5d7fa_dbfd7e93",
@@ -303,6 +429,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b30ddae0_5513bc16",
+        "filename": "front_end/linear_memory_inspector/ValueInterpreterDisplay.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-30T20:52:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5c5d7fa_dbfd7e93",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 111
+      },
+      "revId": "91b818bbeea5f55ee1211624afd51c258a5ae2f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "842b2b7e_1f4a3a9e",
@@ -316,6 +466,30 @@
       "writtenOn": "2020-10-30T13:54:23Z",
       "side": 1,
       "message": "these are great tests 👍",
+      "range": {
+        "startLine": 184,
+        "startChar": 3,
+        "endLine": 185,
+        "endChar": 3
+      },
+      "revId": "91b818bbeea5f55ee1211624afd51c258a5ae2f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "407e1d65_5351d09e",
+        "filename": "test/unittests/front_end/linear_memory_inspector/ValueInterpreterDisplay_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-30T20:52:00Z",
+      "side": 1,
+      "message": "Thanks :)!",
+      "parentUuid": "842b2b7e_1f4a3a9e",
       "range": {
         "startLine": 184,
         "startChar": 3,

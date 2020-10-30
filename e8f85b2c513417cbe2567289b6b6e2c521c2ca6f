@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ca94465_a21bcacc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-10-30T20:52:00Z",
+      "side": 1,
+      "message": "Thanks a lot for all the feedback, Jack and Alex! Uploaded a patchset addressing the changes.\n",
+      "revId": "e8f85b2c513417cbe2567289b6b6e2c521c2ca6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
