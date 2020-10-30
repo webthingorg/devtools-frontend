@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f682f8af_4fd1336b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1302791
+      },
+      "writtenOn": "2020-10-30T21:29:51Z",
+      "side": 1,
+      "message": "Also, I\u0027ve updated \"Clear storage\" -\u003e \"Storage\" but I believe tests are failing because the expectation files live in the chromium repo. What\u0027s the best way to resolve this?",
+      "parentUuid": "d587754a_f3a13037",
+      "revId": "b642f07ea4f339e3c92b079e0075efcb22b43b65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "08a8a00d_23821b72",
         "filename": "front_end/resources/ClearStorageView.js",
         "patchSetId": 15
