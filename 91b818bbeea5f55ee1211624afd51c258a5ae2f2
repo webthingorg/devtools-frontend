@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f54bd9e_0bcaae45",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-30T13:54:23Z",
+      "side": 1,
+      "message": "LGTM with some nits + thoughts!",
+      "revId": "91b818bbeea5f55ee1211624afd51c258a5ae2f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2579c115_b1c9ac4c",
@@ -48,6 +65,24 @@
       "writtenOn": "2020-10-30T13:15:43Z",
       "side": 1,
       "message": "just noticed: why is it need to import the same module two times?",
+      "revId": "91b818bbeea5f55ee1211624afd51c258a5ae2f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "179fb8dd_89cb07a6",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-30T13:54:23Z",
+      "side": 1,
+      "message": "Because if in TypeScript we import a module and only import types (e.g. an interface), TS will convert:\n\n``` \nimport {SomeInterface} from \u0027foo\u0027\n```\n\nInto absolutely nothing, because it decides at compile time that the types are not needed in the runtime and therefore ditches it. This means we don\u0027t actually load the component in, because the import is missing.\n\nSo we split it up into two: the side-effecty one that will define the component, and the rest that imports types. It\u0027s a bit messy and not the best, but it\u0027s the easiest work-around.",
+      "parentUuid": "2579c115_b1c9ac4c",
       "revId": "91b818bbeea5f55ee1211624afd51c258a5ae2f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -71,6 +106,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fe4595e8_140c862b",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryValueInterpreter.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-30T13:54:23Z",
+      "side": 1,
+      "message": "why do we re-export these here?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 46
+      },
+      "revId": "91b818bbeea5f55ee1211624afd51c258a5ae2f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ad92ca3d_3f4db151",
         "filename": "front_end/linear_memory_inspector/LinearMemoryValueInterpreter.ts",
         "patchSetId": 3
@@ -82,6 +140,116 @@
       "writtenOn": "2020-10-30T13:15:43Z",
       "side": 1,
       "message": "do these buttons (endianness \u0026 settings) do anything at the moment? Should not endianness be a select element instead?",
+      "revId": "91b818bbeea5f55ee1211624afd51c258a5ae2f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41252ccd_5d64a027",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryValueInterpreter.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-30T13:54:23Z",
+      "side": 1,
+      "message": "+1 - we shouldn\u0027t use buttons if you can\u0027t actually click them and do an action. Could we make these a div or something for now and add buttons when we add functionality to them?",
+      "parentUuid": "ad92ca3d_3f4db151",
+      "revId": "91b818bbeea5f55ee1211624afd51c258a5ae2f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af1b12e3_bd72fcdc",
+        "filename": "front_end/linear_memory_inspector/ValueInterpreterDisplay.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-30T13:54:23Z",
+      "side": 1,
+      "message": "nit: you don\u0027t need to reference this param if you don\u0027t use it - this can be (mode, valueType) \u003d\u003e ...",
+      "range": {
+        "startLine": 31,
+        "startChar": 52,
+        "endLine": 31,
+        "endChar": 56
+      },
+      "revId": "91b818bbeea5f55ee1211624afd51c258a5ae2f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "763b5d73_a6087d67",
+        "filename": "front_end/linear_memory_inspector/ValueInterpreterDisplay.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-30T13:54:23Z",
+      "side": 1,
+      "message": "nit: do you think it\u0027s worth defining this as a constant outside of the class?\n\ne.g. DEFAULT_MODE_MAPPING \u003d new Map(...)",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 26
+      },
+      "revId": "91b818bbeea5f55ee1211624afd51c258a5ae2f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5c5d7fa_dbfd7e93",
+        "filename": "front_end/linear_memory_inspector/ValueInterpreterDisplay.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-30T13:54:23Z",
+      "side": 1,
+      "message": "same Q as earlier regarding the button - if it doesn\u0027t do anything, can we not have an actual button for now?",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 111
+      },
+      "revId": "91b818bbeea5f55ee1211624afd51c258a5ae2f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "842b2b7e_1f4a3a9e",
+        "filename": "test/unittests/front_end/linear_memory_inspector/ValueInterpreterDisplay_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-10-30T13:54:23Z",
+      "side": 1,
+      "message": "these are great tests 👍",
+      "range": {
+        "startLine": 184,
+        "startChar": 3,
+        "endLine": 185,
+        "endChar": 3
+      },
       "revId": "91b818bbeea5f55ee1211624afd51c258a5ae2f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
