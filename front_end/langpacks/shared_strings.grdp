@@ -613,9 +613,6 @@
   <message name="IDS_DEVTOOLS_e0e4fc6213e8b3593495a7260c3a4c2e" desc="Text for accessibility of the web page">
     Accessibility
   </message>
-  <message name="IDS_DEVTOOLS_e199c6bb662785b037c5f330f58878ce" desc="Show all text content in Show More Data Grid Node of a data grid">
-    Show all <ph name="TOTALSIZE">$1d<ex>50</ex></ph>
-  </message>
   <message name="IDS_DEVTOOLS_e1faffb3e614e6c2fba74296962386b7" desc="Label aaa text content in Contrast Details of the Color Picker">
     AAA
   </message>
