@@ -1,4 +1,7 @@
 {
+  "recorder/RecordingFileSystem.js | defaultRecordingName": {
+    "message": "Recording #{nextId}"
+  },
   "settings/FrameworkBlackboxSettingsTab.js | addFilenamePattern": {
     "message": "Add filename pattern"
   },
