@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0162431_4e9bb80f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-30T14:44:31Z",
+      "side": 1,
+      "message": "LGTM with nit",
+      "revId": "70c69b46b286308c3c028314826e4006d7764dc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ebc06c91_ddb7c34b",
@@ -38,6 +55,30 @@
       "side": 1,
       "message": "Yes: type \u0027ParentNode\u0027 is independent of type \u0027Node\u0027 and properties \u0027firstChild\u0027, \u0027nextSibling\u0027, \u0027nodeType\u0027 and \u0027nodeValue\u0027 don\u0027t exist on type \u0027ParentNode\u0027.",
       "parentUuid": "ebc06c91_ddb7c34b",
+      "range": {
+        "startLine": 268,
+        "startChar": 5,
+        "endLine": 268,
+        "endChar": 39
+      },
+      "revId": "70c69b46b286308c3c028314826e4006d7764dc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8ef1155_350eba6f",
+        "filename": "front_end/source_frame/XMLView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-10-30T14:44:31Z",
+      "side": 1,
+      "message": "in which case should we say:\n\nif (!(xmlNode instanceof Node)) {\n  return;\n}\n\ni.e. return early rather than wrap the whole function in an if?",
+      "parentUuid": "64738935_72dcb895",
       "range": {
         "startLine": 268,
         "startChar": 5,
