@@ -16,6 +16,29 @@
       "message": "@Tim: Could you take a look at my change in `es_modules_import.js`?",
       "revId": "b42d18be6e55f8a2b4f9e202e6421bbd67c35a09",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be37118b_e02d9a1a",
+        "filename": "scripts/eslint_rules/tests/es_modules_import_test.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-30T11:46:46Z",
+      "side": 1,
+      "message": "This should work for any third_party packages that are added to `EXEMPTED_THIRD_PARTY_MODULES` in `es_modules_import.js`. Would that work for the third_party packages (assuming it is Puppeteer) you want to import?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 6
+      },
+      "revId": "b42d18be6e55f8a2b4f9e202e6421bbd67c35a09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
