@@ -37,6 +37,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "644ac4de_8d4c2e3f",
+        "filename": "front_end/theme_support/theme_support_impl.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-30T08:50:57Z",
+      "side": 1,
+      "message": "I also wonder how did it work previously for Media and Keyframe rules? They don\u0027t seem to have a selector but somehow there was no errors for those rules and they were not skipped.",
+      "revId": "d7ce4585b8da9fcacc9ab8694e4c93aebb8a5c9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6e7a23f5_b7190cb7",
         "filename": "front_end/theme_support/theme_support_impl.js",
         "patchSetId": 3
