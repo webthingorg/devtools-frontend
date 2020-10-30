@@ -70,6 +70,30 @@
       },
       "revId": "35e474b837c05153b749ebbb7157df2e644a7ab2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2717215_f0bb56f4",
+        "filename": "front_end/platform/utilities.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-10-30T13:37:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "94b52100_3dcda4ef",
+      "range": {
+        "startLine": 462,
+        "startChar": 0,
+        "endLine": 462,
+        "endChar": 36
+      },
+      "revId": "35e474b837c05153b749ebbb7157df2e644a7ab2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
