@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "465a1f54_63ed448d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-30T09:06:02Z",
+      "side": 1,
+      "message": "I think the types need some work.\n\nAlso, why is this part 1? Do you already have the full CL (I would guess it is less than 200 lines)?\n\nThere is a cleanup opportunity which is separate from the TS-ification here, but we (that means you) should probably file a tracking bug for this.\n\n",
+      "revId": "8d95e4682a5eeed333d56d2cfaf8c04acbe5e4e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49fe7bf9_9c2c0dd5",
+        "filename": "front_end/host/InspectorFrontendHostAPI.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-30T09:06:02Z",
+      "side": 1,
+      "message": "This type should reflect what third_party/blink/renderer/bindings/core/v8/custom/v8_dev_tools_host_custom.cc can handle, and that implementation doesn\u0027t seem to handle element and shortcut options (only the SoftContextMenu which doesn\u0027t use the bindings can do that), so please leave this unchanged.",
+      "range": {
+        "startLine": 383,
+        "startChar": 11,
+        "endLine": 383,
+        "endChar": 32
+      },
+      "revId": "8d95e4682a5eeed333d56d2cfaf8c04acbe5e4e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81abdd57_59cfcf3d",
+        "filename": "front_end/ui/SoftContextMenu.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-30T09:06:02Z",
+      "side": 1,
+      "message": "This method should take a different type (that subsumes Host.InspectorFrontendHostAPI.ContextMenuDescriptor structurally) and has \n    element: (Element|undefined),\n    shortcut: (string|undefined),\n\nas additional fields (not the change from null to undefined in the shortcut fields).\n\nIf you go through ContextMenu.js and SoftContextMenu.js you will see that there are really these two distinct types, and everything will fall into place.",
+      "range": {
+        "startLine": 146,
+        "startChar": 14,
+        "endLine": 146,
+        "endChar": 65
+      },
+      "revId": "8d95e4682a5eeed333d56d2cfaf8c04acbe5e4e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a718006_33f34b31",
+        "filename": "front_end/ui/SoftContextMenu.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-30T09:06:02Z",
+      "side": 1,
+      "message": "Does it make sense to create the menu if we end up not showing it? Maybe early return on this condition in L307 would be better.",
+      "range": {
+        "startLine": 320,
+        "startChar": 8,
+        "endLine": 320,
+        "endChar": 22
+      },
+      "revId": "8d95e4682a5eeed333d56d2cfaf8c04acbe5e4e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5b2512b_3785d9d8",
+        "filename": "front_end/ui/SoftContextMenu.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-30T09:06:02Z",
+      "side": 1,
+      "message": "In general, we put the correct type on the function parameter, and cast at the addEventListener callsite (because TS knows that the type is right, so the cast can simply be removed once closure is gone).",
+      "range": {
+        "startLine": 336,
+        "startChar": 23,
+        "endLine": 336,
+        "endChar": 49
+      },
+      "revId": "8d95e4682a5eeed333d56d2cfaf8c04acbe5e4e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
