@@ -22,6 +22,30 @@
       },
       "revId": "45db54c0f9ea1b9dfcf55e9043e6fd86a97f2d4c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91a60a16_e6a30941",
+        "filename": "front_end/lighthouse/LighthouseController.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-30T14:33:18Z",
+      "side": 1,
+      "message": "I think for other files we keep them at the bottom, so I will keep them here for now. Ideally we change the overall structure indeed to enforce definition before usage, but that is a bigger style cleanup 😞",
+      "parentUuid": "d4d2d25f_11fc66aa",
+      "range": {
+        "startLine": 262,
+        "startChar": 0,
+        "endLine": 267,
+        "endChar": 0
+      },
+      "revId": "45db54c0f9ea1b9dfcf55e9043e6fd86a97f2d4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
