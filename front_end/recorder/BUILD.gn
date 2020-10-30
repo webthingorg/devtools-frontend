@@ -1,0 +1,26 @@
+# Copyright 2020 The Chromium Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+import("../../scripts/build/ninja/devtools_entrypoint.gni")
+import("../../scripts/build/ninja/devtools_module.gni")
+
+devtools_module("recorder") {
+  sources = [
+    "RecorderModel.js",
+    "RecordingFileSystem.js",
+  ]
+
+  deps = [
+    "../i18n:bundle",
+    "../persistence:bundle",
+    "../third_party/puppeteer:bundle",
+    "../ui:bundle",
+  ]
+}
+
+devtools_entrypoint("bundle") {
+  entrypoint = "recorder.js"
+
+  deps = [ ":recorder" ]
+}

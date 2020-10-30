@@ -19,6 +19,10 @@ ruleTester.run('es_modules_import', rule, {
       filename: 'front_end/common/Importing.js',
     },
     {
+      code: 'import * as Namespace from \'../third_party/namespace/namespace.js\';',
+      filename: 'front_end/common/Importing.js',
+    },
+    {
       code: 'import * as EventTarget from \'./EventTarget.js\';',
       filename: 'front_end/common/common.js',
     },
