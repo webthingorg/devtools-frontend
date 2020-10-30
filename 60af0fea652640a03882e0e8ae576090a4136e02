@@ -16,6 +16,23 @@
       "message": "Hi Benedikt,\n\nremoving a change that was related to the function tables. PTAL!",
       "revId": "60af0fea652640a03882e0e8ae576090a4136e02",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d8e2cd4_18744bae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-10-30T10:43:21Z",
+      "side": 1,
+      "message": "I think this is generally useful, and not limited to the function tables.",
+      "revId": "60af0fea652640a03882e0e8ae576090a4136e02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
