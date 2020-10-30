@@ -52,7 +52,10 @@ function isModuleEntrypoint(fileName) {
 }
 
 function computeTopLevelFolder(fileName) {
-  const namespaceName = path.relative(FRONT_END_DIRECTORY, fileName);
+  let namespaceName = path.relative(FRONT_END_DIRECTORY, fileName);
+  if (namespaceName.startsWith('third_party')) {
+    namespaceName = namespaceName.replace('third_party' + path.sep, '');
+  }
   return namespaceName.substring(0, namespaceName.indexOf(path.sep));
 }
 
