@@ -16,6 +16,74 @@
       "message": "Hi Jack, hi Alex!\n\nHere comes the LinearMemoryValueInterpreter component for the linear memory inspector.\nAfter input from Jack the LinearMemoryValueInterpreter will be further\nsplit up into two subcomponents, I\u0027ve added a bit of info on the doc here:\n\nhttps://docs.google.com/document/d/1LUOat3Q3pQ08IsnBQLrvL-4zWXSTgIuArb5ig3lEm-Y/edit#bookmark\u003did.dpzxxpmzekv5\n\nThis CL adds the parent component (LinearMemoryValueInterpreter) and one of\nits subcomponents (ValueInterpreterDisplay).\n\nPTAL!",
       "revId": "91b818bbeea5f55ee1211624afd51c258a5ae2f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9298782_a38afee5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-30T13:15:43Z",
+      "side": 1,
+      "message": "LGTM % nit comments",
+      "revId": "91b818bbeea5f55ee1211624afd51c258a5ae2f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2579c115_b1c9ac4c",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-30T13:15:43Z",
+      "side": 1,
+      "message": "just noticed: why is it need to import the same module two times?",
+      "revId": "91b818bbeea5f55ee1211624afd51c258a5ae2f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e1b8087_6e91de18",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-30T13:15:43Z",
+      "side": 1,
+      "message": "why is it +100?",
+      "revId": "91b818bbeea5f55ee1211624afd51c258a5ae2f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad92ca3d_3f4db151",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryValueInterpreter.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-30T13:15:43Z",
+      "side": 1,
+      "message": "do these buttons (endianness \u0026 settings) do anything at the moment? Should not endianness be a select element instead?",
+      "revId": "91b818bbeea5f55ee1211624afd51c258a5ae2f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
