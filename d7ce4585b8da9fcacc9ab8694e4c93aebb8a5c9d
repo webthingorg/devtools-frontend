@@ -33,6 +33,23 @@
       "message": "FYI",
       "revId": "d7ce4585b8da9fcacc9ab8694e4c93aebb8a5c9d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e7a23f5_b7190cb7",
+        "filename": "front_end/theme_support/theme_support_impl.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-10-30T08:49:26Z",
+      "side": 1,
+      "message": "Should we remove the try/catch around this block? It does not seem ideal to partially revert to the light theme on error.",
+      "revId": "d7ce4585b8da9fcacc9ab8694e4c93aebb8a5c9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
