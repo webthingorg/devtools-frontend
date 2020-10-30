@@ -103,6 +103,24 @@
       "parentUuid": "6e7a23f5_b7190cb7",
       "revId": "d7ce4585b8da9fcacc9ab8694e4c93aebb8a5c9d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62c191dd_035d706e",
+        "filename": "front_end/theme_support/theme_support_impl.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-30T09:12:31Z",
+      "side": 1,
+      "message": "+1 to what Alfonso said, especially because all this code will be gone soon (hopefully).",
+      "parentUuid": "443b3512_d8f88c98",
+      "revId": "d7ce4585b8da9fcacc9ab8694e4c93aebb8a5c9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
