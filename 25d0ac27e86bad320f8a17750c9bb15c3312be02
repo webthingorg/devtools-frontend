@@ -16,6 +16,40 @@
       "message": "PTAL",
       "revId": "25d0ac27e86bad320f8a17750c9bb15c3312be02",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ece27462_bc339137",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-10-30T07:22:38Z",
+      "side": 1,
+      "message": "LGTM with 1 nit",
+      "revId": "25d0ac27e86bad320f8a17750c9bb15c3312be02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f5f6b5b_1cf53e50",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 1241,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-10-30T07:22:38Z",
+      "side": 1,
+      "message": "nit: I believe it\u0027s usually all-caps \u0027CORS\u0027",
+      "revId": "25d0ac27e86bad320f8a17750c9bb15c3312be02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
