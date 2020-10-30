@@ -87,6 +87,30 @@
       },
       "revId": "70c69b46b286308c3c028314826e4006d7764dc4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a75da23c_7db23188",
+        "filename": "front_end/source_frame/XMLView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-10-30T15:03:55Z",
+      "side": 1,
+      "message": "Agree, thanks! Updated accordingly.",
+      "parentUuid": "f8ef1155_350eba6f",
+      "range": {
+        "startLine": 268,
+        "startChar": 5,
+        "endLine": 268,
+        "endChar": 39
+      },
+      "revId": "70c69b46b286308c3c028314826e4006d7764dc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
