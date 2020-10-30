@@ -39,6 +39,30 @@
       },
       "revId": "cc3a3fe7c8b87dd5345aebeaa09de6338a17ba5a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27c5f5aa_a182b548",
+        "filename": "front_end/host/InspectorFrontendHost.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-10-30T14:01:06Z",
+      "side": 1,
+      "message": "This is the fallback implementation if we are in e.g. hosted mode and there are no bindings. In that case we want to say that we failed to display the survey so the UI can display an error (rather than just sitting there looking kind of broken).\n\nI like your suggestion better too, changed it to call the callback (and below)",
+      "parentUuid": "1a533270_ddf0ac58",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 61
+      },
+      "revId": "cc3a3fe7c8b87dd5345aebeaa09de6338a17ba5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
