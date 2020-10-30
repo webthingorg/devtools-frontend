@@ -39,6 +39,30 @@
       },
       "revId": "b42d18be6e55f8a2b4f9e202e6421bbd67c35a09",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8de6e72e_ae27f1e9",
+        "filename": "scripts/eslint_rules/tests/es_modules_import_test.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-10-30T12:12:01Z",
+      "side": 1,
+      "message": "I thought that the EXEMPTED_THIRD_PARTY_MODULES is for modules that don\u0027t conform to the namespace/namespace.js pattern",
+      "parentUuid": "be37118b_e02d9a1a",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 6
+      },
+      "revId": "b42d18be6e55f8a2b4f9e202e6421bbd67c35a09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
