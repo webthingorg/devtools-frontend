@@ -22,6 +22,30 @@
       },
       "revId": "a61f7186e023a4ae921981b6511918aa257c8896",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65d123d1_7d2c39b7",
+        "filename": "front_end/sources/FilteredUISourceCodeListProvider.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-10-30T15:49:59Z",
+      "side": 1,
+      "message": "I also find this weird and would prefer to have this line changed back if there isn\u0027t a good reason for it.",
+      "parentUuid": "e10de688_c97c6720",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 35
+      },
+      "revId": "a61f7186e023a4ae921981b6511918aa257c8896",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
