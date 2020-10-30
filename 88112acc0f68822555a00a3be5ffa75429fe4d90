@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "968d54bd_88f59dc7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-10-30T09:43:15Z",
+      "side": 1,
+      "message": "LGTM. I suppose we don\u0027t have any actions associated with Flex adorners because the overlays aren\u0027t ready?",
+      "revId": "88112acc0f68822555a00a3be5ffa75429fe4d90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
