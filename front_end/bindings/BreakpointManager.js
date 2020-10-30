@@ -706,24 +706,39 @@ export class ModelBreakpoint {
     const columnNumber = this._breakpoint._columnNumber;
     const condition = this._breakpoint.condition();
 
-    let debuggerLocation = null;
+    let debuggerLocations = [];
     for (const uiSourceCode of this._breakpoint._uiSourceCodes) {
+      // We have a separate code path for plugins as the requirements for setting a breakpoint
+      // on every inlined/unrolled location aren't the same as the requirements for translating
+      // ui locations to raw locations in general.
+      debuggerLocations = await this._debuggerModel.getPluginBreakpointLocations(uiSourceCode, lineNumber, columnNumber);
+      if (debuggerLocations.length > 0) {
+        // Handle only one script.
+        const script = debuggerLocations[0].script();
+        debuggerLocations = debuggerLocations.filter(dl => dl.script() === script);
+        break;
+      }
+      // Fall back to general case.
       const locations =
           await DebuggerWorkspaceBinding.instance().uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber);
-      debuggerLocation = locations.find(location => location.debuggerModel === this._debuggerModel);
-      if (debuggerLocation) {
+      debuggerLocations = locations.filter(location => location.debuggerModel === this._debuggerModel);
+
+      if (debuggerLocations.length > 0) {
+        // Only want first location
+        debuggerLocations = [debuggerLocations[0]];
         break;
       }
     }
     let newState = null;
     if (this._breakpoint._isRemoved || !this._breakpoint.enabled() || this._scriptDiverged()) {
       newState = null;
-    } else if (debuggerLocation && debuggerLocation.script()) {
-      const script = debuggerLocation.script();
+    } else if (debuggerLocations.length > 0 && debuggerLocations[0].script()) {
+      const script = debuggerLocations[0].script();
       if (!script) {
         return;
       }
       if (script.sourceURL) {
+        // UNFINISHED!!! I think I want a list of states here, or maybe the State constructor takes a list of line/column pairs?
         newState = new Breakpoint.State(
             script.sourceURL, null, null, debuggerLocation.lineNumber, debuggerLocation.columnNumber, condition);
       } else {
@@ -757,6 +772,7 @@ export class ModelBreakpoint {
     let result;
     this._currentState = newState;
     if (newState.url) {
+      // UNFINISHED: Need multiple calls and a list of results, and need to awaitall
       result = await this._debuggerModel.setBreakpointByURL(
           newState.url, newState.lineNumber, newState.columnNumber, newState.condition);
     } else if (newState.scriptId && newState.scriptHash) {
@@ -764,6 +780,7 @@ export class ModelBreakpoint {
           newState.scriptId, newState.scriptHash, newState.lineNumber, newState.columnNumber, newState.condition);
     }
     if (result && result.breakpointId) {
+      // UNFINISHED: We will now have a list of breakpoint IDs and we will need to combine the results' locations.
       await this._didSetBreakpointInDebugger(callback, result.breakpointId, result.locations);
     } else {
       await this._didSetBreakpointInDebugger(callback, null, []);
@@ -775,6 +792,7 @@ export class ModelBreakpoint {
       return;
     }
     this._resetLocations();
+    // UNFINISHED: This may be a list now
     await this._debuggerModel.removeBreakpoint(this._debuggerId);
     this._didRemoveFromDebugger();
     this._currentState = null;
