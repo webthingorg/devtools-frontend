@@ -104,6 +104,24 @@
       "message": "Tim, have you already started working on ContextMenu.js (it\u0027s under your name in the TS sheet)? You already LGTMed but I wondered if you see type conflicts between this CL and what would be required for ContextMenu?",
       "revId": "cd6152924f02261bbd9a848e82cb9a6292cfaaeb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4204fd49_15eb184b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-10-30T11:39:13Z",
+      "side": 1,
+      "message": "I have not started work on that file. `ui/` is reserved for now, since the amount of TypeScript errors that require fixing is enormous. Therefore, these changes should not cause any conflicts. That said, if there are other non-ui files that you can choose, I would recommend choosing the others.",
+      "parentUuid": "2b855d87_a1346a4d",
+      "revId": "cd6152924f02261bbd9a848e82cb9a6292cfaaeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
