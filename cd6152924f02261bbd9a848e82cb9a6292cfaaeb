@@ -34,6 +34,24 @@
       "parentUuid": "1649dda7_19ab0260",
       "revId": "cd6152924f02261bbd9a848e82cb9a6292cfaaeb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d56963dd_2d4a761a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-10-30T09:48:05Z",
+      "side": 1,
+      "message": "This is what I am very aware of, and it doesn\u0027t make a lot of sense to operate without type checking and try to fix things speculatively. That is why I would recommend turning on TS for SoftContextMenu.js and ContextMenu.js at once (I expect it to be an medium sized CL still).\n\nIt is enough for me to know that you did it locally and the types worked out, but you should do it before landing this CL, otherwise we need to revise what we did here again.",
+      "parentUuid": "ab4002a2_b7d928ff",
+      "revId": "cd6152924f02261bbd9a848e82cb9a6292cfaaeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
