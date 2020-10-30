@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d587754a_f3a13037",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1302791
+      },
+      "writtenOn": "2020-10-30T21:24:35Z",
+      "side": 1,
+      "message": "On the doc we had discussed using bytes (https://docs.google.com/document/d/1gSZRjwgz4T0Dl8GSrN8BTFKVvw8-dCehIQOJsBVsOgc/edit?pli\u003d1\u0026disco\u003dAAAAGtx33VU), but let me know if you prefer I go back to MB if you feel that works better.\n\n\"Checking the override checkbox, setting a value, unchecking it, and then re-checking it leaves the input field empty. Would it make more sense to restore the old value?\"\n- Done\n\n\"The handling of the input field seems strange: If a value is entered and one doesn\u0027t press \u003cENTER\u003e, then the quota is not applied.\"\n- In the deck which you linked, slide 9 says \"The user inputs the new custom storage quota and confirms with enter.\" I\u0027m open to changing this if you believe another solution works better.",
+      "parentUuid": "75c0c957_fe039fd0",
+      "revId": "b642f07ea4f339e3c92b079e0075efcb22b43b65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "08a8a00d_23821b72",
@@ -48,6 +66,30 @@
       "writtenOn": "2020-10-27T11:06:36Z",
       "side": 1,
       "message": "Something seems to be missing here.",
+      "range": {
+        "startLine": 176,
+        "startChar": 4,
+        "endLine": 177,
+        "endChar": 6
+      },
+      "revId": "b642f07ea4f339e3c92b079e0075efcb22b43b65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "baedb3fc_7f7bc0e3",
+        "filename": "front_end/resources/ClearStorageView.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1302791
+      },
+      "writtenOn": "2020-10-30T21:24:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08a8a00d_23821b72",
       "range": {
         "startLine": 176,
         "startChar": 4,
@@ -83,6 +125,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ebb49179_59c926b3",
+        "filename": "front_end/resources/ClearStorageView.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1302791
+      },
+      "writtenOn": "2020-10-30T21:24:35Z",
+      "side": 1,
+      "message": "Done. parseInt will not return NaN if the string starts with numbers, (ie parseInt(\u0027151a-a\u0026^!sd8235j\u0027) \u003d\u003d 151). Is this something that we want to support? Otherwise, can just use |/^\\d*$/.test(bytes_string)|.",
+      "parentUuid": "e8819e19_f4672cff",
+      "range": {
+        "startLine": 212,
+        "startChar": 3,
+        "endLine": 212,
+        "endChar": 33
+      },
+      "revId": "b642f07ea4f339e3c92b079e0075efcb22b43b65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "993ec58a_216cf5de",
         "filename": "front_end/resources/ClearStorageView.js",
         "patchSetId": 15
@@ -94,6 +160,30 @@
       "writtenOn": "2020-10-27T11:06:36Z",
       "side": 1,
       "message": "quotaInBytes",
+      "range": {
+        "startLine": 230,
+        "startChar": 22,
+        "endLine": 230,
+        "endChar": 31
+      },
+      "revId": "b642f07ea4f339e3c92b079e0075efcb22b43b65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58f9ff72_bc15f2fd",
+        "filename": "front_end/resources/ClearStorageView.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1302791
+      },
+      "writtenOn": "2020-10-30T21:24:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "993ec58a_216cf5de",
       "range": {
         "startLine": 230,
         "startChar": 22,
@@ -117,6 +207,30 @@
       "writtenOn": "2020-10-27T11:06:36Z",
       "side": 1,
       "message": "Please don\u0027t use inner HTML. You can use return UI.Fragment.Fragment.build (see usages in the codebase).",
+      "range": {
+        "startLine": 367,
+        "startChar": 19,
+        "endLine": 367,
+        "endChar": 29
+      },
+      "revId": "b642f07ea4f339e3c92b079e0075efcb22b43b65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a90251ac_158342b3",
+        "filename": "front_end/resources/ClearStorageView.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1302791
+      },
+      "writtenOn": "2020-10-30T21:24:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ae2e1cd_c5dd3d45",
       "range": {
         "startLine": 367,
         "startChar": 19,
