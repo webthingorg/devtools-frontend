@@ -1,14 +1,6 @@
 {
   "extensions": [
     {
-      "type": "view",
-      "location": "panel",
-      "id": "elements",
-      "title": "Elements",
-      "order": 10,
-      "className": "Elements.ElementsPanel"
-    },
-    {
       "type": "@UI.ContextMenu.Provider",
       "contextTypes": [
         "SDK.RemoteObject",
