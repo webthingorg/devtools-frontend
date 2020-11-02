@@ -2048,7 +2048,7 @@ export class NetworkLogView extends UI.Widget.VBox {
       return encapsChars +
           str.replace(/\\/g, '\\\\')
               .replace(/"/g, '\\"')
-              .replace(/[^a-zA-Z0-9\s_\-:=+~'\/.',?;()*`]/g, '^$&')
+              .replace(/[^a-zA-Z0-9\s_\-:=+~'\/.',?;()*`&]/g, '^$&')
               .replace(/%(?=[a-zA-Z0-9_])/g, '%^')
               .replace(/\r\n|[\n\r]/g, '^\n\n') +
           encapsChars;
