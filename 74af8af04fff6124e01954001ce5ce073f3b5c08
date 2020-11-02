@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "112bb2a4_9fd3c45a",
+        "filename": "front_end/elements/CSSPropertyIconResolver.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-02T08:57:32Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we return -1 here if the physical direction is bottom-to-top? Otherwise the values start and end are not going to be correct.",
+      "range": {
+        "startLine": 159,
+        "startChar": 4,
+        "endLine": 159,
+        "endChar": 14
+      },
+      "revId": "74af8af04fff6124e01954001ce5ce073f3b5c08",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6ee32e5c_b2662b7c",
         "filename": "front_end/elements/CSSPropertyIconResolver.js",
         "patchSetId": 1
