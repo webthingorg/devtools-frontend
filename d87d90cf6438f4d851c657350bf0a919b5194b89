@@ -16,6 +16,138 @@
       "message": "PTAL",
       "revId": "d87d90cf6438f4d851c657350bf0a919b5194b89",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e377c2e1_b844393a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-02T16:08:37Z",
+      "side": 1,
+      "message": "Some more comments.",
+      "revId": "d87d90cf6438f4d851c657350bf0a919b5194b89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cb56009_06bc32ff",
+        "filename": "front_end/resources/ClearStorageView.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-02T16:08:37Z",
+      "side": 1,
+      "message": "Let\u0027s leave this name as-is so as to keep this CL small. DevTools team will handle renaming in the course of other clean-ups.",
+      "range": {
+        "startLine": 19,
+        "startChar": 13,
+        "endLine": 19,
+        "endChar": 30
+      },
+      "revId": "d87d90cf6438f4d851c657350bf0a919b5194b89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b112d37c_86b09a51",
+        "filename": "front_end/resources/ClearStorageView.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-02T16:08:37Z",
+      "side": 1,
+      "message": "there is no point in having async here.",
+      "range": {
+        "startLine": 76,
+        "startChar": 50,
+        "endLine": 76,
+        "endChar": 56
+      },
+      "revId": "d87d90cf6438f4d851c657350bf0a919b5194b89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7c4ff60_1e685969",
+        "filename": "front_end/resources/ClearStorageView.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-02T16:08:37Z",
+      "side": 1,
+      "message": "if (isEnterKey(event)) {\n        this._quotaOverrideButtonClicked(event);\n        return;\n      }",
+      "range": {
+        "startLine": 77,
+        "startChar": 5,
+        "endLine": 80,
+        "endChar": 7
+      },
+      "revId": "d87d90cf6438f4d851c657350bf0a919b5194b89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbc05dee_d69a5b6c",
+        "filename": "front_end/resources/ClearStorageView.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-02T16:08:37Z",
+      "side": 1,
+      "message": "Only this cast is necessary. Please move it up to where the element gets created.",
+      "range": {
+        "startLine": 92,
+        "startChar": 31,
+        "endLine": 92,
+        "endChar": 65
+      },
+      "revId": "d87d90cf6438f4d851c657350bf0a919b5194b89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e362236f_3f732a76",
+        "filename": "front_end/resources/ClearStorageView.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-02T16:08:37Z",
+      "side": 1,
+      "message": "how about \n\n    const quotaAsString \u003d Platform.NumberUtilities.bytesToString(response.quota);\n    const usageAsString \u003d Platform.NumberUtilities.bytesToString(response.usage);\n    const quota \u003d this._quotaOverridden ? UI.Fragment.Fragment.build`\u003cb\u003e${quotaAsString} (from override)\u003c/b\u003e` : quotaAsString;\n    const fragment \u003d UI.Fragment.Fragment.build`${usageAsString} used out of\u0026nbsp;${quota}\u0026nbsp;storage quota.`;\n    this._quotaRow.appendChild(fragment.element());\n\nI\u0027m talking to localization folks how to handle this.",
+      "range": {
+        "startLine": 366,
+        "startChar": 4,
+        "endLine": 371,
+        "endChar": 51
+      },
+      "revId": "d87d90cf6438f4d851c657350bf0a919b5194b89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
