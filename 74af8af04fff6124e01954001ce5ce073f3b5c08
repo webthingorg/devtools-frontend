@@ -63,6 +63,24 @@
       "message": "You\u0027re using flexDirectionToPhysicalDirection like a map, so let\u0027s make it a map",
       "revId": "74af8af04fff6124e01954001ce5ce073f3b5c08",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5e6c147_862c261a",
+        "filename": "front_end/elements/CSSPropertyIconResolver.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-02T09:20:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ee32e5c_b2662b7c",
+      "revId": "74af8af04fff6124e01954001ce5ce073f3b5c08",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
