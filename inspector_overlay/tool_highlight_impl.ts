@@ -76,7 +76,9 @@ interface LineStyle {
 
 interface FlexContainerHighlight {
   containerBorder: Array<string|number>;
-  flexContainerHighlightConfig: {containerBorder?: LineStyle;}
+  items: Array<Array<string|number>>;
+  lines: Array<Array<string|number>>;
+  flexContainerHighlightConfig: {containerBorder?: LineStyle; lineSeparator?: LineStyle; itemSeparator?: LineStyle;};
 }
 
 interface Highlight {
@@ -701,19 +703,40 @@ function drawLayoutFlexContainerHighlight(
   const config = highlight.flexContainerHighlightConfig;
   const bounds = emptyBounds();
   const borderPath = buildPath(highlight.containerBorder, bounds, emulationScaleFactor);
+  drawPathWithLineStyle(context, borderPath, config.containerBorder);
 
-  if (config.containerBorder && config.containerBorder.color) {
+  if (!highlight.items || !highlight.items.length) {
+    return;
+  }
+
+  if (highlight.lines && highlight.lines.length > 1) {
+    for (const line of highlight.lines) {
+      const bounds = emptyBounds();
+      const linePath = buildPath(line, bounds, emulationScaleFactor);
+      drawPathWithLineStyle(context, linePath, config.lineSeparator);
+    }
+  }
+
+  for (const item of highlight.items) {
+    const bounds = emptyBounds();
+    const linePath = buildPath(item, bounds, emulationScaleFactor);
+    drawPathWithLineStyle(context, linePath, config.itemSeparator);
+  }
+}
+
+function drawPathWithLineStyle(context: CanvasRenderingContext2D, path: Path2D, lineStyle?: LineStyle) {
+  if (lineStyle && lineStyle.color) {
     context.save();
     context.translate(0.5, 0.5);
     context.lineWidth = 1;
-    if (config.containerBorder.pattern === LinePattern.Dashed) {
+    if (lineStyle.pattern === LinePattern.Dashed) {
       context.setLineDash([3, 3]);
     }
-    if (config.containerBorder.pattern === LinePattern.Dotted) {
+    if (lineStyle.pattern === LinePattern.Dotted) {
       context.setLineDash([2, 2]);
     }
-    context.strokeStyle = config.containerBorder.color;
-    context.stroke(borderPath);
+    context.strokeStyle = lineStyle.color;
+    context.stroke(path);
     context.restore();
   }
 }
