@@ -16,6 +16,24 @@
       "message": "LGTM. I suppose we don\u0027t have any actions associated with Flex adorners because the overlays aren\u0027t ready?",
       "revId": "88112acc0f68822555a00a3be5ffa75429fe4d90",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b0c6fcf_3a39301c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-02T09:48:46Z",
+      "side": 1,
+      "message": "Correct, we don\u0027t have the persistent overlay yet.",
+      "parentUuid": "968d54bd_88f59dc7",
+      "revId": "88112acc0f68822555a00a3be5ffa75429fe4d90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
