@@ -76,6 +76,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "29d90d90_a6f17d45",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2134,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-02T18:20:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c17c811e_56fe6755",
+      "range": {
+        "startLine": 2133,
+        "startChar": 4,
+        "endLine": 2134,
+        "endChar": 27
+      },
+      "revId": "88112acc0f68822555a00a3be5ffa75429fe4d90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fd159cb9_c93af465",
@@ -89,6 +113,30 @@
       "writtenOn": "2020-11-02T15:40:47Z",
       "side": 1,
       "message": "nit: can we change to a TODO with a crbug?",
+      "range": {
+        "startLine": 46,
+        "startChar": 10,
+        "endLine": 46,
+        "endChar": 17
+      },
+      "revId": "88112acc0f68822555a00a3be5ffa75429fe4d90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb4c5d0f_fc166802",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-02T18:20:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd159cb9_c93af465",
       "range": {
         "startLine": 46,
         "startChar": 10,
