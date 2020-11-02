@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8951173b_ccedc29b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-02T07:19:34Z",
+      "side": 1,
+      "message": "PS1 \u003c-\u003e PS3 diff contains the resolve of a merge conflict.",
+      "revId": "e9bf4110b68659db93c2332c3bde740dfb063a58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
