@@ -16,6 +16,29 @@
       "message": "PTAL, thanks!",
       "revId": "39fd40a6a3ef093717df263a7ec21282c886505b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a1d2366_ba716dba",
+        "filename": "front_end/network/NetworkLogView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 2053,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-02T15:27:38Z",
+      "side": 1,
+      "message": "(unrelated to your patch but) now that we\u0027re here, we could simplify this regexp:\n\n    /\\r?\\n/g",
+      "range": {
+        "startLine": 2053,
+        "startChar": 23,
+        "endLine": 2053,
+        "endChar": 37
+      },
+      "revId": "39fd40a6a3ef093717df263a7ec21282c886505b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
