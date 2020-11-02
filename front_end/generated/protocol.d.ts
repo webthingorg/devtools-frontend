@@ -8758,6 +8758,14 @@ declare namespace Protocol {
       NotIsolatedFeatureDisabled = 'NotIsolatedFeatureDisabled',
     }
 
+    export enum GatedAPIFeatures {
+      SharedArrayBuffers = 'SharedArrayBuffers',
+      SharedArrayBuffersTransferAllowed = 'SharedArrayBuffersTransferAllowed',
+      DocumentDomainImmutable = 'DocumentDomainImmutable',
+      PerformanceMeasureMemory = 'PerformanceMeasureMemory',
+      PerformanceProfile = 'PerformanceProfile',
+    }
+
     /**
      * Information about the Frame on the page.
      */
@@ -8817,6 +8825,10 @@ declare namespace Protocol {
        * Indicates whether this is a cross origin isolated context.
        */
       crossOriginIsolatedContextType: CrossOriginIsolatedContextType;
+      /**
+       * Indicated which gated APIs / features are available.
+       */
+      gatedAPIFeatures: GatedAPIFeatures[];
     }
 
     /**

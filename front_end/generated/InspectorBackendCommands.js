@@ -1755,6 +1755,13 @@ export function registerCommands(inspectorBackend) {
   inspectorBackend.registerEnum(
       'Page.CrossOriginIsolatedContextType',
       {Isolated: 'Isolated', NotIsolated: 'NotIsolated', NotIsolatedFeatureDisabled: 'NotIsolatedFeatureDisabled'});
+  inspectorBackend.registerEnum('Page.GatedAPIFeatures', {
+    SharedArrayBuffers: 'SharedArrayBuffers',
+    SharedArrayBuffersTransferAllowed: 'SharedArrayBuffersTransferAllowed',
+    DocumentDomainImmutable: 'DocumentDomainImmutable',
+    PerformanceMeasureMemory: 'PerformanceMeasureMemory',
+    PerformanceProfile: 'PerformanceProfile'
+  });
   inspectorBackend.registerEnum('Page.TransitionType', {
     Link: 'link',
     Typed: 'typed',
