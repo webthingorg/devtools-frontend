@@ -1205,10 +1205,7 @@ export class SecurityOriginView extends UI.Widget.VBox {
     originDisplay.appendChild(SecurityPanel.createHighlightedUrl(origin, originState.securityState));
 
     const originNetworkDiv = titleSection.createChild('div', 'view-network-button');
-    const originNetworkLink = originNetworkDiv.createChild('span', 'devtools-link origin-button');
-    originNetworkLink.tabIndex = 0;
-    originNetworkLink.textContent = ls`View requests in Network Panel`;
-    originNetworkLink.addEventListener('click', e => {
+    const originNetworkButton = UI.UIUtils.createTextButton(ls`View requests in Network Panel`, e => {
       e.consume();
       const parsedURL = new Common.ParsedURL.ParsedURL(origin);
       Network.NetworkPanel.NetworkPanel.revealAndFilter([
@@ -1216,7 +1213,8 @@ export class SecurityOriginView extends UI.Widget.VBox {
         {filterType: Network.NetworkLogView.FilterType.Scheme, filterValue: parsedURL.scheme}
       ]);
     });
-    UI.ARIAUtils.markAsLink(originNetworkLink);
+    originNetworkDiv.appendChild(originNetworkButton);
+    UI.ARIAUtils.markAsLink(originNetworkButton);
 
     if (originState.securityDetails) {
       const connectionSection = this.element.createChild('div', 'origin-view-section');
