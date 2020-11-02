@@ -43,6 +43,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2c1a565a_3afd63ab",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 844,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-02T12:18:17Z",
+      "side": 1,
+      "message": "I\u0027ll change them just to be sure. Thanks for this tip!",
+      "parentUuid": "09501e5d_26731c26",
+      "range": {
+        "startLine": 844,
+        "startChar": 6,
+        "endLine": 844,
+        "endChar": 70
+      },
+      "revId": "8709c3420203356d8ecefdcaffd2e2b157cf2d84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "7eaa2915_f674fa58",
         "filename": "front_end/elements/StylesSidebarPane.js",
         "patchSetId": 1
@@ -54,6 +78,30 @@
       "writtenOn": "2020-11-02T11:37:51Z",
       "side": 1,
       "message": "Same here, if applicable.",
+      "range": {
+        "startLine": 1054,
+        "startChar": 6,
+        "endLine": 1054,
+        "endChar": 77
+      },
+      "revId": "8709c3420203356d8ecefdcaffd2e2b157cf2d84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e28ad91_1b4918ce",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1054,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-02T12:18:17Z",
+      "side": 1,
+      "message": "Same; I\u0027ll change to be safe.",
+      "parentUuid": "7eaa2915_f674fa58",
       "range": {
         "startLine": 1054,
         "startChar": 6,
