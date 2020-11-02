@@ -46,6 +46,30 @@
       },
       "revId": "3dca71a3cc3dcd8dc409e38ff111ab8f6bf41025",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4044f7e_0750c381",
+        "filename": "front_end/inline_editor/BezierEditor.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-02T11:51:53Z",
+      "side": 1,
+      "message": "Ah, that should be listed in our \"tips and tricks\" document under the section \"Typedefs are implicitly any\". I would prefer to revert to that solution to be consistent with the wider codebase (which should be fairly trivial hopefully).",
+      "parentUuid": "58bbf655_65ab6426",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 1
+      },
+      "revId": "3dca71a3cc3dcd8dc409e38ff111ab8f6bf41025",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
