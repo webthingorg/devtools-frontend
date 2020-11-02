@@ -70,6 +70,30 @@
       },
       "revId": "b79be27a3abee2fa2242aedab4f2fba0af25aa93",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10ef5b85_29de583f",
+        "filename": "front_end/elements/CSSPropertyIconResolver.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-02T09:52:15Z",
+      "side": 1,
+      "message": "You are right. I see the issue now.",
+      "parentUuid": "c7a2f5ea_1298f0ee",
+      "range": {
+        "startLine": 141,
+        "startChar": 67,
+        "endLine": 141,
+        "endChar": 68
+      },
+      "revId": "b79be27a3abee2fa2242aedab4f2fba0af25aa93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
