@@ -16,6 +16,74 @@
       "message": "Simon, PTAL.\n\nJulian, it would be great if you could double-check that I am not inadvertently breaking some of the functionality you just introduced.",
       "revId": "e453924d838f1bdcc6d8608ecd265bad2732fba2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf33b51a_b9113d4c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1420124
+      },
+      "writtenOn": "2020-11-02T23:53:19Z",
+      "side": 1,
+      "message": "One thing that changed is the NetworkLog now does not reset when the setting is toggled (from settings), added some comments on how we could keep that.",
+      "revId": "e453924d838f1bdcc6d8608ecd265bad2732fba2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b92e6054_f9ef9058",
+        "filename": "front_end/network/NetworkLogView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1420124
+      },
+      "writtenOn": "2020-11-02T23:53:19Z",
+      "side": 1,
+      "message": "reminder to remove the class :)",
+      "revId": "e453924d838f1bdcc6d8608ecd265bad2732fba2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92424219_4b4e6c84",
+        "filename": "front_end/network/NetworkPanel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1420124
+      },
+      "writtenOn": "2020-11-02T23:53:19Z",
+      "side": 1,
+      "message": "if we want to also reset the NetworkLog when toggling from settings, we should be using `this._toggleRecording()`",
+      "revId": "e453924d838f1bdcc6d8608ecd265bad2732fba2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdcbfd50_730bed12",
+        "filename": "front_end/network/NetworkPanel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1420124
+      },
+      "writtenOn": "2020-11-02T23:53:19Z",
+      "side": 1,
+      "message": "and i think this would need to be changed to `this._toggleRecord(!this._toggleRecordAction.toggled());`",
+      "revId": "e453924d838f1bdcc6d8608ecd265bad2732fba2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
