@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5bb78bc_2bb77191",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-11-02T23:20:27Z",
+      "side": 1,
+      "message": "Hey Peter and Simon, Im missing owners sign-off for changes under settings folder and frontend/i18n folder(does not have owners assigned), do you know who\u0027s the best person I should add for sign-off?",
+      "revId": "a3dfb0d466d6af0b473a4927db2ccbbc33591263",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

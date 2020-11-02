@@ -161,6 +161,30 @@
       },
       "revId": "91b8ac6514f2ce28d9463696dd9e32283fd75d33",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4e66881_7f1a0b61",
+        "filename": "front_end/i18n/i18nImpl.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-11-02T23:20:27Z",
+      "side": 1,
+      "message": "Synced offline, tested it and worked as expected",
+      "parentUuid": "c11fee6a_5efc7b7f",
+      "range": {
+        "startLine": 92,
+        "startChar": 57,
+        "endLine": 92,
+        "endChar": 69
+      },
+      "revId": "91b8ac6514f2ce28d9463696dd9e32283fd75d33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
