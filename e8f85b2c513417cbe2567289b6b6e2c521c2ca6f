@@ -69,6 +69,24 @@
       "parentUuid": "347ecade_60bd6696",
       "revId": "e8f85b2c513417cbe2567289b6b6e2c521c2ca6f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0923bedf_152c3177",
+        "filename": "front_end/linear_memory_inspector/ValueInterpreterDisplayUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-02T13:47:50Z",
+      "side": 1,
+      "message": "Ah, I see. I am not sure what is better: I\u0027d probably leave it as is then.",
+      "parentUuid": "a4901faa_e4a271b3",
+      "revId": "e8f85b2c513417cbe2567289b6b6e2c521c2ca6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
