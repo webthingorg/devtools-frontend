@@ -16,6 +16,57 @@
       "message": "PTAL",
       "revId": "e61c43e5d65062f23b84d690520b219eba6c5df9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b86278d3_b6e42014",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-11-02T15:41:21Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "e61c43e5d65062f23b84d690520b219eba6c5df9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "883ff054_569bd705",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-11-02T15:41:21Z",
+      "side": 1,
+      "message": "nit: lower case?",
+      "revId": "e61c43e5d65062f23b84d690520b219eba6c5df9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a15c0a8_4579e780",
+        "filename": "front_end/resources/FrameDetailsView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-11-02T15:41:21Z",
+      "side": 1,
+      "message": "nit: maybe \"will require ...\"?",
+      "revId": "e61c43e5d65062f23b84d690520b219eba6c5df9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
