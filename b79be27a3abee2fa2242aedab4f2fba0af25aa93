@@ -22,6 +22,30 @@
       },
       "revId": "b79be27a3abee2fa2242aedab4f2fba0af25aa93",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59cff24b_c1e9f6f2",
+        "filename": "front_end/elements/CSSPropertyIconResolver.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-02T09:30:17Z",
+      "side": 1,
+      "message": "It seems to working as expected here. If the main axis goes from left to right or right to left, the justify-content is not affected. Do you have an example where it does not work?",
+      "parentUuid": "8e33aac1_1753218e",
+      "range": {
+        "startLine": 141,
+        "startChar": 67,
+        "endLine": 141,
+        "endChar": 68
+      },
+      "revId": "b79be27a3abee2fa2242aedab4f2fba0af25aa93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
