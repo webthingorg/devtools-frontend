@@ -16,6 +16,23 @@
       "message": "Very nice! Thanks.",
       "revId": "b568339f1e4da429bfdfb10f50b38e8c0539afbd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d13d3e29_c936058c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1451147
+      },
+      "writtenOn": "2020-11-02T17:57:54Z",
+      "side": 1,
+      "message": "Mathias, looks like this CL had the same Puppeteer build failure as CL 2486216. Can you re-submit to CQ for me? Thanks in advance",
+      "revId": "b568339f1e4da429bfdfb10f50b38e8c0539afbd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
