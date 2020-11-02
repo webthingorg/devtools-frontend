@@ -34,6 +34,69 @@
       "parentUuid": "968d54bd_88f59dc7",
       "revId": "88112acc0f68822555a00a3be5ffa75429fe4d90",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc839385_f9c0a506",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-11-02T15:40:47Z",
+      "side": 1,
+      "message": "Couple of nits, otherwise lgtm",
+      "revId": "88112acc0f68822555a00a3be5ffa75429fe4d90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c17c811e_56fe6755",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2134,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-11-02T15:40:47Z",
+      "side": 1,
+      "message": "nit: before, there was logic to early return if node.id was undefined, but now that we have separated out creating the adorners, there is a chance we could call this on a node without an id and cause an error. I know the only other function to call this early returns, but if for some reason we refactored and called \"createGridAdorner\" from another location, it might be easy to miss? WDYT about re-adding the check here? (same in flexbox when click logic gets added)",
+      "range": {
+        "startLine": 2133,
+        "startChar": 4,
+        "endLine": 2134,
+        "endChar": 27
+      },
+      "revId": "88112acc0f68822555a00a3be5ffa75429fe4d90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd159cb9_c93af465",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-11-02T15:40:47Z",
+      "side": 1,
+      "message": "nit: can we change to a TODO with a crbug?",
+      "range": {
+        "startLine": 46,
+        "startChar": 10,
+        "endLine": 46,
+        "endChar": 17
+      },
+      "revId": "88112acc0f68822555a00a3be5ffa75429fe4d90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
