@@ -33,6 +33,24 @@
       "message": "If I am not mistaken, if you omit the default, TS would be able to check if all possible values are included in the statement. It might help if new items are added in the future because TS would report them at build time.",
       "revId": "e8f85b2c513417cbe2567289b6b6e2c521c2ca6f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "347ecade_60bd6696",
+        "filename": "front_end/linear_memory_inspector/ValueInterpreterDisplayUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-02T13:17:06Z",
+      "side": 1,
+      "message": "For example, https://www.typescriptlang.org/play?ts\u003d4.0.2#code/KYOwrgtgBAsgngUXNA3gKCpqBBKBeKAIm0IBoMsAhfIywtAXzTQDMwQBjAFwEsB7EFAAWAQxAATADbAkkABQA3EZIBcsRMgCUUdJgDOAdx5cOQqIuXbdWDiL3B1siADpsKiliwAnYFzBfBAHIRQIBuDyhbe0dkZ0p3T08fPwCoQIAjMIomBiA",
+      "parentUuid": "cfc9eb41_28ef3140",
+      "revId": "e8f85b2c513417cbe2567289b6b6e2c521c2ca6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
