@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "179e4df6_de51d358",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-02T08:08:04Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "6bc1c128830e9b51d34325aae4b1d284788b997b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59c61e6e_42ae4c09",
+        "filename": "front_end/resources/ServiceWorkersView.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-02T08:08:04Z",
+      "side": 1,
+      "message": "LGTM",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 48
+      },
+      "revId": "6bc1c128830e9b51d34325aae4b1d284788b997b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
