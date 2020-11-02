@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96dd8767_ab82f58f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-02T07:23:58Z",
+      "side": 1,
+      "message": "lgtm % question",
+      "revId": "d9304e49374ab57791cac9c273e6a015af16dbc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0e2437a_0a819702",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-02T07:23:58Z",
+      "side": 1,
+      "message": "Can dispatching this event multiple times now cause issues?",
+      "range": {
+        "startLine": 237,
+        "startChar": 4,
+        "endLine": 237,
+        "endChar": 71
+      },
+      "revId": "d9304e49374ab57791cac9c273e6a015af16dbc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
