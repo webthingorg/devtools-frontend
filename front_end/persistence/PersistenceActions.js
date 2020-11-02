@@ -21,9 +21,11 @@ export class ContextMenuProvider {
    * @param {!Event} event
    * @param {!UI.ContextMenu.ContextMenu} contextMenu
    * @param {!Object} target
+   * @suppress {missingProperties}
    */
   appendApplicableItems(event, contextMenu, target) {
     const contentProvider = /** @type {!TextUtils.ContentProvider.ContentProvider} */ (target);
+
     async function saveAs() {
       if (contentProvider instanceof Workspace.UISourceCode.UISourceCode) {
         /** @type {!Workspace.UISourceCode.UISourceCode} */ (contentProvider).commitWorkingCopy();
@@ -37,8 +39,36 @@ export class ContextMenuProvider {
       Workspace.FileManager.FileManager.instance().close(url);
     }
 
+    async function saveImage() {
+      const content = (await contentProvider.requestContent()).content || '';
+      const pageImage = new Image();
+      pageImage.src = 'data:image/png;base64,' + content;
+      pageImage.onload = () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = pageImage.naturalWidth;
+        canvas.height = pageImage.naturalHeight;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) {
+          throw new Error('Could not get 2d context from canvas.');
+        }
+        ctx.imageSmoothingEnabled = false;
+        ctx.drawImage(pageImage, 0, 0);
+        // @ts-ignore
+        const fileName = contentProvider.displayName;
+        const link = document.createElement('a');
+        link.download = fileName;
+        canvas.toBlob(blob => {
+          link.href = URL.createObjectURL(blob);
+          link.click();
+        });
+      };
+    }
+
     if (contentProvider.contentType().isDocumentOrScriptOrStyleSheet()) {
       contextMenu.saveSection().appendItem(Common.UIString.UIString('Save as...'), saveAs);
+      // @ts-ignore
+    } else if (contentProvider.contentType().isImage()) {
+      contextMenu.saveSection().appendItem(Common.UIString.UIString('Save image'), saveImage);
     }
 
     // Retrieve uiSourceCode by URL to pick network resources everywhere.
