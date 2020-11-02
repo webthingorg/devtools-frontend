@@ -46,6 +46,30 @@
       },
       "revId": "b79be27a3abee2fa2242aedab4f2fba0af25aa93",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7a2f5ea_1298f0ee",
+        "filename": "front_end/elements/CSSPropertyIconResolver.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-02T09:33:22Z",
+      "side": 1,
+      "message": "Hm, maybe I\u0027m missing something here, but if flex-direction is row, then justify-content:flex-start aligns items to the left of the container. But if flex-direction is row-reverse, then justify-content:flex-start aligns items to the right of the container.\nSo the icon for flex-start should not be the same in those 2 cases.",
+      "parentUuid": "59cff24b_c1e9f6f2",
+      "range": {
+        "startLine": 141,
+        "startChar": 67,
+        "endLine": 141,
+        "endChar": 68
+      },
+      "revId": "b79be27a3abee2fa2242aedab4f2fba0af25aa93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
