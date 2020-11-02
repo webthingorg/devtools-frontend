@@ -22,6 +22,30 @@
       },
       "revId": "ad2b2ba70992f17260028a219ae2aacf8fba8916",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a5005b7_595b238e",
+        "filename": "front_end/media/TickingFlameChart.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-02T11:56:07Z",
+      "side": 1,
+      "message": "Good catch! I changed it to `!\u003d\u003d 0` now.",
+      "parentUuid": "37d42535_73df3dbb",
+      "range": {
+        "startLine": 368,
+        "startChar": 8,
+        "endLine": 368,
+        "endChar": 36
+      },
+      "revId": "ad2b2ba70992f17260028a219ae2aacf8fba8916",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
