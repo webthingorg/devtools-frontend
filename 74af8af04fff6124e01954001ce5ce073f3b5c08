@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "771ecb90_8b6e09a0",
+        "filename": "front_end/elements/CSSPropertyIconResolver.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-02T09:00:09Z",
+      "side": 1,
+      "message": "I made separate icons for flex-start/end to simplify the logic. I think in this case scale transformations won\u0027t be needed.",
+      "parentUuid": "112bb2a4_9fd3c45a",
+      "range": {
+        "startLine": 159,
+        "startChar": 4,
+        "endLine": 159,
+        "endChar": 14
+      },
+      "revId": "74af8af04fff6124e01954001ce5ce073f3b5c08",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6ee32e5c_b2662b7c",
         "filename": "front_end/elements/CSSPropertyIconResolver.js",
         "patchSetId": 1
