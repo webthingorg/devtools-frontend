@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71dd6bbc_12b866e9",
+        "filename": "front_end/inline_editor/BezierEditor.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-02T11:40:36Z",
+      "side": 1,
+      "message": "Normally we try to avoid classes and use typedefs instead to store data (since object creation tends to be quicker). Could you let me know why a class was required over the previous TypeDef that was defined below?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 1
+      },
+      "revId": "3dca71a3cc3dcd8dc409e38ff111ab8f6bf41025",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
