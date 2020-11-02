@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "b048202ab006a8d867349a88684356c09f9ca829",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53c0aa35_f631bdf9",
+        "filename": "front_end/profiler/ProfileSidebarTreeElement.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-02T15:00:31Z",
+      "side": 1,
+      "message": "Note that this type is probably `Common.EventTarget.EventTargetEvent`. Since it is a typedef for `{data: *}`, this is fine as well.",
+      "range": {
+        "startLine": 69,
+        "startChar": 13,
+        "endLine": 69,
+        "endChar": 23
+      },
+      "revId": "b048202ab006a8d867349a88684356c09f9ca829",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
