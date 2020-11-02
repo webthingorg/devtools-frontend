@@ -22,6 +22,30 @@
       },
       "revId": "3dca71a3cc3dcd8dc409e38ff111ab8f6bf41025",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58bbf655_65ab6426",
+        "filename": "front_end/inline_editor/BezierEditor.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-11-02T11:47:12Z",
+      "side": 1,
+      "message": "I must admit that I didn\u0027t understand why the previous typedef failed, but I got something like this:\n\n../../front_end/inline_editor/BezierEditor.js(287,12): error TS7005: Variable \u0027PresetCategory\u0027 implicitly has an \u0027any\u0027 type.",
+      "parentUuid": "71dd6bbc_12b866e9",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 1
+      },
+      "revId": "3dca71a3cc3dcd8dc409e38ff111ab8f6bf41025",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
