@@ -16,6 +16,52 @@
       "message": "Adding Tim since Jack is OOO today.",
       "revId": "8709c3420203356d8ecefdcaffd2e2b157cf2d84",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09501e5d_26731c26",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 844,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-02T11:37:51Z",
+      "side": 1,
+      "message": "This might not actually be an issue, but I remember Paul hitting issues with this `updateFilter` call. Essentially, the `updateFilter()` has (unintended) side-effects, which means it needs to always be called. With the `|\u003d`, this method is called, but with this refactoring, it short-circuits. You can see Pauls diff here: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2485088/7..8 When you run the layout tests, they might start failing because of this issue.",
+      "range": {
+        "startLine": 844,
+        "startChar": 6,
+        "endLine": 844,
+        "endChar": 70
+      },
+      "revId": "8709c3420203356d8ecefdcaffd2e2b157cf2d84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7eaa2915_f674fa58",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1054,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-02T11:37:51Z",
+      "side": 1,
+      "message": "Same here, if applicable.",
+      "range": {
+        "startLine": 1054,
+        "startChar": 6,
+        "endLine": 1054,
+        "endChar": 77
+      },
+      "revId": "8709c3420203356d8ecefdcaffd2e2b157cf2d84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
