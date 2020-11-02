@@ -94,6 +94,30 @@
       },
       "revId": "3dca71a3cc3dcd8dc409e38ff111ab8f6bf41025",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e1fc1a7_fdff8804",
+        "filename": "front_end/inline_editor/BezierEditor.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-02T12:07:57Z",
+      "side": 1,
+      "message": "LGTM!",
+      "parentUuid": "74a68146_da491651",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 1
+      },
+      "revId": "3dca71a3cc3dcd8dc409e38ff111ab8f6bf41025",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
