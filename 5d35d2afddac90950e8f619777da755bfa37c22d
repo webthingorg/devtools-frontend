@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "061d75a5_9178c5f3",
+        "filename": "front_end/object_ui/CustomPreviewComponent.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-02T16:58:40Z",
+      "side": 0,
+      "message": "This whole function was only used on V8 \u003c7.3 afaik, as `bindRemoteObjectFunctionId` does not exist on `Protocol.Runtime.CustomPreview` for ToT.",
+      "range": {
+        "startLine": 161,
+        "startChar": 4,
+        "endLine": 161,
+        "endChar": 17
+      },
+      "revId": "5d35d2afddac90950e8f619777da755bfa37c22d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
