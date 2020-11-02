@@ -16,6 +16,23 @@
       "message": "Thanks a lot for all the feedback, Jack and Alex! Uploaded a patchset addressing the changes.\n",
       "revId": "e8f85b2c513417cbe2567289b6b6e2c521c2ca6f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfc9eb41_28ef3140",
+        "filename": "front_end/linear_memory_inspector/ValueInterpreterDisplayUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-02T13:14:35Z",
+      "side": 1,
+      "message": "If I am not mistaken, if you omit the default, TS would be able to check if all possible values are included in the statement. It might help if new items are added in the future because TS would report them at build time.",
+      "revId": "e8f85b2c513417cbe2567289b6b6e2c521c2ca6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
