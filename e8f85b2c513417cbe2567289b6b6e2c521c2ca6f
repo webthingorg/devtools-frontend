@@ -51,6 +51,24 @@
       "parentUuid": "cfc9eb41_28ef3140",
       "revId": "e8f85b2c513417cbe2567289b6b6e2c521c2ca6f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4901faa_e4a271b3",
+        "filename": "front_end/linear_memory_inspector/ValueInterpreterDisplayUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-02T13:34:29Z",
+      "side": 1,
+      "message": "Ah good to know, thanks for the example Alex! In this particular case the switch case is not complete and for those cases I\u0027d like to throw an error since this code path should not be hit with these cases.\n\nWDYT about this:\n\n```\nswitch(mode) {\n  ..\n  case Octal:\n   ..\n   break;\n  case Boolean:\n  case String:\n  case Float32:\n  case Float64:\n    throw new Error(`Unknown mode for integers: ${mode}`);\n} \n```\n\nThen I\u0027d omit the default case in case new enums are added such that I get the advantage of the type error, and I get the thrown error if the known wrong types are used?",
+      "parentUuid": "347ecade_60bd6696",
+      "revId": "e8f85b2c513417cbe2567289b6b6e2c521c2ca6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
