@@ -2044,13 +2044,13 @@ export class NetworkLogView extends UI.Widget.VBox {
                new line is there to enact the escape command the second is the character
                to escape (in this case new line).
             */
-      const encapsChars = /[\r\n]/.test(str) ? '^"' : '"';
+      const encapsChars = /[\r?\n]/.test(str) ? '^"' : '"';
       return encapsChars +
           str.replace(/\\/g, '\\\\')
               .replace(/"/g, '\\"')
-              .replace(/[^a-zA-Z0-9\s_\-:=+~'\/.',?;()*`]/g, '^$&')
+              .replace(/[^a-zA-Z0-9\s_\-:=+~'\/.',?;()*`&]/g, '^$&')
               .replace(/%(?=[a-zA-Z0-9_])/g, '%^')
-              .replace(/\r\n|[\n\r]/g, '^\n\n') +
+              .replace(/\r?\n/g, '^\n\n') +
           encapsChars;
     }
 
