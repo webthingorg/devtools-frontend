@@ -363,13 +363,17 @@ export class NetworkPanel extends UI.Panel.Panel {
     return toolbarItem;
   }
 
+  _toggleRecording() {
+    if (!this._preserveLogSetting.get() && !this._toggleRecordAction.toggled()) {
+      SDK.NetworkLog.NetworkLog.instance().reset();
+    }
+    this._toggleRecord(!this._toggleRecordSetting.get());
+  }
+
   /**
    * @param {boolean} toggled
    */
   _toggleRecord(toggled) {
-    if (!this._preserveLogSetting.get() && !this._toggleRecordAction.toggled() && toggled) {
-      SDK.NetworkLog.NetworkLog.instance().reset();
-    }
     this._toggleRecordAction.setToggled(toggled);
     this._networkLogView.setRecording(toggled);
     if (!toggled && this._filmStripRecorder) {
@@ -918,7 +922,7 @@ export class ActionDelegate {
     }
     switch (actionId) {
       case 'network.toggle-recording': {
-        panel._toggleRecord(!panel._toggleRecordSetting.get());
+        panel._toggleRecording();
         return true;
       }
       case 'network.hide-request-details': {
