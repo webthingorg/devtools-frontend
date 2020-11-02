@@ -293,6 +293,14 @@ export class ParallelConnection {
     this._onDisconnect = null;
   }
 
+  sessionId() {
+    return this._sessionId;
+  }
+
+  getOnDisconnectHandler() {
+    return this._onDisconnect;
+  }
+
   /**
    * @override
    * @param {function(!Object):void} onMessage
