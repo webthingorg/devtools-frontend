@@ -256,6 +256,15 @@ function flexAlignItemsIcon(iconName) {
   return getIcon;
 }
 
+function baselineIcon() {
+  return {
+    iconName: 'baseline-icon',
+    rotate: 0,
+    scaleX: 1,
+    scaleY: 1,
+  };
+}
+
 /**
  * @type {!Map<string, function(!Map<string, string>):!IconInfo>}
  */
@@ -287,6 +296,9 @@ textToIconResolver.set('justify-content: flex-start', flexJustifyContentIcon('fl
 textToIconResolver.set('align-items: stretch', flexAlignItemsIcon('flex-align-items-stretch-icon'));
 textToIconResolver.set('align-items: flex-end', flexAlignItemsIcon('flex-align-items-flex-end-icon'));
 textToIconResolver.set('align-items: flex-start', flexAlignItemsIcon('flex-align-items-flex-start-icon'));
+textToIconResolver.set('align-items: baseline', baselineIcon);
+textToIconResolver.set('align-self: baseline', baselineIcon);
+textToIconResolver.set('align-content: baseline', baselineIcon);
 
 /**
  * @param {string} text
