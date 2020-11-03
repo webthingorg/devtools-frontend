@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51764eac_8a9b81ed",
+        "filename": "front_end/ui/SoftContextMenu.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-11-03T15:16:05Z",
+      "side": 1,
+      "message": "We mark this as presentational so the symbol won\u0027t be part of the menuitem\u0027s accessible name.\nSince the `▶` symbol is a strictly visual cue it seems appropriate.",
+      "revId": "c3f33db88d10747281d9af51ed51f30bbea977f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
