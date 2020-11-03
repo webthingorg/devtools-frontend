@@ -22,6 +22,30 @@
       },
       "revId": "f29e2d9412995168553b0ea77a1ef55f70818a3b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2ef722b_0ba113be",
+        "filename": "test/unittests/front_end/issues/MarkdownView_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-11-03T07:53:08Z",
+      "side": 1,
+      "message": "Thanks for the tip! Done:\nhttps://chromium-review.googlesource.com/c/chromium/src/+/2504259",
+      "parentUuid": "3128eda0_1da12f74",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 103
+      },
+      "revId": "f29e2d9412995168553b0ea77a1ef55f70818a3b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
