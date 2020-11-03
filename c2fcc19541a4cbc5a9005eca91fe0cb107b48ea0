@@ -47,6 +47,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d648de9_5846761e",
+        "filename": "front_end/recorder/RecorderModel.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-03T17:15:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91323de3_d9a828c9",
+      "range": {
+        "startLine": 329,
+        "startChar": 70,
+        "endLine": 329,
+        "endChar": 73
+      },
+      "revId": "c2fcc19541a4cbc5a9005eca91fe0cb107b48ea0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9c9e28df_9c131cfa",
@@ -60,6 +84,30 @@
       "writtenOn": "2020-11-03T14:46:37Z",
       "side": 1,
       "message": "2020, unfortunately",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "c2fcc19541a4cbc5a9005eca91fe0cb107b48ea0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28b2f18b_53927a42",
+        "filename": "front_end/recorder/RecordingFileSystem.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-03T17:15:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c9e28df_9c131cfa",
       "range": {
         "startLine": 1,
         "startChar": 13,
@@ -89,6 +137,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cfab4fa0_14c710d1",
+        "filename": "front_end/sources/JavaScriptCompilerPlugin.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-03T17:15:19Z",
+      "side": 1,
+      "message": "I\u0027m not quite sure why but TypeScript started complaining about this:\n../../front_end/sources/JavaScriptCompilerPlugin.js(66,5): error TS2322: Type \u0027Timeout\u0027 is not assignable to type \u0027number\u0027.\n\nChanging it to globalThis I get the following error:\n../../front_end/sources/JavaScriptCompilerPlugin.js(66,5): error TS2322: Type \u0027Timeout\u0027 is not assignable to type \u0027number\u0027.\n\nNot sure what to do in this case.",
+      "parentUuid": "60597c78_9ccd0b36",
+      "revId": "c2fcc19541a4cbc5a9005eca91fe0cb107b48ea0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "16a295c2_15b86532",
         "filename": "front_end/sources/RecorderPlugin.js",
         "patchSetId": 11
@@ -100,6 +166,30 @@
       "writtenOn": "2020-11-03T14:46:37Z",
       "side": 1,
       "message": "FWIW, it\u0027s okay (and preferred) to use the raw Unicode symbol instead:\n\n    ⌘\n\nIt actually makes the code slightly more readable. The only time we prefer escape sequences is when we\u0027re talking about non-printable control characters or special whitespace characters.",
+      "range": {
+        "startLine": 41,
+        "startChar": 58,
+        "endLine": 41,
+        "endChar": 64
+      },
+      "revId": "c2fcc19541a4cbc5a9005eca91fe0cb107b48ea0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2611489e_ff57a60c",
+        "filename": "front_end/sources/RecorderPlugin.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-03T17:15:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16a295c2_15b86532",
       "range": {
         "startLine": 41,
         "startChar": 58,
@@ -123,6 +213,24 @@
       "writtenOn": "2020-11-03T14:46:37Z",
       "side": 1,
       "message": "Adding a \u003cdiv\u003e within a \u003cp\u003e is not valid in HTML. Can we either drop the wrapper entirely (i.e. just set the textContent) or, if we need some kind of wrapper, use a non-block element?",
+      "revId": "c2fcc19541a4cbc5a9005eca91fe0cb107b48ea0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c56bca31_9a96afa0",
+        "filename": "front_end/sources/SourcesNavigator.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-03T17:15:19Z",
+      "side": 1,
+      "message": "In this case, I decided to stick with the div for consistency because all other NavigatorViews do it the same way. Happy to fix that as a drive by change or a separate cl though.",
+      "parentUuid": "67ef1c75_97e5df08",
       "revId": "c2fcc19541a4cbc5a9005eca91fe0cb107b48ea0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
