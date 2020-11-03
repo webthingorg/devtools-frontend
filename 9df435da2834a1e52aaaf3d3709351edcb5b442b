@@ -86,6 +86,24 @@
       "parentUuid": "7c8965e3_524403b5",
       "revId": "9df435da2834a1e52aaaf3d3709351edcb5b442b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2ef31dd_fae0b819",
+        "filename": "front_end/ui/UIUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1259,
+      "author": {
+        "id": 1453243
+      },
+      "writtenOn": "2020-11-03T14:59:07Z",
+      "side": 1,
+      "message": "Hey!  just wanted to check in to see if these changes were what you were looking for on this CL.",
+      "parentUuid": "9a808279_5450955b",
+      "revId": "9df435da2834a1e52aaaf3d3709351edcb5b442b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
