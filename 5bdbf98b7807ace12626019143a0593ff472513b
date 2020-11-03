@@ -90,6 +90,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "1d6ab14b_977f29a3",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-03T10:43:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa51a23d_c73f4194",
+      "range": {
+        "startLine": 317,
+        "startChar": 11,
+        "endLine": 317,
+        "endChar": 22
+      },
+      "revId": "5bdbf98b7807ace12626019143a0593ff472513b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ab7a76fb_ebd1d9f4",
         "filename": "front_end/emulation/DeviceModeModel.js",
         "patchSetId": 1
@@ -124,6 +148,30 @@
       "writtenOn": "2020-10-29T16:42:25Z",
       "side": 1,
       "message": "Ultra-nit: since you already throw after this, the console.assert can be removed.",
+      "range": {
+        "startLine": 535,
+        "startChar": 0,
+        "endLine": 535,
+        "endChar": 103
+      },
+      "revId": "5bdbf98b7807ace12626019143a0593ff472513b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7461f2f_1ddb81e4",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-03T10:43:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fd6beb3_d6b6a3f4",
       "range": {
         "startLine": 535,
         "startChar": 0,
@@ -171,6 +219,30 @@
       "side": 1,
       "message": "I think it is `Protocol.Emulation.SetDeviceMetricsOverrideRequest`",
       "parentUuid": "cf8797df_925a605a",
+      "range": {
+        "startLine": 733,
+        "startChar": 3,
+        "endLine": 746,
+        "endChar": 18
+      },
+      "revId": "5bdbf98b7807ace12626019143a0593ff472513b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "267b11d0_2a025487",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 746,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-03T10:43:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0e32929_2821fed4",
       "range": {
         "startLine": 733,
         "startChar": 3,
@@ -251,6 +323,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bfa9604_7ac0b12c",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 879,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-03T10:43:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83e3bd64_9f817f1b",
+      "range": {
+        "startLine": 874,
+        "startChar": 26,
+        "endLine": 879,
+        "endChar": 9
+      },
+      "revId": "5bdbf98b7807ace12626019143a0593ff472513b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d1f4683a_db223758",
@@ -264,6 +360,30 @@
       "writtenOn": "2020-10-29T16:42:25Z",
       "side": 1,
       "message": "Same here.",
+      "range": {
+        "startLine": 919,
+        "startChar": 0,
+        "endLine": 919,
+        "endChar": 103
+      },
+      "revId": "5bdbf98b7807ace12626019143a0593ff472513b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea656bd4_23e6fd97",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 919,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-03T10:43:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1f4683a_db223758",
       "range": {
         "startLine": 919,
         "startChar": 0,
