@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "141096d1_e9efebf8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-03T07:25:19Z",
+      "side": 1,
+      "message": "Gotta be honest, the toggling logic has always been very convoluted, making this very hard to review. I\u0027ll happily +1 if you can confirm that all scenarios work locally.\n\nIdeally we would extract all this logic into a helper class thats unit testable (as another low prio item for our ever growing list xD)",
+      "revId": "e453924d838f1bdcc6d8608ecd265bad2732fba2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b92e6054_f9ef9058",
