@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf075e20_a92bfbcd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-03T08:54:33Z",
+      "side": 1,
+      "message": "Looks good. I have 3 comments, but they shouldn\u0027t block review.",
+      "revId": "09ae82296596690020b51d53a3a44314c094d73b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "183331c2_ef098361",
+        "filename": "front_end/elements/CSSPropertyIconResolver.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-03T08:54:33Z",
+      "side": 1,
+      "message": "Could you add a comment here that explains why we don\u0027t care about rotating the icon please?\nSomething like:\n\n  // The baseline icon contains the letter A to indicate that we\u0027re aligning based on where the text baseline is.\n  // Therefore we\u0027re not rotating this icon like the others, as this would become confusing. Plus baseline alignment\n  // is likely only really useful in horizontal flow cases.",
+      "revId": "09ae82296596690020b51d53a3a44314c094d73b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "caceccdd_c9048454",
+        "filename": "front_end/elements/CSSPropertyIconResolver.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-03T08:54:33Z",
+      "side": 1,
+      "message": "Something we haven\u0027t talked about yet in our discussions, is that `baseline` isn\u0027t the only value available here, you can slo use `first baseline` and `last baseline` and those are supported on chromium.\nThey don\u0027t seem to appear in the autocomplete though (unless you first type `last` and then start typing `bas...`). Not sure what to do about those. Since they don\u0027t appear by default in the list, maybe we don\u0027t care for now?",
+      "range": {
+        "startLine": 299,
+        "startChar": 0,
+        "endLine": 301,
+        "endChar": 64
+      },
+      "revId": "09ae82296596690020b51d53a3a44314c094d73b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c33c1f99_081de6db",
+        "filename": "test/unittests/front_end/elements/CSSPropertyIconResolver_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-03T08:54:33Z",
+      "side": 1,
+      "message": "It might make sense to also test with different styling to verify that the icon remains the same.",
+      "range": {
+        "startLine": 540,
+        "startChar": 42,
+        "endLine": 540,
+        "endChar": 58
+      },
+      "revId": "09ae82296596690020b51d53a3a44314c094d73b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
