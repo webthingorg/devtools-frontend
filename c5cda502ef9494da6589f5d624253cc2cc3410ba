@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "94ca8c64_ec302414",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-03T12:30:25Z",
+      "side": 1,
+      "message": "Yeah I think that is a `No-Presubmit: True` in the CL description 😞",
+      "parentUuid": "e812d8e5_a85f4ee1",
+      "revId": "c5cda502ef9494da6589f5d624253cc2cc3410ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "929e12f4_0aead1f7",
@@ -48,6 +66,30 @@
       "writtenOn": "2020-11-03T12:12:31Z",
       "side": 1,
       "message": "ideally I\u0027d like this function to take this option rather than hard coding it. However, because the function has optional arguments, it\u0027s not as easy as adding it onto the end. I started changing this function\u0027s API to enable this to be easier, which worked, but made this CL even larger. I\u0027d therefore like to defer that work to another CL to keep the changes manageable. \n\nBut I will follow-up today with a CL that updates the createShadowRootWithCoreStyles API to enable the legacy patching option to be added.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 67
+      },
+      "revId": "c5cda502ef9494da6589f5d624253cc2cc3410ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "684effa5_3358d423",
+        "filename": "front_end/ui/utils/create-shadow-root-with-core-styles.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-03T12:30:25Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "929e12f4_0aead1f7",
       "range": {
         "startLine": 22,
         "startChar": 0,
