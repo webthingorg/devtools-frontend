@@ -22,6 +22,30 @@
       },
       "revId": "e8aad920bbcf754d14aaf482f453127f3c021dc8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae607d21_7f98285f",
+        "filename": "front_end/perf_ui/LiveHeapProfile.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-03T14:34:56Z",
+      "side": 1,
+      "message": "Yes, the override. I could have made it async, I guess, but this felt more obvious somehow?",
+      "parentUuid": "384cc172_ad8cb65d",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 29
+      },
+      "revId": "e8aad920bbcf754d14aaf482f453127f3c021dc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
