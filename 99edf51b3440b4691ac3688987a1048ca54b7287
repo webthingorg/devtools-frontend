@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e87829ec_0c4217e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-03T09:04:43Z",
+      "side": 1,
+      "message": "Thanks! lgtm once sigurds comments are addressed.",
+      "revId": "99edf51b3440b4691ac3688987a1048ca54b7287",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ecf4878_64973c9e",
@@ -59,6 +76,30 @@
         "startChar": 8,
         "endLine": 97,
         "endChar": 26
+      },
+      "revId": "99edf51b3440b4691ac3688987a1048ca54b7287",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc972f20_94a59265",
+        "filename": "front_end/issues/MarkdownView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-03T09:04:43Z",
+      "side": 1,
+      "message": "+1, Map has a constructor that takes an array of 2-element arrays:\n\n new Map\u003cstring, string\u003e([[\u0027\u0026amp;\u0027, \u0027\u0026\u0027]])",
+      "parentUuid": "8ecf4878_64973c9e",
+      "range": {
+        "startLine": 97,
+        "startChar": 28,
+        "endLine": 97,
+        "endChar": 50
       },
       "revId": "99edf51b3440b4691ac3688987a1048ca54b7287",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
