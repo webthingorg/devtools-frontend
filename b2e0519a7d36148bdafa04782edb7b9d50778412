@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eaa85b13_26e23d7d",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-03T15:01:49Z",
+      "side": 1,
+      "message": "TIL ! I\u0027ll give that a go.",
+      "parentUuid": "73947e49_6f3e2378",
+      "range": {
+        "startLine": 49,
+        "startChar": 34,
+        "endLine": 49,
+        "endChar": 48
+      },
+      "revId": "b2e0519a7d36148bdafa04782edb7b9d50778412",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bc86e317_9f0d9301",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7b11e58_c216c5eb",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-03T15:01:49Z",
+      "side": 1,
+      "message": "No, because the setter takes Column[], not ReadonlyArray\u003cColumn\u003e, and TS won\u0027t let the getter and setter return different types.\n\nWe went with the setter taking mutable data so it\u0027s easier on the calling side (particularly when the caller may be a JS file so we can\u0027t use TS to make it Readonly). It\u0027s a bit of a compromise though.",
+      "parentUuid": "bc86e317_9f0d9301",
+      "range": {
+        "startLine": 54,
+        "startChar": 28,
+        "endLine": 54,
+        "endChar": 39
+      },
+      "revId": "b2e0519a7d36148bdafa04782edb7b9d50778412",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "4a397695_3494f687",
@@ -77,6 +125,30 @@
       "writtenOn": "2020-11-03T10:58:25Z",
       "side": 1,
       "message": "I haven\u0027t checked every single testcase, but my assumption is that we have a testcase for situations like this one?",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 5
+      },
+      "revId": "b2e0519a7d36148bdafa04782edb7b9d50778412",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b074ffa_a41ece38",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-03T15:01:49Z",
+      "side": 1,
+      "message": "Yes, the scrolling unit tests check on first render that the `scrollTop` is 0 👍",
+      "parentUuid": "4a397695_3494f687",
       "range": {
         "startLine": 107,
         "startChar": 0,
@@ -135,6 +207,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d85e76b1_8bc81fef",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-03T15:01:49Z",
+      "side": 1,
+      "message": "How so? It\u0027s only true if the key is `Enter` or `\u0027 \u0027` (a single space). I don\u0027t follow exactly what you mean.",
+      "parentUuid": "3cdc3f0d_7033cc53",
+      "range": {
+        "startLine": 164,
+        "startChar": 6,
+        "endLine": 164,
+        "endChar": 66
+      },
+      "revId": "b2e0519a7d36148bdafa04782edb7b9d50778412",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d594cda4_fe4edaa0",
         "filename": "front_end/ui/components/DataGrid.ts",
         "patchSetId": 24
@@ -158,6 +254,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6f7f01b2_c2dd91f2",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-03T15:01:49Z",
+      "side": 1,
+      "message": "Managed it with this and an assertion helper 👍",
+      "parentUuid": "d594cda4_fe4edaa0",
+      "range": {
+        "startLine": 176,
+        "startChar": 18,
+        "endLine": 176,
+        "endChar": 70
+      },
+      "revId": "b2e0519a7d36148bdafa04782edb7b9d50778412",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "54838d7b_be0c9efa",
         "filename": "front_end/ui/components/DataGrid.ts",
         "patchSetId": 24
@@ -169,6 +289,30 @@
       "writtenOn": "2020-11-03T10:58:25Z",
       "side": 1,
       "message": "Nit: use `SortState.ASCENDING` here.",
+      "range": {
+        "startLine": 200,
+        "startChar": 42,
+        "endLine": 200,
+        "endChar": 47
+      },
+      "revId": "b2e0519a7d36148bdafa04782edb7b9d50778412",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5ad0994_29e26148",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-03T15:01:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54838d7b_be0c9efa",
       "range": {
         "startLine": 200,
         "startChar": 42,
@@ -225,6 +369,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7397177c_7be26ac6",
+        "filename": "front_end/ui/components/DataGridController.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-03T15:01:49Z",
+      "side": 1,
+      "message": "Because the controller owns the sorting. So it\u0027s not something that an external entity can pass into the controller.\n\nThat said, I do think actually at some point we may extend this controller to take sort state, as I suspect it will be useful for a parent to say \"render a data grid controller that\u0027s sorted in DESC order\". But I might defer until we get there (also once we start rendering these API improvements should become clearer). Shout if you disagree, though!",
+      "parentUuid": "0d1fec47_c7dfb423",
+      "range": {
+        "startLine": 13,
+        "startChar": 17,
+        "endLine": 13,
+        "endChar": 39
+      },
+      "revId": "b2e0519a7d36148bdafa04782edb7b9d50778412",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "bab00956_ddc41656",
@@ -248,6 +416,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "19d5c87d_8b64b77c",
+        "filename": "front_end/ui/components/DataGridController.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-03T15:01:49Z",
+      "side": 1,
+      "message": "Agreed, love that idea, but will defer as you say :)",
+      "parentUuid": "bab00956_ddc41656",
+      "range": {
+        "startLine": 91,
+        "startChar": 10,
+        "endLine": 91,
+        "endChar": 29
+      },
+      "revId": "b2e0519a7d36148bdafa04782edb7b9d50778412",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "90e69c2e_14075d09",
@@ -261,6 +453,30 @@
       "writtenOn": "2020-11-03T10:58:25Z",
       "side": 1,
       "message": "I feel like this function could use some explanation as to what the algorithm is. E.g. what we discussed in our VC.",
+      "range": {
+        "startLine": 41,
+        "startChar": 16,
+        "endLine": 41,
+        "endChar": 59
+      },
+      "revId": "b2e0519a7d36148bdafa04782edb7b9d50778412",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45d76962_3cd67c82",
+        "filename": "front_end/ui/components/DataGridUtils.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-03T15:01:49Z",
+      "side": 1,
+      "message": "Agreed, good point. Added!",
+      "parentUuid": "90e69c2e_14075d09",
       "range": {
         "startLine": 41,
         "startChar": 16,
@@ -317,6 +533,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cae2d1ca_a5df22d7",
+        "filename": "front_end/ui/components/DataGridUtils.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-03T15:01:49Z",
+      "side": 1,
+      "message": "Definitely, done!",
+      "parentUuid": "508301fb_4d89fdee",
+      "range": {
+        "startLine": 60,
+        "startChar": 75,
+        "endLine": 60,
+        "endChar": 99
+      },
+      "revId": "b2e0519a7d36148bdafa04782edb7b9d50778412",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce7103c5_01c2d6ad",
+        "filename": "front_end/ui/components/DataGridUtils.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-03T15:01:49Z",
+      "side": 1,
+      "message": "Agree",
+      "parentUuid": "02770737_d76c1738",
+      "range": {
+        "startLine": 60,
+        "startChar": 7,
+        "endLine": 60,
+        "endChar": 53
+      },
+      "revId": "b2e0519a7d36148bdafa04782edb7b9d50778412",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8dce6792_70427b94",
@@ -330,6 +594,30 @@
       "writtenOn": "2020-11-03T10:58:25Z",
       "side": 1,
       "message": "I love this documentation, but does it maybe make sense to add this to the TSDoc of `Column` instead?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 52
+      },
+      "revId": "b2e0519a7d36148bdafa04782edb7b9d50778412",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7ac1bd9_17342631",
+        "filename": "front_end/ui/components/README.md",
+        "patchSetId": 24
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-03T15:01:49Z",
+      "side": 1,
+      "message": "Yes, you\u0027re probably right. I can then update this to say \"check the Utils.ts file for more info\"",
+      "parentUuid": "8dce6792_70427b94",
       "range": {
         "startLine": 11,
         "startChar": 0,
@@ -365,6 +653,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b69d9434_3fbe9c69",
+        "filename": "front_end/ui/components/components.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-03T15:01:49Z",
+      "side": 1,
+      "message": "Yeah, I wasn\u0027t sure here. Thinking about it, we can leave this off for now as no external thing depends on them. I think generally that\u0027s the pattern we should follow (with exceptions where it makes sense).",
+      "parentUuid": "1b3b555f_290aefcf",
+      "range": {
+        "startLine": 12,
+        "startChar": 2,
+        "endLine": 12,
+        "endChar": 15
+      },
+      "revId": "b2e0519a7d36148bdafa04782edb7b9d50778412",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "29467480_4acf42d5",
         "filename": "test/unittests/front_end/ui/components/DataGridController_test.ts",
         "patchSetId": 24
@@ -388,6 +700,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4e0b7981_b32c2926",
+        "filename": "test/unittests/front_end/ui/components/DataGridController_test.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-03T15:01:49Z",
+      "side": 1,
+      "message": "👍 good idea",
+      "parentUuid": "29467480_4acf42d5",
+      "range": {
+        "startLine": 66,
+        "startChar": 38,
+        "endLine": 66,
+        "endChar": 50
+      },
+      "revId": "b2e0519a7d36148bdafa04782edb7b9d50778412",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "74c2a235_61e7d293",
         "filename": "test/unittests/front_end/ui/components/DataGrid_test.ts",
         "patchSetId": 24
@@ -399,6 +735,30 @@
       "writtenOn": "2020-11-03T10:58:25Z",
       "side": 1,
       "message": "I suppose we are missing AOM support here, but it would be great if we could query the ARIA model instead. E.g. there are probably multiple ways to specify this particular ARIA value, one of which is the attribute?\n\nWe might be able to piggyback the work that is happening in Puppeteer in some way or another?",
+      "range": {
+        "startLine": 132,
+        "startChar": 25,
+        "endLine": 132,
+        "endChar": 60
+      },
+      "revId": "b2e0519a7d36148bdafa04782edb7b9d50778412",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a11fc3d_1bc73367",
+        "filename": "test/unittests/front_end/ui/components/DataGrid_test.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-03T15:01:49Z",
+      "side": 1,
+      "message": "Yeah, agreed. I think the Pptr work in DevTools that Jan is working on + jobay@\u0027s work on aria in pptr should combine to give us better options here in the future.",
+      "parentUuid": "74c2a235_61e7d293",
       "range": {
         "startLine": 132,
         "startChar": 25,
