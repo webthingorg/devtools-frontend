@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "449ae5de_c1ae22c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-11-03T03:31:06Z",
+      "side": 1,
+      "message": "Really excited to see investment here.",
+      "revId": "2e06439c157fe3e8c35161a62094b498d3f50219",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb20491e_cd46a88b",
+        "filename": "front_end/ui/inspectorStyle.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-11-03T03:31:06Z",
+      "side": 1,
+      "message": "Any thoughts on using `prefers-color-scheme` here? Right now our OS theming is a bit broken, since dark|light theme detection happens once during initialization[1], so if a customer updates their OS theme setting while DevTools is open they\u0027re forced to reload to have themes respected. We get a decent amount of feedback about this.\n\nHowever, if the CSS media feature was used, DevTools\u0027 webview would re-draw the colors without a user needing to reload.\n\nWe may have to declare the dark theme variables in both the media feature block and here in order to continue supporting the non-system preference cases.\n\n[1] https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/theme_support/theme_support_impl.js;l\u003d50?q\u003dthemesupport\u0026ss\u003dchromium",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 28
+      },
+      "revId": "2e06439c157fe3e8c35161a62094b498d3f50219",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
