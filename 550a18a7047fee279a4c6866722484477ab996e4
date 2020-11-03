@@ -39,6 +39,30 @@
       },
       "revId": "550a18a7047fee279a4c6866722484477ab996e4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32418840_d91ed55f",
+        "filename": "test/e2e/network/network-datagrid_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-11-03T09:57:27Z",
+      "side": 1,
+      "message": "I tried fixing it, but there are still some rare flakes. I think we need to wait for the text content to match instead of asserting it. I can try this in a follow up so reverting is cleaner.",
+      "parentUuid": "49fd44de_c66b26b1",
+      "range": {
+        "startLine": 25,
+        "startChar": 5,
+        "endLine": 25,
+        "endChar": 9
+      },
+      "revId": "550a18a7047fee279a4c6866722484477ab996e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
