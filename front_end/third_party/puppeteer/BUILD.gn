@@ -189,7 +189,7 @@ devtools_pre_built("puppeteer") {
 }
 
 devtools_entrypoint("bundle") {
-  entrypoint = "puppeteer.ts"
+  entrypoint = "puppeteer.js"
 
   deps = [ ":puppeteer" ]
 }

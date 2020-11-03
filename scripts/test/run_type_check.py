@@ -375,6 +375,7 @@ def prepare_closure_frontend_compile(temp_devtools_path, descriptors, namespace_
                     'i18n.js',
                     'marked.esm.js',
                     'wasm_source_map.js',
+                    'puppeteer.js',
             ]:
                 with open(
                         generated_file.replace('.js', '_types.js').replace(
