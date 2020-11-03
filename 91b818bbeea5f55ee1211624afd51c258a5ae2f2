@@ -279,6 +279,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "317d14e6_8f070936",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryValueInterpreter.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-03T09:36:27Z",
+      "side": 1,
+      "message": "Hmm, I see your point. I don\u0027t feel that strongly either but I\u0027d probably lean slightly towards the code importing from the Utils file (rather than adding the indirection of another file re-exporting it).",
+      "parentUuid": "db947e4c_cf6aa42d",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 46
+      },
+      "revId": "91b818bbeea5f55ee1211624afd51c258a5ae2f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ad92ca3d_3f4db151",
         "filename": "front_end/linear_memory_inspector/LinearMemoryValueInterpreter.ts",
         "patchSetId": 3
@@ -326,6 +350,24 @@
       "side": 1,
       "message": "Yes, it should be a select element! I have added this as a placeholder (I didn\u0027t think more about what element it should be at this point, since I haven\u0027t implemented this part). But I understand your concerns, have swapped this with a div!",
       "parentUuid": "41252ccd_5d64a027",
+      "revId": "91b818bbeea5f55ee1211624afd51c258a5ae2f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e1456cd_b2a413c4",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryValueInterpreter.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-03T09:36:27Z",
+      "side": 1,
+      "message": "SGTM! Thanks.",
+      "parentUuid": "8197231b_72ce02e4",
       "revId": "91b818bbeea5f55ee1211624afd51c258a5ae2f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
