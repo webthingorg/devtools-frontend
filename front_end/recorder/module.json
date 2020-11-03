@@ -1,0 +1,18 @@
+{
+  "dependencies": [
+    "ui",
+    "i18n",
+    "persistence",
+    "common"
+  ],
+  "modules": [
+    "recorder.js",
+    "RecordingFileSystem.js",
+    "RecorderModel.js",
+    "../third_party/puppeteer/puppeteer.js"
+  ],
+  "skip_compilation": [
+    "../third_party/puppeteer/puppeteer.js"
+  ],
+  "resources": []
+}

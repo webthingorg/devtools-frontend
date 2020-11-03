@@ -44,6 +44,7 @@ import {DebuggerPlugin} from './DebuggerPlugin.js';
 import {GutterDiffPlugin} from './GutterDiffPlugin.js';
 import {JavaScriptCompilerPlugin} from './JavaScriptCompilerPlugin.js';
 import {Plugin} from './Plugin.js';  // eslint-disable-line no-unused-vars
+import {RecorderPlugin} from './RecorderPlugin.js';
 import {ScriptOriginPlugin} from './ScriptOriginPlugin.js';
 import {SnippetsPlugin} from './SnippetsPlugin.js';
 import {SourcesPanel} from './SourcesPanel.js';
@@ -65,7 +66,6 @@ export class UISourceCodeFrame extends SourceFrame.SourceFrame.SourceFrameImpl {
 
     /** @type {?Persistence.Persistence.PersistenceBinding} */
     this._persistenceBinding = Persistence.Persistence.PersistenceImpl.instance().binding(uiSourceCode);
-
     /** @type {!Map<number, !RowMessageBucket>} */
     this._rowMessageBuckets = new Map();
     /** @type {!Set<string>} */
@@ -386,6 +386,9 @@ export class UISourceCodeFrame extends SourceFrame.SourceFrame.SourceFrameImpl {
     }
     if (SnippetsPlugin.accepts(pluginUISourceCode)) {
       this._plugins.push(new SnippetsPlugin(this.textEditor, pluginUISourceCode));
+    }
+    if (Root.Runtime.experiments.isEnabled('recorder') && RecorderPlugin.accepts(pluginUISourceCode)) {
+      this._plugins.push(new RecorderPlugin(this.textEditor, pluginUISourceCode));
     }
     if (ScriptOriginPlugin.accepts(pluginUISourceCode)) {
       this._plugins.push(new ScriptOriginPlugin(this.textEditor, pluginUISourceCode));

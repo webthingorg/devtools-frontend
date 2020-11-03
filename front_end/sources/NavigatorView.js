@@ -947,10 +947,19 @@ export class NavigatorView extends UI.Widget.VBox {
   /**
    * @param {!Workspace.Workspace.Project} project
    * @param {string} path
+   */
+
+  getDefaultFileContent(project, path) {
+    return '';
+  }
+
+  /**
+   * @param {!Workspace.Workspace.Project} project
+   * @param {string} path
    * @param {!Workspace.UISourceCode.UISourceCode=} uiSourceCodeToCopy
    */
   async create(project, path, uiSourceCodeToCopy) {
-    let content = '';
+    let content = this.getDefaultFileContent(project, path);
     if (uiSourceCodeToCopy) {
       content = (await uiSourceCodeToCopy.requestContent()).content || '';
     }
