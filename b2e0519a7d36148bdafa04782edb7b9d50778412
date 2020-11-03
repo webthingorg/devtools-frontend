@@ -301,6 +301,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f197eeb8_8c287e49",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-03T16:08:35Z",
+      "side": 1,
+      "message": "Ahh I see! Yes, you\u0027re right! Good spot, thanks.",
+      "parentUuid": "8fcd54ef_b6283f36",
+      "range": {
+        "startLine": 164,
+        "startChar": 6,
+        "endLine": 164,
+        "endChar": 66
+      },
+      "revId": "b2e0519a7d36148bdafa04782edb7b9d50778412",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d594cda4_fe4edaa0",
