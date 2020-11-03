@@ -16,6 +16,23 @@
       "message": "Hey Peter and Simon, Im missing owners sign-off for changes under settings folder and frontend/i18n folder(does not have owners assigned), do you know who\u0027s the best person I should add for sign-off?",
       "revId": "a3dfb0d466d6af0b473a4927db2ccbbc33591263",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c0f4af9_d0858a6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-03T07:02:04Z",
+      "side": 1,
+      "message": "Tim: Need OWNERS review for i18n/ and settings/ :) thanks!\n\nChristy: I usually just use the \"Find Owners\" button in Gerrit and pick someone from there :)",
+      "revId": "a3dfb0d466d6af0b473a4927db2ccbbc33591263",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
