@@ -50,6 +50,24 @@
       "message": "Note to self: I\u0027ll alphasort the AUTHORS file (matching Chromium) after this CL lands. There\u0027s been a lot of new entries lately and always appending to the end causes merge conflicts",
       "revId": "72441b89facf4df6ffb3ff82d52933fd2a853d61",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "903f98fe_23283914",
+        "filename": "AUTHORS",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-03T08:24:56Z",
+      "side": 1,
+      "message": "Update: another CL just landed that modified the AUTHORS file, so since you\u0027ll have to rebase anyhow, I\u0027ll go ahead and land the alphasort change first. https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2516342",
+      "parentUuid": "47407b90_313fc20f",
+      "revId": "72441b89facf4df6ffb3ff82d52933fd2a853d61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
