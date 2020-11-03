@@ -24,6 +24,7 @@ group("front_end") {
     "protocol_client",
     "root",
     "sdk",
+    "source_frame",
     "sources",
     "test_setup",
     "text_utils",

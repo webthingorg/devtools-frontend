@@ -38,6 +38,8 @@ import * as Workspace from '../workspace/workspace.js';  // eslint-disable-line 
 
 import {Events, SourcesTextEditor, SourcesTextEditorDelegate} from './SourcesTextEditor.js';  // eslint-disable-line no-unused-vars
 
+const ls = Common.ls;
+
 /**
  * @implements {UI.SearchableView.Searchable}
  * @implements {UI.SearchableView.Replaceable}

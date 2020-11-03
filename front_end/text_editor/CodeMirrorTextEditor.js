@@ -40,6 +40,8 @@ import * as UI from '../ui/ui.js';
 import {changeObjectToEditOperation, toPos, toRange} from './CodeMirrorUtils.js';
 import {TextEditorAutocompleteController} from './TextEditorAutocompleteController.js';
 
+const ls = Common.ls;
+
 /**
  * @implements {UI.TextEditor.TextEditor}
  * @unrestricted

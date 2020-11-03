@@ -21,6 +21,8 @@ export function createShadowRootWithCoreStyles(element, cssFile, delegatesFocus)
   if (cssFile) {
     appendStyle(shadowRoot, cssFile);
   }
+  // TODO(petermarshall): What is this code doing binding all focus events to the UI object?
+  const UI = () => {};
   shadowRoot.addEventListener('focus', focusChanged.bind(UI), true);
   return shadowRoot;
 }
