@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf16e10f_01ca8fdc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1466344
+      },
+      "writtenOn": "2020-11-03T17:22:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3121d5ec_db16ff7c",
+      "revId": "72441b89facf4df6ffb3ff82d52933fd2a853d61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "467bab11_b42d5179",
@@ -31,6 +49,24 @@
       "writtenOn": "2020-11-03T06:46:19Z",
       "side": 1,
       "message": "If you make this\n\n    Fixed: 1138109\n\n...then the corresponding bug will be automatically closed once this lands.",
+      "revId": "72441b89facf4df6ffb3ff82d52933fd2a853d61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f01b23c5_3fb950a8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1466344
+      },
+      "writtenOn": "2020-11-03T17:22:30Z",
+      "side": 1,
+      "message": "Done. Thanks for the tip!",
+      "parentUuid": "467bab11_b42d5179",
       "revId": "72441b89facf4df6ffb3ff82d52933fd2a853d61",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
