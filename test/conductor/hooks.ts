@@ -81,6 +81,7 @@ async function loadTargetPageAndDevToolsFrontend(hostedModeServerPort: number) {
   browser = await launchChrome();
   const chromeDebugPort = getDebugPort(browser);
   console.log(`Opened chrome with debug port: ${chromeDebugPort}`);
+  console.log(`Browser version: ${await browser.version()}`);
 
   let stdout = '', stderr = '';
 
