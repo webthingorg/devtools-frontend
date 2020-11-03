@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5312430d_250d6971",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-03T09:52:55Z",
+      "side": 1,
+      "message": "Love it!",
+      "revId": "550a18a7047fee279a4c6866722484477ab996e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49fd44de_c66b26b1",
+        "filename": "test/e2e/network/network-datagrid_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-03T09:52:55Z",
+      "side": 1,
+      "message": "Has this test been fixed now or should we remain skipping it? I would be okay with unskipping and marking 1066813 as fixed, if applicable.",
+      "range": {
+        "startLine": 25,
+        "startChar": 5,
+        "endLine": 25,
+        "endChar": 9
+      },
+      "revId": "550a18a7047fee279a4c6866722484477ab996e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
