@@ -213,8 +213,6 @@ export class SoftContextMenu {
     menuItemElement._subItems = item.subItems;
     menuItemElement.tabIndex = -1;
     ARIAUtils.markAsMenuItemSubMenu(menuItemElement);
-    // TODO: Once we have AOM, remove the explicit aria-label and use document.queryByAccessibleName
-    ARIAUtils.setAccessibleName(menuItemElement, item.label || '');
 
     // Occupy the same space on the left in all items.
     const checkMarkElement = Icon.create('smallicon-checkmark', 'soft-context-menu-item-checkmark');
