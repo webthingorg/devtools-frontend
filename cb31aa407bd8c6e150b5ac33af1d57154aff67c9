@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "841e4138_a84ba8ef",
+        "filename": "front_end/issues/MarkdownView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-11-03T17:52:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf8277fc_9bd175fe",
+      "range": {
+        "startLine": 117,
+        "startChar": 48,
+        "endLine": 117,
+        "endChar": 64
+      },
+      "revId": "cb31aa407bd8c6e150b5ac33af1d57154aff67c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "19b58b28_0626679f",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-11-03T12:31:03Z",
       "side": 1,
       "message": "Please add a screenshot to show-case your work",
+      "range": {
+        "startLine": 5,
+        "startChar": 242,
+        "endLine": 5,
+        "endChar": 252
+      },
+      "revId": "cb31aa407bd8c6e150b5ac33af1d57154aff67c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b8ad02d_0798ed2c",
+        "filename": "front_end/issues/descriptions/cspURLViolation.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-11-03T17:52:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19b58b28_0626679f",
       "range": {
         "startLine": 5,
         "startChar": 242,
