@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34acd446_ce5a111c",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 45
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-11-03T19:34:25Z",
+      "side": 1,
+      "message": "Might be worth noting this is intentionally creating an additional empty input for the user (hence the `splitValue.length + 1`).",
+      "revId": "9a7d00a2f06b7ef47da93a1a862ad2f129ad3de3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45927d10_8ac513e8",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 45
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-11-03T19:34:25Z",
+      "side": 1,
+      "message": "This results in a separate string being created for localization compared to the initial creation (which uses `Delete ${label}`). Probably should follow the same pattern of interpolating the label value here as well (or extract a helper to be called in both places).",
+      "revId": "9a7d00a2f06b7ef47da93a1a862ad2f129ad3de3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "723ede0e_7bd79fab",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 45
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-11-03T19:34:25Z",
+      "side": 1,
+      "message": "Is this to prevent some other code from running when enter is pressed?",
+      "revId": "9a7d00a2f06b7ef47da93a1a862ad2f129ad3de3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5af7b590_4a07254a",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 45
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-11-03T19:34:25Z",
+      "side": 1,
+      "message": "Given the first param to `_createFontSelector` is a value, not a label, I think this is not the intended call and results in an extra string to be localized (since other usages include a number). I wasn\u0027t able to hit this condition while testing though (might also be worth a comment explaining specifically what scenario this is supposed to handle).",
+      "revId": "9a7d00a2f06b7ef47da93a1a862ad2f129ad3de3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1927f42_a18d1b78",
+        "filename": "front_end/inline_editor/FontEditorUtils.js",
+        "patchSetId": 45
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-11-03T19:34:25Z",
+      "side": 1,
+      "message": "This might be another good place to include a comment with some examples. If I read this correctly your first section is matching words (but not preceded by a dash or space) and the second is matching different number forms (e.g. 7.7, .7, or 7 respectively) followed by up to four characters specifying units.\n\nAlso, this appears to be allowed to be a bit loose based on the usage in StylesSidebarPane.js so long as it doesn\u0027t overlap with the other automatically included regexes (variable and URL), correct?",
+      "revId": "9a7d00a2f06b7ef47da93a1a862ad2f129ad3de3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e601d6b4_667ec794",
+        "filename": "front_end/inline_editor/FontEditorUtils.js",
+        "patchSetId": 45
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-11-03T19:34:25Z",
+      "side": 1,
+      "message": "And a comment here. This appears to be matching double-quoted, single-quoted, and unquoted values (though I doubt the last one would be allowed to contain a comma).\n\nFYI, there\u0027s also a similar regex for this in sdk/CSSPropertyParser.js that\u0027s looser still:\n```\n// \"str\" or \u0027str\u0027\nconst fontFamilyRegexp \u003d /^\"(.+)\"|\u0027(.+)\u0027$/;\n```\n\nGiven we\u0027re already expected to be processing valid values, would something even simpler like this be suitable (at least in the quoted cases)?",
+      "revId": "9a7d00a2f06b7ef47da93a1a862ad2f129ad3de3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57ffc359_39045685",
+        "filename": "front_end/inline_editor/FontEditorUtils.js",
+        "patchSetId": 45
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-11-03T19:34:25Z",
+      "side": 1,
+      "message": "Looks like the minus sign would be included in the first capture group (which seems correct, just doesn\u0027t match the comment)\n`// letter-spacing: -.625rem -\u003e (-.625)(rem)`",
+      "revId": "9a7d00a2f06b7ef47da93a1a862ad2f129ad3de3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
