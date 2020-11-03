@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfcf9f77_ab1f83ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-03T09:25:21Z",
+      "side": 1,
+      "message": "LGTM with nits addressed. Nice work!",
+      "revId": "99edf51b3440b4691ac3688987a1048ca54b7287",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ecf4878_64973c9e",
@@ -107,6 +124,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c98bc2e4_8a070219",
+        "filename": "front_end/issues/MarkdownView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-03T09:25:21Z",
+      "side": 1,
+      "message": "nit: JavaScript is camelCased, so this should be `matchedStr`. Ultra-nit, I\u0027d probably go `matchedString` for clarity.\n\nYou also don\u0027t need the second argument if you don\u0027t refer to it, so the `, _)` bit can go and the func can become `(matchedString: string) \u003d\u003e {`",
+      "range": {
+        "startLine": 104,
+        "startChar": 50,
+        "endLine": 104,
+        "endChar": 61
+      },
+      "revId": "99edf51b3440b4691ac3688987a1048ca54b7287",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0aa5eda7_ebbcd7ef",
         "filename": "front_end/issues/MarkdownView.ts",
         "patchSetId": 2
@@ -123,6 +163,29 @@
         "startChar": 16,
         "endLine": 115,
         "endChar": 24
+      },
+      "revId": "99edf51b3440b4691ac3688987a1048ca54b7287",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2c8fe34_c36c1613",
+        "filename": "test/unittests/front_end/issues/MarkdownView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-03T09:25:21Z",
+      "side": 1,
+      "message": "if you use `component.shadowRoot.querySelector` that will only return the first match, so you don\u0027t need to Array.from()[0].",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 74
       },
       "revId": "99edf51b3440b4691ac3688987a1048ca54b7287",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
