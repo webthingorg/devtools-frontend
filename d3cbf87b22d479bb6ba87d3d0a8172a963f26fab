@@ -16,6 +16,23 @@
       "message": "Nice!",
       "revId": "d3cbf87b22d479bb6ba87d3d0a8172a963f26fab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db8020e6_7d465722",
+        "filename": "test/e2e/cross_tool_integration/browser_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1439900
+      },
+      "writtenOn": "2020-11-03T08:20:07Z",
+      "side": 0,
+      "message": "I couldn\u0027t force a flake locally after changing to using `.hover();` instead `mouse.move(...)`.\nI don\u0027t have a theory on why this should matter though :)",
+      "revId": "d3cbf87b22d479bb6ba87d3d0a8172a963f26fab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
