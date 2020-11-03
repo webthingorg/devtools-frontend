@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e89e76c_4ea03b37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-03T08:16:25Z",
+      "side": 1,
+      "message": "There’s been lots of recent new entries in AUTHORS, and since folks were appending to the end of the file, this resulted in merge conflicts. By sorting the lists and documenting the conventions, hopefully the process goes more smoothly for future new contributors. PTAL",
+      "revId": "3408d5eb19c4487dfedf1b0874a978b9dce1baad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
