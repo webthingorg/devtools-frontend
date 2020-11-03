@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "384cc172_ad8cb65d",
+        "filename": "front_end/perf_ui/LiveHeapProfile.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-03T14:06:24Z",
+      "side": 1,
+      "message": "why the need for this? Is this to satisfy one of the @implements types?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 29
+      },
+      "revId": "e8aad920bbcf754d14aaf482f453127f3c021dc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
