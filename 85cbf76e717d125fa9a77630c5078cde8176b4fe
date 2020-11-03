@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "577994f4_5afb1a31",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1466344
+      },
+      "writtenOn": "2020-11-03T04:32:22Z",
+      "side": 1,
+      "message": "Hey guys,\n\nThis CL adds an additional conditional statement which includes pretty-printed files when using the multi-file search function.\n\nPlease let me know if there\u0027s any questions. Thanks for reviewing.",
+      "revId": "85cbf76e717d125fa9a77630c5078cde8176b4fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
