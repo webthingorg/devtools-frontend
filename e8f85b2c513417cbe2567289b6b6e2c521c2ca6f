@@ -87,6 +87,24 @@
       "parentUuid": "a4901faa_e4a271b3",
       "revId": "e8f85b2c513417cbe2567289b6b6e2c521c2ca6f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c90dd75_ee63227d",
+        "filename": "front_end/linear_memory_inspector/ValueInterpreterDisplayUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-03T05:48:18Z",
+      "side": 1,
+      "message": "Ok! I have removed the default case for the other switch cases where all cases were covered.",
+      "parentUuid": "0923bedf_152c3177",
+      "revId": "e8f85b2c513417cbe2567289b6b6e2c521c2ca6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
