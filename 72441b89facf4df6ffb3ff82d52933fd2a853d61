@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3121d5ec_db16ff7c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-03T06:46:19Z",
+      "side": 1,
+      "message": "Please shorten the first line (max ~50 chars)",
+      "revId": "72441b89facf4df6ffb3ff82d52933fd2a853d61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "467bab11_b42d5179",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-03T06:46:19Z",
+      "side": 1,
+      "message": "If you make this\n\n    Fixed: 1138109\n\n...then the corresponding bug will be automatically closed once this lands.",
+      "revId": "72441b89facf4df6ffb3ff82d52933fd2a853d61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47407b90_313fc20f",
+        "filename": "AUTHORS",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-03T06:46:19Z",
+      "side": 1,
+      "message": "Note to self: I\u0027ll alphasort the AUTHORS file (matching Chromium) after this CL lands. There\u0027s been a lot of new entries lately and always appending to the end causes merge conflicts",
+      "revId": "72441b89facf4df6ffb3ff82d52933fd2a853d61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
