@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import {CSSAngle, CSSAngleData, PopoverToggledEvent} from '../../../../front_end/inline_editor/CSSAngle.js';
-import {AngleUnit, get2DTranslationsForAngle, getAngleFromDegrees, getRadiansFromAngle, parseText, roundAngleByUnit} from '../../../../front_end/inline_editor/CSSAngleUtils.js';
+import {AngleUnit, get2DTranslationsForAngle, getAngleFromRadians, getRadiansFromAngle, parseText, roundAngleByUnit} from '../../../../front_end/inline_editor/CSSAngleUtils.js';
 import {assertShadowRoot, renderElementIntoDOM} from '../helpers/DOMHelpers.js';
 
 const {assert} = chai;
@@ -103,10 +103,10 @@ describe('CSSAngle', () => {
     });
 
     it('converts angles in degree to other units correctly', () => {
-      assert.strictEqual(getAngleFromDegrees(45, AngleUnit.Grad), 50);
-      assert.strictEqual(getAngleFromDegrees(45, AngleUnit.Rad), 0.7853981633974483);
-      assert.strictEqual(getAngleFromDegrees(45, AngleUnit.Turn), 0.125);
-      assert.strictEqual(getAngleFromDegrees(45, AngleUnit.Deg), 45);
+      assert.strictEqual(getAngleFromRadians(Math.PI / 4, AngleUnit.Grad), 50);
+      assert.strictEqual(getAngleFromRadians(Math.PI / 4, AngleUnit.Rad), Math.PI / 4);
+      assert.strictEqual(getAngleFromRadians(Math.PI / 4, AngleUnit.Turn), 0.125);
+      assert.strictEqual(getAngleFromRadians(Math.PI / 4, AngleUnit.Deg), 45);
     });
 
     it('converts angles in other units to radians correctly', () => {
