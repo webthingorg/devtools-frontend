@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d89c90e_0544b0e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372231
+      },
+      "writtenOn": "2020-11-03T17:20:35Z",
+      "side": 1,
+      "message": "Works great! This is going to be so cool.\n\nI\u0027ve got 2 requests, both related to the mouse wheel interaction (which rocks):\n1. When I scroll up on the mouse wheel I expected the degrees to increment but instead they decrement (tested on Linux). Did you like it better in a more \"natural\" scroll style? Maybe a bug since I\u0027m using linux from a mac chrome tab? \n2. (request) When scrolling and holding shift, increment/decrement by 10 👍",
+      "revId": "b93d4956f89d4c52d3ec069102d957e7aaa16e9f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
