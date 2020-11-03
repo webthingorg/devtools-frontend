@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4711764d_b2c85552",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-03T15:11:29Z",
+      "side": 1,
+      "message": "Thanks for adding mousewheel support! I\u0027m fine with excluding `cmd` and `alt`, just wanted to check it\u0027s a conscious choice.",
+      "parentUuid": "5cb292ea_86712db3",
+      "revId": "279568739c4271bb17e76b5813c840b31832d21a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6b42c8aa_3c9e8851",
