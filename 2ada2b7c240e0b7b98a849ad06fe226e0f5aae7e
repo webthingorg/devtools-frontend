@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0c007297_b4e3c6a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-11-03T13:55:55Z",
+      "side": 1,
+      "message": "I just built this fresh, I get something else now:\n\nUncaught Error: Unable to find workspace project for the recordings file system.\n    at Module.findRecordingsProject (RecordingFileSystem.js:237)\n    at SourcesNavigator.js:343\n    at ToolbarButton.dispatchEventToListeners (Object.js:132)\n    at ToolbarButton._clicked (Toolbar.js:623)\n\nWhen I click Add Recording",
+      "parentUuid": "db36b985_5c410451",
+      "revId": "2ada2b7c240e0b7b98a849ad06fe226e0f5aae7e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0a69f64e_7e3cacd4",
         "filename": "front_end/recorder/RecordingFileSystem.js",
         "patchSetId": 7
