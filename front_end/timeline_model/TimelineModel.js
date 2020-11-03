@@ -1478,6 +1478,7 @@ export const RecordType = {
   BeginMainThreadFrame: 'BeginMainThreadFrame',
   ActivateLayerTree: 'ActivateLayerTree',
   DrawFrame: 'DrawFrame',
+  DroppedFrame: 'DroppedFrame',
   HitTest: 'HitTest',
   ScheduleStyleRecalculation: 'ScheduleStyleRecalculation',
   RecalculateStyles: 'RecalculateStyles',  // For backwards compatibility only, now replaced by UpdateLayoutTree.
