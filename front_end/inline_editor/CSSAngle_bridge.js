@@ -20,6 +20,16 @@ import './CSSAngle.js';
 */
 // @ts-ignore we export this for Closure not TS
 export let CSSAngleData;
+/**
+* @enum {string}
+*/
+// @ts-ignore we export this for Closure not TS
+export let AngleUnit = {
+  Deg: 'deg',
+  Grad: 'grad',
+  Rad: 'rad',
+  Turn: 'turn',
+};
 // eslint-disable-next-line no-unused-vars
 export class CSSAngleClosureInterface extends HTMLElement {
   /**
@@ -38,6 +48,12 @@ export class CSSAngleClosureInterface extends HTMLElement {
   * @return {void}
   */
   updateProperty(name, value) {
+  }
+  /**
+  * @param {!AngleUnit} newUnit
+  * @return {void}
+  */
+  updateUnit(newUnit) {
   }
   /**
   * @param {!CSSAngleData} data

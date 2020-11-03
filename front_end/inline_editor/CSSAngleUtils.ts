@@ -25,17 +25,17 @@ export const parseText = (text: string): {value: number, unit: AngleUnit}|null =
   };
 };
 
-export const getAngleFromDegrees = (deg: number, targetUnit: AngleUnit): number => {
+export const getAngleFromRadians = (rad: number, targetUnit: AngleUnit): number => {
   switch (targetUnit) {
     case AngleUnit.Grad:
-      return UI.Geometry.degreesToGradians(deg);
-    case AngleUnit.Rad:
-      return UI.Geometry.degreesToRadians(deg);
+      return UI.Geometry.radiansToGradians(rad);
+    case AngleUnit.Deg:
+      return UI.Geometry.radiansToDegrees(rad);
     case AngleUnit.Turn:
-      return UI.Geometry.degreesToTurns(deg);
+      return UI.Geometry.radiansToTurns(rad);
   }
 
-  return deg;
+  return rad;
 };
 
 export const getRadiansFromAngle = (angle: number, unit: AngleUnit): number => {
@@ -74,5 +74,18 @@ export const roundAngleByUnit = (angle: number, unit: AngleUnit): number => {
       return Math.round(angle * 100) / 100;
     default:
       return angle;
+  }
+};
+
+export const getNextUnit = (currentUnit: AngleUnit): AngleUnit => {
+  switch (currentUnit) {
+    case AngleUnit.Deg:
+      return AngleUnit.Grad;
+    case AngleUnit.Grad:
+      return AngleUnit.Rad;
+    case AngleUnit.Rad:
+      return AngleUnit.Turn;
+    default:
+      return AngleUnit.Deg;
   }
 };

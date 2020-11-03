@@ -5,7 +5,7 @@
 import * as Common from '../common/common.js';
 import * as LitHtml from '../third_party/lit-html/lit-html.js';
 
-import {AngleUnit, get2DTranslationsForAngle, getAngleFromDegrees, parseText, roundAngleByUnit} from './CSSAngleUtils.js';
+import {AngleUnit, get2DTranslationsForAngle, getAngleFromRadians, getNextUnit, getRadiansFromAngle, parseText, roundAngleByUnit} from './CSSAngleUtils.js';
 
 const {render, html} = LitHtml;
 const styleMap = LitHtml.Directives.styleMap;
@@ -42,7 +42,7 @@ export interface CSSAngleData {
 export class CSSAngle extends HTMLElement {
   private readonly shadow = this.attachShadow({mode: 'open'});
   private angle = 0;
-  private unit = AngleUnit.Deg;
+  private unit = AngleUnit.Rad;
   private propertyName = '';
   private propertyValue = '';
   private containingPane?: HTMLElement;
@@ -120,29 +120,74 @@ export class CSSAngle extends HTMLElement {
     this.render();
   }
 
-  private onMiniIconClick(event: Event): void {
+  updateUnit(newUnit: AngleUnit): void {
+    const radian = getRadiansFromAngle(this.angle, this.unit);
+    this.unit = newUnit;
+    this.updateAngle(getAngleFromRadians(radian, this.unit));
+  }
+
+  private updateAngle(angle: number): void {
+    this.angle = roundAngleByUnit(angle, this.unit);
+    this.dispatchEvent(new ValueChangedEvent(`${this.angle}${this.unit}`));
+  }
+
+  private onMiniIconClick(event: MouseEvent): void {
     event.stopPropagation();
+    if (event.shiftKey) {
+      this.updateUnit(getNextUnit(this.unit));
+      return;
+    }
     this.popoverOpen ? this.minify() : this.popover();
   }
 
-  private onMouseDown(event: MouseEvent): void {
+  private onPopoverMousedown(event: MouseEvent): void {
     event.stopPropagation();
-    this.updateAngleFromMousePosition(event.pageX, event.pageY);
+    this.updateAngleFromMousePosition(event.pageX, event.pageY, event.shiftKey);
   }
 
-  private onMouseMove(event: MouseEvent): void {
+  private onPopoverMousemove(event: MouseEvent): void {
     const isPressed = event.buttons === 1;
     if (!isPressed) {
       return;
     }
 
     this.mousemoveThrottler.schedule(() => {
-      this.updateAngleFromMousePosition(event.pageX, event.pageY);
+      this.updateAngleFromMousePosition(event.pageX, event.pageY, event.shiftKey);
       return Promise.resolve();
     });
   }
 
-  private updateAngleFromMousePosition(mouseX: number, mouseY: number): void {
+  private onKeydown(event: KeyboardEvent): void {
+    if (!this.popoverOpen) {
+      return;
+    }
+
+    switch (event.key) {
+      case 'Escape':
+        event.stopPropagation();
+        this.minify();
+        this.blur();
+        break;
+      case 'ArrowUp':
+      case 'ArrowDown': {
+        // +/- current angle by 1 degree equivalent. Since we are using
+        // radian as our canonical unit, we plus π/180 radian, which is 1 degree.
+        let diff = Math.PI / 180;
+        if (event.key === 'ArrowDown') {
+          diff *= -1;
+        }
+        if (event.shiftKey) {
+          diff *= 10;
+        }
+
+        const radian = getRadiansFromAngle(this.angle, this.unit);
+        this.updateAngle(getAngleFromRadians(radian + diff, this.unit));
+        break;
+      }
+    }
+  }
+
+  private updateAngleFromMousePosition(mouseX: number, mouseY: number, shouldSnapToMultipleOf15Degrees: boolean): void {
     const clock = this.shadow.querySelector('.clock');
     if (!clock) {
       return;
@@ -151,10 +196,14 @@ export class CSSAngle extends HTMLElement {
     this.clockRadius = (right - left) / 2;
     const clockCenterX = (left + right) / 2;
     const clockCenterY = (bottom + top) / 2;
-    const degree = -Math.atan2(mouseX - clockCenterX, mouseY - clockCenterY) * 180 / Math.PI + 180;
-    const rawAngle = getAngleFromDegrees(degree, this.unit);
-    this.angle = roundAngleByUnit(rawAngle, this.unit);
-    this.dispatchEvent(new ValueChangedEvent(`${this.angle}${this.unit}`));
+    const radian = -Math.atan2(mouseX - clockCenterX, mouseY - clockCenterY) + Math.PI;
+    if (shouldSnapToMultipleOf15Degrees) {
+      const multipleInRadian = getRadiansFromAngle(15, AngleUnit.Deg);
+      const closestMultipleOf15Degrees = Math.round(radian / multipleInRadian) * multipleInRadian;
+      this.updateAngle(getAngleFromRadians(closestMultipleOf15Degrees, this.unit));
+    } else {
+      this.updateAngle(getAngleFromRadians(radian, this.unit));
+    }
   }
 
   private render() {
@@ -170,6 +219,7 @@ export class CSSAngle extends HTMLElement {
         .css-type {
           display: inline-block;
           position: relative;
+          outline: none;
         }
 
         .preview {
@@ -261,7 +311,7 @@ export class CSSAngle extends HTMLElement {
           width: 2px;
           height: ${ClockDialLength}px;
           background-color: var(--dial-color);
-          border-radius: 2px;
+          border-radius: 1px;
         }
 
         .hand {
@@ -298,7 +348,7 @@ export class CSSAngle extends HTMLElement {
         }
       </style>
 
-      <div class="css-type">
+      <div class="css-type" @keydown=${this.onKeydown} tabindex="-1">
         <div class="preview">
           <div class="mini-icon" @mousedown=${this.onMiniIconClick}>
             <span class="mini-hand" style=${styleMap(miniHandStyle)}></span>
@@ -335,8 +385,8 @@ export class CSSAngle extends HTMLElement {
         <div
           class="clock"
           style=${styleMap(clockStyles)}
-          @mousedown=${this.onMouseDown}
-          @mousemove=${this.onMouseMove}>
+          @mousedown=${this.onPopoverMousedown}
+          @mousemove=${this.onPopoverMousemove}>
           ${this.renderDials()}
           <div class="hand" style=${styleMap(handStyles)}></div>
           <span class="center"></span>
