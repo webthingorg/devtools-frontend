@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d864c320_d04dd503",
+        "filename": "front_end/perf_ui/FilmStripView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-03T15:42:00Z",
+      "side": 1,
+      "message": "I don\u0027t follow this comment - what is the `where` value?",
+      "range": {
+        "startLine": 263,
+        "startChar": 0,
+        "endLine": 263,
+        "endChar": 84
+      },
+      "revId": "9257072e9492e263317eaf2abbf573d2db8d9166",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
