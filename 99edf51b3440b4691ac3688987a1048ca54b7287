@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15a0777a_eb581e26",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-03T08:58:37Z",
+      "side": 1,
+      "message": "Simon, Jack, PTAL",
+      "revId": "99edf51b3440b4691ac3688987a1048ca54b7287",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ecf4878_64973c9e",
+        "filename": "front_end/issues/MarkdownView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-03T08:58:37Z",
+      "side": 1,
+      "message": "nit: use a map here.",
+      "range": {
+        "startLine": 97,
+        "startChar": 28,
+        "endLine": 97,
+        "endChar": 50
+      },
+      "revId": "99edf51b3440b4691ac3688987a1048ca54b7287",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4ac7f72_186825d5",
+        "filename": "front_end/issues/MarkdownView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-03T08:58:37Z",
+      "side": 1,
+      "message": "nit: add a comment with a link to the file from which this table arises",
+      "range": {
+        "startLine": 97,
+        "startChar": 8,
+        "endLine": 97,
+        "endChar": 26
+      },
+      "revId": "99edf51b3440b4691ac3688987a1048ca54b7287",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0aa5eda7_ebbcd7ef",
+        "filename": "front_end/issues/MarkdownView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-03T08:58:37Z",
+      "side": 1,
+      "message": "nit: add a comment that this will over-unescape \u0026amp; and a link to the escape function in Markdown to explain why.",
+      "range": {
+        "startLine": 115,
+        "startChar": 16,
+        "endLine": 115,
+        "endChar": 24
+      },
+      "revId": "99edf51b3440b4691ac3688987a1048ca54b7287",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
