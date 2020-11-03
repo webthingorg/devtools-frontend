@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d21efd74_cc2825e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1459949
+      },
+      "writtenOn": "2020-11-03T15:23:58Z",
+      "side": 1,
+      "message": "Rebase of patch set 3 applied.  PTAL",
+      "revId": "928496def0d9f3e6ee48cafd593135006e31188a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
