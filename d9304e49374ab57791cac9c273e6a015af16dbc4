@@ -39,6 +39,30 @@
       },
       "revId": "d9304e49374ab57791cac9c273e6a015af16dbc4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "214179d2_bf5e11ea",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-11-03T05:38:31Z",
+      "side": 1,
+      "message": "I hope not. The extra event fired here will not be listened as the debugger model has a debugger id (and is considered ready to pause) already. Maybe we should guard this dispatch call with a check?",
+      "parentUuid": "b0e2437a_0a819702",
+      "range": {
+        "startLine": 237,
+        "startChar": 4,
+        "endLine": 237,
+        "endChar": 71
+      },
+      "revId": "d9304e49374ab57791cac9c273e6a015af16dbc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
