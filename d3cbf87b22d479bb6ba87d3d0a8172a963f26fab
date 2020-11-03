@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45f8015c_2e2f6009",
+        "filename": "test/e2e/cross_tool_integration/browser_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-03T08:18:28Z",
+      "side": 0,
+      "message": "Nice!",
+      "revId": "d3cbf87b22d479bb6ba87d3d0a8172a963f26fab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
