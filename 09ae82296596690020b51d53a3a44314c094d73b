@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0961cf49_5c4167c0",
+        "filename": "front_end/elements/CSSPropertyIconResolver.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-03T09:32:29Z",
+      "side": 1,
+      "message": "Thanks, added the comment.",
+      "parentUuid": "183331c2_ef098361",
+      "revId": "09ae82296596690020b51d53a3a44314c094d73b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "caceccdd_c9048454",
@@ -58,6 +76,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "54086d87_6fc24424",
+        "filename": "front_end/elements/CSSPropertyIconResolver.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-03T09:32:29Z",
+      "side": 1,
+      "message": "It feels like if we add the icons for the first and last baseline we should have different icons to indicate the difference. I\u0027d leave them without icons for now.",
+      "parentUuid": "caceccdd_c9048454",
+      "range": {
+        "startLine": 299,
+        "startChar": 0,
+        "endLine": 301,
+        "endChar": 64
+      },
+      "revId": "09ae82296596690020b51d53a3a44314c094d73b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c33c1f99_081de6db",
@@ -71,6 +113,30 @@
       "writtenOn": "2020-11-03T08:54:33Z",
       "side": 1,
       "message": "It might make sense to also test with different styling to verify that the icon remains the same.",
+      "range": {
+        "startLine": 540,
+        "startChar": 42,
+        "endLine": 540,
+        "endChar": 58
+      },
+      "revId": "09ae82296596690020b51d53a3a44314c094d73b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2709e1f1_d54affc1",
+        "filename": "test/unittests/front_end/elements/CSSPropertyIconResolver_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-03T09:32:29Z",
+      "side": 1,
+      "message": "There is a big number of possible styles so I am not sure if it\u0027s worth it. I\u0027d expect tests to be added if we actually start taking any styles into account.",
+      "parentUuid": "c33c1f99_081de6db",
       "range": {
         "startLine": 540,
         "startChar": 42,
