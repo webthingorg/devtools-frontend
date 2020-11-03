@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2464d3d8_9b8a3b98",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-03T12:08:56Z",
+      "side": 1,
+      "message": "It sounds like this mostly matches the existing keyboard interactions for numeric values while editing CSS values, but e.g. mouse wheel is missing. Was that done on purpose? Are there any other differences?",
+      "revId": "279568739c4271bb17e76b5813c840b31832d21a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6b42c8aa_3c9e8851",
         "filename": "front_end/inline_editor/CSSAngle.ts",
         "patchSetId": 2
