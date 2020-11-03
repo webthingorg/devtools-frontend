@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59cce5e1_2da3bcbe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-03T12:52:57Z",
+      "side": 1,
+      "message": "https://media4.giphy.com/media/12XMGIWtrHBl5e/giphy.gif?cid\u003decf05e47sf8jtbk0mkqq8hcggzzz6t38ge6w0o6soc3letjh\u0026rid\u003dgiphy.gif",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 22
+      },
+      "revId": "51f87de12df551d7be944d8fd6ee98a568e3a257",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c07c4087_debdc5ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-03T12:52:57Z",
+      "side": 1,
+      "message": "I mean, I would be lying if I were to claim this is not a rubber stamp.",
+      "revId": "51f87de12df551d7be944d8fd6ee98a568e3a257",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
