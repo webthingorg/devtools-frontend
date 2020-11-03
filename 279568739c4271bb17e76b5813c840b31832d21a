@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5cb292ea_86712db3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-03T14:57:04Z",
+      "side": 1,
+      "message": "Thanks! That was a missed point on my part. I\u0027ve added that in the new patch.\n\nThere are `cmd` + action +- 100, and `alt` + action +\u003d 0.1, but I didn\u0027t add them because they are not supported on Color Spectrum either. I feel like it would not be that useful to support them on the Angle clock, when developers can just do that on the regular text value.",
+      "parentUuid": "2464d3d8_9b8a3b98",
+      "revId": "279568739c4271bb17e76b5813c840b31832d21a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6b42c8aa_3c9e8851",
         "filename": "front_end/inline_editor/CSSAngle.ts",
         "patchSetId": 2
@@ -31,6 +49,24 @@
       "writtenOn": "2020-11-03T12:00:57Z",
       "side": 1,
       "message": "getRadiansFromAngle -\u003e getAngleFromRadians seems a bit confusing to me. Perhaps:\n\n```\nconst oldUnit \u003d this.unit;\nthis.unit \u003d newUnit;\nthis.updateAngle(convertAngle(this.angle, oldUnit, newUnit));\n```\n\nAlso, it looks like angle and its unit are tightly connected. Perhaps it\u0027s worth making a separate Angle type which would hold the number and the unit?",
+      "revId": "279568739c4271bb17e76b5813c840b31832d21a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdcbe272_b051142b",
+        "filename": "front_end/inline_editor/CSSAngle.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-03T14:57:04Z",
+      "side": 1,
+      "message": "Yes they being separated seem to create too much noisy code. Let me consolidate them. Thanks!",
+      "parentUuid": "6b42c8aa_3c9e8851",
       "revId": "279568739c4271bb17e76b5813c840b31832d21a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
