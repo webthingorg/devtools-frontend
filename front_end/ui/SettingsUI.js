@@ -63,8 +63,8 @@ export const createSettingCheckbox = function(name, setting, omitParagraphElemen
 
 /**
  * @param {string} name
- * @param {!Array<!{text: string, value: *, raw: (boolean|undefined)}>} options
- * @param {boolean|undefined} requiresReload
+ * @param {!Array<!Common.Settings.SettingExtensionOption>} options
+ * @param {boolean|null} requiresReload
  * @param {!Common.Settings.Setting<*>} setting
  * @param {string=} subtitle
  * @return {!Element}
@@ -83,8 +83,10 @@ const createSettingSelect = function(name, options, requiresReload, setting, sub
 
   for (const option of options) {
     // The "raw" flag indicates text is non-i18n-izable.
-    const optionName = option.raw ? option.text : Common.UIString.UIString(option.text);
-    select.add(new Option(optionName, option.value));
+    if (option.text && typeof option.value === 'string') {
+      const optionName = option.raw ? option.text : Common.UIString.UIString(option.text);
+      select.add(new Option(optionName, option.value));
+    }
   }
 
   let reloadWarning = /** @type {?Element} */ (null);
@@ -182,23 +184,18 @@ class SettingsRuntimeExtensionDescriptor extends  // eslint-disable-line no-unus
  * @return {?Element}
  */
 export const createControlForSetting = function(setting, subtitle) {
-  const extension = setting.extension();
-  if (!extension) {
-    return null;
-  }
-  const descriptor = /** @type {!SettingsRuntimeExtensionDescriptor} */ (extension.descriptor());
   const uiTitle = Common.UIString.UIString(setting.title() || '');
-  switch (descriptor.settingType) {
-    case 'boolean':
+  switch (setting.type()) {
+    case Common.Settings.SettingType.BOOLEAN:
       return createSettingCheckbox(uiTitle, /** @type {!Common.Settings.Setting<boolean>} */ (setting));
-    case 'enum':
-      if (Array.isArray(descriptor.options)) {
-        return createSettingSelect(uiTitle, descriptor.options, descriptor.reloadRequired, setting, subtitle);
+    case Common.Settings.SettingType.ENUM:
+      if (Array.isArray(setting.options())) {
+        return createSettingSelect(uiTitle, setting.options(), setting.reloadRequired(), setting, subtitle);
       }
       console.error('Enum setting defined without options');
       return null;
     default:
-      console.error('Invalid setting type: ' + descriptor.settingType);
+      console.error('Invalid setting type: ' + setting.type());
       return null;
   }
 };
