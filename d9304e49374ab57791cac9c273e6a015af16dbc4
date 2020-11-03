@@ -63,6 +63,30 @@
       },
       "revId": "d9304e49374ab57791cac9c273e6a015af16dbc4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59e482b3_5a7f5cc5",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-03T07:05:52Z",
+      "side": 1,
+      "message": "If additional events after the first one are ignored by the model, then I don\u0027t think we need the check. I\u0027d rather have the model handle that properly (which seems to be the case)",
+      "parentUuid": "214179d2_bf5e11ea",
+      "range": {
+        "startLine": 237,
+        "startChar": 4,
+        "endLine": 237,
+        "endChar": 71
+      },
+      "revId": "d9304e49374ab57791cac9c273e6a015af16dbc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
