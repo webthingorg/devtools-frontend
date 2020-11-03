@@ -114,6 +114,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "824d94fd_fd444949",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-03T16:02:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d7b11e58_c216c5eb",
+      "range": {
+        "startLine": 54,
+        "startChar": 28,
+        "endLine": 54,
+        "endChar": 39
+      },
+      "revId": "b2e0519a7d36148bdafa04782edb7b9d50778412",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "4a397695_3494f687",
         "filename": "front_end/ui/components/DataGrid.ts",
         "patchSetId": 24
@@ -182,6 +206,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "afa875a3_23f5c47e",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-03T16:02:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "effa07ce_f6ae6a40",
+      "range": {
+        "startLine": 158,
+        "startChar": 10,
+        "endLine": 158,
+        "endChar": 36
+      },
+      "revId": "b2e0519a7d36148bdafa04782edb7b9d50778412",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3cdc3f0d_7033cc53",
@@ -231,6 +279,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8fcd54ef_b6283f36",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-03T16:02:07Z",
+      "side": 1,
+      "message": "At this point, `key` has been checked to be in `KEYS_TREATED_AS_CLICKS`. Since `KEYS_TREATED_AS_CLICKS` only contains `Enter` or the empty space, I would have assumed that `keyIsClickEquivalent` is always true, is it not?",
+      "parentUuid": "d85e76b1_8bc81fef",
+      "range": {
+        "startLine": 164,
+        "startChar": 6,
+        "endLine": 164,
+        "endChar": 66
+      },
+      "revId": "b2e0519a7d36148bdafa04782edb7b9d50778412",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d594cda4_fe4edaa0",
         "filename": "front_end/ui/components/DataGrid.ts",
         "patchSetId": 24
@@ -266,6 +338,30 @@
       "side": 1,
       "message": "Managed it with this and an assertion helper 👍",
       "parentUuid": "d594cda4_fe4edaa0",
+      "range": {
+        "startLine": 176,
+        "startChar": 18,
+        "endLine": 176,
+        "endChar": 70
+      },
+      "revId": "b2e0519a7d36148bdafa04782edb7b9d50778412",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d938657f_38631678",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-03T16:02:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6f7f01b2_c2dd91f2",
       "range": {
         "startLine": 176,
         "startChar": 18,
@@ -383,6 +479,30 @@
       "side": 1,
       "message": "Because the controller owns the sorting. So it\u0027s not something that an external entity can pass into the controller.\n\nThat said, I do think actually at some point we may extend this controller to take sort state, as I suspect it will be useful for a parent to say \"render a data grid controller that\u0027s sorted in DESC order\". But I might defer until we get there (also once we start rendering these API improvements should become clearer). Shout if you disagree, though!",
       "parentUuid": "0d1fec47_c7dfb423",
+      "range": {
+        "startLine": 13,
+        "startChar": 17,
+        "endLine": 13,
+        "endChar": 39
+      },
+      "revId": "b2e0519a7d36148bdafa04782edb7b9d50778412",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "037b56d1_d06f01bc",
+        "filename": "front_end/ui/components/DataGridController.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-03T16:02:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7397177c_7be26ac6",
       "range": {
         "startLine": 13,
         "startChar": 17,
@@ -665,6 +785,30 @@
       "side": 1,
       "message": "Yeah, I wasn\u0027t sure here. Thinking about it, we can leave this off for now as no external thing depends on them. I think generally that\u0027s the pattern we should follow (with exceptions where it makes sense).",
       "parentUuid": "1b3b555f_290aefcf",
+      "range": {
+        "startLine": 12,
+        "startChar": 2,
+        "endLine": 12,
+        "endChar": 15
+      },
+      "revId": "b2e0519a7d36148bdafa04782edb7b9d50778412",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3eb0676_26148665",
+        "filename": "front_end/ui/components/components.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-03T16:02:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b69d9434_3fbe9c69",
       "range": {
         "startLine": 12,
         "startChar": 2,
