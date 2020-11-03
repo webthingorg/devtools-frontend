@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea5a9f75_7b21e6fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1302791
+      },
+      "writtenOn": "2020-11-03T20:53:20Z",
+      "side": 1,
+      "message": "Comments have been addressed, PTAL. Also, as a reminder I could use help on figuring out how to handle the images (SVGs?) that would surround the \"Usage\" title (shown as \"Storage quota\" in the mocks deck) if the override is enabled. Right now, the title is created with ReportView.appendSection(), which takes a string, and I\u0027m not sure how I can get images to that title. Please advise.",
+      "revId": "399625ab33f2c9d8d06e857eca1cb289cac57196",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
