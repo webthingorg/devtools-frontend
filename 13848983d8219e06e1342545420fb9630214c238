@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9614f0b2_2aa188fb",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-04T14:24:56Z",
+      "side": 1,
+      "message": "nit: we\u0027ve been using camel case (memoryRequest) such that in Lit-HTML you can do `@memoryRequest\u003d` to listen to the events.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 28
+      },
+      "revId": "13848983d8219e06e1342545420fb9630214c238",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad44efe0_bfb3c9f1",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-04T14:24:56Z",
+      "side": 1,
+      "message": "it\u0027s a bit unusual for a parent component to query its children to get data like this - normally when we think of parent and child components communicating we think about parents passing data down into the child, rather than the other way up.\n\nIn this case it sounds like the viewer component knows about the numBytesPerPage, but in this case the parent wants it. We could consider moving that information into the parent, and passing that value down into the viewer (\u003clinear-memory-viewer bytesPerPage\u003d${X}\u003e) to avoid having to query the component like this to read data from it.\n\nWDYT?",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 111
+      },
+      "revId": "13848983d8219e06e1342545420fb9630214c238",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41b2c375_885dce5c",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-04T14:24:56Z",
+      "side": 1,
+      "message": "similar to my previous comment, this is quite unusual to have to query the child to get some data. Is it worth thinking about how we architect the components such that the parent knows about this data and can pass it into the children? Or could the `getPageRangeForAddress` live as a utility function? The answer might be no, and this might be the best way, but just want to make sure we think it through.\n\nAlso I\u0027d be happy to defer this sort of refactoring to a follow-up CL.",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 108
+      },
+      "revId": "13848983d8219e06e1342545420fb9630214c238",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8c398e6_57389bf6",
+        "filename": "front_end/linear_memory_inspector/linear_memory_inspector-legacy.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-04T14:24:56Z",
+      "side": 1,
+      "message": "do we still need this file? I think anywhere that wants to use the Linear Memory Inspector can do so by importing it and therefore we don\u0027t need the globals to exist ?",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 120
+      },
+      "revId": "13848983d8219e06e1342545420fb9630214c238",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb3114e7_050c18b1",
+        "filename": "test/e2e/sources/can-open-linear-memory-inspector_test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-04T14:24:56Z",
+      "side": 1,
+      "message": "I think you might be able to use the `$` helper from `tests/shared/helper.ts` to query here as it works through shadow roots.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 24
+      },
+      "revId": "13848983d8219e06e1342545420fb9630214c238",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f391071e_4f16ce91",
+        "filename": "test/e2e/sources/can-open-linear-memory-inspector_test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-04T14:24:56Z",
+      "side": 1,
+      "message": "nice work adding a e2e!",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 47
+      },
+      "revId": "13848983d8219e06e1342545420fb9630214c238",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

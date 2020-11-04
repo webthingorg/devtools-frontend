@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c3bc1df_0f1f5c63",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-04T14:24:56Z",
+      "side": 1,
+      "message": "LGTM on the whole - I have some thoughts about where data lives and how we might be able to restructure - but you\u0027re closer to this work so feel free to push back if you disagree. I\u0027m also happy to push refactors into follow-up CLs too. Let me know what you think or if anything isn\u0027t clear :)",
+      "revId": "4be0ee4af0a0a09ea01b86d835e9fd3af11633da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
