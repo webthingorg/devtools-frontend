@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cf71f9f_ee9de62b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-04T11:06:36Z",
+      "side": 1,
+      "message": "Since it is a bit unclear if all scenarios are covered, should we consider pre-emptively reverting the original CL? Then we can mitigate the initial regression, while we give ourselves time to confirm the reland is working as intende.",
+      "parentUuid": "393eddf2_51587808",
+      "revId": "e453924d838f1bdcc6d8608ecd265bad2732fba2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b92e6054_f9ef9058",
