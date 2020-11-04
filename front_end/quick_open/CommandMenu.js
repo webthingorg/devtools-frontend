@@ -39,13 +39,6 @@ export class CommandMenu {
   static createCommand(options) {
     const {category, keys, title, shortcut, executeHandler, availableHandler, userActionCode} = options;
 
-    // Get localized keys and separate by null character to prevent fuzzy matching from matching across them.
-    const keyList = keys.split(',');
-    let key = '';
-    keyList.forEach(k => {
-      key += (ls(k.trim()) + '\0');
-    });
-
     let handler = executeHandler;
     if (userActionCode) {
       const actionCode = userActionCode;
@@ -55,7 +48,7 @@ export class CommandMenu {
       };
     }
 
-    return new Command(category, title, key, shortcut, handler, availableHandler);
+    return new Command(category, title, keys, shortcut, handler, availableHandler);
   }
 
   /**
@@ -122,8 +115,8 @@ export class CommandMenu {
 
     return CommandMenu.createCommand({
       category,
-      keys: tags || '',
-      title: Common.UIString.UIString('Show %s', title),
+      keys: tags,
+      title,
       shortcut: '',
       executeHandler: UI.ViewManager.ViewManager.instance().showView.bind(
           UI.ViewManager.ViewManager.instance(), id, /* userGesture */ true),
@@ -149,11 +142,20 @@ export class CommandMenu {
         continue;
       }
       const extensionDescriptor = extension.descriptor();
+
+      const keys = extensionDescriptor.tags || '';
+      // Get localized keys and separate by null character to prevent fuzzy matching from matching across them.
+      const keyList = keys.split(',');
+      let tags = '';
+      keyList.forEach(k => {
+        tags += (ls(k.trim()) + '\0');
+      });
+
       /** @type {!RevealViewCommandOptions} */
       const options = {
         id: extensionDescriptor.id,
-        title: extensionDescriptor.title,
-        tags: extensionDescriptor.tags,
+        title: Common.UIString.UIString('Show %s', extensionDescriptor.title),
+        tags,
         category: ls(category),
         userActionCode: undefined
       };
@@ -180,7 +182,8 @@ export class CommandMenu {
   _loadCommandsFromPreRegisteredExtensions(locations) {
     const views = UI.ViewManager.getRegisteredViewExtensions();
     for (const view of views) {
-      const category = locations.get(view.location());
+      const viewLocation = view.location();
+      const category = viewLocation && locations.get(viewLocation);
       if (!category) {
         continue;
       }
@@ -188,7 +191,7 @@ export class CommandMenu {
       /** @type {!RevealViewCommandOptions} */
       const options = {
         title: view.title(),
-        tags: view.tags(),
+        tags: view.tags() || '',
         category: ls(category),
         userActionCode: undefined,
         id: view.viewId()
@@ -218,8 +221,8 @@ export let ActionCommandOptions;
 /**
  * @typedef {{
  *   id: string,
- *   title: ?string,
- *   tags: ?string,
+ *   title: string,
+ *   tags: string,
  *   category: string,
  *   userActionCode: (!Host.UserMetrics.Action|undefined)
  * }}
