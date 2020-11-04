@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a4a77506_9a32d60f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-11-04T17:00:27Z",
+      "side": 1,
+      "message": "Adding Sigurd as FYI for coverage as he knows it better but I will review tomorrow",
+      "revId": "dc72b40d3d683173ead09f9b673b3f8080f46a3c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "9c0afdea_230df282",
         "filename": "front_end/coverage/CoverageModel.js",
         "patchSetId": 1
