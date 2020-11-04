@@ -1112,6 +1112,14 @@ class IssueCategoryView extends UI.TreeOutline.TreeElement {
   }
 }
 
+// TODO(petermarshall, 1112738): Add survey triggers here.
+/** @type {!Map<!SDK.Issue.IssueCategory, string|null>} */
+const IssueSurveyTriggers = new Map([
+  [SDK.Issue.IssueCategory.CrossOriginEmbedderPolicy, null], [SDK.Issue.IssueCategory.MixedContent, null],
+  [SDK.Issue.IssueCategory.SameSiteCookie, null], [SDK.Issue.IssueCategory.HeavyAd, null],
+  [SDK.Issue.IssueCategory.ContentSecurityPolicy, null], [SDK.Issue.IssueCategory.Other, null]
+]);
+
 class IssueView extends UI.TreeOutline.TreeElement {
   /**
    *
@@ -1247,6 +1255,7 @@ class IssueView extends UI.TreeOutline.TreeElement {
   }
 
   _createReadMoreLinks() {
+    // TODO(petermarshall): Show survey links even when there are no read more links.
     if (this._description.links.length === 0) {
       return;
     }
@@ -1276,6 +1285,51 @@ class IssueView extends UI.TreeOutline.TreeElement {
       linkListItem.appendChild(link);
     }
     this.appendChild(linkWrapper);
+
+    const surveyTrigger = IssueSurveyTriggers.get(this._issue.getCategory());
+    if (surveyTrigger) {
+      this._addSurveyLinkIfPossible(linkList, surveyTrigger);
+    }
+  }
+
+  /**
+   *
+   * @param {!HTMLElement} linkList
+   * @param {string} surveyTrigger
+   */
+  _addSurveyLinkIfPossible(linkList, surveyTrigger) {
+    // Survey link. The UI gets async here because we need to check with the backend first to see
+    // whether we should display the survey link at all.
+    Host.InspectorFrontendHost.InspectorFrontendHostInstance.canShowSurvey(surveyTrigger, response => {
+      if (!response.canShowSurvey) {
+        return;
+      }
+      const linkIcon = Elements.Icon.createIcon();
+      linkIcon.data = {iconName: 'feedback_thin_16x16_icon', color: 'var(--issue-link)', width: '16px', height: '16px'};
+      linkIcon.classList.add('link-icon');
+      const link = document.createElement('a');
+      link.classList.add('link', 'devtools-link');
+      link.onclick = () => {
+        link.innerText = ls`Opening survey …`;
+        link.prepend(linkIcon);
+        link.classList.add('pending-link');
+        Host.InspectorFrontendHost.InspectorFrontendHostInstance.showSurvey(surveyTrigger, response => {
+          if (response.surveyShown) {
+            link.innerText = ls`Thank you for your feedback`;
+          } else {
+            link.innerText = ls`An error occurred with the survey`;
+            console.error('Survey error. response: ', response);
+          }
+          link.prepend(linkIcon);
+          link.classList.remove('pending-link');
+          link.classList.add('disabled-link');
+        });
+      };
+      link.innerText = ls`Is this issue message helpful to you?`;
+      link.prepend(linkIcon);
+
+      linkList.createChild('li').appendChild(link);
+    });
   }
 
   update() {
