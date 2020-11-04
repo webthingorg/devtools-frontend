@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "b34b5e393745aa19d7bfef0942a9fc30913d9ee6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2b1760d_8ef0c982",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-11-04T17:05:28Z",
+      "side": 1,
+      "message": "Alex can you please review? And then we can get a stamp from an owner for persistence. I think nobody knows persistence that well",
+      "revId": "b34b5e393745aa19d7bfef0942a9fc30913d9ee6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
