@@ -16,6 +16,24 @@
       "message": "it could be event a class an encapsulate conversion methods, e.g.,\n\nAngle::To(AngleUnit):Angle\nAngle::Add(value: number, unit: AngleUnit):Angle\nAngle::RoundTo15Deg():Angle\n\nSo that the conversion logic does not leak into the UI.",
       "revId": "227d345692cc094838125bd98b06f17d7b02693f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bf80e08_af872507",
+        "filename": "front_end/inline_editor/CSSAngleUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-04T08:29:59Z",
+      "side": 1,
+      "message": "Sounds good. I\u0027ll make something in this direction in a clean-up CL soon. Thanks :)",
+      "parentUuid": "a4d446bc_bcc9dff0",
+      "revId": "227d345692cc094838125bd98b06f17d7b02693f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
