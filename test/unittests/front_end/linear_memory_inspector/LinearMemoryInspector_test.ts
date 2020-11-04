@@ -49,6 +49,7 @@ describe('LinearMemoryInspector', () => {
     const data = {
       memory: new Uint8Array(memory),
       address: 20,
+      memoryOffset: 0,
     };
     component.data = data;
 
