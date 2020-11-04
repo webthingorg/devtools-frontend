@@ -10,6 +10,8 @@ import * as CSSAngleRegex from './CSSAngleRegex.js';
 import * as CSSShadowEditor from './CSSShadowEditor.js';
 import * as CSSShadowModel from './CSSShadowModel.js';
 import * as CSSVarSwatch from './CSSVarSwatch_bridge.js';
+import * as FontEditor from './FontEditor.js';
+import * as FontEditorUtils from './FontEditorUtils.js';
 import * as Swatches from './Swatches.js';
 import * as SwatchPopoverHelper from './SwatchPopoverHelper.js';
 
@@ -22,6 +24,8 @@ export {
   CSSShadowEditor,
   CSSShadowModel,
   CSSVarSwatch,
+  FontEditor,
+  FontEditorUtils,
   Swatches,
   SwatchPopoverHelper,
 };
