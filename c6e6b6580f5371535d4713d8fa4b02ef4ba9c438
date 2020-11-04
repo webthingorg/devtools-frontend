@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "843cd31c_78a06a56",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-04T12:37:16Z",
+      "side": 1,
+      "message": "Hi Jack and Alex!\n\nI\u0027m adding the part to show the linear memory inspector. This required also some changes in how we handle the Uint8Array, as the memory is too big to be transferred in one go.\n\nI\u0027ve updated the doc, here are the relevant sections (marked with NEW):\n\nhttps://docs.google.com/document/d/1LUOat3Q3pQ08IsnBQLrvL-4zWXSTgIuArb5ig3lEm-Y/edit#bookmark\u003did.koahcbpzoeg4\n\nhttps://docs.google.com/document/d/1LUOat3Q3pQ08IsnBQLrvL-4zWXSTgIuArb5ig3lEm-Y/edit#bookmark\u003did.jqbiuiwsck37\n\nPTAL!\n\nPS: Redness is due to web tests not finding linear_memory_inspector-legacy.js; trying to find out what\u0027s happening at the moment.\n\n",
+      "revId": "c6e6b6580f5371535d4713d8fa4b02ef4ba9c438",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
