@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3b71b2ed_756deb72",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-04T18:23:59Z",
+      "side": 1,
+      "message": "FYI, the `Bug:` line needs to go in the footer, near `Change-Id:`. You can also use Fixed: to automatically close the bug once this CL lands. I\u0027ll edit the commit message for you.",
+      "revId": "493ec6ac0d52afa2956d2c7c8d571154ea7c2512",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "db4ad06b_154337f8",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
