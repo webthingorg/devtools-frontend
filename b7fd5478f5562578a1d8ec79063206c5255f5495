@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df44772e_2f4612e0",
+        "filename": "front_end/resources/ClearStorageView.js",
+        "patchSetId": 23
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-11-04T16:01:27Z",
+      "side": 1,
+      "message": "Can this overflow?",
+      "revId": "b7fd5478f5562578a1d8ec79063206c5255f5495",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14a0a14c_ec81d2ce",
+        "filename": "front_end/resources/ClearStorageView.js",
+        "patchSetId": 23
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-11-04T16:01:27Z",
+      "side": 1,
+      "message": "I am confused about handling negative values for quotaInBytes. Would early return work too?",
+      "revId": "b7fd5478f5562578a1d8ec79063206c5255f5495",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
