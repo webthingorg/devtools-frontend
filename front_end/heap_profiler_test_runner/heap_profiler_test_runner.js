@@ -727,7 +727,7 @@ HeapProfilerTestRunner._waitUntilProfileViewIsShown = function(title, callback) 
   const profilesPanel = UI.panels.heap_profiler;
 
   if (profilesPanel.visibleView && profilesPanel.visibleView.profile &&
-      profilesPanel.visibleView._profileHeader.title === title) {
+      profilesPanel.visibleView.profileHeader.title === title) {
     callback(profilesPanel.visibleView);
   } else {
     HeapProfilerTestRunner._waitUntilProfileViewIsShownCallback = {title: title, callback: callback};
@@ -736,7 +736,7 @@ HeapProfilerTestRunner._waitUntilProfileViewIsShown = function(title, callback) 
 
 HeapProfilerTestRunner._profileViewRefresh = function() {
   if (HeapProfilerTestRunner._waitUntilProfileViewIsShownCallback &&
-      HeapProfilerTestRunner._waitUntilProfileViewIsShownCallback.title === this._profileHeader.title) {
+      HeapProfilerTestRunner._waitUntilProfileViewIsShownCallback.title === this.profileHeader.title) {
     const callback = HeapProfilerTestRunner._waitUntilProfileViewIsShownCallback;
     delete HeapProfilerTestRunner._waitUntilProfileViewIsShownCallback;
     callback.callback(this);
