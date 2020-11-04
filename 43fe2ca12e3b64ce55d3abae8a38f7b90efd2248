@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1f757d1b_a24685c7",
+        "filename": "front_end/perf_ui/OverviewGrid.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-04T08:14:01Z",
+      "side": 1,
+      "message": "yeah that\u0027s just a mistake on my part from wrangling it to be correct. Will fix.",
+      "parentUuid": "c0d56160_cc9b9cc4",
+      "range": {
+        "startLine": 536,
+        "startChar": 0,
+        "endLine": 537,
+        "endChar": 33
+      },
+      "revId": "43fe2ca12e3b64ce55d3abae8a38f7b90efd2248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6ea910b1_36fb5955",
         "filename": "front_end/perf_ui/OverviewGrid.js",
         "patchSetId": 4
@@ -54,6 +78,30 @@
       "writtenOn": "2020-11-04T07:42:01Z",
       "side": 1,
       "message": "nit: Can we have a tracking bug for this, or add it to the TS bug?",
+      "range": {
+        "startLine": 587,
+        "startChar": 4,
+        "endLine": 587,
+        "endChar": 11
+      },
+      "revId": "43fe2ca12e3b64ce55d3abae8a38f7b90efd2248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "360bc78f_bfd7d7fa",
+        "filename": "front_end/perf_ui/OverviewGrid.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-04T08:14:01Z",
+      "side": 1,
+      "message": "Yes, good idea. I noted another call site where we use MouseWheelEvent, so I can mark those too if you\u0027re okay with a drive-by comment?",
+      "parentUuid": "6ea910b1_36fb5955",
       "range": {
         "startLine": 587,
         "startChar": 4,
