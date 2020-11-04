@@ -10,6 +10,7 @@ const {render, html} = LitHtml;
 export interface LinearMemoryViewerData {
   memory: Uint8Array;
   address: number;
+  memoryOffset: number;
 }
 
 export class ByteSelectedEvent extends Event {
@@ -21,10 +22,17 @@ export class ByteSelectedEvent extends Event {
   }
 }
 
+
+export class ResizeEvent extends Event {
+  constructor() {
+    super('resize');
+  }
+}
 interface PageViewData {
   address: number;
   numRows: number;
   numBytesPerRow: number;
+  memoryOffset: number;
 }
 
 // Helper class to gather the data on the view which is actually shown,
@@ -35,28 +43,35 @@ class PageView {
   readonly selectedAddress: number;
   readonly numRows: number;
   readonly numBytesPerRow: number;
+  private readonly memoryOffset: number;
 
   constructor(data: PageViewData) {
+    this.memoryOffset = data.memoryOffset;
     this.numRows = data.numRows;
     this.numBytesPerRow = data.numBytesPerRow;
     this.selectedAddress = data.address;
-
-    const bytesPerPage = this.getNumBytesPerPage();
-    const pageNumber = Math.floor(this.selectedAddress / bytesPerPage);
-    this.pageStartAddress = pageNumber * this.getNumBytesPerPage();
+    const {start} = this.getPageRangeForAddress(this.selectedAddress);
+    this.pageStartAddress = start;
 
     const selectedAddressOffset = this.getOffsetFromPageStart(this.selectedAddress);
     this.selectedRow = Math.floor(selectedAddressOffset / this.numBytesPerRow);
   }
 
   getRowIndexRange(row: number) {
-    const startIndex = this.pageStartAddress + row * this.numBytesPerRow;
+    const startIndex = this.pageStartAddress + row * this.numBytesPerRow - this.memoryOffset;
     const endIndex = startIndex + this.numBytesPerRow;
     return {startIndex, endIndex};
   }
 
   getNumBytesPerPage() {
     return this.numBytesPerRow * this.numRows;
+  }
+
+  getPageRangeForAddress(address: number) {
+    const bytesPerPage = this.getNumBytesPerPage();
+    const pageNumber = Math.floor(address / bytesPerPage);
+    const pageStartAddress = pageNumber * this.getNumBytesPerPage();
+    return {start: pageStartAddress, end: pageStartAddress + bytesPerPage};
   }
 
   private getOffsetFromPageStart(address: number) {
@@ -66,20 +81,35 @@ class PageView {
 
 export class LinearMemoryViewer extends HTMLElement {
   private static BYTE_GROUP_MARGIN = 8;
+  private static BYTE_GROUP_SIZE = 4;
   private readonly shadow = this.attachShadow({mode: 'open'});
 
-  private readonly resizeObserver = new ResizeObserver(() => this.update());
+  private readonly resizeObserver = new ResizeObserver(() => this.resize());
   private isObservingResize = false;
 
   private memory = new Uint8Array();
   private address = 0;
-  private byteGroupSize = 4;
+  private memoryOffset = 0;
 
-  private pageView = new PageView({address: this.address, numRows: 1, numBytesPerRow: this.byteGroupSize});
+  private pageView = new PageView({
+    address: this.address,
+    numRows: 1,
+    numBytesPerRow: LinearMemoryViewer.BYTE_GROUP_SIZE,
+    memoryOffset: this.memoryOffset,
+  });
 
   set data(data: LinearMemoryViewerData) {
+    if (data.address < data.memoryOffset || data.address > data.memoryOffset + data.memory.length || data.address < 0) {
+      throw new Error('Address is out of bounds.');
+    }
+
+    if (data.memoryOffset < 0) {
+      throw new Error('Memory offset has to be greater or equal to zero.');
+    }
+
     this.memory = data.memory;
     this.address = data.address;
+    this.memoryOffset = data.memoryOffset;
     this.update();
   }
 
@@ -92,15 +122,35 @@ export class LinearMemoryViewer extends HTMLElement {
     return this.pageView.getNumBytesPerPage();
   }
 
+  getPageRangeForAddress(address: number) {
+    if (address < 0) {
+      throw new Error('Address should be greater or equal to zero.');
+    }
+    return this.pageView.getPageRangeForAddress(address);
+  }
+
   private update() {
     this.updatePageView();
     this.render();
     this.engageResizeObserver();
   }
 
+  private resize() {
+    // A memory request currently takes too much time, so for the time being
+    // update with whatever data we have, and request for more memory to fill
+    // the screen if applicable after.
+    this.update();
+    this.dispatchEvent(new ResizeEvent());
+  }
+
   /** Recomputes the number of rows and (byte) columns that fit into the current view. */
   private updatePageView() {
-    const fallbackPageView = new PageView({address: this.address, numRows: 1, numBytesPerRow: this.byteGroupSize});
+    const fallbackPageView = new PageView({
+      address: this.address,
+      numRows: 1,
+      numBytesPerRow: LinearMemoryViewer.BYTE_GROUP_SIZE,
+      memoryOffset: this.memoryOffset,
+    });
     if (this.clientWidth === 0 || this.clientHeight === 0 || !this.shadowRoot) {
       this.pageView = fallbackPageView;
       return;
@@ -128,7 +178,8 @@ export class LinearMemoryViewer extends HTMLElement {
     // Calculate the width required for each (unsplittable) group of bytes.
     const byteCellWidth = firstByteCell.getBoundingClientRect().width;
     const textCellWidth = textCell.getBoundingClientRect().width;
-    const groupWidth = this.byteGroupSize * (byteCellWidth + textCellWidth) + LinearMemoryViewer.BYTE_GROUP_MARGIN;
+    const groupWidth =
+        LinearMemoryViewer.BYTE_GROUP_SIZE * (byteCellWidth + textCellWidth) + LinearMemoryViewer.BYTE_GROUP_MARGIN;
 
     // Calculate the width to fill.
     const dividerWidth = divider.getBoundingClientRect().width;
@@ -138,11 +189,10 @@ export class LinearMemoryViewer extends HTMLElement {
       return;
     }
 
-    const numBytesPerRow = Math.floor(widthToFill / groupWidth) * this.byteGroupSize;
-    const maxNumRows = Math.ceil(this.memory.length / numBytesPerRow);
-    const numRows = Math.min(Math.floor(this.clientHeight / rowElement.getBoundingClientRect().height), maxNumRows);
+    const numBytesPerRow = Math.floor(widthToFill / groupWidth) * LinearMemoryViewer.BYTE_GROUP_SIZE;
+    const numRows = Math.floor(this.clientHeight / rowElement.getBoundingClientRect().height);
 
-    this.pageView = new PageView({address: this.address, numRows, numBytesPerRow});
+    this.pageView = new PageView({address: this.address, numRows, numBytesPerRow, memoryOffset: this.memoryOffset});
   }
 
   private engageResizeObserver() {
@@ -240,7 +290,7 @@ export class LinearMemoryViewer extends HTMLElement {
     };
     return html`
     <div class="row">
-      <span class="${LitHtml.Directives.classMap(classMap)}">${toHexString(startIndex, 8)}</span>
+      <span class="${LitHtml.Directives.classMap(classMap)}">${toHexString(startIndex + this.memoryOffset, 8)}</span>
       <span class="divider"></span>
       ${this.renderByteValues(startIndex, endIndex)}
       <span class="divider"></span>
@@ -253,16 +303,16 @@ export class LinearMemoryViewer extends HTMLElement {
     const cells = [];
     for (let i = startIndex; i < endIndex; ++i) {
       // Add margin after each group of bytes of size byteGroupSize.
-      const addMargin = i !== startIndex && (i - startIndex) % this.byteGroupSize === 0;
+      const addMargin = i !== startIndex && (i - startIndex) % LinearMemoryViewer.BYTE_GROUP_SIZE === 0;
       const classMap = {
         'cell': true,
         'byte-cell': true,
         'byte-group-margin': addMargin,
-        selected: i === this.address,
+        selected: i === this.address - this.memoryOffset,
       };
       const byteValue = i < this.memory.length ? html`${toHexString(this.memory[i], 2)}` : '';
       cells.push(html`
-        <span class="${LitHtml.Directives.classMap(classMap)}" @click=${this.onSelectedByte(i)}>
+        <span class="${LitHtml.Directives.classMap(classMap)}" @click=${this.onSelectedByte(i + this.memoryOffset)}>
           ${byteValue}
         </span>`);
     }
@@ -275,7 +325,7 @@ export class LinearMemoryViewer extends HTMLElement {
       const classMap = {
         'cell': true,
         'text-cell': true,
-        selected: this.address === i,
+        selected: this.address === i - this.memoryOffset,
       };
       const value = i < this.memory.length ? html`${this.toAscii(this.memory[i])}` : '';
       cells.push(html`<span class="${LitHtml.Directives.classMap(classMap)}">${value}</span>`);
