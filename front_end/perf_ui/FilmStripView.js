@@ -71,9 +71,14 @@ export class FilmStripView extends UI.Widget.HBox {
    */
   createFrameElement(frame) {
     const time = frame.timestamp;
+    const frameTime = Number.millisToString(time - this._zeroTime);
     const element = document.createElement('div');
     element.classList.add('frame');
     element.title = Common.UIString.UIString('Doubleclick to zoom image. Click to view preceding requests.');
+    element.createChild('div', 'time').textContent = frameTime;
+    element.tabIndex = 0;
+    element.setAttribute('aria-label', ls`Screenshot for ${frameTime} - select to view preceding requests.`);
+    UI.ARIAUtils.markAsButton(element);
     element.createChild('div', 'time').textContent = Number.millisToString(time - this._zeroTime);
     const imageElement = /** @type {!HTMLImageElement} */ (element.createChild('div', 'thumbnail').createChild('img'));
     imageElement.alt = ls`Screenshot`;
@@ -81,6 +86,13 @@ export class FilmStripView extends UI.Widget.HBox {
     element.addEventListener('mouseenter', this._onMouseEvent.bind(this, Events.FrameEnter, time), false);
     element.addEventListener('mouseout', this._onMouseEvent.bind(this, Events.FrameExit, time), false);
     element.addEventListener('dblclick', this._onDoubleClick.bind(this, frame), false);
+    element.addEventListener('focusin', this._onMouseEvent.bind(this, Events.FrameEnter, time), false);
+    element.addEventListener('focusout', this._onMouseEvent.bind(this, Events.FrameExit, time), false);
+    element.addEventListener('keydown', event => {
+      if (event.code === 'Enter' || event.code === 'Space') {
+        this._onMouseEvent(Events.FrameSelected, time);
+      }
+    });
 
     return frame.imageDataPromise().then(FilmStripView._setImageData.bind(null, imageElement)).then(returnElement);
     /**
