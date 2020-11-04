@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4817a534_35f6a7e7",
+        "filename": "front_end/timeline/TimelineEventOverview.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 792,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-04T12:37:23Z",
+      "side": 0,
+      "message": "So as far as I can tell, this type was wrong. First of all, because it only specified 1 generic. Second of all, because it wasn\u0027t storing CoverageInfo at all.\n\nThis map is used later with the assumption that it contains numbers as keys and values, so I changed it to that. I have a slight hunch the code is wrong here on line 810, where it should use `info` instead of `stamp`, but I have no clue whether that is actually correct. To, me it seems more logical to do the lookup based on the `info` rather than the `stamp`, but I also don\u0027t know what values the `stamp` could potentially represent. Since if it is a timestamp (my assumption), then I think having `number`s as lookup is not that bad actually, since they tend to be unique.",
+      "range": {
+        "startLine": 792,
+        "startChar": 4,
+        "endLine": 792,
+        "endChar": 61
+      },
+      "revId": "771ed6daa98fef0c4b37f58e888be3e16419bcba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
