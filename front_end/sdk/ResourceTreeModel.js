@@ -1067,6 +1067,7 @@ export class PageDispatcher {
  * @param {!Protocol.Page.DocumentOpenEvent} event
  */
   documentOpen({frame}) {
+    this._resourceTreeModel._frameNavigated(frame);
   }
 
   /**
