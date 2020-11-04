@@ -1063,6 +1063,14 @@ export class PageDispatcher {
   }
 
   /**
+ * @override
+ * @param {!Protocol.Page.DocumentOpenEvent} event
+ */
+  documentOpen({frame}) {
+    this._resourceTreeModel._frameNavigated(frame);
+  }
+
+  /**
    * @override
    * @param {!Protocol.Page.FrameDetachedEvent} event
    */
