@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "fb98e21a45bb14279d2d2c610b95f127535b954d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf25f6af_70ee96da",
+        "filename": "front_end/network/NetworkLogViewColumns.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-04T09:36:09Z",
+      "side": 1,
+      "message": "looking at the old code, we should probably add an `else` that removes the columnId?",
+      "range": {
+        "startLine": 434,
+        "startChar": 8,
+        "endLine": 436,
+        "endChar": 9
+      },
+      "revId": "fb98e21a45bb14279d2d2c610b95f127535b954d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
