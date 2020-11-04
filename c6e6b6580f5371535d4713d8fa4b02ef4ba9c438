@@ -125,6 +125,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7eb471f6_7cd74865",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-04T13:32:22Z",
+      "side": 1,
+      "message": "Events are sent and processed in order. But I think the handler of the events (fetching from the remote array) is async. So I am not sure if it\u0027d be fetching things in order if one of the requests takes longer.",
+      "parentUuid": "2e270c16_b1419455",
+      "revId": "c6e6b6580f5371535d4713d8fa4b02ef4ba9c438",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "775b9376_267c43ec",
         "filename": "front_end/linear_memory_inspector/LinearMemoryInspectorPane.js",
         "patchSetId": 9
