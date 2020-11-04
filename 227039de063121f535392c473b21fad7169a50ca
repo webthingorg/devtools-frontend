@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0249268e_48ba4856",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-04T07:43:15Z",
+      "side": 1,
+      "message": "LGTM % nits",
+      "revId": "227039de063121f535392c473b21fad7169a50ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b101419f_553abf25",
+        "filename": "front_end/perf_ui/FilmStripView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-04T07:43:15Z",
+      "side": 1,
+      "message": "UI text nit: instead of the comma, it feels like we should use either `;` or ` — `\n\n    ls`Screenshot for ${frameTime} — select to view preceding requests.`",
+      "range": {
+        "startLine": 74,
+        "startChar": 69,
+        "endLine": 74,
+        "endChar": 70
+      },
+      "revId": "227039de063121f535392c473b21fad7169a50ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adb2f779_7a7b7460",
+        "filename": "front_end/perf_ui/FilmStripView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-04T07:43:15Z",
+      "side": 1,
+      "message": "`false` is the implicit default, so let\u0027s not pass it unnecessarily",
+      "range": {
+        "startLine": 88,
+        "startChar": 7,
+        "endLine": 88,
+        "endChar": 12
+      },
+      "revId": "227039de063121f535392c473b21fad7169a50ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
