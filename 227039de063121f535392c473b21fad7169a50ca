@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "56fed4de_c96e0cd0",
+        "filename": "front_end/perf_ui/FilmStripView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-11-04T17:01:04Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "b101419f_553abf25",
+      "range": {
+        "startLine": 74,
+        "startChar": 69,
+        "endLine": 74,
+        "endChar": 70
+      },
+      "revId": "227039de063121f535392c473b21fad7169a50ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "adb2f779_7a7b7460",
@@ -71,6 +95,30 @@
       "writtenOn": "2020-11-04T07:43:15Z",
       "side": 1,
       "message": "`false` is the implicit default, so let\u0027s not pass it unnecessarily",
+      "range": {
+        "startLine": 88,
+        "startChar": 7,
+        "endLine": 88,
+        "endChar": 12
+      },
+      "revId": "227039de063121f535392c473b21fad7169a50ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e1e5fc2_c0e97631",
+        "filename": "front_end/perf_ui/FilmStripView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-11-04T17:01:04Z",
+      "side": 1,
+      "message": "Done, updated.",
+      "parentUuid": "adb2f779_7a7b7460",
       "range": {
         "startLine": 88,
         "startChar": 7,
