@@ -22,7 +22,7 @@ describe('The Network Tab', async () => {
   });
 
   // Flaky test
-  it.skip('[crbug.com/1066813] shows Last-Modified', async () => {
+  it.repeat(100, '[crbug.com/1066813] shows Last-Modified', async () => {
     const {frontend, target} = getBrowserAndPages();
     await navigateToNetworkTab('last-modified.html');
 
@@ -50,6 +50,14 @@ describe('The Network Tab', async () => {
     const lastModifiedColumnValues = await frontend.evaluate(() => {
       return Array.from(document.querySelectorAll('.last-modified-column')).map(message => message.textContent);
     });
+    /*
+    const lastModifiedColumnCells = await $$('.last-modified-column');
+    assert.strictEqual(lastModifiedColumnCells.length, 3);
+
+    const lastModifiedColumnValues = await Promise.all(
+      lastModifiedColumnCells.map(
+        cellHandle => cellHandle.evaluate(cell => cell.textContent)));
+ */
 
     assert.deepEqual(lastModifiedColumnValues, [
       'Last-Modified',
@@ -59,11 +67,15 @@ describe('The Network Tab', async () => {
   });
 
   // Flaky test
-  it.skip('[crbug.com/1066813] shows the HTML response including cyrillic characters with utf-8 encoding', async () => {
+  it.repeat(100, '[crbug.com/1066813] shows the HTML response including cyrillic characters with utf-8 encoding', async () => {
+    const {target} = getBrowserAndPages();
     await navigateToNetworkTab('utf-8.rawresponse');
 
+    // Reload to populate network request table
+    await target.reload();
+
     // Wait for the column to show up and populate its values
-    await waitForSomeRequestsToAppear(2);
+    await waitForSomeRequestsToAppear(1);
 
     // Open the HTML file that was loaded
     await click('td.name-column');
@@ -83,17 +95,17 @@ describe('The Network Tab', async () => {
   });
 
   // Flaky test
-  it.skip('[crbug.com/1066813] shows the correct MIME type when resources came from HTTP cache', async () => {
+  it.repeat(100, '[crbug.com/1066813] shows the correct MIME type when resources came from HTTP cache', async () => {
     const {target, frontend} = getBrowserAndPages();
 
     await navigateToNetworkTab('resources-from-cache.html');
 
-    // Wait for the column to show up and populate its values
-    await waitForSomeRequestsToAppear(3);
-
     // Reload the page without a cache, to force a fresh load of the network resources
     await click('[aria-label="Disable cache"]');
     await target.reload({waitUntil: 'networkidle2'});
+
+    // Wait for the column to show up and populate its values
+    await waitForSomeRequestsToAppear(2);
 
     // Get the size of the first two network request responses (excluding header and favicon.ico).
     const getNetworkRequestSize = () => frontend.evaluate(() => {
@@ -118,6 +130,8 @@ describe('The Network Tab', async () => {
     // Allow resources from the cache again and reload the page to load from cache
     await click('[aria-label="Disable cache"]');
     await target.reload({waitUntil: 'networkidle2'});
+    // Wait for the column to show up and populate its values
+    await waitForSomeRequestsToAppear(2);
 
     assert.deepEqual(await getNetworkRequestSize(), [
       `${formatByteSize(338)}${formatByteSize(219)}`,
