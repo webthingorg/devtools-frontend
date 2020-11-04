@@ -16,6 +16,23 @@
       "message": "Rebase of patch set 3 applied.  PTAL",
       "revId": "928496def0d9f3e6ee48cafd593135006e31188a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd749b0c_5b1ff1e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1459949
+      },
+      "writtenOn": "2020-11-04T04:30:00Z",
+      "side": 1,
+      "message": "Request reviewer run Try Jobs via CQ Dry Run",
+      "revId": "928496def0d9f3e6ee48cafd593135006e31188a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
