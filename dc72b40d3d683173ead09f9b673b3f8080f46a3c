@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "27fcb3e7_6f7b770a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-04T16:59:30Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "dc72b40d3d683173ead09f9b673b3f8080f46a3c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "9c0afdea_230df282",
         "filename": "front_end/coverage/CoverageModel.js",
         "patchSetId": 1
@@ -14,6 +31,30 @@
       "writtenOn": "2020-11-04T12:37:23Z",
       "side": 1,
       "message": "This type was previously implicitly `Map\u003cany, any\u003e`. We should double-check if the `--no-implicit-any` rule correctly errors on this for TypeScript-authored files.",
+      "range": {
+        "startLine": 851,
+        "startChar": 4,
+        "endLine": 851,
+        "endChar": 39
+      },
+      "revId": "dc72b40d3d683173ead09f9b673b3f8080f46a3c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4ff02e6_fbb117ca",
+        "filename": "front_end/coverage/CoverageModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 851,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-04T16:59:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9c0afdea_230df282",
       "range": {
         "startLine": 851,
         "startChar": 4,
