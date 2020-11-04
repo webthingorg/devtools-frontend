@@ -1257,6 +1257,11 @@ export namespace ProtocolMapping {
     /**
      * Sets breakpoint on particular operation with DOM.
      */
+    'DOMDebugger.setBreakOnCSPViolation':
+        {paramsType: [Protocol.DOMDebugger.SetBreakOnCSPViolationRequest]; returnType: void;};
+    /**
+     * Sets breakpoint on particular operation with DOM.
+     */
     'DOMDebugger.setDOMBreakpoint': {paramsType: [Protocol.DOMDebugger.SetDOMBreakpointRequest]; returnType: void;};
     /**
      * Sets breakpoint on particular DOM event.
