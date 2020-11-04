@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d8d652bc_efc2c8d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-04T16:58:11Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "800d153783350ada2027dfb7c3afb5244f0b63a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c625bc28_37010d7c",
         "filename": "front_end/timeline/TimelinePanel.js",
         "patchSetId": 1
