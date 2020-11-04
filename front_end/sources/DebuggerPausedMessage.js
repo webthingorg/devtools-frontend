@@ -101,7 +101,20 @@ export class DebuggerPausedMessage {
         details.reason === SDK.DebuggerModel.BreakReason.Assert || details.reason === SDK.DebuggerModel.BreakReason.OOM;
     let messageWrapper;
     if (details.reason === SDK.DebuggerModel.BreakReason.DOM) {
-      messageWrapper = await DebuggerPausedMessage._createDOMBreakpointHitMessage(details);
+      if (details.auxData && details.auxData['violationType']) {
+        const text = /** @type {string} */ (details.auxData && details.auxData['violationType']) ?
+            details.auxData['violationType'] :
+            '';
+        if (text === Protocol.DOMDebugger.CSPViolationType.TrustedTypeSinkViolation) {
+          messageWrapper =
+              buildWrapper(Common.UIString.UIString('Paused on CSP violation'), 'Trusted Type Sink Violation');
+        } else {
+          messageWrapper =
+              buildWrapper(Common.UIString.UIString('Paused on CSP violation'), 'Trusted Type Policy Violation');
+        }
+      } else {
+        messageWrapper = await DebuggerPausedMessage._createDOMBreakpointHitMessage(details);
+      }
     } else if (details.reason === SDK.DebuggerModel.BreakReason.EventListener) {
       let eventNameForUI = '';
       if (details.auxData) {
