@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "60305500_8cbd6f1f",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-04T14:27:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e916da6a_e6384521",
+      "revId": "c6e6b6580f5371535d4713d8fa4b02ef4ba9c438",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "24003133_6e7d1c53",
