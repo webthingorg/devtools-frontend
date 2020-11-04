@@ -48,7 +48,7 @@ export class CPUProfileView extends ProfileView {
    */
   constructor(profileHeader) {
     super();
-    this._profileHeader = profileHeader;
+    this.profileHeader = profileHeader;
     this.initialize(new NodeFormatter(this));
     const profile = profileHeader.profileModel();
     this.adjustedTotal = profile.profileHead.total;
@@ -62,7 +62,7 @@ export class CPUProfileView extends ProfileView {
   wasShown() {
     super.wasShown();
     PerfUI.LineLevelProfile.Performance.instance().reset();
-    PerfUI.LineLevelProfile.Performance.instance().appendCPUProfile(this._profileHeader.profileModel());
+    PerfUI.LineLevelProfile.Performance.instance().appendCPUProfile(this.profileHeader.profileModel());
   }
 
   /**
@@ -85,7 +85,7 @@ export class CPUProfileView extends ProfileView {
    * @return {!ProfileFlameChartDataProvider}
    */
   createFlameChartDataProvider() {
-    return new CPUFlameChartDataProvider(this._profileHeader.profileModel(), this._profileHeader._cpuProfilerModel);
+    return new CPUFlameChartDataProvider(this.profileHeader.profileModel(), this.profileHeader._cpuProfilerModel);
   }
 }
 
@@ -320,7 +320,7 @@ export class NodeFormatter {
    * @return {?Element}
    */
   linkifyNode(node) {
-    const cpuProfilerModel = this._profileView._profileHeader._cpuProfilerModel;
+    const cpuProfilerModel = this._profileView.profileHeader._cpuProfilerModel;
     const target = cpuProfilerModel ? cpuProfilerModel.target() : null;
     const options = {className: 'profile-node-file'};
     return this._profileView.linkifier().maybeLinkifyConsoleCallFrame(target, node.profileNode.callFrame, options);
