@@ -247,6 +247,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ab85706_07dc559d",
+        "filename": "front_end/inline_editor/FontEditorUtils.js",
+        "patchSetId": 45
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-04T20:51:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bdcdc42c_c1e4b21f",
+      "revId": "9a7d00a2f06b7ef47da93a1a862ad2f129ad3de3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "57ffc359_39045685",
