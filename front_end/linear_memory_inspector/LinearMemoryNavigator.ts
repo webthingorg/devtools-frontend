@@ -49,6 +49,9 @@ export class LinearMemoryNavigator extends HTMLElement {
   private address: number = 0;
 
   set data(data: LinearMemoryNavigatorData) {
+    if (data.address < 0) {
+      throw new Error('Address should be greater or equal to zero.');
+    }
     this.address = data.address;
     this.render();
   }
