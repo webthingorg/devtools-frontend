@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7fd3d5d5_5e160101",
+        "filename": "front_end/elements/CSSPropertyIconResolver.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-04T09:12:17Z",
+      "side": 1,
+      "message": "We show the icons for any element and it\u0027s not necessarily a flex item. I am not sure about the cases when the parent node is missing but judging by the types it could happen. I will fallback to an empty map if the styles are not defined for some reason.",
+      "parentUuid": "93455e24_e911d784",
+      "range": {
+        "startLine": 287,
+        "startChar": 40,
+        "endLine": 287,
+        "endChar": 78
+      },
+      "revId": "3860337b9b08dbe058ea51cbd245c28fa198b74f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fea04ee5_590d2575",
         "filename": "front_end/elements/StylesSidebarPane.js",
         "patchSetId": 2
@@ -37,6 +61,30 @@
       "writtenOn": "2020-11-04T08:43:08Z",
       "side": 1,
       "message": "This, unfortunately can be wrong in one particular situation (I don\u0027t think there are others, but maybe):\n\n  \u003cdiv id\u003d\"container\" style\u003d\"display:flex\"\u003e\n    \u003cdiv id\u003d\"useless\" style\u003d\"display:contents\"\u003e\n      \u003cdiv id\u003d\"item\"\u003eitem\u003c/div\u003e\n    \u003c/div\u003e\n  \u003c/div\u003e\n\nHere, the intermediate div is not rendered, its content is however. That means even if the #item div is a grand-child of the #container div, it still gets promoted as a flex item.\nSo, node.parentNode isn\u0027t going to help us retrieve the right computed style in this case.\n\nNow, display:contents is likely rarely used these days, and I think its main purpose (before subgrid existed) was to let people use css grid on things like \u003cul\u003e lists where the ul would be the container, but the li would not be items, they\u0027d be removed with display:contents, so their content could be positioned on the grid.\n\nSo, what I\u0027m saying here is: this is incorrect, but might be enough for 99% of the cases, and so maybe we can live with a simple //TODO comment and address later.",
+      "range": {
+        "startLine": 2714,
+        "startChar": 27,
+        "endLine": 2714,
+        "endChar": 42
+      },
+      "revId": "3860337b9b08dbe058ea51cbd245c28fa198b74f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3335601_dc690ff1",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2714,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-04T09:12:17Z",
+      "side": 1,
+      "message": "Hm, good point, thanks! I will add a TODO. Any ideas how we might solve it? I don\u0027t see a way without extending the backend.",
+      "parentUuid": "fea04ee5_590d2575",
       "range": {
         "startLine": 2714,
         "startChar": 27,
@@ -84,6 +132,30 @@
       "side": 1,
       "message": "Yeah, I\u0027d prefer this as well.",
       "parentUuid": "f705baa4_70480dfd",
+      "range": {
+        "startLine": 2724,
+        "startChar": 12,
+        "endLine": 2724,
+        "endChar": 57
+      },
+      "revId": "3860337b9b08dbe058ea51cbd245c28fa198b74f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b79f981b_afbab5cc",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2724,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-04T09:12:17Z",
+      "side": 1,
+      "message": "Changed the types to avoid the fallback.",
+      "parentUuid": "9f5d8a14_2b16c066",
       "range": {
         "startLine": 2724,
         "startChar": 12,
