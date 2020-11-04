@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c625bc28_37010d7c",
+        "filename": "front_end/timeline/TimelinePanel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-04T14:57:47Z",
+      "side": 1,
+      "message": "So normally we can properly use `.getError()` on any `invoke_` method, but in this case, the result itself is returned from the TracingModel. Sadly, we can\u0027t use a return type that both TS and Closure support (they are currently all typed as `!Object`). Therefore, once we are in TS-only land, we can use the proper return types and remove this logic.",
+      "range": {
+        "startLine": 617,
+        "startChar": 0,
+        "endLine": 617,
+        "endChar": 112
+      },
+      "revId": "800d153783350ada2027dfb7c3afb5244f0b63a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
