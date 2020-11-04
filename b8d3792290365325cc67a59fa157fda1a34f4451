@@ -16,6 +16,24 @@
       "message": "Overall this is looking good. I left a few notes for places where I thought something was inconsistent or a comment with some additional explanation would help.\n\nOne bug I ran into while testing: if I delete the first font section entry (labeled \"Font Family\") then the global font family values are no longer available in the drop down. This appears to be because one of the fallback values was re-purposed as the primary but the list of options wasn\u0027t updated.",
       "revId": "b8d3792290365325cc67a59fa157fda1a34f4451",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0ee1d5e_d0919487",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 46
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-04T05:19:46Z",
+      "side": 1,
+      "message": "Thanks for the feedback Tony.  Good catch on the bug.  Fixed.",
+      "parentUuid": "6ea2a8f5_49ab42c5",
+      "revId": "b8d3792290365325cc67a59fa157fda1a34f4451",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

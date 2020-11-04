@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a78bc1f4_af137d4a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 47
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-04T05:19:46Z",
+      "side": 1,
+      "message": "Thanks for the review, Tony.  Resolved most of the feedback.  I left a couple open to see if you approve of the changes.",
+      "revId": "89802827a9a5180b4812d100e4c2eb96a87bd0ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

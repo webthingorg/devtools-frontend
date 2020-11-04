@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "40964806_594f6119",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 45
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-04T05:19:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34acd446_ce5a111c",
+      "revId": "9a7d00a2f06b7ef47da93a1a862ad2f129ad3de3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45927d10_8ac513e8",
@@ -31,6 +49,24 @@
       "writtenOn": "2020-11-03T19:34:25Z",
       "side": 1,
       "message": "This results in a separate string being created for localization compared to the initial creation (which uses `Delete ${label}`). Probably should follow the same pattern of interpolating the label value here as well (or extract a helper to be called in both places).",
+      "revId": "9a7d00a2f06b7ef47da93a1a862ad2f129ad3de3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c84803cb_5ed8d02a",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 45
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-04T05:19:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45927d10_8ac513e8",
       "revId": "9a7d00a2f06b7ef47da93a1a862ad2f129ad3de3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "626ecf3d_a47cbe94",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 45
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-04T05:19:46Z",
+      "side": 1,
+      "message": "The enter key will trigger the SwatchPopoverHelper (responsible for displaying the editor UI) to close.  This prevents it from happening when pressing enter on the font selector.  Added clarifying comment here and in other relevant places.",
+      "parentUuid": "723ede0e_7bd79fab",
+      "revId": "9a7d00a2f06b7ef47da93a1a862ad2f129ad3de3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5af7b590_4a07254a",
@@ -65,6 +119,24 @@
       "writtenOn": "2020-11-03T19:34:25Z",
       "side": 1,
       "message": "Given the first param to `_createFontSelector` is a value, not a label, I think this is not the intended call and results in an extra string to be localized (since other usages include a number). I wasn\u0027t able to hit this condition while testing though (might also be worth a comment explaining specifically what scenario this is supposed to handle).",
+      "revId": "9a7d00a2f06b7ef47da93a1a862ad2f129ad3de3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac1acdf2_c5bdf415",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 45
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-04T05:19:46Z",
+      "side": 1,
+      "message": "You\u0027re right this is most likely a remnant of a previous iteration of _createFontSelector. It ended up working as expected and would only cause issues if a valid selector option was named \"Fallback\".\n\nSetting this to an empty string and adding a comment clarifying this part of the code.",
+      "parentUuid": "5af7b590_4a07254a",
       "revId": "9a7d00a2f06b7ef47da93a1a862ad2f129ad3de3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -88,6 +160,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b228148b_e048e0ae",
+        "filename": "front_end/inline_editor/FontEditorUtils.js",
+        "patchSetId": 45
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-04T05:19:46Z",
+      "side": 1,
+      "message": "Right.  I added comments describing each part of the regex to make it easier to read.  Let me know what you think.",
+      "parentUuid": "d1927f42_a18d1b78",
+      "revId": "9a7d00a2f06b7ef47da93a1a862ad2f129ad3de3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e601d6b4_667ec794",
         "filename": "front_end/inline_editor/FontEditorUtils.js",
         "patchSetId": 45
@@ -105,6 +195,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6daf5afc_a167f84e",
+        "filename": "front_end/inline_editor/FontEditorUtils.js",
+        "patchSetId": 45
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-04T05:19:46Z",
+      "side": 1,
+      "message": "This regex is actually used in the StylesSidebarPropertyRenderer, so it does deal with invalid values.  I also realized that this only matches font-family values and doesn\u0027t property register values with fallbacks.  What ends up happening is that it takes multiple iterations of this regex to finish parsing a string like (\"Arial\", \"Helvetica\", Times New Roman).  Each iteration means the handler is called again.  What this does is that it just registers the font property multiple times which isn\u0027t really an issue.\n\nRegardless, I still changed the regex to be inclusive enough to accept fallback values as well so that it only registers once as expected.",
+      "parentUuid": "e601d6b4_667ec794",
+      "revId": "9a7d00a2f06b7ef47da93a1a862ad2f129ad3de3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "57ffc359_39045685",
         "filename": "front_end/inline_editor/FontEditorUtils.js",
         "patchSetId": 45
@@ -116,6 +224,24 @@
       "writtenOn": "2020-11-03T19:34:25Z",
       "side": 1,
       "message": "Looks like the minus sign would be included in the first capture group (which seems correct, just doesn\u0027t match the comment)\n`// letter-spacing: -.625rem -\u003e (-.625)(rem)`",
+      "revId": "9a7d00a2f06b7ef47da93a1a862ad2f129ad3de3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18313d8f_e9d7fdd9",
+        "filename": "front_end/inline_editor/FontEditorUtils.js",
+        "patchSetId": 45
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-04T05:19:46Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "57ffc359_39045685",
       "revId": "9a7d00a2f06b7ef47da93a1a862ad2f129ad3de3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
