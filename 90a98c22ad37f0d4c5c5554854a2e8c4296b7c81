@@ -52,6 +52,24 @@
       "parentUuid": "3374a120_0ab15d5e",
       "revId": "90a98c22ad37f0d4c5c5554854a2e8c4296b7c81",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c07ed0c3_d45eb5ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-04T15:27:38Z",
+      "side": 1,
+      "message": "Right, that was my intention. Do you think we should stick to the current behavior?",
+      "parentUuid": "264328d2_b0100c01",
+      "revId": "90a98c22ad37f0d4c5c5554854a2e8c4296b7c81",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
