@@ -306,7 +306,7 @@ export class DebuggerModel extends SDKModel {
     }
     this._agent.invoke_setSkipAllPauses({skip: true});
     // If reload happens before the timeout, the flag will be already unset and the timeout callback won't change anything.
-    this._skipAllPausesTimeout = setTimeout(this._skipAllPauses.bind(this, false), timeout);
+    this._skipAllPausesTimeout = window.setTimeout(this._skipAllPauses.bind(this, false), timeout);
   }
 
   _pauseOnExceptionStateChanged() {
@@ -1238,6 +1238,9 @@ class DebuggerDispatcher {
    * @param {!Protocol.Debugger.PausedEvent} event
    */
   paused({callFrames, reason, data, hitBreakpoints, asyncStackTrace, asyncStackTraceId, asyncCallStackTraceId}) {
+    if (!this._debuggerModel.debuggerEnabled()) {
+      return;
+    }
     this._debuggerModel._pausedScript(
         callFrames, reason, data, hitBreakpoints || [], asyncStackTrace, asyncStackTraceId, asyncCallStackTraceId);
   }
@@ -1246,6 +1249,9 @@ class DebuggerDispatcher {
    * @override
    */
   resumed() {
+    if (!this._debuggerModel.debuggerEnabled()) {
+      return;
+    }
     this._debuggerModel._resumedScript();
   }
 
@@ -1274,6 +1280,9 @@ class DebuggerDispatcher {
     debugSymbols,
     embedderName
   }) {
+    if (!this._debuggerModel.debuggerEnabled()) {
+      return;
+    }
     this._debuggerModel._parsedScriptSource(
         scriptId, url, startLine, startColumn, endLine, endColumn, executionContextId, hash, executionContextAuxData,
         !!isLiveEdit, sourceMapURL, !!hasSourceURL, false, length || 0, stackTrace || null, codeOffset || null,
@@ -1303,6 +1312,9 @@ class DebuggerDispatcher {
     scriptLanguage,
     embedderName
   }) {
+    if (!this._debuggerModel.debuggerEnabled()) {
+      return;
+    }
     this._debuggerModel._parsedScriptSource(
         scriptId, url, startLine, startColumn, endLine, endColumn, executionContextId, hash, executionContextAuxData,
         false, sourceMapURL, !!hasSourceURL, true, length || 0, stackTrace || null, codeOffset || null,
@@ -1314,6 +1326,9 @@ class DebuggerDispatcher {
    * @param {!Protocol.Debugger.BreakpointResolvedEvent} event
    */
   breakpointResolved({breakpointId, location}) {
+    if (!this._debuggerModel.debuggerEnabled()) {
+      return;
+    }
     this._debuggerModel._breakpointResolved(breakpointId, location);
   }
 }
