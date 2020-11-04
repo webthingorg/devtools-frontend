@@ -15,7 +15,7 @@ export class WebVitalsIntegrator extends UI.Widget.VBox {
   /**
    *
    * @param {!PerfUI.FlameChart.FlameChartDelegate} delegate
-   * @param {!PerformanceModel} model
+   * @param {?PerformanceModel} model
    */
   constructor(delegate, model) {
     super(true, true);
