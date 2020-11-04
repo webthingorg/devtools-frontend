@@ -900,6 +900,15 @@ export class DOMDebuggerManager {
   }
 
   /**
+   * @param {!Array<Protocol.DOMDebugger.CSPViolationType>} violationTypes
+   */
+  updateCSPViolationTypes(violationTypes) {
+    for (const model of TargetManager.instance().models(DOMDebuggerModel)) {
+      model._agent.invoke_setBreakOnCSPViolation({violationTypes: violationTypes});
+    }
+  }
+
+  /**
    * @return {!Map<string, boolean>}
    */
   xhrBreakpoints() {
@@ -927,6 +936,7 @@ export class DOMDebuggerManager {
     }
     this._saveXHRBreakpoints();
   }
+
 
   /**
    * @param {string} url
