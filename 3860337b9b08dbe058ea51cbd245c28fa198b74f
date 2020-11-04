@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6600029d_3d975962",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2714,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-04T09:20:39Z",
+      "side": 1,
+      "message": "Yeah, extending the backend to get only the computed styles we need for both an element and its parent, skipping over display:contents nodes, might be useful, and maybe more performant than what we do today too.\nOtherwise, on the frontend, you could always get the parent node\u0027s computed display value, and if its \u0027contents\u0027, then walk up to the next ancestor, etc. Hopefully this is rare enough that this isn\u0027t a problem.",
+      "parentUuid": "b3335601_dc690ff1",
+      "range": {
+        "startLine": 2714,
+        "startChar": 27,
+        "endLine": 2714,
+        "endChar": 42
+      },
+      "revId": "3860337b9b08dbe058ea51cbd245c28fa198b74f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f705baa4_70480dfd",
         "filename": "front_end/elements/StylesSidebarPane.js",
         "patchSetId": 2
