@@ -70,6 +70,24 @@
       "parentUuid": "264328d2_b0100c01",
       "revId": "90a98c22ad37f0d4c5c5554854a2e8c4296b7c81",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8393a12a_7269a4b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-04T15:33:40Z",
+      "side": 1,
+      "message": "I find it a little confusing to show an icon that indicates that things will be stacked to the bottom, and when you choose the value nothing actually happens.\nBut I\u0027m open to other points of view on this. If, in parallel, we\u0027re implementing start/end in the backend, then perhaps we could add the icons straight away.\n\nBack to your initial question:\n\nfor justify-content: start/end are relative to the axes established by the \u0027writing-mode\u0027/\u0027direction\u0027 properties. flex-{start,end} are relative to the flex axes.\nex: If you have \u0027flex-direction:row-reverse\u0027 with default writing mode, then \u0027start\u0027 is at the left side and \u0027flex-start\u0027 is at the right.\n\nI don\u0027t know how much of this applies to align-content though.",
+      "parentUuid": "c07ed0c3_d45eb5ab",
+      "revId": "90a98c22ad37f0d4c5c5554854a2e8c4296b7c81",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
