@@ -18,6 +18,9 @@
   <message name="IDS_DEVTOOLS_05184fe2fb6c76214bc56796837f1c9b" desc="Title of an action in the debugger tool to next call frame">
     Next call frame
   </message>
+  <message name="IDS_DEVTOOLS_064a309124865951376cf78dc2e8b1e7" desc="TODO">
+    Paused on CSP violation
+  </message>
   <message name="IDS_DEVTOOLS_06a75795f2a3be3930c707d64fd488c0" desc="Title of a setting under the Sources category that can be invoked through the Command Menu">
     Show trailing whitespace characters
   </message>
