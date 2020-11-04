@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c07d08fb_8c751079",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-11-04T16:54:26Z",
+      "side": 1,
+      "message": "Simon can you take an initial look to see if the approach is OK?",
+      "revId": "15d920d966b7b8c3c8bdfdfc7e72eab124d8d098",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "672994b5_87cf8c26",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1258,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-11-04T16:54:26Z",
+      "side": 1,
+      "message": "I\u0027ll fix this in this CL",
+      "range": {
+        "startLine": 1258,
+        "startChar": 7,
+        "endLine": 1258,
+        "endChar": 27
+      },
+      "revId": "15d920d966b7b8c3c8bdfdfc7e72eab124d8d098",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
