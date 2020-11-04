@@ -44,6 +44,7 @@ import * as i18n from '../i18n/i18n.js';
 import * as Persistence from '../persistence/persistence.js';
 import * as Platform from '../platform/platform.js';
 import * as ProtocolClient from '../protocol_client/protocol_client.js';
+import * as Recorder from '../recorder/recorder.js';
 import * as Root from '../root/root.js';
 import * as SDK from '../sdk/sdk.js';
 import * as Snippets from '../snippets/snippets.js';
@@ -181,6 +182,7 @@ export class MainImpl {
     Root.Runtime.experiments.register('spotlight', 'Spotlight', true);
     Root.Runtime.experiments.register('webauthnPane', 'WebAuthn Pane');
     Root.Runtime.experiments.register('keyboardShortcutEditor', 'Enable keyboard shortcut editor', true);
+    Root.Runtime.experiments.register('recorder', 'Recorder');
 
     // Timeline
     Root.Runtime.experiments.register('timelineEventInitiators', 'Timeline: event initiators');
@@ -304,6 +306,11 @@ export class MainImpl {
         Workspace.Workspace.WorkspaceImpl.instance());
     Persistence.IsolatedFileSystemManager.IsolatedFileSystemManager.instance().addPlatformFileSystem(
         'snippet://', new Snippets.ScriptSnippetFileSystem.SnippetFileSystem());
+
+    if (Root.Runtime.experiments.isEnabled('recorder')) {
+      Persistence.IsolatedFileSystemManager.IsolatedFileSystemManager.instance().addPlatformFileSystem(
+          'recording://', new Recorder.RecordingFileSystem.RecordingFileSystem());
+    }
     self.Persistence.persistence = Persistence.Persistence.PersistenceImpl.instance({
       forceNew: true,
       workspace: Workspace.Workspace.WorkspaceImpl.instance(),
