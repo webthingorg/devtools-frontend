@@ -70,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "752f77f6_c28fdd19",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-04T16:05:40Z",
+      "side": 1,
+      "message": "Created the revert at https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2519701 to give us some more breathing space before branch point next week. Then we have a little bit more time on this CL to make sure all scenarios are covered and we don\u0027t run into trouble right around branch point.",
+      "parentUuid": "5cf71f9f_ee9de62b",
+      "revId": "e453924d838f1bdcc6d8608ecd265bad2732fba2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b92e6054_f9ef9058",
