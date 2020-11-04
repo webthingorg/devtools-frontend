@@ -381,6 +381,18 @@ ul > li.plain-enum::before {
   background-color: var(--issue-warning);
 }
 
+.pending-link {
+  opacity: 75%;
+  pointer-events: none;
+  cursor: default;
+}
+
+.disabled-link {
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+}
+
 .affected-resources > .parent {
   margin-top: 0;
   padding: 2px 5px 0 5px;
