@@ -527,6 +527,57 @@ EventListener.Origin = {
   FrameworkUser: 'FrameworkUser'
 };
 
+export class CSPViolationBreakpoint {
+  /**
+   * @param {string} category
+   * @param {string} title
+   * @param {!Protocol.DOMDebugger.CSPViolationType} type
+   */
+  constructor(category, title, type) {
+    this._category = category;
+    this._title = title;
+    this._type = type;
+    /** @type {boolean} */
+    this._enabled = false;
+  }
+
+  /**
+   * @return {string}
+   */
+  category() {
+    return this._category;
+  }
+
+  /**
+   * @return {!Protocol.DOMDebugger.CSPViolationType}
+   */
+  type() {
+    return this._type;
+  }
+
+  /**
+   * @return {boolean}
+   */
+  enabled() {
+    return this._enabled;
+  }
+
+  /**
+   * @param {boolean} enabled
+   */
+  setEnabled(enabled) {
+    this._enabled = enabled;
+  }
+
+  /**
+   * @return {string}
+   */
+  title() {
+    return this._title;
+  }
+}
+
+
 export class EventListenerBreakpoint {
   /**
    * @param {string} instrumentationName
@@ -618,6 +669,15 @@ export class DOMDebuggerManager {
     for (const breakpoint of this._xhrBreakpointsSetting.get()) {
       this._xhrBreakpoints.set(breakpoint.url, breakpoint.enabled);
     }
+
+    /** @type {!Array<CSPViolationBreakpoint>} */
+    this._cspViolationsToBreakOn = [];
+    this._cspViolationsToBreakOn.push(new CSPViolationBreakpoint(
+        Common.UIString.UIString('Trusted Type Violations'), 'Sink Violations',
+        Protocol.DOMDebugger.CSPViolationType.TrustedTypeSinkViolation));
+    this._cspViolationsToBreakOn.push(new CSPViolationBreakpoint(
+        Common.UIString.UIString('Trusted Type Violations'), 'Policy Violations',
+        Protocol.DOMDebugger.CSPViolationType.TrustedTypePolicyViolation));
 
     /** @type {!Array<!EventListenerBreakpoint>} */
     this._eventListenerBreakpoints = [];
@@ -801,6 +861,13 @@ export class DOMDebuggerManager {
   }
 
   /**
+   * @return {!Array<!CSPViolationBreakpoint>}
+   */
+  cspViolationBreakpoints() {
+    return this._cspViolationsToBreakOn.slice();
+  }
+
+  /**
    * @param {string} category
    * @param {!Array<string>} instrumentationNames
    */
@@ -900,6 +967,20 @@ export class DOMDebuggerManager {
   }
 
   /**
+   * @param {!Protocol.DOMDebugger.CSPViolationType} violationType
+   */
+  toggleBreakOnCSPViolation(violationType) {
+    const violationBreakpoint = this._cspViolationsToBreakOn.find(v => v.type() === violationType);
+    if (violationBreakpoint) {
+      violationBreakpoint.setEnabled(!violationBreakpoint.enabled());
+      const violationTypes = this._cspViolationsToBreakOn.filter(v => v.enabled()).map(v => v.type());
+      for (const model of TargetManager.instance().models(DOMDebuggerModel)) {
+        model._agent.invoke_setBreakOnCSPViolation({violationTypes: violationTypes});
+      }
+    }
+  }
+
+  /**
    * @return {!Map<string, boolean>}
    */
   xhrBreakpoints() {
@@ -927,6 +1008,7 @@ export class DOMDebuggerManager {
     }
     this._saveXHRBreakpoints();
   }
+
 
   /**
    * @param {string} url
