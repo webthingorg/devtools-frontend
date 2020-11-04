@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a020045_17a27079",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1255015
+      },
+      "writtenOn": "2020-11-04T18:28:46Z",
+      "side": 1,
+      "message": "can\u0027t do autosubmit because of merge conflict.",
+      "revId": "621b5e86cfc070b5b66dcda83e0a889e996d4424",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
