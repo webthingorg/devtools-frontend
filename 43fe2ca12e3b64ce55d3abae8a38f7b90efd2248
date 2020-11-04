@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2ef035f_d9958da3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-04T07:42:01Z",
+      "side": 1,
+      "message": "lgtm % questions",
+      "revId": "43fe2ca12e3b64ce55d3abae8a38f7b90efd2248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0d56160_cc9b9cc4",
+        "filename": "front_end/perf_ui/OverviewGrid.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-04T07:42:01Z",
+      "side": 1,
+      "message": "Why is the \u0027|| 0\u0027 needed a second time for `left`/`right`?",
+      "range": {
+        "startLine": 536,
+        "startChar": 0,
+        "endLine": 537,
+        "endChar": 33
+      },
+      "revId": "43fe2ca12e3b64ce55d3abae8a38f7b90efd2248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ea910b1_36fb5955",
+        "filename": "front_end/perf_ui/OverviewGrid.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-04T07:42:01Z",
+      "side": 1,
+      "message": "nit: Can we have a tracking bug for this, or add it to the TS bug?",
+      "range": {
+        "startLine": 587,
+        "startChar": 4,
+        "endLine": 587,
+        "endChar": 11
+      },
+      "revId": "43fe2ca12e3b64ce55d3abae8a38f7b90efd2248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
