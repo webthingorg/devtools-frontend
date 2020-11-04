@@ -2511,6 +2511,11 @@ export class CSSPropertyPrompt extends UI.TextPrompt.TextPrompt {
      * @type {?Map<string, string>}
      */
     this._selectedNodeComputedStyles = null;
+    /**
+     * Computed styles cache populated by cssFlexboxFeatures experiment.
+     * @type {?Map<string, string>}
+     */
+    this._parentNodeComputedStyles = null;
     this._treeElement = treeElement;
     this._isEditingName = isEditingName;
     this._cssVariables = treeElement.matchedStyles().availableCSSVariables(treeElement.property.ownerStyle);
@@ -2701,20 +2706,22 @@ export class CSSPropertyPrompt extends UI.TextPrompt.TextPrompt {
     if (Root.Runtime.experiments.isEnabled('cssFlexboxFeatures')) {
       const node = this._treeElement.node();
 
-      const getComputedStyle = async () => {
-        if (!node) {
-          return null;
+      const ensureComputedStyles = async () => {
+        if (!node || this._selectedNodeComputedStyles) {
+          return;
         }
-        if (!this._selectedNodeComputedStyles) {
-          this._selectedNodeComputedStyles = await node.domModel().cssModel().computedStylePromise(node.id);
+        this._selectedNodeComputedStyles = await node.domModel().cssModel().computedStylePromise(node.id);
+        const parentNode = node.parentNode;
+        if (parentNode) {
+          this._parentNodeComputedStyles = await parentNode.domModel().cssModel().computedStylePromise(node.id);
         }
-        return this._selectedNodeComputedStyles;
       };
 
       for (const result of results) {
+        await ensureComputedStyles();
         const iconInfo = findIcon(
             this._isEditingName ? result.text : `${this._treeElement.property.name}: ${result.text}`,
-            await getComputedStyle());
+            this._selectedNodeComputedStyles || new Map(), this._parentNodeComputedStyles);
         if (!iconInfo) {
           continue;
         }
