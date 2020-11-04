@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5194df49_1764f703",
+        "filename": "front_end/profiler/CPUProfileView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-04T12:56:31Z",
+      "side": 0,
+      "message": "Wasn\u0027t able to find a use-site for this (also looked in layout tests).",
+      "range": {
+        "startLine": 100,
+        "startChar": 4,
+        "endLine": 100,
+        "endChar": 35
+      },
+      "revId": "355af6adb90407c545488845ea6b94fec1621e83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
