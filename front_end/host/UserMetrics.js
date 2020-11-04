@@ -620,7 +620,8 @@ export const DevtoolsExperiments = {
   'keyboardShortcutEditor': 35,
   'cssFlexboxFeatures': 36,
   'showWebVitalsInPerformancePanel': 37,
-  '__lastValidEnumPosition': 37,
+  'recorder': 38,
+  '__lastValidEnumPosition': 38,
 };
 
 /** @type {!Object<string, number>} */
