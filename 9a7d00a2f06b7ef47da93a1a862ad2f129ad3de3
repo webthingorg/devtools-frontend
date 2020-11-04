@@ -176,6 +176,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17fa0b6b_7eb0f434",
+        "filename": "front_end/inline_editor/FontEditorUtils.js",
+        "patchSetId": 45
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-11-04T19:05:17Z",
+      "side": 1,
+      "message": "Yep, I think that helps - thanks!",
+      "parentUuid": "b228148b_e048e0ae",
+      "revId": "9a7d00a2f06b7ef47da93a1a862ad2f129ad3de3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e601d6b4_667ec794",
@@ -207,6 +225,24 @@
       "side": 1,
       "message": "This regex is actually used in the StylesSidebarPropertyRenderer, so it does deal with invalid values.  I also realized that this only matches font-family values and doesn\u0027t property register values with fallbacks.  What ends up happening is that it takes multiple iterations of this regex to finish parsing a string like (\"Arial\", \"Helvetica\", Times New Roman).  Each iteration means the handler is called again.  What this does is that it just registers the font property multiple times which isn\u0027t really an issue.\n\nRegardless, I still changed the regex to be inclusive enough to accept fallback values as well so that it only registers once as expected.",
       "parentUuid": "e601d6b4_667ec794",
+      "revId": "9a7d00a2f06b7ef47da93a1a862ad2f129ad3de3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdcdc42c_c1e4b21f",
+        "filename": "front_end/inline_editor/FontEditorUtils.js",
+        "patchSetId": 45
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-11-04T19:05:17Z",
+      "side": 1,
+      "message": "Thanks for the explanation. As a minor nit I\u0027d recommend including in the comments where we\u0027re expecting to handle valid vs invalid input as that does affect how detailed we\u0027ll want the regexes to be.",
+      "parentUuid": "6daf5afc_a167f84e",
       "revId": "9a7d00a2f06b7ef47da93a1a862ad2f129ad3de3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },

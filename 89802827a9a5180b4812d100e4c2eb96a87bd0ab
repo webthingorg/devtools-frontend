@@ -16,6 +16,23 @@
       "message": "Thanks for the review, Tony.  Resolved most of the feedback.  I left a couple open to see if you approve of the changes.",
       "revId": "89802827a9a5180b4812d100e4c2eb96a87bd0ab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b8a2c6a_b18ac568",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 47
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-11-04T19:05:17Z",
+      "side": 1,
+      "message": "LGTM with the updates. Thanks Michael!",
+      "revId": "89802827a9a5180b4812d100e4c2eb96a87bd0ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
