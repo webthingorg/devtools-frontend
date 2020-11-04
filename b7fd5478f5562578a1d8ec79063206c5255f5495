@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c567d685_f4f3b8b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-04T17:09:48Z",
+      "side": 1,
+      "message": "Updated, please take another look.",
+      "revId": "b7fd5478f5562578a1d8ec79063206c5255f5495",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df44772e_2f4612e0",
@@ -18,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "67906490_9e73e6d1",
+        "filename": "front_end/resources/ClearStorageView.js",
+        "patchSetId": 23
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-04T17:09:48Z",
+      "side": 1,
+      "message": "This is making an integer out of it. This is catching the case where someone writes \n0.0000001 (which would be less than 1 byte) and ensures we are writing back 0 into the field to indicate that something went wrong.",
+      "parentUuid": "df44772e_2f4612e0",
+      "revId": "b7fd5478f5562578a1d8ec79063206c5255f5495",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "14a0a14c_ec81d2ce",
@@ -31,6 +66,24 @@
       "writtenOn": "2020-11-04T16:01:27Z",
       "side": 1,
       "message": "I am confused about handling negative values for quotaInBytes. Would early return work too?",
+      "revId": "b7fd5478f5562578a1d8ec79063206c5255f5495",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d85c462_121eac33",
+        "filename": "front_end/resources/ClearStorageView.js",
+        "patchSetId": 23
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-04T17:09:48Z",
+      "side": 1,
+      "message": "Very good point, removed the whole function.",
+      "parentUuid": "14a0a14c_ec81d2ce",
       "revId": "b7fd5478f5562578a1d8ec79063206c5255f5495",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
