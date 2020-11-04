@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40d261a2_cd298c6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-04T07:45:31Z",
+      "side": 1,
+      "message": "lgtm % nit",
+      "revId": "4afe1e656162c0af338ed5fba8caada2d32f2188",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cf60933_f8c8edfd",
+        "filename": "front_end/perf_ui/TimelineOverviewPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-04T07:45:31Z",
+      "side": 1,
+      "message": "nit:\n\n this._updateThrottler.schedule(async () \u003d\u003e { this._update(); });",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 5
+      },
+      "revId": "4afe1e656162c0af338ed5fba8caada2d32f2188",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
