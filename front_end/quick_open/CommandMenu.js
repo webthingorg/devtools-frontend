@@ -59,17 +59,16 @@ export class CommandMenu {
   }
 
   /**
-   * @param {!Root.Runtime.Extension} extension
+   * @param {!Common.Settings.Setting<*>} setting
    * @param {string} title
    * @param {V} value
    * @return {!Command}
    * @template V
    */
-  static createSettingCommand(extension, title, value) {
-    const category = extension.descriptor()['category'] || '';
-    const tags = extension.descriptor()['tags'] || '';
-    const reloadRequired = !!extension.descriptor()['reloadRequired'];
-    const setting = Common.Settings.Settings.instance().moduleSetting(extension.descriptor()['settingName']);
+  static createSettingCommand(setting, title, value) {
+    const category = setting.category() || '';
+    const tags = setting.tags() || '';
+    const reloadRequired = !!setting.reloadRequired();
     return CommandMenu.createCommand({
       category: ls(category),
       keys: tags,
@@ -118,22 +117,23 @@ export class CommandMenu {
    * @return {!Command}
    */
   static createRevealViewCommand(options) {
-    const {extension, category, userActionCode} = options;
-    const viewId = extension.descriptor()['id'];
+    const {title, tags, category, userActionCode, id} = options;
 
     return CommandMenu.createCommand({
       category,
-      keys: extension.descriptor()['tags'] || '',
-      title: Common.UIString.UIString('Show %s', extension.title()),
+      keys: tags || '',
+      title: Common.UIString.UIString('Show %s', title),
       shortcut: '',
       executeHandler: UI.ViewManager.ViewManager.instance().showView.bind(
-          UI.ViewManager.ViewManager.instance(), viewId, /* userGesture */ true),
+          UI.ViewManager.ViewManager.instance(), id, /* userGesture */ true),
       userActionCode,
       availableHandler: undefined
     });
   }
 
   _loadCommands() {
+    // TODO(crbug.com/1134103): replace this implementation for the one on _loadCommandsFromPreRegisteredExtensions once
+    // all settings, views and type lookups extensions have been migrated.
     const locations = new Map();
     Root.Runtime.Runtime.instance().extensions(UI.View.ViewLocationResolver).forEach(extension => {
       const category = extension.descriptor()['category'];
@@ -142,30 +142,76 @@ export class CommandMenu {
         locations.set(name, category);
       }
     });
+    // TODO(crbug.com/1134103): Remove this call when all views are migrated
     const viewExtensions = Root.Runtime.Runtime.instance().extensions('view');
     for (const extension of viewExtensions) {
       const category = locations.get(extension.descriptor()['location']);
       if (!category) {
         continue;
       }
-
+      const extensionDescriptor = extension.descriptor();
       /** @type {!RevealViewCommandOptions} */
-      const options = {extension, category: ls(category), userActionCode: undefined};
+      const options = {
+        id: extensionDescriptor.id,
+        title: extensionDescriptor.title,
+        tags: extensionDescriptor.tags,
+        category: ls(category),
+        userActionCode: undefined
+      };
       this._commands.push(CommandMenu.createRevealViewCommand(options));
     }
 
     // Populate allowlisted settings.
+    // TODO(crbug.com/1134103): Remove this call when all settings are migrated
     const settingExtensions = Root.Runtime.Runtime.instance().extensions('setting');
     for (const extension of settingExtensions) {
-      const options = extension.descriptor()['options'];
-      if (!options || !extension.descriptor()['category']) {
+      const descriptor = extension.descriptor();
+      const options = descriptor.options;
+      if (!options || !descriptor.category) {
         continue;
       }
       for (const pair of options) {
-        this._commands.push(CommandMenu.createSettingCommand(extension, ls(pair['title']), pair['value']));
+        const setting = Common.Settings.Settings.instance().moduleSetting(descriptor.settingName);
+        this._commands.push(CommandMenu.createSettingCommand(setting, ls(pair['title']), pair['value']));
+      }
+    }
+    this._loadCommandsFromPreRegisteredExtensions(locations);
+  }
+
+  /**
+   * @param {!Map<string,string>} locations
+   */
+  _loadCommandsFromPreRegisteredExtensions(locations) {
+    const views = UI.ViewManager.getRegisteredViewExtensions();
+    for (const view of views) {
+      const category = locations.get(view.location());
+      if (!category) {
+        continue;
+      }
+
+      /** @type {!RevealViewCommandOptions} */
+      const options = {
+        title: view.title(),
+        tags: view.tags(),
+        category: ls(category),
+        userActionCode: undefined,
+        id: view.viewId()
+      };
+      this._commands.push(CommandMenu.createRevealViewCommand(options));
+    }
+    const settingsRegistrations = Common.Settings.getRegisteredSettings();
+    for (const settingRegistration of settingsRegistrations) {
+      const options = settingRegistration.options;
+      if (!options || !settingRegistration.category) {
+        continue;
+      }
+      for (const pair of options) {
+        const setting = Common.Settings.Settings.instance().moduleSetting(settingRegistration.settingName);
+        this._commands.push(CommandMenu.createSettingCommand(setting, ls(pair['title']), pair['value']));
       }
     }
   }
+
 
   /**
    * @return {!Array.<!Command>}
@@ -186,7 +232,9 @@ export let ActionCommandOptions;
 
 /**
  * @typedef {{
- *   extension: !Root.Runtime.Extension,
+ *   id: string,
+ *   title: ?string,
+ *   tags: ?string,
  *   category: string,
  *   userActionCode: (!Host.UserMetrics.Action|undefined)
  * }}
