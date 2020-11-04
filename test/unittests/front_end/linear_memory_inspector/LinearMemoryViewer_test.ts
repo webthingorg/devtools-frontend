@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {ByteSelectedEvent, LinearMemoryViewer} from '../../../../front_end/linear_memory_inspector/LinearMemoryViewer.js';
+import {ByteSelectedEvent, LinearMemoryViewer, ResizeEvent} from '../../../../front_end/linear_memory_inspector/LinearMemoryViewer.js';
 import {assertElement, assertElements, assertShadowRoot, getElementWithinComponent, getEventPromise, renderElementIntoDOM} from '../helpers/DOMHelpers.js';
 
 const {assert} = chai;
@@ -36,6 +36,7 @@ describe('LinearMemoryViewer', () => {
     const data = {
       memory: new Uint8Array(memory),
       address: 20,
+      memoryOffset: 0,
     };
 
     return data;
@@ -50,6 +51,38 @@ describe('LinearMemoryViewer', () => {
     assertElements(cellsPerRow, HTMLSpanElement);
     return cellsPerRow;
   }
+
+
+  it('correctly renders bytes given a memory offset greater than zero', async () => {
+    const data = createComponentData();
+    data.memoryOffset = 5;
+    const component = new LinearMemoryViewer();
+    component.data = data;
+    renderElementIntoDOM(component);
+
+    const selectedByte = getElementWithinComponent(component, VIEWER_BYTE_CELL_SELECTOR + '.selected', HTMLSpanElement);
+    const selectedValue = parseInt(selectedByte.innerText, 16);
+    assert.strictEqual(selectedValue, data.memory[data.address - data.memoryOffset]);
+  });
+
+  it('triggers an event on resize', async () => {
+    const data = createComponentData();
+    const component = new LinearMemoryViewer();
+    component.data = data;
+
+    const thinWrapper = document.createElement('div');
+    thinWrapper.style.width = '100px';
+    thinWrapper.style.height = '100px';
+    thinWrapper.style.display = 'flex';
+    thinWrapper.appendChild(component);
+    renderElementIntoDOM(thinWrapper);
+
+
+    const eventPromise = getEventPromise<ResizeEvent>(component, 'resize');
+    thinWrapper.style.width = '800px';
+
+    assert.isNotNull(await eventPromise);
+  });
 
   describe('address view', () => {
     it('renders one address per row', async () => {
@@ -168,6 +201,7 @@ describe('LinearMemoryViewer', () => {
       component.data = {
         memory,
         address,
+        memoryOffset: 0,
       };
 
       assertSelectedCellIsHighlighted(component, VIEWER_BYTE_CELL_SELECTOR, address);
