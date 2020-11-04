@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1a3b6b3_1ebd3be3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-04T12:14:21Z",
+      "side": 1,
+      "message": "PTAL\n\nLet me know if I should split up the CL (extract the profileHeader rename e.g.)",
+      "revId": "6f41954700ae8b00fd8ca6f4dd3339f9e13d9ba2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
