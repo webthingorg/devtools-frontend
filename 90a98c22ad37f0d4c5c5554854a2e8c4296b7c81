@@ -16,6 +16,24 @@
       "message": "PTAL. It seems like align-content:start/end behave the same as flex-start/flex-end at least according to what I have been able to find out by testing in FF and reading the docs. Let me know if you know of cases where it works differently. ",
       "revId": "90a98c22ad37f0d4c5c5554854a2e8c4296b7c81",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3374a120_0ab15d5e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-04T15:25:28Z",
+      "side": 1,
+      "message": "start and end are not yet supported on chromium. So start will behave like flex-start because flex-start is the initial value, so since start isn\u0027t implemented, it defaults to its default value.\nend, however, will not behave as flex-end, since it\u0027s not supported either, so will default to the initial flex-start value.\nDoes that make sense?\n\nSee https://imgur.com/PIPqKVI",
+      "parentUuid": "eb8ba208_b48e5f6b",
+      "revId": "90a98c22ad37f0d4c5c5554854a2e8c4296b7c81",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
