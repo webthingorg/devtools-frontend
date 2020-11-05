@@ -21,6 +21,9 @@
   <message name="IDS_DEVTOOLS_57aab6f08efb5f158365bef707ea951d" desc="A context menu item in the DOM Breakpoints sidebar that reveals the node on which the current breakpoint is set.">
     Reveal DOM node in Elements panel
   </message>
+  <message name="IDS_DEVTOOLS_580e805a3a4db8fc19fff0044e008326" desc="TODO">
+    Trusted Type Violations
+  </message>
   <message name="IDS_DEVTOOLS_59eaf6955f44a94237b6d26911c1d983" desc="A context menu item in the DOMBreakpoints Sidebar Pane of the JavaScript Debugging pane in the Sources panel or the DOM Breakpoints pane in the Elements panel">
     Break on
   </message>
@@ -50,6 +53,9 @@
   </message>
   <message name="IDS_DEVTOOLS_e4fc5497303105b60ef0b8c90be3fbd2" desc="Accessibility label for the DOM breakpoints list in the Sources panel">
     DOM Breakpoints list
+  </message>
+  <message name="IDS_DEVTOOLS_e5cc0724ff43fa0e0ccfc0487b1aac68" desc="TODO">
+    CSP Violation Breakpoints
   </message>
   <message name="IDS_DEVTOOLS_ebdb33cde9015fa4b294220ee89cff00" desc="Title of the 'Event Listener Breakpoints' tool in the bottom sidebar of the Sources tool">
     Event Listener Breakpoints
