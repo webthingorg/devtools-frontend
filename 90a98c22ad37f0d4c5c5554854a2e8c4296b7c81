@@ -88,6 +88,24 @@
       "parentUuid": "c07ed0c3_d45eb5ab",
       "revId": "90a98c22ad37f0d4c5c5554854a2e8c4296b7c81",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4641314_ba082166",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-05T06:48:56Z",
+      "side": 1,
+      "message": "It does not seem to make any difference for align-content. I think I will change the end to show the flex-start icon for now. Interestingly, `CSS.supports(\u0027align-content\u0027, \u0027start\u0027)` returns true in Chromium.",
+      "parentUuid": "8393a12a_7269a4b5",
+      "revId": "90a98c22ad37f0d4c5c5554854a2e8c4296b7c81",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
