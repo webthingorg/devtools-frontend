@@ -1,0 +1,7 @@
+import("../../../scripts/build/ninja/copy.gni")
+
+copy_to_gen("issue_survey_link") {
+  sources = [ "basic.html" ]
+
+  deps = []
+}

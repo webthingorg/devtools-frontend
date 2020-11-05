@@ -8,6 +8,7 @@ group("component_docs") {
     "./computed_style_trace",
     "./elements_breadcrumbs",
     "./icon_component",
+    "./issue_survey_link",
     "./layout_pane",
     "./linear_memory_inspector",
     "./perf_piechart",
