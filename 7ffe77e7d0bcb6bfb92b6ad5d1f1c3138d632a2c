@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3986af3_e86b66df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-05T09:50:08Z",
+      "side": 1,
+      "message": "Please split out the protocol update CL and try to refactor a common base class to use in CSPViolationBreakpointsSidebarPane.",
+      "revId": "7ffe77e7d0bcb6bfb92b6ad5d1f1c3138d632a2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
