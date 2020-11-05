@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "30792424_b8c4745c",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1117,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-11-05T16:07:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0350ad10_aaf0d6c5",
+      "range": {
+        "startLine": 1117,
+        "startChar": 6,
+        "endLine": 1117,
+        "endChar": 25
+      },
+      "revId": "15d920d966b7b8c3c8bdfdfc7e72eab124d8d098",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "672994b5_87cf8c26",
@@ -94,6 +118,30 @@
       "writtenOn": "2020-11-05T07:45:46Z",
       "side": 1,
       "message": "IMO a perfect candidate for a web component `SurveyLink` :) wdyt?",
+      "range": {
+        "startLine": 1300,
+        "startChar": 2,
+        "endLine": 1300,
+        "endChar": 26
+      },
+      "revId": "15d920d966b7b8c3c8bdfdfc7e72eab124d8d098",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bff90ac_b4c6a149",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1300,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-11-05T16:07:59Z",
+      "side": 1,
+      "message": "alright :P here you go",
+      "parentUuid": "c22a54d2_603ef022",
       "range": {
         "startLine": 1300,
         "startChar": 2,
