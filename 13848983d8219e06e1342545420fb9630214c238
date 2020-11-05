@@ -118,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c1939b4_62910f44",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-05T14:18:57Z",
+      "side": 1,
+      "message": "I have updated a refactoring, as we\u0027ve discussed on the VC :).",
+      "parentUuid": "abe8cbc8_fc882b7b",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 108
+      },
+      "revId": "13848983d8219e06e1342545420fb9630214c238",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e8c398e6_57389bf6",
