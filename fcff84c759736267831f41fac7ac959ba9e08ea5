@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4a56150_cc5fdbe5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 24
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-11-05T08:04:13Z",
+      "side": 1,
+      "message": "Thanks for cleaning up too, this looks simpler now! LGTM once tests pass.",
+      "revId": "fcff84c759736267831f41fac7ac959ba9e08ea5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
