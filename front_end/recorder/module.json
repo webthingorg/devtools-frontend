@@ -1,0 +1,17 @@
+{
+  "dependencies": [
+    "ui",
+    "i18n",
+    "persistence",
+    "common",
+    "accessibility",
+    "elements"
+  ],
+  "modules": [
+    "recorder.js",
+    "RecordingFileSystem.js",
+    "RecorderModel.js",
+    "RecordingSession.js"
+  ],
+  "resources": []
+}
