@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86e9b555_7b3dfb5b",
+        "filename": "BUILD.gn",
+        "patchSetId": 18
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-05T08:58:31Z",
+      "side": 0,
+      "message": "I\u0027m confused, why are these modules missing? Does the CL just need a rebase?",
+      "range": {
+        "startLine": 118,
+        "startChar": 3,
+        "endLine": 118,
+        "endChar": 61
+      },
+      "revId": "59e4ea15606d3da9bae1aabb929982e611db84b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4373e82_7c73c4b2",
+        "filename": "devtools_grd_files.gni",
+        "patchSetId": 18
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-05T08:58:31Z",
+      "side": 0,
+      "message": "Same question here, really.",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 52
+      },
+      "revId": "59e4ea15606d3da9bae1aabb929982e611db84b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2000e23c_91b66834",
+        "filename": "front_end/devtools_app.json",
+        "patchSetId": 18
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-05T08:58:31Z",
+      "side": 0,
+      "message": "Yeah, I presume this isn\u0027t what we expected here?",
+      "range": {
+        "startLine": 7,
+        "startChar": 4,
+        "endLine": 7,
+        "endChar": 32
+      },
+      "revId": "59e4ea15606d3da9bae1aabb929982e611db84b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

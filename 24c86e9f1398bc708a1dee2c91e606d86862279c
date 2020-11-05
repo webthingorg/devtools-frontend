@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95418824_23d0d2cd",
+        "filename": "test/e2e/recorder/recorder_test.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-05T08:58:31Z",
+      "side": 1,
+      "message": "Still confused as to how this require resolves 😄",
+      "range": {
+        "startLine": 51,
+        "startChar": 37,
+        "endLine": 51,
+        "endChar": 75
+      },
+      "revId": "24c86e9f1398bc708a1dee2c91e606d86862279c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

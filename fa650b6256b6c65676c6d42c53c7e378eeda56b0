@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "386ed646_c6ddc554",
+        "filename": "front_end/recorder/RecorderModel.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-05T08:58:31Z",
+      "side": 1,
+      "message": "Since this is top level are you able to author this as TypeScript, or are there blockers to that?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 0
+      },
+      "revId": "fa650b6256b6c65676c6d42c53c7e378eeda56b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "864349a1_8709e627",
+        "filename": "front_end/recorder/RecordingFileSystem.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-05T08:58:31Z",
+      "side": 1,
+      "message": "nit: Just wondering if we want this a little more broken down so that clang can format it more neatly?",
+      "range": {
+        "startLine": 231,
+        "startChar": 2,
+        "endLine": 235,
+        "endChar": 70
+      },
+      "revId": "fa650b6256b6c65676c6d42c53c7e378eeda56b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba1a7645_927e8946",
+        "filename": "front_end/recorder/RecordingSession.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-05T08:58:31Z",
+      "side": 1,
+      "message": "How do the require work when you run the script?",
+      "range": {
+        "startLine": 164,
+        "startChar": 4,
+        "endLine": 164,
+        "endChar": 72
+      },
+      "revId": "fa650b6256b6c65676c6d42c53c7e378eeda56b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5da825a7_3aa9a872",
+        "filename": "front_end/recorder/RecordingSession.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-05T08:58:31Z",
+      "side": 1,
+      "message": "Maybe throw in here with an Error(\u0027Not implemented\u0027) so it\u0027s clear you\u0027ve not forgotten? Or if throwing is too much maybe just leave a comment. Same for below in resumed etc.",
+      "range": {
+        "startLine": 404,
+        "startChar": 1,
+        "endLine": 405,
+        "endChar": 3
+      },
+      "revId": "fa650b6256b6c65676c6d42c53c7e378eeda56b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6a930e1_3a755f82",
+        "filename": "front_end/third_party/puppeteer/puppeteer_types.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-05T08:58:31Z",
+      "side": 1,
+      "message": "nit: needs license\n\nActually I\u0027m surprised the presubmit didn\u0027t catch that when linting.",
+      "revId": "fa650b6256b6c65676c6d42c53c7e378eeda56b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
