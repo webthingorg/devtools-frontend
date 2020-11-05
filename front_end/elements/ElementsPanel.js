@@ -110,7 +110,7 @@ export class ElementsPanel extends UI.Panel.Panel {
     crumbsContainer.id = 'elements-crumbs';
 
     this._breadcrumbs = createElementsBreadcrumbs();
-    this._breadcrumbs.addEventListener('node-selected', /** @param {!Event} event */ event => {
+    this._breadcrumbs.addEventListener('nodeSelected', /** @param {!Event} event */ event => {
       this._crumbNodeSelected(/** @type {?} */ (event));
     });
 
