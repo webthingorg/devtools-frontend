@@ -199,7 +199,7 @@ export class LighthouseController extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @return {!Object}
+   * @return {?}
    */
   getFlags() {
     const flags = {
