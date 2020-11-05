@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "610b0665_4bcc5f85",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 25
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-05T08:22:23Z",
+      "side": 1,
+      "message": "Yang, could you please +1 front_end/i18n and front_end/lighthouse (grdp change only).",
+      "revId": "891d5262b5b799586e5a79c5428f514958c4b9f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
