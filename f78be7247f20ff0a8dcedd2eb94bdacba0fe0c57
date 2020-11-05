@@ -22,6 +22,30 @@
       },
       "revId": "f78be7247f20ff0a8dcedd2eb94bdacba0fe0c57",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df9c5952_d3c457dc",
+        "filename": "test/unittests/front_end/helpers/MockConnection.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-05T15:03:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f1085a07_2ba24910",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 189,
+        "endChar": 1
+      },
+      "revId": "f78be7247f20ff0a8dcedd2eb94bdacba0fe0c57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
