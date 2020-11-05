@@ -81,6 +81,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c2a8cad_646da055",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-05T15:11:58Z",
+      "side": 1,
+      "message": "Good catch!",
+      "parentUuid": "836bf493_51bfd293",
+      "range": {
+        "startLine": 44,
+        "startChar": 84,
+        "endLine": 44,
+        "endChar": 86
+      },
+      "revId": "1bfde1ef86d51e538e6ef39358131a825966413a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e1b470e_1d48a173",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-05T15:11:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79b0e270_e4861d70",
+      "range": {
+        "startLine": 44,
+        "startChar": 70,
+        "endLine": 44,
+        "endChar": 79
+      },
+      "revId": "1bfde1ef86d51e538e6ef39358131a825966413a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6101de12_631294d0",
@@ -104,6 +152,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "26c7f5a8_6c389cd6",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-05T15:11:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6101de12_631294d0",
+      "range": {
+        "startLine": 45,
+        "startChar": 62,
+        "endLine": 45,
+        "endChar": 71
+      },
+      "revId": "1bfde1ef86d51e538e6ef39358131a825966413a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4f83647_7a2cc27f",
@@ -117,6 +189,30 @@
       "writtenOn": "2020-11-05T13:26:58Z",
       "side": 1,
       "message": "nit: this doesn\u0027t tell me why we do that. Could we add something?",
+      "range": {
+        "startLine": 22,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 5
+      },
+      "revId": "1bfde1ef86d51e538e6ef39358131a825966413a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9a6f8cb_7594ff61",
+        "filename": "front_end/ui/components/DataGridController.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-05T15:11:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4f83647_7a2cc27f",
       "range": {
         "startLine": 22,
         "startChar": 2,
