@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd743a1f_aa82fa0c",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-05T06:12:00Z",
+      "side": 1,
+      "message": "Ah ok (thought we\u0027d only do that if we actually listen to the events in LitHtml sorry for that)! Done :).",
+      "parentUuid": "9614f0b2_2aa188fb",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 28
+      },
+      "revId": "13848983d8219e06e1342545420fb9630214c238",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad44efe0_bfb3c9f1",
@@ -72,6 +96,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "abe8cbc8_fc882b7b",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-05T06:12:00Z",
+      "side": 1,
+      "message": "Thanks for your comments on this Jack! I agree that it should be refactored; but I\u0027m not entirely sure what is the best way. In order to get both the $bytesPerPage (which would also get you the info required for $getPageRangeForAddress) one needs to know more about how the LinearMemoryViewer is built. Currently the LinearMemoryViewer computes the $bytesPerPage by calculating how much space it has, and how many would fit in the view. This is very specific to the Viewer. One could find out that information too (from a utility function) if one would look at how many bytes are rendered by the viewer but that\u0027s not necessarily good doing it like this? I\u0027ll think about it, in the meantime any thoughts/suggestions are welcome :)!",
+      "parentUuid": "41b2c375_885dce5c",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 108
+      },
+      "revId": "13848983d8219e06e1342545420fb9630214c238",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8c398e6_57389bf6",
         "filename": "front_end/linear_memory_inspector/linear_memory_inspector-legacy.js",
         "patchSetId": 10
@@ -83,6 +131,30 @@
       "writtenOn": "2020-11-04T14:24:56Z",
       "side": 1,
       "message": "do we still need this file? I think anywhere that wants to use the Linear Memory Inspector can do so by importing it and therefore we don\u0027t need the globals to exist ?",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 120
+      },
+      "revId": "13848983d8219e06e1342545420fb9630214c238",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "defeb670_25544f08",
+        "filename": "front_end/linear_memory_inspector/linear_memory_inspector-legacy.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-05T06:12:00Z",
+      "side": 1,
+      "message": "I think we need it because we open it via the ViewManager, see the module.json file. At least I tried without and it didn\u0027t work :/, but maybe we can accomplish this in some other way?",
+      "parentUuid": "e8c398e6_57389bf6",
       "range": {
         "startLine": 16,
         "startChar": 0,
@@ -116,6 +188,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e109715d_5b9c401e",
+        "filename": "test/e2e/sources/can-open-linear-memory-inspector_test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-05T06:12:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb3114e7_050c18b1",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 24
+      },
+      "revId": "13848983d8219e06e1342545420fb9630214c238",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f391071e_4f16ce91",
@@ -129,6 +225,30 @@
       "writtenOn": "2020-11-04T14:24:56Z",
       "side": 1,
       "message": "nice work adding a e2e!",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 47
+      },
+      "revId": "13848983d8219e06e1342545420fb9630214c238",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7685dd0_13a14373",
+        "filename": "test/e2e/sources/can-open-linear-memory-inspector_test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-05T06:12:00Z",
+      "side": 1,
+      "message": "Thanks :)!",
+      "parentUuid": "f391071e_4f16ce91",
       "range": {
         "startLine": 54,
         "startChar": 0,
