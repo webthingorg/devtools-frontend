@@ -23,9 +23,6 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
 import * as Common from '../common/common.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
@@ -68,7 +65,7 @@ export class ProfilesPanel extends UI.Panel.PanelWithSidebar {
 
     this._sidebarTree.element.addEventListener('keydown', this._onKeyDown.bind(this), false);
 
-    this.profileViews = createElement('div');
+    this.profileViews = document.createElement('div');
     this.profileViews.id = 'profile-views';
     this.profileViews.classList.add('vbox');
     mainContainer.element.appendChild(this.profileViews);
@@ -83,8 +80,9 @@ export class ProfilesPanel extends UI.Panel.PanelWithSidebar {
     this.panelSidebarElement().insertBefore(toolbarContainerLeft, this.panelSidebarElement().firstChild);
     const toolbar = new UI.Toolbar.Toolbar('', toolbarContainerLeft);
 
+    /** @type {!UI.Action.Action} */
     this._toggleRecordAction =
-        /** @type {!UI.Action.Action }*/ (UI.ActionRegistry.ActionRegistry.instance().action(recordingActionId));
+        /** @type {!UI.Action.Action} */ (UI.ActionRegistry.ActionRegistry.instance().action(recordingActionId));
     this._toggleRecordButton = UI.Toolbar.Toolbar.createActionButton(this._toggleRecordAction);
     toolbar.appendToolbarItem(this._toggleRecordButton);
 
@@ -101,8 +99,15 @@ export class ProfilesPanel extends UI.Panel.PanelWithSidebar {
     this._launcherView = new ProfileLauncherView(this);
     this._launcherView.addEventListener(ProfileLauncherEvents.ProfileTypeSelected, this._onProfileTypeSelected, this);
 
+    /** @type {!UI.Widget.Widget|undefined} */
+    this.visibleView;
+
+    /** @type {!Array<!{profile: !ProfileHeader, view: !UI.Widget.Widget}>} */
     this._profileToView = [];
-    this._typeIdToSidebarSection = {};
+
+    /** @type {!Map<string, !ProfileTypeSidebarSection>} */
+    this._typeIdToSidebarSection = new Map();
+
     const types = this._profileTypes;
     for (let i = 0; i < types.length; i++) {
       this._registerProfileType(types[i]);
@@ -111,7 +116,10 @@ export class ProfilesPanel extends UI.Panel.PanelWithSidebar {
     this.profilesItemTreeElement.select();
     this._showLauncherView();
 
+    /** @type {!HTMLInputElement} */
+    this._fileSelectorElement;
     this._createFileSelectorElement();
+
     this.element.addEventListener('contextmenu', this._handleContextMenuEvent.bind(this), false);
 
     SDK.SDKModel.TargetManager.instance().addEventListener(
@@ -123,9 +131,10 @@ export class ProfilesPanel extends UI.Panel.PanelWithSidebar {
   }
 
   /**
-   * @param {!Event} event
+   * @param {!Event} ev
    */
-  _onKeyDown(event) {
+  _onKeyDown(ev) {
+    const event = /** @type {!KeyboardEvent} */ (ev);
     let handled = false;
     if (event.key === 'ArrowDown' && !event.altKey) {
       handled = this._sidebarTree.selectNext();
@@ -142,7 +151,7 @@ export class ProfilesPanel extends UI.Panel.PanelWithSidebar {
    * @return {?UI.SearchableView.SearchableView}
    */
   searchableView() {
-    return this.visibleView && this.visibleView.searchableView ? this.visibleView.searchableView() : null;
+    return this.visibleView instanceof UI.Panel.Panel ? this.visibleView.searchableView() : null;
   }
 
   _createFileSelectorElement() {
@@ -184,7 +193,7 @@ export class ProfilesPanel extends UI.Panel.PanelWithSidebar {
     }
 
     const error = await profileType.loadFromFile(file);
-    if (error) {
+    if (error && 'message' in error) {
       UI.UIUtils.MessageDialog.show(Common.UIString.UIString('Profile loading failed: %s.', error.message));
     }
   }
@@ -198,6 +207,9 @@ export class ProfilesPanel extends UI.Panel.PanelWithSidebar {
     }
     const toggleButton = this.element.ownerDocument.deepActiveElement();
     const type = this._selectedProfileType;
+    if (!type) {
+      return true;
+    }
     const isProfiling = type.buttonClicked();
     this._updateToggleRecordAction(isProfiling);
     if (isProfiling) {
@@ -209,7 +221,7 @@ export class ProfilesPanel extends UI.Panel.PanelWithSidebar {
       this._launcherView.profileFinished();
     }
     if (toggleButton) {
-      toggleButton.focus();
+      /** @type {!HTMLElement} */ (toggleButton).focus();
     }
     return true;
   }
@@ -289,7 +301,7 @@ export class ProfilesPanel extends UI.Panel.PanelWithSidebar {
   _registerProfileType(profileType) {
     this._launcherView.addProfileType(profileType);
     const profileTypeSection = new ProfileTypeSidebarSection(this, profileType);
-    this._typeIdToSidebarSection[profileType.id] = profileTypeSection;
+    this._typeIdToSidebarSection.set(profileType.id, profileTypeSection);
     this._sidebarTree.appendChild(profileTypeSection);
     profileTypeSection.childrenListElement.addEventListener(
         'contextmenu', this._handleContextMenuEvent.bind(this), false);
@@ -334,7 +346,7 @@ export class ProfilesPanel extends UI.Panel.PanelWithSidebar {
    */
   _handleContextMenuEvent(event) {
     const contextMenu = new UI.ContextMenu.ContextMenu(event);
-    if (this.panelSidebarElement().isSelfOrAncestor(event.srcElement)) {
+    if (this.panelSidebarElement().isSelfOrAncestor(/** @type {?Node} */ (event.target))) {
       contextMenu.defaultSection().appendItem(
           Common.UIString.UIString('Load…'), this._fileSelectorElement.click.bind(this._fileSelectorElement));
     }
@@ -351,7 +363,10 @@ export class ProfilesPanel extends UI.Panel.PanelWithSidebar {
   _addProfileHeader(profile) {
     const profileType = profile.profileType();
     const typeId = profileType.id;
-    this._typeIdToSidebarSection[typeId].addProfileHeader(profile);
+    const sidebarSection = this._typeIdToSidebarSection.get(typeId);
+    if (sidebarSection) {
+      sidebarSection.addProfileHeader(profile);
+    }
     if (!this.visibleView || this.visibleView === this._launcherView) {
       this.showProfile(profile);
     }
@@ -371,7 +386,11 @@ export class ProfilesPanel extends UI.Panel.PanelWithSidebar {
     }
 
     const typeId = profile.profileType().id;
-    const sectionIsEmpty = this._typeIdToSidebarSection[typeId].removeProfileHeader(profile);
+    const sidebarSection = this._typeIdToSidebarSection.get(typeId);
+    if (!sidebarSection) {
+      return;
+    }
+    const sectionIsEmpty = sidebarSection.removeProfileHeader(profile);
 
     // No other item will be selected if there aren't any other profiles, so
     // make sure that view gets cleared when the last profile is removed.
@@ -403,13 +422,18 @@ export class ProfilesPanel extends UI.Panel.PanelWithSidebar {
     this._toolbarElement.classList.remove('hidden');
     this.visibleView = view;
 
-    const profileTypeSection = this._typeIdToSidebarSection[profile.profileType().id];
+    const profileTypeSection = this._typeIdToSidebarSection.get(profile.profileType().id);
+    if (!profileTypeSection) {
+      return null;
+    }
     const sidebarElement = profileTypeSection.sidebarElementForProfile(profile);
-    sidebarElement.revealAndSelect();
+    if (sidebarElement) {
+      sidebarElement.revealAndSelect();
+    }
 
     this._profileViewToolbar.removeToolbarItems();
 
-    view.toolbarItems().then(items => {
+    /** @type {!UI.View.View} */ (/** @type {*} */ (view)).toolbarItems().then(items => {
       items.map(item => this._profileViewToolbar.appendToolbarItem(item));
     });
 
@@ -498,6 +522,7 @@ export class ProfileTypeSidebarSection extends UI.TreeOutline.TreeElement {
   addProfileHeader(profile) {
     this.hidden = false;
     const profileType = profile.profileType();
+    /** @type {?UI.TreeOutline.TreeElement} */
     let sidebarParent = this;
     const profileTreeElement =
         /** @type {!ProfileSidebarTreeElement} */ (profile.createSidebarTreeElement(this._dataDisplayDelegate));
@@ -533,7 +558,9 @@ export class ProfileTypeSidebarSection extends UI.TreeOutline.TreeElement {
         firstProfileTreeElement.setSmall(true);
         firstProfileTreeElement.setMainTitle(Common.UIString.UIString('Run %d', 1));
 
-        this.treeOutline.element.classList.add('some-expandable');
+        if (this.treeOutline) {
+          this.treeOutline.element.classList.add('some-expandable');
+        }
       }
 
       if (groupSize >= 2) {
@@ -543,7 +570,9 @@ export class ProfileTypeSidebarSection extends UI.TreeOutline.TreeElement {
       }
     }
 
-    sidebarParent.appendChild(profileTreeElement);
+    if (sidebarParent) {
+      sidebarParent.appendChild(profileTreeElement);
+    }
   }
 
   /**
@@ -558,6 +587,7 @@ export class ProfileTypeSidebarSection extends UI.TreeOutline.TreeElement {
     const profileTreeElement = this._profileTreeElements[index];
     this._profileTreeElements.splice(index, 1);
 
+    /** @type {?UI.TreeOutline.TreeElement} */
     let sidebarParent = this;
     const group = this._profileGroups[profile.title];
     if (group) {
@@ -567,17 +597,23 @@ export class ProfileTypeSidebarSection extends UI.TreeOutline.TreeElement {
         // Move the last profile out of its group and remove the group.
         const pos = sidebarParent.children().indexOf(
             /** @type {!ProfileGroupSidebarTreeElement} */ (group.sidebarTreeElement));
-        group.sidebarTreeElement.removeChild(groupElements[0]);
+        if (group.sidebarTreeElement) {
+          group.sidebarTreeElement.removeChild(groupElements[0]);
+        }
         this.insertChild(groupElements[0], pos);
         groupElements[0].setSmall(false);
         groupElements[0].setMainTitle(profile.title);
-        this.removeChild(group.sidebarTreeElement);
+        if (group.sidebarTreeElement) {
+          this.removeChild(group.sidebarTreeElement);
+        }
       }
       if (groupElements.length !== 0) {
         sidebarParent = group.sidebarTreeElement;
       }
     }
-    sidebarParent.removeChild(profileTreeElement);
+    if (sidebarParent) {
+      sidebarParent.removeChild(profileTreeElement);
+    }
     profileTreeElement.dispose();
 
     if (this.childCount()) {
@@ -654,7 +690,10 @@ export class ProfileGroupSidebarTreeElement extends UI.TreeOutline.TreeElement {
   onselect() {
     const hasChildren = this.childCount() > 0;
     if (hasChildren) {
-      this._dataDisplayDelegate.showProfile(this.lastChild().profile);
+      const lastChild = this.lastChild();
+      if (lastChild instanceof ProfileSidebarTreeElement) {
+        this._dataDisplayDelegate.showProfile(lastChild.profile);
+      }
     }
     return hasChildren;
   }
@@ -735,8 +774,11 @@ export class JSProfilerPanel extends ProfilesPanel {
    */
   handleAction(context, actionId) {
     const panel = UI.Context.Context.instance().flavor(JSProfilerPanel);
-    console.assert(panel && panel instanceof JSProfilerPanel);
-    panel.toggleRecord();
+    if (panel instanceof JSProfilerPanel) {
+      panel.toggleRecord();
+    } else {
+      throw new Error('non-null JSProfilerPanel expected!');
+    }
     return true;
   }
 }
