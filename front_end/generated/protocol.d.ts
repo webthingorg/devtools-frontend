@@ -13218,6 +13218,7 @@ declare namespace Protocol {
     export enum PausedEventReason {
       Ambiguous = 'ambiguous',
       Assert = 'assert',
+      CSPViolation = 'CSPViolation',
       DebugCommand = 'debugCommand',
       DOM = 'DOM',
       EventListener = 'EventListener',
