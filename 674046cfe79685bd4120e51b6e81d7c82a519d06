@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d05da6df_bdc158ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-05T12:01:29Z",
+      "side": 1,
+      "message": "Jack, could you double-check as well?",
+      "revId": "674046cfe79685bd4120e51b6e81d7c82a519d06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "114da1e9_f3d2e7e6",
@@ -31,6 +48,30 @@
       "writtenOn": "2020-11-05T11:05:18Z",
       "side": 1,
       "message": "Tim: Is this the right way? Or do we need to loose the `.js` extension here?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 47
+      },
+      "revId": "674046cfe79685bd4120e51b6e81d7c82a519d06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b82c38a1_d2b47b9c",
+        "filename": "front_end/issues/MarkdownIssueDescription.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-05T12:01:29Z",
+      "side": 1,
+      "message": "Yes this is correct.",
+      "parentUuid": "114da1e9_f3d2e7e6",
       "range": {
         "startLine": 9,
         "startChar": 0,
