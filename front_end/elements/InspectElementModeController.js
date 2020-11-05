@@ -38,6 +38,12 @@ import * as UI from '../ui/ui.js';
 import {ElementsPanel} from './ElementsPanel.js';
 
 /**
+ * @type {!InspectElementModeController}
+ */
+let inspectElementModeController;
+
+
+/**
  * @implements {SDK.SDKModel.SDKModelObserver<!SDK.OverlayModel.OverlayModel>}
  * @unrestricted
  */
@@ -70,6 +76,17 @@ export class InspectElementModeController {
       this._setMode(Protocol.Overlay.InspectMode.None);
       event.consume(true);
     }, true);
+  }
+
+  /**
+   * @param {{forceNew: boolean}} opts
+   */
+  static instance({forceNew} = {forceNew: false}) {
+    if (!inspectElementModeController || forceNew) {
+      inspectElementModeController = new InspectElementModeController();
+    }
+
+    return inspectElementModeController;
   }
 
   /**
@@ -162,6 +179,11 @@ export class ToggleSearchActionDelegate {
    * @return {boolean}
    */
   handleAction(context, actionId) {
+    if (!Root.Runtime.queryParam('isSharedWorker')) {
+      return false;
+    }
+
+    inspectElementModeController = InspectElementModeController.instance();
     if (!inspectElementModeController) {
       return false;
     }
@@ -173,7 +195,3 @@ export class ToggleSearchActionDelegate {
     return true;
   }
 }
-
-/** @type {?InspectElementModeController} */
-export const inspectElementModeController =
-    Root.Runtime.queryParam('isSharedWorker') ? null : new InspectElementModeController();
