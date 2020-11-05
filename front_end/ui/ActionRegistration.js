@@ -5,7 +5,6 @@
 import * as Common from '../common/common.js';
 import * as Root from '../root/root.js';
 
-import {ActionDelegate} from './ActionDelegate.js';  // eslint-disable-line no-unused-vars
 import {Context} from './Context.js';
 
 class ActionRuntimeExtensionDescriptor extends  // eslint-disable-line no-unused-vars
@@ -36,13 +35,113 @@ class ActionRuntimeExtensionDescriptor extends  // eslint-disable-line no-unused
      *   value: boolean,
      *   title: string,
      *   raw: undefined,
+     *   text: string,
      * }>|undefined}
      */
     this.options;
   }
 }
 
-export class Action extends Common.ObjectWrapper.ObjectWrapper {
+/**
+ * @interface
+ */
+export class Action extends Common.EventTarget.EventTarget {
+  /**
+   * @return {string}
+   */
+  id() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @return {!Promise.<boolean>}
+   */
+  async execute() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @return {string}
+   */
+  icon() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @return {string}
+   */
+  toggledIcon() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @return {boolean}
+   */
+  toggleWithRedColor() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @param {boolean} enabled
+   */
+  setEnabled(enabled) {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @return {boolean}
+   */
+  enabled() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @return {string}
+   */
+  category() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @return {string}
+   */
+  tags() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @return {boolean}
+   */
+  toggleable() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @return {string}
+   */
+  title() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @return {boolean}
+   */
+  toggled() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @param {boolean} toggled
+   */
+  setToggled(toggled) {
+    throw new Error('not implemented');
+  }
+}
+
+/**
+ * @implements {Action}
+ */
+export class LegacyActionRegistration extends Common.ObjectWrapper.ObjectWrapper {
   /**
    * @param {!Root.Runtime.Extension} extension
    */
@@ -56,6 +155,7 @@ export class Action extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
+   * @override
    * @return {string}
    */
   id() {
@@ -70,6 +170,7 @@ export class Action extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
+   * @override
    * @return {!Promise.<boolean>}
    */
   async execute() {
@@ -82,6 +183,7 @@ export class Action extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
+   * @override
    * @return {string}
    */
   icon() {
@@ -89,6 +191,7 @@ export class Action extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
+   * @override
    * @return {string}
    */
   toggledIcon() {
@@ -96,6 +199,7 @@ export class Action extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
+   * @override
    * @return {boolean}
    */
   toggleWithRedColor() {
@@ -103,6 +207,7 @@ export class Action extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
+   * @override
    * @param {boolean} enabled
    */
   setEnabled(enabled) {
@@ -115,6 +220,7 @@ export class Action extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
+   * @override
    * @return {boolean}
    */
   enabled() {
@@ -122,6 +228,7 @@ export class Action extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
+   * @override
    * @return {string}
    */
   category() {
@@ -129,6 +236,7 @@ export class Action extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
+   * @override
    * @return {string}
    */
   tags() {
@@ -136,6 +244,7 @@ export class Action extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
+   * @override
    * @return {boolean}
    */
   toggleable() {
@@ -143,6 +252,7 @@ export class Action extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
+   * @override
    * @return {string}
    */
   title() {
@@ -159,6 +269,7 @@ export class Action extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
+   * @override
    * @return {boolean}
    */
   toggled() {
@@ -166,6 +277,7 @@ export class Action extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
+   * @override
    * @param {boolean} toggled
    */
   setToggled(toggled) {
@@ -191,3 +303,17 @@ export const Events = {
   Enabled: Symbol('Enabled'),
   Toggled: Symbol('Toggled')
 };
+
+/**
+ * @interface
+ */
+export class ActionDelegate {
+  /**
+   * @param {!Context} context
+   * @param {string} actionId
+   * @return {boolean}
+   */
+  handleAction(context, actionId) {
+    throw new Error('not implemented');
+  }
+}

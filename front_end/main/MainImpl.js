@@ -548,7 +548,7 @@ export class MainImpl {
 MainImpl._instanceForTest = null;
 
 /**
- * @implements {UI.ActionDelegate.ActionDelegate}
+ * @implements {UI.ActionRegistration.ActionDelegate}
  * @unrestricted
  */
 export class ZoomActionDelegate {
@@ -579,7 +579,7 @@ export class ZoomActionDelegate {
 }
 
 /**
- * @implements {UI.ActionDelegate.ActionDelegate}
+ * @implements {UI.ActionRegistration.ActionDelegate}
  * @unrestricted
  */
 export class SearchActionDelegate {
@@ -820,7 +820,7 @@ export function sendOverProtocol(method, params) {
 }
 
 /**
- * @implements {UI.ActionDelegate.ActionDelegate}
+ * @implements {UI.ActionRegistration.ActionDelegate}
  * @unrestricted
  */
 export class ReloadActionDelegate {
