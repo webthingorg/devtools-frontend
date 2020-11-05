@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1082bcbd_e5621c54",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 26
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-05T13:26:58Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "1bfde1ef86d51e538e6ef39358131a825966413a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4f83647_7a2cc27f",
+        "filename": "front_end/ui/components/DataGridController.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-05T13:26:58Z",
+      "side": 1,
+      "message": "nit: this doesn\u0027t tell me why we do that. Could we add something?",
+      "range": {
+        "startLine": 22,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 5
+      },
+      "revId": "1bfde1ef86d51e538e6ef39358131a825966413a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
