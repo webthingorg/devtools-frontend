@@ -16,6 +16,24 @@
       "message": "Abandon this one?",
       "revId": "382bf1f831634822ae8168f5a0e81e3c2c5c1184",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57cd2fb4_76d7ffce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-11-05T15:01:17Z",
+      "side": 1,
+      "message": "Yeah. Accidentally incomplete upload :(",
+      "parentUuid": "f5c348db_7513c630",
+      "revId": "382bf1f831634822ae8168f5a0e81e3c2c5c1184",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
