@@ -33,6 +33,108 @@
       "message": "Alex can you please review? And then we can get a stamp from an owner for persistence. I think nobody knows persistence that well",
       "revId": "b34b5e393745aa19d7bfef0942a9fc30913d9ee6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbad7177_9041b0c2",
+        "filename": "front_end/common/ResourceType.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-05T07:04:21Z",
+      "side": 1,
+      "message": "In which circumstances does the resource type can have the \u0027sm-image\u0027 name? Would it be better to check the resources type category?",
+      "revId": "b34b5e393745aa19d7bfef0942a9fc30913d9ee6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d265e5c8_300d6013",
+        "filename": "front_end/persistence/PersistenceActions.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-05T07:04:21Z",
+      "side": 1,
+      "message": "I don\u0027t think we should suppress missing properties here.",
+      "revId": "b34b5e393745aa19d7bfef0942a9fc30913d9ee6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72757d04_a6256409",
+        "filename": "front_end/persistence/PersistenceActions.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-05T07:04:21Z",
+      "side": 1,
+      "message": "I wonder if the saveAs function might work for the images as well? I tried it briefly and it seems to work. Are there any edge cases using it?",
+      "revId": "b34b5e393745aa19d7bfef0942a9fc30913d9ee6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f88c1bac_39edfe97",
+        "filename": "front_end/persistence/PersistenceActions.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-05T07:04:21Z",
+      "side": 1,
+      "message": "We should not hard-code any image types. Also, this method does not work for SVG images. Could you try using the contentAsDataURL function from the ContentProvider.js?",
+      "revId": "b34b5e393745aa19d7bfef0942a9fc30913d9ee6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23939288_5d160469",
+        "filename": "front_end/persistence/PersistenceActions.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-05T07:04:21Z",
+      "side": 1,
+      "message": "Can we get rid of this ts-ignore?",
+      "revId": "b34b5e393745aa19d7bfef0942a9fc30913d9ee6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f9ddcf0_a281cd9a",
+        "filename": "front_end/persistence/PersistenceActions.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-05T07:04:21Z",
+      "side": 1,
+      "message": "Same comment about ts-ignore here",
+      "revId": "b34b5e393745aa19d7bfef0942a9fc30913d9ee6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
