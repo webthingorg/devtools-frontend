@@ -16,6 +16,41 @@
       "message": "Hi Jack, hi Alex,\n\nI\u0027ve updated a refactoring in patch 14: basically the logic about pages is moved to the LinearMemoryInspector, and the LinearMemoryViewer is just painting whatever it gets. On a resize event\nit sends along how many bytes it can plot, and the LinearMemoryInspector will store that info in order\nto always send along the correct number of bytes on a re-render. This required also some updates on the tests.\n\nOn another note: the error I\u0027m getting on the linear_memory_inspector-legacy.js file is difficult to debug, and I might need to update (e.g. patchset 15) and re-run on the bots a few times to find this issue. I\u0027ll remove you from the attention set.",
       "revId": "3988406dc558fbcf4a79f1cacd82c52a71be5a35",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f244244f_4253406b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-05T16:34:57Z",
+      "side": 1,
+      "message": "SGTM! Let me know if you want some eyes on the issue with the legacy file.",
+      "parentUuid": "5a7a2212_c0544d01",
+      "revId": "3988406dc558fbcf4a79f1cacd82c52a71be5a35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06ed2d3e_70ba7c67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-05T16:34:57Z",
+      "side": 1,
+      "message": "Thanks for making the refactoring changes 👍 :)",
+      "revId": "3988406dc558fbcf4a79f1cacd82c52a71be5a35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
