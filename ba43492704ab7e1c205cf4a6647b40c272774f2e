@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2772033_d79b21e6",
+        "filename": "front_end/timeline/TimelineFlameChartView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-05T08:01:26Z",
+      "side": 1,
+      "message": "Good idea to use the SplitWidget instead!",
+      "range": {
+        "startLine": 26,
+        "startChar": 30,
+        "endLine": 26,
+        "endChar": 56
+      },
+      "revId": "ba43492704ab7e1c205cf4a6647b40c272774f2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d084470d_131675c6",
+        "filename": "front_end/timeline/TimelinePanel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-05T08:01:26Z",
+      "side": 1,
+      "message": "What about using ls here?",
+      "range": {
+        "startLine": 117,
+        "startChar": 40,
+        "endLine": 117,
+        "endChar": 65
+      },
+      "revId": "ba43492704ab7e1c205cf4a6647b40c272774f2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cff839b8_2df4fa12",
+        "filename": "front_end/timeline/TimelinePanel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-05T08:01:26Z",
+      "side": 1,
+      "message": "Same as above",
+      "range": {
+        "startLine": 310,
+        "startChar": 64,
+        "endLine": 310,
+        "endChar": 89
+      },
+      "revId": "ba43492704ab7e1c205cf4a6647b40c272774f2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

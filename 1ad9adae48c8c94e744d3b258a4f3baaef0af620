@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26d5b1fd_d6afe25e",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-05T08:01:26Z",
+      "side": 0,
+      "message": "Shouldn\u0027t we leave it in here even though it\u0027s not used anymore just to make sure that the id does not get reused?",
+      "range": {
+        "startLine": 622,
+        "startChar": 3,
+        "endLine": 622,
+        "endChar": 34
+      },
+      "revId": "1ad9adae48c8c94e744d3b258a4f3baaef0af620",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
