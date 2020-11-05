@@ -3,6 +3,86 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "427c331f_8af9bef8",
+        "filename": "front_end/elements/InspectElementModeController.js",
+        "patchSetId": 19
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-05T11:34:10Z",
+      "side": 1,
+      "message": "Let\u0027s move this to after the first `if` (so we avoid calling instance() unnecessarily)",
+      "revId": "24c86e9f1398bc708a1dee2c91e606d86862279c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd673402_77c839cf",
+        "filename": "front_end/recorder/RecordingSession.js",
+        "patchSetId": 19
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-05T11:34:10Z",
+      "side": 1,
+      "message": "It\u0027s fine to deal with this later, but per our upstream discussion we should probably use JSON.stringify here (and below)",
+      "range": {
+        "startLine": 43,
+        "startChar": 29,
+        "endLine": 43,
+        "endChar": 47
+      },
+      "revId": "24c86e9f1398bc708a1dee2c91e606d86862279c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d40a8e6d_c9cc5878",
+        "filename": "front_end/recorder/RecordingSession.js",
+        "patchSetId": 19
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-05T11:34:10Z",
+      "side": 1,
+      "message": "Any suggestions for a less confusing / more accurate name? Maybe something like `wrapFunctionSource` or `stringifyFunction`?",
+      "range": {
+        "startLine": 139,
+        "startChar": 10,
+        "endLine": 139,
+        "endChar": 30
+      },
+      "revId": "24c86e9f1398bc708a1dee2c91e606d86862279c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e291ffd2_aeb2fa33",
+        "filename": "test/e2e/recorder/recorder_test.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-05T11:34:10Z",
+      "side": 1,
+      "message": "replaceAll would avoid the need to create a regexp here\n\nhttps://v8.dev/features/string-replaceall",
+      "revId": "24c86e9f1398bc708a1dee2c91e606d86862279c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "95418824_23d0d2cd",
         "filename": "test/e2e/recorder/recorder_test.ts",
         "patchSetId": 19
@@ -19,6 +99,52 @@
         "startChar": 37,
         "endLine": 51,
         "endChar": 75
+      },
+      "revId": "24c86e9f1398bc708a1dee2c91e606d86862279c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f939a03_b2183aaf",
+        "filename": "test/e2e/resources/recorder/recorder.html",
+        "patchSetId": 19
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-05T11:34:10Z",
+      "side": 1,
+      "message": "nit: omit the opening and closing \u003chtml\u003e and \u003cbody\u003e tags + reduce indentation level",
+      "range": {
+        "startLine": 2,
+        "startChar": 1,
+        "endLine": 2,
+        "endChar": 2
+      },
+      "revId": "24c86e9f1398bc708a1dee2c91e606d86862279c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5cd6383_cdbe7a11",
+        "filename": "test/e2e/resources/recorder/recorder.html",
+        "patchSetId": 19
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-05T11:34:10Z",
+      "side": 1,
+      "message": "nits:\n\n- e \u003d\u003e event\n- add 2 missing semicolons per coding style",
+      "range": {
+        "startLine": 17,
+        "startChar": 39,
+        "endLine": 17,
+        "endChar": 40
       },
       "revId": "24c86e9f1398bc708a1dee2c91e606d86862279c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
