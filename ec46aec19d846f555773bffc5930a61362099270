@@ -39,6 +39,30 @@
       },
       "revId": "ec46aec19d846f555773bffc5930a61362099270",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70d8eb4f_235ade73",
+        "filename": "front_end/legacy/legacy-defs.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-05T09:55:15Z",
+      "side": 1,
+      "message": "I appreciate that updating the legacy defs means a full rebuild of the frontend, however changing anything in SDK would also do the same (as just one example). Which is to say it\u0027s not an outcome I want to plan for really, largely because it\u0027s easily done, and I want to avoid mixing a refactor of these protojacks in with TS Compiler support.\n\nIn other words, we should make our way through the legacy defs and migrate all of them to standalone functions (which we already knew) and every one we do of those will require a full rebuild anyway.",
+      "parentUuid": "51d04f35_d7461d2d",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 0
+      },
+      "revId": "ec46aec19d846f555773bffc5930a61362099270",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
