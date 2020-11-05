@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1913d60f_95dd76f7",
+        "filename": "front_end/generated/protocol.d.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 8346,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-05T20:30:06Z",
+      "side": 1,
+      "message": "This is just for testing locally. I\u0027ll get rid of this before landing. These will come later when the corresponding backend CL has landed.",
+      "range": {
+        "startLine": 8345,
+        "startChar": 0,
+        "endLine": 8346,
+        "endChar": 32
+      },
+      "revId": "9b7d03fa2d59208da70046d07d08da327bf16e75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
