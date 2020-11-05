@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1e3b862_31087e6c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-05T11:59:32Z",
+      "side": 1,
+      "message": "Nit: add `Fixed: 1066813` to mark the bug as fixed.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 6
+      },
+      "revId": "3f72c74d080ece4e800fd9d3590e58fcad90648f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3dabc1b5_b2277c5c",
+        "filename": "test/e2e/network/network-datagrid_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-05T11:59:32Z",
+      "side": 1,
+      "message": "Nit: remove CRBug references, since they will now be fixed.",
+      "range": {
+        "startLine": 24,
+        "startChar": 6,
+        "endLine": 24,
+        "endChar": 25
+      },
+      "revId": "3f72c74d080ece4e800fd9d3590e58fcad90648f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
