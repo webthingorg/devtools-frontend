@@ -19568,6 +19568,7 @@
                             "enum": [
                                 "ambiguous",
                                 "assert",
+                                "CSPViolation",
                                 "debugCommand",
                                 "DOM",
                                 "EventListener",
