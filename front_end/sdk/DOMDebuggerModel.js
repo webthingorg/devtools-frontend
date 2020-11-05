@@ -527,18 +527,13 @@ EventListener.Origin = {
   FrameworkUser: 'FrameworkUser'
 };
 
-export class EventListenerBreakpoint {
+
+export class CategorizedBreakpoint {
   /**
-   * @param {string} instrumentationName
-   * @param {string} eventName
-   * @param {!Array<string>} eventTargetNames
    * @param {string} category
    * @param {string} title
    */
-  constructor(instrumentationName, eventName, eventTargetNames, category, title) {
-    this._instrumentationName = instrumentationName;
-    this._eventName = eventName;
-    this._eventTargetNames = eventTargetNames;
+  constructor(category, title) {
     this._category = category;
     this._title = title;
     /** @type {boolean} */
@@ -563,10 +558,60 @@ export class EventListenerBreakpoint {
    * @param {boolean} enabled
    */
   setEnabled(enabled) {
+    this._enabled = enabled;
+  }
+
+  /**
+   * @return {string}
+   */
+  title() {
+    return this._title;
+  }
+}
+
+export class CSPViolationBreakpoint extends CategorizedBreakpoint {
+  /**
+   * @param {string} category
+   * @param {string} title
+   * @param {!Protocol.DOMDebugger.CSPViolationType} type
+   */
+  constructor(category, title, type) {
+    super(category, title);
+    this._type = type;
+  }
+
+  /**
+   * @return {!Protocol.DOMDebugger.CSPViolationType}
+   */
+  type() {
+    return this._type;
+  }
+}
+
+
+export class EventListenerBreakpoint extends CategorizedBreakpoint {
+  /**
+   * @param {string} instrumentationName
+   * @param {string} eventName
+   * @param {!Array<string>} eventTargetNames
+   * @param {string} category
+   * @param {string} title
+   */
+  constructor(instrumentationName, eventName, eventTargetNames, category, title) {
+    super(category, title);
+    this._instrumentationName = instrumentationName;
+    this._eventName = eventName;
+    this._eventTargetNames = eventTargetNames;
+  }
+
+  /**
+   * @param {boolean} enabled
+   */
+  setEnabled(enabled) {
     if (this._enabled === enabled) {
       return;
     }
-    this._enabled = enabled;
+    super.setEnabled(enabled);
     for (const model of TargetManager.instance().models(DOMDebuggerModel)) {
       this._updateOnModel(model);
     }
@@ -592,13 +637,6 @@ export class EventListenerBreakpoint {
       }
     }
   }
-
-  /**
-   * @return {string}
-   */
-  title() {
-    return this._title;
-  }
 }
 
 EventListenerBreakpoint._listener = 'listener:';
@@ -618,6 +656,15 @@ export class DOMDebuggerManager {
     for (const breakpoint of this._xhrBreakpointsSetting.get()) {
       this._xhrBreakpoints.set(breakpoint.url, breakpoint.enabled);
     }
+
+    /** @type {!Array<!CSPViolationBreakpoint>} */
+    this._cspViolationsToBreakOn = [];
+    this._cspViolationsToBreakOn.push(new CSPViolationBreakpoint(
+        Common.UIString.UIString('Trusted Type Violations'), 'Sink Violations',
+        Protocol.DOMDebugger.CSPViolationType.TrustedtypeSinkViolation));
+    this._cspViolationsToBreakOn.push(new CSPViolationBreakpoint(
+        Common.UIString.UIString('Trusted Type Violations'), 'Policy Violations',
+        Protocol.DOMDebugger.CSPViolationType.TrustedtypePolicyViolation));
 
     /** @type {!Array<!EventListenerBreakpoint>} */
     this._eventListenerBreakpoints = [];
@@ -801,6 +848,13 @@ export class DOMDebuggerManager {
   }
 
   /**
+   * @return {!Array<!CSPViolationBreakpoint>}
+   */
+  cspViolationBreakpoints() {
+    return this._cspViolationsToBreakOn.slice();
+  }
+
+  /**
    * @param {string} category
    * @param {!Array<string>} instrumentationNames
    */
@@ -899,6 +953,22 @@ export class DOMDebuggerManager {
     return this._resolveEventListenerBreakpoint(auxData['eventName'], auxData['targetName']);
   }
 
+  updateCSPViolationBreakpoints() {
+    const violationTypes = this._cspViolationsToBreakOn.filter(v => v.enabled()).map(v => v.type());
+    for (const model of TargetManager.instance().models(DOMDebuggerModel)) {
+      this.updateCSPViolationBreakpointsForModel(model, violationTypes);
+      model._agent.invoke_setBreakOnCSPViolation({violationTypes: violationTypes});
+    }
+  }
+
+  /**
+   * @param {!DOMDebuggerModel} model
+   * @param {!Array<!Protocol.DOMDebugger.CSPViolationType>} violationTypes
+   */
+  updateCSPViolationBreakpointsForModel(model, violationTypes) {
+    model._agent.invoke_setBreakOnCSPViolation({violationTypes: violationTypes});
+  }
+
   /**
    * @return {!Map<string, boolean>}
    */
@@ -973,6 +1043,8 @@ export class DOMDebuggerManager {
         breakpoint._updateOnModel(domDebuggerModel);
       }
     }
+    const violationTypes = this._cspViolationsToBreakOn.filter(v => v.enabled()).map(v => v.type());
+    this.updateCSPViolationBreakpointsForModel(domDebuggerModel, violationTypes);
   }
 
   /**
