@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63078687_af13da7f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-05T09:19:39Z",
+      "side": 1,
+      "message": "LGTM with one thought. Nice work, that\u0027s a chunky file!",
+      "revId": "ec46aec19d846f555773bffc5930a61362099270",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51d04f35_d7461d2d",
+        "filename": "front_end/legacy/legacy-defs.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-05T09:19:39Z",
+      "side": 1,
+      "message": "is it worth making a util function for this to avoid having to update legacy-defs.d.ts (which destroys the Ninja cache) and landing that before this? Or am I overthinking ? :D",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 0
+      },
+      "revId": "ec46aec19d846f555773bffc5930a61362099270",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
