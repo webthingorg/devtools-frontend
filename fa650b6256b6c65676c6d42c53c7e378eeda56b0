@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6494b14b_073cc96f",
+        "filename": "front_end/recorder/RecorderModel.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-05T13:30:17Z",
+      "side": 1,
+      "message": "Initially I ran into some problems with TypeScript so I decided to go the js path.\nBut I\u0027m not sure what they were so I\u0027ll try turning this into TypeScript and reach out\nto you in case I run into trouble again.",
+      "parentUuid": "386ed646_c6ddc554",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 0
+      },
+      "revId": "fa650b6256b6c65676c6d42c53c7e378eeda56b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "864349a1_8709e627",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-11-05T08:58:31Z",
       "side": 1,
       "message": "nit: Just wondering if we want this a little more broken down so that clang can format it more neatly?",
+      "range": {
+        "startLine": 231,
+        "startChar": 2,
+        "endLine": 235,
+        "endChar": 70
+      },
+      "revId": "fa650b6256b6c65676c6d42c53c7e378eeda56b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14eec36a_4f53e957",
+        "filename": "front_end/recorder/RecordingFileSystem.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-05T13:30:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "864349a1_8709e627",
       "range": {
         "startLine": 231,
         "startChar": 2,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9f43a29_0286bcda",
+        "filename": "front_end/recorder/RecordingSession.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-05T13:30:17Z",
+      "side": 1,
+      "message": "They only work when executed in Node.js",
+      "parentUuid": "ba1a7645_927e8946",
+      "range": {
+        "startLine": 164,
+        "startChar": 4,
+        "endLine": 164,
+        "endChar": 72
+      },
+      "revId": "fa650b6256b6c65676c6d42c53c7e378eeda56b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5da825a7_3aa9a872",
@@ -93,6 +165,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7fc4b5b_72cf2775",
+        "filename": "front_end/recorder/RecordingSession.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-05T13:30:17Z",
+      "side": 1,
+      "message": "This stems from the implementation of ProtocolProxyApi.DebuggerDispatcher.\nI added a clarifying comment.",
+      "parentUuid": "5da825a7_3aa9a872",
+      "range": {
+        "startLine": 404,
+        "startChar": 1,
+        "endLine": 405,
+        "endChar": 3
+      },
+      "revId": "fa650b6256b6c65676c6d42c53c7e378eeda56b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e6a930e1_3a755f82",
@@ -106,6 +202,24 @@
       "writtenOn": "2020-11-05T08:58:31Z",
       "side": 1,
       "message": "nit: needs license\n\nActually I\u0027m surprised the presubmit didn\u0027t catch that when linting.",
+      "revId": "fa650b6256b6c65676c6d42c53c7e378eeda56b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3302cdb5_4fa4b6ec",
+        "filename": "front_end/third_party/puppeteer/puppeteer_types.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-05T13:30:17Z",
+      "side": 1,
+      "message": "I\u0027ll remove this file for now because the implementation does not rely on puppeteer atm.",
+      "parentUuid": "e6a930e1_3a755f82",
       "revId": "fa650b6256b6c65676c6d42c53c7e378eeda56b0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

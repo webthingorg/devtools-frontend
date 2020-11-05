@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5dfea66a_240dfd4e",
+        "filename": "front_end/recorder/OWNERS",
+        "patchSetId": 11
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-05T13:30:17Z",
+      "side": 1,
+      "message": "I removed Peter for now and added you instead. Happy to change that though.",
+      "parentUuid": "9cea9d8b_7d8e98ca",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 13
+      },
+      "revId": "c2fcc19541a4cbc5a9005eca91fe0cb107b48ea0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "91323de3_d9a828c9",
@@ -155,6 +179,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "79722ccc_368cda55",
+        "filename": "front_end/sources/JavaScriptCompilerPlugin.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-05T13:30:17Z",
+      "side": 1,
+      "message": "Paul - do you know why I get these errors even though I did not change anything in the file?",
+      "parentUuid": "cfab4fa0_14c710d1",
+      "revId": "c2fcc19541a4cbc5a9005eca91fe0cb107b48ea0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "16a295c2_15b86532",
         "filename": "front_end/sources/RecorderPlugin.js",
         "patchSetId": 11
@@ -231,6 +273,24 @@
       "side": 1,
       "message": "In this case, I decided to stick with the div for consistency because all other NavigatorViews do it the same way. Happy to fix that as a drive by change or a separate cl though.",
       "parentUuid": "67ef1c75_97e5df08",
+      "revId": "c2fcc19541a4cbc5a9005eca91fe0cb107b48ea0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d98fddb5_b7f3aba3",
+        "filename": "front_end/sources/SourcesNavigator.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-05T13:30:17Z",
+      "side": 1,
+      "message": "I fixed it for the newly added code.",
+      "parentUuid": "c56bca31_9a96afa0",
       "revId": "c2fcc19541a4cbc5a9005eca91fe0cb107b48ea0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

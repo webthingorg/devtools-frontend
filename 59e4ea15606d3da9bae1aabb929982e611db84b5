@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7981e063_dbcef255",
+        "filename": "BUILD.gn",
+        "patchSetId": 18
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-05T13:30:17Z",
+      "side": 0,
+      "message": "I had to move a bunch of modules to be autoloaded because the recorder module has to be autoloaded to allow registering it\u0027s filesystem in main. I checked with Tim and apparently that\u0027s the best way to go atm.",
+      "parentUuid": "86e9b555_7b3dfb5b",
+      "range": {
+        "startLine": 118,
+        "startChar": 3,
+        "endLine": 118,
+        "endChar": 61
+      },
+      "revId": "59e4ea15606d3da9bae1aabb929982e611db84b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4373e82_7c73c4b2",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bf08472_a862e96d",
+        "filename": "devtools_grd_files.gni",
+        "patchSetId": 18
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-05T13:30:17Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "e4373e82_7c73c4b2",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 52
+      },
+      "revId": "59e4ea15606d3da9bae1aabb929982e611db84b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2000e23c_91b66834",
@@ -60,6 +108,30 @@
       "writtenOn": "2020-11-05T08:58:31Z",
       "side": 0,
       "message": "Yeah, I presume this isn\u0027t what we expected here?",
+      "range": {
+        "startLine": 7,
+        "startChar": 4,
+        "endLine": 7,
+        "endChar": 32
+      },
+      "revId": "59e4ea15606d3da9bae1aabb929982e611db84b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfdf0247_e559ab13",
+        "filename": "front_end/devtools_app.json",
+        "patchSetId": 18
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-05T13:30:17Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "2000e23c_91b66834",
       "range": {
         "startLine": 7,
         "startChar": 4,
