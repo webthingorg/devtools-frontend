@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74ec56aa_9b2b428c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1109584
+      },
+      "writtenOn": "2020-11-06T18:56:53Z",
+      "side": 1,
+      "message": "Conceptually this SGTM. Thanks for including the screenshot.\n\nI\u0027ll nod to the OWNER for the implementation specifics though.",
+      "revId": "2e0adedb637bc58ed6e9e808da69812ffc638f03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
