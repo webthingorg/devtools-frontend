@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "808d4093_74f72e26",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-06T13:39:21Z",
+      "side": 1,
+      "message": "Adding Mathias for owner review.",
+      "revId": "e1eb7810af0efbea56bc5131669883931ace8371",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0823763_aed1f1fe",
+        "filename": "front_end/inline_editor/CSSAngle.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-06T13:39:21Z",
+      "side": 1,
+      "message": "event.presentDefault() and event.stopPropogation() should do the trick.",
+      "revId": "e1eb7810af0efbea56bc5131669883931ace8371",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
