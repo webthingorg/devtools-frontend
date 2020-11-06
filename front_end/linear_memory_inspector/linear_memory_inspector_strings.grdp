@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grit-part>
+  <message name="IDS_DEVTOOLS_73c853d29cadf796b94a2949aed63493" desc="Text in the Linear Memory Inspector Drawer">
+    No open inspections
+  </message>
+</grit-part>
