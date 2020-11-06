@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "cbd85cf8e404ccfb50692e73d83abdf291e9214e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bcbf5c1_78312e59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-06T11:21:05Z",
+      "side": 1,
+      "message": "Maybe it would have been better design-wise to have one monster weakmap for all grids.. But then again, this seems to be the only place where it isn\u0027t clear from where the pop-over request is coming.",
+      "revId": "cbd85cf8e404ccfb50692e73d83abdf291e9214e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
