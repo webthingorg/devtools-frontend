@@ -273,9 +273,25 @@ export async function globalTeardown() {
   console.log('Stopping hosted mode server');
   hostedModeServer.kill();
 
-  if (fatalErrors.length) {
-    throw new Error('Fatal errors logged:\n' + fatalErrors.join('\n'));
+  const fatalErrorsToReport = removeAllowedFatalErrors(fatalErrors);
+  if (fatalErrorsToReport.length) {
+    throw new Error('Fatal errors logged:\n' + fatalErrorsToReport.join('\n'));
   }
 }
 
 export const fatalErrors: string[] = [];
+
+// A list of filter predicates describing errors that are allowed to be
+// present during the global `afterAll` hook. Errors such as pending
+// CDP calls should not cause the whole e2e suite to fail.
+const allowedUnhandledFatalErrorsAtTeardown: ((error: string) => boolean)[] = [
+  (error: string) => /Session is unregistering, can't dispatch pending call/.test(error),
+];
+
+function removeAllowedFatalErrors(errors: string[]): string[] {
+  let result = errors;
+  for (const predicate of allowedUnhandledFatalErrorsAtTeardown) {
+    result = result.filter(error => !predicate(error));
+  }
+  return result;
+}
