@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cef1778_1efe5b73",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-06T12:40:00Z",
+      "side": 1,
+      "message": "LGTM % question",
+      "revId": "f8a66117db09125f839f18ceebe46853f09f7663",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2620bf9_5f4010d2",
+        "filename": "front_end/color_picker/ContrastDetails.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-06T12:40:00Z",
+      "side": 1,
+      "message": "Should we include the trailing space in `suggestedColorString`? That way the label doesn\u0027t countain a double space in case we hit the fallback empty string option on line 162.",
+      "revId": "f8a66117db09125f839f18ceebe46853f09f7663",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
