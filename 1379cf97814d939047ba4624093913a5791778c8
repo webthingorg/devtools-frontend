@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acb2a44f_0117ed97",
+        "filename": "front_end/inline_editor/CSSAngle.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-06T13:09:19Z",
+      "side": 1,
+      "message": "I don\u0027t know why stopPropogation() or stopImmediatePropagation() does not work",
+      "revId": "1379cf97814d939047ba4624093913a5791778c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
