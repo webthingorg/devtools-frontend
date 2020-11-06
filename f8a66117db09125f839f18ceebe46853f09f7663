@@ -51,6 +51,24 @@
       "parentUuid": "f2620bf9_5f4010d2",
       "revId": "f8a66117db09125f839f18ceebe46853f09f7663",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8d2188b_2703aa0a",
+        "filename": "front_end/color_picker/ContrastDetails.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-06T13:55:46Z",
+      "side": 1,
+      "message": "Hmm, if we can get rid of the fallback because it turns out to be redundant, that would be even better! What\u0027s the 1%?",
+      "parentUuid": "a0e4b3a2_dd1e7078",
+      "revId": "f8a66117db09125f839f18ceebe46853f09f7663",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
