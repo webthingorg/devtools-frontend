@@ -16,6 +16,24 @@
       "message": "PTAL, I refactored the previous attempts into something that is hopefully a bit cleaner.",
       "revId": "69b068523740c686224610c47369591ed9fabd5d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "296602a7_35aafdc4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1420124
+      },
+      "writtenOn": "2020-11-06T17:42:45Z",
+      "side": 1,
+      "message": "looks good to me!",
+      "parentUuid": "3bcf5e80_05456b5a",
+      "revId": "69b068523740c686224610c47369591ed9fabd5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
