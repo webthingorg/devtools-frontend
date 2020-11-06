@@ -450,7 +450,7 @@ export const AllStorageTypes = [
 ];
 
 /**
- * @implements {UI.ActionDelegate.ActionDelegate}
+ * @implements {UI.ActionRegistration.ActionDelegate}
  */
 export class ActionDelegate {
   /**
