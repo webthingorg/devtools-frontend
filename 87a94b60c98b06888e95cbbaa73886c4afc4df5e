@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "749e6bab_8ed0085b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-06T08:59:05Z",
+      "side": 1,
+      "message": "LGTM with nit",
+      "revId": "87a94b60c98b06888e95cbbaa73886c4afc4df5e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76d207a8_4cc6d17e",
+        "filename": "front_end/lighthouse/LighthouseController.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-06T08:59:05Z",
+      "side": 1,
+      "message": "It feels like we should be able to say {{internalDisableDeviceScreenEmulation:boolean, emulatedFormFactor: string|undefined}} for this? We\u0027d need to change the \u0027in\u0027 check to match in LighthousePanel.js:409.",
+      "range": {
+        "startLine": 202,
+        "startChar": 14,
+        "endLine": 202,
+        "endChar": 15
+      },
+      "revId": "87a94b60c98b06888e95cbbaa73886c4afc4df5e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
