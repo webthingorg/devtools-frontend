@@ -97,6 +97,30 @@
       },
       "revId": "674046cfe79685bd4120e51b6e81d7c82a519d06",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13b08b54_294e6ab8",
+        "filename": "front_end/issues/MarkdownIssueDescription.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-06T08:54:28Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b82c38a1_d2b47b9c",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 47
+      },
+      "revId": "674046cfe79685bd4120e51b6e81d7c82a519d06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
