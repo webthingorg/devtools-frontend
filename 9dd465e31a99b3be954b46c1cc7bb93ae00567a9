@@ -16,6 +16,23 @@
       "message": "Publishing",
       "revId": "9dd465e31a99b3be954b46c1cc7bb93ae00567a9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8950d524_42cd7bc6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-06T21:19:35Z",
+      "side": 1,
+      "message": "Adding Owner to review",
+      "revId": "9dd465e31a99b3be954b46c1cc7bb93ae00567a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
