@@ -16,6 +16,24 @@
       "message": "Thank you all for the reviews!\n\nsigurds@: Thank you very much for helping to get this across the line with your changes!",
       "revId": "b17db0d051a0db39b9463ae1a0b1e608d0c2978f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0256a9df_144549ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 28
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-06T08:04:50Z",
+      "side": 1,
+      "message": "My pleasure, thanks for bringing this feature to devtools!",
+      "parentUuid": "b07f82ce_016905cc",
+      "revId": "b17db0d051a0db39b9463ae1a0b1e608d0c2978f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
