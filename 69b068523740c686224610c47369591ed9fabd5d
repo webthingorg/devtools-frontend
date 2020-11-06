@@ -34,6 +34,24 @@
       "parentUuid": "3bcf5e80_05456b5a",
       "revId": "69b068523740c686224610c47369591ed9fabd5d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c3a685d_1b063b25",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1420124
+      },
+      "writtenOn": "2020-11-06T18:29:37Z",
+      "side": 1,
+      "message": "Not quite related to the CL, but since you are touching `front_end/browser_sdk/module.json`: i noticed that the titles of the \"preserve log\"-setting options are the wrong way round.\nIf that should be kept separate i can also create a new ticket (and fix it).",
+      "parentUuid": "296602a7_35aafdc4",
+      "revId": "69b068523740c686224610c47369591ed9fabd5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
