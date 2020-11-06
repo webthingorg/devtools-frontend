@@ -16,6 +16,23 @@
       "message": "Hey Tim, doing this roll unblocks us from landing https://crrev.com/c/2521916 today.",
       "revId": "27a7a637825f60d149636261cc2edf9edbfddec7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f31f7b1e_d2d7168a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-06T12:44:05Z",
+      "side": 1,
+      "message": "Could you let me know why a manual roll is required?",
+      "revId": "27a7a637825f60d149636261cc2edf9edbfddec7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
