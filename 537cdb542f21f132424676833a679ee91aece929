@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b427a8b_c9b99cb9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-06T10:47:19Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "537cdb542f21f132424676833a679ee91aece929",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "473dcbe3_d442a1aa",
+        "filename": "front_end/performance_monitor/PerformanceMonitor.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-06T10:47:19Z",
+      "side": 1,
+      "message": "Do we want to use globalThis?",
+      "range": {
+        "startLine": 118,
+        "startChar": 22,
+        "endLine": 118,
+        "endChar": 28
+      },
+      "revId": "537cdb542f21f132424676833a679ee91aece929",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "007b3ad0_6ff5108b",
+        "filename": "front_end/performance_monitor/PerformanceMonitor.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-06T10:47:19Z",
+      "side": 1,
+      "message": "Same here 😊",
+      "range": {
+        "startLine": 130,
+        "startChar": 4,
+        "endLine": 130,
+        "endChar": 10
+      },
+      "revId": "537cdb542f21f132424676833a679ee91aece929",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
