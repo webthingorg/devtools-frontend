@@ -553,7 +553,7 @@ export class InspectorFrontendHostStub {
 
   /**
    * @override
-   * @param {function(!Root.Runtime.RuntimeExtensionDescriptor):void} callback
+   * @param {function(!Root.Runtime.RuntimeExtensionDescriptor):!Promise<boolean|undefined>} callback
    */
   setAddExtensionCallback(callback) {
     // Extensions are not supported in hosted mode.

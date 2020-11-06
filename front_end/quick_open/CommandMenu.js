@@ -39,13 +39,6 @@ export class CommandMenu {
   static createCommand(options) {
     const {category, keys, title, shortcut, executeHandler, availableHandler, userActionCode} = options;
 
-    // Get localized keys and separate by null character to prevent fuzzy matching from matching across them.
-    const keyList = keys.split(',');
-    let key = '';
-    keyList.forEach(k => {
-      key += (ls(k.trim()) + '\0');
-    });
-
     let handler = executeHandler;
     if (userActionCode) {
       const actionCode = userActionCode;
@@ -55,7 +48,7 @@ export class CommandMenu {
       };
     }
 
-    return new Command(category, title, key, shortcut, handler, availableHandler);
+    return new Command(category, title, keys, shortcut, handler, availableHandler);
   }
 
   /**
@@ -104,8 +97,8 @@ export class CommandMenu {
 
     return CommandMenu.createCommand({
       category: action.category(),
-      keys: action.tags(),
-      title: action.title(),
+      keys: action.tags() || '',
+      title: action.title() || '',
       shortcut,
       executeHandler: action.execute.bind(action),
       userActionCode,
@@ -255,25 +248,27 @@ export class CommandMenuProvider extends Provider {
     const allCommands = CommandMenu.instance().commands();
 
     // Populate allowlisted actions.
-    const actions = UI.ActionRegistry.ActionRegistry.instance().availableActions();
-    for (const action of actions) {
-      const category = action.category();
-      if (!category) {
-        continue;
+    UI.ActionRegistry.ActionRegistry.instance().availableActions().then(actions => {
+      for (const action of actions) {
+        const category = action.category();
+        if (!category) {
+          continue;
+        }
+
+        /** @type {!ActionCommandOptions} */
+        const options = {action, userActionCode: undefined};
+        this._commands.push(CommandMenu.createActionCommand(options));
       }
 
-      /** @type {!ActionCommandOptions} */
-      const options = {action, userActionCode: undefined};
-      this._commands.push(CommandMenu.createActionCommand(options));
-    }
-
-    for (const command of allCommands) {
-      if (command.available()) {
-        this._commands.push(command);
+      for (const command of allCommands) {
+        if (command.available()) {
+          this._commands.push(command);
+        }
       }
-    }
 
-    this._commands = this._commands.sort(commandComparator);
+      this._commands = this._commands.sort(commandComparator);
+    });
+
 
     /**
      * @param {!Command} left
