@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "962495d9_9f3b2eac",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 48
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-06T19:48:55Z",
+      "side": 1,
+      "message": "Ah I can see the confusion.  The text input is referring to the text box input type.  I have renamed everything to be \"textBoxInput\" instead of \"textInput\"",
+      "parentUuid": "8e652535_1de32849",
+      "range": {
+        "startLine": 512,
+        "startChar": 9,
+        "endLine": 512,
+        "endChar": 18
+      },
+      "revId": "1dc0a88e115faf8b9726d0661c587245849b08d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "013be0a2_b2c93e99",
@@ -71,6 +95,30 @@
       "writtenOn": "2020-11-06T06:48:57Z",
       "side": 1,
       "message": "This is to remove the leading ‘+’ sign in a number? Again, might be better to put this to where it is passed in?",
+      "range": {
+        "startLine": 518,
+        "startChar": 4,
+        "endLine": 523,
+        "endChar": 5
+      },
+      "revId": "1dc0a88e115faf8b9726d0661c587245849b08d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2896c8bb_aadfd292",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 48
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-06T19:48:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "013be0a2_b2c93e99",
       "range": {
         "startLine": 518,
         "startChar": 4,
@@ -106,6 +154,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3869dd60_98a341bd",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 48
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-06T19:48:55Z",
+      "side": 1,
+      "message": "unitsArray is a static parameter that is hard coded for each property in FontEditorUtils.js, so there really isn\u0027t an entry point where untisArray is provided.  This was meant as a check to see if a contributor adds a property to the Font Editor without adding the corresponding constants in FontEditorUtils.js.  I simplified the code by moving the check to the encompassing if statement and checking and throwing the error in the constructor if a property is set to contain units without a unit array.",
+      "parentUuid": "86735b66_6a27782f",
+      "range": {
+        "startLine": 542,
+        "startChar": 8,
+        "endLine": 542,
+        "endChar": 74
+      },
+      "revId": "1dc0a88e115faf8b9726d0661c587245849b08d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "69fc16e2_7ef09cb8",
         "filename": "front_end/inline_editor/FontEditor.js",
         "patchSetId": 48
@@ -117,6 +189,30 @@
       "writtenOn": "2020-11-06T06:48:57Z",
       "side": 1,
       "message": "Why do we hard-code it? Are there other places a similar icon is used?",
+      "range": {
+        "startLine": 703,
+        "startChar": 6,
+        "endLine": 703,
+        "endChar": 71
+      },
+      "revId": "1dc0a88e115faf8b9726d0661c587245849b08d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2694502c_35a7a0fd",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 48
+      },
+      "lineNbr": 703,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-06T19:48:55Z",
+      "side": 1,
+      "message": "Copied from the color picker here:\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/color_picker/Spectrum.js;l\u003d52?q\u003dSpectrum.js%20-f:out\u0026ss\u003dchromium",
+      "parentUuid": "69fc16e2_7ef09cb8",
       "range": {
         "startLine": 703,
         "startChar": 6,
