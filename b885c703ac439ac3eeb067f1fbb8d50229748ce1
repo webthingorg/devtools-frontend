@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f03f35ff_5d695bd9",
+        "filename": "devtools_grd_files.gni",
+        "patchSetId": 1
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-11-06T18:07:43Z",
+      "side": 1,
+      "message": "Migration script has a bug. Needs to prepend `front_end/` to module location.",
+      "revId": "b885c703ac439ac3eeb067f1fbb8d50229748ce1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1559f25a_b682053a",
         "filename": "front_end/emulation/BUILD.gn",
         "patchSetId": 1
