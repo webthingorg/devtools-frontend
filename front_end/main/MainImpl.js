@@ -191,6 +191,9 @@ export class MainImpl {
     // Dual-screen
     Root.Runtime.experiments.register('dualScreenSupport', 'Emulation: Support dual screen mode');
 
+    // Rendering
+    Root.Runtime.experiments.register('forced-colors', 'Enabled `forced-colors` emulation');
+
     // CSS Grid
     Root.Runtime.experiments.register(
         'cssGridFeatures',

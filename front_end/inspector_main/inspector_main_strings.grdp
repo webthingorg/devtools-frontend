@@ -3,8 +3,11 @@
   <message name="IDS_DEVTOOLS_3d3410cb399085b4a2912c9b3b4780a2" desc="Subtitle for checkboxes that disable WebP and AVIF formats in the Rendering panel">
     Requires a page reload to apply and disables caching for image requests.
   </message>
-  <message name="IDS_DEVTOOLS_4064ba4fc5cefa7ae1e4a3c7d4394837" desc="Title for a checkbox in the Rendering panel">
+  <message name="IDS_DEVTOOLS_4064ba4fc5cefa7ae1e4a3c7d4394837" desc="Title of a setting that disables AVIF format">
     Disable AVIF image format
+  </message>
+  <message name="IDS_DEVTOOLS_651677d5bfc4633d8b5fbb60be03f33c" desc="Subtitle for a select box under the Rendering drawer">
+    Forces CSS forced-colors media feature
   </message>
   <message name="IDS_DEVTOOLS_79eabc5ef01281e5513568fb4f8674d2" desc="Text in Rendering Options">
     Frame Rendering Stats
