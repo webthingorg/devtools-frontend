@@ -152,7 +152,7 @@ export class TreeOutline extends Common.ObjectWrapper.ObjectWrapper {
       return null;
     }
 
-    const listNode = node.enclosingNodeOrSelfWithNodeNameInArray(['ol', 'li']);
+    const listNode = UI.UIUtils.enclosingNodeOrSelfWithNodeNameInArray(node, ['ol', 'li']);
     if (listNode) {
       return listNode.parentTreeElement || listNode.treeElement;
     }
