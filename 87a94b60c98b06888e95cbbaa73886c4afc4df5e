@@ -39,6 +39,30 @@
       },
       "revId": "87a94b60c98b06888e95cbbaa73886c4afc4df5e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8fce38f_3e86f389",
+        "filename": "front_end/lighthouse/LighthouseController.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-06T12:36:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76d207a8_4cc6d17e",
+      "range": {
+        "startLine": 202,
+        "startChar": 14,
+        "endLine": 202,
+        "endChar": 15
+      },
+      "revId": "87a94b60c98b06888e95cbbaa73886c4afc4df5e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
