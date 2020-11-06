@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddd263ae_d94db95e",
+        "filename": "front_end/profiler/ProfilesPanel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-06T16:51:53Z",
+      "side": 1,
+      "message": "Can\u0027t turn this into a map :( A layout test accesses the private property directly.",
+      "range": {
+        "startLine": 108,
+        "startChar": 4,
+        "endLine": 108,
+        "endChar": 62
+      },
+      "revId": "c951c2bf473c4023d47116c31e558213ce0c9a20",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
