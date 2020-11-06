@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1170a9e_799e62b1",
+        "filename": "front_end/performance_monitor/PerformanceMonitor.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-06T12:29:36Z",
+      "side": 1,
+      "message": "We are using `window.` for for example `window.setTimeout`. Let\u0027s keep this `window` for now to be consistent and at some point do the `window` -\u003e `globalThis` migration in the whole codebase.",
+      "parentUuid": "473dcbe3_d442a1aa",
+      "range": {
+        "startLine": 118,
+        "startChar": 22,
+        "endLine": 118,
+        "endChar": 28
+      },
+      "revId": "537cdb542f21f132424676833a679ee91aece929",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "007b3ad0_6ff5108b",
@@ -54,6 +78,30 @@
       "writtenOn": "2020-11-06T10:47:19Z",
       "side": 1,
       "message": "Same here 😊",
+      "range": {
+        "startLine": 130,
+        "startChar": 4,
+        "endLine": 130,
+        "endChar": 10
+      },
+      "revId": "537cdb542f21f132424676833a679ee91aece929",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c75b9524_da89da9b",
+        "filename": "front_end/performance_monitor/PerformanceMonitor.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-06T12:29:36Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "007b3ad0_6ff5108b",
       "range": {
         "startLine": 130,
         "startChar": 4,
