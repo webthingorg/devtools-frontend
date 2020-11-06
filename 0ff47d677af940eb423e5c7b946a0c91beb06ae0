@@ -85,6 +85,24 @@
       "parentUuid": "d3d7df75_45a7d613",
       "revId": "0ff47d677af940eb423e5c7b946a0c91beb06ae0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7482250b_a3819736",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-06T12:59:06Z",
+      "side": 1,
+      "message": "It seems that this came up during the sync, but I couldn\u0027t attend. To clarify: this was a suggestion rather than a blocker. To reduce the amount of merge conflicts and churn for the overall team, small migration CLs are preferred. However, if that is not possible, then that is okay as well. So please proceed with whatever granularity is feasible for you.",
+      "parentUuid": "86558680_76226fd3",
+      "revId": "0ff47d677af940eb423e5c7b946a0c91beb06ae0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
