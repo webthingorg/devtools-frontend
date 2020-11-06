@@ -6,6 +6,17 @@ import * as Common from '../../../../front_end/common/common.js';
 import * as Root from '../../../../front_end/root/root.js';
 import * as SDK from '../../../../front_end/sdk/sdk.js';
 
+function exposeLSIfNecessary() {
+  // SDK.ResourceTree model has to exist to avoid a circular dependency, thus it
+  // needs to be placed on the global if it is not already there.
+  const globalObject = (globalThis as unknown as {ls: Function});
+  globalObject.ls = globalObject.ls || Common.ls;
+}
+
+// Initially expose the ls function so that imports that assume its existence
+// don't fail. This side-effect will be undone as part of the deinitialize.
+exposeLSIfNecessary();
+
 let targetManager: SDK.SDKModel.TargetManager;
 
 function initializeTargetManagerIfNecessary() {
@@ -25,6 +36,8 @@ export function createTarget({id = 'test', name = 'test', type = SDK.SDKModel.Ty
 }
 
 export function initializeGlobalVars({reset = true} = {}) {
+  exposeLSIfNecessary();
+
   // Create the appropriate settings needed to boot.
   const settingValues = [
     {
@@ -88,8 +101,9 @@ export function initializeGlobalVars({reset = true} = {}) {
 
 export function deinitializeGlobalVars() {
   // Remove the global SDK.
-  const globalObject = (globalThis as unknown as {SDK?: {}});
+  const globalObject = (globalThis as unknown as {SDK?: {}, ls?: {}});
   delete globalObject.SDK;
+  delete globalObject.ls;
 
   // Remove instances.
   SDK.SDKModel.TargetManager.removeInstance();
