@@ -33,6 +33,24 @@
       "message": "Should we include the trailing space in `suggestedColorString`? That way the label doesn\u0027t countain a double space in case we hit the fallback empty string option on line 162.",
       "revId": "f8a66117db09125f839f18ceebe46853f09f7663",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0e4b3a2_dd1e7078",
+        "filename": "front_end/color_picker/ContrastDetails.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-06T12:58:50Z",
+      "side": 1,
+      "message": "Yes, thanks! I am 99% sure that .asString won\u0027t return a falsy value but formatting properly in that case would be better.",
+      "parentUuid": "f2620bf9_5f4010d2",
+      "revId": "f8a66117db09125f839f18ceebe46853f09f7663",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
