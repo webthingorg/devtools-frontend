@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7b3f015_523d02aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-06T08:33:44Z",
+      "side": 1,
+      "message": "Thanks for taking the time and writing the component!\n\nlgtm % nits",
+      "revId": "c1bd0b4a1f65be38b16cf20869ebb54b37c488a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85b64b23_cc8d877e",
+        "filename": "front_end/component_docs/issue_survey_link/BUILD.gn",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-06T08:33:44Z",
+      "side": 1,
+      "message": "nit: Missing license header.",
+      "revId": "c1bd0b4a1f65be38b16cf20869ebb54b37c488a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c3ac205_8c652580",
+        "filename": "front_end/issues/IssueSurveyLink.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-06T08:33:44Z",
+      "side": 1,
+      "message": "Either here or on the state enum, or on the data setter I would document that resetting `data` will put the component back into the Checking state.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 26
+      },
+      "revId": "c1bd0b4a1f65be38b16cf20869ebb54b37c488a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f180824_2f8339ac",
+        "filename": "front_end/issues/IssueSurveyLink.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-06T08:33:44Z",
+      "side": 1,
+      "message": "nit: Extracting this into a type alias might be more readable than the double arrow function notation. Could you try and check if it helps with readability?",
+      "range": {
+        "startLine": 35,
+        "startChar": 17,
+        "endLine": 35,
+        "endChar": 85
+      },
+      "revId": "c1bd0b4a1f65be38b16cf20869ebb54b37c488a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "298a54bb_49432d14",
+        "filename": "front_end/issues/IssueSurveyLink.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-06T08:33:44Z",
+      "side": 1,
+      "message": "nit: wdyt about moving `this.render()` out of the if? `render` already handles that case properly. reading the code otherwise suggests that render can\u0027t handle the `DontShowLink` state.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 7
+      },
+      "revId": "c1bd0b4a1f65be38b16cf20869ebb54b37c488a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
