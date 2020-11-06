@@ -1136,7 +1136,8 @@
     "event_listeners",
     "object_ui",
     "formatter",
-    "coverage"
+    "coverage",
+    "linear_memory_inspector"
   ],
   "modules": [
     "sources.js",
