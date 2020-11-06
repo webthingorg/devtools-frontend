@@ -27,21 +27,31 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-
 // @ts-nocheck
 // TODO(crbug.com/1011811): Enable TypeScript compiler checks
 
 import * as Common from '../common/common.js';
+import * as Root from '../root/root.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
 import {ElementsPanel} from './ElementsPanel.js';
+
+/** @type {?InspectElementModeController} */
+let inspectElementModeControllerInstance;
 
 /**
  * @implements {SDK.SDKModel.SDKModelObserver<!SDK.OverlayModel.OverlayModel>}
  * @unrestricted
  */
 export class InspectElementModeController {
+  static instance() {
+    if (!inspectElementModeControllerInstance && !Root.Runtime.Runtime.queryParam('isSharedWorker')) {
+      inspectElementModeControllerInstance = new InspectElementModeController();
+    }
+    return inspectElementModeControllerInstance;
+  }
+
   /**
    * @suppressGlobalPropertiesCheck
    */
@@ -162,6 +172,7 @@ export class ToggleSearchActionDelegate {
    * @return {boolean}
    */
   handleAction(context, actionId) {
+    const inspectElementModeController = InspectElementModeController.instance();
     if (!inspectElementModeController) {
       return false;
     }
@@ -173,7 +184,3 @@ export class ToggleSearchActionDelegate {
     return true;
   }
 }
-
-/** @type {?InspectElementModeController} */
-export const inspectElementModeController =
-    Root.Runtime.queryParam('isSharedWorker') ? null : new InspectElementModeController();
