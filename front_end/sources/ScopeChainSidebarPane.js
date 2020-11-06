@@ -26,6 +26,7 @@
 
 import * as Common from '../common/common.js';
 import * as Components from '../components/components.js';
+import * as LinearMemoryInspector from '../linear_memory_inspector/linear_memory_inspector.js';  // eslint-disable-line no-unused-vars
 import * as ObjectUI from '../object_ui/object_ui.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
@@ -216,6 +217,52 @@ export class ScopeChainSidebarPane extends UI.Widget.VBox {
   }
 
   _sidebarPaneUpdatedForTest() {
+  }
+}
+
+/**
+ * @implements {LinearMemoryInspector.LinearMemoryInspectorPane.LazyUint8Array}
+ * @unrestricted
+ */
+class RemoteArrayWrapper {  // eslint-disable-line no-unused-vars
+  /**
+   * @override
+   * @param {!SDK.RemoteObject.RemoteArray} array
+   */
+  constructor(array) {
+    this.remoteArray = array;
+  }
+
+  /**
+   * @override
+   */
+  length() {
+    return this.remoteArray.length();
+  }
+
+  /**
+   * @override
+   * @param {number} start
+   * @param {number} end
+   */
+  async getRange(start, end) {
+    if (start < 0 || end >= this.remoteArray.length() || start > end) {
+      return Promise.resolve(new Uint8Array(0));
+    }
+    const array = this.extractByteArray(start, end);
+    return array.then(x => new Uint8Array(x));
+  }
+
+  /**
+   * @param {number} start
+   * @param {number} end
+   */
+  async extractByteArray(start, end) {
+    const promises = [];
+    for (let i = start; i < end && i < this.remoteArray.length(); ++i) {
+      promises.push(this.remoteArray.at(i).then(x => x.value));
+    }
+    return Promise.all(promises);
   }
 }
 
