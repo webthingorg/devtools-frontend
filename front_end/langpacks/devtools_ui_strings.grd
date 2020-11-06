@@ -30,7 +30,6 @@
       <part file="../devices/devices_strings.grdp" />
       <part file="../elements/elements_strings.grdp" />
       <part file="../emulated_devices/emulated_devices_strings.grdp" />
-      <part file="../emulation/emulation_strings.grdp" />
       <part file="../event_listeners/event_listeners_strings.grdp" />
       <part file="../heap_snapshot_worker/heap_snapshot_worker_strings.grdp" />
       <part file="../help/help_strings.grdp" />

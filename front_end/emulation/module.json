@@ -286,6 +286,7 @@
     }
   ],
   "dependencies": [
+"i18n",
     "bindings",
     "components",
     "host",

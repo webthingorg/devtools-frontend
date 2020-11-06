@@ -386,6 +386,7 @@ grd_files_release_sources = [
 ]
 
 grd_files_debug_sources = [
+  "emulation/ModuleUIStrings.js",
   "front_end/accessibility/ARIAAttributesView.js",
   "front_end/accessibility/ARIAMetadata.js",
   "front_end/accessibility/AXBreadcrumbsPane.js",
