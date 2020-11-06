@@ -170,6 +170,11 @@ export class CSSAngle extends HTMLElement {
     this.popoverOpen ? this.minify() : this.popover();
   }
 
+  // Fix that the previous text will be selected when double-clicking the angle icon
+  private consume(event: MouseEvent): void {
+    event.consume(true);
+  }
+
   private onPopoverMousedown(event: MouseEvent): void {
     event.stopPropagation();
     this.updateAngleFromMousePosition(event.pageX, event.pageY, event.shiftKey);
@@ -381,7 +386,7 @@ export class CSSAngle extends HTMLElement {
 
       <div class="css-type" @keydown=${this.onKeydown} tabindex="-1">
         <div class="preview">
-          <div class="mini-icon" @mousedown=${this.onMiniIconClick}>
+          <div class="mini-icon" @click=${this.onMiniIconClick} @mousedown=${this.consume} @dblclick=${this.consume} >
             <span class="mini-hand" style=${styleMap(miniHandStyle)}></span>
           </div>
           <slot></slot>
