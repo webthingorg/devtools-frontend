@@ -50,6 +50,24 @@
       "message": "Sigh, why did Closure not complain about this... Thanks for catching this! The solution is unfortunate, but then again I don\u0027t think we have any better alternative atm. The architecture in the profiler is problematic anyways and we will not be able to tackle that in this CL.",
       "revId": "cbd85cf8e404ccfb50692e73d83abdf291e9214e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa96344a_95839a7f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-06T12:26:57Z",
+      "side": 1,
+      "message": "Agreed, the solution is unforunate.",
+      "parentUuid": "17db29fe_5673dba7",
+      "revId": "cbd85cf8e404ccfb50692e73d83abdf291e9214e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
