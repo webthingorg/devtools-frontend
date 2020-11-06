@@ -16,6 +16,115 @@
       "message": "Adding regex comments about what type of values will be parsed",
       "revId": "1dc0a88e115faf8b9726d0661c587245849b08d1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d387881d_66921d01",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 48
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-11-06T06:48:57Z",
+      "side": 1,
+      "message": "Some comments. The font editor part looks good to me. Still to review the font conversion part.",
+      "revId": "1dc0a88e115faf8b9726d0661c587245849b08d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e652535_1de32849",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 48
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-11-06T06:48:57Z",
+      "side": 1,
+      "message": "nit: From what is in onTextInput, this is really a numeric input:)",
+      "range": {
+        "startLine": 512,
+        "startChar": 9,
+        "endLine": 512,
+        "endChar": 18
+      },
+      "revId": "1dc0a88e115faf8b9726d0661c587245849b08d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "013be0a2_b2c93e99",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 48
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-11-06T06:48:57Z",
+      "side": 1,
+      "message": "This is to remove the leading ‘+’ sign in a number? Again, might be better to put this to where it is passed in?",
+      "range": {
+        "startLine": 518,
+        "startChar": 4,
+        "endLine": 523,
+        "endChar": 5
+      },
+      "revId": "1dc0a88e115faf8b9726d0661c587245849b08d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86735b66_6a27782f",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 48
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-11-06T06:48:57Z",
+      "side": 1,
+      "message": "This check might be better at the point when unitsArray is provided? If you check the options, shall we also check if it is empty?",
+      "range": {
+        "startLine": 542,
+        "startChar": 8,
+        "endLine": 542,
+        "endChar": 74
+      },
+      "revId": "1dc0a88e115faf8b9726d0661c587245849b08d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69fc16e2_7ef09cb8",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 48
+      },
+      "lineNbr": 703,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-11-06T06:48:57Z",
+      "side": 1,
+      "message": "Why do we hard-code it? Are there other places a similar icon is used?",
+      "range": {
+        "startLine": 703,
+        "startChar": 6,
+        "endLine": 703,
+        "endChar": 71
+      },
+      "revId": "1dc0a88e115faf8b9726d0661c587245849b08d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
