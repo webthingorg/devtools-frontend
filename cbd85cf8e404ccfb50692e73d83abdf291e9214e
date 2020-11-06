@@ -33,6 +33,23 @@
       "message": "Maybe it would have been better design-wise to have one monster weakmap for all grids.. But then again, this seems to be the only place where it isn\u0027t clear from where the pop-over request is coming.",
       "revId": "cbd85cf8e404ccfb50692e73d83abdf291e9214e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17db29fe_5673dba7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-06T12:25:59Z",
+      "side": 1,
+      "message": "Sigh, why did Closure not complain about this... Thanks for catching this! The solution is unfortunate, but then again I don\u0027t think we have any better alternative atm. The architecture in the profiler is problematic anyways and we will not be able to tackle that in this CL.",
+      "revId": "cbd85cf8e404ccfb50692e73d83abdf291e9214e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
