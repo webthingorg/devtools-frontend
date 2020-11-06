@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ac09f464_9cdb95ac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2020-11-06T09:00:28Z",
+      "side": 1,
+      "message": "Thanks, TIL!",
+      "parentUuid": "3b71b2ed_756deb72",
+      "revId": "493ec6ac0d52afa2956d2c7c8d571154ea7c2512",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "db4ad06b_154337f8",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
