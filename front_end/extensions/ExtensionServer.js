@@ -786,7 +786,7 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
    * @param {!Root.Runtime.RuntimeExtensionDescriptor} extensionInfo
    * @suppressGlobalPropertiesCheck
    */
-  _addExtension(extensionInfo) {
+  async _addExtension(extensionInfo) {
     const startPage = extensionInfo.startPage;
 
     const inspectedURL = SDK.SDKModel.TargetManager.instance().mainTarget().inspectedURL();
@@ -804,7 +804,7 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
         const injectedAPI = self.buildExtensionAPIInjectedScript(
             /** @type {!{startPage: string, name: string, exposeExperimentalAPIs: boolean}} */ (extensionInfo),
             this._inspectedTabId, ThemeSupport.ThemeSupport.instance().themeName(),
-            UI.ShortcutRegistry.ShortcutRegistry.instance().globalShortcutKeys(),
+            await UI.ShortcutRegistry.ShortcutRegistry.instance().globalShortcutKeys(),
             ExtensionServer.instance()['_extensionAPITestHook']);
         Host.InspectorFrontendHost.InspectorFrontendHostInstance.setInjectedScriptForOrigin(
             extensionOrigin, injectedAPI);
