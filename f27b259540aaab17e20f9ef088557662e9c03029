@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06296059_9b4ae3f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-11-07T00:19:44Z",
+      "side": 1,
+      "message": "PTAL, quick \u0026 easy change to restore proper keyboarding/focus management to shortcuts settings",
+      "revId": "f27b259540aaab17e20f9ef088557662e9c03029",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
