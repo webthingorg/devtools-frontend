@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "399c235b_94d41915",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-11-09T19:57:04Z",
+      "side": 1,
+      "message": "Works well. It\u0027s a little unintuitive to me that backspace doesn\u0027t clear the shortcut and enter doesn\u0027t confirm it, but I also understand the need to be able to assign those keys.",
+      "revId": "db6e7e909ab33d166ba1576e8a57e9269e0df2cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
