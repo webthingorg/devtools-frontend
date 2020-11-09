@@ -16,6 +16,23 @@
       "message": "PTAL, thanks!",
       "revId": "4e584338062a72ac869210f71f51b7528e47e095",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59844f2e_673768e9",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-09T10:13:03Z",
+      "side": 1,
+      "message": "The correct attribute value is technically \u0027disabled\u0027, since it\u0027s a boolean HTML attribute: https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#boolean-attributes (\u0027true\u0027 is not valid but it works, just like \u0027false\u0027 or \u0027anyothervalue\u0027 since the mere presence of the attribute is enough to enable it.)\n\nBut instead of mucking with attribute values, let\u0027s keep things simple and set `.disabled \u003d true` directly (and same for the other changes in this CL). This way you can use JS booleans the way you\u0027d expect.",
+      "revId": "4e584338062a72ac869210f71f51b7528e47e095",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
