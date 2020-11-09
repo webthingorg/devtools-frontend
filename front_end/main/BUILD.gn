@@ -19,6 +19,7 @@ devtools_module("main") {
     "../extensions:bundle",
     "../host:bundle",
     "../i18n:bundle",
+    "../linear_memory_inspector:bundle",
     "../persistence:bundle",
     "../platform:bundle",
     "../protocol_client:bundle",
