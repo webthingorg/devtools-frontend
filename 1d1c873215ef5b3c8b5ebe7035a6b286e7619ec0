@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "845a99f0_e70db66c",
+        "filename": "front_end/timeline/TimelineUIUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1350,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-09T15:24:58Z",
+      "side": 1,
+      "message": "Closure sadly isn\u0027t smart enough about `e.entries()` and types it as `(string|number)[]` whereas in fact it is an array of tuples. TS does understand this. Therefore, when we can get rid of closure, we can remove the type-casts and TS will get it.",
+      "parentUuid": "495b49b1_15000198",
+      "range": {
+        "startLine": 1350,
+        "startChar": 0,
+        "endLine": 1350,
+        "endChar": 83
+      },
+      "revId": "1d1c873215ef5b3c8b5ebe7035a6b286e7619ec0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cd472058_622a9ee8",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-11-09T15:22:27Z",
       "side": 1,
       "message": "can\u0027t we lose the `this.hidden` here as we have a getter and setter declared?",
+      "range": {
+        "startLine": 2545,
+        "startChar": 2,
+        "endLine": 2546,
+        "endChar": 24
+      },
+      "revId": "1d1c873215ef5b3c8b5ebe7035a6b286e7619ec0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6509f49e_c98e5011",
+        "filename": "front_end/timeline/TimelineUIUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 2546,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-09T15:24:58Z",
+      "side": 1,
+      "message": "No, because the setter has a side-effect 😭",
+      "parentUuid": "cd472058_622a9ee8",
       "range": {
         "startLine": 2545,
         "startChar": 2,
