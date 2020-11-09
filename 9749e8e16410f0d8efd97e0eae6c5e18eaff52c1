@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32f10113_2c02ef3d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-11-09T15:56:02Z",
+      "side": 1,
+      "message": "Simon, refactored according to your suggestions.\nTim, I am now performing the early instantiations directly in MainImpl. Does the precise location make sense or should I maybe move it someplace else?",
+      "revId": "9749e8e16410f0d8efd97e0eae6c5e18eaff52c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
