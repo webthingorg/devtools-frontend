@@ -16,6 +16,24 @@
       "message": "Thanks for changing it Jack! LGTM",
       "revId": "cacee93ddbee80fc262c740029dbade2e9ab531b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "766af1c0_30086639",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-09T10:31:10Z",
+      "side": 1,
+      "message": "Oh, now that I see that some tests are red: the event names need to be changed in the tests too (e.g.: \n```\nLinearMemoryViewer_test.ts: \n\nconst eventPromise \u003d getEventPromise\u003cByteSelectedEvent\u003e(component, \u0027byte-selected\u0027);\n\n\nLinearMemoryNavigator_test.ts:\nawait assertNavigationEvents(\u0027page-navigation\u0027);\n\n```",
+      "parentUuid": "7465ea97_aedd3106",
+      "revId": "cacee93ddbee80fc262c740029dbade2e9ab531b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
