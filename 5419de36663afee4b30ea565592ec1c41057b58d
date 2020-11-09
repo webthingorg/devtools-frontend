@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "332fe4cc_ec1894d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1455634
+      },
+      "writtenOn": "2020-11-09T10:42:54Z",
+      "side": 1,
+      "message": "All seems good now, but I don\u0027t have try job access.\nDo you mind triggering the CQ dry run for me?",
+      "revId": "5419de36663afee4b30ea565592ec1c41057b58d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
