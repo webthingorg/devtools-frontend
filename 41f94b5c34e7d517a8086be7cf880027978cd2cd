@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "09ec3d9f_fa0ed2a2",
+        "filename": "front_end/issues/MarkdownIssueDescription.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-09T09:07:11Z",
+      "side": 1,
+      "message": "Will there be a way to provide examples for how the placeholders will be replaced?",
+      "range": {
+        "startLine": 30,
+        "startChar": 24,
+        "endLine": 31,
+        "endChar": 43
+      },
+      "revId": "41f94b5c34e7d517a8086be7cf880027978cd2cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e20e2fe9_044c21d8",
         "filename": "test/unittests/front_end/issues/MarkdownIssueDescription_test.ts",
         "patchSetId": 1
@@ -31,6 +54,30 @@
       "writtenOn": "2020-11-09T08:36:50Z",
       "side": 1,
       "message": "alternatively, we could throw in this case. It could be equally likely that there is a typo or a dev forgot to specify the replacement.",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 5
+      },
+      "revId": "41f94b5c34e7d517a8086be7cf880027978cd2cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a23b6e3_f9871362",
+        "filename": "test/unittests/front_end/issues/MarkdownIssueDescription_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-09T09:07:11Z",
+      "side": 1,
+      "message": "Let\u0027s throw.",
+      "parentUuid": "e20e2fe9_044c21d8",
       "range": {
         "startLine": 53,
         "startChar": 0,
