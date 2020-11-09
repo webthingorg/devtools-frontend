@@ -24,6 +24,9 @@
   <message name="IDS_DEVTOOLS_06c883a79771ecda24de1687ed7915ba" desc="Text for Coverage Status Bar Item in Sources Panel">
     Show Details
   </message>
+  <message name="IDS_DEVTOOLS_075cef1bc4f8f2e12cac76a45ff0de77" desc="inspect mem">
+    Inspect memory
+  </message>
   <message name="IDS_DEVTOOLS_08355a3ae65d425a4a6bac94ce97dcb4" desc="A context menu item in the Debugger Plugin of the Sources panel">
     Edit breakpoint…
   </message>
