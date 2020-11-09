@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3a94a74_37c58387",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-09T10:50:00Z",
+      "side": 1,
+      "message": "Changhao, happy to let you do the review. I can rubberstamp for OWNERS LGTM when you\u0027re done",
+      "revId": "9d244e0654cf623e389bc1dc1449ed1ddd7b69a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
