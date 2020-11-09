@@ -270,7 +270,7 @@ export class WebauthnPaneImpl extends UI.Widget.VBox {
   /**
    * @param {boolean} enable
    */
-  _setVirtualAuthEnvEnabled(enable) {
+  async _setVirtualAuthEnvEnabled(enable) {
     if (enable && !this._hasBeenEnabled) {
       // Ensures metric is only tracked once per session.
       Host.userMetrics.actionTaken(Host.UserMetrics.Action.VirtualAuthenticatorEnvironmentEnabled);
@@ -280,12 +280,14 @@ export class WebauthnPaneImpl extends UI.Widget.VBox {
     if (this._model) {
       this._model.setVirtualAuthEnvEnabled(enable);
     }
-    this._updateVisibility(enable);
+
     if (enable) {
-      this._loadInitialAuthenticators();
+      await this._loadInitialAuthenticators();
     } else {
-      this._removeAuthenticatorSections();
+      await this._removeAuthenticatorSections();
     }
+
+    this._updateVisibility(enable);
   }
 
   /**
