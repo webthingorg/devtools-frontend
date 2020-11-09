@@ -16,6 +16,23 @@
       "message": "PTAL. The back-end CL just merged, so we need to wait until the chromium build for the e2e tests has been rolled for the test to succeed.",
       "revId": "10dff4ea066ad8944bdee0808529bb6366b1df68",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da4d8e1a_2223bec1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-11-09T08:57:24Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "10dff4ea066ad8944bdee0808529bb6366b1df68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
