@@ -421,7 +421,7 @@ export class CodeMirrorTextEditor extends UI.Widget.VBox {
   }
 
   /**
-   * @return {!CodeMirror}
+   * @return {!CodeMirror.Editor}
    */
   codeMirror() {
     return this._codeMirror;
@@ -1889,7 +1889,13 @@ export class CodeMirrorTextEditorFactory {
 // Because we target up-to-date Chrome, we can guarantee consistent input events. This lets us leave the current
 // line from the editor in our <textarea>. CodeMirror still expects a mostly empty <textarea>, so we pass CodeMirror a
 // fake <textarea> that only contains the users input.
-CodeMirror.inputStyles.devToolsAccessibleTextArea = class extends CodeMirror.inputStyles.textarea {
+export class DevToolsAccessibleTextArea extends CodeMirror.inputStyles.textarea {
+  constructor() {
+    super();
+
+    /** @type {!HTMLTextAreaElement} */
+    this.textarea;
+  }
   /**
    * @override
    * @param {!Object} display
@@ -1985,7 +1991,9 @@ CodeMirror.inputStyles.devToolsAccessibleTextArea = class extends CodeMirror.inp
     this.textarea = placeholder;
     return result;
   }
-};
+}
+
+CodeMirror.inputStyles.devToolsAccessibleTextArea = DevToolsAccessibleTextArea;
 
 /**
  * @typedef {{
