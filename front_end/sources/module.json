@@ -1132,6 +1132,7 @@
     "persistence",
     "quick_open",
     "inline_editor",
+    "linear_memory_inspector",
     "color_picker",
     "event_listeners",
     "object_ui",

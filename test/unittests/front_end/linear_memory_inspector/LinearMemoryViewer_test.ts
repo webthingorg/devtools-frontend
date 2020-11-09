@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {ByteSelectedEvent, LinearMemoryViewer} from '../../../../front_end/linear_memory_inspector/LinearMemoryViewer.js';
+import {ByteSelectedEvent, LinearMemoryViewer, ResizeEvent} from '../../../../front_end/linear_memory_inspector/LinearMemoryViewer.js';
 import {assertElement, assertElements, assertShadowRoot, getElementWithinComponent, getEventPromise, renderElementIntoDOM} from '../helpers/DOMHelpers.js';
 
 const {assert} = chai;
@@ -14,7 +14,7 @@ export const VIEWER_ROW_SELECTOR = '.row';
 export const VIEWER_ADDRESS_SELECTOR = '.address';
 
 describe('LinearMemoryViewer', () => {
-  function setUpComponent() {
+  async function setUpComponent() {
     const component = new LinearMemoryViewer();
     const flexWrapper = document.createElement('div');
     flexWrapper.style.width = '500px';
@@ -23,6 +23,13 @@ describe('LinearMemoryViewer', () => {
     flexWrapper.appendChild(component);
     renderElementIntoDOM(flexWrapper);
     const data = createComponentData();
+    component.data = data;
+
+    const event = await getEventPromise<ResizeEvent>(component, 'resize');
+    const numBytesPerPage = event.data;
+    assert.isAbove(numBytesPerPage, 4);
+
+    // trigger re-render
     component.data = data;
     return {component, data};
   }
@@ -35,7 +42,8 @@ describe('LinearMemoryViewer', () => {
 
     const data = {
       memory: new Uint8Array(memory),
-      address: 20,
+      address: 2,
+      memoryOffset: 0,
     };
 
     return data;
@@ -51,9 +59,42 @@ describe('LinearMemoryViewer', () => {
     return cellsPerRow;
   }
 
+
+  it('correctly renders bytes given a memory offset greater than zero', async () => {
+    const data = createComponentData();
+    data.memoryOffset = 1;
+    assert.isAbove(data.address, data.memoryOffset);
+    const component = new LinearMemoryViewer();
+    component.data = data;
+    renderElementIntoDOM(component);
+
+    const selectedByte = getElementWithinComponent(component, VIEWER_BYTE_CELL_SELECTOR + '.selected', HTMLSpanElement);
+    const selectedValue = parseInt(selectedByte.innerText, 16);
+    assert.strictEqual(selectedValue, data.memory[data.address - data.memoryOffset]);
+  });
+
+  it('triggers an event on resize', async () => {
+    const data = createComponentData();
+    const component = new LinearMemoryViewer();
+    component.data = data;
+
+    const thinWrapper = document.createElement('div');
+    thinWrapper.style.width = '100px';
+    thinWrapper.style.height = '100px';
+    thinWrapper.style.display = 'flex';
+    thinWrapper.appendChild(component);
+    renderElementIntoDOM(thinWrapper);
+
+
+    const eventPromise = getEventPromise<ResizeEvent>(component, 'resize');
+    thinWrapper.style.width = '800px';
+
+    assert.isNotNull(await eventPromise);
+  });
+
   describe('address view', () => {
     it('renders one address per row', async () => {
-      const {component} = setUpComponent();
+      const {component} = await setUpComponent();
       assertShadowRoot(component.shadowRoot);
       const rows = component.shadowRoot.querySelectorAll(VIEWER_ROW_SELECTOR);
       const addresses = component.shadowRoot.querySelectorAll(VIEWER_ADDRESS_SELECTOR);
@@ -62,7 +103,7 @@ describe('LinearMemoryViewer', () => {
     });
 
     it('renders addresses depending on the bytes per row', async () => {
-      const {component, data} = setUpComponent();
+      const {component, data} = await setUpComponent();
       const bytesPerRow = getCellsPerRow(component, VIEWER_BYTE_CELL_SELECTOR);
       const numBytesPerRow = bytesPerRow.length;
 
@@ -70,11 +111,11 @@ describe('LinearMemoryViewer', () => {
       const addresses = component.shadowRoot.querySelectorAll(VIEWER_ADDRESS_SELECTOR);
       assert.isNotEmpty(addresses);
 
-      for (let i = 0, currentAddress = data.address; i < addresses.length; currentAddress += numBytesPerRow, ++i) {
+      for (let i = 0, currentAddress = data.memoryOffset; i < addresses.length; currentAddress += numBytesPerRow, ++i) {
         const addressElement = addresses[i];
         assertElement(addressElement, HTMLSpanElement);
 
-        const hex = currentAddress.toString(16).padStart(8, '0');
+        const hex = currentAddress.toString(16).toUpperCase().padStart(8, '0');
         assert.strictEqual(addressElement.innerText, hex);
       }
     });
@@ -94,7 +135,7 @@ describe('LinearMemoryViewer', () => {
     });
 
     it('renders byte values corresponding to memory set', async () => {
-      const {component, data} = setUpComponent();
+      const {component, data} = await setUpComponent();
       assertShadowRoot(component.shadowRoot);
       const bytes = component.shadowRoot.querySelectorAll(VIEWER_BYTE_CELL_SELECTOR);
       assertElements(bytes, HTMLSpanElement);
@@ -104,7 +145,7 @@ describe('LinearMemoryViewer', () => {
       const memoryStartAddress = Math.floor(data.address / bytesPerPage) * bytesPerPage;
       assert.isAtMost(bytes.length, memory.length);
       for (let i = 0; i < bytes.length; ++i) {
-        const hex = memory[memoryStartAddress + i].toString(16).padStart(2, '0');
+        const hex = memory[memoryStartAddress + i].toString(16).toUpperCase().padStart(2, '0');
         assert.strictEqual(bytes[i].innerText, hex);
       }
     });
@@ -112,7 +153,7 @@ describe('LinearMemoryViewer', () => {
 
   describe('ascii view', () => {
     it('renders as many ascii values as byte values in a row', async () => {
-      const {component} = setUpComponent();
+      const {component} = await setUpComponent();
       const bytes = getCellsPerRow(component, VIEWER_BYTE_CELL_SELECTOR);
       const ascii = getCellsPerRow(component, VIEWER_TEXT_CELL_SELECTOR);
 
@@ -120,7 +161,7 @@ describe('LinearMemoryViewer', () => {
     });
 
     it('renders ascii values corresponding to bytes', async () => {
-      const {component} = setUpComponent();
+      const {component} = await setUpComponent();
       assertShadowRoot(component.shadowRoot);
 
       const asciiValues = component.shadowRoot.querySelectorAll(VIEWER_TEXT_CELL_SELECTOR);
@@ -138,7 +179,7 @@ describe('LinearMemoryViewer', () => {
         if (byteValue < smallestPrintableAscii || byteValue > largestPrintableAscii) {
           assert.strictEqual(asciiText, '.');
         } else {
-          assert.strictEqual(asciiText, String.fromCharCode(byteValue));
+          assert.strictEqual(asciiText, String.fromCharCode(byteValue).trim());
         }
       }
     });
@@ -168,6 +209,7 @@ describe('LinearMemoryViewer', () => {
       component.data = {
         memory,
         address,
+        memoryOffset: 0,
       };
 
       assertSelectedCellIsHighlighted(component, VIEWER_BYTE_CELL_SELECTOR, address);
@@ -176,7 +218,7 @@ describe('LinearMemoryViewer', () => {
     });
 
     it('triggers an event', async () => {
-      const {component, data} = setUpComponent();
+      const {component, data} = await setUpComponent();
       assertShadowRoot(component.shadowRoot);
 
       const byte = component.shadowRoot.querySelector(VIEWER_BYTE_CELL_SELECTOR);
@@ -185,30 +227,7 @@ describe('LinearMemoryViewer', () => {
       const eventPromise = getEventPromise<ByteSelectedEvent>(component, 'byte-selected');
       byte.click();
       const {data: address} = await eventPromise;
-      assert.strictEqual(address, data.address);
+      assert.strictEqual(address, data.memoryOffset);
     });
-  });
-
-  it('switches page view when set addresses are not in same view', async () => {
-    const thinWrapper = document.createElement('div');
-    thinWrapper.style.width = '100px';
-    thinWrapper.style.height = '100px';
-    thinWrapper.style.display = 'flex';
-
-    const component = new LinearMemoryViewer();
-    const data = createComponentData();
-    component.data = data;
-    thinWrapper.appendChild(component);
-    renderElementIntoDOM(thinWrapper);
-
-    const addressInView = getElementWithinComponent(component, VIEWER_ADDRESS_SELECTOR, HTMLSpanElement);
-    const addressInViewBeforeUpdate = addressInView.innerText;
-
-    data.address = data.memory.length - 5;
-    component.data = data;
-
-    assertElement(addressInView, HTMLSpanElement);
-    const addressInViewAfterUpdate = addressInView.innerText;
-    assert.notEqual(addressInViewBeforeUpdate, addressInViewAfterUpdate);
   });
 });
