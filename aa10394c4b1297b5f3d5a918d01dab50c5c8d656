@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7dbfeec_1886fc80",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 2628,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-09T10:02:30Z",
+      "side": 1,
+      "message": "Let\u0027s just inline the string here, and make it `\u0027calc(\u0027`",
+      "range": {
+        "startLine": 2628,
+        "startChar": 75,
+        "endLine": 2628,
+        "endChar": 88
+      },
+      "revId": "aa10394c4b1297b5f3d5a918d01dab50c5c8d656",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e72e0eb0_a9e6dfd3",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 2628,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-09T10:02:30Z",
+      "side": 1,
+      "message": "Why would locale matter here? If it doesn’t we should use `toLowerCase`.",
+      "range": {
+        "startLine": 2628,
+        "startChar": 44,
+        "endLine": 2628,
+        "endChar": 61
+      },
+      "revId": "aa10394c4b1297b5f3d5a918d01dab50c5c8d656",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
