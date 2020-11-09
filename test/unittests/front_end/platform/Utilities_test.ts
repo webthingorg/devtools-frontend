@@ -5,14 +5,13 @@
 const {assert} = chai;
 
 // FIXME: Convert to pure functions as these utilities have side effects.
-import '../../../../front_end/platform/utilities.js';
+import * as Platform from '../../../../front_end/platform/platform.js';
 
 declare global {
   interface Array<T> {
     mergeOrdered(array: T[], comparator: (a: T, b: T) => number): T[];
     upperBound(value: T, comparator?: (a: T, b: T) => number): number;
     lowerBound(value: T, comparator?: (a: T, b: T) => number): number;
-    binaryIndexOf(value: T, comparator: (a: T, b: T) => number): number;
     sortRange(
         comparator: (a: T, b: T) => number, leftBound: number, rightBound: number, sortWindowLeft: number,
         sortWindowRight: number): T[];
@@ -97,7 +96,7 @@ describe('Utilities', () => {
 
       for (let i = -100; i <= 100; ++i) {
         const reference = array.indexOf(i);
-        const actual = array.binaryIndexOf(i, comparator);
+        const actual = Platform.ArrayUtilities.binaryIndexOf(array, i, comparator);
         assert.deepStrictEqual(reference, actual);
       }
       return true;

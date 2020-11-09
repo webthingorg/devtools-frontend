@@ -228,7 +228,7 @@ export class TimelineEventOverviewCPUActivity extends TimelineEventOverview {
     const idleIndex = 0;
     console.assert(idleIndex === categoryOrder.indexOf('idle'));
     for (let i = idleIndex + 1; i < categoryOrder.length; ++i) {
-      categoryToIndex.set(categories[categoryOrder[i]], i);
+      categoryToIndex.set(/** @type {!TimelineCategory} */ (categories.get(categoryOrder[i])), i);
     }
 
     const backgroundContext = /** @type {?CanvasRenderingContext2D} */ (this._backgroundCanvas.getContext('2d'));
@@ -300,7 +300,7 @@ export class TimelineEventOverviewCPUActivity extends TimelineEventOverview {
       quantizer.appendInterval(timeOffset + timeSpan + quantTime, idleIndex);  // Kick drawing the last bucket.
       for (let i = categoryOrder.length - 1; i > 0; --i) {
         paths[i].lineTo(width, height);
-        ctx.fillStyle = categories[categoryOrder[i]].color;
+        ctx.fillStyle = /** @type {!TimelineCategory} */ (categories.get(categoryOrder[i])).color;
         ctx.fill(paths[i]);
       }
     }

@@ -83,14 +83,6 @@ Array.prototype.lowerBound = function(object, comparator, left, right) {};
  */
 Array.prototype.upperBound = function(object, comparator, left, right) {};
 /**
- * @param {!S} value
- * @param {function(!S,!T):number} comparator
- * @return {number}
- * @this {Array.<T>}
- * @template S
- */
-Array.prototype.binaryIndexOf = function(value, comparator) {};
-/**
  * @param {function(number, number): number} comparator
  * @param {number} leftBound
  * @param {number} rightBound

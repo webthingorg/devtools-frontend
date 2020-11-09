@@ -313,7 +313,7 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     const contentHelper = new TimelineDetailsContentHelper(null, null);
     contentHelper.addSection(
         ls`Range:  ${Number.millisToString(startOffset)} \u2013 ${Number.millisToString(endOffset)}`);
-    const pieChart = TimelineUIUtils.generatePieChart(aggregatedStats);
+    const pieChart = TimelineUIUtils.generatePieChart(aggregatedStats.aggregatedStats);
     contentHelper.appendElementRow('', pieChart);
     this._setContent(contentHelper.fragment);
   }

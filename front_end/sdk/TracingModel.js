@@ -630,6 +630,8 @@ export class Event {
     this.bind_id;
     /** @type {number} */
     this.ordinal = 0;
+    /** @type {number} */
+    this.duration;
 
     /** @type {number} */
     this.selfTime = 0;
