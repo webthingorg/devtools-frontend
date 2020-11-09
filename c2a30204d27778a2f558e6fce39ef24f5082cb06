@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "c2a30204d27778a2f558e6fce39ef24f5082cb06",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "089b1507_f5d9bdde",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-11-09T09:27:39Z",
+      "side": 1,
+      "message": "Nifty, LGTM.",
+      "revId": "c2a30204d27778a2f558e6fce39ef24f5082cb06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
