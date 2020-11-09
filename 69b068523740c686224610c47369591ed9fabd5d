@@ -52,6 +52,69 @@
       "parentUuid": "296602a7_35aafdc4",
       "revId": "69b068523740c686224610c47369591ed9fabd5d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "925083f5_4177023c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-09T06:30:35Z",
+      "side": 1,
+      "message": "lgtm, although I\u0027d strongly prefer if we wouldn\u0027t have to add the change listener creation in the moddelAdded event.",
+      "revId": "69b068523740c686224610c47369591ed9fabd5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3108b790_a79be143",
+        "filename": "front_end/sdk/NetworkLog.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-09T06:30:35Z",
+      "side": 1,
+      "message": "Can we create the setting manually in the constructor instead of the module.json to fix this? Or would that shift the timing around so this solution no longer works?",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 107
+      },
+      "revId": "69b068523740c686224610c47369591ed9fabd5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7365b66_88771a35",
+        "filename": "front_end/sdk/NetworkLog.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-09T06:30:35Z",
+      "side": 1,
+      "message": "nit: Please extract both settings into a respective constant. Otherwise it\u0027s very hard to read.",
+      "range": {
+        "startLine": 118,
+        "startChar": 10,
+        "endLine": 118,
+        "endChar": 85
+      },
+      "revId": "69b068523740c686224610c47369591ed9fabd5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
