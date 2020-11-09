@@ -8342,6 +8342,8 @@ declare namespace Protocol {
        * The style of the container border
        */
       containerBorder?: LineStyle;
+      itemSeparator?: LineStyle;
+      lineSeparator?: LineStyle;
     }
 
     export enum LineStylePattern {
