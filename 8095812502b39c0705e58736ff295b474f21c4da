@@ -18,6 +18,29 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "228f2f1d_f4ece304",
+        "filename": "front_end/profiler/ProfilesPanel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-09T12:01:03Z",
+      "side": 1,
+      "message": "Ideally this becomes a map, or is it used in layout tests?",
+      "range": {
+        "startLine": 108,
+        "startChar": 16,
+        "endLine": 108,
+        "endChar": 22
+      },
+      "revId": "8095812502b39c0705e58736ff295b474f21c4da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc89ec09_84fe7bb5",
@@ -31,6 +54,30 @@
       "writtenOn": "2020-11-06T16:51:53Z",
       "side": 1,
       "message": "tried with `instanceof` combos for the various classes that get assigned to visibleView, but that broke e2e tests and I could\u0027t get it to work.",
+      "range": {
+        "startLine": 154,
+        "startChar": 4,
+        "endLine": 154,
+        "endChar": 60
+      },
+      "revId": "8095812502b39c0705e58736ff295b474f21c4da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dde1998d_6161754e",
+        "filename": "front_end/profiler/ProfilesPanel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-09T12:01:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fc89ec09_84fe7bb5",
       "range": {
         "startLine": 154,
         "startChar": 4,
