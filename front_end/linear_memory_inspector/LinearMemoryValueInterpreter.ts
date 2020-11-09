@@ -45,6 +45,7 @@ export class LinearMemoryValueInterpreter extends HTMLElement {
         }
 
         .value-interpreter {
+          width: 450px;
           border: var(--divider-border, 1px solid #d0d0d0);
           background-color: var(--toolbar-bg-color, #f3f3f3);
           overflow: hidden;

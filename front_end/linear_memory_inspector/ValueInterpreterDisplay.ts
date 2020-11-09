@@ -66,8 +66,8 @@ export class ValueInterpreterDisplay extends HTMLElement {
         .value-types {
           display: grid;
           overflow: hidden;
-          grid-template-columns: minmax(90px, 1fr) minmax(25px, 0.5fr) minmax(100px, 2fr) minmax(100px, 2fr);
-          grid-column-gap: 10px;
+          grid-template-columns: auto auto 1fr 1fr;
+          grid-column-gap: 24px;
           padding-left: 12px;
           padding-right: 12px;
         }
