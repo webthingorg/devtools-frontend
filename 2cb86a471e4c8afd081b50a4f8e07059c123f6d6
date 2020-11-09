@@ -33,6 +33,24 @@
       "message": "E2e-test failures seem to show some usages have been missed. LGTM given that the bots are green.",
       "revId": "2cb86a471e4c8afd081b50a4f8e07059c123f6d6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66b7eb24_198a0bb8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-09T09:16:41Z",
+      "side": 1,
+      "message": "Culprit was a use of UI.UIUtils inside /ui (in a file not yet checked by TS).",
+      "parentUuid": "84326895_cb3ac07f",
+      "revId": "2cb86a471e4c8afd081b50a4f8e07059c123f6d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
