@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd39d04c_a6c570c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-09T10:45:53Z",
+      "side": 1,
+      "message": "For the details you listed in the description,\n#1: since we don\u0027t write changed color unit to the backend, when it changes back seems to be a debatable question. Now it changes back to the original unit upon losing focus from another CSS property, which is definitely not ideal. We should find a better way to fix this.\n\nI\u0027m actually not sure about why we don\u0027t just write changed color unit to the backend. Maybe @mathias knows why?\nAlso @patrick it looks like Firefox also does not write changed color unit to the backend. Maybe there\u0027s benefits to not persist this to the backend?\n\n#2: it sounds like a nice thing to have. Let\u0027s make that in a future CL.",
+      "revId": "346f9ca391e9234e9f541ec500626d03461dd88a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
