@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "495b49b1_15000198",
+        "filename": "front_end/timeline/TimelineUIUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1350,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-09T15:22:27Z",
+      "side": 1,
+      "message": "I don\u0027t follow here - why do we need to do this? And why cast to null type?",
+      "range": {
+        "startLine": 1350,
+        "startChar": 0,
+        "endLine": 1350,
+        "endChar": 83
+      },
+      "revId": "1d1c873215ef5b3c8b5ebe7035a6b286e7619ec0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd472058_622a9ee8",
+        "filename": "front_end/timeline/TimelineUIUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 2546,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-09T15:22:27Z",
+      "side": 1,
+      "message": "can\u0027t we lose the `this.hidden` here as we have a getter and setter declared?",
+      "range": {
+        "startLine": 2545,
+        "startChar": 2,
+        "endLine": 2546,
+        "endChar": 24
+      },
+      "revId": "1d1c873215ef5b3c8b5ebe7035a6b286e7619ec0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
