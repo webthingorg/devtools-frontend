@@ -3,5 +3,6 @@
 // found in the LICENSE file.
 
 import * as LinearMemoryInspector from './LinearMemoryInspector_bridge.js';
+import * as LinearMemoryInspectorPane from './LinearMemoryInspectorPane.js';
 
-export {LinearMemoryInspector};
+export {LinearMemoryInspector, LinearMemoryInspectorPane};
