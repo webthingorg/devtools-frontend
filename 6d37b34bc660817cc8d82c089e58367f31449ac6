@@ -33,6 +33,24 @@
       "message": "Doesn\u0027t look like we\u0027re throwing yet?",
       "revId": "6d37b34bc660817cc8d82c089e58367f31449ac6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c326ef7_34f9f232",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-11-09T17:31:49Z",
+      "side": 1,
+      "message": "provided an answer on a comment 😊",
+      "parentUuid": "c0fafa0b_56f66005",
+      "revId": "6d37b34bc660817cc8d82c089e58367f31449ac6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
