@@ -50,6 +50,24 @@
       "message": "Setting textContent twice sounds like there could be a better way to achieve this. \nAdding Alice as a domain expert on accessibility to see if there is another solution.\nIf there is none, I\u0027d like to propose adding a clarifying comment in the code itself\nand not just in the commit message.",
       "revId": "9dd465e31a99b3be954b46c1cc7bb93ae00567a9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f50241f8_a8781176",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-09T19:28:28Z",
+      "side": 1,
+      "message": "This is a non-conventional way to utilize live regions, so there might not be a clean cut solution.  There are just multiple places in the DevTools where we need a SR to \"announce\" some context.  Open to figuring out a better solution for this though!\n\nAlso, I don\u0027t believe you added Alice to the reviewers list.",
+      "parentUuid": "a6d65ce9_cea57877",
+      "revId": "9dd465e31a99b3be954b46c1cc7bb93ae00567a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
