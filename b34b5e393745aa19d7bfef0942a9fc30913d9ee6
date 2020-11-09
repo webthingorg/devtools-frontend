@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e533571c_a9294ce0",
+        "filename": "front_end/common/ResourceType.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1451147
+      },
+      "writtenOn": "2020-11-09T05:05:52Z",
+      "side": 1,
+      "message": "Good catch on the \u0027sm-image\u0027, I will remove that on the next patch. \n\nIn PersistenceActions.js, type is checked in with the following: \n\ncontentProvider.contentType().isDocumentOrScriptOrStyleSheet()\n\nSo I think it\u0027s reasonable to add isImage() as a method to ResourceType class, since other types are checked in a similar fashion.",
+      "parentUuid": "fbad7177_9041b0c2",
+      "revId": "b34b5e393745aa19d7bfef0942a9fc30913d9ee6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d265e5c8_300d6013",
         "filename": "front_end/persistence/PersistenceActions.js",
         "patchSetId": 3
@@ -88,6 +106,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "046e12ea_e0e7153e",
+        "filename": "front_end/persistence/PersistenceActions.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1451147
+      },
+      "writtenOn": "2020-11-09T05:05:52Z",
+      "side": 1,
+      "message": "Here, `content` will be incorrectly transformed via window.atob() on line 35. Even if we bypass .atob() for images, we are downloading a base64 representation of the image, which IIUC would still need to be transformed into an image format.",
+      "parentUuid": "72757d04_a6256409",
+      "revId": "b34b5e393745aa19d7bfef0942a9fc30913d9ee6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f88c1bac_39edfe97",
         "filename": "front_end/persistence/PersistenceActions.js",
         "patchSetId": 3
@@ -99,6 +135,24 @@
       "writtenOn": "2020-11-05T07:04:21Z",
       "side": 1,
       "message": "We should not hard-code any image types. Also, this method does not work for SVG images. Could you try using the contentAsDataURL function from the ContentProvider.js?",
+      "revId": "b34b5e393745aa19d7bfef0942a9fc30913d9ee6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65dc1d90_933b4d48",
+        "filename": "front_end/persistence/PersistenceActions.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1451147
+      },
+      "writtenOn": "2020-11-09T05:05:52Z",
+      "side": 1,
+      "message": "Good catch on not hard-coding the image type.\n\ncontentAsDataURL() requires passing in mimeType, which AFAICT does not exist on the ContentProvider type. \n\nI think we could do it in one of the two following ways, but would like to know what you think: \n\n1) add a getMemeType() method on ContentProvider class which would allow us to return the meme type:\n\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/text_utils/ContentProvider.js;drc\u003d7b921656250415278833f4f126576907dfb65532;l\u003d36\n\n2) include the meme type in the object returned from calling the requestContent() method:\n\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/sdk/Resource.js;drc\u003db8e8ad564da3081c6e3cf30e192fc93682b3d089;l\u003d213",
+      "parentUuid": "f88c1bac_39edfe97",
       "revId": "b34b5e393745aa19d7bfef0942a9fc30913d9ee6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
