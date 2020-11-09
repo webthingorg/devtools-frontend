@@ -159,6 +159,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9a95c64c_74f4f031",
+        "filename": "front_end/persistence/PersistenceActions.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-09T06:53:05Z",
+      "side": 1,
+      "message": "We need to see what other classes implement the ContentProvider interface and if we can add methods that would make sense for all implementations. Perhaps it makes sense to add a method requestContentAsDataUrl to the content provider.",
+      "parentUuid": "65dc1d90_933b4d48",
+      "revId": "b34b5e393745aa19d7bfef0942a9fc30913d9ee6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "23939288_5d160469",
         "filename": "front_end/persistence/PersistenceActions.js",
         "patchSetId": 3
