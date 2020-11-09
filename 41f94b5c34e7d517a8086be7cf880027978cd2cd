@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d0c7e0f3_4cfea255",
+        "filename": "front_end/issues/MarkdownIssueDescription.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-09T09:30:18Z",
+      "side": 1,
+      "message": "Where would we show such an example? We don\u0027t have a translation pipeline where examples are important to the translator. The only place would be inline in the Markdown doc for future non-dev editors.\n\nTo be honest, I am not sure that complicating the placeholder syntax + parsing it is worth it. I\u0027d propose we re-visit that decision once its clear whether this code stays or is replaced by some l10n mechanism.",
+      "parentUuid": "09ec3d9f_fa0ed2a2",
+      "range": {
+        "startLine": 30,
+        "startChar": 24,
+        "endLine": 31,
+        "endChar": 43
+      },
+      "revId": "41f94b5c34e7d517a8086be7cf880027978cd2cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e20e2fe9_044c21d8",
         "filename": "test/unittests/front_end/issues/MarkdownIssueDescription_test.ts",
         "patchSetId": 1
@@ -95,6 +119,30 @@
       "side": 1,
       "message": "Let\u0027s throw.",
       "parentUuid": "e20e2fe9_044c21d8",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 5
+      },
+      "revId": "41f94b5c34e7d517a8086be7cf880027978cd2cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf330365_43824f50",
+        "filename": "test/unittests/front_end/issues/MarkdownIssueDescription_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-09T09:30:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a23b6e3_f9871362",
       "range": {
         "startLine": 53,
         "startChar": 0,
