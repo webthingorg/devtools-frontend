@@ -96,6 +96,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f9de882d_3618f741",
+        "filename": "front_end/sdk/NetworkLog.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-11-09T11:01:39Z",
+      "side": 1,
+      "message": "In the constructor, calling `Common.Settings.Settings.instance()` returns an error \"Unable to create settings: global and local storage must be provided\".\nThis is because NetworkLog is instantiated early (https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/sdk/sdk.js;l\u003d78?q\u003dsdk.js%20-filepath:out\u0026ss\u003dchromium).\n\nTim, do you have an opinion on the order in which things should happen during startup?",
+      "parentUuid": "3108b790_a79be143",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 107
+      },
+      "revId": "69b068523740c686224610c47369591ed9fabd5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b7365b66_88771a35",
         "filename": "front_end/sdk/NetworkLog.js",
         "patchSetId": 2
@@ -107,6 +131,30 @@
       "writtenOn": "2020-11-09T06:30:35Z",
       "side": 1,
       "message": "nit: Please extract both settings into a respective constant. Otherwise it\u0027s very hard to read.",
+      "range": {
+        "startLine": 118,
+        "startChar": 10,
+        "endLine": 118,
+        "endChar": 85
+      },
+      "revId": "69b068523740c686224610c47369591ed9fabd5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e524f645_15a40272",
+        "filename": "front_end/sdk/NetworkLog.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-11-09T11:01:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7365b66_88771a35",
       "range": {
         "startLine": 118,
         "startChar": 10,
