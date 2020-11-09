@@ -49,6 +49,7 @@ describe('LinearMemoryInspector', () => {
     const data = {
       memory: new Uint8Array(memory),
       address: 20,
+      memoryOffset: 0,
     };
     component.data = data;
 
@@ -119,7 +120,8 @@ describe('LinearMemoryInspector', () => {
     const addressBefore = parseInt(address.value, 16);
 
     const viewer = getViewer(component);
-    let numBytesPerPage = viewer.getNumBytesPerPage();
+    const bytesShown = await getElementsWithinComponent(viewer, VIEWER_BYTE_CELL_SELECTOR, HTMLSpanElement);
+    const numBytesPerPage = bytesShown.length;
 
     forwardButton.click();
     let addressAfter = parseInt(address.value, 16);
@@ -128,10 +130,6 @@ describe('LinearMemoryInspector', () => {
 
     backwardButton.click();
     addressAfter = parseInt(address.value, 16);
-    // The number of bytes per page can change since we render twice: once
-    // initially to estimate how much we can fit, and then rendering to fit
-    // the assigned size, so we need to re-retrieve it.
-    numBytesPerPage = viewer.getNumBytesPerPage();
     expectedAddressAfter -= numBytesPerPage;
     assert.strictEqual(addressAfter, Math.max(0, expectedAddressAfter));
   });
