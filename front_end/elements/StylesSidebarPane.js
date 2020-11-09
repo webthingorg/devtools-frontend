@@ -2622,8 +2622,10 @@ export class CSSPropertyPrompt extends UI.TextPrompt.TextPrompt {
      * @this {CSSPropertyPrompt}
      */
     function customNumberHandler(prefix, number, suffix) {
+      const cssCalcPrefix = 'calc';
       if (number !== 0 && !suffix.length &&
-          SDK.CSSMetadata.cssMetadata().isLengthProperty(this._treeElement.property.name)) {
+          SDK.CSSMetadata.cssMetadata().isLengthProperty(this._treeElement.property.name) &&
+          !this._treeElement.property.value.toLocaleLowerCase().startsWith(cssCalcPrefix)) {
         suffix = 'px';
       }
       return prefix + number + suffix;
