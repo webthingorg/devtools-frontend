@@ -82,6 +82,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cefde171_db47c0c9",
+        "filename": "front_end/issues/MarkdownIssueDescription.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-09T09:35:23Z",
+      "side": 1,
+      "message": "Ack, let\u0027s see what other stakeholders say.",
+      "parentUuid": "d0c7e0f3_4cfea255",
+      "range": {
+        "startLine": 30,
+        "startChar": 24,
+        "endLine": 31,
+        "endChar": 43
+      },
+      "revId": "41f94b5c34e7d517a8086be7cf880027978cd2cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e20e2fe9_044c21d8",
