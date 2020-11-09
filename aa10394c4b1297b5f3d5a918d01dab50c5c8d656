@@ -93,6 +93,30 @@
       },
       "revId": "aa10394c4b1297b5f3d5a918d01dab50c5c8d656",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d9398b9_db54addd",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 2628,
+      "author": {
+        "id": 1455634
+      },
+      "writtenOn": "2020-11-09T10:21:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "587b5a5b_7cb245e2",
+      "range": {
+        "startLine": 2628,
+        "startChar": 44,
+        "endLine": 2628,
+        "endChar": 61
+      },
+      "revId": "aa10394c4b1297b5f3d5a918d01dab50c5c8d656",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
