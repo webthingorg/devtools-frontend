@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f160480_5f4ea990",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-09T10:30:07Z",
+      "side": 1,
+      "message": "PTAL, this CL might be somewhat controversial.\n\nIMO we should not abuse any substitution mechanism for templating and only use it for truly dynamic replacements. (Maybe for single words like \"is secure\" vs \"is not secure\"). That means that this CL straight up inlines the \u0027set\u0027 and \u0027read\u0027 solutions into the markdown file. Please note that two markdown files are still shared by multiple issue codes. ",
+      "revId": "0241c2bbdd999dcf8cc7fc085e3a5f6f03726f46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a1044b0_4d62db96",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-09T10:30:07Z",
+      "side": 1,
+      "message": "We need to use `set`, because we can\u0027t mix `IssueDescription` and `MarkdownIssueDescription` in the iterable we pass to the Map constructor.",
+      "range": {
+        "startLine": 531,
+        "startChar": 18,
+        "endLine": 531,
+        "endChar": 21
+      },
+      "revId": "0241c2bbdd999dcf8cc7fc085e3a5f6f03726f46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
