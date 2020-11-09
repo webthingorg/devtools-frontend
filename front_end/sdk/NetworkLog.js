@@ -66,6 +66,8 @@ export class NetworkLog extends Common.ObjectWrapper.ObjectWrapper {
     /** @type {!WeakMap<!NetworkRequest, !InitiatorData>} */
     this._initiatorData = new WeakMap();
     TargetManager.instance().observeModels(NetworkManager, this);
+    /** @type {?Common.EventTarget.EventDescriptor} */
+    this._recordLogSettingChangeListener = null;
   }
 
   /**
@@ -109,6 +111,18 @@ export class NetworkLog extends Common.ObjectWrapper.ObjectWrapper {
     }
 
     this._modelListeners.set(networkManager, eventListeners);
+
+    // Settings are not yet available during execution of the constructor, that's why this is here instead.
+    if (!this._recordLogSettingChangeListener) {
+      const recordLogSetting = Common.Settings.Settings.instance().moduleSetting('network_log.record-log');
+      this._recordLogSettingChangeListener = recordLogSetting.addChangeListener(({data}) => {
+        const preserveLogSetting = Common.Settings.Settings.instance().moduleSetting('network_log.preserve-log');
+        if (!preserveLogSetting.get() && recordLogSetting.get()) {
+          this.reset();
+        }
+        this.setIsRecording(data);
+      }, this);
+    }
   }
 
   /**
