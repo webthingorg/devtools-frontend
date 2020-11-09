@@ -216,12 +216,8 @@ Timeline.TimelineUIUtils._aggregatedStatsKey = TimelineModule.TimelineUIUtils.ag
 /** @constructor */
 Timeline.TimelineUIUtils.InvalidationsGroupElement = TimelineModule.TimelineUIUtils.InvalidationsGroupElement;
 
-Timeline.TimelineUIUtils._previewElementSymbol = TimelineModule.TimelineUIUtils.previewElementSymbol;
-
 /** @constructor */
 Timeline.TimelineUIUtils.EventDispatchTypeDescriptor = TimelineModule.TimelineUIUtils.EventDispatchTypeDescriptor;
-
-Timeline.TimelineUIUtils._categoryBreakdownCacheSymbol = TimelineModule.TimelineUIUtils.categoryBreakdownCacheSymbol;
 
 /** @constructor */
 Timeline.TimelineRecordStyle = TimelineModule.TimelineUIUtils.TimelineRecordStyle;

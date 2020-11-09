@@ -1842,10 +1842,12 @@ export class NetworkRequest {
     this.decodedBodyLength = 0;
     /** @type {!Array<!SDK.TracingModel.Event>} */
     this.children = [];
-    /** @type {?Object} */
+    /** @type {*} */
     this.timing;
     /** @type {string} */
     this.mimeType;
+    /** @type {number} */
+    this.finishTime;
     /** @type {string} */
     this.url;
     /** @type {string} */
@@ -2369,8 +2371,6 @@ export class TimelineData {
   constructor() {
     /** @type {?string} */
     this.warning = null;
-    /** @type {?Element} */
-    this.previewElement = null;
     /** @type {?string} */
     this.url = null;
     /** @type {number} */

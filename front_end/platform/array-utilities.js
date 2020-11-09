@@ -26,3 +26,15 @@ export const removeElement = (array, element, firstOnly) => {
   array.length = index;
   return true;
 };
+
+/**
+ * @param {!Array.<!S>} array
+ * @param {!T} value
+ * @param {function(!T,!S):number} comparator
+ * @return {number}
+ * @template T,S
+ */
+export const binaryIndexOf = function(array, value, comparator) {
+  const index = array.lowerBound(value, comparator);
+  return index < array.length && comparator(value, array[index]) === 0 ? index : -1;
+};

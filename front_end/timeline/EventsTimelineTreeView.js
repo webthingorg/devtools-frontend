@@ -198,8 +198,8 @@ export class Filters extends Common.ObjectWrapper.ObjectWrapper {
 
     const categoryFiltersUI = {};
     const categories = TimelineUIUtils.categories();
-    for (const categoryName in categories) {
-      const category = categories[categoryName];
+    for (const categoryName of categories.keys()) {
+      const category = categories.get(categoryName);
       if (!category.visible) {
         continue;
       }
@@ -227,7 +227,7 @@ export class Filters extends Common.ObjectWrapper.ObjectWrapper {
      */
     function categoriesFilterChanged(name) {
       const categories = TimelineUIUtils.categories();
-      categories[name].hidden = !categoryFiltersUI[name].checked();
+      categories.get(name).hidden = !categoryFiltersUI[name].checked();
       this._notifyFiltersChanged();
     }
   }

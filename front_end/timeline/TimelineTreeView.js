@@ -13,7 +13,7 @@ import * as UI from '../ui/ui.js';
 import {PerformanceModel} from './PerformanceModel.js';  // eslint-disable-line no-unused-vars
 import {TimelineRegExp} from './TimelineFilters.js';
 import {TimelineSelection} from './TimelinePanel.js';  // eslint-disable-line no-unused-vars
-import {TimelineUIUtils} from './TimelineUIUtils.js';
+import {TimelineCategory, TimelineUIUtils} from './TimelineUIUtils.js';  // eslint-disable-line no-unused-vars
 
 /**
  * @unrestricted
@@ -809,14 +809,15 @@ export class AggregatedTimelineTreeView extends TimelineTreeView {
   _displayInfoForGroupNode(node) {
     const categories = TimelineUIUtils.categories();
     const color = node.id ? TimelineUIUtils.eventColor(/** @type {!SDK.TracingModel.Event} */ (node.event)) :
-                            categories['other'].color;
+                            /** @type {!TimelineCategory} */ (categories.get('other')).color;
     const unattributed = Common.UIString.UIString('[unattributed]');
 
     const id = typeof node.id === 'symbol' ? undefined : node.id;
 
     switch (this._groupBySetting.get()) {
       case AggregatedTimelineTreeView.GroupBy.Category: {
-        const category = id ? categories[id] || categories['other'] : {title: unattributed, color: unattributed};
+        const category = id ? categories.get(id) || /** @type {!TimelineCategory} */ (categories.get('other')) :
+                              {title: unattributed, color: unattributed};
         return {name: category.title, color: category.color, icon: undefined};
       }
 
