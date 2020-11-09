@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "823a2759_204eca8f",
+        "filename": "front_end/inline_editor/CSSVarSwatch.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-09T10:28:29Z",
+      "side": 1,
+      "message": "I\u0027d prefer that if we want to add a comment, then the comment would be about what this regex is doing in general, rather than which edge cases it\u0027s catching.",
+      "revId": "acc324c28c3382d6ca6eb56bba191dd4df5d455f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06f33536_39a95748",
+        "filename": "front_end/inline_editor/CSSVarSwatch.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-09T10:28:29Z",
+      "side": 1,
+      "message": "nit: could we break this comment into two lines?",
+      "revId": "acc324c28c3382d6ca6eb56bba191dd4df5d455f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d1feada_e78fb86c",
+        "filename": "front_end/sdk/CSSMetadata.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-09T10:28:29Z",
+      "side": 1,
+      "message": "We can remove this comment.",
+      "revId": "acc324c28c3382d6ca6eb56bba191dd4df5d455f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
