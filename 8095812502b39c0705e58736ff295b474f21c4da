@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "193cdffa_610cff06",
+        "filename": "front_end/profiler/ProfilesPanel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-09T12:19:40Z",
+      "side": 1,
+      "message": "Yes. As mentioned in a comment on PS2, a layout test accesses it directly.",
+      "parentUuid": "228f2f1d_f4ece304",
+      "range": {
+        "startLine": 108,
+        "startChar": 16,
+        "endLine": 108,
+        "endChar": 22
+      },
+      "revId": "8095812502b39c0705e58736ff295b474f21c4da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc89ec09_84fe7bb5",
