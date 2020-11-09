@@ -2,8 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {ComputedStyleProperty} from '../../../../front_end/elements/ComputedStyleProperty.js';
 import {assertShadowRoot, renderElementIntoDOM} from '../helpers/DOMHelpers.js';
+import {describeWithEnvironment} from '../helpers/EnvironmentHelpers.js';
 
 const {assert} = chai;
 
@@ -13,7 +13,9 @@ const initialData = {
   onNavigateToSource: () => {},
 };
 
-describe('ComputedStyleProperty', () => {
+describeWithEnvironment('ComputedStyleProperty', async () => {
+  const {ComputedStyleProperty} = await import('../../../../front_end/elements/ComputedStyleProperty.js');
+
   it('renders inherited property correctly', () => {
     const component = new ComputedStyleProperty();
     renderElementIntoDOM(component);

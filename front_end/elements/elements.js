@@ -42,10 +42,12 @@ import * as ElementsTreeOutline from './ElementsTreeOutline.js';
 import * as EventListenersWidget from './EventListenersWidget.js';
 import * as Icon from './Icon_bridge.js';
 import * as InspectElementModeController from './InspectElementModeController.js';
+import * as LayoutPane from './LayoutPane.js';
 import * as LayoutSidebarPane from './LayoutSidebarPane.js';
 import * as MarkerDecorator from './MarkerDecorator.js';
 import * as MetricsSidebarPane from './MetricsSidebarPane.js';
 import * as NodeStackTraceWidget from './NodeStackTraceWidget.js';
+import * as NodeText from './NodeText.js';
 import * as PlatformFontsWidget from './PlatformFontsWidget.js';
 import * as PropertiesWidget from './PropertiesWidget.js';
 import * as StylePropertyHighlighter from './StylePropertyHighlighter.js';
@@ -70,10 +72,12 @@ export {
   EventListenersWidget,
   Icon,
   InspectElementModeController,
+  LayoutPane,
   LayoutSidebarPane,
   MarkerDecorator,
   MetricsSidebarPane,
   NodeStackTraceWidget,
+  NodeText,
   PlatformFontsWidget,
   PropertiesWidget,
   StylePropertyHighlighter,

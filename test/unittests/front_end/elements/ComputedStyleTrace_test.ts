@@ -2,12 +2,14 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {ComputedStyleTrace} from '../../../../front_end/elements/ComputedStyleTrace.js';
 import {assertShadowRoot, renderElementIntoDOM} from '../helpers/DOMHelpers.js';
+import {describeWithEnvironment} from '../helpers/EnvironmentHelpers.js';
 
 const {assert} = chai;
 
-describe('ComputedStyleTrace', () => {
+describeWithEnvironment('ComputedStyleTrace', async () => {
+  const {ComputedStyleTrace} = await import('../../../../front_end/elements/ComputedStyleTrace.js');
+
   it('renders ComputedStyleTrace selector correctly', () => {
     const component = new ComputedStyleTrace();
     renderElementIntoDOM(component);
