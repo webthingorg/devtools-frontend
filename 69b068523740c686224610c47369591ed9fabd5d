@@ -118,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4430a8b1_59413b6c",
+        "filename": "front_end/sdk/NetworkLog.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-09T11:59:39Z",
+      "side": 1,
+      "message": "Sadly this is the problem of side-effect instantiation during module load. The extensions migration should hopefully resolve most of these issues, but for now these workarounds are required 😞",
+      "parentUuid": "f9de882d_3618f741",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 107
+      },
+      "revId": "69b068523740c686224610c47369591ed9fabd5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b7365b66_88771a35",
