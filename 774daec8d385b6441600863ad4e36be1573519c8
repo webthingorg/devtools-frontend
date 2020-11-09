@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "97e84192_a5e8c733",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-09T13:57:15Z",
+      "side": 1,
+      "message": "LGTM in general. I\u0027ll wait on Patrick to provide more insight or sign-off on this. Thanks Yisi!",
+      "revId": "774daec8d385b6441600863ad4e36be1573519c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c203204_f4df315a",
