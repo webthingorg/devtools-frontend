@@ -108,6 +108,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b3758808_c70b2f37",
+        "filename": "front_end/issues/MarkdownIssueDescription.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-11-09T17:27:40Z",
+      "side": 1,
+      "message": "Thanks for adding us in here :). It seems it does not interfere with V2 and both can coexist. As SDK and issues has not been migrated yet my suggestion would be to add localization V1 in here, to keep consistency and to make the porting process to V2 easier. e.g \n\nPlain text:\n\u0027Example string with two placeholders, \\\u0027{ph1}\\\u0027 and \\\u0027{ph2}\\\u0027.\u0027;\n\nLocalization V1:\nls`Example string with two placeholders, \\\u0027\u0027${ph1}\u0027\\\u0027 and \\\u0027\u0027${ph2}\u0027\\\u0027.`\n\nLocalization V2:\nUIStrings \u003d {\n     ...\n    \"notAnId\": \u0027Example string with two placeholders, \\\u0027{ph1}\\\u0027 and \\\u0027{ph2}\\\u0027\n     ...\n}\n\ni18nString(UIStrings.example, {ph1:\"Placeholder\", ph2: \"Fooholder\"})\n\nThat  will also help with the example @Sigurd mentioned, as it can be provided in V1 format (like any other module in the grdp file) and it will be migrated when we pick issues and/or sdk.",
+      "parentUuid": "cefde171_db47c0c9",
+      "range": {
+        "startLine": 30,
+        "startChar": 24,
+        "endLine": 31,
+        "endChar": 43
+      },
+      "revId": "41f94b5c34e7d517a8086be7cf880027978cd2cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e20e2fe9_044c21d8",
         "filename": "test/unittests/front_end/issues/MarkdownIssueDescription_test.ts",
         "patchSetId": 1
