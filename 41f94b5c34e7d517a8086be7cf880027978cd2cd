@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "77fce279_ea3ac4bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-09T09:07:46Z",
+      "side": 1,
+      "message": "Would it make sense to have a reviewer from MS also to get their localization PoV?",
+      "revId": "41f94b5c34e7d517a8086be7cf880027978cd2cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "09ec3d9f_fa0ed2a2",
