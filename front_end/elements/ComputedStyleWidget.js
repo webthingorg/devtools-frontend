@@ -34,7 +34,7 @@ import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
 import {ComputedStyle, ComputedStyleModel, Events} from './ComputedStyleModel.js';  // eslint-disable-line no-unused-vars
-import {ComputedStylePropertyClosureInterface, ComputedStylePropertyData, createComputedStyleProperty} from './ComputedStyleProperty_bridge.js';  // eslint-disable-line no-unused-vars
+import {createComputedStyleProperty} from './ComputedStyleProperty_bridge.js';
 import {createComputedStyleTrace} from './ComputedStyleTrace_bridge.js';
 import {ImagePreviewPopover} from './ImagePreviewPopover.js';
 import {PlatformFontsWidget} from './PlatformFontsWidget.js';
@@ -154,7 +154,12 @@ export class ComputedStyleWidget extends UI.ThrottledWidget.ThrottledWidget {
     this.registerRequiredCSS('elements/computedStyleSidebarPane.css', {enableLegacyPatching: true});
 
     this._computedStyleModel = new ComputedStyleModel();
-    this._computedStyleModel.addEventListener(Events.ComputedStyleChanged, this.update, this);
+    // Debounce updates by 500ms because 1 second creates visual lags, while 100ms is too short
+    // to debounce anything when one single update takes more than 100ms.
+    const debouncedUpdate =
+        /** @type {function(!{data:*}):void} */ (
+            Common.Debouncer.debounce(this.update.bind(this), 500, Common.Debouncer.DebounceType.Both));
+    this._computedStyleModel.addEventListener(Events.ComputedStyleChanged, debouncedUpdate, this);
 
     this._showInheritedComputedStylePropertiesSetting =
         Common.Settings.Settings.instance().createSetting('showInheritedComputedStyleProperties', false);
