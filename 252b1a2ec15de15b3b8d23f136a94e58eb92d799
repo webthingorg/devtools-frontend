@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7675ede2_c33597b6",
+        "filename": "front_end/elements/elements.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-10T11:07:13Z",
+      "side": 1,
+      "message": "It\u0027s unfortunate that we have to make these implementation details part of the public API now, but I guess we have no other option atm.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 72
+      },
+      "revId": "252b1a2ec15de15b3b8d23f136a94e58eb92d799",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
