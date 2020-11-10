@@ -87,6 +87,24 @@
       "parentUuid": "b8d2188b_2703aa0a",
       "revId": "f8a66117db09125f839f18ceebe46853f09f7663",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbe89242_cff6d28b",
+        "filename": "front_end/color_picker/ContrastDetails.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-10T13:05:01Z",
+      "side": 1,
+      "message": "Mathias, so what do you think? Should we merge the current version?",
+      "parentUuid": "4d877738_c7fe0bfc",
+      "revId": "f8a66117db09125f839f18ceebe46853f09f7663",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
