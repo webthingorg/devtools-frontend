@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ba58747_74e1b27b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-10T09:15:27Z",
+      "side": 1,
+      "message": "LGTM, thanks!\n\nSteven, FYI.",
+      "revId": "0241c2bbdd999dcf8cc7fc085e3a5f6f03726f46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a1044b0_4d62db96",
@@ -31,6 +48,30 @@
       "writtenOn": "2020-11-09T10:30:07Z",
       "side": 1,
       "message": "We need to use `set`, because we can\u0027t mix `IssueDescription` and `MarkdownIssueDescription` in the iterable we pass to the Map constructor.",
+      "range": {
+        "startLine": 531,
+        "startChar": 18,
+        "endLine": 531,
+        "endChar": 21
+      },
+      "revId": "0241c2bbdd999dcf8cc7fc085e3a5f6f03726f46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fedbf45_9bf04e6c",
+        "filename": "front_end/sdk/SameSiteCookieIssue.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-10T09:15:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7a1044b0_4d62db96",
       "range": {
         "startLine": 531,
         "startChar": 18,
