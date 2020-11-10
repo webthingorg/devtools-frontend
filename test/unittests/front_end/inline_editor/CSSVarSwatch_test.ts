@@ -47,7 +47,7 @@ describe('CSSVarSwatch', () => {
     assert.instanceOf(component, HTMLElement, 'The swatch is an instance of HTMLElement');
   });
 
-  it('renders a simple var function', () => {
+  it('renders a simple var() function', () => {
     const component = new CSSVarSwatch();
     renderElementIntoDOM(component);
     component.data = {
@@ -66,7 +66,7 @@ describe('CSSVarSwatch', () => {
     });
   });
 
-  it('renders a var function with an undefined property', () => {
+  it('renders a var() function with an undefined property', () => {
     const component = new CSSVarSwatch();
     renderElementIntoDOM(component);
     component.data = {
@@ -85,7 +85,7 @@ describe('CSSVarSwatch', () => {
     });
   });
 
-  it('renders a var function with an undefined property but a fallback value', () => {
+  it('renders a var() function with an undefined property but a fallback value', () => {
     const component = new CSSVarSwatch();
     renderElementIntoDOM(component);
     component.data = {
@@ -103,4 +103,81 @@ describe('CSSVarSwatch', () => {
       hasColorSwatch: false,
     });
   });
+
+  it('renders a var() function with an color property but a fallback value', () => {
+    const component = new CSSVarSwatch();
+    renderElementIntoDOM(component);
+    component.data = {
+      text: 'var(--undefined-color, green)',
+      computedValue: 'green',
+      fromFallback: true,
+      onLinkClick: () => {},
+    };
+
+    assertSwatch(component, {
+      valueTooltip: 'green',
+      linkTooltip: '--undefined-color is not defined',
+      isDefined: false,
+      varText: '--undefined-color',
+      hasColorSwatch: false,
+    });
+  });
+
+  it('render the var() function and the fallback value contains spaces', () => {
+    const component = new CSSVarSwatch();
+    renderElementIntoDOM(component);
+    component.data = {
+      text: 'var(--undefined-color,    green   )',
+      computedValue: 'green',
+      fromFallback: true,
+      onLinkClick: () => {},
+    };
+
+    assertSwatch(component, {
+      valueTooltip: 'green',
+      linkTooltip: '--undefined-color is not defined',
+      isDefined: false,
+      varText: '--undefined-color',
+      hasColorSwatch: false,
+    });
+  });
+
+  it('renders a var() function with an color property', () => {
+    const component = new CSSVarSwatch();
+    renderElementIntoDOM(component);
+    component.data = {
+      text: 'var(--test, green)',
+      computedValue: 'red',
+      fromFallback: false,
+      onLinkClick: () => {},
+    };
+
+    assertSwatch(component, {
+      valueTooltip: 'red',
+      linkTooltip: 'Jump to definition',
+      isDefined: true,
+      varText: '--test',
+      hasColorSwatch: false,
+    });
+  });
+
+  it('renders a var() function with spaces', () => {
+    const component = new CSSVarSwatch();
+    renderElementIntoDOM(component);
+    component.data = {
+      text: 'var( --test     )',
+      computedValue: 'red',
+      fromFallback: false,
+      onLinkClick: () => {},
+    };
+
+    assertSwatch(component, {
+      valueTooltip: 'red',
+      linkTooltip: 'Jump to definition',
+      isDefined: true,
+      varText: ' --test ',
+      hasColorSwatch: false,
+    });
+  });
+
 });
