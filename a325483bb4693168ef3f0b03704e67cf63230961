@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "42bbcd29_d6815943",
+        "filename": "front_end/inline_editor/CSSVarSwatch.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-10T10:35:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1de47c68_cd5ba91e",
+      "revId": "a325483bb4693168ef3f0b03704e67cf63230961",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8bc04c68_f696362b",
@@ -31,6 +49,24 @@
       "writtenOn": "2020-11-09T14:16:19Z",
       "side": 1,
       "message": "Can we somehow add tests for the space-specific behavior you mention in the patch comments?",
+      "revId": "a325483bb4693168ef3f0b03704e67cf63230961",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae76b3ee_4455ffcf",
+        "filename": "test/unittests/front_end/inline_editor/CSSVarSwatch_test.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-10T10:35:17Z",
+      "side": 1,
+      "message": "I added 2 test cases with spaces.",
+      "parentUuid": "8bc04c68_f696362b",
       "revId": "a325483bb4693168ef3f0b03704e67cf63230961",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
