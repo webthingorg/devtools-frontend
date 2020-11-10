@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "24628f63_16379f80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-11-10T13:13:07Z",
+      "side": 1,
+      "message": "Split done: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2529160",
+      "parentUuid": "ed487bc3_c61571af",
+      "revId": "056ffed81424ca9d6f91aea01c1725c6891909dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ca91af7e_05d88f5e",
