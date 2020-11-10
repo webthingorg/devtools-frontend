@@ -195,6 +195,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "432339f4_a9df97c1",
+        "filename": "front_end/persistence/PersistenceActions.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-10T06:38:34Z",
+      "side": 1,
+      "message": "I am not sure that the contentProvider is always an instance of Resource. If it is, it might be better to change the type to Resource completely. Otherwise, we need to see what other content providers can be used here. I think using the Resource might be ok but, in this case, we need to check the type at runtime (instanceof should work and the type cast is not enough) and render the \"save image\" menu entry only if the content provider is a Resource.",
+      "parentUuid": "46521962_fac646e6",
+      "revId": "b34b5e393745aa19d7bfef0942a9fc30913d9ee6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "23939288_5d160469",
         "filename": "front_end/persistence/PersistenceActions.js",
         "patchSetId": 3
