@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38318a3a_6c24dcf8",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-10T10:14:57Z",
+      "side": 1,
+      "message": "Happy to move it to CSS - do we have general guidance on how to do things like this in our codebase? I feel like it\u0027s not really coherent atm.",
+      "parentUuid": "d09b1241_8e6c0448",
+      "revId": "9ec729ff3fb4691d6e10338e30dbe6df8dd628af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a66ef9d1_3fb78f4b",
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "53a31c7e_6654beb2",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-10T10:14:57Z",
+      "side": 1,
+      "message": "That is a good point - I\u0027ll move this to a follow up cl instead - this was more of a drive by change.",
+      "parentUuid": "a66ef9d1_3fb78f4b",
+      "revId": "9ec729ff3fb4691d6e10338e30dbe6df8dd628af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c188710f_1fe308ee",
@@ -65,6 +101,30 @@
       "writtenOn": "2020-11-10T10:09:47Z",
       "side": 1,
       "message": "Sounds like the previous code did (a more convoluted version of) `prepend`, but now we append instead. Is this intentional? If we want to keep the same behavior I think we could do `.prepend(section)`",
+      "range": {
+        "startLine": 460,
+        "startChar": 29,
+        "endLine": 460,
+        "endChar": 40
+      },
+      "revId": "9ec729ff3fb4691d6e10338e30dbe6df8dd628af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34a28f86_c778194d",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-10T10:14:57Z",
+      "side": 1,
+      "message": "Same as above.",
+      "parentUuid": "c188710f_1fe308ee",
       "range": {
         "startLine": 460,
         "startChar": 29,
