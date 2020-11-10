@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e92b1913_9785c4e5",
+        "filename": "front_end/browser_debugger/CSPViolationBreakpointsSidebarPane.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-11-10T12:37:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca91af7e_05d88f5e",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 3
+      },
+      "revId": "056ffed81424ca9d6f91aea01c1725c6891909dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9333c0eb_d66d8701",
@@ -54,6 +78,30 @@
       "writtenOn": "2020-11-10T12:24:24Z",
       "side": 1,
       "message": "Would it make sense to rename that to categorizedBreakpoints.css and not have it passed via the constructor?",
+      "range": {
+        "startLine": 18,
+        "startChar": 33,
+        "endLine": 18,
+        "endChar": 80
+      },
+      "revId": "056ffed81424ca9d6f91aea01c1725c6891909dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46ede11e_d18a1b75",
+        "filename": "front_end/browser_debugger/CSPViolationBreakpointsSidebarPane.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-11-10T12:37:03Z",
+      "side": 1,
+      "message": "Good point!",
+      "parentUuid": "9333c0eb_d66d8701",
       "range": {
         "startLine": 18,
         "startChar": 33,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a6fdf39_63bb5385",
+        "filename": "front_end/browser_debugger/CategorizedBreakpointsSidebarPane.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-11-10T12:37:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd189952_8a5e7b6c",
+      "range": {
+        "startLine": 9,
+        "startChar": 2,
+        "endLine": 9,
+        "endChar": 16
+      },
+      "revId": "056ffed81424ca9d6f91aea01c1725c6891909dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "558db89c_6a94ba14",
@@ -100,6 +172,30 @@
       "writtenOn": "2020-11-10T12:23:11Z",
       "side": 1,
       "message": "nit: not required",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 3
+      },
+      "revId": "056ffed81424ca9d6f91aea01c1725c6891909dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba64babe_0c58b9dc",
+        "filename": "front_end/browser_debugger/EventListenerBreakpointsSidebarPane.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-11-10T12:37:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "558db89c_6a94ba14",
       "range": {
         "startLine": 8,
         "startChar": 0,
@@ -135,6 +231,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3dffc187_3aac8e0d",
+        "filename": "front_end/browser_debugger/browser_debugger-legacy.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-11-10T12:37:03Z",
+      "side": 1,
+      "message": "If I remove that it does not work:\n```\n\"Uncaught (in promise) Error: Could not instantiate: BrowserDebugger.CSPViolationBreakpointsSidebarPane\", source: devtools://devtools/bundled/root/Runtime.js (720)\n```",
+      "parentUuid": "18978b9a_98e1abd3",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 96
+      },
+      "revId": "056ffed81424ca9d6f91aea01c1725c6891909dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b97010ce_739fd120",
         "filename": "front_end/sdk/DOMDebuggerModel.js",
         "patchSetId": 10
@@ -146,6 +266,30 @@
       "writtenOn": "2020-11-10T12:26:23Z",
       "side": 1,
       "message": "@override",
+      "range": {
+        "startLine": 608,
+        "startChar": 3,
+        "endLine": 608,
+        "endChar": 4
+      },
+      "revId": "056ffed81424ca9d6f91aea01c1725c6891909dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66edc385_c1838e87",
+        "filename": "front_end/sdk/DOMDebuggerModel.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 608,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-11-10T12:37:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b97010ce_739fd120",
       "range": {
         "startLine": 608,
         "startChar": 3,
