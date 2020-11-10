@@ -154,7 +154,7 @@ export class TreeOutline extends Common.ObjectWrapper.ObjectWrapper {
 
     const listNode = node.enclosingNodeOrSelfWithNodeNameInArray(['ol', 'li']);
     if (listNode) {
-      return listNode.parentTreeElement || listNode.treeElement;
+      return listNode.parentTreeElement || treeElementBylistItemNode.get(listNode);
     }
     return null;
   }
@@ -440,6 +440,8 @@ export class TreeOutlineInShadow extends TreeOutline {
   }
 }
 
+/** @type {!WeakMap<!Node, !TreeElement>} */
+export const treeElementBylistItemNode = new WeakMap();
 /**
  * @unrestricted
  */
@@ -460,7 +462,7 @@ export class TreeElement {
     this._listItemNode = /** @type {!HTMLLIElement} */ (createElement('li'));
 
     this.titleElement = this._listItemNode.createChild('span', 'tree-element-title');
-    this._listItemNode.treeElement = this;
+    treeElementBylistItemNode.set(this._listItemNode, this);
     if (title) {
       this.title = title;
     }
@@ -966,8 +968,8 @@ export class TreeElement {
    * @param {!Event} event
    */
   _treeElementToggled(event) {
-    const element = event.currentTarget;
-    if (element.treeElement !== this || element.hasSelection()) {
+    const element = /** @type {?Node} */ (event.currentTarget);
+    if (!element || treeElementBylistItemNode.get(element) !== this || element.hasSelection()) {
       return;
     }
 
@@ -999,14 +1001,14 @@ export class TreeElement {
    * @param {!Event} event
    */
   _handleMouseDown(event) {
-    const element = event.currentTarget;
+    const element = /** @type {?Node}*/ (event.currentTarget);
     if (!element) {
       return;
     }
     if (!this.selectable) {
       return;
     }
-    if (element.treeElement !== this) {
+    if (treeElementBylistItemNode.get(element) !== this) {
       return;
     }
 
@@ -1021,8 +1023,8 @@ export class TreeElement {
    * @param {!Event} event
    */
   _handleDoubleClick(event) {
-    const element = event.currentTarget;
-    if (!element || element.treeElement !== this) {
+    const element = /** @type {?Node} */ (event.currentTarget);
+    if (!element || treeElementBylistItemNode.get(element) !== this) {
       return;
     }
 
