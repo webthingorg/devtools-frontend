@@ -510,11 +510,13 @@ export class ShortcutListItem {
    * @param {!Event} event
    */
   _onShortcutInputKeyDown(shortcut, shortcutInput, event) {
-    if (/** @type {!KeyboardEvent} */ (event).key !== 'Tab') {
-      const userKey = UI.KeyboardShortcut.KeyboardShortcut.makeKeyFromEvent(/** @type {!KeyboardEvent} */ (event));
+    const keyEvent = /** @type {!KeyboardEvent} */ (event);
+    if (keyEvent.key !== 'Tab') {
+      const userKey = UI.KeyboardShortcut.KeyboardShortcut.makeKeyFromEvent(keyEvent);
       const codeAndModifiers = UI.KeyboardShortcut.KeyboardShortcut.keyCodeAndModifiersFromKey(userKey);
-      const userDescriptor = UI.KeyboardShortcut.KeyboardShortcut.makeDescriptor(
-          {code: userKey, name: /** @type {!KeyboardEvent} */ (event).key}, codeAndModifiers.modifiers);
+      const key = UI.KeyboardShortcut.Keys[keyEvent.key] || UI.KeyboardShortcut.KeyBindings[keyEvent.key];
+      const userDescriptor =
+          UI.KeyboardShortcut.KeyboardShortcut.makeDescriptor(key || keyEvent.key, codeAndModifiers.modifiers);
       shortcutInput.value = this._shortcutInputTextForDescriptor(userDescriptor);
       this._editedShortcuts.set(shortcut, [userDescriptor]);
       this._validateInputs();
