@@ -16,6 +16,63 @@
       "message": "PTAL, thanks!",
       "revId": "9ec729ff3fb4691d6e10338e30dbe6df8dd628af",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d09b1241_8e6c0448",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-10T10:09:47Z",
+      "side": 1,
+      "message": "I wonder if it\u0027d be easier to simply toggle classNames here, and move the exact styles (display: {block,none}) to CSS instead. WDYT?",
+      "revId": "9ec729ff3fb4691d6e10338e30dbe6df8dd628af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a66ef9d1_3fb78f4b",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-10T10:09:47Z",
+      "side": 1,
+      "message": "Are we sure about the unconditional smooth scrolling here? What about users with prefers-reduced-motion?",
+      "revId": "9ec729ff3fb4691d6e10338e30dbe6df8dd628af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c188710f_1fe308ee",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-10T10:09:47Z",
+      "side": 1,
+      "message": "Sounds like the previous code did (a more convoluted version of) `prepend`, but now we append instead. Is this intentional? If we want to keep the same behavior I think we could do `.prepend(section)`",
+      "range": {
+        "startLine": 460,
+        "startChar": 29,
+        "endLine": 460,
+        "endChar": 40
+      },
+      "revId": "9ec729ff3fb4691d6e10338e30dbe6df8dd628af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
