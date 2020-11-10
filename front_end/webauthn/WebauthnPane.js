@@ -292,14 +292,16 @@ export class WebauthnPaneImpl extends UI.Widget.VBox {
    * @param {boolean} enabled
    */
   _updateVisibility(enabled) {
-    if (enabled) {
-      if (this._newAuthenticatorSection) {
-        this._newAuthenticatorSection.style.visibility = 'visible';
-      }
-    } else {
-      if (this._newAuthenticatorSection) {
-        this._newAuthenticatorSection.style.visibility = 'hidden';
-      }
+    if (this._newAuthenticatorSection) {
+      this._newAuthenticatorSection.style.display = enabled ? 'block' : 'none';
+    }
+
+    if (this._authenticatorsView) {
+      this._authenticatorsView.style.display = enabled ? 'block' : 'none';
+    }
+
+    if (this._learnMoreView) {
+      this._learnMoreView.style.display = enabled ? 'none' : '';
     }
   }
 
@@ -366,6 +368,14 @@ export class WebauthnPaneImpl extends UI.Widget.VBox {
   }
 
   _createNewAuthenticatorSection() {
+    this._learnMoreView = this.contentElement.createChild('div', 'learn-more');
+    this._learnMoreView.appendChild(UI.Fragment.html`
+      <div>
+        ${ls`Use WebAuthn for phising-resistant authentication`}<br />
+        ${UI.XLink.XLink.create('https://developers.google.com/web/updates/2018/05/webauthn', ls`Learn more`)}
+      </div>
+    `);
+
     this._newAuthenticatorSection = this.contentElement.createChild('div', 'new-authenticator-container');
     const newAuthenticatorTitle = UI.UIUtils.createLabel(ls`New authenticator`, 'new-authenticator-title');
     this._newAuthenticatorSection.appendChild(newAuthenticatorTitle);
@@ -434,7 +444,8 @@ export class WebauthnPaneImpl extends UI.Widget.VBox {
       availableAuthenticators.push({authenticatorId, ...options});
       this._availableAuthenticatorSetting.set(
           availableAuthenticators.map(a => ({...a, active: a.authenticatorId === authenticatorId})));
-      this._addAuthenticatorSection(authenticatorId, options);
+      const section = await this._addAuthenticatorSection(authenticatorId, options);
+      section.scrollIntoView({block: 'start', behavior: 'smooth'});
     }
   }
 
@@ -446,8 +457,7 @@ export class WebauthnPaneImpl extends UI.Widget.VBox {
     const section = document.createElement('div');
     section.classList.add('authenticator-section');
     section.setAttribute('data-authenticator-id', authenticatorId);
-    this._authenticatorsView.insertAdjacentElement(
-        'afterbegin', section);  // JS trick to insert as first element of parent.
+    this._authenticatorsView.appendChild(section);
 
     const headerElement = section.createChild('div', 'authenticator-section-header');
     const titleElement = headerElement.createChild('div', 'authenticator-section-title');
@@ -505,6 +515,8 @@ export class WebauthnPaneImpl extends UI.Widget.VBox {
     dataGrid.asWidget().show(section);
 
     this._updateCredentials(authenticatorId);
+
+    return section;
   }
 
   /**
