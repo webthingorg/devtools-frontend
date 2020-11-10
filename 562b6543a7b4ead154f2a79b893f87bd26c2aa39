@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20c5c14d_474da194",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1466344
+      },
+      "writtenOn": "2020-11-10T21:48:13Z",
+      "side": 1,
+      "message": "The code previously hung at the empty while loop at lines 1004-1005 for minified files. This was due to tons of calls to stream.match(). I believe my code functionally replaces the while loop. Please let me know if there are any comments/concerns. Thanks!",
+      "revId": "562b6543a7b4ead154f2a79b893f87bd26c2aa39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
