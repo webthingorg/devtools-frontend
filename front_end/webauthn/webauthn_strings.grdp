@@ -9,6 +9,9 @@
   <message name="IDS_DEVTOOLS_06df33001c1d7187fdd81ea1f5b277aa" desc="Label for column with actions for credentials.">
     Actions
   </message>
+  <message name="IDS_DEVTOOLS_096c938b1765c4f321cf9319331a2b26" desc="Label for the learn more link that is shown before the virtual environment is enabled.">
+    Use WebAuthn for phising-resistant authentication
+  </message>
   <message name="IDS_DEVTOOLS_0e0edfb003932bece727ff95bcd5fc0d" desc="Title for button that enables user to save name of authenticator after editing it.">
     Save name
   </message>
