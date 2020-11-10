@@ -22,6 +22,30 @@
       },
       "revId": "a228778fb3dd98f99ca96b88cfea3c0e346ae47e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "820ea451_95033353",
+        "filename": "test/e2e/settings/shortcut_settings_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-11-10T21:40:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ccfc28a5_132c194a",
+      "range": {
+        "startLine": 183,
+        "startChar": 18,
+        "endLine": 183,
+        "endChar": 22
+      },
+      "revId": "a228778fb3dd98f99ca96b88cfea3c0e346ae47e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
