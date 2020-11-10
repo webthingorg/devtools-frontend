@@ -535,6 +535,7 @@ const populateTypeReferencesToConvert = (state: WalkerState): WalkerState => {
 // are not in this list (e.g. Map, Set) because we special case parsing them
 // because of the generics.
 const builtInTypeScriptTypes = new Set([
+  'ArrayBuffer',
   'CanvasRenderingContext2D',
   'Element',
   'HTMLElement',
