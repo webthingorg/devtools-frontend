@@ -17,8 +17,7 @@ describe('Assertions', async function() {
       });
     });
     await goToResource('cross_tool/default.html');
-    assert.strictEqual(expectedErrors.length, 1);
-    assert.ok(expectedErrors[0].includes('expected failure 1'));
+    assert.ok(expectedErrors.some(error => error.includes('expected failure 1')));
   });
 
   it('console.error', async () => {
@@ -32,7 +31,6 @@ describe('Assertions', async function() {
       });
     });
     await goToResource('cross_tool/default.html');
-    assert.strictEqual(expectedErrors.length, 2);
-    assert.ok(expectedErrors[1].includes('expected failure 2'));
+    assert.ok(expectedErrors.some(error => error.includes('expected failure 2')));
   });
 });
