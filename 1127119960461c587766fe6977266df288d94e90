@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dc3594a_5f19a594",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-10T13:27:22Z",
+      "side": 1,
+      "message": "LGTM. Yang, I don\u0027t own BUILD.gn, could you do an owner\u0027s review?",
+      "revId": "1127119960461c587766fe6977266df288d94e90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
