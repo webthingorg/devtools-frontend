@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "3acc74edbe6e57e585404597650567ab87b77264",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92b3b407_ef97b76f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-11-10T13:50:55Z",
+      "side": 1,
+      "message": "I think I understand the problem now. My test to verify that assertions work are not quite right. I\u0027ll add a fix after this lands.",
+      "revId": "3acc74edbe6e57e585404597650567ab87b77264",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
