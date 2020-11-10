@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad90d275_b509715f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-11-10T17:53:05Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "ef573da56c821ebc5151d5c9b75327eda6d882e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd8df259_af9607c1",
+        "filename": "test/e2e/assertion/assertion_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-11-10T17:53:05Z",
+      "side": 1,
+      "message": "Since this fixes the bug, the comment and crbug link should probably be removed.",
+      "revId": "ef573da56c821ebc5151d5c9b75327eda6d882e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
