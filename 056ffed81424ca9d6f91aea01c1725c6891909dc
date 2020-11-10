@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed487bc3_c61571af",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-10T12:23:11Z",
+      "side": 1,
+      "message": "Looks awesome! Let\u0027s split out the refactoring of the base-class, we should be able to land that even without the protocol update CL.\n\nOtherwise only nits.",
+      "revId": "056ffed81424ca9d6f91aea01c1725c6891909dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca91af7e_05d88f5e",
+        "filename": "front_end/browser_debugger/CSPViolationBreakpointsSidebarPane.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-10T12:23:11Z",
+      "side": 1,
+      "message": "nit: not required",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 3
+      },
+      "revId": "056ffed81424ca9d6f91aea01c1725c6891909dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd189952_8a5e7b6c",
+        "filename": "front_end/browser_debugger/CategorizedBreakpointsSidebarPane.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-10T12:23:11Z",
+      "side": 1,
+      "message": "nit: not required",
+      "range": {
+        "startLine": 9,
+        "startChar": 2,
+        "endLine": 9,
+        "endChar": 16
+      },
+      "revId": "056ffed81424ca9d6f91aea01c1725c6891909dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "558db89c_6a94ba14",
+        "filename": "front_end/browser_debugger/EventListenerBreakpointsSidebarPane.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-10T12:23:11Z",
+      "side": 1,
+      "message": "nit: not required",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 3
+      },
+      "revId": "056ffed81424ca9d6f91aea01c1725c6891909dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18978b9a_98e1abd3",
+        "filename": "front_end/browser_debugger/browser_debugger-legacy.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-10T12:23:11Z",
+      "side": 1,
+      "message": "I don\u0027t think we need this as we aren\u0027t going to write layout tests.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 96
+      },
+      "revId": "056ffed81424ca9d6f91aea01c1725c6891909dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
