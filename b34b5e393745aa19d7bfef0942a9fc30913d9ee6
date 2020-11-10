@@ -177,6 +177,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "46521962_fac646e6",
+        "filename": "front_end/persistence/PersistenceActions.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1451147
+      },
+      "writtenOn": "2020-11-10T06:31:58Z",
+      "side": 1,
+      "message": "We can avoid creating any new methods on ContentProvider interface by converting the contentProvider object back to a Resource type[1] in saveImage(). \n\n\n\u003e    import * as Resource from \u0027../sdk/Resource.js\u0027\n\u003e \n\u003e    ...\n\u003e \n\u003e    async function saveImage() {\n\u003e      const targetObject \u003d /** @type {!Resource.Resource} */ (contentProvider);\n\u003e      let content \u003d (await targetObject.requestContent()).content || \u0027\u0027;\n\u003e      var link \u003d document.createElement(\"a\");\n\u003e      link.download \u003d targetObject.displayName;\n\u003e      link.href \u003d \u0027data:\u0027 + targetObject.mimeType + \u0027;base64,\u0027 + content;\n\u003e      link.click();\n\u003e    }  \n\n\nWe then regain access the mimeType to construct the data URI without running into any type checking errors. I\u0027ve tested this approach with png, svg, jpeg, gif, and WebP formats. \n\nI think this is a much simpler approach than my first. If you agree with this different approach, please advise: better to create a new CL, or upload a new patch set? \n\n[1] https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/sdk/Resource.js;drc\u003db8e8ad564da3081c6e3cf30e192fc93682b3d089;l\u003d40",
+      "parentUuid": "9a95c64c_74f4f031",
+      "revId": "b34b5e393745aa19d7bfef0942a9fc30913d9ee6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "23939288_5d160469",
         "filename": "front_end/persistence/PersistenceActions.js",
         "patchSetId": 3
