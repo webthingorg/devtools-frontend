@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74d8fe98_9149791e",
+        "filename": "front_end/ui/components/DataGridRenderers.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-10T14:35:04Z",
+      "side": 1,
+      "message": "this file is a JS file because Closure code will need to execute it. I think that\u0027s the best approach for now? Or can we make this TS and just tell Closure to skip compilation?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 2
+      },
+      "revId": "ff9005aab06a8637eaf70da3f3463495419f5365",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
