@@ -176,6 +176,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3895dc2_4a89b6ee",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 48
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-11-10T02:13:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3869dd60_98a341bd",
+      "range": {
+        "startLine": 542,
+        "startChar": 8,
+        "endLine": 542,
+        "endChar": 74
+      },
+      "revId": "1dc0a88e115faf8b9726d0661c587245849b08d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69fc16e2_7ef09cb8",
@@ -213,6 +237,30 @@
       "side": 1,
       "message": "Copied from the color picker here:\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/color_picker/Spectrum.js;l\u003d52?q\u003dSpectrum.js%20-f:out\u0026ss\u003dchromium",
       "parentUuid": "69fc16e2_7ef09cb8",
+      "range": {
+        "startLine": 703,
+        "startChar": 6,
+        "endLine": 703,
+        "endChar": 71
+      },
+      "revId": "1dc0a88e115faf8b9726d0661c587245849b08d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10dcd584_2a27be29",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 48
+      },
+      "lineNbr": 703,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-11-10T02:13:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2694502c_35a7a0fd",
       "range": {
         "startLine": 703,
         "startChar": 6,
