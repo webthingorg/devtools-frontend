@@ -5,7 +5,6 @@
  */
 
 .webauthn-pane {
-  display: block;
   overflow: auto;
   min-width: 500px;
 }
@@ -24,7 +23,7 @@
 
 .authenticators-view {
   margin: 0 10px;
-  padding: 10px 0;
+  min-height: auto;
 }
 
 /* New Authenticator Section */
@@ -53,7 +52,7 @@
 /* Active Authenticator Section */
 .authenticator-section {
   display: block;
-  margin: 10px 0;
+  padding: 16px 0;
   border-bottom: 1px solid rgb(230 230 230);
 }
 
@@ -165,4 +164,11 @@ td .text-button {
 
 .code {
   font-family: monospace;
+}
+
+.learn-more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
