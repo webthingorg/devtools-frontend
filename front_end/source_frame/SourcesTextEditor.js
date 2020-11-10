@@ -1001,7 +1001,10 @@ export class TokenHighlighter {
       this._searchMatchLength = matchLength;
       return 'search-highlight search-highlight-start';
     }
-    while (!stream.match(regex, false) && stream.next()) {
+    if (stream.string.slice(stream.pos).match(regex)) {
+      stream.pos += stream.string.slice(stream.pos).match(regex).index;
+    } else {
+      stream.skipToEnd();
     }
   }
 
