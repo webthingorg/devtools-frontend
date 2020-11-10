@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccfc28a5_132c194a",
+        "filename": "test/e2e/settings/shortcut_settings_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-10T10:30:06Z",
+      "side": 1,
+      "message": "Since this is hardcoding an implementation detail in the test, WDYT about making it a constant with a descriptive name?",
+      "range": {
+        "startLine": 183,
+        "startChar": 18,
+        "endLine": 183,
+        "endChar": 22
+      },
+      "revId": "a228778fb3dd98f99ca96b88cfea3c0e346ae47e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
