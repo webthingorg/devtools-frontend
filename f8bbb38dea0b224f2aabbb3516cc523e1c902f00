@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2307202e_af28b820",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-10T13:04:35Z",
+      "side": 1,
+      "message": "Please help me review it again.",
+      "revId": "f8bbb38dea0b224f2aabbb3516cc523e1c902f00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85ad7cac_66b80119",
+        "filename": "test/unittests/front_end/inline_editor/CSSVarSwatch_test.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-10T13:04:35Z",
+      "side": 1,
+      "message": "Add more test cases, fix and match the error in this link：\nhttps://isolateserver.appspot.com/browse?namespace\u003ddefault-gzip\u0026digest\u003d3dfc8dd0baa3e3700d21c66f42beb057f4336658\u0026as\u003dresolve-css-variables-diff.txt",
+      "revId": "f8bbb38dea0b224f2aabbb3516cc523e1c902f00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
