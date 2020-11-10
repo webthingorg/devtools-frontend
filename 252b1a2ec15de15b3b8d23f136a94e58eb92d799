@@ -22,6 +22,30 @@
       },
       "revId": "252b1a2ec15de15b3b8d23f136a94e58eb92d799",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b06d9a24_fd5f3b3a",
+        "filename": "front_end/elements/elements.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-10T11:42:30Z",
+      "side": 1,
+      "message": "Agreed, but if we want to go via the entrypoint then it\u0027s a necessary part of the puzzle, I think. An improvement we could consider is whether we have an allowlist of sorts so that you can only import some of these entities in the tests?",
+      "parentUuid": "7675ede2_c33597b6",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 72
+      },
+      "revId": "252b1a2ec15de15b3b8d23f136a94e58eb92d799",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
