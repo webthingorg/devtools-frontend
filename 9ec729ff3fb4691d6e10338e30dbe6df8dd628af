@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "41278cd9_6630064b",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-10T10:22:03Z",
+      "side": 1,
+      "message": "Agreed it\u0027s not coherent right now. For new code we try to keep the CSS/JS separation clear.",
+      "parentUuid": "38318a3a_6c24dcf8",
+      "revId": "9ec729ff3fb4691d6e10338e30dbe6df8dd628af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a66ef9d1_3fb78f4b",
         "filename": "front_end/webauthn/WebauthnPane.js",
         "patchSetId": 1
