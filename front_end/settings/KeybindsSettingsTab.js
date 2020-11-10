@@ -519,7 +519,7 @@ export class ShortcutListItem {
    */
   _onShortcutInputKeyDown(shortcut, shortcutInput, event) {
     if (/** @type {!KeyboardEvent} */ (event).key !== 'Tab') {
-      const eventDescriptor = this._descriptorForEvent(event);
+      const eventDescriptor = this._descriptorForEvent(/** @type {!KeyboardEvent} */ (event));
       const userDescriptors = this._editedShortcuts.get(shortcut) || [];
       this._editedShortcuts.set(shortcut, userDescriptors);
       const isLastKeyOfShortcut =
@@ -550,13 +550,13 @@ export class ShortcutListItem {
   }
 
   /**
-   * @param {!Event} event
+   * @param {!KeyboardEvent} event
    */
   _descriptorForEvent(event) {
     const userKey = UI.KeyboardShortcut.KeyboardShortcut.makeKeyFromEvent(/** @type {!KeyboardEvent} */ (event));
     const codeAndModifiers = UI.KeyboardShortcut.KeyboardShortcut.keyCodeAndModifiersFromKey(userKey);
-    return UI.KeyboardShortcut.KeyboardShortcut.makeDescriptor(
-        {code: userKey, name: /** @type {!KeyboardEvent} */ (event).key}, codeAndModifiers.modifiers);
+    const key = UI.KeyboardShortcut.Keys[event.key] || UI.KeyboardShortcut.KeyBindings[event.key];
+    return UI.KeyboardShortcut.KeyboardShortcut.makeDescriptor(key || event.key, codeAndModifiers.modifiers);
   }
 
   /**
