@@ -253,6 +253,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "24211301_9c730a61",
+        "filename": "front_end/browser_debugger/browser_debugger-legacy.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-10T12:56:45Z",
+      "side": 1,
+      "message": "Oh, I missed that this is referenced from the module.json.",
+      "parentUuid": "3dffc187_3aac8e0d",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 96
+      },
+      "revId": "056ffed81424ca9d6f91aea01c1725c6891909dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b97010ce_739fd120",
