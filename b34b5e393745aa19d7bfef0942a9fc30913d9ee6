@@ -213,6 +213,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "750fae22_16c5319d",
+        "filename": "front_end/persistence/PersistenceActions.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1451147
+      },
+      "writtenOn": "2020-11-10T06:54:13Z",
+      "side": 1,
+      "message": "WDYT about ensuring Resource type like this: (starting on line 70)\n\n\u003e  } else if (contentProvider instanceof Resource.Resource \u0026\u0026 \n\u003e  contentProvider.contentType().isImage()) {\n\u003e       contextMenu.saveSection().appendItem(Common.UIString.UIString(\u0027Save \n\u003e       image\u0027), saveImage);\n\u003e  }",
+      "parentUuid": "432339f4_a9df97c1",
+      "revId": "b34b5e393745aa19d7bfef0942a9fc30913d9ee6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "23939288_5d160469",
         "filename": "front_end/persistence/PersistenceActions.js",
         "patchSetId": 3
