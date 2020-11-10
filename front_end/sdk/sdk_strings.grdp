@@ -203,6 +203,9 @@
   <message name="IDS_DEVTOOLS_5662edf029fe42e222f435fbc9ae73a2" desc="Title for Trusted Types policy violation issue link">
     Trusted Types - Fix violations
   </message>
+  <message name="IDS_DEVTOOLS_580e805a3a4db8fc19fff0044e008326" desc="TODO">
+    Trusted Type Violations
+  </message>
   <message name="IDS_DEVTOOLS_68379f916c7ed8dd3ab30adaa20635fe" desc="Title of a setting that turns on grid line number labels">
     Show line numbers
   </message>
