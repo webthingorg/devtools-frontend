@@ -8,7 +8,7 @@ import {ChildProcess, spawn} from 'child_process';
 import * as path from 'path';
 import * as puppeteer from 'puppeteer';
 
-import {getBrowserAndPages, registerHandlers, setBrowserAndPages, setHostedModeServerPort} from './puppeteer-state.js';
+import {clearPuppeteerState, getBrowserAndPages, registerHandlers, setBrowserAndPages, setHostedModeServerPort} from './puppeteer-state.js';
 
 // Workaround for mismatching versions of puppeteer types and puppeteer library.
 declare module 'puppeteer' {
@@ -28,6 +28,7 @@ const cwd = path.join(__dirname, '..', '..');
 const {execPath} = process;
 const width = 1280;
 const height = 720;
+let unhandledRejectionSet = false;
 
 const headless = !process.env['DEBUG'];
 const envSlowMo = process.env['STRESS'] ? 50 : undefined;
@@ -157,9 +158,12 @@ async function loadTargetPageAndDevToolsFrontend(hostedModeServerPort: number) {
     throw new Error(`Page error in Frontend: ${error}`);
   });
 
-  process.on('unhandledRejection', error => {
-    throw new Error(`Unhandled rejection in Frontend: ${error}`);
-  });
+  if (!unhandledRejectionSet) {
+    process.on('unhandledRejection', error => {
+      throw new Error(`Unhandled rejection in Frontend: ${error}`);
+    });
+    unhandledRejectionSet = true;
+  }
 
   frontend.on('console', msg => {
     const logLevel = logLevels[msg.type() as keyof typeof logLevels] as string;
@@ -248,7 +252,7 @@ export async function reloadDevTools(options: ReloadDevToolsOptions = {}) {
   }
 }
 
-function startHostedModeServer(): Promise<number> {
+export function startHostedModeServer(): Promise<number> {
   console.log('Spawning hosted mode server');
 
   function handleHostedModeError(error: Error) {
@@ -278,28 +282,30 @@ function startHostedModeServer(): Promise<number> {
   });
 }
 
-export async function globalSetup() {
-  try {
-    const port = await startHostedModeServer();
-    console.log(`Started hosted mode server on port ${port}`);
-    registerHandlers();
-    setHostedModeServerPort(port);
-    await loadTargetPageAndDevToolsFrontend(port);
-  } catch (message) {
-    throw new Error(message);
-  }
+// Can be run multiple times in the same process.
+export async function preFileSetup(hostedModeServerPort: number) {
+  setHostedModeServerPort(hostedModeServerPort);
+  registerHandlers();
+  await loadTargetPageAndDevToolsFrontend(hostedModeServerPort);
 }
 
-export async function globalTeardown() {
+export function stopHostedModeServer() {
+  console.log('Stopping hosted mode server');
+  hostedModeServer.kill();
+}
+
+// Can be run multiple times in the same process.
+export async function postFileTeardown() {
   // We need to kill the browser before we stop the hosted mode server.
   // That's because the browser could continue to make network requests,
   // even after we would have closed the server. If we did so, the requests
   // would fail and the test would crash on closedown. This only happens
   // for the very last test that runs.
   await browser.close();
+  console.log('browser.close done', process.pid);
 
-  console.log('Stopping hosted mode server');
-  hostedModeServer.kill();
+  clearPuppeteerState();
+  console.log('clearPuppeteerState done', process.pid);
 
   console.log('Expected errors: ' + expectedErrors.length);
   console.log('   Fatal errors: ' + fatalErrors.length);
