@@ -16,6 +16,23 @@
       "message": "Simon, refactored according to your suggestions.\nTim, I am now performing the early instantiations directly in MainImpl. Does the precise location make sense or should I maybe move it someplace else?",
       "revId": "9749e8e16410f0d8efd97e0eae6c5e18eaff52c1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "effddb94_669a8828",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-11T07:04:39Z",
+      "side": 1,
+      "message": "still lgtm. Do we want this in 88 or should we hold of until after branch cut to get more canary coverage?",
+      "revId": "9749e8e16410f0d8efd97e0eae6c5e18eaff52c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
