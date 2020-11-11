@@ -34,6 +34,24 @@
       "parentUuid": "51a18eb5_18c54237",
       "revId": "8ae1c7bee74d5cff0db88bccb1735507852a992e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19d04f6d_36a64688",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-11T09:51:01Z",
+      "side": 1,
+      "message": "\u003e I don\u0027t think the event handler cares about async \n\nWhat I meant is the following: in the event handler case, if the handler fires repeatedly, previously it was guaranteed that all nested calls in the handler happened in sequence (since everything was synchronous). Now it calls an async function — could a situation now occur where the first handler partially does some of its tasks, but then the second handler already kicks off, and now encounters an unexpected halfway state?",
+      "parentUuid": "e78f4be6_d45e38e8",
+      "revId": "8ae1c7bee74d5cff0db88bccb1735507852a992e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
