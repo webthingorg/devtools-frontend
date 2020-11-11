@@ -39,6 +39,30 @@
       },
       "revId": "266d7dc1a93ee7a8bb86f538c779aac08d394317",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64ba7e68_daaf89a9",
+        "filename": "front_end/object_ui/JavaScriptAutocomplete.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-11T15:01:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eaecba9a_933326ab",
+      "range": {
+        "startLine": 372,
+        "startChar": 36,
+        "endLine": 372,
+        "endChar": 77
+      },
+      "revId": "266d7dc1a93ee7a8bb86f538c779aac08d394317",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
