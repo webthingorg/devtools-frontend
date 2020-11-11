@@ -39,6 +39,30 @@
       },
       "revId": "8a9f4d581a04821d2195f2cfc8cc91a591c3d158",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17a2e83e_40ee73c9",
+        "filename": "scripts/localization/utils/check_localized_strings.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-11-11T23:26:45Z",
+      "side": 1,
+      "message": "Agreed! Will fix this in the next one.",
+      "parentUuid": "4640d2ed_ac9032b8",
+      "range": {
+        "startLine": 107,
+        "startChar": 33,
+        "endLine": 107,
+        "endChar": 66
+      },
+      "revId": "8a9f4d581a04821d2195f2cfc8cc91a591c3d158",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
