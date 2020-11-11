@@ -28,6 +28,8 @@ export const INACTIVE_GRID_ADORNER_SELECTOR = '[aria-label="Enable grid mode"]';
 export const ACTIVE_GRID_ADORNER_SELECTOR = '[aria-label="Disable grid mode"]';
 const ELEMENT_CHECKBOX_IN_LAYOUT_PANE_SELECTOR = '.elements input[type=checkbox]';
 
+const ACCESSIBILITY_PANEL_TAB_SELECTOR = '[aria-label="Accessibility panel"]';
+
 export const openLayoutPane = async () => {
   await step('Open Layout pane', async () => {
     await waitFor(LAYOUT_PANE_TAB_SELECTOR);
@@ -150,6 +152,7 @@ export const focusElementsTree = async () => {
 };
 
 export const navigateToSidePane = async (paneName: string) => {
+  console.log(paneName);
   await click(`[aria-label="${paneName}"]`);
   await waitFor(`[aria-label="${paneName} panel"]`);
 };
@@ -161,6 +164,13 @@ export const waitForElementsStyleSection = async () => {
 
 export const waitForElementsComputedSection = async () => {
   await waitFor(COMPUTED_PROPERTY_SELECTOR);
+};
+
+export const getContentOfAccessibilityPane = async () => {
+  // const pane = await waitFor('.ax-subpane');
+  // const tree = await waitFor('.ax-breadcrumbs');
+  // console.log('henlo');
+  // console.log(pane);
 };
 
 export const getContentOfComputedPane = async () => {
