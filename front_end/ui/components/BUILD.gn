@@ -9,6 +9,7 @@ devtools_module("components") {
   sources = [
     "DataGrid.ts",
     "DataGridController.ts",
+    "DataGridController_bridge.js",
     "DataGridRenderers.ts",
     "DataGridUtils.ts",
   ]

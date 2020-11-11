@@ -1126,6 +1126,7 @@ grd_files_debug_sources = [
   "front_end/ui/ZoomManager.js",
   "front_end/ui/components/DataGrid.js",
   "front_end/ui/components/DataGridController.js",
+  "front_end/ui/components/DataGridController_bridge.js",
   "front_end/ui/components/DataGridRenderers.js",
   "front_end/ui/components/DataGridUtils.js",
   "front_end/ui/utils/append-style.js",

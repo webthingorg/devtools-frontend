@@ -16,6 +16,7 @@ devtools_module("protocol_monitor") {
     "../source_frame:bundle",
     "../text_utils:bundle",
     "../ui:bundle",
+    "../ui/components:bundle",
   ]
 }
 

@@ -191,6 +191,18 @@ export class SplitWidget extends Widget {
   }
 
   /**
+   *
+   * @param {!HTMLElement} component
+   */
+  setMainViewToComponent(component) {
+    // TODO: store componnet, and then in setMainWidget we can kill it if required.
+    if (this._mainWidget) {
+      this._mainWidget.detach();
+    }
+    this._mainElement.appendChild(component);
+  }
+
+  /**
    * @param {!Widget} widget
    */
   setSidebarWidget(widget) {

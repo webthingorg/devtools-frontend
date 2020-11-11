@@ -8,7 +8,16 @@ import * as ProtocolClient from '../protocol_client/protocol_client.js';
 import * as SDK from '../sdk/sdk.js';
 import * as SourceFrame from '../source_frame/source_frame.js';
 import * as TextUtils from '../text_utils/text_utils.js';
+import * as Components from '../ui/components/components.js';
 import * as UI from '../ui/ui.js';
+
+// const row = {
+//   cells: [
+//     { columnId: 'foo', value: 'Foo', renderer: x => Utils.JsonCodeRenderer(x) },
+// { columnId: 'foo', value: async () => LitHtml.html`<devtools-code-renderer no-syntax-highlight>blah</devtools-code-renderer>` },
+//     { columnId: 'foo', value: 'blah', renderer: async value => LitHtml.html`<code>${value}</code>` },
+//   ]
+// };
 
 export class ProtocolMonitorImpl extends UI.Widget.VBox {
   constructor() {
@@ -23,6 +32,11 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
      * @type {!Map<number, !ProtocolNode>}
      */
     this._nodeForId = new Map();
+
+    /**
+     * @type {!Map<number, !Components.DataGridControllerBridge.Row>}
+     */
+    this._dataGridRowForId = new Map();
     /**
      * @param {!ProtocolNode} node
      */
@@ -87,7 +101,19 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
     });
     this._dataGrid.element.style.flex = '1';
     this._infoWidget = new InfoWidget();
-    split.setMainWidget(this._dataGrid.asWidget());
+    // split.setMainWidget(this._dataGrid.asWidget());
+    const component = Components.DataGridControllerBridge.createDataGridController();
+    this._newDataGrid = component;
+    component.data = {
+      columns: [
+        {id: 'method', title: 'Method', sortable: false, widthWeighting: 1, hidden: false},
+        {id: 'request', title: 'Request', sortable: false, widthWeighting: 1, hidden: false},
+        {id: 'response', title: 'Response', sortable: false, widthWeighting: 1, hidden: false}
+      ],
+      rows: [],
+      filterText: undefined,
+    };
+    split.setMainViewToComponent(this._newDataGrid);
     split.setSidebarWidget(this._infoWidget);
     this._dataGrid.addEventListener(
         DataGrid.DataGrid.Events.SelectedNode, event => this._infoWidget.render(event.data.data));
@@ -263,21 +289,79 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
    */
   _messageReceived(message, target) {
     if ('id' in message) {
-      const node = this._nodeForId.get(message.id);
-      if (!node) {
+      const existingRow = this._dataGridRowForId.get(message.id);
+      if (!existingRow) {
         return;
       }
-      node.data.response = message.result || message.error;
-      node.hasError = !!message.error;
-      node.refresh();
-      if (this._dataGrid.selectedNode === node) {
-        const data =
-            /** @type {?{method: string, direction: string, request: ?Object, response: ?Object, timestamp: number}}*/ (
-                node.data);
-        this._infoWidget.render(data);
-      }
+      const allExistingRows = this._newDataGrid.data.rows;
+
+      const matchingExistingRowIndex = allExistingRows.findIndex(r => existingRow === r);
+
+      const newRowWithUpdate = {
+        ...existingRow,
+        cells: existingRow.cells.map(cell => {
+          if (cell.columnId === 'response') {
+            return {
+              ...cell,
+              value: JSON.stringify(message.result || message.error),
+
+            };
+          }
+          return cell;
+        })
+      };
+
+      const newRowsArray = [...this._newDataGrid.data.rows];
+      newRowsArray[matchingExistingRowIndex] = newRowWithUpdate;
+      this._dataGridRowForId.delete(message.id);
+      this._newDataGrid.data = {
+        ...this._newDataGrid.data,
+        rows: newRowsArray,
+      };
+
+
+      // const node = this._nodeForId.get(message.id);
+      // if (!node) {
+      //   return;
+      // }
+      // node.data.response = message.result || message.error;
+      // node.hasError = !!message.error;
+      // node.refresh();
+      // if (this._dataGrid.selectedNode === node) {
+      //   const data =
+      //       /** @type {?{method: string, direction: string, request: ?Object, response: ?Object, timestamp: number}}*/ (
+      //           node.data);
+      //   // const newRows = this._newDataGrid.data.rows.concat([
+      //   //   {
+      //   //     cells: [
+      //   //       {columnId:  'method', value: data.method},
+      //   //       {columnId:  'method', value: data.method},
+      //   //       {columnId:  'method', value: data.method},
+      //   //     ],
+      //   //     hidden: false
+      //   //   }
+      //   // ]);
+
+      //   this._infoWidget.render(data);
+      // }
       return;
     }
+
+    const newRow = {
+      cells: [
+        {columnId: 'method', value: message.method, renderer: Components.DataGridRenderers.stringRenderer},
+        {columnId: 'request', value: '', renderer: Components.DataGridRenderers.codeBlockRenderer}, {
+          columnId: 'response',
+          value: JSON.stringify(message.params),
+          renderer: Components.DataGridRenderers.codeBlockRenderer
+        },
+        // TODO: timestamp field
+        //   timestamp: Date.now() - this._startTime,
+      ],
+      hidden: false,
+    };
+
+    this._newDataGrid.data = {...this._newDataGrid.data, rows: this._newDataGrid.data.rows.concat([newRow])};
 
     const sdkTarget = /** @type {?SDK.SDKModel.Target} */ (target);
     const node = new ProtocolNode({
@@ -300,20 +384,35 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
    */
   _messageSent(message, target) {
     const sdkTarget = /** @type {?SDK.SDKModel.Target} */ (target);
-    const node = new ProtocolNode({
-      method: message.method,
-      direction: 'sent',
-      request: message.params,
-      timestamp: Date.now() - this._startTime,
-      response: '(pending)',
-      id: message.id,
-      target: this._targetToString(sdkTarget)
-    });
-    this._nodeForId.set(message.id, node);
-    this._nodes.push(node);
-    if (this._filter(node)) {
-      this._dataGrid.insertChild(node);
-    }
+    // const node = new ProtocolNode({
+    //   method: message.method,
+    //   direction: 'sent',
+    //   request: message.params,
+    //   timestamp: Date.now() - this._startTime,
+    //   response: '(pending)',
+    //   id: message.id,
+    //   target: this._targetToString(sdkTarget)
+    // });
+    const newRow = {
+      cells: [
+        {columnId: 'method', value: message.method, renderer: Components.DataGridRenderers.stringRenderer}, {
+          columnId: 'request',
+          value: JSON.stringify(message.params),
+          renderer: Components.DataGridRenderers.codeBlockRenderer
+        },
+        {columnId: 'response', value: '(pending)', renderer: Components.DataGridRenderers.codeBlockRenderer},
+        // TODO: timestamp field
+        //   timestamp: Date.now() - this._startTime,
+      ],
+      hidden: false,
+    };
+    this._dataGridRowForId.set(message.id, newRow);
+    this._newDataGrid.data = {...this._newDataGrid.data, rows: this._newDataGrid.data.rows.concat([newRow])};
+    // this._nodeForId.set(message.id, node);
+    // this._nodes.push(node);
+    // if (this._filter(node)) {
+    //   this._dataGrid.insertChild(node);
+    // }
   }
 }
 /**

@@ -748,6 +748,7 @@ all_typescript_module_sources = [
   "ui/ZoomManager.js",
   "ui/components/DataGrid.js",
   "ui/components/DataGridController.js",
+  "ui/components/DataGridController_bridge.js",
   "ui/components/DataGridRenderers.js",
   "ui/components/DataGridUtils.js",
   "ui/components/components.js",
