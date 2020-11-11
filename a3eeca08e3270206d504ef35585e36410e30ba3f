@@ -39,6 +39,30 @@
       },
       "revId": "a3eeca08e3270206d504ef35585e36410e30ba3f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "211f096c_82caf4ed",
+        "filename": "front_end/inline_editor/CSSVarSwatch.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-11T11:11:10Z",
+      "side": 1,
+      "message": "Done, thanks!",
+      "parentUuid": "e44c33e2_3719a741",
+      "range": {
+        "startLine": 46,
+        "startChar": 37,
+        "endLine": 46,
+        "endChar": 45
+      },
+      "revId": "a3eeca08e3270206d504ef35585e36410e30ba3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
