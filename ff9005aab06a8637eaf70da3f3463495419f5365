@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d59f9ea6_2edb6e04",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-11T08:57:18Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "ff9005aab06a8637eaf70da3f3463495419f5365",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "74d8fe98_9149791e",
@@ -19,6 +36,76 @@
         "startChar": 0,
         "endLine": 21,
         "endChar": 2
+      },
+      "revId": "ff9005aab06a8637eaf70da3f3463495419f5365",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0600b1f_46624fdc",
+        "filename": "front_end/ui/components/DataGridRenderers.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-11T08:57:18Z",
+      "side": 1,
+      "message": "Skip compilation, I\u0027d say.",
+      "parentUuid": "74d8fe98_9149791e",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 2
+      },
+      "revId": "ff9005aab06a8637eaf70da3f3463495419f5365",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fed91583_a1c7007d",
+        "filename": "front_end/ui/components/DataGridUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-11T08:57:18Z",
+      "side": 1,
+      "message": "Can we add the TypeScriptification crbug here, then, so we know we can go back after that\u0027s completed and update this along with the bridge?",
+      "range": {
+        "startLine": 41,
+        "startChar": 33,
+        "endLine": 41,
+        "endChar": 40
+      },
+      "revId": "ff9005aab06a8637eaf70da3f3463495419f5365",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2e27fc1_ce8d0706",
+        "filename": "test/unittests/front_end/ui/components/DataGrid_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-11T08:57:18Z",
+      "side": 1,
+      "message": "I\u0027m surprised, I thought these would need escaping as part of being a RegExp.",
+      "range": {
+        "startLine": 135,
+        "startChar": 72,
+        "endLine": 135,
+        "endChar": 79
       },
       "revId": "ff9005aab06a8637eaf70da3f3463495419f5365",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
