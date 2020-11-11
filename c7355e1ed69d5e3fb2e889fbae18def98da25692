@@ -50,6 +50,24 @@
       "message": "Nice!",
       "revId": "c7355e1ed69d5e3fb2e889fbae18def98da25692",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "450d6829_6bbe9d9b",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-11T09:25:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2e9d3be_20a09bf4",
+      "revId": "c7355e1ed69d5e3fb2e889fbae18def98da25692",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
