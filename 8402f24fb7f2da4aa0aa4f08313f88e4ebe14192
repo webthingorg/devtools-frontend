@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19459f69_45e362ba",
+        "filename": "front_end/timeline_model/TimelineModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-11T14:54:13Z",
+      "side": 1,
+      "message": "I think, setting it to null would be clearer. Or is 0 the existing convention there?",
+      "range": {
+        "startLine": 578,
+        "startChar": 12,
+        "endLine": 578,
+        "endChar": 13
+      },
+      "revId": "8402f24fb7f2da4aa0aa4f08313f88e4ebe14192",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
