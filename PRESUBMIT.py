@@ -99,6 +99,25 @@ def _CheckChangesAreExclusiveToDirectory(input_api, output_api):
     return results
 
 
+def _CheckBugAssociation(input_api, output_api):
+    if input_api.change.DISABLE_BUG_ASSOCIATION_CHECK != None:
+        return []
+    results = [output_api.PresubmitNotifyResult('Bug Association Check:')]
+    bugs = input_api.change.BugsFromDescription()
+
+    if not bugs:
+        results.append(
+            output_api.PresubmitError(
+                'Each CL should be associated with a bug, use \'Bug:\' or \'Fixed:\' lines in the commit description.\n'
+                +
+                'This check can be disabled by adding a DISABLE_BUG_ASSOCIATION_CHECK=<reason> line to your commit message'
+            ))
+    for bug in bugs:
+        results.append(output_api.PresubmitNotifyResult((('%s') % bug)))
+
+    return results
+
+
 def _CheckBuildGN(input_api, output_api):
     results = [output_api.PresubmitNotifyResult('Running BUILD.GN check:')]
     script_path = input_api.os_path.join(input_api.PresubmitLocalPath(), 'scripts', 'check_gn.js')
@@ -472,6 +491,7 @@ def _CommonChecks(input_api, output_api):
     results.extend(_RunCannedChecks(input_api, output_api))
     results.extend(_CheckNoUncheckedFiles(input_api, output_api))
     results.extend(_CheckForTooLargeFiles(input_api, output_api))
+    results.extend(_CheckBugAssociation(input_api, output_api))
     return results
 
 
