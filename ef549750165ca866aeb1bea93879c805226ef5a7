@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed8ade18_6efa3295",
+        "filename": "front_end/object_ui/RemoteObjectPreviewFormatter.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-11T07:54:10Z",
+      "side": 1,
+      "message": "can this really be safely removed?",
+      "range": {
+        "startLine": 54,
+        "startChar": 90,
+        "endLine": 54,
+        "endChar": 94
+      },
+      "revId": "ef549750165ca866aeb1bea93879c805226ef5a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "149a6a7c_34fbf33b",
+        "filename": "front_end/object_ui/RemoteObjectPreviewFormatter.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-11T07:54:10Z",
+      "side": 1,
+      "message": "Not sure what the last in-sight in `subtype` was, but given its not fully typed we need the \u0027typedarray` check as well (see the layout test output).",
+      "range": {
+        "startLine": 57,
+        "startChar": 32,
+        "endLine": 57,
+        "endChar": 96
+      },
+      "revId": "ef549750165ca866aeb1bea93879c805226ef5a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
