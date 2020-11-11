@@ -16,6 +16,24 @@
       "message": "LGTM. Have you verified the sync -\u003e async change works with all call sites, including _handleCheckboxToggle?",
       "revId": "8ae1c7bee74d5cff0db88bccb1735507852a992e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e78f4be6_d45e38e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-11T09:44:00Z",
+      "side": 1,
+      "message": "It has two call sites: In an event handler and in ownerViewDisposed. \nI don\u0027t think the event handler cares about async but I\u0027ll update ownerViewDisposed as a drive by change because it\u0027s rarely used.",
+      "parentUuid": "51a18eb5_18c54237",
+      "revId": "8ae1c7bee74d5cff0db88bccb1735507852a992e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
