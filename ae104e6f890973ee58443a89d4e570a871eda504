@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bbda9db_557f2d95",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-11T07:05:16Z",
+      "side": 1,
+      "message": "Oh, another tip: instead of `Bug:` you can use `Fixed:` here. That way the referenced bug will automatically be closed once this lands.",
+      "revId": "ae104e6f890973ee58443a89d4e570a871eda504",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8c687b48_e07cc673",
