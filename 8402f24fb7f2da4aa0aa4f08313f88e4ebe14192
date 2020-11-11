@@ -22,6 +22,30 @@
       },
       "revId": "8402f24fb7f2da4aa0aa4f08313f88e4ebe14192",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d36b66a_019022b5",
+        "filename": "front_end/timeline_model/TimelineModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-11T15:23:55Z",
+      "side": 1,
+      "message": "The default value for backendNodeId is 0. It seems like the check later on in the code will use any non-falsy value, so 0 would prevent errors from showing, but so would undefined, null, or \u0027\u0027.",
+      "parentUuid": "19459f69_45e362ba",
+      "range": {
+        "startLine": 578,
+        "startChar": 12,
+        "endLine": 578,
+        "endChar": 13
+      },
+      "revId": "8402f24fb7f2da4aa0aa4f08313f88e4ebe14192",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
