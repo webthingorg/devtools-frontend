@@ -156,6 +156,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b70048df_29ffd7b9",
+        "filename": "front_end/issues/MarkdownIssueDescription.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-11T09:37:53Z",
+      "side": 1,
+      "message": "So if I understand correctly, this means that there is additional work required in the localization pipeline to handle markdown properly. I would like to not block on this to finish work on our side, but I\u0027ll have Benedikt make the decision.",
+      "parentUuid": "39d87c26_d9c74e7a",
+      "range": {
+        "startLine": 30,
+        "startChar": 24,
+        "endLine": 31,
+        "endChar": 43
+      },
+      "revId": "41f94b5c34e7d517a8086be7cf880027978cd2cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e20e2fe9_044c21d8",
         "filename": "test/unittests/front_end/issues/MarkdownIssueDescription_test.ts",
         "patchSetId": 1

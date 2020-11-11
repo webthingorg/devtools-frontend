@@ -51,6 +51,46 @@
       "parentUuid": "c0fafa0b_56f66005",
       "revId": "6d37b34bc660817cc8d82c089e58367f31449ac6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42248ee5_6db1911f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-11T09:37:53Z",
+      "side": 1,
+      "message": "Hi Benedikt,\n\nthere is probably additional work required to make localization work for markdown here, but I would like to land this CL anyway to get us unblocked. WDYT?\n\nSigurd\n\nLGTM once comments are addressed.",
+      "revId": "6d37b34bc660817cc8d82c089e58367f31449ac6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47bf0a13_e402234c",
+        "filename": "front_end/issues/MarkdownIssueDescription.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-11T09:37:53Z",
+      "side": 1,
+      "message": "let\u0027s enforce {PLACEHOLDER_foo} for replacements to minimize clashes. If one of those doesn\u0027t have a replacement throw. Then we get the best of both worlds (allowing {foo} in codespans and checking that all replacements are there.",
+      "range": {
+        "startLine": 26,
+        "startChar": 6,
+        "endLine": 26,
+        "endChar": 30
+      },
+      "revId": "6d37b34bc660817cc8d82c089e58367f31449ac6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
