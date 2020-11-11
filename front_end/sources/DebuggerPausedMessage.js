@@ -133,6 +133,17 @@ export class DebuggerPausedMessage {
       messageWrapper = buildWrapper(Common.UIString.UIString('Paused on debugged function'));
     } else if (details.reason === SDK.DebuggerModel.BreakReason.OOM) {
       messageWrapper = buildWrapper(Common.UIString.UIString('Paused before potential out-of-memory crash'));
+    } else if (
+        details.reason === SDK.DebuggerModel.BreakReason.Other && details.auxData && details.auxData['violationType']) {
+      // To be updated when CL merged: https://chromium-review.googlesource.com/c/v8/v8/+/2519513
+      const text = /** @type {string} */ details.auxData['violationType'];
+      if (text === Protocol.DOMDebugger.CSPViolationType.TrustedtypeSinkViolation) {
+        messageWrapper =
+            buildWrapper(Common.UIString.UIString('Paused on CSP violation'), 'Trusted Type Sink Violation');
+      } else {
+        messageWrapper =
+            buildWrapper(Common.UIString.UIString('Paused on CSP violation'), 'Trusted Type Policy Violation');
+      }
     } else if (details.callFrames.length) {
       const uiLocation = await debuggerWorkspaceBinding.rawLocationToUILocation(details.callFrames[0].location());
       const breakpoint = uiLocation ? breakpointManager.findBreakpoint(uiLocation) : null;
