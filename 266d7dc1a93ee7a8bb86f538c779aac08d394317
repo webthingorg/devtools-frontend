@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd788c16_4e839be3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-11T07:31:33Z",
+      "side": 1,
+      "message": "lgtm, should we hold off landing this CL until after branch cut tomorrow?",
+      "revId": "266d7dc1a93ee7a8bb86f538c779aac08d394317",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eaecba9a_933326ab",
+        "filename": "front_end/object_ui/JavaScriptAutocomplete.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-11T07:31:33Z",
+      "side": 1,
+      "message": "alternatively, we could use the `Number` constructor, to omit the casts. (The result will be the same).",
+      "range": {
+        "startLine": 372,
+        "startChar": 36,
+        "endLine": 372,
+        "endChar": 77
+      },
+      "revId": "266d7dc1a93ee7a8bb86f538c779aac08d394317",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
