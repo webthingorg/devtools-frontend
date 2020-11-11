@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "164d87ea_c5fff812",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-11T09:00:27Z",
+      "side": 1,
+      "message": "LGTM % nit",
+      "revId": "0ac8986b0f2de2b80115fcf0b7b4cd397f047109",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b09a93c9_dd923875",
+        "filename": "front_end/ui/KeyboardShortcut.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-11T09:00:27Z",
+      "side": 1,
+      "message": "nit: Please use the raw Unicode symbol here (and below). We only use escape sequences when the character is a non-printable or esoteric whitespace character, or within ranges in regular expression patterns.",
+      "range": {
+        "startLine": 314,
+        "startChar": 8,
+        "endLine": 314,
+        "endChar": 16
+      },
+      "revId": "0ac8986b0f2de2b80115fcf0b7b4cd397f047109",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
