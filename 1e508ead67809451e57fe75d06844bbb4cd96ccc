@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "94c747e7_6357eaaf",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-11T09:02:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "adf6986f_76512359",
+      "revId": "1e508ead67809451e57fe75d06844bbb4cd96ccc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b4c66e2b_1f8f6bbf",
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "654d3743_4b5be314",
+        "filename": "front_end/webauthn/WebauthnPane.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-11T09:02:23Z",
+      "side": 1,
+      "message": "I centered it and also added an empty line between the text and the link to align it with the other panels.",
+      "parentUuid": "b4c66e2b_1f8f6bbf",
+      "revId": "1e508ead67809451e57fe75d06844bbb4cd96ccc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0d841fa7_91b98992",
@@ -65,6 +101,24 @@
       "writtenOn": "2020-11-10T16:15:14Z",
       "side": 1,
       "message": "typo: phishing",
+      "revId": "1e508ead67809451e57fe75d06844bbb4cd96ccc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddee9b4e_c58950eb",
+        "filename": "front_end/webauthn/webauthn_strings.grdp",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-11T09:02:23Z",
+      "side": 1,
+      "message": "Good catch, thanks!",
+      "parentUuid": "0d841fa7_91b98992",
       "revId": "1e508ead67809451e57fe75d06844bbb4cd96ccc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
