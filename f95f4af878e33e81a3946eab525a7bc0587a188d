@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1f2834f_11b59457",
+        "filename": "front_end/elements/Adorner.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-11T11:42:52Z",
+      "side": 1,
+      "message": "The minimum limit of 12px has always plagued developers of Chinese web pages. Is there a way to break this limitation through the backend? Otherwise, the font size 8.5px actually set here is actually displayed as 12px.",
+      "revId": "f95f4af878e33e81a3946eab525a7bc0587a188d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
