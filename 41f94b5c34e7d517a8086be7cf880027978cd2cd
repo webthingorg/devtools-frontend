@@ -132,6 +132,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "39d87c26_d9c74e7a",
+        "filename": "front_end/issues/MarkdownIssueDescription.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-11T06:25:39Z",
+      "side": 1,
+      "message": "The problem is, the input string is not just a plain old string, but markdown. i18n (V2) has special handling for markdown links and codespans, but not lists and headings.\n\ni18n does this, by heuristically replacing things that look like markdown syntax into placeholders. I am not sure that is a viable solution in the future.\n\nWe can also not use V1, as V1 relies on the fact that the plain string is part of the JavaScript code, which is not the case for Markdown files. So V1 is also off the table.",
+      "parentUuid": "b3758808_c70b2f37",
+      "range": {
+        "startLine": 30,
+        "startChar": 24,
+        "endLine": 31,
+        "endChar": 43
+      },
+      "revId": "41f94b5c34e7d517a8086be7cf880027978cd2cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e20e2fe9_044c21d8",
         "filename": "test/unittests/front_end/issues/MarkdownIssueDescription_test.ts",
         "patchSetId": 1
