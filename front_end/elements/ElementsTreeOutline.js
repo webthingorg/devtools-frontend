@@ -41,6 +41,9 @@ import {linkifyDeferredNodeReference} from './DOMLinkifier.js';
 import {ElementsTreeElement, InitialChildrenLimit} from './ElementsTreeElement.js';
 import {ImagePreviewPopover} from './ImagePreviewPopover.js';
 
+
+/** @type {!WeakMap<!Node, !UI.TreeOutline.TreeElement>} */
+const treeElementForTest = new WeakMap();
 /**
  * @unrestricted
  */
@@ -108,7 +111,14 @@ export class ElementsTreeOutline extends UI.TreeOutline.TreeOutline {
           if (!listItem) {
             return null;
           }
-          return /** @type {!ElementsTreeElement} */ (listItem.treeElement).node();
+
+          const treeElement =
+              /** @type {!ElementsTreeElement|undefined} */ (
+                  UI.TreeOutline.TreeElement.getTreeElementBylistItemNode(listItem));
+          if (!treeElement) {
+            return null;
+          }
+          return treeElement.node();
         });
 
     /** @type {!Map<!SDK.DOMModel.DOMNode, !UpdateRecord>} */
@@ -1710,13 +1720,24 @@ export class Renderer {
     const treeOutline = new ElementsTreeOutline(
         /* omitRootDOMNode: */ false, /* selectEnabled: */ true, /* hideGutter: */ true);
     treeOutline.rootDOMNode = node;
-    if (!treeOutline.firstChild().isExpandable()) {
+    const firstChild = treeOutline.firstChild();
+    if (firstChild && !firstChild.isExpandable()) {
       treeOutline._element.classList.add('single-node');
     }
     treeOutline.setVisible(true);
-    treeOutline.element.treeElementForTest = treeOutline.firstChild();
+    if (firstChild) {
+      treeElementForTest.set(treeOutline.element, firstChild);
+    }
     treeOutline.setShowSelectionOnKeyboardFocus(/* show: */ true, /* preventTabOrder: */ true);
     return {node: treeOutline.element, tree: treeOutline};
+  }
+
+  /**
+   * @param {!Node} element
+   * @return {!UI.TreeOutline.TreeElement|undefined}
+   */
+  static getTreeElementForTest(element) {
+    return treeElementForTest.get(element);
   }
 }
 

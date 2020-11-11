@@ -387,8 +387,9 @@ ConsoleTestRunner.expandConsoleMessages = function(callback, deepFilter, section
     for (let i = 0; i < messageViews.length; ++i) {
       const element = messageViews[i].element();
       for (let node = element; node; node = node.traverseNextNode(element)) {
-        if (node.treeElementForTest) {
-          node.treeElementForTest.expand();
+        const treeElement = Elements.ElementsTreeOutline.Renderer.getTreeElementForTest(node);
+        if (treeElement) {
+          treeElement.expand();
         }
         if (node._expandStackTraceForTest) {
           node._expandStackTraceForTest();
