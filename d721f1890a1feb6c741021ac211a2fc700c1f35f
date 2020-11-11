@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b91609dc_0be1e29a",
+        "filename": "front_end/common/ColorUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-11T10:06:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31297304_d096ccf7",
+      "range": {
+        "startLine": 91,
+        "startChar": 7,
+        "endLine": 91,
+        "endChar": 16
+      },
+      "revId": "d721f1890a1feb6c741021ac211a2fc700c1f35f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fa41cab5_218a78d0",
@@ -71,6 +95,30 @@
       "writtenOn": "2020-11-11T10:00:22Z",
       "side": 1,
       "message": "Thanks for including this test/example. It made me go back to https://w3c.github.io/silver/guidelines/methods/Method-font-characteristic-contrast.html#section4 which says:\n\n\u003e For light text on a dark background the APCA tool will show a\n\u003e negative percentage. Simply use the absolute (positive) value.\n\u003e For example, if the APCA value is -58%, use 58%.\n\nGiven that, should we already use Math.abs() (or similar) in the helper function? Otherwise all call sites would have to do it. WDYT?",
+      "range": {
+        "startLine": 40,
+        "startChar": 82,
+        "endLine": 40,
+        "endChar": 88
+      },
+      "revId": "d721f1890a1feb6c741021ac211a2fc700c1f35f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13d6b5ae_2862e0ea",
+        "filename": "test/unittests/front_end/common/ColorUtils_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-11T10:06:41Z",
+      "side": 1,
+      "message": "My understanding is that we would use the abs value when looking up a threshold for a given font weight/size combination but we would show the negative percentages as is, similar to how https://www.myndex.com/SAPC/ shows negative percentages as well.",
+      "parentUuid": "fa41cab5_218a78d0",
       "range": {
         "startLine": 40,
         "startChar": 82,
