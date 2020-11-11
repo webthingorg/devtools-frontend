@@ -702,7 +702,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox {
       return;
     }
 
-    const element = listNode.treeElement;
+    const element = UI.TreeOutline.TreeElement.getTreeElementBylistItemNode(listNode);
     if (this._previousHoveredElement === element) {
       return;
     }
