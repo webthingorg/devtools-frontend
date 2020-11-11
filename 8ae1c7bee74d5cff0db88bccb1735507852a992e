@@ -52,6 +52,24 @@
       "parentUuid": "e78f4be6_d45e38e8",
       "revId": "8ae1c7bee74d5cff0db88bccb1735507852a992e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd21d8cb_5e2652a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-11T10:31:30Z",
+      "side": 1,
+      "message": "That\u0027s a good catch! Loading was always async, we just didn\u0027t wait for it.\nBy clicking the checkbox fast enough, I managed to get it to fail. \nThe new patch disables the checkbox while loading to make sure that no more events come in. WDYT?",
+      "parentUuid": "19d04f6d_36a64688",
+      "revId": "8ae1c7bee74d5cff0db88bccb1735507852a992e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
