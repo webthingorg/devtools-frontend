@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de2373a3_b6b8bb97",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-11T08:51:46Z",
+      "side": 1,
+      "message": "Hi Tim,\n\nI think I actually need the `linear_memory_inspector.js` file, because I need to expose the `linear_memory_inspector-legacy.js` file for a follow up CL:\n\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2518044\n\nThe `linear_memory_inspector-legacy.js` file is used for opening the inspector in a drawer.\n\nIf there\u0027s still a way to use the typescript file, let me know!",
+      "revId": "d2690ae71a1d151e44c54597b769126ff5c2a56e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
