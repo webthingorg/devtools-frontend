@@ -104,4 +104,176 @@ describe('CSSVarSwatch', () => {
       hasColorSwatch: false,
     });
   });
+
+  it('renders a var() function with an color property but a fallback value', () => {
+    const component = new InlineEditor.CSSVarSwatchImpl.CSSVarSwatch();
+    renderElementIntoDOM(component);
+    component.data = {
+      text: 'var(--undefined-color, green)',
+      computedValue: 'green',
+      fromFallback: true,
+      onLinkClick: () => {},
+    };
+
+    assertSwatch(component, {
+      valueTooltip: 'green',
+      linkTooltip: '--undefined-color is not defined',
+      isDefined: false,
+      varText: '--undefined-color',
+      hasColorSwatch: false,
+    });
+  });
+
+  it('render the var() function and the fallback value contains spaces', () => {
+    const component = new InlineEditor.CSSVarSwatchImpl.CSSVarSwatch();
+    renderElementIntoDOM(component);
+    component.data = {
+      text: 'var(--undefined-color,    green   )',
+      computedValue: 'green',
+      fromFallback: true,
+      onLinkClick: () => {},
+    };
+
+    assertSwatch(component, {
+      valueTooltip: 'green',
+      linkTooltip: '--undefined-color is not defined',
+      isDefined: false,
+      varText: '--undefined-color',
+      hasColorSwatch: false,
+    });
+  });
+
+  it('renders a var() function with an color property', () => {
+    const component = new InlineEditor.CSSVarSwatchImpl.CSSVarSwatch();
+    renderElementIntoDOM(component);
+    component.data = {
+      text: 'var(--test, green)',
+      computedValue: 'red',
+      fromFallback: false,
+      onLinkClick: () => {},
+    };
+
+    assertSwatch(component, {
+      valueTooltip: 'red',
+      linkTooltip: 'Jump to definition',
+      isDefined: true,
+      varText: '--test',
+      hasColorSwatch: false,
+    });
+  });
+
+  it('renders a var() function with spaces', () => {
+    const component = new InlineEditor.CSSVarSwatchImpl.CSSVarSwatch();
+    renderElementIntoDOM(component);
+    component.data = {
+      text: 'var( --test     )',
+      computedValue: 'red',
+      fromFallback: false,
+      onLinkClick: () => {},
+    };
+
+    assertSwatch(component, {
+      valueTooltip: 'red',
+      linkTooltip: 'Jump to definition',
+      isDefined: true,
+      varText: ' --test ',
+      hasColorSwatch: false,
+    });
+  });
+
+  // Fix: https://isolateserver.appspot.com/browse?namespace=default-gzip&digest=3dfc8dd0baa3e3700d21c66f42beb057f4336658&as=resolve-css-variables-diff.txt
+  it('render multiple var() function and the fallback value contains spaces', () => {
+    const component = new InlineEditor.CSSVarSwatchImpl.CSSVarSwatch();
+    renderElementIntoDOM(component);
+    component.data = {
+      text: 'rgb(100, 200, 300) var(--undefined-color, blue    ) 1px',
+      computedValue: 'blue',
+      fromFallback: true,
+      onLinkClick: () => {},
+    };
+
+    assertSwatch(component, {
+      valueTooltip: 'blue',
+      linkTooltip: '--undefined-color is not defined',
+      isDefined: false,
+      varText: '--undefined-color',
+      hasColorSwatch: false,
+    });
+  });
+
+  it('renders a var() function without spaces', () => {
+    const component = new InlineEditor.CSSVarSwatchImpl.CSSVarSwatch();
+    renderElementIntoDOM(component);
+    component.data = {
+      text: 'var(--width)solid black',
+      computedValue: '1px',
+      fromFallback: false,
+      onLinkClick: () => {},
+    };
+
+    assertSwatch(component, {
+      valueTooltip: '1px',
+      linkTooltip: 'Jump to definition',
+      isDefined: true,
+      varText: '--width',
+      hasColorSwatch: false,
+    });
+  });
+
+  it('renders a var() function with spaces: `var(  --width)`', () => {
+    const component = new InlineEditor.CSSVarSwatchImpl.CSSVarSwatch();
+    renderElementIntoDOM(component);
+    component.data = {
+      text: 'var(  --width)solid black',
+      computedValue: '1px',
+      fromFallback: false,
+      onLinkClick: () => {},
+    };
+
+    assertSwatch(component, {
+      valueTooltip: '1px',
+      linkTooltip: 'Jump to definition',
+      isDefined: true,
+      varText: ' --width',
+      hasColorSwatch: false,
+    });
+  });
+
+  it('render multiple var() functions without spaces', () => {
+    const component = new InlineEditor.CSSVarSwatchImpl.CSSVarSwatch();
+    renderElementIntoDOM(component);
+    component.data = {
+      text: 'var(--width)var(--color)solid',
+      computedValue: '1px red',
+      fromFallback: false,
+      onLinkClick: () => {},
+    };
+
+    assertSwatch(component, {
+      valueTooltip: '1px red',
+      linkTooltip: 'Jump to definition',
+      isDefined: true,
+      varText: '--width',
+      hasColorSwatch: false,
+    });
+  });
+
+  it('render multiple var() functions with spaces: `var( --width  )var(  --color  )`', () => {
+    const component = new InlineEditor.CSSVarSwatchImpl.CSSVarSwatch();
+    renderElementIntoDOM(component);
+    component.data = {
+      text: 'var( --width  )var(  --color  )solid',
+      computedValue: '1px red',
+      fromFallback: false,
+      onLinkClick: () => {},
+    };
+
+    assertSwatch(component, {
+      valueTooltip: '1px red',
+      linkTooltip: 'Jump to definition',
+      isDefined: true,
+      varText: ' --width ',
+      hasColorSwatch: false,
+    });
+  });
 });
