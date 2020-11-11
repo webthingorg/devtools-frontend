@@ -249,6 +249,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "38eda59d_6b696c6c",
+        "filename": "front_end/persistence/PersistenceActions.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-11T14:32:33Z",
+      "side": 1,
+      "message": "Tip: please mark comments as \"resolved\" in the Gerrit UI once they\u0027re resolved. I just panick-undid a CQ+2 because these showed up as unresolved but it looks like they have been :P",
+      "parentUuid": "2718ca84_1e784658",
+      "revId": "b34b5e393745aa19d7bfef0942a9fc30913d9ee6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "23939288_5d160469",
         "filename": "front_end/persistence/PersistenceActions.js",
         "patchSetId": 3
