@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "821bf053_912ea06a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-11T09:51:06Z",
+      "side": 1,
+      "message": "PTAL I have used Resources section at https://w3c.github.io/silver/guidelines/methods/Method-font-characteristic-contrast.html to implement it. SAPC Basic Contrast Demo (https://www.myndex.com/SAPC/) gives slightly different results but I believe it\u0027s due to a different kind of rounding (the difference is sometimes in the second digit after the point).",
+      "revId": "d721f1890a1feb6c741021ac211a2fc700c1f35f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
