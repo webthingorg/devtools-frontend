@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa553034_b4785194",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-11T07:04:23Z",
+      "side": 1,
+      "message": "Tip: when linking to a single image, link directly to the file itself, i.e. https://i.imgur.com/nPcXras.png We don\u0027t need Imgur\u0027s HTML/CSS/JS.",
+      "revId": "ae104e6f890973ee58443a89d4e570a871eda504",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8c687b48_e07cc673",
@@ -31,6 +48,46 @@
       "writtenOn": "2020-11-11T07:00:21Z",
       "side": 1,
       "message": "LGTM. Mathias, could you please take a look as well?",
+      "revId": "ae104e6f890973ee58443a89d4e570a871eda504",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "faed9ee4_80017e9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-11T07:04:23Z",
+      "side": 1,
+      "message": "LGTM % nits",
+      "revId": "ae104e6f890973ee58443a89d4e570a871eda504",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ffc2c5d_d94db8b2",
+        "filename": "front_end/persistence/PersistenceActions.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-11T07:04:23Z",
+      "side": 1,
+      "message": "Let’s make this\n\n    \u0027Save image as…\u0027\n\n…to match the string in Chrome’s right-click menu.",
+      "range": {
+        "startLine": 54,
+        "startChar": 69,
+        "endLine": 54,
+        "endChar": 79
+      },
       "revId": "ae104e6f890973ee58443a89d4e570a871eda504",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
