@@ -70,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8abcfba_d9c6f025",
+        "filename": "front_end/common/ResourceType.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1451147
+      },
+      "writtenOn": "2020-11-11T14:37:22Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "e533571c_a9294ce0",
+      "revId": "b34b5e393745aa19d7bfef0942a9fc30913d9ee6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d265e5c8_300d6013",
@@ -83,6 +101,24 @@
       "writtenOn": "2020-11-05T07:04:21Z",
       "side": 1,
       "message": "I don\u0027t think we should suppress missing properties here.",
+      "revId": "b34b5e393745aa19d7bfef0942a9fc30913d9ee6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f764119_6a9ad8a8",
+        "filename": "front_end/persistence/PersistenceActions.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1451147
+      },
+      "writtenOn": "2020-11-11T14:37:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d265e5c8_300d6013",
       "revId": "b34b5e393745aa19d7bfef0942a9fc30913d9ee6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -118,6 +154,24 @@
       "side": 1,
       "message": "Here, `content` will be incorrectly transformed via window.atob() on line 35. Even if we bypass .atob() for images, we are downloading a base64 representation of the image, which IIUC would still need to be transformed into an image format.",
       "parentUuid": "72757d04_a6256409",
+      "revId": "b34b5e393745aa19d7bfef0942a9fc30913d9ee6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cabcf8c_004d6acf",
+        "filename": "front_end/persistence/PersistenceActions.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1451147
+      },
+      "writtenOn": "2020-11-11T14:37:22Z",
+      "side": 1,
+      "message": "Resolving comment.",
+      "parentUuid": "046e12ea_e0e7153e",
       "revId": "b34b5e393745aa19d7bfef0942a9fc30913d9ee6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -265,6 +319,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ddb6193_3d78e49c",
+        "filename": "front_end/persistence/PersistenceActions.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1451147
+      },
+      "writtenOn": "2020-11-11T14:37:22Z",
+      "side": 1,
+      "message": "Noted - thank you for the feedback",
+      "parentUuid": "38eda59d_6b696c6c",
+      "revId": "b34b5e393745aa19d7bfef0942a9fc30913d9ee6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "23939288_5d160469",
@@ -282,6 +354,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "31ab7cc3_b58e8677",
+        "filename": "front_end/persistence/PersistenceActions.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1451147
+      },
+      "writtenOn": "2020-11-11T14:37:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23939288_5d160469",
+      "revId": "b34b5e393745aa19d7bfef0942a9fc30913d9ee6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6f9ddcf0_a281cd9a",
@@ -295,6 +385,24 @@
       "writtenOn": "2020-11-05T07:04:21Z",
       "side": 1,
       "message": "Same comment about ts-ignore here",
+      "revId": "b34b5e393745aa19d7bfef0942a9fc30913d9ee6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3af89a2_e5ea6a7b",
+        "filename": "front_end/persistence/PersistenceActions.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1451147
+      },
+      "writtenOn": "2020-11-11T14:37:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f9ddcf0_a281cd9a",
       "revId": "b34b5e393745aa19d7bfef0942a9fc30913d9ee6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
