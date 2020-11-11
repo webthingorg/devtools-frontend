@@ -70,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7907888_ac04db8b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-11-11T14:29:00Z",
+      "side": 1,
+      "message": "\u003e Hi Benedikt,\n\u003e \n\u003e there is probably additional work required to make localization work for markdown here, but I would like to land this CL anyway to get us unblocked. WDYT?\n\u003e \n\u003e Sigurd\n\u003e \n\u003e LGTM once comments are addressed.\n\nLGTM from my side (I like incremental changes).",
+      "parentUuid": "42248ee5_6db1911f",
+      "revId": "6d37b34bc660817cc8d82c089e58367f31449ac6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47bf0a13_e402234c",
