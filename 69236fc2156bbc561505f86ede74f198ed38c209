@@ -39,6 +39,30 @@
       },
       "revId": "69236fc2156bbc561505f86ede74f198ed38c209",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58a17b31_290f3116",
+        "filename": "front_end/source_frame/SourceFrame.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-11T08:52:52Z",
+      "side": 1,
+      "message": "I guess it understood something better?",
+      "parentUuid": "b128dd06_04ecee6e",
+      "range": {
+        "startLine": 346,
+        "startChar": 18,
+        "endLine": 346,
+        "endChar": 48
+      },
+      "revId": "69236fc2156bbc561505f86ede74f198ed38c209",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
