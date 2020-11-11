@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bec1f4a_c69ec870",
+        "filename": "front_end/ui/components/DataGridRenderers.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-11T09:55:11Z",
+      "side": 1,
+      "message": "Ack. We actually don\u0027t need skip_compilation in this CL as we\u0027re not using this code anywhere yet, but we can add it in those CLs when required.",
+      "parentUuid": "b0600b1f_46624fdc",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 2
+      },
+      "revId": "ff9005aab06a8637eaf70da3f3463495419f5365",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fed91583_a1c7007d",
@@ -78,6 +102,30 @@
       "writtenOn": "2020-11-11T08:57:18Z",
       "side": 1,
       "message": "Can we add the TypeScriptification crbug here, then, so we know we can go back after that\u0027s completed and update this along with the bridge?",
+      "range": {
+        "startLine": 41,
+        "startChar": 33,
+        "endLine": 41,
+        "endChar": 40
+      },
+      "revId": "ff9005aab06a8637eaf70da3f3463495419f5365",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3831051_91224813",
+        "filename": "front_end/ui/components/DataGridUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-11T09:55:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fed91583_a1c7007d",
       "range": {
         "startLine": 41,
         "startChar": 33,
