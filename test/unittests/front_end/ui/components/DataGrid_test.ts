@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import * as LitHtml from '../../../../../front_end/third_party/lit-html/lit-html.js';
-import {ColumnHeaderClickEvent, DataGrid, DataGridData} from '../../../../../front_end/ui/components/DataGrid.js';
+import {BodyCellFocusedEvent, ColumnHeaderClickEvent, DataGrid, DataGridData} from '../../../../../front_end/ui/components/DataGrid.js';
 import * as DataGridRenderers from '../../../../../front_end/ui/components/DataGridRenderers.js';
 import {ArrowKey, calculateColumnWidthPercentageFromWeighting, Column, handleArrowKeyNavigation, Row, SortDirection} from '../../../../../front_end/ui/components/DataGridUtils.js';
 import {assertElement, assertElements, assertShadowRoot, dispatchClickEvent, dispatchKeyDownEvent, getEventPromise, renderElementIntoDOM} from '../../helpers/DOMHelpers.js';
@@ -448,10 +448,20 @@ describe('DataGrid', () => {
     assert.strictEqual(newFocusedCell.getAttribute('data-col-index'), '0');
 
     dispatchKeyDownEvent(table, {key: 'Enter'});
-
     const clickEvent = await columnHeaderClickEvent;
-
     assert.deepEqual(clickEvent.data, {column: columns[0], columnIndex: 0});
+  });
+
+  it('emits an event when the user focuses a cell', async () => {
+    const component = renderDataGrid({rows, columns: columnsWithNoneSortable});
+    renderElementIntoDOM(component);
+    assertShadowRoot(component.shadowRoot);
+
+    const bodyCellFocusedEvent = getEventPromise<BodyCellFocusedEvent>(component, 'cell-focused');
+    const focusableCell = getFocusableCell(component.shadowRoot);
+    focusableCell.focus();
+    const cellFocusedEvent = await bodyCellFocusedEvent;
+    assert.deepEqual(cellFocusedEvent.data, {cell: rows[0].cells[0], row: rows[0]});
   });
 
   describe('adding new rows', () => {
