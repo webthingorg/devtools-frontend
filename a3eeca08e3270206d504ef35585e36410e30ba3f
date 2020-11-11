@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b98bf67_ef1ea474",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-11T10:16:12Z",
+      "side": 1,
+      "message": "LGTM % nit",
+      "revId": "a3eeca08e3270206d504ef35585e36410e30ba3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e44c33e2_3719a741",
+        "filename": "front_end/inline_editor/CSSVarSwatch.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-11T10:16:12Z",
+      "side": 1,
+      "message": "more concisely:\n\n    /\\s{2,}/g",
+      "range": {
+        "startLine": 46,
+        "startChar": 37,
+        "endLine": 46,
+        "endChar": 45
+      },
+      "revId": "a3eeca08e3270206d504ef35585e36410e30ba3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
