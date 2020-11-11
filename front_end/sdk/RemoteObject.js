@@ -298,7 +298,7 @@ export class RemoteObject {
   }
 
   /**
-   * @param {function(this:Object, ...?):T} functionDeclaration
+   * @param {function(this:Object, ...*):T} functionDeclaration
    * @param {!Array<!Protocol.Runtime.CallArgument>=} args
    * @return {!Promise<!CallFunctionResult>}
    * @template T
