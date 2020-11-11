@@ -16,6 +16,57 @@
       "message": "Hi Mathias and Changhao,\n\nI\u0027ve started looking at a testing plan for Annabel, and am hoping to add some of the initial helpers for the accessibility panel. I\u0027m having a little trouble though. Basically, I\u0027m not sntirely sure how exactly to open the accessibility panel. Using debug-e2etest has led me to believe that it\u0027s because the activator for the Accessibility pane is hidden inside the \"More tabs\" chevron, but I also can\u0027t successfully click on the \"More tabs\" chevron either.\n\nDo either of you have any advice about how to proceed? Cheers.",
       "revId": "638772d8234969341ddbff59d5c79b759a1c5a26",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d31662e_89ffaf5a",
+        "filename": "test/e2e/elements/accessibility-pane_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-11T07:40:42Z",
+      "side": 1,
+      "message": "Is this meant to remain a TODO? If so, let\u0027s make this a `TODO(crbug.com/12345): …` pointing to some tracking bug that the upcoming intern can then take on.",
+      "revId": "638772d8234969341ddbff59d5c79b759a1c5a26",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f91918e_c014d383",
+        "filename": "test/e2e/helpers/accessibility-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-11T07:40:42Z",
+      "side": 1,
+      "message": "In general, we want to follow \"user stories\" here, i.e. follow the same process a user would. There is a way to open the Accessibility pane through the Command Menu ({Ctrl,Cmd} + Shift + P) so it might not be required to explicitly open Elements first, but I\u0027m not sure.",
+      "revId": "638772d8234969341ddbff59d5c79b759a1c5a26",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c53426f_bcee1b22",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-11T07:40:42Z",
+      "side": 1,
+      "message": "This sounds conceptually similar to openPanelViaMoreTools, which is implemented as follows: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/test/e2e/helpers/settings-helpers.ts;l\u003d7-23;drc\u003df04b99c38e6a0818faf3942ba1360f9702723b6d Does that help?",
+      "revId": "638772d8234969341ddbff59d5c79b759a1c5a26",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
