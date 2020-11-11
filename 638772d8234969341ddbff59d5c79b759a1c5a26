@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae4f1906_d7da1f83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2020-11-11T05:34:58Z",
+      "side": 1,
+      "message": "Hi Mathias and Changhao,\n\nI\u0027ve started looking at a testing plan for Annabel, and am hoping to add some of the initial helpers for the accessibility panel. I\u0027m having a little trouble though. Basically, I\u0027m not sntirely sure how exactly to open the accessibility panel. Using debug-e2etest has led me to believe that it\u0027s because the activator for the Accessibility pane is hidden inside the \"More tabs\" chevron, but I also can\u0027t successfully click on the \"More tabs\" chevron either.\n\nDo either of you have any advice about how to proceed? Cheers.",
+      "revId": "638772d8234969341ddbff59d5c79b759a1c5a26",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
