@@ -33,6 +33,23 @@
       "message": "PTAL :)",
       "revId": "7ed1903218c6e3941a2c24f67a2d10bd576c5705",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fa51633_3554d231",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-11T13:43:33Z",
+      "side": 1,
+      "message": "Thanks so much for sending this CL over, it looks great! I suspect you\u0027re going to have to rebase and resolve a merge conflict as I just submitted some changes to ChartViewport.js, though 😞 Sorry for any convenience!",
+      "revId": "7ed1903218c6e3941a2c24f67a2d10bd576c5705",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
