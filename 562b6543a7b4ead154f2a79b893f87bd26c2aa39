@@ -39,6 +39,30 @@
       },
       "revId": "562b6543a7b4ead154f2a79b893f87bd26c2aa39",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c68a273c_7e3b2ad5",
+        "filename": "front_end/source_frame/SourcesTextEditor.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1004,
+      "author": {
+        "id": 1466344
+      },
+      "writtenOn": "2020-11-11T18:56:27Z",
+      "side": 1,
+      "message": "Done. Match was previously declared, so I refactored the code to save additional calls.",
+      "parentUuid": "73369589_f989e168",
+      "range": {
+        "startLine": 1004,
+        "startChar": 8,
+        "endLine": 1004,
+        "endChar": 52
+      },
+      "revId": "562b6543a7b4ead154f2a79b893f87bd26c2aa39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
