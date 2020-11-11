@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54b8df1b_31fce668",
+        "filename": "front_end/elements/InspectElementModeController.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-11T07:34:55Z",
+      "side": 1,
+      "message": "lets not pre-emptively return, but instead only guard this call site with an if:\n\n if (this._toggledSearchAction) {\n   this._toggledSearchAction.setToggled(this._isInInspectElementMode());\n }\n\notherwise we wouldn\u0027t update mode and lose all the other side-effects. (Same below).",
+      "range": {
+        "startLine": 127,
+        "startChar": 4,
+        "endLine": 127,
+        "endChar": 72
+      },
+      "revId": "ba6b219ad07425629784b0a93444bee6720062d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
