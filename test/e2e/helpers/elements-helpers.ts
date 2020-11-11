@@ -28,6 +28,11 @@ export const INACTIVE_GRID_ADORNER_SELECTOR = '[aria-label="Enable grid mode"]';
 export const ACTIVE_GRID_ADORNER_SELECTOR = '[aria-label="Disable grid mode"]';
 const ELEMENT_CHECKBOX_IN_LAYOUT_PANE_SELECTOR = '.elements input[type=checkbox]';
 
+const ACCESSIBILITY_PANEL_TAB_SELECTOR = '[aria-label="Accessibility"]';
+const AX_BREADCRUMB_SELECTOR = '.ax-breadcrumb';
+
+const MORE_TABS_SELECTOR = '[aria-label="More tabs"]';
+
 export const openLayoutPane = async () => {
   await step('Open Layout pane', async () => {
     await waitFor(LAYOUT_PANE_TAB_SELECTOR);
@@ -163,6 +168,19 @@ export const waitForElementsStyleSection = async () => {
 
 export const waitForElementsComputedSection = async () => {
   await waitFor(COMPUTED_PROPERTY_SELECTOR);
+};
+
+export const navigateToAccessibilityPane = async () => {
+  const {frontend} = getBrowserAndPages();
+
+  // The selector for the Accessibility pane is inside the "more tabs" selector
+  // dropdown.
+  // This does not work but I'm not sure why. shadow root?
+  await click(MORE_TABS_SELECTOR);
+  await frontend.keyboard.press('ArrowDown');
+  await frontend.keyboard.press('Enter');
+  await click(ACCESSIBILITY_PANEL_TAB_SELECTOR);
+  await waitFor(AX_BREADCRUMB_SELECTOR);
 };
 
 export const getContentOfComputedPane = async () => {
