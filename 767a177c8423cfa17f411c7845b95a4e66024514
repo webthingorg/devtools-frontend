@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e84abb72_a8e6382b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1451147
+      },
+      "writtenOn": "2020-11-11T14:25:59Z",
+      "side": 1,
+      "message": "Thank you for reviewing. Requesting submission to CQ, since I don\u0027t yet have permission....thanks in advance!",
+      "revId": "767a177c8423cfa17f411c7845b95a4e66024514",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
