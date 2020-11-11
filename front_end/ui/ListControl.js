@@ -146,9 +146,9 @@ export class ListControl {
       this._selectedIndex += data.inserted - (to - from);
       this._selectedItem = this._model.at(this._selectedIndex);
     } else if (this._selectedIndex >= from) {
-      let index = this._findFirstSelectable(from + data.inserted, +1, false);
+      let index = this._findFirstSelectable(from, +1, false);
       if (index === -1) {
-        index = this._findFirstSelectable(from - 1, -1, false);
+        index = this._findFirstSelectable(from, -1, false);
       }
       this._select(index, oldSelectedItem, oldSelectedElement);
     }
