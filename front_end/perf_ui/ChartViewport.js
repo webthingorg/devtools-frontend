@@ -56,7 +56,7 @@ export class ChartViewport extends UI.Widget.VBox {
     this.viewportElement = this.contentElement.createChild('div', 'fill');
     this.viewportElement.addEventListener('mousemove', this._updateCursorPosition.bind(this), false);
     this.viewportElement.addEventListener('mouseout', this._onMouseOut.bind(this), false);
-    this.viewportElement.addEventListener('mousewheel', this._onMouseWheel.bind(this), false);
+    this.viewportElement.addEventListener('wheel', this._onMouseWheel.bind(this), false);
     this.viewportElement.addEventListener('keydown', this._onChartKeyDown.bind(this), false);
     this.viewportElement.addEventListener('keyup', this._onChartKeyUp.bind(this), false);
 
@@ -210,18 +210,17 @@ export class ChartViewport extends UI.Widget.VBox {
    * @param {!Event} e
    */
   _onMouseWheel(e) {
-    // TODO(crbug.com/1145518) Remove usage of MouseWheelEvent.
     const doZoomInstead =
         e.shiftKey ^ (Common.Settings.Settings.instance().moduleSetting('flamechartMouseWheelAction').get() === 'zoom');
-    const panVertically = !doZoomInstead && (e.wheelDeltaY || Math.abs(e.wheelDeltaX) === 120);
-    const panHorizontally = doZoomInstead && Math.abs(e.wheelDeltaX) > Math.abs(e.wheelDeltaY);
+    const panVertically = !doZoomInstead && (e.deltaY || Math.abs(e.deltaX) === 53);
+    const panHorizontally = doZoomInstead && Math.abs(e.deltaX) > Math.abs(e.deltaY);
     if (panVertically) {
-      this._vScrollElement.scrollTop -= (e.wheelDeltaY || e.wheelDeltaX) / 120 * this._offsetHeight / 8;
+      this._vScrollElement.scrollTop += (e.deltaY || e.deltaX) / 53 * this._offsetHeight / 8;
     } else if (panHorizontally) {
-      this._handlePanGesture(-e.wheelDeltaX, /* animate */ true);
+      this._handlePanGesture(e.deltaX, /* animate */ true);
     } else {  // Zoom.
-      const mouseWheelZoomSpeed = 1 / 120;
-      this._handleZoomGesture(Math.pow(1.2, -(e.wheelDeltaY || e.wheelDeltaX) * mouseWheelZoomSpeed) - 1);
+      const wheelZoomSpeed = 1 / 53;
+      this._handleZoomGesture(Math.pow(1.2, (e.deltaY || e.deltaX) * wheelZoomSpeed) - 1);
     }
 
     // Block swipe gesture.
