@@ -39,6 +39,30 @@
       },
       "revId": "0ac8986b0f2de2b80115fcf0b7b4cd397f047109",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "398e42e6_847bf747",
+        "filename": "front_end/ui/KeyboardShortcut.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-11-11T22:18:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b09a93c9_dd923875",
+      "range": {
+        "startLine": 314,
+        "startChar": 8,
+        "endLine": 314,
+        "endChar": 16
+      },
+      "revId": "0ac8986b0f2de2b80115fcf0b7b4cd397f047109",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
