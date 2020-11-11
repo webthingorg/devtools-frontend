@@ -16,6 +16,29 @@
       "message": "The code previously hung at the empty while loop at lines 1004-1005 for minified files. This was due to tons of calls to stream.match(). I believe my code functionally replaces the while loop. Please let me know if there are any comments/concerns. Thanks!",
       "revId": "562b6543a7b4ead154f2a79b893f87bd26c2aa39",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73369589_f989e168",
+        "filename": "front_end/source_frame/SourcesTextEditor.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1004,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-11T10:09:17Z",
+      "side": 1,
+      "message": "Let\u0027s cache this:\n\n    const match \u003d stream.string.slice(stream.pos).match(regex);\n    if (match) {\n      stream.pos +\u003d match.index;\n    }",
+      "range": {
+        "startLine": 1004,
+        "startChar": 8,
+        "endLine": 1004,
+        "endChar": 52
+      },
+      "revId": "562b6543a7b4ead154f2a79b893f87bd26c2aa39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
