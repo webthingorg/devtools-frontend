@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "623960b5_b3d22160",
+        "filename": "front_end/rollup.config.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-12T12:52:16Z",
+      "side": 1,
+      "message": "I think the new heuristic covers this case now, but you would have to locally verify that the `import` in the `-legacy.js` file does indeed show up.",
+      "parentUuid": "93776330_e1d9f767",
+      "range": {
+        "startLine": 139,
+        "startChar": 21,
+        "endLine": 139,
+        "endChar": 54
+      },
+      "revId": "84e92036ed0c4231159eea5f058c7acac9b5c9aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a693a169_9fd588a8",
         "filename": "scripts/eslint_rules/lib/es_modules_import.js",
         "patchSetId": 1
