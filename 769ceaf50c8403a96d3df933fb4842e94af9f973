@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc611e8a_4f00b0e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-12T08:04:41Z",
+      "side": 1,
+      "message": "LGTM but please restore the previous image quality before landing",
+      "revId": "769ceaf50c8403a96d3df933fb4842e94af9f973",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cffa5e29_260d81e1",
+        "filename": "devtools_grd_files.gni",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-12T08:04:41Z",
+      "side": 1,
+      "message": "Why was this changed? The quality is significantly lower now (showing JPEG compression artifacts).\n\nIf file size is the concern, could we use AVIF?",
+      "range": {
+        "startLine": 102,
+        "startChar": 29,
+        "endLine": 102,
+        "endChar": 32
+      },
+      "revId": "769ceaf50c8403a96d3df933fb4842e94af9f973",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
