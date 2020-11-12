@@ -207,7 +207,7 @@ export class CSSMetadata {
  */
   isAngleAwareProperty(propertyName) {
     const lowerCasedName = propertyName.toLowerCase();
-    return _colorAwareProperties.has(lowerCasedName) || _valuePresets.has(lowerCasedName);
+    return _angleAwareProperties.has(lowerCasedName);
   }
 
   /**
@@ -530,6 +530,24 @@ const _colorAwareProperties = new Set([
   '-webkit-text-fill-color',
   '-webkit-text-stroke',
   '-webkit-text-stroke-color'
+]);
+
+// All properties that contain CSS <angle>
+const _angleAwareProperties = new Set([
+  'background',
+  'background-image',
+  'border-image',
+  'border-image-source',
+  '-webkit-border-image',
+  'transform',
+  '-webkit-transform',
+  'rotate',
+  'filter',
+  '-webkit-filter',
+  'backdrop-filter',
+  'offset',
+  'offset-rotate',
+  'font-style',
 ]);
 
 // manually maintained list of property values to add into autocomplete list
