@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da274203_b48bd816",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 51
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-12T15:19:24Z",
+      "side": 1,
+      "message": "+1 to a component being a nicer experience here; particularly as this is a lot of code to add without tests.\n\nWas using the component system considered for this work? I ask only because if it was but there was something that blocked you using it, it\u0027d be great to know as our goal is to build all UI using the new system moving forwards and part of that includes unblocking us when we hit issues.",
+      "revId": "ba2254b31f5b98b2e029780bbfcbc5b8b5b98f4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "587ff274_7cc714b9",
