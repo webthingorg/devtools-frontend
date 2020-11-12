@@ -181,6 +181,30 @@
       },
       "revId": "3bd1d68e2900aa14afd5594ba74b15726261f9fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8b2a70c_47aaa213",
+        "filename": "test/unittests/front_end/inline_editor/CSSVarSwatch_test.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-12T10:31:02Z",
+      "side": 1,
+      "message": "I mainly want to test whether var() can be parsed normally in these special cases",
+      "parentUuid": "35b3cf66_6662d5c2",
+      "range": {
+        "startLine": 189,
+        "startChar": 13,
+        "endLine": 189,
+        "endChar": 68
+      },
+      "revId": "3bd1d68e2900aa14afd5594ba74b15726261f9fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
