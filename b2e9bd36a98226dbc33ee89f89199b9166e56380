@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "961bdf27_66d61b42",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-11-12T16:34:52Z",
+      "side": 1,
+      "message": "I think these should be 10 - From the MDN page:\n\nA value passed as the radix argument is coerced to a Number (if necessary), then if the value is 0, NaN or Infinity (undefined is coerced to NaN), JavaScript assumes the following:\n\n1. If the input string begins with \"0x\" or \"0X\" (a zero, followed by lowercase or uppercase X), radix is assumed to be 16 and the rest of the string is parsed as a hexidecimal number.\n2. If the input string begins with \"0\" (a zero), radix is assumed to be 8 (octal) or 10 (decimal). Exactly which radix is chosen is implementation-dependent. ECMAScript 5 clarifies that 10 (decimal) should be used, but not all browsers support this yet. For this reason, always specify a radix when using parseInt.\n3. If the input string begins with any other value, the radix is 10 (decimal).\n\nWe provide 0 as the radix, then we hit case 3 here, so we are trying to interpret as decimal. The text context of the .CodeMirror-linenumber class is the line number displayed in code mirror so base 10 is probably right?",
+      "range": {
+        "startLine": 170,
+        "startChar": 99,
+        "endLine": 170,
+        "endChar": 101
+      },
+      "revId": "b2e9bd36a98226dbc33ee89f89199b9166e56380",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
