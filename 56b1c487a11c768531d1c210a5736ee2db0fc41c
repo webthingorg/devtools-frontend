@@ -46,6 +46,30 @@
       },
       "revId": "56b1c487a11c768531d1c210a5736ee2db0fc41c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14b2f271_891814f6",
+        "filename": "front_end/issues/MarkdownIssueDescription.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-12T08:51:18Z",
+      "side": 1,
+      "message": "Sorry, I commented to late.",
+      "parentUuid": "2709e2d8_adefc917",
+      "range": {
+        "startLine": 39,
+        "startChar": 16,
+        "endLine": 39,
+        "endChar": 38
+      },
+      "revId": "56b1c487a11c768531d1c210a5736ee2db0fc41c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
