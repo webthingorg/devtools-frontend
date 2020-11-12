@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea990016_855f9906",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-12T11:50:31Z",
+      "side": 1,
+      "message": "This should be a more conservative route than https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2450295 and hopefully not have any layout test failures.",
+      "revId": "0e04bc55d94d3676f4dc75c8b23f5cce6a1e8b33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
