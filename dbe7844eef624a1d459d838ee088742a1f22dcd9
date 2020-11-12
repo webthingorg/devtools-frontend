@@ -16,6 +16,24 @@
       "message": "This commit description seems to get \"longhand\" and \"shorthand\" backwards. I\u0027ll suggest an edit.",
       "revId": "dbe7844eef624a1d459d838ee088742a1f22dcd9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fce71e27_69ea4d47",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1459949
+      },
+      "writtenOn": "2020-11-12T14:57:33Z",
+      "side": 1,
+      "message": "My mistake on confusing terms \"longhand\" and \"shorthand\". Thank you Mathias for editing the commit message to reflect proper usage.",
+      "parentUuid": "920f6d43_1cde1d61",
+      "revId": "dbe7844eef624a1d459d838ee088742a1f22dcd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
