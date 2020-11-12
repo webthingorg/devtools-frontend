@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "93776330_e1d9f767",
+        "filename": "front_end/rollup.config.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-12T12:50:51Z",
+      "side": 1,
+      "message": "It\u0027s still used for the detection of the -legacy files which I\u0027ve left untouched and I _think_ we still need?",
+      "parentUuid": "7216c562_8062216b",
+      "range": {
+        "startLine": 139,
+        "startChar": 21,
+        "endLine": 139,
+        "endChar": 54
+      },
+      "revId": "84e92036ed0c4231159eea5f058c7acac9b5c9aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a693a169_9fd588a8",
         "filename": "scripts/eslint_rules/lib/es_modules_import.js",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2020-11-12T12:27:58Z",
       "side": 1,
       "message": "Nit: TODO",
+      "range": {
+        "startLine": 224,
+        "startChar": 15,
+        "endLine": 224,
+        "endChar": 79
+      },
+      "revId": "84e92036ed0c4231159eea5f058c7acac9b5c9aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81a2aec9_4d8e3a80",
+        "filename": "scripts/eslint_rules/lib/es_modules_import.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-12T12:50:51Z",
+      "side": 1,
+      "message": "Good catch, thanks! https://crbug.com/1148274",
+      "parentUuid": "a693a169_9fd588a8",
       "range": {
         "startLine": 224,
         "startChar": 15,
