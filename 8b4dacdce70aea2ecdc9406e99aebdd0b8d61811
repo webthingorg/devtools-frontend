@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": false,
       "key": {
         "uuid": "17abbb14_3fe2aff2",
         "filename": "/PATCHSET_LEVEL",
@@ -14,8 +15,25 @@
       "side": 1,
       "message": "All right, some feedback about running this locally:\n\n1. The \"step\" function no longer corresponds to the actual test. E.g. the steps are printed, but the Mocha test output is shown only after. This is kind of WAI, but it not useful for us having to debuggging test failures on CQ. We probably need to either rewrite the step function to work with parallel mode, or make parallel mode work with the current step function\n2. It is difficult to understand which port of a specific hosted mode server correspond to which chrome instance. Would it be possible to print the process ID on these kind of logs, so that we can piece back together what was what?\n3. I was not able to run almost any test successfully with N\u003e2 jobs. It seems like my Mac is sufficiently CPU-constrained that for a lot of jobs it starts to fail. For N\u003d2, almost all were passing, but for N\u003d4 barely any passed. Therefore, I think we need to be very conservative with running with large N on the CQ bots, to not increase flakiness. We could consider only setting a high N for local runs, but keeping N\u003d1 for CQ maybe? Or we could allow CQ to specify N, so that faster machines can choose a higher N, but CPU-constrained machines (such as our Mac bot) uses lower N. WDYT?",
       "revId": "8b4dacdce70aea2ecdc9406e99aebdd0b8d61811",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "412f1642_d57de0d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-11-12T14:01:31Z",
+      "side": 1,
+      "message": "1. Sent a CL to disable the step() output as I don\u0027t think we need it anymore. There is still console output for errors from the frontend. If you think this is still an issue we can try to funnel that into the test runner output instead, so it gets buffered and properly inserted into the test runner progress messages instead.\n2. There\u0027s only one hosted mode server now so this should be clearer\n3. I tested on my linux workstation with jobs\u003d8 and it runs nicely. I will check on mac again but this will be useful even if we can only use it on linux. Bots will stay at jobs\u003d1 for now.",
+      "parentUuid": "17abbb14_3fe2aff2",
+      "revId": "8b4dacdce70aea2ecdc9406e99aebdd0b8d61811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
