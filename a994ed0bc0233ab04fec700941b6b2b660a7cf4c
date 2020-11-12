@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a59191e_7fac0220",
+        "filename": "inspector_overlay/highlight_flex_common.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-12T16:34:12Z",
+      "side": 1,
+      "message": "The way this works is we transform the usual paths we get from the backend into quads, and then process those quads to draw the lines we need.\nThe advantage of getting paths is we know they already account for CSS transforms, which is nice.\n\nOne thing we could do in the future though is return quads from the backend instead of paths. This would avoid 1 step, although it\u0027s not too bad, since the path is already  an array, that means we can just read values in the array to get coordinates.\n\nLet me know if you need more help to understand the drawing logic here. I can also add more comments if needed.",
+      "range": {
+        "startLine": 29,
+        "startChar": 16,
+        "endLine": 29,
+        "endChar": 96
+      },
+      "revId": "a994ed0bc0233ab04fec700941b6b2b660a7cf4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
