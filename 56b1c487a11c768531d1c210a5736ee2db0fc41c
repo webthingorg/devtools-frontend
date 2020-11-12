@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d4cc7f8_e5c2ceae",
+        "filename": "front_end/issues/MarkdownIssueDescription.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-12T08:12:49Z",
+      "side": 1,
+      "message": "Can we also check that all replacements were used, or is that not a good idea?",
+      "range": {
+        "startLine": 39,
+        "startChar": 16,
+        "endLine": 39,
+        "endChar": 38
+      },
+      "revId": "56b1c487a11c768531d1c210a5736ee2db0fc41c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
