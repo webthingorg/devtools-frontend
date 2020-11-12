@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ade909f_f21b1928",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-12T08:34:10Z",
+      "side": 1,
+      "message": "Gerrit indicates the new PNG is now over 30 KiB which seems like a lot. Could you please optimize this image with Squoosh/ImageOptim?\n\n(Also curious to hear if you tried the AVIF suggestion at all.)",
+      "revId": "1ac7f3cd98e99a6e32916f9fa622290f159539ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
