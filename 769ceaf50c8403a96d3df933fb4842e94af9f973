@@ -63,6 +63,30 @@
       },
       "revId": "769ceaf50c8403a96d3df933fb4842e94af9f973",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e630318_ab07f54d",
+        "filename": "devtools_grd_files.gni",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2020-11-12T08:45:55Z",
+      "side": 1,
+      "message": "I thought I replied just now but obviously the comment is in draft...",
+      "parentUuid": "bdcd35d5_0b873ba6",
+      "range": {
+        "startLine": 102,
+        "startChar": 29,
+        "endLine": 102,
+        "endChar": 32
+      },
+      "revId": "769ceaf50c8403a96d3df933fb4842e94af9f973",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
