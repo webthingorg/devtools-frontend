@@ -16,6 +16,46 @@
       "message": "This should be a more conservative route than https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2450295 and hopefully not have any layout test failures.",
       "revId": "0e04bc55d94d3676f4dc75c8b23f5cce6a1e8b33",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56917beb_2e6f57cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-12T13:32:50Z",
+      "side": 1,
+      "message": "lgtm % comment",
+      "revId": "0e04bc55d94d3676f4dc75c8b23f5cce6a1e8b33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd7531c3_9240a66e",
+        "filename": "front_end/sources/NavigatorView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 789,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-12T13:32:50Z",
+      "side": 1,
+      "message": "This will now throw if `this._scriptsTree.selectedTreeElement` is undefined. The old code was able to handle that I think.",
+      "range": {
+        "startLine": 789,
+        "startChar": 0,
+        "endLine": 789,
+        "endChar": 106
+      },
+      "revId": "0e04bc55d94d3676f4dc75c8b23f5cce6a1e8b33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
