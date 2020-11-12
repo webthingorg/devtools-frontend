@@ -16,6 +16,92 @@
       "message": "Hi Alex, hi Jack,\n\nhere\u0027s the last component for the linear memory inspector, ptal!",
       "revId": "ee352ca823e1e9c740a36f98cb68bda6ea7e24bc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "383fb830_821f90b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-12T14:56:33Z",
+      "side": 1,
+      "message": "LGTM with some questions, thanks!",
+      "revId": "ee352ca823e1e9c740a36f98cb68bda6ea7e24bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9739e40_3c42af55",
+        "filename": "front_end/component_docs/linear_memory_inspector/basic.html",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-12T14:56:33Z",
+      "side": 1,
+      "message": "We should note which component(s) in the LinearMemoryInspector expect to have the icon defined, because once we\u0027re able to `import * as ...` across the codebase fully (including in tests + in the docs server) we want to come back and fix this.\n\nIs it worth adding a TODO to those file(s) and linking it to https://crbug.com/1146002?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 38
+      },
+      "revId": "ee352ca823e1e9c740a36f98cb68bda6ea7e24bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e120fa0_ec8cbcbd",
+        "filename": "front_end/linear_memory_inspector/ValueInterpreterDisplay.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-12T14:56:33Z",
+      "side": 1,
+      "message": "why the empty span at the end here?",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 104
+      },
+      "revId": "ee352ca823e1e9c740a36f98cb68bda6ea7e24bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc773c2e_2e5f2c27",
+        "filename": "front_end/linear_memory_inspector/ValueInterpreterSettings.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-12T14:56:33Z",
+      "side": 1,
+      "message": "I think rather than this, we\u0027re probably OK (in the onTypeToggle) doing:\n\n```\nonTypeToggle(type: ValueType, event: Event) {\n  const checkbox \u003d event.target as HTMLIinputElement;\n  this.dispatchEvent(new TypeToggleEvent(type, checkbox.checked)\n}\n```\n\nNo solution here is perfect though. WDYT?",
+      "range": {
+        "startLine": 121,
+        "startChar": 105,
+        "endLine": 121,
+        "endChar": 126
+      },
+      "revId": "ee352ca823e1e9c740a36f98cb68bda6ea7e24bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
