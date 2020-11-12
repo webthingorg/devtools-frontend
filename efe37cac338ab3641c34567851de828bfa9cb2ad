@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e332503d_6dd7daa6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-12T09:39:57Z",
+      "side": 1,
+      "message": "Hi Jack, hi Alex!\n\nHere\u0027s the part of the CL (https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2518044) that is not blocked.\n\nIt\u0027s the same as before; but I annotated three places that were changed to make the bots green in the previous CL that I\u0027ll include in this one too.\n\nPTAL!",
+      "revId": "efe37cac338ab3641c34567851de828bfa9cb2ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af2d0377_39a6c68e",
+        "filename": "front_end/linear_memory_inspector/linear_memory_inspector.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-12T09:39:57Z",
+      "side": 1,
+      "message": "Fix 2, part 1: export the components to be used in the tests (Paul is going to do this for the whole repository, but I\u0027m including it now since I ran into this issue).\n\nNote, for now the LinearMemoryInspector bridges file is not used outside, so I\u0027m not exporting it yet.",
+      "revId": "efe37cac338ab3641c34567851de828bfa9cb2ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96e97edc_05a35d7d",
+        "filename": "test/unittests/front_end/linear_memory_inspector/LinearMemoryInspector_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-12T09:39:57Z",
+      "side": 1,
+      "message": "Fix 2, part 2: (for all test files) use LinearMemoryInspector module, instead of importing the navigator component directly (note: using \n```\nconst {LinearMemoryNavigator} \u003d LinearMemoryInspector\n```\ndidn\u0027t make typescript happy in all places of its uses (e.g. in generics), so I left it out completely.",
+      "revId": "efe37cac338ab3641c34567851de828bfa9cb2ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
