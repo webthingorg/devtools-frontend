@@ -19,6 +19,10 @@ ruleTester.run('es_modules_import', rule, {
       filename: 'front_end/common/Importing.js',
     },
     {
+      code: 'import * as Components from \'../ui/components/components.js\';',
+      filename: 'front_end/common/Importing.js',
+    },
+    {
       code: 'import * as EventTarget from \'./EventTarget.js\';',
       filename: 'front_end/common/common.js',
     },
@@ -46,6 +50,8 @@ ruleTester.run('es_modules_import', rule, {
       code: 'import * as Issue from \'./Issue.js\';',
       filename: 'front_end/sdk/IssuesModel.js',
     },
+    // We allow the ui/utils/utils.js to do this because it's a special case entry point
+    // that really needs to be removed and folded into UI directly.
     {
       code: 'import {appendStyle} from \'./append-style.js\';',
       filename: 'front_end/ui/utils/utils.js',
@@ -170,6 +176,14 @@ ruleTester.run('es_modules_import', rule, {
       errors: [{
         message:
             'Incorrect cross-namespace import: "../third_party/some-module/foo.js". Use "import * as Namespace from \'../namespace/namespace.js\';" instead. If the third_party dependency does not expose a single entrypoint, update es_modules_import.js to make it exempt.'
+      }],
+    },
+    {
+      code: 'import {appendStyle} from \'./append-style.js\';',
+      filename: 'front_end/some_folder/nested_entrypoint/nested_entrypoint.js',
+      errors: [{
+        message:
+            'Incorrect same-namespace import: "append-style.js". Use "import * as File from \'./File.js\';" instead.'
       }],
     },
   ]

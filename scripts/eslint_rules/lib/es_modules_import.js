@@ -45,8 +45,7 @@ function isSideEffectImportSpecifier(specifiers) {
 
 function isModuleEntrypoint(fileName) {
   const fileNameWithoutExtension = path.basename(fileName).replace(path.extname(fileName), '');
-  const directoryName = computeTopLevelFolder(fileName);
-
+  const directoryName = path.basename(path.dirname(fileName));
   // TODO(crbug.com/1011811): remove -legacy fallback
   return directoryName === fileNameWithoutExtension || `${directoryName}-legacy` === fileNameWithoutExtension;
 }
@@ -218,6 +217,15 @@ module.exports = {
               },
             });
           } else if (isModuleEntrypoint(importingFileName)) {
+            /**
+             * We allow ui/utils/utils.js to get away with this because it's not
+             * really a proper entry point and should be folded properly into
+             * the UI module, as it's exposed via `UI.Utils.X`.
+             * TODO: file a bug for this and add it here before landing this CL
+             */
+            if (importingFileName.includes(['ui', 'utils', 'utils.js'].join(path.sep))) {
+              return;
+            }
             context.report({
               node,
               message:
