@@ -67,6 +67,24 @@
       "message": "This sounds conceptually similar to openPanelViaMoreTools, which is implemented as follows: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/test/e2e/helpers/settings-helpers.ts;l\u003d7-23;drc\u003df04b99c38e6a0818faf3942ba1360f9702723b6d Does that help?",
       "revId": "638772d8234969341ddbff59d5c79b759a1c5a26",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cea234d_19c08630",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-12T12:52:35Z",
+      "side": 1,
+      "message": "Could you provide more info on how this isn\u0027t working, i.e. does `await click(ACCESSIBILITY_PANEL_TAB_SELECTOR);` cannot find the element, or does `await waitFor(AX_BREADCRUMB_SELECTOR);` never returns?",
+      "parentUuid": "2c53426f_bcee1b22",
+      "revId": "638772d8234969341ddbff59d5c79b759a1c5a26",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
