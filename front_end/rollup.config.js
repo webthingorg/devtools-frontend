@@ -36,15 +36,6 @@ function dirnameWithSeparator(file) {
   return path.dirname(file) + path.sep;
 }
 
-/**
- * @param {string} entrypointDirectory
- * @param {string} importedFilelocation
- * @return {boolean}
- */
-function importsCurrentDirectoryEntrypoint(entrypointDirectory, importedFilelocation) {
-  return path.join(entrypointDirectory, `${path.basename(entrypointDirectory)}.js`) === importedFilelocation;
-}
-
 // eslint-disable-next-line import/no-default-export
 export default {
   treeshake: false,
@@ -55,8 +46,6 @@ export default {
   plugins:
       [
         (() => {
-          /** @type {string} */
-          let entrypointDirectory;
           return {
             name: 'devtools-plugin',
             buildStart(options) {
@@ -69,8 +58,6 @@ export default {
               } else {
                 throw new Error(`Invalid input file type specified: ${JSON.stringify(options.input)}`);
               }
-              const absoluteInputPath = path.normalize(path.join(process.cwd(), inputFile));
-              entrypointDirectory = dirnameWithSeparator(absoluteInputPath);
             },
             /**
              * @param {string} source
@@ -89,6 +76,15 @@ export default {
                 return null;
               }
 
+              // An import is considered external (and therefore a separate
+              // bundle) if its filename matches its immediate parent's folder
+              // name (without the extension). For example:
+              // import * as Components from './components/components.js' = external
+              // import * as UI from '../ui/ui.js' = external
+              // import * as LitHtml from '../third_party/lit-html/lit-html.js' = external
+              // import {DataGrid} from './components/DataGrid.js' = not external
+              // import * as Components from './components/foo.js' = not external
+
               // We currently still have to import third_party packages and put them in separate
               // folders with the `module.json` files.
               //
@@ -97,9 +93,23 @@ export default {
               // includes third_party. It also not possible to use the current directory
               // as a check for the import, as the import will be different in Chromium and
               // would therefore not match the path of `__dirname`.
+              // These should be removed because the new heuristic _should_ deal with these
+              // e.g. it'll pick up third_party/lit-html/lit-html.js is its own entrypoint
+
+
+              // Our heuristic for deciding if an import is external (and
+              // therefore a separate bundle) works for most third_party
+              // imports; e.g. it correctly detects that
+              // 'third_party/lit-html/lit-html.js' is its own bundle. However
+              // due to the structure of Acorn and the fact that it's many files
+              // that augment the Acorn module, we can't apply the same logic to
+              // any Acorn files, so we special case Acorn here to make sure
+              // that we treat acorn.js correctly. TODO: update above comment to
+              // make it clear we're only special casing Acorn We'll still need
+              // to special case Acorn because it has lots of files and augments
+              // the AcornParser and acorn is spread across multiple files, but
+              // we only want to treat acorn/acorn.js as the external.
               if (importedFileDirectory.includes(path.join('front_end', 'third_party')) &&
-                  !importedFileDirectory.includes(path.join('front_end', 'third_party', 'lit-html')) &&
-                  !importedFileDirectory.includes(path.join('front_end', 'third_party', 'marked')) &&
                   // Note that we have to include the path.sep for `acorn`, as there are multiple packages
                   // in `third_party` that start with `acorn-`
                   !importedFileDirectory.includes(
@@ -107,10 +117,10 @@ export default {
                 return null;
               }
 
-              const isExternal = !importedFileDirectory.startsWith(entrypointDirectory)
-                  // -meta.ts and -legacy.js files import the entrypoint directly, but shouldn't
-                  // bundle as well, as that would duplicate all symbols
-                  || importsCurrentDirectoryEntrypoint(entrypointDirectory, importedFilelocation);
+              const importedFileName = path.basename(importedFilelocation, '.js');
+              const importedFileParentDirectory = path.basename(path.dirname(importedFilelocation));
+
+              const isExternal = importedFileName === importedFileParentDirectory;
 
               return {
                 id: importedFilelocation,
