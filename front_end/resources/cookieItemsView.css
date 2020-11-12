@@ -4,9 +4,34 @@
  * found in the LICENSE file.
  */
 
-.cookie-value {
+.preview {
   padding: 2px 6px;
+}
+
+.header {
+  color: var(--selection-inactive-fg-color);
+  font-weight: bold;
+  user-select: none;
+  line-height: 26px;
+}
+
+.cookie-value {
   overflow: auto;
   user-select: text;
-  min-height: 100%;
+  margin-left: 16px;
+}
+
+.toggle {
+  appearance: none;
+  display: inline;
+  margin-left: 30px;
+  font-weight: normal;
+  color: rgb(45% 45% 45%);
+  background: none;
+  border: none;
+}
+
+.toggle:hover {
+  color: rgb(20% 20% 45%);
+  cursor: pointer;
 }
