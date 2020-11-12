@@ -19,9 +19,11 @@ const DEFAULT_MODE_MAPPING = new Map([
   [ValueType.String, ValueTypeMode.None],
 ]);
 
+const SORTED_VALUE_TYPES = Array.from(DEFAULT_MODE_MAPPING.keys());
+
 export interface ValueDisplayData {
   buffer: ArrayBuffer;
-  valueTypes: ValueType[];
+  valueTypes: Set<ValueType>;
   endianness: Endianness;
   valueTypeModes?: Map<ValueType, ValueTypeMode>;
 }
@@ -30,7 +32,7 @@ export class ValueInterpreterDisplay extends HTMLElement {
   private readonly shadow = this.attachShadow({mode: 'open'});
   private endianness = Endianness.Little;
   private buffer = new ArrayBuffer(0);
-  private valueTypes: ValueType[] = [];
+  private valueTypes: Set<ValueType> = new Set();
   private valueTypeModeConfig: Map<ValueType, ValueTypeMode> = DEFAULT_MODE_MAPPING;
 
   set data(data: ValueDisplayData) {
@@ -66,8 +68,8 @@ export class ValueInterpreterDisplay extends HTMLElement {
         .value-types {
           display: grid;
           overflow: hidden;
-          grid-template-columns: minmax(90px, 1fr) minmax(25px, 0.5fr) minmax(100px, 2fr) minmax(100px, 2fr);
-          grid-column-gap: 10px;
+          grid-template-columns: auto auto 1fr 1fr;
+          grid-column-gap: 24px;
           padding-left: 12px;
           padding-right: 12px;
         }
@@ -82,7 +84,7 @@ export class ValueInterpreterDisplay extends HTMLElement {
 
       </style>
         <div class="value-types">
-          ${this.valueTypes.map(type => this.showValue(type))}
+          ${SORTED_VALUE_TYPES.map(type => this.valueTypes.has(type) ? this.showValue(type) : '')}
         </div>
       </div>
     `, this.shadow, {eventContext: this},
@@ -101,7 +103,7 @@ export class ValueInterpreterDisplay extends HTMLElement {
       ${typeHasSignedNotation(type) ? html`
         <span class="value-type-cell" data-value="true">+ ${this.parse({type, signed: false})}</span>
         <span class="value-type-cell" data-value="true">± ${this.parse({type, signed: true})}</span>` :
-        html`<span class="value-type-cell" data-value="true">${this.parse({type})}</span>`}
+        html`<span class="value-type-cell" data-value="true">${this.parse({type})}</span><span></span>`}
     `;
     // clang-format on
   }
