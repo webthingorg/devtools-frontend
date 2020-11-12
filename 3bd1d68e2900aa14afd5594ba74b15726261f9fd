@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "49633413_bca18ba6",
+        "filename": "front_end/inline_editor/CSSVarSwatch.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-12T10:23:40Z",
+      "side": 1,
+      "message": "This is consistent with other functions, such as `calc(10em + 20px     )`, shown in non-editing state as `calc(10em + 20px )`",
+      "parentUuid": "cd932d1f_0b47feb8",
+      "range": {
+        "startLine": 43,
+        "startChar": 7,
+        "endLine": 45,
+        "endChar": 26
+      },
+      "revId": "3bd1d68e2900aa14afd5594ba74b15726261f9fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "991c6434_a55a659d",
         "filename": "test/unittests/front_end/inline_editor/CSSVarSwatch_test.ts",
         "patchSetId": 21
