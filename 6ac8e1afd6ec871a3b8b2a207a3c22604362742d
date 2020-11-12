@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d2b37be_0c8bfe71",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-12T09:18:59Z",
+      "side": 1,
+      "message": "A follow-up to the flex adorner feature. Please take a look when you get a chance.",
+      "revId": "6ac8e1afd6ec871a3b8b2a207a3c22604362742d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
