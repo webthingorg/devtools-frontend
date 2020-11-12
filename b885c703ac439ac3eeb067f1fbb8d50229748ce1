@@ -77,6 +77,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b709ee4d_a3a9cf24",
+        "filename": "front_end/emulation/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-11-12T20:32:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1559f25a_b682053a",
+      "range": {
+        "startLine": 41,
+        "startChar": 5,
+        "endLine": 41,
+        "endChar": 20
+      },
+      "revId": "b885c703ac439ac3eeb067f1fbb8d50229748ce1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d38c94ab_f494af8f",
@@ -90,6 +114,30 @@
       "writtenOn": "2020-11-06T17:29:40Z",
       "side": 1,
       "message": "nit, align",
+      "range": {
+        "startLine": 289,
+        "startChar": 1,
+        "endLine": 289,
+        "endChar": 5
+      },
+      "revId": "b885c703ac439ac3eeb067f1fbb8d50229748ce1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87ba269a_b252d1b5",
+        "filename": "front_end/emulation/module.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-11-12T20:32:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d38c94ab_f494af8f",
       "range": {
         "startLine": 289,
         "startChar": 1,
