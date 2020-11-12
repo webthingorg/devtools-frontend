@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c587a704_c9088e32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-12T09:54:36Z",
+      "side": 1,
+      "message": "Hi Tim, usually when I update the protocol files in devtools, everything goes fine. But this time it caused a build failure as one of the closure types in FrameDetailsView.js didn\u0027t match what CDP defined anymore.\nSo I updated that, and I need an owner sign-off for this.",
+      "revId": "1e48ec978ad0af05c607651b3ae4240df1a22838",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
