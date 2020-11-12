@@ -39,6 +39,30 @@
       },
       "revId": "769ceaf50c8403a96d3df933fb4842e94af9f973",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdcd35d5_0b873ba6",
+        "filename": "devtools_grd_files.gni",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2020-11-12T08:44:51Z",
+      "side": 1,
+      "message": "the what\u0027s new images are pre-generated stored in a folder. The format from this version and onwards are jpg. I can covert them to png. \n\nI compress the generated jpg with Squoosh, guess that\u0027s why the image quality is lower.",
+      "parentUuid": "cffa5e29_260d81e1",
+      "range": {
+        "startLine": 102,
+        "startChar": 29,
+        "endLine": 102,
+        "endChar": 32
+      },
+      "revId": "769ceaf50c8403a96d3df933fb4842e94af9f973",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
