@@ -22,6 +22,30 @@
       },
       "revId": "56b1c487a11c768531d1c210a5736ee2db0fc41c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2709e2d8_adefc917",
+        "filename": "front_end/issues/MarkdownIssueDescription.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-12T08:47:54Z",
+      "side": 1,
+      "message": "I don\u0027t see any reason why we shouldn\u0027t check for it.\nSaw the comment too late and will add this in a follow up.",
+      "parentUuid": "5d4cc7f8_e5c2ceae",
+      "range": {
+        "startLine": 39,
+        "startChar": 16,
+        "endLine": 39,
+        "endChar": 38
+      },
+      "revId": "56b1c487a11c768531d1c210a5736ee2db0fc41c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
