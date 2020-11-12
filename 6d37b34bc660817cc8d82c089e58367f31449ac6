@@ -109,6 +109,30 @@
       },
       "revId": "6d37b34bc660817cc8d82c089e58367f31449ac6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5af92424_5011dd4a",
+        "filename": "front_end/issues/MarkdownIssueDescription.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-12T08:04:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47bf0a13_e402234c",
+      "range": {
+        "startLine": 26,
+        "startChar": 6,
+        "endLine": 26,
+        "endChar": 30
+      },
+      "revId": "6d37b34bc660817cc8d82c089e58367f31449ac6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
