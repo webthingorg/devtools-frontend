@@ -16,6 +16,29 @@
       "message": "ptal",
       "revId": "817ab900cd43b4bc2dbe2f2b2050914e30c53191",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f2fced0_fd0553f6",
+        "filename": "front_end/legacy/legacy-defs.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-12T11:23:37Z",
+      "side": 1,
+      "message": "Since the split widget is the only file that uses this function and changing the legacy-defs is costly in terms of Ninja cache, can we inline the function instead?",
+      "range": {
+        "startLine": 187,
+        "startChar": 0,
+        "endLine": 187,
+        "endChar": 52
+      },
+      "revId": "817ab900cd43b4bc2dbe2f2b2050914e30c53191",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
