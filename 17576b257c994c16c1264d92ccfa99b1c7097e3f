@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53df9069_242c9d8b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-12T14:48:54Z",
+      "side": 1,
+      "message": "LGTM but I think you\u0027ve got the double define problem with the tests in release build. Maybe somewhere there\u0027s a file not using the entrypoint?",
+      "revId": "17576b257c994c16c1264d92ccfa99b1c7097e3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
