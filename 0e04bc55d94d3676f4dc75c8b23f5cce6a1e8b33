@@ -56,6 +56,30 @@
       },
       "revId": "0e04bc55d94d3676f4dc75c8b23f5cce6a1e8b33",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a69acf85_599affb4",
+        "filename": "front_end/sources/NavigatorView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 789,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-12T13:45:53Z",
+      "side": 1,
+      "message": "Ah yes I missed this. I initially had a different solution, but I refactored it. Fixed 👍",
+      "parentUuid": "fd7531c3_9240a66e",
+      "range": {
+        "startLine": 789,
+        "startChar": 0,
+        "endLine": 789,
+        "endChar": 106
+      },
+      "revId": "0e04bc55d94d3676f4dc75c8b23f5cce6a1e8b33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
