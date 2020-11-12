@@ -62,4 +62,17 @@ describe('substitutePlaceholders', () => {
 
     assert.strictEqual(substitutePlaceholders(str), str);
   });
+
+  it('throws an error for unused replacements', () => {
+    const str = 'Example string with no placeholder';
+
+    assert.throws(() => substitutePlaceholders(str, new Map([['PLACEHOLDER_FOO', 'bar']])));
+  });
+
+  it('allows the same placeholder to be used multiple times', () => {
+    const str = 'Example string with the same placeholder used twice: {PLACEHOLDER_PH1} {PLACEHOLDER_PH1}';
+
+    const actual = substitutePlaceholders(str, new Map([['PLACEHOLDER_PH1', 'foo']]));
+    assert.strictEqual(actual, 'Example string with the same placeholder used twice: foo foo');
+  });
 });
