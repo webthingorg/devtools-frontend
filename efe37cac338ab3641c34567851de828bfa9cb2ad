@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "724a9b1a_fb9f3dd9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-12T09:41:55Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "efe37cac338ab3641c34567851de828bfa9cb2ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "af2d0377_39a6c68e",
         "filename": "front_end/linear_memory_inspector/linear_memory_inspector.ts",
         "patchSetId": 4
