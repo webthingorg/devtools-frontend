@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1490e3b_86574d27",
+        "filename": "front_end/issues/MarkdownView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-12T16:28:10Z",
+      "side": 0,
+      "message": "Because of the presubmits that always run, we can\u0027t bundle this change separately, since it depends on the version of ESLint we use.",
+      "range": {
+        "startLine": 125,
+        "startChar": 38,
+        "endLine": 125,
+        "endChar": 40
+      },
+      "revId": "b2e9bd36a98226dbc33ee89f89199b9166e56380",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
