@@ -189,6 +189,9 @@
   <message name="IDS_DEVTOOLS_4ccfddde7696759c35d434580be577f0" desc="Title of an action to save all files in the Sources panel">
     Save all
   </message>
+  <message name="IDS_DEVTOOLS_4dab36ac83853282fc0d7bae20c19e90" desc="Text to show more options">
+    More options
+  </message>
   <message name="IDS_DEVTOOLS_51eb42e9c7ed7951fea0d51a1e4a2cfc" desc="Text in Go To Line Quick Open of the Sources panel">
     Go to line <ph name="POSITION_LINE">$1s<ex>2</ex></ph>.
   </message>

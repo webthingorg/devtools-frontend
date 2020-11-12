@@ -30,6 +30,9 @@
   <message name="IDS_DEVTOOLS_223ab60aebd6edaa26b1d6a5c752c2e2" desc="Text in Lighthouse Controller">
     Apply mobile emulation
   </message>
+  <message name="IDS_DEVTOOLS_2310408a63388fe57e3a4177168a8798" desc="Text for the desktop platform, as opposed to mobile">
+    Desktop
+  </message>
   <message name="IDS_DEVTOOLS_24e8ca2483129261096ba8ba0fbcd247" desc="Fast fact in the pop-up dialog when lighthouse is running in the Lighthouse panel">
     70% of mobile pages take nearly 7 seconds for the visual content above the fold to display on the screen. [Source: <ph name="LOCKED_1">Think with Google</ph>]
   </message>
@@ -86,6 +89,9 @@
   </message>
   <message name="IDS_DEVTOOLS_6e394d18cb68d551f58fa35f4dfc70bb" desc="Fast fact in the pop-up dialog when lighthouse is running in the Lighthouse panel">
     As page load time increases from one second to seven seconds, the probability of a mobile site visitor bouncing increases 113%. [Source: <ph name="LOCKED_1">Think with Google</ph>]
+  </message>
+  <message name="IDS_DEVTOOLS_87d17f4624a514e81dc7c8e016a7405c" desc="Text for the mobile platform, as opposed to desktop">
+    Mobile
   </message>
   <message name="IDS_DEVTOOLS_8cae4d24054ecacd0dc3abaff429dab9" desc="Label for view trace button when simulated throttling is enabled">
     View Original Trace
