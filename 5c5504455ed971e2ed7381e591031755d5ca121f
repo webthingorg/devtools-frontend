@@ -63,6 +63,30 @@
       },
       "revId": "5c5504455ed971e2ed7381e591031755d5ca121f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b43ebe78_5378648d",
+        "filename": "scripts/eslint_rules/lib/es_modules_import.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-12T16:01:28Z",
+      "side": 1,
+      "message": "I don\u0027t mind either way. I think we can remove it in this to keep things simple?",
+      "parentUuid": "15003375_28f4ad38",
+      "range": {
+        "startLine": 24,
+        "startChar": 2,
+        "endLine": 24,
+        "endChar": 58
+      },
+      "revId": "5c5504455ed971e2ed7381e591031755d5ca121f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
