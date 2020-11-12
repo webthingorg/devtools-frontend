@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a9e3be3_54180fe5",
+        "filename": "front_end/inspector_main/InspectorMain.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-12T13:58:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da0b08ea_179bbcea",
+      "range": {
+        "startLine": 47,
+        "startChar": 6,
+        "endLine": 47,
+        "endChar": 12
+      },
+      "revId": "3871f72782ba95de9c77a43fed915b5dad609ac8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5d46773f_1cd2bbce",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8447578f_39fc14ed",
+        "filename": "front_end/inspector_main/InspectorMain.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-12T13:58:28Z",
+      "side": 1,
+      "message": "Sadly this can not be awaited, as `handleAction` can not be async. (This is not the only ActionDelegate that has race-conditions like this one 😞)",
+      "parentUuid": "5d46773f_1cd2bbce",
+      "range": {
+        "startLine": 102,
+        "startChar": 4,
+        "endLine": 102,
+        "endChar": 14
+      },
+      "revId": "3871f72782ba95de9c77a43fed915b5dad609ac8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "297f92e8_19a26ecd",
@@ -60,6 +108,30 @@
       "writtenOn": "2020-11-11T09:01:39Z",
       "side": 1,
       "message": "And again, I think we should set this to an await.",
+      "range": {
+        "startLine": 195,
+        "startChar": 4,
+        "endLine": 195,
+        "endChar": 10
+      },
+      "revId": "3871f72782ba95de9c77a43fed915b5dad609ac8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0e4a0f1_3ebc5be4",
+        "filename": "front_end/inspector_main/InspectorMain.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-12T13:58:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "297f92e8_19a26ecd",
       "range": {
         "startLine": 195,
         "startChar": 4,
