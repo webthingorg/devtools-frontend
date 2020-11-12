@@ -109,6 +109,12 @@ export class CSSAngle extends HTMLElement {
 
     this.popoverOpen = true;
     this.render();
+
+    const angleContainer = this.shadow.querySelector<HTMLElement>('.css-angle');
+    if (!angleContainer) {
+      return;
+    }
+    angleContainer.focus();
   }
 
   minify(): void {
@@ -187,6 +193,7 @@ export class CSSAngle extends HTMLElement {
         if (newAngle) {
           this.updateAngle(newAngle);
         }
+        event.preventDefault();
         break;
       }
     }
