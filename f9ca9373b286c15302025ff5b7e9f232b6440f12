@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7439cc4_4eb3fe84",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-12T16:28:55Z",
+      "side": 1,
+      "message": "I also forgot a file.",
+      "revId": "f9ca9373b286c15302025ff5b7e9f232b6440f12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdaf98ad_c0df05b1",
+        "filename": "inspector_overlay/highlight_common.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-12T16:28:55Z",
+      "side": 1,
+      "message": "Oops, I moved this function for something I was working on, but then decided to work on it in a separate CL. Will move back.",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 15
+      },
+      "revId": "f9ca9373b286c15302025ff5b7e9f232b6440f12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
