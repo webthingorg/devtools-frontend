@@ -33,6 +33,24 @@
       "message": "Is there an easy way for us to store a (weak) reference to the .css-angle element we\u0027re creating in the lit-html snippet below, so that we don\u0027t have to re-query for it here?",
       "revId": "060b4685ccc7118c6977d4f67a6966d3f110f744",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4c53dd8_20285182",
+        "filename": "front_end/inline_editor/CSSAngle.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-12T08:25:32Z",
+      "side": 1,
+      "message": "We can use WeakRef, but that\u0027s not supported in TS for now. But TBH I don\u0027t think a strong ref will cause memory leak because the whole reference will die along the DOM when this component is detached. I\u0027ll add an internal reference for this.",
+      "parentUuid": "d56f1ac7_943a6f34",
+      "revId": "060b4685ccc7118c6977d4f67a6966d3f110f744",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
