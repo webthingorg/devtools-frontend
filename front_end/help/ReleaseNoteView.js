@@ -74,7 +74,7 @@ export class ReleaseNoteView extends UI.Widget.VBox {
 
     hbox.appendChild(imageLink);
     const image = /** @type {!HTMLImageElement} */ (imageLink.createChild('img'));
-    image.src = 'Images/whatsnew.png';
+    image.src = 'Images/whatsnew.jpg';
     image.title = imageLink.title;
     image.alt = image.title;
 
