@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a80783e_af387ef7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-12T20:28:14Z",
+      "side": 1,
+      "message": "lgtm % one last comment",
+      "revId": "6ad923d1e3abe38e30223567bd668212ea7eb3fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7885318e_3e65a795",
+        "filename": "front_end/object_ui/RemoteObjectPreviewFormatter.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-12T20:28:14Z",
+      "side": 1,
+      "message": "should this also stay className?",
+      "range": {
+        "startLine": 280,
+        "startChar": 74,
+        "endLine": 280,
+        "endChar": 78
+      },
+      "revId": "6ad923d1e3abe38e30223567bd668212ea7eb3fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
