@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b75edb66_998157d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-12T09:13:28Z",
+      "side": 1,
+      "message": "Apologies about the delay for reviewing this.\nThank you for addressing this problem!\n\nI have a couple questions about the fix though. Please see below.",
+      "revId": "3bd1d68e2900aa14afd5594ba74b15726261f9fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd932d1f_0b47feb8",
+        "filename": "front_end/inline_editor/CSSVarSwatch.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-12T09:13:28Z",
+      "side": 1,
+      "message": "Can you explain why this is needed please? Why can\u0027t we keep all spaces displayed?",
+      "range": {
+        "startLine": 43,
+        "startChar": 7,
+        "endLine": 45,
+        "endChar": 26
+      },
+      "revId": "3bd1d68e2900aa14afd5594ba74b15726261f9fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "991c6434_a55a659d",
+        "filename": "test/unittests/front_end/inline_editor/CSSVarSwatch_test.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-12T09:13:28Z",
+      "side": 1,
+      "message": "I just realized something, because the color swatches are now generated in a separate component, the cssvarswatch does not deal with it any longer. So the hasColorSwatch property is no longer useful, and should be removed.",
+      "range": {
+        "startLine": 123,
+        "startChar": 6,
+        "endLine": 123,
+        "endChar": 28
+      },
+      "revId": "3bd1d68e2900aa14afd5594ba74b15726261f9fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35b3cf66_6662d5c2",
+        "filename": "test/unittests/front_end/inline_editor/CSSVarSwatch_test.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-12T09:13:28Z",
+      "side": 1,
+      "message": "I don\u0027t understand this test, the CSSVarSwatch component is only meant to wrap var functions, not entire CSS declaration values. The Styles pane parses values and only uses the CSSVarSwatch component for vars.\n\nSame comment for other tests below.",
+      "range": {
+        "startLine": 189,
+        "startChar": 13,
+        "endLine": 189,
+        "endChar": 68
+      },
+      "revId": "3bd1d68e2900aa14afd5594ba74b15726261f9fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
