@@ -37,6 +37,34 @@ export type PathBounds = Bounds&{
   bottommostYForX: {[key: string]: number};
 }
 
+export interface LineStyle {
+  color?: string;
+  pattern?: LinePattern;
+}
+
+enum LinePattern {
+  Solid = 'solid',
+  Dotted = 'dotted',
+  Dashed = 'dashed'
+}
+
+export function drawPathWithLineStyle(context: CanvasRenderingContext2D, path: Path2D, lineStyle?: LineStyle) {
+  if (lineStyle && lineStyle.color) {
+    context.save();
+    context.translate(0.5, 0.5);
+    context.lineWidth = 1;
+    if (lineStyle.pattern === LinePattern.Dashed) {
+      context.setLineDash([3, 3]);
+    }
+    if (lineStyle.pattern === LinePattern.Dotted) {
+      context.setLineDash([2, 2]);
+    }
+    context.strokeStyle = lineStyle.color;
+    context.stroke(path);
+    context.restore();
+  }
+}
+
 export function buildPath(commands: Array<string|number>, bounds: PathBounds, emulationScaleFactor: number): Path2D {
   let commandsIndex = 0;
 
@@ -109,4 +137,48 @@ export function applyMatrixToPoint(point: {x: number; y: number;}, matrix: DOMMa
   let domPoint = new DOMPoint(point.x, point.y);
   domPoint = domPoint.matrixTransform(matrix);
   return {x: domPoint.x, y: domPoint.y};
+}
+
+/**
+ * Draw line hatching at a 45 degree angle for a given
+ * path.
+ *   __________
+ *   |\  \  \ |
+ *   | \  \  \|
+ *   |  \  \  |
+ *   |\  \  \ |
+ *   **********
+ */
+export function hatchFillPath(
+    context: CanvasRenderingContext2D, path: Path2D, bounds: Bounds, delta: number, color: string,
+    rotationAngle: number, flipDirection: boolean|undefined) {
+  const dx = bounds.maxX - bounds.minX;
+  const dy = bounds.maxY - bounds.minY;
+  context.rect(bounds.minX, bounds.minY, dx, dy);
+  context.save();
+  context.clip(path, 'evenodd');
+  context.setLineDash([5, 3]);
+  const majorAxis = Math.max(dx, dy);
+  context.strokeStyle = color;
+  const centerX = bounds.minX + dx / 2;
+  const centerY = bounds.minY + dy / 2;
+  context.translate(centerX, centerY);
+  context.rotate(rotationAngle * Math.PI / 180);
+  context.translate(-centerX, -centerY);
+  if (flipDirection) {
+    for (let i = -majorAxis; i < majorAxis; i += delta) {
+      context.beginPath();
+      context.moveTo(bounds.maxX - i, bounds.minY);
+      context.lineTo(bounds.maxX - dy - i, bounds.maxY);
+      context.stroke();
+    }
+  } else {
+    for (let i = -majorAxis; i < majorAxis; i += delta) {
+      context.beginPath();
+      context.moveTo(i + bounds.minX, bounds.minY);
+      context.lineTo(dy + i + bounds.minX, bounds.maxY);
+      context.stroke();
+    }
+  }
+  context.restore();
 }
