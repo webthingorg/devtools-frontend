@@ -16,6 +16,23 @@
       "message": "Conceptually this SGTM. Thanks for including the screenshot.\n\nI\u0027ll nod to the OWNER for the implementation specifics though.",
       "revId": "2e0adedb637bc58ed6e9e808da69812ffc638f03",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eacb58c6_ffd52b90",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2020-11-12T10:51:16Z",
+      "side": 1,
+      "message": "I like the UX here quite a bit. +1 from me on UX and brief look at the impl looks good, but I\u0027ll defer to devtools owners for that.",
+      "revId": "2e0adedb637bc58ed6e9e808da69812ffc638f03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
