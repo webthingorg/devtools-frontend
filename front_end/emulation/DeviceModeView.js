@@ -4,6 +4,7 @@
 
 import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
+import * as i18n from '../i18n/i18n.js';
 import * as Platform from '../platform/platform.js';
 import * as UI from '../ui/ui.js';
 
@@ -11,6 +12,47 @@ import {DeviceModeModel, Events, MaxDeviceSize, MinDeviceSize, Type} from './Dev
 import {DeviceModeToolbar} from './DeviceModeToolbar.js';
 import {MediaQueryInspector} from './MediaQueryInspector.js';
 
+export const UIStrings = {
+  /**
+  *@description Bottom resizer element title in Device Mode View of the Device Toolbar
+  */
+  doubleclickForFullHeight: 'Double-click for full height',
+  /**
+  *@description Text in Device Mode View of the Device Toolbar
+  */
+  mobileS: 'Mobile S',
+  /**
+  *@description Text in Device Mode View of the Device Toolbar
+  */
+  mobileM: 'Mobile M',
+  /**
+  *@description Text in Device Mode View of the Device Toolbar
+  */
+  mobileL: 'Mobile L',
+  /**
+  *@description Text in Device Mode View of the Device Toolbar
+  */
+  tablet: 'Tablet',
+  /**
+  *@description Text in Device Mode View of the Device Toolbar
+  */
+  laptop: 'Laptop',
+  /**
+  *@description Text in Device Mode View of the Device Toolbar
+  */
+  laptopL: 'Laptop L',
+  /**
+  *@description Text in Device Mode View of the Device Toolbar
+  */
+  k: '4K',
+  /**
+  *@description Text in Device Mode View of the Device Toolbar
+  *@example {iPhone X} PH1
+  */
+  s: '({PH1})',
+};
+const str_ = i18n.i18n.registerUIStrings('emulation/DeviceModeView.js', UIStrings);
+const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 /**
  * @unrestricted
@@ -131,7 +173,7 @@ export class DeviceModeView extends UI.Widget.VBox {
     this._bottomResizerElement.createChild('div', '');
     this._createResizer(this._bottomResizerElement, 0, 1);
     this._bottomResizerElement.addEventListener('dblclick', this._model.setHeight.bind(this._model, 0), false);
-    this._bottomResizerElement.title = Common.UIString.UIString('Double-click for full height');
+    this._bottomResizerElement.title = i18nString(UIStrings.doubleclickForFullHeight);
 
     this._pageArea = /** @type {!HTMLElement} */ (this._screenArea.createChild('div', 'device-mode-page-area'));
     this._pageArea.createChild('slot');
@@ -140,9 +182,8 @@ export class DeviceModeView extends UI.Widget.VBox {
   _populatePresetsContainer() {
     const sizes = [320, 375, 425, 768, 1024, 1440, 2560];
     const titles = [
-      Common.UIString.UIString('Mobile S'), Common.UIString.UIString('Mobile M'), Common.UIString.UIString('Mobile L'),
-      Common.UIString.UIString('Tablet'), Common.UIString.UIString('Laptop'), Common.UIString.UIString('Laptop L'),
-      Common.UIString.UIString('4K')
+      i18nString(UIStrings.mobileS), i18nString(UIStrings.mobileM), i18nString(UIStrings.mobileL),
+      i18nString(UIStrings.tablet), i18nString(UIStrings.laptop), i18nString(UIStrings.laptopL), i18nString(UIStrings.k)
     ];
     this._presetBlocks = [];
     const inner = this._responsivePresetsContainer.createChild('div', 'device-mode-presets-container-inner');
@@ -579,7 +620,7 @@ export class DeviceModeView extends UI.Widget.VBox {
 
     const device = this._model.device();
     if (device && this._model.type() === Type.Device) {
-      fileName += Common.UIString.UIString('(%s)', device.title);
+      fileName += i18nString('(%s)', device.title);
     }
     const link = document.createElement('a');
     link.download = fileName + '.png';
