@@ -184,6 +184,7 @@ declare function isEscKey(event: Event): boolean;
 declare function createPlainTextSearchRegex(query: string, flags?: string): RegExp;
 declare function onInvokeElement(element: Element, callback: (event: Event) => void): void;
 declare function setImmediate(callback: (...args: any) => any): number;
+declare function suppressUnused(...args: any): void;
 
 interface ServicePort {
   setHandlers(messageHandler: (arg: string) => void, closeHandler: () => void): void;
