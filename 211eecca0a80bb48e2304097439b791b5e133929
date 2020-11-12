@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2c57011_6c8974ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-12T09:50:47Z",
+      "side": 1,
+      "message": "LGTM\nSorry for the delay - I thought I had added Alice but apparently I clicked the wrong button or something. With the clarifying comment, I think this is good to go!",
+      "revId": "211eecca0a80bb48e2304097439b791b5e133929",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

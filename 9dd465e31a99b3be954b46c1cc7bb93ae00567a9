@@ -68,6 +68,24 @@
       "parentUuid": "a6d65ce9_cea57877",
       "revId": "9dd465e31a99b3be954b46c1cc7bb93ae00567a9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c636ae8_618835b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-12T09:50:47Z",
+      "side": 1,
+      "message": "All right, I think with the clarifying comment this is good to go,",
+      "parentUuid": "f50241f8_a8781176",
+      "revId": "9dd465e31a99b3be954b46c1cc7bb93ae00567a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
