@@ -72,6 +72,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f46e61c_a6260468",
+        "filename": "front_end/rollup.config.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-12T15:42:34Z",
+      "side": 1,
+      "message": "Ah yes you\u0027re right, thanks. I re-ran a build with this change and verified that ui/ui-legacy.js still had an import to ui.js, which it did.",
+      "parentUuid": "623960b5_b3d22160",
+      "range": {
+        "startLine": 139,
+        "startChar": 21,
+        "endLine": 139,
+        "endChar": 54
+      },
+      "revId": "84e92036ed0c4231159eea5f058c7acac9b5c9aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a693a169_9fd588a8",
