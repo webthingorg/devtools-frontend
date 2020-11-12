@@ -483,6 +483,7 @@ function _drawGridGap(
   context.restore();
 }
 
+
 /**
  * Draw line hatching at a 45 degree angle for a given
  * path.
@@ -500,7 +501,7 @@ function _hatchFillPath(
   const dy = bounds.maxY - bounds.minY;
   context.rect(bounds.minX, bounds.minY, dx, dy);
   context.save();
-  context.clip(path);
+  context.clip(path, 'evenodd');
   context.setLineDash([5, 3]);
   const majorAxis = Math.max(dx, dy);
   context.strokeStyle = color;
