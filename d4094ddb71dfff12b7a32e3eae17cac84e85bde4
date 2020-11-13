@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e450f43_43dcf1d1",
+        "filename": "front_end/perf_ui/OverviewGrid.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-13T14:24:10Z",
+      "side": 1,
+      "message": "Is there a type for `WheelEvent`?",
+      "revId": "d4094ddb71dfff12b7a32e3eae17cac84e85bde4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
