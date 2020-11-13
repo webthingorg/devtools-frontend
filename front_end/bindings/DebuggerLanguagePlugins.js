@@ -10,9 +10,6 @@ import {ContentProviderBasedProject} from './ContentProviderBasedProject.js';
 import {DebuggerWorkspaceBinding} from './DebuggerWorkspaceBinding.js';  // eslint-disable-line no-unused-vars
 import {NetworkProject} from './NetworkProject.js';
 
-/** @type {!WeakMap<!Workspace.UISourceCode.UISourceCode, !SDK.Script.Script>} */
-const uiSourceCodeToScriptMap = new WeakMap();
-
 class SourceType {
   /**
    * @param {!TypeInfo} typeInfo
@@ -579,54 +576,74 @@ export class SourceScope {
 
 /**
  * @unrestricted
+ * @implements {SDK.SDKModel.SDKModelObserver<!SDK.DebuggerModel.DebuggerModel>}
  */
 export class DebuggerLanguagePluginManager {
   /**
-   * @param {!SDK.DebuggerModel.DebuggerModel} debuggerModel
+   * @param {!SDK.SDKModel.TargetManager} targetManager
    * @param {!Workspace.Workspace.WorkspaceImpl} workspace
    * @param {!DebuggerWorkspaceBinding} debuggerWorkspaceBinding
    * @suppress {missingProperties}
    */
-  constructor(debuggerModel, workspace, debuggerWorkspaceBinding) {
-    this._sourceMapManager = debuggerModel.sourceMapManager();
-    this._debuggerModel = debuggerModel;
+  constructor(targetManager, workspace, debuggerWorkspaceBinding) {
+    this._workspace = workspace;
     this._debuggerWorkspaceBinding = debuggerWorkspaceBinding;
+
     /** @type {!Array<!DebuggerLanguagePlugin>} */
     this._plugins = [];
-    // TODO(crbug.com/1122000): Break cycle between bindings and extensions
-    // @ts-expect-error
-    for (const extension of self.Extensions.extensionServer.languageExtensionEndpoints) {
-      this._plugins.push(extension);
-    }
 
-    /** @type {!Map<!Workspace.UISourceCode.UISourceCode, !Array<!{sourceFileURL: string, script: !SDK.Script.Script}>>} */
-    this._uiSourceCodes = new Map();
-    /** @type {!Map<string, !Promise<?DebuggerLanguagePlugin>>} */
-    this._pluginForScriptId = new Map();
+    /** @type {!Map.<!SDK.DebuggerModel.DebuggerModel, !ModelData>} */
+    this._debuggerModelToData = new Map();
+    targetManager.addModelListener(
+        SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.GlobalObjectCleared, this._globalObjectCleared, this);
+    targetManager.addModelListener(
+        SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.ParsedScriptSource, this._parsedScriptSource, this);
+    targetManager.observeModels(SDK.DebuggerModel.DebuggerModel, this);
 
-    /** @type {!Set<!SDK.Script.Script>} */
-    this._unhandledScripts = new Set();
-
-    const target = this._debuggerModel.target();
-    this._project = new ContentProviderBasedProject(
-        workspace, 'language_plugins::' + target.id(), Workspace.Workspace.projectTypes.Network, '',
-        false /* isServiceProject */);
-    NetworkProject.setTargetForProject(this._project, target);
-
-
-    this._eventHandlers = [
-      this._debuggerModel.addEventListener(
-          SDK.DebuggerModel.Events.ParsedScriptSource, this._newScriptSourceListener, this),
-      // TODO(crbug.com/1122000): Break cycle between bindings and extensions
-      // @ts-expect-error
-      self.Extensions.extensionServer.addEventListener(
-          // @ts-expect-error
-          Extensions.ExtensionServer.Events.LanguageExtensionEndpointAdded, this._languageExtensionPluginAdded, this)
-    ];
+    /** @type {!Map<!SDK.Script.Script, !Promise<!DebuggerLanguagePlugin>>} */
+    this._scriptToPluginPromise = new Map();
   }
 
-  clearPlugins() {
-    this._plugins = [];
+  /**
+   * @override
+   * @param {!SDK.DebuggerModel.DebuggerModel} debuggerModel
+   */
+  modelAdded(debuggerModel) {
+    this._debuggerModelToData.set(debuggerModel, new ModelData(debuggerModel, this._workspace));
+  }
+
+  /**
+   * @override
+   * @param {!SDK.DebuggerModel.DebuggerModel} debuggerModel
+   */
+  modelRemoved(debuggerModel) {
+    const modelData = this._debuggerModelToData.get(debuggerModel);
+    if (modelData) {
+      modelData._dispose();
+      this._debuggerModelToData.delete(debuggerModel);
+    }
+    this._scriptToPluginPromise.forEach((pluginPromise, script, pluginForScript) => {
+      if (script.debuggerModel !== debuggerModel) {
+        return;
+      }
+      pluginForScript.delete(script);
+      pluginPromise
+          .then(plugin => {
+            plugin.removeRawModule(script.sourceURL);
+          })
+          .catch(error => {
+            Common.Console.Console.instance().error(ls`Error in debugger language plugin: ${error.message}`);
+          });
+    });
+  }
+
+  /**
+   * @param {!Common.EventTarget.EventTargetEvent} event
+   */
+  _globalObjectCleared(event) {
+    const debuggerModel = /** @type {!SDK.DebuggerModel.DebuggerModel} */ (event.data);
+    this.modelRemoved(debuggerModel);
+    this.modelAdded(debuggerModel);
   }
 
   /**
@@ -634,21 +651,20 @@ export class DebuggerLanguagePluginManager {
    */
   addPlugin(plugin) {
     this._plugins.push(plugin);
-    const scripts = [];
-    for (const script of this._unhandledScripts) {
-      if (plugin.handleScript(script)) {
-        scripts.push(script);
-        this._unhandledScripts.delete(script);
+    for (const debuggerModel of this._debuggerModelToData.keys()) {
+      for (const script of debuggerModel.scripts()) {
+        if (this._scriptToPluginPromise.has(script)) {
+          continue;
+        }
+        if (!plugin.handleScript(script)) {
+          continue;
+        }
+        if (!script.sourceURL) {
+          continue;
+        }
+        this._scriptToPluginPromise.set(script, this._loadScript(plugin, script));
       }
     }
-    scripts.forEach(script => this._pluginForScriptId.set(script.scriptId, this._loadScript(plugin, script)));
-  }
-
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _languageExtensionPluginAdded(event) {
-    this.addPlugin(/** @type {!DebuggerLanguagePlugin} */ (event.data));
   }
 
   /**
@@ -656,15 +672,7 @@ export class DebuggerLanguagePluginManager {
    * @return {boolean}
    */
   hasPluginForScript(script) {
-    return this._pluginForScriptId.has(script.scriptId);
-  }
-
-  /**
-   * @param {!SDK.Script.Script} script
-   * @return {!Promise<?DebuggerLanguagePlugin>}
-   */
-  _getPluginForScript(script) {
-    return Promise.resolve(this._pluginForScriptId.get(script.scriptId) || null);
+    return this._scriptToPluginPromise.has(script);
   }
 
   /**
@@ -676,7 +684,7 @@ export class DebuggerLanguagePluginManager {
     if (!script) {
       return null;
     }
-    const plugin = await this._getPluginForScript(script);
+    const plugin = await this._scriptToPluginPromise.get(script);
     if (!plugin) {
       return null;
     }
@@ -704,7 +712,11 @@ export class DebuggerLanguagePluginManager {
     // TODO(chromium:1044536) Support multiple UI locations.
     const sourceLocation = sourceLocations[0];
 
-    const uiSourceCode = this._project.uiSourceCodeForURL(sourceLocation.sourceFileURL);
+    const modelData = this._debuggerModelToData.get(script.debuggerModel);
+    if (!modelData) {
+      return null;
+    }
+    const uiSourceCode = modelData._project.uiSourceCodeForURL(sourceLocation.sourceFileURL);
     if (!uiSourceCode) {
       return null;
     }
@@ -718,52 +730,49 @@ export class DebuggerLanguagePluginManager {
    * @param {number} columnNumber
    * @return {!Promise<?Array<!{start: !SDK.DebuggerModel.Location, end: !SDK.DebuggerModel.Location}>>} Returns null if this manager does not have a plugin for it.
    */
-  async uiLocationToRawLocationRanges(uiSourceCode, lineNumber, columnNumber) {
-    const mappedSourceFiles = this._uiSourceCodes.get(uiSourceCode);
-    if (!mappedSourceFiles) {
-      return null;
-    }
-
+  uiLocationToRawLocationRanges(uiSourceCode, lineNumber, columnNumber) {
+    /** @type {!Array<!Promise<!Array<!{start: !SDK.DebuggerModel.Location, end: !SDK.DebuggerModel.Location}>>>} */
     const locationPromises = [];
-    for (const {sourceFileURL, script} of mappedSourceFiles) {
-      const plugin = await this._getPluginForScript(script);
-      if (plugin) {
-        locationPromises.push(getLocations(this._debuggerModel, plugin, sourceFileURL, script));
+    this.scriptsForUISourceCode(uiSourceCode).forEach(script => {
+      const pluginPromise = this._scriptToPluginPromise.get(script);
+      if (!pluginPromise) {
+        return;
       }
-    }
-
+      locationPromises.push(pluginPromise.then(plugin => {
+        if (!plugin) {
+          return [];
+        }
+        return getLocations(plugin, script);
+      }));
+    });
     if (locationPromises.length === 0) {
-      return null;
+      return Promise.resolve(null);
     }
 
-    try {
-      return (await Promise.all(locationPromises)).flat();
-    } catch (error) {
+    return Promise.all(locationPromises).then(locations => locations.flat()).catch(error => {
       Common.Console.Console.instance().error(ls`Error in debugger language plugin: ${error.message}`);
       return null;
-    }
+    });
 
     /**
-       * @return {!Promise<!Array<!{start: !SDK.DebuggerModel.Location, end: !SDK.DebuggerModel.Location}>>}
-       * @param {!SDK.DebuggerModel.DebuggerModel} debuggerModel
-       * @param {!DebuggerLanguagePlugin} plugin
-       * @param {string} sourceFileURL
-       * @param {!SDK.Script.Script} script
-       */
-    async function getLocations(debuggerModel, plugin, sourceFileURL, script) {
-      const pluginLocation = {rawModuleId: script.sourceURL, sourceFileURL, lineNumber, columnNumber};
+     * @param {!DebuggerLanguagePlugin} plugin
+     * @param {!SDK.Script.Script} script
+     * @return {!Promise<!Array<!{start: !SDK.DebuggerModel.Location, end: !SDK.DebuggerModel.Location}>>}
+     */
+    async function getLocations(plugin, script) {
+      const pluginLocation =
+          {rawModuleId: script.sourceURL, sourceFileURL: uiSourceCode.url(), lineNumber, columnNumber};
 
       const rawLocations = await plugin.sourceLocationToRawLocation(pluginLocation);
-      if (!rawLocations || rawLocations.length === 0) {
+      if (!rawLocations) {
         return [];
       }
-
       return rawLocations.map(
           m => ({
             start: new SDK.DebuggerModel.Location(
-                debuggerModel, script.scriptId, 0, Number(m.startOffset) + (script.codeOffset() || 0)),
+                script.debuggerModel, script.scriptId, 0, Number(m.startOffset) + (script.codeOffset() || 0)),
             end: new SDK.DebuggerModel.Location(
-                debuggerModel, script.scriptId, 0, Number(m.endOffset) + (script.codeOffset() || 0))
+                script.debuggerModel, script.scriptId, 0, Number(m.endOffset) + (script.codeOffset() || 0))
           }));
     }
   }
@@ -783,148 +792,55 @@ export class DebuggerLanguagePluginManager {
   }
 
   /**
-     * @param {!SDK.Script.Script} script
-     * @return {!Promise<?RawModule>}
-     */
-  async _getRawModule(script) {
-    if (!script.sourceURL.startsWith('wasm://')) {
-      return {url: script.sourceURL, code: undefined};
-    }
-    if (script.sourceMapURL === SDK.SourceMap.WasmSourceMap.FAKE_URL) {
-      return {code: await script.getWasmBytecode(), url: script.sourceURL};
-    }
-    return null;
-  }
-
-  /**
-   * @param {string} sourceFileURL
-   * @param {!SDK.Script.Script} script
-   * @return {!Workspace.UISourceCode.UISourceCode}
-   */
-  _getOrCreateUISourceCode(sourceFileURL, script) {
-    let uiSourceCode = this._project.uiSourceCodeForURL(sourceFileURL);
-    if (uiSourceCode) {
-      return uiSourceCode;
-    }
-
-    uiSourceCode = this._project.createUISourceCode(sourceFileURL, Common.ResourceType.resourceTypes.SourceMapScript);
-    NetworkProject.setInitialFrameAttribution(uiSourceCode, script.frameId);
-    const contentProvider = new SDK.CompilerSourceMappingContentProvider.CompilerSourceMappingContentProvider(
-        sourceFileURL, Common.ResourceType.resourceTypes.SourceMapScript, script.createPageResourceLoadInitiator());
-    this._bindUISourceCode(uiSourceCode, script, sourceFileURL);
-
-    const mimeType = Common.ResourceType.ResourceType.mimeFromURL(sourceFileURL) || 'text/javascript';
-    this._project.addUISourceCodeWithProvider(uiSourceCode, contentProvider, null, mimeType);
-    return uiSourceCode;
-  }
-
-  /**
-   * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
-   * @param {!SDK.Script.Script} script
-   * @param {string} sourceFileURL
-   */
-  _bindUISourceCode(uiSourceCode, script, sourceFileURL) {
-    const entries = this._uiSourceCodes.get(uiSourceCode);
-    if (entries) {
-      entries.push({sourceFileURL, script});
-    } else {
-      this._uiSourceCodes.set(uiSourceCode, [{sourceFileURL, script}]);
-    }
-    uiSourceCodeToScriptMap.set(uiSourceCode, script);
-  }
-
-  /**
-   * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
-   * @param {!SDK.Script.Script} deletedScript
-   */
-  _unbindUISourceCode(uiSourceCode, deletedScript) {
-    uiSourceCodeToScriptMap.delete(uiSourceCode);
-    const entry = this._uiSourceCodes.get(uiSourceCode);
-    if (!entry) {
-      return;
-    }
-    const remainingEntries = entry.filter(({script}) => script !== deletedScript);
-    this._uiSourceCodes.set(uiSourceCode, remainingEntries);
-    if (remainingEntries.length === 0) {
-      this._project.removeFile(uiSourceCode.url());
-      this._uiSourceCodes.delete(uiSourceCode);
-    }
-  }
-
-  /**
    * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
    * @return {!Array<!SDK.Script.Script>}
    */
   scriptsForUISourceCode(uiSourceCode) {
-    const scripts = new Set();
-    for (const {script} of this._uiSourceCodes.get(uiSourceCode) || []) {
-      scripts.add(script);
+    for (const modelData of this._debuggerModelToData.values()) {
+      const scripts = modelData._uiSourceCodeToScripts.get(uiSourceCode);
+      if (scripts) {
+        return scripts;
+      }
     }
-    return [...scripts];
-  }
-
-  /**
-   * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
-   * @return {?SDK.Script.Script}
-   */
-  static uiSourceCodeOriginScript(uiSourceCode) {
-    return uiSourceCodeToScriptMap.get(uiSourceCode) || null;
+    return [];
   }
 
   /**
    * @param {!DebuggerLanguagePlugin} plugin
    * @param {!SDK.Script.Script} script
+   * @return {!Promise<!DebuggerLanguagePlugin>}
    */
   async _loadScript(plugin, script) {
-    const rawModule = await this._getRawModule(script);
-    if (!rawModule) {
-      return null;
-    }
+    const modelData = /** @type {!ModelData} */ (this._debuggerModelToData.get(script.debuggerModel));
+    const url = script.sourceURL;
     const symbolsUrl = (!script.debugSymbols ? script.sourceMapURL : script.debugSymbols.externalURL) || '';
+    const code = (!symbolsUrl && url.startsWith('wasm://')) ? await script.getWasmBytecode() : undefined;
     try {
-      const sourceFileURLs = await plugin.addRawModule(script.sourceURL, symbolsUrl, rawModule);
-      for (const sourceFileURL of sourceFileURLs) {
-        this._getOrCreateUISourceCode(sourceFileURL, script);
-      }
-      this._debuggerWorkspaceBinding.updateLocations(script);
+      const sourceFileURLs = await plugin.addRawModule(url, symbolsUrl, {url, code});
+      modelData._addSourceFiles(script, sourceFileURLs);
+      await this._debuggerWorkspaceBinding.updateLocations(script);
       return plugin;
     } catch (error) {
       Common.Console.Console.instance().error(ls`Error in debugger language plugin: ${error.message}`);
-      return null;
+      throw error;
     }
   }
 
   /**
    * @param {!Common.EventTarget.EventTargetEvent} event
    */
-  _newScriptSourceListener(event) {
+  _parsedScriptSource(event) {
     const script = /** @type {!SDK.Script.Script} */ (event.data);
-
-    // TODO(bmeurer): Limit ourselves to WebAssembly for now, so that we don't
-    // accidentally mess up JavaScript source mapping while we're stabilizing.
-    if (!script.isWasm() || !script.sourceURL) {
+    if (!script.sourceURL) {
       return;
     }
 
     for (const plugin of this._plugins) {
       if (plugin.handleScript(script)) {
-        this._pluginForScriptId.set(script.scriptId, this._loadScript(plugin, script));
+        this._scriptToPluginPromise.set(script, this._loadScript(plugin, script));
         return;
       }
     }
-
-    this._unhandledScripts.add(script);
-  }
-
-  dispose() {
-    this._project.dispose();
-    for (const plugin of this._plugins) {
-      if (plugin.dispose) {
-        plugin.dispose();
-      }
-    }
-    this._pluginForScriptId.clear();
-    this._uiSourceCodes.clear();
   }
 
   /**
@@ -936,7 +852,7 @@ export class DebuggerLanguagePluginManager {
       return null;
     }
     const script = callFrame.script;
-    const plugin = await this._getPluginForScript(script);
+    const plugin = await this._scriptToPluginPromise.get(script);
     if (!plugin) {
       return null;
     }
@@ -972,7 +888,7 @@ export class DebuggerLanguagePluginManager {
       return noDwarfInfo;
     }
     const script = callFrame.script;
-    const plugin = await this._getPluginForScript(script);
+    const plugin = await this._scriptToPluginPromise.get(script);
     if (!plugin) {
       return noDwarfInfo;
     }
@@ -1000,7 +916,7 @@ export class DebuggerLanguagePluginManager {
    */
   async evaluateExpression(expression, callFrame) {
     const script = callFrame.script;
-    const plugin = await this._getPluginForScript(script);
+    const plugin = await this._scriptToPluginPromise.get(script);
     if (!plugin) {
       return null;
     }
@@ -1021,7 +937,7 @@ export class DebuggerLanguagePluginManager {
     if (!script) {
       return [];
     }
-    const plugin = await this._getPluginForScript(script);
+    const plugin = await this._scriptToPluginPromise.get(script);
     if (!plugin) {
       return [];
     }
@@ -1041,9 +957,9 @@ export class DebuggerLanguagePluginManager {
       return locations.map(
           m => ({
             start: new SDK.DebuggerModel.Location(
-                this._debuggerModel, script.scriptId, 0, Number(m.startOffset) + (script.codeOffset() || 0)),
+                script.debuggerModel, script.scriptId, 0, Number(m.startOffset) + (script.codeOffset() || 0)),
             end: new SDK.DebuggerModel.Location(
-                this._debuggerModel, script.scriptId, 0, Number(m.endOffset) + (script.codeOffset() || 0))
+                script.debuggerModel, script.scriptId, 0, Number(m.endOffset) + (script.codeOffset() || 0))
           }));
     } catch (error) {
       Common.Console.Console.instance().warn(ls`Error in debugger language plugin: ${error.message}`);
@@ -1060,7 +976,7 @@ export class DebuggerLanguagePluginManager {
     if (!script) {
       return [];
     }
-    const plugin = await this._getPluginForScript(script);
+    const plugin = await this._scriptToPluginPromise.get(script);
     if (!plugin) {
       return [];
     }
@@ -1080,39 +996,69 @@ export class DebuggerLanguagePluginManager {
       return locations.map(
           m => ({
             start: new SDK.DebuggerModel.Location(
-                this._debuggerModel, script.scriptId, 0, Number(m.startOffset) + (script.codeOffset() || 0)),
+                script.debuggerModel, script.scriptId, 0, Number(m.startOffset) + (script.codeOffset() || 0)),
             end: new SDK.DebuggerModel.Location(
-                this._debuggerModel, script.scriptId, 0, Number(m.endOffset) + (script.codeOffset() || 0))
+                script.debuggerModel, script.scriptId, 0, Number(m.endOffset) + (script.codeOffset() || 0))
           }));
     } catch (error) {
       Common.Console.Console.instance().warn(ls`Error in debugger language plugin: ${error.message}`);
       return [];
     }
   }
+}
+
+/**
+ * @unrestricted
+ */
+class ModelData {
+  /**
+   * @param {!SDK.DebuggerModel.DebuggerModel} debuggerModel
+   * @param {!Workspace.Workspace.WorkspaceImpl} workspace
+   */
+  constructor(debuggerModel, workspace) {
+    this._debuggerModel = debuggerModel;
+    this._project = new ContentProviderBasedProject(
+        workspace, 'language_plugins::' + debuggerModel.target().id(), Workspace.Workspace.projectTypes.Network, '',
+        false /* isServiceProject */);
+    NetworkProject.setTargetForProject(this._project, debuggerModel.target());
+
+    /** @type {!Map<!Workspace.UISourceCode.UISourceCode, !Array<!SDK.Script.Script>>} */
+    this._uiSourceCodeToScripts = new Map();
+  }
 
   /**
+   *
    * @param {!SDK.Script.Script} script
-   * @return {!Promise<void>}
+   * @param {!Array<string>} urls
    */
-  async removeScript(script) {
-    const pluginPromise = this._pluginForScriptId.get(script.scriptId);
-    if (!pluginPromise) {
-      return;
-    }
-    this._pluginForScriptId.delete(script.scriptId);
-    const plugin = await pluginPromise;
-    if (!plugin) {
-      return;
-    }
+  _addSourceFiles(script, urls) {
+    const initiator = script.createPageResourceLoadInitiator();
+    for (const url of urls) {
+      let uiSourceCode = this._project.uiSourceCodeForURL(url);
+      if (!uiSourceCode) {
+        uiSourceCode = this._project.createUISourceCode(url, Common.ResourceType.resourceTypes.SourceMapScript);
+        NetworkProject.setInitialFrameAttribution(uiSourceCode, script.frameId);
+        const contentProvider = new SDK.CompilerSourceMappingContentProvider.CompilerSourceMappingContentProvider(
+            url, Common.ResourceType.resourceTypes.SourceMapScript, initiator);
 
-    try {
-      await plugin.removeRawModule(script.sourceURL);
-    } catch (error) {
-      Common.Console.Console.instance().error(ls`Error in debugger language plugin: ${error.message}`);
+        const mimeType = Common.ResourceType.ResourceType.mimeFromURL(url) || 'text/javascript';
+        this._project.addUISourceCodeWithProvider(uiSourceCode, contentProvider, null, mimeType);
+
+        // Bind the uiSourceCode to the script.
+        this._uiSourceCodeToScripts.set(uiSourceCode, [script]);
+      } else {
+        // The same uiSourceCode can be provided by different scripts,
+        // but we don't expect that to happen frequently.
+        const scripts = /** @type {!Array<!SDK.Script.Script>} */ (this._uiSourceCodeToScripts.get(uiSourceCode));
+        if (!scripts.includes(script)) {
+          scripts.push(script);
+        }
+      }
     }
-    for (const uiSourceCode of this._uiSourceCodes.keys()) {
-      this._unbindUISourceCode(uiSourceCode, script);
-    }
+  }
+
+  _dispose() {
+    this._project.dispose();
   }
 }
 
