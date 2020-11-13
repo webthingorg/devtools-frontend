@@ -34,6 +34,24 @@
       "parentUuid": "1e450f43_43dcf1d1",
       "revId": "d4094ddb71dfff12b7a32e3eae17cac84e85bde4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4196cd0c_014dfb86",
+        "filename": "front_end/perf_ui/OverviewGrid.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-13T22:25:08Z",
+      "side": 1,
+      "message": "Would it make sense to use the proper type instead of casting to any here?",
+      "parentUuid": "a21f8c6f_4e83a112",
+      "revId": "d4094ddb71dfff12b7a32e3eae17cac84e85bde4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
