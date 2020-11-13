@@ -33,6 +33,23 @@
       "message": "LGTM but I don\u0027t know network that well so cc Sigurd too",
       "revId": "01efb1973ccf06819a7b891e1857510847c1105a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6705ea82_3c3af5d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1296898
+      },
+      "writtenOn": "2020-11-13T22:03:08Z",
+      "side": 1,
+      "message": "Sounds reasonable, but I don\u0027t really know devtools code so don\u0027t feel I can review.",
+      "revId": "01efb1973ccf06819a7b891e1857510847c1105a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
