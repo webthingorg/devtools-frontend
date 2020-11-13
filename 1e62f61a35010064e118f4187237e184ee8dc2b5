@@ -16,6 +16,23 @@
       "message": "Simon PTAL. Not ideal to dump all these in here when the rest of the test file has a different style but I don\u0027t want to spend more time than we need to to keep the same coverage",
       "revId": "1e62f61a35010064e118f4187237e184ee8dc2b5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e25a09f_d94ebcea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-13T06:25:49Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "1e62f61a35010064e118f4187237e184ee8dc2b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
