@@ -297,6 +297,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1405aee_06a17823",
+        "filename": "front_end/linear_memory_inspector/ValueInterpreterDisplay.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-13T14:59:29Z",
+      "side": 1,
+      "message": "Ah good spot. I don\u0027t mind if we use a \u003ctable\u003e or a CSS grid - it depends on if we think semantically that the data is tabular or not. I\u0027ll defer to Kim on that one. Thanks!",
+      "parentUuid": "30c5188a_fa1faa9c",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 104
+      },
+      "revId": "ee352ca823e1e9c740a36f98cb68bda6ea7e24bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dc773c2e_2e5f2c27",
