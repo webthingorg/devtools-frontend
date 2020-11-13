@@ -47,6 +47,10 @@ export class DebuggerWorkspaceBinding {
 
     /** @type {!Set.<!Promise<?>>} */
     this._liveLocationPromises = new Set();
+
+    this.pluginManager = Root.Runtime.experiments.isEnabled('wasmDWARFDebugging') ?
+        new DebuggerLanguagePluginManager(targetManager, workspace, this) :
+        null;
   }
 
   /**
@@ -91,18 +95,6 @@ export class DebuggerWorkspaceBinding {
       modelData._dispose();
       this._debuggerModelToData.delete(debuggerModel);
     }
-  }
-
-  /**
-   * @param {!SDK.DebuggerModel.DebuggerModel} debuggerModel
-   * @return {?DebuggerLanguagePluginManager}
-   */
-  getLanguagePluginManager(debuggerModel) {
-    const modelData = this._debuggerModelToData.get(debuggerModel);
-    if (!modelData) {
-      return null;
-    }
-    return modelData.pluginManager;
   }
 
   /**
@@ -204,6 +196,12 @@ export class DebuggerWorkspaceBinding {
         return uiLocation;
       }
     }
+    if (this.pluginManager) {
+      const uiLocation = await this.pluginManager.rawLocationToUILocation(rawLocation);
+      if (uiLocation) {
+        return uiLocation;
+      }
+    }
     const modelData = this._debuggerModelToData.get(rawLocation.debuggerModel);
     return modelData ? modelData._rawLocationToUILocation(rawLocation) : null;
   }
@@ -234,12 +232,17 @@ export class DebuggerWorkspaceBinding {
         return locations;
       }
     }
-
-    const locationsPromises = [];
-    for (const modelData of this._debuggerModelToData.values()) {
-      locationsPromises.push(modelData._uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber));
+    if (this.pluginManager) {
+      const locations = await this.pluginManager.uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber);
+      if (locations) {
+        return locations;
+      }
     }
-    return (await Promise.all(locationsPromises)).flat();
+    const locations = [];
+    for (const modelData of this._debuggerModelToData.values()) {
+      locations.push(...modelData._uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber));
+    }
+    return locations;
   }
 
   /**
@@ -252,7 +255,7 @@ export class DebuggerWorkspaceBinding {
     console.assert(uiSourceCode.contentType().isScript());
     const locations = [];
     for (const modelData of this._debuggerModelToData.values()) {
-      locations.push(...modelData._uiLocationToRawLocationsExcludeAsync(uiSourceCode, lineNumber, columnNumber));
+      locations.push(...modelData._uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber));
     }
     return locations;
   }
@@ -289,10 +292,10 @@ export class DebuggerWorkspaceBinding {
    */
   scriptsForUISourceCode(uiSourceCode) {
     const scripts = new Set();
+    if (this.pluginManager) {
+      this.pluginManager.scriptsForUISourceCode(uiSourceCode).forEach(script => scripts.add(script));
+    }
     for (const modelData of this._debuggerModelToData.values()) {
-      if (modelData._pluginManager) {
-        modelData._pluginManager.scriptsForUISourceCode(uiSourceCode).forEach(script => scripts.add(script));
-      }
       const resourceScriptFile = modelData._resourceMapping.scriptFile(uiSourceCode);
       if (resourceScriptFile && resourceScriptFile._script) {
         scripts.add(resourceScriptFile._script);
@@ -395,12 +398,6 @@ class ModelData {
     this.callFrameLocations = new Set();
 
     const workspace = debuggerWorkspaceBinding._workspace;
-
-    if (Root.Runtime.experiments.isEnabled('wasmDWARFDebugging')) {
-      this._pluginManager = new DebuggerLanguagePluginManager(debuggerModel, workspace, debuggerWorkspaceBinding);
-    }
-
-
     this._defaultMapping = new DefaultScriptMapping(debuggerModel, workspace, debuggerWorkspaceBinding);
     this._resourceMapping = new ResourceScriptMapping(debuggerModel, workspace, debuggerWorkspaceBinding);
     this._compilerMapping = new CompilerScriptMapping(debuggerModel, workspace, debuggerWorkspaceBinding);
@@ -409,13 +406,6 @@ class ModelData {
     this._locations = new Platform.Multimap();
 
     debuggerModel.setBeforePausedCallback(this._beforePaused.bind(this));
-  }
-
-  /**
-   * return {?DebuggerLanguagePluginManager}
-   */
-  get pluginManager() {
-    return this._pluginManager || null;
   }
 
   /**
@@ -456,11 +446,7 @@ class ModelData {
    * @return {!Promise<?Workspace.UISourceCode.UILocation>}
    */
   async _rawLocationToUILocation(rawLocation) {
-    let uiLocation = null;
-    if (this._pluginManager) {
-      uiLocation = await this._pluginManager.rawLocationToUILocation(rawLocation);
-    }
-    uiLocation = uiLocation || this._compilerMapping.rawLocationToUILocation(rawLocation);
+    let uiLocation = this._compilerMapping.rawLocationToUILocation(rawLocation);
     uiLocation = uiLocation || this._resourceMapping.rawLocationToUILocation(rawLocation);
     uiLocation = uiLocation || ResourceMapping.instance().jsLocationToUILocation(rawLocation);
     uiLocation = uiLocation || this._defaultMapping.rawLocationToUILocation(rawLocation);
@@ -471,24 +457,9 @@ class ModelData {
    * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
    * @param {number} lineNumber
    * @param {number} columnNumber
-   * @return {!Promise<!Array<!SDK.DebuggerModel.Location>>}
-   */
-  async _uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber) {
-    let rawLocations = null;
-    if (this._pluginManager) {
-      rawLocations = await this._pluginManager.uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber);
-    }
-    rawLocations = rawLocations || this._uiLocationToRawLocationsExcludeAsync(uiSourceCode, lineNumber, columnNumber);
-    return rawLocations;
-  }
-
-  /**
-   * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
-   * @param {number} lineNumber
-   * @param {number} columnNumber
    * @return {!Array<!SDK.DebuggerModel.Location>}
    */
-  _uiLocationToRawLocationsExcludeAsync(uiSourceCode, lineNumber, columnNumber) {
+  _uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber) {
     let locations = this._compilerMapping.uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber);
     locations = locations.length ?
         locations :
