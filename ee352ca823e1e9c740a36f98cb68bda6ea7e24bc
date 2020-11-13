@@ -177,6 +177,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "12c21859_34d5a6f7",
+        "filename": "front_end/linear_memory_inspector/ValueInterpreterDisplay.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-13T10:33:08Z",
+      "side": 1,
+      "message": "I don\u0027t have lots of experience here, thanks for the comment! I changed it to the table layout in the last patchset.",
+      "parentUuid": "aef73ffd_548a4ace",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 104
+      },
+      "revId": "ee352ca823e1e9c740a36f98cb68bda6ea7e24bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dc773c2e_2e5f2c27",
