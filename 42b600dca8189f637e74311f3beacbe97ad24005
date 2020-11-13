@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64bbe25a_83a41956",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-13T07:54:48Z",
+      "side": 1,
+      "message": "Thanks for the review Alex, and the help with the CSS alignment!",
+      "revId": "42b600dca8189f637e74311f3beacbe97ad24005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

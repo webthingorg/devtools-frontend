@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9717eb18_40ee8f12",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-13T07:54:48Z",
+      "side": 1,
+      "message": "I agree, I haven\u0027t spent time in accessibility so far and this definitely has to be included. I\u0027ll make it accessible as soon as all features and the CSS issues are fixed.",
+      "parentUuid": "ee601fcb_52d8966b",
+      "revId": "6f88796ac4b693a9e63460b7837a2dbb2100dce2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2be5e6f0_76442856",
@@ -48,6 +66,24 @@
       "writtenOn": "2020-11-13T07:07:29Z",
       "side": 1,
       "message": "Do we need to give this button some ARIA label (I think title attribute would do) to make it accessible?",
+      "revId": "6f88796ac4b693a9e63460b7837a2dbb2100dce2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b33021bb_11d6633d",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryValueInterpreter.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-13T07:54:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2be5e6f0_76442856",
       "revId": "6f88796ac4b693a9e63460b7837a2dbb2100dce2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
