@@ -16,6 +16,69 @@
       "message": "LGTM",
       "revId": "cddce331589cbf7339ed522c6cfed501a53a1c8b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d72b16e1_30d871c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-11-13T16:22:31Z",
+      "side": 1,
+      "message": "lgtm. Couple small nits",
+      "revId": "cddce331589cbf7339ed522c6cfed501a53a1c8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8aa6fbd3_c1c78751",
+        "filename": "inspector_overlay/highlight_flex_common.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-11-13T16:22:31Z",
+      "side": 1,
+      "message": "nit: contain",
+      "range": {
+        "startLine": 190,
+        "startChar": 29,
+        "endLine": 190,
+        "endChar": 37
+      },
+      "revId": "cddce331589cbf7339ed522c6cfed501a53a1c8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "387889b8_fb84681e",
+        "filename": "inspector_overlay/highlight_flex_common.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-11-13T16:22:31Z",
+      "side": 1,
+      "message": "nit: In the future, I can see these helpers possibly being beneficial to other highlight overlays? maybe not. I\u0027m fine leaving here for now, but we might consider moving these helpers to a common file in the future.",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 1
+      },
+      "revId": "cddce331589cbf7339ed522c6cfed501a53a1c8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
