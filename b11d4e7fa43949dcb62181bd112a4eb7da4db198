@@ -16,6 +16,23 @@
       "message": "@Tim PTAL \n\n@Kim please could you look at the change to LinearMemoryInspector? I updated the event name but I couldn\u0027t find any event listeners for it. Just wanted to ping you in case I\u0027ve missed something.\n\nThanks!",
       "revId": "b11d4e7fa43949dcb62181bd112a4eb7da4db198",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52e207d3_24996e27",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-13T10:36:21Z",
+      "side": 1,
+      "message": "LGTM!\n\n(Sorry that I missed this case in the last CL!)\n\nThe use comes as soon as the blocked CL is landed :)! So that should be fine.",
+      "revId": "b11d4e7fa43949dcb62181bd112a4eb7da4db198",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
