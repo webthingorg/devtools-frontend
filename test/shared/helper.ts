@@ -317,7 +317,7 @@ export const goToResource = async (path: string) => {
 };
 
 export const getResourcesPath = () => {
-  return `http://localhost:${getHostedModeServerPort()}/test/e2e/resources`;
+  return `https://localhost:${getHostedModeServerPort()}/test/e2e/resources`;
 };
 
 export const step = async (description: string, step: Function) => {
