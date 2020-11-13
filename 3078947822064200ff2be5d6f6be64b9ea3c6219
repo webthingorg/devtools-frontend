@@ -16,6 +16,23 @@
       "message": "Tim PTAL. This CL does a lot now",
       "revId": "3078947822064200ff2be5d6f6be64b9ea3c6219",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c59001b_6f54847f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-13T12:09:39Z",
+      "side": 1,
+      "message": "Verified that the parallel runners are working as expect on both my resource constrained MacBook as well as the resourceful Linux workstation. On my Linux workstation, I could even run it with `--jobs\u003d32`, but there was little benefit over running with `--jobs\u003d16` (51s vs 56s). It seems like some value between 8 and 16 is currently ideal, given that at that point the time is dominated by 1 slow test.\n\nNote that on my MacBook I am seeing beforeEach hook timeouts, presumably because it was too slow in preparing the e2e-test application. However, I don\u0027t think that is an issue for this feature, as the parallel testrunner is useful for beefy workstations. Therefore, let\u0027s land this!",
+      "revId": "3078947822064200ff2be5d6f6be64b9ea3c6219",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
