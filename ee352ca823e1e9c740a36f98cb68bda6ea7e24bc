@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a311ba86_38c6722b",
+        "filename": "front_end/component_docs/linear_memory_inspector/basic.html",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-13T06:18:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9739e40_3c42af55",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 38
+      },
+      "revId": "ee352ca823e1e9c740a36f98cb68bda6ea7e24bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9e120fa0_ec8cbcbd",
@@ -83,6 +107,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4e5157aa_2faf4e68",
+        "filename": "front_end/linear_memory_inspector/ValueInterpreterDisplay.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-13T06:18:52Z",
+      "side": 1,
+      "message": "In the case where we have a type that can have signed notation (e.g. Int8) we have two fields, one for the signed and unsigned value. If we have a type that does not differentiate (e.g. Boolean) we only need to show one field. But in order to get the grid right (i.e. one line per type) I have added an empty span here. Maybe there\u0027s a better way to do it?",
+      "parentUuid": "9e120fa0_ec8cbcbd",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 104
+      },
+      "revId": "ee352ca823e1e9c740a36f98cb68bda6ea7e24bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dc773c2e_2e5f2c27",
         "filename": "front_end/linear_memory_inspector/ValueInterpreterSettings.ts",
         "patchSetId": 5
@@ -94,6 +142,30 @@
       "writtenOn": "2020-11-12T14:56:33Z",
       "side": 1,
       "message": "I think rather than this, we\u0027re probably OK (in the onTypeToggle) doing:\n\n```\nonTypeToggle(type: ValueType, event: Event) {\n  const checkbox \u003d event.target as HTMLIinputElement;\n  this.dispatchEvent(new TypeToggleEvent(type, checkbox.checked)\n}\n```\n\nNo solution here is perfect though. WDYT?",
+      "range": {
+        "startLine": 121,
+        "startChar": 105,
+        "endLine": 121,
+        "endChar": 126
+      },
+      "revId": "ee352ca823e1e9c740a36f98cb68bda6ea7e24bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f00c630e_cd375805",
+        "filename": "front_end/linear_memory_inspector/ValueInterpreterSettings.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-13T06:18:52Z",
+      "side": 1,
+      "message": "SG, done!",
+      "parentUuid": "dc773c2e_2e5f2c27",
       "range": {
         "startLine": 121,
         "startChar": 105,
