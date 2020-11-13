@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f30135a_3020f8cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-13T14:02:02Z",
+      "side": 1,
+      "message": "You\u0027ll also need to update all the examples in the component_docs/data_grid and component_docs/data_grid_controller folders, and then this LGTM. Thanks!",
+      "revId": "329accc1632b30a1688a64c80e22825ae05cf0fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
