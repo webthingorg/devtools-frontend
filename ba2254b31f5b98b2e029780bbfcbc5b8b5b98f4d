@@ -52,6 +52,42 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc710196_3b998e11",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 51
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-13T00:39:30Z",
+      "side": 1,
+      "message": "At our current phase, the goal is to create a proof of concept to validate that end users want to have a font editor in this space. We want to ensure that the tool and the core components of the UI are needed before investing time to convert the UI into \u003ctype\u003e components.\n\nThat being said, I agree that the logical end goal would be to implement this UI as \u003ctype\u003e components and that it would likely be a core change if and when we do the v1 release of the tool.  Let me know if there are any major qualms to this approach - I\u0027m happy to continue this discussion.",
+      "parentUuid": "7c3693c6_4e8fae77",
+      "revId": "ba2254b31f5b98b2e029780bbfcbc5b8b5b98f4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a5b5842_f9691749",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 51
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-13T00:39:30Z",
+      "side": 1,
+      "message": "Let\u0027s centralize this discussion in Mathias\u0027 comment above.",
+      "parentUuid": "da274203_b48bd816",
+      "revId": "ba2254b31f5b98b2e029780bbfcbc5b8b5b98f4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "587ff274_7cc714b9",
@@ -65,6 +101,30 @@
       "writtenOn": "2020-11-12T10:55:31Z",
       "side": 1,
       "message": "2020",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "ba2254b31f5b98b2e029780bbfcbc5b8b5b98f4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a449590_78f25885",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 51
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-13T00:39:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "587ff274_7cc714b9",
       "range": {
         "startLine": 1,
         "startChar": 13,
@@ -92,6 +152,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5aff9d0_340e9f0c",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 51
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-13T00:39:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "785f1c30_663e2b37",
+      "revId": "ba2254b31f5b98b2e029780bbfcbc5b8b5b98f4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "57f836d2_8e36f317",
@@ -105,6 +183,30 @@
       "writtenOn": "2020-11-12T10:55:31Z",
       "side": 1,
       "message": "Please turn this into a `FIXME(crbug.com/XXX): ...` comment",
+      "range": {
+        "startLine": 76,
+        "startChar": 9,
+        "endLine": 76,
+        "endChar": 22
+      },
+      "revId": "ba2254b31f5b98b2e029780bbfcbc5b8b5b98f4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99236281_5bf9026f",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 51
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-13T00:39:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57f836d2_8e36f317",
       "range": {
         "startLine": 76,
         "startChar": 9,
@@ -138,6 +240,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "df2bca7e_77e6f51c",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 51
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-13T00:39:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19a82df1_f3737925",
+      "range": {
+        "startLine": 119,
+        "startChar": 9,
+        "endLine": 119,
+        "endChar": 53
+      },
+      "revId": "ba2254b31f5b98b2e029780bbfcbc5b8b5b98f4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bc57e271_cd04dedd",
@@ -151,6 +277,24 @@
       "writtenOn": "2020-11-12T10:55:31Z",
       "side": 1,
       "message": "Use String.prototype.includes",
+      "revId": "ba2254b31f5b98b2e029780bbfcbc5b8b5b98f4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "135251f5_7bbe95ad",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 51
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-13T00:39:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc57e271_cd04dedd",
       "revId": "ba2254b31f5b98b2e029780bbfcbc5b8b5b98f4d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -172,6 +316,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "86e71d0b_42b102b2",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 51
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-13T00:39:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3360f90_0b4b0176",
+      "revId": "ba2254b31f5b98b2e029780bbfcbc5b8b5b98f4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a395753a_422f7f28",
@@ -185,6 +347,30 @@
       "writtenOn": "2020-11-12T10:55:31Z",
       "side": 1,
       "message": "Since you use this repeatedly, let\u0027s do `const first \u003d value.charAt(0)` and re-use that",
+      "range": {
+        "startLine": 144,
+        "startChar": 8,
+        "endLine": 144,
+        "endChar": 23
+      },
+      "revId": "ba2254b31f5b98b2e029780bbfcbc5b8b5b98f4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d14041e_506b363a",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 51
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-13T00:39:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a395753a_422f7f28",
       "range": {
         "startLine": 144,
         "startChar": 8,
@@ -218,6 +404,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7215afa1_c30f7271",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 51
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-13T00:39:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7baac3db_2ccca60c",
+      "range": {
+        "startLine": 145,
+        "startChar": 29,
+        "endLine": 145,
+        "endChar": 31
+      },
+      "revId": "ba2254b31f5b98b2e029780bbfcbc5b8b5b98f4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1835101_0ae4d7f4",
@@ -231,6 +441,30 @@
       "writtenOn": "2020-11-12T10:55:31Z",
       "side": 1,
       "message": "remove the redundant backslash",
+      "range": {
+        "startLine": 147,
+        "startChar": 29,
+        "endLine": 147,
+        "endChar": 31
+      },
+      "revId": "ba2254b31f5b98b2e029780bbfcbc5b8b5b98f4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b9fde50_1e323975",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 51
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-13T00:39:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1835101_0ae4d7f4",
       "range": {
         "startLine": 147,
         "startChar": 29,
@@ -260,6 +494,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ef552fbd_6bc3682e",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 51
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-13T00:39:30Z",
+      "side": 1,
+      "message": "_deleteFontSelectors works on an index system, so we have to use i in the current set up.",
+      "parentUuid": "457addf6_6e44ffb5",
+      "revId": "ba2254b31f5b98b2e029780bbfcbc5b8b5b98f4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f1eb5af9_ec7d9746",
         "filename": "front_end/inline_editor/FontEditor.js",
         "patchSetId": 51
@@ -271,6 +523,24 @@
       "writtenOn": "2020-11-12T10:55:31Z",
       "side": 1,
       "message": "Can we use for-of?",
+      "revId": "ba2254b31f5b98b2e029780bbfcbc5b8b5b98f4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9296ce8a_eff84597",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 51
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-13T00:39:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1eb5af9_ec7d9746",
       "revId": "ba2254b31f5b98b2e029780bbfcbc5b8b5b98f4d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -298,6 +568,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a4b4018_06b733aa",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 51
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-13T00:39:30Z",
+      "side": 1,
+      "message": "Changed to Set",
+      "parentUuid": "ee6c04c3_a756354f",
+      "range": {
+        "startLine": 384,
+        "startChar": 24,
+        "endLine": 384,
+        "endChar": 90
+      },
+      "revId": "ba2254b31f5b98b2e029780bbfcbc5b8b5b98f4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d2e43cea_0f2f19f5",
@@ -311,6 +605,24 @@
       "writtenOn": "2020-11-12T10:55:31Z",
       "side": 1,
       "message": "Should keyValuesArray be a Set instead? (checking for presence would become O(1) instead of O(n))",
+      "revId": "ba2254b31f5b98b2e029780bbfcbc5b8b5b98f4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ec38887_875619e1",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 51
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-13T00:39:30Z",
+      "side": 1,
+      "message": "Changed to Set",
+      "parentUuid": "d2e43cea_0f2f19f5",
       "revId": "ba2254b31f5b98b2e029780bbfcbc5b8b5b98f4d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -334,6 +646,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b4c250fa_943ddd68",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 51
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-13T00:39:30Z",
+      "side": 1,
+      "message": "As it is currently set up, createSVGChild return with type Element which does not have height/width properties.  Technically, it should be of type SVGSVGElement, but even then SVGSVGElement.height and SVGSVGElement.width are both read only properties.\n\nFrom what I can tell, this is the only way to set the SVG element width and height in JavaScript.\n\nIf we do find a better solution for this, we should also change it here as well:\nhttps://source.chromium.org/chromium/chromium/src/+/master:out/win-Debug/gen/third_party/devtools-frontend/src/front_end/color_picker/Spectrum.js;l\u003d82?q\u003dappendSwitcherIcon\u0026ss\u003dchromium",
+      "parentUuid": "8fd08a56_8a23c70d",
+      "revId": "ba2254b31f5b98b2e029780bbfcbc5b8b5b98f4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ec5b7d14_81ed7e75",
         "filename": "front_end/inline_editor/FontEditorUnitConverter.js",
         "patchSetId": 51
@@ -345,6 +675,24 @@
       "writtenOn": "2020-11-12T10:55:31Z",
       "side": 1,
       "message": "Why do all these `*multiplier`s return strings? IIUC their return values are potentially being used later as:\n\n    prevUnitMultiplier / newUnitMultiplier\n\n…which forces number conversion anyway. Can we return numbers directly?",
+      "revId": "ba2254b31f5b98b2e029780bbfcbc5b8b5b98f4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6616275a_ff868a59",
+        "filename": "front_end/inline_editor/FontEditorUnitConverter.js",
+        "patchSetId": 51
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-13T00:39:30Z",
+      "side": 1,
+      "message": "I think this was due to a previous iteration of the unit converter where I used strings.  Definitely makes more sense returning numbers now.  Fixed.",
+      "parentUuid": "ec5b7d14_81ed7e75",
       "revId": "ba2254b31f5b98b2e029780bbfcbc5b8b5b98f4d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -362,6 +710,30 @@
       "writtenOn": "2020-11-12T10:55:31Z",
       "side": 1,
       "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 13,
+        "endLine": 2,
+        "endChar": 17
+      },
+      "revId": "ba2254b31f5b98b2e029780bbfcbc5b8b5b98f4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3ded982_a564dc07",
+        "filename": "front_end/inline_editor/fontEditor.css",
+        "patchSetId": 51
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-13T00:39:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "babb48ac_02ebeb1c",
       "range": {
         "startLine": 2,
         "startChar": 13,
@@ -397,6 +769,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3a663d25_d4cc0bbb",
+        "filename": "front_end/inline_editor/fontEditor.css",
+        "patchSetId": 51
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-13T00:39:30Z",
+      "side": 1,
+      "message": "I took the sliders from the box shadow swatch editor, so the CSS matches the ones in cssShadowEditor.css\n\nOpen to changing it, but for consistency\u0027s sake we should keep them the same.\n\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/inline_editor/cssShadowEditor.css;l\u003d38?q\u003dfile:%20cssShadowEditor.css\u0026ss\u003dchromium",
+      "parentUuid": "c1663682_a99393a2",
+      "range": {
+        "startLine": 105,
+        "startChar": 32,
+        "endLine": 105,
+        "endChar": 50
+      },
+      "revId": "ba2254b31f5b98b2e029780bbfcbc5b8b5b98f4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "98ad390b_22c784fa",
         "filename": "front_end/ui/UIUtils.js",
         "patchSetId": 51
@@ -408,6 +804,30 @@
       "writtenOn": "2020-11-12T10:55:31Z",
       "side": 1,
       "message": "entries is the default map iterator, so we can remove this",
+      "range": {
+        "startLine": 1303,
+        "startChar": 39,
+        "endLine": 1303,
+        "endChar": 49
+      },
+      "revId": "ba2254b31f5b98b2e029780bbfcbc5b8b5b98f4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51bb3929_1f5072e7",
+        "filename": "front_end/ui/UIUtils.js",
+        "patchSetId": 51
+      },
+      "lineNbr": 1303,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-13T00:39:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98ad390b_22c784fa",
       "range": {
         "startLine": 1303,
         "startChar": 39,
