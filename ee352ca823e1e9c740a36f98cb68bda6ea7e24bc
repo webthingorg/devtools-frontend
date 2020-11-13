@@ -155,6 +155,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aef73ffd_548a4ace",
+        "filename": "front_end/linear_memory_inspector/ValueInterpreterDisplay.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-13T09:39:13Z",
+      "side": 1,
+      "message": "Ah OK. Do you think it\u0027s worth using a CSS table for this if what we\u0027re rendering is more tabular?\n\nIf not, happy to leave this be - I\u0027ll leave it up to you as you\u0027re closer to the data. If it does feel like it should be in a table that might be best, but if not this is good to go. Thanks!",
+      "parentUuid": "4e5157aa_2faf4e68",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 104
+      },
+      "revId": "ee352ca823e1e9c740a36f98cb68bda6ea7e24bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dc773c2e_2e5f2c27",
         "filename": "front_end/linear_memory_inspector/ValueInterpreterSettings.ts",
         "patchSetId": 5
