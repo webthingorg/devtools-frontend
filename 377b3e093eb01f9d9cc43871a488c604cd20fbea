@@ -109,6 +109,30 @@
       },
       "revId": "377b3e093eb01f9d9cc43871a488c604cd20fbea",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc773952_b23f1947",
+        "filename": "front_end/ui/UIUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-11-13T16:34:21Z",
+      "side": 1,
+      "message": "SGTM",
+      "parentUuid": "09daaabe_3e177f45",
+      "range": {
+        "startLine": 359,
+        "startChar": 6,
+        "endLine": 359,
+        "endChar": 25
+      },
+      "revId": "377b3e093eb01f9d9cc43871a488c604cd20fbea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
