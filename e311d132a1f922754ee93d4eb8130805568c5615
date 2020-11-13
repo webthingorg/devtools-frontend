@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab09da40_3a67439d",
+        "filename": "front_end/linear_memory_inspector/ValueInterpreterDisplay.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-13T14:20:50Z",
+      "side": 1,
+      "message": "should it be passed through ls`` helper for localization?",
+      "revId": "e311d132a1f922754ee93d4eb8130805568c5615",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
