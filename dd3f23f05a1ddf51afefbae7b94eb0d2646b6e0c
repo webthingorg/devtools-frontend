@@ -16,6 +16,40 @@
       "message": "Thanks for the review Mathias.  Responded to the comments.  PTAL.",
       "revId": "dd3f23f05a1ddf51afefbae7b94eb0d2646b6e0c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4acb74c_701a9296",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 52
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-13T07:39:52Z",
+      "side": 1,
+      "message": "In general, LGTM. A few questions:\n\n1) the behavior on scrolling is a bit strange. Do we want to hide the editor on scroll like other popovers?\n\n2) Does it compile with closure? ``\u001bnpm run check-type-closure` gives plenty of errors so it won\u0027t pass bots.\n\nAs others suggested, it\u0027d be nice if it was written in TS with lit-html and had some tests.",
+      "revId": "dd3f23f05a1ddf51afefbae7b94eb0d2646b6e0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3597cc63_14e4cfb2",
+        "filename": "front_end/elements/ColorSwatchPopoverIcon.js",
+        "patchSetId": 52
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-13T07:39:52Z",
+      "side": 1,
+      "message": "Does it have to be @unrestricted? (here and in other places)",
+      "revId": "dd3f23f05a1ddf51afefbae7b94eb0d2646b6e0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
