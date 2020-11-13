@@ -2521,6 +2521,12 @@ domain DOMDebugger
       attribute-modified
       node-removed
 
+  # CSP Violation type.
+  experimental type CSPViolationType extends string
+    enum
+      trustedtype-sink-violation
+      trustedtype-policy-violation
+
   # Object event listener.
   type EventListener extends object
     properties
@@ -2587,6 +2593,12 @@ domain DOMDebugger
     parameters
       # Resource URL substring.
       string url
+
+  # Sets breakpoint on particular CSP violations.
+  experimental command setBreakOnCSPViolation
+    parameters
+      # CSP Violations to stop upon.
+      array of CSPViolationType violationTypes
 
   # Sets breakpoint on particular operation with DOM.
   command setDOMBreakpoint
