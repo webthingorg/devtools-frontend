@@ -16,6 +16,23 @@
       "message": "This is for bug fix only on the frontend without CDP change.",
       "revId": "01efb1973ccf06819a7b891e1857510847c1105a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85bce1fd_a21af78d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-11-13T15:05:42Z",
+      "side": 1,
+      "message": "LGTM but I don\u0027t know network that well so cc Sigurd too",
+      "revId": "01efb1973ccf06819a7b891e1857510847c1105a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
