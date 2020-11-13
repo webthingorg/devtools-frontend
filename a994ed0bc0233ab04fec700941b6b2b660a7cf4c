@@ -46,6 +46,30 @@
       },
       "revId": "a994ed0bc0233ab04fec700941b6b2b660a7cf4c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26362969_88a4d0ac",
+        "filename": "inspector_overlay/highlight_flex_common.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-13T09:39:13Z",
+      "side": 1,
+      "message": "Yes correct. The backend has no notion of flex lines after layout is done. The information is not kept around.\nSo on the backend we have some logic to discover when items start wrapping on subsequent lines.\nIn the end, we send the paths for all flex items, but grouped by flex lines as you said.\n\nOn the frontend, we go through all items on a line, and gradually create a quad that includes them all (to make sure flex lines are always as big as necessary to contain all their items), and then extend these quads to make sure they go to the edges of the flex container along the main direction.",
+      "parentUuid": "d4264c72_4ee9c34c",
+      "range": {
+        "startLine": 29,
+        "startChar": 16,
+        "endLine": 29,
+        "endChar": 96
+      },
+      "revId": "a994ed0bc0233ab04fec700941b6b2b660a7cf4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
