@@ -4,12 +4,6 @@
 
 import * as Platform from '../platform/platform.js';
 
-// @ts-nocheck
-// TODO(crbug.com/1011811): Enable TypeScript compiler checks
-
-/**
- * @suppressGlobalPropertiesCheck
- */
 function toolboxLoaded() {
   if (!window.opener) {
     return;
