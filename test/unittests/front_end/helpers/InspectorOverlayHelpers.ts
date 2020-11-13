@@ -5,8 +5,12 @@
 const {assert} = chai;
 
 import {renderElementIntoDOM, assertElements, assertElement} from './DOMHelpers.js';
+
+// @ts-ignore TypeScript doesn't know about the inspector_overlay folder.
 import {_normalizePositionData, drawGridAreaNames, drawGridLineNumbers, drawGridLineNames, CanvasSize, GridPositionNormalizedDataWithNames, NormalizePositionDataConfig} from '../../../../inspector_overlay/css_grid_label_helpers.js';
+// @ts-ignore TypeScript doesn't know about the inspector_overlay folder.
 import {AreaBounds, Bounds} from '../../../../inspector_overlay/common.js';
+// @ts-ignore TypeScript doesn't know about the inspector_overlay folder.
 import {gridStyle} from '../../../../inspector_overlay/highlight_grid_common.js';
 
 const GRID_LABEL_CONTAINER_ID = 'grid-label-container';
