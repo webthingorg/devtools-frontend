@@ -3,11 +3,53 @@
 // found in the LICENSE file.
 
 import * as Common from '../common/common.js';
+import * as i18n from '../i18n/i18n.js';
 import * as UI from '../ui/ui.js';
 
 import {DeviceModeModel, MaxDeviceNameLength, UA} from './DeviceModeModel.js';
 import {Capability, EmulatedDevice, EmulatedDevicesList, Events, Horizontal, Vertical,} from './EmulatedDevices.js';
 
+export const UIStrings = {
+  /**
+  *@description Text of a DOM element in Devices Settings Tab of the Device Toolbar
+  */
+  emulatedDevices: 'Emulated Devices',
+  /**
+  *@description Add custom button in Devices Settings Tab of the Device Toolbar
+  */
+  addCustomDevice: 'Add custom device...',
+  /**
+  *@description Label in the Devices settings pane for the device name input of a custom device
+  */
+  deviceName: 'Device Name',
+  /**
+  *@description Width input title in Device Mode Toolbar of the Device Toolbar
+  */
+  width: 'Width',
+  /**
+  *@description Label in the Devices settings pane for the height input of a custom device
+  */
+  height: 'Height',
+  /**
+  *@description Title of device scale item in device mode toolbar of the device toolbar
+  */
+  devicePixelRatio: 'Device pixel ratio',
+  /**
+  *@description Label in the Devices settings pane for the user agent type input of a custom device
+  */
+  userAgentType: 'User agent type',
+  /**
+  *@description Error message in the Devices settings pane that declares the maximum length of the device name input
+  *@example {50} PH1
+  */
+  deviceNameMustBeLessThanS: 'Device name must be less than {PH1} characters.',
+  /**
+  *@description Error message in the Devices settings pane that declares that the device name input must not be empty
+  */
+  deviceNameCannotBeEmpty: 'Device name cannot be empty.',
+};
+const str_ = i18n.i18n.registerUIStrings('emulation/DevicesSettingsTab.js', UIStrings);
+const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 /**
  * @implements {UI.ListWidget.Delegate<!EmulatedDevice>}
  * @unrestricted
@@ -20,13 +62,13 @@ export class DevicesSettingsTab extends UI.Widget.VBox {
     this.registerRequiredCSS('emulation/devicesSettingsTab.css', {enableLegacyPatching: true});
 
     const header = this.element.createChild('header');
-    UI.UIUtils.createTextChild(header.createChild('h1'), ls`Emulated Devices`);
+    UI.UIUtils.createTextChild(header.createChild('h1'), i18nString(UIStrings.emulatedDevices));
     this.containerElement = this.element.createChild('div', 'settings-container-wrapper')
                                 .createChild('div', 'settings-tab settings-content settings-container');
 
     const buttonsRow = this.containerElement.createChild('div', 'devices-button-row');
     this._addCustomButton =
-        UI.UIUtils.createTextButton(Common.UIString.UIString('Add custom device...'), this._addCustomDevice.bind(this));
+        UI.UIUtils.createTextButton(i18nString(UIStrings.addCustomDevice), this._addCustomDevice.bind(this));
     buttonsRow.appendChild(this._addCustomButton);
 
     this._list = new UI.ListWidget.ListWidget(this, false /* delegatesFocus */);
@@ -208,21 +250,22 @@ export class DevicesSettingsTab extends UI.Widget.VBox {
     const content = editor.contentElement();
 
     const fields = content.createChild('div', 'devices-edit-fields');
-    fields.createChild('div', 'hbox').appendChild(editor.createInput('title', 'text', ls`Device Name`, titleValidator));
+    fields.createChild('div', 'hbox')
+        .appendChild(editor.createInput('title', 'text', i18nString(UIStrings.deviceName), titleValidator));
     const screen = fields.createChild('div', 'hbox');
-    screen.appendChild(editor.createInput('width', 'text', ls`Width`, widthValidator));
-    screen.appendChild(editor.createInput('height', 'text', ls`Height`, heightValidator));
-    const dpr = editor.createInput('scale', 'text', ls`Device pixel ratio`, scaleValidator);
+    screen.appendChild(editor.createInput('width', 'text', i18nString(UIStrings.width), widthValidator));
+    screen.appendChild(editor.createInput('height', 'text', i18nString(UIStrings.height), heightValidator));
+    const dpr = editor.createInput('scale', 'text', i18nString(UIStrings.devicePixelRatio), scaleValidator);
     dpr.classList.add('device-edit-fixed');
     screen.appendChild(dpr);
     const ua = fields.createChild('div', 'hbox');
-    ua.appendChild(editor.createInput('user-agent', 'text', ls`User agent string`, () => {
+    ua.appendChild(editor.createInput('user-agent', 'text', i18nString(UIStrings.userAgentType), () => {
       return {valid: true, errorMessage: undefined};
     }));
     const uaTypeOptions = [UA.Mobile, UA.MobileNoTouch, UA.Desktop, UA.DesktopTouch];
     const uaType = editor.createSelect('ua-type', uaTypeOptions, () => {
       return {valid: true, errorMessage: undefined};
-    }, ls`User agent type`);
+    }, i18nString(UIStrings.userAgentType));
     uaType.classList.add('device-edit-fixed');
     ua.appendChild(uaType);
 
@@ -240,9 +283,9 @@ export class DevicesSettingsTab extends UI.Widget.VBox {
 
       const value = input.value.trim();
       if (value.length >= MaxDeviceNameLength) {
-        errorMessage = ls`Device name must be less than ${MaxDeviceNameLength} characters.`;
+        errorMessage = i18nString(UIStrings.deviceNameMustBeLessThanS, {PH1: MaxDeviceNameLength});
       } else if (value.length === 0) {
-        errorMessage = ls`Device name cannot be empty.`;
+        errorMessage = i18nString(UIStrings.deviceNameCannotBeEmpty);
       } else {
         valid = true;
       }
