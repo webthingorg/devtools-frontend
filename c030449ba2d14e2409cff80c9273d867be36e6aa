@@ -16,6 +16,23 @@
       "message": "ptal",
       "revId": "c030449ba2d14e2409cff80c9273d867be36e6aa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb16ab5f_a93ee30a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-13T09:17:11Z",
+      "side": 1,
+      "message": "lgtm\n\nRandom thought: It might be beneficial to have a central file that lists all the Hats survey triggers either as an enum or we could move the `issueSurveyTriggers` Map there. Might be easier to find that way.",
+      "revId": "c030449ba2d14e2409cff80c9273d867be36e6aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
