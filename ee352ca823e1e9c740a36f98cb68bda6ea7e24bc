@@ -273,6 +273,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "30c5188a_fa1faa9c",
+        "filename": "front_end/linear_memory_inspector/ValueInterpreterDisplay.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-13T14:40:10Z",
+      "side": 1,
+      "message": "Then \u003ctable\u003e is missing here, I am not sure if tr/tds are handled alright without the table. FYI you should be able to do it with CSS grid https://stackoverflow.com/a/44402246",
+      "parentUuid": "d3a020a7_3a364be7",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 104
+      },
+      "revId": "ee352ca823e1e9c740a36f98cb68bda6ea7e24bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dc773c2e_2e5f2c27",
