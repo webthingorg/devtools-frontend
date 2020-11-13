@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ac9574b_015ff24f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-13T14:45:02Z",
+      "side": 1,
+      "message": "Have some questions, mostly to clarify my understanding, but lgtm",
+      "revId": "90070795c9045754263d4fbb816487edd79133b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85af86ed_ba97adfb",
+        "filename": "test/unittests/front_end/formatter_worker/FormattedContentBuilder_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-13T14:45:02Z",
+      "side": 1,
+      "message": "why the ignore here / why can\u0027t we import the whole module?",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 0
+      },
+      "revId": "90070795c9045754263d4fbb816487edd79133b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c3b0c98_044447c5",
+        "filename": "test/unittests/front_end/formatter_worker/JavaScriptFormatter_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-13T14:45:02Z",
+      "side": 1,
+      "message": "same Q RE import style",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 48
+      },
+      "revId": "90070795c9045754263d4fbb816487edd79133b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b340f21_681b42bd",
+        "filename": "test/unittests/front_end/helpers/InspectorOverlayHelpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-13T14:45:02Z",
+      "side": 1,
+      "message": "do we need the first ts-ignore here? This import was already there without a ts-ignore",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 232
+      },
+      "revId": "90070795c9045754263d4fbb816487edd79133b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dda9f4ea_744ad5c8",
+        "filename": "test/unittests/front_end/helpers/InspectorOverlayHelpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-13T14:45:02Z",
+      "side": 1,
+      "message": "should we log a bug to make it aware of this?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 73
+      },
+      "revId": "90070795c9045754263d4fbb816487edd79133b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be1fa7fa_b5a505c1",
+        "filename": "test/unittests/front_end/linear_memory_inspector/LinearMemoryInspector_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-13T14:45:02Z",
+      "side": 1,
+      "message": "can this go now?",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 107
+      },
+      "revId": "90070795c9045754263d4fbb816487edd79133b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce4e8cd0_ecc37953",
+        "filename": "test/unittests/front_end/sdk/StubIssue.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-13T14:45:02Z",
+      "side": 1,
+      "message": "why can\u0027t we import * as here?",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 108
+      },
+      "revId": "90070795c9045754263d4fbb816487edd79133b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c39b2e0_bf7be64c",
+        "filename": "test/unittests/front_end/ui/components/DataGrid_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-13T14:45:02Z",
+      "side": 1,
+      "message": "This will be fixed once https://crrev.com/c/2534202 lands (waiting for next week post branch point)",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 136
+      },
+      "revId": "90070795c9045754263d4fbb816487edd79133b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
