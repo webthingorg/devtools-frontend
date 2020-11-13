@@ -22,6 +22,30 @@
       },
       "revId": "a994ed0bc0233ab04fec700941b6b2b660a7cf4c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4264c72_4ee9c34c",
+        "filename": "inspector_overlay/highlight_flex_common.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-13T07:24:54Z",
+      "side": 1,
+      "message": "So we get the border paths for flex items grouped by flex line? So to compute the flex line\u0027s top \u0026 bottom border paths we extend the lines to account for the gaps between the items and between the items and the container. Is that right?",
+      "parentUuid": "1a59191e_7fac0220",
+      "range": {
+        "startLine": 29,
+        "startChar": 16,
+        "endLine": 29,
+        "endChar": 96
+      },
+      "revId": "a994ed0bc0233ab04fec700941b6b2b660a7cf4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
