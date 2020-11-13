@@ -170,6 +170,7 @@ interface Node {
   isSelfOrDescendant(node: Node|null): boolean;
   parentElementOrShadowHost(): Element|null;
   parentNodeOrShadowHost(): Node|null;
+  rangeOfWord(offset: number, stopCharacters: string, stayWithinNode: Node, direction?: string): Range;
   setTextContentTruncatedIfNeeded(text: any, placeholder?: string): boolean;
   traverseNextNode(stayWithin?: Node): Node|null;
   deepTextContent(): string
