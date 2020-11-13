@@ -25,23 +25,23 @@ const createRows = (): Row[] => {
   return [
     {
       cells: [
-        {columnId: 'city', value: 'London'},
-        {columnId: 'country', value: 'UK'},
-        {columnId: 'population', value: '8.98m'},
+        {columnId: 'city', value: 'London', title: 'London'},
+        {columnId: 'country', value: 'UK', title: 'UK'},
+        {columnId: 'population', value: '8.98m', title: '8.98m'},
       ],
     },
     {
       cells: [
-        {columnId: 'city', value: 'Munich'},
-        {columnId: 'country', value: 'Germany'},
-        {columnId: 'population', value: '1.47m'},
+        {columnId: 'city', value: 'Munich', title: 'Munich'},
+        {columnId: 'country', value: 'Germany', title: 'Germany'},
+        {columnId: 'population', value: '1.47m', title: '1.47m'},
       ],
     },
     {
       cells: [
-        {columnId: 'city', value: 'Barcelona'},
-        {columnId: 'country', value: 'Spain'},
-        {columnId: 'population', value: '1.62m'},
+        {columnId: 'city', value: 'Barcelona', title: 'Barcelona'},
+        {columnId: 'country', value: 'Spain', title: 'Spain'},
+        {columnId: 'population', value: '1.62m', title: '1.62m'},
       ],
     },
   ];
@@ -136,7 +136,7 @@ describe('DataGrid', () => {
 
     it('uses the string renderer by default', () => {
       const columns: Column[] = [{id: 'key', title: 'Key', widthWeighting: 1}];
-      const rows: Row[] = [{cells: [{columnId: 'key', value: 'Hello World'}]}];
+      const rows: Row[] = [{cells: [{columnId: 'key', value: 'Hello World', title: 'Hello World'}]}];
       const component = renderDataGrid({columns, rows});
       renderElementIntoDOM(component);
       assertShadowRoot(component.shadowRoot);
@@ -146,8 +146,11 @@ describe('DataGrid', () => {
 
     it('can use the code block render to render text in a <code> tag', () => {
       const columns: Column[] = [{id: 'key', title: 'Key', widthWeighting: 1}];
-      const rows: Row[] =
-          [{cells: [{columnId: 'key', value: 'Hello World', renderer: DataGridRenderers.codeBlockRenderer}]}];
+      const rows: Row[] = [{
+        cells: [
+          {columnId: 'key', value: 'Hello World', title: 'Hello World', renderer: DataGridRenderers.codeBlockRenderer},
+        ],
+      }];
       const component = renderDataGrid({columns, rows});
       renderElementIntoDOM(component);
       assertShadowRoot(component.shadowRoot);
@@ -157,8 +160,14 @@ describe('DataGrid', () => {
 
     it('accepts any custom renderer', () => {
       const columns: Column[] = [{id: 'key', title: 'Key', widthWeighting: 1}];
-      const rows: Row[] =
-          [{cells: [{columnId: 'key', value: 'Hello World', renderer: value => LitHtml.html`<p>foo: ${value}</p>`}]}];
+      const rows: Row[] = [{
+        cells: [{
+          columnId: 'key',
+          value: 'Hello World',
+          title: 'Hello World',
+          renderer: value => LitHtml.html`<p>foo: ${value}</p>`,
+        }],
+      }];
       const component = renderDataGrid({columns, rows});
       renderElementIntoDOM(component);
       assertShadowRoot(component.shadowRoot);
@@ -468,9 +477,9 @@ describe('DataGrid', () => {
           component.shadowRoot, shadowRoot => {
             const newRow = {
               cells: [
-                {columnId: 'city', value: 'Berlin'},
-                {columnId: 'country', value: 'Germany'},
-                {columnId: 'population', value: '3.66m'},
+                {columnId: 'city', value: 'Berlin', title: 'Berlin'},
+                {columnId: 'country', value: 'Germany', title: 'Germany'},
+                {columnId: 'population', value: '3.66m', title: '3.66m'},
               ],
             };
 
@@ -495,12 +504,12 @@ describe('DataGrid', () => {
       ];
 
       const rows: Row[] = [
-        {cells: [{columnId: 'key', value: 'Row'}, {columnId: 'value', value: 'One'}]},
-        {cells: [{columnId: 'key', value: 'Row'}, {columnId: 'value', value: 'Two'}]},
-        {cells: [{columnId: 'key', value: 'Row'}, {columnId: 'value', value: 'Three'}]},
-        {cells: [{columnId: 'key', value: 'Row'}, {columnId: 'value', value: 'Four'}]},
-        {cells: [{columnId: 'key', value: 'Row'}, {columnId: 'value', value: 'Five'}]},
-        {cells: [{columnId: 'key', value: 'Row'}, {columnId: 'value', value: 'Six'}]},
+        {cells: [{columnId: 'key', value: 'Row', title: 'Row'}, {columnId: 'value', value: 'One', title: 'One'}]},
+        {cells: [{columnId: 'key', value: 'Row', title: 'Row'}, {columnId: 'value', value: 'Two', title: 'Two'}]},
+        {cells: [{columnId: 'key', value: 'Row', title: 'Row'}, {columnId: 'value', value: 'Three', title: 'Three'}]},
+        {cells: [{columnId: 'key', value: 'Row', title: 'Row'}, {columnId: 'value', value: 'Four', title: 'Four'}]},
+        {cells: [{columnId: 'key', value: 'Row', title: 'Row'}, {columnId: 'value', value: 'Five', title: 'Five'}]},
+        {cells: [{columnId: 'key', value: 'Row', title: 'Row'}, {columnId: 'value', value: 'Six', title: 'Six'}]},
       ];
       const component = renderDataGrid({rows, columns});
       container.appendChild(component);
@@ -512,8 +521,8 @@ describe('DataGrid', () => {
       assert.strictEqual(scrolledElement.scrollTop, 0);
       const newRow = {
         cells: [
-          {columnId: 'key', value: 'Newly inserted'},
-          {columnId: 'value', value: 'row'},
+          {columnId: 'key', value: 'Newly inserted', title: 'Newly inserted'},
+          {columnId: 'value', value: 'row', title: 'row'},
         ],
       };
       component.data = {
@@ -534,12 +543,12 @@ describe('DataGrid', () => {
       ];
 
       const rows: Row[] = [
-        {cells: [{columnId: 'key', value: 'Row'}, {columnId: 'value', value: 'One'}]},
-        {cells: [{columnId: 'key', value: 'Row'}, {columnId: 'value', value: 'Two'}]},
-        {cells: [{columnId: 'key', value: 'Row'}, {columnId: 'value', value: 'Three'}]},
-        {cells: [{columnId: 'key', value: 'Row'}, {columnId: 'value', value: 'Four'}]},
-        {cells: [{columnId: 'key', value: 'Row'}, {columnId: 'value', value: 'Five'}]},
-        {cells: [{columnId: 'key', value: 'Row'}, {columnId: 'value', value: 'Six'}]},
+        {cells: [{columnId: 'key', value: 'Row', title: 'Row'}, {columnId: 'value', value: 'One', title: 'One'}]},
+        {cells: [{columnId: 'key', value: 'Row', title: 'Row'}, {columnId: 'value', value: 'Two', title: 'Two'}]},
+        {cells: [{columnId: 'key', value: 'Row', title: 'Row'}, {columnId: 'value', value: 'Three', title: 'Three'}]},
+        {cells: [{columnId: 'key', value: 'Row', title: 'Row'}, {columnId: 'value', value: 'Four', title: 'Four'}]},
+        {cells: [{columnId: 'key', value: 'Row', title: 'Row'}, {columnId: 'value', value: 'Five', title: 'Five'}]},
+        {cells: [{columnId: 'key', value: 'Row', title: 'Row'}, {columnId: 'value', value: 'Six', title: 'Six'}]},
       ];
       const component = renderDataGrid({rows, columns});
       container.appendChild(component);
@@ -555,8 +564,8 @@ describe('DataGrid', () => {
 
       const newRow = {
         cells: [
-          {columnId: 'key', value: 'Newly inserted'},
-          {columnId: 'value', value: 'row'},
+          {columnId: 'key', value: 'Newly inserted', title: 'Newly inserted'},
+          {columnId: 'value', value: 'row', title: 'row'},
         ],
       };
       component.data = {
@@ -621,25 +630,25 @@ describe('DataGrid', () => {
       return [
         {
           cells: [
-            {columnId: 'a', value: 'a: row 1'},
-            {columnId: 'b', value: 'b: row 1'},
-            {columnId: 'c', value: 'c: row 1'},
+            {columnId: 'a', value: 'a: row 1', title: 'a: row 1'},
+            {columnId: 'b', value: 'b: row 1', title: 'b: row 1'},
+            {columnId: 'c', value: 'c: row 1', title: 'c: row 1'},
           ],
           hidden: false,
         },
         {
           cells: [
-            {columnId: 'a', value: 'a: row 2'},
-            {columnId: 'b', value: 'b: row 2'},
-            {columnId: 'c', value: 'c: row 2'},
+            {columnId: 'a', value: 'a: row 2', title: 'a: row 2'},
+            {columnId: 'b', value: 'b: row 2', title: 'b: row 2'},
+            {columnId: 'c', value: 'c: row 2', title: 'c: row 2'},
           ],
           hidden: false,
         },
         {
           cells: [
-            {columnId: 'a', value: 'a: row 3'},
-            {columnId: 'b', value: 'b: row 3'},
-            {columnId: 'c', value: 'c: row 3'},
+            {columnId: 'a', value: 'a: row 3', title: 'a: row 3'},
+            {columnId: 'b', value: 'b: row 3', title: 'b: row 3'},
+            {columnId: 'c', value: 'c: row 3', title: 'c: row 3'},
           ],
           hidden: false,
         },
