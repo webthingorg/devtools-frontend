@@ -70,6 +70,30 @@
       },
       "revId": "a994ed0bc0233ab04fec700941b6b2b660a7cf4c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b12fd05_f8aa82ae",
+        "filename": "inspector_overlay/highlight_flex_common.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-13T09:40:26Z",
+      "side": 1,
+      "message": "I should mention: the code may look more complicated than necessary, but that\u0027s because we\u0027re dealing with quads that may be transformed using CSS transforms, not just vertical or horizontal rectangles.",
+      "parentUuid": "26362969_88a4d0ac",
+      "range": {
+        "startLine": 29,
+        "startChar": 16,
+        "endLine": 29,
+        "endChar": 96
+      },
+      "revId": "a994ed0bc0233ab04fec700941b6b2b660a7cf4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
