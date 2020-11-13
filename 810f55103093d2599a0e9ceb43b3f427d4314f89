@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e32df5e5_9ea2196b",
+        "filename": "scripts/hosted_mode/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-13T16:24:33Z",
+      "side": 1,
+      "message": "I justed reused the ones from the layout tests here:\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/blink/tools/apache_config/webkit-httpd.pem?q\u003dwebkit-httpd.pem\nIt\u0027s valid until November 18, 2028.",
+      "parentUuid": "df317c41_4592befa",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 14
+      },
+      "revId": "810f55103093d2599a0e9ceb43b3f427d4314f89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "78fe95fe_5695caa5",
         "filename": "test/e2e/resources/application/cross_origin_cookies.html",
         "patchSetId": 1
@@ -71,6 +95,30 @@
       "writtenOn": "2020-11-13T15:18:59Z",
       "side": 1,
       "message": "I think this file and the next one should be part of a follow-up CL? I don\u0027t see them used in the existing tests, are they?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 9
+      },
+      "revId": "810f55103093d2599a0e9ceb43b3f427d4314f89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc4eb30e_86f07ca2",
+        "filename": "test/e2e/resources/application/cross_origin_cookies.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-13T16:24:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78fe95fe_5695caa5",
       "range": {
         "startLine": 13,
         "startChar": 0,
