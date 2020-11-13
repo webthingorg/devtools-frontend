@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f72841d5_6cbbf982",
+        "filename": "test/unittests/front_end/formatter_worker/FormattedContentBuilder_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-13T15:05:40Z",
+      "side": 1,
+      "message": "formatter_worker doesn\u0027t export anything on its entrypoint, and the entrypoint has side effects.",
+      "parentUuid": "85af86ed_ba97adfb",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 0
+      },
+      "revId": "90070795c9045754263d4fbb816487edd79133b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2c3b0c98_044447c5",
@@ -54,6 +78,30 @@
       "writtenOn": "2020-11-13T14:45:02Z",
       "side": 1,
       "message": "same Q RE import style",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 48
+      },
+      "revId": "90070795c9045754263d4fbb816487edd79133b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a80f8bda_57477ac3",
+        "filename": "test/unittests/front_end/formatter_worker/JavaScriptFormatter_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-13T15:05:40Z",
+      "side": 1,
+      "message": "Yeah, same deal with formatter_worker 😊",
+      "parentUuid": "2c3b0c98_044447c5",
       "range": {
         "startLine": 8,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "58ff58c6_2031babb",
+        "filename": "test/unittests/front_end/helpers/InspectorOverlayHelpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-13T15:05:40Z",
+      "side": 1,
+      "message": "It doesn\u0027t seem to be a problem in the build so much as in VSCode. I have added it to the root tsconfig and it seems okay now.",
+      "parentUuid": "2b340f21_681b42bd",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 232
+      },
+      "revId": "90070795c9045754263d4fbb816487edd79133b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dda9f4ea_744ad5c8",
@@ -100,6 +172,30 @@
       "writtenOn": "2020-11-13T14:45:02Z",
       "side": 1,
       "message": "should we log a bug to make it aware of this?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 73
+      },
+      "revId": "90070795c9045754263d4fbb816487edd79133b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4963162_12e61dc0",
+        "filename": "test/unittests/front_end/helpers/InspectorOverlayHelpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-13T15:05:40Z",
+      "side": 1,
+      "message": "Sorted as above.",
+      "parentUuid": "dda9f4ea_744ad5c8",
       "range": {
         "startLine": 13,
         "startChar": 0,
@@ -133,6 +229,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6464cf0_15a9754d",
+        "filename": "test/unittests/front_end/linear_memory_inspector/LinearMemoryInspector_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-13T15:05:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be1fa7fa_b5a505c1",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 107
+      },
+      "revId": "90070795c9045754263d4fbb816487edd79133b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce4e8cd0_ecc37953",
@@ -156,6 +276,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "db0fa5f3_6bbd542e",
+        "filename": "test/unittests/front_end/sdk/StubIssue.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-13T15:05:40Z",
+      "side": 1,
+      "message": "Because the class below needs to extend the Issue class, but we can only get at that either by going direct or via SDK. If we go via SDK we have to spin up the environment unnecessarily.",
+      "parentUuid": "ce4e8cd0_ecc37953",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 108
+      },
+      "revId": "90070795c9045754263d4fbb816487edd79133b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c39b2e0_bf7be64c",
@@ -169,6 +313,30 @@
       "writtenOn": "2020-11-13T14:45:02Z",
       "side": 1,
       "message": "This will be fixed once https://crrev.com/c/2534202 lands (waiting for next week post branch point)",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 136
+      },
+      "revId": "90070795c9045754263d4fbb816487edd79133b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "478cc42b_4dd9aa39",
+        "filename": "test/unittests/front_end/ui/components/DataGrid_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-13T15:05:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8c39b2e0_bf7be64c",
       "range": {
         "startLine": 6,
         "startChar": 0,
