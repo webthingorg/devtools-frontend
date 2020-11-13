@@ -36,10 +36,11 @@ export interface Column {
 export interface Cell {
   columnId: string;
   value: unknown;
-  // The renderer function actually returns LitHtml.TemplateResult but it's a
-  // lot of work to teach the bridges generator about that.
-  // TODO (crbug.com/1011811): Fix types once TypeScriptification is complete.
-  renderer?: (value: unknown) => unknown
+  title: string,
+      // The renderer function actually returns LitHtml.TemplateResult but it's a
+      // lot of work to teach the bridges generator about that.
+      // TODO (crbug.com/1011811): Fix types once TypeScriptification is complete.
+      renderer?: (value: unknown) => unknown
 }
 
 export type Row = {
@@ -92,14 +93,7 @@ export function renderCellValue(cell: Cell): LitHtml.TemplateResult {
 }
 
 export function stringValueForCell(cell: Cell): string {
-  if (typeof cell.value === 'string') {
-    return cell.value;
-  }
-
-  const output = renderCellValue(cell);
-  const div = document.createElement('div');
-  LitHtml.render(output, div);
-  return div.innerText;
+  return cell.title;
 }
 
 /**
