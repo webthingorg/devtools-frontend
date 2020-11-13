@@ -138,3 +138,47 @@ export function applyMatrixToPoint(point: {x: number; y: number;}, matrix: DOMMa
   domPoint = domPoint.matrixTransform(matrix);
   return {x: domPoint.x, y: domPoint.y};
 }
+
+/**
+ * Draw line hatching at a 45 degree angle for a given
+ * path.
+ *   __________
+ *   |\  \  \ |
+ *   | \  \  \|
+ *   |  \  \  |
+ *   |\  \  \ |
+ *   **********
+ */
+export function hatchFillPath(
+    context: CanvasRenderingContext2D, path: Path2D, bounds: Bounds, delta: number, color: string,
+    rotationAngle: number, flipDirection: boolean|undefined) {
+  const dx = bounds.maxX - bounds.minX;
+  const dy = bounds.maxY - bounds.minY;
+  context.rect(bounds.minX, bounds.minY, dx, dy);
+  context.save();
+  context.clip(path);
+  context.setLineDash([5, 3]);
+  const majorAxis = Math.max(dx, dy);
+  context.strokeStyle = color;
+  const centerX = bounds.minX + dx / 2;
+  const centerY = bounds.minY + dy / 2;
+  context.translate(centerX, centerY);
+  context.rotate(rotationAngle * Math.PI / 180);
+  context.translate(-centerX, -centerY);
+  if (flipDirection) {
+    for (let i = -majorAxis; i < majorAxis; i += delta) {
+      context.beginPath();
+      context.moveTo(bounds.maxX - i, bounds.minY);
+      context.lineTo(bounds.maxX - dy - i, bounds.maxY);
+      context.stroke();
+    }
+  } else {
+    for (let i = -majorAxis; i < majorAxis; i += delta) {
+      context.beginPath();
+      context.moveTo(i + bounds.minX, bounds.minY);
+      context.lineTo(dy + i + bounds.minX, bounds.maxY);
+      context.stroke();
+    }
+  }
+  context.restore();
+}

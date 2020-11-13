@@ -3,13 +3,18 @@
 // found in the LICENSE file.
 
 import {PathCommands, Position, Quad} from './common.js';
-import {buildPath, drawPathWithLineStyle, emptyBounds, LineStyle} from './highlight_common.js';
+import {buildPath, drawPathWithLineStyle, emptyBounds, hatchFillPath, LineStyle} from './highlight_common.js';
 
 export interface FlexContainerHighlight {
   containerBorder: PathCommands;
   lines: Array<Array<PathCommands>>;
   isHorizontalFlow: boolean;
   flexContainerHighlightConfig: {containerBorder?: LineStyle; lineSeparator?: LineStyle; itemSeparator?: LineStyle;};
+}
+
+interface LineQuads {
+  quad: Quad;
+  items: Quad[];
 }
 
 export function drawLayoutFlexContainerHighlight(
@@ -26,7 +31,33 @@ export function drawLayoutFlexContainerHighlight(
     return;
   }
 
-  const paths = processFlexLineAndItemPaths(highlight.containerBorder, lines, isHorizontalFlow);
+  // Process the item paths we received from the backend into quads we can use to draw what we need.
+  const lineQuads = getLinesAndItemsQuads(highlight.containerBorder, lines, isHorizontalFlow);
+
+  // Draw lines and items.
+  drawFlexLinesAndItems(highlight, context, emulationScaleFactor, lineQuads, isHorizontalFlow);
+
+  // Draw the hatching pattern outside of items.
+  drawFlexBackgroundPattern(highlight, context, emulationScaleFactor, highlight.containerBorder, lineQuads);
+}
+
+function drawFlexLinesAndItems(
+    highlight: FlexContainerHighlight, context: CanvasRenderingContext2D, emulationScaleFactor: number,
+    lineQuads: LineQuads[], isHorizontalFlow: boolean) {
+  const config = highlight.flexContainerHighlightConfig;
+
+  const paths = lineQuads.map((line, lineIndex) => {
+    const nextLineQuad = lineQuads[lineIndex + 1] && lineQuads[lineIndex + 1].quad;
+    return {
+      path: isHorizontalFlow ? quadToHorizontalLinesPath(line.quad, nextLineQuad) :
+                               quadToVerticalLinesPath(line.quad, nextLineQuad),
+      items: line.items.map((item, itemIndex) => {
+        const nextItemQuad = line.items[itemIndex + 1] && line.items[itemIndex + 1];
+        return isHorizontalFlow ? quadToVerticalLinesPath(item, nextItemQuad) :
+                                  quadToHorizontalLinesPath(item, nextItemQuad);
+      }),
+    };
+  });
 
   // Only draw lines when there's more than 1.
   const drawLines = paths.length > 1;
@@ -41,6 +72,42 @@ export function drawLayoutFlexContainerHighlight(
   }
 }
 
+function drawFlexBackgroundPattern(
+    highlight: FlexContainerHighlight, context: CanvasRenderingContext2D, emulationScaleFactor: number,
+    container: PathCommands, lineQuads: LineQuads[]) {
+  // We want to draw the pattern over the entire container area except where there are items. So construct a path that
+  // covers the container but clips out items.
+  const containerQuad = rectPathToQuad(container);
+  let commands = [
+    'M',
+    containerQuad.p1.x,
+    containerQuad.p1.y,
+    'L',
+    containerQuad.p2.x,
+    containerQuad.p2.y,
+    'L',
+    containerQuad.p3.x,
+    containerQuad.p3.y,
+    'L',
+    containerQuad.p4.x,
+    containerQuad.p4.y,
+  ];
+  for (const line of lineQuads) {
+    for (const item of line.items) {
+      commands = [
+        ...commands,        'L', item.p4.x, item.p4.y, 'L', item.p3.x, item.p3.y, 'L', item.p2.x,
+        item.p2.y,          'L', item.p1.x, item.p1.y, 'L', item.p4.x, item.p4.y, 'L', containerQuad.p4.x,
+        containerQuad.p4.y,
+      ];
+    }
+  }
+  commands.push('Z');
+
+  const bounds = emptyBounds();
+  const path = buildPath(commands, bounds, emulationScaleFactor);
+  hatchFillPath(context, path, bounds, 10, 'red', 0, false);
+}
+
 /**
  * We get a list of paths for each flex item from the backend. From this list, we compute the resulting paths for each
  * flex line too (making it span the entire container size (in the main direction)). We also process the item path so
@@ -50,7 +117,8 @@ export function drawLayoutFlexContainerHighlight(
  * @param lines
  * @param isHorizontalFlow
  */
-function processFlexLineAndItemPaths(container: PathCommands, lines: PathCommands[][], isHorizontalFlow: boolean) {
+function getLinesAndItemsQuads(
+    container: PathCommands, lines: PathCommands[][], isHorizontalFlow: boolean): LineQuads[] {
   const containerQuad = rectPathToQuad(container);
 
   // Create a quad for each line that's as big as the items it contains and extends to the edges of the container in the
@@ -79,18 +147,7 @@ function processFlexLineAndItemPaths(container: PathCommands, lines: PathCommand
     });
   }
 
-  return lineQuads.map((line, lineIndex) => {
-    const nextLineQuad = lineQuads[lineIndex + 1] && lineQuads[lineIndex + 1].quad;
-    return {
-      path: isHorizontalFlow ? quadToHorizontalLinesPath(line.quad, nextLineQuad) :
-                               quadToVerticalLinesPath(line.quad, nextLineQuad),
-      items: line.items.map((item, itemIndex) => {
-        const nextItemQuad = line.items[itemIndex + 1] && line.items[itemIndex + 1];
-        return isHorizontalFlow ? quadToVerticalLinesPath(item, nextItemQuad) :
-                                  quadToHorizontalLinesPath(item, nextItemQuad);
-      }),
-    };
-  });
+  return lineQuads;
 }
 
 function quadToHorizontalLinesPath(quad: Quad, nextQuad: Quad|undefined): PathCommands {
