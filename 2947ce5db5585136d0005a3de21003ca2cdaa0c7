@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f01dc9f1_a92db93d",
+        "filename": "front_end/ui/Toolbar.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-13T10:24:50Z",
+      "side": 0,
+      "message": "TS wants a string, Closure a number, thus we do `setProperty` for now.",
+      "range": {
+        "startLine": 676,
+        "startChar": 36,
+        "endLine": 676,
+        "endChar": 46
+      },
+      "revId": "2947ce5db5585136d0005a3de21003ca2cdaa0c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
