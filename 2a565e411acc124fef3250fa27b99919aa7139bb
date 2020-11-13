@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3dfcc85_0f3320da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-13T07:06:19Z",
+      "side": 1,
+      "message": "This can land today with final nit fixed.",
+      "revId": "2a565e411acc124fef3250fa27b99919aa7139bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06b1e31d_d0cc81c1",
+        "filename": "front_end/browser_debugger/module.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-13T07:06:19Z",
+      "side": 1,
+      "message": "nit: categorizedBreakpointsSidebarPane.css",
+      "range": {
+        "startLine": 129,
+        "startChar": 5,
+        "endLine": 129,
+        "endChar": 27
+      },
+      "revId": "2a565e411acc124fef3250fa27b99919aa7139bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
