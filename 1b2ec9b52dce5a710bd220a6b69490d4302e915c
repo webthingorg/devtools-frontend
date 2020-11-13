@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d7c5c5c_d2f69deb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-13T15:51:17Z",
+      "side": 1,
+      "message": "Will rebase on top of master when https://crrev.com/c/2537953 lands, as it will need to merge before the lint rule will succeed.",
+      "revId": "1b2ec9b52dce5a710bd220a6b69490d4302e915c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
