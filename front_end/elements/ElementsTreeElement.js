@@ -76,7 +76,8 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     this._searchQuery = null;
     this._expandedChildrenLimit = InitialChildrenLimit;
     this._decorationsThrottler = new Common.Throttler.Throttler(100);
-
+    /** @type {?UI.TreeOutline.TreeElement} */
+    this.expandAllButtonElement = null;
     this._inClipboard = false;
     this._hovered = false;
 
