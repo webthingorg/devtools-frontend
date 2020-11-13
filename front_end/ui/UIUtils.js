@@ -230,14 +230,14 @@ class DragHandler {
   }
 
   /**
-   * @param {!Event} event
+   * @param {!MouseEvent} event
    */
   _elementDragMove(event) {
     if (event.buttons !== 1) {
       this._elementDragEnd(event);
       return;
     }
-    if (this._elementDraggingEventListener(/** @type {!MouseEvent} */ (event))) {
+    if (this._elementDraggingEventListener && this._elementDraggingEventListener(event)) {
       this._cancelDragEvents(event);
     }
   }
@@ -353,24 +353,27 @@ export function getValueModificationDirection(event) {
   let direction = null;
   // TODO(crbug.com/1145518) Remove usage of MouseWheelEvent.
   if (event.type === 'mousewheel') {
+    const wheelEvent = /** @type {*} */ (event);
     // When shift is pressed while spinning mousewheel, delta comes as wheelDeltaX.
-    if (event.wheelDeltaY > 0 || event.wheelDeltaX > 0) {
+    if (wheelEvent.wheelDeltaY > 0 || wheelEvent.wheelDeltaX > 0) {
       direction = 'Up';
-    } else if (event.wheelDeltaY < 0 || event.wheelDeltaX < 0) {
+    } else if (wheelEvent.wheelDeltaY < 0 || wheelEvent.wheelDeltaX < 0) {
       direction = 'Down';
     }
   } else if (event.type === 'wheel') {
     // When shift is pressed while spinning mousewheel, delta comes as wheelDeltaX.
     // WheelEvent's deltaY is inverse from MouseWheelEvent.
-    if (event.deltaY < 0 || event.deltaX < 0) {
+    const wheelEvent = /** @type {!WheelEvent} */ (event);
+    if (wheelEvent.deltaY < 0 || wheelEvent.deltaX < 0) {
       direction = 'Up';
-    } else if (event.deltaY > 0 || event.deltaX > 0) {
+    } else if (wheelEvent.deltaY > 0 || wheelEvent.deltaX > 0) {
       direction = 'Down';
     }
   } else {
-    if (event.key === 'ArrowUp' || event.key === 'PageUp') {
+    const keyEvent = /** @type {!KeyboardEvent} */ (event);
+    if (keyEvent.key === 'ArrowUp' || keyEvent.key === 'PageUp') {
       direction = 'Up';
-    } else if (event.key === 'ArrowDown' || event.key === 'PageDown') {
+    } else if (keyEvent.key === 'ArrowDown' || keyEvent.key === 'PageDown') {
       direction = 'Down';
     }
   }
@@ -763,7 +766,7 @@ export function installComponentRootStyles(element) {
  * @param {!Event} event
  */
 function _windowFocused(document, event) {
-  if (event.target.document.nodeType === Node.DOCUMENT_NODE) {
+  if (event.target instanceof Window && event.target.document.nodeType === Node.DOCUMENT_NODE) {
     document.body.classList.remove('inactive');
   }
 }
@@ -773,7 +776,7 @@ function _windowFocused(document, event) {
  * @param {!Event} event
  */
 function _windowBlurred(document, event) {
-  if (event.target.document.nodeType === Node.DOCUMENT_NODE) {
+  if (event.target instanceof Window && event.target.document.nodeType === Node.DOCUMENT_NODE) {
     document.body.classList.add('inactive');
   }
 }
@@ -1164,7 +1167,7 @@ export class LongClickController extends Common.ObjectWrapper.ObjectWrapper {
      * @this {LongClickController}
      */
     function mouseDown(e) {
-      if (e.which !== 1) {
+      if (/** @type {!MouseEvent} */ (e).which !== 1) {
         return;
       }
       const callback = this._callback;
@@ -1176,7 +1179,7 @@ export class LongClickController extends Common.ObjectWrapper.ObjectWrapper {
      * @this {LongClickController}
      */
     function mouseUp(e) {
-      if (e.which !== 1) {
+      if (/** @type {!MouseEvent} */ (e).which !== 1) {
         return;
       }
       this.reset();
@@ -2051,10 +2054,11 @@ export const deepElementFromPoint = (document, x, y) => {
 };
 
 /**
- * @param {!Event} event
+ * @param {!Event} ev
  * @return {?Node}
  */
-export const deepElementFromEvent = event => {
+export const deepElementFromEvent = ev => {
+  const event = /** @type {!MouseEvent} */ (ev);
   // Some synthetic events have zero coordinates which lead to a wrong element. Better return nothing in this case.
   if (!event.which && !event.pageX && !event.pageY && !event.clientX && !event.clientY && !event.movementX &&
       !event.movementY) {
