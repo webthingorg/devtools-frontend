@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "253600b2_715f48a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 52
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-14T03:18:36Z",
+      "side": 1,
+      "message": "Thanks for reviewing, Alex!\n\nI changed the code to hide upon scroll to match other editors\u0027 behaviors.  I fixed all the closure errors except this one which I couldn\u0027t figure out today:\n\nc:/users/milia/appdata/local/temp/tmp8idbic/front_end/inline_editor/FontEditorUtils.js:5:0: ERROR - [JSC_JS_MODULE_LOAD_WARNING] Failed to load module \"../css_overview/css_overview.js\"\nimport * as CssOverviewModule from \u0027../css_overview/css_overview.js\u0027;\n\nLet me know if you have insight into fixing this closure issue - I plan to take a deeper look next week.",
+      "parentUuid": "b4acb74c_701a9296",
+      "revId": "dd3f23f05a1ddf51afefbae7b94eb0d2646b6e0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3597cc63_14e4cfb2",
         "filename": "front_end/elements/ColorSwatchPopoverIcon.js",
         "patchSetId": 52
@@ -48,6 +66,24 @@
       "writtenOn": "2020-11-13T07:39:52Z",
       "side": 1,
       "message": "Does it have to be @unrestricted? (here and in other places)",
+      "revId": "dd3f23f05a1ddf51afefbae7b94eb0d2646b6e0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce7abf79_be45886b",
+        "filename": "front_end/elements/ColorSwatchPopoverIcon.js",
+        "patchSetId": 52
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-14T03:18:36Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "3597cc63_14e4cfb2",
       "revId": "dd3f23f05a1ddf51afefbae7b94eb0d2646b6e0c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
