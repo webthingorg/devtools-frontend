@@ -1,6 +1,7 @@
 # UUID                                  	Group Name
 #
 3d0a66ed8f9706f4df433a293bac0330232af1d6	chromium-branch-creators
+4d4288efd7d780ff5a35b8cc13fa6ff0f62c06cc	chrome-commit-bot
 898b5eed07ea276d2b27ff2c8ce4b0a31c152e14	v8-admins
 cria:project-devtools-admins            	cria/project-devtools-admins
 cria:project-devtools-committers        	cria/project-devtools-committers
