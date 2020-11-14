@@ -1291,6 +1291,36 @@ export function createInput(className, type) {
 }
 
 /**
+ * @param {string} name
+ * @param {!Array<!Map<string, !Array<string>>> | !Array<string> | !Set} options
+ * @return {!HTMLSelectElement}
+ */
+export function createSelect(name, options) {
+  const select = document.createElementWithClass('select', 'chrome-select');
+  ARIAUtils.setAccessibleName(select, name);
+  for (const option of options) {
+    if (option instanceof Map) {
+      for (const [key, value] of option) {
+        const optGroup = select.createChild('optgroup');
+        optGroup.label = key;
+        for (const child of value) {
+          if (typeof child === 'string') {
+            optGroup.appendChild(new Option(child, child));
+          } else if (child.text && child.value) {
+            optGroup.appendChild(new Option(child.text, child.value));
+          }
+        }
+      }
+    } else if (typeof option === 'string') {
+      select.add(new Option(option, option));
+    } else if (option.text && option.value) {
+      select.add(new Option(option.text, option.value));
+    }
+  }
+  return select;
+}
+
+/**
  * @param {string} title
  * @param {string=} className
  * @param {!Element=} associatedControl
@@ -1336,10 +1366,10 @@ export function createIconLabel(title, iconClass) {
 }
 
 /**
- * @return {!Element}
  * @param {number} min
  * @param {number} max
  * @param {number} tabIndex
+ * @return {!Element}
  */
 export function createSlider(min, max, tabIndex) {
   const element = createElement('span', 'dt-slider');
@@ -1482,7 +1512,7 @@ function radioClickHandler(event) {
 
 registerCustomElement('span', 'dt-icon-label', DevToolsIconLabel);
 
-class DevToolsSlider extends HTMLSpanElement {
+export class DevToolsSlider extends HTMLSpanElement {
   constructor() {
     super();
     const root = createShadowRootWithCoreStyles(
