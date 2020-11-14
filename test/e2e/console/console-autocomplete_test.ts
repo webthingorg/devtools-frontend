@@ -39,18 +39,15 @@ describe('The Console Tab', async () => {
     await appearPromise2;
   }
 
-  // Flaky test
-  it.skip('[crbug.com/1134579] triggers autocompletion for `object.`', async () => {
+  it('triggers autocompletion for `object.`', async () => {
     await objectAutocompleteTest('.');
   });
 
-  // Flaky test
-  it.skip('[crbug.com/1134579] triggers autocompletion for `object?.`', async () => {
+  it('triggers autocompletion for `object?.`', async () => {
     await objectAutocompleteTest('?.');
   });
 
-  // Flaky test
-  it.skip('[crbug.com/1134579] triggers autocompletion for `object[`', async () => {
+  it('triggers autocompletion for `object[`', async () => {
     await objectAutocompleteTest('[');
   });
 });
