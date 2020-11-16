@@ -90,6 +90,57 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0d584527_3112da4f",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 51
+      },
+      "lineNbr": 1180,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-16T14:22:32Z",
+      "side": 1,
+      "message": "Could you explain what this `_newStyleRuleToolbar` is designed for?",
+      "revId": "ba2254b31f5b98b2e029780bbfcbc5b8b5b98f4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "450fd2b6_c725ff4c",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 51
+      },
+      "lineNbr": 1203,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-16T14:22:32Z",
+      "side": 1,
+      "message": "Since we guarantee `this_newStyleRuleToolbar` exists from the check above, is this necessary anymore?",
+      "revId": "ba2254b31f5b98b2e029780bbfcbc5b8b5b98f4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e06f4fb8_ca0e9cd0",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 51
+      },
+      "lineNbr": 1481,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-16T14:22:32Z",
+      "side": 1,
+      "message": "Is this meant to be a TODO? Or am I missing something from the event chain?",
+      "revId": "ba2254b31f5b98b2e029780bbfcbc5b8b5b98f4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "587ff274_7cc714b9",
         "filename": "front_end/inline_editor/FontEditor.js",
         "patchSetId": 51
