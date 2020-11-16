@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6e2c481_40f6bd0c",
+        "filename": "front_end/common/ColorUtils.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-16T22:25:26Z",
+      "side": 1,
+      "message": "nit: I\u0027m not familiar with APCA, but would there be an (semi-)official link for these constants so that we can add a comment for that here? Would https://github.com/Myndex/SAPC-APCA contain these constants?",
+      "revId": "6cd9d147ff16884f9b847651f59d8de396499957",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
