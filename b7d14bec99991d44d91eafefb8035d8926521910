@@ -33,6 +33,24 @@
       "message": "nit:\n\n    including third-party cookies",
       "revId": "b7d14bec99991d44d91eafefb8035d8926521910",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b84989c2_7cd47766",
+        "filename": "front_end/resources/module.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-16T08:59:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53c8425a_16718f96",
+      "revId": "b7d14bec99991d44d91eafefb8035d8926521910",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
