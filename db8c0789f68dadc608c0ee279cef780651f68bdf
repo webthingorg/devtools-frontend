@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aeeed970_46e4ac2c",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-16T16:04:04Z",
+      "side": 1,
+      "message": "I assume these are leftover for layout tests?",
+      "range": {
+        "startLine": 346,
+        "startChar": 32,
+        "endLine": 346,
+        "endChar": 115
+      },
+      "revId": "db8c0789f68dadc608c0ee279cef780651f68bdf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "662365dc_c984d3b5",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1077,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-16T16:04:04Z",
+      "side": 1,
+      "message": "Lol",
+      "range": {
+        "startLine": 1077,
+        "startChar": 25,
+        "endLine": 1077,
+        "endChar": 52
+      },
+      "revId": "db8c0789f68dadc608c0ee279cef780651f68bdf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "872167de_ba66262d",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1407,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-16T16:04:04Z",
+      "side": 1,
+      "message": "I think we hit this last week and the appropriate fix was `Number(name) \u003e\u003e\u003e 0`",
+      "range": {
+        "startLine": 1407,
+        "startChar": 26,
+        "endLine": 1407,
+        "endChar": 30
+      },
+      "revId": "db8c0789f68dadc608c0ee279cef780651f68bdf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9508629e_cd6fd9d8",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1552,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-16T16:04:04Z",
+      "side": 1,
+      "message": "Same here",
+      "range": {
+        "startLine": 1552,
+        "startChar": 24,
+        "endLine": 1552,
+        "endChar": 35
+      },
+      "revId": "db8c0789f68dadc608c0ee279cef780651f68bdf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6028da78_ba80ed66",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1611,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-16T16:04:04Z",
+      "side": 1,
+      "message": "Same",
+      "range": {
+        "startLine": 1611,
+        "startChar": 19,
+        "endLine": 1611,
+        "endChar": 29
+      },
+      "revId": "db8c0789f68dadc608c0ee279cef780651f68bdf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9afb9e95_3fa1bbd9",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1659,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-16T16:04:04Z",
+      "side": 1,
+      "message": "This can now be migrated to the singleton-pattern. See https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2529358 that got submitted today.",
+      "range": {
+        "startLine": 1659,
+        "startChar": 8,
+        "endLine": 1659,
+        "endChar": 74
+      },
+      "revId": "db8c0789f68dadc608c0ee279cef780651f68bdf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
