@@ -82,6 +82,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "37ab4d6d_69c21c64",
+        "filename": "scripts/hosted_mode/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-16T10:29:33Z",
+      "side": 1,
+      "message": "I added the link as a comment.",
+      "parentUuid": "e32df5e5_9ea2196b",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 14
+      },
+      "revId": "810f55103093d2599a0e9ceb43b3f427d4314f89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "78fe95fe_5695caa5",
