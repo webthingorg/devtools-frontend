@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05ce68d6_7c69d7f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-11-16T23:42:05Z",
+      "side": 1,
+      "message": "Migrate webauthn tool, PTAL, thanks!",
+      "revId": "77df1ae289f4d80f51d37c7eb5e7252b51246a08",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
