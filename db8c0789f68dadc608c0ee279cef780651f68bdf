@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ffdc3d65_23529b4f",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-16T16:40:19Z",
+      "side": 1,
+      "message": "I believe so. I\u0027ve not seen other cases where it\u0027s used in the codebase directly.",
+      "parentUuid": "aeeed970_46e4ac2c",
+      "range": {
+        "startLine": 346,
+        "startChar": 32,
+        "endLine": 346,
+        "endChar": 115
+      },
+      "revId": "db8c0789f68dadc608c0ee279cef780651f68bdf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "662365dc_c984d3b5",
         "filename": "front_end/object_ui/ObjectPropertiesSection.js",
         "patchSetId": 2
@@ -70,6 +94,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ddc8fd8_4c13f055",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1407,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-16T16:40:19Z",
+      "side": 1,
+      "message": "Ah, I guess that would persuade TS that this is okay despite the noop nature?\n\nDone.",
+      "parentUuid": "872167de_ba66262d",
+      "range": {
+        "startLine": 1407,
+        "startChar": 26,
+        "endLine": 1407,
+        "endChar": 30
+      },
+      "revId": "db8c0789f68dadc608c0ee279cef780651f68bdf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9508629e_cd6fd9d8",
@@ -83,6 +131,30 @@
       "writtenOn": "2020-11-16T16:04:04Z",
       "side": 1,
       "message": "Same here",
+      "range": {
+        "startLine": 1552,
+        "startChar": 24,
+        "endLine": 1552,
+        "endChar": 35
+      },
+      "revId": "db8c0789f68dadc608c0ee279cef780651f68bdf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "888d1404_2fc9aa77",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1552,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-16T16:40:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9508629e_cd6fd9d8",
       "range": {
         "startLine": 1552,
         "startChar": 24,
@@ -116,6 +188,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d820d69a_dd745456",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1611,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-16T16:40:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6028da78_ba80ed66",
+      "range": {
+        "startLine": 1611,
+        "startChar": 19,
+        "endLine": 1611,
+        "endChar": 29
+      },
+      "revId": "db8c0789f68dadc608c0ee279cef780651f68bdf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9afb9e95_3fa1bbd9",
@@ -129,6 +225,30 @@
       "writtenOn": "2020-11-16T16:04:04Z",
       "side": 1,
       "message": "This can now be migrated to the singleton-pattern. See https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2529358 that got submitted today.",
+      "range": {
+        "startLine": 1659,
+        "startChar": 8,
+        "endLine": 1659,
+        "endChar": 74
+      },
+      "revId": "db8c0789f68dadc608c0ee279cef780651f68bdf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4bfecad_838f2a59",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1659,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-16T16:40:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9afb9e95_3fa1bbd9",
       "range": {
         "startLine": 1659,
         "startChar": 8,
