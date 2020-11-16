@@ -94,6 +94,9 @@ table is empty.
   <message name="IDS_DEVTOOLS_29104d3ede0231043a4b92a90b9c2873" desc="Title of needs refresh in indexed dbviews of the application panel">
     Some entries may have been modified
   </message>
+  <message name="IDS_DEVTOOLS_2a78ed76450c3cb42320882b3e055b31" desc="Text for Service Workers Cache Change headings">
+    Operation
+  </message>
   <message name="IDS_DEVTOOLS_2b31634e3cfef1bfdd7d0d2cdfdc3f9d" desc="Text in Context menu for collapsing objects in IndexedDB tables">
     Collapse
   </message>
@@ -111,6 +114,9 @@ table is empty.
   </message>
   <message name="IDS_DEVTOOLS_3472423ee4037c94e20d64b3aea8aa49" desc="Text in Service Workers View of the Application panel">
     <ph name="SCOPEURL">$1s<ex>example.com</ex></ph> - deleted
+  </message>
+  <message name="IDS_DEVTOOLS_349838fb1d851d3e2014b9fe39203275" desc="Action of service worker">
+    Install
   </message>
   <message name="IDS_DEVTOOLS_349e686330723975502e9ef4f939a5ac" desc="Label suffix in the Application Panel Frames section for windows which are already closed">
     closed
@@ -247,11 +253,14 @@ table is empty.
   <message name="IDS_DEVTOOLS_6e72748dc2f2224dfabb374ca0cc988f" desc="Text in Service Workers View of the Application panel">
     #<ph name="REDUNDANT_ID">$1s<ex>2</ex></ph> is redundant
   </message>
-  <message name="IDS_DEVTOOLS_7060e0481896e00b3f7d20f1e8e2749a" desc="Explanation for the SharedArrayBuffer availability status">
+  <message name="IDS_DEVTOOLS_7060e0481896e00b3f7d20f1e8e2749a" desc="Text">
     unavailable
   </message>
   <message name="IDS_DEVTOOLS_7091ed290cfa49f60364af4d4b3c42b9" desc="Section header in the Frame Details view">
     API availablity
+  </message>
+  <message name="IDS_DEVTOOLS_71a0e1bcf6a6d241aa509e0b9befbe4d" desc="Text for end time of Service Workers Updates">
+    End time: <ph name="ENDTIME">$1s<ex>2</ex></ph>
   </message>
   <message name="IDS_DEVTOOLS_76c18f2b1e4155961e10434e3d83317f" desc="Text in Indexed DBViews of the Application panel">
     Key generator value: <ph name="STRING_METADATA_KEYGENERATORVALUE_">$1s<ex>2</ex></ph>
@@ -267,6 +276,9 @@ table is empty.
   </message>
   <message name="IDS_DEVTOOLS_7a06b1cc41f027f75bc7be8ee937c344" desc="Message in Database Model of the Application panel">
     Database no longer has expected version.
+  </message>
+  <message name="IDS_DEVTOOLS_7a9295ca6c78a87c7abffb77cc3766e1" desc="Text in Service Workers Cache Change headings">
+    Cache Entry
   </message>
   <message name="IDS_DEVTOOLS_7adc295d89feec026fbcee16448c31d8" desc="Text in Storage View of Application panel">
     <ph name="UNREACHABLEMAINORIGIN">$1s<ex>https://www.example.com</ex></ph> (failed to load)
@@ -359,6 +371,9 @@ read the &quot;<ph name="THIS_TABLENAME">$1s<ex>database</ex></ph>&quot; table.
   <message name="IDS_DEVTOOLS_9999106349673567ecaf1c32c07301a5" desc="Text in Service Workers View of the Application panel">
     #<ph name="WAITING_ID">$1s<ex>2</ex></ph> waiting to activate
   </message>
+  <message name="IDS_DEVTOOLS_9999f490ba8e96354d604852e96b7c92" desc="Text in Service Workers Update Life Cycle">
+    Start time: <ph name="STARTTIME">$1s<ex>2</ex></ph>
+  </message>
   <message name="IDS_DEVTOOLS_99ccbbe2741019f0bbc87f4eb83dbc1d" desc="Screen reader title for a section of the Service Workers view of the Application panel">
     <ph name="LOCKED_TERM">Service worker</ph> for <ph name="TITLE"><ex>https://example.com</ex>$1s</ph>
   </message>
@@ -380,6 +395,9 @@ read the &quot;<ph name="THIS_TABLENAME">$1s<ex>database</ex></ph>&quot; table.
   <message name="IDS_DEVTOOLS_a0394c82ef53a78ef470b18ecbf960b4" desc="Label for the primary icon loaded from the manifest">
     Primary icon
 as used by <ph name="LOCKED_1">Chrome</ph>
+  </message>
+  <message name="IDS_DEVTOOLS_a13367a8e2a3f3bf4f3409079e3fdf87" desc="Action of service worker">
+    Activate
   </message>
   <message name="IDS_DEVTOOLS_a20961082dd1a8a90cb08914b976639b" desc="Explanatory text in the Frame Details view">
     Localhost is always a secure context
@@ -521,6 +539,9 @@ as used by <ph name="LOCKED_1">Chrome</ph>
   </message>
   <message name="IDS_DEVTOOLS_cfde4f71aaac6d02831a661f4f9990f1" desc="Text in App Manifest View of the Application panel">
     App Manifest
+  </message>
+  <message name="IDS_DEVTOOLS_d0021c8154ba1e56df27c17e269e6f5d" desc="Text in Service Workers Cache Change headings">
+    Cache Name
   </message>
   <message name="IDS_DEVTOOLS_d09f38bbd6293be52bb942adfe3dbb52" desc="Manifest installability error in the Application panel">
     A URL in the manifest contains a username, password, or port
