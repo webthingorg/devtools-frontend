@@ -16,6 +16,46 @@
       "message": "PTAL, I finally got to take care of that feature :)",
       "revId": "cf424b001d4ef4770b5d4a47fe72369fd04e9c61",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ea523f9_d30c7064",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-16T12:38:23Z",
+      "side": 1,
+      "message": "Thanks, one design nit.",
+      "revId": "cf424b001d4ef4770b5d4a47fe72369fd04e9c61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20e396a2_34b30184",
+        "filename": "front_end/resources/CookieItemsView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-16T12:38:23Z",
+      "side": 1,
+      "message": "I think a drop down with two entries \"Plain content\", \"Decoded content\" would provide better UX:\nThen what is selected (and what you can see) actually tells you what you are looking at.\nThe current CL shows \"View URL encoded\" when it shows the plain content, and vice versa, and that easily confuses users.",
+      "range": {
+        "startLine": 77,
+        "startChar": 11,
+        "endLine": 77,
+        "endChar": 18
+      },
+      "revId": "cf424b001d4ef4770b5d4a47fe72369fd04e9c61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
