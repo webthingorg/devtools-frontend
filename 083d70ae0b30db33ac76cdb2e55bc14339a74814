@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00c37d1b_cd2fd149",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-16T13:23:17Z",
+      "side": 1,
+      "message": "Hi Patrick!\n\nA test in color-swatch_test.ts is flaky, e.g:\n\nhttps://ci.chromium.org/p/devtools-frontend/builders/ci/Stand-alone%20Mac/1895\n\nPTAL!",
+      "revId": "083d70ae0b30db33ac76cdb2e55bc14339a74814",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
