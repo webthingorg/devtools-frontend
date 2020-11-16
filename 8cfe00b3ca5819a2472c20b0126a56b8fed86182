@@ -16,6 +16,23 @@
       "message": "ptal\n",
       "revId": "8cfe00b3ca5819a2472c20b0126a56b8fed86182",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90d821df_e4f4d320",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1251514
+      },
+      "writtenOn": "2020-11-16T15:32:13Z",
+      "side": 1,
+      "message": "Turns out there are quite a few other instances in this repo where ::selection has a color with alpha\u003d1. Wonder if I should systematically go through them and do the transformation?\n",
+      "revId": "8cfe00b3ca5819a2472c20b0126a56b8fed86182",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
