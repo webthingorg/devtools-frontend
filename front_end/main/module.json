@@ -542,7 +542,8 @@
     "i18n",
     "platform",
     "sdk",
-    "persistence"
+    "persistence",
+    "recorder"
   ],
   "modules": [
     "main-legacy.js"
