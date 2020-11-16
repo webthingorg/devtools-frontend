@@ -71,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6d53ad0_34fa9e25",
+        "filename": "front_end/sources/DebuggerPausedMessage.js",
+        "patchSetId": 20
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-11-16T18:54:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "305a87c6_deea7d15",
+      "range": {
+        "startLine": 142,
+        "startChar": 25,
+        "endLine": 142,
+        "endChar": 51
+      },
+      "revId": "a444d6f7969a1733dc9a5a9dd3fb346aec962991",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "18241155_f57cc4e8",
