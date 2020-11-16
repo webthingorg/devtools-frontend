@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73956f73_d1a0ba3d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1466344
+      },
+      "writtenOn": "2020-11-16T17:25:02Z",
+      "side": 1,
+      "message": "Hey Mathias,\n\nThanks for taking the time to review my CL.\nIf there\u0027s anything you\u0027d like me to change please let me know. Otherwise, would you mind submitting this to the commit queue for me?\n\nThanks!\nDerek\n\n",
+      "revId": "b284c7894312a09037b52d239bee12cb345f8b43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
