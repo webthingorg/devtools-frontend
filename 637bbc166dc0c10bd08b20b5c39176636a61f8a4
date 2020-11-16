@@ -16,6 +16,46 @@
       "message": "ptal",
       "revId": "637bbc166dc0c10bd08b20b5c39176636a61f8a4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "379e2456_60d0bab2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-16T12:41:49Z",
+      "side": 1,
+      "message": "LGTM with nit, thanks!",
+      "revId": "637bbc166dc0c10bd08b20b5c39176636a61f8a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a08a7a6f_ec56d046",
+        "filename": "front_end/issues/MarkdownIssueDescription.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-16T12:41:49Z",
+      "side": 1,
+      "message": "Let\u0027s check here if there are unused placeholders that do not matche validPlaceholderPattern, and provide a separate error message in that case. Otherwise someone might have the placeholder \u0027foo\u0027 in the substitution and in the markdown, and wonder why they are getting the unused placeholder exception.",
+      "range": {
+        "startLine": 53,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 80
+      },
+      "revId": "637bbc166dc0c10bd08b20b5c39176636a61f8a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
