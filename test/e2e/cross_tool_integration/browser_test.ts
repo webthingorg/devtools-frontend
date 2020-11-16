@@ -9,7 +9,7 @@ import {describe, it} from '../../shared/mocha-extensions.js';
 import {getCurrentConsoleMessages} from '../helpers/console-helpers.js';
 import {openPanelViaMoreTools} from '../helpers/settings-helpers.js';
 
-describe('Browser', async () => {
+describe.skip('[crbug.com/1149334]: Browser', async () => {
   it('can reload a website after all closeable tools are closed', async () => {
     // Navigate to website
     const {target} = getBrowserAndPages();
