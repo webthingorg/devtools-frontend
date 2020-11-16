@@ -404,6 +404,7 @@ export class DataGrid extends HTMLElement {
                 const cellIsFocusableCell = columnIndex === this.focusableCell[0] && tableRowIndex === this.focusableCell[1];
                 const cellTextValue = stringValueForCell(cell);
                 const cellOutput = renderCellValue(cell);
+
                 return LitHtml.html`<td
                   class=${cellClasses}
                   title=${cellTextValue}
