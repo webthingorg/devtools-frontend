@@ -16,6 +16,23 @@
       "message": "LGTM, thanks!",
       "revId": "b7d14bec99991d44d91eafefb8035d8926521910",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53c8425a_16718f96",
+        "filename": "front_end/resources/module.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-16T07:11:10Z",
+      "side": 1,
+      "message": "nit:\n\n    including third-party cookies",
+      "revId": "b7d14bec99991d44d91eafefb8035d8926521910",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
