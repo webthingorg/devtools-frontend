@@ -16,6 +16,24 @@
       "message": "LGTM. Does this still work with keyboard navigation, i.e. do we have a test that ensures you can\u0027t keyboard navigate into the filler row?",
       "revId": "6e304b4390c631f57bddd9073d23d51e568016e2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fc4123b_f73c6edf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-16T12:45:47Z",
+      "side": 1,
+      "message": "Yes - the tests as they are check that you can\u0027t go off the end of the table. Because the movement logic works off the rows and columns data, not off rendered cells, that logic has no notion of this filler row.\n\nThe current tests that check once you\u0027re at the end that you can\u0027t go further would break if this CL caused issues so if they we\u0027re good.",
+      "parentUuid": "c16c5c9c_801371a9",
+      "revId": "6e304b4390c631f57bddd9073d23d51e568016e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
