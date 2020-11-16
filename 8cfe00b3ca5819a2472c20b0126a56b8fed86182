@@ -33,6 +33,41 @@
       "message": "Turns out there are quite a few other instances in this repo where ::selection has a color with alpha\u003d1. Wonder if I should systematically go through them and do the transformation?\n",
       "revId": "8cfe00b3ca5819a2472c20b0126a56b8fed86182",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45f7fd96_d762100b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-16T16:03:27Z",
+      "side": 1,
+      "message": "If you don\u0027t mind that would be fantastic, thank you!",
+      "parentUuid": "90d821df_e4f4d320",
+      "revId": "8cfe00b3ca5819a2472c20b0126a56b8fed86182",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a646abdf_b72aa9d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-16T16:03:27Z",
+      "side": 1,
+      "message": "LGTM, thank you!",
+      "revId": "8cfe00b3ca5819a2472c20b0126a56b8fed86182",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
