@@ -6,8 +6,20 @@
   <message name="IDS_DEVTOOLS_5e2c3eac46d298d72b51f1500601d7be" desc="Error message that is displayed in the Sources panel when can't be loaded.">
     Unknown error loading file
   </message>
+  <message name="IDS_DEVTOOLS_988afae2a1dade6600d2b950318701c6" desc="Success status message that is displayed in the Console tab when debugging symbols were loaded successfully">
+    Loaded debug symbols for <ph name="URL">$1s<ex>http://web.dev/file.wasm</ex></ph> (<ph name="SOURCEFILEURLS_LENGTH">$2s<ex>5</ex></ph> source files)
+  </message>
+  <message name="IDS_DEVTOOLS_ae83b231318c13bc26183e1de09d2308" desc="Status message displayed in the Console tab when starting to load debugging symbols with a sidecar module">
+    Loading debug symbols for <ph name="URL">$1s<ex>http://web.dev/file.wasm</ex></ph> (via <ph name="SYMBOLSURL">$2s<ex>dist/file.wasm.debug.wasm</ex></ph>)...
+  </message>
+  <message name="IDS_DEVTOOLS_c7b4fc336bc64dfcb5e477925a11d43a" desc="Status message displayed in the Console tab when loading debugging symbols failed">
+    Failed to load debug symbols for <ph name="URL">$1s<ex>http://web.dev/file.wasm</ex></ph> (<ph name="ERROR_MESSAGE">$2s<ex>not found</ex></ph>)
+  </message>
   <message name="IDS_DEVTOOLS_d3ff22990e37ccce8a501ffba38626b7" desc="Text in Resource Script Mapping">
     LiveEdit compile failed: <ph name="EXCEPTIONDETAILS_TEXT">$1s<ex>connection lost</ex></ph>
+  </message>
+  <message name="IDS_DEVTOOLS_dd56da8bba5be8cb0808dd1e27cd0470" desc="Status message displayed in the Console tab when starting to load debugging symbols">
+    Loading debug symbols for <ph name="URL">$1s<ex>http://web.dev/file.wasm</ex></ph>...
   </message>
   <message name="IDS_DEVTOOLS_e0e5dbfdab830f51994a8720b5f214b8" desc="Error message that is displayed in the Console when language plugins report errors">
       Error in debugger language plugin: <ph name="ERROR_MESSAGE">$1s<ex>File not found</ex></ph>
