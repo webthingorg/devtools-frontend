@@ -16,6 +16,109 @@
       "message": "Adding Mathias for review magic 😎",
       "revId": "691dab3ba50b54afc574bf4525fcc6938c5cd918",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7308b573_a117e4b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-16T09:23:57Z",
+      "side": 1,
+      "message": "Nice! LGTM % some suggestions",
+      "revId": "691dab3ba50b54afc574bf4525fcc6938c5cd918",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "221432d8_9d4a522d",
+        "filename": "test/unittests/debug-check.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-16T09:23:57Z",
+      "side": 1,
+      "message": "`*` already means 0 or more so I think we can drop the `?` here. We don\u0027t need the capture groups for the whitespace either. How about:\n\n    /^\\s*is_debug\\s*\u003d\\s*(.*)/\n\n(I added `^` as well to ensure we don\u0027t match on commented-out lines.)",
+      "range": {
+        "startLine": 7,
+        "startChar": 16,
+        "endLine": 7,
+        "endChar": 43
+      },
+      "revId": "691dab3ba50b54afc574bf4525fcc6938c5cd918",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76ea3317_034c6451",
+        "filename": "test/unittests/debug-check.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-16T09:23:57Z",
+      "side": 1,
+      "message": "Technically, we could have an args.gn with multiple `is_debug \u003d ...`, where the last one overrides the earlier one. We\u0027d get that case wrong. I think that\u0027s fine but let\u0027s maybe add a comment saying we\u0027re not trying to support every possible edge case?",
+      "revId": "691dab3ba50b54afc574bf4525fcc6938c5cd918",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b5c0580_d68e8063",
+        "filename": "test/unittests/debug-check.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-16T09:23:57Z",
+      "side": 1,
+      "message": "nit: e -\u003e error",
+      "range": {
+        "startLine": 40,
+        "startChar": 12,
+        "endLine": 40,
+        "endChar": 13
+      },
+      "revId": "691dab3ba50b54afc574bf4525fcc6938c5cd918",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9437eed9_05192a31",
+        "filename": "test/unittests/karma.conf.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-16T09:23:57Z",
+      "side": 1,
+      "message": "The filename is `args.gn`\nThe command is `gn args`\n\nLet\u0027s pick one instead of mixing :)",
+      "range": {
+        "startLine": 37,
+        "startChar": 35,
+        "endLine": 37,
+        "endChar": 43
+      },
+      "revId": "691dab3ba50b54afc574bf4525fcc6938c5cd918",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
