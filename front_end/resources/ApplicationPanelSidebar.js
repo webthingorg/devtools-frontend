@@ -2076,7 +2076,7 @@ export class ResourcesSection {
    * @param {!SDK.SDKModel.Target} target
    */
   targetAdded(target) {
-    if (target.type() === 'worker') {
+    if (target.type() === SDK.SDKModel.Type.Worker) {
       this._workerAdded(target);
     }
   }
@@ -2282,6 +2282,8 @@ export class FrameTreeElement extends BaseStorageTreeElement {
     this._treeElementForResource = new Map();
     /** @type {!Map<string, !BaseStorageTreeElement>} */
     this._treeElementForWindow = new Map();
+    /** @type {!Map<string, !BaseStorageTreeElement>} */
+    this._treeElementForServiceWorker = new Map();
     this.setExpandable(true);
     this.frameNavigated(frame);
     /** @type {?FrameDetailsView} */
@@ -2301,7 +2303,7 @@ export class FrameTreeElement extends BaseStorageTreeElement {
   /**
    * @param {!SDK.ResourceTreeModel.ResourceTreeFrame} frame
    */
-  frameNavigated(frame) {
+  async frameNavigated(frame) {
     const icon = UI.Icon.Icon.create(this.getIconTypeForFrame(frame));
     if (frame.unreachableUrl()) {
       icon.classList.add('red-icon');
@@ -2322,12 +2324,26 @@ export class FrameTreeElement extends BaseStorageTreeElement {
     }
     this._categoryElements.clear();
     this._treeElementForResource.clear();
+    this._treeElementForServiceWorker.clear();
 
     if (this.selected) {
       this._view = new FrameDetailsView(this._frame);
       this.showView(this._view);
     } else {
       this._view = null;
+    }
+
+    if (frame.isMainFrame()) {  // append service workers to the origin's main frame
+      const targets = SDK.SDKModel.TargetManager.instance().targets();
+      for (const target of targets) {
+        if (target.type() === SDK.SDKModel.Type.ServiceWorker) {
+          if (target.parentTarget() === frame.resourceTreeModel().target()) {
+            const targetInfo =
+                (await target.parentTarget().targetAgent().invoke_getTargetInfo({targetId: target.id()})).targetInfo;
+            this.workerCreated(targetInfo);
+          }
+        }
+      }
     }
   }
 
@@ -2427,10 +2443,19 @@ export class FrameTreeElement extends BaseStorageTreeElement {
       this._categoryElements.set(categoryKey, categoryElement);
       this.appendChild(categoryElement, FrameTreeElement._presentationOrderCompare);
     }
-    if (!this._treeElementForWindow.get(targetInfo.targetId)) {
+
+    const serviceWorkerElementAlreadyExists =
+        (targetInfo.type === ServiceWorkerType) && (this._treeElementForServiceWorker.get(targetInfo.targetId));
+    const windowElementAlreadyExists =
+        (targetInfo.type !== ServiceWorkerType) && (this._treeElementForWindow.get(targetInfo.targetId));
+    if (!serviceWorkerElementAlreadyExists || !windowElementAlreadyExists) {
       const workerTreeElement = new WorkerTreeElement(this._section._panel, targetInfo);
       categoryElement.appendChild(workerTreeElement);
-      this._treeElementForWindow.set(targetInfo.targetId, workerTreeElement);
+      if (targetInfo.type === ServiceWorkerType) {
+        this._treeElementForServiceWorker.set(targetInfo.targetId, workerTreeElement);
+      } else {
+        this._treeElementForWindow.set(targetInfo.targetId, workerTreeElement);
+      }
     }
   }
 
@@ -2709,5 +2734,7 @@ class WorkerTreeElement extends BaseStorageTreeElement {
     return 'dedicated-workers://';
   }
 }
+
+const ServiceWorkerType = 'service_worker';
 
 FrameResourceTreeElement._symbol = Symbol('treeElement');
