@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3dd223fd_499e92f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-11-16T20:49:11Z",
+      "side": 1,
+      "message": "LGTM - it was much easier to navigate the Coverage panel table with these changes.\n\nCan you also update the linked bug to clarify the repro steps for reaching the coverage panel? I found these a bit confusing at first. Thanks!",
+      "revId": "4bb53bd46dd54dc049221bb94e42425a9be7ede0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
