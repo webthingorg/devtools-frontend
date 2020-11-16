@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33045fd3_1f69ceef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-16T06:39:49Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "591a18a1241266114c40f08c561c7ff11ff22ed8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20ad17d4_b8c2ad23",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2589,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-16T06:39:49Z",
+      "side": 1,
+      "message": "is it needed for https?",
+      "revId": "591a18a1241266114c40f08c561c7ff11ff22ed8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
