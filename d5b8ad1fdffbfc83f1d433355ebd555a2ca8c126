@@ -16,6 +16,23 @@
       "message": "lgtm, nice fix",
       "revId": "d5b8ad1fdffbfc83f1d433355ebd555a2ca8c126",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87d0a94e_30a1dee4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-16T19:38:32Z",
+      "side": 1,
+      "message": "+Reviewer.  PTAL.",
+      "revId": "d5b8ad1fdffbfc83f1d433355ebd555a2ca8c126",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
