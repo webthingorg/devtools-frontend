@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e69a15e_357a82a5",
+        "filename": "front_end/common/Settings.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-16T11:07:15Z",
+      "side": 1,
+      "message": "If we don\u0027t use a specific variable, can we remove it for now?",
+      "range": {
+        "startLine": 101,
+        "startChar": 81,
+        "endLine": 101,
+        "endChar": 118
+      },
+      "revId": "41257ff01344f94bad924e35a62f61fca9a7369c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7b8ce5a_a2d649bd",
+        "filename": "front_end/common/Settings.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-16T11:07:15Z",
+      "side": 1,
+      "message": "Nit: unnecessary cast.",
+      "range": {
+        "startLine": 105,
+        "startChar": 24,
+        "endLine": 105,
+        "endChar": 63
+      },
+      "revId": "41257ff01344f94bad924e35a62f61fca9a7369c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c68da93e_33208b3d",
+        "filename": "front_end/common/Settings.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-16T11:07:15Z",
+      "side": 1,
+      "message": "To make TS a bit more happy:\n\n  let setting \u003d this._registry.get(key);\n  if (!setting) {\n    // TODO(crbug.com/1134103): This has to instatiate a PreRegisteredSetting instead once all settings are migrated\n    setting \u003d new LegacySetting(this, key, defaultValue, this._eventSupport, storage);\n    this._registry.set(key, setting);\n  }\n  return setting;",
+      "range": {
+        "startLine": 185,
+        "startChar": 4,
+        "endLine": 189,
+        "endChar": 64
+      },
+      "revId": "41257ff01344f94bad924e35a62f61fca9a7369c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c838b0f4_c980ecff",
+        "filename": "front_end/common/Settings.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-16T11:07:15Z",
+      "side": 1,
+      "message": "Same here",
+      "range": {
+        "startLine": 200,
+        "startChar": 4,
+        "endLine": 204,
+        "endChar": 64
+      },
+      "revId": "41257ff01344f94bad924e35a62f61fca9a7369c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abeb5061_19d03076",
+        "filename": "front_end/common/Settings.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 1619,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-16T11:07:15Z",
+      "side": 1,
+      "message": "Let\u0027s throw an error here, just like we do for actions.",
+      "range": {
+        "startLine": 1619,
+        "startChar": 4,
+        "endLine": 1619,
+        "endChar": 17
+      },
+      "revId": "41257ff01344f94bad924e35a62f61fca9a7369c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
