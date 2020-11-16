@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de9de4e5_258c968f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-16T12:54:36Z",
+      "side": 1,
+      "message": "Hi Jack!\n\nA small CL to fix resizing issues in the LMI, ptal!",
+      "revId": "11d51ce3bf568c7f3c5fa1c8014634f325a79c34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
