@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d96091b_474a924f",
+        "filename": "front_end/ui/components/DataGridController.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-16T16:46:29Z",
+      "side": 1,
+      "message": "Would we be better served by making an optional force parameter on the SortState? That way we can default it to true for an initial sort, or if we had reason to update the sort state programatically later we could do that, too? It just seems to be a possible source of misunderstanding and errors if the sort state is ignored?",
+      "range": {
+        "startLine": 22,
+        "startChar": 16,
+        "endLine": 22,
+        "endChar": 25
+      },
+      "revId": "f617f91406f04745402e425f1a05b401012334b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
