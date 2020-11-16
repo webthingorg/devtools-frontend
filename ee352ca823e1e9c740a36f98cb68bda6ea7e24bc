@@ -321,6 +321,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e00ca444_a2adf4e9",
+        "filename": "front_end/linear_memory_inspector/ValueInterpreterDisplay.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-16T06:32:24Z",
+      "side": 1,
+      "message": "Ah, thanks Alex; I used `display:table` (as a change from `display:grid`) so it rendered fine, let me add the tag here and remove the `display:table` in a follow up!",
+      "parentUuid": "b1405aee_06a17823",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 104
+      },
+      "revId": "ee352ca823e1e9c740a36f98cb68bda6ea7e24bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dc773c2e_2e5f2c27",
