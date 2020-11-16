@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7914dc92_b5029c0c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-16T15:12:20Z",
+      "side": 1,
+      "message": "Please update once https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2520827 is in. The corresponding V8 CL is about to be rolled: https://chromium-review.googlesource.com/c/chromium/src/+/2538125",
+      "revId": "726ec0a49c6849738fd445cf64ca646b0db3fa25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
