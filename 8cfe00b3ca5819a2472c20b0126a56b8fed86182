@@ -68,6 +68,24 @@
       "message": "LGTM, thank you!",
       "revId": "8cfe00b3ca5819a2472c20b0126a56b8fed86182",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43903df6_605061a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1251514
+      },
+      "writtenOn": "2020-11-16T16:38:35Z",
+      "side": 1,
+      "message": "\u003e If you don\u0027t mind that would be fantastic, thank you!\n\nI\u0027ve been looking through it and the cases are:\n\n1. The use of --item-selection-bg-color which happens here: \n\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/text_editor/cmdevtools.css;l\u003d735-739?q\u003dcmdevtools.css\n\nThat variable is used in non-::selection backgrounds as well, which would never have been transformed, so they will now be consistent without changes. I suspect no change is needed there?\n\n\n2. The rest of the changes are from codemirror which are supposedly roll\u0027ed in from the codemirror project. It is in front_end/cm/codemirror.css and the rest in various themes in front_end/third_party/codemirror/package/theme/. They all use ::-moz-selection in addition, so I presume these colors have been tested in Mozilla by the upstream project and that these are not causing visual issues, at least.",
+      "parentUuid": "45f7fd96_d762100b",
+      "revId": "8cfe00b3ca5819a2472c20b0126a56b8fed86182",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
