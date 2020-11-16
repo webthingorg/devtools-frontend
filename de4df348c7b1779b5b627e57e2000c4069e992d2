@@ -16,6 +16,23 @@
       "message": "Hi Alex!\n\nHere\u0027s the follow up CL: I\u0027m using ls`` for localization (anything more that I need to add except of the ls``?) and I\u0027m fixing the ValueInterpreterDisplay to use CSS Grid with the merged column functionality. I switched back to CSS grid since there\u0027s a solution to merge cells as you mentioned, and since I\u0027m a bit more inclined to use grid (e.g. I like that it uses fractions instead of % widths). But if you are of a different opinion let me know.\n\nPTAL!",
       "revId": "de4df348c7b1779b5b627e57e2000c4069e992d2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4540e50d_2f1f1dcb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-16T11:53:57Z",
+      "side": 1,
+      "message": "LGTM thanks!",
+      "revId": "de4df348c7b1779b5b627e57e2000c4069e992d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
