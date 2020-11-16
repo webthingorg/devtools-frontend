@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6d0e5be_02bf7c92",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-11-16T16:14:11Z",
+      "side": 1,
+      "message": "Hey Philip,\n\nThere\u0027s still some weird layout test failure that I\u0027ll investigate. But please take a look whether this otherwise makes sense to you.\n\nthanks,\nBenedikt",
+      "revId": "6c121a2db8c635f417a0eae2c3928672a90bccae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
