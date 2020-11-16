@@ -140,6 +140,9 @@
   "devices/ModuleUIStrings.js | usb": {
     "message": "usb"
   },
+  "recorder/RecordingFileSystem.js | defaultRecordingName": {
+    "message": "Recording #{nextId}"
+  },
   "resources/ClearStorageView.js | storageQuotaUsed": {
     "message": "{PH1} used out of {PH2} storage quota"
   },
