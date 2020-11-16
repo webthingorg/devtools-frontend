@@ -3,6 +3,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "305a87c6_deea7d15",
+        "filename": "front_end/sources/DebuggerPausedMessage.js",
+        "patchSetId": 20
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-16T15:11:10Z",
+      "side": 1,
+      "message": "nit: You can use ls`` here, we need to clean up the old UIString usage at some point, but let\u0027s not introduce more of it.",
+      "range": {
+        "startLine": 142,
+        "startChar": 25,
+        "endLine": 142,
+        "endChar": 51
+      },
+      "revId": "a444d6f7969a1733dc9a5a9dd3fb346aec962991",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2946caa8_e23612e3",
+        "filename": "front_end/sources/DebuggerPausedMessage.js",
+        "patchSetId": 20
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-16T15:11:10Z",
+      "side": 1,
+      "message": "Did you intentionally not localize this?",
+      "range": {
+        "startLine": 142,
+        "startChar": 79,
+        "endLine": 142,
+        "endChar": 106
+      },
+      "revId": "a444d6f7969a1733dc9a5a9dd3fb346aec962991",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18241155_f57cc4e8",
+        "filename": "front_end/sources/DebuggerPausedMessage.js",
+        "patchSetId": 20
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-16T15:11:10Z",
+      "side": 1,
+      "message": "and this?",
+      "range": {
+        "startLine": 145,
+        "startChar": 79,
+        "endLine": 145,
+        "endChar": 108
+      },
+      "revId": "a444d6f7969a1733dc9a5a9dd3fb346aec962991",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6c6cce67_533be976",
         "filename": "test/e2e/sources/breakpoint-csp-violations_test.ts",
         "patchSetId": 20
