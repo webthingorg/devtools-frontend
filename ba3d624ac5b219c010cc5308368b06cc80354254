@@ -34,6 +34,24 @@
       "parentUuid": "13f1835e_35099ee5",
       "revId": "ba3d624ac5b219c010cc5308368b06cc80354254",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcfec465_69cd8ece",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-17T13:30:13Z",
+      "side": 1,
+      "message": "If you\u0027re talking about the interface and implementation classes for both persistent grid and flex in OverlayModel.js, then I totally agree. I think this should be way simpler.",
+      "parentUuid": "a966a5f3_81be2ba3",
+      "revId": "ba3d624ac5b219c010cc5308368b06cc80354254",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
