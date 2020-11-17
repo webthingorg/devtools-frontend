@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c813af6a_7bdee80d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-17T12:47:49Z",
+      "side": 1,
+      "message": "Now that we are working on making Linkifier be a component, do we still need this?\n\nI\u0027m wondering if in that case we\u0027ll end up with:\n\n{\ncolumnId: \u0027link\u0027.\nvalue: \u0027http://blah/blah/blah\u0027,\ntitle: \u0027...\u0027,\nrenderer: value \u003d\u003e LitHtml.html`\u003cdevtools-linkify ...\u003e`\n}\n\nOr alternatively:\n\n{\ncolumnId: \u0027link\u0027,\nvalue: LitHtml.html`\u003cdevtools-linkifiy...`,\ntitle: \u0027http://link/to/wherever\u0027,\nrenderer: value \u003d\u003e value,\n}\n\nBasically if we can avoid needing this escape hatch, we should, so now we\u0027re making a linkify component, what is the use case for this?",
+      "revId": "24a7a45bfa792a9ac9f730bc8c3962b27926264b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
