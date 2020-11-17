@@ -879,7 +879,7 @@ export class DebuggerPlugin extends Plugin {
       return;
     }
 
-    const localScope = callFrame.localScope();
+    const localScope = callFrame.scopeChain().find(scope => scope.type() === Protocol.Debugger.ScopeType.Local);
     const functionLocation = callFrame.functionLocation();
     if (localScope && functionLocation) {
       resolveScopeInObject(localScope)
