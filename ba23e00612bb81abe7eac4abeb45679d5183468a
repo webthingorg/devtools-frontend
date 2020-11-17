@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e46c15e3_e8cf9f16",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-17T13:28:22Z",
+      "side": 1,
+      "message": "Do you mean that you\u0027ll remove the changes made to generated protocol files from this CL before merging?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 39
+      },
+      "revId": "ba23e00612bb81abe7eac4abeb45679d5183468a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9ec55b4e_0531332f",
@@ -14,6 +37,52 @@
       "writtenOn": "2020-11-17T13:09:40Z",
       "side": 1,
       "message": "Patrick \u0026 Changhao, could you please take a look as well?",
+      "revId": "ba23e00612bb81abe7eac4abeb45679d5183468a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd0a4f04_d4406504",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2184,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-17T13:28:22Z",
+      "side": 1,
+      "message": "I don\u0027t have a strong opinion one way or the other, but this could be merged with createGridAdorner, into 1 function called createAdorner which accepts a type argument that would be \u0027grid\u0027 or \u0027flex\u0027.\nThis way, no need to repeat most of the code.\n\nUp to you, either we have 2 functions that are mostly the same, or just 1 but with a bunch of ifs.",
+      "range": {
+        "startLine": 2184,
+        "startChar": 2,
+        "endLine": 2184,
+        "endChar": 19
+      },
+      "revId": "ba23e00612bb81abe7eac4abeb45679d5183468a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e8e6206_91449d2e",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1063,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-17T13:28:22Z",
+      "side": 1,
+      "message": "How about we just use Common.Color.PageHighlight.FlexContainerBorder.toProtocolRGBA() for now?",
+      "range": {
+        "startLine": 1063,
+        "startChar": 4,
+        "endLine": 1063,
+        "endChar": 48
+      },
       "revId": "ba23e00612bb81abe7eac4abeb45679d5183468a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
