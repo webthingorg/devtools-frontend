@@ -16,6 +16,24 @@
       "message": "This is looking good, but could it be broken up into smaller pieces? That would improve readability and revertability of the CL. You\u0027re making multiple changes here at once:\n\n- Move ownership of the plugin manager to workspace bindings\n- Turn the manager into a model observer\n- Introduce a new raw module id\n\nThose are the ones I got at a first glance at least. Are these interdependant so that they need to happen in a single CL?",
       "revId": "eb2848a74f80e553b0dfdd7f521690190b73253c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d819114c_efae1ba0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-11-17T09:24:11Z",
+      "side": 1,
+      "message": "This is already only a piece of the overall puzzle, and I\u0027m not sure I can split this up further with individual steps that make sense:\n\n- The raw module ID change I suppose could be done separately, but it\u0027s likely not very useful.\n- The model observer and ownership/singleton change go hand-in-hand, one doesn\u0027t make sense without the other.",
+      "parentUuid": "74e328a5_ef8aaf92",
+      "revId": "eb2848a74f80e553b0dfdd7f521690190b73253c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
