@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "719f48c3_957258d3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-17T11:44:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30422885_53323cc9",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 12
+      },
+      "revId": "377b3e093eb01f9d9cc43871a488c604cd20fbea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "afe9c060_daac224e",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-11-13T14:58:54Z",
       "side": 1,
       "message": "Can you add this bug you fixed the todo for too? 1148495",
+      "range": {
+        "startLine": 11,
+        "startChar": 14,
+        "endLine": 11,
+        "endChar": 21
+      },
+      "revId": "377b3e093eb01f9d9cc43871a488c604cd20fbea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2de14bcf_2921748d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-17T11:44:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afe9c060_daac224e",
       "range": {
         "startLine": 11,
         "startChar": 14,
