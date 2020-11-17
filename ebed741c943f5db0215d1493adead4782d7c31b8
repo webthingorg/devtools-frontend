@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "485aedd0_60c49708",
+        "filename": "front_end/ui/ActionRegistration.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-11-17T14:42:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7744602_7b657fd6",
+      "range": {
+        "startLine": 354,
+        "startChar": 21,
+        "endLine": 354,
+        "endChar": 51
+      },
+      "revId": "ebed741c943f5db0215d1493adead4782d7c31b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2e2489e9_dc03d53a",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-11-16T11:01:25Z",
       "side": 1,
       "message": "Nit: we already get the callstack with the `new Error` invocation, so I don\u0027t think we need the stack here as well.",
+      "range": {
+        "startLine": 541,
+        "startChar": 94,
+        "endLine": 541,
+        "endChar": 111
+      },
+      "revId": "ebed741c943f5db0215d1493adead4782d7c31b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8c82448_e1dc1953",
+        "filename": "front_end/ui/ActionRegistration.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-11-17T14:42:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e2489e9_dc03d53a",
       "range": {
         "startLine": 541,
         "startChar": 94,
