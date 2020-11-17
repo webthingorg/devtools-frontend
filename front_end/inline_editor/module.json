@@ -13,6 +13,10 @@
     "CSSShadowEditor.js",
     "CSSShadowModel.js",
     "CSSVarSwatch_bridge.js",
+    "FontEditor.js",
+    "FontEditorUnitConverter.js",
+    "FontEditorUtils.js",
+    "SwatchPopoverHelper.js",
     "Swatches.js",
     "SwatchPopoverHelper.js"
   ],
@@ -22,6 +26,7 @@
     "bezierSwatch.css",
     "cssShadowSwatch.css",
     "cssShadowEditor.css",
+    "fontEditor.css",
     "swatchPopover.css"
   ],
   "skip_compilation": [
