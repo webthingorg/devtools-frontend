@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74e328a5_ef8aaf92",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-11-17T09:12:43Z",
+      "side": 1,
+      "message": "This is looking good, but could it be broken up into smaller pieces? That would improve readability and revertability of the CL. You\u0027re making multiple changes here at once:\n\n- Move ownership of the plugin manager to workspace bindings\n- Turn the manager into a model observer\n- Introduce a new raw module id\n\nThose are the ones I got at a first glance at least. Are these interdependant so that they need to happen in a single CL?",
+      "revId": "eb2848a74f80e553b0dfdd7f521690190b73253c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
