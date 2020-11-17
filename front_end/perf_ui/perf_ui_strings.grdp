@@ -21,6 +21,9 @@
   <message name="IDS_DEVTOOLS_3f21c340f01b96cb3325a5d38ece9da6" desc="Title of a setting under the Memory category in Settings">
     Live memory allocation annotations
   </message>
+  <message name="IDS_DEVTOOLS_4252b72e6ebcd4d4b4c2e46a786f03d2" desc="Text for zooming in">
+    Zoom
+  </message>
   <message name="IDS_DEVTOOLS_4a6d0345e7b6cfcf339237b9cf2d27b4" desc="Title of a setting under the Performance category in Settings">
     Flamechart mouse wheel action:
   </message>

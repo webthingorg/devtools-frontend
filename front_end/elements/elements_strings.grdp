@@ -315,6 +315,9 @@
   <message name="IDS_DEVTOOLS_ec409e94ae4378283bc1ae36bf28a62e" desc="Accessible label for Elements panel adorners (suffix badges in Elements Tree Outline)">
     adorner
   </message>
+  <message name="IDS_DEVTOOLS_ee1cab1975e28575b1631ee8fc4ea749" desc="Title of an action in the emulation tool to capture node screenshot">
+    Capture node screenshot
+  </message>
   <message name="IDS_DEVTOOLS_eeb120863c8112ad8bac38556ae8c58b" desc="Accessible label for Elements panel adorners (suffix badges in Elements Tree Outline)">
     <ph name="THIS_NAME">$1s<ex>grid</ex></ph> adorner
   </message>

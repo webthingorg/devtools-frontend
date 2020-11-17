@@ -132,6 +132,9 @@
   <message name="IDS_DEVTOOLS_28e486be4b3bad598b6e9eaa34ebec76" desc="Text in Network Manager">
     Set-Cookie header is ignored in response from url: <ph name="RESPONSE_URL">$1s<ex>https://example.com</ex></ph>. Cookie length should be less than or equal to 4096 characters.
   </message>
+  <message name="IDS_DEVTOOLS_29260f495ba8adcc62fd1307c758ff4e" desc="Text to show the measuring rulers on the target">
+    Show rulers
+  </message>
   <message name="IDS_DEVTOOLS_2973958e77629e3a167a1a4c60dd5c5f" desc="Text in Network Manager">
     Slow 3G
   </message>
@@ -679,6 +682,9 @@
   </message>
   <message name="IDS_DEVTOOLS_f0a0bfe6bc7d2c58d2989034f83183e0" desc="Service worker running status displayed in the Service Workers view in the Application panel">
     stopped
+  </message>
+  <message name="IDS_DEVTOOLS_f0f31c9700c6b10d8a20dc487b2ae6a8" desc="Text for the touch type to simulate on a device">
+    Touch
   </message>
   <message name="IDS_DEVTOOLS_f107ac919ab14339cdb22cd00fccd215" desc="Title of a setting under the Rendering category that can be invoked through the Command Menu">
     Show paint flashing rectangles
