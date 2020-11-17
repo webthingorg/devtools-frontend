@@ -62,6 +62,30 @@
       },
       "revId": "83934877e283b4667bfc224db025e560c7f9cbe5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d486f71c_0323f94d",
+        "filename": "front_end/startup/RuntimeInstantiator.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-11-17T10:01:44Z",
+      "side": 1,
+      "message": "Do you think it\u0027s possible to allow registering of strings at module-instantiation-time via i18n.registerUIStrings, and binding of i18n.getLocalizedString (as we do now), but make calls to getLocalizedString fail until after startup? That would be a nice invariant to have anyway, that we don\u0027t try to use localized strings at module-time, only runtime.",
+      "parentUuid": "82527cba_6f861ebc",
+      "range": {
+        "startLine": 53,
+        "startChar": 2,
+        "endLine": 53,
+        "endChar": 48
+      },
+      "revId": "83934877e283b4667bfc224db025e560c7f9cbe5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
