@@ -16,6 +16,24 @@
       "message": "Now that we are working on making Linkifier be a component, do we still need this?\n\nI\u0027m wondering if in that case we\u0027ll end up with:\n\n{\ncolumnId: \u0027link\u0027.\nvalue: \u0027http://blah/blah/blah\u0027,\ntitle: \u0027...\u0027,\nrenderer: value \u003d\u003e LitHtml.html`\u003cdevtools-linkify ...\u003e`\n}\n\nOr alternatively:\n\n{\ncolumnId: \u0027link\u0027,\nvalue: LitHtml.html`\u003cdevtools-linkifiy...`,\ntitle: \u0027http://link/to/wherever\u0027,\nrenderer: value \u003d\u003e value,\n}\n\nBasically if we can avoid needing this escape hatch, we should, so now we\u0027re making a linkify component, what is the use case for this?",
       "revId": "24a7a45bfa792a9ac9f730bc8c3962b27926264b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "210efb30_df5d142d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-17T14:36:58Z",
+      "side": 1,
+      "message": "Thinking more about this (and after our chat!) I think we shouldn\u0027t land this as an off the shelf renderer.\n\nSometimes we will need this escape hatch, but if there\u0027s a ready-made function it\u0027s easier to use it without thinking through the consequences and potential complications. Using nodes as cell values isn\u0027t a thing that the data-grid set out to support, and nor should it (ideally values for cells should be strings), so we shouldn\u0027t provide helpers that encourage it.\n\nI\u0027m happy to use this approach when required to unblock progress but not otherwise. Let me know what you think!",
+      "parentUuid": "c813af6a_7bdee80d",
+      "revId": "24a7a45bfa792a9ac9f730bc8c3962b27926264b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
