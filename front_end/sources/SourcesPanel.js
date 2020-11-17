@@ -885,9 +885,23 @@ export class SourcesPanel extends UI.Panel.Panel {
     }
     const remoteObject = /** @type {!SDK.RemoteObject.RemoteObject} */ (target);
     const executionContext = UI.Context.Context.instance().flavor(SDK.RuntimeModel.ExecutionContext);
+    let properties = target?.preview?.properties;
+    let copiedText = '';
+    // @ts-ignore
+    properties = properties.reduce((properties, item) => Object.assign(properties, {[item.name]: item.value}), {});
+
+    if (remoteObject.subtype === 'array') {
+      // @ts-ignore
+      properties = Object.values(properties);
+    }
+    copiedText = JSON.stringify(properties, null, '  ');
+
     contextMenu.debugSection().appendItem(
         ls`Store ${remoteObject.type} as global variable`,
         () => SDK.ConsoleModel.ConsoleModel.instance().saveToTempVariable(executionContext, remoteObject));
+    contextMenu.debugSection().appendItem(
+        ls`Copy ${remoteObject.className}`,
+        () => Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(copiedText));
     if (remoteObject.type === 'function') {
       contextMenu.debugSection().appendItem(
           ls`Show function definition`, this._showFunctionDefinition.bind(this, remoteObject));
