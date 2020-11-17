@@ -33,6 +33,24 @@
       "message": "super nit: what about adding an else case for removing the instance? Then it\u0027s less likely that we add something to the end of the function that has nothing to do with whether UI exists or not.",
       "revId": "6452c73db7c6b66544a4dd1cb900fc6704570534",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fde0f00a_79b4ae3e",
+        "filename": "test/unittests/front_end/helpers/EnvironmentHelpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-17T10:37:10Z",
+      "side": 1,
+      "message": "Ah fair, yes I can do that.",
+      "parentUuid": "4b2355b2_5aba6c8e",
+      "revId": "6452c73db7c6b66544a4dd1cb900fc6704570534",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
