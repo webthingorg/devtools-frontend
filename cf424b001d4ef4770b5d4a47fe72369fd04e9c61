@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "77d697e2_659156a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-17T12:50:49Z",
+      "side": 1,
+      "message": "Thanks for the feedback!\nI added a reply to your comment.",
+      "revId": "cf424b001d4ef4770b5d4a47fe72369fd04e9c61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "20e396a2_34b30184",
@@ -48,6 +65,30 @@
       "writtenOn": "2020-11-16T12:38:23Z",
       "side": 1,
       "message": "I think a drop down with two entries \"Plain content\", \"Decoded content\" would provide better UX:\nThen what is selected (and what you can see) actually tells you what you are looking at.\nThe current CL shows \"View URL encoded\" when it shows the plain content, and vice versa, and that easily confuses users.",
+      "range": {
+        "startLine": 77,
+        "startChar": 11,
+        "endLine": 77,
+        "endChar": 18
+      },
+      "revId": "cf424b001d4ef4770b5d4a47fe72369fd04e9c61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d94a6a8_f8d07b2c",
+        "filename": "front_end/resources/CookieItemsView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-17T12:50:49Z",
+      "side": 1,
+      "message": "I agree with your line of thought but I tried to stick with established approach in the Network Panel: https://imgur.com/a/ueKVArc. \nDo you think it\u0027s worth to break with that pattern here? Or should we just stick with that for now and bring it to Peters attention to get it resolved in a consistent way in the future?",
+      "parentUuid": "20e396a2_34b30184",
       "range": {
         "startLine": 77,
         "startChar": 11,
