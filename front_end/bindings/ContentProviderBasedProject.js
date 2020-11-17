@@ -245,7 +245,11 @@ export class ContentProviderBasedProject extends Workspace.Workspace.ProjectStor
     /** @type {!Array<string>} */
     const result = [];
     progress.setTotalWork(filesMathingFileQuery.length);
-    await Promise.all(filesMathingFileQuery.map(searchInContent.bind(this)));
+    // eslint-disable-next-line
+    console.log('ContentProviderBasedProject.findFilesMatchingSearchRequest');
+    // eslint-disable-next-line
+    console.log(JSON.stringify(filesMathingFileQuery))
+        await Promise.all(filesMathingFileQuery.map(searchInContent.bind(this)));
     progress.done();
     return result;
 
@@ -258,6 +262,8 @@ export class ContentProviderBasedProject extends Workspace.Workspace.ProjectStor
       let allMatchesFound = true;
       for (const query of searchConfig.queries().slice()) {
         const searchMatches = await provider.searchInContent(query, !searchConfig.ignoreCase(), searchConfig.isRegex());
+        // eslint-disable-next-line
+        console.log('searchInContent', path, query, searchMatches.length);
         if (!searchMatches.length) {
           allMatchesFound = false;
           break;

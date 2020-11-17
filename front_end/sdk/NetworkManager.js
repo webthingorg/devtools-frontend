@@ -116,8 +116,12 @@ export class NetworkManager extends SDKModel {
     if (!manager) {
       return [];
     }
+    // eslint-disable-next-line
+    console.log('NetworkManager.searchInRequest', request.url(), query, caseSensitive, isRegex);
     const response = await manager._networkAgent.invoke_searchInResponseBody(
         {requestId: request.requestId(), query: query, caseSensitive: caseSensitive, isRegex: isRegex});
+    // eslint-disable-next-line
+    console.log('NetworkManager.searchInRequest: ', request.url(), JSON.stringify(response.result));
     return response.result || [];
   }
 

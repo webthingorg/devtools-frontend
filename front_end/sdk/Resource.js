@@ -52,6 +52,10 @@ export class Resource {
    */
   constructor(
       resourceTreeModel, request, url, documentURL, frameId, loaderId, type, mimeType, lastModified, contentSize) {
+    // eslint-disable-next-line
+    console.log(
+        'Resource.constructor', url, !!request, documentURL, frameId, loaderId, type.title(), mimeType, lastModified,
+        contentSize);
     this._resourceTreeModel = resourceTreeModel;
     this._request = request;
     this.url = url;
@@ -236,6 +240,9 @@ export class Resource {
    * @return {!Promise<!Array<!TextUtils.ContentProvider.SearchMatch>>}
    */
   async searchInContent(query, caseSensitive, isRegex) {
+    // eslint-disable-next-line
+    console.log(
+        'Resource.searchInContent', this.url, this.frameId, !!this.request, !!this.request?._contentDataProvider);
     if (!this.frameId) {
       return [];
     }
