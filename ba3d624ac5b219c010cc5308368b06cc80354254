@@ -52,6 +52,24 @@
       "parentUuid": "a966a5f3_81be2ba3",
       "revId": "ba3d624ac5b219c010cc5308368b06cc80354254",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41691946_8f079988",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-17T14:04:23Z",
+      "side": 1,
+      "message": "Yes, also I think we can have a single PersistentHighlighter class handling both grid and flex but I will see in a follow-up CL if it works/looks well.",
+      "parentUuid": "fcfec465_69cd8ece",
+      "revId": "ba3d624ac5b219c010cc5308368b06cc80354254",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

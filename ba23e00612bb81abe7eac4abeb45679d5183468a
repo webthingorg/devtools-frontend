@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "0031802b_593c528f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-17T14:04:23Z",
+      "side": 1,
+      "message": "Yes, I have already merged the CL with protocol changes so now it\u0027s not needed.",
+      "parentUuid": "e46c15e3_e8cf9f16",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 39
+      },
+      "revId": "ba23e00612bb81abe7eac4abeb45679d5183468a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "9ec55b4e_0531332f",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -77,6 +101,30 @@
       "writtenOn": "2020-11-17T13:28:22Z",
       "side": 1,
       "message": "How about we just use Common.Color.PageHighlight.FlexContainerBorder.toProtocolRGBA() for now?",
+      "range": {
+        "startLine": 1063,
+        "startChar": 4,
+        "endLine": 1063,
+        "endChar": 48
+      },
+      "revId": "ba23e00612bb81abe7eac4abeb45679d5183468a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60c90583_0c3633ac",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1063,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-17T14:04:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e8e6206_91449d2e",
       "range": {
         "startLine": 1063,
         "startChar": 4,
