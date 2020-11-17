@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "caa56d43_eec07559",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 55
+      },
+      "lineNbr": 757,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-17T21:04:51Z",
+      "side": 1,
+      "message": "Since this function doesn\u0027t require any `this` reference and looks standalone, maybe it could go inside FontEditorUtils and be unit-tested there?",
+      "revId": "99434bcad6165af83592da571637290f909e7df5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9391fde0_cfe07653",
+        "filename": "front_end/inline_editor/FontEditorUnitConverter.js",
+        "patchSetId": 55
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-17T21:04:51Z",
+      "side": 1,
+      "message": "Could we add unit tests for the functions in this file?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 52
+      },
+      "revId": "99434bcad6165af83592da571637290f909e7df5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6b3ca71_45a7e440",
+        "filename": "front_end/inline_editor/FontEditorUnitConverter.js",
+        "patchSetId": 55
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-17T21:04:51Z",
+      "side": 1,
+      "message": "Yeah, these union return types are messy to deal with, and I think we could get rid of these `@ts-ignore`s by two ways: either checking for \"error\" property and bail out if it exists, or checking for \"object\" and \"exceptionDetails\" and continue if they do exist. There are some examples in the codebase:\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/sdk/ConsoleModel.js;l\u003d158-176;drc\u003d8bfb421bc237817193dbeaa528cf1bf95e49ef58\n\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/object_ui/JavaScriptAutocomplete.js;l\u003d92-107;drc\u003d5079e2f84e4355fb799a1b69412a2ba660f0dc65",
+      "revId": "99434bcad6165af83592da571637290f909e7df5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71f5fcdb_70d07ec9",
+        "filename": "front_end/sdk/CSSMetadata.js",
+        "patchSetId": 55
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-17T21:04:51Z",
+      "side": 1,
+      "message": "nit: same with this one. I know this is old code, but it would be awesome if you could also remove this `!!` as well.",
+      "revId": "99434bcad6165af83592da571637290f909e7df5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "849388e6_6a395a69",
+        "filename": "front_end/sdk/CSSMetadata.js",
+        "patchSetId": 55
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-17T21:04:51Z",
+      "side": 1,
+      "message": "nit: is the `!!` necessary? It looks like `_fontAwareProperties.has(propertyName)` should already return a boolean?",
+      "revId": "99434bcad6165af83592da571637290f909e7df5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

@@ -157,6 +157,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a00fe9da_c08ed509",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 51
+      },
+      "lineNbr": 1203,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-17T21:04:51Z",
+      "side": 1,
+      "message": "Ah I see. I misread the indentation. It\u0027s all good. Thanks for the explanation!",
+      "parentUuid": "87becd30_89ab584e",
+      "revId": "ba2254b31f5b98b2e029780bbfcbc5b8b5b98f4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e06f4fb8_ca0e9cd0",
