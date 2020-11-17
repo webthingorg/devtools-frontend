@@ -16,6 +16,24 @@
       "message": "nit: I\u0027m not familiar with APCA, but would there be an (semi-)official link for these constants so that we can add a comment for that here? Would https://github.com/Myndex/SAPC-APCA contain these constants?",
       "revId": "6cd9d147ff16884f9b847651f59d8de396499957",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27d99802_b14552a9",
+        "filename": "front_end/common/ColorUtils.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-17T08:09:42Z",
+      "side": 1,
+      "message": "Yes, https://github.com/Myndex/SAPC-APCA contains the constants and it\u0027s the canonical implementation. The files in the repo are moved from time to time, therefore, not linking to a particular file.",
+      "parentUuid": "a6e2c481_40f6bd0c",
+      "revId": "6cd9d147ff16884f9b847651f59d8de396499957",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
