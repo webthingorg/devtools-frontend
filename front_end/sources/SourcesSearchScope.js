@@ -139,6 +139,12 @@ export class SourcesSearchScope {
     const searchContentProgress = compositeProgress.createSubProgress();
     const findMatchingFilesProgress = new Common.Progress.CompositeProgress(compositeProgress.createSubProgress());
     for (const project of this._projects()) {
+      // eslint-disable-next-line
+      console.log(
+          project.id(),
+          project.type(),
+          project.displayName(),
+      );
       const weight = project.uiSourceCodes().length;
       const findMatchingFilesInProjectProgress = findMatchingFilesProgress.createSubProgress(weight);
       const filesMathingFileQuery = this._projectFilesMatchingFileQuery(project, searchConfig);
@@ -191,6 +197,8 @@ export class SourcesSearchScope {
    * @param {!Array<string>} files
    */
   _processMatchingFilesForProject(searchId, project, searchConfig, filesMathingFileQuery, files) {
+    // eslint-disable-next-line
+    console.log(JSON.stringify(files));
     if (searchId !== this._searchId && this._searchFinishedCallback) {
       this._searchFinishedCallback(false);
       return;
