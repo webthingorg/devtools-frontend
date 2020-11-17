@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13f1835e_35099ee5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-17T10:02:54Z",
+      "side": 1,
+      "message": "I feel like we could simplify the highlighter implementation. I am not sure we need separate interfaces and a separate highligher classes for grid/flex. WDYT?",
+      "revId": "ba3d624ac5b219c010cc5308368b06cc80354254",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
