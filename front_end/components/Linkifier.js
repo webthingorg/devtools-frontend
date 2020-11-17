@@ -737,15 +737,19 @@ export class Linkifier {
     if (UI.UIUtils.isBeingEdited(/** @type {!Node} */ (event.target)) || link.hasSelection()) {
       return false;
     }
-    return Linkifier.invokeFirstAction(link);
+    const linkInfo = Linkifier._linkInfo(link);
+    if (!linkInfo) {
+      return false;
+    }
+    return Linkifier.invokeFirstAction(linkInfo);
   }
 
   /**
-   * @param {!Element} link
+   * @param {!_LinkInfo} linkInfo
    * @return {boolean}
    */
-  static invokeFirstAction(link) {
-    const actions = Linkifier._linkActions(link);
+  static invokeFirstAction(linkInfo) {
+    const actions = Linkifier._linkActions(linkInfo);
     if (actions.length) {
       actions[0].handler.call(null);
       return true;
@@ -790,13 +794,13 @@ export class Linkifier {
   }
 
   /**
-   * @param {?Element} link
+   * @param {!_LinkInfo} info
    * @return {!Array<{section: string, title: string, handler: function()}>}
    */
-  static _linkActions(link) {
-    const info = Linkifier._linkInfo(link);
+  static _linkActions(info) {
     /** @type {!Array<{section: string, title: string, handler: function():*}>} */
     const result = [];
+
     if (!info) {
       return result;
     }
@@ -895,7 +899,12 @@ export class LinkContextMenuProvider {
       targetNode = targetNode.parentNodeOrShadowHost();
     }
     const link = /** @type {?Element} */ (targetNode);
-    const actions = Linkifier._linkActions(link);
+    const linkInfo = Linkifier._linkInfo(link);
+    if (!linkInfo) {
+      return;
+    }
+
+    const actions = Linkifier._linkActions(linkInfo);
     for (const action of actions) {
       contextMenu.section(action.section).appendItem(action.title, action.handler);
     }
