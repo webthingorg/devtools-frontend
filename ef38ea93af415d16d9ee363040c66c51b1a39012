@@ -87,6 +87,30 @@
       },
       "revId": "ef38ea93af415d16d9ee363040c66c51b1a39012",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a56b26b_5f1016fe",
+        "filename": "front_end/legacy/legacy-defs.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-17T12:02:03Z",
+      "side": 1,
+      "message": "Done in https://crrev.com/c/2544140",
+      "parentUuid": "73ae8536_1429f3c5",
+      "range": {
+        "startLine": 173,
+        "startChar": 2,
+        "endLine": 173,
+        "endChar": 13
+      },
+      "revId": "ef38ea93af415d16d9ee363040c66c51b1a39012",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
