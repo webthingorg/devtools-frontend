@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1872a3ba_ed1761d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-17T10:05:03Z",
+      "side": 1,
+      "message": "INFRA LGTM",
+      "revId": "83934877e283b4667bfc224db025e560c7f9cbe5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e42621d6_4ea136ef",
@@ -31,6 +48,30 @@
       "writtenOn": "2020-11-17T08:38:35Z",
       "side": 1,
       "message": "We can get rid of the i18n dependency on `root` by passing this function as a param of `requestAnRegisterLocaleData`",
+      "range": {
+        "startLine": 144,
+        "startChar": 36,
+        "endLine": 144,
+        "endChar": 55
+      },
+      "revId": "83934877e283b4667bfc224db025e560c7f9cbe5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b507a280_d7fb8a3a",
+        "filename": "front_end/i18n/i18nImpl.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-17T10:05:03Z",
+      "side": 1,
+      "message": "Since `root` is one of the core modules, I think it is fine to import it here.",
+      "parentUuid": "e42621d6_4ea136ef",
       "range": {
         "startLine": 144,
         "startChar": 36,
@@ -78,6 +119,30 @@
       "side": 1,
       "message": "Do you think it\u0027s possible to allow registering of strings at module-instantiation-time via i18n.registerUIStrings, and binding of i18n.getLocalizedString (as we do now), but make calls to getLocalizedString fail until after startup? That would be a nice invariant to have anyway, that we don\u0027t try to use localized strings at module-time, only runtime.",
       "parentUuid": "82527cba_6f861ebc",
+      "range": {
+        "startLine": 53,
+        "startChar": 2,
+        "endLine": 53,
+        "endChar": 48
+      },
+      "revId": "83934877e283b4667bfc224db025e560c7f9cbe5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2857be4_7be66817",
+        "filename": "front_end/startup/RuntimeInstantiator.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-17T10:05:03Z",
+      "side": 1,
+      "message": "I like Peters plan. In general, I have no objections from the infra-side for either solution, so I will let y\u0027all decide.",
+      "parentUuid": "d486f71c_0323f94d",
       "range": {
         "startLine": 53,
         "startChar": 2,
