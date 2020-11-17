@@ -16,6 +16,23 @@
       "message": "Hey Philip,\n\nThis is ready for review.\nPlease take a look.\n\nThanks,\nBenedikt",
       "revId": "44d2cfc9c8b71a5ecd6521fcb05cef8eebbda79f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "578b7756_6ebe65d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-11-17T09:30:53Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "44d2cfc9c8b71a5ecd6521fcb05cef8eebbda79f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
