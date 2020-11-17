@@ -206,6 +206,8 @@ export class SearchView extends UI.Widget.VBox {
       this._onIndexingFinished();
       return;
     }
+    // eslint-disable-next-line
+    console.log(searchResult.label(), searchResult.description(), searchResult.matchesCount());
     this._addSearchResult(searchResult);
     if (!searchResult.matchesCount()) {
       return;
