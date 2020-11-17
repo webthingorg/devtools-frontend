@@ -16,6 +16,23 @@
       "message": "This CL Migrates Layers to Localization V2. PTAL",
       "revId": "6714a43e3f695e5a229c0aab4e282c1a5d9e96ac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78a29439_070c76fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-17T06:49:34Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "6714a43e3f695e5a229c0aab4e282c1a5d9e96ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
