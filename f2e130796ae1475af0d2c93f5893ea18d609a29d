@@ -16,6 +16,40 @@
       "message": "PTAL. For window.requestIdleCallback, I\u0027ve added a separate TS def file and added it everywhere where resize_observer.d.ts appears. But I\u0027m not sure if it\u0027s 100% right.",
       "revId": "f2e130796ae1475af0d2c93f5893ea18d609a29d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d6e165a_acf17689",
+        "filename": "front_end/elements/StylePropertyTreeElement.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-17T14:45:52Z",
+      "side": 1,
+      "message": "This needs to become public since StylesSidebarPane needs to call `child.updateFilter()` inside its own `_updateFilter` function.",
+      "revId": "f2e130796ae1475af0d2c93f5893ea18d609a29d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ddf4d7c_335d61ae",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1956,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-17T14:45:52Z",
+      "side": 1,
+      "message": "These Config\u003c?\u003e tricks are due to the same reason as in this CL: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2410234. It seems to be the only way to please both TS and Closure.",
+      "revId": "f2e130796ae1475af0d2c93f5893ea18d609a29d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
