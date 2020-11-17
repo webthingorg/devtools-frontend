@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47b9ae06_bbf2162a",
+        "filename": "front_end/sources/SourcesPanel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 897,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-17T15:44:36Z",
+      "side": 1,
+      "message": "DevTools -\u003e Settings has a setting to choose the indentation — we should respect that setting here.\n\nBtw, have you looked into copy() and how it\u0027s implemented? I wonder if we could re-use that instead of manually JSON.stringify\u0027ing.",
+      "range": {
+        "startLine": 897,
+        "startChar": 50,
+        "endLine": 897,
+        "endChar": 54
+      },
+      "revId": "3dd37e453b148715d0c4d14302b99e64b56ea402",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
