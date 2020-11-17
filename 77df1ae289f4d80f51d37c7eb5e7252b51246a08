@@ -33,6 +33,46 @@
       "message": "lgtm",
       "revId": "77df1ae289f4d80f51d37c7eb5e7252b51246a08",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98be1154_294df1e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-11-17T09:25:19Z",
+      "side": 1,
+      "message": "LGTM with a nit",
+      "revId": "77df1ae289f4d80f51d37c7eb5e7252b51246a08",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79d07397_490aeb00",
+        "filename": "front_end/webauthn/module.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-11-17T09:25:19Z",
+      "side": 1,
+      "message": "nit: indentation seems off?",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 7
+      },
+      "revId": "77df1ae289f4d80f51d37c7eb5e7252b51246a08",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
