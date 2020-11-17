@@ -39,13 +39,6 @@ export class CommandMenu {
   static createCommand(options) {
     const {category, keys, title, shortcut, executeHandler, availableHandler, userActionCode} = options;
 
-    // Get localized keys and separate by null character to prevent fuzzy matching from matching across them.
-    const keyList = keys.split(',');
-    let key = '';
-    keyList.forEach(k => {
-      key += (ls(k.trim()) + '\0');
-    });
-
     let handler = executeHandler;
     if (userActionCode) {
       const actionCode = userActionCode;
@@ -55,7 +48,7 @@ export class CommandMenu {
       };
     }
 
-    return new Command(category, title, key, shortcut, handler, availableHandler);
+    return new Command(category, title, keys, shortcut, handler, availableHandler);
   }
 
   /**
@@ -104,8 +97,8 @@ export class CommandMenu {
 
     return CommandMenu.createCommand({
       category: action.category(),
-      keys: action.tags(),
-      title: action.title(),
+      keys: action.tags() || '',
+      title: action.title() || '',
       shortcut,
       executeHandler: action.execute.bind(action),
       userActionCode,
