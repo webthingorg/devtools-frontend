@@ -8463,6 +8463,17 @@ declare namespace Protocol {
       nodeId: DOM.NodeId;
     }
 
+    export interface FlexNodeHighlightConfig {
+      /**
+       * A descriptor for the highlight appearance of flex containers.
+       */
+      flexContainerHighlightConfig: FlexContainerHighlightConfig;
+      /**
+       * Identifier of the node to highlight.
+       */
+      nodeId: DOM.NodeId;
+    }
+
     /**
      * Configuration for dual screen hinge
      */
@@ -8691,6 +8702,13 @@ declare namespace Protocol {
        * An array of node identifiers and descriptors for the highlight appearance.
        */
       gridNodeHighlightConfigs: GridNodeHighlightConfig[];
+    }
+
+    export interface SetShowFlexOverlaysRequest {
+      /**
+       * An array of node identifiers and descriptors for the highlight appearance.
+       */
+      flexNodeHighlightConfigs: FlexNodeHighlightConfig[];
     }
 
     export interface SetShowPaintRectsRequest {
