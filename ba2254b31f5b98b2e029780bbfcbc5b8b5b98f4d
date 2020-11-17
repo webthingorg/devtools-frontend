@@ -107,6 +107,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9d07bc2b_74cadbac",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 51
+      },
+      "lineNbr": 1180,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-17T00:30:56Z",
+      "side": 1,
+      "message": "Sure.  The newStyleRuleToolbar contains the \"Insert Style Rule\" (+) button which appears and disappears on-hover for the StylePropertiesSection.  However, we want to keep the font editor button static.  The current approach creates a toolbar for each button so that we can hide/reveal the \"Insert Style Rule\" button on hover and keep the Font Editor button static.\n\nThis is not an ideal solution, but the future work here would be to move the \"Insert Style Rule\" button away from an on-hover interaction as this is an accessibility hazard.  A potential solution for a new style rules location is described at the end of this issue: https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1128839",
+      "parentUuid": "0d584527_3112da4f",
+      "revId": "ba2254b31f5b98b2e029780bbfcbc5b8b5b98f4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "450fd2b6_c725ff4c",
         "filename": "front_end/elements/StylesSidebarPane.js",
         "patchSetId": 51
@@ -124,6 +142,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "87becd30_89ab584e",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 51
+      },
+      "lineNbr": 1203,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-17T00:30:56Z",
+      "side": 1,
+      "message": "_newStyleRuleToolbar is only guaranteed when _style.parentRule exists.  I believe in general that the _newStyleRuleToolbar won\u0027t be created for SDK.CSSStyleDeclaration.Type.Inline sections, but I want to make sure that whenever the font editor button is displayed, the new style rule button will be shifted to avoid any UI issues.",
+      "revId": "ba2254b31f5b98b2e029780bbfcbc5b8b5b98f4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e06f4fb8_ca0e9cd0",
         "filename": "front_end/elements/StylesSidebarPane.js",
         "patchSetId": 51
@@ -135,6 +170,24 @@
       "writtenOn": "2020-11-16T14:22:32Z",
       "side": 1,
       "message": "Is this meant to be a TODO? Or am I missing something from the event chain?",
+      "revId": "ba2254b31f5b98b2e029780bbfcbc5b8b5b98f4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8396f38_5add9fbb",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 51
+      },
+      "lineNbr": 1481,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-17T00:30:56Z",
+      "side": 1,
+      "message": "Ah, right - I was planning to put this in a proper todo format but forgot to update it.\n\nUpdated comment to proper TODO format.",
+      "parentUuid": "e06f4fb8_ca0e9cd0",
       "revId": "ba2254b31f5b98b2e029780bbfcbc5b8b5b98f4d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
