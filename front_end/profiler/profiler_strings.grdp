@@ -57,6 +57,9 @@
   <message name="IDS_DEVTOOLS_27c0ad7a8ff8f9df8e13bb2d974c95d0" desc="Text in Heap Snapshot View of a profiler tool">
     Allocation
   </message>
+  <message name="IDS_DEVTOOLS_29296fcb28eb4edf5d0049b6cac7bbd1" desc="Text for a percentage value">
+    <ph name="SCALE">$1.0f<ex>13.0</ex></ph>%%
+  </message>
   <message name="IDS_DEVTOOLS_2db1f9be46028cfdf9b8f96a0110e637" desc="Text in CPUProfile View of a profiler tool">
     <ph name="VALUE">$1.2f<ex>21.33</ex></ph> %%
   </message>
