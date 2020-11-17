@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85d3df04_97804487",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-17T07:23:30Z",
+      "side": 1,
+      "message": "Hi Almothana,\n\nI\u0027m disabling this test for now since it is flaky. We can have a look together to remove the flakiness!\n\nPTAL!",
+      "revId": "4a1ffb8ebe914b6316c0b4a5bf06e219f97f1e04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
