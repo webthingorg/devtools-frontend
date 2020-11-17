@@ -33,7 +33,7 @@ import * as Host from '../host/host.js';
 import * as ProtocolClient from '../protocol_client/protocol_client.js';  // eslint-disable-line no-unused-vars
 import * as Root from '../root/root.js';
 
-import {GetPropertiesResult, RemoteObject, RemoteObjectImpl, ScopeRef} from './RemoteObject.js';  // eslint-disable-line no-unused-vars
+import {GetPropertiesResult, RemoteObject, ScopeRef} from './RemoteObject.js';  // eslint-disable-line no-unused-vars
 import {EvaluationOptions, EvaluationResult, ExecutionContext, RuntimeModel} from './RuntimeModel.js';  // eslint-disable-line no-unused-vars
 import {Script} from './Script.js';
 import {Capability, SDKModel, Target, Type} from './SDKModel.js';  // eslint-disable-line no-unused-vars
@@ -62,30 +62,6 @@ export function sortAndMergeRanges(locationRanges) {
   }
   merged.push(prev);
   return merged;
-}
-
-/**
- * TODO(bmeurer): Introduce a dedicated {DebuggerLocationRange} class or something!
- *
- * @param {!Location} location
- * @param {!{start:!Location, end:!Location}} range
- * @return {boolean}
- */
-function contained(location, range) {
-  const {start, end} = range;
-  if (start.scriptId !== location.scriptId) {
-    return false;
-  }
-  if (location.lineNumber < start.lineNumber || location.lineNumber > end.lineNumber) {
-    return false;
-  }
-  if (location.lineNumber === start.lineNumber && location.columnNumber < start.columnNumber) {
-    return false;
-  }
-  if (location.lineNumber === end.lineNumber && location.columnNumber >= end.columnNumber) {
-    return false;
-  }
-  return true;
 }
 
 export class DebuggerModel extends SDKModel {
@@ -124,6 +100,10 @@ export class DebuggerModel extends SDKModel {
     this._skipAllPausesTimeout = 0;
     /** @type {(function(!DebuggerPausedDetails):boolean)|null} */
     this._beforePausedCallback = null;
+    /** @type {?function(!{mode: string, callFrame: !CallFrame}):!Promise<!Array<!{start: !Location, end: !Location}>>} */
+    this._computeAutoStepRangesCallback = null;
+    /** @type {?function(!Array<!CallFrame>):!Promise<!Array<!CallFrame>>} */
+    this._expandCallFramesCallback = null;
 
     /** @type {!Common.ObjectWrapper.ObjectWrapper} */
     this._breakpointResolvedEventTarget = new Common.ObjectWrapper.ObjectWrapper();
@@ -337,78 +317,58 @@ export class DebuggerModel extends SDKModel {
   }
 
   /**
-   *  @param {boolean} skipInlineFunctions
-   *  @return {!Promise<!Array<!LocationRange>>}
+   * @param {?function(!{mode: string, callFrame: !CallFrame}):!Promise<!Array<!{start: !Location, end: !Location}>>} callback
    */
-  async _computeAutoStepSkipList(skipInlineFunctions) {
-    // @ts-ignore
-    const pluginManager = Bindings.DebuggerWorkspaceBinding.instance().pluginManager;
-    if (pluginManager) {
-      // @ts-ignore
-      const rawLocation = this._debuggerPausedDetails.callFrames[0].location();
-      const uiLocation = await pluginManager.rawLocationToUILocation(rawLocation);
-      /** @type {!Array<{start: !Location, end: !Location}>} */
-      let ranges = [];
-      if (uiLocation) {
-        ranges = await pluginManager.uiLocationToRawLocationRanges(
-                     uiLocation.uiSourceCode, uiLocation.lineNumber, uiLocation.columnNumber) ||
-            [];
-        // TODO(bmeurer): Remove the {rawLocation} from the {ranges}?
-        ranges = ranges.filter(range => contained(rawLocation, range));
-      }
-      if (skipInlineFunctions) {
-        ranges = ranges.concat(await pluginManager.getInlinedCalleesRanges(rawLocation));
-      }
-      if (ranges.length) {
-        const skipList = ranges.map(
-            // @ts-ignore
-            location => new LocationRange(
-                location.start.scriptId, new ScriptPosition(location.start.lineNumber, location.start.columnNumber),
-                new ScriptPosition(location.end.lineNumber, location.end.columnNumber)));
-        return sortAndMergeRanges(skipList);
-      }
+  setComputeAutoStepRangesCallback(callback) {
+    this._computeAutoStepRangesCallback = callback;
+  }
+
+  /**
+   * TODO(bmeurer): TypeScript can express the correct type for options.mode: 'stepInto' | 'stepOver' | 'stepOut'
+   *
+   * @param {!{mode: string}} options
+   * @return {!Promise<!Array<!Protocol.Debugger.LocationRange>>}
+   */
+  async _computeAutoStepSkipList(options) {
+    /** @type {!Array<!{start: !Location, end: !Location}>} */
+    let ranges = [];
+    if (this._computeAutoStepRangesCallback && this._debuggerPausedDetails) {
+      const [callFrame] = this._debuggerPausedDetails.callFrames;
+      const {mode} = options;
+      ranges = await this._computeAutoStepRangesCallback.call(null, {mode, callFrame});
     }
-    return [];
+    const skipList = ranges.map(
+        location => new LocationRange(
+            location.start.scriptId, new ScriptPosition(location.start.lineNumber, location.start.columnNumber),
+            new ScriptPosition(location.end.lineNumber, location.end.columnNumber)));
+    return sortAndMergeRanges(skipList).map(x => x.payload());
   }
 
   async stepInto() {
-    const skipList = await this._computeAutoStepSkipList(false);
-    this._agent.invoke_stepInto({breakOnAsyncCall: false, skipList: skipList.map(x => x.payload())});
+    const skipList = await this._computeAutoStepSkipList({mode: 'stepInto'});
+    this._agent.invoke_stepInto({breakOnAsyncCall: false, skipList});
   }
 
   async stepOver() {
     // Mark that in case of auto-stepping, we should be doing
     // step-over instead of step-in.
     this._autoStepOver = true;
-    const skipList = await this._computeAutoStepSkipList(true);
-    this._agent.invoke_stepOver({skipList: skipList.map(x => x.payload())});
+    const skipList = await this._computeAutoStepSkipList({mode: 'stepOver'});
+    this._agent.invoke_stepOver({skipList});
   }
 
   async stepOut() {
-    // @ts-ignore
-    const pluginManager = Bindings.DebuggerWorkspaceBinding.instance().pluginManager;
-    if (pluginManager) {
-      // @ts-ignore
-      const rawLocation = this._debuggerPausedDetails.callFrames[0].location();
-      const ranges = await pluginManager.getInlinedFunctionRanges(rawLocation);
-      if (ranges.length) {
-        // Step out of inline function.
-        const skipList = sortAndMergeRanges(ranges.map(
-            // @ts-ignore
-            location => new LocationRange(
-                location.start.scriptId, new ScriptPosition(location.start.lineNumber, location.start.columnNumber),
-                new ScriptPosition(location.end.lineNumber, location.end.columnNumber))));
-
-        this._agent.invoke_stepOver({skipList: skipList.map(x => x.payload())});
-        return;
-      }
+    const skipList = await this._computeAutoStepSkipList({mode: 'stepOut'});
+    if (skipList.length !== 0) {
+      this._agent.invoke_stepOver({skipList});
+    } else {
+      this._agent.invoke_stepOut();
     }
-    this._agent.invoke_stepOut();
   }
 
   scheduleStepIntoAsync() {
-    this._computeAutoStepSkipList(false).then(skipList => {
-      this._agent.invoke_stepInto({breakOnAsyncCall: true, skipList: skipList.map(x => x.payload())});
+    this._computeAutoStepSkipList({mode: 'stepInto'}).then(skipList => {
+      this._agent.invoke_stepInto({breakOnAsyncCall: true, skipList});
     });
   }
 
@@ -667,13 +627,6 @@ export class DebuggerModel extends SDKModel {
   }
 
   /**
-   * @return {?Array.<!CallFrame>}
-   */
-  get callFrames() {
-    return this._debuggerPausedDetails ? this._debuggerPausedDetails.callFrames : null;
-  }
-
-  /**
    * @return {?DebuggerPausedDetails}
    */
   debuggerPausedDetails() {
@@ -682,24 +635,10 @@ export class DebuggerModel extends SDKModel {
 
   /**
    * @param {?DebuggerPausedDetails} debuggerPausedDetails
-   * @return {!Promise<boolean>}
+   * @return {boolean}
    */
-  async _setDebuggerPausedDetails(debuggerPausedDetails) {
+  _setDebuggerPausedDetails(debuggerPausedDetails) {
     if (debuggerPausedDetails) {
-      // @ts-ignore
-      const pluginManager = Bindings.DebuggerWorkspaceBinding.instance().pluginManager;
-      if (pluginManager) {
-        debuggerPausedDetails.callFrames =
-            (await Promise.all(debuggerPausedDetails.callFrames.map(async callFrame => {
-              const {frames} = await pluginManager.getFunctionInfo(callFrame);
-              if (frames.length) {
-                return frames.map(
-                    (/** @type {!{name: string}} */ {name}, /** @type {number} */ index) =>
-                        callFrame.createVirtualCallFrame(index, name));
-              }
-              return callFrame;
-            }))).flat();
-      }
       this._isPausing = false;
       this._debuggerPausedDetails = debuggerPausedDetails;
       if (this._beforePausedCallback) {
@@ -725,6 +664,13 @@ export class DebuggerModel extends SDKModel {
    */
   setBeforePausedCallback(callback) {
     this._beforePausedCallback = callback;
+  }
+
+  /**
+   * @param {?function(!Array<!CallFrame>):!Promise<!Array<!CallFrame>>} callback
+   */
+  setExpandCallFramesCallback(callback) {
+    this._expandCallFramesCallback = callback;
   }
 
   /**
@@ -761,7 +707,11 @@ export class DebuggerModel extends SDKModel {
       }
     }
 
-    if (!await this._setDebuggerPausedDetails(pausedDetails)) {
+    if (this._expandCallFramesCallback) {
+      pausedDetails.callFrames = await this._expandCallFramesCallback.call(null, pausedDetails.callFrames);
+    }
+
+    if (!this._setDebuggerPausedDetails(pausedDetails)) {
       if (this._autoStepOver) {
         this.stepOver();
       } else {
@@ -1517,29 +1467,31 @@ export class CallFrame {
    * @param {string=} functionName
    */
   constructor(debuggerModel, script, payload, inlineFrameIndex, functionName) {
-    this.debuggerModel = debuggerModel;
     /** @type {?Promise<?Array<!ScopeChainEntry>>} */
     this._sourceScopeChain = null;
-    this._script = script;
+    this.script = script;
     this._payload = payload;
     this._location = Location.fromPayload(debuggerModel, payload.location, inlineFrameIndex);
     /** @type {!Array<!Scope>} */
     this._scopeChain = [];
-    this._localScope = null;
     this._inlineFrameIndex = inlineFrameIndex || 0;
     this._functionName = functionName || payload.functionName;
     for (let i = 0; i < payload.scopeChain.length; ++i) {
       const scope = new Scope(this, i);
       this._scopeChain.push(scope);
-      if (scope.type() === Protocol.Debugger.ScopeType.Local) {
-        this._localScope = scope;
-      }
     }
     if (payload.functionLocation) {
       this._functionLocation = Location.fromPayload(debuggerModel, payload.functionLocation);
     }
     this._returnValue =
-        payload.returnValue ? this.debuggerModel._runtimeModel.createRemoteObject(payload.returnValue) : null;
+        payload.returnValue ? debuggerModel._runtimeModel.createRemoteObject(payload.returnValue) : null;
+  }
+
+  /**
+   * @return {!DebuggerModel}
+   */
+  get debuggerModel() {
+    return this.script.debuggerModel;
   }
 
   /**
@@ -1578,14 +1530,7 @@ export class CallFrame {
    * @param {string=} functionName
    */
   createVirtualCallFrame(inlineFrameIndex, functionName) {
-    return new CallFrame(this.debuggerModel, this._script, this._payload, inlineFrameIndex, functionName);
-  }
-
-  /**
-   * @return {!Script}
-   */
-  get script() {
-    return this._script;
+    return new CallFrame(this.debuggerModel, this.script, this._payload, inlineFrameIndex, functionName);
   }
 
   /**
@@ -1607,13 +1552,6 @@ export class CallFrame {
    */
   scopeChain() {
     return this._scopeChain;
-  }
-
-  /**
-   * @return {?Scope}
-   */
-  localScope() {
-    return this._localScope;
   }
 
   /**
@@ -1687,7 +1625,7 @@ export class CallFrame {
       return {error: 'Side-effect checks not supported by backend.'};
     }
 
-    if (this._script && this._script.isWasm()) {
+    if (this.script && this.script.isWasm()) {
       // @ts-ignore
       const pluginManager = Bindings.DebuggerWorkspaceBinding.instance().pluginManager;
       if (Root.Runtime.experiments.isEnabled('wasmDWARFDebugging') && pluginManager) {
