@@ -11,3 +11,7 @@ export const stringRenderer = (value: unknown): LitHtml.TemplateResult => {
 export const codeBlockRenderer = (value: unknown): LitHtml.TemplateResult => {
   return LitHtml.html`<code>${value}</code>`;
 };
+
+export const rawHtmlRenderer = (value: unknown): LitHtml.TemplateResult => {
+  return LitHtml.html`${value}`;
+};

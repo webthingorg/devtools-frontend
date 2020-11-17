@@ -163,6 +163,27 @@ describe('DataGrid', () => {
       assert.deepEqual(stripLitHtmlCommentNodes(cell.innerHTML), '<code>Hello World</code>');
     });
 
+    it('can use the raw html render to a div', () => {
+      const div = document.createElement('div');
+      div.innerText = 'Hello World';
+      const columns: UIComponents.DataGridUtils.Column[] = [{id: 'key', title: 'Key', widthWeighting: 1}];
+      const rows: UIComponents.DataGridUtils.Row[] = [{
+        cells: [
+          {
+            columnId: 'key',
+            value: div,
+            title: 'Hello World',
+            renderer: UIComponents.DataGridRenderers.rawHtmlRenderer,
+          },
+        ],
+      }];
+      const component = renderDataGrid({columns, rows});
+      renderElementIntoDOM(component);
+      assertShadowRoot(component.shadowRoot);
+      const cell = getCellByIndexes(component.shadowRoot, {column: 0, row: 1});
+      assert.deepEqual(stripLitHtmlCommentNodes(cell.innerHTML), '<div>Hello World</div>');
+    });
+
     it('accepts any custom renderer', () => {
       const columns: UIComponents.DataGridUtils.Column[] = [{id: 'key', title: 'Key', widthWeighting: 1}];
       const rows: UIComponents.DataGridUtils.Row[] = [{
