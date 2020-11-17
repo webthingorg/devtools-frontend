@@ -90,6 +90,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d59d7f3e_fa6a3c8b",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2184,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-17T14:07:12Z",
+      "side": 1,
+      "message": "I think there would be quite many ifs so I\u0027d probably prefer having two functions.",
+      "parentUuid": "dd0a4f04_d4406504",
+      "range": {
+        "startLine": 2184,
+        "startChar": 2,
+        "endLine": 2184,
+        "endChar": 19
+      },
+      "revId": "ba23e00612bb81abe7eac4abeb45679d5183468a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8e8e6206_91449d2e",
         "filename": "front_end/sdk/OverlayModel.js",
         "patchSetId": 2
