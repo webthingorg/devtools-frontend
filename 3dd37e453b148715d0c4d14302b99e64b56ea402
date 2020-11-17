@@ -22,6 +22,30 @@
       },
       "revId": "3dd37e453b148715d0c4d14302b99e64b56ea402",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62b4b790_4be3cfb7",
+        "filename": "front_end/sources/SourcesPanel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 897,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-17T17:08:54Z",
+      "side": 1,
+      "message": "I\u0027m a little confused about copy(), copy() should be implemented here: \nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/sdk/RuntimeModel.js;l\u003d391-419?q\u003dfront_end%2Fsdk%2FRuntimeModel.js\u0026ss\u003dchromium\n\nbut I don\u0027t know how to get the original object or array.",
+      "parentUuid": "47b9ae06_bbf2162a",
+      "range": {
+        "startLine": 897,
+        "startChar": 50,
+        "endLine": 897,
+        "endChar": 54
+      },
+      "revId": "3dd37e453b148715d0c4d14302b99e64b56ea402",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
