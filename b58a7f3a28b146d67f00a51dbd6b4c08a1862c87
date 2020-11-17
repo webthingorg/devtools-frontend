@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12bee3f3_92f6f8fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-11-17T05:18:38Z",
+      "side": 1,
+      "message": "left some notes.",
+      "revId": "b58a7f3a28b146d67f00a51dbd6b4c08a1862c87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cac4e35_5a403837",
+        "filename": "front_end/emulation/DeviceModeToolbar.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-11-17T05:18:38Z",
+      "side": 1,
+      "message": "we discussed this offline, this should work, but having them in a loc function can be misleading, also we can save some cycles by removing it.",
+      "range": {
+        "startLine": 436,
+        "startChar": 25,
+        "endLine": 436,
+        "endChar": 42
+      },
+      "revId": "b58a7f3a28b146d67f00a51dbd6b4c08a1862c87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73441186_f358497b",
+        "filename": "front_end/emulation/DeviceModeToolbar.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-11-17T05:18:38Z",
+      "side": 1,
+      "message": "remove one of this calls.",
+      "range": {
+        "startLine": 474,
+        "startChar": 37,
+        "endLine": 474,
+        "endChar": 48
+      },
+      "revId": "b58a7f3a28b146d67f00a51dbd6b4c08a1862c87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b058ab9f_39ad15bc",
+        "filename": "front_end/emulation/DeviceModeToolbar.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-11-17T05:18:38Z",
+      "side": 1,
+      "message": "this one need to be fixed too.",
+      "range": {
+        "startLine": 828,
+        "startChar": 30,
+        "endLine": 828,
+        "endChar": 49
+      },
+      "revId": "b58a7f3a28b146d67f00a51dbd6b4c08a1862c87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59ea147a_467e4c34",
+        "filename": "front_end/emulation/DeviceModeToolbar.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 834,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-11-17T05:18:38Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 834,
+        "startChar": 36,
+        "endLine": 834,
+        "endChar": 58
+      },
+      "revId": "b58a7f3a28b146d67f00a51dbd6b4c08a1862c87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63630d6e_1d77c161",
+        "filename": "front_end/emulation/DeviceModeView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-11-17T05:18:38Z",
+      "side": 1,
+      "message": "lets change the name of this variable.",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 47,
+        "endChar": 9
+      },
+      "revId": "b58a7f3a28b146d67f00a51dbd6b4c08a1862c87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa89598b_b4b05c94",
+        "filename": "front_end/emulation/DeviceModeView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-11-17T05:18:38Z",
+      "side": 1,
+      "message": "we need to fix this one.",
+      "range": {
+        "startLine": 618,
+        "startChar": 18,
+        "endLine": 618,
+        "endChar": 51
+      },
+      "revId": "b58a7f3a28b146d67f00a51dbd6b4c08a1862c87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
