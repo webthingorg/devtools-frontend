@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "506e183b_5ad13361",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-17T10:58:23Z",
+      "side": 1,
+      "message": "I am not 100% sure that a frameNavigated will do the right thing in all cases. What if we received a frameNavigated already for that frame? Could you please add a test to this end?",
+      "revId": "c7c47f1a407d28cd70510e9f3dbe658fff47c12b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
