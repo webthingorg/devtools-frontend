@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2bfd422_8c020b89",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-17T10:58:37Z",
+      "side": 1,
+      "message": "Tim, PTAL. Tested by clicking a few random links in the UI and making sure they all work as they should.",
+      "revId": "746dc2f59d8f2240eb3f03d70ed2e21b4460d3e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
