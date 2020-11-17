@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "db1c739f_e083e9f5",
+        "filename": "front_end/common/Settings.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-11-17T14:13:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e69a15e_357a82a5",
+      "range": {
+        "startLine": 101,
+        "startChar": 81,
+        "endLine": 101,
+        "endChar": 118
+      },
+      "revId": "41257ff01344f94bad924e35a62f61fca9a7369c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e7b8ce5a_a2d649bd",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-11-16T11:07:15Z",
       "side": 1,
       "message": "Nit: unnecessary cast.",
+      "range": {
+        "startLine": 105,
+        "startChar": 24,
+        "endLine": 105,
+        "endChar": 63
+      },
+      "revId": "41257ff01344f94bad924e35a62f61fca9a7369c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a84d4a6e_37369566",
+        "filename": "front_end/common/Settings.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-11-17T14:13:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7b8ce5a_a2d649bd",
       "range": {
         "startLine": 105,
         "startChar": 24,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4369ccd0_cc564daa",
+        "filename": "front_end/common/Settings.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-11-17T14:13:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c68da93e_33208b3d",
+      "range": {
+        "startLine": 185,
+        "startChar": 4,
+        "endLine": 189,
+        "endChar": 64
+      },
+      "revId": "41257ff01344f94bad924e35a62f61fca9a7369c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c838b0f4_c980ecff",
@@ -93,6 +165,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4f576fb_1ba469b2",
+        "filename": "front_end/common/Settings.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-11-17T14:13:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c838b0f4_c980ecff",
+      "range": {
+        "startLine": 200,
+        "startChar": 4,
+        "endLine": 204,
+        "endChar": 64
+      },
+      "revId": "41257ff01344f94bad924e35a62f61fca9a7369c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "abeb5061_19d03076",
@@ -106,6 +202,30 @@
       "writtenOn": "2020-11-16T11:07:15Z",
       "side": 1,
       "message": "Let\u0027s throw an error here, just like we do for actions.",
+      "range": {
+        "startLine": 1619,
+        "startChar": 4,
+        "endLine": 1619,
+        "endChar": 17
+      },
+      "revId": "41257ff01344f94bad924e35a62f61fca9a7369c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81fb61c5_7fc8768d",
+        "filename": "front_end/common/Settings.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 1619,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-11-17T14:13:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abeb5061_19d03076",
       "range": {
         "startLine": 1619,
         "startChar": 4,
