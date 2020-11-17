@@ -39,6 +39,30 @@
       },
       "revId": "ef38ea93af415d16d9ee363040c66c51b1a39012",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcc60dce_35110e24",
+        "filename": "front_end/legacy/legacy-defs.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-17T11:47:11Z",
+      "side": 1,
+      "message": "The function is rather large with ~100 LoC. I\u0027d suggest we do this in separate cleanup CL, as we have to re-write the function and change `this` to the argument. wdyt?",
+      "parentUuid": "9f88312d_9aece9d4",
+      "range": {
+        "startLine": 173,
+        "startChar": 2,
+        "endLine": 173,
+        "endChar": 13
+      },
+      "revId": "ef38ea93af415d16d9ee363040c66c51b1a39012",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
