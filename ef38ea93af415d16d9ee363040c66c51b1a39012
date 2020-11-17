@@ -16,6 +16,29 @@
       "message": "ptal",
       "revId": "ef38ea93af415d16d9ee363040c66c51b1a39012",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f88312d_9aece9d4",
+        "filename": "front_end/legacy/legacy-defs.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-17T10:36:22Z",
+      "side": 1,
+      "message": "My usual comment (sorry): this is only used in 2 places. Can we make it a properly exported function instead?",
+      "range": {
+        "startLine": 173,
+        "startChar": 2,
+        "endLine": 173,
+        "endChar": 13
+      },
+      "revId": "ef38ea93af415d16d9ee363040c66c51b1a39012",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
