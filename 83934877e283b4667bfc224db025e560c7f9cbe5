@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9227ba3d_e16c2105",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-11-17T08:38:35Z",
+      "side": 1,
+      "message": "@Vidal - The approach we discussed where locales are fetched the first time strings are registered wouldn\u0027t work since `requestAndRegisterLocaleData()` would return a promise and we can\u0027t await at the top level of a js module.",
+      "revId": "83934877e283b4667bfc224db025e560c7f9cbe5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e42621d6_4ea136ef",
+        "filename": "front_end/i18n/i18nImpl.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-11-17T08:38:35Z",
+      "side": 1,
+      "message": "We can get rid of the i18n dependency on `root` by passing this function as a param of `requestAnRegisterLocaleData`",
+      "range": {
+        "startLine": 144,
+        "startChar": 36,
+        "endLine": 144,
+        "endChar": 55
+      },
+      "revId": "83934877e283b4667bfc224db025e560c7f9cbe5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82527cba_6f861ebc",
+        "filename": "front_end/startup/RuntimeInstantiator.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-11-17T08:38:35Z",
+      "side": 1,
+      "message": "This function doesn\u0027t run before the `ui` module is initialized. We will likely have to move this call again when we migrate `ui` to loc v2. I can think of a few options:\n  - move locale data loading to `root`\n  - self-execute locale data loading inside the `i18n` module\n  - change when we register `UIStrings` to somewhere that isn\u0027t immediately executed like they are today (i.e. constructor, module init method)",
+      "range": {
+        "startLine": 53,
+        "startChar": 2,
+        "endLine": 53,
+        "endChar": 48
+      },
+      "revId": "83934877e283b4667bfc224db025e560c7f9cbe5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
