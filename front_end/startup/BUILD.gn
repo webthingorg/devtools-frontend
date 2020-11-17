@@ -10,7 +10,10 @@ devtools_module("startup") {
 
   is_web_worker = true
 
-  deps = [ "../root:bundle" ]
+  deps = [
+    "../i18n:bundle",
+    "../root:bundle",
+  ]
 }
 
 devtools_entrypoint("bundle") {

@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 import * as Platform from '../platform/platform.js';
+import * as Root from '../root/root.js';
 
 // eslint-disable-next-line
 import i18nBundle from '../third_party/i18n/i18n.js';
@@ -17,7 +18,7 @@ export const registerLocaleData = i18nBundle.registerLocaleData;
  * The locale that DevTools displays
  * @type {string}
  */
-export let registeredLocale;
+let registeredLocale;
 
 /**
  * The strings from the module.json file
@@ -133,4 +134,17 @@ export function formatLocalized(formattedString, args) {
   const formatters = {s: substitution};
   return Platform.StringUtilities.format(formattedString, args, formatters, document.createElement('span'), append)
       .formattedResult;
+}
+
+export async function requestAndRegisterLocaleData() {
+  const hostLocale = navigator.language || 'en-US';
+  registerLocale(hostLocale);
+  const locale = registeredLocale;
+  if (locale) {
+    const data = await Root.Runtime.loadResourcePromise(`i18n/locales/${locale}.json`);
+    if (data) {
+      const localizedStrings = JSON.parse(data);
+      registerLocaleData(locale, localizedStrings);
+    }
+  }
 }
