@@ -16,6 +16,23 @@
       "message": "Hey Philip,\n\nAdding more diagnostic information as requested by hablich@ to make it more obvious to the developer when the extension kicked in and/or what\u0027s broken.\nPlease take a look.\n\ncheers,\nBenedikt",
       "revId": "57ed2ad1fbdde702ff5e17a776f674a26eb2a3b0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36383343_4f4fbaad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-11-17T12:20:07Z",
+      "side": 1,
+      "message": "Looks great, thanks!",
+      "revId": "57ed2ad1fbdde702ff5e17a776f674a26eb2a3b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
