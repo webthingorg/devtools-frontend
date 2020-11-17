@@ -28,6 +28,8 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+import * as UI from '../ui/ui.js';
+
 export const HeapSnapshotProgressEvent = {
   Update: 'ProgressUpdate',
   BrokenSnapshot: 'BrokenSnapshot'
@@ -383,7 +385,7 @@ export class NodeFilter {
 /**
  * @unrestricted
  */
-export class SearchConfig {
+export class SearchConfig extends UI.SearchableView.SearchConfig {
   /**
    * @param {string} query
    * @param {boolean} caseSensitive
@@ -392,9 +394,7 @@ export class SearchConfig {
    * @param {boolean} jumpBackward
    */
   constructor(query, caseSensitive, isRegex, shouldJump, jumpBackward) {
-    this.query = query;
-    this.caseSensitive = caseSensitive;
-    this.isRegex = isRegex;
+    super(query, caseSensitive, isRegex);
     this.shouldJump = shouldJump;
     this.jumpBackward = jumpBackward;
   }
