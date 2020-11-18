@@ -2,3 +2,12 @@
 # results: [ Timeout Crash Pass Failure Slow Skip ]
 
 crbug.com/1034903 http/tests/devtools/lighthouse/lighthouse-export-run.js [ Pass Failure Crash ]
+# These appcache tests fail differently in release and debug, so skip them.
+crbug.com/582750 http/tests/devtools/appcache/* [ Skip ]
+# The Wasm code cache requires disabling the baseline compiler, so only the
+# virtual test should be run.
+http/tests/devtools/wasm-isolated-code-cache/wasm-cache-test.js [ Skip ]
+virtual/wasm-site-isolated-code-cache/http/tests/devtools/wasm-isolated-code-cache/wasm-cache-test.js [ Pass ]
+virtual/site-isolated-code-cache/http/tests/devtools/isolated-code-cache/cross-origin-test.js [ Pass ]
+virtual/not-split-http-cache-not-site-per-process/http/tests/devtools/isolated-code-cache/cross-origin-test.js [ Pass ]
+virtual/split-http-cache-not-site-per-process/http/tests/devtools/isolated-code-cache/cross-origin-test.js [ Pass ]
