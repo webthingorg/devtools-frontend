@@ -92,7 +92,7 @@ export class CSSFormatter {
     if (startLine !== this._lastLine) {
       this._state.eatWhitespace = true;
     }
-    if (type && /^property/.test(type) && !this._state.inPropertyValue) {
+    if (type && (/^property/.test(type) || /^variable-2/.test(type)) && !this._state.inPropertyValue) {
       this._state.seenProperty = true;
     }
     this._lastLine = startLine;
