@@ -12,3 +12,4 @@ void _foo(
 void main() {
   _foo("hello", []);
 }
+
