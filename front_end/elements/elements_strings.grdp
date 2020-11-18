@@ -21,6 +21,9 @@
   <message name="IDS_DEVTOOLS_084cd932d6dd317197a20945c76603e2" desc="Text of a DOM element in Styles Sidebar Pane of the Elements panel">
     Inherited from<ph name="___">$1s<ex>''' '''</ex></ph>
   </message>
+  <message name="IDS_DEVTOOLS_09d2bd168181f1e64c2b1651a80a8aa8" desc="Title of the Flex section in the Layout panel">
+    Flex
+  </message>
   <message name="IDS_DEVTOOLS_0b17e22ff13be64e3216014d9c2a5354" desc="Title of a setting under the Elements category that can be invoked through the Command Menu">
     Enable DOM word wrap
   </message>
@@ -153,6 +156,9 @@
   <message name="IDS_DEVTOOLS_5c6236c705b0086fbbdb2df3133f8a06" desc="Title of a setting under the Elements category in Settings">
     Reveal DOM node on hover
   </message>
+  <message name="IDS_DEVTOOLS_5d79b625f0136bd6ecb75796b1a5ba62" desc="Title of a section in the Layout panel">
+    Flex overlays
+  </message>
   <message name="IDS_DEVTOOLS_5e1078f1bee74e1e385b7813280b0c74" desc="Text when node can not be found in page">
     Node cannot be found in the current page.
   </message>
@@ -233,6 +239,9 @@
   </message>
   <message name="IDS_DEVTOOLS_92c2cabd05b5ccef986c062a504cbcfb" desc="Accessible label for Elements panel adorners (suffix badges in Elements Tree Outline)">
     adorner active
+  </message>
+  <message name="IDS_DEVTOOLS_941c7f5c98403b18341b9faaef923e08" desc="Text in the Layout panel, when no flex elements are found">
+    No flex layouts found on this page
   </message>
   <message name="IDS_DEVTOOLS_97d28fbc573f9f331f5b1886b5c1eeef" desc="Text in Elements Tree Element of the Elements panel, copy should be used as a verb">
     Copy full XPath

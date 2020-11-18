@@ -14,6 +14,7 @@ import './LayoutPane.js';
 * @typedef {{
 * settings:!Array.<!Setting>,
 * gridElements:!Array.<!LayoutElement>,
+* flexContainerElements:(!Array.<!LayoutElement>|undefined),
 * }}
 */
 // @ts-ignore we export this for Closure not TS
