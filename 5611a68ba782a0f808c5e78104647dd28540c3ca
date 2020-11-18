@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06891d04_6746d03e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-11-18T00:10:14Z",
+      "side": 1,
+      "message": "Thought these were already submitted, so I deleted the local branches of this CLs. When rebasing to resolve merge conflicts with new local branches the LGTMs were revoked. Could you please review these again?",
+      "revId": "5611a68ba782a0f808c5e78104647dd28540c3ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
