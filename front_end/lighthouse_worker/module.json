@@ -9,11 +9,6 @@
       "name": "LighthouseService"
     }
   ],
-  "modules": [
-    "LighthouseService.js",
-    "../third_party/lighthouse/lighthouse-dt-bundle.js"
-  ],
-  "skip_compilation": [
-    "../third_party/lighthouse/lighthouse-dt-bundle.js"
-  ]
+  "modules": [],
+  "skip_compilation": []
 }
