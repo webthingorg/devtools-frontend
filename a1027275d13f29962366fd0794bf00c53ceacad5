@@ -1,0 +1,164 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90bf8b40_a03b8360",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-18T10:37:07Z",
+      "side": 1,
+      "message": "Nice screenshot!",
+      "revId": "a1027275d13f29962366fd0794bf00c53ceacad5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acc9010b_e0a9d1e3",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 1121,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-18T10:37:07Z",
+      "side": 1,
+      "message": "Please file a crbug and link specifically to it in the TODO/FIXME, like so:\n\n    TODO(crbug.com/12345): Avoid disabling…",
+      "revId": "a1027275d13f29962366fd0794bf00c53ceacad5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "428ad90a_7e79e4c1",
+        "filename": "front_end/sdk/RuntimeModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-18T10:37:07Z",
+      "side": 1,
+      "message": "Can we re-use the indentation preference from DevTools -\u003e Settings here?",
+      "revId": "a1027275d13f29962366fd0794bf00c53ceacad5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffa4aecb_000ad52a",
+        "filename": "front_end/sources/SourcesPanel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 894,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-18T10:37:07Z",
+      "side": 1,
+      "message": "nit: add `.`",
+      "revId": "a1027275d13f29962366fd0794bf00c53ceacad5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01e432b7_69d5f941",
+        "filename": "front_end/sources/SourcesPanel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-18T10:37:07Z",
+      "side": 1,
+      "message": "Same here w.r.t. TODO formatting. But in this case, I think we can just remove the TODO for now.",
+      "range": {
+        "startLine": 924,
+        "startChar": 11,
+        "endLine": 924,
+        "endChar": 21
+      },
+      "revId": "a1027275d13f29962366fd0794bf00c53ceacad5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af6372bc_88b6ffe0",
+        "filename": "front_end/sources/SourcesPanel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 925,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-18T10:37:07Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 925,
+        "startChar": 42,
+        "endLine": 925,
+        "endChar": 43
+      },
+      "revId": "a1027275d13f29962366fd0794bf00c53ceacad5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71a708f1_febb2fb6",
+        "filename": "front_end/sources/SourcesPanel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 926,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-18T10:37:07Z",
+      "side": 1,
+      "message": "e -\u003e error",
+      "range": {
+        "startLine": 926,
+        "startChar": 16,
+        "endLine": 926,
+        "endChar": 17
+      },
+      "revId": "a1027275d13f29962366fd0794bf00c53ceacad5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a00e2de5_a74ef3a5",
+        "filename": "front_end/sources/SourcesPanel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 927,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-18T10:37:07Z",
+      "side": 1,
+      "message": "This throws an exception if `this` refers to a symbol. Let\u0027s use the following, which IMHO is more readable/explicit too:\n\n    return String(this);",
+      "range": {
+        "startLine": 927,
+        "startChar": 15,
+        "endLine": 927,
+        "endChar": 24
+      },
+      "revId": "a1027275d13f29962366fd0794bf00c53ceacad5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
