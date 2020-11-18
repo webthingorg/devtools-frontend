@@ -24,4 +24,11 @@
   button.textContent = 'iframe button';
   button.id = 'in-iframe';
   iframe.contentDocument.body.appendChild(button);
+
+  const innerIframe = document.createElement('iframe');
+  const innerIframeButton = document.createElement('button');
+  innerIframeButton.textContent = 'Inner iframe button';
+  innerIframeButton.id = 'inner-iframe';
+  iframe.contentDocument.body.appendChild(innerIframe);
+  innerIframe.contentDocument.body.appendChild(innerIframeButton);
 </script>

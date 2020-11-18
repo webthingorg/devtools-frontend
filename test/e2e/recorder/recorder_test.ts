@@ -46,6 +46,7 @@ describe('Recorder', () => {
     // @ts-ignore
     await iframe.click('#in-iframe');
     await frontend.bringToFront();
+    await frontend.waitForSelector('aria/Stop');
     await frontend.click('aria/Stop');
 
     const textContent = await getCode();
@@ -56,7 +57,7 @@ describe('Recorder', () => {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
 
-    await page.goto("http://<url>/test/e2e/resources/recorder/recorder.html");
+    await page.goto("https://<url>/test/e2e/resources/recorder/recorder.html");
     await page.click("aria/Test Button");
     await page.submit("html > body > div > form.form1");
     await page.click("aria/Hello World");
