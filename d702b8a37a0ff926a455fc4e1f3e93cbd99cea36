@@ -33,6 +33,24 @@
       "message": "Hi Michael,\n\nThanks for putting this CL together; I\u0027m always excited for us to add functionality that could help developers! I would, however, like to request a couple of things before this functionality is landed, so I\u0027m going to put a -1 on this CL for the time being. \n\nFirstly, it needs to be migrated to lit-html-based Web Components and authored in TypeScript[1]. We\u0027re actively moving away from Closure-based JavaScript, and all new functionality is being authored in TypeScript. (The reason you\u0027re seeing Closure throw errors about CSS Overview is because this has already been migrated.) \n\nSecondly, this is functionality that we expect developers to switch on and use, even experimentally, and so I\u0027d like to see unit tests added (and possibly an e2e test or two) so we have more confidence in it. The documentation on building newer UI covers adding testing, and we can be available if you have questions.\n\nThanks,\nPaul\n\n[1] https://goo.gle/building-ui-devtools",
       "revId": "d702b8a37a0ff926a455fc4e1f3e93cbd99cea36",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c159674_b0dc6ab9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 59
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1459232
+      },
+      "writtenOn": "2020-11-18T19:27:05Z",
+      "side": 1,
+      "message": "Hey Paul, I understand the goal and the plan to move away from Closure to TS. Has there been any feature already implemented using lit-HTML components already we can look at as an example?\nThis feature has been quite a while in the making and we\u0027d love to have it as an experiment to do user research in the preview channels. Following both these request would result in quite a delay before the end of the year. We\u0027re utterly on board to make sure to have it in the correct format for a full release, though.",
+      "parentUuid": "7bf16ebb_9916a931",
+      "revId": "d702b8a37a0ff926a455fc4e1f3e93cbd99cea36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
