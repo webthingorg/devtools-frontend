@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "56f7df3c_113b81bb",
+        "filename": "front_end/sdk/DOMDebuggerModel.js",
+        "patchSetId": 25
+      },
+      "lineNbr": 961,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-11-18T19:02:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f620c6f_768bc887",
+      "range": {
+        "startLine": 961,
+        "startChar": 6,
+        "endLine": 961,
+        "endChar": 83
+      },
+      "revId": "427f7139f184f9d7bdeca2c811c78f2d3c207296",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "14a1054c_b53c32a4",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17a28b51_08d657f5",
+        "filename": "front_end/sdk/DOMDebuggerModel.js",
+        "patchSetId": 25
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-11-18T19:02:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14a1054c_b53c32a4",
+      "range": {
+        "startLine": 969,
+        "startChar": 2,
+        "endLine": 969,
+        "endChar": 39
+      },
+      "revId": "427f7139f184f9d7bdeca2c811c78f2d3c207296",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a57292fc_262cbb57",
@@ -77,6 +125,30 @@
       "writtenOn": "2020-11-18T16:45:49Z",
       "side": 1,
       "message": "nit: this needs a description",
+      "range": {
+        "startLine": 200,
+        "startChar": 70,
+        "endLine": 200,
+        "endChar": 74
+      },
+      "revId": "427f7139f184f9d7bdeca2c811c78f2d3c207296",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "375f54da_0bb44e30",
+        "filename": "front_end/sdk/sdk_strings.grdp",
+        "patchSetId": 25
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-11-18T19:02:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a57292fc_262cbb57",
       "range": {
         "startLine": 200,
         "startChar": 70,
