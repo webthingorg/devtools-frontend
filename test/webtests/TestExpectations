@@ -2,3 +2,286 @@
 # results: [ Timeout Crash Pass Failure Slow Skip ]
 
 crbug.com/1034903 http/tests/devtools/lighthouse/lighthouse-export-run.js [ Pass Failure Crash ]
+# These appcache tests fail differently in release and debug, so skip them.
+crbug.com/582750 http/tests/devtools/appcache/* [ Skip ]
+# The Wasm code cache requires disabling the baseline compiler, so only the
+# virtual test should be run.
+http/tests/devtools/wasm-isolated-code-cache/wasm-cache-test.js [ Skip ]
+virtual/wasm-site-isolated-code-cache/http/tests/devtools/wasm-isolated-code-cache/wasm-cache-test.js [ Pass ]
+virtual/site-isolated-code-cache/http/tests/devtools/isolated-code-cache/cross-origin-test.js [ Pass ]
+virtual/not-split-http-cache-not-site-per-process/http/tests/devtools/isolated-code-cache/cross-origin-test.js [ Pass ]
+virtual/split-http-cache-not-site-per-process/http/tests/devtools/isolated-code-cache/cross-origin-test.js [ Pass ]
+# Sheriff 2020-11-16
+crbug.com/1149734 http/tests/devtools/sources/debugger-ui/debugger-inline-values-frames.js [ Pass Failure ]
+crbug.com/1149734 http/tests/devtools/sources/debugger-ui/reveal-execution-line.js [ Pass Failure ]
+crbug.com/498539 http/tests/devtools/tracing/timeline-misc/timeline-bound-function.js [ Pass Failure ]
+crbug.com/498539 crbug.com/794869 crbug.com/798548 crbug.com/946716 http/tests/devtools/elements/styles-4/styles-update-from-js.js [ Crash Pass Failure Timeout ]
+crbug.com/1135405 http/tests/devtools/sources/debugger-pause/debugger-pause-infinite-loop.js [ Pass Timeout ]
+crbug.com/1097094 external/wpt/window-segments/getWindowSegments-iframes.tentative.sub.html [ Pass Timeout ]
+crbug.com/747751 [ Mac ] http/tests/devtools/application-panel/storage-view-reports-quota.js [ Pass Timeout ]
+crbug.com/954998 [ Mac ] http/tests/devtools/tracing/timeline-js/timeline-js-line-level-profile-end-to-end.js [ Pass Timeout ]
+crbug.com/1018064 [ Mac ] virtual/threaded/http/tests/devtools/tracing/timeline-js/timeline-js-line-level-profile-end-to-end.js [ Pass Timeout ]
+crbug.com/1049641 http/tests/devtools/sources/debugger/js-with-inline-stylesheets.js [ Pass Failure ]
+crbug.com/1049641 [ Debug ] http/tests/devtools/sources/debugger-breakpoints/set-breakpoint.js [ Pass Failure ]
+crbug.com/1049641 [ Debug ] http/tests/devtools/sources/debugger-breakpoints/set-conditional-breakpoint.js [ Pass Failure ]
+# Renaming front_end/protocol to front_end/protocol_client requires a 3-way change. Temporarliy disable web tests that use |Protocol|
+crbug.com/1011811 http/tests/devtools/inspector-backend-commands.js [ Pass Failure ]
+crbug.com/1011811 http/tests/devtools/report-protocol-errors.js [ Pass Failure ]
+crbug.com/1047760 http/tests/devtools/screen-orientation-override.js [ Pass Failure Timeout ]
+crbug.com/1011811 http/tests/devtools/elements/styles-1/cached-sync-computed-styles.js [ Pass Failure ]
+# Source map asyncification requires some 3-way changes with the DevTools frontend.
+crbug.com/1032016 http/tests/devtools/sources/debugger-breakpoints/breakpoints-ui-shifted-breakpoint.js [ Pass Failure Timeout ]
+crbug.com/599670 [ Win ] http/tests/devtools/resource-parameters-ipv6.js [ Pass Failure Crash ]
+crbug.com/548765 http/tests/devtools/console-fetch-logging.js [ Failure Pass ]
+crbug.com/399507 virtual/threaded/http/tests/devtools/tracing/timeline-paint/layer-tree.js [ Skip ]
+crbug.com/723741 virtual/threaded/http/tests/devtools/tracing/idle-callback.js [ Failure Crash Pass Timeout ]
+crbug.com/626703 http/tests/devtools/indexeddb/database-refresh-view.js [ Pass Failure ]
+crbug.com/626703 crbug.com/946710 http/tests/devtools/extensions/extensions-sidebar.js [ Crash Failure Pass Timeout ]
+crbug.com/664450 http/tests/devtools/console/console-on-animation-worklet.js [ Skip ]
+crbug.com/849670 http/tests/devtools/service-workers/service-worker-v8-cache.js [ Pass Timeout Failure ]
+crbug.com/789139 http/tests/devtools/sources/debugger/live-edit-no-reveal.js [ Failure Pass Timeout Crash ]
+crbug.com/703518 http/tests/devtools/tracing/worker-js-frames.js [ Failure Pass ]
+crbug.com/757165 [ Win ] http/tests/devtools/console/console-filter-test.js [ Skip ]
+crbug.com/757165 [ Win ] http/tests/devtools/console/console-links-in-errors-with-trace.js [ Skip ]
+crbug.com/757165 [ Win ] http/tests/devtools/sources/ui-source-code-metadata.js [ Skip ]
+# Tests occasionaly timing out (flaky) on WebKit Win7 dbg builder
+crbug.com/757955 http/tests/devtools/tracing/timeline-paint/layer-tree.js [ Pass Failure Timeout ]
+
+# This test has a fixed number of time which can depend on performance.
+
+crbug.com/669329 http/tests/devtools/tracing/timeline-js/timeline-runtime-stats.js [ Pass Failure Crash Timeout ]
+# Sheriff failures 2017-11-15
+crbug.com/785179 [ Win7 Debug ] http/tests/devtools/console/console-viewport-stick-to-bottom.js [ Skip ]
+
+# Sheriff failures 2017-11-16
+crbug.com/785980 [ Win ] http/tests/devtools/network/network-xhr-same-url-as-main-resource.js [ Failure Pass ]
+
+# Sheriff failures 2017-12-04
+crbug.com/667560 http/tests/devtools/elements/styles-4/inline-style-sourcemap.js [ Pass Failure ]
+crbug.com/806645 [ Win7 ] http/tests/devtools/elements/elements-panel-rewrite-href.js [ Failure Pass ]
+crbug.com/806645 [ Mac ] http/tests/devtools/elements/elements-panel-rewrite-href.js [ Failure Pass ]
+crbug.com/817167 http/tests/devtools/oopif/oopif-cookies-refresh.js [ Failure Timeout Pass ]
+# Sheriff 2018-03-02
+crbug.com/818076 http/tests/devtools/oopif/oopif-elements-navigate-in.js [ Failure Pass ]
+
+# Sheriff 2018-03-05
+crbug.com/818650 [ Linux ] fast/speech/scripted/speechrecognition-restart-onend.html [ Crash Pass ]
+
+# Prefetching Signed Exchange DevTools tests are flaky.
+crbug.com/851363 http/tests/devtools/sxg/sxg-prefetch-fail.js [ Pass Failure ]
+crbug.com/851363 http/tests/devtools/sxg/sxg-prefetch.js [ Pass Failure ]
+# Sheriff 2018-05-28
+# Merged failing devtools/editor tests.
+crbug.com/749738 http/tests/devtools/editor/text-editor-word-jumps.js [ Timeout Pass ]
+crbug.com/846997 http/tests/devtools/editor/text-editor-ctrl-d-1.js [ Timeout Pass ]
+crbug.com/846982 http/tests/devtools/editor/text-editor-formatter.js [ Timeout Pass ]
+### See crbug.com/891427 comment near the top of this file:
+###crbug.com/847114 [ Linux ] http/tests/devtools/tracing/decode-resize.js [ Pass Failure ]
+###crbug.com/847114 [ Linux ] virtual/threaded/http/tests/devtools/tracing/decode-resize.js [ Pass Failure ]
+# Sheriff 2018-05-31
+crbug.com/848398 http/tests/devtools/oopif/oopif-performance-cpu-profiles.js [ Pass Timeout Failure ]
+# Sheriff 2018-06-07
+crbug.com/850358 http/tests/devtools/editor/text-editor-enter-behaviour.js [ Pass Failure Timeout ]
+crbug.com/849978 http/tests/devtools/elements/styles-4/stylesheet-source-url-comment.js [ Pass Failure Timeout ]
+
+# Sheriff 2018-12-07
+crbug.com/912821 [ Mac ] http/tests/devtools/tracing/user-timing.js [ Pass Failure ]
+
+crbug.com/922951 http/tests/devtools/tracing/timeline-network-received-data.js [ Failure Pass Timeout Crash ]
+crbug.com/922951 virtual/threaded/http/tests/devtools/tracing/frame-model-instrumentation.js [ Failure Pass Timeout Crash ]
+crbug.com/922951 virtual/threaded/http/tests/devtools/tracing/timeline-layout/timeline-layout-reason.js [ Failure Pass Timeout Crash ]
+crbug.com/922951 virtual/threaded/http/tests/devtools/tracing/timeline-layout/timeline-layout-with-invalidations.js [ Failure Pass Timeout Crash ]
+crbug.com/922951 virtual/threaded/http/tests/devtools/tracing/timeline-misc/timeline-record-reload.js [ Failure Pass Timeout Crash ]
+crbug.com/922951 virtual/threaded/http/tests/devtools/tracing/timeline-paint/timeline-paint-image.js [ Failure Pass Timeout Crash ]
+# Flaky devtools test for recalculating styles.
+crbug.com/1018177 http/tests/devtools/tracing/timeline-style/timeline-recalculate-styles.js [ Failure Pass ]
+
+crbug.com/849284 [ Win ] http/tests/devtools/editor/text-editor-ctrl-d-2.js [ Failure Timeout ]
+
+# Sheriff 2019-02-22
+crbug.com/934818 http/tests/devtools/tracing/decode-resize.js [ Failure Pass ]
+# Also crbug.com/1044535
+crbug.com/937416 http/tests/devtools/resource-tree/resource-tree-frame-navigate.js [ Pass Failure Timeout ]
+
+# Sheriff 2019-03-04
+# Also crbug.com/1044418
+crbug.com/937811 [ Linux Release ] http/tests/devtools/elements/shadow/elements-panel-shadow-selection-on-refresh-2.js [ Pass Failure Timeout ]
+crbug.com/937811 [ Linux Release ] http/tests/devtools/elements/shadow/elements-panel-shadow-selection-on-refresh-3.js [ Pass Failure ]
+crbug.com/937811 [ Win Release ] http/tests/devtools/elements/shadow/elements-panel-shadow-selection-on-refresh-2.js [ Pass Failure Timeout ]
+# Sheriff 2019-03-05
+crbug.com/938200 http/tests/devtools/network/network-blocked-reason.js [ Timeout Pass ]
+# Trooper 2019-03-19
+crbug.com/943388 [ Win ] http/tests/devtools/network/network-recording-after-reload-with-screenshots-enabled.js [ Pass Failure ]
+
+# Sheriff 2019-03-25
+crbug.com/945665 http/tests/devtools/elements/styles-3/styles-add-new-rule-tab.js [ Pass Failure ]
+crbug.com/945665 http/tests/devtools/elements/styles-3/styles-add-new-rule.js [ Pass Failure Timeout ]
+crbug.com/945665 http/tests/devtools/elements/styles-3/styles-disable-inherited.js [ Pass Failure ]
+crbug.com/945665 http/tests/devtools/elements/styles-3/styles-change-node-while-editing.js [ Pass Failure ]
+crbug.com/945629 http/tests/devtools/network/network-filters.js [ Pass Failure Timeout ]
+
+crbug.com/946711 [ Release ] http/tests/devtools/editor/text-editor-search-switch-editor.js [ Crash Pass Timeout ]
+crbug.com/946712 [ Release ] http/tests/devtools/elements/styles-2/paste-property.js [ Crash Pass Timeout ]
+
+crbug.com/938884 http/tests/devtools/elements/styles-3/styles-add-blank-property.js [ Timeout Pass ]
+
+# Sheriff 2019-04-18
+crbug.com/954297 [ Linux ] http/tests/devtools/oopif/oopif-presentation-console-messages.js [ Pass Crash Timeout ]
+crbug.com/954297 [ Win ] http/tests/devtools/oopif/oopif-presentation-console-messages.js [ Pass Crash Timeout ]
+
+crbug.com/974675 http/tests/devtools/sources/debugger-frameworks/frameworks-jquery.js [ Pass Crash ]
+
+crbug.com/981267 [ Linux ] http/tests/devtools/persistence/persistence-move-breakpoints-on-reload.js [ Pass Failure ]
+
+crbug.com/959129 http/tests/devtools/tracing/timeline-script-parse.js [ Pass Failure ]
+
+crbug.com/937811 [ Win Release ] http/tests/devtools/elements/shadow/elements-panel-shadow-selection-on-refresh-3.js [ Pass Failure Timeout ]
+
+# Sheriff 2019-08-01
+crbug.com/989860 [ Mac10.13 ] http/tests/devtools/indexeddb/live-update-indexeddb-list.js [ Pass Failure ]
+crbug.com/989860 [ Linux ] http/tests/devtools/indexeddb/live-update-indexeddb-list.js [ Pass Failure ]
+crbug.com/989860 [ Win ] http/tests/devtools/indexeddb/live-update-indexeddb-list.js [ Pass Failure ]
+
+# Sheriff 2019-08-22
+crbug.com/994008 [ Linux ] http/tests/devtools/elements/styles-3/styles-computed-trace.js [ Pass Failure Timeout ]
+crbug.com/994008 [ Win ] http/tests/devtools/elements/styles-3/styles-computed-trace.js [ Pass Failure Timeout ]
+crbug.com/994034 [ Linux ] http/tests/devtools/elements/styles-3/styles-add-new-rule-colon.js [ Pass Failure Timeout ]
+crbug.com/994034 [ Win ] http/tests/devtools/elements/styles-3/styles-add-new-rule-colon.js [ Pass Failure Timeout ]
+
+crbug.com/997669 [ Win ] http/tests/devtools/search/sources-search-scope-in-files.js [ Pass Crash ]
+crbug.com/1010013 [ Win10 ] virtual/threaded/http/tests/devtools/tracing/timeline-style/timeline-style-recalc-all-invalidator-types.js [ Failure ]
+crbug.com/1015859 [ Linux ] http/tests/devtools/a11y-axe-core/performance/landing-page-a11y-test.js [ Pass Failure ]
+crbug.com/1019613 http/tests/devtools/sources/debugger/debug-inlined-scripts.js [ Pass Failure ]
+crbug.com/1025321 [ Win ] http/tests/devtools/tracing/console-timeline.js [ Pass Failure ]
+crbug.com/1029528 [ Linux ] http/tests/devtools/network/oopif-content.js [ Pass Failure ]
+
+# Temporary suppression to allow devtools-frontend changes
+crbug.com/1029489 http/tests/devtools/elements/elements-linkify-attributes.js [ Pass Failure Timeout ]
+crbug.com/1030258 http/tests/devtools/network/network-cookies-pane.js [ Pass Failure ]
+crbug.com/1041830 http/tests/devtools/tracing/timeline-js/timeline-js-line-level-profile.js [ Pass Failure ]
+
+# Sheriff 2019-12-16
+crbug.com/1034374 http/tests/devtools/tracing/timeline-worker-events.js [ Pass Failure ]
+
+# Assertion errors need to be fixed
+crbug.com/1034492 http/tests/devtools/unit/filtered-item-selection-dialog-filtering.js [ Pass Failure ]
+crbug.com/1034492 http/tests/devtools/unit/filtered-list-widget-providers.js [ Pass Failure ]
+
+crbug.com/1036626 http/tests/devtools/tracing/tracing-record-input-events.js [ Pass Failure ]
+# Sheriff 2020-01-02
+crbug.com/1038656 [ Mac ] http/tests/devtools/coverage/coverage-view-unused.js [ Pass Failure ]
+crbug.com/1038656 [ Win ] http/tests/devtools/coverage/coverage-view-unused.js [ Pass Failure ]
+
+# Temporarily disabled to land Linkifier changes in DevTools
+crbug.com/963183 http/tests/devtools/jump-to-previous-editing-location.js [ Pass Failure ]
+
+# Broken in https://chromium-review.googlesource.com/c/chromium/src/+/1636716
+crbug.com/963183 http/tests/devtools/sources/debugger-breakpoints/disable-breakpoints.js [ Pass Failure Timeout ]
+
+# Disable for landing devtools changes
+crbug.com/1006759 http/tests/devtools/console/argument-hints.js [ Pass Failure ]
+
+# Required to land DevTools change
+crbug.com/106759 http/tests/devtools/command-line-api-inspect.js [ Pass Failure ]
+crbug.com/106759 http/tests/devtools/sources/debugger-console/debugger-command-line-api.js [ Pass Failure ]
+
+crbug.com/1044505 http/tests/devtools/tracing-session-id.js [ Pass Failure Timeout ]
+crbug.com/1046784 http/tests/devtools/oopif/oopif-storage.js [ Pass Failure ]
+crbug.com/1047420 [ Mac ] http/tests/devtools/persistence/persistence-move-breakpoints-on-reload.js [ Pass Failure ]
+
+# Upcoming DevTools change
+crbug.com/1006759 http/tests/devtools/profiler/cpu-profiler-save-load.js [ Pass Failure Timeout ]
+crbug.com/1006759 http/tests/devtools/profiler/heap-snapshot-loader.js [ Pass Failure ]
+
+# Temporarily disabled to land changes in DevTools, multiple dependent CLs
+# [1] https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2049183
+# [2] https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2119670
+crbug.com/1064472 http/tests/devtools/elements/elements-tab-stops.js [ Pass Failure ]
+
+# DevTools roll
+crbug.com/1006759 http/tests/devtools/elements/styles-1/edit-value-url-with-color.js [ Skip ]
+crbug.com/1006759 http/tests/devtools/sources/css-outline-dialog.js [ Skip ]
+
+# DevTools roll
+crbug.com/1052111 http/tests/devtools/a11y-axe-core/audits-start-view-a11y-test.js [ Skip ]
+
+crbug.com/1053861 http/tests/devtools/network/network-initiator-chain.js [ Pass Failure ]
+
+### sheriff 2020-03-03
+crbug.com/1058073 [ Mac ] http/tests/devtools/oopif/oopif-elements-navigate-out.js [ Pass Failure ]
+crbug.com/1058073 [ Mac ] http/tests/devtools/service-workers/sw-navigate-useragent.js [ Pass Failure ]
+crbug.com/1058137 virtual/threaded/http/tests/devtools/tracing/timeline-paint/timeline-paint.js [ Pass Failure ]
+
+# Temporarily disabled for landing changes to DevTools frontend
+crbug.com/1066579 http/tests/devtools/har-importer.js [ Pass Failure ]
+
+
+# Disabled for landing DevTools change
+crbug.com/1011811 http/tests/devtools/network/network-xhr-data-received-async-response-type-blob.js [ Pass Failure ]
+crbug.com/1011811 http/tests/devtools/network/download.js [ Pass Failure ]
+crbug.com/1011811 http/tests/devtools/sxg/sxg-disable-cache.js [ Pass Failure ]
+
+# Sheriff 2020-05-27
+crbug.com/1046784 http/tests/devtools/elements/styles/stylesheet-tracking.js [ Pass Failure Timeout ]
+
+# Disabled for landing DevTools change
+crbug.com/1011811 http/tests/devtools/persistence/automapping-sourcemap.js [ Pass Failure ]
+
+# Temporarily disable test to allow devtools-frontend changes
+crbug.com/1095733 http/tests/devtools/tabbed-pane-closeable-persistence.js [ Skip ]
+crbug.com/1144127 http/tests/devtools/modules-load-elements.js [ Pass Failure ]
+crbug.com/1144127 http/tests/devtools/modules-load-network.js [ Pass Failure ]
+crbug.com/1144127 http/tests/devtools/console/console-xpath.js [ Pass Failure ]
+
+crbug.com/1092975 http/tests/inspector-protocol/target/target-expose-devtools-protocol.js [ Pass Failure ]
+
+crbug.com/1097005 http/tests/devtools/console/console-object-preview.js [ Pass Failure Crash Timeout ]
+crbug.com/1097005 http/tests/devtools/console/console-preserve-scroll.js [ Pass Failure Crash Timeout ]
+crbug.com/1097005 http/tests/devtools/console/console-search.js [ Pass Failure Crash Timeout ]
+
+crbug.com/1098676 [ Win ] http/tests/devtools/console-xhr-logging.js [ Pass Failure ]
+
+crbug.com/1105274 http/tests/devtools/tracing/timeline-js/timeline-js-line-level-profile-no-url-end-to-end.js [ Pass Timeout Failure ]
+
+# Temporarily disable tests to allow fixing of devtools path escaping
+crbug.com/1094436 http/tests/devtools/overrides/project-added-with-existing-files-bind.js [ Pass Timeout Failure ]
+crbug.com/1094436 http/tests/devtools/persistence/automapping-urlencoded-paths.js [ Pass Failure ]
+crbug.com/1094436 http/tests/devtools/sources/debugger/navigator-view.js [ Pass Failure Crash ]
+
+# Sheriff 2020-07-20
+crbug.com/1107572 [ Mac ] http/tests/devtools/tracing/timeline-layout/timeline-layout-with-invalidations.js [ Pass Failure ]
+crbug.com/1107572 [ Mac ] http/tests/devtools/tracing/timeline-style/timeline-style-recalc-with-invalidations.js [ Pass Failure ]
+crbug.com/1107572 [ Mac ] http/tests/devtools/tracing/timeline-style/timeline-style-recalc-with-invalidator-invalidations.js [ Pass Failure ]
+crbug.com/1107722 [ Mac ] http/tests/devtools/tracing/timeline-time/timeline-time.js [ Pass Failure ]
+
+# Sheriff 2020-07-22
+crbug.com/1107722 [ Mac ] http/tests/devtools/tracing/timeline-js/timeline-script-id.js [ Pass Failure ]
+crbug.com/1107722 [ Mac ] virtual/threaded/http/tests/devtools/tracing/timeline-misc/timeline-event-causes.js [ Pass Failure ]
+# Failing on Webkit Linux Leak
+crbug.com/1046784 [ Linux ] http/tests/devtools/tracing/timeline-paint/timeline-paint.js [ Pass Failure ]
+crbug.com/1046784 [ Linux ] http/tests/devtools/tracing/timeline-misc/timeline-event-causes.js [ Pass Failure ]
+
+crbug.com/1108786 [ Mac ] http/tests/devtools/tracing/timeline-js/timeline-gc-event.js [ Pass Failure ]
+crbug.com/1108786 [ Linux ] http/tests/devtools/tracing/timeline-js/timeline-gc-event.js [ Pass Failure ]
+# Sheriff 2020-07-27
+crbug.com/1107944 [ Mac ] http/tests/devtools/tracing/timeline-paint/timeline-paint.js [ Pass Failure ]
+
+# Temporarily disable tests to allow a fix in devtools frontend
+crbug.com/1011811 http/tests/devtools/modules-load-initial.js [ Pass Failure ]
+crbug.com/1111287 http/tests/devtools/sources/debugger-breakpoints/breakpoint-with-sourcemap-dart.js [ Pass Failure Timeout ]
+
+crbug.com/1046784 http/tests/devtools/network/network-content-replacement-xhr.js [ Pass Failure ]
+
+crbug.com/1129347 [ Mac10.13 Debug ] http/tests/devtools/persistence/persistence-external-change-breakpoints.js [ Pass Failure ]
+
+crbug.com/1140329 http/tests/devtools/network/network-filter-service-worker.js [ Pass Timeout Failure ]
+
+crbug.com/1144273 http/tests/devtools/sources/debugger-ui/continue-to-location-markers-in-top-level-function.js [ Pass Failure Timeout ]
+
+
+# DevTools roll
+crbug.com/1011811 http/tests/devtools/console/console-edit-expanded-tree.js [ Skip ]
+
+# Sheriff 2020-11-16
+crbug.com/1149734 http/tests/devtools/sources/debugger-ui/debugger-inline-values-frames.js [ Pass Failure ]
+crbug.com/1149734 http/tests/devtools/sources/debugger-ui/reveal-execution-line.js [ Pass Failure ]
