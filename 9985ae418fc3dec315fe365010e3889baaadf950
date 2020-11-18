@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8966d674_17adb62d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-11-18T07:10:32Z",
+      "side": 1,
+      "message": "Hey Philip,\n\nHere\u0027s the first CL to start breaking the dependency cycle between sdk/ and bindings/\nPlease take a look.\n\nThanks,\nBenedikt",
+      "revId": "9985ae418fc3dec315fe365010e3889baaadf950",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
