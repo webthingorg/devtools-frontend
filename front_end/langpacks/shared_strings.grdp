@@ -115,9 +115,6 @@
   <message name="IDS_DEVTOOLS_2ddaa8e6378b906b42429dc4003edbd3" desc="A context menu item to reveal a node in the DOM tree of the Elements Panel">
     Reveal in Elements panel
   </message>
-  <message name="IDS_DEVTOOLS_2f04f3e6eee339eeb0ddb6c39606424d" desc="Text for searching with regular expressinn">
-    Use Regular Expression
-  </message>
   <message name="IDS_DEVTOOLS_2fae32629d4ef4fc6341f1751b405e45" desc="Title of the 'Security' tool">
     Security
   </message>
@@ -192,9 +189,6 @@
   </message>
   <message name="IDS_DEVTOOLS_4cfa6c981549e990fe2344e4c805405e" desc="Text to find an item">
     Find
-  </message>
-  <message name="IDS_DEVTOOLS_4d1b0b75a9737b7dcdc3a15a84fe856b" desc="Text to indicate the searching is in progress">
-    Searching…
   </message>
   <message name="IDS_DEVTOOLS_4dab36ac83853282fc0d7bae20c19e90" desc="Text to show more options">
     More options
@@ -513,9 +507,6 @@
   </message>
   <message name="IDS_DEVTOOLS_c7892ebbb139886662c6f2fc8c450710" desc="Text that refers to the subject of a security certificate">
     Subject
-  </message>
-  <message name="IDS_DEVTOOLS_c949475bc69a57c419ac976fe8870652" desc="Text to search by matching case of the input">
-    Match Case
   </message>
   <message name="IDS_DEVTOOLS_c9ad95228aa735bdda1aebf38da022af" desc="Text to parse something">
     Parse
