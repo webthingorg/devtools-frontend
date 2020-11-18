@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98cfc6e2_922e5602",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1466793
+      },
+      "writtenOn": "2020-11-18T17:29:59Z",
+      "side": 1,
+      "message": "Hello. This is my fist CL so please excuse any noob mistakes. this change is ready for review. Thanks in advance.",
+      "revId": "c7401ea3698af6ef78f72da2d5414fdbc3afd2d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
