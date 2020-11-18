@@ -49,4 +49,20 @@ describeWithEnvironment('LinearMemoryInspectorPane', async () => {
         'devtools-linear-memory-inspector-inspector');
     assertElement(inspector, LinearMemoryInspector.LinearMemoryInspector.LinearMemoryInspector);
   });
+
+  it('throws an error on an invalid MemoryRequestEvent', async () => {
+    try {
+      const instance = LinearMemoryInspector.LinearMemoryInspectorPane.LinearMemoryInspectorPaneImpl.instance();
+      const arrayWrapper = new Uint8Wrapper(createArray());
+      const scriptId = 'scriptId';
+      const title = 'Test Title';
+      instance.showLinearMemory(scriptId, title, arrayWrapper, 10);
+
+      const inspector = instance.contentElement
+                            .querySelector<LinearMemoryInspectorModule.LinearMemoryInspector.LinearMemoryInspector>(
+                                'devtools-linear-memory-inspector-inspector');
+      inspector?.dispatchEvent(new LinearMemoryInspector.LinearMemoryInspector.MemoryRequestEvent(-10, 0, 10));
+    } catch (err) {
+    }
+  });
 });
