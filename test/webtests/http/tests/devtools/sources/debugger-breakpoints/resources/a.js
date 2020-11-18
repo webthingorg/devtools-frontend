@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 function foo() {
   return 42;
 }
@@ -9,8 +7,8 @@ function boo() {
 }
 
 function main() {
-  const a = 1;
-  const b = 2;
+  var a = 1;
+  var b = 2;
   return a + b;
 }
 
@@ -19,6 +17,11 @@ function process(a, b) {
   b = b / 2;
   return a + b;
 }
+
+
+
+
+
 
 
 function another() {

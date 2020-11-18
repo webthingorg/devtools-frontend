@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-(async function() {
+(async function () {
   TestRunner.addResult('Tests accessibility in the Sources panel Navigator pane Snippets tab using axe-core.');
 
   // axe-core issue #1444 -- role="tree" requires children with role="treeitem",
@@ -24,9 +24,10 @@
   TestRunner.completeTest();
 
   async function setup() {
+    const snippetsProject = Snippets.ScriptSnippetFileSystem.findSnippetsProject();
     // Add snippets
-    await Snippets.ScriptSnippetFileSystem.findSnippetsProject().createFile('s1', null, '');
-    await Snippets.ScriptSnippetFileSystem.findSnippetsProject().createFile('s2', null, '');
+    await snippetsProject.createFile('s1', null, '');
+    await snippetsProject.createFile('s2', null, '');
   }
 
   async function testA11yForView(ruleSet) {
