@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c781271_9107181b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-18T12:17:06Z",
+      "side": 1,
+      "message": "I have a nit in that I\u0027d rather the flag be `html_coverage` (as I find thinking about `no_html_coverage \u003d True` quite confusing, but if there\u0027s a reason you\u0027ve gone that way round I don\u0027t mind.\n\n",
+      "revId": "72e63ca40da65c9b898f089148853ed7c49b5aa0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
