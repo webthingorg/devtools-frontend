@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0e9f93c_d0bc89b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 25
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-18T16:45:49Z",
+      "side": 1,
+      "message": "Really impressive, only nits, thanks Alfonso!",
+      "revId": "427f7139f184f9d7bdeca2c811c78f2d3c207296",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f620c6f_768bc887",
+        "filename": "front_end/sdk/DOMDebuggerModel.js",
+        "patchSetId": 25
+      },
+      "lineNbr": 961,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-18T16:45:49Z",
+      "side": 1,
+      "message": "nit: L960 is doing the same thing already.",
+      "range": {
+        "startLine": 961,
+        "startChar": 6,
+        "endLine": 961,
+        "endChar": 83
+      },
+      "revId": "427f7139f184f9d7bdeca2c811c78f2d3c207296",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14a1054c_b53c32a4",
+        "filename": "front_end/sdk/DOMDebuggerModel.js",
+        "patchSetId": 25
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-18T16:45:49Z",
+      "side": 1,
+      "message": "nit: private, i.e. _updateCSPViolationBreakpointsForModel?",
+      "range": {
+        "startLine": 969,
+        "startChar": 2,
+        "endLine": 969,
+        "endChar": 39
+      },
+      "revId": "427f7139f184f9d7bdeca2c811c78f2d3c207296",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a57292fc_262cbb57",
+        "filename": "front_end/sdk/sdk_strings.grdp",
+        "patchSetId": 25
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-18T16:45:49Z",
+      "side": 1,
+      "message": "nit: this needs a description",
+      "range": {
+        "startLine": 200,
+        "startChar": 70,
+        "endLine": 200,
+        "endChar": 74
+      },
+      "revId": "427f7139f184f9d7bdeca2c811c78f2d3c207296",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
