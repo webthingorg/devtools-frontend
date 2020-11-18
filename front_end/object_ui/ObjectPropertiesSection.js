@@ -653,7 +653,6 @@ export class ObjectPropertyTreeElement extends UI.TreeOutline.TreeElement {
     this._linkifier = linkifier;
     this._maxNumPropertiesToShow = InitialVisibleChildrenLimit;
     this.listItemElement.addEventListener('contextmenu', this._contextMenuFired.bind(this), false);
-    UI.ARIAUtils.setAccessibleName(this.listItemElement, this.property.name);
 
     /** @type {!HTMLElement} */
     this.nameElement;
