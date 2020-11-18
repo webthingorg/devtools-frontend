@@ -885,12 +885,44 @@ export class SourcesPanel extends UI.Panel.Panel {
     }
     const remoteObject = /** @type {!SDK.RemoteObject.RemoteObject} */ (target);
     const executionContext = UI.Context.Context.instance().flavor(SDK.RuntimeModel.ExecutionContext);
+
     contextMenu.debugSection().appendItem(
         ls`Store ${remoteObject.type} as global variable`,
         () => SDK.ConsoleModel.ConsoleModel.instance().saveToTempVariable(executionContext, remoteObject));
+
+    const copyDecodedValueHandler = () => {
+      // @ts-ignore
+      remoteObject.callFunctionJSON(toStringForClipboard, [{value: remoteObject.subtype}])
+          .then(Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText.bind(
+              Host.InspectorFrontendHost.InspectorFrontendHostInstance));
+    };
+    // Copy context menu
+    contextMenu.clipboardSection().appendItem(
+        ls`Copy ${remoteObject?.className?.toLowerCase() || remoteObject?.type}`, copyDecodedValueHandler);
+
     if (remoteObject.type === 'function') {
       contextMenu.debugSection().appendItem(
           ls`Show function definition`, this._showFunctionDefinition.bind(this, remoteObject));
+    }
+
+    /**
+     * @param {string} subtype
+     * @this {Object}
+     * @suppressReceiverCheck
+     */
+    function toStringForClipboard(subtype) {
+      if (subtype === 'node') {
+        return this instanceof Element ? this.outerHTML : undefined;
+      }
+      if (subtype && typeof this === 'undefined') {
+        return subtype + '';
+      }
+      try {
+        // TODO @Yisi: If there are no objects in the array, do not wrap?
+        return JSON.stringify(this, null, 2);
+      } catch (e) {
+        return '' + this;
+      }
     }
   }
 
