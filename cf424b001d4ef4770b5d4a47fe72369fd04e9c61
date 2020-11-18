@@ -97,6 +97,30 @@
       },
       "revId": "cf424b001d4ef4770b5d4a47fe72369fd04e9c61",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "202eb194_382b4a55",
+        "filename": "front_end/resources/CookieItemsView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-18T11:56:59Z",
+      "side": 1,
+      "message": "Let\u0027s add Peter and see what he thinks!",
+      "parentUuid": "0d94a6a8_f8d07b2c",
+      "range": {
+        "startLine": 77,
+        "startChar": 11,
+        "endLine": 77,
+        "endChar": 18
+      },
+      "revId": "cf424b001d4ef4770b5d4a47fe72369fd04e9c61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
