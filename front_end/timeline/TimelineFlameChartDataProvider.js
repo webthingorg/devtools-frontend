@@ -862,7 +862,9 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
       const frame = /** @type {!TimelineModel.TimelineFrameModel.TimelineFrame} */ (this._entryData[entryIndex]);
       time = Common.UIString.UIString(
           '%s ~ %.0f\xa0fps', Number.preciseMillisToString(frame.duration, 1), (1000 / frame.duration));
-      title = frame.idle ? Common.UIString.UIString('Idle Frame') : Common.UIString.UIString('Frame');
+      title = frame.idle ?
+          Common.UIString.UIString('Idle Frame') :
+          frame.dropped ? Common.UIString.UIString('Dropped Frame') : Common.UIString.UIString('Frame');
       if (frame.hasWarnings()) {
         warning = createElement('span');
         warning.textContent = Common.UIString.UIString('Long frame');
@@ -964,7 +966,8 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     const frame = /** @type {!TimelineModel.TimelineFrameModel.TimelineFrame} */ (this._entryData[entryIndex]);
     barX += hPadding;
     barWidth -= 2 * hPadding;
-    context.fillStyle = frame.idle ? 'white' : (frame.hasWarnings() ? '#fad1d1' : '#d7f0d1');
+    context.fillStyle =
+        frame.idle ? 'white' : frame.dropped ? '#f0b7b1' : (frame.hasWarnings() ? '#fad1d1' : '#d7f0d1');
     context.fillRect(barX, barY, barWidth, barHeight);
 
     const frameDurationText = Number.preciseMillisToString(frame.duration, 1);
