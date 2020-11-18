@@ -34,14 +34,14 @@ export const ViewLocationValues = {
 /**
  * @typedef {{
  *  title: string,
- *  persistence: !ViewPersistence,
+ *  persistence: (!ViewPersistence|undefined),
  *  id: string,
- *  location: !ViewLocationValues,
- *  hasToolbar: boolean,
+ *  location: (!ViewLocationValues|undefined),
+ *  hasToolbar: (boolean|undefined),
  *  loadView: function():!Promise<!Widget>,
- *  order: number,
- *  settings: !Array<string>,
- *  tags: string,
+ *  order: (number|undefined),
+ *  settings: (!Array<string>|undefined),
+ *  tags: (string|undefined),
  * }}
  */
 // @ts-ignore typedef
@@ -822,7 +822,7 @@ export class _TabbedLocation extends _Location {
     const views = Array.from(this._views.values());
     views.sort((viewa, viewb) => viewa.title().localeCompare(viewb.title()));
     for (const view of views) {
-      const title = Common.UIString.UIString(view.title());
+      const title = view.title();
 
       if (view.viewId() === 'issues-pane') {
         contextMenu.defaultSection().appendItem(title, () => {
