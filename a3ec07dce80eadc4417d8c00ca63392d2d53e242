@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ce75055_997cfc6c",
+        "filename": "front_end/security/SecurityModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-11-18T08:29:12Z",
+      "side": 1,
+      "message": "These two have been merged as they have the same format, but as the variables going into each placeholder are different, possibly they would have different translations in different languages? Might be worth splitting them up",
+      "range": {
+        "startLine": 203,
+        "startChar": 2,
+        "endLine": 217,
+        "endChar": 3
+      },
+      "revId": "a3ec07dce80eadc4417d8c00ca63392d2d53e242",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d2f2fa4_0e873a44",
+        "filename": "front_end/security/module.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-11-18T08:29:12Z",
+      "side": 1,
+      "message": "nit: indentation",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 7
+      },
+      "revId": "a3ec07dce80eadc4417d8c00ca63392d2d53e242",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
