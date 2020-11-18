@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7f6879b_39e64d70",
+        "filename": "front_end/ui/components/DataGridUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-18T15:48:35Z",
+      "side": 1,
+      "message": "Ultra-nit: since on the web `null` it typically used to note the absence of DOM Nodes, should we consider only allowing `undefined` to denote \"lack of value\"?",
+      "range": {
+        "startLine": 29,
+        "startChar": 56,
+        "endLine": 29,
+        "endChar": 60
+      },
+      "revId": "6dd44bfbc803959feb69a22015122bb04488ee1b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
