@@ -87,6 +87,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f918f46_d40ef811",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-18T14:33:10Z",
+      "side": 1,
+      "message": "I tried this locally with mixed results. Some general comments on the implementation. We should also have a test.",
+      "revId": "cf424b001d4ef4770b5d4a47fe72369fd04e9c61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "20e396a2_34b30184",
@@ -153,6 +170,236 @@
         "startChar": 11,
         "endLine": 77,
         "endChar": 18
+      },
+      "revId": "cf424b001d4ef4770b5d4a47fe72369fd04e9c61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83529ab5_752d0dd1",
+        "filename": "front_end/resources/CookieItemsView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-18T14:33:10Z",
+      "side": 1,
+      "message": "Let\u0027s have a local decode function that catches the error and displays a reasonable error in the preview pane instead of just doing nothing.",
+      "range": {
+        "startLine": 80,
+        "startChar": 5,
+        "endLine": 81,
+        "endChar": 33
+      },
+      "revId": "cf424b001d4ef4770b5d4a47fe72369fd04e9c61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "217bc2de_484d48b5",
+        "filename": "front_end/resources/CookieItemsView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-18T14:33:10Z",
+      "side": 1,
+      "message": "Is this unused?",
+      "range": {
+        "startLine": 148,
+        "startChar": 9,
+        "endLine": 148,
+        "endChar": 25
+      },
+      "revId": "cf424b001d4ef4770b5d4a47fe72369fd04e9c61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca8fc7a3_7fdefc68",
+        "filename": "front_end/resources/CookieItemsView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-18T14:33:10Z",
+      "side": 1,
+      "message": "Please consult the implementation, I this might be only hiding the preview pane, not removing it. See my comment below about how to use this to your advantage.",
+      "range": {
+        "startLine": 181,
+        "startChar": 6,
+        "endLine": 181,
+        "endChar": 29
+      },
+      "revId": "cf424b001d4ef4770b5d4a47fe72369fd04e9c61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c20dbe26_80216afc",
+        "filename": "front_end/resources/CookieItemsView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-18T14:33:10Z",
+      "side": 1,
+      "message": "This will not remember the last state of showDecoded, so it will flip back to the default every time this is called (and from what I remember, this function gets called a lot because we are polling the cookie store for updates), probably not great UX.",
+      "range": {
+        "startLine": 189,
+        "startChar": 6,
+        "endLine": 189,
+        "endChar": 54
+      },
+      "revId": "cf424b001d4ef4770b5d4a47fe72369fd04e9c61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f5a39eb_ae78678c",
+        "filename": "front_end/resources/CookieItemsView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-18T14:33:10Z",
+      "side": 1,
+      "message": "I\u0027m wondering if it wouldn\u0027t be better to create these in the constructor and just show / hide them accordingly. This would require refactoring CookiePreviewWidget to actually be able to show a different cookie.",
+      "range": {
+        "startLine": 184,
+        "startChar": 3,
+        "endLine": 191,
+        "endChar": 5
+      },
+      "revId": "cf424b001d4ef4770b5d4a47fe72369fd04e9c61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae38089f_3cc85e60",
+        "filename": "front_end/resources/cookieItemsView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-18T14:33:10Z",
+      "side": 1,
+      "message": "Things are allowed to wrap in this div, is this intended?",
+      "range": {
+        "startLine": 11,
+        "startChar": 1,
+        "endLine": 11,
+        "endChar": 8
+      },
+      "revId": "cf424b001d4ef4770b5d4a47fe72369fd04e9c61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d8a3133_99992a77",
+        "filename": "front_end/resources/cookieItemsView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-18T14:33:10Z",
+      "side": 1,
+      "message": "This will allow the header to shrink, which looks funky if you the height of the section is very low.",
+      "range": {
+        "startLine": 15,
+        "startChar": 2,
+        "endLine": 15,
+        "endChar": 20
+      },
+      "revId": "cf424b001d4ef4770b5d4a47fe72369fd04e9c61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75e85fe6_6e647527",
+        "filename": "front_end/resources/cookieItemsView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-18T14:33:10Z",
+      "side": 1,
+      "message": "Set should set overflow-wrap here as well, as side-scrolling doesn\u0027t help much.",
+      "range": {
+        "startLine": 19,
+        "startChar": 2,
+        "endLine": 19,
+        "endChar": 17
+      },
+      "revId": "cf424b001d4ef4770b5d4a47fe72369fd04e9c61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d2b0126_546087f6",
+        "filename": "front_end/resources/cookieItemsView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-18T14:33:10Z",
+      "side": 1,
+      "message": "What about dark mode?",
+      "range": {
+        "startLine": 29,
+        "startChar": 2,
+        "endLine": 29,
+        "endChar": 26
+      },
+      "revId": "cf424b001d4ef4770b5d4a47fe72369fd04e9c61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed82a15a_f03635b2",
+        "filename": "front_end/resources/cookieItemsView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-18T14:33:10Z",
+      "side": 1,
+      "message": "Same here, darkmode?",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 26
       },
       "revId": "cf424b001d4ef4770b5d4a47fe72369fd04e9c61",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
