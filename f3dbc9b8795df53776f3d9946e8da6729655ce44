@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b3fe1a7_409e1d39",
+        "filename": "front_end/sources/SourcesPanel.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 897,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-18T11:56:34Z",
+      "side": 1,
+      "message": "nit: could you explain why are we ignoring this?",
+      "revId": "f3dbc9b8795df53776f3d9946e8da6729655ce44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5648e501_9103d974",
+        "filename": "front_end/sources/SourcesPanel.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-18T11:56:34Z",
+      "side": 1,
+      "message": "Could we use async await here instead?",
+      "revId": "f3dbc9b8795df53776f3d9946e8da6729655ce44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
