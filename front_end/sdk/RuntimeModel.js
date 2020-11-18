@@ -411,9 +411,9 @@ export class RuntimeModel extends SDKModel {
         return subtype + '';
       }
       try {
-        return JSON.stringify(this, null, '  ');
-      } catch (e) {
-        return '' + this;
+        return JSON.stringify(this, null, 2);
+      } catch (error) {
+        return String(this);
       }
     }
   }
