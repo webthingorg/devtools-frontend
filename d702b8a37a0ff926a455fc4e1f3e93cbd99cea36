@@ -51,6 +51,24 @@
       "parentUuid": "7bf16ebb_9916a931",
       "revId": "d702b8a37a0ff926a455fc4e1f3e93cbd99cea36",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2303825_288b66dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 59
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-11-18T19:34:32Z",
+      "side": 1,
+      "message": "Hi Christian,\n\nLet me first apologize that we\u0027ve sort of been providing a moving target. While you experimented with font tooling, we have made significant progress in moving to TypeScript and making it possible to unit test. For new features therefore we\u0027d like to make sure we do not increase our tech debt burden as much as possible. The general consensus on our team has been that developing UI this way provides a lot more confidence.\n\nThe Linear Memory Inspector is probably a good example for this:\n\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/linear_memory_inspector/\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/test/unittests/front_end/linear_memory_inspector/\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/test/e2e/sources/can-open-linear-memory-inspector_test.ts\n\nCheers,\n\nYang",
+      "parentUuid": "3c159674_b0dc6ab9",
+      "revId": "d702b8a37a0ff926a455fc4e1f3e93cbd99cea36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
