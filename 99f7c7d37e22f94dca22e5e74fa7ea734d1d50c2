@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8680d1c4_cbd4bdc1",
+        "filename": "test/perf/.mocharc.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-18T15:42:16Z",
+      "side": 1,
+      "message": "Seems like we need to make a reusable function for this. I will add a P3 to my build doc.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 3
+      },
+      "revId": "99f7c7d37e22f94dca22e5e74fa7ea734d1d50c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
