@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30ea8e26_86761e07",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-18T14:35:52Z",
+      "side": 1,
+      "message": "PTAL! Note: changes to the generated files will be removed once the backend CL rolls and CDP definitions can be updated.",
+      "revId": "2aa69842d8061812d6020d1c021b3fca831bab9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
