@@ -646,7 +646,29 @@ export class ObjectPropertyTreeElement extends UI.TreeOutline.TreeElement {
     this._linkifier = linkifier;
     this._maxNumPropertiesToShow = InitialVisibleChildrenLimit;
     this.listItemElement.addEventListener('contextmenu', this._contextMenuFired.bind(this), false);
+<<<<<<< HEAD   (8f25ff Update Schemeful Same-Site DevTools issue link)
     UI.ARIAUtils.setAccessibleName(this.listItemElement, this.property.name);
+=======
+    this.listItemElement.dataset.objectPropertyNameForTest = property.name;
+
+    /** @type {!HTMLElement} */
+    this.nameElement;
+
+    /** @type {!HTMLElement} */
+    this.valueElement;
+
+    /** @type {!HTMLElement} */
+    this._rowContainer;
+
+    /** @type {boolean} */
+    this._readOnly;
+
+    /** @type {!ObjectPropertyPrompt|undefined} */
+    this._prompt;
+
+    /** @type {!HTMLElement} */
+    this._editableDiv;
+>>>>>>> CHANGE (8f9637 Revert "Aria-label the scope entries")
   }
 
   /**
