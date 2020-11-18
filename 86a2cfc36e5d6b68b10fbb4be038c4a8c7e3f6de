@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e63b999_6027647b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-11-18T23:16:41Z",
+      "side": 1,
+      "message": "Migrate search tool to Loc V2, PTAL, thanks!",
+      "revId": "86a2cfc36e5d6b68b10fbb4be038c4a8c7e3f6de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
