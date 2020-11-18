@@ -8441,6 +8441,8 @@ declare namespace Protocol {
        * The flex container highlight configuration (default: all transparent).
        */
       flexContainerHighlightConfig?: FlexContainerHighlightConfig;
+
+      contrastAlgorithm: string;
     }
 
     export enum ColorFormat {
