@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ed793b0_df0f370e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-18T08:26:54Z",
+      "side": 1,
+      "message": "lgtm % nit, thanks for improving the accessibility of the component!",
+      "revId": "42b81ec3f7bef6db81f8c976266176ad018ad4aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3f77e46_d4ba16f9",
+        "filename": "front_end/issues/IssueSurveyLink.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-18T08:26:54Z",
+      "side": 1,
+      "message": "nit: Would you find\n\n const ariaDisabled \u003d this.state !\u003d\u003d State.ShowLink;\n\nless or more readable?",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 5
+      },
+      "revId": "42b81ec3f7bef6db81f8c976266176ad018ad4aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
