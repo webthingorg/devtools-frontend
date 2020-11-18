@@ -55,6 +55,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e4ad2bb6_f2198cf9",
+        "filename": "front_end/sdk/RemoteObject.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-18T11:35:28Z",
+      "side": 1,
+      "message": "In the Copy object context menu, I expect to be able to copy the current node name. In the network panel, the current implementation does not take effect. E.g:\n\ndata: {\n  name: \u0027yisi\u0027,\n  foo: 123\n}\n\nresult:\n\n{\n  \"name\": \"yisi\",\n  \"foo\": 123\n}\n\nHow to get the name `data`?",
+      "revId": "a1027275d13f29962366fd0794bf00c53ceacad5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "428ad90a_7e79e4c1",
         "filename": "front_end/sdk/RuntimeModel.js",
         "patchSetId": 5
@@ -84,6 +101,23 @@
       "side": 1,
       "message": "How to use this config? Does \u0027Store xxx as global variable\u0027 also need to use this?",
       "parentUuid": "428ad90a_7e79e4c1",
+      "revId": "a1027275d13f29962366fd0794bf00c53ceacad5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6000431b_f1ec7183",
+        "filename": "front_end/sources/SourcesPanel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-18T11:35:28Z",
+      "side": 1,
+      "message": "I think the name of the context menu needs to be discussed carefully. Currently there is `copy value` in the network panel.",
       "revId": "a1027275d13f29962366fd0794bf00c53ceacad5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -193,6 +227,47 @@
         "endLine": 927,
         "endChar": 24
       },
+      "revId": "a1027275d13f29962366fd0794bf00c53ceacad5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b7af715_849e045f",
+        "filename": "front_end/sources/SourcesPanel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 927,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-18T11:35:28Z",
+      "side": 1,
+      "message": "Nice!",
+      "parentUuid": "a00e2de5_a74ef3a5",
+      "range": {
+        "startLine": 927,
+        "startChar": 15,
+        "endLine": 927,
+        "endChar": 24
+      },
+      "revId": "a1027275d13f29962366fd0794bf00c53ceacad5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "137b74c5_b5e0833f",
+        "filename": "front_end/sources/sources_strings.grdp",
+        "patchSetId": 5
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-18T11:35:28Z",
+      "side": 1,
+      "message": "Does it need to be changed to REMOTEOBJECT_TYPE here?",
       "revId": "a1027275d13f29962366fd0794bf00c53ceacad5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
