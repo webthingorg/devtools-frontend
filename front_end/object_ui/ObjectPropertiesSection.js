@@ -1118,6 +1118,7 @@ export class ObjectPropertyTreeElement extends UI.TreeOutline.TreeElement {
     }
     if (this.property.value) {
       contextMenu.appendApplicableItems(this.property.value);
+      // TODO: @Yisi This will disable copy value in the debugger.
       if (parentMap.get(this.property) instanceof SDK.RemoteObject.LocalJSONObject) {
         const {value: {value}} = this.property;
         const propertyValue = typeof value === 'object' ? JSON.stringify(value, null, 2) : value;
