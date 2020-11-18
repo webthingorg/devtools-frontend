@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "674ee955_d2d6c9f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-18T06:47:12Z",
+      "side": 1,
+      "message": "Hi Jack, hi Benedikt!\n\nI\u0027m removing the Boolean field in the value interpreter (feedback that it is not intuitive) and I\u0027m fixing the name of an event in an event listener.\n\nPTAL!",
+      "revId": "0abba54f1dbeb744a41bb15757aac0b53f12a08d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
