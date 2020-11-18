@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d470dc8c_1036781f",
+        "filename": "test/unittests/front_end/ui/components/DataGrid_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-11-18T15:49:19Z",
+      "side": 0,
+      "message": "The title field still appears in most of the tests, is that intended? I would expect to leave the title only in cases where city and title are not equal.",
+      "revId": "89e82cecd3dff7ed3a31edee53410a08b63c4275",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
