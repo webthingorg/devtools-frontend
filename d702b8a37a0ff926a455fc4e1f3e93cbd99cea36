@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22e276fd_88865661",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 59
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-18T08:14:32Z",
+      "side": 1,
+      "message": "LGTM pending infra side\u0027s +1 to solve the module import issue. @Michael let\u0027s get this Font Editor into the new TS + LitHTML land in the future. Feel free to ping me if you\u0027re stuck in that process, since I\u0027m also working on \u003ctype\u003e component tooling too.",
+      "revId": "d702b8a37a0ff926a455fc4e1f3e93cbd99cea36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
