@@ -3,6 +3,7 @@ import("../../../../third_party/typescript/typescript.gni")
 ts_library("issues") {
   testonly = true
   sources = [
+    "CSPViolationsView_test.ts",
     "IssueAggregator_test.ts",
     "IssueSurveyLink_test.ts",
     "MarkdownIssueDescription_test.ts",
