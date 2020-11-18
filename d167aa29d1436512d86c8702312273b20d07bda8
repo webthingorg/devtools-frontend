@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "197ccbee_af7b9c78",
+        "filename": "front_end/css_overview/CSSOverviewModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-18T14:47:29Z",
+      "side": 1,
+      "message": "TODO: \u0027apca\u0027 and \u0027aa\u0027 should be the enum values from the protocol types instead, after the update goes through.",
+      "revId": "d167aa29d1436512d86c8702312273b20d07bda8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
