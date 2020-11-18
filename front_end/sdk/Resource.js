@@ -52,6 +52,13 @@ export class Resource {
    */
   constructor(
       resourceTreeModel, request, url, documentURL, frameId, loaderId, type, mimeType, lastModified, contentSize) {
+    // eslint-disable-next-line
+    console.log(
+        'Resource.constructor', url, !!request, documentURL, frameId, loaderId, type.title(), mimeType, lastModified,
+        contentSize);
+
+    // eslint-disable-next-line
+    console.log(new Error().stack);
     this._resourceTreeModel = resourceTreeModel;
     this._request = request;
     this.url = url;
@@ -236,14 +243,22 @@ export class Resource {
    * @return {!Promise<!Array<!TextUtils.ContentProvider.SearchMatch>>}
    */
   async searchInContent(query, caseSensitive, isRegex) {
+    // eslint-disable-next-line
+    console.log(
+        'Resource.searchInContent', this.url, this.frameId, !!this.request, !!this.request?._contentDataProvider);
     if (!this.frameId) {
       return [];
     }
     if (this.request) {
       return this.request.searchInContent(query, caseSensitive, isRegex);
     }
+
+    // eslint-disable-next-line
+    console.log('Resource.searchInContent', this.url, query, caseSensitive, isRegex);
     const result = await this._resourceTreeModel.target().pageAgent().invoke_searchInResource(
         {frameId: this.frameId, url: this.url, query, caseSensitive, isRegex});
+    // eslint-disable-next-line
+    console.log('Resource.searchInContent: ', this.url, JSON.stringify(result.result));
     return result.result || [];
   }
 
