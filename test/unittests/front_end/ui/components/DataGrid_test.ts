@@ -4,11 +4,10 @@
 
 import * as LitHtml from '../../../../../front_end/third_party/lit-html/lit-html.js';
 import * as UIComponents from '../../../../../front_end/ui/components/components.js';  // eslint-disable-line rulesdir/es_modules_import
-
 import {assertElement, assertElements, assertShadowRoot, dispatchClickEvent, dispatchKeyDownEvent, getEventPromise, renderElementIntoDOM} from '../../helpers/DOMHelpers.js';
 import {withMutations} from '../../helpers/MutationHelpers.js';
 
-import {assertCurrentFocusedCellIs, emulateUserFocusingCellAt, emulateUserKeyboardNavigation, focusTableCell, getCellByIndexes, getFocusableCell, getHeaderCellForColumnId, getHeaderCells, getValuesOfAllBodyRows, getValuesOfBodyRowByAriaIndex} from './DataGridHelpers.js';
+import {assertCurrentFocusedCellIs, emulateUserFocusingCellAt, emulateUserKeyboardNavigation, focusTableCell, getAllRows, getCellByIndexes, getFocusableCell, getHeaderCellForColumnId, getHeaderCells, getValuesOfAllBodyRows, getValuesOfBodyRowByAriaIndex} from './DataGridHelpers.js';
 
 const {assert} = chai;
 
@@ -24,23 +23,23 @@ const createRows = (): UIComponents.DataGridUtils.Row[] => {
   return [
     {
       cells: [
-        {columnId: 'city', value: 'London', title: 'London'},
-        {columnId: 'country', value: 'UK', title: 'UK'},
-        {columnId: 'population', value: '8.98m', title: '8.98m'},
+        {columnId: 'city', value: 'London'},
+        {columnId: 'country', value: 'UK'},
+        {columnId: 'population', value: '8.98m'},
       ],
     },
     {
       cells: [
-        {columnId: 'city', value: 'Munich', title: 'Munich'},
-        {columnId: 'country', value: 'Germany', title: 'Germany'},
-        {columnId: 'population', value: '1.47m', title: '1.47m'},
+        {columnId: 'city', value: 'Munich'},
+        {columnId: 'country', value: 'Germany'},
+        {columnId: 'population', value: '1.47m'},
       ],
     },
     {
       cells: [
-        {columnId: 'city', value: 'Barcelona', title: 'Barcelona'},
-        {columnId: 'country', value: 'Spain', title: 'Spain'},
-        {columnId: 'population', value: '1.62m', title: '1.62m'},
+        {columnId: 'city', value: 'Barcelona'},
+        {columnId: 'country', value: 'Spain'},
+        {columnId: 'population', value: '1.62m'},
       ],
     },
   ];
@@ -85,6 +84,40 @@ describe('DataGrid', () => {
       const rowValues = getValuesOfAllBodyRows(component.shadowRoot);
       assert.deepEqual(rowValues, [
         ['London', 'UK', '8.98m'],
+        ['Munich', 'Germany', '1.47m'],
+        ['Barcelona', 'Spain', '1.62m'],
+      ]);
+    });
+
+    it('uses the cell\'s value as its title attribute by default', () => {
+      const component = renderDataGrid({rows, columns});
+      renderElementIntoDOM(component);
+      assertShadowRoot(component.shadowRoot);
+
+      const renderedBodyRows = getAllRows(component.shadowRoot);
+      const renderedBodyCells = renderedBodyRows.map(row => Array.from(row.querySelectorAll('td')));
+      const titleAttributesForCellsByRow = renderedBodyCells.map(row => row.map(cell => cell.getAttribute('title')));
+
+      assert.deepEqual(titleAttributesForCellsByRow, [
+        ['London', 'UK', '8.98m'],
+        ['Munich', 'Germany', '1.47m'],
+        ['Barcelona', 'Spain', '1.62m'],
+      ]);
+    });
+
+    it('takes a title override and uses that if provided', () => {
+      const rowsWithTitleSpecified = createRows();
+      rowsWithTitleSpecified[0].cells[0].title = 'EXPLICITLY_PROVIDED_TITLE';
+      const component = renderDataGrid({rows: rowsWithTitleSpecified, columns});
+      renderElementIntoDOM(component);
+      assertShadowRoot(component.shadowRoot);
+
+      const renderedBodyRows = getAllRows(component.shadowRoot);
+      const renderedBodyCells = renderedBodyRows.map(row => Array.from(row.querySelectorAll('td')));
+      const titleAttributesForCellsByRow = renderedBodyCells.map(row => row.map(cell => cell.getAttribute('title')));
+
+      assert.deepEqual(titleAttributesForCellsByRow, [
+        ['EXPLICITLY_PROVIDED_TITLE', 'UK', '8.98m'],
         ['Munich', 'Germany', '1.47m'],
         ['Barcelona', 'Spain', '1.62m'],
       ]);
