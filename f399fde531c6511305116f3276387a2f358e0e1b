@@ -37,6 +37,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3bbc384a_b883767c",
+        "filename": "front_end/elements/LayoutPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-18T21:38:17Z",
+      "side": 1,
+      "message": "nit: why is flexContainerElements optional while gridElements is not?",
+      "revId": "f399fde531c6511305116f3276387a2f358e0e1b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "42b29cf2_50a10069",
         "filename": "front_end/elements/elements_strings.grdp",
         "patchSetId": 1
