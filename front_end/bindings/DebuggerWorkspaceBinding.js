@@ -78,11 +78,65 @@ export class DebuggerWorkspaceBinding {
   }
 
   /**
+   * @param {!{mode: string, callFrame: !SDK.DebuggerModel.CallFrame}} options
+   * @return {!Promise<!Array<!{start:!SDK.DebuggerModel.Location, end:!SDK.DebuggerModel.Location}>>}
+   */
+  async _computeAutoStepRanges(options) {
+    /**
+     * @param {!SDK.DebuggerModel.Location} location
+     * @param {!{start:!SDK.DebuggerModel.Location, end:!SDK.DebuggerModel.Location}} range
+     * @return {boolean}
+     */
+    function contained(location, range) {
+      const {start, end} = range;
+      if (start.scriptId !== location.scriptId) {
+        return false;
+      }
+      if (location.lineNumber < start.lineNumber || location.lineNumber > end.lineNumber) {
+        return false;
+      }
+      if (location.lineNumber === start.lineNumber && location.columnNumber < start.columnNumber) {
+        return false;
+      }
+      if (location.lineNumber === end.lineNumber && location.columnNumber >= end.columnNumber) {
+        return false;
+      }
+      return true;
+    }
+
+    const pluginManager = this.pluginManager;
+    if (pluginManager) {
+      const rawLocation = options.callFrame.location();
+      if (options.mode === 'stepOut') {
+        // Step out of inline function.
+        return await pluginManager.getInlinedFunctionRanges(rawLocation);
+      }
+      /** @type {!Array<!{start:!SDK.DebuggerModel.Location, end:!SDK.DebuggerModel.Location}>} */
+      let ranges = [];
+      const uiLocation = await pluginManager.rawLocationToUILocation(rawLocation);
+      if (uiLocation) {
+        ranges = await pluginManager.uiLocationToRawLocationRanges(
+                     uiLocation.uiSourceCode, uiLocation.lineNumber, uiLocation.columnNumber) ||
+            [];
+        // TODO(bmeurer): Remove the {rawLocation} from the {ranges}?
+        ranges = ranges.filter(range => contained(rawLocation, range));
+      }
+      if (options.mode === 'stepOver') {
+        // Step over an inlined function.
+        ranges = ranges.concat(await pluginManager.getInlinedCalleesRanges(rawLocation));
+      }
+      return ranges;
+    }
+    return [];
+  }
+
+  /**
    * @override
    * @param {!SDK.DebuggerModel.DebuggerModel} debuggerModel
    */
   modelAdded(debuggerModel) {
     this._debuggerModelToData.set(debuggerModel, new ModelData(debuggerModel, this));
+    debuggerModel.setComputeAutoStepRangesCallback(this._computeAutoStepRanges.bind(this));
   }
 
   /**
@@ -90,6 +144,7 @@ export class DebuggerWorkspaceBinding {
    * @param {!SDK.DebuggerModel.DebuggerModel} debuggerModel
    */
   modelRemoved(debuggerModel) {
+    debuggerModel.setComputeAutoStepRangesCallback(null);
     const modelData = this._debuggerModelToData.get(debuggerModel);
     if (modelData) {
       modelData._dispose();
