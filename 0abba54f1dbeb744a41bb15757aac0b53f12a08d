@@ -16,6 +16,23 @@
       "message": "Hi Jack, hi Benedikt!\n\nI\u0027m removing the Boolean field in the value interpreter (feedback that it is not intuitive) and I\u0027m fixing the name of an event in an event listener.\n\nPTAL!",
       "revId": "0abba54f1dbeb744a41bb15757aac0b53f12a08d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1283d527_0719f854",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-11-18T06:49:26Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "0abba54f1dbeb744a41bb15757aac0b53f12a08d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
