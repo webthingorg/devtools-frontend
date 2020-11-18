@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7e300ee1_7bc39b7a",
+        "filename": "front_end/object_ui/ObjectPropertiesSection.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 1121,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-18T11:21:29Z",
+      "side": 1,
+      "message": "OK",
+      "parentUuid": "acc9010b_e0a9d1e3",
+      "revId": "a1027275d13f29962366fd0794bf00c53ceacad5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "428ad90a_7e79e4c1",
         "filename": "front_end/sdk/RuntimeModel.js",
         "patchSetId": 5
@@ -48,6 +66,24 @@
       "writtenOn": "2020-11-18T10:37:07Z",
       "side": 1,
       "message": "Can we re-use the indentation preference from DevTools -\u003e Settings here?",
+      "revId": "a1027275d13f29962366fd0794bf00c53ceacad5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd68c2f1_fc7d5635",
+        "filename": "front_end/sdk/RuntimeModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-18T11:21:29Z",
+      "side": 1,
+      "message": "How to use this config? Does \u0027Store xxx as global variable\u0027 also need to use this?",
+      "parentUuid": "428ad90a_7e79e4c1",
       "revId": "a1027275d13f29962366fd0794bf00c53ceacad5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
