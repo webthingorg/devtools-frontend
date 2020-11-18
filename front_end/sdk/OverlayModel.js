@@ -460,6 +460,7 @@ export class OverlayModel extends SDKModel {
       showExtensionLines: showRulers,
       gridHighlightConfig: {},
       flexContainerHighlightConfig: {},
+      contrastAlgorithm: Root.Runtime.experiments.isEnabled('APCA') ? 'apca' : 'aa',
     };
 
     if (mode === 'all' || mode === 'content') {
