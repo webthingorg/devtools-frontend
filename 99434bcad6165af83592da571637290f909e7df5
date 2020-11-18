@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c313f681_a4b81205",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 55
+      },
+      "lineNbr": 757,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-18T01:06:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "caa56d43_eec07559",
+      "revId": "99434bcad6165af83592da571637290f909e7df5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9391fde0_cfe07653",
@@ -31,6 +49,30 @@
       "writtenOn": "2020-11-17T21:04:51Z",
       "side": 1,
       "message": "Could we add unit tests for the functions in this file?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 52
+      },
+      "revId": "99434bcad6165af83592da571637290f909e7df5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee63fe5a_66532ca6",
+        "filename": "front_end/inline_editor/FontEditorUnitConverter.js",
+        "patchSetId": 55
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-18T01:06:41Z",
+      "side": 1,
+      "message": "Working on it.",
+      "parentUuid": "9391fde0_cfe07653",
       "range": {
         "startLine": 22,
         "startChar": 0,
@@ -58,6 +100,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3beaa4cf_8c3bd758",
+        "filename": "front_end/inline_editor/FontEditorUnitConverter.js",
+        "patchSetId": 55
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-18T01:06:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6b3ca71_45a7e440",
+      "revId": "99434bcad6165af83592da571637290f909e7df5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "71f5fcdb_70d07ec9",
@@ -75,6 +135,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "365baa56_e1a71df7",
+        "filename": "front_end/sdk/CSSMetadata.js",
+        "patchSetId": 55
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-18T01:06:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71f5fcdb_70d07ec9",
+      "revId": "99434bcad6165af83592da571637290f909e7df5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "849388e6_6a395a69",
@@ -88,6 +166,24 @@
       "writtenOn": "2020-11-17T21:04:51Z",
       "side": 1,
       "message": "nit: is the `!!` necessary? It looks like `_fontAwareProperties.has(propertyName)` should already return a boolean?",
+      "revId": "99434bcad6165af83592da571637290f909e7df5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfc00ae6_299b8722",
+        "filename": "front_end/sdk/CSSMetadata.js",
+        "patchSetId": 55
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-11-18T01:06:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "849388e6_6a395a69",
       "revId": "99434bcad6165af83592da571637290f909e7df5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
