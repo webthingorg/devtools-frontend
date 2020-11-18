@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a64fef1e_d29da369",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-11-18T04:11:20Z",
+      "side": 1,
+      "message": "Migrating layer_viewer to localization v2 PTAL.",
+      "revId": "64c912867006257f546dc1f3b54d3eabd3bf8cf7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
