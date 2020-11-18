@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72e8c886_5a8532e5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-18T15:43:01Z",
+      "side": 1,
+      "message": "Could you please add a screenshot of the new UI?",
+      "revId": "f399fde531c6511305116f3276387a2f358e0e1b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f5a7424_e550362a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-18T15:43:01Z",
+      "side": 1,
+      "message": "Awesome! Great to see how easy and clean it was to extend the panel for flex.\nI only have a few minor nits.",
+      "revId": "f399fde531c6511305116f3276387a2f358e0e1b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42b29cf2_50a10069",
+        "filename": "front_end/elements/elements_strings.grdp",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-18T15:43:01Z",
+      "side": 1,
+      "message": "I think we should name this Flexbox, to be precise.",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 8
+      },
+      "revId": "f399fde531c6511305116f3276387a2f358e0e1b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "324b2e43_8c75a1a6",
+        "filename": "front_end/elements/elements_strings.grdp",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-18T15:43:01Z",
+      "side": 1,
+      "message": "And here maybe Flexbox too.",
+      "range": {
+        "startLine": 160,
+        "startChar": 4,
+        "endLine": 160,
+        "endChar": 9
+      },
+      "revId": "f399fde531c6511305116f3276387a2f358e0e1b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4939fa3_30f3e234",
+        "filename": "front_end/elements/elements_strings.grdp",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-18T15:43:01Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 244,
+        "startChar": 7,
+        "endLine": 244,
+        "endChar": 11
+      },
+      "revId": "f399fde531c6511305116f3276387a2f358e0e1b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
