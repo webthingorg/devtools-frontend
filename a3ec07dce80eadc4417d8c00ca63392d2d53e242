@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "afd3e712_e441dc55",
+        "filename": "front_end/security/SecurityModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-11-18T17:54:43Z",
+      "side": 1,
+      "message": "The variables won\u0027t be translated and without that context I don\u0027t think the translations will differ. However, from a code readability perspective, I can see some value is splitting these up since in `getKeyExchangeName()`, the string isn\u0027t really a cipher with a MAC.",
+      "parentUuid": "4ce75055_997cfc6c",
+      "range": {
+        "startLine": 203,
+        "startChar": 2,
+        "endLine": 217,
+        "endChar": 3
+      },
+      "revId": "a3ec07dce80eadc4417d8c00ca63392d2d53e242",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d2f2fa4_0e873a44",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-11-18T08:29:12Z",
       "side": 1,
       "message": "nit: indentation",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 7
+      },
+      "revId": "a3ec07dce80eadc4417d8c00ca63392d2d53e242",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cc6301f_e8648375",
+        "filename": "front_end/security/module.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-11-18T17:54:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8d2f2fa4_0e873a44",
       "range": {
         "startLine": 14,
         "startChar": 0,
