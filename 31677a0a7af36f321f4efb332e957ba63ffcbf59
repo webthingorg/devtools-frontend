@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd4a9dbd_d1889037",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-11-18T14:06:37Z",
+      "side": 1,
+      "message": "I had to introduce a data attribute to fix the breaking test which depended on the attribute. Are you happy with the name?",
+      "revId": "31677a0a7af36f321f4efb332e957ba63ffcbf59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
