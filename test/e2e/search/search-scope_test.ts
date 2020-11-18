@@ -4,17 +4,20 @@
 
 import {assert} from 'chai';
 
-import {$, $$, getBrowserAndPages, goToResource, waitFor, waitForFunction} from '../../shared/helper.js';
+import {$, $$, getBrowserAndPages, goToResource, timeout, waitFor, waitForFunction} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {triggerFindDialog} from '../helpers/search-helpers.js';
 
 describe('The Search Panel', async () => {
-  it('provides results across scopes', async () => {
+  // eslint-disable-next-line
+  it.only('provides results across scopes', async () => {
     const {frontend} = getBrowserAndPages();
     const SEARCH_QUERY = '[aria-label="Search Query"]';
     const SEARCH_RESULTS = '.search-results';
     const SEARCH_FILE_RESULT = '.search-result';
     const SEARCH_CHILDREN_RESULT = '.search-match-link';
+
+    await timeout(1000);
 
     // Load the search page, which has results in the HTML, JS, and CSS.
     await goToResource('search/search.html');
@@ -37,6 +40,13 @@ describe('The Search Panel', async () => {
 
     const fileResults = await waitForFunction(async () => {
       const results = await $$(SEARCH_FILE_RESULT, resultsContainer);
+      // @ts-ignore
+      // const outerHTML = await resultsContainer.evaluate(x => x.children[0].shadowRoot.children[0].children[0].shadowRoot.innerHTML);
+      // console.log(outerHTML);
+      // eslint-disable-next-line
+      console.log(results.length);
+      // eslint-disable-next-line
+      console.log(await Promise.all(results.map(x => x.evaluate(n => n.outerHTML))));
       return results.length === 3 ? results : undefined;
     });
 

@@ -139,6 +139,13 @@ export class SourcesSearchScope {
     const searchContentProgress = compositeProgress.createSubProgress();
     const findMatchingFilesProgress = new Common.Progress.CompositeProgress(compositeProgress.createSubProgress());
     for (const project of this._projects()) {
+      // eslint-disable-next-line
+      console.log(
+          project.id(),
+          project.type(),
+          project.displayName(),
+          project.uiSourceCodes().length,
+      );
       const weight = project.uiSourceCodes().length;
       const findMatchingFilesInProjectProgress = findMatchingFilesProgress.createSubProgress(weight);
       const filesMathingFileQuery = this._projectFilesMatchingFileQuery(project, searchConfig);
@@ -165,16 +172,26 @@ export class SourcesSearchScope {
     const uiSourceCodes = project.uiSourceCodes();
     for (let i = 0; i < uiSourceCodes.length; ++i) {
       const uiSourceCode = uiSourceCodes[i];
+      // eslint-disable-next-line
+      console.log('  fullDisplayName', uiSourceCode.fullDisplayName());
+      // eslint-disable-next-line
+      console.log('  isTextType', uiSourceCode.contentType().isTextType())
       if (!uiSourceCode.contentType().isTextType()) {
         continue;
       }
       const binding = Persistence.Persistence.PersistenceImpl.instance().binding(uiSourceCode);
+      // eslint-disable-next-line
+      console.log('  binding', binding, binding?.network);
       if (binding && binding.network === uiSourceCode) {
         continue;
       }
+      // eslint-disable-next-line
+      console.log('  dirtyOnly', dirtyOnly, uiSourceCode.isDirty());
       if (dirtyOnly && !uiSourceCode.isDirty()) {
         continue;
       }
+      // eslint-disable-next-line
+      console.log('  filePathMatchesFileQuery', searchConfig.filePathMatchesFileQuery(uiSourceCode.fullDisplayName()));
       if (searchConfig.filePathMatchesFileQuery(uiSourceCode.fullDisplayName())) {
         result.push(uiSourceCode.url());
       }
@@ -191,6 +208,8 @@ export class SourcesSearchScope {
    * @param {!Array<string>} files
    */
   _processMatchingFilesForProject(searchId, project, searchConfig, filesMathingFileQuery, files) {
+    // eslint-disable-next-line
+    console.log(project.id(), JSON.stringify(filesMathingFileQuery), JSON.stringify(files));
     if (searchId !== this._searchId && this._searchFinishedCallback) {
       this._searchFinishedCallback(false);
       return;
