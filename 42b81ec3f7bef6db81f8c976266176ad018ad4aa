@@ -39,6 +39,30 @@
       },
       "revId": "42b81ec3f7bef6db81f8c976266176ad018ad4aa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe8e100c_268db8fd",
+        "filename": "front_end/issues/IssueSurveyLink.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-11-18T08:48:26Z",
+      "side": 1,
+      "message": "I like it",
+      "parentUuid": "e3f77e46_d4ba16f9",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 5
+      },
+      "revId": "42b81ec3f7bef6db81f8c976266176ad018ad4aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
