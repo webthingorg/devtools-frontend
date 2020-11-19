@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "66485bf3238c3b1d5cd23862b67ae5def1ce66d5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cdfd2ee_3658b27e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-19T06:17:09Z",
+      "side": 1,
+      "message": "lgtm % nit",
+      "revId": "66485bf3238c3b1d5cd23862b67ae5def1ce66d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa401059_7e69f06f",
+        "filename": "front_end/extensions/LanguageExtensionEndpoint.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-19T06:17:09Z",
+      "side": 1,
+      "message": "super-nit: \"Returning\" a `Promise\u003cvoid\u003e` feels always weird to read (IMO). Could we make it async and simply await the _sendRequest call without a return? (Then we also don\u0027t have to cast).",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 108
+      },
+      "revId": "66485bf3238c3b1d5cd23862b67ae5def1ce66d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
