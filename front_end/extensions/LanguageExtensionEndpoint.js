@@ -5,6 +5,8 @@
 import * as Bindings from '../bindings/bindings.js';  // eslint-disable-line no-unused-vars
 import * as SDK from '../sdk/sdk.js';                 // eslint-disable-line no-unused-vars
 
+import {LanguageExtensionPluginCommands} from './ExtensionAPI.js';
+
 export class LanguageExtensionEndpoint extends Bindings.DebuggerLanguagePlugins.DebuggerLanguagePlugin {
   /**
    * @param {string} name
@@ -13,8 +15,6 @@ export class LanguageExtensionEndpoint extends Bindings.DebuggerLanguagePlugins.
    */
   constructor(name, supportedScriptTypes, port) {
     super(name);
-    // @ts-expect-error TODO(crbug.com/1011811): Fix after extensionAPI is migrated.
-    this._commands = Extensions.extensionAPI.LanguageExtensionPluginCommands;
     this._supportedScriptTypes = supportedScriptTypes;
     this._port = port;
     this._port.onmessage = this._onResponse.bind(this);
@@ -23,7 +23,7 @@ export class LanguageExtensionEndpoint extends Bindings.DebuggerLanguagePlugins.
   }
 
   /**
-   * @param {string} method
+   * @param {!LanguageExtensionPluginCommands} method
    * @param {*} parameters
    * @return {!Promise<*>}
    */
@@ -72,7 +72,7 @@ export class LanguageExtensionEndpoint extends Bindings.DebuggerLanguagePlugins.
    */
   addRawModule(rawModuleId, symbolsURL, rawModule) {
     return /** @type {!Promise<!Array<string>>} */ (
-        this._sendRequest(this._commands.AddRawModule, {rawModuleId, symbolsURL, rawModule}));
+        this._sendRequest(LanguageExtensionPluginCommands.AddRawModule, {rawModuleId, symbolsURL, rawModule}));
   }
 
   /**
@@ -82,7 +82,8 @@ export class LanguageExtensionEndpoint extends Bindings.DebuggerLanguagePlugins.
    * @return {!Promise<void>}
    */
   removeRawModule(rawModuleId) {
-    return /** @type {!Promise<void>} */ (this._sendRequest(this._commands.RemoveRawModule, {rawModuleId}));
+    return /** @type {!Promise<void>} */ (
+        this._sendRequest(LanguageExtensionPluginCommands.RemoveRawModule, {rawModuleId}));
   }
 
   /** Find locations in raw modules from a location in a source file
@@ -92,7 +93,7 @@ export class LanguageExtensionEndpoint extends Bindings.DebuggerLanguagePlugins.
    */
   sourceLocationToRawLocation(sourceLocation) {
     return /** @type {!Promise<!Array<!Bindings.DebuggerLanguagePlugins.RawLocationRange>>} */ (
-        this._sendRequest(this._commands.SourceLocationToRawLocation, {sourceLocation}));
+        this._sendRequest(LanguageExtensionPluginCommands.SourceLocationToRawLocation, {sourceLocation}));
   }
 
   /** Find locations in source files from a location in a raw module
@@ -102,7 +103,7 @@ export class LanguageExtensionEndpoint extends Bindings.DebuggerLanguagePlugins.
    */
   rawLocationToSourceLocation(rawLocation) {
     return /** @type {!Promise<!Array<!Bindings.DebuggerLanguagePlugins.SourceLocation>>} */ (
-        this._sendRequest(this._commands.RawLocationToSourceLocation, {rawLocation}));
+        this._sendRequest(LanguageExtensionPluginCommands.RawLocationToSourceLocation, {rawLocation}));
   }
 
   /**
@@ -112,7 +113,7 @@ export class LanguageExtensionEndpoint extends Bindings.DebuggerLanguagePlugins.
    */
   getScopeInfo(type) {
     return /** @type {!Promise<!Bindings.DebuggerLanguagePlugins.ScopeInfo>} */ (
-        this._sendRequest(this._commands.GetScopeInfo, {type}));
+        this._sendRequest(LanguageExtensionPluginCommands.GetScopeInfo, {type}));
   }
 
   /** List all variables in lexical scope at a given location in a raw module
@@ -122,7 +123,7 @@ export class LanguageExtensionEndpoint extends Bindings.DebuggerLanguagePlugins.
    */
   listVariablesInScope(rawLocation) {
     return /** @type {!Promise<!Array<!Bindings.DebuggerLanguagePlugins.Variable>>} */ (
-        this._sendRequest(this._commands.ListVariablesInScope, {rawLocation}));
+        this._sendRequest(LanguageExtensionPluginCommands.ListVariablesInScope, {rawLocation}));
   }
 
   /** Evaluate the content of a variable in a given lexical scope
@@ -133,7 +134,7 @@ export class LanguageExtensionEndpoint extends Bindings.DebuggerLanguagePlugins.
    */
   evaluateVariable(name, location) {
     return /** @type {!Promise<?Bindings.DebuggerLanguagePlugins.EvaluatorModule>}*/ (
-        this._sendRequest(this._commands.EvaluateVariable, {name, location}));
+        this._sendRequest(LanguageExtensionPluginCommands.EvaluateVariable, {name, location}));
   }
 
   /** List all function names (including inlined frames) at location
@@ -143,7 +144,7 @@ export class LanguageExtensionEndpoint extends Bindings.DebuggerLanguagePlugins.
    */
   getFunctionInfo(rawLocation) {
     return /** @type {!Promise<!{frames: !Array<!Bindings.DebuggerLanguagePlugins.FunctionInfo>}>} */ (
-        this._sendRequest(this._commands.GetFunctionInfo, {rawLocation}));
+        this._sendRequest(LanguageExtensionPluginCommands.GetFunctionInfo, {rawLocation}));
   }
 
   /** Find locations in raw modules corresponding to the inline function
@@ -154,7 +155,7 @@ export class LanguageExtensionEndpoint extends Bindings.DebuggerLanguagePlugins.
    */
   getInlinedFunctionRanges(rawLocation) {
     return /** @type {!Promise<!Array<!Bindings.DebuggerLanguagePlugins.RawLocationRange>>} */ (
-        this._sendRequest(this._commands.GetInlinedFunctionRanges, {rawLocation}));
+        this._sendRequest(LanguageExtensionPluginCommands.GetInlinedFunctionRanges, {rawLocation}));
   }
 
   /** Find locations in raw modules corresponding to inline functions
@@ -165,7 +166,7 @@ export class LanguageExtensionEndpoint extends Bindings.DebuggerLanguagePlugins.
    */
   getInlinedCalleesRanges(rawLocation) {
     return /** @type {!Promise<!Array<!Bindings.DebuggerLanguagePlugins.RawLocationRange>>} */ (
-        this._sendRequest(this._commands.GetInlinedCalleesRanges, {rawLocation}));
+        this._sendRequest(LanguageExtensionPluginCommands.GetInlinedCalleesRanges, {rawLocation}));
   }
 
   /**
@@ -176,7 +177,7 @@ export class LanguageExtensionEndpoint extends Bindings.DebuggerLanguagePlugins.
    */
   getTypeInfo(expression, context) {
     return /** @type {!Promise<?{typeInfos: !Array<!Bindings.DebuggerLanguagePlugins.TypeInfo>, base: !Bindings.DebuggerLanguagePlugins.EvalBase}>} */ (
-        this._sendRequest(this._commands.GetTypeInfo, {expression, context}));
+        this._sendRequest(LanguageExtensionPluginCommands.GetTypeInfo, {expression, context}));
   }
 
   /**
@@ -187,7 +188,7 @@ export class LanguageExtensionEndpoint extends Bindings.DebuggerLanguagePlugins.
    */
   getFormatter(expressionOrField, context) {
     return /** @type {!Promise<!{js: string}>} */ (
-        this._sendRequest(this._commands.GetFormatter, {expressionOrField, context}));
+        this._sendRequest(LanguageExtensionPluginCommands.GetFormatter, {expressionOrField, context}));
   }
 
   /**

@@ -44,6 +44,7 @@ import * as ThemeSupport from '../theme_support/theme_support.js';
 import * as UI from '../ui/ui.js';
 import * as Workspace from '../workspace/workspace.js';
 
+import * as ExtensionAPI from './ExtensionAPI.js';
 import {ExtensionButton, ExtensionPanel, ExtensionSidebarPane} from './ExtensionPanel.js';
 import {ExtensionTraceProvider, TracingSession} from './ExtensionTraceProvider.js';  // eslint-disable-line no-unused-vars
 import {LanguageExtensionEndpoint} from './LanguageExtensionEndpoint.js';
@@ -90,33 +91,32 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
     // TODO(caseq): properly unload extensions when we disable them.
     this._extensionsEnabled = true;
 
-    const commands = Extensions.extensionAPI.Commands;
-
-    this._registerHandler(commands.AddRequestHeaders, this._onAddRequestHeaders.bind(this));
-    this._registerHandler(commands.AddTraceProvider, this._onAddTraceProvider.bind(this));
-    this._registerHandler(commands.ApplyStyleSheet, this._onApplyStyleSheet.bind(this));
-    this._registerHandler(commands.CompleteTraceSession, this._onCompleteTraceSession.bind(this));
-    this._registerHandler(commands.CreatePanel, this._onCreatePanel.bind(this));
-    this._registerHandler(commands.CreateSidebarPane, this._onCreateSidebarPane.bind(this));
-    this._registerHandler(commands.CreateToolbarButton, this._onCreateToolbarButton.bind(this));
-    this._registerHandler(commands.EvaluateOnInspectedPage, this._onEvaluateOnInspectedPage.bind(this));
-    this._registerHandler(commands.ForwardKeyboardEvent, this._onForwardKeyboardEvent.bind(this));
-    this._registerHandler(commands.GetHAR, this._onGetHAR.bind(this));
-    this._registerHandler(commands.GetPageResources, this._onGetPageResources.bind(this));
-    this._registerHandler(commands.GetRequestContent, this._onGetRequestContent.bind(this));
-    this._registerHandler(commands.GetResourceContent, this._onGetResourceContent.bind(this));
-    this._registerHandler(commands.Reload, this._onReload.bind(this));
-    this._registerHandler(commands.SetOpenResourceHandler, this._onSetOpenResourceHandler.bind(this));
-    this._registerHandler(commands.SetResourceContent, this._onSetResourceContent.bind(this));
-    this._registerHandler(commands.SetSidebarHeight, this._onSetSidebarHeight.bind(this));
-    this._registerHandler(commands.SetSidebarContent, this._onSetSidebarContent.bind(this));
-    this._registerHandler(commands.SetSidebarPage, this._onSetSidebarPage.bind(this));
-    this._registerHandler(commands.ShowPanel, this._onShowPanel.bind(this));
-    this._registerHandler(commands.Subscribe, this._onSubscribe.bind(this));
-    this._registerHandler(commands.OpenResource, this._onOpenResource.bind(this));
-    this._registerHandler(commands.Unsubscribe, this._onUnsubscribe.bind(this));
-    this._registerHandler(commands.UpdateButton, this._onUpdateButton.bind(this));
-    this._registerHandler(commands.RegisterLanguageExtensionPlugin, this._registerLanguageExtensionEndpoint.bind(this));
+    this._registerHandler(ExtensionAPI.Commands.AddRequestHeaders, this._onAddRequestHeaders.bind(this));
+    this._registerHandler(ExtensionAPI.Commands.AddTraceProvider, this._onAddTraceProvider.bind(this));
+    this._registerHandler(ExtensionAPI.Commands.ApplyStyleSheet, this._onApplyStyleSheet.bind(this));
+    this._registerHandler(ExtensionAPI.Commands.CompleteTraceSession, this._onCompleteTraceSession.bind(this));
+    this._registerHandler(ExtensionAPI.Commands.CreatePanel, this._onCreatePanel.bind(this));
+    this._registerHandler(ExtensionAPI.Commands.CreateSidebarPane, this._onCreateSidebarPane.bind(this));
+    this._registerHandler(ExtensionAPI.Commands.CreateToolbarButton, this._onCreateToolbarButton.bind(this));
+    this._registerHandler(ExtensionAPI.Commands.EvaluateOnInspectedPage, this._onEvaluateOnInspectedPage.bind(this));
+    this._registerHandler(ExtensionAPI.Commands.ForwardKeyboardEvent, this._onForwardKeyboardEvent.bind(this));
+    this._registerHandler(ExtensionAPI.Commands.GetHAR, this._onGetHAR.bind(this));
+    this._registerHandler(ExtensionAPI.Commands.GetPageResources, this._onGetPageResources.bind(this));
+    this._registerHandler(ExtensionAPI.Commands.GetRequestContent, this._onGetRequestContent.bind(this));
+    this._registerHandler(ExtensionAPI.Commands.GetResourceContent, this._onGetResourceContent.bind(this));
+    this._registerHandler(ExtensionAPI.Commands.Reload, this._onReload.bind(this));
+    this._registerHandler(ExtensionAPI.Commands.SetOpenResourceHandler, this._onSetOpenResourceHandler.bind(this));
+    this._registerHandler(ExtensionAPI.Commands.SetResourceContent, this._onSetResourceContent.bind(this));
+    this._registerHandler(ExtensionAPI.Commands.SetSidebarHeight, this._onSetSidebarHeight.bind(this));
+    this._registerHandler(ExtensionAPI.Commands.SetSidebarContent, this._onSetSidebarContent.bind(this));
+    this._registerHandler(ExtensionAPI.Commands.SetSidebarPage, this._onSetSidebarPage.bind(this));
+    this._registerHandler(ExtensionAPI.Commands.ShowPanel, this._onShowPanel.bind(this));
+    this._registerHandler(ExtensionAPI.Commands.Subscribe, this._onSubscribe.bind(this));
+    this._registerHandler(ExtensionAPI.Commands.OpenResource, this._onOpenResource.bind(this));
+    this._registerHandler(ExtensionAPI.Commands.Unsubscribe, this._onUnsubscribe.bind(this));
+    this._registerHandler(ExtensionAPI.Commands.UpdateButton, this._onUpdateButton.bind(this));
+    this._registerHandler(
+        ExtensionAPI.Commands.RegisterLanguageExtensionPlugin, this._registerLanguageExtensionEndpoint.bind(this));
     window.addEventListener('message', this._onWindowMessage.bind(this), false);  // Only for main window.
 
     /** @suppress {checkTypes} */
@@ -162,7 +162,7 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
    * @param {string=} searchString
    */
   notifySearchAction(panelId, action, searchString) {
-    this._postNotification(Extensions.extensionAPI.Events.PanelSearch + panelId, action, searchString);
+    this._postNotification(ExtensionAPI.Events.PanelSearch + panelId, action, searchString);
   }
 
   /**
@@ -170,21 +170,21 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
    * @param {number=} frameIndex
    */
   notifyViewShown(identifier, frameIndex) {
-    this._postNotification(Extensions.extensionAPI.Events.ViewShown + identifier, frameIndex);
+    this._postNotification(ExtensionAPI.Events.ViewShown + identifier, frameIndex);
   }
 
   /**
    * @param {string} identifier
    */
   notifyViewHidden(identifier) {
-    this._postNotification(Extensions.extensionAPI.Events.ViewHidden + identifier);
+    this._postNotification(ExtensionAPI.Events.ViewHidden + identifier);
   }
 
   /**
    * @param {string} identifier
    */
   notifyButtonClicked(identifier) {
-    this._postNotification(Extensions.extensionAPI.Events.ButtonClicked + identifier);
+    this._postNotification(ExtensionAPI.Events.ButtonClicked + identifier);
   }
 
   _registerLanguageExtensionEndpoint(message, shared_port) {
@@ -209,7 +209,7 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
     }
     this._requests = {};
     const url = event.data.inspectedURL();
-    this._postNotification(Extensions.extensionAPI.Events.InspectedURLChanged, url);
+    this._postNotification(ExtensionAPI.Events.InspectedURLChanged, url);
   }
 
   /**
@@ -701,10 +701,10 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
 
   _initExtensions() {
     this._registerAutosubscriptionHandler(
-        Extensions.extensionAPI.Events.ResourceAdded, Workspace.Workspace.WorkspaceImpl.instance(),
+        ExtensionAPI.Events.ResourceAdded, Workspace.Workspace.WorkspaceImpl.instance(),
         Workspace.Workspace.Events.UISourceCodeAdded, this._notifyResourceAdded);
     this._registerAutosubscriptionTargetManagerHandler(
-        Extensions.extensionAPI.Events.NetworkRequestFinished, SDK.NetworkManager.NetworkManager,
+        ExtensionAPI.Events.NetworkRequestFinished, SDK.NetworkManager.NetworkManager,
         SDK.NetworkManager.Events.RequestFinished, this._notifyRequestFinished);
 
     /**
@@ -724,7 +724,7 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
     }
 
     this._registerSubscriptionHandler(
-        Extensions.extensionAPI.Events.PanelObjectSelected + 'elements', onElementsSubscriptionStarted.bind(this),
+        ExtensionAPI.Events.PanelObjectSelected + 'elements', onElementsSubscriptionStarted.bind(this),
         onElementsSubscriptionStopped.bind(this));
     this._registerResourceContentCommittedHandler(this._notifyUISourceCodeContentCommitted);
 
@@ -734,24 +734,23 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
 
   _notifyResourceAdded(event) {
     const uiSourceCode = /** @type {!Workspace.UISourceCode.UISourceCode} */ (event.data);
-    this._postNotification(Extensions.extensionAPI.Events.ResourceAdded, this._makeResource(uiSourceCode));
+    this._postNotification(ExtensionAPI.Events.ResourceAdded, this._makeResource(uiSourceCode));
   }
 
   _notifyUISourceCodeContentCommitted(event) {
     const uiSourceCode = /** @type {!Workspace.UISourceCode.UISourceCode} */ (event.data.uiSourceCode);
     const content = /** @type {string} */ (event.data.content);
-    this._postNotification(
-        Extensions.extensionAPI.Events.ResourceContentCommitted, this._makeResource(uiSourceCode), content);
+    this._postNotification(ExtensionAPI.Events.ResourceContentCommitted, this._makeResource(uiSourceCode), content);
   }
 
   async _notifyRequestFinished(event) {
     const request = /** @type {!SDK.NetworkRequest.NetworkRequest} */ (event.data);
     const entry = await SDK.HARLog.Entry.build(request);
-    this._postNotification(Extensions.extensionAPI.Events.NetworkRequestFinished, this._requestId(request), entry);
+    this._postNotification(ExtensionAPI.Events.NetworkRequestFinished, this._requestId(request), entry);
   }
 
   _notifyElementsSelectionChanged() {
-    this._postNotification(Extensions.extensionAPI.Events.PanelObjectSelected + 'elements');
+    this._postNotification(ExtensionAPI.Events.PanelObjectSelected + 'elements');
   }
 
   /**
@@ -759,7 +758,7 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
    * @param {!TextUtils.TextRange.TextRange} range
    */
   sourceSelectionChanged(url, range) {
-    this._postNotification(Extensions.extensionAPI.Events.PanelObjectSelected + 'sources', {
+    this._postNotification(ExtensionAPI.Events.PanelObjectSelected + 'sources', {
       startLine: range.startLine,
       startColumn: range.startColumn,
       endLine: range.endLine,
@@ -908,7 +907,7 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper {
     }
 
     this._registerSubscriptionHandler(
-        Extensions.extensionAPI.Events.ResourceContentCommitted, addFirstEventListener.bind(this),
+        ExtensionAPI.Events.ResourceContentCommitted, addFirstEventListener.bind(this),
         removeLastEventListener.bind(this));
   }
 
