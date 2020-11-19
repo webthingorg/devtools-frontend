@@ -35,6 +35,7 @@ import * as ProtocolClient from '../protocol_client/protocol_client.js';  // esl
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
+import {SearchAction} from './ExtensionAPI.js';
 import {ExtensionServer} from './ExtensionServer.js';  // eslint-disable-line no-unused-vars
 import {ExtensionNotifierView, ExtensionView} from './ExtensionView.js';
 
@@ -75,7 +76,7 @@ export class ExtensionPanel extends UI.Panel.Panel {
    * @override
    */
   searchCanceled() {
-    this._server.notifySearchAction(this._id, Extensions.extensionAPI.panels.SearchAction.CancelSearch);
+    this._server.notifySearchAction(this._id, SearchAction.CancelSearch);
     this._searchableView.updateSearchMatchesCount(0);
   }
 
@@ -95,21 +96,21 @@ export class ExtensionPanel extends UI.Panel.Panel {
    */
   performSearch(searchConfig, shouldJump, jumpBackwards) {
     const query = searchConfig.query;
-    this._server.notifySearchAction(this._id, Extensions.extensionAPI.panels.SearchAction.PerformSearch, query);
+    this._server.notifySearchAction(this._id, SearchAction.PerformSearch, query);
   }
 
   /**
    * @override
    */
   jumpToNextSearchResult() {
-    this._server.notifySearchAction(this._id, Extensions.extensionAPI.panels.SearchAction.NextSearchResult);
+    this._server.notifySearchAction(this._id, SearchAction.NextSearchResult);
   }
 
   /**
    * @override
    */
   jumpToPreviousSearchResult() {
-    this._server.notifySearchAction(this._id, Extensions.extensionAPI.panels.SearchAction.PreviousSearchResult);
+    this._server.notifySearchAction(this._id, SearchAction.PreviousSearchResult);
   }
 
   /**
