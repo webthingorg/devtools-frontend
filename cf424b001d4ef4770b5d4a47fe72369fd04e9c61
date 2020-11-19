@@ -104,6 +104,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "39c93b7e_d24895c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2020-11-19T11:51:20Z",
+      "side": 1,
+      "message": "I like your suggestion. We should proceed with your suggestion Sigurd.\n\nPersonal opinion: a checkbox would also do. Sometimes we have two options: https://i.imgur.com/5vKHati.png\n\n[View parsed ⋁]   [✕] Decode URL\n\n\"View parsed\" feels like a mode, for which a dropdown is perfect. Decode URL is more binary (yes/no).\n\nSo: I am fine with the dropdown but would even prefer more the solution outlined above.",
+      "parentUuid": "fe90bac3_8750425e",
+      "revId": "cf424b001d4ef4770b5d4a47fe72369fd04e9c61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "20e396a2_34b30184",
