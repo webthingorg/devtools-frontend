@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "334666a0_6331eacc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-11-19T05:31:56Z",
+      "side": 1,
+      "message": "Migrating lighthouse to localization V2. PTAL.",
+      "revId": "90b5e69c6a3c459a0b2f93638e8954e5bb44a0fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
