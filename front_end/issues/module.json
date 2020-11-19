@@ -16,6 +16,16 @@
       ],
       "destination": "Issues view",
       "className": "Issues.IssueRevealer"
+    },
+    {
+      "type": "view",
+      "location": "drawer-view",
+      "id": "csp-violations-pane",
+      "title": "CSP Violations",
+      "order": 100,
+      "persistence": "closeable",
+      "className": "Issues.CSPViolationsView",
+      "experiment" : "cspViolationsView"
     }
   ],
   "dependencies": [
@@ -51,6 +61,8 @@
     "descriptions/SameSiteUnspecifiedTreatedAsLaxRead.md",
     "descriptions/SameSiteUnspecifiedTreatedAsLaxSet.md",
     "issuesPane.css",
-    "issuesTree.css"
+    "issuesTree.css",
+    "CSPViolationsView.css",
+    "CSPViolationsListView.css"
   ]
 }
