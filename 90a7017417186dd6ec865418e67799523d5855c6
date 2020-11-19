@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d252047_f0d5a8f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-19T13:15:59Z",
+      "side": 1,
+      "message": "Tim, PTAL. Fairly large diff due to all the _foo properties that got lobbed onto elements.\n\nTested locally by forcing the use of soft context menus and right clicking around - all seemed to function as expected.",
+      "revId": "90a7017417186dd6ec865418e67799523d5855c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
