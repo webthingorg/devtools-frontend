@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "301caad9_a9f0d544",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-19T14:02:40Z",
+      "side": 1,
+      "message": "I would be lying if this wasn\u0027t a rubberstamp",
+      "revId": "8ecc2a05ac5248c6b85f2c33871568de334c6586",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f3df991_a5cab512",
+        "filename": "front_end/ui/SoftContextMenu.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-19T14:02:40Z",
+      "side": 1,
+      "message": "Nit: leftover that we can delete?",
+      "range": {
+        "startLine": 274,
+        "startChar": 4,
+        "endLine": 274,
+        "endChar": 44
+      },
+      "revId": "8ecc2a05ac5248c6b85f2c33871568de334c6586",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
