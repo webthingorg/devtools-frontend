@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e480c44_d22e9884",
+        "filename": "front_end/profiler/ProfileDataGrid.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-19T16:15:01Z",
+      "side": 1,
+      "message": "Nit: braces",
+      "range": {
+        "startLine": 33,
+        "startChar": 12,
+        "endLine": 33,
+        "endChar": 20
+      },
+      "revId": "e1e800ab1edbd97e0a5cd5e3413030264a0ed48d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
