@@ -39,6 +39,23 @@
       "message": "Migrating lighthouse to localization V2. PTAL.",
       "revId": "90b5e69c6a3c459a0b2f93638e8954e5bb44a0fc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4232743_135b823d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-11-19T10:43:47Z",
+      "side": 1,
+      "message": "Simon PTAL",
+      "revId": "90b5e69c6a3c459a0b2f93638e8954e5bb44a0fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
