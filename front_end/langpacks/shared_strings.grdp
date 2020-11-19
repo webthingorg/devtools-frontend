@@ -202,6 +202,9 @@
   <message name="IDS_DEVTOOLS_529a032eab49b8ddc6f49f8bcc086607" desc="Prev button title in Film Strip View of the Performance panel">
     Previous frame
   </message>
+  <message name="IDS_DEVTOOLS_535236850b0286b586c8bc7ca796f0fa" desc="Title of an animation keyframe group">
+    <ph name="THIS__ANIMATION_NAME__">$1s<ex>anilogo</ex></ph> slider
+  </message>
   <message name="IDS_DEVTOOLS_539dddc574d3cd85ba73df93df7a76d0" desc="Text for the execution stack trace">
     Stack Trace
   </message>
