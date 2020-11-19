@@ -16,6 +16,23 @@
       "message": "PTAL, would this work for you too instead of https://crrev.com/c/2547162?",
       "revId": "d1f94298b617102d9c46bf00005c603f4c87a587",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "deef0790_fc43fbc1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-19T11:13:13Z",
+      "side": 1,
+      "message": "Awesome. Thank you Wolfgang.",
+      "revId": "d1f94298b617102d9c46bf00005c603f4c87a587",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
