@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9ecc26a_e7564a79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-11-19T11:07:38Z",
+      "side": 1,
+      "message": "PTAL, would this work for you too instead of https://crrev.com/c/2547162?",
+      "revId": "d1f94298b617102d9c46bf00005c603f4c87a587",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
