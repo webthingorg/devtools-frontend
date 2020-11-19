@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c47c4c6_774a66ac",
+        "filename": "front_end/sources/SourcesPanel.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 897,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-19T11:59:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b3fe1a7_409e1d39",
+      "revId": "f3dbc9b8795df53776f3d9946e8da6729655ce44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5648e501_9103d974",
@@ -31,6 +49,24 @@
       "writtenOn": "2020-11-18T11:56:34Z",
       "side": 1,
       "message": "Could we use async await here instead?",
+      "revId": "f3dbc9b8795df53776f3d9946e8da6729655ce44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc9b2073_6d36318b",
+        "filename": "front_end/sources/SourcesPanel.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-19T11:59:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5648e501_9103d974",
       "revId": "f3dbc9b8795df53776f3d9946e8da6729655ce44",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
