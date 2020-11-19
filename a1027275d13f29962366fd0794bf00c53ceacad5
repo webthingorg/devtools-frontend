@@ -231,6 +231,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fa69c5e_8fddc33a",
+        "filename": "front_end/sdk/RuntimeModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-19T15:01:17Z",
+      "side": 1,
+      "message": "VM129:14 ReferenceError: Common is not defined\n    at Array.toStringForClipboard",
+      "parentUuid": "26327206_e7226e8b",
+      "revId": "a1027275d13f29962366fd0794bf00c53ceacad5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6000431b_f1ec7183",
