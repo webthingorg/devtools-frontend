@@ -138,13 +138,6 @@ export class ScreenCaptureModel extends SDKModel {
 
   /**
    * @override
-   * @param {!Protocol.Page.DocumentOpenedEvent} params
-   */
-  documentOpened(params) {
-  }
-
-  /**
-   * @override
    * @param {!Protocol.Page.FrameDetachedEvent} params
    */
   frameDetached(params) {

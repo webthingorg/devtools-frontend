@@ -5652,6 +5652,14 @@ experimental domain Overlay
       optional LineStyle lineSeparator
       # The style of the separator between items
       optional LineStyle itemSeparator
+      # Style of content-distribution space on the main axis (justify-content).
+      optional BoxStyle mainDistributedSpace
+      # Style of content-distribution space on the cross axis (align-content).
+      optional BoxStyle crossDistributedSpace
+      # Style of empty space caused by row gaps (gap/row-gap).
+      optional BoxStyle rowGapSpace
+      # Style of empty space caused by columns gaps (gap/column-gap).
+      optional BoxStyle columnGapSpace
 
   # Style information for drawing a line.
   type LineStyle extends object
@@ -5662,6 +5670,14 @@ experimental domain Overlay
       optional enum pattern
         dashed
         dotted
+
+  # Style information for drawing a box.
+  type BoxStyle extends object
+    properties
+      # The background color for the box (default: transparent)
+      optional DOM.RGBA fillColor
+      # The hatching color for the box (default: transparent)
+      optional DOM.RGBA hatchColor
 
   # Configuration data for the highlighting of page elements.
   type HighlightConfig extends object
@@ -6801,12 +6817,6 @@ domain Page
 
   # Fired once navigation of the frame has completed. Frame is now associated with the new loader.
   event frameNavigated
-    parameters
-      # Frame object.
-      Frame frame
-
-  # Fired when opening document to write to.
-  experimental event documentOpened
     parameters
       # Frame object.
       Frame frame

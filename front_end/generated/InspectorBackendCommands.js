@@ -1818,7 +1818,6 @@ export function registerCommands(inspectorBackend) {
   inspectorBackend.registerEvent('Page.frameClearedScheduledNavigation', ['frameId']);
   inspectorBackend.registerEvent('Page.frameDetached', ['frameId', 'reason']);
   inspectorBackend.registerEvent('Page.frameNavigated', ['frame']);
-  inspectorBackend.registerEvent('Page.documentOpened', ['frame']);
   inspectorBackend.registerEvent('Page.frameResized', []);
   inspectorBackend.registerEvent('Page.frameRequestedNavigation', ['frameId', 'reason', 'url', 'disposition']);
   inspectorBackend.registerEvent('Page.frameScheduledNavigation', ['frameId', 'delay', 'reason', 'url']);

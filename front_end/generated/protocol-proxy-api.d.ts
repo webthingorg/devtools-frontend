@@ -2410,11 +2410,6 @@ declare namespace ProtocolProxyApi {
      */
     frameNavigated(params: Protocol.Page.FrameNavigatedEvent): void;
 
-    /**
-     * Fired when opening document to write to.
-     */
-    documentOpened(params: Protocol.Page.DocumentOpenedEvent): void;
-
     frameResized(): void;
 
     /**
