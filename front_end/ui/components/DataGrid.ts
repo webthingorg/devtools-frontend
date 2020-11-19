@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as LitHtml from '../../third_party/lit-html/lit-html.js';
+import * as UI from '../../ui/ui.js';
 
 import {calculateColumnWidthPercentageFromWeighting, calculateFirstFocusableCell, Cell, CellPosition, Column, getRowEntryForColumnId, handleArrowKeyNavigation, keyIsArrowKey, renderCellValue, Row, SortDirection, SortState} from './DataGridUtils.js';
 
@@ -224,6 +225,18 @@ export class DataGrid extends HTMLElement {
     return undefined;
   }
 
+  private onColumnHeaderContextMenu(event: MouseEvent) {
+    if (event.button !== 2) { // 2 = secondary button = right click
+      return;
+    }
+
+    const menu = new UI.ContextMenu.ContextMenu(event);
+    menu.viewSection().appendItem('Hello world', () => {
+      console.log('I clicked hello world!');
+    });
+    menu.show();
+  }
+
 
   private renderFillerRow() {
     const visibleColumns = this.columns.filter(col => !col.hidden);
@@ -369,7 +382,7 @@ export class DataGrid extends HTMLElement {
           })}
         </colgroup>
         <thead>
-          <tr>
+          <tr @contextmenu=${this.onColumnHeaderContextMenu}>
             ${this.columns.map((col, columnIndex) => {
               const thClasses = LitHtml.Directives.classMap({
                 hidden: col.hidden === true,
