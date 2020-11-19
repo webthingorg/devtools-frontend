@@ -85,6 +85,24 @@
       "message": "LGTM",
       "revId": "0272893861bc508ebb85eb9e24f9726380bb7820",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ce3234f_3876e3be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-19T10:40:52Z",
+      "side": 1,
+      "message": "Not reverting these frontend changes mean we can\u0027t bring over new CDP changes to the frontend until your backend CL merges again.\nIf you\u0027re working on it now, I\u0027m fine with waiting. But if you think it might take time, I\u0027d rather revert those 2 frontend changes in the meantime, to unblock me (and potentially others).",
+      "parentUuid": "1c798683_509b75af",
+      "revId": "0272893861bc508ebb85eb9e24f9726380bb7820",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
