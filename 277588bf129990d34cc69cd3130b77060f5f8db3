@@ -16,6 +16,23 @@
       "message": "Migrate text_editor folder to V2, PTAL, thanks :)",
       "revId": "277588bf129990d34cc69cd3130b77060f5f8db3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b6ded2c_0200aa71",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-11-19T10:44:50Z",
+      "side": 1,
+      "message": "I\u0027ll take this one",
+      "revId": "277588bf129990d34cc69cd3130b77060f5f8db3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
