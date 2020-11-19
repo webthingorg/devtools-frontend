@@ -4,8 +4,8 @@
 
 import {beforeEach, describe, it} from 'mocha';
 
-import {goToResource} from '../../shared/helper.js';
-import {assertSelectedNodeClasses, toggleClassesPane, toggleClassesPaneCheckbox, typeInClassesPaneInput} from '../helpers/elements-helpers.js';
+import {goToResource, timeout} from '../../shared/helper.js';
+import {assertSelectedNodeClasses, getContentOfSelectedNode, toggleClassesPane, toggleClassesPaneCheckbox, typeInClassesPaneInput} from '../helpers/elements-helpers.js';
 
 describe('The Classes pane', async () => {
   beforeEach(async function() {
@@ -36,10 +36,25 @@ describe('The Classes pane', async () => {
   });
 
   it('removes the previewed classes on ESC', async () => {
+    const logClasses = async () => {
+      const nodeText = await getContentOfSelectedNode();
+      const match = nodeText.match(/class=\u200B"([^"]*)/);
+      const classText = match ? match[1] : '';
+      const classes = classText.split(/[\s]/).map(className => className.trim()).filter(className => className.length);
+      // eslint-disable-next-line
+      console.log(classes);
+    };
+    await timeout(1000);
+    logClasses();
     await typeInClassesPaneInput('foo');
+    await timeout(1000);
+    logClasses();
     await typeInClassesPaneInput('bar', 'Escape', false);
+    await timeout(1000);
+    logClasses();
     await typeInClassesPaneInput('baz');
-
+    await timeout(1000);
+    logClasses();
     await assertSelectedNodeClasses(['foo', 'baz']);
   });
 });
