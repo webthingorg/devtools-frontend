@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c818b8be_40b2b14b",
+        "filename": "front_end/ui/Treeoutline.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1525,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-19T14:58:33Z",
+      "side": 0,
+      "message": "I double-checked and this indeed seems to be unused.",
+      "range": {
+        "startLine": 1521,
+        "startChar": 0,
+        "endLine": 1525,
+        "endChar": 5
+      },
+      "revId": "20cc9eb2a7f5203097f688f7b42bca9accfa6e94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

@@ -16,6 +16,23 @@
       "message": "PTAL. Let me know if you think I should split it.\n\nThere is a potential for a refactoring that would get rid of the instanceof checks sprinkled around the CL, but  I opted for not doing that right now, since my understanding is that ui/ will be reworked anyway in the near future.\n",
       "revId": "7be43df9b3573a917f5446a54b739a748efe2cba",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a56a52ae_3c86a185",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-19T14:58:33Z",
+      "side": 1,
+      "message": "Simon, could you also double-check this one?",
+      "revId": "7be43df9b3573a917f5446a54b739a748efe2cba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
