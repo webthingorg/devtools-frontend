@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "704a29df_784eef84",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-11-19T23:55:02Z",
+      "side": 1,
+      "message": "\u003e no emulation actually happens except on Windows (due to the way the back-end emulation is implemented: we don\u0027t accept arbitrary media queries, only those that Chromium supports can be emulated).\n\nThe platform supports `forced-colors` behind a feature flag. The only thing about `forced-colors`s implementation that\u0027s Windows specific is where the OS listener lives (currently `native_theme_win.h`). We can toggle `forced-colors` in the renderer from my understanding.\n\n\u003e What\u0027s the longer-term plan of forced-colors Chromium support for other OSes?\n\nThere\u0027s interest to have other OSes set blink `forced-colors`, but I\u0027m not sure the current status on this. I\u0027ll discuss with platform folks and get back to you.\n\n\u003e If this is going to be Windows-only, should we make this clear in the DevTools UI (maybe in the experiment description)?\n\nThat\u0027s a good point. We could do more to let users know `forced-colors` will only trigger on Windows today.",
+      "parentUuid": "6701bb94_8e80084a",
+      "revId": "4ae329395182afc619e41b23fd7ed8443861e211",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a9f1ba4c_0c568c46",
         "filename": "front_end/inspector_main/inspector_main_strings.grdp",
         "patchSetId": 8
@@ -37,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8583a1a3_f7e5304d",
+        "filename": "front_end/inspector_main/inspector_main_strings.grdp",
+        "patchSetId": 8
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-11-19T23:55:02Z",
+      "side": 1,
+      "message": "Unintentional, I\u0027ll fix it during my next rebase.",
+      "parentUuid": "a9f1ba4c_0c568c46",
+      "revId": "4ae329395182afc619e41b23fd7ed8443861e211",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "964bf810_ac216c71",
         "filename": "front_end/main/MainImpl.js",
         "patchSetId": 8
@@ -48,6 +84,30 @@
       "writtenOn": "2020-11-16T10:33:37Z",
       "side": 1,
       "message": "nit: Enable (to match other experiment descriptions)",
+      "range": {
+        "startLine": 195,
+        "startChar": 56,
+        "endLine": 195,
+        "endChar": 63
+      },
+      "revId": "4ae329395182afc619e41b23fd7ed8443861e211",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "863b5ac9_a214afa8",
+        "filename": "front_end/main/MainImpl.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-11-19T23:55:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "964bf810_ac216c71",
       "range": {
         "startLine": 195,
         "startChar": 56,
