@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bb607d2_c32de058",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-11-19T16:29:04Z",
+      "side": 1,
+      "message": "Hey Simon,\n\nHere\u0027s the CL for the ExtensionPanel, modulo the enum resolution we need for ExtensionAPI.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "7be1e41fafb507db421ea432b6c74da9a37ccc40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
