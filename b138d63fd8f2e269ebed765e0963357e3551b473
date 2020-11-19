@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e8be4f7_a186ba57",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-19T15:51:53Z",
+      "side": 1,
+      "message": "LGTM with one question!",
+      "revId": "b138d63fd8f2e269ebed765e0963357e3551b473",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0882a5a8_879c8e4b",
+        "filename": "front_end/platform/utilities.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-19T15:51:53Z",
+      "side": 1,
+      "message": "do you want to do this now or file a CRbug?",
+      "range": {
+        "startLine": 218,
+        "startChar": 0,
+        "endLine": 218,
+        "endChar": 75
+      },
+      "revId": "b138d63fd8f2e269ebed765e0963357e3551b473",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
