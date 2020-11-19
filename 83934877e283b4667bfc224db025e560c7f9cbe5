@@ -199,6 +199,30 @@
       },
       "revId": "83934877e283b4667bfc224db025e560c7f9cbe5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2efb9b2_0d17f083",
+        "filename": "front_end/startup/RuntimeInstantiator.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-11-19T07:27:38Z",
+      "side": 1,
+      "message": "Here\u0027s a patch of the other solution: http://crrev.com/c/2549140",
+      "parentUuid": "ab79fc0e_5ff03719",
+      "range": {
+        "startLine": 53,
+        "startChar": 2,
+        "endLine": 53,
+        "endChar": 48
+      },
+      "revId": "83934877e283b4667bfc224db025e560c7f9cbe5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
