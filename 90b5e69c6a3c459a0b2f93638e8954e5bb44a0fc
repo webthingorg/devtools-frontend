@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ca9c49c8_45248cda",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-11-19T05:40:15Z",
+      "side": 1,
+      "message": "I don\u0027t see this removal. Regardless, I don\u0027t think it\u0027s related to the lighthouse module\u0027s migration to loc v2",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 25
+      },
+      "revId": "90b5e69c6a3c459a0b2f93638e8954e5bb44a0fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "334666a0_6331eacc",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
