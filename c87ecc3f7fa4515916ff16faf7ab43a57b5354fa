@@ -16,6 +16,23 @@
       "message": "PTAL. Please review carefully, and be strict \u0026 nitpicky — I’m trying to learn!",
       "revId": "c87ecc3f7fa4515916ff16faf7ab43a57b5354fa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ba511f8_681d7e33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-19T10:28:10Z",
+      "side": 1,
+      "message": "lgtm, talked through the CL offline",
+      "revId": "c87ecc3f7fa4515916ff16faf7ab43a57b5354fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
