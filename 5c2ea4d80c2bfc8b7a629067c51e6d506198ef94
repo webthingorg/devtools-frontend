@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4128c200_aa4c19f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-19T16:38:59Z",
+      "side": 1,
+      "message": "Hey,\n\nThis CL has caused some logging output when we run unit tests, which you can see on the CQ run for the CL: https://logs.chromium.org/logs/devtools-frontend/buildbucket/cr-buildbucket.appspot.com/8863325340464543264/+/steps/Unit_Tests/0/stdout\n\n\u003e Chrome Headless 89.0.4329.0 (Linux x86_64) LOG: \u0027i18n\u0027, \u0027Message \"layer_viewer/Layers3DView.js | touchEventListener\" does not match its \u0027en-US\u0027 counterpart. Run \u0027i18n\u0027 to update.\u0027\n\n\nI\u0027m not too familiar with the i18n work, but is it possible that we can figure out how to fix and prevent these logs happening in the unit tests? They are causing a fair amount of noise when running them both locally and on the bots. Happy to help here if you can point me in the right direction.\n\nThanks!\n\nJack",
+      "revId": "5c2ea4d80c2bfc8b7a629067c51e6d506198ef94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
