@@ -104,6 +104,30 @@
       },
       "revId": "66485bf3238c3b1d5cd23862b67ae5def1ce66d5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71bec064_7c428067",
+        "filename": "front_end/extensions/LanguageExtensionEndpoint.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-11-19T07:00:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "74330d41_85c1f6d6",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 108
+      },
+      "revId": "66485bf3238c3b1d5cd23862b67ae5def1ce66d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
