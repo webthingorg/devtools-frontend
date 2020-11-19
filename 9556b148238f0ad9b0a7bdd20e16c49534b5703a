@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9318f45_d1b0c6d3",
+        "filename": "front_end/ui/ContextMenu.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-19T11:15:52Z",
+      "side": 1,
+      "message": "As far as I can tell every item does get an id (I think the conditional on line 58 always holds) but this is there to quickly find out if I\u0027m wrong. I\u0027ve clicked around a few context menus in DevTools and they looked fine to me.",
+      "range": {
+        "startLine": 70,
+        "startChar": 2,
+        "endLine": 72,
+        "endChar": 5
+      },
+      "revId": "9556b148238f0ad9b0a7bdd20e16c49534b5703a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9be62ba1_5b1cb474",
+        "filename": "front_end/ui/ContextMenu.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-19T11:15:52Z",
+      "side": 1,
+      "message": "this bit is confusing me. You\u0027ll see other changes in this CL where I change the types of callback functions from (e.g.) `function(?):*` to `function():*` because as far as I can tell `handler` would never be called with any additional arguments, but lots of the callers seem to expect it. \n\nWould be good to get another pair of eyes on this, but I\u0027m pretty confident that handler was never called with extra args and therefore all of the call sites which passed in a callback that did take an argument (which was always optional) were incorrect.",
+      "range": {
+        "startLine": 609,
+        "startChar": 0,
+        "endLine": 609,
+        "endChar": 25
+      },
+      "revId": "9556b148238f0ad9b0a7bdd20e16c49534b5703a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7c5b324_2af84720",
+        "filename": "front_end/ui/SoftContextMenu.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-19T11:15:52Z",
+      "side": 1,
+      "message": "as far as I can make out this was wrong; when I logged the argument in the console it was always a number.",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 56
+      },
+      "revId": "9556b148238f0ad9b0a7bdd20e16c49534b5703a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
