@@ -451,9 +451,6 @@
   <message name="IDS_DEVTOOLS_af9ccba3ec4346e3acf785f9bea514d8" desc="Text to show a tool or panel">
     Show <ph name="EXTENSION_TITLE">$1s<ex>Audits</ex></ph>
   </message>
-  <message name="IDS_DEVTOOLS_afb4ea732ebcf8bd51a3d99a1b8909a8" desc="Text to show something is linked to another">
-    Linked to <ph name="PATH">$1s<ex>example.url</ex></ph>
-  </message>
   <message name="IDS_DEVTOOLS_b1c94ca2fbc3e78fc30069c8d0f01680" desc="Text for everything">
     All
   </message>

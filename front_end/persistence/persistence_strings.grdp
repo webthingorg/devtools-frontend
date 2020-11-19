@@ -57,6 +57,9 @@
   <message name="IDS_DEVTOOLS_ab130072b340b847d8d45ec45d191c3b" desc="Text of a DOM element in Workspace Settings Tab of the Workspace settings in Settings">
     Mappings are inferred automatically.
   </message>
+  <message name="IDS_DEVTOOLS_afb4ea732ebcf8bd51a3d99a1b8909a8" desc="Text to show something is linked to another">
+    Linked to <ph name="PATH">$1s<ex>example.url</ex></ph>
+  </message>
   <message name="IDS_DEVTOOLS_cf703cce77386955bfbff86f6ad9be03" desc="Text in Isolated File System Manager of the Workspace settings in Settings">
     Unable to add filesystem: <ph name="ERRORMESSAGE">$1s<ex>folder does not exist</ex></ph>
   </message>
