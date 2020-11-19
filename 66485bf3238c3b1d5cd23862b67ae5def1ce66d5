@@ -80,6 +80,30 @@
       },
       "revId": "66485bf3238c3b1d5cd23862b67ae5def1ce66d5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74330d41_85c1f6d6",
+        "filename": "front_end/extensions/LanguageExtensionEndpoint.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-19T06:24:06Z",
+      "side": 1,
+      "message": "The other methods actually return a result though (like modules, scope infos etc). No strong opinion though if you would prefer to keep it this way :)",
+      "parentUuid": "17c0a626_b0e9f654",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 108
+      },
+      "revId": "66485bf3238c3b1d5cd23862b67ae5def1ce66d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
