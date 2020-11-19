@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4227ab95_8bedc308",
+        "filename": "front_end/timeline/TimelineController.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-19T09:17:31Z",
+      "side": 1,
+      "message": "response is currently typed as an object by the underlying class",
+      "parentUuid": "267ad589_54f292b9",
+      "range": {
+        "startLine": 111,
+        "startChar": 4,
+        "endLine": 111,
+        "endChar": 68
+      },
+      "revId": "08192319028c250a11259d61b428dffabe0dc4ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "639b676c_45045da8",
         "filename": "front_end/timeline/TimelineController.js",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2020-11-19T09:15:51Z",
       "side": 1,
       "message": "Lets make the function async, await the promise.all and return `Promise\u003cvoid\u003e` 😊",
+      "range": {
+        "startLine": 135,
+        "startChar": 3,
+        "endLine": 135,
+        "endChar": 37
+      },
+      "revId": "08192319028c250a11259d61b428dffabe0dc4ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "811c0366_2eafd290",
+        "filename": "front_end/timeline/TimelineController.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-19T09:17:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "639b676c_45045da8",
       "range": {
         "startLine": 135,
         "startChar": 3,
