@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ab1d8c3_e3707fe3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-11-19T00:53:32Z",
+      "side": 1,
+      "message": "Migrate text_editor folder to V2, PTAL, thanks :)",
+      "revId": "277588bf129990d34cc69cd3130b77060f5f8db3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
