@@ -50,6 +50,41 @@
       "message": "Thanks for pinging me here!\n\nMy CDP changes which add an event need the frontend changes to be merged first, because otherwise blink_tests in the backend will fail. My backend CL (https://crrev.com/c/2498482) got reverted due to flaky tests, but I\u0027m working on re-landing it.\n\nNot sure what the standard procedure is in such a case, but merging this will quasi revert my previous frontend CL https://crrev.com/c/2507793 and require me to re-land it. From my point of view it would be ideal if you did not revert the `Page.documentOpened` changes.",
       "revId": "0272893861bc508ebb85eb9e24f9726380bb7820",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c798683_509b75af",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-19T08:53:55Z",
+      "side": 1,
+      "message": "Is it possible to add the event you need without modifying the PDL? E.g., maybe using some type casts?",
+      "parentUuid": "b829ce05_00d7eb25",
+      "revId": "0272893861bc508ebb85eb9e24f9726380bb7820",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea279046_aab5cf36",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-19T08:53:55Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "0272893861bc508ebb85eb9e24f9726380bb7820",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
