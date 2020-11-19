@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad2aa9ca_a514fe16",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-19T10:01:58Z",
+      "side": 1,
+      "message": "lgtm % nit",
+      "revId": "5f81231f5782600cd375616ba890403f15fc7260",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31f72708_31ec71ac",
+        "filename": "front_end/timeline/TimelineFlameChartView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-19T10:01:58Z",
+      "side": 1,
+      "message": "nit: A few lines above is `this._model \u003d model` and we check for non-null of `this._model` so we could use `this._model` instead here :)",
+      "range": {
+        "startLine": 324,
+        "startChar": 6,
+        "endLine": 324,
+        "endChar": 18
+      },
+      "revId": "5f81231f5782600cd375616ba890403f15fc7260",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
