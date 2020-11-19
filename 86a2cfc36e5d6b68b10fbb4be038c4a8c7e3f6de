@@ -16,6 +16,46 @@
       "message": "Migrate search tool to Loc V2, PTAL, thanks!",
       "revId": "86a2cfc36e5d6b68b10fbb4be038c4a8c7e3f6de",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50e3a50d_1662b623",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-11-19T01:45:26Z",
+      "side": 1,
+      "message": "LGTM, aside from a small comment",
+      "revId": "86a2cfc36e5d6b68b10fbb4be038c4a8c7e3f6de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8ee3cfa_aa4dec93",
+        "filename": "front_end/search/SearchResultsPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-11-19T01:45:26Z",
+      "side": 1,
+      "message": "Looks like we don\u0027t need this",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 12
+      },
+      "revId": "86a2cfc36e5d6b68b10fbb4be038c4a8c7e3f6de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
