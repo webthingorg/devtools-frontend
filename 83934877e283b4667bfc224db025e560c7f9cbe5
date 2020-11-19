@@ -82,6 +82,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f9da851_03681bdb",
+        "filename": "front_end/i18n/i18nImpl.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-11-19T06:58:26Z",
+      "side": 1,
+      "message": "Great. Thanks Tim.",
+      "parentUuid": "b507a280_d7fb8a3a",
+      "range": {
+        "startLine": 144,
+        "startChar": 36,
+        "endLine": 144,
+        "endChar": 55
+      },
+      "revId": "83934877e283b4667bfc224db025e560c7f9cbe5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "82527cba_6f861ebc",
@@ -143,6 +167,30 @@
       "side": 1,
       "message": "I like Peters plan. In general, I have no objections from the infra-side for either solution, so I will let y\u0027all decide.",
       "parentUuid": "d486f71c_0323f94d",
+      "range": {
+        "startLine": 53,
+        "startChar": 2,
+        "endLine": 53,
+        "endChar": 48
+      },
+      "revId": "83934877e283b4667bfc224db025e560c7f9cbe5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab79fc0e_5ff03719",
+        "filename": "front_end/startup/RuntimeInstantiator.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-11-19T06:58:26Z",
+      "side": 1,
+      "message": "\u003e make calls to getLocalizedString fail until after startup?\ngetLocalizedString already throws when its called with an unsupported locale set [1]. Peter, I think this covers your concern about module-time calls to i18n.getLocalizedString.\n\nThe exception I\u0027m trying to avoid happens due to the non-third party `i18n` setting the module-var `moduleJSONStrings` the first time i18n.registerUIStrings is called. We can define `moduleJSONStrings` here [2] and avoid the exception.\n\nI still think we should make the request to get the locale data earlier than it is today, but it\u0027s not necessary to fix the issue I ran into. Thoughts?\n\n[1] https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/third_party/i18n/i18n.js;l\u003d4046?q\u003d_getLocaleMessageAndCreateFormatter\u0026ss\u003dchromium\n[2] https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/i18n/i18nImpl.js;l\u003d71?q\u003dfunction%20registeruistrings\u0026ss\u003dchromium",
+      "parentUuid": "a2857be4_7be66817",
       "range": {
         "startLine": 53,
         "startChar": 2,
