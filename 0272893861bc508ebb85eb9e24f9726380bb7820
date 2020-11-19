@@ -16,6 +16,23 @@
       "message": "Hi Wolfgang, can you please review the latest patchset here, just to double check what I reverted isn\u0027t going to be an issue. I think it\u0027s fine because the new event was reverted from chromium.src already.",
       "revId": "0272893861bc508ebb85eb9e24f9726380bb7820",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05d519d4_6a2b2df9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-19T08:41:38Z",
+      "side": 1,
+      "message": "LGTM but let\u0027s wait for Wolfgang to also take a look",
+      "revId": "0272893861bc508ebb85eb9e24f9726380bb7820",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
