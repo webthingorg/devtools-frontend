@@ -33,6 +33,46 @@
       "message": "Simon, could you also double-check this one?",
       "revId": "7be43df9b3573a917f5446a54b739a748efe2cba",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb55709c_3be22aa4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-19T15:16:58Z",
+      "side": 1,
+      "message": "lgtm (on the surface)",
+      "revId": "7be43df9b3573a917f5446a54b739a748efe2cba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "937a71d4_873b5327",
+        "filename": "front_end/ui/Treeoutline.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 988,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-19T15:16:58Z",
+      "side": 1,
+      "message": "Are there any `if (!this._children)` checks that could be broken by this change? Or do most places simply assume its non-null?",
+      "range": {
+        "startLine": 988,
+        "startChar": 6,
+        "endLine": 988,
+        "endChar": 26
+      },
+      "revId": "7be43df9b3573a917f5446a54b739a748efe2cba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
