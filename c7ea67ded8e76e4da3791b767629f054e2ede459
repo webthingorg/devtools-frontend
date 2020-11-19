@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "808ed69e_0bdeff3c",
+        "filename": "front_end/ui/SearchableView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-19T10:45:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f3ba085d_40a733c9",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 38
+      },
+      "revId": "c7ea67ded8e76e4da3791b767629f054e2ede459",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "23831957_c52be63e",
@@ -54,6 +78,30 @@
       "writtenOn": "2020-11-19T08:55:32Z",
       "side": 1,
       "message": "Casting it to `any` since we set the properties on the interface (which we can\u0027t really encode), and I am not sure if implementors of the interface actually expect these properties to be set.",
+      "range": {
+        "startLine": 249,
+        "startChar": 4,
+        "endLine": 249,
+        "endChar": 74
+      },
+      "revId": "c7ea67ded8e76e4da3791b767629f054e2ede459",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3153276c_1cea86a2",
+        "filename": "front_end/ui/SearchableView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-19T10:45:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "23831957_c52be63e",
       "range": {
         "startLine": 249,
         "startChar": 4,
