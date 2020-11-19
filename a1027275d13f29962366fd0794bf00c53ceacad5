@@ -161,6 +161,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "11398711_6f1d24cb",
+        "filename": "front_end/sdk/RuntimeModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-19T07:32:46Z",
+      "side": 1,
+      "message": "\u003e How to use this config?\n\nSearch for `textEditorIndent`.\n\n\u003e Does \u0027Store xxx as global variable\u0027 also need to use this?\n\nNot sure I understood you correctly — “store as global variable” doesn\u0027t serialize to string, so I don’t see how indentation is relevant here. Did I misunderstand?",
+      "parentUuid": "bd68c2f1_fc7d5635",
+      "revId": "a1027275d13f29962366fd0794bf00c53ceacad5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6000431b_f1ec7183",
         "filename": "front_end/sources/SourcesPanel.js",
         "patchSetId": 5
