@@ -69,6 +69,24 @@
       "parentUuid": "3c159674_b0dc6ab9",
       "revId": "d702b8a37a0ff926a455fc4e1f3e93cbd99cea36",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2fe03ae_0f888a20",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 59
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-19T09:30:23Z",
+      "side": 1,
+      "message": "Additionally goo.gle/building-ui-devtools is a guide (that was internal, but is now shared across Chromium, so please shout if you are unable to access it) that sums up our approach, explains the technical choices and the constraints of creating new UI within DevTools that has examples in too.",
+      "parentUuid": "a2303825_288b66dc",
+      "revId": "d702b8a37a0ff926a455fc4e1f3e93cbd99cea36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
