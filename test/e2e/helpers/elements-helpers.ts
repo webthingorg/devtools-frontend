@@ -523,6 +523,8 @@ export const assertSelectedNodeClasses = async (expectedClasses: string[]) => {
   const classText = match ? match[1] : '';
   const classes = classText.split(/[\s]/).map(className => className.trim()).filter(className => className.length);
 
+  assert.deepEqual(classes.sort(), expectedClasses.sort());
+
   assert.strictEqual(
       classes.length, expectedClasses.length, 'Did not find the expected number of classes on the element');
 
