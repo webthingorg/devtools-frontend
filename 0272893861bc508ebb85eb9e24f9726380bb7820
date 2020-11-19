@@ -103,6 +103,24 @@
       "parentUuid": "1c798683_509b75af",
       "revId": "0272893861bc508ebb85eb9e24f9726380bb7820",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d30aa772_e2ea0951",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-11-19T11:07:22Z",
+      "side": 1,
+      "message": "How about rolling the dependencies in such a way that it pulls your changes in while not throwing out my changes? I\u0027ve prepared such a CL here https://crrev.com/c/2549789",
+      "parentUuid": "4ce3234f_3876e3be",
+      "revId": "0272893861bc508ebb85eb9e24f9726380bb7820",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
