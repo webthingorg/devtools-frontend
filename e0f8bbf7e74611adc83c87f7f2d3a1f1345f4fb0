@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb56898c_170b17db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-19T11:38:35Z",
+      "side": 1,
+      "message": "I like this, I just wonder if we need to have some additional information for developers as to what we mean by \"dropped frame\"? Adding jec@ for the DevRel take on things.",
+      "revId": "e0f8bbf7e74611adc83c87f7f2d3a1f1345f4fb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
