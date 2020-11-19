@@ -39,6 +39,30 @@
       },
       "revId": "5f81231f5782600cd375616ba890403f15fc7260",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "287722bc_9d379f91",
+        "filename": "front_end/timeline/TimelineFlameChartView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-19T10:13:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31f72708_31ec71ac",
+      "range": {
+        "startLine": 324,
+        "startChar": 6,
+        "endLine": 324,
+        "endChar": 18
+      },
+      "revId": "5f81231f5782600cd375616ba890403f15fc7260",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
