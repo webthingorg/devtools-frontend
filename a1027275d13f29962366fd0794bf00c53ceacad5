@@ -213,6 +213,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "26327206_e7226e8b",
+        "filename": "front_end/sdk/RuntimeModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-19T13:31:39Z",
+      "side": 1,
+      "message": "I don\u0027t know why there was an error in the console copy after indent was added.\n\n[1, 2, 3] After copying is 1,2,3",
+      "parentUuid": "23358c0f_dc02473f",
+      "revId": "a1027275d13f29962366fd0794bf00c53ceacad5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6000431b_f1ec7183",
