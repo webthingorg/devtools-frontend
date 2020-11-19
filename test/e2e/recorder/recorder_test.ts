@@ -45,12 +45,15 @@ describe('Recorder', () => {
     const iframe = await target.$('#iframe').then(x => x ? x.contentFrame() : null);
     // @ts-ignore
     await iframe.click('#in-iframe');
+    await target.mainFrame().childFrames()[0].childFrames()[0].click('aria/Inner iframe button');
+
     await frontend.bringToFront();
+    await frontend.waitForSelector('aria/Stop');
     await frontend.click('aria/Stop');
 
     const textContent = await getCode();
 
-    assert.strictEqual(textContent, `const puppeteer = require('puppeteer')
+    assert.strictEqual(textContent, `const puppeteer = require('puppeteer');
 
 (async () => {
     const browser = await puppeteer.launch();
@@ -63,6 +66,9 @@ describe('Recorder', () => {
     await page.click("span#span2");
     await page.type("aria/Input", "test");
     await page.click("aria/Hello World");
+    await page.mainFrame().childFrames()[0].click("aria/iframe button");
+    await page.mainFrame().childFrames()[0].childFrames()[0].click("aria/Inner iframe button");
+    await browser.close();
 })();
 
 `);
