@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f133386_1023c7f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-19T08:55:32Z",
+      "side": 1,
+      "message": "ptal",
+      "revId": "c7ea67ded8e76e4da3791b767629f054e2ede459",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3ba085d_40a733c9",
+        "filename": "front_end/ui/SearchableView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-19T08:55:32Z",
+      "side": 1,
+      "message": "IMO this change is worth it, since the two interfaces are completely unrelated and this class just straight-up cast searchable to replaceable.",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 38
+      },
+      "revId": "c7ea67ded8e76e4da3791b767629f054e2ede459",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23831957_c52be63e",
+        "filename": "front_end/ui/SearchableView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-19T08:55:32Z",
+      "side": 1,
+      "message": "Casting it to `any` since we set the properties on the interface (which we can\u0027t really encode), and I am not sure if implementors of the interface actually expect these properties to be set.",
+      "range": {
+        "startLine": 249,
+        "startChar": 4,
+        "endLine": 249,
+        "endChar": 74
+      },
+      "revId": "c7ea67ded8e76e4da3791b767629f054e2ede459",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
