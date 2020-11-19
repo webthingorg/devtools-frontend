@@ -34,6 +34,24 @@
       "parentUuid": "4128c200_aa4c19f7",
       "revId": "5c2ea4d80c2bfc8b7a629067c51e6d506198ef94",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f09f137_78f25454",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-11-19T23:59:44Z",
+      "side": 1,
+      "message": "This is an unexpected side-affect - thanks for letting us know. We\u0027ll figure what `i18n` is logging these messages in the test running context.",
+      "parentUuid": "88425bb5_0d7c7312",
+      "revId": "5c2ea4d80c2bfc8b7a629067c51e6d506198ef94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
