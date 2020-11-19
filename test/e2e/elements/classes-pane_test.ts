@@ -4,7 +4,7 @@
 
 import {beforeEach, describe, it} from 'mocha';
 
-import {goToResource} from '../../shared/helper.js';
+import {goToResource, timeout} from '../../shared/helper.js';
 import {assertSelectedNodeClasses, toggleClassesPane, toggleClassesPaneCheckbox, typeInClassesPaneInput} from '../helpers/elements-helpers.js';
 
 describe('The Classes pane', async () => {
@@ -37,6 +37,8 @@ describe('The Classes pane', async () => {
 
   it('removes the previewed classes on ESC', async () => {
     await typeInClassesPaneInput('foo');
+    // Needed for win64 to settle.
+    await timeout(100);
     await typeInClassesPaneInput('bar', 'Escape', false);
     await typeInClassesPaneInput('baz');
 
