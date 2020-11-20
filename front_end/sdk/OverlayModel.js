@@ -543,7 +543,8 @@ export class OverlayModel extends SDKModel {
             pattern: Protocol.Overlay.LineStylePattern.Dashed,
           },
           mainDistributedSpace: {hatchColor: Common.Color.PageHighlight.FlexContainerBorder.toProtocolRGBA()},
-          crossDistributedSpace: {hatchColor: Common.Color.PageHighlight.FlexContainerBorder.toProtocolRGBA()}
+          crossDistributedSpace: {hatchColor: Common.Color.PageHighlight.FlexContainerBorder.toProtocolRGBA()},
+          crossAlignment: {color: Common.Color.PageHighlight.FlexContainerBorder.toProtocolRGBA()}
         };
       }
     }

@@ -9,6 +9,9 @@ export interface FlexContainerHighlight {
   containerBorder: PathCommands;
   lines: Array<Array<PathCommands>>;
   isHorizontalFlow: boolean;
+  // Note: this needs to be implemented on the backend.
+  // We might have to send an offset too, for baseline alignment.
+  alignItemsStyle: string;
   flexContainerHighlightConfig: {
     containerBorder?: LineStyle;
     lineSeparator?: LineStyle;
@@ -17,6 +20,10 @@ export interface FlexContainerHighlight {
     crossDistributedSpace?: BoxStyle;
     rowGapSpace?: BoxStyle;
     columnGapSpace?: BoxStyle;
+    // Note: this is self-alignment at the container level, so for the *-items properties.
+    // In flex, this doesn't work in the main direction, so just cross direction.
+    // It's a line style, to draw the alignment line for all items, and we'll reuse the color for the arrow.
+    crossAlignment?: LineStyle;
   };
 }
 
@@ -24,6 +31,12 @@ interface LineQuads {
   quad: Quad;
   items: Quad[];
 }
+
+const ALIGNMENT_LINE_THICKNESS = 3;
+const ALIGNMENT_ARROW_BODY_HEIGHT = 5;
+const ALIGNMENT_ARROW_BODY_WIDTH = 5;
+const ALIGNMENT_ARROW_TIP_HEIGHT = 6;
+const ALIGNMENT_ARROW_TIP_WIDTH = 11;
 
 export function drawLayoutFlexContainerHighlight(
     highlight: FlexContainerHighlight, context: CanvasRenderingContext2D, deviceScaleFactor: number,
@@ -47,6 +60,9 @@ export function drawLayoutFlexContainerHighlight(
 
   // Draw the hatching pattern outside of items.
   drawFlexSpace(highlight, context, emulationScaleFactor, highlight.containerBorder, lineQuads);
+
+  // Draw the self-alignment lines and arrows.
+  drawFlexAlignment(highlight, context, emulationScaleFactor, lineQuads);
 }
 
 function drawFlexLinesAndItems(
@@ -129,6 +145,183 @@ function drawFlexSpace(
   }
 }
 
+function drawFlexAlignment(
+    highlight: FlexContainerHighlight, context: CanvasRenderingContext2D, emulationScaleFactor: number,
+    lineQuads: LineQuads[]) {
+  for (const {quad} of lineQuads) {
+    drawFlexAlignmentForLine(highlight, context, emulationScaleFactor, quad);
+  }
+}
+
+function drawFlexAlignmentForLine(
+    highlight: FlexContainerHighlight, context: CanvasRenderingContext2D, emulationScaleFactor: number,
+    lineQuad: Quad) {
+  const {alignItemsStyle, isHorizontalFlow} = highlight;
+  const {crossAlignment} = highlight.flexContainerHighlightConfig;
+  if (!crossAlignment || !crossAlignment.color) {
+    return;
+  }
+
+  // Note that the order of the 2 points in the array matters as it is used to determine where the arrow will be drawn.
+  //
+  // first                second
+  // point                point
+  //   o--------------------o
+  //             ^
+  //             |
+  //           arrow
+  //
+  //
+  //           arrow
+  // second      |        first
+  // point       V        point
+  //   o--------------------o
+  const linesToDraw: [Position, Position][] = [];
+
+  switch (alignItemsStyle) {
+    case 'flex-start':
+      linesToDraw.push([
+        isHorizontalFlow ? lineQuad.p1 : lineQuad.p4,
+        isHorizontalFlow ? lineQuad.p2 : lineQuad.p1,
+      ]);
+      break;
+    case 'flex-end':
+      linesToDraw.push([
+        isHorizontalFlow ? lineQuad.p3 : lineQuad.p2,
+        isHorizontalFlow ? lineQuad.p4 : lineQuad.p3,
+      ]);
+      break;
+    case 'center':
+      if (isHorizontalFlow) {
+        linesToDraw.push([
+          {
+            x: (lineQuad.p1.x + lineQuad.p4.x) / 2,
+            y: (lineQuad.p1.y + lineQuad.p4.y) / 2,
+          },
+          {
+            x: (lineQuad.p2.x + lineQuad.p3.x) / 2,
+            y: (lineQuad.p2.y + lineQuad.p3.y) / 2,
+          },
+        ]);
+        linesToDraw.push([
+          {
+            x: (lineQuad.p2.x + lineQuad.p3.x) / 2,
+            y: (lineQuad.p2.y + lineQuad.p3.y) / 2,
+          },
+          {
+            x: (lineQuad.p1.x + lineQuad.p4.x) / 2,
+            y: (lineQuad.p1.y + lineQuad.p4.y) / 2,
+          },
+        ]);
+      } else {
+        linesToDraw.push([
+          {
+            x: (lineQuad.p1.x + lineQuad.p2.x) / 2,
+            y: (lineQuad.p1.y + lineQuad.p2.y) / 2,
+          },
+          {
+            x: (lineQuad.p3.x + lineQuad.p4.x) / 2,
+            y: (lineQuad.p3.y + lineQuad.p4.y) / 2,
+          },
+        ]);
+        linesToDraw.push([
+          {
+            x: (lineQuad.p3.x + lineQuad.p4.x) / 2,
+            y: (lineQuad.p3.y + lineQuad.p4.y) / 2,
+          },
+          {
+            x: (lineQuad.p1.x + lineQuad.p2.x) / 2,
+            y: (lineQuad.p1.y + lineQuad.p2.y) / 2,
+          },
+        ]);
+      }
+      break;
+    case 'stretch':
+    case 'normal':
+      linesToDraw.push([
+        isHorizontalFlow ? lineQuad.p1 : lineQuad.p4,
+        isHorizontalFlow ? lineQuad.p2 : lineQuad.p1,
+      ]);
+      linesToDraw.push([
+        isHorizontalFlow ? lineQuad.p3 : lineQuad.p2,
+        isHorizontalFlow ? lineQuad.p4 : lineQuad.p3,
+      ]);
+      break;
+  }
+
+  for (const points of linesToDraw) {
+    const path = segmentToPath(points);
+    drawPathWithLineStyle(
+        context, buildPath(path, emptyBounds(), emulationScaleFactor), crossAlignment, ALIGNMENT_LINE_THICKNESS);
+    drawAlignmentArrow(highlight, context, emulationScaleFactor, points[0], points[1]);
+  }
+}
+
+/**
+ * Draw an arrow pointed at the middle of a segment. The segment isn't necessarily vertical or horizontal.
+ *
+ * start          C             end
+ *  o-------------x--------------o
+ *               / \
+ *              /   \
+ *             /_   _\
+ *               | |
+ *               |_|
+ */
+function drawAlignmentArrow(
+    highlight: FlexContainerHighlight, context: CanvasRenderingContext2D, emulationScaleFactor: number,
+    startPoint: Position, endPoint: Position) {
+  const {crossAlignment} = highlight.flexContainerHighlightConfig;
+  if (!crossAlignment || !crossAlignment.color) {
+    return;
+  }
+
+  // The angle of the segment.
+  const angle = Math.atan2(endPoint.y - startPoint.y, endPoint.x - startPoint.x);
+  // Where the tip of the arrow meets the segment.
+  const C = {
+    x: (startPoint.x + endPoint.x) / 2,
+    y: (startPoint.y + endPoint.y) / 2,
+  };
+
+  const path = buildPath(
+      [
+        'M',
+        C.x,
+        C.y,
+        'L',
+        C.x + (ALIGNMENT_ARROW_TIP_WIDTH / 2),
+        C.y + ALIGNMENT_ARROW_TIP_HEIGHT,
+        'L',
+        C.x + (ALIGNMENT_ARROW_BODY_WIDTH / 2),
+        C.y + ALIGNMENT_ARROW_TIP_HEIGHT,
+        'L',
+        C.x + (ALIGNMENT_ARROW_BODY_WIDTH / 2),
+        C.y + ALIGNMENT_ARROW_TIP_HEIGHT + ALIGNMENT_ARROW_BODY_HEIGHT,
+        'L',
+        C.x - (ALIGNMENT_ARROW_BODY_WIDTH / 2),
+        C.y + ALIGNMENT_ARROW_TIP_HEIGHT + ALIGNMENT_ARROW_BODY_HEIGHT,
+        'L',
+        C.x - (ALIGNMENT_ARROW_BODY_WIDTH / 2),
+        C.y + ALIGNMENT_ARROW_TIP_HEIGHT,
+        'L',
+        C.x - (ALIGNMENT_ARROW_TIP_WIDTH / 2),
+        C.y + ALIGNMENT_ARROW_TIP_HEIGHT,
+        'Z',
+      ],
+      emptyBounds(), emulationScaleFactor);
+
+  context.save();
+  context.translate(C.x, C.y);
+  context.rotate(angle);
+  context.translate(-C.x, -C.y);
+
+  context.fillStyle = crossAlignment.color;
+  context.fill(path);
+
+  context.restore();
+}
+
 function drawHatchPatternInQuad(
     outerQuad: Quad, quadsToClip: Quad[], boxStyle: BoxStyle|undefined, context: CanvasRenderingContext2D,
     emulationScaleFactor: number) {
@@ -192,6 +385,10 @@ function quadToVerticalLinesPath(quad: Quad, nextQuad: Quad|undefined): PathComm
   const skipEndLine = nextQuad && quad.p2.x === nextQuad.p1.x;
   const startLine = ['M', quad.p1.x, quad.p1.y, 'L', quad.p4.x, quad.p4.y];
   return skipEndLine ? startLine : [...startLine, 'M', quad.p3.x, quad.p3.y, 'L', quad.p2.x, quad.p2.y];
+}
+
+function segmentToPath(segment: [Position, Position]): PathCommands {
+  return ['M', segment[0].x, segment[0].y, 'L', segment[1].x, segment[1].y];
 }
 
 /**
