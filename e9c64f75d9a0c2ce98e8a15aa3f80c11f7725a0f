@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a1d2e09_927f164f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-11-20T10:37:20Z",
+      "side": 1,
+      "message": "Hey Philip,\n\nHere\u0027s an initial attempt to mitigate the performance overhead of the ContentProviderBasedProject we\u0027ve discussed earlier this week.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "e9c64f75d9a0c2ce98e8a15aa3f80c11f7725a0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
