@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0df29a2_b0707a47",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-20T10:28:01Z",
+      "side": 1,
+      "message": "Hi Jan!\n\nI\u0027m temporarily disabling a recorder test since it seems to be flaky on the mac bot. PTAL!",
+      "revId": "c1185c0cdf31382b671e3b70ff6776ff9ac6aff3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
