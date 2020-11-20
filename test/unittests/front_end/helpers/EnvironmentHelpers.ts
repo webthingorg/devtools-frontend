@@ -42,6 +42,17 @@ function initializeTargetManagerIfNecessary() {
   targetManager = targetManager || SDK.SDKModel.TargetManager.instance({forceNew: true});
 }
 
+async function initializeLocalization() {
+  const locale = i18n.i18n.registeredLocale;
+  if (locale) {
+    const data = await Root.Runtime.loadResourcePromise(`i18n/locales/${locale}.json`);
+    if (data) {
+      const localizedStrings = JSON.parse(data);
+      i18n.i18n.registerLocaleData(locale, localizedStrings);
+    }
+  }
+}
+
 export function createTarget({id = 'test', name = 'test', type = SDK.SDKModel.Type.Frame} = {}) {
   initializeTargetManagerIfNecessary();
   return targetManager.createTarget(id, name, type, null);
@@ -135,7 +146,10 @@ export function describeWithEnvironment(title: string, fn: (this: Mocha.Suite) =
   reset: true,
 }) {
   return describe(`env-${title}`, () => {
-    before(async () => await initializeGlobalVars(opts));
+    before(async () => {
+      await initializeLocalization();
+      await initializeGlobalVars(opts)
+    });
     after(async () => await deinitializeGlobalVars());
     describe(title, fn);
   });
