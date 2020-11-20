@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "95b7b483_99c3512f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-20T14:52:23Z",
+      "side": 1,
+      "message": "Thanks! Do you know why the screenshots are not working in this case? I think it should be still possible to take a screenshot: is it not supported by the backend or is it some frontend code that prevents it?",
+      "parentUuid": "3995adc9_1fd709b8",
+      "revId": "98c1f987a8fff48a2e5a01196ba9182e498e157d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9ef69593_e39711bf",
