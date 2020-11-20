@@ -390,7 +390,7 @@ export class TimelineUIUtils {
   /**
    * !Map<!TimelineModel.TimelineIRModel.Phases, !{color: string, label: string}>
    */
-  static _interactionPhaseStyles() {
+  static __interactionPhaseStylesMapPhaseStyles() {
     let map = TimelineUIUtils._interactionPhaseStylesMap;
     if (!map) {
       map = new Map([
@@ -412,7 +412,7 @@ export class TimelineUIUtils {
    * @return {string}
    */
   static interactionPhaseColor(phase) {
-    return TimelineUIUtils._interactionPhaseStyles().get(phase).color;
+    return TimelineUIUtils._interactionPhaseStylesMap.get(phase).color;
   }
 
   /**
@@ -420,7 +420,7 @@ export class TimelineUIUtils {
    * @return {string}
    */
   static interactionPhaseLabel(phase) {
-    return TimelineUIUtils._interactionPhaseStyles().get(phase).label;
+    return TimelineUIUtils._interactionPhaseStylesMap.get(phase).label;
   }
 
   /**
