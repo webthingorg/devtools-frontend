@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "88ec2adf_69a64380",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-20T08:24:59Z",
+      "side": 1,
+      "message": "All good 😄",
+      "parentUuid": "1e826588_2d37ba27",
+      "revId": "05dd556b4bf6364a3fedbd29fa1e932603bffbd6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b2c13ba9_0b18f1ed",
@@ -31,6 +49,30 @@
       "writtenOn": "2020-11-20T06:40:38Z",
       "side": 1,
       "message": "I didn\u0027t see any `delete` to this map, should this be a WeakMap instead?",
+      "range": {
+        "startLine": 1560,
+        "startChar": 6,
+        "endLine": 1560,
+        "endChar": 58
+      },
+      "revId": "05dd556b4bf6364a3fedbd29fa1e932603bffbd6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5bf02a0_af1267e3",
+        "filename": "front_end/timeline/TimelineUIUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1560,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-20T08:24:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2c13ba9_0b18f1ed",
       "range": {
         "startLine": 1560,
         "startChar": 6,
