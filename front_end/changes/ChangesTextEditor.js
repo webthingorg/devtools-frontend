@@ -48,7 +48,7 @@ export class ChangesTextEditor extends TextEditor.CodeMirrorTextEditor.CodeMirro
   updateDiffGutter(diffRows) {
     this.codeMirror().eachLine(/** @param {!CodeMirror.LineHandle} line */ line => {
       const lineNumber = this.codeMirror().getLineNumber(line);
-      const row = diffRows[lineNumber];
+      const row = diffRows[/** @type {number} */ (lineNumber)];
       let gutterMarker;
       if (row.type === RowType.Deletion) {
         gutterMarker = document.createElement('div');
