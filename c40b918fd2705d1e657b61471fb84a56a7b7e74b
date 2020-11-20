@@ -16,6 +16,23 @@
       "message": "Hey Philip,\n\nHere\u0027s the final CL to remove the dependency from sdk/ on bindings/\nPlease take a look.\n\ncheers,\nBenedikt",
       "revId": "c40b918fd2705d1e657b61471fb84a56a7b7e74b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfd472d9_aaeb6f75",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-11-20T09:45:41Z",
+      "side": 1,
+      "message": "Really nice!",
+      "revId": "c40b918fd2705d1e657b61471fb84a56a7b7e74b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
