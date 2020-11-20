@@ -16,6 +16,23 @@
       "message": "Small CL to disable screenshot command when not supported (PWA)",
       "revId": "98c1f987a8fff48a2e5a01196ba9182e498e157d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d56247a7_dac3d83e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-20T06:02:29Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "98c1f987a8fff48a2e5a01196ba9182e498e157d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
