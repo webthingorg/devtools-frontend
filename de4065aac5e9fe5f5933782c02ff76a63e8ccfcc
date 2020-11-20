@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d5a832c_777b3197",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-20T09:57:50Z",
+      "side": 1,
+      "message": "Thanks for taking this on so quickly, appreciate it! Left some notes about how to get the files into the right place for the unit test. Just needs wiring up in autoninja land I think.",
+      "revId": "de4065aac5e9fe5f5933782c02ff76a63e8ccfcc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1d4f12f4_81b4e79b",
@@ -31,6 +48,30 @@
       "writtenOn": "2020-11-20T05:16:03Z",
       "side": 1,
       "message": "Hi Jack,\nTried to make this work but it is always returning a 404. The file exists in gen/front_end/i18n/locales so I think it has to do with the way Karma setups the environment. Do you have any pointers on how to do it?\n\nThis also needs to happen as soon as possible (before other modules) otherwise we will continue to see the same messages. Kalon has a CL that could help with the latter but I\u0027m not sure if Karma follows the same initialization pattern.\n\n2544063: [Loc] Move fetching of locale json to `startup` module | https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2544063",
+      "range": {
+        "startLine": 45,
+        "startChar": 1,
+        "endLine": 54,
+        "endChar": 1
+      },
+      "revId": "de4065aac5e9fe5f5933782c02ff76a63e8ccfcc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d86187d2_ed430227",
+        "filename": "test/unittests/front_end/helpers/EnvironmentHelpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-20T09:57:50Z",
+      "side": 1,
+      "message": "Hey Vidal,\n\nThis is slightly confusing but it\u0027s because Karma runs within the `out/Default/gen` directory, which is created via an `autoninja -C out/Default` run. So what we would need to do is get the i18n JSON files copied to the gen directory by a Ninja build target.\n\nWe do this in plenty of places - if you search for copy_to_gen and look in a BUILD.gn file you\u0027ll see that. So what I\u0027d do is update i18n/BUILD.gn and add something roughly like:\n\ncopy_to_gen(\"i18n_locale_files_for_tests\") {\n  sources \u003d [\"en-US.json\", etc...]\n}\n\nAnd then that should mean an `autoninja -C out/Default` puts them into `out/Default/gen`, at which point they should be able to be loaded by your code here.\n\nIf that doesn\u0027t work let me know and I\u0027ll dig further!",
+      "parentUuid": "1d4f12f4_81b4e79b",
       "range": {
         "startLine": 45,
         "startChar": 1,
