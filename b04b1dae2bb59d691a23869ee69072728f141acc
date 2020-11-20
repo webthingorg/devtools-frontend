@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1da5f9d8_53f44615",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-20T09:37:30Z",
+      "side": 1,
+      "message": "LGTM thanks!",
+      "revId": "b04b1dae2bb59d691a23869ee69072728f141acc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1db1ac7d_625a00c8",
+        "filename": "inspector_overlay/main.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-20T09:37:30Z",
+      "side": 1,
+      "message": "That\u0027s nice! It looks like TS cannot deduce the message[1] type here?",
+      "revId": "b04b1dae2bb59d691a23869ee69072728f141acc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
