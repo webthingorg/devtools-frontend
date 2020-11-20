@@ -29,10 +29,13 @@ export const ViewPersistence = {
 export const ViewLocationValues = {
   PANEL: 'panel',
   SETTINGS_VIEW: 'settings-view',
+  ELEMENTS_SIDEBAR: 'elements-sidebar',
 };
 
 /**
  * @typedef {{
+ *  experiment: (string|undefined),
+ *  condition: (string|undefined),
  *  title: string,
  *  persistence: (!ViewPersistence|undefined),
  *  id: string,
@@ -134,6 +137,14 @@ class PreRegisteredView {
     const widget = await this.widget();
     await widget.ownerViewDisposed();
   }
+
+  experiment() {
+    return this._viewRegistration.experiment;
+  }
+
+  condition() {
+    return this._viewRegistration.condition;
+  }
 }
 
 /**
@@ -147,7 +158,8 @@ export function registerViewExtension(registration) {
  * @return {!Array<!PreRegisteredView>}
  */
 export function getRegisteredViewExtensions() {
-  return registeredViewExtensions;
+  return registeredViewExtensions.filter(
+      view => Root.Runtime.Runtime._isDescriptorEnabled({experiment: view.experiment(), condition: view.condition()}));
 }
 
 /**
@@ -182,7 +194,7 @@ export class ViewManager {
           view: new ProvidedView(extension),
         };
       }),
-      ...registeredViewExtensions.map(registeredView => {
+      ...getRegisteredViewExtensions().map(registeredView => {
         return {
           viewId: registeredView.viewId(),
           location: registeredView.location() || null,
