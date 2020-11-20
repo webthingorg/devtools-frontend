@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3314c2b0_75f83fec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-11-20T08:39:05Z",
+      "side": 1,
+      "message": "Hey Philip,\n\nWe have some duplicated logic that we don\u0027t need. This leaves us with a single user for the source scope chain, which is the last missing bit to break the sdk/ \u003c-\u003e bindings/ cycle.\nPlease take a look.\n\ncheers,\nBenedikt",
+      "revId": "f042047ccdeb3b5c95e28f8f20b8b7ef0198d3ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
