@@ -113,7 +113,7 @@ export class ScreencastView extends UI.Widget.VBox {
     this._canvasElement.addEventListener('mousedown', this._handleMouseEvent.bind(this), false);
     this._canvasElement.addEventListener('mouseup', this._handleMouseEvent.bind(this), false);
     this._canvasElement.addEventListener('mousemove', this._handleMouseEvent.bind(this), false);
-    this._canvasElement.addEventListener('mousewheel', this._handleMouseEvent.bind(this), false);
+    this._canvasElement.addEventListener('wheel', this._handleMouseEvent.bind(this), false);
     this._canvasElement.addEventListener('click', this._handleMouseEvent.bind(this), false);
     this._canvasElement.addEventListener('contextmenu', this._handleContextMenuEvent.bind(this), false);
     this._canvasElement.addEventListener('keydown', this._handleKeyEvent.bind(this), false);
@@ -288,7 +288,7 @@ export class ScreencastView extends UI.Widget.VBox {
       return;
     }
 
-    if (!this._inspectModeConfig || event.type === 'mousewheel') {
+    if (!this._inspectModeConfig || event.type === 'wheel') {
       if (this._inputModel) {
         this._inputModel.emitTouchFromMouseEvent(event, this._screenOffsetTop, this._screenZoom);
       }

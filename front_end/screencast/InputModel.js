@@ -66,9 +66,10 @@ export class InputModel extends SDK.SDKModel.SDKModel {
           mousedown: 'mousePressed',
           mouseup: 'mouseReleased',
           mousemove: 'mouseMoved',
-          mousewheel: 'mouseWheel',
+          wheel: 'wheel',
         });
     const eventType = /** @type {string} */ (event.type);
+
     if (!(eventType in types)) {
       return;
     }
@@ -78,7 +79,7 @@ export class InputModel extends SDK.SDKModel.SDKModel {
     if (!(mouseEvent.which in buttons)) {
       return;
     }
-    if (eventType !== 'mousewheel' && buttons[mouseEvent.which] === 'none') {
+    if (eventType !== 'wheel' && buttons[mouseEvent.which] === 'none') {
       return;
     }
 
@@ -98,11 +99,10 @@ export class InputModel extends SDK.SDKModel.SDKModel {
       button: buttons[mouseEvent.which],
       clickCount: 0,
     };
-    if (event.type === 'mousewheel') {
-      // TODO(crbug.com/1145518) Remove usage of MouseWheelEvent.
-      const mouseWheelEvent = /** @type {*} */ (mouseEvent);
-      params.deltaX = mouseWheelEvent.wheelDeltaX / zoom;
-      params.deltaY = mouseWheelEvent.wheelDeltaY / zoom;
+    if (event.type === 'wheel') {
+      const wheelEvent = /** @type {!WheelEvent} */ (mouseEvent);
+      params.deltaX = wheelEvent.deltaX / zoom;
+      params.deltaY = -wheelEvent.deltaY / zoom;
     } else {
       this._activeTouchParams = params;
     }
