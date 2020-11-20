@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "082f5aa1_8e50d34e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-11-20T13:47:55Z",
+      "side": 1,
+      "message": "Hey Philip,\n\nHere\u0027s the addition of the unregister plugin API, which turned out to be more complex than expected, since unfortunately just closing the port will not notify the other end.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "16e64c858dbeb6d554d145e77d10f74be7ffed8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
