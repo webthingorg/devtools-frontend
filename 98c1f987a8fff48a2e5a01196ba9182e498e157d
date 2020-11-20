@@ -92,6 +92,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "1e38fe80_dc1a479f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-20T16:59:27Z",
+      "side": 1,
+      "message": "I have found related issues 1055930 \u0026 1024122 (not specific to screenshots though)",
+      "parentUuid": "f91364cc_54f4883e",
+      "revId": "98c1f987a8fff48a2e5a01196ba9182e498e157d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "9ef69593_e39711bf",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
