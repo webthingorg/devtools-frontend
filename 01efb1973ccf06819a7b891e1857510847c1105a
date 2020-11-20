@@ -50,6 +50,23 @@
       "message": "Sounds reasonable, but I don\u0027t really know devtools code so don\u0027t feel I can review.",
       "revId": "01efb1973ccf06819a7b891e1857510847c1105a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f3db0a7_ccbef564",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-11-20T18:51:51Z",
+      "side": 1,
+      "message": "@sigurds@chromium.org PTAL",
+      "revId": "01efb1973ccf06819a7b891e1857510847c1105a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
