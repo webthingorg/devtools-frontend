@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7db94a10_51a3545b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-20T06:13:37Z",
+      "side": 1,
+      "message": "lgtm % nit",
+      "revId": "b9c84d1bbeb3ef86461c89a1949584fc22bf2b60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc6b6c2b_044c809e",
+        "filename": "front_end/lighthouse/LighthouseController.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-20T06:13:37Z",
+      "side": 1,
+      "message": "nit: Anything speaking against cleaning this up to `locations[0]`, as its guaranteed to be a single element (might require a `toString()` as well)?",
+      "range": {
+        "startLine": 269,
+        "startChar": 79,
+        "endLine": 269,
+        "endChar": 99
+      },
+      "revId": "b9c84d1bbeb3ef86461c89a1949584fc22bf2b60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
