@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53b0c9c1_f731b306",
+        "filename": "inspector_overlay/main.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-20T09:07:33Z",
+      "side": 1,
+      "message": "using the OverlayTypeKey is not quite correct here because it\u0027s an OverlayTypeKey only for the setOverlay code? I wonder if the following would work: `message: [a: \u0027setOverlay\u0027, b: OverlayTypeKey] | [a: \u0027setPlatform\u0027, b: string] | [a: string, ...b: any]`?  Eventually, we should have types for all kinds of messages",
+      "revId": "335580045d448f1ed717197352bbe39a6ba2731c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
