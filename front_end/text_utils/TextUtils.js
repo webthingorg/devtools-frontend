@@ -46,12 +46,6 @@ export const Utils = {
   get _SpaceCharRegex() {
     return /\s/;
   },
-  /**
-   * @enum {string}
-   */
-  get Indent() {
-    return {TwoSpaces: '  ', FourSpaces: '    ', EightSpaces: '        ', TabCharacter: '\t'};
-  },
 
   /**
    * @param {string} char
