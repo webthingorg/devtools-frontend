@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e826588_2d37ba27",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-20T06:40:38Z",
+      "side": 1,
+      "message": "lgtm\n\nSorry if this is a drive-by review, but I vaguely remember you asking me to take a look yesterday xD",
+      "revId": "05dd556b4bf6364a3fedbd29fa1e932603bffbd6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2c13ba9_0b18f1ed",
+        "filename": "front_end/timeline/TimelineUIUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1560,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-20T06:40:38Z",
+      "side": 1,
+      "message": "I didn\u0027t see any `delete` to this map, should this be a WeakMap instead?",
+      "range": {
+        "startLine": 1560,
+        "startChar": 6,
+        "endLine": 1560,
+        "endChar": 58
+      },
+      "revId": "05dd556b4bf6364a3fedbd29fa1e932603bffbd6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
