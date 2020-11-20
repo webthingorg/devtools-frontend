@@ -54,6 +54,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9068359_9bd8f5a9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-11-20T15:18:40Z",
+      "side": 1,
+      "message": "It\u0027s a frontend limitation. The logic that handles screenshots is all taken care of in the device mode logic (DeviceModeWrapper.js, DeviceModeModel.js, etc). When requesting a screenshot, the Overlay domain is used to select the area, and then it reports a screenshot requested event. Device mode logic is supposed to grab a bit more information, then send to the page domain to take capture, and then device mode inserts the image in the page and downloads it.\n\nHowever, in non-dockable modes, the Device mode logic is never initialized, so nothing responds to the overlay event requesting a screenshot.\nThis is probably something we could address to make work, but would be more of a feature request to get working (either make device mode work for PWA, or move the screenshot logic somewhere else)\n\nWe are hoping to land this in the meantime to prevent customer confusion",
+      "parentUuid": "95b7b483_99c3512f",
+      "revId": "98c1f987a8fff48a2e5a01196ba9182e498e157d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9ef69593_e39711bf",
