@@ -139,7 +139,7 @@ export class CPUProfilerModel extends SDKModel {
   /**
    * @param {boolean} jsCoveragePerBlock - Collect per Block coverage if `true`, per function coverage otherwise.
    * @param {?function(number, string, !Array<!Protocol.Profiler.ScriptCoverage>):void} preciseCoverageDeltaUpdateCallback - Callback for coverage updates initiated from the back-end
-   * @return {!Promise<?>}
+   * @return {!Promise<?Protocol.Profiler.StartPreciseCoverageResponse>}
    */
   startPreciseCoverage(jsCoveragePerBlock, preciseCoverageDeltaUpdateCallback) {
     const callCount = false;

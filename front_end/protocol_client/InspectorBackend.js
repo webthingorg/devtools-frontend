@@ -816,6 +816,13 @@ export class TargetBase {
   }
 
   /**
+   * @return {!ProtocolProxyApi.ProfilerApi}
+   */
+  profilerAgent() {
+    throw new Error('Implemented in InspectorBackend.js');
+  }
+
+  /**
    * @return {!ProtocolProxyApi.LayerTreeApi}
    */
   layerTreeAgent() {
@@ -861,13 +868,6 @@ export class TargetBase {
    * @return {!ProtocolProxyApi.PageApi}
    */
   pageAgent() {
-    throw new Error('Implemented in InspectorBackend.js');
-  }
-
-  /**
-   * @return {!ProtocolProxyApi.ProfilerApi}
-   */
-  profilerAgent() {
     throw new Error('Implemented in InspectorBackend.js');
   }
 
