@@ -74,6 +74,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "f91364cc_54f4883e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-20T16:55:55Z",
+      "side": 1,
+      "message": "Sounds good. Thanks for the explanation! I am not a reviewer so I am just curious. Do you know if the users reported this issue or if we should file a feature request for this?",
+      "parentUuid": "e9068359_9bd8f5a9",
+      "revId": "98c1f987a8fff48a2e5a01196ba9182e498e157d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "9ef69593_e39711bf",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
