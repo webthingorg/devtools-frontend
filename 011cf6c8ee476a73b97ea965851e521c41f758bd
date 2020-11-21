@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "163e231c_16dfbe47",
+        "filename": "test/unittests/front_end/helpers/EnvironmentHelpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-11-21T04:31:44Z",
+      "side": 1,
+      "message": "I made this an IIFE as it needs to happen as soon as possible and seems that initializeGlobalVars is already too late. I tested it on different scenarios and on the tryjobs (link at the end) and seems stable.\nI have limited knowledge on how Karma is initializing the tools, but from what I could tell this is the top of the chain, if there is a better place/way to do this I would appreciate any pointers 😊\n\nhttps://ci.chromium.org/p/devtools-frontend/builders/try/devtools_frontend_linux_rel/b8863052589055497680?",
+      "revId": "011cf6c8ee476a73b97ea965851e521c41f758bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "954d1f2f_b13c45f2",
+        "filename": "test/unittests/karma.conf.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-11-21T04:31:44Z",
+      "side": 1,
+      "message": "FWIW this was my main issue 😊 took me some reading to understand this.",
+      "range": {
+        "startLine": 162,
+        "startChar": 55,
+        "endLine": 162,
+        "endChar": 99
+      },
+      "revId": "011cf6c8ee476a73b97ea965851e521c41f758bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
