@@ -63,6 +63,30 @@
       },
       "revId": "011cf6c8ee476a73b97ea965851e521c41f758bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7f62fe0_0c3128b5",
+        "filename": "test/unittests/karma.conf.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-11-21T05:29:05Z",
+      "side": 1,
+      "message": "AFAICT, the base is needed for all the resources outside of the test execution context. We had bad luck using css Images as an example as it does the same but in a different file: test_setup.ts, which provides a similar context to the css (/base/$targetDir) so that they can be proxied correctly (/base/$targetDir + \u0027front_end/Images\u0027)",
+      "parentUuid": "a8faea43_79450794",
+      "range": {
+        "startLine": 162,
+        "startChar": 55,
+        "endLine": 162,
+        "endChar": 99
+      },
+      "revId": "011cf6c8ee476a73b97ea965851e521c41f758bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
