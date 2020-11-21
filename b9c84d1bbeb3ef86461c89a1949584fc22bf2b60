@@ -39,6 +39,30 @@
       },
       "revId": "b9c84d1bbeb3ef86461c89a1949584fc22bf2b60",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b024613_7062fcef",
+        "filename": "front_end/lighthouse/LighthouseController.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-11-21T05:18:50Z",
+      "side": 1,
+      "message": "sounds good to me, seems possible values are string|undefined so locales[0] sounds like a good option.",
+      "parentUuid": "cc6b6c2b_044c809e",
+      "range": {
+        "startLine": 269,
+        "startChar": 79,
+        "endLine": 269,
+        "endChar": 99
+      },
+      "revId": "b9c84d1bbeb3ef86461c89a1949584fc22bf2b60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
