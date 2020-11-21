@@ -188,6 +188,9 @@
   <message name="IDS_DEVTOOLS_47ff9951b01a6b094431ff82dc68e266" desc="The kind of resolution for a mixed content issue">
     warned
   </message>
+  <message name="IDS_DEVTOOLS_481f7ba692763ecd2f7e6b8df8db174e" desc="Label for the link for Schemeful Same-Site Issues">
+    <ph name="FEATURE_NAME_SCHEMEFUL_SAME_SITE">Schemeful Same-Site</ph>
+  </message>
   <message name="IDS_DEVTOOLS_4c2e5ad7006ec9cf040895d1b3465798" desc="Title of a setting that turns on grid line name labels">
     Show line names
   </message>
@@ -243,9 +246,6 @@
     A cookie was not sent to <ph name="DESTINATION">$1s<ex>a secure</ex></ph> origin from <ph name="ORIGIN">$2s<ex>an insecure</ex></ph> context.
         Because this cookie would have been sent across schemes on the same site, it was not sent.
         This behavior enhances the <ph name="LOCKED_1">|SameSite|</ph> attribute’s protection of user data from request forgery by network attackers.
-  </message>
-  <message name="IDS_DEVTOOLS_a56491b51306fc59e63d029cb33328ee" desc="Label for the link for Schemeful Same-Site Issues">
-    How <ph name="FEATURE_NAME_SCHEMEFUL_SAME_SITE">Schemeful Same-Site</ph> Works
   </message>
   <message name="IDS_DEVTOOLS_a96d26c470375ec54854aa5939118471" desc="Title for a checkbox that turns on breakpoints on Trusted Type policy violations">
     Policy Violations
