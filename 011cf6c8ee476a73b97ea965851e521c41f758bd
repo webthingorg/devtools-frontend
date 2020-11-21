@@ -39,6 +39,30 @@
       },
       "revId": "011cf6c8ee476a73b97ea965851e521c41f758bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8faea43_79450794",
+        "filename": "test/unittests/karma.conf.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-11-21T05:03:52Z",
+      "side": 1,
+      "message": "Yeah, looks like you were very close when we spoke previously. Why didn\u0027t `front_end/18n/locales/` work?",
+      "parentUuid": "954d1f2f_b13c45f2",
+      "range": {
+        "startLine": 162,
+        "startChar": 55,
+        "endLine": 162,
+        "endChar": 99
+      },
+      "revId": "011cf6c8ee476a73b97ea965851e521c41f758bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
