@@ -207,15 +207,21 @@ export class DevicesSettingsTab extends UI.Widget.VBox {
     this._editor = editor;
     const content = editor.contentElement();
 
-    const fields = content.createChild('div', 'devices-edit-fields');
-    fields.createChild('div', 'hbox').appendChild(editor.createInput('title', 'text', ls`Device Name`, titleValidator));
-    const screen = fields.createChild('div', 'hbox');
+    const deviceFields = content.createChild('div', 'devices-edit-fields');
+    UI.UIUtils.createTextChild(deviceFields.createChild('b'), ls`Device`);
+    deviceFields.createChild('div', 'hbox')
+        .appendChild(editor.createInput('title', 'text', ls`Device Name`, titleValidator));
+    const screen = deviceFields.createChild('div', 'hbox');
     screen.appendChild(editor.createInput('width', 'text', ls`Width`, widthValidator));
     screen.appendChild(editor.createInput('height', 'text', ls`Height`, heightValidator));
     const dpr = editor.createInput('scale', 'text', ls`Device pixel ratio`, scaleValidator);
     dpr.classList.add('device-edit-fixed');
     screen.appendChild(dpr);
-    const ua = fields.createChild('div', 'hbox');
+
+    const uaStringFields = content.createChild('div', 'devices-edit-fields');
+    UI.UIUtils.createTextChild(uaStringFields.createChild('b'), ls`User agent string`);
+
+    const ua = uaStringFields.createChild('div', 'hbox');
     ua.appendChild(editor.createInput('user-agent', 'text', ls`User agent string`, () => {
       return {valid: true, errorMessage: undefined};
     }));
@@ -226,7 +232,64 @@ export class DevicesSettingsTab extends UI.Widget.VBox {
     uaType.classList.add('device-edit-fixed');
     ua.appendChild(uaType);
 
+    const uaChFields = content.createChild('div', 'devices-edit-client-hints-heading');
+    UI.UIUtils.createTextChild(uaChFields.createChild('b'), ls`User agent client hints`);
+
+    // ### should use ? not i, different style?
+    const icon = UI.Icon.Icon.create('mediumicon-info', 'help-icon');
+    const iconSpan = document.createElement('span');
+    iconSpan.title = ls`### Help goes here`;
+    iconSpan.appendChild(icon);
+    uaChFields.appendChild(iconSpan);
+
+    const tree = new UI.TreeOutline.TreeOutlineInShadow();
+    tree.registerRequiredCSS('emulation/devicesSettingsTab.css', {enableLegacyPatching: true});
+    tree.setShowSelectionOnKeyboardFocus(true, false);
+    const treeRoot = new UI.TreeOutline.TreeElement(uaChFields, true);
+    tree.appendChild(treeRoot);
+    content.appendChild(tree.element);
+
+    /**
+     * @param {!HTMLInputElement|!HTMLSelectElement} input
+     */
+    function addToTree(input) {
+      const treeNode = new UI.TreeOutline.TreeElement(input, false);
+      // The inputs themselves are selectable, no need for the tree nodes to be.
+      treeNode.selectable = false;
+      treeNode.listItemElement.classList.add('devices-edit-client-hints-field');
+      treeRoot.appendChild(treeNode);
+    }
+
+    const brands = editor.createInput('brands', 'text', ls`UA brands list`, noOpValidatorFixme);
+    addToTree(brands);
+
+    const fullVersion = editor.createInput('full-version', 'text', ls`Full version`, noOpValidatorFixme);
+    addToTree(fullVersion);
+
+    // ### autocomplete hints?
+    const platform = editor.createInput('platform', 'text', ls`Platform`, noOpValidatorFixme);
+    addToTree(platform);
+
+    const platformVersion = editor.createInput('platform-version', 'text', ls`Platform version`, noOpValidatorFixme);
+    addToTree(platformVersion);
+
+    const arch = editor.createInput('arch', 'text', ls`Architecture`, noOpValidatorFixme);
+    addToTree(arch);
+
+    const model = editor.createInput('model', 'text', ls`Device model`, noOpValidatorFixme);
+    addToTree(model);
+
     return editor;
+
+    /**
+     * @param {*} item
+     * @param {number} index
+     * @param {!HTMLInputElement|!HTMLSelectElement} input
+     * @return {!UI.ListWidget.ValidatorResult}
+     */
+    function noOpValidatorFixme(item, index, input) {
+      return {valid: true, errorMessage: undefined};
+    }
 
     /**
      * @param {*} item

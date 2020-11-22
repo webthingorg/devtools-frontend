@@ -24,11 +24,20 @@
   <message name="IDS_DEVTOOLS_146bdebb324a64d327b1dde22a07d0bd" desc="Text in Device Mode View of the Device Toolbar">
     Laptop
   </message>
+  <message name="IDS_DEVTOOLS_2d242bb36ec91b32005f9296ff03a912" desc="">
+    Architecture
+  </message>
   <message name="IDS_DEVTOOLS_33485fcae7737ceb110576dc3ef1a316" desc="Description of the Touch select in Sensors tab">
     Forces touch instead of click
   </message>
   <message name="IDS_DEVTOOLS_391e4e3cd855d914f85f3a4e1b9a00ea" desc="Title of the rotate/screen orientation button">
     Screen orientation options
+  </message>
+  <message name="IDS_DEVTOOLS_419f3742e6de8e0ec4b22cce005e7630" desc="">
+    Platform
+  </message>
+  <message name="IDS_DEVTOOLS_445b8178609bbfdf97fe430bc7448fa7" desc="">
+    User agent client hints
   </message>
   <message name="IDS_DEVTOOLS_52089bab86bd75e95090797a7ff551e7" desc="Title of an option in Sensors tab idle emulation select">
     User active, screen unlocked
@@ -39,14 +48,23 @@
   <message name="IDS_DEVTOOLS_55c0b68e68ef5e4d687c6170f80b3d49" desc="Description of the Emulate Idle State select in Sensors tab">
     Forces selected idle state emulation
   </message>
+  <message name="IDS_DEVTOOLS_71b401e30652987d57dc21cc1a84875b" desc="">
+    Device model
+  </message>
   <message name="IDS_DEVTOOLS_769667ac82abe561c47b57d183f6aa57" desc="Title of a section option in Sensors tab for idle emulation">
     Emulate Idle Detector state
+  </message>
+  <message name="IDS_DEVTOOLS_7a66b5109bf73bdf1dc0b20037605423" desc="">
+    Full version
   </message>
   <message name="IDS_DEVTOOLS_7c4e6c518a502500856e59e1a1481260" desc="Text for experimental api button when the api is enabled">
     &quot;<ph name="LOCKED_1">Experimental Web Platform Feature</ph>&quot; flag is enabled. Click to disable it.
   </message>
   <message name="IDS_DEVTOOLS_7cc843457525ef424db9f857de4939a2" desc="Title of an option in Sensors tab idle emulation select">
     User active, screen locked
+  </message>
+  <message name="IDS_DEVTOOLS_88b2916952c53e53cd9b309e4d1415f5" desc="">
+    ### Help goes here
   </message>
   <message name="IDS_DEVTOOLS_89999eac57e5838aa3adb04ad831f5d3" desc="Text in Sensors View of the Device Toolbar">
     Custom orientation
@@ -285,8 +303,14 @@
   <message name="IDS_DEVTOOLS_a7e2da1e5160847a88912b69027bca09" desc="Stage element title in Sensors View of the Device Toolbar">
     Enable orientation to rotate
   </message>
+  <message name="IDS_DEVTOOLS_b74ce9c976d19b27f922918af1c1ac6b" desc="">
+    UA brands list
+  </message>
   <message name="IDS_DEVTOOLS_c15b53cb50624f0e86e1a9ef5a9dd120" desc="Title of the span/un-span button">
     Toggle dual-screen mode
+  </message>
+  <message name="IDS_DEVTOOLS_e80db117a6c2bad899068992535b3436" desc="">
+    Platform version
   </message>
   <message name="IDS_DEVTOOLS_eebd338ddbd547e41e4a1296de82963a" desc="Title of Locations settings">
     Locations
