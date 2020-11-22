@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94009b79_06d01e8c",
+        "filename": "front_end/common/Settings.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 1633,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-11-22T01:13:52Z",
+      "side": 1,
+      "message": "These filters emulate the behaviour of the filter in the extensions look up in Runtime: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/root/Runtime.js;drc\u003df69ec827f69b9a272b7c76d9cb92065adb25b5fa;l\u003d344",
+      "range": {
+        "startLine": 1633,
+        "startChar": 28,
+        "endLine": 1633,
+        "endChar": 34
+      },
+      "revId": "2c0634edb06153a085fc6ccf9afb2154c33d0d4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c65a8e7_f18df9c1",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-11-22T01:13:52Z",
+      "side": 1,
+      "message": "This is not related to experiments per se, but was missing in the previous infra CL for view extensions.",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 116
+      },
+      "revId": "2c0634edb06153a085fc6ccf9afb2154c33d0d4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
