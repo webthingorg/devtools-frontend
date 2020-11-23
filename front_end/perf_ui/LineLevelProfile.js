@@ -295,7 +295,7 @@ export class LineDecorator {
     for (const decoration of decorations) {
       const value = /** @type {number} */ (decoration.data());
       const element = this._createElement(type, value);
-      textEditor.setGutterDecoration(decoration.range().startLine, gutterType, element);
+      textEditor.setGutterDecoration(decoration.range().startLine, gutterType, /** @type {!HTMLElement} */ (element));
     }
   }
 

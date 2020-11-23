@@ -448,7 +448,10 @@ CodeMirror.prototype = {
   removeLineClass: function(handle, where, cls) {},
   removeLineWidget: function(widget) {},
   removeOverlay: function(spec) {},
-  /** @param {*=} origin */
+  /**
+   * @param {*=} to
+   * @param {*=} origin
+   */
   replaceRange: function(code, from, to, origin) {},
   /**
    * @param {string} replacement
@@ -551,6 +554,8 @@ CodeMirror.Position.prototype.line;
 /** @type {number} */
 CodeMirror.Position.prototype.ch;
 
+/** @typedef {!Object<string, function(!CodeMirror.Editor):*>} */
+CodeMirror.KeyMap;
 
 /** @constructor */
 CodeMirror.Pos = function(line, ch) {};
