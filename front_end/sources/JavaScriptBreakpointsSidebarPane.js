@@ -28,6 +28,7 @@ export class JavaScriptBreakpointsSidebarPane extends UI.ThrottledWidget.Throttl
     this._breakpoints = new UI.ListModel.ListModel();
     /** @type {!UI.ListControl.ListControl.<!BreakpointItem>} */
     this._list = new UI.ListControl.ListControl(this._breakpoints, this, UI.ListControl.ListMode.NonViewport);
+    this._list.selectElementOnFocus(true);
     UI.ARIAUtils.markAsList(this._list.element);
     this.contentElement.appendChild(this._list.element);
 
@@ -197,6 +198,10 @@ export class JavaScriptBreakpointsSidebarPane extends UI.ThrottledWidget.Throttl
 
     if (hadFocus) {
       this.focus();
+    }
+
+    if (!this._list.selectedIndex()) {
+      this._list.selectElementOnFocus(true);
     }
 
     return this._didUpdateForTest();

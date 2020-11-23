@@ -99,6 +99,7 @@ export class ListControl {
     this.element.tabIndex = -1;
     this.element.addEventListener('click', this._onClick.bind(this), false);
     this.element.addEventListener('keydown', this._onKeyDown.bind(this), false);
+    this._boundSelectOnFocus = this._selectOnFocus.bind(this);
     ARIAUtils.markAsListBox(this.element);
 
     this._delegate = delegate;
@@ -146,9 +147,9 @@ export class ListControl {
       this._selectedIndex += data.inserted - (to - from);
       this._selectedItem = this._model.at(this._selectedIndex);
     } else if (this._selectedIndex >= from) {
-      let index = this._findFirstSelectable(from + data.inserted, +1, false);
+      let index = this._findFirstSelectable(from, +1, false);
       if (index === -1) {
-        index = this._findFirstSelectable(from - 1, -1, false);
+        index = this._findFirstSelectable(from, -1, false);
       }
       this._select(index, oldSelectedItem, oldSelectedElement);
     }
@@ -360,6 +361,26 @@ export class ListControl {
       return true;
     }
     return false;
+  }
+
+  /**
+   * @param {boolean=} enable
+   */
+  selectElementOnFocus(enable) {
+    if (enable) {
+      this.element.tabIndex = 0;
+      this.element.addEventListener('focus', this._boundSelectOnFocus);
+    } else {
+      this.element.tabIndex = -1;
+      this.element.removeEventListener('focus', this._boundSelectOnFocus);
+    }
+  }
+
+  _selectOnFocus() {
+    if (!this._selectedItem && this._model.at(0)) {
+      this._select(0);
+      this.selectElementOnFocus(false);
+    }
   }
 
   /**
