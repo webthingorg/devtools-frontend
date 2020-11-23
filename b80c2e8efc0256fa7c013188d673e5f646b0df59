@@ -68,6 +68,41 @@
       "parentUuid": "4f1e281b_86dfc7a0",
       "revId": "b80c2e8efc0256fa7c013188d673e5f646b0df59",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e7cec94_5fd58056",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-23T11:17:54Z",
+      "side": 1,
+      "message": "Marking as -1 for now. Let\u0027s land this once Closure is gone.",
+      "revId": "b80c2e8efc0256fa7c013188d673e5f646b0df59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e313113_0848f889",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-23T11:17:54Z",
+      "side": 1,
+      "message": "Happy to wait for Closure removal before landing this. queueMicrotask is not in the ECMAScript spec (which might explain why Closure doesn\u0027t know about it) but is supported across all browsers and Node.js regardless",
+      "parentUuid": "2a2065aa_19cc24c7",
+      "revId": "b80c2e8efc0256fa7c013188d673e5f646b0df59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
