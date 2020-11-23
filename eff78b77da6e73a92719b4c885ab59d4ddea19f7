@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a385b531_92cf7b40",
+        "filename": "all_devtools_files.gni",
+        "patchSetId": 10
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-23T08:51:29Z",
+      "side": 1,
+      "message": "style nit: cspViolationsView.css",
+      "range": {
+        "startLine": 255,
+        "startChar": 20,
+        "endLine": 255,
+        "endChar": 23
+      },
+      "revId": "eff78b77da6e73a92719b4c885ab59d4ddea19f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fefea96f_3084e9bb",
+        "filename": "all_devtools_files.gni",
+        "patchSetId": 10
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-23T08:51:29Z",
+      "side": 1,
+      "message": "same style nit here",
+      "range": {
+        "startLine": 256,
+        "startChar": 20,
+        "endLine": 256,
+        "endChar": 41
+      },
+      "revId": "eff78b77da6e73a92719b4c885ab59d4ddea19f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "815cc73e_51023ce0",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-23T08:51:29Z",
+      "side": 1,
+      "message": "To update this enum, we need a back-end CL.",
+      "range": {
+        "startLine": 633,
+        "startChar": 2,
+        "endLine": 633,
+        "endChar": 26
+      },
+      "revId": "eff78b77da6e73a92719b4c885ab59d4ddea19f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c937ff3_11d3bc21",
+        "filename": "front_end/issues/CSPViolationsListView.css",
+        "patchSetId": 10
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-23T08:51:29Z",
+      "side": 1,
+      "message": "Is this accidentally empty?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 3
+      },
+      "revId": "eff78b77da6e73a92719b4c885ab59d4ddea19f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c4fcc10_0cb1725d",
+        "filename": "front_end/issues/CSPViolationsListView.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-23T08:51:29Z",
+      "side": 1,
+      "message": "Those should be referenced via the Components import above.",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 134
+      },
+      "revId": "eff78b77da6e73a92719b4c885ab59d4ddea19f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52484891_09d336e7",
+        "filename": "front_end/issues/CSPViolationsView.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-23T08:51:29Z",
+      "side": 1,
+      "message": "Move to separate file?",
+      "range": {
+        "startLine": 67,
+        "startChar": 6,
+        "endLine": 67,
+        "endChar": 27
+      },
+      "revId": "eff78b77da6e73a92719b4c885ab59d4ddea19f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
