@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38f50dce_bd86f789",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-23T16:03:28Z",
+      "side": 1,
+      "message": "@Paul, PTAL.\n\nImage here: https://imgur.com/a/iZMVNYU",
+      "revId": "76277958f99fa86c833eca386564cc7799e75d4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
