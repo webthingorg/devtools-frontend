@@ -16,6 +16,69 @@
       "message": "I updated the patch to address your comments Sigurd. \nPlease let me know what you think.",
       "revId": "142a1d4e12b0fc6d29bb3934a6aaad246da45037",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "331b4438_c65b52e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-23T15:28:30Z",
+      "side": 1,
+      "message": "LGTM % final comments, thanks for improving the cookie preview view!",
+      "revId": "142a1d4e12b0fc6d29bb3934a6aaad246da45037",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f5abd78_a5929f95",
+        "filename": "front_end/resources/CookieItemsView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-23T15:28:30Z",
+      "side": 1,
+      "message": "The empty widget has 30px padding, which might not work well if DevTools is shown on the side and rather small.",
+      "range": {
+        "startLine": 152,
+        "startChar": 28,
+        "endLine": 152,
+        "endChar": 54
+      },
+      "revId": "142a1d4e12b0fc6d29bb3934a6aaad246da45037",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abf750cf_ef88be85",
+        "filename": "front_end/resources/CookieItemsView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-23T15:28:30Z",
+      "side": 1,
+      "message": "This causes the widget to rest the current selection, scrolling, etc. every time _showPreview is called (every 3 seconds currently, I think). Let\u0027s call show already in the constructor then do \n\n   if (!cookie) {\n      this._emptyWidget.showWidget();\n      this._previewWidget.hideWidget();\n    } else {\n      this._previewWidget.setCookie(cookie);\n      this._emptyWidget.hideWidget();\n      this._previewWidget.showWidget();\n    }\n\nin this method.",
+      "range": {
+        "startLine": 196,
+        "startChar": 3,
+        "endLine": 198,
+        "endChar": 0
+      },
+      "revId": "142a1d4e12b0fc6d29bb3934a6aaad246da45037",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
