@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eef423b5_54dc3675",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-11-23T15:06:38Z",
+      "side": 1,
+      "message": "More refactoring to prepare the heap snapshot grid for TS, PTAL!",
+      "revId": "fafe2efc14a50a23422445d8f11edaeec7068d9c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
