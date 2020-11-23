@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cb4ff9a_183f14e2",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 670,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-23T15:01:13Z",
+      "side": 1,
+      "message": "Do we have a better way to determine whether it is a root element?",
+      "revId": "c887d6955a22a6264277e8a9ded25f41454e4410",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36beed5c_b87c08b7",
+        "filename": "front_end/elements/ElementsTreeOutline.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-23T15:01:13Z",
+      "side": 1,
+      "message": "Duplicate HTML directly without copying.",
+      "revId": "c887d6955a22a6264277e8a9ded25f41454e4410",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
