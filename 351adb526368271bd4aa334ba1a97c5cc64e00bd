@@ -51,6 +51,24 @@
       "parentUuid": "9c5debfb_0adc3e53",
       "revId": "351adb526368271bd4aa334ba1a97c5cc64e00bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5722fab1_ae569c62",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1779,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-23T10:32:07Z",
+      "side": 1,
+      "message": "Gotcha.",
+      "parentUuid": "47370c26_8ffc2665",
+      "revId": "351adb526368271bd4aa334ba1a97c5cc64e00bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
