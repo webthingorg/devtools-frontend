@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc2d34f6_278d47d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-23T07:54:00Z",
+      "side": 1,
+      "message": "That\u0027s a whole lotta ts-ignore in there, but I\u0027m guessing we have little choice!",
+      "revId": "2ad81cb0ada2f831db33f38238e1e0575b67581b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
