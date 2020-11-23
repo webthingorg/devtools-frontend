@@ -79,6 +79,30 @@
       },
       "revId": "142a1d4e12b0fc6d29bb3934a6aaad246da45037",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96f45883_16c0bb82",
+        "filename": "front_end/resources/CookieItemsView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-23T15:29:33Z",
+      "side": 1,
+      "message": "Note that you might want to hide the _previewWidget via hideWidget in the constructor; showing the empty widget from the start seems right.",
+      "parentUuid": "abf750cf_ef88be85",
+      "range": {
+        "startLine": 196,
+        "startChar": 3,
+        "endLine": 198,
+        "endChar": 0
+      },
+      "revId": "142a1d4e12b0fc6d29bb3934a6aaad246da45037",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
