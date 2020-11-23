@@ -72,14 +72,13 @@ export function changeObjectToEditOperation(changeObject) {
 }
 
 /**
- * @param {!CodeMirror} codeMirror
+ * @param {!CodeMirror.Editor} codeMirror
  * @param {number} linesCount
  * @return {!Array.<string>}
  */
 export function pullLines(codeMirror, linesCount) {
   /** @type {!Array.<string>} */
   const lines = [];
-  // @ts-expect-error CodeMirror types do not specify eachLine.
   codeMirror.eachLine(0, linesCount, onLineHandle);
   return lines;
 

@@ -48,6 +48,7 @@ export class SourcesTextEditor extends TextEditor.CodeMirrorTextEditor.CodeMirro
     this.codeMirror().on('scroll', this._scroll.bind(this));
     this.codeMirror().on('focus', this._focus.bind(this));
     this.codeMirror().on('blur', this._blur.bind(this));
+    // @ts-ignore crbug.com/1151919
     this.codeMirror().on('beforeSelectionChange', this._fireBeforeSelectionChanged.bind(this));
     this.codeMirror().on('gutterContextMenu', this._contextMenu.bind(this));
     /**
@@ -63,6 +64,7 @@ export class SourcesTextEditor extends TextEditor.CodeMirrorTextEditor.CodeMirro
       this.element.classList.toggle('CodeMirror-gutter-hovered', false);
     };
 
+    // @ts-ignore crbug.com/1151919
     this.codeMirror().addKeyMap(_BlockIndentController);
     this._tokenHighlighter = new TokenHighlighter(this, this.codeMirror());
 
@@ -302,7 +304,7 @@ export class SourcesTextEditor extends TextEditor.CodeMirrorTextEditor.CodeMirro
   /**
    * @param {number} lineNumber
    * @param {string} type
-   * @param {?Element} element
+   * @param {?HTMLElement} element
    */
   setGutterDecoration(lineNumber, type, element) {
     console.assert(this._gutters.indexOf(type) !== -1, 'Cannot decorate unexisting gutter.');
@@ -481,6 +483,7 @@ export class SourcesTextEditor extends TextEditor.CodeMirrorTextEditor.CodeMirro
    * @param {!Array.<string>} lines
    */
   _setEditorIndentation(lines) {
+    /** @type {!CodeMirror.KeyMap} */
     const extraKeys = {};
     let indent = Common.Settings.Settings.instance().moduleSetting('textEditorIndent').get();
     if (Common.Settings.Settings.instance().moduleSetting('textEditorAutoDetectIndent').get()) {
@@ -494,10 +497,10 @@ export class SourcesTextEditor extends TextEditor.CodeMirrorTextEditor.CodeMirro
       this.codeMirror().setOption('indentWithTabs', false);
       this.codeMirror().setOption('indentUnit', indent.length);
       /**
-       * TODO: |codeMirror| is really a CodeMirror.Editor
-       * @param {*} codeMirror
-       * @returns {void|*}
+       * @param {!CodeMirror.Editor} codeMirror
+       * @returns {*}
        */
+      // @ts-ignore crbug.com/1151919
       extraKeys.Tab = function(codeMirror) {
         if (codeMirror.somethingSelected()) {
           return CodeMirror.Pass;
@@ -635,6 +638,7 @@ export class SourcesTextEditor extends TextEditor.CodeMirrorTextEditor.CodeMirro
       this.element.addEventListener('mousemove', this._gutterMouseMove);
       this.element.addEventListener('mouseout', this._gutterMouseOut);
       this.codeMirror().setOption('foldGutter', true);
+      // @ts-ignore crbug.com/1151919
       this.codeMirror().setOption('foldOptions', {minFoldSize: 1});
     } else {
       this.codeMirror().execCommand('unfoldAll');
@@ -824,6 +828,7 @@ export class SourcesTextEditorDelegate {
 /**
  * @param {!CodeMirror.Editor} codeMirror
  */
+// @ts-ignore crbug.com/1151919
 CodeMirror.commands.smartNewlineAndIndent = function(codeMirror) {
   codeMirror.operation(innerSmartNewlineAndIndent.bind(null, codeMirror));
   /**
@@ -849,10 +854,12 @@ CodeMirror.commands.smartNewlineAndIndent = function(codeMirror) {
  * @param {!CodeMirror.Editor} codeMirror
  * @return {!Object|undefined}
  */
+// @ts-ignore crbug.com/1151919
 CodeMirror.commands.sourcesDismiss = function(codeMirror) {
   if (codeMirror.listSelections().length === 1 && SourcesTextEditor.getForCodeMirror(codeMirror)._isSearchActive()) {
     return CodeMirror.Pass;
   }
+  // @ts-ignore crbug.com/1151919
   return CodeMirror.commands.dismiss(codeMirror);
 };
 
