@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b643d820_eeee94fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-11-23T15:07:14Z",
+      "side": 1,
+      "message": "Switch on the type checker finally and slap types and casts on everything!",
+      "revId": "cf55642629b55597778ebb3db3b5c8cc40d2fac8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
