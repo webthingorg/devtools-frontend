@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "140e9845_b4b5176a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-11-23T15:05:39Z",
+      "side": 1,
+      "message": "This is a first step towards checking the heap snapshot grid with TS. PTAL!",
+      "revId": "9cee847833a2430696e2f62458fb863b5d271bc2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
