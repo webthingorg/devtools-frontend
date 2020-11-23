@@ -16,6 +16,57 @@
       "message": "As per our offline discussion, I added a waitForScriptToChange function instead.\nLet me know what you think!",
       "revId": "d067913d1f024e85281bc403c7d8a1e8e1ff4390",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77cef3f4_b2d154ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-23T09:38:02Z",
+      "side": 1,
+      "message": "I like this much better! LGTM % possible simplification",
+      "revId": "d067913d1f024e85281bc403c7d8a1e8e1ff4390",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67d3d971_a9292b63",
+        "filename": "test/e2e/recorder/recorder_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-23T09:38:02Z",
+      "side": 1,
+      "message": "Since we only need this helper in this one case for now, we could keep it simple. Instead of passing `previousScript` as a parameter, rely on an outer binding, and rebind whenever waitForScriptToChange gets called.",
+      "revId": "d067913d1f024e85281bc403c7d8a1e8e1ff4390",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7afb5446_41cf31cd",
+        "filename": "test/e2e/recorder/recorder_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-23T09:38:02Z",
+      "side": 1,
+      "message": "With the above suggestion, this (and the following equivalent lines) would be simplified to:\n\n    await waitForScriptToChange();",
+      "revId": "d067913d1f024e85281bc403c7d8a1e8e1ff4390",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
