@@ -29,6 +29,7 @@
  */
 
 import * as Common from '../common/common.js';
+import * as Elements from '../elements/elements.js';
 import * as Persistence from '../persistence/persistence.js';  // eslint-disable-line no-unused-vars
 import * as Platform from '../platform/platform.js';
 import * as Root from '../root/root.js';
@@ -663,10 +664,12 @@ export class UISourceCodeFrame extends SourceFrame.SourceFrame.SourceFrameImpl {
   }
 }
 
-/** @type {!Map<!Workspace.UISourceCode.Message.Level, string>} */
+/** @type {!Map<!Workspace.UISourceCode.Message.Level, Elements.Icon.IconData>} */
 const iconClassPerLevel = new Map();
-iconClassPerLevel.set(Workspace.UISourceCode.Message.Level.Error, 'smallicon-error');
-iconClassPerLevel.set(Workspace.UISourceCode.Message.Level.Warning, 'smallicon-warning');
+iconClassPerLevel.set(
+    Workspace.UISourceCode.Message.Level.Error, {color: '', width: '11px', height: '11px', iconName: 'error_icon'});
+iconClassPerLevel.set(
+    Workspace.UISourceCode.Message.Level.Warning, {color: '', width: '11px', height: '11px', iconName: 'warning_icon'});
 
 /** @type {!Map<!Workspace.UISourceCode.Message.Level, string>} */
 const bubbleTypePerLevel = new Map();
@@ -690,9 +693,12 @@ export class RowMessage {
     this._repeatCount = 1;
     this.element = document.createElement('div');
     this.element.classList.add('text-editor-row-message');
-    /** @type {!UI.UIUtils.DevToolsIconLabel} */
-    this._icon = /** @type {?} */ (this.element.createChild('span', '', 'dt-icon-label'));
-    this._icon.type = /** @type {string} */ (iconClassPerLevel.get(message.level()));
+    this._icon = new Elements.Icon.Icon();
+    const iconData = iconClassPerLevel.get(message.level());
+    if (iconData) {
+      this._icon.data = iconData;
+    }
+    this.element.appendChild(this._icon);
     /** @type {!UI.UIUtils.DevToolsSmallBubble} */
     this._repeatCountElement =
         /** @type {?} */ (
@@ -756,8 +762,10 @@ export class RowMessageBucket {
     this._decoration.classList.add('text-editor-line-decoration');
     elementToMessageBucket.set(this._decoration, this);
     this._wave = this._decoration.createChild('div', 'text-editor-line-decoration-wave');
-    /** @type {!UI.UIUtils.DevToolsIconLabel} */
-    this._icon = /** @type {?} */ (this._wave.createChild('span', 'text-editor-line-decoration-icon', 'dt-icon-label'));
+    /** @type {!Elements.Icon.Icon} */
+    this._icon = new Elements.Icon.Icon();
+    this._icon.classList.add('text-editor-line-decoration-icon');
+    this._wave.appendChild(this._icon);
     /** @type {?number} */
     this._decorationStartColumn = null;
 
@@ -893,14 +901,18 @@ export class RowMessageBucket {
     if (this._level) {
       this.textEditor.toggleLineClass(
           editorLineNumber, /** @type {string} */ (lineClassPerLevel.get(this._level)), false);
-      this._icon.type = '';
+      this._icon.classList.add('hidden');
     }
     this._level = maxMessage.level();
     if (!this._level) {
       return;
     }
     this.textEditor.toggleLineClass(editorLineNumber, /** @type {string} */ (lineClassPerLevel.get(this._level)), true);
-    this._icon.type = /** @type {string} */ (iconClassPerLevel.get(this._level));
+    const icon = iconClassPerLevel.get(this._level);
+    if (icon) {
+      this._icon.data = icon;
+      this._icon.classList.remove('hidden');
+    }
   }
 }
 
