@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5474500d_6d041916",
+        "filename": "front_end/ui/inspectorStyle.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-23T10:48:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "00ca1345_70eb23c4",
+      "range": {
+        "startLine": 35,
+        "startChar": 5,
+        "endLine": 35,
+        "endChar": 9
+      },
+      "revId": "d91a296292b6157c2bf16d80a6eeb82d33ade48c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e67ffa1e_adaa6b69",
@@ -71,6 +95,30 @@
       "writtenOn": "2020-11-23T10:44:50Z",
       "side": 1,
       "message": "Same deal 😄",
+      "range": {
+        "startLine": 83,
+        "startChar": 5,
+        "endLine": 83,
+        "endChar": 9
+      },
+      "revId": "d91a296292b6157c2bf16d80a6eeb82d33ade48c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dd77132_0835bff9",
+        "filename": "front_end/ui/inspectorStyle.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-23T10:48:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e67ffa1e_adaa6b69",
       "range": {
         "startLine": 83,
         "startChar": 5,
