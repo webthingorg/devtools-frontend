@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bda70499_e3b71b65",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-23T09:09:27Z",
+      "side": 1,
+      "message": "Please rebase and resolve conflicts if any, so that I could dry run it.",
+      "revId": "844933e46ab7e979fd4cfe05f69ed67f9eeed05f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7d640c9_342f0a59",
+        "filename": "front_end/sdk/RuntimeModel.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-23T09:09:27Z",
+      "side": 1,
+      "message": "Could we use the setting `Common.Settings.Settings.instance().moduleSetting(\u0027textEditorIndent\u0027).get()` for this as well?",
+      "revId": "844933e46ab7e979fd4cfe05f69ed67f9eeed05f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
