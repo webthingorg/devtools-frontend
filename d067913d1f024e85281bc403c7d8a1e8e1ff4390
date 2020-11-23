@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c602ac6_4d127159",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-23T09:20:58Z",
+      "side": 1,
+      "message": "As per our offline discussion, I added a waitForScriptToChange function instead.\nLet me know what you think!",
+      "revId": "d067913d1f024e85281bc403c7d8a1e8e1ff4390",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

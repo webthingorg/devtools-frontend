@@ -67,6 +67,24 @@
       "message": "I\u0027m weary of adding random timeouts without a plan to eventually remove them. Could you file a tracking bug to investigate + remove them?",
       "revId": "68fa7ed01e44972d8b5aeb3a86ca26073bc757f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1faadb77_5069b674",
+        "filename": "test/e2e/recorder/recorder_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-23T09:20:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4fe3302b_844bb132",
+      "revId": "68fa7ed01e44972d8b5aeb3a86ca26073bc757f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
