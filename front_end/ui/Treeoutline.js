@@ -525,6 +525,7 @@ export class TreeElement {
     this._trailingIconsElement = null;
     /** @type {?HTMLElement} */
     this._selectionElement = null;
+    this.node = undefined;
   }
 
   /**
