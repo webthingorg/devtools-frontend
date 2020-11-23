@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "179c7160_ad4e1110",
+        "filename": "front_end/common/Settings.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 1633,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-23T11:19:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "94009b79_06d01e8c",
+      "range": {
+        "startLine": 1633,
+        "startChar": 28,
+        "endLine": 1633,
+        "endChar": 34
+      },
+      "revId": "2c0634edb06153a085fc6ccf9afb2154c33d0d4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1c65a8e7_f18df9c1",
@@ -42,6 +66,53 @@
         "startChar": 0,
         "endLine": 118,
         "endChar": 116
+      },
+      "revId": "2c0634edb06153a085fc6ccf9afb2154c33d0d4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de112a90_b3530239",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-23T11:19:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1c65a8e7_f18df9c1",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 116
+      },
+      "revId": "2c0634edb06153a085fc6ccf9afb2154c33d0d4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97cc4699_f1b7ee0d",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-23T11:19:41Z",
+      "side": 1,
+      "message": "We have this filtering in multiple places. Ideally we put it in 1 place, but I don\u0027t think it makes sense to do that during the migration. Let\u0027s keep this in mind for later.",
+      "range": {
+        "startLine": 163,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 118
       },
       "revId": "2c0634edb06153a085fc6ccf9afb2154c33d0d4e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
