@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5b0920c_1addbe3c",
+        "filename": "front_end/timeline_model/TimelineModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-23T10:01:07Z",
+      "side": 1,
+      "message": "Oh, yes, that works (/** @type {!Object.\u003cstring, ?SDK.TracingModel.Event\u003e} */), with \"?\" on the first since we are setting it to null too. Thanks!",
+      "parentUuid": "78cf2e46_faa50e90",
+      "range": {
+        "startLine": 78,
+        "startChar": 4,
+        "endLine": 78,
+        "endChar": 20
+      },
+      "revId": "18fa5476344b20c23377a4b807158f24a4a26ea7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a21bbdd7_e18998e0",
@@ -83,6 +107,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "69f6d0d9_6ec9da67",
+        "filename": "front_end/timeline_model/TimelineModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-23T10:01:07Z",
+      "side": 1,
+      "message": "I moved it up in order to make clear that the @ts-ignore is because of the fallthrough. Do you think we should lower it?",
+      "parentUuid": "a21bbdd7_e18998e0",
+      "range": {
+        "startLine": 1138,
+        "startChar": 6,
+        "endLine": 1139,
+        "endChar": 30
+      },
+      "revId": "18fa5476344b20c23377a4b807158f24a4a26ea7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b20432b1_4bda772a",
         "filename": "front_end/timeline_model/TimelineModel.js",
         "patchSetId": 5
@@ -94,6 +142,30 @@
       "writtenOn": "2020-11-23T07:53:07Z",
       "side": 1,
       "message": "For these are we able to do /** @param {{name: string, url:string|undefined, frame:?Object}} */ or something like it?",
+      "range": {
+        "startLine": 1893,
+        "startChar": 13,
+        "endLine": 1893,
+        "endChar": 14
+      },
+      "revId": "18fa5476344b20c23377a4b807158f24a4a26ea7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "175b596d_90ceb95a",
+        "filename": "front_end/timeline_model/TimelineModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 1893,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-23T10:01:07Z",
+      "side": 1,
+      "message": "Tried with something similar: `!{name: string, url: (string|undefined), frame: string, parent: string, frameId: string}`. Unit tests start to fail though; if that\u0027s fine I could look into this in a follow up CL?",
+      "parentUuid": "b20432b1_4bda772a",
       "range": {
         "startLine": 1893,
         "startChar": 13,
