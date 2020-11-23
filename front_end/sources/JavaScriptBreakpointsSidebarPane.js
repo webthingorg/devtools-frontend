@@ -34,7 +34,7 @@ export class JavaScriptBreakpointsSidebarPane extends UI.ThrottledWidget.Throttl
     this._emptyElement = this.contentElement.createChild('div', 'gray-info-message');
     this._emptyElement.textContent = ls`No breakpoints`;
     this._emptyElement.tabIndex = -1;
-
+    // testing
     this.update();
   }
 
