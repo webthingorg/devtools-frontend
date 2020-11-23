@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d118de2_26238bf1",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-11-23T15:36:52Z",
+      "side": 1,
+      "message": "Why don\u0027t we use `_enableDebugger` here? It seems that we now have `DebuggerModel` instance, whose targets\u0027 `Debugger` domain is enabled, but the front-end state doesn\u0027t reflect that?",
+      "revId": "d7cfd929028e588f2d35408dfc570b827e3c36b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
