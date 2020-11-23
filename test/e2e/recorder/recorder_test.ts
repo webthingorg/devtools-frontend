@@ -4,7 +4,7 @@
 
 import {assert} from 'chai';
 
-import {enableExperiment, getBrowserAndPages, getHostedModeServerPort, goToResource} from '../../shared/helper.js';
+import {enableExperiment, getBrowserAndPages, getHostedModeServerPort, goToResource, timeout} from '../../shared/helper.js';
 import {createNewRecording, openRecorderSubPane, openSourcesPanel} from '../helpers/sources-helpers.js';
 
 function retrieveCodeMirrorEditorContent() {
@@ -21,7 +21,7 @@ async function getCode() {
 
 describe('Recorder', () => {
   // Flaky test.
-  it.skip('[crbug.com/1151234] should connect to the browser via DevTools own connection', async () => {
+  it('[crbug.com/1151234] should connect to the browser via DevTools own connection', async () => {
     await enableExperiment('recorder');
     await goToResource('recorder/recorder.html');
 
@@ -35,20 +35,27 @@ describe('Recorder', () => {
     await frontend.click('aria/Record');
     await frontend.waitForSelector('aria/Stop');
     await target.bringToFront();
+    await timeout(100);
     await target.click('#test');
+    await timeout(100);
     await target.click('#form-button');
+    await timeout(100);
     await target.click('#span');
+    await timeout(100);
     await target.click('#span2');
+    await timeout(100);
     await target.type('#input', 'test');
     await target.keyboard.press('Enter');
+    await timeout(100);
     await target.click('pierce/#inner-span');
-
+    await timeout(100);
     const iframe = await target.$('#iframe').then(x => x ? x.contentFrame() : null);
-    // @ts-ignore
+    // @ts-ignore iframe will not be null;
     await iframe.click('#in-iframe');
+    await timeout(100);
     await frontend.bringToFront();
     await frontend.click('aria/Stop');
-
+    await timeout(1000);
     const textContent = await getCode();
 
     assert.strictEqual(textContent, `const puppeteer = require('puppeteer')
