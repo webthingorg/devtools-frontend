@@ -74,7 +74,7 @@ export function changeObjectToEditOperation(changeObject) {
 }
 
 /**
- * @param {!CodeMirror} codeMirror
+ * @param {!CodeMirror.Editor} codeMirror
  * @param {number} linesCount
  * @return {!Array.<string>}
  */

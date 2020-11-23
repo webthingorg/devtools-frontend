@@ -24,6 +24,7 @@ export class ChangesTextEditor extends TextEditor.CodeMirrorTextEditor.CodeMirro
       /**
        * @param {!CodeMirror.Editor} cm
        */
+      // @ts-ignore crbug.com/1151919
       Left: function(cm) {
         const scrollInfo = cm.getScrollInfo();
         // Left edge check required due to bug where line numbers would disappear when attempting to scroll left when the scrollbar is at the leftmost point.
@@ -35,6 +36,7 @@ export class ChangesTextEditor extends TextEditor.CodeMirrorTextEditor.CodeMirro
       /**
        * @param {!CodeMirror.Editor} cm
        */
+      // @ts-ignore crbug.com/1151919
       Right: function(cm) {
         const scrollInfo = cm.getScrollInfo();
         cm.scrollTo(scrollInfo.left + Math.round(scrollInfo.clientWidth / 6), null);
@@ -48,6 +50,9 @@ export class ChangesTextEditor extends TextEditor.CodeMirrorTextEditor.CodeMirro
   updateDiffGutter(diffRows) {
     this.codeMirror().eachLine(/** @param {!CodeMirror.LineHandle} line */ line => {
       const lineNumber = this.codeMirror().getLineNumber(line);
+      if (lineNumber === null) {
+        return;
+      }
       const row = diffRows[lineNumber];
       let gutterMarker;
       if (row.type === RowType.Deletion) {
@@ -75,8 +80,7 @@ export class DevToolsAccessibleDiffTextArea extends TextEditor.CodeMirrorTextEdi
   */
   reset(typing) {
     super.reset(typing);
-    // TODO(crbug.com/1011811): Update CodeMirror typings to include this property
-    const doc = /** @type {!CodeMirror.Doc} */ (/** @type {*} */ (this.cm).doc);
+    const doc = this.cm.doc;
     if (this.textAreaBusy(!!typing) || !(typeof doc.modeOption === 'object')) {
       return;
     }
