@@ -16,6 +16,40 @@
       "message": "PTAL, thanks!",
       "revId": "68fa7ed01e44972d8b5aeb3a86ca26073bc757f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "feef67ea_6c42daf4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-23T08:50:22Z",
+      "side": 1,
+      "message": "With my comment addressed, I\u0027d be willing to LGTM on the grounds that it\u0027s better to have this test with timeouts than to have it disabled. But I\u0027d like to see this as a temporary fix, with a plan for removing the timeouts.",
+      "revId": "68fa7ed01e44972d8b5aeb3a86ca26073bc757f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fe3302b_844bb132",
+        "filename": "test/e2e/recorder/recorder_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-23T08:50:22Z",
+      "side": 1,
+      "message": "I\u0027m weary of adding random timeouts without a plan to eventually remove them. Could you file a tracking bug to investigate + remove them?",
+      "revId": "68fa7ed01e44972d8b5aeb3a86ca26073bc757f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
