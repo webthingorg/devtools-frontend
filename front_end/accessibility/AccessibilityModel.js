@@ -259,6 +259,33 @@ export class AccessibilityModel extends SDK.SDKModel.SDKModel {
     }
   }
 
+  async requestRoot() {
+    this.clear();
+    await this._agent.invoke_enable();
+    const {nodes} = await this._agent.invoke_getRootAXNode();
+    if (!nodes) {
+      return;
+    }
+
+    for (const [i, payload] of nodes.entries) {
+      const node = new AccessibilityNode(this, payload);
+      if (i === 0) {
+        this._rootNode = node;
+      }
+    }
+
+    for (const axNode of this._axIdToAXNode.values()) {
+      for (const axChild of axNode.children()) {
+        axChild._setParentNode(axNode);
+      }
+    }
+    return this._rootNode;
+  }
+
+  async getChildAXNodes(id) {
+  }
+
+
   /**
    * @param {string} axId
    * @return {?AccessibilityNode}
