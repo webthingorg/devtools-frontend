@@ -2228,7 +2228,7 @@ export class ResourcesSection {
    * @param {!SDK.SDKModel.Target} target
    */
   targetAdded(target) {
-    if (target.type() === 'worker') {
+    if (target.type() === SDK.SDKModel.Type.Worker) {
       this._workerAdded(target);
     }
   }
@@ -2458,7 +2458,7 @@ export class FrameTreeElement extends BaseStorageTreeElement {
   /**
    * @param {!SDK.ResourceTreeModel.ResourceTreeFrame} frame
    */
-  frameNavigated(frame) {
+  async frameNavigated(frame) {
     const icon = UI.Icon.Icon.create(this.getIconTypeForFrame(frame));
     if (frame.unreachableUrl()) {
       icon.classList.add('red-icon');
@@ -2479,12 +2479,24 @@ export class FrameTreeElement extends BaseStorageTreeElement {
     }
     this._categoryElements.clear();
     this._treeElementForResource.clear();
+    this._treeElementForWorker.clear();
 
     if (this.selected) {
       this._view = new FrameDetailsView(this._frame);
       this.showView(this._view);
     } else {
       this._view = null;
+    }
+
+    if (frame.isTopFrame()) {
+      const targets = SDK.SDKModel.TargetManager.instance().targets();
+      for (const target of targets) {
+        if (target.type() === SDK.SDKModel.Type.ServiceWorker) {
+          const agent = frame.resourceTreeModel().target().targetAgent();
+          const targetInfo = (await agent.invoke_getTargetInfo({targetId: target.id()})).targetInfo;
+          this.workerCreated(targetInfo);
+        }
+      }
     }
   }
 
@@ -2588,6 +2600,7 @@ export class FrameTreeElement extends BaseStorageTreeElement {
       this._categoryElements.set(categoryKey, categoryElement);
       this.appendChild(categoryElement, FrameTreeElement._presentationOrderCompare);
     }
+
     if (!this._treeElementForWorker.get(targetInfo.targetId)) {
       const workerTreeElement = new WorkerTreeElement(this._section._panel, targetInfo);
       categoryElement.appendChild(workerTreeElement);
@@ -2885,3 +2898,5 @@ class WorkerTreeElement extends BaseStorageTreeElement {
     return 'dedicated-workers://';
   }
 }
+
+FrameResourceTreeElement._symbol = Symbol('treeElement');
