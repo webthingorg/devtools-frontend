@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10901e9b_9073a6bf",
+        "filename": "front_end/profiler/HeapSnapshotGridNodes.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-23T15:11:45Z",
+      "side": 0,
+      "message": "To double-check: this is intended to be removed, because it is unused code?",
+      "range": {
+        "startLine": 542,
+        "startChar": 0,
+        "endLine": 544,
+        "endChar": 5
+      },
+      "revId": "9cee847833a2430696e2f62458fb863b5d271bc2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
