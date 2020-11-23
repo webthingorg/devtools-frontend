@@ -33,6 +33,24 @@
       "message": "With the patch, we set `this.isCreationNode \u003d true` unconditionally (in the constructor), but apply the classname conditionally. Why are these treated differently?",
       "revId": "351adb526368271bd4aa334ba1a97c5cc64e00bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47370c26_8ffc2665",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1779,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-23T10:27:27Z",
+      "side": 1,
+      "message": "The createElement method belongs to the base class DataGridNode which sets the default value of isCreationNode to false. CreationDataGridNode just overwrites that default value.",
+      "parentUuid": "9c5debfb_0adc3e53",
+      "revId": "351adb526368271bd4aa334ba1a97c5cc64e00bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
