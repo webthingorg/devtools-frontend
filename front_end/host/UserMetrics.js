@@ -630,7 +630,8 @@ export const DevtoolsExperiments = {
   'cssFlexboxFeatures': 36,
   'recorder': 38,
   'APCA': 39,
-  '__lastValidEnumPosition': 40,
+  'cspViolationsView': 40,
+  '__lastValidEnumPosition': 41,
 };
 
 /** @type {!Object<string, number>} */
