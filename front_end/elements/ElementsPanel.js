@@ -94,7 +94,9 @@ export class ElementsPanel extends UI.Panel.Panel {
     stackElement.appendChild(this._contentElement);
     stackElement.appendChild(crumbsContainer);
 
+    // Change this line to show accessibility tree
     this._splitWidget.setMainWidget(this._searchableView);
+    // this._splitWidget.setMainWidget(this._accessibilityTree);
     /** @type {?_splitMode} */
     this._splitMode = null;
 
