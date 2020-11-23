@@ -80,6 +80,30 @@
       },
       "revId": "b138d63fd8f2e269ebed765e0963357e3551b473",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3efff1d_78fcaf60",
+        "filename": "front_end/platform/utilities.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-23T08:43:02Z",
+      "side": 1,
+      "message": "I\u0027ll tackle this as soon as this CL lands.",
+      "parentUuid": "5ee7237b_af26029d",
+      "range": {
+        "startLine": 218,
+        "startChar": 0,
+        "endLine": 218,
+        "endChar": 75
+      },
+      "revId": "b138d63fd8f2e269ebed765e0963357e3551b473",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
