@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab1e6f1d_ac87c341",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-23T15:04:26Z",
+      "side": 1,
+      "message": "I updated the patch to address your comments Sigurd. \nPlease let me know what you think.",
+      "revId": "142a1d4e12b0fc6d29bb3934a6aaad246da45037",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

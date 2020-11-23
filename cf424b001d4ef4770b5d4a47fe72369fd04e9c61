@@ -233,6 +233,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e67bac10_fbf57beb",
+        "filename": "front_end/resources/CookieItemsView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-23T15:04:26Z",
+      "side": 1,
+      "message": "I add this functionality in a follow up cl: https://crbug.com/1151923",
+      "parentUuid": "83529ab5_752d0dd1",
+      "range": {
+        "startLine": 80,
+        "startChar": 5,
+        "endLine": 81,
+        "endChar": 33
+      },
+      "revId": "cf424b001d4ef4770b5d4a47fe72369fd04e9c61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "217bc2de_484d48b5",
@@ -246,6 +270,30 @@
       "writtenOn": "2020-11-18T14:33:10Z",
       "side": 1,
       "message": "Is this unused?",
+      "range": {
+        "startLine": 148,
+        "startChar": 9,
+        "endLine": 148,
+        "endChar": 25
+      },
+      "revId": "cf424b001d4ef4770b5d4a47fe72369fd04e9c61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33eea56a_d313d111",
+        "filename": "front_end/resources/CookieItemsView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-23T15:04:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "217bc2de_484d48b5",
       "range": {
         "startLine": 148,
         "startChar": 9,
@@ -279,6 +327,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2f94243_1cb86085",
+        "filename": "front_end/resources/CookieItemsView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-23T15:04:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca8fc7a3_7fdefc68",
+      "range": {
+        "startLine": 181,
+        "startChar": 6,
+        "endLine": 181,
+        "endChar": 29
+      },
+      "revId": "cf424b001d4ef4770b5d4a47fe72369fd04e9c61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c20dbe26_80216afc",
@@ -292,6 +364,30 @@
       "writtenOn": "2020-11-18T14:33:10Z",
       "side": 1,
       "message": "This will not remember the last state of showDecoded, so it will flip back to the default every time this is called (and from what I remember, this function gets called a lot because we are polling the cookie store for updates), probably not great UX.",
+      "range": {
+        "startLine": 189,
+        "startChar": 6,
+        "endLine": 189,
+        "endChar": 54
+      },
+      "revId": "cf424b001d4ef4770b5d4a47fe72369fd04e9c61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "713b928f_a043c7d5",
+        "filename": "front_end/resources/CookieItemsView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-23T15:04:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c20dbe26_80216afc",
       "range": {
         "startLine": 189,
         "startChar": 6,
@@ -325,6 +421,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f270371_bfff8910",
+        "filename": "front_end/resources/CookieItemsView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-23T15:04:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f5a39eb_ae78678c",
+      "range": {
+        "startLine": 184,
+        "startChar": 3,
+        "endLine": 191,
+        "endChar": 5
+      },
+      "revId": "cf424b001d4ef4770b5d4a47fe72369fd04e9c61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae38089f_3cc85e60",
@@ -338,6 +458,30 @@
       "writtenOn": "2020-11-18T14:33:10Z",
       "side": 1,
       "message": "Things are allowed to wrap in this div, is this intended?",
+      "range": {
+        "startLine": 11,
+        "startChar": 1,
+        "endLine": 11,
+        "endChar": 8
+      },
+      "revId": "cf424b001d4ef4770b5d4a47fe72369fd04e9c61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c99e31ad_51ebfbf1",
+        "filename": "front_end/resources/cookieItemsView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-23T15:04:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae38089f_3cc85e60",
       "range": {
         "startLine": 11,
         "startChar": 1,
@@ -371,6 +515,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb768a5c_518244a8",
+        "filename": "front_end/resources/cookieItemsView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-23T15:04:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d8a3133_99992a77",
+      "range": {
+        "startLine": 15,
+        "startChar": 2,
+        "endLine": 15,
+        "endChar": 20
+      },
+      "revId": "cf424b001d4ef4770b5d4a47fe72369fd04e9c61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "75e85fe6_6e647527",
@@ -384,6 +552,30 @@
       "writtenOn": "2020-11-18T14:33:10Z",
       "side": 1,
       "message": "Set should set overflow-wrap here as well, as side-scrolling doesn\u0027t help much.",
+      "range": {
+        "startLine": 19,
+        "startChar": 2,
+        "endLine": 19,
+        "endChar": 17
+      },
+      "revId": "cf424b001d4ef4770b5d4a47fe72369fd04e9c61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cc51060_2fcfff0b",
+        "filename": "front_end/resources/cookieItemsView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-23T15:04:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75e85fe6_6e647527",
       "range": {
         "startLine": 19,
         "startChar": 2,
@@ -417,6 +609,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "24b012bb_a4801b53",
+        "filename": "front_end/resources/cookieItemsView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-23T15:04:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d2b0126_546087f6",
+      "range": {
+        "startLine": 29,
+        "startChar": 2,
+        "endLine": 29,
+        "endChar": 26
+      },
+      "revId": "cf424b001d4ef4770b5d4a47fe72369fd04e9c61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed82a15a_f03635b2",
@@ -430,6 +646,30 @@
       "writtenOn": "2020-11-18T14:33:10Z",
       "side": 1,
       "message": "Same here, darkmode?",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 26
+      },
+      "revId": "cf424b001d4ef4770b5d4a47fe72369fd04e9c61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "124e9e2f_bfcd10d2",
+        "filename": "front_end/resources/cookieItemsView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-23T15:04:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed82a15a_f03635b2",
       "range": {
         "startLine": 35,
         "startChar": 2,
