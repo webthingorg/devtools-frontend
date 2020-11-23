@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "566b7ecc_0c531591",
+        "filename": "test/e2e/recorder/recorder_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-23T09:45:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67d3d971_a9292b63",
+      "revId": "d067913d1f024e85281bc403c7d8a1e8e1ff4390",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7afb5446_41cf31cd",
@@ -65,6 +83,24 @@
       "writtenOn": "2020-11-23T09:38:02Z",
       "side": 1,
       "message": "With the above suggestion, this (and the following equivalent lines) would be simplified to:\n\n    await waitForScriptToChange();",
+      "revId": "d067913d1f024e85281bc403c7d8a1e8e1ff4390",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad99ebf2_cd2ebb83",
+        "filename": "test/e2e/recorder/recorder_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-23T09:45:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7afb5446_41cf31cd",
       "revId": "d067913d1f024e85281bc403c7d8a1e8e1ff4390",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
