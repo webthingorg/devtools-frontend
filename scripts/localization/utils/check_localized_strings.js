@@ -115,6 +115,7 @@ const migratedDirsSet = new Set([
   'search',
   'security',
   'settings',
+  'snippets',
   'text_editor',
   'web_audio',
   'webauthn',
