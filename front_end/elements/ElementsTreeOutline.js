@@ -305,6 +305,13 @@ export class ElementsTreeOutline extends UI.TreeOutline.TreeOutline {
   }
 
   /**
+   * @param {!SDK.DOMModel.DOMNode} targetNode
+   */
+  duplicateNode(targetNode) {
+    this._performDuplicate(targetNode);
+  }
+
+  /**
    * @param {!Event} event
    */
   _onPaste(event) {
@@ -335,6 +342,40 @@ export class ElementsTreeOutline extends UI.TreeOutline.TreeOutline {
     } else {
       this._clipboardNodeData.node.copyTo(targetNode, null, expandCallback.bind(this));
     }
+
+    /**
+     * @param {?ProtocolClient.InspectorBackend.ProtocolError} error
+     * @param {?SDK.DOMModel.DOMNode} pastedNode
+     * @this {ElementsTreeOutline}
+     */
+    function expandCallback(error, pastedNode) {
+      if (error || !pastedNode) {
+        return;
+      }
+      this.selectDOMNode(pastedNode);
+    }
+  }
+
+  /**
+   * @param {!SDK.DOMModel.DOMNode} targetNode
+   */
+  _performDuplicate(targetNode) {
+    if (targetNode.nodeName() === 'HTML') {
+      return;
+    }
+
+    let parentNode = targetNode;
+    if (targetNode.parentNode) {
+      parentNode = targetNode.parentNode;
+    }
+
+    // if (this._clipboardNodeData.isCut) {
+    //   this._clipboardNodeData.node.moveTo(parentNode, null, expandCallback.bind(this));
+    //   this._setClipboardData(null);
+    // } else {
+    //   this._clipboardNodeData.node.copyTo(parentNode, null, expandCallback.bind(this));
+    // }
+    targetNode.copyTo(parentNode, targetNode.nextSibling, expandCallback.bind(this));
 
     /**
      * @param {?ProtocolClient.InspectorBackend.ProtocolError} error

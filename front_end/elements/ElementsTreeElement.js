@@ -663,6 +663,11 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
           Common.UIString.UIString('Paste element'), treeOutline.pasteNode.bind(treeOutline, this._node),
           !treeOutline.canPaste(this._node));
       menuItem.setShortcut(createShortcut('V', modifier));
+
+      // Duplicate element, disabled on HTML elements.
+      menuItem = contextMenu.editSection().appendItem(
+          Common.UIString.UIString('Duplicate element'), treeOutline.duplicateNode.bind(treeOutline, this._node),
+          (this._node.nodeName() === 'HTML'));
     }
 
     menuItem = contextMenu.debugSection().appendCheckboxItem(
