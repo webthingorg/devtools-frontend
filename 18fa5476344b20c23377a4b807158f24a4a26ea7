@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76e92bd7_5bd48d32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-23T06:37:45Z",
+      "side": 1,
+      "message": "Hi Paul,\n\ntypescriptifying the TimelineModel.js, ptal!",
+      "revId": "18fa5476344b20c23377a4b807158f24a4a26ea7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
