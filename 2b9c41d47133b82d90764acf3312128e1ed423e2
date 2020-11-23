@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "092b4649_1e8f76c5",
+        "filename": "front_end/recorder/RecordingSession.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-23T11:50:08Z",
+      "side": 1,
+      "message": "(not part of this CL, so non-blocking / should be done separately)\n\nIt seems like these 3 awaits are not dependent on each other. In that case we should use\n\n    await Promise.all([...]);\n\nto speed this up",
+      "revId": "2b9c41d47133b82d90764acf3312128e1ed423e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9e15708_74a2d15b",
+        "filename": "front_end/recorder/RecordingSession.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-23T11:50:08Z",
+      "side": 1,
+      "message": "nit: end with `.` for consistency",
+      "revId": "2b9c41d47133b82d90764acf3312128e1ed423e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7472a3e6_f359fca6",
+        "filename": "test/e2e/resources/recorder/recorder.html",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-23T11:50:08Z",
+      "side": 1,
+      "message": "LGTM % tip: \"append()\" seems slightly simpler for new code",
+      "revId": "2b9c41d47133b82d90764acf3312128e1ed423e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
