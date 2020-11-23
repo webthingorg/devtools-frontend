@@ -179,7 +179,11 @@ body {
   overflow: hidden;
   margin: 0;
   cursor: default;
-  font-family: '.SFNSDisplay-Regular', 'Helvetica Neue', 'Lucida Grande', sans-serif;
+  font-family:
+    '.SFNSDisplay-Regular',
+    'Helvetica Neue',
+    'Lucida Grande',
+    sans-serif;
   font-size: 12px;
   tab-size: 4;
   user-select: none;
@@ -189,12 +193,20 @@ body {
 
 .platform-linux {
   color: rgb(48 57 66);
-  font-family: Roboto, Ubuntu, Arial, sans-serif;
+  font-family:
+    Roboto,
+    Ubuntu,
+    Arial,
+    sans-serif;
 }
 
 .platform-mac {
   color: rgb(48 57 66);
-  font-family: '.SFNSDisplay-Regular', 'Helvetica Neue', 'Lucida Grande', sans-serif;
+  font-family:
+    '.SFNSDisplay-Regular',
+    'Helvetica Neue',
+    'Lucida Grande',
+    sans-serif;
 }
 
 .platform-windows {
