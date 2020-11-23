@@ -33,6 +33,23 @@
       "message": "thanks for the cleanup!",
       "revId": "b80c2e8efc0256fa7c013188d673e5f646b0df59",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f1e281b_86dfc7a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-23T10:59:15Z",
+      "side": 1,
+      "message": "Filed https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1151873 for the trybot issue.\n\n",
+      "revId": "b80c2e8efc0256fa7c013188d673e5f646b0df59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
