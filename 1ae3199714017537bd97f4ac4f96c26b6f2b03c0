@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2631baec_af8cd3c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-11-23T07:24:26Z",
+      "side": 1,
+      "message": "I think we should go with this patch to address the concerns raised here [1] since it solves some other potential bugs with the Devtools `i18n` module by fixing type annontations.\n\nWe should still move where locales are fetched to `startup` or `root` to avoid modules trying to use strings before a locale is set.\n\n[1] https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2544063/comment/82527cba_6f861ebc/",
+      "revId": "1ae3199714017537bd97f4ac4f96c26b6f2b03c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
