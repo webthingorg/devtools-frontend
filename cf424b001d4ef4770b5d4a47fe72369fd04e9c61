@@ -122,6 +122,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b868a1d_1bfbddd2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-23T10:17:01Z",
+      "side": 1,
+      "message": "Thanks for the feedback Sigurd! I\u0027ll address your comments but will go with the checkbox as Peter suggested.",
+      "revId": "cf424b001d4ef4770b5d4a47fe72369fd04e9c61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "20e396a2_34b30184",
