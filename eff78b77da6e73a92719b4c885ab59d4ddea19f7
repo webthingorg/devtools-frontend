@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b3cc742_0944cc3f",
+        "filename": "all_devtools_files.gni",
+        "patchSetId": 10
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-11-23T17:10:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a385b531_92cf7b40",
+      "range": {
+        "startLine": 255,
+        "startChar": 20,
+        "endLine": 255,
+        "endChar": 23
+      },
+      "revId": "eff78b77da6e73a92719b4c885ab59d4ddea19f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fefea96f_3084e9bb",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-11-23T08:51:29Z",
       "side": 1,
       "message": "same style nit here",
+      "range": {
+        "startLine": 256,
+        "startChar": 20,
+        "endLine": 256,
+        "endChar": 41
+      },
+      "revId": "eff78b77da6e73a92719b4c885ab59d4ddea19f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e895138e_9a22fa98",
+        "filename": "all_devtools_files.gni",
+        "patchSetId": 10
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-11-23T17:10:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fefea96f_3084e9bb",
       "range": {
         "startLine": 256,
         "startChar": 20,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "804ad23a_6efff97a",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-11-23T17:10:16Z",
+      "side": 1,
+      "message": "Done: https://chromium-review.googlesource.com/c/chromium/src/+/2554979",
+      "parentUuid": "815cc73e_51023ce0",
+      "range": {
+        "startLine": 633,
+        "startChar": 2,
+        "endLine": 633,
+        "endChar": 26
+      },
+      "revId": "eff78b77da6e73a92719b4c885ab59d4ddea19f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c937ff3_11d3bc21",
@@ -83,6 +155,30 @@
       "writtenOn": "2020-11-23T08:51:29Z",
       "side": 1,
       "message": "Is this accidentally empty?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 3
+      },
+      "revId": "eff78b77da6e73a92719b4c885ab59d4ddea19f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cf2ade3_3ad1ac5d",
+        "filename": "front_end/issues/CSPViolationsListView.css",
+        "patchSetId": 10
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-11-23T17:10:16Z",
+      "side": 1,
+      "message": "For now I did not come up with any specific design change that for the ListView (since it mostly wraps the DataGrid component), however I thought that it would be positive to leave the file created and linked in case that we would need to add styles later on.",
+      "parentUuid": "0c937ff3_11d3bc21",
       "range": {
         "startLine": 1,
         "startChar": 0,
@@ -140,6 +236,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa2f44f5_e8aaf681",
+        "filename": "front_end/issues/CSPViolationsListView.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-11-23T17:10:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e93eb5c3_a13457a7",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 134
+      },
+      "revId": "eff78b77da6e73a92719b4c885ab59d4ddea19f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "52484891_09d336e7",
@@ -153,6 +273,30 @@
       "writtenOn": "2020-11-23T08:51:29Z",
       "side": 1,
       "message": "Move to separate file?",
+      "range": {
+        "startLine": 67,
+        "startChar": 6,
+        "endLine": 67,
+        "endChar": 27
+      },
+      "revId": "eff78b77da6e73a92719b4c885ab59d4ddea19f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d24e93b_d60454ea",
+        "filename": "front_end/issues/CSPViolationsView.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-11-23T17:10:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52484891_09d336e7",
       "range": {
         "startLine": 67,
         "startChar": 6,

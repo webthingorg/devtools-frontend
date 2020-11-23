@@ -39,6 +39,30 @@
       },
       "revId": "9936c3403253a5cb003aa0c29cd4878059cb7bd4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb747d7e_119bbc23",
+        "filename": "front_end/issues/CSPViolationsListView.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-11-23T17:10:16Z",
+      "side": 1,
+      "message": "Good catch! Forgot to change it.",
+      "parentUuid": "bb4f2eb7_55841547",
+      "range": {
+        "startLine": 23,
+        "startChar": 14,
+        "endLine": 23,
+        "endChar": 17
+      },
+      "revId": "9936c3403253a5cb003aa0c29cd4878059cb7bd4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
