@@ -4,9 +4,138 @@
 
 import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
+import * as i18n from '../i18n/i18n.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
+export const UIStrings = {
+  /**
+  *@description Title for a group of cities
+  */
+  location: 'Location',
+  /**
+  *@description Text in Sensors View of the Device Toolbar
+  */
+  noOverride: 'No override',
+  /**
+  *@description Title as part of a tool to override existing configurations
+  */
+  overrides: 'Overrides',
+  /**
+  *@description Text of button in Sensors View of the Device Toolbar
+  */
+  manage: 'Manage',
+  /**
+  *@description Aria-label for location manage button in Sensors View
+  */
+  manageTheListOfLocations: 'Manage the list of locations',
+  /**
+  *@description Text in Sensors View of the Device Toolbar
+  */
+  other: 'Other…',
+  /**
+  *@description Text for errors
+  */
+  error: 'Error',
+  /**
+  *@description Text in Sensors View of the Device Toolbar
+  */
+  locationUnavailable: 'Location unavailable',
+  /**
+  *@description Text in Sensors View of the Device Toolbar
+  *@example {Ctrl} PH1
+  */
+  adjustWithMousewheelOrUpdownKeys: 'Adjust with mousewheel or up/down keys. {PH1}: ±10, Shift: ±1, Alt: ±0.01',
+  /**
+  *@description Text in Sensors View of the Device Toolbar
+  */
+  latitude: 'Latitude',
+  /**
+  *@description Text in Sensors View of the Device Toolbar
+  */
+  longitude: 'Longitude',
+  /**
+  *@description Text in Sensors View of the Device Toolbar
+  */
+  timezoneId: 'Timezone ID',
+  /**
+  *@description Text in Sensors View of the Device Toolbar
+  */
+  locale: 'Locale',
+  /**
+  *@description Text for the orientation of something
+  */
+  orientation: 'Orientation',
+  /**
+  *@description Text in Sensors View of the Device Toolbar
+  */
+  off: 'Off',
+  /**
+  *@description Text in Sensors View of the Device Toolbar
+  */
+  customOrientation: 'Custom orientation',
+  /**
+  *@description Stage element title in Sensors View of the Device Toolbar
+  */
+  enableOrientationToRotate: 'Enable orientation to rotate',
+  /**
+  *@description Stage element title in Sensors View of the Device Toolbar
+  */
+  shiftdragHorizontallyToRotate: 'Shift+drag horizontally to rotate around the y-axis',
+  /**
+  *@description Message in the Sensors tool that is alerted (for screen readers) when  the device orientation setting is changed
+  *@example {180} PH1
+  *@example {-90} PH2
+  *@example {0} PH3
+  */
+  deviceOrientationSetToAlphaSBeta: 'Device orientation set to alpha: {PH1}, beta: {PH2}, gamma: {PH3}',
+  /**
+  *@description Text of orientation reset button in Sensors View of the Device Toolbar
+  */
+  reset: 'Reset',
+  /**
+  *@description Aria-label for orientation reset button in Sensors View
+  */
+  resetDeviceOrientation: 'Reset device orientation',
+  /**
+  *@description Description of the Touch select in Sensors tab
+  */
+  forcesTouchInsteadOfClick: 'Forces touch instead of click',
+  /**
+  *@description Description of the Emulate Idle State select in Sensors tab
+  */
+  forcesSelectedIdleStateEmulation: 'Forces selected idle state emulation',
+  /**
+  *@description Title for a group of configuration options
+  */
+  presets: 'Presets',
+  /**
+  *@description Text in Device Mode Toolbar of the Device Toolbar
+  */
+  portrait: 'Portrait',
+  /**
+  *@description Text in Sensors View of the Device Toolbar
+  */
+  portraitUpsideDown: 'Portrait upside down',
+  /**
+  *@description Text in Sensors View of the Device Toolbar
+  */
+  landscapeLeft: 'Landscape left',
+  /**
+  *@description Text in Sensors View of the Device Toolbar
+  */
+  landscapeRight: 'Landscape right',
+  /**
+  *@description Text in Sensors View of the Device Toolbar
+  */
+  displayUp: 'Display up',
+  /**
+  *@description Text in Sensors View of the Device Toolbar
+  */
+  displayDown: 'Display down',
+};
+const str_ = i18n.i18n.registerUIStrings('emulation/SensorsView.js', UIStrings);
+const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 /**
  * @type {?SensorsView}
  */
@@ -176,12 +305,12 @@ export class SensorsView extends UI.Widget.VBox {
    */
   _createLocationSection(location) {
     const geogroup = this.contentElement.createChild('section', 'sensors-group');
-    const geogroupTitle = UI.UIUtils.createLabel(ls`Location`, 'sensors-group-title');
+    const geogroupTitle = UI.UIUtils.createLabel(i18nString(UIStrings.location), 'sensors-group-title');
     geogroup.appendChild(geogroupTitle);
     const fields = geogroup.createChild('div', 'geo-fields');
     let selectedIndex = 0;
 
-    const noOverrideOption = {title: Common.UIString.UIString('No override'), location: NonPresetOptions.NoOverride};
+    const noOverrideOption = {title: i18nString(UIStrings.noOverride), location: NonPresetOptions.NoOverride};
 
     this._locationSelectElement = /** @type {!HTMLSelectElement} */ (fields.createChild('select', 'chrome-select'));
     UI.ARIAUtils.bindLabelToControl(geogroupTitle, this._locationSelectElement);
@@ -192,10 +321,11 @@ export class SensorsView extends UI.Widget.VBox {
     // Locations
     this._customLocationsGroup =
         /** @type {!HTMLOptGroupElement} */ (this._locationSelectElement.createChild('optgroup'));
-    this._customLocationsGroup.label = ls`Overrides`;
+    this._customLocationsGroup.label = i18nString(UIStrings.overrides);
     const customLocations = Common.Settings.Settings.instance().moduleSetting('emulation.locations');
-    const manageButton = UI.UIUtils.createTextButton(ls`Manage`, () => Common.Revealer.reveal(customLocations));
-    UI.ARIAUtils.setAccessibleName(manageButton, ls`Manage the list of locations`);
+    const manageButton =
+        UI.UIUtils.createTextButton(i18nString(UIStrings.manage), () => Common.Revealer.reveal(customLocations));
+    UI.ARIAUtils.setAccessibleName(manageButton, i18nString(UIStrings.manageTheListOfLocations));
     fields.appendChild(manageButton);
     const fillCustomSettings = () => {
       if (!this._customLocationsGroup) {
@@ -214,13 +344,13 @@ export class SensorsView extends UI.Widget.VBox {
     fillCustomSettings();
 
     // Other location
-    const customLocationOption = {title: Common.UIString.UIString('Other…'), location: NonPresetOptions.Custom};
+    const customLocationOption = {title: i18nString(UIStrings.other), location: NonPresetOptions.Custom};
     this._locationSelectElement.appendChild(new Option(customLocationOption.title, customLocationOption.location));
 
     // Error location.
     const group = /** @type {!HTMLOptGroupElement} */ (this._locationSelectElement.createChild('optgroup'));
-    group.label = ls`Error`;
-    group.appendChild(new Option(ls`Location unavailable`, NonPresetOptions.Unavailable));
+    group.label = i18nString(UIStrings.error);
+    group.appendChild(new Option(i18nString(UIStrings.locationUnavailable), NonPresetOptions.Unavailable));
 
     this._locationSelectElement.selectedIndex = selectedIndex;
     this._locationSelectElement.addEventListener('change', this._LocationSelectChanged.bind(this));
@@ -236,7 +366,7 @@ export class SensorsView extends UI.Widget.VBox {
     const localeGroup = this._fieldsetElement.createChild('div', 'latlong-group');
 
     const cmdOrCtrl = Host.Platform.isMac() ? '\u2318' : 'Ctrl';
-    const modifierKeyMessage = ls`Adjust with mousewheel or up/down keys. ${cmdOrCtrl}: ±10, Shift: ±1, Alt: ±0.01`;
+    const modifierKeyMessage = i18nString(UIStrings.adjustWithMousewheelOrUpdownKeys, {PH1: cmdOrCtrl});
 
     this._latitudeInput = UI.UIUtils.createInput('', 'number');
     latitudeGroup.appendChild(this._latitudeInput);
@@ -247,7 +377,8 @@ export class SensorsView extends UI.Widget.VBox {
         true, 0.1);
     this._latitudeSetter(String(location.latitude));
     this._latitudeInput.title = modifierKeyMessage;
-    latitudeGroup.appendChild(UI.UIUtils.createLabel(ls`Latitude`, 'latlong-title', this._latitudeInput));
+    latitudeGroup.appendChild(
+        UI.UIUtils.createLabel(i18nString(UIStrings.latitude), 'latlong-title', this._latitudeInput));
 
     this._longitudeInput = UI.UIUtils.createInput('', 'number');
     longitudeGroup.appendChild(this._longitudeInput);
@@ -258,7 +389,8 @@ export class SensorsView extends UI.Widget.VBox {
         true, 0.1);
     this._longitudeSetter(String(location.longitude));
     this._longitudeInput.title = modifierKeyMessage;
-    longitudeGroup.appendChild(UI.UIUtils.createLabel(ls`Longitude`, 'latlong-title', this._longitudeInput));
+    longitudeGroup.appendChild(
+        UI.UIUtils.createLabel(i18nString(UIStrings.longitude), 'latlong-title', this._longitudeInput));
 
     this._timezoneInput = UI.UIUtils.createInput('', 'text');
     timezoneGroup.appendChild(this._timezoneInput);
@@ -267,7 +399,8 @@ export class SensorsView extends UI.Widget.VBox {
         this._timezoneInput, this._applyLocationUserInput.bind(this), SDK.EmulationModel.Location.timezoneIdValidator,
         false);
     this._timezoneSetter(location.timezoneId);
-    timezoneGroup.appendChild(UI.UIUtils.createLabel(ls`Timezone ID`, 'timezone-title', this._timezoneInput));
+    timezoneGroup.appendChild(
+        UI.UIUtils.createLabel(i18nString(UIStrings.timezoneId), 'timezone-title', this._timezoneInput));
     this._timezoneError = /** @type {!HTMLElement} */ (timezoneGroup.createChild('div', 'timezone-error'));
 
     this._localeInput = UI.UIUtils.createInput('', 'text');
@@ -276,7 +409,7 @@ export class SensorsView extends UI.Widget.VBox {
     this._localeSetter = UI.UIUtils.bindInput(
         this._localeInput, this._applyLocationUserInput.bind(this), SDK.EmulationModel.Location.localeValidator, false);
     this._localeSetter(location.locale);
-    localeGroup.appendChild(UI.UIUtils.createLabel(ls`Locale`, 'locale-title', this._localeInput));
+    localeGroup.appendChild(UI.UIUtils.createLabel(i18nString(UIStrings.locale), 'locale-title', this._localeInput));
     this._localeError = /** @type {!HTMLElement} */ (localeGroup.createChild('div', 'locale-error'));
   }
 
@@ -363,14 +496,14 @@ export class SensorsView extends UI.Widget.VBox {
 
   _createDeviceOrientationSection() {
     const orientationGroup = this.contentElement.createChild('section', 'sensors-group');
-    const orientationTitle = UI.UIUtils.createLabel(ls`Orientation`, 'sensors-group-title');
+    const orientationTitle = UI.UIUtils.createLabel(i18nString(UIStrings.orientation), 'sensors-group-title');
     orientationGroup.appendChild(orientationTitle);
     const orientationContent = orientationGroup.createChild('div', 'orientation-content');
     const fields = orientationContent.createChild('div', 'orientation-fields');
 
-    const orientationOffOption = {title: Common.UIString.UIString('Off'), orientation: NonPresetOptions.NoOverride};
+    const orientationOffOption = {title: i18nString(UIStrings.off), orientation: NonPresetOptions.NoOverride};
     const customOrientationOption = {
-      title: Common.UIString.UIString('Custom orientation'),
+      title: i18nString(UIStrings.customOrientation),
       orientation: NonPresetOptions.Custom,
     };
     this._orientationSelectElement =
@@ -424,11 +557,11 @@ export class SensorsView extends UI.Widget.VBox {
     if (disable) {
       this._deviceOrientationFieldset.disabled = true;
       this._stageElement.classList.add('disabled');
-      this._stageElement.title = ls`Enable orientation to rotate`;
+      this._stageElement.title = i18nString(UIStrings.enableOrientationToRotate);
     } else {
       this._deviceOrientationFieldset.disabled = false;
       this._stageElement.classList.remove('disabled');
-      this._stageElement.title = ls`Shift+drag horizontally to rotate around the y-axis`;
+      this._stageElement.title = i18nString(UIStrings.shiftdragHorizontallyToRotate);
     }
   }
 
@@ -513,8 +646,8 @@ export class SensorsView extends UI.Widget.VBox {
     this._applyDeviceOrientation();
 
     UI.ARIAUtils.alert(
-        ls`Device orientation set to alpha: ${deviceOrientation.alpha}, beta: ${deviceOrientation.beta}, gamma: ${
-            deviceOrientation.gamma}`,
+        i18nString(
+            UIStrings.deviceOrientationSetToAlphaSBeta, {PH1: deviceOrientation.alpha, PH2: deviceOrientation.beta}),
         this._orientationSelectElement);
   }
 
@@ -544,24 +677,22 @@ export class SensorsView extends UI.Widget.VBox {
 
     this._alphaElement = UI.UIUtils.createInput();
     this._alphaElement.setAttribute('step', 'any');
-    this._alphaSetter =
-        this._createAxisInput(cellElement, this._alphaElement, Common.UIString.UIString('\u03B1 (alpha)'));
+    this._alphaSetter = this._createAxisInput(cellElement, this._alphaElement, i18nString('\u03B1 (alpha)'));
     this._alphaSetter(String(deviceOrientation.alpha));
 
     this._betaElement = UI.UIUtils.createInput();
     this._betaElement.setAttribute('step', 'any');
-    this._betaSetter = this._createAxisInput(cellElement, this._betaElement, Common.UIString.UIString('\u03B2 (beta)'));
+    this._betaSetter = this._createAxisInput(cellElement, this._betaElement, i18nString('\u03B2 (beta)'));
     this._betaSetter(String(deviceOrientation.beta));
 
     this._gammaElement = UI.UIUtils.createInput();
     this._gammaElement.setAttribute('step', 'any');
-    this._gammaSetter =
-        this._createAxisInput(cellElement, this._gammaElement, Common.UIString.UIString('\u03B3 (gamma)'));
+    this._gammaSetter = this._createAxisInput(cellElement, this._gammaElement, i18nString('\u03B3 (gamma)'));
     this._gammaSetter(String(deviceOrientation.gamma));
 
     const resetButton = UI.UIUtils.createTextButton(
-        Common.UIString.UIString('Reset'), this._resetDeviceOrientation.bind(this), 'orientation-reset-button');
-    UI.ARIAUtils.setAccessibleName(resetButton, ls`Reset device orientation`);
+        i18nString(UIStrings.reset), this._resetDeviceOrientation.bind(this), 'orientation-reset-button');
+    UI.ARIAUtils.setAccessibleName(resetButton, i18nString(UIStrings.resetDeviceOrientation));
     resetButton.setAttribute('type', 'reset');
     cellElement.appendChild(resetButton);
     return fieldsetElement;
@@ -667,7 +798,8 @@ export class SensorsView extends UI.Widget.VBox {
   _appendTouchControl() {
     const container = this.contentElement.createChild('div', 'touch-section');
     const control = UI.SettingsUI.createControlForSetting(
-        Common.Settings.Settings.instance().moduleSetting('emulation.touch'), ls`Forces touch instead of click`);
+        Common.Settings.Settings.instance().moduleSetting('emulation.touch'),
+        i18nString(UIStrings.forcesTouchInsteadOfClick));
 
     if (control) {
       container.appendChild(control);
@@ -678,7 +810,7 @@ export class SensorsView extends UI.Widget.VBox {
     const container = this.contentElement.createChild('div', 'idle-section');
     const control = UI.SettingsUI.createControlForSetting(
         Common.Settings.Settings.instance().moduleSetting('emulation.idleDetection'),
-        ls`Forces selected idle state emulation`);
+        i18nString(UIStrings.forcesSelectedIdleStateEmulation));
 
     if (control) {
       container.appendChild(control);
@@ -703,14 +835,14 @@ export const NonPresetOptions = {
 
 /** @type {!Array.<{title: string, value: !Array.<{title: string, orientation: string}>}>} */
 export const PresetOrientations = [{
-  title: ls`Presets`,
+  title: i18nString(UIStrings.presets),
   value: [
-    {title: Common.UIString.UIString('Portrait'), orientation: '[0, 90, 0]'},
-    {title: Common.UIString.UIString('Portrait upside down'), orientation: '[180, -90, 0]'},
-    {title: Common.UIString.UIString('Landscape left'), orientation: '[0, 90, -90]'},
-    {title: Common.UIString.UIString('Landscape right'), orientation: '[0, 90, 90]'},
-    {title: Common.UIString.UIString('Display up'), orientation: '[0, 0, 0]'},
-    {title: Common.UIString.UIString('Display down'), orientation: '[0, 180, 0]'}
+    {title: i18nString(UIStrings.portrait), orientation: '[0, 90, 0]'},
+    {title: i18nString(UIStrings.portraitUpsideDown), orientation: '[180, -90, 0]'},
+    {title: i18nString(UIStrings.landscapeLeft), orientation: '[0, 90, -90]'},
+    {title: i18nString(UIStrings.landscapeRight), orientation: '[0, 90, 90]'},
+    {title: i18nString(UIStrings.displayUp), orientation: '[0, 0, 0]'},
+    {title: i18nString(UIStrings.displayDown), orientation: '[0, 180, 0]'}
   ]
 }];
 

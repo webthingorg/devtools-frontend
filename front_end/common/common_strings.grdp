@@ -33,6 +33,9 @@
   <message name="IDS_DEVTOOLS_85e8231d44b865e90f6a39b356ded9bd" desc="Text that appears in a tooltip for the css types filter.">
     Stylesheets
   </message>
+  <message name="IDS_DEVTOOLS_87d17f4624a514e81dc7c8e016a7405c" desc="Text for the mobile platform, as opposed to desktop">
+    Mobile
+  </message>
   <message name="IDS_DEVTOOLS_8cf6dd5e7b4fe7b6df3319b9803278f3" desc="Name of a network resource type">
     EventSource
   </message>
