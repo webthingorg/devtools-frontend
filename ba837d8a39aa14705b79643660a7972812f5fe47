@@ -16,6 +16,23 @@
       "message": "Migrated changes tool to V2, PTAL, thank you!",
       "revId": "ba837d8a39aa14705b79643660a7972812f5fe47",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4eb2070e_bd682f16",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-23T06:58:43Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "ba837d8a39aa14705b79643660a7972812f5fe47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
