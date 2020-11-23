@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "733324e8_e2388404",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-11-23T02:39:27Z",
+      "side": 1,
+      "message": "Just another loc module migration. PTAL",
+      "revId": "951a6715871917e79326c9706bac5efcd18c82b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
