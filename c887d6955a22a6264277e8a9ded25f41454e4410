@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f4f4c72_0d190814",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-23T15:02:51Z",
+      "side": 1,
+      "message": "@mathias Please review it for me again. Thanks!",
+      "revId": "c887d6955a22a6264277e8a9ded25f41454e4410",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4cb4ff9a_183f14e2",
@@ -14,6 +31,23 @@
       "writtenOn": "2020-11-23T15:01:13Z",
       "side": 1,
       "message": "Do we have a better way to determine whether it is a root element?",
+      "revId": "c887d6955a22a6264277e8a9ded25f41454e4410",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93a17abf_892527d9",
+        "filename": "front_end/elements/ElementsTreeOutline.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-23T15:02:51Z",
+      "side": 1,
+      "message": "There should be a better way to handle typescript errors.",
       "revId": "c887d6955a22a6264277e8a9ded25f41454e4410",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
