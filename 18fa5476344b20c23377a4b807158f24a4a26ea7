@@ -16,6 +16,92 @@
       "message": "Hi Paul,\n\ntypescriptifying the TimelineModel.js, ptal!",
       "revId": "18fa5476344b20c23377a4b807158f24a4a26ea7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34b8f499_e9888756",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-23T07:53:07Z",
+      "side": 1,
+      "message": "LGTM with queries / nits on the types.",
+      "revId": "18fa5476344b20c23377a4b807158f24a4a26ea7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78cf2e46_faa50e90",
+        "filename": "front_end/timeline_model/TimelineModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-23T07:53:07Z",
+      "side": 1,
+      "message": "These three look like they might be /** @type {!Object.\u003cstring, !SDK.TracingModel.Event\u003e} */ - does that work?",
+      "range": {
+        "startLine": 78,
+        "startChar": 4,
+        "endLine": 78,
+        "endChar": 20
+      },
+      "revId": "18fa5476344b20c23377a4b807158f24a4a26ea7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a21bbdd7_e18998e0",
+        "filename": "front_end/timeline_model/TimelineModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-23T07:53:07Z",
+      "side": 1,
+      "message": "nit: pop the fallthrough intended on the ts-ignore line?",
+      "range": {
+        "startLine": 1138,
+        "startChar": 6,
+        "endLine": 1139,
+        "endChar": 30
+      },
+      "revId": "18fa5476344b20c23377a4b807158f24a4a26ea7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b20432b1_4bda772a",
+        "filename": "front_end/timeline_model/TimelineModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 1893,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-23T07:53:07Z",
+      "side": 1,
+      "message": "For these are we able to do /** @param {{name: string, url:string|undefined, frame:?Object}} */ or something like it?",
+      "range": {
+        "startLine": 1893,
+        "startChar": 13,
+        "endLine": 1893,
+        "endChar": 14
+      },
+      "revId": "18fa5476344b20c23377a4b807158f24a4a26ea7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
