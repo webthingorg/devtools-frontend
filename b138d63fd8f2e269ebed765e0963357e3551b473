@@ -56,6 +56,30 @@
       },
       "revId": "b138d63fd8f2e269ebed765e0963357e3551b473",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ee7237b_af26029d",
+        "filename": "front_end/platform/utilities.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-23T08:42:08Z",
+      "side": 1,
+      "message": "We had discussed this offline — the plan is to do this separately from this TypeScriptification CL. You seemed to agree with that before so I\u0027ll assume that still stands :)",
+      "parentUuid": "0882a5a8_879c8e4b",
+      "range": {
+        "startLine": 218,
+        "startChar": 0,
+        "endLine": 218,
+        "endChar": 75
+      },
+      "revId": "b138d63fd8f2e269ebed765e0963357e3551b473",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
