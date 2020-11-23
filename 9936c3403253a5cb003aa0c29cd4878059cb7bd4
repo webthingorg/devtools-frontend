@@ -16,6 +16,29 @@
       "message": "Be aware with regards to landing this that the new data grid is missing some features currently that the legacy one has - context menus are a WIP, as are features such as column resizing.\n\nHappy if you want to ship without those features, but just giving you a heads up.",
       "revId": "9936c3403253a5cb003aa0c29cd4878059cb7bd4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb4f2eb7_55841547",
+        "filename": "front_end/issues/CSPViolationsListView.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-23T16:46:57Z",
+      "side": 1,
+      "message": "nit: could these be more descriptive? I\u0027d go for `sourceCode`, `category`, etc.",
+      "range": {
+        "startLine": 23,
+        "startChar": 14,
+        "endLine": 23,
+        "endChar": 17
+      },
+      "revId": "9936c3403253a5cb003aa0c29cd4878059cb7bd4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
