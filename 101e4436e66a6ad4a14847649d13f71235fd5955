@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce971043_9d8c7c9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-23T12:27:35Z",
+      "side": 1,
+      "message": "LGTM on my side. @mathias could you PTAL again? Thanks!",
+      "revId": "101e4436e66a6ad4a14847649d13f71235fd5955",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
