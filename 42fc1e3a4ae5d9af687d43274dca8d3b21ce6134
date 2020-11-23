@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cf5c9b0_93d1a27c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-23T10:03:10Z",
+      "side": 1,
+      "message": "Hi Peter,\n\nfor the typescriptification of TimelineModel.js I\u0027ve used two weak maps to map to events (see comment below. Do you think this is feasible here, or should we change it because of performance? ",
+      "revId": "42fc1e3a4ae5d9af687d43274dca8d3b21ce6134",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6a7c38d_3bb2785a",
+        "filename": "front_end/timeline_model/TimelineModel.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 2590,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-23T10:03:10Z",
+      "side": 1,
+      "message": "Peter, do you think it is fine to use the weak map here?",
+      "revId": "42fc1e3a4ae5d9af687d43274dca8d3b21ce6134",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
