@@ -46,6 +46,30 @@
       },
       "revId": "3583a63a0f8650ff99ff3f3f209f582525a81e8b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b5faa35_93082d50",
+        "filename": "front_end/platform/utilities.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-23T09:44:45Z",
+      "side": 0,
+      "message": "Forgot to click the \u0027Ack\u0027 button :)",
+      "parentUuid": "adc2041f_7912c61f",
+      "range": {
+        "startLine": 614,
+        "startChar": 39,
+        "endLine": 614,
+        "endChar": 46
+      },
+      "revId": "3583a63a0f8650ff99ff3f3f209f582525a81e8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
