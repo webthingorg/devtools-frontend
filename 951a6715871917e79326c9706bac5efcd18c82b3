@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff3cbace_e7692b8c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-11-23T17:13:24Z",
+      "side": 1,
+      "message": "LGTM, could you add a sample snapshot with the loc changes (you can use the generated en-XL for this)",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 12
+      },
+      "revId": "951a6715871917e79326c9706bac5efcd18c82b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "733324e8_e2388404",
