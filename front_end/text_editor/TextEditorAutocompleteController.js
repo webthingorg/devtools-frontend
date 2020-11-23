@@ -253,7 +253,9 @@ export class TextEditorAutocompleteController {
     }
 
     if (singleCharInput || singleCharDelete) {
-      setImmediate(this.autocomplete.bind(this));
+      queueMicrotask(() => {
+        this.autocomplete();
+      });
     } else {
       this.clearAutocomplete();
     }

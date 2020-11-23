@@ -670,7 +670,7 @@ class StackTraceTopFrameLocation extends LiveLocationWithPool {
       return;
     }
     this._updateScheduled = true;
-    setImmediate(this._updateLocation.bind(this));
+    queueMicrotask(this._updateLocation.bind(this));
   }
 
   async _updateLocation() {
