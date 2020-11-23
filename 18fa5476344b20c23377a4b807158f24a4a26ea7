@@ -129,6 +129,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e6f0549_03ec4e72",
+        "filename": "front_end/timeline_model/TimelineModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-23T13:06:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69f6d0d9_6ec9da67",
+      "range": {
+        "startLine": 1138,
+        "startChar": 6,
+        "endLine": 1139,
+        "endChar": 30
+      },
+      "revId": "18fa5476344b20c23377a4b807158f24a4a26ea7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b20432b1_4bda772a",
