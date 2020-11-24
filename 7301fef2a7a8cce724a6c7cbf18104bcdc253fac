@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e8d9640_7c6b409d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-24T08:51:41Z",
+      "side": 1,
+      "message": "Please modify the icons in front_end/Images/src (read the readme).\n\nAlso looking at the error_icon.svg you produced, it looks to me as if the width and height of the canvas compared to the actual icon isn\u0027t right, could you double check?",
+      "revId": "7301fef2a7a8cce724a6c7cbf18104bcdc253fac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
