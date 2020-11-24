@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c66cbf1_4f2dbaca",
+        "filename": "front_end/recorder/RecordingSession.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2020-11-24T13:28:53Z",
+      "side": 1,
+      "message": "NIT: extra line",
+      "revId": "a0a6edf5d0f137e3496729e92d9e2dede6877206",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2909eb48_d52b9cc5",
+        "filename": "front_end/recorder/RecordingSession.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2020-11-24T13:28:53Z",
+      "side": 1,
+      "message": "I don\u0027t understand this line. Could you please explain what is going on here?",
+      "revId": "a0a6edf5d0f137e3496729e92d9e2dede6877206",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b37464e1_8f7ec714",
+        "filename": "front_end/recorder/RecordingSession.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2020-11-24T13:28:53Z",
+      "side": 1,
+      "message": "is closing the browser expected behaviour?",
+      "revId": "a0a6edf5d0f137e3496729e92d9e2dede6877206",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
