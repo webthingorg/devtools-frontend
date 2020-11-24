@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "be13036d_061197a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-11-24T12:56:06Z",
+      "side": 1,
+      "message": "Should they be in both places or only in /Images/src? I see many icons in /Images.\n\nAbout error_icon.svg, why do you think so? In the svg file it is written:\n`\u003csvg xmlns\u003d\"http://www.w3.org/2000/svg\" [...] width\u003d\"11\" height\u003d\"11\" ...`",
+      "parentUuid": "7e8d9640_7c6b409d",
+      "revId": "7301fef2a7a8cce724a6c7cbf18104bcdc253fac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d2d1987e_784146a2",
