@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ac33d58_40730c6e",
+        "filename": "front_end/resources/resources_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1186534
+      },
+      "writtenOn": "2020-11-24T04:44:13Z",
+      "side": 1,
+      "message": "Hmm, per the note at [1], adding \"purpose\": [maskable\", \"any\"] is almost always *not* what you want to do, since using a \"maskable\" icon as an \"any\" icon is going to look pretty bad if maskable isn\u0027t supported. I\u0027m a bit concerned that PWAs with only maskable icons will simply add \"any\" as a purpose and it\u0027ll look bad on non-maskable supporting platforms - we should probably provide more specific advice for that case.\n\nCan we provide a platform specific string here? The current one suffices for Android (and soon) Chrome OS, but W/M/L should perhaps be something like:\n\nand the sizes attribute must be set, and the purpose attribute, if set, must include \u0026quot;any\u0026quot and should not include \u0026quot;any\u0026quot;.\n\n1. https://web.dev/maskable-icon/#are-my-current-icons-ready",
+      "range": {
+        "startLine": 338,
+        "startChar": 217,
+        "endLine": 338,
+        "endChar": 245
+      },
+      "revId": "9252c6d1b758255bca7b35c3346a690cf47967c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
