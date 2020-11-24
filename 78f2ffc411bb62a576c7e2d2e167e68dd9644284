@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bdb8d4e_d6755da0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-24T18:06:04Z",
+      "side": 1,
+      "message": "LGTM with the same thought as Rob P 👍",
+      "revId": "78f2ffc411bb62a576c7e2d2e167e68dd9644284",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3fb0f44_c4f548bc",
@@ -31,6 +48,24 @@
       "writtenOn": "2020-11-24T15:53:41Z",
       "side": 1,
       "message": "This comparison still makes it feel as if we\u0027re examining the internal DOM structure of the component. \n\nWould it be able to change the API usage to something, e.g.:\n\n    const colorSwatch \u003d ColorSwatch.isColorSwatch(anchorBox);\n    if (colorSwatch) {\n      ...\n    }\n\nor even\n\n    const anchorBox \u003d ColorSwatch.tryGetAnchorBox(this._anchorElement.boxInWindow());\n\nsuch that the tryGetAnchorBox function is responsible for traversing its internal DOM structure?",
+      "revId": "78f2ffc411bb62a576c7e2d2e167e68dd9644284",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba69eda2_278d3801",
+        "filename": "front_end/inline_editor/SwatchPopoverHelper.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-24T18:06:04Z",
+      "side": 1,
+      "message": "+1, this feels a little brittle in its current form and if we could push this into the component that might be best.",
+      "parentUuid": "a3fb0f44_c4f548bc",
       "revId": "78f2ffc411bb62a576c7e2d2e167e68dd9644284",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
