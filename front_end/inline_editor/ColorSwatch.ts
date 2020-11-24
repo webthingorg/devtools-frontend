@@ -43,6 +43,12 @@ export class ColorSwatch extends HTMLElement {
   get format(): string|null {
     return this._format;
   }
+
+  get anchorBox(): AnchorBox|null {
+    const swatch = this.shadow.querySelector('.color-swatch');
+    return swatch ? swatch.boxInWindow() : null;
+  }
+
   /**
    * Render this swatch given a color object or text to be parsed as a color.
    * @param color The color object or string to use for this swatch.
