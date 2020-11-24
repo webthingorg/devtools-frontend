@@ -52,6 +52,24 @@
       "parentUuid": "c1048a8d_1c81f6ee",
       "revId": "d7cfd929028e588f2d35408dfc570b827e3c36b9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "236627dc_b0001937",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2020-11-24T18:25:08Z",
+      "side": 1,
+      "message": "Maybe the backend can fire an event to the frontend when a new instance is created and/or a new debugger id is possibly sent to the frontend.",
+      "parentUuid": "8cf0ff85_e53079a0",
+      "revId": "d7cfd929028e588f2d35408dfc570b827e3c36b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
