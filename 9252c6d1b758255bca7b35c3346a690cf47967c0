@@ -22,6 +22,30 @@
       },
       "revId": "9252c6d1b758255bca7b35c3346a690cf47967c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f080f33_67a33e93",
+        "filename": "front_end/resources/resources_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1359736
+      },
+      "writtenOn": "2020-11-24T05:23:50Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it be a bit weird to have devtools recommend different things on different platforms? IMO we should recommend one thing that works across all (or as many as possible) platforms.\n\nIt feels a bit weird to have an error message that doesn\u0027t quite capture the exact error, but instead makes a best-practice sort of recommendation. I agree it\u0027s a good idea though 😄",
+      "parentUuid": "7ac33d58_40730c6e",
+      "range": {
+        "startLine": 338,
+        "startChar": 217,
+        "endLine": 338,
+        "endChar": 245
+      },
+      "revId": "9252c6d1b758255bca7b35c3346a690cf47967c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
