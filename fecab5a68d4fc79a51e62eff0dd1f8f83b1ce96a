@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "960a7232_dc8b2edf",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1236,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-24T12:19:54Z",
+      "side": 1,
+      "message": "I will remove it.",
+      "revId": "fecab5a68d4fc79a51e62eff0dd1f8f83b1ce96a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b8391af_90bf03ec",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 2097,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-24T12:19:54Z",
+      "side": 1,
+      "message": "I will remove it.",
+      "revId": "fecab5a68d4fc79a51e62eff0dd1f8f83b1ce96a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
