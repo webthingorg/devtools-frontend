@@ -53,6 +53,7 @@ export class DOMBreakpointsSidebarPane extends UI.Widget.VBox {
     this._list = new UI.ListControl.ListControl(this._breakpoints, this, UI.ListControl.ListMode.NonViewport);
     this.contentElement.appendChild(this._list.element);
     this._list.element.classList.add('breakpoint-list', 'hidden');
+    this._list.selectElementOnFocus(true);
     UI.ARIAUtils.markAsList(this._list.element);
     UI.ARIAUtils.setAccessibleName(this._list.element, ls`DOM Breakpoints list`);
     this._emptyElement.tabIndex = -1;
@@ -94,9 +95,15 @@ export class DOMBreakpointsSidebarPane extends UI.Widget.VBox {
     const checkboxLabel = UI.UIUtils.CheckboxLabel.create(/* title */ undefined, item.enabled);
     const checkboxElement = checkboxLabel.checkboxElement;
     checkboxElement.addEventListener('click', this._checkboxClicked.bind(this, item), false);
-    checkboxElement.tabIndex = this._list.selectedItem() === item ? 0 : -1;
+    checkboxElement.tabIndex = -1;
     this.elementToCheckboxes.set(element, checkboxElement);
     element.appendChild(checkboxLabel);
+    element.addEventListener('keydown', event => {
+      if (event.key === ' ') {
+        checkboxLabel.checkboxElement.click();
+        event.consume(true);
+      }
+    });
 
     const labelElement = document.createElement('div');
     labelElement.classList.add('dom-breakpoint');
@@ -163,27 +170,19 @@ export class DOMBreakpointsSidebarPane extends UI.Widget.VBox {
    * @override
    * @param {?SDK.DOMDebuggerModel.DOMBreakpoint} from
    * @param {?SDK.DOMDebuggerModel.DOMBreakpoint} to
-   * @param {?Element} fromElement
-   * @param {?Element} toElement
+   * @param {?HTMLElement} fromElement
+   * @param {?HTMLElement} toElement
    */
   selectedItemChanged(from, to, fromElement, toElement) {
     if (fromElement) {
-      const fromCheckbox = this.elementToCheckboxes.get(fromElement);
-      if (fromCheckbox) {
-        fromCheckbox.tabIndex = -1;
-      }
+      fromElement.tabIndex = -1;
     }
 
     if (toElement) {
-      const toCheckbox = this.elementToCheckboxes.get(toElement);
-      if (!toCheckbox) {
-        return;
-      }
-
-      this.setDefaultFocusedElement(toCheckbox);
-      toCheckbox.tabIndex = 0;
+      this.setDefaultFocusedElement(toElement);
+      toElement.tabIndex = 0;
       if (this.hasFocus()) {
-        toCheckbox.focus();
+        toElement.focus();
       }
     }
   }
@@ -225,6 +224,7 @@ export class DOMBreakpointsSidebarPane extends UI.Widget.VBox {
       this._emptyElement.classList.remove('hidden');
       this.setDefaultFocusedElement(this._emptyElement);
       this._list.element.classList.add('hidden');
+      this._list.selectElementOnFocus(true);
     } else if (lastIndex >= 0) {
       const breakpointToSelect = this._breakpoints.at(lastIndex);
       if (breakpointToSelect) {
@@ -249,9 +249,6 @@ export class DOMBreakpointsSidebarPane extends UI.Widget.VBox {
       }
       return 0;
     });
-    if (!this.hasFocus()) {
-      this._list.selectItem(this._breakpoints.at(0));
-    }
   }
 
   /**
