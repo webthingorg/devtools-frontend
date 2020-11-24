@@ -16,6 +16,29 @@
       "message": "Please modify the icons in front_end/Images/src (read the readme).\n\nAlso looking at the error_icon.svg you produced, it looks to me as if the width and height of the canvas compared to the actual icon isn\u0027t right, could you double check?",
       "revId": "7301fef2a7a8cce724a6c7cbf18104bcdc253fac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2d1987e_784146a2",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-24T09:09:24Z",
+      "side": 1,
+      "message": "Let\u0027s rewrite this as a function with a switch statement, then the return type can be !Elements.Icon.IconData and we get rid of the awkward null checks below.",
+      "range": {
+        "startLine": 668,
+        "startChar": 0,
+        "endLine": 672,
+        "endChar": 120
+      },
+      "revId": "7301fef2a7a8cce724a6c7cbf18104bcdc253fac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
