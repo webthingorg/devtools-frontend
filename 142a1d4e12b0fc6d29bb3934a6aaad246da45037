@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "086fb421_37814bd1",
+        "filename": "front_end/resources/CookieItemsView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-24T08:47:30Z",
+      "side": 1,
+      "message": "As the Widget is used in many different places, I added a tracking bug to address this in the future: https://crbug.com/1152324",
+      "parentUuid": "0f5abd78_a5929f95",
+      "range": {
+        "startLine": 152,
+        "startChar": 28,
+        "endLine": 152,
+        "endChar": 54
+      },
+      "revId": "142a1d4e12b0fc6d29bb3934a6aaad246da45037",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "abf750cf_ef88be85",
@@ -95,6 +119,30 @@
       "side": 1,
       "message": "Note that you might want to hide the _previewWidget via hideWidget in the constructor; showing the empty widget from the start seems right.",
       "parentUuid": "abf750cf_ef88be85",
+      "range": {
+        "startLine": 196,
+        "startChar": 3,
+        "endLine": 198,
+        "endChar": 0
+      },
+      "revId": "142a1d4e12b0fc6d29bb3934a6aaad246da45037",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc484f8a_75d78ff1",
+        "filename": "front_end/resources/CookieItemsView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-24T08:47:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96f45883_16c0bb82",
       "range": {
         "startLine": 196,
         "startChar": 3,

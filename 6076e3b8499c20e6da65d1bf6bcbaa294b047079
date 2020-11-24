@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e24dca8_634aaa4b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-24T08:47:30Z",
+      "side": 1,
+      "message": "Fixed your nits. Thanks for helping me to not only find _a_ solution but the best we could come up with in this situation!",
+      "revId": "6076e3b8499c20e6da65d1bf6bcbaa294b047079",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
