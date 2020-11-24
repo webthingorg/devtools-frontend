@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70090853_9f614841",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-24T10:27:52Z",
+      "side": 1,
+      "message": "This is mostly unrelated, but I thought it was time to make this list a bit shorter, by reducing repetition a bit.",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 63,
+        "endChar": 53
+      },
+      "revId": "9dd9465d437158e418f97b415c42d7cbcb1b07e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
