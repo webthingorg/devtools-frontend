@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0e5d25ec_ba6a6413",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2107,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-24T12:42:04Z",
+      "side": 1,
+      "message": "Ok, let me improve.",
+      "parentUuid": "70bb8656_d206a4cd",
+      "revId": "cc6c94edba682c5b59c1a6026ca66c850250e486",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7bc44b44_380a20c6",
         "filename": "front_end/elements/StylesSidebarPane.js",
         "patchSetId": 2
