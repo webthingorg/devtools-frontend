@@ -588,7 +588,10 @@ div.CodeMirror:focus-within span.CodeMirror-nonmatchingbracket {
 .CodeMirror .text-editor-line-decoration-icon {
   position: absolute;
   cursor: pointer;
-  right: -16px;
+
+  /* right: -16px; */
+  left: 102%;
+  white-space: nowrap;
   top: -9px;
 }
 
