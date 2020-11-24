@@ -1151,7 +1151,6 @@ export class StylePropertiesSection {
     // @ts-ignore TODO: fix ad hoc section property in a separate CL to be safe
     this.propertiesTreeOutline.section = this;
     this._innerElement.appendChild(this.propertiesTreeOutline.element);
-
     this._showAllButton = UI.UIUtils.createTextButton('', this._showAllItems.bind(this), 'styles-show-all');
     this._innerElement.appendChild(this._showAllButton);
 
@@ -1183,6 +1182,7 @@ export class StylePropertiesSection {
     }
 
     this._selectorElement.addEventListener('click', this._handleSelectorClick.bind(this), false);
+    this.element.addEventListener('contextmenu', this._handleContextMenuEvent.bind(this), false);
     this.element.addEventListener('mousedown', this._handleEmptySpaceMouseDown.bind(this), false);
     this.element.addEventListener('click', this._handleEmptySpaceClick.bind(this), false);
     this.element.addEventListener('mousemove', this._onMouseMove.bind(this), false);
@@ -1224,6 +1224,16 @@ export class StylePropertiesSection {
     this._hoverableSelectorsMode = false;
     this._markSelectorMatches();
     this.onpopulate();
+
+    // this.treeitem = this.propertiesTreeOutline.contentElement.querySelectorAll('* > li');
+    // console.log(this.propertiesTreeOutline.contentElement);
+    // console.log('treeitem');
+    // console.log(this.treeitem);
+    // if(this.treeitem && this.treeitem.length > 0) {
+    //   for (const item of this.treeitem) {
+    //     item.addEventListener('contextmenu', this._handleContextMenuEvent.bind(this), false);
+    //   }
+    // }
   }
 
   /**
@@ -2063,6 +2073,67 @@ export class StylePropertiesSection {
     }
     this._startEditingAtFirstPosition();
     event.consume(true);
+  }
+
+  /**
+   * @param {!Event} event
+   */
+  _handleContextMenuEvent(event) {
+    const target = /** @type {?Element} */ (event.target);
+    const indent = Common.Settings.Settings.instance().moduleSetting('textEditorIndent').get();
+    if (!target) {
+      return;
+    }
+
+    const style = this._style;
+    /** @type {!Array<string>} */
+    const lines = [];
+
+    for (const property of style.leadingProperties()) {
+      // Invalid property should also be copied.
+      // For example: *display: inline;
+      // if (!property.parsedOk) {
+      //   continue;
+      // }
+
+      if (property.disabled) {
+        lines.push(`${indent}/* ${property.name}: ${property.value}; */`);
+      } else {
+        lines.push(`${indent}${property.name}: ${property.value};`);
+      }
+    }
+
+    /** @type {string} */
+    const allDeclarationText = lines.join('\n');
+    /** @type {string} */
+    const ruleText = `${this._headerText()} {\n${allDeclarationText}\n}`;
+
+    const contextMenu = new UI.ContextMenu.ContextMenu(event);
+    contextMenu.clipboardSection().appendItem(ls`Copy rule`, () => {
+      Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(ruleText);
+    });
+
+    // Syntax https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax
+
+    // TODO: Copy current declaration
+    /** @type {string} */
+    // let currentDeclarationText = '';
+    // if(target && target.textContent !== null) {
+    //   currentDeclarationText = target.textContent.trim();
+    // }
+    // contextMenu.clipboardSection().appendItem(ls`Copy declaration`, () => {
+    //   Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(currentDeclarationText);
+    // });
+
+    contextMenu.clipboardSection().appendItem(ls`Copy all declaration`, () => {
+      Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(allDeclarationText);
+    });
+
+    contextMenu.clipboardSection().appendItem(ls`Copy selector`, () => {
+      Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(this._headerText());
+    });
+
+    contextMenu.show();
   }
 
   /**
