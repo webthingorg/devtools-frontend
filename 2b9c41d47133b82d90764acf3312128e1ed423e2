@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdb61ac6_2f2cb7c0",
+        "filename": "front_end/recorder/RecordingSession.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-24T10:14:53Z",
+      "side": 1,
+      "message": "I was a little worried because there a quite a bunch of places in DevTools where races like this increase brittleness for the tests but I think in this case it should be a safe change.\nWill add it in a future cl.",
+      "parentUuid": "092b4649_1e8f76c5",
+      "revId": "2b9c41d47133b82d90764acf3312128e1ed423e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9e15708_74a2d15b",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ba90776_fc24db20",
+        "filename": "front_end/recorder/RecordingSession.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-24T10:14:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9e15708_74a2d15b",
+      "revId": "2b9c41d47133b82d90764acf3312128e1ed423e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7472a3e6_f359fca6",
@@ -48,6 +84,24 @@
       "writtenOn": "2020-11-23T11:50:08Z",
       "side": 1,
       "message": "LGTM % tip: \"append()\" seems slightly simpler for new code",
+      "revId": "2b9c41d47133b82d90764acf3312128e1ed423e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03e52bf6_8d42ae0f",
+        "filename": "test/e2e/resources/recorder/recorder.html",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-24T10:14:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7472a3e6_f359fca6",
       "revId": "2b9c41d47133b82d90764acf3312128e1ed423e2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
