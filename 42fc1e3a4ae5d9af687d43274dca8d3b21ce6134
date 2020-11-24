@@ -33,6 +33,24 @@
       "message": "Peter, do you think it is fine to use the weak map here?",
       "revId": "42fc1e3a4ae5d9af687d43274dca8d3b21ce6134",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3db5114c_0b510b34",
+        "filename": "front_end/timeline_model/TimelineModel.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 2590,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-11-24T08:35:24Z",
+      "side": 1,
+      "message": "I think this is fine but I could be wrong. Let\u0027s do it and see what happens",
+      "parentUuid": "a6a7c38d_3bb2785a",
+      "revId": "42fc1e3a4ae5d9af687d43274dca8d3b21ce6134",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
