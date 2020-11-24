@@ -118,6 +118,30 @@
       },
       "revId": "9252c6d1b758255bca7b35c3346a690cf47967c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8f05028_a121a664",
+        "filename": "front_end/resources/resources_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1359736
+      },
+      "writtenOn": "2020-11-24T08:30:29Z",
+      "side": 1,
+      "message": "Email sent 😊\nIs it ok to update these strings now? Or should we wait to update the checks too?",
+      "parentUuid": "c3e0ff27_d0d9f464",
+      "range": {
+        "startLine": 338,
+        "startChar": 217,
+        "endLine": 338,
+        "endChar": 245
+      },
+      "revId": "9252c6d1b758255bca7b35c3346a690cf47967c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
