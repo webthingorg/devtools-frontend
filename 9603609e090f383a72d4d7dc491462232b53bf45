@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "711f0021_8f2d23e2",
+        "filename": "front_end/issues/CSPViolationsListView.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-24T09:44:11Z",
+      "side": 1,
+      "message": "Same here, please make fields private (if at all possible).",
+      "range": {
+        "startLine": 12,
+        "startChar": 2,
+        "endLine": 12,
+        "endChar": 13
+      },
+      "revId": "9603609e090f383a72d4d7dc491462232b53bf45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78582577_f8e9be88",
+        "filename": "front_end/issues/CSPViolationsView.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-24T09:44:11Z",
+      "side": 1,
+      "message": "Why don\u0027t you need to subscribe to other events?\n\nThis needs a test which includes a navigation from one page with issues to another page with (different) issues.",
+      "range": {
+        "startLine": 48,
+        "startChar": 73,
+        "endLine": 48,
+        "endChar": 83
+      },
+      "revId": "9603609e090f383a72d4d7dc491462232b53bf45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6eec5055_8d9a1d33",
+        "filename": "front_end/issues/ComboBoxOfCheckBoxes.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-24T09:44:11Z",
+      "side": 1,
+      "message": "Can we test this? How much work would it be to turn this into a component? Jack, do you think we need such a component in the future?",
+      "range": {
+        "startLine": 8,
+        "startChar": 13,
+        "endLine": 8,
+        "endChar": 34
+      },
+      "revId": "9603609e090f383a72d4d7dc491462232b53bf45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fe366fd_d20b8b5c",
+        "filename": "front_end/issues/ComboBoxOfCheckBoxes.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-24T09:44:11Z",
+      "side": 1,
+      "message": "nit: can those be private?",
+      "range": {
+        "startLine": 19,
+        "startChar": 4,
+        "endLine": 23,
+        "endChar": 36
+      },
+      "revId": "9603609e090f383a72d4d7dc491462232b53bf45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
