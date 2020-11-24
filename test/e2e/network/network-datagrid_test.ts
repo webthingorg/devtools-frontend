@@ -133,4 +133,35 @@ describe('The Network Tab', async () => {
       'script',
     ]);
   });
+
+  it('shows the correct initiator address space', async () => {
+    const {target, frontend} = getBrowserAndPages();
+
+    await navigateToNetworkTab('fetch.html');
+
+    // Reload to populate network request table
+    await target.reload({waitUntil: 'networkidle0'});
+
+    await waitForSomeRequestsToAppear(2);
+
+    await step('Open the contextmenu for all network column', async () => {
+      await click('.name-column', {clickOptions: {button: 'right'}});
+    });
+
+    await step('Enable the Initiator Address Space column in the network datagrid', async () => {
+      const lastModified = await waitForAria('Initiator Address Space, unchecked');
+      await click(lastModified);
+    });
+
+    await step('Wait for the Initiator Address Space column to have the expected values', async () => {
+      const expectedValues = JSON.stringify(['Initiator Address Space', '', 'Local']);
+      await waitForFunction(async () => {
+        const lastModifiedColumnValues = await frontend.$$eval(
+            'pierce/.initiator-address-space-column',
+            cells => cells.map(element => element.textContent),
+        );
+        return JSON.stringify(lastModifiedColumnValues) === expectedValues;
+      });
+    });
+  });
 });
