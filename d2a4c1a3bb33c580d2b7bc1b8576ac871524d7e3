@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8099fbc6_32091534",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-24T14:58:49Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "d2a4c1a3bb33c580d2b7bc1b8576ac871524d7e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7a7f449_876c6d40",
+        "filename": "front_end/js_profiler/js_profiler.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-24T14:58:49Z",
+      "side": 1,
+      "message": "Add a comment here that says why it\u0027s intentionally left blank?",
+      "revId": "d2a4c1a3bb33c580d2b7bc1b8576ac871524d7e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
