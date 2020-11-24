@@ -29,12 +29,13 @@ export const ViewPersistence = {
 export const ViewLocationValues = {
   PANEL: 'panel',
   SETTINGS_VIEW: 'settings-view',
+  ELEMENTS_SIDEBAR: 'elements-sidebar',
 };
 
 /**
  * @typedef {{
- *  experiment: (string|undefined),
- *  condition: (string|undefined),
+ *  experiment: (!Root.Runtime.ExperimentName|undefined),
+ *  condition: (!Root.Runtime.ConditionName|undefined),
  *  title: string,
  *  persistence: (!ViewPersistence|undefined),
  *  id: string,

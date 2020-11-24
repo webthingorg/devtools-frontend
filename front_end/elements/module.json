@@ -1,14 +1,6 @@
 {
   "extensions": [
     {
-      "type": "view",
-      "location": "panel",
-      "id": "elements",
-      "title": "Elements",
-      "order": 10,
-      "className": "Elements.ElementsPanel"
-    },
-    {
       "type": "@UI.ContextMenu.Provider",
       "contextTypes": [
         "SDK.RemoteObject",
@@ -141,76 +133,6 @@
       "location": "styles-sidebarpane-toolbar"
     },
     {
-      "type": "action",
-      "actionId": "elements.hide-element",
-      "category": "Elements",
-      "title": "Hide element",
-      "contextTypes": [
-        "Elements.ElementsPanel"
-      ],
-      "className": "Elements.ElementsActionDelegate",
-      "bindings": [
-        {
-          "shortcut": "H"
-        }
-      ]
-    },
-    {
-      "type": "action",
-      "actionId": "elements.edit-as-html",
-      "category": "Elements",
-      "title": "Edit as HTML",
-      "contextTypes": [
-        "Elements.ElementsPanel"
-      ],
-      "className": "Elements.ElementsActionDelegate",
-      "bindings": [
-        {
-          "shortcut": "F2"
-        }
-      ]
-    },
-    {
-      "type": "action",
-      "actionId": "elements.undo",
-      "category": "Elements",
-      "title": "Undo",
-      "contextTypes": [
-        "Elements.ElementsPanel"
-      ],
-      "className": "Elements.ElementsActionDelegate",
-      "bindings": [
-        {
-          "platform": "windows,linux",
-          "shortcut": "Ctrl+Z"
-        },
-        {
-          "platform": "mac",
-          "shortcut": "Meta+Z"
-        }
-      ]
-    },
-    {
-      "type": "action",
-      "actionId": "elements.redo",
-      "category": "Elements",
-      "title": "Redo",
-      "contextTypes": [
-        "Elements.ElementsPanel"
-      ],
-      "className": "Elements.ElementsActionDelegate",
-      "bindings": [
-        {
-          "platform": "windows,linux",
-          "shortcut": "Ctrl+Y"
-        },
-        {
-          "platform": "mac",
-          "shortcut": "Meta+Shift+Z"
-        }
-      ]
-    },
-    {
       "type": "@Elements.MarkerDecorator",
       "className": "Elements.ElementsPanel.PseudoStateMarkerDecorator",
       "marker": "pseudo-state-marker"
@@ -223,33 +145,6 @@
       "color": "#555"
     },
     {
-      "type": "action",
-      "category": "Elements",
-      "actionId": "elements.toggle-element-search",
-      "toggleable": true,
-      "className": "Elements.InspectElementModeController.ToggleSearchActionDelegate",
-      "title": "Select an element in the page to inspect it",
-      "iconClass": "largeicon-node-search",
-      "bindings": [
-        {
-          "platform": "windows,linux",
-          "shortcut": "Ctrl+Shift+C"
-        },
-        {
-          "platform": "mac",
-          "shortcut": "Meta+Shift+C"
-        }
-      ]
-    },
-    {
-      "type": "action",
-      "actionId": "elements.capture-area-screenshot",
-      "className": "Elements.InspectElementModeController.ToggleSearchActionDelegate",
-      "condition": "can_dock",
-      "title": "Capture area screenshot",
-      "category": "Screenshot"
-    },
-    {
       "type": "@UI.ToolbarItem.Provider",
       "actionId": "elements.toggle-element-search",
       "location": "main-toolbar-left",
@@ -260,46 +155,6 @@
       "name": "elements-sidebar",
       "category": "Elements",
       "className": "Elements.ElementsPanel"
-    },
-    {
-      "type": "view",
-      "location": "elements-sidebar",
-      "id": "elements.eventListeners",
-      "title": "Event Listeners",
-      "order": 5,
-      "hasToolbar": true,
-      "persistence": "permanent",
-      "className": "Elements.EventListenersWidget"
-    },
-    {
-      "type": "view",
-      "location": "elements-sidebar",
-      "id": "elements.domProperties",
-      "title": "Properties",
-      "order": 7,
-      "persistence": "permanent",
-      "className": "Elements.PropertiesWidget"
-    },
-    {
-      "type": "view",
-      "experiment": "captureNodeCreationStacks",
-      "location": "elements-sidebar",
-      "id": "elements.domCreation",
-      "title": "Stack Trace",
-      "order": 10,
-      "persistence": "permanent",
-      "className": "Elements.NodeStackTraceWidget"
-    },
-    {
-      "type": "view",
-      "experiment": "cssGridFeatures",
-      "location": "elements-sidebar",
-      "id": "elements.layout",
-      "title": "Layout",
-      "order": 4,
-      "hasToolbar": false,
-      "persistence": "permanent",
-      "className": "Elements.LayoutSidebarPane"
     }
   ],
   "dependencies": [
