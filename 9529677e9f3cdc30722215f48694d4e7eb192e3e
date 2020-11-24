@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d7cdb37_2dc992ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-24T16:14:29Z",
+      "side": 1,
+      "message": "@Paul, @Alfonso PTAL.\n\n@Alfonso would you mind trying this out on your work with the new data-grid in the issues panel? I tried locally and all seemed to work fine for me but would be good to check this works for you before landing.",
+      "revId": "9529677e9f3cdc30722215f48694d4e7eb192e3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
