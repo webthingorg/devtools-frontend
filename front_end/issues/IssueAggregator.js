@@ -184,6 +184,7 @@ export class IssueAggregator extends Common.ObjectWrapper.ObjectWrapper {
     /** @type {!BrowserSDK.IssuesManager.IssuesManager} */
     this._issuesManager = issuesManager;
     this._issuesManager.addEventListener(BrowserSDK.IssuesManager.Events.IssueAdded, this._onIssueAdded, this);
+
     this._issuesManager.addEventListener(
         BrowserSDK.IssuesManager.Events.FullUpdateRequired, this._onFullUpdateRequired, this);
     for (const issue of this._issuesManager.issues()) {
