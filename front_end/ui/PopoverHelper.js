@@ -117,11 +117,13 @@ export class PopoverHelper {
       return;
     }
 
+
     this._startHidePopoverTimer(this._hideTimeout);
     this._stopShowPopoverTimer();
     if (event.which && this._disableOnClick) {
       return;
     }
+
     this._startShowPopoverTimer(event, this.isPopoverVisible() ? this._showTimeout * 0.6 : this._showTimeout);
   }
 
@@ -179,11 +181,12 @@ export class PopoverHelper {
    * @param {number} timeout
    */
   _startShowPopoverTimer(event, timeout) {
+    // console.error("Call: "+this._getRequest.name);
     this._scheduledRequest = this._getRequest.call(null, event);
     if (!this._scheduledRequest) {
       return;
     }
-
+    // console.error("Event target: "+/** @type {!HTMLElement} */(event.target).className);
     this._showPopoverTimer = window.setTimeout(() => {
       this._showPopoverTimer = null;
       this._stopHidePopoverTimer();

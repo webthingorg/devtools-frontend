@@ -4,6 +4,7 @@
 
 import * as Common from '../common/common.js';
 import * as SDK from '../sdk/sdk.js';
+import {PresentationIssueMessageHelper} from './PresentationIssueMessageHelper.js';
 
 /** @type {?IssuesManager} */
 let issuesManagerInstance = null;
@@ -39,6 +40,9 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper {
 
     /** @type {?Common.EventTarget.EventDescriptor} */
     this._showThirdPartySettingsChangeListener = null;
+
+    /** @type {!WeakMap<!SDK.IssuesModel.IssuesModel, !PresentationIssueMessageHelper>} */
+    this._issuesModelToMessageHelperMap = new WeakMap();
   }
 
   /**
@@ -102,6 +106,7 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper {
   modelAdded(issuesModel) {
     const listener = issuesModel.addEventListener(SDK.IssuesModel.Events.IssueAdded, this._issueAdded, this);
     this._eventListeners.set(issuesModel, listener);
+    this._issuesModelToMessageHelperMap.set(issuesModel, new PresentationIssueMessageHelper(issuesModel));
   }
 
   /**
@@ -133,6 +138,12 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper {
 
     if (this._issueFilter(issue)) {
       this._filteredIssues.set(primaryKey, issue);
+
+      const helper = this._issuesModelToMessageHelperMap.get(issuesModel);
+      if (helper) {
+        helper.issueAdded(issue);
+      }
+
       this.dispatchEventToListeners(Events.IssueAdded, {issuesModel, issue});
     }
     // Always fire the "count" event even if the issue was filtered out.
@@ -184,6 +195,15 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper {
 
   _updateFilteredIssues() {
     this._filteredIssues.clear();
+
+    // TODO: Create map issue -> model to be able to add the issues again
+    for (const issuesModel of SDK.SDKModel.TargetManager.instance().models(SDK.IssuesModel.IssuesModel)) {
+      const helper = this._issuesModelToMessageHelperMap.get(issuesModel);
+      if (helper) {
+        helper.debuggerReset();
+      }
+    }
+
     // TODO(crbug.com/1011811): Replace with for .. of loop once Closure is gone.
     this._issues.forEach((issue, key) => {
       if (this._issueFilter(issue)) {

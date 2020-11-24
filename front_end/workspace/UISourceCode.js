@@ -33,7 +33,7 @@ import * as Platform from '../platform/platform.js';
 import * as TextUtils from '../text_utils/text_utils.js';
 
 import {Events as WorkspaceImplEvents, Project, projectTypes} from './WorkspaceImpl.js';  // eslint-disable-line no-unused-vars
-
+// import {createIssueDescriptionFromMarkdown} from '../issues/MarkdownIssueDescription.js';
 /**
  * @implements {TextUtils.ContentProvider.ContentProvider}
  * @unrestricted
@@ -810,6 +810,7 @@ export class Message {
  */
 Message.Level = {
   Error: 'Error',
+  Issue: 'Issue',
   Warning: 'Warning'
 };
 
