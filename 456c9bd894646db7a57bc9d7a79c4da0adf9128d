@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "08f5bb81_0f924361",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryViewer.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-25T07:55:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed8960b5_0f0f3bc5",
+      "revId": "456c9bd894646db7a57bc9d7a79c4da0adf9128d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "688ab0ad_ff045524",
@@ -48,6 +66,24 @@
       "writtenOn": "2020-11-25T07:18:43Z",
       "side": 1,
       "message": "Nice! I was already wondering if this was a bug or intentional :-)",
+      "revId": "456c9bd894646db7a57bc9d7a79c4da0adf9128d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d5b011d_6dd4f955",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryViewer.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-25T07:55:06Z",
+      "side": 1,
+      "message": "Yeah, it was intentional :D (I don\u0027t remember if we have discussed whether one can select the ascii part as well). Since Emanuel was missing it, apparently it is intuitive to be able to click on it. (Sometimes it\u0027s hard to say whether or not something is intuitive if one\u0027s implementing it :D)",
+      "parentUuid": "688ab0ad_ff045524",
       "revId": "456c9bd894646db7a57bc9d7a79c4da0adf9128d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
