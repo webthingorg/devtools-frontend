@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ebe4109_fef876c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-25T13:04:44Z",
+      "side": 1,
+      "message": "I\u0027ve updated the component to use the new variable definitions, ptal!",
+      "parentUuid": "01724a11_87379527",
+      "revId": "d57211ca004b95b35d30a3a3636402c8733a5077",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae8bdbc8_e5b02195",
@@ -48,6 +66,30 @@
       "writtenOn": "2020-11-25T11:19:03Z",
       "side": 1,
       "message": "do you definitely need this? I think because this component is rendered within DevTools the CSS variables you want to reference should be there anyway.",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 76
+      },
+      "revId": "d57211ca004b95b35d30a3a3636402c8733a5077",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d35f14fc_bc158e5c",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryViewer.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-25T13:04:44Z",
+      "side": 1,
+      "message": "Ahh ok, thanks, removed!",
+      "parentUuid": "ae8bdbc8_e5b02195",
       "range": {
         "startLine": 53,
         "startChar": 0,
