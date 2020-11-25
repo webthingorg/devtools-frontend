@@ -1,11 +1,13 @@
 // Copyright (c) 2020 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
+import * as ComponentHelpers from '../component_helpers/component_helpers.js';
 import * as LitHtml from '../third_party/lit-html/lit-html.js';
 
 import {toHexString} from './LinearMemoryInspectorUtils.js';
 
 const {render, html} = LitHtml;
+const getStyleSheets = ComponentHelpers.GetStylesheet.getStyleSheets;
 
 export interface LinearMemoryViewerData {
   memory: Uint8Array;
@@ -44,6 +46,13 @@ export class LinearMemoryViewer extends HTMLElement {
 
   private numRows = 1;
   private numBytesInRow = LinearMemoryViewer.BYTE_GROUP_SIZE;
+
+  constructor() {
+    super();
+    this.shadow.adoptedStyleSheets = [
+      ...getStyleSheets('ui/inspectorStyle.css', {patchThemeSupport: true}),
+    ];
+  }
 
   set data(data: LinearMemoryViewerData) {
     if (data.address < data.memoryOffset || data.address > data.memoryOffset + data.memory.length || data.address < 0) {
@@ -89,7 +98,7 @@ export class LinearMemoryViewer extends HTMLElement {
 
     // We initially just plot one row with one byte group (here: byte group size of 4).
     // Depending on that initially plotted row we can determine how many rows and
-    // bytes per rows we can fit:
+    // bytes per row we can fit:
     // > 0000000 | b0 b1 b2 b4 | a0 a1 a2 a3       <
     //             ^-^           ^-^
     //             byteCellWidth textCellWidth
@@ -152,11 +161,18 @@ export class LinearMemoryViewer extends HTMLElement {
           text-overflow: ellipsis;
           box-sizing: border-box;
           --selected-cell-color: #1a1aa6;
+          --address-color: #5f6368;
+        }
+
+        :host-context(.-theme-with-dark-background) .view {
+          --selected-cell-color: #f29766;
+          --address-color: #9aa0a6;
         }
 
         .row {
           display: flex;
           height: 20px;
+          align-items: center;
         }
 
         .cell {
@@ -168,7 +184,7 @@ export class LinearMemoryViewer extends HTMLElement {
         .cell.selected {
           border-color: var(--selected-cell-color);
           color: var(--selected-cell-color);
-          background-color: #cfe8fc;
+          background-color: var(--item-selection-bg-color);
         }
 
         .byte-cell {
@@ -185,8 +201,7 @@ export class LinearMemoryViewer extends HTMLElement {
         }
 
         .address {
-          font-size: 11px;
-          color: #9aa0a6;
+          color: var(--address-color);
         }
 
         .address.selected {
@@ -196,7 +211,8 @@ export class LinearMemoryViewer extends HTMLElement {
 
         .divider {
           width: 1px;
-          background-color: rgb(204, 204, 204);
+          height: inherit;
+          background-color: var(--divider-color);
           margin: 0px 4px 0px 4px;
         }
       </style>
@@ -261,7 +277,7 @@ export class LinearMemoryViewer extends HTMLElement {
         selected: this.address - this.memoryOffset === i,
       };
       const value = i < this.memory.length ? html`${this.toAscii(this.memory[i])}` : '';
-      cells.push(html`<span class="${LitHtml.Directives.classMap(classMap)}">${value}</span>`);
+      cells.push(html`<span class="${LitHtml.Directives.classMap(classMap)}" @click=${this.onSelectedByte(i + this.memoryOffset)}>${value}</span>`);
     }
     return html`${cells}`;
   }
