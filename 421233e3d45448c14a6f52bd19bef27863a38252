@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "759b9bc2_efd0f841",
+        "filename": "front_end/elements/elements-meta.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-25T16:25:47Z",
+      "side": 1,
+      "message": "Same double-check request as actions: if we declare duplicate settings, do we receive nice errors?",
+      "range": {
+        "startLine": 298,
+        "startChar": 16,
+        "endLine": 298,
+        "endChar": 31
+      },
+      "revId": "421233e3d45448c14a6f52bd19bef27863a38252",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d53d5ed_c6163ea9",
+        "filename": "front_end/elements/elements-meta.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-25T16:25:47Z",
+      "side": 1,
+      "message": "Same nit as the actions, so I guess we should look into migrating Settings as well. Let\u0027s do that in a follow-up CL.",
+      "range": {
+        "startLine": 301,
+        "startChar": 0,
+        "endLine": 309,
+        "endChar": 23
+      },
+      "revId": "421233e3d45448c14a6f52bd19bef27863a38252",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8eec243_34178507",
+        "filename": "front_end/elements/elements-meta.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-25T16:25:47Z",
+      "side": 1,
+      "message": "Now that I think of it, do we have a similar safeguard for these orders? E.g. if two settings both specify `order: 2`, does the system error appropriately? I don\u0027t think this is a major issue, so I would be okay with leaving as-is, but it might be nice to be stricter if we can.",
+      "range": {
+        "startLine": 314,
+        "startChar": 2,
+        "endLine": 314,
+        "endChar": 11
+      },
+      "revId": "421233e3d45448c14a6f52bd19bef27863a38252",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "620ef074_7fcc6069",
+        "filename": "front_end/elements/elements-meta.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-25T16:25:47Z",
+      "side": 1,
+      "message": "Is there any particular reason why this one does not have an order specified? I don\u0027t remember that we wrote anything about this in our design doc, so it might be good to include a small section on why some settings have an order defined and others have not.",
+      "range": {
+        "startLine": 411,
+        "startChar": 2,
+        "endLine": 411,
+        "endChar": 46
+      },
+      "revId": "421233e3d45448c14a6f52bd19bef27863a38252",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
