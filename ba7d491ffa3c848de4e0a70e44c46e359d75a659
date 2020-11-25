@@ -16,6 +16,24 @@
       "message": "LGTM, but can you add a test?",
       "revId": "ba7d491ffa3c848de4e0a70e44c46e359d75a659",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11f757ac_ab895c7f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-11-25T09:55:01Z",
+      "side": 1,
+      "message": "Testing that the icon is being displayed properly is quite challenging through unit or E2E tests, since that the icon is in the right part of the layout does not imply that it is visible. Thus, I think that an screenshot test would be the most appropriate, but currently it is not possible.",
+      "parentUuid": "77805612_024e549b",
+      "revId": "ba7d491ffa3c848de4e0a70e44c46e359d75a659",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
