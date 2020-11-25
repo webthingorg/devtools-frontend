@@ -39,6 +39,30 @@
       },
       "revId": "5e30b091912ac22b08cfe83b26ffb59acd3231be",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22df21d7_0f8e949a",
+        "filename": "test/unittests/front_end/sdk/OverlayColorGenerator_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-25T15:24:43Z",
+      "side": 1,
+      "message": "Line 24 should cover it, shouldn\u0027t it?",
+      "parentUuid": "ad73b291_d7cb809b",
+      "range": {
+        "startLine": 11,
+        "startChar": 25,
+        "endLine": 11,
+        "endChar": 46
+      },
+      "revId": "5e30b091912ac22b08cfe83b26ffb59acd3231be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
