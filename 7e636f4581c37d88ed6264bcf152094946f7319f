@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64d84370_0d96fff7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-11-25T10:10:55Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nHere\u0027s a refactoring on the Debugger raw location ranges to enable more wide-spread use of ranges.\nPlease take a look.\n\ncheers,\nBenedikt",
+      "revId": "7e636f4581c37d88ed6264bcf152094946f7319f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
