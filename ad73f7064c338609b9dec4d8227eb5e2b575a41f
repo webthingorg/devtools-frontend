@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b78e382a_da05675f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-25T09:15:54Z",
+      "side": 1,
+      "message": "Woah, that was fast! Nice work.\n\nLGTM with a suggestion",
+      "revId": "ad73f7064c338609b9dec4d8227eb5e2b575a41f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b67cf129_db53181a",
+        "filename": "front_end/css_overview/CSSOverviewCompletedView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-25T09:15:54Z",
+      "side": 1,
+      "message": "Could we do:\n\n    CSSOverviewCompletedView.pushedNodes.clear();\n\nto avoid creating new sets?",
+      "range": {
+        "startLine": 183,
+        "startChar": 4,
+        "endLine": 183,
+        "endChar": 53
+      },
+      "revId": "ad73f7064c338609b9dec4d8227eb5e2b575a41f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
