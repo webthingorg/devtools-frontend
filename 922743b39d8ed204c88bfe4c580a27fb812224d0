@@ -16,6 +16,46 @@
       "message": "@Joel Do you think we should support this feature in Shadow DOM?",
       "revId": "922743b39d8ed204c88bfe4c580a27fb812224d0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e4fc268_18d4014c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-25T08:14:52Z",
+      "side": 1,
+      "message": "One more simplification, then I\u0027ll +2 this for you.",
+      "revId": "922743b39d8ed204c88bfe4c580a27fb812224d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dac42a1f_cdd9e104",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-25T08:14:52Z",
+      "side": 1,
+      "message": "seems like you can remove the `? true : false`",
+      "range": {
+        "startLine": 669,
+        "startChar": 102,
+        "endLine": 669,
+        "endChar": 117
+      },
+      "revId": "922743b39d8ed204c88bfe4c580a27fb812224d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
