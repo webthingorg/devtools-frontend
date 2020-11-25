@@ -16,6 +16,92 @@
       "message": "PTAL",
       "revId": "b15131f341fbe51970d1c37ad845d5f444e04fd1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58917bdf_52979435",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-25T11:47:10Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "b15131f341fbe51970d1c37ad845d5f444e04fd1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00a27e0a_824007eb",
+        "filename": "front_end/ui/components/DataGridController.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-25T11:47:10Z",
+      "side": 1,
+      "message": "At some point should we change these over to private fields? Not at all necessary for this CL.",
+      "range": {
+        "startLine": 25,
+        "startChar": 2,
+        "endLine": 25,
+        "endChar": 9
+      },
+      "revId": "b15131f341fbe51970d1c37ad845d5f444e04fd1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e4127b1_dc12ef80",
+        "filename": "front_end/ui/components/DataGridController.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-25T11:47:10Z",
+      "side": 1,
+      "message": "I _think_ I understand this.... maybe? It negates the outcome of the match if the filter has been set to include/exclude? In any case, I wonder if this needs a comment.",
+      "range": {
+        "startLine": 86,
+        "startChar": 4,
+        "endLine": 86,
+        "endChar": 59
+      },
+      "revId": "b15131f341fbe51970d1c37ad845d5f444e04fd1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7f1ca3a_f5b73fd1",
+        "filename": "test/unittests/front_end/ui/components/DataGridController_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-25T11:47:10Z",
+      "side": 1,
+      "message": "If the FilterParser adds the flag automatically, why do you add it here? Short version: not sure I follow! 😊",
+      "range": {
+        "startLine": 197,
+        "startChar": 37,
+        "endLine": 197,
+        "endChar": 81
+      },
+      "revId": "b15131f341fbe51970d1c37ad845d5f444e04fd1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
