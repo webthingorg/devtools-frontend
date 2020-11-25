@@ -16,6 +16,40 @@
       "message": "PTAL",
       "revId": "ace4a4e70b38222b7a09ed40e2fc8757014d30bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b1304d5_0a68a58f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-25T14:20:45Z",
+      "side": 1,
+      "message": "LGTM % test suggestion",
+      "revId": "ace4a4e70b38222b7a09ed40e2fc8757014d30bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1bc8f52_ff04ec01",
+        "filename": "test/unittests/front_end/platform/SetUtilities_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-25T14:20:45Z",
+      "side": 1,
+      "message": "Let\u0027s add a test for the same-set (\u003d\u003d\u003d) case, since it\u0027s one of the branches in the code",
+      "revId": "ace4a4e70b38222b7a09ed40e2fc8757014d30bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
