@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "71f85d88_46b1bd61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-25T10:11:52Z",
+      "side": 1,
+      "message": "CC\u0027ing Jan since he also has experience in Console and Sources panel. Feel free to move yourself to reviewer if you\u0027d like.",
+      "revId": "075084f7a3adfb640be2b0bb9f58aae11ee429aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6e9011ae_d2d12570",
