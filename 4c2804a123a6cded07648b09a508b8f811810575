@@ -202,6 +202,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d6129510_7adda70f",
+        "filename": "front_end/emulation/DeviceModeView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-25T15:41:29Z",
+      "side": 1,
+      "message": "copyToClipboard +1",
+      "parentUuid": "3ee8b431_3619b119",
+      "range": {
+        "startLine": 534,
+        "startChar": 19,
+        "endLine": 534,
+        "endChar": 28
+      },
+      "revId": "4c2804a123a6cded07648b09a508b8f811810575",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "46957881_fa11947e",
         "filename": "front_end/emulation/DeviceModeView.js",
         "patchSetId": 2
