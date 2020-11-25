@@ -291,6 +291,23 @@
       },
       "revId": "4c2804a123a6cded07648b09a508b8f811810575",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7be519ab_a08c0004",
+        "filename": "front_end/emulation/DeviceModeWrapper.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-25T15:45:31Z",
+      "side": 1,
+      "message": "Are you considering adding a context menu?",
+      "revId": "4c2804a123a6cded07648b09a508b8f811810575",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
