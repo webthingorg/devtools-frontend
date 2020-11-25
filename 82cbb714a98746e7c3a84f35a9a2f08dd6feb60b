@@ -16,6 +16,24 @@
       "message": "These shortcuts are the same for all platforms. Do we need the separate entries for windows,linux + mac?",
       "revId": "82cbb714a98746e7c3a84f35a9a2f08dd6feb60b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2b0fc57_6c1f817b",
+        "filename": "front_end/elements/module.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-25T11:56:32Z",
+      "side": 1,
+      "message": "I have updated, but the default shortcut keys need to be discussed.",
+      "parentUuid": "c2b5e8a6_bc57ff43",
+      "revId": "82cbb714a98746e7c3a84f35a9a2f08dd6feb60b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
