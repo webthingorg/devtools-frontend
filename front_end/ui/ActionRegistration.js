@@ -577,9 +577,14 @@ export const Events = {
 
 /** @enum {string} */
 export const ActionCategory = {
-  ELEMENTS: ls`Elements`
+  ELEMENTS: ls`Elements`,
+  SCREENSHOT: ls`Screenshot`
 };
 
+/** @enum {string} */
+export const IconClass = {
+  LARGEICON_NODE_SEARCH: 'largeicon-node-search',
+};
 
 /**
  * @typedef {{
@@ -615,8 +620,8 @@ export let Binding;
   *  contextTypes: (undefined|function():!Array<function(new:Object, ...*):void>),
   *  options: (undefined|!Array<!ExtensionOption>),
   *  bindings: (!Array<!Binding>|undefined),
-  *  experiment: (string|undefined),
-  *  condition: (string|undefined)
+  *  experiment: (!Root.Runtime.ExperimentName|undefined),
+  *  condition: (!Root.Runtime.ConditionName|undefined)
   * }}
   */
 // @ts-ignore typedef
