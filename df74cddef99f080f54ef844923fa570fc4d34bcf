@@ -33,6 +33,46 @@
       "message": "Adding Tim for his take.",
       "revId": "df74cddef99f080f54ef844923fa570fc4d34bcf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67df6bd1_7f7e364e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-25T09:45:51Z",
+      "side": 1,
+      "message": "LGTM. I will wait on the unit test fix before running CQ.",
+      "revId": "df74cddef99f080f54ef844923fa570fc4d34bcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ba9514a_751ebbe5",
+        "filename": "test/unittests/front_end/sdk/AccessibilityModel_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-25T09:45:51Z",
+      "side": 1,
+      "message": "At the moment the code imports the types of SDK, but never imports SDK proper, so would fail. This will need a before block to import SDK in the same way as https://chromium.googlesource.com/devtools/devtools-frontend/+/refs/heads/master/test/unittests/front_end/sdk/CookieModel_test.ts#13",
+      "range": {
+        "startLine": 12,
+        "startChar": 2,
+        "endLine": 12,
+        "endChar": 28
+      },
+      "revId": "df74cddef99f080f54ef844923fa570fc4d34bcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
