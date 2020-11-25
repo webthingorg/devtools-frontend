@@ -120,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8836ada0_7618efd0",
+        "filename": "front_end/issues/ComboBoxOfCheckBoxes.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-11-25T11:02:49Z",
+      "side": 1,
+      "message": "In my opinion, at the moment the complexity of making it a component is not worthy. Apart from not being sure about if we will be reusing it, the class inherits from UI.Toolbar.ToolbarButton, which is not a Web Component. Therefore, probably it should be considered once ToolbarButton is a Web Component.",
+      "parentUuid": "6eec5055_8d9a1d33",
+      "range": {
+        "startLine": 8,
+        "startChar": 13,
+        "endLine": 8,
+        "endChar": 34
+      },
+      "revId": "9603609e090f383a72d4d7dc491462232b53bf45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6fe366fd_d20b8b5c",
         "filename": "front_end/issues/ComboBoxOfCheckBoxes.js",
         "patchSetId": 13

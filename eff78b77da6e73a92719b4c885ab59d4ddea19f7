@@ -189,6 +189,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fc083b1_7eaa7085",
+        "filename": "front_end/issues/CSPViolationsListView.css",
+        "patchSetId": 10
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-11-25T11:02:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9cf2ade3_3ad1ac5d",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 3
+      },
+      "revId": "eff78b77da6e73a92719b4c885ab59d4ddea19f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1c4fcc10_0cb1725d",

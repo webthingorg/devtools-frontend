@@ -68,6 +68,24 @@
       "message": "Please revert stray change",
       "revId": "eb9ce98f3bbb701f2dfe8a7e42b1662fd20a63f3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "103342fd_6a6a882d",
+        "filename": "front_end/issues/IssueAggregator.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-11-25T11:02:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e8277c8_6b26db23",
+      "revId": "eb9ce98f3bbb701f2dfe8a7e42b1662fd20a63f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
