@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d90aa48_811432d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-25T15:20:13Z",
+      "side": 1,
+      "message": "I think this solution is a definite improvement for the component docs experience. I have noted two concerns that I think we need to address in the near future, but I don\u0027t think they should be blocking at this moment in time.",
+      "revId": "07e9cb35bd14510f65310f0ab72a2a5bd7d35867",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6307e0e4_698fd79e",
+        "filename": "devtools_grd_files.gni",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-25T15:20:13Z",
+      "side": 1,
+      "message": "I filed crbug.com/1152777 to track the removal of any implementation related to component_docs to not ship in the Chromium binary. I don\u0027t think that this is an immediate blocker for now, but I think we need to address in the near future.",
+      "range": {
+        "startLine": 133,
+        "startChar": 3,
+        "endLine": 133,
+        "endChar": 45
+      },
+      "revId": "07e9cb35bd14510f65310f0ab72a2a5bd7d35867",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c42f2086_9762b36d",
+        "filename": "scripts/component_server/server.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-25T15:20:13Z",
+      "side": 1,
+      "message": "Non-blocking: I don\u0027t mind this solution, as we have strong control over our component docs. However, it would be ideal if we avoid modifying HTML with replaces. Therefore, could we maybe make usage of iframes somehow to inject these styles? I am not sure if that is possible (I can\u0027t think of the top of my head how that would even work), but an iframe-like solution might be more future-proof.",
+      "range": {
+        "startLine": 160,
+        "startChar": 28,
+        "endLine": 160,
+        "endChar": 48
+      },
+      "revId": "07e9cb35bd14510f65310f0ab72a2a5bd7d35867",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
