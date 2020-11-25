@@ -1218,8 +1218,8 @@ ElementsTestRunner.dumpInspectorHighlightJSON = function(idValue, callback) {
   ElementsTestRunner.nodeWithId(idValue, nodeResolved);
 
   async function nodeResolved(node) {
-    const result = await TestRunner.OverlayAgent.getHighlightObjectForTest(node.id);
-    TestRunner.addResult(idValue + JSON.stringify(result, null, 2));
+    const {highlight} = await TestRunner.OverlayAgent.invoke_getHighlightObjectForTest({nodeId: node.id});
+    TestRunner.addResult(idValue + JSON.stringify(highlight, null, 2));
     callback();
   }
 };
@@ -1231,8 +1231,8 @@ ElementsTestRunner.dumpInspectorGridHighlightsJSON = async function(idValues, ca
     nodeIds.push(node.id);
   }
 
-  const result = await TestRunner.OverlayAgent.getGridHighlightObjectsForTest(nodeIds);
-  TestRunner.addResult(JSON.stringify(result, null, 2));
+  const {highlights} = await TestRunner.OverlayAgent.invoke_getGridHighlightObjectsForTest({nodeIds});
+  TestRunner.addResult(JSON.stringify(highlights, null, 2));
   callback();
 };
 
@@ -1240,8 +1240,9 @@ ElementsTestRunner.dumpInspectorDistanceJSON = function(idValue, callback) {
   ElementsTestRunner.nodeWithId(idValue, nodeResolved);
 
   async function nodeResolved(node) {
-    const result = await TestRunner.OverlayAgent.getHighlightObjectForTest(node.id, true);
-    const info = result['distanceInfo'];
+    const {highlight} =
+        await TestRunner.OverlayAgent.invoke_getHighlightObjectForTest({nodeId: node.id, includeDistance: true});
+    const info = highlight.distanceInfo;
     if (!info) {
       TestRunner.addResult(`${idValue}: No distance info`);
     } else {
@@ -1256,8 +1257,9 @@ ElementsTestRunner.dumpInspectorDistanceJSON = function(idValue, callback) {
 
 ElementsTestRunner.dumpInspectorHighlightStyleJSON = async function(idValue) {
   const node = await ElementsTestRunner.nodeWithIdPromise(idValue);
-  const result = await TestRunner.OverlayAgent.getHighlightObjectForTest(node.id, false, true /* includeStyle */);
-  const info = result['elementInfo'] ? result['elementInfo']['style'] : null;
+  const {highlight} = await TestRunner.OverlayAgent.invoke_getHighlightObjectForTest(
+      {nodeId: node.id, includeDistance: false, includeStyle: true});
+  const info = highlight.elementInfo ? highlight.elementInfo.style : null;
   if (!info) {
     TestRunner.addResult(`${idValue}: No style info`);
   } else {
