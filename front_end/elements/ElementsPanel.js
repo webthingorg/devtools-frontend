@@ -1266,6 +1266,8 @@ export class CSSPropertyRevealer {
   }
 }
 
+/** @type {!ElementsActionDelegate} */
+let elementsActionDelegateInstance;
 
 /**
  * @implements {UI.ActionRegistration.ActionDelegate}
@@ -1305,6 +1307,19 @@ export class ElementsActionDelegate {
         return true;
     }
     return false;
+  }
+
+  /**
+   * @param {{forceNew: ?boolean}=} opts
+   * @return {!ElementsActionDelegate}
+   */
+  static instance(opts = {forceNew: null}) {
+    const {forceNew} = opts;
+    if (!elementsActionDelegateInstance || forceNew) {
+      elementsActionDelegateInstance = new ElementsActionDelegate();
+    }
+
+    return elementsActionDelegateInstance;
   }
 }
 
