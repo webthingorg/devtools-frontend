@@ -16,6 +16,46 @@
       "message": "Thanks for the review Benedikt!",
       "revId": "d57211ca004b95b35d30a3a3636402c8733a5077",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01724a11_87379527",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-25T11:19:03Z",
+      "side": 1,
+      "message": "LGTM!\n\nI also was after one or two people to test migrating a component to the new dark theme support...would you be interested in looking into that?",
+      "revId": "d57211ca004b95b35d30a3a3636402c8733a5077",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae8bdbc8_e5b02195",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryViewer.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-25T11:19:03Z",
+      "side": 1,
+      "message": "do you definitely need this? I think because this component is rendered within DevTools the CSS variables you want to reference should be there anyway.",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 76
+      },
+      "revId": "d57211ca004b95b35d30a3a3636402c8733a5077",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
