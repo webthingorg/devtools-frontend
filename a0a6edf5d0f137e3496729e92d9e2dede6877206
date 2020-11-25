@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "39ccd1e0_fdae49bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-25T13:54:06Z",
+      "side": 1,
+      "message": "Sorry, I already landed the change. But I\u0027m happy to address your comments in a follow up cl!",
+      "revId": "a0a6edf5d0f137e3496729e92d9e2dede6877206",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c66cbf1_4f2dbaca",
