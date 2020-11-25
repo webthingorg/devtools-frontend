@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "5e30b091912ac22b08cfe83b26ffb59acd3231be",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad73b291_d7cb809b",
+        "filename": "test/unittests/front_end/sdk/OverlayColorGenerator_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-25T14:57:14Z",
+      "side": 1,
+      "message": "It might be good to add a test case that checks that 2 consecutive colors aren\u0027t the same, since that\u0027s the main job of this class.",
+      "range": {
+        "startLine": 11,
+        "startChar": 25,
+        "endLine": 11,
+        "endChar": 46
+      },
+      "revId": "5e30b091912ac22b08cfe83b26ffb59acd3231be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
