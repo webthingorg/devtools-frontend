@@ -34,6 +34,40 @@
       "parentUuid": "2107bb5d_2a041eb3",
       "revId": "eb9ce98f3bbb701f2dfe8a7e42b1662fd20a63f3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4406446_07b07261",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-25T08:31:27Z",
+      "side": 1,
+      "message": "Please convert the following files to TypeScript:\n\"CSPViolationsListView.ts\",\n\"CSPViolationsView.ts\",\n\"ComboBoxOfCheckBoxes.ts\"\n\nJust renaming the file and modifying front_end/issues/BUILD.gn to name the .ts files as sources instead of the .js files (but leaving the rest of the build infra the same) should work.\n\nI was trying to test the filtering, but it didn\u0027t work for me. Can we have a test for this?",
+      "revId": "eb9ce98f3bbb701f2dfe8a7e42b1662fd20a63f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e8277c8_6b26db23",
+        "filename": "front_end/issues/IssueAggregator.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-25T08:31:27Z",
+      "side": 1,
+      "message": "Please revert stray change",
+      "revId": "eb9ce98f3bbb701f2dfe8a7e42b1662fd20a63f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
