@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa732484_2a23c56b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-11-25T08:16:52Z",
+      "side": 1,
+      "message": "Hey Jack, it looks like the duplicate keys in the .pak file is affecting more than just loc v2 migration CLs. I was able to repro the issue setting HEAD to http://crrev.com/c/2556689. Logs can be found at: https://gist.github.com/hkal/afeeaca0392f7633e1e4e3e8263b49dc.\n\nI\u0027m still investigating, but I wanted to let the loc folks know.",
+      "revId": "9e5ab71e502f45a22e2dd4286da2d8cf16c9e7c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
