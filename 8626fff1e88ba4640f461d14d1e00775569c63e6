@@ -16,6 +16,23 @@
       "message": "Hey Philip,\n\nHere\u0027s the cleanup CL for the Gimli PoC.\nPlease take a look.\n\ncheers,\nBenedikt",
       "revId": "8626fff1e88ba4640f461d14d1e00775569c63e6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ad63cfc_2ffc702a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-11-25T12:11:57Z",
+      "side": 1,
+      "message": "LGTM with one question.",
+      "revId": "8626fff1e88ba4640f461d14d1e00775569c63e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
