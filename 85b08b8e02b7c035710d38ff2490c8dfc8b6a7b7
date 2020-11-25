@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75aef4c3_7b3be2c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-25T07:55:52Z",
+      "side": 1,
+      "message": "The content of the .svg files seems wrong; the x icon is distorted (aspect ratio) and the exclamation mark icon is damaged.",
+      "revId": "85b08b8e02b7c035710d38ff2490c8dfc8b6a7b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
