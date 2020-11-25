@@ -34,6 +34,24 @@
       "parentUuid": "3005f3e8_5530b29a",
       "revId": "ab444d61ecd2ca5832e9fb982b1347fdf793c712",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41f54d22_e0dd24fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-25T19:13:25Z",
+      "side": 1,
+      "message": "Let\u0027s land as-is, it\u0027s fine.",
+      "parentUuid": "45f69978_f1937979",
+      "revId": "ab444d61ecd2ca5832e9fb982b1347fdf793c712",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
