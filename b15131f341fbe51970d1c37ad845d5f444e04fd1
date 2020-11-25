@@ -82,6 +82,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "787e2abc_618cebc9",
+        "filename": "front_end/ui/components/DataGridController.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-25T13:42:54Z",
+      "side": 1,
+      "message": "I do! 😊",
+      "parentUuid": "8257da92_405df0e0",
+      "range": {
+        "startLine": 25,
+        "startChar": 2,
+        "endLine": 25,
+        "endChar": 9
+      },
+      "revId": "b15131f341fbe51970d1c37ad845d5f444e04fd1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6e4127b1_dc12ef80",
@@ -166,6 +190,30 @@
       "side": 1,
       "message": "Because these objects are effectively stubs for what the filter parser would return. So if the user filters for `/foo/`, the parser returns /foo/i, so I\u0027m mimicking that here.",
       "parentUuid": "b7f1ca3a_f5b73fd1",
+      "range": {
+        "startLine": 197,
+        "startChar": 37,
+        "endLine": 197,
+        "endChar": 81
+      },
+      "revId": "b15131f341fbe51970d1c37ad845d5f444e04fd1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ebd827b_a2d0cb87",
+        "filename": "test/unittests/front_end/ui/components/DataGridController_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-25T13:42:54Z",
+      "side": 1,
+      "message": "Okay. Maybe expand the comment a little bit? I think you someone could get there from this, but probably better to make it super clear.",
+      "parentUuid": "199366d1_1c91fe43",
       "range": {
         "startLine": 197,
         "startChar": 37,
