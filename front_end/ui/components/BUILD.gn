@@ -11,8 +11,12 @@ devtools_module("components") {
     "DataGridController.ts",
     "DataGridRenderers.ts",
     "DataGridUtils.ts",
+    "Linkifier.ts",
   ]
-  deps = [ "../../third_party/lit-html:bundle" ]
+  deps = [
+    "../../bindings:bundle",
+    "../../third_party/lit-html:bundle",
+  ]
 
   visibility = [ "../../../test/unittests/front_end/ui/components" ]
 }
