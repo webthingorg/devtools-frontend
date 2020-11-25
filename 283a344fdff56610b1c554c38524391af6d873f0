@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fe3d2fb_a0e86d6c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-25T14:21:23Z",
+      "side": 1,
+      "message": "I added a suggestion for the keyboard shortcut on mac.",
+      "revId": "283a344fdff56610b1c554c38524391af6d873f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ce4ae98_7615a263",
+        "filename": "front_end/elements/module.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-25T14:21:23Z",
+      "side": 1,
+      "message": "I think this should be Option+Shift+Down on mac.",
+      "range": {
+        "startLine": 184,
+        "startChar": 22,
+        "endLine": 184,
+        "endChar": 38
+      },
+      "revId": "283a344fdff56610b1c554c38524391af6d873f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
