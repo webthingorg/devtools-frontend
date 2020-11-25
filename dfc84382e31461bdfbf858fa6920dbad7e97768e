@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04f65d5c_10842c88",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-25T08:03:08Z",
+      "side": 1,
+      "message": "It seems like this would cause problems rather than fix any bugs. I think the bug report is misguided — will post a comment there.",
+      "revId": "dfc84382e31461bdfbf858fa6920dbad7e97768e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
