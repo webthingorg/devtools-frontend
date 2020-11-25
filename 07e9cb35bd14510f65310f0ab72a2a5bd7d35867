@@ -182,6 +182,30 @@
       },
       "revId": "07e9cb35bd14510f65310f0ab72a2a5bd7d35867",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ad940a4_2d942121",
+        "filename": "scripts/component_server/server.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-25T16:07:30Z",
+      "side": 1,
+      "message": "sgtm!",
+      "parentUuid": "71030661_0c000363",
+      "range": {
+        "startLine": 160,
+        "startChar": 28,
+        "endLine": 160,
+        "endChar": 48
+      },
+      "revId": "07e9cb35bd14510f65310f0ab72a2a5bd7d35867",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
