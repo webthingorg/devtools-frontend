@@ -411,9 +411,11 @@ export class RuntimeModel extends SDKModel {
         return subtype + '';
       }
       try {
-        return JSON.stringify(this, null, '  ');
-      } catch (e) {
-        return '' + this;
+        // TODO: The indent will be changed according to the default indentation
+        // in DevTools -> Settings.
+        return JSON.stringify(this, null, 2);
+      } catch (error) {
+        return String(this);
       }
     }
   }
