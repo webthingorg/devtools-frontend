@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4f7f25e_c789d519",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-25T05:48:13Z",
+      "side": 1,
+      "message": "Hi Benedikt,\n\nhere\u0027s a fix for a few issues in the feedback list:\n- dark theme\n- address alignment\n- address font size\n- clickable ascii\n\nPTAL!",
+      "revId": "33ba68db2da2a35605ddeae24bb4c3347df4d419",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
