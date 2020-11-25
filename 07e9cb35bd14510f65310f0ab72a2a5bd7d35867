@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d6f3b06_93f8d474",
+        "filename": "devtools_grd_files.gni",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-25T15:22:58Z",
+      "side": 1,
+      "message": "This could could live in the component docs server and be inlined into the HTML file - that way it wouldn\u0027t be an entrypoint and would never get close to the GRD. Maybe that\u0027s better?",
+      "parentUuid": "6307e0e4_698fd79e",
+      "range": {
+        "startLine": 133,
+        "startChar": 3,
+        "endLine": 133,
+        "endChar": 45
+      },
+      "revId": "07e9cb35bd14510f65310f0ab72a2a5bd7d35867",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c42f2086_9762b36d",
@@ -54,6 +78,30 @@
       "writtenOn": "2020-11-25T15:20:13Z",
       "side": 1,
       "message": "Non-blocking: I don\u0027t mind this solution, as we have strong control over our component docs. However, it would be ideal if we avoid modifying HTML with replaces. Therefore, could we maybe make usage of iframes somehow to inject these styles? I am not sure if that is possible (I can\u0027t think of the top of my head how that would even work), but an iframe-like solution might be more future-proof.",
+      "range": {
+        "startLine": 160,
+        "startChar": 28,
+        "endLine": 160,
+        "endChar": 48
+      },
+      "revId": "07e9cb35bd14510f65310f0ab72a2a5bd7d35867",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a228c67_f6c76a79",
+        "filename": "scripts/component_server/server.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-25T15:22:58Z",
+      "side": 1,
+      "message": "I\u0027m not sure iframes would work, but there\u0027s definitely a better way where we almost have a template that we use for each example, and the server serves up its standard template (with links to the extra styles/scripts), and each of the component examples get rendered into the body.\n\nAlmost like a global layout template works in a framework like Ruby on Rails.",
+      "parentUuid": "c42f2086_9762b36d",
       "range": {
         "startLine": 160,
         "startChar": 28,
