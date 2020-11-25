@@ -34,6 +34,24 @@
       "parentUuid": "77805612_024e549b",
       "revId": "ba7d491ffa3c848de4e0a70e44c46e359d75a659",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f256ac9_63df8d32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-25T10:57:31Z",
+      "side": 1,
+      "message": "Agreed, and we have no screenshot tests yet, so go ahead and land.",
+      "parentUuid": "11f757ac_ab895c7f",
+      "revId": "ba7d491ffa3c848de4e0a70e44c46e359d75a659",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
