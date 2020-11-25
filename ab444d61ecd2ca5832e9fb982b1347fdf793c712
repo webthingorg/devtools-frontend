@@ -16,6 +16,24 @@
       "message": "LGTM. Thanks so much for providing these tests. \n\nOut of interest, what do you think about plugging different values in. I always find it a bit unusual when unit tests have expected values that are floats with a lot of digits after the decimal point. I guess it seems arbitrary rather than testing meaningful values, though I entirely appreciate that you\u0027ve migrated the layout test to Karma, which is great 😊",
       "revId": "ab444d61ecd2ca5832e9fb982b1347fdf793c712",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45f69978_f1937979",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1111977
+      },
+      "writtenOn": "2020-11-25T19:02:34Z",
+      "side": 1,
+      "message": "Thanks for reviewing. I\u0027m tempted to land this change as-is because I just wanted to move these tests out of the Chromium before landing a larger CL to devtools-frontend with changes to the EulerAngle and SensorsView code that will change these tests and values anyway. Does that work or do you think it\u0027d be better to land these tests with saner values?",
+      "parentUuid": "3005f3e8_5530b29a",
+      "revId": "ab444d61ecd2ca5832e9fb982b1347fdf793c712",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
