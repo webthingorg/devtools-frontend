@@ -87,6 +87,24 @@
       "parentUuid": "293040e4_9c6928a1",
       "revId": "075084f7a3adfb640be2b0bb9f58aae11ee429aa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "755128ae_d98b25ea",
+        "filename": "front_end/sdk/RuntimeModel.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-25T10:54:23Z",
+      "side": 1,
+      "message": "Tip: we usually phrase TODO comments in terms of what needs to happen to remove it. So:\n\n    // TODO: Respect the indentation preference from DevTools → Settings.",
+      "parentUuid": "e4589693_69a18586",
+      "revId": "075084f7a3adfb640be2b0bb9f58aae11ee429aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
