@@ -59,6 +59,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "de32c42f_ca75088c",
+        "filename": "front_end/ui/components/Linkifier.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-25T13:14:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d426fb64_23b1e279",
+      "range": {
+        "startLine": 64,
+        "startChar": 13,
+        "endLine": 64,
+        "endChar": 17
+      },
+      "revId": "9529677e9f3cdc30722215f48694d4e7eb192e3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "27b96ead_ec9682d9",
@@ -72,6 +96,30 @@
       "writtenOn": "2020-11-25T12:08:00Z",
       "side": 1,
       "message": "Add a test for the case where we don\u0027t provide good data?",
+      "range": {
+        "startLine": 36,
+        "startChar": 2,
+        "endLine": 36,
+        "endChar": 34
+      },
+      "revId": "9529677e9f3cdc30722215f48694d4e7eb192e3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53077ca8_97c618f2",
+        "filename": "test/unittests/front_end/ui/components/Linkifier_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-25T13:14:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27b96ead_ec9682d9",
       "range": {
         "startLine": 36,
         "startChar": 2,
