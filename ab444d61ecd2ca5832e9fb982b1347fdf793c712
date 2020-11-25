@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3005f3e8_5530b29a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-25T18:42:33Z",
+      "side": 1,
+      "message": "LGTM. Thanks so much for providing these tests. \n\nOut of interest, what do you think about plugging different values in. I always find it a bit unusual when unit tests have expected values that are floats with a lot of digits after the decimal point. I guess it seems arbitrary rather than testing meaningful values, though I entirely appreciate that you\u0027ve migrated the layout test to Karma, which is great 😊",
+      "revId": "ab444d61ecd2ca5832e9fb982b1347fdf793c712",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
