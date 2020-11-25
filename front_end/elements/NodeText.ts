@@ -36,11 +36,11 @@ export class NodeText extends HTMLElement {
         'node-label-id': true,
         'node-multiple-descriptors': hasNodeClasses,
       });
-      parts.push(html`<span class=${classes}>#${CSS.escape(this.nodeId)}</span>`);
+      parts.push(html`<span class=${classes}>#${this.nodeId}</span>`);
     }
 
     if (this.nodeClasses && this.nodeClasses.length > 0) {
-      const text = this.nodeClasses.map(c => `.${CSS.escape(c)}`).join('');
+      const text = this.nodeClasses.map(c => `.${c}`).join('');
       const classes = LitHtml.Directives.classMap({
         'node-label-class': true,
         'node-multiple-descriptors': hasId,
