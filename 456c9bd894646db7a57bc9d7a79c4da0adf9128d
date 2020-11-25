@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36bd2aee_ded41bee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-25T05:58:36Z",
+      "side": 1,
+      "message": "Hi Jack,\n\nI\u0027m adding a few changes to the LMI (UX fixes: alignment, dark theme, font size, and adding one possibility to select an ascii value), ptal!",
+      "revId": "456c9bd894646db7a57bc9d7a79c4da0adf9128d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
