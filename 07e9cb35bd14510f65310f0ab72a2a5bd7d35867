@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2b4acd0_2cb9a87d",
+        "filename": "devtools_grd_files.gni",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-25T15:27:02Z",
+      "side": 1,
+      "message": "I like the composition using `devtools_module` here, given that it is a standalone implementation detail. I would expect that this would not be the first DevTools-specific implementation that would be added to the docs. Therefore, adding everything into the server might become problematic over time.\n\nI don\u0027t have any strong opinions here though, so if you prefer to put it in the server, that\u0027s fine by me.",
+      "parentUuid": "1d6f3b06_93f8d474",
+      "range": {
+        "startLine": 133,
+        "startChar": 3,
+        "endLine": 133,
+        "endChar": 45
+      },
+      "revId": "07e9cb35bd14510f65310f0ab72a2a5bd7d35867",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c42f2086_9762b36d",
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "I\u0027m not sure iframes would work, but there\u0027s definitely a better way where we almost have a template that we use for each example, and the server serves up its standard template (with links to the extra styles/scripts), and each of the component examples get rendered into the body.\n\nAlmost like a global layout template works in a framework like Ruby on Rails.",
       "parentUuid": "c42f2086_9762b36d",
+      "range": {
+        "startLine": 160,
+        "startChar": 28,
+        "endLine": 160,
+        "endChar": 48
+      },
+      "revId": "07e9cb35bd14510f65310f0ab72a2a5bd7d35867",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71030661_0c000363",
+        "filename": "scripts/component_server/server.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-25T15:27:02Z",
+      "side": 1,
+      "message": "Yes that could also work. Let\u0027s see if any other patterns arise and make a decision based on that?",
+      "parentUuid": "9a228c67_f6c76a79",
       "range": {
         "startLine": 160,
         "startChar": 28,
