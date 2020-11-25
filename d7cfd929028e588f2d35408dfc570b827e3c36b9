@@ -70,6 +70,24 @@
       "parentUuid": "8cf0ff85_e53079a0",
       "revId": "d7cfd929028e588f2d35408dfc570b827e3c36b9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "065b427f_e3676da9",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-25T05:44:52Z",
+      "side": 1,
+      "message": "Not sure we need an extra event for that. If the scenario you describe only happens for navigations, then the DebuggerModels can listen for the `Page.frameNavigated` event, and resync ids then.",
+      "parentUuid": "236627dc_b0001937",
+      "revId": "d7cfd929028e588f2d35408dfc570b827e3c36b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
