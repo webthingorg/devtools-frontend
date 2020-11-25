@@ -41,27 +41,40 @@ import {WasmSourceMap} from './SourceMap.js';
 import {SourceMapManager} from './SourceMapManager.js';
 
 /**
-*  @param {!Array<!LocationRange>} locationRanges
-*  @return {!Array<!LocationRange>}
+*  @param {!Array<!Protocol.Debugger.LocationRange>} ranges
+*  @return {!Array<!Protocol.Debugger.LocationRange>}
 */
-export function sortAndMergeRanges(locationRanges) {
-  if (locationRanges.length === 0) {
+export function sortAndMergeRanges(ranges) {
+  if (ranges.length === 0) {
     return [];
   }
-  locationRanges.sort(LocationRange.comparator);
-  let prev = locationRanges[0];
+  /**
+   * @param {!Protocol.Debugger.ScriptPosition} p1
+   * @param {!Protocol.Debugger.ScriptPosition} p2
+   * @return {number}
+   */
+  function compareScriptPositions(p1, p2) {
+    return (p1.lineNumber - p2.lineNumber) || (p1.columnNumber - p2.columnNumber);
+  }
+  ranges = ranges.concat().sort((r1, r2) => {
+    if (r1.scriptId !== r2.scriptId) {
+      return r1.scriptId < r2.scriptId ? -1 : 1;
+    }
+    return compareScriptPositions(r1.start, r2.start);
+  });
+  let previous = ranges[0];
   const merged = [];
-  for (let i = 1; i < locationRanges.length; ++i) {
-    const current = locationRanges[i];
-    if (prev.overlap(current)) {
-      const largerEnd = prev.end.compareTo(current.end) > 0 ? prev.end : current.end;
-      prev = new LocationRange(prev.scriptId, prev.start, largerEnd);
+  for (let i = 1; i < ranges.length; ++i) {
+    const current = ranges[i];
+    if (current.scriptId === previous.scriptId && compareScriptPositions(current.start, previous.end) <= 0) {
+      const {end} = compareScriptPositions(previous.end, current.end) > 0 ? previous : current;
+      previous = {scriptId: previous.scriptId, start: previous.start, end};
     } else {
-      merged.push(prev);
-      prev = current;
+      merged.push(previous);
+      previous = current;
     }
   }
-  merged.push(prev);
+  merged.push(previous);
   return merged;
 }
 
@@ -108,7 +121,7 @@ export class DebuggerModel extends SDKModel {
     this._skipAllPausesTimeout = 0;
     /** @type {(function(!DebuggerPausedDetails):boolean)|null} */
     this._beforePausedCallback = null;
-    /** @type {?function(!StepMode, !CallFrame):!Promise<!Array<!{start: !Location, end: !Location}>>} */
+    /** @type {?function(!StepMode, !CallFrame):!Promise<!Array<!LocationRange>>} */
     this._computeAutoStepRangesCallback = null;
     /** @type {?function(!Array<!CallFrame>):!Promise<!Array<!CallFrame>>} */
     this._expandCallFramesCallback = null;
@@ -337,7 +350,7 @@ export class DebuggerModel extends SDKModel {
   }
 
   /**
-   * @param {?function(!StepMode, !CallFrame):!Promise<!Array<!{start: !Location, end: !Location}>>} callback
+   * @param {?function(!StepMode, !CallFrame):!Promise<!Array<!LocationRange>>} callback
    */
   setComputeAutoStepRangesCallback(callback) {
     this._computeAutoStepRangesCallback = callback;
@@ -348,17 +361,13 @@ export class DebuggerModel extends SDKModel {
    * @return {!Promise<!Array<!Protocol.Debugger.LocationRange>>}
    */
   async _computeAutoStepSkipList(mode) {
-    /** @type {!Array<!{start: !Location, end: !Location}>} */
+    /** @type {!Array<!LocationRange>} */
     let ranges = [];
     if (this._computeAutoStepRangesCallback && this._debuggerPausedDetails) {
       const [callFrame] = this._debuggerPausedDetails.callFrames;
       ranges = await this._computeAutoStepRangesCallback.call(null, mode, callFrame);
     }
-    const skipList = ranges.map(
-        location => new LocationRange(
-            location.start.scriptId, new ScriptPosition(location.start.lineNumber, location.start.columnNumber),
-            new ScriptPosition(location.end.lineNumber, location.end.columnNumber)));
-    return sortAndMergeRanges(skipList).map(x => x.payload());
+    return sortAndMergeRanges(ranges.map(range => range.payload()));
   }
 
   async stepInto() {
@@ -973,6 +982,18 @@ export class DebuggerModel extends SDKModel {
   }
 
   /**
+   * @param {!Script} script
+   * @param {number} startLine
+   * @param {number} startColumn
+   * @param {number} endLine
+   * @param {number} endColumn
+   * @return {!LocationRange}
+   */
+  createRawLocationRange(script, startLine, startColumn, endLine, endColumn) {
+    return new LocationRange(this, script.scriptId, startLine, startColumn, endLine, endColumn);
+  }
+
+  /**
    * @return {boolean}
    */
   isPaused() {
@@ -1387,97 +1408,61 @@ export class Location {
   }
 }
 
-export class ScriptPosition {
-  /**
-   * @param {number} lineNumber
-   * @param {number} columnNumber
-   */
-  constructor(lineNumber, columnNumber) {
-    this.lineNumber = lineNumber;
-    this.columnNumber = columnNumber;
-  }
-
-  /**
-   * @return {!Protocol.Debugger.ScriptPosition}
-   */
-  payload() {
-    return {lineNumber: this.lineNumber, columnNumber: this.columnNumber};
-  }
-
-  /**
-  * @param {!ScriptPosition} other
-  * @return {number}
-  */
-  compareTo(other) {
-    if (this.lineNumber !== other.lineNumber) {
-      return this.lineNumber - other.lineNumber;
-    }
-    return this.columnNumber - other.columnNumber;
-  }
-}
-
+/**
+ * Represents a (text) range within a given script in a debugger model.
+ */
 export class LocationRange {
   /**
+   * @param {!DebuggerModel} debuggerModel
    * @param {string} scriptId
-   * @param {!ScriptPosition} start
-   * @param {!ScriptPosition} end
+   * @param {number} startLine
+   * @param {number} startColumn
+   * @param {number} endLine
+   * @param {number} endColumn
    */
-  constructor(scriptId, start, end) {
+  constructor(debuggerModel, scriptId, startLine, startColumn, endLine, endColumn) {
+    this.debuggerModel = debuggerModel;
     this.scriptId = scriptId;
-    this.start = start;
-    this.end = end;
+    this.startLine = startLine;
+    this.startColumn = startColumn;
+    this.endLine = endLine;
+    this.endColumn = endColumn;
   }
 
   /**
+   * Yields the Chrome DevTools Protocol representation of this raw location range.
+   *
    * @return {!Protocol.Debugger.LocationRange}
    */
   payload() {
-    return {scriptId: this.scriptId, start: this.start.payload(), end: this.end.payload()};
+    return {
+      scriptId: this.scriptId,
+      start: {lineNumber: this.startLine, columnNumber: this.startColumn},
+      end: {lineNumber: this.endLine, columnNumber: this.endColumn}
+    };
   }
 
   /**
-   * @param {!LocationRange} location1
-   * @param {!LocationRange} location2
-   * @return {number}
+   * Checks if a given location is contained with this range, that is whether the
+   * location is in the same script belonging to the same model and contains the
+   * given (text) position. The range check is inclusive.
+   *
+   * @param {!Location} location - a raw location.
+   * @return {boolean} - whether this range contains the location.
    */
-  static comparator(location1, location2) {
-    return location1.compareTo(location2);
-  }
-
-  /**
-   * @param {!LocationRange} other
-   * @return {number}
-   */
-  compareTo(other) {
-    if (this.scriptId !== other.scriptId) {
-      return this.scriptId > other.scriptId ? 1 : -1;
-    }
-
-    const startCmp = this.start.compareTo(other.start);
-    if (startCmp) {
-      return startCmp;
-    }
-
-    return this.end.compareTo(other.end);
-  }
-
-  /**
-   * @param {!LocationRange} other
-   * @return boolean
-   */
-  overlap(other) {
-    if (this.scriptId !== other.scriptId) {
+  contains({debuggerModel, scriptId, lineNumber, columnNumber}) {
+    if (this.debuggerModel !== debuggerModel) {
       return false;
     }
-
-    const startCmp = this.start.compareTo(other.start);
-    if (startCmp < 0) {
-      return this.end.compareTo(other.start) >= 0;
+    if (this.scriptId !== scriptId) {
+      return false;
     }
-    if (startCmp > 0) {
-      return this.start.compareTo(other.end) <= 0;
+    if (this.startLine > lineNumber || (this.startLine === lineNumber && this.startColumn > columnNumber)) {
+      return false;
     }
-
+    if (this.endLine < lineNumber || (this.endLine === lineNumber && this.endColumn < columnNumber)) {
+      return false;
+    }
     return true;
   }
 }

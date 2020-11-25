@@ -844,10 +844,10 @@ export class DebuggerLanguagePluginManager {
    * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
    * @param {number} lineNumber
    * @param {number} columnNumber
-   * @return {!Promise<?Array<!{start: !SDK.DebuggerModel.Location, end: !SDK.DebuggerModel.Location}>>} Returns null if this manager does not have a plugin for it.
+   * @return {!Promise<!Array<!SDK.DebuggerModel.LocationRange>>} Returns an empty array if this manager does not have a plugin for it.
    */
   uiLocationToRawLocationRanges(uiSourceCode, lineNumber, columnNumber) {
-    /** @type {!Array<!Promise<!Array<!{start: !SDK.DebuggerModel.Location, end: !SDK.DebuggerModel.Location}>>>} */
+    /** @type {!Array<!Promise<!Array<!SDK.DebuggerModel.LocationRange>>>} */
     const locationPromises = [];
     this.scriptsForUISourceCode(uiSourceCode).forEach(script => {
       const rawModuleId = rawModuleIdForScript(script);
@@ -856,52 +856,35 @@ export class DebuggerLanguagePluginManager {
         return;
       }
       const {plugin} = rawModuleHandle;
-      locationPromises.push(getLocations(rawModuleId, plugin, script));
+      locationPromises.push(
+          plugin.sourceLocationToRawLocation({rawModuleId, sourceFileURL: uiSourceCode.url(), lineNumber, columnNumber})
+              .then(this._toRawLocationRanges.bind(this)));
     });
-    if (locationPromises.length === 0) {
-      return Promise.resolve(null);
-    }
 
     return Promise.all(locationPromises).then(locations => locations.flat()).catch(error => {
       Common.Console.Console.instance().error(ls`Error in debugger language plugin: ${error.message}`);
-      return null;
+      return [];
     });
-
-    /**
-     * @param {string} rawModuleId
-     * @param {!DebuggerLanguagePlugin} plugin
-     * @param {!SDK.Script.Script} script
-     * @return {!Promise<!Array<!{start: !SDK.DebuggerModel.Location, end: !SDK.DebuggerModel.Location}>>}
-     */
-    async function getLocations(rawModuleId, plugin, script) {
-      const pluginLocation = {rawModuleId, sourceFileURL: uiSourceCode.url(), lineNumber, columnNumber};
-
-      const rawLocations = await plugin.sourceLocationToRawLocation(pluginLocation);
-      if (!rawLocations) {
-        return [];
-      }
-      return rawLocations.map(
-          m => ({
-            start: new SDK.DebuggerModel.Location(
-                script.debuggerModel, script.scriptId, 0, Number(m.startOffset) + (script.codeOffset() || 0)),
-            end: new SDK.DebuggerModel.Location(
-                script.debuggerModel, script.scriptId, 0, Number(m.endOffset) + (script.codeOffset() || 0))
-          }));
-    }
   }
 
   /**
-   * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
-   * @param {number} lineNumber
-   * @param {number} columnNumber
-   * @return {!Promise<?Array<!SDK.DebuggerModel.Location>>} Returns null if this manager does not have a plugin for it.
+   * @param {!Array<!RawLocationRange>} ranges
+   * @return {!Array<!SDK.DebuggerModel.LocationRange>}
    */
-  async uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber) {
-    const locationRanges = await this.uiLocationToRawLocationRanges(uiSourceCode, lineNumber, columnNumber);
-    if (!locationRanges) {
-      return null;
+  _toRawLocationRanges(ranges) {
+    const rawLocationRanges = [];
+    for (const {rawModuleId, startOffset, endOffset} of ranges) {
+      const rawModuleHandle = this._rawModuleHandles.get(rawModuleId);
+      if (!rawModuleHandle) {
+        continue;
+      }
+      for (const script of rawModuleHandle.scripts) {
+        const scriptCodeOffset = script.codeOffset() || 0;
+        rawLocationRanges.push(script.debuggerModel.createRawLocationRange(
+            script, 0, startOffset + scriptCodeOffset, 0, endOffset + scriptCodeOffset));
+      }
     }
-    return locationRanges.map(({start}) => start);
+    return rawLocationRanges;
   }
 
   /**
@@ -1051,7 +1034,7 @@ export class DebuggerLanguagePluginManager {
 
   /**
    * @param {!SDK.DebuggerModel.Location} rawLocation
-   * @return {!Promise<!Array<!{start: !SDK.DebuggerModel.Location, end: !SDK.DebuggerModel.Location}>>} Returns an empty list if this manager does not have a plugin for it.
+   * @return {!Promise<!Array<!SDK.DebuggerModel.LocationRange>>} Returns an empty list if this manager does not have a plugin for it.
    */
   async getInlinedFunctionRanges(rawLocation) {
     const script = rawLocation.script();
@@ -1074,14 +1057,7 @@ export class DebuggerLanguagePluginManager {
     };
 
     try {
-      const locations = await plugin.getInlinedFunctionRanges(pluginLocation);
-      return locations.map(
-          m => ({
-            start: new SDK.DebuggerModel.Location(
-                script.debuggerModel, script.scriptId, 0, Number(m.startOffset) + (script.codeOffset() || 0)),
-            end: new SDK.DebuggerModel.Location(
-                script.debuggerModel, script.scriptId, 0, Number(m.endOffset) + (script.codeOffset() || 0))
-          }));
+      return await plugin.getInlinedFunctionRanges(pluginLocation).then(this._toRawLocationRanges.bind(this));
     } catch (error) {
       Common.Console.Console.instance().warn(ls`Error in debugger language plugin: ${error.message}`);
       return [];
@@ -1090,7 +1066,7 @@ export class DebuggerLanguagePluginManager {
 
   /**
    * @param {!SDK.DebuggerModel.Location} rawLocation
-   * @return {!Promise<!Array<!{start: !SDK.DebuggerModel.Location, end: !SDK.DebuggerModel.Location}>>} Returns an empty list if this manager does not have a plugin for it.
+   * @return {!Promise<!Array<!SDK.DebuggerModel.LocationRange>>} Returns an empty list if this manager does not have a plugin for it.
    */
   async getInlinedCalleesRanges(rawLocation) {
     const script = rawLocation.script();
@@ -1113,14 +1089,7 @@ export class DebuggerLanguagePluginManager {
     };
 
     try {
-      const locations = await plugin.getInlinedCalleesRanges(pluginLocation);
-      return locations.map(
-          m => ({
-            start: new SDK.DebuggerModel.Location(
-                script.debuggerModel, script.scriptId, 0, Number(m.startOffset) + (script.codeOffset() || 0)),
-            end: new SDK.DebuggerModel.Location(
-                script.debuggerModel, script.scriptId, 0, Number(m.endOffset) + (script.codeOffset() || 0))
-          }));
+      return await plugin.getInlinedCalleesRanges(pluginLocation).then(this._toRawLocationRanges.bind(this));
     } catch (error) {
       Common.Console.Console.instance().warn(ls`Error in debugger language plugin: ${error.message}`);
       return [];

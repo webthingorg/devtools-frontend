@@ -80,31 +80,9 @@ export class DebuggerWorkspaceBinding {
   /**
    * @param {!SDK.DebuggerModel.StepMode} mode
    * @param {!SDK.DebuggerModel.CallFrame} callFrame
-   * @return {!Promise<!Array<!{start:!SDK.DebuggerModel.Location, end:!SDK.DebuggerModel.Location}>>}
+   * @return {!Promise<!Array<!SDK.DebuggerModel.LocationRange>>}
    */
   async _computeAutoStepRanges(mode, callFrame) {
-    /**
-     * @param {!SDK.DebuggerModel.Location} location
-     * @param {!{start:!SDK.DebuggerModel.Location, end:!SDK.DebuggerModel.Location}} range
-     * @return {boolean}
-     */
-    function contained(location, range) {
-      const {start, end} = range;
-      if (start.scriptId !== location.scriptId) {
-        return false;
-      }
-      if (location.lineNumber < start.lineNumber || location.lineNumber > end.lineNumber) {
-        return false;
-      }
-      if (location.lineNumber === start.lineNumber && location.columnNumber < start.columnNumber) {
-        return false;
-      }
-      if (location.lineNumber === end.lineNumber && location.columnNumber >= end.columnNumber) {
-        return false;
-      }
-      return true;
-    }
-
     // TODO(crbug.com/1018234): Also take into account source maps here and remove the auto-stepping
     // logic in the front-end (which is currently still an experiment) completely.
     const pluginManager = this.pluginManager;
@@ -114,15 +92,16 @@ export class DebuggerWorkspaceBinding {
         // Step out of inline function.
         return await pluginManager.getInlinedFunctionRanges(rawLocation);
       }
-      /** @type {!Array<!{start:!SDK.DebuggerModel.Location, end:!SDK.DebuggerModel.Location}>} */
+      /** @type {!Array<!SDK.DebuggerModel.LocationRange>} */
       let ranges = [];
       const uiLocation = await pluginManager.rawLocationToUILocation(rawLocation);
       if (uiLocation) {
         ranges = await pluginManager.uiLocationToRawLocationRanges(
-                     uiLocation.uiSourceCode, uiLocation.lineNumber, uiLocation.columnNumber) ||
-            [];
-        // TODO(bmeurer): Remove the {rawLocation} from the {ranges}?
-        ranges = ranges.filter(range => contained(rawLocation, range));
+            uiLocation.uiSourceCode, uiLocation.lineNumber, uiLocation.columnNumber);
+        // TODO(bmeurer): Remove the `rawLocation` itself from the `ranges` here, to
+        //                allow us to step in tight loops? I.e. split the ranges that
+        //                include `rawLocation` around the `rawLocation`?
+        ranges = ranges.filter(range => range.contains(rawLocation));
       }
       if (mode === SDK.DebuggerModel.StepMode.StepOver) {
         // Step over an inlined function.
@@ -298,8 +277,12 @@ export class DebuggerWorkspaceBinding {
     // and so for now we leave the promises in here.
     const locationPromises = [];
     if (this.pluginManager) {
-      locationPromises.push(this.pluginManager.uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber)
-                                .then(locations => locations || []));
+      locationPromises.push(
+          this.pluginManager.uiLocationToRawLocationRanges(uiSourceCode, lineNumber, columnNumber).then(ranges => {
+            return ranges.map(
+                range => new SDK.DebuggerModel.Location(
+                    range.debuggerModel, range.scriptId, range.startLine, range.startColumn));
+          }));
     }
     for (const modelData of this._debuggerModelToData.values()) {
       locationPromises.push(

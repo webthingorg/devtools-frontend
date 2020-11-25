@@ -5,186 +5,123 @@
 const {assert} = chai;
 
 import type * as SDKModule from '../../../../front_end/sdk/sdk.js';
-import {describeWithEnvironment} from '../helpers/EnvironmentHelpers.js';
+import {createTarget, describeWithEnvironment} from '../helpers/EnvironmentHelpers.js';
+import {describeWithMockConnection} from '../helpers/MockConnection.js';
 
-describeWithEnvironment('LocationRanges', () => {
+describeWithEnvironment('sortAndMergeRanges', () => {
   let SDK: typeof SDKModule;
   before(async () => {
     SDK = await import('../../../../front_end/sdk/sdk.js');
   });
 
-  function createRange(scriptId: string, startLine: number, startColumn: number, endLine: number, endColumn: number) {
-    return new SDK.DebuggerModel.LocationRange(
-        scriptId, new SDK.DebuggerModel.ScriptPosition(startLine, startColumn),
-        new SDK.DebuggerModel.ScriptPosition(endLine, endColumn));
-  }
+  const createRange = (scriptId: string, startLine: number, startColumn: number, endLine: number, endColumn: number) =>
+      ({
+        scriptId,
+        start: {lineNumber: startLine, columnNumber: startColumn},
+        end: {lineNumber: endLine, columnNumber: endColumn},
+      });
 
-  function sort(locationRange: SDKModule.DebuggerModel.LocationRange[]) {
-    return locationRange.concat().sort(SDK.DebuggerModel.LocationRange.comparator);
-  }
-
-  function sortAndMerge(locationRange: SDKModule.DebuggerModel.LocationRange[]) {
-    return SDK.DebuggerModel.sortAndMergeRanges(locationRange.concat());
-  }
-
-  function checkIsMaximallyMerged(locationRange: SDKModule.DebuggerModel.LocationRange[]) {
-    for (let i = 1; i < locationRange.length; ++i) {
-      assert.isTrue(locationRange[i - 1].compareTo(locationRange[i]) < 0);
-    }
-  }
-
-  const SCRIPT_ID_ONE = 'one';
-  const SCRIPT_ID_TWO = 'two';
-
-  it('can be sorted after scriptId', () => {
-    const locationRanges = [
-      createRange(SCRIPT_ID_TWO, 0, 0, 0, 0),
-      createRange(SCRIPT_ID_ONE, 0, 0, 0, 0),
-    ];
-    const sorted = sort(locationRanges);
-    assert.deepEqual(sorted, locationRanges.reverse());
+  it('sorts by scriptId first, then start line and column', () => {
+    const R1_0_0 = createRange('script:1', 0, 0, 0, 0);
+    const R1_0_4 = createRange('script:1', 0, 4, 0, 5);
+    const R1_3_1 = createRange('script:1', 3, 1, 3, 2);
+    const R2_0_0 = createRange('script:2', 0, 0, 0, 0);
+    const R3_0_0 = createRange('script:3', 0, 0, 0, 0);
+    assert.deepEqual(SDK.DebuggerModel.sortAndMergeRanges([R1_0_0, R2_0_0, R3_0_0]), [R1_0_0, R2_0_0, R3_0_0]);
+    assert.deepEqual(SDK.DebuggerModel.sortAndMergeRanges([R3_0_0, R2_0_0, R1_0_0]), [R1_0_0, R2_0_0, R3_0_0]);
+    assert.deepEqual(SDK.DebuggerModel.sortAndMergeRanges([R3_0_0, R1_0_0, R2_0_0]), [R1_0_0, R2_0_0, R3_0_0]);
+    assert.deepEqual(SDK.DebuggerModel.sortAndMergeRanges([R1_0_4, R1_0_0, R2_0_0]), [R1_0_0, R1_0_4, R2_0_0]);
+    assert.deepEqual(SDK.DebuggerModel.sortAndMergeRanges([R1_0_4, R1_3_1, R1_0_0]), [R1_0_0, R1_0_4, R1_3_1]);
   });
 
-  it('can be sorted after line number', () => {
-    let locationRanges = [
-      createRange(SCRIPT_ID_ONE, 3, 0, 0, 0),
-      createRange(SCRIPT_ID_ONE, 0, 0, 0, 0),
-    ];
-    let sorted = sort(locationRanges);
-    assert.deepEqual(sorted, locationRanges.reverse());
-
-    locationRanges = [
-      createRange(SCRIPT_ID_ONE, 0, 0, 3, 0),
-      createRange(SCRIPT_ID_ONE, 0, 0, 0, 0),
-    ];
-    sorted = sort(locationRanges);
-    assert.deepEqual(sorted, locationRanges.reverse());
+  it('merges equal ranges', () => {
+    const R1 = createRange('script:1', 0, 3, 3, 3);
+    const R2 = createRange('script:1', 4, 0, 8, 0);
+    assert.deepEqual(SDK.DebuggerModel.sortAndMergeRanges([R1, R1]), [R1]);
+    assert.deepEqual(SDK.DebuggerModel.sortAndMergeRanges([R1, R1, R1]), [R1]);
+    assert.deepEqual(SDK.DebuggerModel.sortAndMergeRanges([R1, R2, R1, R2]), [R1, R2]);
+    assert.deepEqual(SDK.DebuggerModel.sortAndMergeRanges([R2, R2, R2, R2, R1]), [R1, R2]);
   });
 
-  it('can be sorted after column number', () => {
-    let locationRanges = [
-      createRange(SCRIPT_ID_ONE, 0, 3, 0, 0),
-      createRange(SCRIPT_ID_ONE, 0, 0, 0, 0),
-    ];
-    let sorted = sort(locationRanges);
-    assert.deepEqual(sorted, locationRanges.reverse());
-
-    locationRanges = [
-      createRange(SCRIPT_ID_ONE, 0, 0, 0, 3),
-      createRange(SCRIPT_ID_ONE, 0, 0, 0, 0),
-    ];
-    sorted = sort(locationRanges);
-    assert.deepEqual(sorted, locationRanges.reverse());
+  it('merges overlapping ranges', () => {
+    const R1_0_5_5_3 = createRange('script:1', 0, 5, 5, 3);
+    const R1_0_3_3_3 = createRange('script:1', 0, 3, 3, 3);
+    const R1_5_3_9_9 = createRange('script:1', 5, 3, 9, 9);
+    const R1_0_3_9_9 = createRange('script:1', 0, 3, 9, 9);
+    const R2_5_4_9_9 = createRange('script:2', 5, 4, 9, 9);
+    assert.deepEqual(SDK.DebuggerModel.sortAndMergeRanges([R1_0_3_3_3, R1_0_5_5_3, R1_5_3_9_9]), [R1_0_3_9_9]);
+    assert.deepEqual(
+        SDK.DebuggerModel.sortAndMergeRanges([R1_0_3_3_3, R1_0_5_5_3, R1_5_3_9_9, R2_5_4_9_9]),
+        [R1_0_3_9_9, R2_5_4_9_9]);
   });
 
-  it('can be sorted by scriptId, line and column', () => {
-    const locationRangesExpected = [
-      createRange(SCRIPT_ID_ONE, 0, 3, 0, 0),
-      createRange(SCRIPT_ID_ONE, 0, 3, 0, 5),
-      createRange(SCRIPT_ID_TWO, 3, 3, 3, 5),
-      createRange(SCRIPT_ID_TWO, 5, 4, 5, 8),
-    ];
-
-    const locationRangeToSort = [
-      locationRangesExpected[3],
-      locationRangesExpected[1],
-      locationRangesExpected[2],
-      locationRangesExpected[0],
-    ];
-
-    const sorted = sort(locationRangeToSort);
-    assert.deepEqual(sorted, locationRangesExpected);
+  it('merges overlapping ranges (same start, different end)', () => {
+    const R_0_5_5_3 = createRange('script:1', 0, 5, 5, 3);
+    const R_0_5_3_3 = createRange('script:1', 0, 5, 3, 3);
+    assert.deepEqual(SDK.DebuggerModel.sortAndMergeRanges([R_0_5_3_3, R_0_5_5_3]), [R_0_5_5_3]);
+    assert.deepEqual(SDK.DebuggerModel.sortAndMergeRanges([R_0_5_5_3, R_0_5_3_3]), [R_0_5_5_3]);
   });
 
-  it('correctly checks overlap', () => {
-    const location1 = createRange(SCRIPT_ID_ONE, 1, 0, 3, 0);
-    const location2 = createRange(SCRIPT_ID_ONE, 0, 0, 5, 0);
-
-    assert.isTrue(location1.overlap(location2));
-    assert.isTrue(location2.overlap(location1));
-    assert.isTrue(location1.overlap(location1));
+  it('merges overlapping ranges (different start, same end)', () => {
+    const R_0_3_5_3 = createRange('script:1', 0, 3, 5, 3);
+    const R_0_5_5_3 = createRange('script:1', 0, 5, 5, 3);
+    assert.deepEqual(SDK.DebuggerModel.sortAndMergeRanges([R_0_3_5_3, R_0_5_5_3]), [R_0_3_5_3]);
+    assert.deepEqual(SDK.DebuggerModel.sortAndMergeRanges([R_0_5_5_3, R_0_3_5_3]), [R_0_3_5_3]);
   });
 
-  it('correctly checks overlap (end and start overlapping)', () => {
-    const location1 = createRange(SCRIPT_ID_ONE, 1, 0, 3, 0);
-    const location2 = createRange(SCRIPT_ID_ONE, 3, 0, 5, 0);
+  it('merges adjacent ranges', () => {
+    const R_0_3_5_3 = createRange('script:1', 0, 3, 5, 3);
+    const R_5_3_9_3 = createRange('script:1', 5, 3, 9, 3);
+    const R_0_3_9_3 = createRange('script:1', 0, 3, 9, 3);
+    assert.deepEqual(SDK.DebuggerModel.sortAndMergeRanges([R_0_3_5_3, R_5_3_9_3]), [R_0_3_9_3]);
+  });
+});
 
-    assert.isTrue(location1.overlap(location2));
-    assert.isTrue(location2.overlap(location1));
-    assert.isTrue(location1.overlap(location1));
+describeWithMockConnection('LocationRange', () => {
+  let SDK: typeof SDKModule;
+  before(async () => {
+    SDK = await import('../../../../front_end/sdk/sdk.js');
   });
 
-  it('correctly checks non-overlap', () => {
-    const location1 = createRange(SCRIPT_ID_TWO, 1, 0, 3, 0);
-    const location2 = createRange(SCRIPT_ID_ONE, 3, 1, 5, 0);
-
-    assert.isFalse(location1.overlap(location2));
-    assert.isFalse(location2.overlap(location1));
+  describe('payload', () => {
+    it('yields the correct script ID, start and end position', () => {
+      const target = createTarget();
+      const model = new SDK.DebuggerModel.DebuggerModel(target);
+      const range = new SDK.DebuggerModel.LocationRange(model, 'script:100', 12, 34, 56, 78);
+      assert.deepEqual(range.payload(), {
+        scriptId: 'script:100',
+        start: {lineNumber: 12, columnNumber: 34},
+        end: {lineNumber: 56, columnNumber: 78},
+      });
+    });
   });
 
-  it('can be reduced if equal', () => {
-    const testRange = createRange(SCRIPT_ID_ONE, 0, 3, 3, 3);
-    const locationRangesToBeReduced = [
-      testRange,
-      testRange,
-    ];
-    const reduced = sortAndMerge(locationRangesToBeReduced);
-    assert.deepEqual(reduced, [testRange]);
-    checkIsMaximallyMerged(reduced);
-  });
+  describe('contains', () => {
+    it('correctly rules out positions from other models', () => {
+      const model1 = new SDK.DebuggerModel.DebuggerModel(createTarget());
+      const model2 = new SDK.DebuggerModel.DebuggerModel(createTarget());
+      const range1 = new SDK.DebuggerModel.LocationRange(model1, 'script:1', 0, 0, 9, 0);
+      assert.isFalse(range1.contains(new SDK.DebuggerModel.Location(model2, 'script:1', 1, 1)));
+      assert.isFalse(range1.contains(new SDK.DebuggerModel.Location(model2, 'script:2', 1, 1)));
+    });
 
-  it('can be reduced if overlapping (multiple ranges)', () => {
-    const locationRangesToBeReduced = [
-      createRange(SCRIPT_ID_ONE, 0, 5, 5, 3),
-      createRange(SCRIPT_ID_ONE, 0, 3, 3, 3),
-      createRange(SCRIPT_ID_ONE, 5, 3, 10, 10),
-      createRange(SCRIPT_ID_TWO, 5, 4, 10, 10),
-    ];
-    const locationRangesExpected = [
-      createRange(SCRIPT_ID_ONE, 0, 3, 10, 10),
-      locationRangesToBeReduced[3],
-    ];
-    const reduced = sortAndMerge(locationRangesToBeReduced);
-    assert.deepEqual(reduced, locationRangesExpected);
-    checkIsMaximallyMerged(reduced);
-  });
+    it('correctly rules out positions from other scripts', () => {
+      const model = new SDK.DebuggerModel.DebuggerModel(createTarget());
+      const range = new SDK.DebuggerModel.LocationRange(model, 'script:1', 0, 0, 9, 0);
+      assert.isFalse(range.contains(new SDK.DebuggerModel.Location(model, 'script:2', 1, 1)));
+      assert.isFalse(range.contains(new SDK.DebuggerModel.Location(model, 'script:3', 1, 1)));
+    });
 
-  it('can be reduced if overlapping (same start, different end)', () => {
-    const locationRangesToBeReduced = [
-      createRange(SCRIPT_ID_ONE, 0, 5, 5, 3),
-      createRange(SCRIPT_ID_ONE, 0, 5, 3, 3),
-    ];
-    const locationRangesExpected = [
-      createRange(SCRIPT_ID_ONE, 0, 5, 5, 3),
-    ];
-    const reduced = sortAndMerge(locationRangesToBeReduced);
-    assert.deepEqual(reduced, locationRangesExpected);
-    checkIsMaximallyMerged(reduced);
-  });
-
-  it('can be reduced if overlapping (different start, same end)', () => {
-    const locationRangesToBeReduced = [
-      createRange(SCRIPT_ID_ONE, 0, 3, 5, 3),
-      createRange(SCRIPT_ID_ONE, 0, 5, 5, 3),
-    ];
-    const locationRangesExpected = [
-      createRange(SCRIPT_ID_ONE, 0, 3, 5, 3),
-    ];
-    const reduced = sortAndMerge(locationRangesToBeReduced);
-    assert.deepEqual(reduced, locationRangesExpected);
-    checkIsMaximallyMerged(reduced);
-  });
-
-  it('can be reduced if overlapping (start == other.end)', () => {
-    const locationRangesToBeReduced = [
-      createRange(SCRIPT_ID_ONE, 0, 3, 5, 3),
-      createRange(SCRIPT_ID_ONE, 5, 3, 10, 3),
-    ];
-    const locationRangesExpected = [
-      createRange(SCRIPT_ID_ONE, 0, 3, 10, 3),
-    ];
-    const reduced = sortAndMerge(locationRangesToBeReduced);
-    assert.deepEqual(reduced, locationRangesExpected);
-    checkIsMaximallyMerged(reduced);
+    it('correctly handles positions in the same script', () => {
+      const model = new SDK.DebuggerModel.DebuggerModel(createTarget());
+      const range = new SDK.DebuggerModel.LocationRange(model, 'script:1', 1, 1, 6, 6);
+      assert.isFalse(range.contains(new SDK.DebuggerModel.Location(model, 'script:1', 1, 0)));
+      assert.isFalse(range.contains(new SDK.DebuggerModel.Location(model, 'script:1', 0, 1)));
+      assert.isTrue(range.contains(new SDK.DebuggerModel.Location(model, 'script:1', 1, 1)));
+      assert.isTrue(range.contains(new SDK.DebuggerModel.Location(model, 'script:1', 2, 0)));
+      assert.isTrue(range.contains(new SDK.DebuggerModel.Location(model, 'script:1', 6, 6)));
+      assert.isFalse(range.contains(new SDK.DebuggerModel.Location(model, 'script:1', 6, 7)));
+      assert.isFalse(range.contains(new SDK.DebuggerModel.Location(model, 'script:1', 7, 0)));
+    });
   });
 });
