@@ -374,7 +374,6 @@ def prepare_closure_frontend_compile(temp_devtools_path, descriptors, namespace_
                     'ClientVariations.js',
                     'i18n.js',
                     'marked.esm.js',
-                    'wasm_source_map.js',
             ]:
                 with open(
                         generated_file.replace('.js', '_types.js').replace(
