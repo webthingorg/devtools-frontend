@@ -20,11 +20,11 @@ ElementsTestRunner.setUpTestSuite = function(next) {
 
   function step2(node) {
     ElementsTestRunner.containerId = node.id;
-    TestRunner.DOMAgent.getOuterHTML(ElementsTestRunner.containerId).then(step3);
+    TestRunner.DOMAgent.invoke_getOuterHTML({nodeId: ElementsTestRunner.containerId}).then(step3);
   }
 
-  function step3(text) {
-    ElementsTestRunner.containerText = text;
+  function step3({outerHTML}) {
+    ElementsTestRunner.containerText = outerHTML;
 
     for (const key in SDK.DOMModel.Events) {
       const eventName = SDK.DOMModel.Events[key];
@@ -88,13 +88,14 @@ ElementsTestRunner.setOuterHTMLUseUndo = function(newText, next) {
 };
 
 ElementsTestRunner.innerSetOuterHTML = async function(newText, last, next) {
-  await TestRunner.DOMAgent.setOuterHTML(ElementsTestRunner.containerId, newText);
+  await TestRunner.DOMAgent.invoke_setOuterHTML({nodeId: ElementsTestRunner.containerId, outerHTML: newText});
   TestRunner.domModel.markUndoableState();
   ElementsTestRunner._dumpOuterHTML(last, next);
 };
 
 ElementsTestRunner._dumpOuterHTML = async function(last, next) {
-  const result = await TestRunner.RuntimeAgent.evaluate('document.getElementById("identity").wrapperIdentity');
+  const {result} = await TestRunner.RuntimeAgent.invoke_evaluate(
+      {expression: 'document.getElementById("identity").wrapperIdentity'});
   TestRunner.addResult('Wrapper identity: ' + result.value);
   ElementsTestRunner.events.sort();
 
@@ -103,9 +104,9 @@ ElementsTestRunner._dumpOuterHTML = async function(last, next) {
   }
 
   ElementsTestRunner.events = [];
-  const text = await TestRunner.DOMAgent.getOuterHTML(ElementsTestRunner.containerId);
+  const {outerHTML} = await TestRunner.DOMAgent.invoke_getOuterHTML({nodeId: ElementsTestRunner.containerId});
   TestRunner.addResult('==========8<==========');
-  TestRunner.addResult(text);
+  TestRunner.addResult(outerHTML);
   TestRunner.addResult('==========>8==========');
 
   if (last) {

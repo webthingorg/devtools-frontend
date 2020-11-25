@@ -1134,19 +1134,6 @@ class _AgentPrototype {
     const domainAndMethod = this._domain + '.' + methodName;
 
     /**
-     * @param {...*} vararg
-     * @this {_AgentPrototype}
-     * @return {!Promise.<*>}
-     */
-    function sendMessagePromise(vararg) {
-      const params = Array.prototype.slice.call(arguments);
-      return _AgentPrototype.prototype._sendMessageToBackendPromise.call(this, domainAndMethod, signature, params);
-    }
-
-    // @ts-ignore Method code generation
-    this[methodName] = sendMessagePromise;
-
-    /**
      * @param {!Object=} request
      * @return {!Promise<?Object>}
      * @this {_AgentPrototype}
@@ -1159,102 +1146,6 @@ class _AgentPrototype {
     this['invoke_' + methodName] = invoke;
 
     this._replyArgs[domainAndMethod] = replyArgs;
-  }
-
-  /**
-   * @param {string} method
-   * @param {!Array.<!{name: string, type: string, optional: boolean}>} signature
-   * @param {!Array.<*>} args
-   * @param {function(string):void} errorCallback
-   * @return {?Object}
-   */
-  _prepareParameters(method, signature, args, errorCallback) {
-    /** @type {!Object<string, *>} */
-    const params = {};
-    let hasParams = false;
-
-    for (const param of signature) {
-      const paramName = param['name'];
-      const typeName = param['type'];
-      const optionalFlag = param['optional'];
-
-      if (!args.length && !optionalFlag) {
-        errorCallback(
-            `Protocol Error: Invalid number of arguments for method '${method}' call. ` +
-            `It must have the following arguments ${JSON.stringify(signature)}'.`);
-        return null;
-      }
-
-      const value = args.shift();
-      if (optionalFlag && typeof value === 'undefined') {
-        continue;
-      }
-
-      if (typeof value !== typeName) {
-        errorCallback(
-            `Protocol Error: Invalid type of argument '${paramName}' for method '${method}' call. ` +
-            `It must be '${typeName}' but it is '${typeof value}'.`);
-        return null;
-      }
-
-      params[paramName] = value;
-      hasParams = true;
-    }
-
-    if (args.length) {
-      errorCallback(`Protocol Error: Extra ${args.length} arguments in a call to method '${method}'.`);
-      return null;
-    }
-
-    return hasParams ? params : null;
-  }
-
-  /**
-   * @param {string} method
-   * @param {!Array<!{name: string, type: string, optional: boolean}>} signature
-   * @param {!Array<*>} args
-   * @return {!Promise<?>}
-   */
-  _sendMessageToBackendPromise(method, signature, args) {
-    let errorMessage;
-    /**
-     * @param {string} message
-     */
-    function onError(message) {
-      console.error(message);
-      errorMessage = message;
-    }
-    const params = this._prepareParameters(method, signature, args, onError);
-    if (errorMessage) {
-      return Promise.resolve(null);
-    }
-
-    return new Promise(resolve => {
-      /**
-       * @param {*} error
-       * @param {*} result
-       */
-      const callback = (error, result) => {
-        if (error) {
-          if (!test.suppressRequestErrors && error.code !== DevToolsStubErrorCode && error.code !== _GenericError &&
-              error.code !== _ConnectionClosedErrorCode) {
-            console.error('Request ' + method + ' failed. ' + JSON.stringify(error));
-          }
-
-          resolve(null);
-          return;
-        }
-
-        const args = this._replyArgs[method];
-        resolve(result && args.length ? result[args[0]] : undefined);
-      };
-
-      if (!this._target._router) {
-        SessionRouter.dispatchConnectionError(callback, method);
-      } else {
-        this._target._router.sendMessage(this._target._sessionId, this._domain, method, params, callback);
-      }
-    });
   }
 
   /**
