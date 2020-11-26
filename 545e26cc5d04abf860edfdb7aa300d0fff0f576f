@@ -88,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cffdc7cc_85846eb0",
+        "filename": "scripts/eslint_rules/lib/lit_html_data_as_type.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-26T16:31:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c795de54_309bc124",
+      "range": {
+        "startLine": 12,
+        "startChar": 34,
+        "endLine": 12,
+        "endChar": 40
+      },
+      "revId": "545e26cc5d04abf860edfdb7aa300d0fff0f576f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a2561411_746747eb",
@@ -111,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e9b5130_b28ee966",
+        "filename": "scripts/eslint_rules/lib/lit_html_data_as_type.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-26T16:31:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2561411_746747eb",
+      "range": {
+        "startLine": 22,
+        "startChar": 5,
+        "endLine": 22,
+        "endChar": 109
+      },
+      "revId": "545e26cc5d04abf860edfdb7aa300d0fff0f576f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9ca65343_fa66925b",
@@ -124,6 +172,30 @@
       "writtenOn": "2020-11-26T16:19:26Z",
       "side": 1,
       "message": "Nit: typo",
+      "range": {
+        "startLine": 31,
+        "startChar": 5,
+        "endLine": 31,
+        "endChar": 18
+      },
+      "revId": "545e26cc5d04abf860edfdb7aa300d0fff0f576f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cce3a17_31952369",
+        "filename": "scripts/eslint_rules/lib/lit_html_data_as_type.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-26T16:31:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ca65343_fa66925b",
       "range": {
         "startLine": 31,
         "startChar": 5,
@@ -180,6 +252,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ee9dcbc_f759bc5a",
+        "filename": "scripts/eslint_rules/lib/lit_html_data_as_type.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-26T16:31:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "569d7ad3_a81d6087",
+      "range": {
+        "startLine": 76,
+        "startChar": 80,
+        "endLine": 76,
+        "endChar": 88
+      },
+      "revId": "545e26cc5d04abf860edfdb7aa300d0fff0f576f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a7d43390_27cf9bc5",
@@ -193,6 +289,30 @@
       "writtenOn": "2020-11-26T16:19:26Z",
       "side": 1,
       "message": "Same here.",
+      "range": {
+        "startLine": 82,
+        "startChar": 69,
+        "endLine": 82,
+        "endChar": 77
+      },
+      "revId": "545e26cc5d04abf860edfdb7aa300d0fff0f576f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d92c7fa8_95594cfb",
+        "filename": "scripts/eslint_rules/lib/lit_html_data_as_type.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-26T16:31:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7d43390_27cf9bc5",
       "range": {
         "startLine": 82,
         "startChar": 69,
