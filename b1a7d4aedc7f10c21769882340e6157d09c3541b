@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1aa9f802_781f4c51",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-26T12:32:21Z",
+      "side": 1,
+      "message": "Paul, PTAL. This is quite large so happy to chat over VC.\n\nI also suggest starting with the README as that documents the process of how we go about handling a resize and provides some context that I suspect is useful for reviewing the code!",
+      "revId": "b1a7d4aedc7f10c21769882340e6157d09c3541b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
