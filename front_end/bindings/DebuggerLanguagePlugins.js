@@ -840,8 +840,7 @@ export class DebuggerLanguagePluginManager {
         if (!uiSourceCode) {
           continue;
         }
-        return uiSourceCode.uiLocation(
-            sourceLocation.lineNumber, sourceLocation.columnNumber >= 0 ? sourceLocation.columnNumber : undefined);
+        return uiSourceCode.uiLocation(sourceLocation.lineNumber, sourceLocation.columnNumber);
       }
     } catch (error) {
       Common.Console.Console.instance().error(ls`Error in debugger language plugin: ${error.message}`);
@@ -852,7 +851,7 @@ export class DebuggerLanguagePluginManager {
   /**
    * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
    * @param {number} lineNumber
-   * @param {number} columnNumber
+   * @param {number=} columnNumber
    * @return {!Promise<?Array<!{start: !SDK.DebuggerModel.Location, end: !SDK.DebuggerModel.Location}>>} Returns null if this manager does not have a plugin for it.
    */
   uiLocationToRawLocationRanges(uiSourceCode, lineNumber, columnNumber) {
@@ -902,7 +901,7 @@ export class DebuggerLanguagePluginManager {
   /**
    * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
    * @param {number} lineNumber
-   * @param {number} columnNumber
+   * @param {number=} columnNumber
    * @return {!Promise<?Array<!SDK.DebuggerModel.Location>>} Returns null if this manager does not have a plugin for it.
    */
   async uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber) {
@@ -1246,7 +1245,7 @@ export let RawLocation;
  *            rawModuleId: string,
  *            sourceFileURL: string,
  *            lineNumber: number,
- *            columnNumber: number
+ *            columnNumber?: number
  *          }}
  */
 // @ts-ignore typedef
