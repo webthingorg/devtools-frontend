@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdac8b0d_da20e412",
+        "filename": "scripts/eslint_rules/tests/set_data_type_reference_test.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-26T17:08:16Z",
+      "side": 1,
+      "message": "Nit: another test case for a data setter with no arguments.",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 6
+      },
+      "revId": "b7b9bd9e84ed392f3da899a6db66796d3b710c99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
