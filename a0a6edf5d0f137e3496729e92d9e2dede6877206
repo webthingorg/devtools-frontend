@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe089e6e_bc457134",
+        "filename": "front_end/recorder/RecordingSession.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-26T14:41:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c66cbf1_4f2dbaca",
+      "revId": "a0a6edf5d0f137e3496729e92d9e2dede6877206",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2909eb48_d52b9cc5",
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2af95901_fb308840",
+        "filename": "front_end/recorder/RecordingSession.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-26T14:41:11Z",
+      "side": 1,
+      "message": "I added a clarifying comment in the next cl.",
+      "parentUuid": "2909eb48_d52b9cc5",
+      "revId": "a0a6edf5d0f137e3496729e92d9e2dede6877206",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b37464e1_8f7ec714",
@@ -65,6 +101,24 @@
       "writtenOn": "2020-11-24T13:28:53Z",
       "side": 1,
       "message": "is closing the browser expected behaviour?",
+      "revId": "a0a6edf5d0f137e3496729e92d9e2dede6877206",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "096ff591_58139fd1",
+        "filename": "front_end/recorder/RecordingSession.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-26T14:41:11Z",
+      "side": 1,
+      "message": "Yes, it currently is.",
+      "parentUuid": "b37464e1_8f7ec714",
       "revId": "a0a6edf5d0f137e3496729e92d9e2dede6877206",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
