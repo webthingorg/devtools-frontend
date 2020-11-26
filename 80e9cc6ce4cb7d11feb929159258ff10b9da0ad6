@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a3217c8_053ec4c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-26T13:25:15Z",
+      "side": 1,
+      "message": "Please take an initial look.\n\nHow should we unit test this? There is no state and no events, so one test case similar to \u0027basic.html\u0027 should be fine?",
+      "revId": "80e9cc6ce4cb7d11feb929159258ff10b9da0ad6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
