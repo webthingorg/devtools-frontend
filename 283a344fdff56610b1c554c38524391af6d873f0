@@ -104,6 +104,30 @@
       },
       "revId": "283a344fdff56610b1c554c38524391af6d873f0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "651379cc_5ba879bc",
+        "filename": "front_end/elements/module.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-26T06:31:31Z",
+      "side": 1,
+      "message": "Please explicitly capture this in the commit message",
+      "parentUuid": "327bd28a_b74ebaef",
+      "range": {
+        "startLine": 184,
+        "startChar": 22,
+        "endLine": 184,
+        "endChar": 38
+      },
+      "revId": "283a344fdff56610b1c554c38524391af6d873f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
