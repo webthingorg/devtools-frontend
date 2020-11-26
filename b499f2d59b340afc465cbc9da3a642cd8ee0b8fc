@@ -33,6 +33,24 @@
       "message": "Approving with the correct account \u003e.\u003c",
       "revId": "b499f2d59b340afc465cbc9da3a642cd8ee0b8fc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64adbd05_28515b74",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-26T14:42:42Z",
+      "side": 1,
+      "message": "Ups, I blame autocomplete 😞",
+      "parentUuid": "a02ff25a_0dced196",
+      "revId": "b499f2d59b340afc465cbc9da3a642cd8ee0b8fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
