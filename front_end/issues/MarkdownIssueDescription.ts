@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as Root from '../root/root.js';
+import * as MarkdownHelpers from '../browser_sdk/MarkdownHelpers.js';  // eslint-disable-line rulesdir/es_modules_import
 import * as SDK from '../sdk/sdk.js';
 import * as Marked from '../third_party/marked/marked.js';
 
@@ -10,17 +10,9 @@ import {MarkdownView} from './MarkdownView.js';
 
 export function createIssueDescriptionFromMarkdown(description: SDK.Issue.MarkdownIssueDescription):
     SDK.Issue.IssueDescription {
-  const rawMarkdown = getMarkdownFileContent(description.file);
+  const rawMarkdown = MarkdownHelpers.getMarkdownFileContent(description.file);
   const rawMarkdownWithPlaceholdersReplaced = substitutePlaceholders(rawMarkdown, description.substitutions);
   return createIssueDescriptionFromRawMarkdown(rawMarkdownWithPlaceholdersReplaced, description);
-}
-
-function getMarkdownFileContent(filename: string): string {
-  const rawMarkdown = Root.Runtime.cachedResources.get(filename);
-  if (!rawMarkdown) {
-    throw new Error(`Markdown file ${filename} not found. Declare it as a resource in the module.json file`);
-  }
-  return rawMarkdown;
 }
 
 const validPlaceholderMatchPattern = /\{(PLACEHOLDER_[a-zA-Z][a-zA-Z0-9]*)\}/g;
@@ -72,7 +64,7 @@ function validatePlaceholders(placeholders: Set<string>): void {
 export function createIssueDescriptionFromRawMarkdown(
     markdown: string, description: SDK.Issue.MarkdownIssueDescription): SDK.Issue.IssueDescription {
   const markdownAst = Marked.Marked.lexer(markdown);
-  const title = findTitleFromMarkdownAst(markdownAst);
+  const title = MarkdownHelpers.findTitleFromMarkdownAst(markdownAst);
   if (!title) {
     throw new Error('Markdown issue descriptions must start with a heading');
   }
@@ -85,13 +77,4 @@ export function createIssueDescriptionFromRawMarkdown(
     issueKind: SDK.Issue.IssueKind.BreakingChange,
     links: description.links,
   };
-}
-
-// TODO(crbug.com/1108699): Fix types when they are available.
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function findTitleFromMarkdownAst(markdownAst: any[]): string|null {
-  if (markdownAst.length === 0 || markdownAst[0].type !== 'heading' || markdownAst[0].depth !== 1) {
-    return null;
-  }
-  return markdownAst[0].text;
 }
