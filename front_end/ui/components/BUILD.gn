@@ -11,6 +11,7 @@ devtools_module("components") {
     "DataGridController.ts",
     "DataGridRenderers.ts",
     "DataGridUtils.ts",
+    "ReportView.ts",
   ]
   deps = [ "../../third_party/lit-html:bundle" ]
 

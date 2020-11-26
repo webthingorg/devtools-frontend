@@ -1,0 +1,60 @@
+<!--
+  Copyright 2020 The Chromium Authors. All rights reserved.
+  Use of this source code is governed by a BSD-style license that can be
+  found in the LICENSE file.
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Basic ReportView example</title>
+    <style>
+      #container {
+        width: 80%;
+        border: 1px solid black;
+        padding: 20px;
+        height: 300px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="container">
+    </div>
+
+    <script type="module">
+      import * as ComponentHelpers from '../../component_helpers/component_helpers.js';
+      import * as Components from '../../ui/components/components.js'
+      import * as LitHtml from '../../third_party/lit-html/lit-html.js';
+
+      ComponentHelpers.ComponentServerSetup.setup().then(() => renderComponent());
+
+      const renderComponent = () => {
+        const renderSimpleRow = Components.ReportView.renderSimpleRow;
+
+        LitHtml.render(LitHtml.html`
+          <style>
+            devtools-report {
+              --name-column-width: 300px;
+            }
+          </style>
+
+          <devtools-report>
+            <devtools-report-section .data=${{sectionTitle: 'Section 1'}}>
+              ${renderSimpleRow({name: 'Basic plain text field', value: 'And this is the value'})}
+              ${renderSimpleRow({name: 'A field with a code value', value: 'SomeCodeValue', renderValueAsCodeSpan: true})}
+            </devtools-report-section>
+
+            <devtools-report-section .data=${{sectionTitle: 'Section 2'}}>
+              <devtools-report-row>
+                <span slot="name">Potentially custom styled</span>
+                <span slot="value">And the value for this field</span>
+              </devtols-report-row>
+            </devtools-report-section>
+          </devtools-report>
+        `, document.getElementById('container'));
+      };
+    </script>
+  </body>
+</html>

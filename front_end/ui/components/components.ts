@@ -6,10 +6,12 @@ import * as DataGrid from './DataGrid.js';
 import * as DataGridController from './DataGridController.js';
 import * as DataGridRenderers from './DataGridRenderers.js';
 import * as DataGridUtils from './DataGridUtils.js';
+import * as ReportView from './ReportView.js';
 
 export {
   DataGrid,
   DataGridController,
   DataGridRenderers,
   DataGridUtils,
+  ReportView,
 };
