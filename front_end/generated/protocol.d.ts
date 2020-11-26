@@ -8405,6 +8405,10 @@ declare namespace Protocol {
        * Style of empty space caused by columns gaps (gap/column-gap).
        */
       columnGapSpace?: BoxStyle;
+      /**
+       * Style of the self-alignment line (align-items).
+       */
+      crossAlignment?: LineStyle;
     }
 
     export enum LineStylePattern {
