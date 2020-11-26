@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fddcb82_876c0230",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-26T16:43:11Z",
+      "side": 1,
+      "message": "Please follow the new readme from https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2562349 to re-create the icons in Images/src. Otherwise looks good with comments. Will take a final look tomorrow.",
+      "revId": "a1909ddb6586ed319b1902d103c695e7a2970036",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "415dd003_c34565cb",
+        "filename": "front_end/source_frame/messagesPopover.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-26T16:43:11Z",
+      "side": 1,
+      "message": "Could you explain why this is needed?",
+      "range": {
+        "startLine": 29,
+        "startChar": 2,
+        "endLine": 29,
+        "endChar": 13
+      },
+      "revId": "a1909ddb6586ed319b1902d103c695e7a2970036",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8352554d_8d85d318",
+        "filename": "front_end/source_frame/messagesPopover.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-26T16:43:11Z",
+      "side": 1,
+      "message": "I\u0027d go with 6px (then the left margin of the popover and the start of the text are equidistant from the icon.",
+      "range": {
+        "startLine": 30,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 22
+      },
+      "revId": "a1909ddb6586ed319b1902d103c695e7a2970036",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adc2e42b_baea299a",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 774,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-26T16:43:11Z",
+      "side": 1,
+      "message": "The old icon had a 4px right margin, I think this is why this style uses right: -16px; to preserve the distance to the line end that should be -12px.",
+      "range": {
+        "startLine": 774,
+        "startChar": 30,
+        "endLine": 774,
+        "endChar": 62
+      },
+      "revId": "a1909ddb6586ed319b1902d103c695e7a2970036",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
