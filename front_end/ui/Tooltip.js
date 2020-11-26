@@ -282,23 +282,3 @@ export const TooltipSymbol = _symbol;
 
 /** @type {!Array.<!Element>} */
 const _nativeOverrideContainer = [];
-
-const _nativeTitle = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'title');
-
-Object.defineProperty(HTMLElement.prototype, 'title', {
-  /**
-   * @return {!Element|string}
-   * @this {!Element}
-   */
-  get: function() {
-    return Tooltip.getContent(this);
-  },
-
-  /**
-   * @param {!Element|string} x
-   * @this {!Element}
-   */
-  set: function(x) {
-    Tooltip.install(this, x);
-  }
-});
