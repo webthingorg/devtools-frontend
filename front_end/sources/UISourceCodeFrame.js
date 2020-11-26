@@ -719,6 +719,11 @@ export class RowMessage {
     this._icon.data = getIconClassPerLevel(message.level());
     this._icon.classList.add('text-editor-row-message-icon');
 
+    const onClick = message.onClick();
+    if (onClick) {
+      this._icon.addEventListener('click', onClick);
+    }
+
     this.element.appendChild(this._icon);
     /** @type {!UI.UIUtils.DevToolsSmallBubble} */
     this._repeatCountElement =
