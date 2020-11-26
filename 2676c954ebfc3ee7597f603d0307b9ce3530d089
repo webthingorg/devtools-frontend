@@ -16,6 +16,115 @@
       "message": "Nice!",
       "revId": "2676c954ebfc3ee7597f603d0307b9ce3530d089",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f33438f6_0adb3d92",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-26T14:39:20Z",
+      "side": 1,
+      "message": "Thanks for the cleanup. I like this.\nI made a few comments to try to make things even smaller.",
+      "revId": "2676c954ebfc3ee7597f603d0307b9ce3530d089",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2de7652_7107f748",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-26T14:39:20Z",
+      "side": 1,
+      "message": "We\u0027re missing a check for _flexFeaturesExperimentEnabled  here I believe.",
+      "range": {
+        "startLine": 91,
+        "startChar": 13,
+        "endLine": 91,
+        "endChar": 43
+      },
+      "revId": "2676c954ebfc3ee7597f603d0307b9ce3530d089",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3487b9a_0bdff9dd",
+        "filename": "front_end/sdk/OverlayPersistentHighlighter.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-26T14:39:20Z",
+      "side": 1,
+      "message": "Is there a way you think we could put this in 1 map?\nBecause 1 node can\u0027t be both grid and flex at the same time, it\u0027s fine to keep on indexing the map by nodeId. But we\u0027d need a way to know if the value for an entry in the map is flex or grid. Maybe store an object instead?\n  { type: grid|flex, highlight: GridHighlightConfig|FlexContainerHighlightConfig },",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 37
+      },
+      "revId": "2676c954ebfc3ee7597f603d0307b9ce3530d089",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc475ac3_abdde528",
+        "filename": "front_end/sdk/OverlayPersistentHighlighter.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-26T14:39:20Z",
+      "side": 1,
+      "message": "I wonder if we couldn\u0027t just use 1 map. A given node can\u0027t be both a flex and a grid at the same time. You could change a node from flex to grid (or back) but that just means the same color would be reused, which isn\u0027t a problem I believe.\n\nI\u0027m just thinking if we start adding more display-types here, like multicol or table, in the future, it will be nice if we don\u0027t have to repeat much code at all.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 33
+      },
+      "revId": "2676c954ebfc3ee7597f603d0307b9ce3530d089",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16ce7df7_d2f3ff2b",
+        "filename": "front_end/sdk/OverlayPersistentHighlighter.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-11-26T14:39:20Z",
+      "side": 1,
+      "message": "I think we could improve a little bit this method name. It checks if nodes got deleted, updates the the highlight map, and returns a boolean if any update occurred.\n\nSo maybe _updateHighlightsForDeletedNodes",
+      "range": {
+        "startLine": 284,
+        "startChar": 2,
+        "endLine": 284,
+        "endChar": 16
+      },
+      "revId": "2676c954ebfc3ee7597f603d0307b9ce3530d089",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
