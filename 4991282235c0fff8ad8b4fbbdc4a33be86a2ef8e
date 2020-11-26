@@ -16,6 +16,41 @@
       "message": "Mathias, do have an idea how we could omit the size label visually but have it there for screen readers?",
       "revId": "4991282235c0fff8ad8b4fbbdc4a33be86a2ef8e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb6f5d6d_4c7bc126",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-26T14:19:23Z",
+      "side": 1,
+      "message": "Not sure I follow — why would we want to hide this visually?",
+      "parentUuid": "23b6bb0a_d0406098",
+      "revId": "4991282235c0fff8ad8b4fbbdc4a33be86a2ef8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37bb226a_25d82729",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-26T14:19:23Z",
+      "side": 1,
+      "message": "Now that we\u0027re showing more information, perhaps split this across multiple lines, so it looks like this:\n\n    rendered size: …\n    intrinsic size: …\n    file size: …",
+      "revId": "4991282235c0fff8ad8b4fbbdc4a33be86a2ef8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
