@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "6907a69e_25a2e7da",
+        "filename": ".eslintrc.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-26T16:19:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "16a97db7_fcb8f29c",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 29
+      },
+      "revId": "545e26cc5d04abf860edfdb7aa300d0fff0f576f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "67783879_7ac35e48",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -37,6 +61,144 @@
       "writtenOn": "2020-11-26T16:06:26Z",
       "side": 1,
       "message": "PTAL",
+      "revId": "545e26cc5d04abf860edfdb7aa300d0fff0f576f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c795de54_309bc124",
+        "filename": "scripts/eslint_rules/lib/lit_html_data_as_type.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-26T16:19:26Z",
+      "side": 1,
+      "message": "To double-check: are we certain that this always exists? If we aren\u0027t sure, it might be good to include some more defensive programming by asserting the structure first.",
+      "range": {
+        "startLine": 12,
+        "startChar": 34,
+        "endLine": 12,
+        "endChar": 40
+      },
+      "revId": "545e26cc5d04abf860edfdb7aa300d0fff0f576f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2561411_746747eb",
+        "filename": "scripts/eslint_rules/lib/lit_html_data_as_type.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-26T16:19:26Z",
+      "side": 1,
+      "message": "Nit: include the example code in this comment as well. In the event that AST Explorer is gone, we would still have the original code, for which we can use a different AST tool to inspect.",
+      "range": {
+        "startLine": 22,
+        "startChar": 5,
+        "endLine": 22,
+        "endChar": 109
+      },
+      "revId": "545e26cc5d04abf860edfdb7aa300d0fff0f576f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ca65343_fa66925b",
+        "filename": "scripts/eslint_rules/lib/lit_html_data_as_type.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-26T16:19:26Z",
+      "side": 1,
+      "message": "Nit: typo",
+      "range": {
+        "startLine": 31,
+        "startChar": 5,
+        "endLine": 31,
+        "endChar": 18
+      },
+      "revId": "545e26cc5d04abf860edfdb7aa300d0fff0f576f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54491ee9_ba0b8efc",
+        "filename": "scripts/eslint_rules/lib/lit_html_data_as_type.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-26T16:19:26Z",
+      "side": 1,
+      "message": "I just love that this is the actual name of the field in the AST representation 😂",
+      "range": {
+        "startLine": 34,
+        "startChar": 19,
+        "endLine": 34,
+        "endChar": 25
+      },
+      "revId": "545e26cc5d04abf860edfdb7aa300d0fff0f576f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "569d7ad3_a81d6087",
+        "filename": "scripts/eslint_rules/lib/lit_html_data_as_type.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-26T16:19:26Z",
+      "side": 1,
+      "message": "Could you also include an example of what a typecast looks like? I understand from this rule what it is, but for someone who solely reads the error message, that might not immediately be clear.",
+      "range": {
+        "startLine": 76,
+        "startChar": 80,
+        "endLine": 76,
+        "endChar": 88
+      },
+      "revId": "545e26cc5d04abf860edfdb7aa300d0fff0f576f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7d43390_27cf9bc5",
+        "filename": "scripts/eslint_rules/lib/lit_html_data_as_type.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-26T16:19:26Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 82,
+        "startChar": 69,
+        "endLine": 82,
+        "endChar": 77
+      },
       "revId": "545e26cc5d04abf860edfdb7aa300d0fff0f576f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
