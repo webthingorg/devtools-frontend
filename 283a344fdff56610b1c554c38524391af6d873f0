@@ -128,6 +128,30 @@
       },
       "revId": "283a344fdff56610b1c554c38524391af6d873f0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a64f31f8_354af6ce",
+        "filename": "front_end/elements/module.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-26T09:28:18Z",
+      "side": 1,
+      "message": "\u003e Please explicitly capture this in the commit message\n\nUpdate:\n\nShift+Alt+Down(Windows)/Shift+Option+Down(Mac)",
+      "parentUuid": "651379cc_5ba879bc",
+      "range": {
+        "startLine": 184,
+        "startChar": 22,
+        "endLine": 184,
+        "endChar": 38
+      },
+      "revId": "283a344fdff56610b1c554c38524391af6d873f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
