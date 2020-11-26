@@ -144,6 +144,30 @@
       },
       "revId": "b1a7d4aedc7f10c21769882340e6157d09c3541b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a0c863d_97aad7d7",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-26T13:29:37Z",
+      "side": 1,
+      "message": "Ah I wonder if we should add the word Bound on the end so that it\u0027s clear you\u0027re using the bound version not the one as authored.",
+      "parentUuid": "97eaa89d_f6335696",
+      "range": {
+        "startLine": 332,
+        "startChar": 4,
+        "endLine": 333,
+        "endChar": 86
+      },
+      "revId": "b1a7d4aedc7f10c21769882340e6157d09c3541b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
