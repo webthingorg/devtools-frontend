@@ -465,7 +465,7 @@ export class Linkifier {
 
     let titleText = uiLocation.uiSourceCode.url();
     if (uiLocation.uiSourceCode.mimeType() === 'application/wasm') {
-      titleText += `:0x${uiLocation.columnNumber.toString(16)}`;
+      titleText += `:0x${(uiLocation.columnNumber || 0).toString(16)}`;
     } else if (typeof uiLocation.lineNumber === 'number') {
       titleText += ':' + (uiLocation.lineNumber + 1);
     }
