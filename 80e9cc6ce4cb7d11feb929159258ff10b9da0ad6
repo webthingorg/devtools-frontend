@@ -16,6 +16,92 @@
       "message": "Please take an initial look.\n\nHow should we unit test this? There is no state and no events, so one test case similar to \u0027basic.html\u0027 should be fine?",
       "revId": "80e9cc6ce4cb7d11feb929159258ff10b9da0ad6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4c797cd_cdedb084",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-26T15:17:37Z",
+      "side": 1,
+      "message": "Couple of thoughts but LGTM % nits.\n\nRE testing, I think some tests that render a component and check the outputted HTML looks about right will be good for now. Can we add those before landing, please?\n\nThanks!",
+      "revId": "80e9cc6ce4cb7d11feb929159258ff10b9da0ad6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eae51ec1_f9cb2a56",
+        "filename": "front_end/ui/components/ReportView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-26T15:17:37Z",
+      "side": 1,
+      "message": "It might be nice to have a comment at the top that explains what all the different components are and how they relate to one another. WDYT?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 41
+      },
+      "revId": "80e9cc6ce4cb7d11feb929159258ff10b9da0ad6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10f73283_0050e81f",
+        "filename": "front_end/ui/components/ReportView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-26T15:17:37Z",
+      "side": 1,
+      "message": "please could we use explicit interfaces here? `set data(data: ReportSectionData)`. I know it\u0027s a bit of a mouthful but it helps and means we can use `.data\u003d${{} as ReportSectionData` to add extra type checking. Both of these will be enforced via an ESLint rule in the near future.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 52
+      },
+      "revId": "80e9cc6ce4cb7d11feb929159258ff10b9da0ad6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0379a523_0de24e99",
+        "filename": "front_end/ui/components/ReportView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-26T15:17:37Z",
+      "side": 1,
+      "message": "I\u0027m wondering if we need this or not vs asking everyone to use the HTML tags everytime to build it up, but I\u0027m not sure. WDYT?",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 1
+      },
+      "revId": "80e9cc6ce4cb7d11feb929159258ff10b9da0ad6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
