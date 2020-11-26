@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8a13f62_558c026f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-26T12:50:31Z",
+      "side": 1,
+      "message": "Yeah, testing this isn\u0027t really possible right now.\n\nWhat we need is the pptr style component tests that would let us do (something like):\n\n```\nmouse.click(resizeHandler)\nmouse.move(+20 in the x axis)\nassert(widthHasChangedAccordingly)\n```",
+      "revId": "b1a7d4aedc7f10c21769882340e6157d09c3541b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cfe58eab_fed0cafd",
@@ -58,6 +75,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5a95cca_8dff735b",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-26T12:50:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cfe58eab_fed0cafd",
+      "range": {
+        "startLine": 296,
+        "startChar": 46,
+        "endLine": 296,
+        "endChar": 52
+      },
+      "revId": "b1a7d4aedc7f10c21769882340e6157d09c3541b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "36d8db8a_cab6cce3",
@@ -71,6 +112,30 @@
       "writtenOn": "2020-11-26T12:41:26Z",
       "side": 1,
       "message": "I\u0027m surprised this works. The callback won\u0027t be bound to the instance of the datagrid, so references to this would like apply to Window.",
+      "range": {
+        "startLine": 332,
+        "startChar": 4,
+        "endLine": 333,
+        "endChar": 86
+      },
+      "revId": "b1a7d4aedc7f10c21769882340e6157d09c3541b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97eaa89d_f6335696",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-26T12:50:31Z",
+      "side": 1,
+      "message": "It will because I bind them in the `constructor`. Otherwise, yes (and I lost far too much time figuring this out!)",
+      "parentUuid": "36d8db8a_cab6cce3",
       "range": {
         "startLine": 332,
         "startChar": 4,
