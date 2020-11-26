@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd100355_775d6a24",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-26T14:10:58Z",
+      "side": 1,
+      "message": "Nit: could you provide an example (either CRBug, CL or CodeSearch link) for this? I am not familiar with the concept of \"twin definitions\".",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 24
+      },
+      "revId": "753d7a11f4a454452a137616a33baf4122f19170",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e47e37c7_3e6c1d57",
