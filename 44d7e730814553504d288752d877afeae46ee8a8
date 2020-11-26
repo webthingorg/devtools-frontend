@@ -22,6 +22,30 @@
       },
       "revId": "44d7e730814553504d288752d877afeae46ee8a8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bb706a3_fbd20e0b",
+        "filename": "front_end/components/ImagePreview.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-26T13:56:58Z",
+      "side": 1,
+      "message": "Fixed, thanks!",
+      "parentUuid": "ba1b6f91_0b56169f",
+      "range": {
+        "startLine": 86,
+        "startChar": 24,
+        "endLine": 86,
+        "endChar": 92
+      },
+      "revId": "44d7e730814553504d288752d877afeae46ee8a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
