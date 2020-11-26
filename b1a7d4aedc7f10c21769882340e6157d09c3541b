@@ -16,6 +16,69 @@
       "message": "Paul, PTAL. This is quite large so happy to chat over VC.\n\nI also suggest starting with the README as that documents the process of how we go about handling a resize and provides some context that I suspect is useful for reviewing the code!",
       "revId": "b1a7d4aedc7f10c21769882340e6157d09c3541b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b69ec62_6482a349",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-26T12:41:26Z",
+      "side": 1,
+      "message": "I\u0027m going to be the awkward one and ask about testing... 😊",
+      "revId": "b1a7d4aedc7f10c21769882340e6157d09c3541b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfe58eab_fed0cafd",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-26T12:41:26Z",
+      "side": 1,
+      "message": "globalThis instead?",
+      "range": {
+        "startLine": 296,
+        "startChar": 46,
+        "endLine": 296,
+        "endChar": 52
+      },
+      "revId": "b1a7d4aedc7f10c21769882340e6157d09c3541b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36d8db8a_cab6cce3",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-26T12:41:26Z",
+      "side": 1,
+      "message": "I\u0027m surprised this works. The callback won\u0027t be bound to the instance of the datagrid, so references to this would like apply to Window.",
+      "range": {
+        "startLine": 332,
+        "startChar": 4,
+        "endLine": 333,
+        "endChar": 86
+      },
+      "revId": "b1a7d4aedc7f10c21769882340e6157d09c3541b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
