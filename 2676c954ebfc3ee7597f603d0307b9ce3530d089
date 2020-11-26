@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "41a76a73_17446622",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-26T14:44:18Z",
+      "side": 1,
+      "message": "I left it out because the flexbox experiment depends on the grid one (cannot be enabled on its own) and the _peristentHighlighter will not have any flexbox data since the layout panel and adorners will be disabled so it is safe to invoke it.",
+      "parentUuid": "a2de7652_7107f748",
+      "range": {
+        "startLine": 91,
+        "startChar": 13,
+        "endLine": 91,
+        "endChar": 43
+      },
+      "revId": "2676c954ebfc3ee7597f603d0307b9ce3530d089",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e3487b9a_0bdff9dd",
         "filename": "front_end/sdk/OverlayPersistentHighlighter.js",
         "patchSetId": 3
