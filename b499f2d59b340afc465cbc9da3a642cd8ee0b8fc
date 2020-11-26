@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49395342_1190b6bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1238768
+      },
+      "writtenOn": "2020-11-26T14:33:44Z",
+      "side": 1,
+      "message": "I love these kind of CLs.",
+      "revId": "b499f2d59b340afc465cbc9da3a642cd8ee0b8fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
