@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcf68a83_214d3ca3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-26T10:56:11Z",
+      "side": 1,
+      "message": "Jan, PTAL",
+      "revId": "56b2b71fcad24d7ec5696677866b5d32bcb96735",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c95e9ab4_b74900a8",
+        "filename": "front_end/components/ImagePreview.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-26T10:56:11Z",
+      "side": 1,
+      "message": "Does this give a good screen reader experience?",
+      "range": {
+        "startLine": 48,
+        "startChar": 58,
+        "endLine": 48,
+        "endChar": 59
+      },
+      "revId": "56b2b71fcad24d7ec5696677866b5d32bcb96735",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
