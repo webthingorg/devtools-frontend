@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7219979b_263a13c1",
+        "filename": "front_end/recorder/RecordingEventHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-26T15:42:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1471d44e_193cd482",
+      "revId": "f348dbf2781641239b16d372fb9a53305532dd36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8f4021ee_0ddd91a6",
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "23552ff6_c03e5054",
+        "filename": "front_end/recorder/RecordingSession.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-26T15:42:39Z",
+      "side": 1,
+      "message": "I think a better long term solution would be to not rely on the url at all. I\u0027m thinking about using browser.waitForTarget instead.",
+      "parentUuid": "8f4021ee_0ddd91a6",
+      "revId": "f348dbf2781641239b16d372fb9a53305532dd36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7c13d992_71085c66",
@@ -65,6 +101,24 @@
       "writtenOn": "2020-11-25T14:07:40Z",
       "side": 1,
       "message": "WDYT about making the output a bit more readable by splitting it across multiple lines?\n\n    {\n      const pages \u003d await ...;\n      const page \u003d pages.find(page \u003d\u003e {\n        return ...;\n      });\n      await page.click(\u0027...\u0027);\n    }",
+      "revId": "f348dbf2781641239b16d372fb9a53305532dd36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05e72ad2_26916b78",
+        "filename": "test/e2e/recorder/recorder_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-26T15:42:39Z",
+      "side": 1,
+      "message": "I\u0027ll add this in a follow up cl: crbug.com/1153102",
+      "parentUuid": "7c13d992_71085c66",
       "revId": "f348dbf2781641239b16d372fb9a53305532dd36",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
