@@ -39,6 +39,30 @@
       },
       "revId": "56b2b71fcad24d7ec5696677866b5d32bcb96735",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad01b515_6228138c",
+        "filename": "front_end/components/ImagePreview.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-26T11:01:19Z",
+      "side": 1,
+      "message": "Currently using U+00B7 separation, I need UX to give visual advice.",
+      "parentUuid": "c95e9ab4_b74900a8",
+      "range": {
+        "startLine": 48,
+        "startChar": 58,
+        "endLine": 48,
+        "endChar": 59
+      },
+      "revId": "56b2b71fcad24d7ec5696677866b5d32bcb96735",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
