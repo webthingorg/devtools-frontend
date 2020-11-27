@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d57e9fce_55219745",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-27T11:08:03Z",
+      "side": 1,
+      "message": "Added two tests that I thought make sense and are not only change detectors :)",
+      "parentUuid": "d4c797cd_cdedb084",
+      "revId": "80e9cc6ce4cb7d11feb929159258ff10b9da0ad6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eae51ec1_f9cb2a56",
@@ -48,6 +66,30 @@
       "writtenOn": "2020-11-26T15:17:37Z",
       "side": 1,
       "message": "It might be nice to have a comment at the top that explains what all the different components are and how they relate to one another. WDYT?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 41
+      },
+      "revId": "80e9cc6ce4cb7d11feb929159258ff10b9da0ad6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "183b56bc_4265e870",
+        "filename": "front_end/ui/components/ReportView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-27T11:08:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eae51ec1_f9cb2a56",
       "range": {
         "startLine": 7,
         "startChar": 0,
@@ -81,6 +123,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d47f168e_04318f6b",
+        "filename": "front_end/ui/components/ReportView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-27T11:08:03Z",
+      "side": 1,
+      "message": "Good catch, forgot to replace with a proper interface after initial prototyping, done.",
+      "parentUuid": "10f73283_0050e81f",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 52
+      },
+      "revId": "80e9cc6ce4cb7d11feb929159258ff10b9da0ad6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0379a523_0de24e99",
@@ -94,6 +160,30 @@
       "writtenOn": "2020-11-26T15:17:37Z",
       "side": 1,
       "message": "I\u0027m wondering if we need this or not vs asking everyone to use the HTML tags everytime to build it up, but I\u0027m not sure. WDYT?",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 1
+      },
+      "revId": "80e9cc6ce4cb7d11feb929159258ff10b9da0ad6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "858be218_b095c93c",
+        "filename": "front_end/ui/components/ReportView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-27T11:08:03Z",
+      "side": 1,
+      "message": "I removed it again, I think the proper way to do this, is to let users write the helpers themselves. If multiple users come up with the same helpers, we can then lift them up and make them part of the interface to reduce duplication. Wdyt?",
+      "parentUuid": "0379a523_0de24e99",
       "range": {
         "startLine": 128,
         "startChar": 0,

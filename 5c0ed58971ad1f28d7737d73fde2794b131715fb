@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dba5465c_0114c185",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-27T11:08:03Z",
+      "side": 1,
+      "message": "As mentioned in the previous comments, I wanted initial feedback about the architecture first, but will add unit tests before landing.",
+      "parentUuid": "aa6ad61c_e9b0d630",
+      "revId": "5c0ed58971ad1f28d7737d73fde2794b131715fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f885175d_e5c9402b",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b382d39_d2119b53",
+        "filename": "front_end/ui/components/ReportView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-27T11:08:03Z",
+      "side": 1,
+      "message": "The color in the example changes for the name, so I assume yes.",
+      "parentUuid": "f885175d_e5c9402b",
+      "revId": "5c0ed58971ad1f28d7737d73fde2794b131715fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d199a72_0eb1b774",
@@ -48,6 +84,24 @@
       "writtenOn": "2020-11-27T08:29:56Z",
       "side": 1,
       "message": "btw it looks like the default color does not have enough contrast https://i.imgur.com/3kaVnql.png",
+      "revId": "5c0ed58971ad1f28d7737d73fde2794b131715fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e4b5fa3_eb179310",
+        "filename": "front_end/ui/components/ReportView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-27T11:08:03Z",
+      "side": 1,
+      "message": "Great find! We would have to change that for this component as well as for ReportView.js, so I would like to do that in a followup and maybe extract the color into a CSS variable.",
+      "parentUuid": "8d199a72_0eb1b774",
       "revId": "5c0ed58971ad1f28d7737d73fde2794b131715fb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
