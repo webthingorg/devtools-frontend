@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e36e4234_eac4b943",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-27T15:15:09Z",
+      "side": 1,
+      "message": "Alex, PTAL at inspector_overlay change 😊",
+      "revId": "a80e484df49ed018ab1376a9495f20fd37e7a355",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
