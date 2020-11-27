@@ -840,8 +840,13 @@ export class DebuggerLanguagePluginManager {
         if (!uiSourceCode) {
           continue;
         }
+        // Retain backwards compatibility with older versions of plugins that returned -1 to indicate the
+        // absence of a column number (i.e. that the `sourceLocation` refers to the whole line).
         return uiSourceCode.uiLocation(
-            sourceLocation.lineNumber, sourceLocation.columnNumber >= 0 ? sourceLocation.columnNumber : undefined);
+            sourceLocation.lineNumber,
+            (typeof sourceLocation.columnNumber === 'number' && sourceLocation.columnNumber < 0) ?
+                sourceLocation.columnNumber :
+                undefined);
       }
     } catch (error) {
       Common.Console.Console.instance().error(ls`Error in debugger language plugin: ${error.message}`);
@@ -852,10 +857,14 @@ export class DebuggerLanguagePluginManager {
   /**
    * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
    * @param {number} lineNumber
-   * @param {number} columnNumber
+   * @param {number=} columnNumber
    * @return {!Promise<?Array<!{start: !SDK.DebuggerModel.Location, end: !SDK.DebuggerModel.Location}>>} Returns null if this manager does not have a plugin for it.
    */
-  uiLocationToRawLocationRanges(uiSourceCode, lineNumber, columnNumber) {
+  uiLocationToRawLocationRanges(uiSourceCode, lineNumber, columnNumber = -1) {
+    // TODO(crbug.com/1153123): We turn `undefined` for `columnNumber` into `-1` here,
+    //                          since old versions of the C++ language plugin extension
+    //                          cannot handle `undefined` yet. Remove this after a grace
+    //                          period of a couple of days.
     /** @type {!Array<!Promise<!Array<!{start: !SDK.DebuggerModel.Location, end: !SDK.DebuggerModel.Location}>>>} */
     const locationPromises = [];
     this.scriptsForUISourceCode(uiSourceCode).forEach(script => {
@@ -902,7 +911,7 @@ export class DebuggerLanguagePluginManager {
   /**
    * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
    * @param {number} lineNumber
-   * @param {number} columnNumber
+   * @param {number=} columnNumber
    * @return {!Promise<?Array<!SDK.DebuggerModel.Location>>} Returns null if this manager does not have a plugin for it.
    */
   async uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber) {
@@ -1246,7 +1255,7 @@ export let RawLocation;
  *            rawModuleId: string,
  *            sourceFileURL: string,
  *            lineNumber: number,
- *            columnNumber: number
+ *            columnNumber?: number
  *          }}
  */
 // @ts-ignore typedef

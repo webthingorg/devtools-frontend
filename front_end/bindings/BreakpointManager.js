@@ -89,14 +89,14 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper {
   /**
    * @param {string} url
    * @param {number} lineNumber
-   * @param {number} columnNumber
+   * @param {number=} columnNumber
    * @return {string}
    */
   static _breakpointStorageId(url, lineNumber, columnNumber) {
     if (!url) {
       return '';
     }
-    return url + ':' + lineNumber + ':' + columnNumber;
+    return `${url}:${lineNumber}` + (typeof columnNumber === 'number' ? `:${columnNumber}` : '');
   }
 
   /**
@@ -164,7 +164,7 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper {
   /**
    * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
    * @param {number} lineNumber
-   * @param {number} columnNumber
+   * @param {number|undefined} columnNumber
    * @param {string} condition
    * @param {boolean} enabled
    * @return {!Promise<!Breakpoint>}
@@ -183,7 +183,7 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper {
   /**
    * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
    * @param {number} lineNumber
-   * @param {number} columnNumber
+   * @param {number|undefined} columnNumber
    * @param {string} condition
    * @param {boolean} enabled
    * @return {!Breakpoint}
@@ -371,7 +371,7 @@ export class Breakpoint {
    * @param {!Workspace.UISourceCode.UISourceCode} primaryUISourceCode
    * @param {string} url
    * @param {number} lineNumber
-   * @param {number} columnNumber
+   * @param {number|undefined} columnNumber
    * @param {string} condition
    * @param {boolean} enabled
    */
@@ -495,7 +495,7 @@ export class Breakpoint {
   }
 
   /**
-   * @return {number}
+   * @return {number=}
    */
   columnNumber() {
     return this._columnNumber;
@@ -937,7 +937,7 @@ Breakpoint.State = class {
    * @param {?string} scriptId
    * @param {?string} scriptHash
    * @param {number} lineNumber
-   * @param {number} columnNumber
+   * @param {number|undefined} columnNumber
    * @param {string} condition
    */
   constructor(url, scriptId, scriptHash, lineNumber, columnNumber, condition) {
