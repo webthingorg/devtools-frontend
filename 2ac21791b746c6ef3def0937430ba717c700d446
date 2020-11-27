@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59e1a97b_a41222d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2020-11-27T11:44:57Z",
+      "side": 1,
+      "message": "Like the UX. 2 comments:\n\n1. Should we change the label text (in the screenshot 30.6ms ~ 33fps) to red color instead since it\u0027s the box is red?\n2. Dropped frame - Is it possible to get a reason (e.g. from Blink) on why the dropped frame happen?",
+      "revId": "2ac21791b746c6ef3def0937430ba717c700d446",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
