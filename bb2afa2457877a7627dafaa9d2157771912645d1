@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "bb2afa2457877a7627dafaa9d2157771912645d1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d261d809_150bda00",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-27T16:29:21Z",
+      "side": 1,
+      "message": "You might also want to get a domain review for the selection of lists, but INFRA LGTM.",
+      "revId": "bb2afa2457877a7627dafaa9d2157771912645d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
