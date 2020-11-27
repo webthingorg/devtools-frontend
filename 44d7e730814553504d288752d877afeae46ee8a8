@@ -118,6 +118,30 @@
       },
       "revId": "44d7e730814553504d288752d877afeae46ee8a8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "650d49d9_436ab7f6",
+        "filename": "front_end/components/ImagePreview.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-27T02:26:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d86441da_01c82f61",
+      "range": {
+        "startLine": 86,
+        "startChar": 24,
+        "endLine": 86,
+        "endChar": 92
+      },
+      "revId": "44d7e730814553504d288752d877afeae46ee8a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
