@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba4a86d3_13832056",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 65
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-27T14:35:26Z",
+      "side": 1,
+      "message": "LGTM with nit.",
+      "revId": "3dbaf39ee6316254ea64733679ad5be672d339c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "142ddd63_c4031f47",
+        "filename": "test/unittests/front_end/inline_editor/FontEditorUnitConverter_test.ts",
+        "patchSetId": 65
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-27T14:35:26Z",
+      "side": 1,
+      "message": "nit: please break these cases out to individual it calls",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 4
+      },
+      "revId": "3dbaf39ee6316254ea64733679ad5be672d339c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
