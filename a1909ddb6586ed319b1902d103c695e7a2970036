@@ -64,6 +64,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "611ada96_d8268669",
+        "filename": "front_end/source_frame/messagesPopover.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-11-27T08:56:30Z",
+      "side": 1,
+      "message": "Sounds good!",
+      "parentUuid": "8352554d_8d85d318",
+      "range": {
+        "startLine": 30,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 22
+      },
+      "revId": "a1909ddb6586ed319b1902d103c695e7a2970036",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "adc2e42b_baea299a",
@@ -77,6 +101,30 @@
       "writtenOn": "2020-11-26T16:43:11Z",
       "side": 1,
       "message": "The old icon had a 4px right margin, I think this is why this style uses right: -16px; to preserve the distance to the line end that should be -12px.",
+      "range": {
+        "startLine": 774,
+        "startChar": 30,
+        "endLine": 774,
+        "endChar": 62
+      },
+      "revId": "a1909ddb6586ed319b1902d103c695e7a2970036",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a75371a_ed3ec059",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 774,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-11-27T08:56:30Z",
+      "side": 1,
+      "message": "Thanks for pointing this out, I was not aware of that 4px margin.",
+      "parentUuid": "adc2e42b_baea299a",
       "range": {
         "startLine": 774,
         "startChar": 30,
