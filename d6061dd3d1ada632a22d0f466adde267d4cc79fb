@@ -66,6 +66,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "504a6bbc_87d40039",
+        "filename": "front_end/elements/elements-meta.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-11-27T16:57:49Z",
+      "side": 1,
+      "message": "This was added beacuse of the es-lint rule that forbids the use of \"import * from \u0027./\u003cmodule_name\u003e.js\u0027 inside the module \u003cmodule_name\u003e. Since we need the whole module (only as a type) instead of a specific subset of the exported symbols, I stuck to using \"import *\" and disabling the rule for this line.",
+      "parentUuid": "4e92160e_c14051c3",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 54
+      },
+      "revId": "d6061dd3d1ada632a22d0f466adde267d4cc79fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4643c9cf_6decba3b",
         "filename": "front_end/elements/elements-meta.ts",
         "patchSetId": 4
@@ -77,6 +101,30 @@
       "writtenOn": "2020-11-25T16:20:39Z",
       "side": 1,
       "message": "Nit: can we extract a method here to avoid the duplication? Ideally this method would be implemented as such:\n\n  contextTypes() {\n    return maybeRetrieveContextTypes(Elements \u003d\u003e [Elements.ElementsPanel.ElementsPanel]);\n  }\n\nThat would avoid the duplication of the `loadedElementsModule` check and makes the retrieval of the type mimic how you would do it with a static import. That would improve searching in the codebase.",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 14
+      },
+      "revId": "d6061dd3d1ada632a22d0f466adde267d4cc79fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f494fd5e_637c6f46",
+        "filename": "front_end/elements/elements-meta.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-11-27T16:57:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4643c9cf_6decba3b",
       "range": {
         "startLine": 117,
         "startChar": 0,
@@ -123,6 +171,30 @@
       "writtenOn": "2020-11-25T16:20:39Z",
       "side": 1,
       "message": "If you haven\u0027t done so, can we do 2 small verifications to make sure everything is working as intended?\n\n1. Declare a duplicate binding in a preregistered action. E.g. change \u0027elements.edit-as-html\u0027 to use \u0027Ctrl+Z\u0027 instead of \u0027F2\u0027 and verify that DevTools provides a decent error\n2. Declare a duplicate binding in a legacy action. E.g. change an action in a module.json file to use \u0027Ctrl+Z\u0027 and verify that DevTools provides a decent error.",
+      "range": {
+        "startLine": 186,
+        "startChar": 17,
+        "endLine": 186,
+        "endChar": 23
+      },
+      "revId": "d6061dd3d1ada632a22d0f466adde267d4cc79fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8c6ea52_d54e3269",
+        "filename": "front_end/elements/elements-meta.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-11-27T16:57:49Z",
+      "side": 1,
+      "message": "Because key bindings might be handled manually in an one by one basis, checking for duplicates might be too complicated if not completely unachievable by using only the information available in their declaration in module.json files. The check for duplicity was removed for this reason, aiming to properly implement it as a follow up work, with crbug.com/1153354 filed to track this effort.",
+      "parentUuid": "8be8c0e3_55a1746d",
       "range": {
         "startLine": 186,
         "startChar": 17,
