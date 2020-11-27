@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e97c2f9_a5eb29d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-11-27T13:17:57Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "39652d62f603c8b9c0ed7c523297845279687d50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "326bb8d4_07c75078",
+        "filename": "front_end/resources/frameDetailsReportView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-11-27T13:17:57Z",
+      "side": 1,
+      "message": "This one is still unclear. I disabled legacy-patching nevertheless since link-color already has a dark mode value.",
+      "revId": "39652d62f603c8b9c0ed7c523297845279687d50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
