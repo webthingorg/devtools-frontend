@@ -33,6 +33,24 @@
       "message": "This one is still unclear. I disabled legacy-patching nevertheless since link-color already has a dark mode value.",
       "revId": "39652d62f603c8b9c0ed7c523297845279687d50",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36976862_8c3f49e0",
+        "filename": "front_end/resources/frameDetailsReportView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-27T13:35:41Z",
+      "side": 1,
+      "message": "Ack - let\u0027s chat to Peter M about link colours.",
+      "parentUuid": "326bb8d4_07c75078",
+      "revId": "39652d62f603c8b9c0ed7c523297845279687d50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
