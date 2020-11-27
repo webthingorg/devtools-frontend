@@ -60,7 +60,10 @@ SDK.ConsoleMessage.MessageType = SDKModule.ConsoleModel.MessageType;
 /**
  * @enum {string}
  */
-SDK.ConsoleMessage.MessageLevel = SDKModule.ConsoleModel.MessageLevel;
+SDK.ConsoleMessage.MessageLevel = {
+  Verbose: 'verbose',
+  ...Protocol.Console.ConsoleMessageLevel
+};
 
 /** @constructor */
 SDK.Cookie = SDKModule.Cookie.Cookie;

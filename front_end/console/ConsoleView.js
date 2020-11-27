@@ -512,16 +512,16 @@ export class ConsoleView extends UI.Widget.VBox {
    * @param {!Common.Console.Message} message
    */
   _addSinkMessage(message) {
-    let level = SDK.ConsoleModel.MessageLevel.Verbose;
+    let level = SDK.ConsoleModel.AdditionalMessageLevel.Verbose;
     switch (message.level) {
       case Common.Console.MessageLevel.Info:
-        level = SDK.ConsoleModel.MessageLevel.Info;
+        level = Protocol.Console.ConsoleMessageLevel.Info;
         break;
       case Common.Console.MessageLevel.Error:
-        level = SDK.ConsoleModel.MessageLevel.Error;
+        level = Protocol.Console.ConsoleMessageLevel.Error;
         break;
       case Common.Console.MessageLevel.Warning:
-        level = SDK.ConsoleModel.MessageLevel.Warning;
+        level = Protocol.Console.ConsoleMessageLevel.Warning;
         break;
     }
 
@@ -1190,7 +1190,8 @@ export class ConsoleView extends UI.Widget.VBox {
       return;
     }
 
-    const level = !!exceptionDetails ? SDK.ConsoleModel.MessageLevel.Error : SDK.ConsoleModel.MessageLevel.Info;
+    const level =
+        !!exceptionDetails ? Protocol.Console.ConsoleMessageLevel.Error : Protocol.Console.ConsoleMessageLevel.Info;
     let message;
     if (!exceptionDetails) {
       message = new SDK.ConsoleModel.ConsoleMessage(
@@ -1497,12 +1498,12 @@ export class ConsoleViewFilter {
     this._currentFilter = new ConsoleFilter('', [], null, this._messageLevelFiltersSetting.get());
     this._updateCurrentFilter();
 
-    /** @type {!Map<!SDK.ConsoleModel.MessageLevel, string>} */
+    /** @type {!Map<Protocol.Console.ConsoleMessageLevel|SDK.ConsoleModel.AdditionalMessageLevel, string>} */
     this._levelLabels = new Map([
-      [SDK.ConsoleModel.MessageLevel.Verbose, Common.UIString.UIString('Verbose')],
-      [SDK.ConsoleModel.MessageLevel.Info, Common.UIString.UIString('Info')],
-      [SDK.ConsoleModel.MessageLevel.Warning, Common.UIString.UIString('Warnings')],
-      [SDK.ConsoleModel.MessageLevel.Error, Common.UIString.UIString('Errors')],
+      [SDK.ConsoleModel.AdditionalMessageLevel.Verbose, Common.UIString.UIString('Verbose')],
+      [Protocol.Console.ConsoleMessageLevel.Info, Common.UIString.UIString('Info')],
+      [Protocol.Console.ConsoleMessageLevel.Warning, Common.UIString.UIString('Warnings')],
+      [Protocol.Console.ConsoleMessageLevel.Error, Common.UIString.UIString('Errors')],
     ]);
 
     this._levelMenuButton = new UI.Toolbar.ToolbarButton(ls`Log levels`);
@@ -1569,7 +1570,7 @@ export class ConsoleViewFilter {
 
     let text = null;
     const levels = this._messageLevelFiltersSetting.get();
-    for (const name of Object.values(SDK.ConsoleModel.MessageLevel)) {
+    for (const name of Object.values(Protocol.Console.ConsoleMessageLevel)) {
       isAll = isAll && levels[name] === allValue[name];
       isDefault = isDefault && levels[name] === defaultValue[name];
       if (levels[name]) {

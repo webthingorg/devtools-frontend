@@ -224,8 +224,9 @@ export class PresentationConsoleMessage {
    */
   constructor(message, rawLocation, locationPool) {
     this._text = message.messageText;
-    this._level = message.level === SDK.ConsoleModel.MessageLevel.Error ? Workspace.UISourceCode.Message.Level.Error :
-                                                                          Workspace.UISourceCode.Message.Level.Warning;
+    this._level = message.level === Protocol.Console.ConsoleMessageLevel.Error ?
+        Workspace.UISourceCode.Message.Level.Error :
+        Workspace.UISourceCode.Message.Level.Warning;
     DebuggerWorkspaceBinding.instance().createLiveLocation(rawLocation, this._updateLocation.bind(this), locationPool);
   }
 

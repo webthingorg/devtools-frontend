@@ -269,7 +269,7 @@ export class ConsoleViewMessage {
       return null;
     }
     const messageElement = /** @type {!HTMLElement} */ (document.createElement('span'));
-    if (this._message.level === SDK.ConsoleModel.MessageLevel.Error) {
+    if (this._message.level === Protocol.Console.ConsoleMessageLevel.Error) {
       UI.UIUtils.createTextChild(messageElement, request.requestMethod + ' ');
       const linkElement = Components.Linkifier.Linkifier.linkifyRevealable(request, request.url(), request.url());
       // Focus is handled by the viewport.
@@ -463,7 +463,7 @@ export class ConsoleViewMessage {
         SDK.RemoteObject.RemoteObject.type(
             (/** @type {!Array.<!SDK.RemoteObject.RemoteObject>} **/ (parameters))[0]) === 'string' &&
         (this._message.type !== SDK.ConsoleModel.MessageType.Result ||
-         this._message.level === SDK.ConsoleModel.MessageLevel.Error);
+         this._message.level === Protocol.Console.ConsoleMessageLevel.Error);
 
     // Multiple parameters with the first being a format string. Save unused substitutions.
     if (shouldFormatMessage) {
@@ -1010,9 +1010,9 @@ export class ConsoleViewMessage {
     element.style.setProperty('color', themedColor, 'important');
 
     let backgroundColor = 'hsl(0, 0%, 100%)';
-    if (this._message.level === SDK.ConsoleModel.MessageLevel.Error) {
+    if (this._message.level === Protocol.Console.ConsoleMessageLevel.Error) {
       backgroundColor = 'hsl(0, 100%, 97%)';
-    } else if (this._message.level === SDK.ConsoleModel.MessageLevel.Warning || this._shouldRenderAsWarning()) {
+    } else if (this._message.level === Protocol.Console.ConsoleMessageLevel.Warning || this._shouldRenderAsWarning()) {
       backgroundColor = 'hsl(50, 100%, 95%)';
     }
     const themedBackgroundColor = ThemeSupport.ThemeSupport.instance().patchColorText(
@@ -1267,8 +1267,8 @@ export class ConsoleViewMessage {
     const shouldIncludeTrace = !!this._message.stackTrace &&
         (this._message.source === SDK.ConsoleModel.MessageSource.Network ||
          this._message.source === SDK.ConsoleModel.MessageSource.Violation ||
-         this._message.level === SDK.ConsoleModel.MessageLevel.Error ||
-         this._message.level === SDK.ConsoleModel.MessageLevel.Warning ||
+         this._message.level === Protocol.Console.ConsoleMessageLevel.Error ||
+         this._message.level === Protocol.Console.ConsoleMessageLevel.Warning ||
          this._message.type === SDK.ConsoleModel.MessageType.Trace);
     if (runtimeModel && shouldIncludeTrace) {
       formattedMessage = this._buildMessageWithStackTrace(runtimeModel);
@@ -1322,19 +1322,19 @@ export class ConsoleViewMessage {
     elementToMessage.set(this._element, this);
 
     switch (this._message.level) {
-      case SDK.ConsoleModel.MessageLevel.Verbose:
+      case SDK.ConsoleModel.AdditionalMessageLevel.Verbose:
         this._element.classList.add('console-verbose-level');
         break;
-      case SDK.ConsoleModel.MessageLevel.Info:
+      case Protocol.Console.ConsoleMessageLevel.Info:
         this._element.classList.add('console-info-level');
         if (this._message.type === SDK.ConsoleModel.MessageType.System) {
           this._element.classList.add('console-system-type');
         }
         break;
-      case SDK.ConsoleModel.MessageLevel.Warning:
+      case Protocol.Console.ConsoleMessageLevel.Warning:
         this._element.classList.add('console-warning-level');
         break;
-      case SDK.ConsoleModel.MessageLevel.Error:
+      case Protocol.Console.ConsoleMessageLevel.Error:
         this._element.classList.add('console-error-level');
         break;
     }
@@ -1353,8 +1353,8 @@ export class ConsoleViewMessage {
    * @return {boolean}
    */
   _shouldRenderAsWarning() {
-    return (this._message.level === SDK.ConsoleModel.MessageLevel.Verbose ||
-            this._message.level === SDK.ConsoleModel.MessageLevel.Info) &&
+    return (this._message.level === SDK.ConsoleModel.AdditionalMessageLevel.Verbose ||
+            this._message.level === Protocol.Console.ConsoleMessageLevel.Info) &&
         (this._message.source === SDK.ConsoleModel.MessageSource.Violation ||
          this._message.source === SDK.ConsoleModel.MessageSource.Deprecation ||
          this._message.source === SDK.ConsoleModel.MessageSource.Intervention ||
@@ -1364,10 +1364,10 @@ export class ConsoleViewMessage {
   _updateMessageLevelIcon() {
     let iconType = '';
     let accessibleName = '';
-    if (this._message.level === SDK.ConsoleModel.MessageLevel.Warning) {
+    if (this._message.level === Protocol.Console.ConsoleMessageLevel.Warning) {
       iconType = 'smallicon-warning';
       accessibleName = ls`Warning`;
-    } else if (this._message.level === SDK.ConsoleModel.MessageLevel.Error) {
+    } else if (this._message.level === Protocol.Console.ConsoleMessageLevel.Error) {
       iconType = 'smallicon-error';
       accessibleName = ls`Error`;
     }
@@ -1430,13 +1430,13 @@ export class ConsoleViewMessage {
           /** @type {!UI.UIUtils.DevToolsSmallBubble} */ (document.createElement('span', {is: 'dt-small-bubble'}));
       this._repeatCountElement.classList.add('console-message-repeat-count');
       switch (this._message.level) {
-        case SDK.ConsoleModel.MessageLevel.Warning:
+        case Protocol.Console.ConsoleMessageLevel.Warning:
           this._repeatCountElement.type = 'warning';
           break;
-        case SDK.ConsoleModel.MessageLevel.Error:
+        case Protocol.Console.ConsoleMessageLevel.Error:
           this._repeatCountElement.type = 'error';
           break;
-        case SDK.ConsoleModel.MessageLevel.Verbose:
+        case SDK.ConsoleModel.AdditionalMessageLevel.Verbose:
           this._repeatCountElement.type = 'verbose';
           break;
         default:
@@ -1451,9 +1451,9 @@ export class ConsoleViewMessage {
     }
     this._repeatCountElement.textContent = `${this._repeatCount}`;
     let accessibleName = ls`Repeat ${this._repeatCount}`;
-    if (this._message.level === SDK.ConsoleModel.MessageLevel.Warning) {
+    if (this._message.level === Protocol.Console.ConsoleMessageLevel.Warning) {
       accessibleName = ls`Warning ${accessibleName}`;
-    } else if (this._message.level === SDK.ConsoleModel.MessageLevel.Error) {
+    } else if (this._message.level === Protocol.Console.ConsoleMessageLevel.Error) {
       accessibleName = ls`Error ${accessibleName}`;
     }
     UI.ARIAUtils.setAccessibleName(this._repeatCountElement, accessibleName);
@@ -1934,7 +1934,7 @@ export class ConsoleCommandResult extends ConsoleViewMessage {
     const element = super.contentElement();
     if (!element.classList.contains('console-user-command-result')) {
       element.classList.add('console-user-command-result');
-      if (this.consoleMessage().level === SDK.ConsoleModel.MessageLevel.Info) {
+      if (this.consoleMessage().level === Protocol.Console.ConsoleMessageLevel.Info) {
         const icon = UI.Icon.Icon.create('smallicon-command-result', 'command-result-icon');
         element.insertBefore(icon, element.firstChild);
       }

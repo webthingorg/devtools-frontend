@@ -240,7 +240,7 @@ export class ConsoleModel extends Common.ObjectWrapper.ObjectWrapper {
       return;
     }
     this._errors--;
-    exceptionMessage.level = MessageLevel.Verbose;
+    exceptionMessage.level = AdditionalMessageLevel.Verbose;
     this.dispatchEventToListeners(Events.MessageUpdated, exceptionMessage);
   }
 
@@ -250,15 +250,16 @@ export class ConsoleModel extends Common.ObjectWrapper.ObjectWrapper {
    */
   _consoleAPICalled(runtimeModel, event) {
     const call = /** @type {!ConsoleAPICall} */ (event.data);
-    let level = MessageLevel.Info;
+    /** @type {Protocol.Console.ConsoleMessageLevel|AdditionalMessageLevel} */
+    let level = Protocol.Console.ConsoleMessageLevel.Info;
     if (call.type === MessageType.Debug) {
-      level = MessageLevel.Verbose;
+      level = AdditionalMessageLevel.Verbose;
     } else if (call.type === MessageType.Error || call.type === MessageType.Assert) {
-      level = MessageLevel.Error;
+      level = Protocol.Console.ConsoleMessageLevel.Error;
     } else if (call.type === MessageType.Warning) {
-      level = MessageLevel.Warning;
+      level = Protocol.Console.ConsoleMessageLevel.Warning;
     } else if (call.type === MessageType.Info || call.type === MessageType.Log) {
-      level = MessageLevel.Info;
+      level = Protocol.Console.ConsoleMessageLevel.Info;
     }
     let message = '';
     if (call.args.length && call.args[0].unserializableValue) {
@@ -284,8 +285,8 @@ export class ConsoleModel extends Common.ObjectWrapper.ObjectWrapper {
   _queryObjectRequested(runtimeModel, event) {
     const data = /** @type {!{objects:!RemoteObject}} */ (event.data);
     const consoleMessage = new ConsoleMessage(
-        runtimeModel, MessageSource.ConsoleAPI, MessageLevel.Info, '', MessageType.QueryObjectResult, undefined,
-        undefined, undefined, [data.objects]);
+        runtimeModel, MessageSource.ConsoleAPI, Protocol.Console.ConsoleMessageLevel.Info, '',
+        MessageType.QueryObjectResult, undefined, undefined, undefined, [data.objects]);
     this.addMessage(consoleMessage);
   }
 
@@ -343,8 +344,8 @@ export class ConsoleModel extends Common.ObjectWrapper.ObjectWrapper {
       columnNumber: scriptLocation.columnNumber || 0,
     }];
     this.addMessage(new ConsoleMessage(
-        cpuProfilerModel.runtimeModel(), MessageSource.ConsoleAPI, MessageLevel.Info, messageText, type, undefined,
-        undefined, undefined, undefined, {callFrames}));
+        cpuProfilerModel.runtimeModel(), MessageSource.ConsoleAPI, Protocol.Console.ConsoleMessageLevel.Info,
+        messageText, type, undefined, undefined, undefined, undefined, {callFrames}));
   }
 
   /**
@@ -356,10 +357,10 @@ export class ConsoleModel extends Common.ObjectWrapper.ObjectWrapper {
       return;
     }
     switch (msg.level) {
-      case MessageLevel.Warning:
+      case Protocol.Console.ConsoleMessageLevel.Warning:
         this._warnings++;
         break;
-      case MessageLevel.Error:
+      case Protocol.Console.ConsoleMessageLevel.Error:
         this._errors++;
         break;
     }
@@ -486,7 +487,7 @@ export class ConsoleMessage {
   /**
    * @param {?RuntimeModel} runtimeModel
    * @param {string} source
-   * @param {?string} level
+   * @param {Protocol.Console.ConsoleMessageLevel|AdditionalMessageLevel|null} level
    * @param {string} messageText
    * @param {string=} type
    * @param {?string=} url
@@ -506,7 +507,8 @@ export class ConsoleMessage {
       executionContextId, scriptId, workerId, context) {
     this._runtimeModel = runtimeModel;
     this.source = source;
-    this.level = /** @type {?MessageLevel} */ (level);
+    /** @type {Protocol.Console.ConsoleMessageLevel|AdditionalMessageLevel|null} */
+    this.level = level;
     this.messageText = messageText;
     this._type = type || MessageType.Log;
     /** @type {string|undefined} */
@@ -563,8 +565,9 @@ export class ConsoleMessage {
    */
   static fromException(runtimeModel, exceptionDetails, messageType, timestamp, forceUrl) {
     return new ConsoleMessage(
-        runtimeModel, MessageSource.JS, MessageLevel.Error, RuntimeModel.simpleTextFromException(exceptionDetails),
-        messageType, forceUrl || exceptionDetails.url, exceptionDetails.lineNumber, exceptionDetails.columnNumber,
+        runtimeModel, MessageSource.JS, Protocol.Console.ConsoleMessageLevel.Error,
+        RuntimeModel.simpleTextFromException(exceptionDetails), messageType, forceUrl || exceptionDetails.url,
+        exceptionDetails.lineNumber, exceptionDetails.columnNumber,
         exceptionDetails.exception ? [RemoteObject.fromLocalObject(exceptionDetails.text), exceptionDetails.exception] :
                                      undefined,
         exceptionDetails.stackTrace, timestamp, exceptionDetails.executionContextId, exceptionDetails.scriptId);
@@ -632,14 +635,16 @@ export class ConsoleMessage {
    * @return {boolean}
    */
   isErrorOrWarning() {
-    return (this.level === MessageLevel.Warning || this.level === MessageLevel.Error);
+    return (
+        this.level === Protocol.Console.ConsoleMessageLevel.Warning ||
+        this.level === Protocol.Console.ConsoleMessageLevel.Error);
   }
 
   /**
    * @return {boolean}
    */
   isGroupable() {
-    const isUngroupableError = this.level === MessageLevel.Error &&
+    const isUngroupableError = this.level === Protocol.Console.ConsoleMessageLevel.Error &&
         (this.source === MessageSource.JS || this.source === MessageSource.Network);
     return (
         this.source !== MessageSource.ConsoleAPI && this.type !== MessageType.Command &&
@@ -774,11 +779,8 @@ export const MessageType = {
 /**
  * @enum {string}
  */
-export const MessageLevel = {
+export const AdditionalMessageLevel = {
   Verbose: 'verbose',
-  Info: 'info',
-  Warning: 'warning',
-  Error: 'error'
 };
 
 /** @type {!Map<!MessageSource, string>} */

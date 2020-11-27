@@ -29,7 +29,7 @@ export class ConsoleFilter {
      * @type {!Object<string, boolean>}
      */
     const result = {};
-    for (const name of Object.values(SDK.ConsoleModel.MessageLevel)) {
+    for (const name of Object.values(Protocol.Console.ConsoleMessageLevel)) {
       result[name] = true;
     }
     return result;
@@ -40,7 +40,7 @@ export class ConsoleFilter {
    */
   static defaultLevelsFilterValue() {
     const result = ConsoleFilter.allLevelsFilterValue();
-    result[SDK.ConsoleModel.MessageLevel.Verbose] = false;
+    result[SDK.ConsoleModel.AdditionalMessageLevel.Verbose] = false;
     return result;
   }
 

@@ -28,7 +28,7 @@ export class ConsoleSidebar extends UI.Widget.VBox {
     const selectedFilterSetting =
         Common.Settings.Settings.instance().createSetting('console.sidebarSelectedFilter', null);
 
-    const Levels = SDK.ConsoleModel.MessageLevel;
+    const Levels = Protocol.Console.ConsoleMessageLevel;
     const consoleAPIParsedFilters =
         [{key: FilterType.Source, text: SDK.ConsoleModel.MessageSource.ConsoleAPI, negative: false, regex: undefined}];
     this._appendGroup(
@@ -47,8 +47,8 @@ export class ConsoleSidebar extends UI.Widget.VBox {
         _groupName.Info, [], ConsoleFilter.singleLevelMask(Levels.Info), UI.Icon.Icon.create('mediumicon-info-circle'),
         selectedFilterSetting);
     this._appendGroup(
-        _groupName.Verbose, [], ConsoleFilter.singleLevelMask(Levels.Verbose), UI.Icon.Icon.create('mediumicon-bug'),
-        selectedFilterSetting);
+        _groupName.Verbose, [], ConsoleFilter.singleLevelMask(SDK.ConsoleModel.AdditionalMessageLevel.Verbose),
+        UI.Icon.Icon.create('mediumicon-bug'), selectedFilterSetting);
     const selectedTreeElementName = selectedFilterSetting.get();
     const defaultTreeElement =
         this._treeElements.find(x => x.name() === selectedTreeElementName) || this._treeElements[0];
