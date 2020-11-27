@@ -33,6 +33,24 @@
       "message": "You could also use the bug number here you\u0027re using below.",
       "revId": "79a0094d267a54d970c4ff1dbff48fe980f8ff1d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee3fbd8d_3a79d684",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 526,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-11-27T08:59:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d118c801_f2219228",
+      "revId": "79a0094d267a54d970c4ff1dbff48fe980f8ff1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
