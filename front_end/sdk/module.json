@@ -649,6 +649,7 @@
     "PerformanceMetricsModel.js",
     "FilmStripModel.js",
     "ConsoleModel.js",
+    "ConsoleModelTypes.js",
     "PageResourceLoader.js",
     "IOModel.js"
   ]
