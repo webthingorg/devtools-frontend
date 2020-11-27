@@ -16,6 +16,23 @@
       "message": "PTAL 😊",
       "revId": "d939d5255bf92dd6ff96b1b2e93409d74c4d4d27",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d22e8a8_4c958576",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-27T11:52:22Z",
+      "side": 1,
+      "message": "LGTM. I agree about pushing for a move to gen like we already do with the other test suites.",
+      "revId": "d939d5255bf92dd6ff96b1b2e93409d74c4d4d27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
