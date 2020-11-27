@@ -41,6 +41,13 @@ export class ImagePreview {
       return Promise.resolve(/** @type {?Element} */ (null));
     }
 
+    // Open DevTools for the first time, base64 resource has no content.
+    const content = resource.content ? resource.content : resource.url.split('base64,')[1];
+    const resourceSize = resource.contentSize() ? Number(resource.contentSize()) : base64ToSize(content);
+    // Note: The unit here is kB not KB.
+    const formatResourceSize = Platform.NumberUtilities.bytesToString(resourceSize);
+    const formatResourceSizeText = resourceSize > 0 ? ` · ${formatResourceSize}` : '';
+
     /** @type {function(*):void} */
     let fulfill;
     const promise = new Promise(x => {
@@ -74,10 +81,10 @@ export class ImagePreview {
       let description;
       if (showDimensions) {
         if (renderedHeight !== intrinsicHeight || renderedWidth !== intrinsicWidth) {
-          description =
-              ls`${renderedWidth} × ${renderedHeight} px (intrinsic: ${intrinsicWidth} × ${intrinsicHeight} px)`;
+          description = ls`${renderedWidth} × ${renderedHeight} px (intrinsic: ${intrinsicWidth} × ${
+              intrinsicHeight} px)${formatResourceSizeText}`;
         } else {
-          description = ls`${renderedWidth} × ${renderedHeight} px`;
+          description = ls`${renderedWidth} × ${renderedHeight} px${formatResourceSizeText}`;
         }
       }
 

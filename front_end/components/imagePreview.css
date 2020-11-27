@@ -22,3 +22,7 @@
 .image-container {
   padding: 0;
 }
+
+.image-preview-container .description {
+  white-space: nowrap;
+}
