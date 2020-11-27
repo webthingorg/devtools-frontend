@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9053777a_2a3f340a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-27T15:25:54Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "5779b1126168a17ff464eb9ced72b5f02813e48b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de333572_5b56e836",
+        "filename": "inspector_overlay/css_grid_label_helpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 955,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-27T15:25:54Z",
+      "side": 1,
+      "message": "you can probably use the luminance function from the ColorUtils which are imported anyway.",
+      "revId": "5779b1126168a17ff464eb9ced72b5f02813e48b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
