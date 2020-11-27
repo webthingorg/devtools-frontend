@@ -90,6 +90,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8508fc16_cf109829",
+        "filename": "front_end/elements/elements-meta.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-27T16:59:02Z",
+      "side": 1,
+      "message": "Could you file a bug for that? I think the linter is in the wrong here.",
+      "parentUuid": "504a6bbc_87d40039",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 54
+      },
+      "revId": "d6061dd3d1ada632a22d0f466adde267d4cc79fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4643c9cf_6decba3b",
         "filename": "front_end/elements/elements-meta.ts",
         "patchSetId": 4
