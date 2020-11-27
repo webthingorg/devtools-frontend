@@ -16,6 +16,23 @@
       "message": "So turns out the \"optimization process\" is not lossless, but introduces rounding. Depending on the size of the icon, that may destroy the icon (because, I suspect, that the optimization script has a fixed notion of \"small detail\" instead of defining that notion dependent on the size of the icon).",
       "revId": "97349abaa460de74ead573ab013bcfa4c9d130ce",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34c71941_999c6f7d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-27T14:02:05Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "97349abaa460de74ead573ab013bcfa4c9d130ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
