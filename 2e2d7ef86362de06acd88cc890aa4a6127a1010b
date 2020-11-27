@@ -16,6 +16,24 @@
       "message": "We are certain that all usages of `inspectorStyle.css` also include `themeColors.css`?",
       "revId": "2e2d7ef86362de06acd88cc890aa4a6127a1010b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e0f3cea_1bfa778d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-27T16:02:37Z",
+      "side": 1,
+      "message": "Yes, based on a search for it it is only injected into the body in UIUtils.js so themeColors.css is injected right next to it.",
+      "parentUuid": "654c5961_4c62d8ea",
+      "revId": "2e2d7ef86362de06acd88cc890aa4a6127a1010b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
