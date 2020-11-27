@@ -39,6 +39,30 @@
       },
       "revId": "61db1a98ebe986d5d98197035152a6ed3868cf2a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "843b5597_18b540f5",
+        "filename": "front_end/lighthouse/lighthouseStartView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-27T15:21:50Z",
+      "side": 1,
+      "message": "Sadly yes. The primary color was not strong enough against the white background, since the button is quite big.",
+      "parentUuid": "35a4c9f2_f2ec18ab",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 26
+      },
+      "revId": "61db1a98ebe986d5d98197035152a6ed3868cf2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
