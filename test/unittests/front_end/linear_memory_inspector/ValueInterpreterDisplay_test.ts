@@ -8,6 +8,8 @@ import {getElementsWithinComponent, renderElementIntoDOM} from '../helpers/DOMHe
 const {assert} = chai;
 
 describe('ValueInterpreterDisplay', () => {
+  // eslint-disable-next-line no-console
+  console.log('Hello world', LinearMemoryInspector.ValueInterpreterDisplayUtils.Endianness.Little);
   const combinationsForNumbers = [
     {endianness: LinearMemoryInspector.ValueInterpreterDisplayUtils.Endianness.Little, signed: true},
     {endianness: LinearMemoryInspector.ValueInterpreterDisplayUtils.Endianness.Little, signed: false},

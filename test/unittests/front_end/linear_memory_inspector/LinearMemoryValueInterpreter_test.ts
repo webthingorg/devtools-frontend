@@ -30,6 +30,8 @@ function clickSettingsButton(
 }
 
 describe('LinearMemoryValueInterpreter', () => {
+  // eslint-disable-next-line no-console
+  console.log('hello world');
   function setUpComponent() {
     const buffer = new Uint8Array([34, 234, 12, 3]).buffer;
     const component = new LinearMemoryInspector.LinearMemoryValueInterpreter.LinearMemoryValueInterpreter();
