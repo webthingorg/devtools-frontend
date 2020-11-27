@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cc76c124_b6a8b0ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-27T12:06:27Z",
+      "side": 1,
+      "message": "If you resolve this, the CL can land.",
+      "parentUuid": "3fddcb82_876c0230",
+      "revId": "a1909ddb6586ed319b1902d103c695e7a2970036",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "415dd003_c34565cb",
         "filename": "front_end/source_frame/messagesPopover.css",
         "patchSetId": 6
