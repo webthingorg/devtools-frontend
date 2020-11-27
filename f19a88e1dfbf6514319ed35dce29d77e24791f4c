@@ -33,6 +33,24 @@
       "message": "Personally I\u0027d prefer to have explicit tests, without this helper, but I\u0027m also fine with those. It\u0027s not that Base64 decoding is very complicated :-)",
       "revId": "f19a88e1dfbf6514319ed35dce29d77e24791f4c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2474e677_9b92c5f9",
+        "filename": "test/unittests/front_end/common/Base64_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-27T15:46:35Z",
+      "side": 1,
+      "message": "In the spirit of DRY I\u0027ll go with it in this form 😊",
+      "parentUuid": "4d318f40_6a68c08e",
+      "revId": "f19a88e1dfbf6514319ed35dce29d77e24791f4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
