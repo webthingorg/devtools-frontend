@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa6ad61c_e9b0d630",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-27T08:23:29Z",
+      "side": 1,
+      "message": "Are there any unit tests?",
+      "revId": "5c0ed58971ad1f28d7737d73fde2794b131715fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f885175d_e5c9402b",
+        "filename": "front_end/ui/components/ReportView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-27T08:23:29Z",
+      "side": 1,
+      "message": "so does it apply to the content that the user provides via the slot?",
+      "revId": "5c0ed58971ad1f28d7737d73fde2794b131715fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
