@@ -916,7 +916,17 @@ export class SourceFrameImpl extends UI.View.SimpleView {
     let textRange = selections[0];
     if (textRange.isEmpty()) {
       const location = this._prettyToRawLocation(textRange.endLine, textRange.endColumn);
-      this._sourcePosition.setText(ls`Line ${location[0] + 1}, Column ${location[1] + 1}`);
+      if (this._wasmDisassembly) {
+        const disassembly = this._wasmDisassembly;
+        const lastBytecodeOffset = disassembly.lineNumberToBytecodeOffset(disassembly.lineNumbers - 1);
+        const bytecodeOffsetDigits = lastBytecodeOffset.toString(16).length + 1;
+        const bytecodeOffset = disassembly.lineNumberToBytecodeOffset(location[0]);
+
+        this._sourcePosition.setText(
+            ls`Bytecode position 0x${bytecodeOffset.toString(16).padStart(bytecodeOffsetDigits, '0')}`);
+      } else {
+        this._sourcePosition.setText(ls`Line ${location[0] + 1}, Column ${location[1] + 1}`);
+      }
       return;
     }
     textRange = textRange.normalize();
@@ -940,7 +950,8 @@ export class LineDecorator {
    * @param {!SourcesTextEditor} textEditor
    * @param {string} type
    */
-  decorate(uiSourceCode, textEditor, type) {}
+  decorate(uiSourceCode, textEditor, type) {
+  }
 }
 
 /**
