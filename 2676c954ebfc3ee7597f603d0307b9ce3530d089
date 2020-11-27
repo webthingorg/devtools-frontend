@@ -107,6 +107,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0821e7f0_032e63a4",
+        "filename": "front_end/sdk/OverlayPersistentHighlighter.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-27T07:12:58Z",
+      "side": 1,
+      "message": "I think it\u0027s possible but I am not sure it\u0027d be better: currently, we can easily check and access the nodes by the highlight type; if we change to a single map, it\u0027d complicate the usages because we\u0027d need to check the value every time.",
+      "parentUuid": "e3487b9a_0bdff9dd",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 37
+      },
+      "revId": "2676c954ebfc3ee7597f603d0307b9ce3530d089",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fc475ac3_abdde528",
         "filename": "front_end/sdk/OverlayPersistentHighlighter.js",
         "patchSetId": 3
@@ -118,6 +142,30 @@
       "writtenOn": "2020-11-26T14:39:20Z",
       "side": 1,
       "message": "I wonder if we couldn\u0027t just use 1 map. A given node can\u0027t be both a flex and a grid at the same time. You could change a node from flex to grid (or back) but that just means the same color would be reused, which isn\u0027t a problem I believe.\n\nI\u0027m just thinking if we start adding more display-types here, like multicol or table, in the future, it will be nice if we don\u0027t have to repeat much code at all.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 33
+      },
+      "revId": "2676c954ebfc3ee7597f603d0307b9ce3530d089",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57cb6e6e_3a88b59b",
+        "filename": "front_end/sdk/OverlayPersistentHighlighter.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-27T07:12:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc475ac3_abdde528",
       "range": {
         "startLine": 24,
         "startChar": 0,
@@ -141,6 +189,30 @@
       "writtenOn": "2020-11-26T14:39:20Z",
       "side": 1,
       "message": "I think we could improve a little bit this method name. It checks if nodes got deleted, updates the the highlight map, and returns a boolean if any update occurred.\n\nSo maybe _updateHighlightsForDeletedNodes",
+      "range": {
+        "startLine": 284,
+        "startChar": 2,
+        "endLine": 284,
+        "endChar": 16
+      },
+      "revId": "2676c954ebfc3ee7597f603d0307b9ce3530d089",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "838e4344_dbd243fd",
+        "filename": "front_end/sdk/OverlayPersistentHighlighter.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-27T07:12:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16ce7df7_d2f3ff2b",
       "range": {
         "startLine": 284,
         "startChar": 2,
