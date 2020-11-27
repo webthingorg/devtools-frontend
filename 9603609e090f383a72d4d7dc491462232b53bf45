@@ -119,6 +119,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ec8e54e_09d03594",
+        "filename": "front_end/issues/CSPViolationsView.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-27T16:07:45Z",
+      "side": 1,
+      "message": "Yes, as I suggested offline to you, let\u0027s do that.",
+      "parentUuid": "ebc6b34e_7e0d5854",
+      "range": {
+        "startLine": 48,
+        "startChar": 73,
+        "endLine": 48,
+        "endChar": 83
+      },
+      "revId": "9603609e090f383a72d4d7dc491462232b53bf45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6eec5055_8d9a1d33",
