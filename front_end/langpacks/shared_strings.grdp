@@ -166,6 +166,9 @@
   <message name="IDS_DEVTOOLS_4c3880bb027f159e801041b1021e88e8" desc="Text for one or a group of functions">
     Method
   </message>
+  <message name="IDS_DEVTOOLS_4cafcd8bd18c79335c2484f1750ce3dd" desc="Name of a network initiator type">
+    Preflight
+  </message>
   <message name="IDS_DEVTOOLS_4cc6684df7b4a92b1dec6fce3264fac8" desc="Text describing global shortcuts and settings that are available throughout the DevTools">
     Global
   </message>

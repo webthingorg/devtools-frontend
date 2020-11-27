@@ -134,6 +134,10 @@
   background-color: var(--link-color);
 }
 
+.selected .devtools-link [is=ui-icon].icon-mask {
+  background-color: var(--item-selection-bg-color);
+}
+
 .devtools-link:focus-visible {
   outline-width: unset;
 }
