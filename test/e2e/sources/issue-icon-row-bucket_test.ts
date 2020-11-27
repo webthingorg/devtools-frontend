@@ -1,0 +1,57 @@
+// Copyright 2020 The Chromium Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+import {assert} from 'chai';
+
+import {$$, click, goToResource, waitFor, waitForFunction} from '../../shared/helper.js';
+import {describe, it} from '../../shared/mocha-extensions.js';
+import {openSourcesPanel} from '../helpers/sources-helpers.js';
+
+describe('Display issues information next to affected lines', async () => {
+  it('Issues should be displayed', async () => {
+    await goToResource('network/trusted-type-violations-report-only.rawresponse');
+    await openSourcesPanel();
+    const element = await waitFor('[aria-label=\'trusted-type-violations-report-only.rawresponse, file\']');
+    element.click();
+
+    const issueIconComponents = await waitForFunction(async () => {
+      const icons = await $$('devtools-icon.text-editor-line-decoration-icon-issue');
+      return icons.length === 1 ? icons : undefined;
+    });
+    const issueMessages: string[] = [];
+    const expectedIssueMessages = [
+      'Trusted Type policy creation blocked by Content Security Policy',
+      'Trusted Type expected, but String received',
+    ];
+    for (const issueIconComponent of issueIconComponents) {
+      await click(issueIconComponent);
+      const vbox = await waitFor('div.vbox.flex-auto.no-pointer-events');  // await waitFor('.vbox');
+      const rowMessages = await $$('.text-editor-row-message', vbox);
+
+      for (const rowMessage of rowMessages) {
+        const messageText = await rowMessage.evaluate(x => (x instanceof HTMLElement) ? x.innerText : '');
+        issueMessages.push(messageText);
+      }
+    }
+    assert.deepEqual(issueMessages, expectedIssueMessages);
+  });
+  it('Issues icon should be correct', async () => {
+    await goToResource('network/trusted-type-violations-report-only.rawresponse');
+    await openSourcesPanel();
+    const element = await waitFor('[aria-label=\'trusted-type-violations-report-only.rawresponse, file\']');
+    element.click();
+
+    const issueIconComponents = await waitForFunction(async () => {
+      const icons = await $$('devtools-icon.text-editor-line-decoration-icon-issue');
+      return icons.length === 1 ? icons : undefined;
+    });
+    for (const issueIconComponent of issueIconComponents) {
+      const issueIcon = await waitFor('.icon-basic', issueIconComponent);
+      const imageSrc = await issueIcon.evaluate(x => window.getComputedStyle(x).backgroundImage);
+      const splitImageSrc = imageSrc.substring(5, imageSrc.length - 2).split('/');
+      const imageFile = splitImageSrc[splitImageSrc.length - 1];
+      assert.strictEqual(imageFile, 'breaking_change_icon.svg');
+    }
+  });
+});
