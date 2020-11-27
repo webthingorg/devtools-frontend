@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2fa4cff_c42f1dbc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-27T13:36:07Z",
+      "side": 1,
+      "message": "- done\n- The column header: This is happening if the triangle that indicates sorting order is overlapping with the ellipsis, it happens for other columns as well, so nothing this CL introduces. I agree that it looks strange and should be fixed.\n- Bot timed out because the back-end change wasn\u0027t rolled.",
+      "parentUuid": "5ab109cc_83454112",
+      "revId": "be9a0c3adc73cf408ebe81ddbe4888ef9b4e15d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c9ead9f_a8384d25",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "28276394_6aa2d341",
+        "filename": "test/e2e/network/network-datagrid_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-27T13:36:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c9ead9f_a8384d25",
+      "revId": "be9a0c3adc73cf408ebe81ddbe4888ef9b4e15d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e81dbe45_cfa385ad",
@@ -48,6 +84,24 @@
       "writtenOn": "2020-11-25T08:37:24Z",
       "side": 1,
       "message": "Rename?",
+      "revId": "be9a0c3adc73cf408ebe81ddbe4888ef9b4e15d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b0237c3_1e8b8358",
+        "filename": "test/e2e/network/network-datagrid_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-27T13:36:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e81dbe45_cfa385ad",
       "revId": "be9a0c3adc73cf408ebe81ddbe4888ef9b4e15d9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
