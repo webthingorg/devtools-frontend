@@ -890,13 +890,14 @@ export class DebuggerLanguagePluginManager {
       if (!rawLocations) {
         return [];
       }
-      return rawLocations.map(
-          m => ({
-            start: new SDK.DebuggerModel.Location(
-                script.debuggerModel, script.scriptId, 0, Number(m.startOffset) + (script.codeOffset() || 0)),
-            end: new SDK.DebuggerModel.Location(
-                script.debuggerModel, script.scriptId, 0, Number(m.endOffset) + (script.codeOffset() || 0))
-          }));
+      return rawLocations.map(m => ({
+                                start: new SDK.DebuggerModel.Location(
+                                    script.debuggerModel, script.scriptId, 0,
+                                    Number(m.startOffset) + (script.codeOffset() || 0), m.inlineFrameIndex),
+                                end: new SDK.DebuggerModel.Location(
+                                    script.debuggerModel, script.scriptId, 0,
+                                    Number(m.endOffset) + (script.codeOffset() || 0), m.inlineFrameIndex)
+                              }));
     }
   }
 
@@ -1082,20 +1083,19 @@ export class DebuggerLanguagePluginManager {
       // RawLocation.columnNumber is the byte offset in the full raw wasm module. Plugins expect the offset in the code
       // section, so subtract the offset of the code section in the module here.
       codeOffset: rawLocation.columnNumber - (script.codeOffset() || 0),
-      // TODO(crbug.com/1134110): Once closure->typescript migration is complete, delete this and
-      // change type definition to show that this field is optional.
-      inlineFrameIndex: undefined
+      inlineFrameIndex: rawLocation.inlineFrameIndex,
     };
 
     try {
       const locations = await plugin.getInlinedFunctionRanges(pluginLocation);
-      return locations.map(
-          m => ({
-            start: new SDK.DebuggerModel.Location(
-                script.debuggerModel, script.scriptId, 0, Number(m.startOffset) + (script.codeOffset() || 0)),
-            end: new SDK.DebuggerModel.Location(
-                script.debuggerModel, script.scriptId, 0, Number(m.endOffset) + (script.codeOffset() || 0))
-          }));
+      return locations.map(m => ({
+                             start: new SDK.DebuggerModel.Location(
+                                 script.debuggerModel, script.scriptId, 0,
+                                 Number(m.startOffset) + (script.codeOffset() || 0), m.inlineFrameIndex),
+                             end: new SDK.DebuggerModel.Location(
+                                 script.debuggerModel, script.scriptId, 0,
+                                 Number(m.endOffset) + (script.codeOffset() || 0), m.inlineFrameIndex)
+                           }));
     } catch (error) {
       Common.Console.Console.instance().warn(ls`Error in debugger language plugin: ${error.message}`);
       return [];
@@ -1121,20 +1121,19 @@ export class DebuggerLanguagePluginManager {
       // RawLocation.columnNumber is the byte offset in the full raw wasm module. Plugins expect the offset in the code
       // section, so subtract the offset of the code section in the module here.
       codeOffset: rawLocation.columnNumber - (script.codeOffset() || 0),
-      // TODO(crbug.com/1134110): Once closure->typescript migration is complete, delete this and
-      // change type definition to show that this field is optional.
-      inlineFrameIndex: undefined
+      inlineFrameIndex: rawLocation.inlineFrameIndex,
     };
 
     try {
       const locations = await plugin.getInlinedCalleesRanges(pluginLocation);
-      return locations.map(
-          m => ({
-            start: new SDK.DebuggerModel.Location(
-                script.debuggerModel, script.scriptId, 0, Number(m.startOffset) + (script.codeOffset() || 0)),
-            end: new SDK.DebuggerModel.Location(
-                script.debuggerModel, script.scriptId, 0, Number(m.endOffset) + (script.codeOffset() || 0))
-          }));
+      return locations.map(m => ({
+                             start: new SDK.DebuggerModel.Location(
+                                 script.debuggerModel, script.scriptId, 0,
+                                 Number(m.startOffset) + (script.codeOffset() || 0), m.inlineFrameIndex),
+                             end: new SDK.DebuggerModel.Location(
+                                 script.debuggerModel, script.scriptId, 0,
+                                 Number(m.endOffset) + (script.codeOffset() || 0), m.inlineFrameIndex)
+                           }));
     } catch (error) {
       Common.Console.Console.instance().warn(ls`Error in debugger language plugin: ${error.message}`);
       return [];
@@ -1230,7 +1229,8 @@ export let RawModule;
  * @typedef {{
  *            rawModuleId:string,
  *            startOffset:number,
- *            endOffset:number
+ *            endOffset:number,
+ *            inlineFrameIndex?: number
  *          }}
  */
 // @ts-ignore typedef
@@ -1240,7 +1240,7 @@ export let RawLocationRange;
  * @typedef {{
  *            rawModuleId: string,
  *            codeOffset: number,
- *            inlineFrameIndex: (number|undefined)
+ *            inlineFrameIndex?: number
  *          }}
  */
 // @ts-ignore typedef
