@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16d8fbb5_626964a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-11-27T10:43:52Z",
+      "side": 1,
+      "message": "Hi Mathias and Jack, please see the bug for what I am trying to fix here. Apparently, if I remove the size from the contain, the blinking of the scrollbar is gone.\n\nI don\u0027t fully understand the implications of the fix. What is size supposed to mean in the contain:? What are the requirements for listing it there?\n\nThanks for taking a look!",
+      "revId": "e93db8ac84a79ed7f6e45cb107bef3aaf0539a18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
