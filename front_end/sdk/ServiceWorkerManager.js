@@ -28,12 +28,14 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+import {assert} from 'front_end/third_party/puppeteer/package/lib/esm/puppeteer/common/assert.js';
 import * as Common from '../common/common.js';
 
 import {ls} from '../platform/platform.js';
 
 import {Events as RuntimeModelEvents, ExecutionContext, RuntimeModel} from './RuntimeModel.js';  // eslint-disable-line no-unused-vars
 import {Capability, SDKModel, Target, TargetManager, Type} from './SDKModel.js';  // eslint-disable-line no-unused-vars
+import {ServiceWorkerCacheModel} from './ServiceWorkerCacheModel.js';
 
 export class ServiceWorkerManager extends SDKModel {
   /**
@@ -143,6 +145,7 @@ export class ServiceWorkerManager extends SDKModel {
     if (!registration) {
       return;
     }
+    console.log('updating... ' + registrationId);
     await this._agent.invoke_updateRegistration({scopeURL: registration.scopeURL});
   }
 
@@ -255,7 +258,10 @@ export class ServiceWorkerManager extends SDKModel {
       if (!registration) {
         continue;
       }
-      registration._updateVersion(payload);
+      console.log('before update version');
+
+      const version = registration._updateVersion(payload);
+      this._snapShotCacheEntriesIfNecessary(registration, version);
       registrations.add(registration);
     }
     for (const registration of registrations) {
@@ -267,6 +273,131 @@ export class ServiceWorkerManager extends SDKModel {
       }
     }
   }
+
+  /**
+   *  @param {!ServiceWorkerRegistration} registration
+   * @param {!ServiceWorkerVersion} version
+   */
+  _snapShotCacheEntriesIfNecessary(registration, version) {
+    const cacheModel = this.target().model(ServiceWorkerCacheModel);
+    if (version.isNew() && !version.previousState) {
+      this._versionInitiated(registration, version, cacheModel);
+    }
+
+    if (version.isActivated() && version.isPreviouslyActivating()) {
+      this._versionActivated(registration, version, cacheModel);
+    }
+
+    if (version.isInstalled() && version.isPreviouslyInstalling()) {
+      this._versionInstalled(registration, version, cacheModel);
+    }
+  }
+
+  /**
+   * @param {!ServiceWorkerRegistration} registration
+   * @param {!ServiceWorkerVersion} version
+   * @param  {?ServiceWorkerCacheModel} cacheModel
+   */
+  async _versionInitiated(registration, version, cacheModel) {
+    version._cacheEntriesInitial = [];
+    if (!cacheModel)
+      return;
+
+    console.log('version initiated, about to query caches');
+    const caches = cacheModel.caches();
+    for (let cache of caches) {
+      console.log('cache is:' + cache.cacheName);
+      /** @type {?Promise<!Array<!Protocol.CacheStorage.DataEntry>>} */
+      const loadingPromise = new Promise(resolve => {
+        cacheModel.loadAllCacheData(cache, '', (entries, returnCount) => {
+          resolve(entries);
+        });
+      });
+
+      /** @type {Protocol.CacheStorage.DataEntry []}*/
+      const entries = await loadingPromise;
+      const newEntries = entries.map(
+          /**@type {Protocol.CacheStorage.DataEntry}*/
+          entry => this._getCacheUpdateInfo(cache.cacheName, entry));
+      version._cacheEntriesInitial = [...version._cacheEntriesInitial, ...newEntries];
+      this.dispatchEventToListeners(Events.RegistrationUpdated, registration);
+      console.warn('initial cache done, updating....');
+    };
+  }
+
+  /**
+   *  @param {!ServiceWorkerRegistration} registration
+   *  @param {!ServiceWorkerVersion} version
+   *  @param  {?ServiceWorkerCacheModel} cacheModel
+   */
+  async _versionInstalled(registration, version, cacheModel) {
+    version._cacheEntriesInstallation = [];
+    if (!cacheModel)
+      return;
+
+    console.log('version installed, about to query caches');
+    const caches = cacheModel.caches();
+    for (let cache of caches) {
+      console.log('cache is:' + cache.cacheName);
+      /** @type {?Promise<!Array<!Protocol.CacheStorage.DataEntry>>} */
+      const loadingPromise = new Promise(resolve => {
+        cacheModel.loadAllCacheData(cache, '', (entries, returnCount) => {
+          resolve(entries);
+        });
+      });
+
+      /** @type {Protocol.CacheStorage.DataEntry []}*/
+      const entries = await loadingPromise;
+      const newEntries = entries.map(
+          /**@type {Protocol.CacheStorage.DataEntry}*/
+          entry => this._getCacheUpdateInfo(cache.cacheName, entry));
+      version._cacheEntriesInstallation = [...version._cacheEntriesInstallation, ...newEntries];
+      this.dispatchEventToListeners(Events.RegistrationUpdated, registration);
+      console.warn('installation cache done, updating....');
+    };
+  }
+
+  /**
+   *
+   * @param {string} name
+   * @param {!Protocol.CacheStorage.DataEntry} e
+   */
+  _getCacheUpdateInfo(name, e) {
+    return {'cacheName': name, 'requestURL': e.requestURL, 'responseTime': e.responseTime};
+  }
+
+  /**
+   *  @param {!ServiceWorkerRegistration} registration
+   *  @param {!ServiceWorkerVersion} version
+   *  @param  {?ServiceWorkerCacheModel} cacheModel
+   */
+  async _versionActivated(registration, version, cacheModel) {
+    version._cacheEntriesActivation = [];
+    if (!cacheModel)
+      return;
+
+    console.log('version activated, about to query caches');
+    const caches = cacheModel.caches();
+    for (let cache of caches) {
+      console.log('cache is:' + cache.cacheName);
+      /** @type {?Promise<!Array<!Protocol.CacheStorage.DataEntry>>} */
+      const loadingPromise = new Promise(resolve => {
+        cacheModel.loadAllCacheData(cache, '', (entries, returnCount) => {
+          resolve(entries);
+        });
+      });
+
+      /** @type {Protocol.CacheStorage.DataEntry []}*/
+      const entries = await loadingPromise;
+      const newEntries = entries.map(
+          /**@type {Protocol.CacheStorage.DataEntry}*/
+          entry => this._getCacheUpdateInfo(cache.cacheName, entry));
+      version._cacheEntriesActivation = [...version._cacheEntriesActivation, ...newEntries];
+      this.dispatchEventToListeners(Events.RegistrationUpdated, registration);
+      console.warn('activation cache done, updating....');
+    };
+  }
+
 
   /**
    * @param {!Protocol.ServiceWorker.ServiceWorkerErrorMessage} payload
@@ -297,7 +428,7 @@ export class ServiceWorkerManager extends SDKModel {
 export const Events = {
   RegistrationUpdated: Symbol('RegistrationUpdated'),
   RegistrationErrorAdded: Symbol('RegistrationErrorAdded'),
-  RegistrationDeleted: Symbol('RegistrationDeleted')
+  RegistrationDeleted: Symbol('RegistrationDeleted'),
 };
 
 /**
@@ -336,6 +467,22 @@ class ServiceWorkerDispatcher {
   }
 }
 
+export class ServiceWorkerVersionState {
+  /**
+   *
+   * @param {!Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus} runningStatus
+   * @param {!Protocol.ServiceWorker.ServiceWorkerVersionStatus} status
+   * @param {?ServiceWorkerVersionState} previousState
+   * @param {number=} timestamp
+   */
+  constructor(runningStatus, status, previousState, timestamp) {
+    this.runningStatus = runningStatus;
+    this.status = status;
+    this.timestamp = timestamp;
+    this.previousState = previousState;
+  }
+}
+
 export class ServiceWorkerVersion {
   /**
    * @param {!ServiceWorkerRegistration} registration
@@ -346,26 +493,33 @@ export class ServiceWorkerVersion {
     /** @type {string} */ this.scriptURL;
     /** @type {!Common.ParsedURL.ParsedURL} */ this.parsedURL;
     /** @type {string} */ this.securityOrigin;
-    /** @type {!Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus} */ this.runningStatus;
-    /** @type {!Protocol.ServiceWorker.ServiceWorkerVersionStatus} */ this.status;
     /** @type {number|undefined} */ this.scriptLastModified;
     /** @type {number|undefined} */ this.scriptResponseTime;
     /** @type {!Array<!Protocol.Target.TargetID>} */ this.controlledClients;
     /** @type {?Protocol.Target.TargetID} */ this.targetId;
+    /** @type {!ServiceWorkerVersionState} */ this.currentState;
+    /** @type {!Array<!any>} */ this._cacheEntriesInitial;
+    /** @type {!Array<!any>} */ this._cacheEntriesInstallation;
+    /** @type {!Array<!any>} */ this._cacheEntriesActivation;
     this.registration = registration;
     this._update(payload);
+    console.log('here in the version constructor.');
   }
 
   /**
    * @param {!Protocol.ServiceWorker.ServiceWorkerVersion} payload
    */
   _update(payload) {
+    this.previousState = this.currentState;
+    console.warn(
+        'in _update:' + payload.registrationId + ',' + payload.versionId + ':' + payload.status + ':' +
+        payload.runningStatus + ' at :' + payload.scriptResponseTime + ' vs now:' + Date.now());
     this.id = payload.versionId;
     this.scriptURL = payload.scriptURL;
     const parsedURL = new Common.ParsedURL.ParsedURL(payload.scriptURL);
     this.securityOrigin = parsedURL.securityOrigin();
-    this.runningStatus = payload.runningStatus;
-    this.status = payload.status;
+    this.currentState = new ServiceWorkerVersionState(
+        payload.runningStatus, payload.status, this.currentState, (payload.scriptResponseTime || 0) * 1000);
     this.scriptLastModified = payload.scriptLastModified;
     this.scriptResponseTime = payload.scriptResponseTime;
     if (payload.controlledClients) {
@@ -387,78 +541,110 @@ export class ServiceWorkerVersion {
    * @return {boolean}
    */
   isStoppedAndRedundant() {
-    return this.runningStatus === Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus.Stopped &&
-        this.status === Protocol.ServiceWorker.ServiceWorkerVersionStatus.Redundant;
+    return this.runningStatus() === Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus.Stopped &&
+        this.status() === Protocol.ServiceWorker.ServiceWorkerVersionStatus.Redundant;
   }
 
   /**
    * @return {boolean}
    */
   isStopped() {
-    return this.runningStatus === Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus.Stopped;
+    return this.runningStatus() === Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus.Stopped;
   }
 
   /**
    * @return {boolean}
    */
   isStarting() {
-    return this.runningStatus === Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus.Starting;
+    return this.runningStatus() === Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus.Starting;
   }
 
   /**
    * @return {boolean}
    */
   isRunning() {
-    return this.runningStatus === Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus.Running;
+    return this.runningStatus() === Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus.Running;
   }
 
   /**
    * @return {boolean}
    */
   isStopping() {
-    return this.runningStatus === Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus.Stopping;
+    return this.runningStatus() === Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus.Stopping;
   }
 
   /**
    * @return {boolean}
    */
   isNew() {
-    return this.status === Protocol.ServiceWorker.ServiceWorkerVersionStatus.New;
+    return this.status() === Protocol.ServiceWorker.ServiceWorkerVersionStatus.New;
   }
 
   /**
    * @return {boolean}
    */
   isInstalling() {
-    return this.status === Protocol.ServiceWorker.ServiceWorkerVersionStatus.Installing;
+    return this.status() === Protocol.ServiceWorker.ServiceWorkerVersionStatus.Installing;
+  }
+
+  /**
+   * @return {boolean}
+   */
+  isPreviouslyInstalling() {
+    return this.previousState ?
+        this.previousState.status === Protocol.ServiceWorker.ServiceWorkerVersionStatus.Installing :
+        false;
   }
 
   /**
    * @return {boolean}
    */
   isInstalled() {
-    return this.status === Protocol.ServiceWorker.ServiceWorkerVersionStatus.Installed;
+    return this.status() === Protocol.ServiceWorker.ServiceWorkerVersionStatus.Installed;
   }
 
   /**
    * @return {boolean}
    */
   isActivating() {
-    return this.status === Protocol.ServiceWorker.ServiceWorkerVersionStatus.Activating;
+    return this.status() === Protocol.ServiceWorker.ServiceWorkerVersionStatus.Activating;
+  }
+
+  /**
+   * @return {boolean}
+   */
+  isPreviouslyActivating() {
+    return this.previousState ?
+        this.previousState.status === Protocol.ServiceWorker.ServiceWorkerVersionStatus.Activating :
+        false;
   }
 
   /**
    * @return {boolean}
    */
   isActivated() {
-    return this.status === Protocol.ServiceWorker.ServiceWorkerVersionStatus.Activated;
+    return this.status() === Protocol.ServiceWorker.ServiceWorkerVersionStatus.Activated;
   }
 
   /**
    * @return {boolean}
    */
   isRedundant() {
-    return this.status === Protocol.ServiceWorker.ServiceWorkerVersionStatus.Redundant;
+    return this.status() === Protocol.ServiceWorker.ServiceWorkerVersionStatus.Redundant;
+  }
+
+  /**
+   * @returns {!Protocol.ServiceWorker.ServiceWorkerVersionStatus}
+   */
+  status() {
+    return this.currentState.status;
+  }
+
+  /**
+   * @returns {!Protocol.ServiceWorker.ServiceWorkerVersionRunningStatus}
+   */
+  runningStatus() {
+    return this.currentState.runningStatus;
   }
 
   /**
@@ -475,6 +661,30 @@ export class ServiceWorkerVersion {
       return ServiceWorkerVersion.Modes.Active;
     }
     return ServiceWorkerVersion.Modes.Redundant;
+  }
+
+  get cacheEntriesInitial() {
+    return this._cacheEntriesInitial;
+  }
+
+  set cacheEntriesInitial(value) {
+    this._cacheEntriesInitial = value;
+  }
+
+  get cacheEntriesInstallation() {
+    return this._cacheEntriesInstallation;
+  }
+
+  set cacheEntriesInstallation(value) {
+    this._cacheEntriesInstallation = value;
+  }
+
+  get cacheEntriesActivation() {
+    return this._cacheEntriesActivation;
+  }
+
+  set cacheEntriesActivation(value) {
+    this._cacheEntriesActivation = value;
   }
 }
 
@@ -561,12 +771,12 @@ export class ServiceWorkerRegistration {
 
   /**
    * @param {!Protocol.ServiceWorker.ServiceWorkerVersion} payload
-   * @return {!ServiceWorkerVersion}
    */
   _updateVersion(payload) {
     this._fingerprint = Symbol('fingerprint');
     let version = this.versions.get(payload.versionId);
     if (!version) {
+      console.log('from _updateVersion' + payload.versionId + ' ' + payload.status + ' ' + payload.runningStatus);
       version = new ServiceWorkerVersion(this, payload);
       this.versions.set(payload.versionId, version);
       return version;
@@ -689,7 +899,7 @@ class ServiceWorkerContextNamer {
     }
     const parsedUrl = Common.ParsedURL.ParsedURL.fromString(context.origin);
     const label = parsedUrl ? parsedUrl.lastPathComponentWithFragment() : context.name;
-    const localizedStatus = ServiceWorkerVersion.Status[version.status];
+    const localizedStatus = ServiceWorkerVersion.Status[version.status()];
     context.setLabel(ls`${label} #${version.id} (${localizedStatus})`);
   }
 }

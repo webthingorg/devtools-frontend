@@ -453,6 +453,9 @@
   <message name="IDS_DEVTOOLS_a6ab3a18d43f3c5d2590fb86e9659c38" desc="Column header in the Network log view of the Network panel">
     Initiator Address Space
   </message>
+  <message name="IDS_DEVTOOLS_b021df6aac4654c454f46c77646e745f" desc="Label of something">
+    Label
+  </message>
   <message name="IDS_DEVTOOLS_b2844b8e17ecaaeae68d018fe9418af0" desc="Text to indicate the expiry date">
     Valid until
   </message>
@@ -824,9 +827,6 @@
   </message>
   <message name="IDS_DEVTOOLS_af6ef9fe7e48178f3765aa8e44f9ce5d" desc="Title of a setting under the Network category that can be invoked through the Command Menu">
     Group network log items by frame
-  </message>
-  <message name="IDS_DEVTOOLS_b021df6aac4654c454f46c77646e745f" desc="Text in Signed Exchange Info View of the Network panel">
-    Label
   </message>
   <message name="IDS_DEVTOOLS_b04f746dac7a367d85c411341b6673f6" desc="A group title in the user agent dropdown menu in the Network conditions tool">
     <ph name="LOCKED_1">Googlebot</ph>
