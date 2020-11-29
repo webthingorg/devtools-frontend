@@ -146,6 +146,21 @@ export class Settings {
    * @param {!Setting<*>} setting
    */
   _registerModuleSetting(setting) {
+    const settingName = setting.name;
+    const category = setting.category();
+    const order = setting.order();
+    if (settingNameSet.has(settingName)) {
+      throw new Error(`Duplicate Setting name '${settingName}'`);
+    }
+    if (category && order) {
+      const orderValues = orderValuesBySettingCategory.get(category) || new Set();
+      if (orderValues.has(order)) {
+        throw new Error(`Duplicate order value '${order}' for settings category '${category}'`);
+      }
+      orderValues.add(order);
+      orderValuesBySettingCategory.set(category, orderValues);
+    }
+    settingNameSet.add(settingName);
     this._moduleSettings.set(setting.name, setting);
   }
 
@@ -447,6 +462,13 @@ export class Setting {
   }
 
   /**
+   * @return {?number}
+   */
+  order() {
+    throw new Error('not implemented');
+  }
+
+  /**
    * @param {string} message
    * @param {string} name
    * @param {string} value
@@ -714,6 +736,17 @@ export class LegacySetting extends Setting {
 
   /**
    * @override
+   * @return {?number}
+   */
+  order() {
+    if (this._extension) {
+      return this._extension.descriptor().order || null;
+    }
+    return null;
+  }
+
+  /**
+   * @override
    * @param {string} message
    * @param {string} name
    * @param {string} value
@@ -915,6 +948,17 @@ export class PreRegisteredSetting extends Setting {
   tags() {
     if (this._registration) {
       return this._registration.tags || null;
+    }
+    return null;
+  }
+
+  /**
+   * @override
+   * @return {?number}
+   */
+  order() {
+    if (this._registration) {
+      return this._registration.order || null;
     }
     return null;
   }
@@ -1614,15 +1658,12 @@ const registeredSettings = [];
 /** @type {!Set<string>} */
 const settingNameSet = new Set();
 
+/** @type {!Map<!SettingCategory,!Set<number>>} */
+const orderValuesBySettingCategory = new Map();
 /**
  * @param {!SettingRegistration} registration
  */
 export function registerSettingExtension(registration) {
-  const settingName = registration.settingName;
-  if (settingNameSet.has(settingName)) {
-    throw new Error(`Duplicate Setting name '${settingName}'`);
-  }
-  settingNameSet.add(settingName);
   registeredSettings.push(registration);
 }
 
