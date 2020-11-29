@@ -513,9 +513,9 @@ export class DeviceOrientation {
       return null;
     }
 
-    const {valid: isAlphaValid} = DeviceOrientation.validator(alphaString);
-    const {valid: isBetaValid} = DeviceOrientation.validator(betaString);
-    const {valid: isGammaValid} = DeviceOrientation.validator(gammaString);
+    const {valid: isAlphaValid} = DeviceOrientation.alphaAngleValidator(alphaString);
+    const {valid: isBetaValid} = DeviceOrientation.betaAngleValidator(betaString);
+    const {valid: isGammaValid} = DeviceOrientation.gammaAngleValidator(gammaString);
 
     if (!isAlphaValid && !isBetaValid && !isGammaValid) {
       return null;
@@ -529,11 +529,32 @@ export class DeviceOrientation {
   }
 
   /**
-   * @param {string} value
-   * @return {{valid: boolean, errorMessage: (string|undefined)}}
-   */
-  static validator(value) {
-    const valid = /^([+-]?[\d]+(\.\d+)?|[+-]?\.\d+)$/.test(value);
+  * @param {string} value
+  * @return {{valid: boolean, errorMessage: (string|undefined)}}
+  */
+  static alphaAngleValidator(value) {
+    const numValue = parseFloat(value);
+    const valid = /^([+-]?[\d]+(\.\d+)?|[+-]?\.\d+)$/.test(value) && numValue >= 0 && numValue < 360;
+    return {valid, errorMessage: undefined};
+  }
+
+  /**
+  * @param {string} value
+  * @return {{valid: boolean, errorMessage: (string|undefined)}}
+  */
+  static betaAngleValidator(value) {
+    const numValue = parseFloat(value);
+    const valid = /^([+-]?[\d]+(\.\d+)?|[+-]?\.\d+)$/.test(value) && numValue >= -180 && numValue < 180;
+    return {valid, errorMessage: undefined};
+  }
+
+  /**
+  * @param {string} value
+  * @return {{valid: boolean, errorMessage: (string|undefined)}}
+  */
+  static gammaAngleValidator(value) {
+    const numValue = parseFloat(value);
+    const valid = /^([+-]?[\d]+(\.\d+)?|[+-]?\.\d+)$/.test(value) && numValue >= -90 && numValue < 90;
     return {valid, errorMessage: undefined};
   }
 
