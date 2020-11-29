@@ -69,6 +69,23 @@
       "parentUuid": "9f23392e_0dbeb1e2",
       "revId": "c7401ea3698af6ef78f72da2d5414fdbc3afd2d5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "243b02e8_5302093c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1466793
+      },
+      "writtenOn": "2020-11-29T21:13:18Z",
+      "side": 1,
+      "message": "Hello Paul, \n\nFollowing your guidance I added a new CSSFormatter_test.ts file to “devtools-frontend/test/unittests/front_end/formatter_worker/” and added this file to the sources array in BUILD.gn. The test for formatting custom CSS properties failed so I added another test with non-custom css properties to see if that would pass and that was not formatted correctly either so my assumption was that no CSS text is being formatted in the test environment.\n\nI stepped through the test code with the inspector and found that codemirror was being invoked from a different file (codemirror.js) vs production (runmode-standalone.js). Additionally as I continued to step through I saw that there was no property “text/css” defined as a MIMEmode which is necessary for the correct tokenizer to be used for parsing CSS text. The result is the CSS string i am testing is being treated as plain text and returned as i am passing to my \"formatCSS\" test function.\n\nBelow are the unsuccessful things I tried to get the test environment to behave like production:\n\n1. I added imports for “cm_headless.js” and “css.js” to my test file (cm_headless.js references runmode-standalone.js and css.js seems to be the only place where ‘text/css’ is added as a MIME mode).\n2. I added these files to the deps array of the formatter_worker test build file\n3. I created a variable to store Codemirror.mimeModes prior to the test run and explicitly used this to reset mimeModes prior to setting up the tokenizer (because it appears that “test/css” is a property which is defined prior to the test is run but at some point is removed/).\n\nI’m guessing there is something which I can configure that would result in the testing environment behaving similarly to the production environment and codemirror being configured in the same manner which would allow for CSS parsing but have not been successful in my research of the codebase. Any guidance would be greatly appreciated.\n\nThanks!",
+      "revId": "c7401ea3698af6ef78f72da2d5414fdbc3afd2d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
