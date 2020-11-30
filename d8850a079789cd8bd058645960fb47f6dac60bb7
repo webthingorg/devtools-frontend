@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b3d8782_d630e06d",
+        "filename": "front_end/source_frame/SourceFrame.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 926,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-11-30T10:43:52Z",
+      "side": 1,
+      "message": "The +1 was inspired by _updateLineNumberFormatter (same file). I\u0027m not sure myself anymore if it makes sense or not, but if it doesn\u0027t we also should remove it over there?",
+      "parentUuid": "54f8d726_a761fb73",
+      "revId": "d8850a079789cd8bd058645960fb47f6dac60bb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ebbd64e8_b797ea8e",
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3deb8539_24b31a51",
+        "filename": "front_end/sources/GoToLineQuickOpen.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-11-30T10:43:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebbd64e8_b797ea8e",
+      "revId": "d8850a079789cd8bd058645960fb47f6dac60bb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c9d79ba1_4edfc469",
@@ -65,6 +101,24 @@
       "writtenOn": "2020-11-30T05:52:32Z",
       "side": 1,
       "message": "Probably this should be `sourceFrame.wasmDisassembly` here?",
+      "revId": "d8850a079789cd8bd058645960fb47f6dac60bb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd593118_c2435ba6",
+        "filename": "front_end/sources/GoToLineQuickOpen.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-11-30T10:43:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9d79ba1_4edfc469",
       "revId": "d8850a079789cd8bd058645960fb47f6dac60bb7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
