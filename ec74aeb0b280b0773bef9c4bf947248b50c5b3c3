@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "786665b9_80e17e7d",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 1995,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-30T12:29:07Z",
+      "side": 1,
+      "message": "I\u0027d rather keep it as part of this CL. We just have to disable the test upstream and then re-enable it (with updated expectations) once it\u0027s landed and rolled. I\u0027ll take care of this for you. CL 1: https://chromium-review.googlesource.com/c/chromium/src/+/2563668\n\nWe\u0027ll have to wait for that CL to land before we can land this one.",
+      "parentUuid": "b4f64d50_7899c322",
+      "revId": "ec74aeb0b280b0773bef9c4bf947248b50c5b3c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "48a73034_f07d96c8",
         "filename": "front_end/elements/StylesSidebarPane.js",
         "patchSetId": 5
