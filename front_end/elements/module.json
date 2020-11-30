@@ -149,6 +149,26 @@
     },
     {
       "type": "action",
+      "actionId": "elements.paste-after-element",
+      "category": "Elements",
+      "title": "Paste element to after",
+      "contextTypes": [
+        "Elements.ElementsPanel"
+      ],
+      "className": "Elements.ElementsActionDelegate",
+      "bindings": [
+        {
+          "platform": "windows,linux",
+          "shortcut": "Ctrl+Alt+V"
+        },
+        {
+          "platform": "mac",
+          "shortcut": "Meta+Alt+V"
+        }
+      ]
+    },
+    {
+      "type": "action",
       "actionId": "elements.edit-as-html",
       "category": "Elements",
       "title": "Edit as HTML",

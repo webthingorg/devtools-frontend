@@ -307,6 +307,20 @@ export class ElementsTreeOutline extends UI.TreeOutline.TreeOutline {
   /**
    * @param {!SDK.DOMModel.DOMNode} targetNode
    */
+  pasteAfterNode(targetNode) {
+    const selectedTreeElement = /** @type {!ElementsTreeElement} */ (this.selectedTreeElement);
+    const selectedNode = /** @type {!SDK.DOMModel.DOMNode} */ (selectedTreeElement && selectedTreeElement._node);
+    const parentNode = /** @type {!SDK.DOMModel.DOMNode} */ (selectedNode.parentNode);
+    const isRootElement = !parentNode || parentNode.nodeName() === '#document';
+
+    if (this.canPaste(parentNode) && !isRootElement) {
+      this._performPasteAfter(parentNode, selectedNode);
+    }
+  }
+
+  /**
+   * @param {!SDK.DOMModel.DOMNode} targetNode
+   */
   duplicateNode(targetNode) {
     this._performDuplicate(targetNode);
   }
@@ -341,6 +355,35 @@ export class ElementsTreeOutline extends UI.TreeOutline.TreeOutline {
       this._setClipboardData(null);
     } else {
       this._clipboardNodeData.node.copyTo(targetNode, null, expandCallback.bind(this));
+    }
+
+    /**
+     * @param {?ProtocolClient.InspectorBackend.ProtocolError} error
+     * @param {?SDK.DOMModel.DOMNode} pastedNode
+     * @this {ElementsTreeOutline}
+     */
+    function expandCallback(error, pastedNode) {
+      if (error || !pastedNode) {
+        return;
+      }
+      this.selectDOMNode(pastedNode);
+    }
+  }
+
+  /**
+   * @param {!SDK.DOMModel.DOMNode} parentNode
+   * @param {!SDK.DOMModel.DOMNode} selectedNode
+   */
+  _performPasteAfter(parentNode, selectedNode) {
+    if (!this._clipboardNodeData) {
+      return;
+    }
+
+    if (this._clipboardNodeData.isCut) {
+      this._clipboardNodeData.node.moveTo(parentNode, selectedNode.nextSibling, expandCallback.bind(this));
+      this._setClipboardData(null);
+    } else {
+      this._clipboardNodeData.node.copyTo(parentNode, selectedNode.nextSibling, expandCallback.bind(this));
     }
 
     /**
