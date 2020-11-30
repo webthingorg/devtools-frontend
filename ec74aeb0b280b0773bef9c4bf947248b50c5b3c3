@@ -18,6 +18,40 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2656e170_499dd2cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-30T08:24:02Z",
+      "side": 1,
+      "message": "LGTM % comment",
+      "revId": "ec74aeb0b280b0773bef9c4bf947248b50c5b3c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ee86c29_3855e84f",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 1995,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-30T08:24:02Z",
+      "side": 1,
+      "message": "Please address this TODO as part of this CL.",
+      "revId": "ec74aeb0b280b0773bef9c4bf947248b50c5b3c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "48a73034_f07d96c8",
