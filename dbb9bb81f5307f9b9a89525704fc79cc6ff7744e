@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7767edf4_271b22ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-30T14:47:56Z",
+      "side": 1,
+      "message": "PTAL. I am thinking if it\u0027s worth adding an explicit test for various device emulation factors? ",
+      "revId": "dbb9bb81f5307f9b9a89525704fc79cc6ff7744e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
