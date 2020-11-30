@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e1c16d1_cbde2ff7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1227574
+      },
+      "writtenOn": "2020-11-30T18:57:31Z",
+      "side": 1,
+      "message": "In patchset1 of this CL,\nI modified the browser protocol type MouseWheel to Wheel.\nBut in content/browser/devtools, didn\u0027t want to modify the protocol.\n(https://chromium-review.googlesource.com/c/chromium/src/+/2551863)\n\nSo, I uploaded the patchset2 again, which changed only the event type.\nWhat is your opinion?\nIs this enough to modify only the event type?? 😊",
+      "revId": "86bf1041f5286f26141548ff6d4cb7aadbbb3a2f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
