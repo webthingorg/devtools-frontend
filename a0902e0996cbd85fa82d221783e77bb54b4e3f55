@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d34b5ed_cb478606",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-11-30T19:48:06Z",
+      "side": 1,
+      "message": "Hey Philip,\n\nHere\u0027s the one place we missed where `undefined` is turned to `0`, which is the obvious explanation for why the breakpoint in `fibonacci.c` line 3 doesn\u0027t work across restarts of the front-end (fortunately it wasn\u0027t a timing issue). Please take a look.\n\ncheers,\nBenedikt",
+      "revId": "a0902e0996cbd85fa82d221783e77bb54b4e3f55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
