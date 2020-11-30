@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Bindings from '../bindings/bindings.js';  // eslint-disable-line no-unused-vars
+import * as Common from '../common/common.js';
 import * as SDK from '../sdk/sdk.js';
 import * as Marked from '../third_party/marked/marked.js';
 import * as Workspace from '../workspace/workspace.js';
@@ -61,7 +62,11 @@ export class PresentationIssueMessageHelper {
       const title =
           this._createIssueDescriptionFromMarkdown(/** @type {SDK.Issue.MarkdownIssueDescription} */ (description));
       if (title) {
-        this._presentationIssueMessages.push(new PresentationIssueMessage(title, rawLocation, this._locationPool));
+        const clickHandler = () => {
+          Common.Revealer.reveal(issue);
+        };
+        this._presentationIssueMessages.push(
+            new PresentationIssueMessage(title, rawLocation, this._locationPool, clickHandler));
       }
     }
   }
@@ -83,9 +88,11 @@ export class PresentationIssueMessage {
    * @param {string} title
    * @param {!SDK.DebuggerModel.Location} rawLocation
    * @param {!Bindings.LiveLocation.LiveLocationPool} locationPool
+   * @param {(() => void)=} clickHandler
    */
-  constructor(title, rawLocation, locationPool) {
+  constructor(title, rawLocation, locationPool, clickHandler) {
     this._text = title;
+    this._clickHandler = clickHandler;
     this._level = Workspace.UISourceCode.Message.Level.Issue;
     Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().createLiveLocation(
         rawLocation, this._updateLocation.bind(this), locationPool);
@@ -102,8 +109,8 @@ export class PresentationIssueMessage {
     if (!uiLocation) {
       return;
     }
-    this._uiMessage =
-        uiLocation.uiSourceCode.addLineMessage(this._level, this._text, uiLocation.lineNumber, uiLocation.columnNumber);
+    this._uiMessage = uiLocation.uiSourceCode.addLineMessage(
+        this._level, this._text, uiLocation.lineNumber, uiLocation.columnNumber, this._clickHandler);
   }
 
   dispose() {

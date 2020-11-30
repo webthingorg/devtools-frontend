@@ -41,10 +41,8 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper {
     /** @type {?Common.EventTarget.EventDescriptor} */
     this._showThirdPartySettingsChangeListener = null;
 
-    /** @type {!Map<!SDK.IssuesModel.IssuesModel, !PresentationIssueMessageHelper>} */
-    this._issuesModelToMessageHelper = new Map();
-    /** @type {!Map<!SDK.Issue.Issue, !SDK.IssuesModel.IssuesModel>} */
-    this._issuesToissuesModel = new Map();
+    /** @type {!WeakMap<!SDK.IssuesModel.IssuesModel, !PresentationIssueMessageHelper>} */
+    this._issuesModelToMessageHelperMap = new WeakMap();
   }
 
   /**
@@ -108,7 +106,7 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper {
   modelAdded(issuesModel) {
     const listener = issuesModel.addEventListener(SDK.IssuesModel.Events.IssueAdded, this._issueAdded, this);
     this._eventListeners.set(issuesModel, listener);
-    this._issuesModelToMessageHelper.set(issuesModel, new PresentationIssueMessageHelper(issuesModel));
+    this._issuesModelToMessageHelperMap.set(issuesModel, new PresentationIssueMessageHelper(issuesModel));
   }
 
   /**
@@ -120,11 +118,6 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper {
     if (listener) {
       Common.EventTarget.EventTarget.removeEventListeners([listener]);
     }
-    const helper = this._issuesModelToMessageHelper.get(issuesModel);
-    if (helper) {
-      helper.debuggerReset();
-    }
-    this._issuesModelToMessageHelper.delete(issuesModel);
   }
 
   /**
@@ -146,10 +139,9 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper {
     if (this._issueFilter(issue)) {
       this._filteredIssues.set(primaryKey, issue);
 
-      const helper = this._issuesModelToMessageHelper.get(issuesModel);
+      const helper = this._issuesModelToMessageHelperMap.get(issuesModel);
       if (helper) {
         helper.issueAdded(issue);
-        this._issuesToissuesModel.set(issue, issuesModel);
       }
 
       this.dispatchEventToListeners(Events.IssueAdded, {issuesModel, issue});
@@ -204,28 +196,20 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper {
   _updateFilteredIssues() {
     this._filteredIssues.clear();
 
+    // TODO: Create map issue -> model to be able to add the issues again
     for (const issuesModel of SDK.SDKModel.TargetManager.instance().models(SDK.IssuesModel.IssuesModel)) {
-      const helper = this._issuesModelToMessageHelper.get(issuesModel);
+      const helper = this._issuesModelToMessageHelperMap.get(issuesModel);
       if (helper) {
         helper.debuggerReset();
       }
     }
-    const newIssuesToissuesModel = new Map();
+
     // TODO(crbug.com/1011811): Replace with for .. of loop once Closure is gone.
     this._issues.forEach((issue, key) => {
       if (this._issueFilter(issue)) {
         this._filteredIssues.set(key, issue);
-        const model = this._issuesToissuesModel.get(issue);
-        if (model) {
-          const helper = this._issuesModelToMessageHelper.get(model);
-          if (helper) {
-            helper.issueAdded(issue);
-            newIssuesToissuesModel.set(issue, model);
-          }
-        }
       }
     });
-    this._issuesToissuesModel = newIssuesToissuesModel;
 
     this.dispatchEventToListeners(Events.FullUpdateRequired);
     this.dispatchEventToListeners(Events.IssuesCountUpdated);
