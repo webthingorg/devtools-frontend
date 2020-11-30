@@ -16,6 +16,23 @@
       "message": "Adding Jan since Jan seems to be the only non-chore committer to HAR-related files. Adding Peter since he also investigated this issue a bit.",
       "revId": "29eff01353f23ca6746b26526c381708bf6dbefd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8758f648_a9f2d8a2",
+        "filename": "front_end/sdk/HARLog.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-30T12:31:03Z",
+      "side": 1,
+      "message": "The changes in this function is not related to the bug itself. It\u0027s just a fly-by change to properly use a Set instead of a Map.",
+      "revId": "29eff01353f23ca6746b26526c381708bf6dbefd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
