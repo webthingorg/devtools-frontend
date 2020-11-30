@@ -16,6 +16,24 @@
       "message": "Can we move the initialization of `selectorText` inside the first `appendItem` call? This variable would be more locally scoped, and it will avoid cases where the headerText() result is changed after this event listener is bound (therefore selectorText would be out-of-sync).",
       "revId": "064cc1523fe335fd71e6373cdde83a0ea2736e35",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28720760_8c7a1598",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 2077,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-30T10:06:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f7eb5bd_a367786e",
+      "revId": "064cc1523fe335fd71e6373cdde83a0ea2736e35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
