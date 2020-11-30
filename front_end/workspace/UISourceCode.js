@@ -823,6 +823,7 @@ export class Message {
  */
 Message.Level = {
   Error: 'Error',
+  Issue: 'Issue',
   Warning: 'Warning'
 };
 
