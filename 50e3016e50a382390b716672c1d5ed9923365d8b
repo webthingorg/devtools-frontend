@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a77f11a_d0118e05",
+        "filename": "front_end/elements/StylePropertyTreeElement.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-11-30T09:26:47Z",
+      "side": 1,
+      "message": "Can we reduce duplicate code by reusing _formatLeadingProperties() in the StylesSidebarPane.js?",
+      "revId": "50e3016e50a382390b716672c1d5ed9923365d8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
