@@ -39,6 +39,7 @@ export class LinearMemoryInspectorPaneImpl extends UI.Widget.VBox {
     this._tabbedPane.show(this.contentElement);
 
     this._tabIdToInspectorView = new Map();
+    this._tabIdToFinalizeFunction = new Map();
   }
 
   static instance() {
@@ -48,13 +49,15 @@ export class LinearMemoryInspectorPaneImpl extends UI.Widget.VBox {
     return inspectorInstance;
   }
 
+
   /**
    * @param {string} scriptId
    * @param {string} title
    * @param {!LazyUint8Array} arrayWrapper
    * @param {number} address
+   * @param {function(): void=} finalizeFunction
    */
-  showLinearMemory(scriptId, title, arrayWrapper, address) {
+  showLinearMemory(scriptId, title, arrayWrapper, address, finalizeFunction) {
     if (this._tabIdToInspectorView.has(scriptId)) {
       this._tabbedPane.selectTab(scriptId);
       return;
@@ -63,6 +66,10 @@ export class LinearMemoryInspectorPaneImpl extends UI.Widget.VBox {
     this._tabIdToInspectorView.set(scriptId, inspectorView);
     this._tabbedPane.appendTab(scriptId, title, inspectorView, undefined, false, true);
     this._tabbedPane.selectTab(scriptId);
+
+    if (finalizeFunction) {
+      this._tabIdToFinalizeFunction.set(scriptId, finalizeFunction);
+    }
   }
 
   /**
@@ -72,6 +79,11 @@ export class LinearMemoryInspectorPaneImpl extends UI.Widget.VBox {
   _tabClosed(event) {
     const tabId = event.data.tabId;
     this._tabIdToInspectorView.delete(tabId);
+    if (this._tabIdToFinalizeFunction.has(tabId)) {
+      const finalizeFunction = this._tabIdToFinalizeFunction.get(tabId);
+      finalizeFunction();
+      this._tabIdToFinalizeFunction.delete(tabId);
+    }
   }
 }
 

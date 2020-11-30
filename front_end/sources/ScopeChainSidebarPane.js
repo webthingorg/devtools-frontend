@@ -260,6 +260,7 @@ class RemoteArrayWrapper {
   }
 }
 
+const LINEAR_MEMORY_INSPECTOR_OBJECT_GROUP = 'linearMemoryInspector';
 /**
  * @implements {UI.ContextMenu.Provider}
  * @unrestricted
@@ -291,7 +292,14 @@ export class OpenLinearMemoryInspector extends UI.Widget.VBox {
    * @param {!SDK.RemoteObject.RemoteObject} obj
    */
   async _openMemoryInspector(obj) {
-    const remoteArray = new SDK.RemoteObject.RemoteArray(obj);
+    // Get the Uint8Array with a lifetime that is bound to the linear memory inspector.
+    const object = await this._getObjectWithExtendedLifetime(obj);
+
+    function releaseObject() {
+      object.release();
+    }
+
+    const remoteArray = new SDK.RemoteObject.RemoteArray(object);
     const callFrame = UI.Context.Context.instance().flavor(SDK.DebuggerModel.CallFrame);
 
     if (!callFrame) {
@@ -305,8 +313,27 @@ export class OpenLinearMemoryInspector extends UI.Widget.VBox {
     }
     const inspector = LinearMemoryInspector.LinearMemoryInspectorPane.LinearMemoryInspectorPaneImpl.instance();
     inspector.showLinearMemory(
-        callFrame.script.scriptId, uiSourceCode.displayName(), new RemoteArrayWrapper(remoteArray), address);
+        callFrame.script.scriptId, uiSourceCode.displayName(), new RemoteArrayWrapper(remoteArray), address,
+        releaseObject);
     UI.ViewManager.ViewManager.instance().showView('linear-memory-inspector');
+  }
+
+  /**
+   * @param {!SDK.RemoteObject.RemoteObject} obj
+   * @return {!Promise<!SDK.RemoteObject.RemoteObject>}
+   */
+  async _getObjectWithExtendedLifetime(obj) {
+    const response = await obj.runtimeModel()._agent.invoke_callFunctionOn({
+      objectId: obj.objectId,
+      functionDeclaration: 'function() { return this; }',
+      silent: true,
+      objectGroup: LINEAR_MEMORY_INSPECTOR_OBJECT_GROUP
+    });
+    const error = response.getError();
+    if (error) {
+      throw new Error(`Remote object representing Uint8Array could not be retrieved: ${error}`);
+    }
+    return obj.runtimeModel().createRemoteObject(response.result);
   }
 }
 
