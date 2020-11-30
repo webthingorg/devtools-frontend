@@ -22,6 +22,30 @@
       },
       "revId": "dd3be2e78615aca1c840711f43de4e616957678a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc30e71c_3eaaefd4",
+        "filename": ".gitignore",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-30T16:38:10Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "4413a38d_cbffd87a",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 61
+      },
+      "revId": "dd3be2e78615aca1c840711f43de4e616957678a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
