@@ -70,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4f64d50_7899c322",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 1995,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-30T12:14:32Z",
+      "side": 1,
+      "message": "@Mathias It seems that the changes here will cause the copy-styles test to report errors[1]. At present, my computer hard disk is not enough for me to download the Chromium code, can we solve this problem in a separate CL? I hope that the new features are separated from the historical features, so that the new features can also be implemented in Chrome Canary as soon as possible for users to test.\n\n[1]: https://ci.chromium.org/p/devtools-frontend/builders/try/devtools_frontend_linux_blink_light_rel/9856?",
+      "parentUuid": "582eb662_aca46108",
+      "revId": "ec74aeb0b280b0773bef9c4bf947248b50c5b3c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "48a73034_f07d96c8",
