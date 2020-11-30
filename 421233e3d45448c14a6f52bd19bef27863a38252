@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2e0b694b_379e6fea",
+        "filename": "front_end/elements/elements-meta.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-11-30T15:07:43Z",
+      "side": 1,
+      "message": "Yes, a check that an error is thrown at registration for duplicate setting names was done.",
+      "parentUuid": "759b9bc2_efd0f841",
+      "range": {
+        "startLine": 298,
+        "startChar": 16,
+        "endLine": 298,
+        "endChar": 31
+      },
+      "revId": "421233e3d45448c14a6f52bd19bef27863a38252",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "6d53d5ed_c6163ea9",
         "filename": "front_end/elements/elements-meta.ts",
         "patchSetId": 3
@@ -70,6 +94,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb440fd6_a983e98b",
+        "filename": "front_end/elements/elements-meta.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-11-30T15:07:43Z",
+      "side": 1,
+      "message": "Agree. Since the \u0027order\u0027 field is used to sort settings that belong to the same category, uniqueness of this field values among a category should be enforced. This is implemented in the follow up patch.",
+      "parentUuid": "a8eec243_34178507",
+      "range": {
+        "startLine": 314,
+        "startChar": 2,
+        "endLine": 314,
+        "endChar": 11
+      },
+      "revId": "421233e3d45448c14a6f52bd19bef27863a38252",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "620ef074_7fcc6069",
@@ -83,6 +131,30 @@
       "writtenOn": "2020-11-25T16:25:47Z",
       "side": 1,
       "message": "Is there any particular reason why this one does not have an order specified? I don\u0027t remember that we wrote anything about this in our design doc, so it might be good to include a small section on why some settings have an order defined and others have not.",
+      "range": {
+        "startLine": 411,
+        "startChar": 2,
+        "endLine": 411,
+        "endChar": 46
+      },
+      "revId": "421233e3d45448c14a6f52bd19bef27863a38252",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d538a71_7b41aa59",
+        "filename": "front_end/elements/elements-meta.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-11-30T15:07:43Z",
+      "side": 1,
+      "message": "There is no particular reason for this. An order is specified only for some settings that are \"visible\", that is, they appear in the settings screen (all settings with a \"category\" field do), so that they are listed in a desired order. But this is not the case for every setting, in fact, most of the controllers in the settings screen appear in the order in which the corresponding extensions are loaded. There seems to be no obvious reason why some visible settings are sorted and others are not. While migrating, we still might want to manually add an order field to some settings so that appear in the same order as they currently do. This last consideration is discussed in the desing doc.",
+      "parentUuid": "620ef074_7fcc6069",
       "range": {
         "startLine": 411,
         "startChar": 2,
