@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1a65e89_f9bd952a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-30T12:38:21Z",
+      "side": 1,
+      "message": "Could you update the documentation on how to run the new reporter? And the environment variable doesn\u0027t work on Windows. Can we add a CLI flag for it instead, like we do for the other flags?",
+      "revId": "f36be42411c7564f93842a729bab753b670ed50a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
