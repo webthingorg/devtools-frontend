@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "850b039a_b0073926",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 905,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-11-30T18:11:35Z",
+      "side": 0,
+      "message": "This is needed because before the icon was only updated if a new message with more priority appeared (e.g. there was a warning and an error appeared). However now we have another icon for issues so we want to show/hide it so we want to run the rest of the code to update it.",
+      "revId": "a1909ddb6586ed319b1902d103c695e7a2970036",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
