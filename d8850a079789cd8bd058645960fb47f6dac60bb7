@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d4e7d1a_b1a5d8e6",
+        "filename": "front_end/source_frame/SourceFrame.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 926,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-30T12:14:28Z",
+      "side": 1,
+      "message": "Ahh I see! Yeah, I think we should be consistent about this and also change it in _updateLineNumberFormatter. Maybe extracting a function (line 925-927) would make sense here? Up to you :)",
+      "parentUuid": "9b3d8782_d630e06d",
+      "revId": "d8850a079789cd8bd058645960fb47f6dac60bb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ebbd64e8_b797ea8e",
