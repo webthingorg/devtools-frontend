@@ -159,6 +159,24 @@
       "parentUuid": "e6ca7530_68ba6a85",
       "revId": "4991282235c0fff8ad8b4fbbdc4a33be86a2ef8e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b947948_d200ec80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-30T10:24:18Z",
+      "side": 1,
+      "message": "I am worried that the floating height is too high to affect the debugging. Can we try to use a vertical line like the status bar in the network panel?\n\nIf it is simply to improve accessibility, can we add the title attribute?",
+      "parentUuid": "35e9837b_0e5852eb",
+      "revId": "4991282235c0fff8ad8b4fbbdc4a33be86a2ef8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
