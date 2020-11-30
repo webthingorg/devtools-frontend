@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "035f4cbf_b0b4c289",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryValueInterpreter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-30T12:22:26Z",
+      "side": 1,
+      "message": "should not we use the `.chrome-select` class to style the select element?",
+      "revId": "fffee9c3097e1d6f82a90f00c27bc499bed26d98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
