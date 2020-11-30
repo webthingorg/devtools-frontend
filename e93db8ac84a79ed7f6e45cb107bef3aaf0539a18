@@ -70,6 +70,24 @@
       "parentUuid": "afe27c48_8134699e",
       "revId": "e93db8ac84a79ed7f6e45cb107bef3aaf0539a18",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57a9e0b5_c92970ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002513
+      },
+      "writtenOn": "2020-11-30T15:23:55Z",
+      "side": 1,
+      "message": "size containment is what Jack said: it lays out the contents without consideration of its descendants. In other words \"lays out as if it is empty\". I think it\u0027s fine to use in this case since the pane is sized by something other than children (afaiu). \n\nIt does look like some sort of a bug in the layout. One thing to note is that blinking is fairly \"regular\" as in a second or so with scrollbars, and a second or so without, which may hint at the contents changing in some way (maybe blinking cursor or something?).\n\nIn either case, I think removing size containment would only change anything if the element was not sized already. So this lgtm, but I think we don\u0027t quite understand the underlying issue yet.",
+      "parentUuid": "1bd07293_76df40a2",
+      "revId": "e93db8ac84a79ed7f6e45cb107bef3aaf0539a18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
