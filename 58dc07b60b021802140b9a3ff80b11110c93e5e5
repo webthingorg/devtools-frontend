@@ -51,6 +51,24 @@
       "parentUuid": "442a111e_6b205e34",
       "revId": "58dc07b60b021802140b9a3ff80b11110c93e5e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "735ecc95_63fc4579",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-30T14:46:30Z",
+      "side": 1,
+      "message": "Hmm, I disagree that it doesn\u0027t look natural, but I guess it\u0027s hard to argue about how it looks (de gustibus non est disputandum, and all that).\n\nHere\u0027s why I think blocks are nicer:\n\n- The bindings are clearly scoped to the block, so the generated code becomes easier to read. The developer knows when they can forget about the `frame` variable (which isn\u0027t the case with the frame1, frame2 approach until the very end of the entire script).\n- The expressions within each long-form step are automatically clearly grouped. Very easy to see which belong together. This isn\u0027t the case with the current frame1, frame2 approach, although we could improve the situation there by inserting extra newlines before/after multi-line steps.",
+      "parentUuid": "accd6e01_445dd5be",
+      "revId": "58dc07b60b021802140b9a3ff80b11110c93e5e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
