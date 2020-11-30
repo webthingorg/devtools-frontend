@@ -16,6 +16,23 @@
       "message": "Jack, could you PTAL?",
       "revId": "db85a016786390f7cc38ae1bcbfd8d29b972b43b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c983db0_02e11ad2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-30T08:03:50Z",
+      "side": 1,
+      "message": "ptal",
+      "revId": "db85a016786390f7cc38ae1bcbfd8d29b972b43b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
