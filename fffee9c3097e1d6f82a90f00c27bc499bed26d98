@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4128b92_5a24e096",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryValueInterpreter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-30T14:27:39Z",
+      "side": 1,
+      "message": "I\u0027ve removed everything now, and only using chrome select to style the select element as you suggested.",
+      "parentUuid": "8e0e1156_8611d295",
+      "revId": "fffee9c3097e1d6f82a90f00c27bc499bed26d98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "38185aa4_aa7e16e1",
@@ -31,6 +49,24 @@
       "writtenOn": "2020-11-30T12:28:09Z",
       "side": 1,
       "message": "do you need both divs? can you place the select label directly into the settings-toolbar element?",
+      "revId": "fffee9c3097e1d6f82a90f00c27bc499bed26d98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61ba1d32_2aaa6420",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryValueInterpreter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-30T14:27:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38185aa4_aa7e16e1",
       "revId": "fffee9c3097e1d6f82a90f00c27bc499bed26d98",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "78393755_5e32704f",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryValueInterpreter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-30T14:27:39Z",
+      "side": 1,
+      "message": "Used it now!",
+      "parentUuid": "035f4cbf_b0b4c289",
+      "revId": "fffee9c3097e1d6f82a90f00c27bc499bed26d98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0a52654_3a9c6c64",
@@ -65,6 +119,24 @@
       "writtenOn": "2020-11-30T12:28:09Z",
       "side": 1,
       "message": "are the options already localized?",
+      "revId": "fffee9c3097e1d6f82a90f00c27bc499bed26d98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de4ce180_ed86ee3a",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryValueInterpreter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-30T14:27:39Z",
+      "side": 1,
+      "message": "I added `ls` around it now!",
+      "parentUuid": "a0a52654_3a9c6c64",
       "revId": "fffee9c3097e1d6f82a90f00c27bc499bed26d98",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
