@@ -18,6 +18,63 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "08f49363_0c8a5152",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 65
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-30T07:28:26Z",
+      "side": 1,
+      "message": "LGTM % comments",
+      "revId": "3dbaf39ee6316254ea64733679ad5be672d339c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9948e28d_95baa752",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 65
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-30T07:28:26Z",
+      "side": 1,
+      "message": "We cannot re-use earlier IDs. Please follow the instructions in the comment above.",
+      "revId": "3dbaf39ee6316254ea64733679ad5be672d339c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "baee5817_635fa9a3",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 65
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-30T07:28:26Z",
+      "side": 1,
+      "message": "no need to escape this\n\n    \u0027\"\u0027",
+      "range": {
+        "startLine": 145,
+        "startChar": 32,
+        "endLine": 145,
+        "endChar": 34
+      },
+      "revId": "3dbaf39ee6316254ea64733679ad5be672d339c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "142ddd63_c4031f47",
