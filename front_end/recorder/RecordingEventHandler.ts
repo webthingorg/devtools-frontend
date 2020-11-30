@@ -6,7 +6,7 @@ import * as Accessibility from '../accessibility/accessibility.js';
 import * as Elements from '../elements/elements.js';
 import * as SDK from '../sdk/sdk.js';
 
-import {ChangeStep, ClickStep, RecordingSession, StepFrameContext, SubmitStep} from './RecordingSession.js';
+import {ChangeStep, ClickStep, RecordingSession, StepContext, SubmitStep} from './RecordingSession.js';
 
 const RELEVANT_ROLES_FOR_ARIA_SELECTORS = new Set(['button', 'link', 'textbox', 'checkbox']);
 
@@ -101,7 +101,7 @@ export class RecordingEventHandler implements ProtocolProxyApi.DebuggerDispatche
     return null;
   }
 
-  async handleClickEvent(context: StepFrameContext, localFrame: Protocol.Runtime.PropertyDescriptor[]) {
+  async handleClickEvent(context: StepContext, localFrame: Protocol.Runtime.PropertyDescriptor[]) {
     const targetId = await this.findTargetId(localFrame, [
       'MouseEvent',
       'PointerEvent',
@@ -131,7 +131,7 @@ export class RecordingEventHandler implements ProtocolProxyApi.DebuggerDispatche
     await this.resume();
   }
 
-  async handleSubmitEvent(context: StepFrameContext, localFrame: Protocol.Runtime.PropertyDescriptor[]) {
+  async handleSubmitEvent(context: StepContext, localFrame: Protocol.Runtime.PropertyDescriptor[]) {
     const targetId = await this.findTargetId(localFrame, [
       'SubmitEvent',
     ]);
@@ -154,7 +154,7 @@ export class RecordingEventHandler implements ProtocolProxyApi.DebuggerDispatche
     await this.resume();
   }
 
-  async handleChangeEvent(context: StepFrameContext, localFrame: Protocol.Runtime.PropertyDescriptor[]) {
+  async handleChangeEvent(context: StepContext, localFrame: Protocol.Runtime.PropertyDescriptor[]) {
     const targetId = await this.findTargetId(localFrame, [
       'Event',
     ]);
@@ -197,12 +197,12 @@ export class RecordingEventHandler implements ProtocolProxyApi.DebuggerDispatche
 
       const childFrames = parentFrame.childFrames;
       const index = childFrames.indexOf(currentFrame);
-      path.unshift(index);
+      path.unshift({id: currentFrame.id, index});
       currentFrame = parentFrame;
     }
 
     const target = this.target.id() === 'main' ? 'main' : this.target.inspectedURL();
-    return new StepFrameContext(target, path);
+    return new StepContext(target, path, frame.id);
   }
 
   async resume() {
