@@ -8,69 +8,55 @@ import * as SDK from '../sdk/sdk.js';
 import * as Workspace from '../workspace/workspace.js';  // eslint-disable-line no-unused-vars
 import {RecordingEventHandler} from './RecordingEventHandler.js';
 
-export class StepFrameContext {
+export class StepContext {
   /**
    * @param {!string} target
-   * @param {!Array<number>} path
+   * @param {!Array<{id: string, index: number}>} path
+   * @param {?string} frameId
    */
-  constructor(target, path = []) {
+  constructor(target, path = [], frameId = null) {
     this.path = path;
     this.target = target;
-  }
-
-
-  toString() {
-    let expression = '';
-    if (this.target === 'main') {
-      expression = 'page';
-    } else {
-      expression = `(await browser.pages()).find(p => p.url() === ${JSON.stringify(this.target)})`;
-    }
-
-    if (this.path.length) {
-      expression += '.mainFrame()';
-    }
-    for (const index of this.path) {
-      expression += `.childFrames()[${index}]`;
-    }
-
-    return expression;
+    this.frameId = frameId;
   }
 }
 
 export class Step {
   /**
+   * @param {?StepContext} context
    * @param {string} action
    */
-  constructor(action) {
+  constructor(context, action) {
+    this.context = context;
     this.action = action;
   }
 
   /**
    * @override
+   * @param {?string} localFrameVar
    * @return {string}
    */
-  toString() {
+  toScriptLine(localFrameVar) {
     throw new Error('Must be implemented in subclass.');
   }
 }
 
 export class ClickStep extends Step {
   /**
-   * @param {!StepFrameContext} context
+   * @param {!StepContext} context
    * @param {string} selector
    */
   constructor(context, selector) {
-    super('click');
-    this.context = context;
+    super(context, 'click');
     this.selector = selector;
   }
 
   /**
+   * @param {?string} localFrameVar
    * @override
    */
-  toString() {
-    return `await ${this.context}.click(${JSON.stringify(this.selector)});`;
+  toScriptLine(localFrameVar) {
+    return `await ${localFrameVar}.click(${JSON.stringify(this.selector)});`;
   }
 }
 
@@ -79,55 +65,56 @@ export class NavigationStep extends Step {
    * @param {string} url
    */
   constructor(url) {
-    super('navigate');
+    super(null, 'navigate');
     this.url = url;
   }
 
   /**
+   * @param {?string} localFrameVar
    * @override
    */
-  toString() {
+  toScriptLine(localFrameVar) {
     return `await page.goto(${JSON.stringify(this.url)});`;
   }
 }
 
 export class SubmitStep extends Step {
   /**
-   * @param {!StepFrameContext} context
+   * @param {!StepContext} context
    * @param {string} selector
    */
   constructor(context, selector) {
-    super('submit');
-    this.context = context;
+    super(context, 'submit');
     this.selector = selector;
   }
 
   /**
+   * @param {?string} localFrameVar
    * @override
    */
-  toString() {
-    return `await ${this.context}.submit(${JSON.stringify(this.selector)});`;
+  toScriptLine(localFrameVar) {
+    return `await ${localFrameVar}.submit(${JSON.stringify(this.selector)});`;
   }
 }
 
 export class ChangeStep extends Step {
   /**
-   * @param {!StepFrameContext} context
+   * @param {!StepContext} context
    * @param {string} selector
    * @param {string} value
    */
   constructor(context, selector, value) {
-    super('change');
-    this.context = context;
+    super(context, 'change');
     this.selector = selector;
     this.value = value;
   }
 
   /**
+   * @param {?string} localFrameVar
    * @override
    */
-  toString() {
-    return `await ${this.context}.type(${JSON.stringify(this.selector)}, ${JSON.stringify(this.value)});`;
+  toScriptLine(localFrameVar) {
+    return `await ${localFrameVar}.type(${JSON.stringify(this.selector)}, ${JSON.stringify(this.value)});`;
   }
 }
 
@@ -160,6 +147,14 @@ export class RecordingSession {
     this._childTargetManager = target.model(SDK.ChildTargetManager.ChildTargetManager);
 
     this._target = target;
+
+    /** @type Map<string,string> */
+    this._frameIdsToLocalVars = new Map();
+    this._nextLocalFrameVarId = 1;
+
+    /** @type Map<string,string> */
+    this._targetIdsToLocalVars = new Map();
+    this._nextLocalTargetVarId = 1;
   }
 
   async start() {
@@ -208,10 +203,62 @@ export class RecordingSession {
   }
 
   /**
+   * @param {StepContext} context
+   */
+  getLocalVariableForTarget(context) {
+    const target = context.target;
+    if (target === 'main') {
+      return 'page';
+    }
+
+    let localTargetVar = this._targetIdsToLocalVars.get(target);
+    if (localTargetVar) {
+      return localTargetVar;
+    }
+
+    localTargetVar = `target${this._nextLocalTargetVarId++}`;
+    this._frameIdsToLocalVars.set(target, localTargetVar);
+    this.appendLineToScript(
+        `const ${localTargetVar} = await browser.pages().find(p => p.url() === ${JSON.stringify(target)});`);
+    return localTargetVar;
+  }
+
+  /**
+   * @param {StepContext} context
+   * @param {Array<{id: string, index: number}>} frames
+   */
+  getLocalVariableForFrameId(context, frames) {
+    const target = this.getLocalVariableForTarget(context);
+
+    if (!frames.length) {
+      return target;
+    }
+
+    const {id, index} = frames[frames.length - 1];
+    let localFrameVar = this._frameIdsToLocalVars.get(id);
+    if (localFrameVar) {
+      return localFrameVar;
+    }
+
+    let parentVar = target + '.mainFrame()';
+    if (frames.length > 1) {
+      parentVar = this.getLocalVariableForFrameId(context, frames.slice(0, frames.length - 1));
+    }
+
+    localFrameVar = `frame${this._nextLocalFrameVarId++}`;
+    this._frameIdsToLocalVars.set(id, localFrameVar);
+    this.appendLineToScript(`const ${localFrameVar} = ${parentVar}.childFrames()[${index}];`);
+    return localFrameVar;
+  }
+
+  /**
    * @param {!Step} step
    */
   appendStepToScript(step) {
-    this.appendLineToScript(step.toString());
+    const context = step.context;
+    const localFrameVar = context ? this.getLocalVariableForFrameId(context, context.path) : 'page';
+
+    this.appendLineToScript(step.toScriptLine(localFrameVar));
   }
 
   /**
@@ -258,7 +305,7 @@ export class RecordingSession {
     const makeFunctionCallable = /** @type {function(*):string} */ (fn => `(${fn.toString()})()`);
 
     // This uses the setEventListenerBreakpoint method from the debugger
-    // to get notified about new events. Therefor disable the normal debugger
+    // to get notified about new events. Therefore disable the normal debugger
     // while recording.
     await debuggerModel.ignoreDebuggerPausedEvents(true);
     await debuggerAgent.invoke_enable({});
