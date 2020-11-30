@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72b5d638_3f682240",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-30T12:41:38Z",
+      "side": 1,
+      "message": "PTAL. Both colors still refer to exactly the same color in the light theme, so this seems like a no-brainer change.",
+      "revId": "eae6e49648f194e9b7f1a2f25f49a478a71af6e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
