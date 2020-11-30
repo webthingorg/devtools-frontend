@@ -6,6 +6,7 @@ import './ValueInterpreterDisplay.js';
 import './ValueInterpreterSettings.js';
 
 import * as Common from '../common/common.js';
+import * as ComponentHelpers from '../component_helpers/component_helpers.js';
 import * as Elements from '../elements/elements.js';
 import * as LitHtml from '../third_party/lit-html/lit-html.js';
 
@@ -15,6 +16,25 @@ import type {TypeToggleEvent, ValueInterpreterSettingsData} from './ValueInterpr
 
 const ls = Common.ls;
 const {render, html} = LitHtml;
+const getStyleSheets = ComponentHelpers.GetStylesheet.getStyleSheets;
+
+export class EndiannessChangedEvent extends Event {
+  data: Endianness;
+
+  constructor(endianness: Endianness) {
+    super('endianness-changed');
+    this.data = endianness;
+  }
+}
+
+export class ValueTypeToggledEvent extends Event {
+  data: {type: ValueType, checked: boolean};
+
+  constructor(type: ValueType, checked: boolean) {
+    super('value-type-toggled');
+    this.data = {type, checked};
+  }
+}
 
 export interface LinearMemoryValueInterpreterData {
   value: ArrayBuffer;
@@ -30,6 +50,14 @@ export class LinearMemoryValueInterpreter extends HTMLElement {
   private valueTypes: Set<ValueType> = new Set();
   private valueTypeModeConfig: Map<ValueType, ValueTypeMode> = new Map();
   private showSettings = false;
+
+  constructor() {
+    super();
+    this.shadow.adoptedStyleSheets = [
+      ...getStyleSheets('ui/inspectorCommon.css', {enableLegacyPatching: true}),
+    ];
+  }
+
 
   set data(data: LinearMemoryValueInterpreterData) {
     this.endianness = data.endianness;
@@ -74,6 +102,29 @@ export class LinearMemoryValueInterpreter extends HTMLElement {
           height: 20px;
         }
 
+        .select-settings {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+        }
+
+        .select:hover:not(:active) {
+           color: #6e6e6e;
+        }
+
+        .select {
+          background: transparent;
+          outline: none;
+          border: none;
+          appearance: none;
+          width: 100%;
+        }
+
+        .select-label {
+          display: flex;
+          flex-direction: column;
+        }
+
         .divider {
           display: block;
           height: 1px;
@@ -84,58 +135,68 @@ export class LinearMemoryValueInterpreter extends HTMLElement {
       <div class="value-interpreter">
         <div class="settings-toolbar">
           <div>
-            <span>${ls`${this.endianness}`}</span>
-            <devtools-icon
-              .data=${{iconName: 'dropdown_7x6_icon', color: 'rgb(110 110 110)', width: '7px'} as Elements.Icon.IconWithName}>
-            </devtools-icon>
+            <div class="select-settings">
+              ${this.renderSetting()}
+            </div>
           </div>
-          <button data-settings="true" class="settings-toolbar-button" title="Toggle value type settings" @click=${this.onSettingsToggled}>
+          <button data-settings="true" class="settings-toolbar-button" title=${ls`Toggle value type settings`} @click=${this.onSettingsToggle}>
             <devtools-icon
-              .data=${{iconName: 'settings_14x14_icon', color: 'rgb(110 110 110)', width: '14px'} as Elements.Icon.IconWithName}>
+              .data=${{ iconName: 'settings_14x14_icon', color: 'rgb(110 110 110)', width: '14px' } as Elements.Icon.IconWithName}>
             </devtools-icon>
           </button>
         </div>
         <span class="divider"></span>
         <div>
           ${this.showSettings ?
-            html`
+        html`
               <devtools-linear-memory-inspector-interpreter-settings
-                .data=${{valueTypes: this.valueTypes} as ValueInterpreterSettingsData}
+                .data=${{ valueTypes: this.valueTypes } as ValueInterpreterSettingsData}
                 @type-toggle=${this.onTypeToggle}>
               </devtools-linear-memory-inspector-interpreter-settings>` :
-            html`
+        html`
               <devtools-linear-memory-inspector-interpreter-display
                 .data=${{
-                  buffer: this.buffer,
-                  valueTypes: this.valueTypes,
-                  endianness: this.endianness,
-                  valueTypeModes: this.valueTypeModeConfig,
-                } as ValueDisplayData}>
+            buffer: this.buffer,
+            valueTypes: this.valueTypes,
+            endianness: this.endianness,
+            valueTypeModes: this.valueTypeModeConfig,
+          } as ValueDisplayData}>
               </devtools-linear-memory-inspector-interpreter-display>`}
         </div>
       </div>
     `,
-        this.shadow, {eventContext: this},
+      this.shadow, { eventContext: this },
     );
     // clang-format on
   }
 
-  private onSettingsToggled() {
+  private onEndiannessChange(event: Event) {
+    event.preventDefault();
+    const select = event.target as HTMLInputElement;
+    const endianness = select.value as Endianness;
+    this.dispatchEvent(new EndiannessChangedEvent(endianness));
+  }
+
+  private renderSetting() {
+    const onEnumSettingChange = this.onEndiannessChange.bind(this);
+    return html`
+    <label data-endianness-setting="true" class="select-label" title=${ls`Change Endianness`}>
+      <select data-endianness="true" @change=${onEnumSettingChange}>
+        ${[Endianness.Little, Endianness.Big].map(endianness => {
+      return html`<option value=${endianness} .selected=${this.endianness === endianness}>${endianness}</option>`;
+    })}
+      </select>
+    </label>
+    `;
+  }
+
+  private onSettingsToggle() {
     this.showSettings = !this.showSettings;
     this.render();
   }
 
   private onTypeToggle(e: TypeToggleEvent) {
-    this.dispatchEvent(new ValueTypeToggleEvent(e.data.type, e.data.checked));
-  }
-}
-
-export class ValueTypeToggleEvent extends Event {
-  data: {type: ValueType, checked: boolean};
-
-  constructor(type: ValueType, checked: boolean) {
-    super('value-type-toggle');
-    this.data = {type, checked};
+    this.dispatchEvent(new ValueTypeToggledEvent(e.data.type, e.data.checked));
   }
 }
 
