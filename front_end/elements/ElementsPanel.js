@@ -1298,6 +1298,9 @@ export class ElementsActionDelegate {
       case 'elements.duplicate-element':
         treeOutline.duplicateNode(node);
         return true;
+      case 'elements.paste-after-element':
+        treeOutline.pasteAfterNode();
+        return true;
       case 'elements.undo':
         SDK.DOMModel.DOMModelUndoStack.instance().undo();
         ElementsPanel.instance()._stylesWidget.forceUpdate();
