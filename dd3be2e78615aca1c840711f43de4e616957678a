@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4413a38d_cbffd87a",
+        "filename": ".gitignore",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-11-30T16:20:33Z",
+      "side": 0,
+      "message": "We will need to email devtools-dev@ to notify them of this change, given the amount of files that will be involved.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 61
+      },
+      "revId": "dd3be2e78615aca1c840711f43de4e616957678a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
