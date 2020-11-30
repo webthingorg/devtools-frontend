@@ -633,6 +633,23 @@ describe('User Metrics for Issue Panel', () => {
     ]);
   });
 
+  it('dispatch event when clicking the "third-party cookie checkbox"', async () => {
+    await goToResource('host/cookie-issue.html');
+    await waitFor('[aria-label="Include third-party cookie issues"]');
+    await click('[aria-label="Include third-party cookie issues"]');
+    await click('[aria-label="Include third-party cookie issues"]');
+    await assertCapturedEvents([
+      {
+        name: 'DevTools.ActionTaken',
+        value: 53,  // ThirdPartyCookieIssuesEnabled
+      },
+      {
+        name: 'DevTools.ActionTaken',
+        value: 54,  // ThirdPartyCookieIssuesDisabled
+      },
+    ]);
+  });
+
   afterEach(async () => {
     const {frontend} = getBrowserAndPages();
     await endCatchEvents(frontend);

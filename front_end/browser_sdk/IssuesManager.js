@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Common from '../common/common.js';
+import * as Host from '../host/host.js';
 import * as SDK from '../sdk/sdk.js';
 
 /** @type {?IssuesManager} */
@@ -174,6 +175,9 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper {
       // time, the settings storage is not initialized yet, so the setting can't be created.
       const showThirdPartyIssuesSetting = SDK.Issue.getShowThirdPartyIssuesSetting();
       this._showThirdPartySettingsChangeListener = showThirdPartyIssuesSetting.addChangeListener(() => {
+        Host.userMetrics.actionTaken(
+            showThirdPartyIssuesSetting.get() ? Host.UserMetrics.Action.ThirdPartyCookieIssuesEnabled :
+                                                Host.UserMetrics.Action.ThirdPartyCookieIssuesDisabled);
         this._updateFilteredIssues();
       });
     }
