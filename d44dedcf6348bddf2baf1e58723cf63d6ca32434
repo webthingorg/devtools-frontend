@@ -16,6 +16,92 @@
       "message": "Please take an initial look. I\u0027ll add a unit test in this CL once we know that the structure of the component won\u0027t change too much.",
       "revId": "d44dedcf6348bddf2baf1e58723cf63d6ca32434",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59b2bfb5_37a46515",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-30T15:06:53Z",
+      "side": 1,
+      "message": "LGTM % nits.\n\nRegarding the display:block and layout, I\u0027d have to see it in action to understand what\u0027s going on. Happy to do a quick VC ?",
+      "revId": "d44dedcf6348bddf2baf1e58723cf63d6ca32434",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14a58bdc_163980f2",
+        "filename": "front_end/network/RequestTrustTokensView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-30T15:06:53Z",
+      "side": 1,
+      "message": "We try to avoid using the bang here. Can we bail or throw an error if this is tried to be rendered when missing params instead of this?",
+      "range": {
+        "startLine": 52,
+        "startChar": 45,
+        "endLine": 52,
+        "endChar": 57
+      },
+      "revId": "d44dedcf6348bddf2baf1e58723cf63d6ca32434",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65347954_74fd3b4b",
+        "filename": "front_end/network/RequestTrustTokensView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-30T15:06:53Z",
+      "side": 1,
+      "message": "TIL!",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 29
+      },
+      "revId": "d44dedcf6348bddf2baf1e58723cf63d6ca32434",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95be6c01_d6964415",
+        "filename": "front_end/network/RequestTrustTokensView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-30T15:06:53Z",
+      "side": 1,
+      "message": "again, can we be more explicit in handling the null case and error or just early return?",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 82
+      },
+      "revId": "d44dedcf6348bddf2baf1e58723cf63d6ca32434",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
