@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65a47744_89b5fe3a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1111977
+      },
+      "writtenOn": "2020-11-30T11:04:59Z",
+      "side": 1,
+      "message": "The hint text should probably be changed, but I don\u0027t really know what to write instead (or if the current behavior should be kept in the first place).",
+      "revId": "d93cfef330c36560694f26ed4952f6d9b39c2359",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3efc9eaa_56b53300",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1111977
+      },
+      "writtenOn": "2020-11-30T11:04:59Z",
+      "side": 1,
+      "message": "Hi Paul,\n\nSorry for the gigantic commit message, but I felt it\u0027d be good to give a good background on what\u0027s going on in this CL. The changes themselves are not big. I can try to split them up if you prefer as well.",
+      "revId": "d93cfef330c36560694f26ed4952f6d9b39c2359",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
