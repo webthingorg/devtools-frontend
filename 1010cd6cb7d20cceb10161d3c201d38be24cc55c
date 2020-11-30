@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2daefcc3_81fd1416",
+        "filename": "test/e2e/helpers/datagrid-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-11-30T10:31:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "642d0e88_2241b396",
+      "range": {
+        "startLine": 8,
+        "startChar": 22,
+        "endLine": 8,
+        "endChar": 37
+      },
+      "revId": "1010cd6cb7d20cceb10161d3c201d38be24cc55c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8736dd88_4353f71e",
@@ -54,6 +78,30 @@
       "writtenOn": "2020-11-30T09:28:26Z",
       "side": 1,
       "message": "nit: expectedNumberOfRows ? or just numberRows? Don\u0027t think we gain much from short variable names so I\u0027d rather be more explicit.",
+      "range": {
+        "startLine": 9,
+        "startChar": 4,
+        "endLine": 9,
+        "endChar": 9
+      },
+      "revId": "1010cd6cb7d20cceb10161d3c201d38be24cc55c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f50c706_a9239825",
+        "filename": "test/e2e/helpers/datagrid-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-11-30T10:31:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8736dd88_4353f71e",
       "range": {
         "startLine": 9,
         "startChar": 4,
