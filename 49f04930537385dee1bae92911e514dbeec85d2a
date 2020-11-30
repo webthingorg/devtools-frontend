@@ -69,6 +69,24 @@
       "parentUuid": "d8f3e323_0ad5aa65",
       "revId": "49f04930537385dee1bae92911e514dbeec85d2a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9089e6b6_7d41e521",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-30T09:10:26Z",
+      "side": 1,
+      "message": "Opened an issue here https://github.com/GoogleChrome/web.dev/issues/4315",
+      "parentUuid": "d54fea10_2d3cc9af",
+      "revId": "49f04930537385dee1bae92911e514dbeec85d2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
