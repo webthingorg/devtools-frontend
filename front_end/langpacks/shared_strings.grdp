@@ -133,8 +133,14 @@
   <message name="IDS_DEVTOOLS_3c4684d2d502d7f9d20e05451c2f581c" desc="Next button title in Film Strip View of the Performance panel">
     Next frame
   </message>
+  <message name="IDS_DEVTOOLS_3d1f92a565d3b1a61880236e33c49bf3" desc="Title for the timeline tab.">
+    Timeline
+  </message>
   <message name="IDS_DEVTOOLS_3e56c011b37f0bc78fb9eb175c1181c6" desc="A unit">
     kB
+  </message>
+  <message name="IDS_DEVTOOLS_3ec365dd533ddb7ef3d1c111186ce872" desc="Text for the details of something">
+    Details
   </message>
   <message name="IDS_DEVTOOLS_3f8f88e3686b2345cecc9530e19e6172" desc="Text to store an HTML element or JavaScript variable or expression result as a global variable">
     Store as global variable

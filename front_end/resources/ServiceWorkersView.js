@@ -9,6 +9,7 @@ import * as MobileThrottling from '../mobile_throttling/mobile_throttling.js';
 import * as Network from '../network/network.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
+import {ServiceWorkerUpdateCycleView} from './ServiceWorkerUpdateCycleView.js';
 
 let throttleDisabledForDebugging = false;
 /**
@@ -42,6 +43,8 @@ export class ServiceWorkersView extends UI.Widget.VBox {
     this._manager = null;
     /** @type {?SDK.SecurityOriginManager.SecurityOriginManager} */
     this._securityOriginManager = null;
+    /** @type {?SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel} */
+    this._cacheModel = null;
 
     /** @type {!WeakMap<!UI.ReportView.Section, !SDK.ServiceWorkerManager.ServiceWorkerRegistration>} */
     this._sectionToRegistration = new WeakMap();
@@ -121,6 +124,7 @@ export class ServiceWorkersView extends UI.Widget.VBox {
     this._securityOriginManager =
         /** @type {!SDK.SecurityOriginManager.SecurityOriginManager} */ (
             serviceWorkerManager.target().model(SDK.SecurityOriginManager.SecurityOriginManager));
+    this._cacheModel = serviceWorkerManager.target().model(SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel);
 
     for (const registration of this._manager.registrations().values()) {
       this._updateRegistration(registration);
@@ -274,7 +278,9 @@ export class ServiceWorkersView extends UI.Widget.VBox {
    * @param {boolean=} skipUpdate
    */
   _updateRegistration(registration, skipUpdate) {
+    console.log('_updateRegistration in ServiceWorkersView. skipUpdate =' + skipUpdate);
     let section = this._sections.get(registration);
+    console.log('_updateRegistration, section is ' + section);
     if (!section) {
       const title = registration.scopeURL;
       const reportView = this._getReportViewForOrigin(registration.securityOrigin);
@@ -352,6 +358,12 @@ export class Section {
 
     this._toolbar = section.createToolbar();
     this._toolbar.renderAsLinks();
+
+    this._updateView = new ServiceWorkerUpdateCycleView(manager);
+    this._showDetailsButton = new UI.Toolbar.ToolbarButton(
+        Common.UIString.UIString('Details'), undefined, Common.UIString.UIString('Details'));
+    //this._showDetailsButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._showDetailsClicked, this);
+    this._toolbar.appendToolbarItem(this._showDetailsButton);
     this._networkRequests = new UI.Toolbar.ToolbarButton(
         Common.UIString.UIString('Network requests'), undefined, Common.UIString.UIString('Network requests'));
     this._networkRequests.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._networkRequestsClicked, this);
@@ -378,6 +390,7 @@ export class Section {
     this._createSyncNotificationField(
         ls`Periodic Sync`, this._periodicSyncTagNameSetting.get(), ls`Periodic Sync tag`,
         tag => this._periodicSync(tag));
+    this._createUpdateCycleView();
 
     this._linkifier = new Components.Linkifier.Linkifier();
     /** @type {!Map<string, !Protocol.Target.TargetInfo>} */
@@ -496,10 +509,11 @@ export class Section {
    * @return {!Promise<void>}
    */
   _update() {
+    console.log('at the top of Section._update');
     const fingerprint = this._registration.fingerprint();
-    if (fingerprint === this._fingerprint) {
+    /* if (fingerprint === this._fingerprint) {
       return Promise.resolve();
-    }
+    }*/
     this._fingerprint = fingerprint;
 
     this._toolbar.setEnabled(!this._registration.isDeleted);
@@ -520,7 +534,8 @@ export class Section {
 
     if (active) {
       this._updateSourceField(active);
-      const localizedRunningStatus = SDK.ServiceWorkerManager.ServiceWorkerVersion.RunningStatus[active.runningStatus];
+      const localizedRunningStatus =
+          SDK.ServiceWorkerManager.ServiceWorkerVersion.RunningStatus[active.currentState.runningStatus];
       const activeEntry = this._addVersion(
           versionsStack, 'service-worker-active-circle', ls`#${active.id} activated and is ${localizedRunningStatus}`);
 
@@ -568,6 +583,33 @@ export class Section {
             installingEntry, Common.UIString.UIString('inspect'), this._inspectButtonClicked.bind(this, installing.id));
       }
     }
+
+    if (this._updateView) {
+      console.log('in Section._update, updateView is alive. About to refresh version.')
+      if (active) {
+        console.log('active is ' + active.id);
+        console.log('    ' + active.scriptResponseTime ? new Date(active.scriptResponseTime || 0) : 'not defined');
+      }
+      if (waiting) {
+        console.log('waiting is ' + waiting.id);
+        console.log('    ' + waiting.scriptResponseTime ? new Date(waiting.scriptResponseTime || 0) : 'not defined');
+      }
+      if (redundant) {
+        console.log('redundant is ' + redundant.id);
+        console.log(
+            '    ' + redundant.scriptResponseTime ? new Date(redundant.scriptResponseTime || 0) : 'not defined');
+      }
+      if (installing) {
+        console.log('installing is ' + installing.id);
+        console.log(
+            '    ' + installing.scriptResponseTime ? new Date(installing.scriptResponseTime || 0) : 'not defined');
+      }
+      const version = active ? active : (waiting ? waiting : installing);
+      if (version)
+        this._updateView.refresh(version);
+      else
+        console.log('in Section._update: No version to update.')
+    }
     return Promise.resolve();
   }
 
@@ -597,6 +639,13 @@ export class Section {
    */
   _unregisterButtonClicked(event) {
     this._manager.deleteRegistration(this._registration.id);
+  }
+
+  _createUpdateCycleView() {
+    const table = this._updateView.tableElement();
+    this._updateCycleForm =
+        this._wrapWidget(this._section.appendField('Update Cycle')).createChild('form', 'service-worker-timing-line');
+    this._updateCycleForm.appendChild(table);
   }
 
   /**
