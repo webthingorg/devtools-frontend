@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f508a1e_ba6ecdda",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-30T08:04:59Z",
+      "side": 1,
+      "message": "I almost reimplemented this feature, please PTAL agin.",
+      "revId": "ec74aeb0b280b0773bef9c4bf947248b50c5b3c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

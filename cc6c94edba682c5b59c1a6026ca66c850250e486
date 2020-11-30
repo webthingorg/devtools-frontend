@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "23b36d59_5c0ab499",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2107,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-30T08:04:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e5d25ec_ba6a6413",
+      "revId": "cc6c94edba682c5b59c1a6026ca66c850250e486",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7bc44b44_380a20c6",
@@ -66,6 +84,30 @@
       "writtenOn": "2020-11-24T12:10:08Z",
       "side": 1,
       "message": "typo: declarations",
+      "range": {
+        "startLine": 2126,
+        "startChar": 58,
+        "endLine": 2126,
+        "endChar": 69
+      },
+      "revId": "cc6c94edba682c5b59c1a6026ca66c850250e486",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2c4a000_e30a48ee",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2126,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-30T08:04:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7bc44b44_380a20c6",
       "range": {
         "startLine": 2126,
         "startChar": 58,
