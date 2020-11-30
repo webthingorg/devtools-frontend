@@ -123,6 +123,24 @@
       "parentUuid": "710310d4_ef7ef658",
       "revId": "4991282235c0fff8ad8b4fbbdc4a33be86a2ef8e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6ca7530_68ba6a85",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-30T10:12:08Z",
+      "side": 1,
+      "message": "That\u0027s my suggestion indeed. We can ask Peter to take a look, but to be honest I think this won\u0027t be controversial. Spacing things out seems almost objectively better than cramming everything into a single line with arbitrary separator characters :)",
+      "parentUuid": "5bf00b80_6ec862be",
+      "revId": "4991282235c0fff8ad8b4fbbdc4a33be86a2ef8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
