@@ -38,6 +38,7 @@ export class ValueInterpreterDisplay extends HTMLElement {
 
   set data(data: ValueDisplayData) {
     this.buffer = data.buffer;
+    this.endianness = data.endianness;
     this.valueTypes = data.valueTypes;
     this.valueTypeModeConfig = DEFAULT_MODE_MAPPING;
 
@@ -67,6 +68,7 @@ export class ValueInterpreterDisplay extends HTMLElement {
         }
 
         .value-types {
+          width: 100%;
           display: grid;
           grid-template-columns: auto auto 1fr 1fr;
           grid-column-gap: 24px;
@@ -93,9 +95,8 @@ export class ValueInterpreterDisplay extends HTMLElement {
         }
 
       </style>
-        <div class="value-types">
-          ${SORTED_VALUE_TYPES.map(type => this.valueTypes.has(type) ? this.showValue(type) : '')}
-        </div>
+      <div class="value-types">
+        ${SORTED_VALUE_TYPES.map(type => this.valueTypes.has(type) ? this.showValue(type) : '')}
       </div>
     `, this.shadow, {eventContext: this},
     );
