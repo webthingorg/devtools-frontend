@@ -3,6 +3,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8e0e1156_8611d295",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryValueInterpreter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-30T12:28:09Z",
+      "side": 1,
+      "message": "these styles seem redundant?",
+      "revId": "fffee9c3097e1d6f82a90f00c27bc499bed26d98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38185aa4_aa7e16e1",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryValueInterpreter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-30T12:28:09Z",
+      "side": 1,
+      "message": "do you need both divs? can you place the select label directly into the settings-toolbar element?",
+      "revId": "fffee9c3097e1d6f82a90f00c27bc499bed26d98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "035f4cbf_b0b4c289",
         "filename": "front_end/linear_memory_inspector/LinearMemoryValueInterpreter.ts",
         "patchSetId": 2
@@ -14,6 +48,23 @@
       "writtenOn": "2020-11-30T12:22:26Z",
       "side": 1,
       "message": "should not we use the `.chrome-select` class to style the select element?",
+      "revId": "fffee9c3097e1d6f82a90f00c27bc499bed26d98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0a52654_3a9c6c64",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryValueInterpreter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-30T12:28:09Z",
+      "side": 1,
+      "message": "are the options already localized?",
       "revId": "fffee9c3097e1d6f82a90f00c27bc499bed26d98",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
