@@ -33,6 +33,46 @@
       "message": "Hi Paul,\n\nSorry for the gigantic commit message, but I felt it\u0027d be good to give a good background on what\u0027s going on in this CL. The changes themselves are not big. I can try to split them up if you prefer as well.",
       "revId": "d93cfef330c36560694f26ed4952f6d9b39c2359",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12ee8ec3_d7ac505e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-30T11:10:49Z",
+      "side": 1,
+      "message": "LGTM with nit",
+      "revId": "d93cfef330c36560694f26ed4952f6d9b39c2359",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0368a332_e8e61130",
+        "filename": "front_end/sdk/EmulationModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-30T11:10:49Z",
+      "side": 1,
+      "message": "nit: wondering if we can just use the same validator for all three and parameterize the limits?",
+      "range": {
+        "startLine": 537,
+        "startChar": 18,
+        "endLine": 537,
+        "endChar": 53
+      },
+      "revId": "d93cfef330c36560694f26ed4952f6d9b39c2359",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
