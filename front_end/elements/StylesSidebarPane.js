@@ -1182,6 +1182,7 @@ export class StylePropertiesSection {
     }
 
     this._selectorElement.addEventListener('click', this._handleSelectorClick.bind(this), false);
+    this.element.addEventListener('contextmenu', this._handleContextMenuEvent.bind(this), false);
     this.element.addEventListener('mousedown', this._handleEmptySpaceMouseDown.bind(this), false);
     this.element.addEventListener('click', this._handleEmptySpaceClick.bind(this), false);
     this.element.addEventListener('mousemove', this._onMouseMove.bind(this), false);
@@ -2062,6 +2063,68 @@ export class StylePropertiesSection {
     }
     this._startEditingAtFirstPosition();
     event.consume(true);
+  }
+
+  /**
+   * @param {!Event} event
+   */
+  _handleContextMenuEvent(event) {
+    const target = /** @type {?Element} */ (event.target);
+    if (!target) {
+      return;
+    }
+
+    const selectorText = this._headerText();
+
+    const contextMenu = new UI.ContextMenu.ContextMenu(event);
+    contextMenu.clipboardSection().appendItem(ls`Copy selector`, () => {
+      Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(selectorText);
+    });
+
+    contextMenu.clipboardSection().appendItem(ls`Copy rule`, () => {
+      const ruleText = this._formatLeadingProperties().ruleText;
+      Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(ruleText);
+    });
+
+    contextMenu.clipboardSection().appendItem(ls`Copy all declarations`, () => {
+      const allDeclarationText = this._formatLeadingProperties().allDeclarationText;
+      Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(allDeclarationText);
+    });
+
+    contextMenu.show();
+  }
+
+  /**
+   * @return {{selectorText: string, allDeclarationText: string, ruleText: string}}
+   */
+  _formatLeadingProperties() {
+    const selectorText = this._headerText();
+    const indent = Common.Settings.Settings.instance().moduleSetting('textEditorIndent').get();
+
+    const style = this._style;
+    /** @type {!Array<string>} */
+    const lines = [];
+
+    // Invalid property should also be copied.
+    // For example: *display: inline.
+    for (const property of style.leadingProperties()) {
+      if (property.disabled) {
+        lines.push(`${indent}/* ${property.name}: ${property.value}; */`);
+      } else {
+        lines.push(`${indent}${property.name}: ${property.value};`);
+      }
+    }
+
+    /** @type {string} */
+    const allDeclarationText = lines.join('\n');
+    /** @type {string} */
+    const ruleText = `${selectorText} {\n${allDeclarationText}\n}`;
+
+    return {
+      selectorText,
+      allDeclarationText,
+      ruleText,
+    };
   }
 
   /**
