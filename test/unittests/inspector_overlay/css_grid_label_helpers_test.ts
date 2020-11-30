@@ -68,7 +68,7 @@ describe('drawGridLineNumbers label creation', () => {
     it(description, () => {
       const el = getGridLineNumberLabelContainer();
       const data = _normalizePositionData(config, bounds);
-      drawGridLineNumbers(el, data, {canvasWidth: 800, canvasHeight: 600});
+      drawGridLineNumbers(el, data, {canvasWidth: 800, canvasHeight: 600}, 1);
 
       assert.strictEqual(el.children.length, expectedLabels.length, 'The right number of labels got created');
       assert.strictEqual(el.textContent, expectedLabels.join(''), 'The labels text is correct');
@@ -712,8 +712,8 @@ describe('drawGridTrackSizes label creation', () => {
   for (const {description, config, expectedLabels} of TESTS) {
     it(description, () => {
       const el = getGridTrackSizesLabelContainer();
-      drawGridTrackSizes(el, config.rowTrackSizes, 'row', {canvasWidth: 800, canvasHeight: 600});
-      drawGridTrackSizes(el, config.columnTrackSizes, 'column', {canvasWidth: 800, canvasHeight: 600});
+      drawGridTrackSizes(el, config.rowTrackSizes, 'row', {canvasWidth: 800, canvasHeight: 600}, 1);
+      drawGridTrackSizes(el, config.columnTrackSizes, 'column', {canvasWidth: 800, canvasHeight: 600}, 1);
       assert.strictEqual(el.children.length, expectedLabels.length, 'The right number of labels got created');
       assert.strictEqual(el.textContent, expectedLabels.join(''), 'The labels text is correct');
     });

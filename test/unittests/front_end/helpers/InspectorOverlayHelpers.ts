@@ -126,7 +126,7 @@ export function drawGridLineNumbersAndAssertLabels(
 
   // Note that this test helper is focused on testing the number and orientation of the labels, not their exact position
   // so we pass the identity matrix here in all cases, even when a different writing mode is provided.
-  drawGridLineNumbers(el, data, canvasSize, new DOMMatrix(), config.writingMode);
+  drawGridLineNumbers(el, data, canvasSize, 1, new DOMMatrix(), config.writingMode);
   let totalLabelCount = 0;
   for (const {className, count} of expectedLabels) {
     const labels =
@@ -145,7 +145,7 @@ export function drawGridLineNamesAndAssertLabels(
     expectedLabels: ExpectedLineNameLabel[]) {
   const el = getGridLineNameLabelContainer(layerId);
   const data = _normalizePositionData(config, bounds);
-  drawGridLineNames(el, data as GridPositionNormalizedDataWithNames, canvasSize);
+  drawGridLineNames(el, data as GridPositionNormalizedDataWithNames, canvasSize, 1);
 
   const labels = el.querySelectorAll(`.${GRID_LINE_NAME_LABEL_CONTAINER_CLASS} .grid-label-content`);
   assert.strictEqual(labels.length, expectedLabels.length, 'The right total number of line name labels were displayed');
@@ -245,7 +245,7 @@ export function drawMultipleGridLineNumbersAndAssertLabels(
   for (const item of configs) {
     const el = getGridLineNumberLabelContainer(item.layerId);
     const data = _normalizePositionData(item.config, bounds);
-    drawGridLineNumbers(el, data, canvasSize);
+    drawGridLineNumbers(el, data, canvasSize, 1);
   }
 
   let totalLabelCount = 0;
