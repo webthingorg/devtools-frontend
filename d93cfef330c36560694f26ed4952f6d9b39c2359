@@ -52,6 +52,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "67f909b4_b3e889fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1111977
+      },
+      "writtenOn": "2020-11-30T12:30:49Z",
+      "side": 1,
+      "message": "Thanks for reviewing this so quickly :-)\n\nIs it OK to keep the \"shift-drag along the y-axis\" hint text as-is?",
+      "revId": "d93cfef330c36560694f26ed4952f6d9b39c2359",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0368a332_e8e61130",
@@ -65,6 +82,30 @@
       "writtenOn": "2020-11-30T11:10:49Z",
       "side": 1,
       "message": "nit: wondering if we can just use the same validator for all three and parameterize the limits?",
+      "range": {
+        "startLine": 537,
+        "startChar": 18,
+        "endLine": 537,
+        "endChar": 53
+      },
+      "revId": "d93cfef330c36560694f26ed4952f6d9b39c2359",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "186bfc83_06d4736a",
+        "filename": "front_end/sdk/EmulationModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1111977
+      },
+      "writtenOn": "2020-11-30T12:30:49Z",
+      "side": 1,
+      "message": "I thought about this but ended up following a similar pattern to SDK.EmulationModel.Location, which has multiple validators. We\u0027d have to either duplicate the limits here and in SensorsView\u0027s _createAxisInput()/_createDeviceOrientationOverrideElement() or do something like\n\n    static alphaAngleValidator(value) {\n      return angleRangeValidator(value, 0, 360);\n    }\n\ndid you have the latter in mind?",
+      "parentUuid": "0368a332_e8e61130",
       "range": {
         "startLine": 537,
         "startChar": 18,
