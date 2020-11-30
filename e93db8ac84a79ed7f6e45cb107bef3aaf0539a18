@@ -52,6 +52,24 @@
       "parentUuid": "c213a3a4_8fbabd92",
       "revId": "e93db8ac84a79ed7f6e45cb107bef3aaf0539a18",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1bd07293_76df40a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-30T08:40:01Z",
+      "side": 1,
+      "message": "vmpstr@, could you PTAL the question w.r.t. `contain: size`? Not sure if this is a bug or somehow intended behavior.",
+      "parentUuid": "afe27c48_8134699e",
+      "revId": "e93db8ac84a79ed7f6e45cb107bef3aaf0539a18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
