@@ -33,6 +33,24 @@
       "message": "Note: I\u0027ve chosen the closest color here from the available variables. The gotcha is that we\u0027re now using a text variable for a background color. Is that acceptable?",
       "revId": "4a1f31b7e27bc913f2dea1c728f2e43c824a9d62",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52de2383_b0f8655a",
+        "filename": "front_end/animation/animationTimeline.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-30T15:01:58Z",
+      "side": 1,
+      "message": "I think it\u0027s non ideal, but acceptable for now to enable us to remove the color patching. We\u0027re going to a full audit after that, so we can revisit this then.\n\nDo you think it\u0027s worth keeping a tracking bug for \"post dark mode migration revisits\" or something? Or we could add it to the \"Unclear colors\" section of the tracking sheet?",
+      "parentUuid": "fe54f5a9_852bb74e",
+      "revId": "4a1f31b7e27bc913f2dea1c728f2e43c824a9d62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
