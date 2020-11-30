@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2ee28d6_f15d1f80",
+        "filename": "front_end/accessibility/axBreadcrumbs.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-30T15:03:44Z",
+      "side": 1,
+      "message": "I think details-hairline is best for borders providing it looks OK / not out of place. That said we do use blue focus borders in a few places so I don\u0027t feel too strongly here.\n\nGiven we can and will revisit after the migration is done let\u0027s stick with the color that\u0027s the closest approximation.",
+      "parentUuid": "000d163c_f1cd9f68",
+      "revId": "5eec98724112f4de8f809c1594b55cac7eb59e48",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7cf4dcdb_9719ef88",
@@ -31,6 +49,30 @@
       "writtenOn": "2020-11-30T12:54:35Z",
       "side": 1,
       "message": "I didn\u0027t change any of the ButtonText/HighlightText colors in this file, per my question on the doc. Let me know if I should.",
+      "range": {
+        "startLine": 123,
+        "startChar": 22,
+        "endLine": 123,
+        "endChar": 32
+      },
+      "revId": "5eec98724112f4de8f809c1594b55cac7eb59e48",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66fdf515_f265f8db",
+        "filename": "front_end/accessibility/axBreadcrumbs.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-30T15:03:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7cf4dcdb_9719ef88",
       "range": {
         "startLine": 123,
         "startChar": 22,
