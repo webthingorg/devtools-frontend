@@ -89,6 +89,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2a42f995_b81cfaf8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1111977
+      },
+      "writtenOn": "2020-11-30T12:49:47Z",
+      "side": 1,
+      "message": "It\u0027s done in SensorsView\u0027s _enableOrientationFields() -- I touch upon why the text might not make much sense anymore at the end of the commit message in this CL.",
+      "parentUuid": "9fe20a04_b8325f5f",
+      "revId": "d93cfef330c36560694f26ed4952f6d9b39c2359",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0368a332_e8e61130",
         "filename": "front_end/sdk/EmulationModel.js",
         "patchSetId": 2
