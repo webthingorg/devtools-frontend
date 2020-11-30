@@ -1990,6 +1990,9 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
         lines.push(`${property.name}: ${property.value};`);
       }
     }
+
+    // TODO: Use textEditorIndent.
+    // Common.Settings.Settings.instance().moduleSetting('textEditorIndent').get();
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(lines.join('\n'));
   }
 
