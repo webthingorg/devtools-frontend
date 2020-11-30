@@ -94,10 +94,13 @@ describe('Recorder', () => {
     await page.click("span#span2");
     await page.type("aria/Input", "test");
     await page.click("aria/Hello World");
-    await page.mainFrame().childFrames()[0].click("aria/iframe button");
-    await page.mainFrame().childFrames()[0].childFrames()[0].click("aria/Inner iframe button");
+    const frame1 = page.mainFrame().childFrames()[0];
+    await frame1.click("aria/iframe button");
+    const frame2 = frame1.childFrames()[0];
+    await frame2.click("aria/Inner iframe button");
     await page.click("aria/Open Popup");
-    await (await browser.pages()).find(p => p.url() === "https://<url>/test/e2e/resources/recorder/popup.html").click("aria/Button in Popup");
+    const target1 = await browser.pages().find(p => p.url() === "https://<url>/test/e2e/resources/recorder/popup.html");
+    await target1.click("aria/Button in Popup");
     await browser.close();
 })();
 
