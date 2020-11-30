@@ -16,6 +16,23 @@
       "message": "PTAL, thanks!",
       "revId": "58dc07b60b021802140b9a3ff80b11110c93e5e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "442a111e_6b205e34",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-30T12:09:56Z",
+      "side": 1,
+      "message": "This is already an improvement, but IMHO it would be even more readable (and simpler to implement, too!) to do what I suggested, i.e. use blocks for multi-line steps. That way we don\u0027t even need to number the variables, and each multi-line step is clearly separated in the output. WDYT?",
+      "revId": "58dc07b60b021802140b9a3ff80b11110c93e5e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
