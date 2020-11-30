@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "000d163c_f1cd9f68",
+        "filename": "front_end/accessibility/axBreadcrumbs.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-30T12:54:35Z",
+      "side": 1,
+      "message": "This color is the closest approximation of the original. However, it\u0027s a border, so maybe --color-details-hairline is more appropriate? Let me know what you prefer.\n\nAlso note that it used to be translucent but now it\u0027s a solid color. I think that\u0027s fine (and probably a good thing).",
+      "revId": "5eec98724112f4de8f809c1594b55cac7eb59e48",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cf4dcdb_9719ef88",
+        "filename": "front_end/accessibility/axBreadcrumbs.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-30T12:54:35Z",
+      "side": 1,
+      "message": "I didn\u0027t change any of the ButtonText/HighlightText colors in this file, per my question on the doc. Let me know if I should.",
+      "range": {
+        "startLine": 123,
+        "startChar": 22,
+        "endLine": 123,
+        "endChar": 32
+      },
+      "revId": "5eec98724112f4de8f809c1594b55cac7eb59e48",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
