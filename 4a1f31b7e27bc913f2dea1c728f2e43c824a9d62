@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "576bf29a_13e48e13",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-30T13:28:03Z",
+      "side": 1,
+      "message": "This was a large one…",
+      "revId": "4a1f31b7e27bc913f2dea1c728f2e43c824a9d62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe54f5a9_852bb74e",
+        "filename": "front_end/animation/animationTimeline.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-30T13:28:03Z",
+      "side": 1,
+      "message": "Note: I\u0027ve chosen the closest color here from the available variables. The gotcha is that we\u0027re now using a text variable for a background color. Is that acceptable?",
+      "revId": "4a1f31b7e27bc913f2dea1c728f2e43c824a9d62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
