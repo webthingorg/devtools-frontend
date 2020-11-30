@@ -33,6 +33,24 @@
       "message": "This is already an improvement, but IMHO it would be even more readable (and simpler to implement, too!) to do what I suggested, i.e. use blocks for multi-line steps. That way we don\u0027t even need to number the variables, and each multi-line step is clearly separated in the output. WDYT?",
       "revId": "58dc07b60b021802140b9a3ff80b11110c93e5e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "accd6e01_445dd5be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-11-30T13:48:27Z",
+      "side": 1,
+      "message": "I agree that this would be a cleaner solution from a technical standpoint \nbut I think it could be confusing (especially for less experienced developers) because it does not look very natural.\nOn the other side, I\u0027m planning to add waitFor functions for frames and targets to reduce the brittleness of executions - and I think it would be great to store their results in a local variable instead of adding a wait for for every step.\nWDYT?",
+      "parentUuid": "442a111e_6b205e34",
+      "revId": "58dc07b60b021802140b9a3ff80b11110c93e5e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
