@@ -3,7 +3,13 @@
   <message name="IDS_DEVTOOLS_2765f88501fd87c38912056b8a80a800" desc="Title of the 'Linear memory inspector' tool in the bottom drawer">
     Memory Inspector
   </message>
+  <message name="IDS_DEVTOOLS_3daf5d326175840ae98222894dddf3b0" desc="Label in the 'Linear memory inspector' tool">
+    Change Endianness
+  </message>
   <message name="IDS_DEVTOOLS_73c853d29cadf796b94a2949aed63493" desc="Label in the 'Linear memory inspector' tool">
     No open inspections
+  </message>
+  <message name="IDS_DEVTOOLS_aaf28878cda7c688f16a2ed379371d6d" desc="Linear memory inspector settings button to open and close settings">
+    Toggle value type settings
   </message>
 </grit-part>
