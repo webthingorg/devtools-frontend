@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77c86881_5430b862",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-30T12:16:50Z",
+      "side": 1,
+      "message": "Hi Benedikt, hi Alex,\n\nI\u0027m adding the functionality to change the endianness in the linear memory inspector.\n\nPTAL!",
+      "revId": "b4c8fb778c573318f9a5db6a6dde49331d505d05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
