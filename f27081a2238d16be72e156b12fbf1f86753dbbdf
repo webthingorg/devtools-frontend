@@ -16,6 +16,23 @@
       "message": "Thanks for the review Alex!",
       "revId": "f27081a2238d16be72e156b12fbf1f86753dbbdf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4afcd52f_4c05dd05",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryValueInterpreter.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-11-30T14:30:27Z",
+      "side": 1,
+      "message": "Should it be reflected in the grdp files? I am not sure if dynamic calls actually work for localization?\n\nPerhaps it could be:\n\n```\nexport enum Endianness {\n  Little \u003d ls`Little Endian`,\n  Big \u003d ls`Big Endian`\n}\n```",
+      "revId": "f27081a2238d16be72e156b12fbf1f86753dbbdf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
