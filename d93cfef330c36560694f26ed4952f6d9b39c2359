@@ -114,6 +114,30 @@
       },
       "revId": "d93cfef330c36560694f26ed4952f6d9b39c2359",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f4e066f_7f8ac14b",
+        "filename": "front_end/sdk/EmulationModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-11-30T12:37:09Z",
+      "side": 1,
+      "message": "Yes pretty much! Or angleRangeValidator(value, {min: 0, max: 360}) just so it\u0027s a bit clearer that we\u0027re setting limits?",
+      "parentUuid": "186bfc83_06d4736a",
+      "range": {
+        "startLine": 537,
+        "startChar": 18,
+        "endLine": 537,
+        "endChar": 53
+      },
+      "revId": "d93cfef330c36560694f26ed4952f6d9b39c2359",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
