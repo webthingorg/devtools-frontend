@@ -62,6 +62,14 @@ export class InspectorBackend {
   }
 
   /**
+   * @param {string} error
+   * @param {!Object} messageObject
+   */
+  static reportProtocolWarning(error, messageObject) {
+    console.warn(error + ': ' + JSON.stringify(messageObject));
+  }
+
+  /**
    * @return {boolean}
    */
   isInitialized() {
@@ -1337,8 +1345,8 @@ class _DispatcherPrototype {
     }
 
     if (!this._eventArgs[messageObject.method]) {
-      InspectorBackend.reportProtocolError(
-          `Protocol Error: Attempted to dispatch an unspecified method '${messageObject.method}'`, messageObject);
+      InspectorBackend.reportProtocolWarning(
+          `Protocol Warning: Attempted to dispatch an unspecified method '${messageObject.method}'`, messageObject);
       return;
     }
 
