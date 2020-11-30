@@ -16,6 +16,24 @@
       "message": "This doesn\u0027t help understand this code, so let\u0027s remove this comment.",
       "revId": "ac9e1d172a6f4a5d956149fb9e676877d8962c6a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "017094f4_9d9cfc5c",
+        "filename": "front_end/components/ImagePreview.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-11-30T10:10:39Z",
+      "side": 1,
+      "message": "OK.",
+      "parentUuid": "7c69b16c_d58eb778",
+      "revId": "ac9e1d172a6f4a5d956149fb9e676877d8962c6a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
