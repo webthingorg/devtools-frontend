@@ -16,6 +16,24 @@
       "message": "PTAL. I am thinking if it\u0027s worth adding an explicit test for various device emulation factors? ",
       "revId": "dbb9bb81f5307f9b9a89525704fc79cc6ff7744e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0555db15_b8240d0f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-30T14:49:30Z",
+      "side": 1,
+      "message": "\u003e PTAL. I am thinking if it\u0027s worth adding an explicit test for various device emulation factors? \n\nSounds useful!",
+      "parentUuid": "7767edf4_271b22ed",
+      "revId": "dbb9bb81f5307f9b9a89525704fc79cc6ff7744e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
