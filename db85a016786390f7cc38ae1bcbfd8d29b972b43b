@@ -33,6 +33,46 @@
       "message": "ptal",
       "revId": "db85a016786390f7cc38ae1bcbfd8d29b972b43b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8d6f18e_1d4b8ae6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-30T09:02:39Z",
+      "side": 1,
+      "message": "LGTM % !important",
+      "revId": "db85a016786390f7cc38ae1bcbfd8d29b972b43b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cd199f0_084090ec",
+        "filename": "front_end/ui/inspectorCommon.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-11-30T09:02:39Z",
+      "side": 1,
+      "message": "variables cannot have an !important in them I don\u0027t think; you\u0027d need to put this after each usage:\n\nfont-size: var(--monospace-font-size) !important;",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 41
+      },
+      "revId": "db85a016786390f7cc38ae1bcbfd8d29b972b43b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
