@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76a91cec_2e371df8",
+        "filename": "front_end/recorder/RecordingSession.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-30T09:41:50Z",
+      "side": 1,
+      "message": "typo: Therefore",
+      "range": {
+        "startLine": 261,
+        "startChar": 41,
+        "endLine": 261,
+        "endChar": 49
+      },
+      "revId": "2caacc916c028b8192e148f7c20b62c3b86ccbb9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

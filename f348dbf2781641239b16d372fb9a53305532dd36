@@ -121,6 +121,24 @@
       "parentUuid": "7c13d992_71085c66",
       "revId": "f348dbf2781641239b16d372fb9a53305532dd36",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55c898fa_f205ab3a",
+        "filename": "test/e2e/recorder/recorder_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-11-30T09:41:50Z",
+      "side": 1,
+      "message": "sgtm",
+      "parentUuid": "05e72ad2_26916b78",
+      "revId": "f348dbf2781641239b16d372fb9a53305532dd36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
