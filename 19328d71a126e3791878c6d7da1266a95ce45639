@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88177e01_59578b54",
+        "filename": "front_end/network/RequestTrustTokensView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-30T12:10:15Z",
+      "side": 1,
+      "message": "The `RequestTrustTokensReport` custom element is re-using the `Protocol.` data structure. Should we introduce a separate data structure and copy the fields over? IMO as the protocol TrustTokenParams doesn\u0027t have any methods/exposes behavior, its fine to re-use here. Wdyt?",
+      "range": {
+        "startLine": 18,
+        "startChar": 4,
+        "endLine": 18,
+        "endChar": 34
+      },
+      "revId": "19328d71a126e3791878c6d7da1266a95ce45639",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2653e713_338e4592",
+        "filename": "front_end/network/RequestTrustTokensView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-11-30T12:10:15Z",
+      "side": 1,
+      "message": "The standard `display: block` caused the \u003cul\u003e to have a lot of empty space on the bottom/top even though margins/paddings are 0. Making it a flex container works, any better solutions?",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 33
+      },
+      "revId": "19328d71a126e3791878c6d7da1266a95ce45639",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
