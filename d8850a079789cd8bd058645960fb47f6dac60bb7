@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ad21fcc_2a714d72",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-30T05:52:32Z",
+      "side": 1,
+      "message": "LGTM % comments",
+      "revId": "d8850a079789cd8bd058645960fb47f6dac60bb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54f8d726_a761fb73",
+        "filename": "front_end/source_frame/SourceFrame.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 926,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-30T05:52:32Z",
+      "side": 1,
+      "message": "Why +1?",
+      "revId": "d8850a079789cd8bd058645960fb47f6dac60bb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebbd64e8_b797ea8e",
+        "filename": "front_end/sources/GoToLineQuickOpen.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-30T05:52:32Z",
+      "side": 1,
+      "message": "If we have a +1, shouldn\u0027t we also pad the lastByteCodeOffset with zeroes?",
+      "revId": "d8850a079789cd8bd058645960fb47f6dac60bb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9d79ba1_4edfc469",
+        "filename": "front_end/sources/GoToLineQuickOpen.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-11-30T05:52:32Z",
+      "side": 1,
+      "message": "Probably this should be `sourceFrame.wasmDisassembly` here?",
+      "revId": "d8850a079789cd8bd058645960fb47f6dac60bb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
