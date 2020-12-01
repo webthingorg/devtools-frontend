@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45c117e6_1518ddef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-01T17:15:27Z",
+      "side": 1,
+      "message": "PTAL - follow-up from https://crrev.com/c/2567118 where I realised we need themeColors.css injected into the karma unit test setup.",
+      "revId": "4a2f41f922dfb6a8163b07aef50c3a9e7fd9cd0a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
