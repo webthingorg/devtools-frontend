@@ -16,6 +16,23 @@
       "message": "Hi Jack, PTAL at this unit test, thanks!",
       "revId": "57202f11812f2ce362e5da4103e489685deea99d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83deed67_128a3608",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-01T15:31:12Z",
+      "side": 1,
+      "message": "Good test!",
+      "revId": "57202f11812f2ce362e5da4103e489685deea99d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
