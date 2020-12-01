@@ -51,6 +51,24 @@
       "parentUuid": "4afcd52f_4c05dd05",
       "revId": "f27081a2238d16be72e156b12fbf1f86753dbbdf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0e764a1_66052c5d",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryValueInterpreter.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-12-01T08:36:50Z",
+      "side": 1,
+      "message": "I remember that I have seen dynamic calls to ls previously in the codebase but I am not sure how they work. Perhaps, you can use numeric enums to avoid the string duplication. E.g., like \n\n```\nenum Direction {\n  Up,\n  Down,\n  Left,\n  Right,\n}\n```",
+      "parentUuid": "7874e583_7abb7a38",
+      "revId": "f27081a2238d16be72e156b12fbf1f86753dbbdf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
