@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70dbc887_5d0cbe12",
+        "filename": "front_end/elements/elements-meta.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-01T11:24:01Z",
+      "side": 0,
+      "message": "Yeeeessss 🎉",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 23
+      },
+      "revId": "16f4d1092fa867871946fe843eede3496b93cce4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f42d07c4_30b2d8b8",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-01T11:24:01Z",
+      "side": 0,
+      "message": "Why was this type removed? ActionRegistration.ts appears to be exporting it as it should?",
+      "range": {
+        "startLine": 431,
+        "startChar": 54,
+        "endLine": 431,
+        "endChar": 61
+      },
+      "revId": "16f4d1092fa867871946fe843eede3496b93cce4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

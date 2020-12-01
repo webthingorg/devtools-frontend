@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3632fc59_346ccdfc",
+        "filename": "front_end/ui/ActionRegistration.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-01T11:24:01Z",
+      "side": 1,
+      "message": "Nit: `interface ActionDelegate`",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 27
+      },
+      "revId": "1397713077be25be6b2e60e35b02a8e557104551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0228151_857c4d7e",
+        "filename": "front_end/ui/ActionRegistration.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-01T11:24:01Z",
+      "side": 1,
+      "message": "Nit: when this becomes an interface, we can remove the implementation of this method.",
+      "range": {
+        "startLine": 183,
+        "startChar": 4,
+        "endLine": 183,
+        "endChar": 39
+      },
+      "revId": "1397713077be25be6b2e60e35b02a8e557104551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8216f9ef_546de19c",
         "filename": "front_end/ui/ActionRegistration.ts",
         "patchSetId": 3
@@ -19,6 +65,53 @@
         "startChar": 0,
         "endLine": 337,
         "endChar": 31
+      },
+      "revId": "1397713077be25be6b2e60e35b02a8e557104551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19136b0c_8304e6dd",
+        "filename": "front_end/ui/ActionRegistration.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-01T11:24:01Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8216f9ef_546de19c",
+      "range": {
+        "startLine": 337,
+        "startChar": 0,
+        "endLine": 337,
+        "endChar": 31
+      },
+      "revId": "1397713077be25be6b2e60e35b02a8e557104551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a22ee454_60647cdc",
+        "filename": "front_end/ui/ActionRegistration.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-01T11:24:01Z",
+      "side": 1,
+      "message": "In a follow-up, let\u0027s add some documentation on this interface to explain what each property does. E.g. this allows us to document all the variants of `contextTypes`.",
+      "range": {
+        "startLine": 365,
+        "startChar": 0,
+        "endLine": 365,
+        "endChar": 35
       },
       "revId": "1397713077be25be6b2e60e35b02a8e557104551",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
