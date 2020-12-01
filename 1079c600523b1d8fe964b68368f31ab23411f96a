@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f64bc0b8_71e41080",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-01T14:45:45Z",
+      "side": 1,
+      "message": "This LGTM, but I think we should run the new CSS variable addition by Peter Muller as he\u0027s owning the theming itself.\n\nPeter, WDYT?",
+      "revId": "1079c600523b1d8fe964b68368f31ab23411f96a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
