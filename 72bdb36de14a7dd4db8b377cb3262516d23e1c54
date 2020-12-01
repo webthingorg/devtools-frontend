@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f397531_657e5b12",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-12-01T12:53:44Z",
+      "side": 1,
+      "message": "Thanks Benedikt and Jack for the reviews!\n",
+      "revId": "72bdb36de14a7dd4db8b377cb3262516d23e1c54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
