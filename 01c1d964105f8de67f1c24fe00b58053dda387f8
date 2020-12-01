@@ -16,6 +16,24 @@
       "message": "I think using `this.property.text` directly can avoid creating this temporary variable and remain one line.",
       "revId": "01c1d964105f8de67f1c24fe00b58053dda387f8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ba25709_488f7805",
+        "filename": "front_end/elements/StylePropertyTreeElement.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-12-01T10:32:03Z",
+      "side": 1,
+      "message": "In user agent stylesheet, `this.property.text` is undefined.",
+      "parentUuid": "265fead1_109e4051",
+      "revId": "01c1d964105f8de67f1c24fe00b58053dda387f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
