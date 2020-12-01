@@ -87,6 +87,24 @@
       "parentUuid": "b0e764a1_66052c5d",
       "revId": "f27081a2238d16be72e156b12fbf1f86753dbbdf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c859b41a_fa5b0bf0",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryValueInterpreter.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-12-01T14:23:25Z",
+      "side": 1,
+      "message": "Sounds good to me, thanks for investigating this!",
+      "parentUuid": "8d0717a8_ecab1019",
+      "revId": "f27081a2238d16be72e156b12fbf1f86753dbbdf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
