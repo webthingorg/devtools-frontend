@@ -430,7 +430,7 @@ export let ShowSurveyResult;
 export let CanShowSurveyResult;
 
 /**
- * Enum for recordPerformanceHistogram
+ * Enum for recordPerformanceHistogram test
  * Warning: There is another definition of this enum in the DevTools code
  * base, keep them in sync:
  * front_end/devtools_compatibility.js
