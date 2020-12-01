@@ -22,6 +22,30 @@
       },
       "revId": "e519df1ae205c87b22abc095b97ecd7413638316",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e42ca207_7436270d",
+        "filename": "front_end/elements/module.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-12-01T13:23:19Z",
+      "side": 1,
+      "message": "Thanks,I\u0027ll move here later.",
+      "parentUuid": "62272234_55719545",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 6
+      },
+      "revId": "e519df1ae205c87b22abc095b97ecd7413638316",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
