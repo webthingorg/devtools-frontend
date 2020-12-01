@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "bceb6ece74d6c90baeb058fce9415470e7d170be",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53d5fce9_530cb405",
+        "filename": "test/unittests/front_end/ui/components/DataGrid_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-01T17:11:35Z",
+      "side": 1,
+      "message": "this change is because now the data-grid uses CSS variables from our theme, and those variables aren\u0027t included in the unit test environment, the table header ends up not having a border (because border: 1px solid var(--foo-bar) where foo-bar doesn\u0027t exist \u003d no border).\n\nI will follow up in a separate CL to fix this (and have logged https://crbug.com/1154305).",
+      "range": {
+        "startLine": 586,
+        "startChar": 0,
+        "endLine": 586,
+        "endChar": 56
+      },
+      "revId": "bceb6ece74d6c90baeb058fce9415470e7d170be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
