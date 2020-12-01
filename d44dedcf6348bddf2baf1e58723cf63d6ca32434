@@ -60,6 +60,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "945d8ad3_a9ff666a",
+        "filename": "front_end/network/RequestTrustTokensView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-01T09:00:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14a58bdc_163980f2",
+      "range": {
+        "startLine": 52,
+        "startChar": 45,
+        "endLine": 52,
+        "endChar": 57
+      },
+      "revId": "d44dedcf6348bddf2baf1e58723cf63d6ca32434",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "65347954_74fd3b4b",
         "filename": "front_end/network/RequestTrustTokensView.ts",
         "patchSetId": 2
@@ -94,6 +118,30 @@
       "writtenOn": "2020-11-30T15:06:53Z",
       "side": 1,
       "message": "again, can we be more explicit in handling the null case and error or just early return?",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 82
+      },
+      "revId": "d44dedcf6348bddf2baf1e58723cf63d6ca32434",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d92034ca_461ddb20",
+        "filename": "front_end/network/RequestTrustTokensView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-01T09:00:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95be6c01_d6964415",
       "range": {
         "startLine": 79,
         "startChar": 0,
