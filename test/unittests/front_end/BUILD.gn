@@ -14,6 +14,7 @@ group("front_end") {
     "coverage",
     "dom_extension",
     "elements",
+    "emulation",
     "formatter_worker",
     "inline_editor",
     "issues",
