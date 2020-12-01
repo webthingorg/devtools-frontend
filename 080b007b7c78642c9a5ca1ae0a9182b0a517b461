@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "636f8fc8_26f0dbfc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-01T12:22:57Z",
+      "side": 1,
+      "message": "Could you also tag it against the bug 1152736 please? \n\nThanks!",
+      "revId": "080b007b7c78642c9a5ca1ae0a9182b0a517b461",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
