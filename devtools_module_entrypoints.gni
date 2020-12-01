@@ -154,6 +154,7 @@ generated_typescript_entrypoint_sources = [
   "$resources_out_dir/source_frame/source_frame-legacy.js",
   "$resources_out_dir/source_frame/source_frame.js",
   "$resources_out_dir/sources/sources-legacy.js",
+  "$resources_out_dir/sources/sources-meta.js",
   "$resources_out_dir/sources/sources.js",
   "$resources_out_dir/startup/startup.js",
   "$resources_out_dir/test_runner/test_runner.js",

@@ -38,6 +38,9 @@ import * as UI from '../ui/ui.js';
 
 import {UISourceCodeFrame} from './UISourceCodeFrame.js';
 
+/** @type {!WatchExpressionsSidebarPane} */
+let watchExpressionsSidebarPaneInstance;
+
 /**
  * @implements {UI.ActionRegistration.ActionDelegate}
  * @implements {UI.Toolbar.ItemsProvider}
@@ -45,6 +48,9 @@ import {UISourceCodeFrame} from './UISourceCodeFrame.js';
  * @unrestricted
  */
 export class WatchExpressionsSidebarPane extends UI.ThrottledWidget.ThrottledWidget {
+  /**
+   * @private
+   */
   constructor() {
     super(true);
     this.registerRequiredCSS('object_ui/objectValue.css', {enableLegacyPatching: true});
@@ -78,6 +84,13 @@ export class WatchExpressionsSidebarPane extends UI.ThrottledWidget.ThrottledWid
     UI.Context.Context.instance().addFlavorChangeListener(SDK.DebuggerModel.CallFrame, this.update, this);
     this._linkifier = new Components.Linkifier.Linkifier();
     this.update();
+  }
+
+  static instance() {
+    if (!watchExpressionsSidebarPaneInstance) {
+      watchExpressionsSidebarPaneInstance = new WatchExpressionsSidebarPane();
+    }
+    return watchExpressionsSidebarPaneInstance;
   }
 
   /**

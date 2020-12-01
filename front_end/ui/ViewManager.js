@@ -30,7 +30,9 @@ export const ViewLocationValues = {
   PANEL: 'panel',
   SETTINGS_VIEW: 'settings-view',
   ELEMENTS_SIDEBAR: 'elements-sidebar',
-  SOURCES_SIDEBAR_BOTTOM: 'sources.sidebar-bottom'
+  SOURCES_SIDEBAR_BOTTOM: 'sources.sidebar-bottom',
+  NAVIGATOR_VIEW: 'navigator-view',
+  DRAWER_VIEW: 'drawer-view',
 };
 
 /**
