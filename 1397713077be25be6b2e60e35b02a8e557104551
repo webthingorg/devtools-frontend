@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8216f9ef_546de19c",
+        "filename": "front_end/ui/ActionRegistration.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-12-01T02:43:33Z",
+      "side": 1,
+      "message": "This is not defined as an enum because TypeScript string enums cannot have computed values. \u0027type ActionCategory\u0027 below is defined as a workaround.",
+      "range": {
+        "startLine": 337,
+        "startChar": 0,
+        "endLine": 337,
+        "endChar": 31
+      },
+      "revId": "1397713077be25be6b2e60e35b02a8e557104551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
