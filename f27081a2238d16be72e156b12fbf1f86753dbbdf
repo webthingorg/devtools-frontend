@@ -33,6 +33,24 @@
       "message": "Should it be reflected in the grdp files? I am not sure if dynamic calls actually work for localization?\n\nPerhaps it could be:\n\n```\nexport enum Endianness {\n  Little \u003d ls`Little Endian`,\n  Big \u003d ls`Big Endian`\n}\n```",
       "revId": "f27081a2238d16be72e156b12fbf1f86753dbbdf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7874e583_7abb7a38",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryValueInterpreter.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-12-01T08:27:29Z",
+      "side": 1,
+      "message": "It didn\u0027t work to add it to the enum unfortunately (because of ts), but I\u0027ve introduced methods that replicate the strings now, and also for all the other types in the same file. Will go through the other files later to also fix them properly. Thanks a lot for pointing this out! Looking at the code base it seems that we want to have names for the enums (string enums), but then the names are duplicate with my method that I introduced for localization. WDYT?",
+      "parentUuid": "4afcd52f_4c05dd05",
+      "revId": "f27081a2238d16be72e156b12fbf1f86753dbbdf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
