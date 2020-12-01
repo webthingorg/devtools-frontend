@@ -7,7 +7,7 @@ import * as os from 'os';
 import * as puppeteer from 'puppeteer';
 
 import {reloadDevTools} from '../conductor/hooks.js';
-import {getBrowserAndPages, getHostedModeServerPort} from '../conductor/puppeteer-state.js';
+import {getBrowserAndPages, getTestServerPort} from '../conductor/puppeteer-state.js';
 import {AsyncScope} from './mocha-extensions.js';
 
 declare global {
@@ -311,8 +311,7 @@ export const goTo = async (url: string) => {
 
 export const overridePermissions = async (permissions: puppeteer.Permission[]) => {
   const {browser} = getBrowserAndPages();
-  await browser.defaultBrowserContext().overridePermissions(
-      `https://localhost:${getHostedModeServerPort()}`, permissions);
+  await browser.defaultBrowserContext().overridePermissions(`https://localhost:${getTestServerPort()}`, permissions);
 };
 
 export const clearPermissionsOverride = async () => {
@@ -325,7 +324,7 @@ export const goToResource = async (path: string) => {
 };
 
 export const getResourcesPath = () => {
-  return `https://localhost:${getHostedModeServerPort()}/test/e2e/resources`;
+  return `https://localhost:${getTestServerPort()}/test/e2e/resources`;
 };
 
 export const step = async (description: string, step: Function) => {
@@ -498,4 +497,4 @@ export const getPendingEvents = function(frontend: puppeteer.Page, eventType: st
   }, eventType);
 };
 
-export {getBrowserAndPages, getHostedModeServerPort, reloadDevTools};
+export {getBrowserAndPages, getTestServerPort as getTestServerPort, reloadDevTools};
