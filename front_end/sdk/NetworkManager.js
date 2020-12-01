@@ -1020,6 +1020,15 @@ export class NetworkDispatcher {
     requestToManagerMap.set(request, this._manager);
     return request;
   }
+
+  webTransportCreated() {
+  }
+
+  webTransportClosed() {
+  }
+
+  trustTokenOperationDone() {
+  }
 }
 
 /**
