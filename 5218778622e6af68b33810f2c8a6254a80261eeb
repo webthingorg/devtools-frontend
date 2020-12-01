@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb81fd8f_7ba27423",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-01T16:04:45Z",
+      "side": 1,
+      "message": "LGTM but I\u0027m not triggering +2 as Paul\u0027s more familiar with this so I\u0027ll let him look before it lands.",
+      "revId": "5218778622e6af68b33810f2c8a6254a80261eeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
