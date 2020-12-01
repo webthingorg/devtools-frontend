@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed4f21a0_9ede0135",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-01T10:39:17Z",
+      "side": 1,
+      "message": "As Sigurd is OOO for the rest of the week, I\u0027ll land the CL as-is and address any comments in a follow-up.",
+      "revId": "ae5818aff96553cfd33e85b67c34beb6b884fd18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
