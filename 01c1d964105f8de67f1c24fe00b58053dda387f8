@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "265fead1_109e4051",
+        "filename": "front_end/elements/StylePropertyTreeElement.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-12-01T10:26:23Z",
+      "side": 1,
+      "message": "I think using `this.property.text` directly can avoid creating this temporary variable and remain one line.",
+      "revId": "01c1d964105f8de67f1c24fe00b58053dda387f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
