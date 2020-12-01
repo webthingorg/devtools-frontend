@@ -30,11 +30,6 @@ UI.ViewManager.registerViewExtension({
   title: ls`Event Listener Breakpoints`,
   order: 9,
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
-  condition: undefined,
-  experiment: undefined,
-  hasToolbar: undefined,
-  settings: undefined,
-  tags: undefined,
 });
 
 UI.ViewManager.registerViewExtension({
@@ -47,11 +42,6 @@ UI.ViewManager.registerViewExtension({
   title: ls`CSP Violation Breakpoints`,
   order: 10,
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
-  condition: undefined,
-  experiment: undefined,
-  hasToolbar: undefined,
-  settings: undefined,
-  tags: undefined,
 });
 
 UI.ViewManager.registerViewExtension({
@@ -64,11 +54,6 @@ UI.ViewManager.registerViewExtension({
   title: ls`XHR/fetch Breakpoints`,
   order: 5,
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
-  hasToolbar: true,
-  condition: undefined,
-  experiment: undefined,
-  settings: undefined,
-  tags: undefined,
 });
 
 UI.ViewManager.registerViewExtension({
@@ -81,11 +66,6 @@ UI.ViewManager.registerViewExtension({
   title: ls`DOM Breakpoints`,
   order: 7,
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
-  condition: undefined,
-  experiment: undefined,
-  hasToolbar: undefined,
-  settings: undefined,
-  tags: undefined,
 });
 
 UI.ViewManager.registerViewExtension({
@@ -99,10 +79,6 @@ UI.ViewManager.registerViewExtension({
   order: 8,
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
   hasToolbar: true,
-  condition: undefined,
-  experiment: undefined,
-  settings: undefined,
-  tags: undefined,
 });
 
 UI.ViewManager.registerViewExtension({
@@ -115,9 +91,4 @@ UI.ViewManager.registerViewExtension({
   title: ls`DOM Breakpoints`,
   order: 6,
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
-  condition: undefined,
-  experiment: undefined,
-  hasToolbar: undefined,
-  settings: undefined,
-  tags: undefined,
 });
