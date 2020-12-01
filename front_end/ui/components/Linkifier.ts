@@ -56,7 +56,7 @@ export class Linkifier extends HTMLElement {
     return LitHtml.render(LitHtml.html`
       <style>
          .link:link, .link:visited {
-            color: var(--link-color);
+            color: var(--color-primary);
             text-decoration: underline;
             cursor: pointer;
          }
