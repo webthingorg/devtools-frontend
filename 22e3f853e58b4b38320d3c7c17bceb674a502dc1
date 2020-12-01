@@ -16,6 +16,23 @@
       "message": "I am not 100% sure this will make sure that Chromium tests are no longer breaking when we move to `console.warn`. Could you let me know if that is the case? I am not sure if `console.log` is even possible, but it would be nice to *somewhere* log the event incompatibility. If anything, so that we can detect it when that happens.",
       "revId": "22e3f853e58b4b38320d3c7c17bceb674a502dc1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3414ec0_0c03b484",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-12-01T07:49:37Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "22e3f853e58b4b38320d3c7c17bceb674a502dc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
