@@ -51,6 +51,24 @@
       "parentUuid": "fe54f5a9_852bb74e",
       "revId": "4a1f31b7e27bc913f2dea1c728f2e43c824a9d62",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "613292ab_98c57bfc",
+        "filename": "front_end/animation/animationTimeline.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-01T08:07:23Z",
+      "side": 1,
+      "message": "Mentioned it in the Unclear \u003cdel lang\u003d\"en-GB\"\u003ecolours\u003c/del\u003e \u003cins lang\u003d\"en-US\"\u003ecolors\u003c/ins\u003e section.",
+      "parentUuid": "52de2383_b0f8655a",
+      "revId": "4a1f31b7e27bc913f2dea1c728f2e43c824a9d62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
