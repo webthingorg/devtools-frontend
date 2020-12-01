@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "6e68ffb100c4ae739bbb01aba7257daea482ef17",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fff9ed9_c60c56df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-01T12:26:15Z",
+      "side": 1,
+      "message": "Now https://crrev.com/c/2566801 has landed, could we update to use `--color-link`? Sorry that the timing of that CL means you have to update this :(\n\nIt\u0027s the same as color-primary but we\u0027re defining it separately such that we can change it in the future should we want to.",
+      "revId": "6e68ffb100c4ae739bbb01aba7257daea482ef17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
