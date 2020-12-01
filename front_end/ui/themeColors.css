@@ -31,6 +31,7 @@
   --color-syntax-6: #236e25;
   --color-syntax-7: #303942;
   --color-syntax-8: #a894a6;
+  --box-shadow-outline-color: rgb(0 0 0 / 50%);
 }
 
 .-theme-with-dark-background {
@@ -55,4 +56,5 @@
   --color-syntax-6: #898989;
   --color-syntax-7: #cfd0d0;
   --color-syntax-8: #5db0d7;
+  --box-shadow-outline-color: rgb(255 255 255 / 50%);
 }
