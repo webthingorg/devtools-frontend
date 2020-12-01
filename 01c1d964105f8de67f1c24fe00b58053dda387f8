@@ -52,6 +52,24 @@
       "parentUuid": "7ba25709_488f7805",
       "revId": "01c1d964105f8de67f1c24fe00b58053dda387f8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d3ef9b2_d2efd32a",
+        "filename": "front_end/elements/StylePropertyTreeElement.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-12-01T11:09:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6ee360f6_b18a6b14",
+      "revId": "01c1d964105f8de67f1c24fe00b58053dda387f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
