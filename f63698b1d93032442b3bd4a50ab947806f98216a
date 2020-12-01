@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ce9edb9_9e800c79",
+        "filename": "inspector_overlay/highlight_flex_common.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-12-01T15:18:11Z",
+      "side": 1,
+      "message": "Note that the goal is to land front-end support first. With this code, the overlay will work with the current backend version, then we can land https://chromium-review.googlesource.com/c/chromium/src/+/2567643/, and then remove this code.",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 0
+      },
+      "revId": "f63698b1d93032442b3bd4a50ab947806f98216a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
