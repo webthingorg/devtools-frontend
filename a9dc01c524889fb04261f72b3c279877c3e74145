@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "a9dc01c524889fb04261f72b3c279877c3e74145",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20085cee_f848756f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-01T06:33:07Z",
+      "side": 1,
+      "message": "Change looks (technically) good to me. I wonder how valuable the data is though. The checkbox is persisted, so we don\u0027t get any data if people don\u0027t click the box after this CL lands. We won\u0027t know the state the box is in for most of the time for anyone. So I don\u0027t think we can infer something like x% of people have this box checked. Sigurd, wdyt?",
+      "revId": "a9dc01c524889fb04261f72b3c279877c3e74145",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
