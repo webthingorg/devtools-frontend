@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82e7e5ce_980df583",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-12-01T12:32:24Z",
+      "side": 1,
+      "message": "Hi Benedikt, hi Jack!\n\nBenedikt and I worked on creating a LinearMemoryInspectorController that contained the logic of the LMI, and which would also take care of the lifetime of a remote object (that wraps the Uint8Array we use).\n\nPTAL!",
+      "revId": "f4da1008b3c2531ca6ea5b375e331b01ad0040df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
