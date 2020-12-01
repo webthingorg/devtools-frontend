@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "924fcba0_2eca02f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-01T16:18:23Z",
+      "side": 1,
+      "message": "@Alex, PTAL as an OWNER of inspector_overlay 😊",
+      "revId": "65ae47972ca12d36db5f10aaeb5c9546a494e50f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
