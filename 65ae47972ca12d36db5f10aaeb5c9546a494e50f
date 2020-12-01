@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e543dc6d_d0104b22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-01T17:17:04Z",
+      "side": 1,
+      "message": "Thanks Alex! The reason we don\u0027t want to allow ! is because it can hide errors and also lead to more confusing error messages.\n\nI think it\u0027s clearer to instead lean on assertNotNull(foo) or assertX(foo) helpers that can generate nicer error messages. Plus that way we ban ! in all contexts and you don\u0027t have to remember that it is usable in tests.",
+      "revId": "65ae47972ca12d36db5f10aaeb5c9546a494e50f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b5e8c43_3a85a04b",
@@ -48,6 +65,24 @@
       "writtenOn": "2020-12-01T17:06:29Z",
       "side": 1,
       "message": "I remember some tools didn\u0027t support `?`. Is it fully supported now?",
+      "revId": "65ae47972ca12d36db5f10aaeb5c9546a494e50f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22709d3e_c9e9f532",
+        "filename": "test/unittests/front_end/common/Color_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-01T17:17:04Z",
+      "side": 1,
+      "message": "I think it is (at least the tests pass) but I actually want to re-write these to use assert helpers anyway.",
+      "parentUuid": "7b5e8c43_3a85a04b",
       "revId": "65ae47972ca12d36db5f10aaeb5c9546a494e50f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
