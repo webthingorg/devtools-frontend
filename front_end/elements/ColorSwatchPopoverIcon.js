@@ -5,6 +5,7 @@
 import * as Bindings from '../bindings/bindings.js';
 import * as ColorPicker from '../color_picker/color_picker.js';
 import * as Common from '../common/common.js';
+import * as Host from '../host/host.js';
 import * as InlineEditor from '../inline_editor/inline_editor.js';
 import * as UI from '../ui/ui.js';
 
@@ -38,6 +39,7 @@ export class BezierPopoverIcon {
    * @param {!Event} event
    */
   _iconClick(event) {
+    Host.userMetrics.cssEditorOpened('bezierEditor');
     event.consume(true);
     if (this._swatchPopoverHelper.isShowing()) {
       this._swatchPopoverHelper.hide(true);
@@ -157,6 +159,7 @@ export class ColorSwatchPopoverIcon {
    * @param {!Event} event
    */
   _iconClick(event) {
+    Host.userMetrics.cssEditorOpened('colorPicker');
     event.consume(true);
     this.showPopover();
   }
@@ -280,6 +283,7 @@ export class ShadowSwatchPopoverHelper {
    * @param {!Event} event
    */
   _iconClick(event) {
+    Host.userMetrics.cssEditorOpened('shadowEditor');
     event.consume(true);
     this.showPopover();
   }
