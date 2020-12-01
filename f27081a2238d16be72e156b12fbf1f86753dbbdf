@@ -69,6 +69,24 @@
       "parentUuid": "7874e583_7abb7a38",
       "revId": "f27081a2238d16be72e156b12fbf1f86753dbbdf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d0717a8_ecab1019",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryValueInterpreter.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-12-01T14:22:09Z",
+      "side": 1,
+      "message": "Most dynamic calls are used together with a string literal, and in this case the grdp is generated for that line. There are (IIRC) two usages (outside of the lmi) that have used dynamic calls without an additional string literal and I couldn\u0027t find a line in the grdp that would correspond to it. Talking on the chat, it seems as we need to have the additional method.\n\nRegarding the enum: Ok, just wanted to check whether we want to go that way. Actually I changed it to be a numeric enum, and it turns out that our ts rules enforce us to define each enum. Since it doesn\u0027t really make sense to explicitly define numbers for it, I\u0027ll keep the duplicate names, if that\u0027s fine with you too! Otherwise I\u0027ll need to use numeric values here (in which case I think the duplicate strings are better), e.g.:\n\n`\nenum Direction {\n Up \u003d 0,\n  ..\n}\n`",
+      "parentUuid": "b0e764a1_66052c5d",
+      "revId": "f27081a2238d16be72e156b12fbf1f86753dbbdf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
