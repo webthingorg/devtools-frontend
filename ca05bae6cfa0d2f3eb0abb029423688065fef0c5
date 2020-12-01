@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "caf0b7a0_1385cd4c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-01T14:51:47Z",
+      "side": 1,
+      "message": "LGTM.\n\nJust a heads up that the new data grid does not support dark mode so this will look a bit funky in dark mode until then. I\u0027m hoping to fix that in the next day or so (https://crbug.com/1153064).",
+      "revId": "ca05bae6cfa0d2f3eb0abb029423688065fef0c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
