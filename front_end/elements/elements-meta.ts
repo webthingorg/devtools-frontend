@@ -228,11 +228,11 @@ UI.ActionRegistration.registerActionExtension({
 });
 
 Common.Settings.registerSettingExtension({
-  category: Common.Settings.SettingCategory.ELEMENTS,
+  category: Common.Settings.SettingCategoryObject.ELEMENTS,
   order: 1,
   title: ls`Show user agent shadow DOM`,
   settingName: 'showUAShadowDOM',
-  settingType: Common.Settings.SettingType.BOOLEAN,
+  settingType: Common.Settings.SettingTypeObject.BOOLEAN,
   defaultValue: false,
   tags: undefined,
   isRegex: undefined,
@@ -246,11 +246,11 @@ Common.Settings.registerSettingExtension({
 });
 
 Common.Settings.registerSettingExtension({
-  category: Common.Settings.SettingCategory.ELEMENTS,
+  category: Common.Settings.SettingCategoryObject.ELEMENTS,
   order: 2,
   title: ls`Word wrap`,
   settingName: 'domWordWrap',
-  settingType: Common.Settings.SettingType.BOOLEAN,
+  settingType: Common.Settings.SettingTypeObject.BOOLEAN,
   options: [
     {
       value: true,
@@ -277,11 +277,11 @@ Common.Settings.registerSettingExtension({
 });
 
 Common.Settings.registerSettingExtension({
-  category: Common.Settings.SettingCategory.ELEMENTS,
+  category: Common.Settings.SettingCategoryObject.ELEMENTS,
   order: 3,
   title: ls`Show HTML comments`,
   settingName: 'showHTMLComments',
-  settingType: Common.Settings.SettingType.BOOLEAN,
+  settingType: Common.Settings.SettingTypeObject.BOOLEAN,
   defaultValue: true,
   options: [
     {
@@ -308,11 +308,11 @@ Common.Settings.registerSettingExtension({
 });
 
 Common.Settings.registerSettingExtension({
-  category: Common.Settings.SettingCategory.ELEMENTS,
+  category: Common.Settings.SettingCategoryObject.ELEMENTS,
   order: 4,
   title: ls`Reveal DOM node on hover`,
   settingName: 'highlightNodeOnHoverInOverlay',
-  settingType: Common.Settings.SettingType.BOOLEAN,
+  settingType: Common.Settings.SettingTypeObject.BOOLEAN,
   defaultValue: true,
   options: undefined,
   tags: undefined,
@@ -326,11 +326,11 @@ Common.Settings.registerSettingExtension({
 });
 
 Common.Settings.registerSettingExtension({
-  category: Common.Settings.SettingCategory.ELEMENTS,
+  category: Common.Settings.SettingCategoryObject.ELEMENTS,
   order: 5,
   title: ls`Show detailed inspect tooltip`,
   settingName: 'showDetailedInspectTooltip',
-  settingType: Common.Settings.SettingType.BOOLEAN,
+  settingType: Common.Settings.SettingTypeObject.BOOLEAN,
   defaultValue: true,
   options: undefined,
   tags: undefined,
@@ -345,7 +345,7 @@ Common.Settings.registerSettingExtension({
 
 Common.Settings.registerSettingExtension({
   settingName: 'showEventListenersForAncestors',
-  settingType: Common.Settings.SettingType.BOOLEAN,
+  settingType: Common.Settings.SettingTypeObject.BOOLEAN,
   category: undefined,
   order: undefined,
   title: undefined,
