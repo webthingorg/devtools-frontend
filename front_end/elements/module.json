@@ -62,6 +62,111 @@
       "location": "styles-sidebarpane-toolbar"
     },
     {
+      "type": "action",
+      "actionId": "elements.hide-element",
+      "category": "Elements",
+      "title": "Hide element",
+      "contextTypes": [
+        "Elements.ElementsPanel"
+      ],
+      "className": "Elements.ElementsActionDelegate",
+      "bindings": [
+        {
+          "shortcut": "H"
+        }
+      ]
+    },
+    {
+      "type": "action",
+      "actionId": "elements.paste-after-element",
+      "category": "Elements",
+      "title": "Paste element to after",
+      "contextTypes": [
+        "Elements.ElementsPanel"
+      ],
+      "className": "Elements.ElementsActionDelegate",
+      "bindings": [
+        {
+          "platform": "windows,linux",
+          "shortcut": "Ctrl+Alt+V"
+        },
+        {
+          "platform": "mac",
+          "shortcut": "Meta+Alt+V"
+        }
+      ]
+    },
+    {
+      "type": "action",
+      "actionId": "elements.edit-as-html",
+      "category": "Elements",
+      "title": "Edit as HTML",
+      "contextTypes": [
+        "Elements.ElementsPanel"
+      ],
+      "className": "Elements.ElementsActionDelegate",
+      "bindings": [
+        {
+          "shortcut": "F2"
+        }
+      ]
+    },
+    {
+      "type": "action",
+      "actionId": "elements.duplicate-element",
+      "category": "Elements",
+      "title": "Duplicate element",
+      "contextTypes": [
+        "Elements.ElementsPanel"
+      ],
+      "className": "Elements.ElementsActionDelegate",
+      "bindings": [
+        {
+          "shortcut": "Shift+Alt+Down"
+        }
+      ]
+    },
+    {
+      "type": "action",
+      "actionId": "elements.undo",
+      "category": "Elements",
+      "title": "Undo",
+      "contextTypes": [
+        "Elements.ElementsPanel"
+      ],
+      "className": "Elements.ElementsActionDelegate",
+      "bindings": [
+        {
+          "platform": "windows,linux",
+          "shortcut": "Ctrl+Z"
+        },
+        {
+          "platform": "mac",
+          "shortcut": "Meta+Z"
+        }
+      ]
+    },
+    {
+      "type": "action",
+      "actionId": "elements.redo",
+      "category": "Elements",
+      "title": "Redo",
+      "contextTypes": [
+        "Elements.ElementsPanel"
+      ],
+      "className": "Elements.ElementsActionDelegate",
+      "bindings": [
+        {
+          "platform": "windows,linux",
+          "shortcut": "Ctrl+Y"
+        },
+        {
+          "platform": "mac",
+          "shortcut": "Meta+Shift+Z"
+        }
+      ]
+    },
+    {
       "type": "@Elements.MarkerDecorator",
       "className": "Elements.ElementsPanel.PseudoStateMarkerDecorator",
       "marker": "pseudo-state-marker"

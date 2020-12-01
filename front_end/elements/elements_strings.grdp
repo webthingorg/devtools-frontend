@@ -27,6 +27,9 @@
   <message name="IDS_DEVTOOLS_9df0e8cc86e20861ac1440068aa6b49a" desc="A context menu item in Styles panel to copy CSS rule">
     Copy rule
   </message>
+  <message name="IDS_DEVTOOLS_88f5e6957c2595422d61f410ad856d2c" desc="A context menu item in the Elements Tree Element of the Elements panel">
+    Paste element to after
+  </message>
   <message name="IDS_DEVTOOLS_ad0febe9f53e525bc9c13b7598572629" desc="Title of the Flexbox section in the Layout panel">
     Flexbox
   </message>
