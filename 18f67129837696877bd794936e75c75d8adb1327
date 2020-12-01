@@ -16,6 +16,24 @@
       "message": "Why is the JSON configuration deleted here? How do we add shortcut keys mapping?",
       "revId": "18f67129837696877bd794936e75c75d8adb1327",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb6847c1_f8cb5cda",
+        "filename": "front_end/elements/module.json",
+        "patchSetId": 7
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-01T11:31:10Z",
+      "side": 0,
+      "message": "Please see our design doc linked in the corresponding bug for more information on this migration: https://docs.google.com/document/d/1gaQhOD9fWZ38fBlYOd5AGWXFgJR2zN-aFvOgx7SXsg0/edit?usp\u003dsharing",
+      "parentUuid": "00edf7bb_80d97530",
+      "revId": "18f67129837696877bd794936e75c75d8adb1327",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
