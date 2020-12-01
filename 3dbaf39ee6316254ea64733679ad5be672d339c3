@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4ecd818_224f78c8",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 65
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-12-01T19:18:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9948e28d_95baa752",
+      "revId": "3dbaf39ee6316254ea64733679ad5be672d339c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "baee5817_635fa9a3",
@@ -75,6 +93,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "20811602_0793bf0d",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 65
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-12-01T19:18:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "baee5817_635fa9a3",
+      "range": {
+        "startLine": 145,
+        "startChar": 32,
+        "endLine": 145,
+        "endChar": 34
+      },
+      "revId": "3dbaf39ee6316254ea64733679ad5be672d339c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "142ddd63_c4031f47",
@@ -88,6 +130,30 @@
       "writtenOn": "2020-11-27T14:35:26Z",
       "side": 1,
       "message": "nit: please break these cases out to individual it calls",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 4
+      },
+      "revId": "3dbaf39ee6316254ea64733679ad5be672d339c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1eaeb26e_6756658f",
+        "filename": "test/unittests/front_end/inline_editor/FontEditorUnitConverter_test.ts",
+        "patchSetId": 65
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-12-01T19:18:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "142ddd63_c4031f47",
       "range": {
         "startLine": 10,
         "startChar": 2,
