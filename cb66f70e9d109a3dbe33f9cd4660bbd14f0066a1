@@ -16,6 +16,23 @@
       "message": "LGTM except this is missing the import of sources-meta.ts in front_end/devtools_app.js, which, I think, is why the try bots fail.",
       "revId": "cb66f70e9d109a3dbe33f9cd4660bbd14f0066a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "696f4e5e_a0304df4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-12-01T19:05:10Z",
+      "side": 1,
+      "message": "Should we migrate the remaining views in browser_debugger/ in a separate CL?",
+      "revId": "cb66f70e9d109a3dbe33f9cd4660bbd14f0066a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
