@@ -45,6 +45,30 @@
       },
       "revId": "16f4d1092fa867871946fe843eede3496b93cce4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fae66d98_76e12797",
+        "filename": "front_end/ui/ShortcutRegistry.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-12-01T13:53:56Z",
+      "side": 0,
+      "message": "Now that type \u0027Binding\u0027 is defined in TypeScript, \u0027bindings\u0027 defined for legacy extensions in Runtime can\u0027t be passed as a parameter of type \u0027Binding\u0027, because platform is defined as a string in the former and as an enum (\u0027Platform\u0027) on the latter. Since this function is invoked with both legacy and new types of bindings as parameters, the type of the \u0027platform\u0027 property was changed from \u0027Platform\u0027 to string to support both types of extensions.",
+      "parentUuid": "f42d07c4_30b2d8b8",
+      "range": {
+        "startLine": 431,
+        "startChar": 54,
+        "endLine": 431,
+        "endChar": 61
+      },
+      "revId": "16f4d1092fa867871946fe843eede3496b93cce4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

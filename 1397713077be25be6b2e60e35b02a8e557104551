@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "208e1277_27fa511a",
+        "filename": "front_end/ui/ActionRegistration.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-12-01T13:53:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3632fc59_346ccdfc",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 27
+      },
+      "revId": "1397713077be25be6b2e60e35b02a8e557104551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0228151_857c4d7e",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-12-01T11:24:01Z",
       "side": 1,
       "message": "Nit: when this becomes an interface, we can remove the implementation of this method.",
+      "range": {
+        "startLine": 183,
+        "startChar": 4,
+        "endLine": 183,
+        "endChar": 39
+      },
+      "revId": "1397713077be25be6b2e60e35b02a8e557104551",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70d42b5e_dbc329fe",
+        "filename": "front_end/ui/ActionRegistration.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-12-01T13:53:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0228151_857c4d7e",
       "range": {
         "startLine": 183,
         "startChar": 4,
