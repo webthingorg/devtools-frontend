@@ -69,7 +69,11 @@ export class SourceFrameIssuesManager {
     if (description && 'file' in description) {
       const title = this.createIssueDescriptionFromMarkdown(description);
       if (title) {
-        this.presentationIssueMessages.push(new PresentationIssueMessage(title, rawLocation, this.locationPool));
+        const clickHandler = () => {
+          Common.Revealer.reveal(issue);
+        };
+        this.presentationIssueMessages.push(
+            new PresentationIssueMessage(title, rawLocation, this.locationPool, clickHandler));
       }
     }
   }
@@ -100,12 +104,15 @@ export class PresentationIssueMessage {
   private text: string;
   private level: string;
   private uiMessage: Workspace.UISourceCode.Message|undefined;
+  private clickHandler: (() => void);
 
   constructor(
-      title: string, rawLocation: SDK.DebuggerModel.Location, locationPool: Bindings.LiveLocation.LiveLocationPool) {
+      title: string, rawLocation: SDK.DebuggerModel.Location, locationPool: Bindings.LiveLocation.LiveLocationPool,
+      clickHandler: () => void) {
     this.text = title;
     this.level = Workspace.UISourceCode.Message.Level.Issue;
     this.uiMessage = undefined;
+    this.clickHandler = clickHandler;
     Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().createLiveLocation(
         rawLocation, this.updateLocation.bind(this), locationPool);
   }
@@ -117,8 +124,8 @@ export class PresentationIssueMessage {
     if (!uiLocation) {
       return;
     }
-    this.uiMessage =
-        uiLocation.uiSourceCode.addLineMessage(this.level, this.text, uiLocation.lineNumber, uiLocation.columnNumber);
+    this.uiMessage = uiLocation.uiSourceCode.addLineMessage(
+        this.level, this.text, uiLocation.lineNumber, uiLocation.columnNumber, this.clickHandler);
   }
 
   dispose() {
