@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5dfa674_95035f4c",
+        "filename": "front_end/ui/ViewRegistration.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-02T14:15:13Z",
+      "side": 1,
+      "message": "Nit: this one should be used.",
+      "range": {
+        "startLine": 6,
+        "startChar": 53,
+        "endLine": 6,
+        "endChar": 90
+      },
+      "revId": "acd3909c266c3cf2cb507733d8cbea4c500eda5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c258c8f_245da36d",
+        "filename": "front_end/ui/ViewRegistration.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-02T14:15:13Z",
+      "side": 1,
+      "message": "Nit: we can make this `import type {Widget} from \u0027./Widget.js\u0027;` to not get this error.",
+      "range": {
+        "startLine": 7,
+        "startChar": 53,
+        "endLine": 7,
+        "endChar": 90
+      },
+      "revId": "acd3909c266c3cf2cb507733d8cbea4c500eda5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
