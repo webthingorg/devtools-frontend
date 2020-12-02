@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Common from '../common/common.js';
+import * as Host from '../host/host.js';
 
 /** @enum {symbol} */
 export const IssueCategory = {
@@ -76,6 +77,7 @@ export class Issue extends Common.ObjectWrapper.ObjectWrapper {
     super();
     /** @type {string} */
     this._code = code;
+    Host.userMetrics.issueCreated(code);
   }
 
   /**
