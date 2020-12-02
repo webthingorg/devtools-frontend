@@ -215,6 +215,16 @@ export class UserMetrics {
   }
 
   /**
+   * @param {string} code
+   */
+  issueCreated(code) {
+    const size = Object.keys(IssueCreated).length + 1;
+    const issueCreated = IssueCreated[code] || IssueCreated.OtherIssue;
+    InspectorFrontendHostInstance.recordEnumeratedHistogram(EnumeratedHistogram.IssueCreated, issueCreated, size);
+    Common.EventTarget.fireEvent(EnumeratedHistogram.KeyboardShortcutFired, {value: issueCreated});
+  }
+
+  /**
    * @param {!DualScreenDeviceEmulated} emulationAction
    */
   dualScreenDeviceEmulated(emulationAction) {
@@ -586,4 +596,43 @@ export const IssueResourceOpened = {
   SameSiteCookieLearnMore: 10,
   HeavyAdLearnMore: 11,
   ContentSecurityPolicyLearnMore: 12
+};
+
+/** @type {!Object<string, number>} */
+export const IssueCreated = {
+  OtherIssue: 0,
+  MixedContentIssue: 1,
+  'ContentSecurityPolicyIssue::kInlineViolation': 2,
+  'ContentSecurityPolicyIssue::kEvalViolation': 3,
+  'ContentSecurityPolicyIssue::kURLViolation': 4,
+  'ContentSecurityPolicyIssue::kTrustedTypesSinkViolation': 5,
+  'ContentSecurityPolicyIssue::kTrustedTypesPolicyViolation': 6,
+  HeavyAdIssue: 7,
+  'CrossOriginEmbedderPolicy::CoepFrameResourceNeedsCoepHeader': 8,
+  'CrossOriginEmbedderPolicy::CoopSandboxedIFrameCannotNavigateToCoopPage': 9,
+  'CrossOriginEmbedderPolicy::CorpNotSameOrigin': 10,
+  'CrossOriginEmbedderPolicy::CorpNotSameOriginAfterDefaultedToSameOriginByCoep': 11,
+  'CrossOriginEmbedderPolicy::CorpNotSameSite': 12,
+  'SameSiteCookieIssue::ExcludeSameSiteNoneInsecure::ReadCookie': 13,
+  'SameSiteCookieIssue::ExcludeSameSiteNoneInsecure::SetCookie': 14,
+  'SameSiteCookieIssue::WarnSameSiteNoneInsecure::ReadCookie': 15,
+  'SameSiteCookieIssue::WarnSameSiteNoneInsecure::SetCookie': 16,
+  'SameSiteCookieIssue::WarnSameSiteStrictLaxDowngradeStrict::Secure': 17,
+  'SameSiteCookieIssue::WarnSameSiteStrictLaxDowngradeStrict::Insecure': 18,
+  'SameSiteCookieIssue::WarnCrossDowngrade::ReadCookie::Secure': 19,
+  'SameSiteCookieIssue::WarnCrossDowngrade::ReadCookie::Insecure': 20,
+  'SameSiteCookieIssue::WarnCrossDowngrade::SetCookie::Secure': 21,
+  'SameSiteCookieIssue::WarnCrossDowngrade::SetCookie::Insecure': 22,
+  'SameSiteCookieIssue::ExcludeNavigationContextDowngrade::Secure': 23,
+  'SameSiteCookieIssue::ExcludeNavigationContextDowngrade::Insecure': 24,
+  'SameSiteCookieIssue::ExcludeContextDowngrade::ReadCookie::Secure': 25,
+  'SameSiteCookieIssue::ExcludeContextDowngrade::ReadCookie::Insecure': 26,
+  'SameSiteCookieIssue::ExcludeContextDowngrade::SetCookie::Secure': 27,
+  'SameSiteCookieIssue::ExcludeContextDowngrade::SetCookie::Insecure': 28,
+  'SameSiteCookieIssue::ExcludeSameSiteUnspecifiedTreatedAsLax::ReadCookie': 29,
+  'SameSiteCookieIssue::ExcludeSameSiteUnspecifiedTreatedAsLax::SetCookie': 30,
+  'SameSiteCookieIssue::WarnSameSiteUnspecifiedLaxAllowUnsafe::ReadCookie': 31,
+  'SameSiteCookieIssue::WarnSameSiteUnspecifiedLaxAllowUnsafe::SetCookie': 32,
+  'SameSiteCookieIssue::WarnSameSiteUnspecifiedCrossSiteContext::ReadCookie': 33,
+  'SameSiteCookieIssue::WarnSameSiteUnspecifiedCrossSiteContext::SetCookie': 34
 };
