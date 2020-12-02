@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "719651bc_b3cccabe",
+        "filename": "front_end/extensions/ExtensionView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-02T14:44:46Z",
+      "side": 0,
+      "message": "I will clean these up in a follow-up, since a later CL already removes some of these as well. Good catch!",
+      "parentUuid": "f5bd687a_638aa668",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 2
+      },
+      "revId": "51b6a966c4fea744057f9a4cb241ff65a2a2c664",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3d8540db_395d30e8",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-12-02T14:42:49Z",
       "side": 0,
       "message": "same here",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 3
+      },
+      "revId": "51b6a966c4fea744057f9a4cb241ff65a2a2c664",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb543d79_80e8e969",
+        "filename": "front_end/heap_snapshot_worker/HeapSnapshotWorkerDispatcher.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-02T14:44:46Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "3d8540db_395d30e8",
       "range": {
         "startLine": 44,
         "startChar": 0,
