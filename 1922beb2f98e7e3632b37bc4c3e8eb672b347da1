@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d84281e5_5938d275",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-12-02T20:50:12Z",
+      "side": 1,
+      "message": "+Reviewer\n\nFixed the flakiness of the font editor e2e test.  Ran the e2e dry run 5x without failing and ran the test locally multiple times with stress settings without failure.",
+      "revId": "1922beb2f98e7e3632b37bc4c3e8eb672b347da1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
