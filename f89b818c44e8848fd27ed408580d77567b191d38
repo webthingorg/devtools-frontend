@@ -16,6 +16,24 @@
       "message": "q: Why does the existing \"_CheckNoUncheckedFiles\" check not catch this case? Are we running that one before the l10n checks?",
       "revId": "f89b818c44e8848fd27ed408580d77567b191d38",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6a4fb5d_e549f3d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-12-02T17:02:31Z",
+      "side": 1,
+      "message": "Yeah, `_CheckNoUncheckedFiles` runs before any localization checks occur[1][2] as a common check. I suspect localization checks aren\u0027t considered \"common\" since they do something different for upload and commit. `_CollectStrings` has to run after the other loc check since that has the logic to clean up strings.\n\nI\u0027m not too familiar with presubmit scripts, but perhaps we can introduce a new class of check (FilesystemChecks?) that run after common and loc? This approach would allow us to have a single place to check for dirty working trees in presubmit and not have to touch the `third_party` scripts and hardcoding a check for `en-US.json`.\n\n[1] https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/PRESUBMIT.py;l\u003d457?q\u003dcollect-strings\u0026ss\u003dchromium\n[2] https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/PRESUBMIT.py;l\u003d467?q\u003dcollect-strings\u0026ss\u003dchromium",
+      "parentUuid": "242183ee_5c751878",
+      "revId": "f89b818c44e8848fd27ed408580d77567b191d38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
