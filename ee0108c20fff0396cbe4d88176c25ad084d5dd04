@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40fb0a83_93cd6f96",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 2654,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-02T15:00:20Z",
+      "side": 0,
+      "message": "comment should probably go as well :)",
+      "range": {
+        "startLine": 2654,
+        "startChar": 0,
+        "endLine": 2654,
+        "endChar": 81
+      },
+      "revId": "ee0108c20fff0396cbe4d88176c25ad084d5dd04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5137e94_0958cacc",
+        "filename": "front_end/event_listeners/EventListenersUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-02T15:00:20Z",
+      "side": 0,
+      "message": "I had to chuckle at this one xD \"suppress useless code\"",
+      "range": {
+        "startLine": 462,
+        "startChar": 6,
+        "endLine": 462,
+        "endChar": 30
+      },
+      "revId": "ee0108c20fff0396cbe4d88176c25ad084d5dd04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ace361e_e255b774",
+        "filename": "front_end/sdk/CSSPropertyParser.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-02T15:00:20Z",
+      "side": 0,
+      "message": "same here",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 81
+      },
+      "revId": "ee0108c20fff0396cbe4d88176c25ad084d5dd04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
