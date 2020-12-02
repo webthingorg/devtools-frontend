@@ -86,6 +86,30 @@
       },
       "revId": "a09a6f3fb29af7ac675d796184ba46f44ba41786",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b512600f_d2effb00",
+        "filename": "scripts/eslint_rules/tests/no_underscored_properties_test.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-02T15:15:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ba78562_7cba6ea4",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 6
+      },
+      "revId": "a09a6f3fb29af7ac675d796184ba46f44ba41786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
