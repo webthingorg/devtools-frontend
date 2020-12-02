@@ -296,7 +296,8 @@ describe('The Debugger Language Plugins', async () => {
     assert.deepEqual(scriptLocation, 'global_variable.ll:9');
   });
 
-  it('shows top-level and nested variables', async () => {
+  // crbug.com/1154188 flaky
+  it('[crbug.com/1154188] shows top-level and nested variables', async () => {
     const {frontend} = getBrowserAndPages();
     await frontend.evaluateHandle(
         () => globalThis.installExtensionPlugin((extensionServerClient: unknown, extensionAPI: unknown) => {
@@ -770,7 +771,8 @@ describe('The Debugger Language Plugins', async () => {
     assert.strictEqual(value, '23');
   });
 
-  it('shows sensible error messages.', async () => {
+  // crbug.com/1154188 flaky
+  it('[crbug.com/1154188] shows sensible error messages.', async () => {
     const {frontend} = getBrowserAndPages();
     await frontend.evaluateHandle(
         () => globalThis.installExtensionPlugin((extensionServerClient: unknown, extensionAPI: unknown) => {
