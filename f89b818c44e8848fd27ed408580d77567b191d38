@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "242183ee_5c751878",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-02T06:20:20Z",
+      "side": 1,
+      "message": "q: Why does the existing \"_CheckNoUncheckedFiles\" check not catch this case? Are we running that one before the l10n checks?",
+      "revId": "f89b818c44e8848fd27ed408580d77567b191d38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
