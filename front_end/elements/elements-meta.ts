@@ -20,7 +20,7 @@ async function loadElementsModule() {
   }
   return loadedElementsModule;
 }
-function maybeRetrieveContextTypes(getClassCallBack: (elementsModule: typeof Elements) => unknown[]): unknown[] {
+function maybeRetrieveContextTypes<T = unknown>(getClassCallBack: (elementsModule: typeof Elements) => T[]): T[] {
   if (loadedElementsModule === undefined) {
     return [];
   }
@@ -359,4 +359,11 @@ Common.Settings.registerSettingExtension({
   userActionCondition: undefined,
   experiment: undefined,
   condition: undefined,
+});
+
+UI.ContextMenu.registerProvider({
+  async loadProvider() {
+    const Elements = await loadElementsModule();
+    return Elements.ElementsPanel.ContextMenuProvider.instance();
+  },
 });
