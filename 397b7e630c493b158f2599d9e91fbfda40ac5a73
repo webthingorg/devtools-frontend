@@ -63,6 +63,30 @@
       },
       "revId": "397b7e630c493b158f2599d9e91fbfda40ac5a73",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b46995bb_1225db0e",
+        "filename": "front_end/network/RequestTrustTokensView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-02T12:04:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed6c1c5e_e1ec83e6",
+      "range": {
+        "startLine": 97,
+        "startChar": 10,
+        "endLine": 97,
+        "endChar": 34
+      },
+      "revId": "397b7e630c493b158f2599d9e91fbfda40ac5a73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
