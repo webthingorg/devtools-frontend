@@ -22,6 +22,30 @@
       },
       "revId": "bf8a43557eb48c326e382651776dc4bdf069c4e7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e617e78_f97c56b6",
+        "filename": "front_end/quick_open/CommandMenu.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-12-02T10:34:51Z",
+      "side": 1,
+      "message": "Yes, thanks, that\u0027s simpler!",
+      "parentUuid": "9b7ea3c6_37f41ade",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 11
+      },
+      "revId": "bf8a43557eb48c326e382651776dc4bdf069c4e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
