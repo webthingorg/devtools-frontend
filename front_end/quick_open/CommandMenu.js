@@ -47,6 +47,15 @@ export class CommandMenu {
         executeHandler();
       };
     }
+    if (title === 'Show Issues') {
+      handler = (() => {
+        const cached_handler = handler;
+        return () => {
+          Host.userMetrics.issuesPanelOpenedFrom(Host.UserMetrics.IssueOpener.CommandMenu);
+          cached_handler();
+        };
+      })();
+    }
 
     return new Command(category, title, keys, shortcut, handler, availableHandler);
   }
