@@ -34,6 +34,24 @@
       "parentUuid": "242183ee_5c751878",
       "revId": "f89b818c44e8848fd27ed408580d77567b191d38",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d5c86e8_2964245d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-12-02T23:44:25Z",
+      "side": 1,
+      "message": "I like the Idea of not touching the third_party scripts to hardcode a check! Also Im wondering, could we just make Localization checks be part of the common check? I wasnt sure what the reason was that we decided to have it as a separate check, Vidal do you know?",
+      "parentUuid": "a6a4fb5d_e549f3d6",
+      "revId": "f89b818c44e8848fd27ed408580d77567b191d38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
