@@ -468,6 +468,7 @@ grd_files_debug_sources = [
   "front_end/common/SettingRegistration.js",
   "front_end/common/Settings.js",
   "front_end/common/SimpleHistoryManager.js",
+  "front_end/common/Singleton.js",
   "front_end/common/StringOutputStream.js",
   "front_end/common/TextDictionary.js",
   "front_end/common/Throttler.js",

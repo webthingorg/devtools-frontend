@@ -26,6 +26,7 @@ import * as Runnable from './Runnable.js';
 import * as SegmentedRange from './SegmentedRange.js';
 import * as Settings from './Settings.js';
 import * as SimpleHistoryManager from './SimpleHistoryManager.js';
+import * as Singleton from './Singleton.js';
 import * as StringOutputStream from './StringOutputStream.js';
 import * as TextDictionary from './TextDictionary.js';
 import * as Throttler from './Throttler.js';
@@ -72,6 +73,7 @@ export {
   Settings,
   SimpleHistoryManager,
   StringOutputStream,
+  Singleton,
   TextDictionary,
   Throttler,
   Trie,
