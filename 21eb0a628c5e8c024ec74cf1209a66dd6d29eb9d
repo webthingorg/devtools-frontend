@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "21eb0a628c5e8c024ec74cf1209a66dd6d29eb9d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55f24411_8549c3e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-02T06:24:24Z",
+      "side": 1,
+      "message": "lgtm % q",
+      "revId": "21eb0a628c5e8c024ec74cf1209a66dd6d29eb9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ddf1275_6f98217f",
+        "filename": "front_end/quick_open/CommandMenu.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-02T06:24:24Z",
+      "side": 1,
+      "message": "can this interfere with the `if (userActionCode)` above? Or is opening a tab not considered a user action?",
+      "range": {
+        "startLine": 50,
+        "startChar": 4,
+        "endLine": 50,
+        "endChar": 34
+      },
+      "revId": "21eb0a628c5e8c024ec74cf1209a66dd6d29eb9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
