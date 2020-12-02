@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3380b14_b03507ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2020-12-02T22:26:59Z",
+      "side": 1,
+      "message": "Hello, this is a tiny patch to fix an extra character added to the accessibility_strings.grdp file in the \"Roll deps from Chromium into DevTools\" CL which broke our build. PTAL, thanks!",
+      "revId": "3cb03437719ba953974ed91feec7c0086d3c5671",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
