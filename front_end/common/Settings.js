@@ -1022,7 +1022,6 @@ export class RegExpSetting extends LegacySetting {
 
   /**
    * @override
-   * @suppress {checkTypes}
    * @param {string} value
    */
   set(value) {

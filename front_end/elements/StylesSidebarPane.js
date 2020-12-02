@@ -2650,8 +2650,7 @@ export class KeyframePropertiesSection extends StylePropertiesSection {
 
 /**
  * @param {string} familyName
- * @return {string}
- * @suppress {missingProperties} Closure doesn't know String.p.replaceAll exists.
+ * @return {string} Closure doesn't know String.p.replaceAll exists.
  */
 export function quoteFamilyName(familyName) {
   return `'${familyName.replaceAll('\'', '\\\'')}'`;

@@ -73,8 +73,7 @@ export function splitByComma(value) {
 
 /**
  * @param {string} value
- * @return {string}
- * @suppress {missingProperties} Closure doesn't know String.p.replaceAll exists.
+ * @return {string} Closure doesn't know String.p.replaceAll exists.
  */
 export function stripComments(value) {
   return value.replaceAll(/(\/\*(?:.|\s)*?\*\/)/g, '');
