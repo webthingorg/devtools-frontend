@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b7ea3c6_37f41ade",
+        "filename": "front_end/quick_open/CommandMenu.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-02T09:58:09Z",
+      "side": 1,
+      "message": "This looks very complicated, would:\n\n const cached_handler \u003d handler;\n handler \u003d () \u003d\u003e {\n   Host.userMetrics.issuesPanelOpenedFrom(Host.UserMetrics.IssueOpener.CommandMenu);\n   cached_handler();\n };\n\nnot also work?",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 11
+      },
+      "revId": "bf8a43557eb48c326e382651776dc4bdf069c4e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
