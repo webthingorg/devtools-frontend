@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31547361_062aa0cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-02T09:05:22Z",
+      "side": 1,
+      "message": "ptal",
+      "revId": "397b7e630c493b158f2599d9e91fbfda40ac5a73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e055f5e_b5292cb2",
+        "filename": "front_end/network/RequestTrustTokensView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-02T09:05:22Z",
+      "side": 1,
+      "message": "Should we go with static private functions, or standalone unexported ones. The reason is, that I don\u0027t want to spam null checks and simply pass the non-null version.",
+      "range": {
+        "startLine": 97,
+        "startChar": 10,
+        "endLine": 97,
+        "endChar": 34
+      },
+      "revId": "397b7e630c493b158f2599d9e91fbfda40ac5a73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
