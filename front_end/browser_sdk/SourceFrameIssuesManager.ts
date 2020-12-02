@@ -86,11 +86,6 @@ export class SourceFrameIssuesManager {
     this.presentationIssueMessages = [];
     this.locationPool.disposeAll();
   }
-
-  // This method is to enable unit testing
-  getIssueMessages(): Array<PresentationIssueMessage> {
-    return this.presentationIssueMessages;
-  }
 }
 
 /**
@@ -104,9 +99,7 @@ export class PresentationIssueMessage {
   constructor(
       title: string, rawLocation: SDK.DebuggerModel.Location, locationPool: Bindings.LiveLocation.LiveLocationPool) {
     this.text = title;
-    // TODO(crbug.com/1112471): Set right issue this in frontend CL.
-    this.level = Workspace.UISourceCode.Message.Level.Error;
-    // this.level = Workspace.UISourceCode.Message.Level.Issue;
+    this.level = Workspace.UISourceCode.Message.Level.Issue;
     this.uiMessage = undefined;
     Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().createLiveLocation(
         rawLocation, this.updateLocation.bind(this), locationPool);
@@ -119,20 +112,11 @@ export class PresentationIssueMessage {
     if (!uiLocation) {
       return;
     }
-    // TODO(crbug.com/1112471): Enable this in frontend CL.
-    /* this.uiMessage =
-        uiLocation.uiSourceCode.addLineMessage(this.level, this.text, uiLocation.lineNumber, uiLocation.columnNumber);*/
+    this.uiMessage =
+        uiLocation.uiSourceCode.addLineMessage(this.level, this.text, uiLocation.lineNumber, uiLocation.columnNumber);
   }
 
   dispose() {
     this.uiMessage?.remove();
-  }
-
-  getText(): string {
-    return this.text;
-  }
-
-  getLevel(): string {
-    return this.level;
   }
 }
