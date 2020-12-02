@@ -645,9 +645,18 @@ if (require.main === module) {
   // Generate local pseudolocalized files for debugging while translating
   writeStringsToCtcFiles('en-XL', createPsuedoLocaleStrings(strings));
 
+  const enLocalePath = path.join(SRC_ROOT, 'front_end/i18n/locales/en-US.json');
+  const originalEnLocaleStrings = fs.readFileSync(enLocalePath);
+
   // Bake the ctc en-US and en-XL files into en-US and en-XL LHL format
-  const lhl = collectAndBakeCtcStrings(
+  collectAndBakeCtcStrings(
       path.join(SRC_ROOT, 'front_end/i18n/locales/'), path.join(SRC_ROOT, 'front_end/i18n/locales/'));
+
+  const modifiedEnLocaleStrings = fs.readFileSync(enLocalePath);
+
+  if (!originalEnLocaleStrings.equals(modifiedEnLocaleStrings)) {
+    throw new Error('Please commit the modifications made to en-US.json.');
+  }
 }
 
 module.exports = {
