@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "35e925df_55b2bfaf",
+        "filename": "front_end/ui/ActionRegistration.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-02T15:09:16Z",
+      "side": 1,
+      "message": "Ah good catch I meant to do that! Will update.",
+      "parentUuid": "19cc9898_31faaa4d",
+      "range": {
+        "startLine": 150,
+        "startChar": 2,
+        "endLine": 150,
+        "endChar": 18
+      },
+      "revId": "a09a6f3fb29af7ac675d796184ba46f44ba41786",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9ba78562_7cba6ea4",
