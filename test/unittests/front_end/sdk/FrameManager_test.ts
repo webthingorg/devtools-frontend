@@ -8,30 +8,30 @@ import * as SDK from '../../../../front_end/sdk/sdk.js';
 import * as Common from '../../../../front_end/common/common.js';
 
 class MockResourceTreeModel extends Common.ObjectWrapper.ObjectWrapper {
-  private _targetId: string;
+  private targetId: string;
 
   constructor(id: string) {
     super();
-    this._targetId = id;
+    this.targetId = id;
   }
 
   target() {
-    return {id: () => this._targetId};
+    return {id: () => this.targetId};
   }
 }
 
 class MockResourceTreeFrame {
-  private _targetId: string;
+  private targetId: string;
   id: string;
 
   constructor(frameId: string, targetId: string) {
     this.id = frameId;
-    this._targetId = targetId;
+    this.targetId = targetId;
   }
 
   resourceTreeModel = () => ({
     target: () => ({
-      id: () => this._targetId,
+      id: () => this.targetId,
     }),
   });
 
