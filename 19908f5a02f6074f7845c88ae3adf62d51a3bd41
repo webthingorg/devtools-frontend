@@ -16,6 +16,24 @@
       "message": "LGTM \u0026 a question: If we want to use a private method in a unit test, do we make it public? How do we indicate that it\u0027s public only for testing?  ",
       "revId": "19908f5a02f6074f7845c88ae3adf62d51a3bd41",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca6d7a0d_1464bf5c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-12-02T15:53:37Z",
+      "side": 1,
+      "message": "In general, we should not probably invoke any private methods in tests.",
+      "parentUuid": "9764e5f5_f8a710c7",
+      "revId": "19908f5a02f6074f7845c88ae3adf62d51a3bd41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
