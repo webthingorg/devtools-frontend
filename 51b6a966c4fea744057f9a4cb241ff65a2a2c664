@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5bd687a_638aa668",
+        "filename": "front_end/extensions/ExtensionView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-02T14:42:49Z",
+      "side": 0,
+      "message": "the regex missed one :)",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 2
+      },
+      "revId": "51b6a966c4fea744057f9a4cb241ff65a2a2c664",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d8540db_395d30e8",
+        "filename": "front_end/heap_snapshot_worker/HeapSnapshotWorkerDispatcher.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-02T14:42:49Z",
+      "side": 0,
+      "message": "same here",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 3
+      },
+      "revId": "51b6a966c4fea744057f9a4cb241ff65a2a2c664",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
