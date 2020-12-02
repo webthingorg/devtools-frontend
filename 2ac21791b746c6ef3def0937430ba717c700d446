@@ -16,6 +16,24 @@
       "message": "Like the UX. 2 comments:\n\n1. Should we change the label text (in the screenshot 30.6ms ~ 33fps) to red color instead since it\u0027s the box is red?\n2. Dropped frame - Is it possible to get a reason (e.g. from Blink) on why the dropped frame happen?",
       "revId": "2ac21791b746c6ef3def0937430ba717c700d446",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f1a4df4_9e7f4c23",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1364134
+      },
+      "writtenOn": "2020-12-02T02:11:13Z",
+      "side": 1,
+      "message": "1. Thank you for the good point. I have changed the text color to red (i.e. the color used for warning). Screenshot of new UI: https://screenshot.googleplex.com/5ciruQDeNyeXZff.png\n\n2. The accurate reason of frame dropping is not readily available in the trace for now. We plan to address this issue in a follow-up CL (see tracking issue crbug.com/1086974).",
+      "parentUuid": "59e1a97b_a41222d1",
+      "revId": "2ac21791b746c6ef3def0937430ba717c700d446",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
