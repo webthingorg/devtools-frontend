@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b3b8e82_0049f8df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-02T14:54:54Z",
+      "side": 1,
+      "message": "Overall architecture looks good. Already left some comments, looking forward to the tests :)",
+      "revId": "13da288125e234fc8456e73258ff685eabe07877",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dbd2405_9a71fab9",
+        "filename": "front_end/browser_sdk/IssuesManager.js",
+        "patchSetId": 19
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-02T14:54:54Z",
+      "side": 1,
+      "message": "This map should probably be kept in sync with `this._filteredIssues`, so it also needs to cleared and re-populated in `updateFilteredIssues()`",
+      "range": {
+        "startLine": 141,
+        "startChar": 6,
+        "endLine": 141,
+        "endChar": 56
+      },
+      "revId": "13da288125e234fc8456e73258ff685eabe07877",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45844b71_fe6abb62",
+        "filename": "front_end/browser_sdk/SourceFrameIssuesManager.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-02T14:54:54Z",
+      "side": 1,
+      "message": "filteredIssues? The mapping is only maintained for the filtered issues.",
+      "range": {
+        "startLine": 52,
+        "startChar": 38,
+        "endLine": 52,
+        "endChar": 44
+      },
+      "revId": "13da288125e234fc8456e73258ff685eabe07877",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4af945bd_0b4e5ba1",
+        "filename": "front_end/browser_sdk/SourceFrameIssuesManager.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-02T14:54:54Z",
+      "side": 1,
+      "message": "nit: not needed :)",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 3
+      },
+      "revId": "13da288125e234fc8456e73258ff685eabe07877",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ccf80c7_e93acaca",
+        "filename": "front_end/browser_sdk/SourceFrameIssuesManager.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-02T14:54:54Z",
+      "side": 1,
+      "message": "nit:\n\n private uiMessage?: Workspace.UISourceCode.Message;",
+      "range": {
+        "startLine": 102,
+        "startChar": 2,
+        "endLine": 102,
+        "endChar": 62
+      },
+      "revId": "13da288125e234fc8456e73258ff685eabe07877",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "120f422e_2a2d7fbb",
+        "filename": "front_end/browser_sdk/SourceFrameIssuesManager.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-02T14:54:54Z",
+      "side": 1,
+      "message": "Current style guide discourages the usage of these:\n\n if (this.uiMessage) {\n   this.uiMessage.remove();\n }",
+      "range": {
+        "startLine": 128,
+        "startChar": 18,
+        "endLine": 128,
+        "endChar": 19
+      },
+      "revId": "13da288125e234fc8456e73258ff685eabe07877",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e11887f9_99957879",
+        "filename": "front_end/browser_sdk/module.json",
+        "patchSetId": 19
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-02T14:54:54Z",
+      "side": 1,
+      "message": "It\u0027s unfortunate that we need to list these here.",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 3
+      },
+      "revId": "13da288125e234fc8456e73258ff685eabe07877",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
