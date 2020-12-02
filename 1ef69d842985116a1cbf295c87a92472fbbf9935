@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "43475d18_7716195d",
+        "filename": "scripts/eslint_rules/lib/no_underscored_private_properties.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-02T15:02:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "909ce91d_edf7b394",
+      "range": {
+        "startLine": 8,
+        "startChar": 30,
+        "endLine": 8,
+        "endChar": 37
+      },
+      "revId": "1ef69d842985116a1cbf295c87a92472fbbf9935",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4dd97154_8b5c4506",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "47a365b3_21a4a6a5",
+        "filename": "scripts/eslint_rules/lib/no_underscored_private_properties.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-02T15:02:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4dd97154_8b5c4506",
+      "range": {
+        "startLine": 16,
+        "startChar": 6,
+        "endLine": 16,
+        "endChar": 25
+      },
+      "revId": "1ef69d842985116a1cbf295c87a92472fbbf9935",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6904bc2a_6ce145a0",
@@ -60,6 +108,30 @@
       "writtenOn": "2020-12-02T13:04:35Z",
       "side": 1,
       "message": "Nit: extract into separate method for readability and descriptive function name.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 3
+      },
+      "revId": "1ef69d842985116a1cbf295c87a92472fbbf9935",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "992945fd_a5d1547b",
+        "filename": "scripts/eslint_rules/lib/no_underscored_private_properties.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-02T15:02:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6904bc2a_6ce145a0",
       "range": {
         "startLine": 20,
         "startChar": 0,
