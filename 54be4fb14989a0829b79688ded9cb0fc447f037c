@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cea9cd5_70e993f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-02T13:01:44Z",
+      "side": 1,
+      "message": "1 small rewording. Adding Paul to double check from his perspective, as we are both too knowledgeable about the internals of the system.",
+      "revId": "54be4fb14989a0829b79688ded9cb0fc447f037c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc8abae6_5ee30a90",
+        "filename": "front_end/ui/ActionRegistration.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-02T13:01:44Z",
+      "side": 1,
+      "message": "Small rewording, including an example:\n\nIn the case that an action has context types it depends on, and they haven\u0027t been loaded yet, the function should return an empty array. Once the context types have been loaded, the function should return an array with all types that it depends on.\n\nThe common pattern for implementing this function is relying on having the module with the corresponding context types loaded and stored when the related \u0027view\u0027 extension is loaded asynchronously. As an example:\n\n```js\nlet loadedElementsModule;\n\nasync function loadElementsModule() {\n  if (!loadedElementsModule) {\n    loadedElementsModule \u003d await import(\u0027./elements.js\u0027);\n  }\n  return loadedElementsModule;\n}\n\nfunction maybeRetrieveContextTypes(getClassCallBack: (elementsModule: typeof Elements) \u003d\u003e unknown[]): unknown[] {\n  if (loadedElementsModule \u003d\u003d\u003d undefined) {\n    return [];\n  }\n  return getClassCallBack(loadedElementsModule);\n}\n\nUI.ActionRegistration.registerActionExtension({\n  contextTypes() {\n    return maybeRetrieveContextTypes(Elements \u003d\u003e [Elements.ElementsPanel.ElementsPanel]);\n  }\n  \u003c...\u003e\n});\n```",
+      "range": {
+        "startLine": 385,
+        "startChar": 0,
+        "endLine": 387,
+        "endChar": 32
+      },
+      "revId": "54be4fb14989a0829b79688ded9cb0fc447f037c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
