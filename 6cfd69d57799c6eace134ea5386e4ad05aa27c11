@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8ed51ce_f4b66542",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-02T06:52:05Z",
+      "side": 1,
+      "message": "Thanks for taking a stab at this Alfonso!\n\nI think we should take this feature a bit slower, maybe split it up into two or three CLs. The CL in this form makes the IssuesManager very hard to read. The logic for the Issues shown in the source frame is entangled in a lot of places, making this hard to unit test. Also the code duplication around the Markdown stuff is not great.\n\nI think we might be able to solve this differently architecture-wise:\n\nInstead of letting `IssuesManager` handle the UISourceCodeFrame related stuff, we should have a new manager. Lets say `SourceFrameIssuesManager`. The `SourceFrameIssuesManager` then listens to the events of `IssuesManager` (the model for each issue e.g. is part of the event). If thats not possible, we can always extend the events in a way that `SourceFrameIssuesManager` gets all the necessary information or we hook in lower and listen to modelAdded/modelRemoved and raw issuesAdded events. This way, the `SourceFrameIssuesManager` can hold all the maps added to `IssuesManager` in this CL and it can also be separately unit tested (ideally this is CL 1, and then we go from there).\n\nWdyt?\n",
+      "revId": "6cfd69d57799c6eace134ea5386e4ad05aa27c11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
