@@ -30,6 +30,7 @@ devtools_module("common") {
     "SettingRegistration.ts",
     "Settings.js",
     "SimpleHistoryManager.js",
+    "Singleton.ts",
     "StringOutputStream.js",
     "TextDictionary.js",
     "Throttler.js",
