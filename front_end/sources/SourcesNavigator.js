@@ -96,10 +96,16 @@ export class NetworkNavigatorView extends NavigatorView {
   }
 }
 
+/** @type {!FilesNavigatorView} */
+let filesNavigatorViewInstance;
+
 /**
  * @unrestricted
  */
 export class FilesNavigatorView extends NavigatorView {
+  /**
+   * @private
+   */
   constructor() {
     super();
     const placeholder = new UI.EmptyWidget.EmptyWidget('');
@@ -117,6 +123,13 @@ export class FilesNavigatorView extends NavigatorView {
         this.contentElement.insertBefore(toolbar.element, this.contentElement.firstChild);
       }
     });
+  }
+
+  static instance() {
+    if (!filesNavigatorViewInstance) {
+      filesNavigatorViewInstance = new FilesNavigatorView();
+    }
+    return filesNavigatorViewInstance;
   }
 
   /**
@@ -252,6 +265,9 @@ export class ContentScriptsNavigatorView extends NavigatorView {
   }
 }
 
+/** @type {!SnippetsNavigatorView} */
+let snippetsNavigatorViewInstance;
+
 /**
  * @unrestricted
  */
@@ -275,6 +291,13 @@ export class SnippetsNavigatorView extends NavigatorView {
     });
     toolbar.appendToolbarItem(newButton);
     this.contentElement.insertBefore(toolbar.element, this.contentElement.firstChild);
+  }
+
+  static instance() {
+    if (!snippetsNavigatorViewInstance) {
+      snippetsNavigatorViewInstance = new SnippetsNavigatorView();
+    }
+    return snippetsNavigatorViewInstance;
   }
 
   /**
@@ -326,10 +349,16 @@ export class SnippetsNavigatorView extends NavigatorView {
   }
 }
 
+/** @type {!RecordingsNavigatorView} */
+let recordingsNavigatorViewInstance;
+
 /**
  * @unrestricted
  */
 export class RecordingsNavigatorView extends NavigatorView {
+  /**
+   * @private
+   */
   constructor() {
     super();
     const placeholder = new UI.EmptyWidget.EmptyWidget('');
@@ -344,6 +373,13 @@ export class RecordingsNavigatorView extends NavigatorView {
     });
     toolbar.appendToolbarItem(newButton);
     this.contentElement.insertBefore(toolbar.element, this.contentElement.firstChild);
+  }
+
+  static instance() {
+    if (!recordingsNavigatorViewInstance) {
+      recordingsNavigatorViewInstance = new RecordingsNavigatorView();
+    }
+    return recordingsNavigatorViewInstance;
   }
 
   /**
