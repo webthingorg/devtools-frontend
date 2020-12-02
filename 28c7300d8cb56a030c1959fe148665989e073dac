@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ff819d6_1c3fc693",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-02T14:46:47Z",
+      "side": 1,
+      "message": "[optional] FYI, for new code, `.append(messagesOutline)` seems simpler. (We only have `appendChild` because `append` didn\u0027t exist before.)",
+      "range": {
+        "startLine": 578,
+        "startChar": 35,
+        "endLine": 578,
+        "endChar": 46
+      },
+      "revId": "28c7300d8cb56a030c1959fe148665989e073dac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aed157d6_df631ccd",
+        "filename": "test/e2e/sources/issue-icon-row-bucket_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-02T14:46:47Z",
+      "side": 1,
+      "message": "[optional] Tip: I believe our eslint config allows the use of double-quoted strings iff it avoids having to escape single quotes in the string like this. But the simplest way to avoid the inner escapes is to use\n\n    const element \u003d await waitFor(\u0027[aria-label\u003d\"trusted-type-violations-report-only.rawresponse, file\"]\u0027);",
+      "range": {
+        "startLine": 15,
+        "startChar": 34,
+        "endLine": 15,
+        "endChar": 35
+      },
+      "revId": "28c7300d8cb56a030c1959fe148665989e073dac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
