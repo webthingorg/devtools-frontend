@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "909ce91d_edf7b394",
+        "filename": "scripts/eslint_rules/lib/no_underscored_private_properties.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-02T13:04:35Z",
+      "side": 1,
+      "message": "Should we also disallow it for public field? (E.g. ban the usage of underscore prefixes altogether in any field)",
+      "range": {
+        "startLine": 8,
+        "startChar": 30,
+        "endLine": 8,
+        "endChar": 37
+      },
+      "revId": "1ef69d842985116a1cbf295c87a92472fbbf9935",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dd97154_8b5c4506",
+        "filename": "scripts/eslint_rules/lib/no_underscored_private_properties.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-02T13:04:35Z",
+      "side": 1,
+      "message": "Ultra-nit: `nodeName.startsWith(\u0027_\u0027)`",
+      "range": {
+        "startLine": 16,
+        "startChar": 6,
+        "endLine": 16,
+        "endChar": 25
+      },
+      "revId": "1ef69d842985116a1cbf295c87a92472fbbf9935",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6904bc2a_6ce145a0",
+        "filename": "scripts/eslint_rules/lib/no_underscored_private_properties.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-02T13:04:35Z",
+      "side": 1,
+      "message": "Nit: extract into separate method for readability and descriptive function name.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 3
+      },
+      "revId": "1ef69d842985116a1cbf295c87a92472fbbf9935",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
