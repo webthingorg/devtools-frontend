@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a874a1be_1ebce47c",
+        "filename": "front_end/common/SettingRegistration.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-02T14:13:06Z",
+      "side": 1,
+      "message": "Ultra-nit: missing semi-colon. Can you file a bug for our linter configuration? This should have automatically been fixed, but for some reason it isn\u0027t.",
+      "range": {
+        "startLine": 39,
+        "startChar": 93,
+        "endLine": 39,
+        "endChar": 94
+      },
+      "revId": "7fb89f8e814ef574d233e927e1fb430fad91502a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
