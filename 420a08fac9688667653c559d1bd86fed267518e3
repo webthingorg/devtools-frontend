@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0092886_ee449b7d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-12-02T20:08:40Z",
+      "side": 1,
+      "message": "This adds support for link and html (icons support) in MarkdownView. Please let me know what you think?",
+      "revId": "420a08fac9688667653c559d1bd86fed267518e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
