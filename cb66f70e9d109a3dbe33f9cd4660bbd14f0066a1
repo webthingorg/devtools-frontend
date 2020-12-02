@@ -33,6 +33,24 @@
       "message": "Should we migrate the remaining views in browser_debugger/ in a separate CL?",
       "revId": "cb66f70e9d109a3dbe33f9cd4660bbd14f0066a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9800573a_f60d20d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-02T14:09:48Z",
+      "side": 1,
+      "message": "\u003e LGTM except this is missing the import of sources-meta.ts in front_end/devtools_app.js, which, I think, is why the try bots fail.\n\nDone",
+      "parentUuid": "7b81e2dd_f247b94a",
+      "revId": "cb66f70e9d109a3dbe33f9cd4660bbd14f0066a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
