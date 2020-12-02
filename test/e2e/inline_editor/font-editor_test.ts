@@ -48,7 +48,7 @@ describe('The font editor', async function() {
     const {frontend} = getBrowserAndPages();
     await openFontEditor(0);
     const fontFamilySelector = await waitFor('[aria-label="Font Family"]');
-    fontFamilySelector.focus();
+    await fontFamilySelector.focus();
     frontend.keyboard.press('Enter');
     frontend.keyboard.press('ArrowDown');
     frontend.keyboard.press('Enter');
