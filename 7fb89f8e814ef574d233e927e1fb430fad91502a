@@ -22,6 +22,30 @@
       },
       "revId": "7fb89f8e814ef574d233e927e1fb430fad91502a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b12866c7_e0954d57",
+        "filename": "front_end/common/SettingRegistration.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-12-02T16:05:08Z",
+      "side": 1,
+      "message": "Done. See crbug.com/1154690",
+      "parentUuid": "a874a1be_1ebce47c",
+      "range": {
+        "startLine": 39,
+        "startChar": 93,
+        "endLine": 39,
+        "endChar": 94
+      },
+      "revId": "7fb89f8e814ef574d233e927e1fb430fad91502a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
