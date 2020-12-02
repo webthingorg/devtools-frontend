@@ -19,6 +19,7 @@
     "ResourceType.js",
     "Settings.js",
     "SettingRegistration.js",
+    "Singleton.js",
     "SegmentedRange.js",
     "Throttler.js",
     "Trie.js",
