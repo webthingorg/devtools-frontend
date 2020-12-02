@@ -56,6 +56,30 @@
       },
       "revId": "21eb0a628c5e8c024ec74cf1209a66dd6d29eb9d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fba96f0_de66c81c",
+        "filename": "front_end/quick_open/CommandMenu.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-12-02T09:51:41Z",
+      "side": 1,
+      "message": "The `userActionCode` is always undefined when the action is opening the issues tab. On taking a look, it seems that the `userActionCode` is always undefined and not used (yet).\nI refactored nevertheless, this should now work regardless of whether there is a `userActionCode` or not.",
+      "parentUuid": "4ddf1275_6f98217f",
+      "range": {
+        "startLine": 50,
+        "startChar": 4,
+        "endLine": 50,
+        "endChar": 34
+      },
+      "revId": "21eb0a628c5e8c024ec74cf1209a66dd6d29eb9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
