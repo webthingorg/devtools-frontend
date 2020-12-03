@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3f1ba255_6da57bfb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-12-03T15:27:28Z",
+      "side": 1,
+      "message": "Hmm, can do scalar parsing + list parsing + serialization, though the first one is likely to be the bulk anyway. Let\u0027s see.",
+      "parentUuid": "b4923ce6_b9051dd3",
+      "revId": "ea9cfd98eb260594432af95ea6ca8ab39ef4e155",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d0ba4675_67504432",
         "filename": "front_end/emulation/DevicesSettingsTab.js",
         "patchSetId": 16
@@ -132,6 +150,30 @@
       "side": 1,
       "message": "The unit tests are considered a separate module, so the emulation unit tests must use the cross-module import for the actual emulation module :)",
       "parentUuid": "47d76229_08f0f832",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 60
+      },
+      "revId": "ea9cfd98eb260594432af95ea6ca8ab39ef4e155",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf8447b8_5863abbf",
+        "filename": "front_end/emulation/DevicesSettingsTab.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-12-03T15:27:28Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "2adc9ca1_f5995033",
       "range": {
         "startLine": 10,
         "startChar": 0,
