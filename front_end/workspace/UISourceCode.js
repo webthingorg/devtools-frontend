@@ -48,7 +48,6 @@ export class UISourceCode extends Common.ObjectWrapper.ObjectWrapper {
     this._project = project;
     /** @type {string} */
     this._url = url;
-
     const parsedURL = Common.ParsedURL.ParsedURL.fromString(url);
     if (parsedURL) {
       this._origin = parsedURL.securityOrigin();
@@ -140,7 +139,7 @@ export class UISourceCode extends Common.ObjectWrapper.ObjectWrapper {
    */
   displayName(skipTrim) {
     if (!this._name) {
-      return Common.UIString.UIString('(index)');
+      return ls`(index)`;
     }
     let name = this._name;
     try {
@@ -149,7 +148,7 @@ export class UISourceCode extends Common.ObjectWrapper.ObjectWrapper {
       } else {
         name = decodeURI(name);
       }
-    } catch (e) {
+    } catch (error) {
     }
     return skipTrim ? name : name.trimEndWithMaxLength(100);
   }
