@@ -16,6 +16,46 @@
       "message": "So this is basically working (it needs a bugfix for not applying the edits immediately on save --- not issue the RPC to backend, string context strings and a lot of UI polish), so it seems useful to discuss how to proceed. I was thinking of at least splitting off StructuredHeaders* (which possibly should be in a separate dir --- it\u0027s pretty generic), as it\u0027s big, logically independent and I am sure warrants lots of feedback.\n\nOn that note, I don\u0027t know what this is trying to tell me to do:\n/usr/local/google/home/morlovich/cr/devtools/devtools-frontend/test/unittests/front_end/emulation/StructuredHeaders_test.ts\n  6:1  error  Incorrect cross-namespace import: \"../../../../front_end/emulation/StructuredHeaders.js\". Use \"import * as Namespace from \u0027../namespace/namespace.js\u0027;\" instead  rulesdir/es_modules_import\n\n",
       "revId": "ea9cfd98eb260594432af95ea6ca8ab39ef4e155",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22a63711_abcb5b08",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-03T09:01:29Z",
+      "side": 1,
+      "message": "Honestly, I have to admit that I am a bit lost with this CL. Can you point my to some documentation or outline here how the general data flow is?\n\nIIRC we want to provide a form to devs that allows them to specify the UA client hints for custom devices. My mental model is currently at the stage of \"collect some value from the form and send them to the backend\". How does the parser you added fit in here? A 1-pager would really help, doesn\u0027t need to be a full design doc, just a quick explainer of the 2 or 3 moving parts of this CL and how they fit together.\n\nRegarding the UI, ideally we would write new code using the custom elements/web components mechanism we have now. Given that we have to tightly integrate with the existing form/pane I am ok with using legacy UI widgets. (Just to document that decision here).\n\nGoing forward I propose we split of the parser into a separate CL for further review. I think leaving it as part of the emulation module for now is fine. We can always move the code if we need to re-use it somewhere else. It\u0027s rather isolated so moving it shouldn\u0027t be a problem.\n\nFor the frontend bit CL, we usually like to upload screenshots via imgur (or whatever your favourite public image hoster is). This makes it easier for reviewers to picture how its actually going to look and we can also let Peter do a UX review when we feel its mostly done.\n\nLast but not least, thanks for your hard work on this! Finding your way around the DevTools widget system without a lot of guidance is rather impressive :)",
+      "revId": "ea9cfd98eb260594432af95ea6ca8ab39ef4e155",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0ba4675_67504432",
+        "filename": "front_end/emulation/DevicesSettingsTab.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-03T09:01:29Z",
+      "side": 1,
+      "message": "To answer your import question, we have two \"kinds\" of imports in DevTools: Same module imports, and cross-module imports. A module is considered a subdirectory of \"front_end\", like \"ui\" or \"emulation\". Every directory with a devtools_entrypoint in its BUILD.gn.\n\nImporting \u0027StructuredHeaders\u0027 from the same (\u003d\u003d emulation) module is done like\n \n import {ResultKind} from \u0027./StructuredHeaders.js\u0027;\n\nImporting \u0027StructuredHeaders\u0027 from a module other than emulation would be done as\n\n import * as Emulation from \u0027../emulation/emulation.js\u0027;\n\n const foo \u003d Emulation.StructuredHeaders.ResultKind...;",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 60
+      },
+      "revId": "ea9cfd98eb260594432af95ea6ca8ab39ef4e155",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
