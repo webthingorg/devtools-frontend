@@ -225,7 +225,7 @@ export class LinearMemoryViewer extends HTMLElement {
     };
     return html`
     <div class="row">
-      <span class="${LitHtml.Directives.classMap(classMap)}">${toHexString(startIndex + this.memoryOffset, 8)}</span>
+      <span class="${LitHtml.Directives.classMap(classMap)}">${toHexString({number: startIndex + this.memoryOffset, pad: 8, prefix: false})}</span>
       <span class="divider"></span>
       ${this.renderByteValues(startIndex, endIndex)}
       <span class="divider"></span>
@@ -245,7 +245,7 @@ export class LinearMemoryViewer extends HTMLElement {
         'byte-group-margin': addMargin,
         selected: i === this.address - this.memoryOffset,
       };
-      const byteValue = i < this.memory.length ? html`${toHexString(this.memory[i], 2)}` : '';
+      const byteValue = i < this.memory.length ? html`${toHexString({number: this.memory[i], pad: 2, prefix: false})}` : '';
       cells.push(html`
         <span class="${LitHtml.Directives.classMap(classMap)}" @click=${this.onSelectedByte(i + this.memoryOffset)}>
           ${byteValue}
