@@ -9,7 +9,7 @@ export class StubIssue extends Issue {
   private cookieNames: string[];
 
   constructor(code: string, requestIds: string[], cookieNames: string[]) {
-    super(code);
+    super(code);  // TODO
     this.requestIds = requestIds;
     this.cookieNames = cookieNames;
   }
