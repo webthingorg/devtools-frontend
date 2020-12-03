@@ -4,6 +4,7 @@
 
 import * as Common from '../common/common.js';
 import * as SDK from '../sdk/sdk.js';
+import {SourceFrameIssuesManager} from './SourceFrameIssuesManager.js';
 
 /** @type {?IssuesManager} */
 let issuesManagerInstance = null;
@@ -39,6 +40,10 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper {
 
     /** @type {?Common.EventTarget.EventDescriptor} */
     this._showThirdPartySettingsChangeListener = null;
+
+    /** @type {!WeakMap<!SDK.Issue.Issue, !SDK.IssuesModel.IssuesModel>} */
+    this._issuesToissuesModel = new WeakMap();
+    this._sourceFrameIssuesManager = new SourceFrameIssuesManager(this);
   }
 
   /**
@@ -133,6 +138,7 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper {
 
     if (this._issueFilter(issue)) {
       this._filteredIssues.set(primaryKey, issue);
+      this._issuesToissuesModel.set(issue, issuesModel);
       this.dispatchEventToListeners(Events.IssueAdded, {issuesModel, issue});
     }
     // Always fire the "count" event even if the issue was filtered out.
@@ -145,6 +151,14 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper {
    */
   issues() {
     return this._filteredIssues.values();
+  }
+
+  /**
+   * @param {!SDK.Issue.Issue} issue
+   * @return {!SDK.IssuesModel.IssuesModel | undefined}
+   */
+  getIssuesModel(issue) {
+    return this._issuesToissuesModel.get(issue);
   }
 
   /**
