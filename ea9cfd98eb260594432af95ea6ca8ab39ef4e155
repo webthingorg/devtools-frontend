@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0df7c8e4_020e2c7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-12-03T14:42:51Z",
+      "side": 1,
+      "message": "\u003e Honestly, I have to admit that I am a bit lost with this CL. Can you point my to some documentation or outline here how the general data flow is?\n\u003e \n\u003e IIRC we want to provide a form to devs that allows them to specify the UA client hints for custom devices. My mental model is currently at the stage of \"collect some value from the form and send them to the backend\". How does the parser you added fit in here? A 1-pager would really help, doesn\u0027t need to be a full design doc, just a quick explainer of the 2 or 3 moving parts of this CL and how they fit together.\n\nWhat you\u0027ve said thus far is all correct. The values we send to the backend are are in this form, which matches what Chrome has:\n\n  experimental type UserAgentBrandVersion extends object\n    properties\n      string brand\n      string version\n\n  experimental type UserAgentMetadata extends object\n    properties\n      array of UserAgentBrandVersion brands\n      string fullVersion\n      string platform\n      string platformVersion\n      string architecture\n      string model\n      boolean mobile\n\nThe interesting bit is basically the brands field, which in data model is structured, but in the UI is a single string ---- and the structured headers parser + serializer is used to convert back and forth between its 1-line representation in the syntax that\u0027s used in the http header and the structured representation used internally.  The reason I went for this approach is that the existing device editor already does interactive validation for things like width and pixel density fields, and this lets it display error messages interactively (and the save button gets auto-disabled/enabled by the preexisting editor code automagically) --- over email we discussed things like having the C++ side parse it, or just checking at save, but that didn\u0027t seem to fit the existing UI.\n\nI did implement way more of structured headers than is strictly needed, but the hope with that spec is that they\u0027ll end up being used all over the place, so it seemed likely to be useful (and I didn\u0027t do the one actually hard part).\n\n(An alternative would be to extend data model to allow a string version of brands list, which would permit people to send invalid headers or valid ones that Chromium can\u0027t produce, but that seems too niche and kinda foot-gunny?).\n\n\u003e \n\u003e Regarding the UI, ideally we would write new code using the custom elements/web components mechanism we have now. Given that we have to tightly integrate with the existing form/pane I am ok with using legacy UI widgets. (Just to document that decision here).\n\u003e \n\u003e Going forward I propose we split of the parser into a separate CL for further review. I think leaving it as part of the emulation module for now is fine. We can always move the code if we need to re-use it somewhere else. It\u0027s rather isolated so moving it shouldn\u0027t be a problem.\n\nWill do.\n\n\u003e \n\u003e For the frontend bit CL, we usually like to upload screenshots via imgur (or whatever your favourite public image hoster is). This makes it easier for reviewers to picture how its actually going to look and we can also let Peter do a UX review when we feel its mostly done.\n\nAck.\n\n\u003e \n\u003e Last but not least, thanks for your hard work on this! Finding your way around the DevTools widget system without a lot of guidance is rather impressive :)",
+      "parentUuid": "22a63711_abcb5b08",
+      "revId": "ea9cfd98eb260594432af95ea6ca8ab39ef4e155",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d0ba4675_67504432",
         "filename": "front_end/emulation/DevicesSettingsTab.js",
         "patchSetId": 16
@@ -48,6 +66,30 @@
       "writtenOn": "2020-12-03T09:01:29Z",
       "side": 1,
       "message": "To answer your import question, we have two \"kinds\" of imports in DevTools: Same module imports, and cross-module imports. A module is considered a subdirectory of \"front_end\", like \"ui\" or \"emulation\". Every directory with a devtools_entrypoint in its BUILD.gn.\n\nImporting \u0027StructuredHeaders\u0027 from the same (\u003d\u003d emulation) module is done like\n \n import {ResultKind} from \u0027./StructuredHeaders.js\u0027;\n\nImporting \u0027StructuredHeaders\u0027 from a module other than emulation would be done as\n\n import * as Emulation from \u0027../emulation/emulation.js\u0027;\n\n const foo \u003d Emulation.StructuredHeaders.ResultKind...;",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 60
+      },
+      "revId": "ea9cfd98eb260594432af95ea6ca8ab39ef4e155",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47d76229_08f0f832",
+        "filename": "front_end/emulation/DevicesSettingsTab.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-12-03T14:42:51Z",
+      "side": 1,
+      "message": "Does unit tests for emulation count as same module?\n... I guess I should look at some other tests.",
+      "parentUuid": "d0ba4675_67504432",
       "range": {
         "startLine": 10,
         "startChar": 0,
