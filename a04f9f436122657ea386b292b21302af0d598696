@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91365246_65cf23c3",
+        "filename": "test/unittests/front_end/formatter_worker/JavaScriptFormatter_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-12-03T16:34:25Z",
+      "side": 1,
+      "message": "That looks like a no-op. Should the test be more \"challenging\"?",
+      "range": {
+        "startLine": 55,
+        "startChar": 38,
+        "endLine": 58,
+        "endChar": 1
+      },
+      "revId": "a04f9f436122657ea386b292b21302af0d598696",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
