@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "afd9dbff_5c9ffa0d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-12-03T16:32:24Z",
+      "side": 1,
+      "message": "This is the first piece; sadly it\u0027s quite big, too...",
+      "revId": "660f2047ecaa544722d7cdefe6c7c7d601221aee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
