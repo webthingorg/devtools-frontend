@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4921ee9a_3bd81b1e",
+        "filename": "test/shared/mocha-extensions.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1436067
+      },
+      "writtenOn": "2020-12-03T14:37:34Z",
+      "side": 1,
+      "message": "Could you please add a bit more details?",
+      "revId": "f8d682c229cda10377b1ffa0a71e6c1f052dc73a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
