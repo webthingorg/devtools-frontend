@@ -16,6 +16,46 @@
       "message": "PTAL - follow-up from https://crrev.com/c/2567118 where I realised we need themeColors.css injected into the karma unit test setup.",
       "revId": "4a2f41f922dfb6a8163b07aef50c3a9e7fd9cd0a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bc98ec1_2690be1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-12-03T09:43:37Z",
+      "side": 1,
+      "message": "LGTM with query",
+      "revId": "4a2f41f922dfb6a8163b07aef50c3a9e7fd9cd0a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bd93c69_914cad1d",
+        "filename": "test/unittests/front_end/ui/components/DataGrid_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-12-03T09:43:37Z",
+      "side": 1,
+      "message": "What\u0027s the reason for this one?",
+      "range": {
+        "startLine": 586,
+        "startChar": 52,
+        "endLine": 586,
+        "endChar": 54
+      },
+      "revId": "4a2f41f922dfb6a8163b07aef50c3a9e7fd9cd0a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
