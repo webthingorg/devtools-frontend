@@ -26,17 +26,15 @@
 }
 
 .breakpoint-list .breakpoint-entry:hover {
-  background-color: #eee;
+  background-color: var(--color-background-elevation-2);
 }
 
 .breakpoint-hit {
-  background-color: rgb(255 255 194);
-  border-right: 3px solid rgb(107 97 48);
-}
+  background-color: var(--color-background-elevation-2);
 
-:host-context(.-theme-with-dark-background) .breakpoint-hit {
-  background-color: hsl(46deg 98% 22%);
-  color: #ccc;
+  /* TODO(crbug.com/1152736): Figure out a good replacement color variable for this. */
+  border-right: 3px solid #6b6130;
+  color: var(--color-text-primary);
 }
 
 @media (forced-colors: active) {
