@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12d03f0f_363c3641",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-12-03T19:23:51Z",
+      "side": 1,
+      "message": "FYI I have added screenshot capturing to help understand the flakiness today. You can find the screenshots in the log output.",
+      "revId": "1d840fff64db40650fa463e1f603c34e9923e58e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
