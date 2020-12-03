@@ -45,6 +45,7 @@ describe('LinearMemoryViewer', () => {
       memory: new Uint8Array(memory),
       address: 2,
       memoryOffset: 0,
+      focus: true,
     };
 
     return data;
