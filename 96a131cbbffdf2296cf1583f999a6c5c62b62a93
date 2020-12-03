@@ -97,6 +97,30 @@
       },
       "revId": "96a131cbbffdf2296cf1583f999a6c5c62b62a93",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7ad8100_66c53db2",
+        "filename": "front_end/browser_debugger/domBreakpointsSidebarPane.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-03T12:08:26Z",
+      "side": 1,
+      "message": "Thanks! I went with `*hairline` for now.",
+      "parentUuid": "373dcbc8_94bc8cb4",
+      "range": {
+        "startLine": 36,
+        "startChar": 27,
+        "endLine": 36,
+        "endChar": 33
+      },
+      "revId": "96a131cbbffdf2296cf1583f999a6c5c62b62a93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
