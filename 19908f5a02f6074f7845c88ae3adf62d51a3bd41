@@ -34,6 +34,24 @@
       "parentUuid": "9764e5f5_f8a710c7",
       "revId": "19908f5a02f6074f7845c88ae3adf62d51a3bd41",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1061a332_0fb46dc3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-03T09:47:08Z",
+      "side": 1,
+      "message": "Yeah - I think if we find ourselves needing to make a method public just for testing it\u0027s a good time to rethink if we could change up the structure or pull that method into a helper, or something.",
+      "parentUuid": "ca6d7a0d_1464bf5c",
+      "revId": "19908f5a02f6074f7845c88ae3adf62d51a3bd41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
