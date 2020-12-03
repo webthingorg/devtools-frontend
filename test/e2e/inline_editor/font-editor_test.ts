@@ -4,7 +4,7 @@
 
 import {assert} from 'chai';
 
-import {enableExperiment, getBrowserAndPages, goToResource, waitFor} from '../../shared/helper.js';
+import {click, enableExperiment, getBrowserAndPages, goToResource, waitFor} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {getFontEditorButtons, getHiddenFontEditorButtons, waitForContentOfSelectedElementsNode, waitForCSSPropertyValue} from '../helpers/elements-helpers.js';
 
@@ -14,7 +14,6 @@ async function goToTestPageAndSelectTestElement(path: string = 'inline_editor/fo
 
   await goToResource(path);
   await waitForContentOfSelectedElementsNode('<body>\u200B');
-
   await frontend.keyboard.press('ArrowDown');
 }
 
@@ -26,7 +25,7 @@ async function openFontEditor(index: number) {
   await waitFor('.font-selector-section');
 }
 
-describe.skip('[https://crbug.com/1154560] The font editor', async function() {
+describe('The font editor', async function() {
   beforeEach(async function() {
     await enableExperiment('fontEditor');
     await goToTestPageAndSelectTestElement();
@@ -47,12 +46,18 @@ describe.skip('[https://crbug.com/1154560] The font editor', async function() {
   it('is properly applying font family changes to the style section', async () => {
     const {frontend} = getBrowserAndPages();
     await openFontEditor(0);
+    // eslint-disable-next-line no-console
+    console.log(1);
     const fontFamilySelector = await waitFor('[aria-label="Font Family"]');
-    fontFamilySelector.focus();
-    frontend.keyboard.press('Enter');
-    frontend.keyboard.press('ArrowDown');
-    frontend.keyboard.press('Enter');
+    await fontFamilySelector.focus();
+    // eslint-disable-next-line no-console
+    console.log(2);
+    await frontend.keyboard.press('ArrowDown');
+    // eslint-disable-next-line no-console
+    console.log(3);
     await waitForCSSPropertyValue('element.style', 'font-family', 'Times New Roman');
+    // eslint-disable-next-line no-console
+    console.log(4);
   });
 
   it('is properly applying slider input changes to the style section', async () => {
@@ -60,7 +65,7 @@ describe.skip('[https://crbug.com/1154560] The font editor', async function() {
     await openFontEditor(0);
     const fontSizeSliderInput = await waitFor('[aria-label="font-size Slider Input"]');
     await fontSizeSliderInput.focus();
-    frontend.keyboard.press('ArrowRight');
+    await frontend.keyboard.press('ArrowRight');
     await waitForCSSPropertyValue('element.style', 'font-size', '11px');
   });
 
@@ -69,18 +74,17 @@ describe.skip('[https://crbug.com/1154560] The font editor', async function() {
     await openFontEditor(0);
     const fontSizeTextInput = await waitFor('[aria-label="line-height Text Input"]');
     await fontSizeTextInput.focus();
-    frontend.keyboard.type('3');
+    await frontend.keyboard.type('3');
     await waitForCSSPropertyValue('element.style', 'line-height', '3');
   });
 
   it('is properly applying selector key values to the style section', async () => {
     const {frontend} = getBrowserAndPages();
     await openFontEditor(0);
-    const fontSizeKeySelector = await waitFor('[aria-label="font-weight Key Value Selector"]');
-    await fontSizeKeySelector.focus();
-    frontend.keyboard.press('Enter');
-    frontend.keyboard.press('ArrowDown');
-    frontend.keyboard.press('Enter');
+    await waitFor('[aria-label="font-weight Key Value Selector"]');
+    await click('[aria-label="font-weight Key Value Selector"]');
+    await frontend.keyboard.press('ArrowDown');
+    await frontend.keyboard.press('Enter');
     await waitForCSSPropertyValue('element.style', 'font-weight', 'inherit');
   });
 
@@ -89,9 +93,7 @@ describe.skip('[https://crbug.com/1154560] The font editor', async function() {
     await openFontEditor(0);
     const fontSizeUnitInput = await waitFor('[aria-label="font-size Unit Input"]');
     await fontSizeUnitInput.focus();
-    frontend.keyboard.press('Enter');
-    frontend.keyboard.press('ArrowDown');
-    frontend.keyboard.press('Enter');
+    await frontend.keyboard.press('ArrowDown');
     await waitForCSSPropertyValue('element.style', 'font-size', '0.6em');
   });
 
