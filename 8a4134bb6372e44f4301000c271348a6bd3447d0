@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4d0c013_d01b9e4a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-12-03T09:47:31Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "8a4134bb6372e44f4301000c271348a6bd3447d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94e4b210_5e5a1189",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-12-03T09:47:31Z",
+      "side": 1,
+      "message": "ultra-nit: just wondering if we should pull this var out to the top of the file.",
+      "range": {
+        "startLine": 223,
+        "startChar": 6,
+        "endLine": 223,
+        "endChar": 34
+      },
+      "revId": "8a4134bb6372e44f4301000c271348a6bd3447d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
