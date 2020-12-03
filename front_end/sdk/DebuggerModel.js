@@ -382,6 +382,32 @@ export class DebuggerModel extends SDKModel {
     }
   }
 
+  /**
+   * With debugger plugins, maps a UILocation to potentially multiple
+   * raw locations (due to inlining or loop unrolling).
+   * @param {any} uiSourceCode
+   * @param {number} lineNumber
+   * @param {number} columnNumber
+   * @return {!Promise<!Array<!Location>>}
+   */
+  async getPluginBreakpointLocations(uiSourceCode, lineNumber, columnNumber) {
+    // @ts-ignore
+    const pluginManager = Bindings.DebuggerWorkspaceBinding.instance().getLanguagePluginManager(this);
+    if (pluginManager) {
+      const ranges = await pluginManager.uiLocationToRawLocationRanges(uiSourceCode, lineNumber, columnNumber);
+      if (ranges) {
+        const rangeList = sortAndMergeRanges(ranges.map(
+            // @ts-ignore
+            location => new LocationRange(
+                location.start.scriptId, new ScriptPosition(location.start.lineNumber, location.start.columnNumber),
+                new ScriptPosition(location.end.lineNumber, location.end.columnNumber))));
+        return rangeList.map(
+            range => new Location(this, range.scriptId, range.start.lineNumber, range.start.columnNumber));
+      }
+    }
+    return [];
+  }
+
   scheduleStepIntoAsync() {
     this._computeAutoStepSkipList(StepMode.StepInto).then(skipList => {
       this._agent.invoke_stepInto({breakOnAsyncCall: true, skipList});
