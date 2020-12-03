@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4078abe1_9fb02f7b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-03T10:53:46Z",
+      "side": 1,
+      "message": "LGTM - will defer to Wolfgang on that one query. Can always add it to the tracking sheet and land as is.",
+      "revId": "96a131cbbffdf2296cf1583f999a6c5c62b62a93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e0d96faf_346dff67",
