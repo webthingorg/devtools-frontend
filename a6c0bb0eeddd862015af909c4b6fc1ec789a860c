@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32cf9e69_3c40667b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-12-03T04:54:09Z",
+      "side": 1,
+      "message": "Migrating media panel to localization V2. PTAL",
+      "revId": "a6c0bb0eeddd862015af909c4b6fc1ec789a860c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
