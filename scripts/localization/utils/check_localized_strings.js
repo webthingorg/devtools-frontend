@@ -114,6 +114,7 @@ const migratedDirsSet = new Set([
   'layer_viewer',
   'lighthouse',
   'performance_monitor',
+  'protocol_monitor',
   'search',
   'security',
   'settings',
