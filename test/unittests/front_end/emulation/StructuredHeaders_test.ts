@@ -86,6 +86,89 @@ function assertItemParams(
   assertParams(result.parameters, expectParams);
 }
 
+function assertListError(result: StructuredHeaders.List|StructuredHeaders.Error): void {
+  assert.strictEqual(result.kind, StructuredHeaders.ResultKind.Error);
+}
+
+function assertListAndGetItems(result: StructuredHeaders.List|StructuredHeaders.Error): StructuredHeaders.ListMember[] {
+  if (result.kind === StructuredHeaders.ResultKind.Error) {
+    assert.fail('Got error instead of List');
+    return [];
+  }
+  return result.items;
+}
+
+function assertListItem(
+    item: StructuredHeaders.ListMember, expectValue: StructuredHeaders.BareItem,
+    expectParams: [string, StructuredHeaders.BareItem][]): void {
+  if (item.kind === StructuredHeaders.ResultKind.InnerList) {
+    assert.fail('Unexpected inner list when an item expected');
+    return;
+  }
+  assert(
+      bareItemEquals(item.value, expectValue),
+      'List item bare value mismatch, ' + item.value.value + ' vs expected ' + expectValue.value);
+  assertItemParams(item, expectParams);
+}
+
+function assertInnerListAndGetItems(
+    item: StructuredHeaders.ListMember,
+    expectParams: [string, StructuredHeaders.BareItem][]): StructuredHeaders.Item[] {
+  if (item.kind !== StructuredHeaders.ResultKind.InnerList) {
+    assert.fail('Expected inner list, got:' + item.kind);
+    return [];
+  }
+  assertParams(item.parameters, expectParams);
+  return item.items;
+}
+
+function assertSerializeResult(
+    result: StructuredHeaders.SerializationResult|StructuredHeaders.Error, expected: string): void {
+  if (result.kind === StructuredHeaders.ResultKind.Error) {
+    assert.fail('Got error instead of serialization result');
+    return;
+  }
+  assert.strictEqual(result.value, expected);
+}
+
+function assertSerializeError(result: StructuredHeaders.SerializationResult|StructuredHeaders.Error): void {
+  assert.strictEqual(result.kind, StructuredHeaders.ResultKind.Error);
+}
+
+function makeItem(bareItem: StructuredHeaders.BareItem): StructuredHeaders.Item {
+  return {
+    kind: StructuredHeaders.ResultKind.Item,
+    value: bareItem,
+    parameters: {kind: StructuredHeaders.ResultKind.Parameters, items: []},
+  };
+}
+
+function makeParams(params: [string, StructuredHeaders.BareItem][]): StructuredHeaders.Parameters {
+  const typedParams: StructuredHeaders.Parameters = {kind: StructuredHeaders.ResultKind.Parameters, items: []};
+  for (const param of params) {
+    typedParams.items.push({
+      kind: StructuredHeaders.ResultKind.Parameter,
+      name: {kind: StructuredHeaders.ResultKind.ParamName, value: param[0]},
+      value: param[1],
+    });
+  }
+  return typedParams;
+}
+
+function makeItemWithParams(
+    bareItem: StructuredHeaders.BareItem, params: [string, StructuredHeaders.BareItem][]): StructuredHeaders.Item {
+  return {kind: StructuredHeaders.ResultKind.Item, value: bareItem, parameters: makeParams(params)};
+}
+
+function makeList(items: StructuredHeaders.ListMember[]): StructuredHeaders.List {
+  return {kind: StructuredHeaders.ResultKind.List, items: items};
+}
+
+function makeInnerList(
+    items: StructuredHeaders.Item[], params: [string, StructuredHeaders.BareItem][]): StructuredHeaders.InnerList {
+  return {kind: StructuredHeaders.ResultKind.InnerList, items: items, parameters: makeParams(params)};
+}
+
 describe('StructuredHeaders', () => {
   describe('Parsing', () => {
     it('Basic integer parsing', () => {
@@ -175,5 +258,217 @@ describe('StructuredHeaders', () => {
       assertItemError(StructuredHeaders.parseItem('token ;a=1'));
       assertItemError(StructuredHeaders.parseItem('token; a=1;'));
     });
+    it('List parsing', () => {
+      const i1 = assertListAndGetItems(StructuredHeaders.parseList('a, \t"b", ?0;d;e=42'));
+      assert.lengthOf(i1, 3);
+      assertListItem(i1[0], {kind: StructuredHeaders.ResultKind.Token, value: 'a'}, []);
+      assertListItem(i1[1], {kind: StructuredHeaders.ResultKind.String, value: 'b'}, []);
+      assertListItem(i1[2], {kind: StructuredHeaders.ResultKind.Boolean, value: false}, [
+        ['d', {kind: StructuredHeaders.ResultKind.Boolean, value: true}],
+        ['e', {kind: StructuredHeaders.ResultKind.Integer, value: 42}],
+      ]);
+
+      // Grammar seems to reject it, but the algorithm (which is normative) seems OK
+      // with it, and 0-length lists are OK per the data model.
+      const i2 = assertListAndGetItems(StructuredHeaders.parseList(''));
+      assert.lengthOf(i2, 0);
+
+      const i3 = assertListAndGetItems(StructuredHeaders.parseList('a, ("b" "c"), (d e)'));
+      assert.lengthOf(i3, 3);
+      assertListItem(i3[0], {kind: StructuredHeaders.ResultKind.Token, value: 'a'}, []);
+      const i3_l1 = assertInnerListAndGetItems(i3[1], []);
+      assert.lengthOf(i3_l1, 2);
+      assertListItem(i3_l1[0], {kind: StructuredHeaders.ResultKind.String, value: 'b'}, []);
+      assertListItem(i3_l1[1], {kind: StructuredHeaders.ResultKind.String, value: 'c'}, []);
+      const i3_l2 = assertInnerListAndGetItems(i3[2], []);
+      assert.lengthOf(i3_l2, 2);
+      assertListItem(i3_l2[0], {kind: StructuredHeaders.ResultKind.Token, value: 'd'}, []);
+      assertListItem(i3_l2[1], {kind: StructuredHeaders.ResultKind.Token, value: 'e'}, []);
+
+      // Empty inner lists are OK.
+      const i4 = assertListAndGetItems(StructuredHeaders.parseList(' (  )  '));
+      assert.lengthOf(i4, 1);
+      const i4_l0 = assertInnerListAndGetItems(i4[0], []);
+      assert.lengthOf(i4_l0, 0);
+
+      // Example from spec, with inner list params and item params.
+      const i5 = assertListAndGetItems(StructuredHeaders.parseList('("foo"; a=1;b=2);lvl=5, ("bar" "baz");lvl=1'));
+      assert.lengthOf(i5, 2);
+      const i5_l0 =
+          assertInnerListAndGetItems(i5[0], [['lvl', {kind: StructuredHeaders.ResultKind.Integer, value: 5}]]);
+      assert.lengthOf(i5_l0, 1);
+      assertListItem(i5_l0[0], {kind: StructuredHeaders.ResultKind.String, value: 'foo'}, [
+        ['a', {kind: StructuredHeaders.ResultKind.Integer, value: 1}],
+        ['b', {kind: StructuredHeaders.ResultKind.Integer, value: 2}],
+      ]);
+      const i5_l1 =
+          assertInnerListAndGetItems(i5[1], [['lvl', {kind: StructuredHeaders.ResultKind.Integer, value: 1}]]);
+      assert.lengthOf(i5_l1, 2);
+      assertListItem(i5_l1[0], {kind: StructuredHeaders.ResultKind.String, value: 'bar'}, []);
+      assertListItem(i5_l1[1], {kind: StructuredHeaders.ResultKind.String, value: 'baz'}, []);
+
+      assertListError(StructuredHeaders.parseList('a,'));
+      assertListError(StructuredHeaders.parseList('a b'));
+      assertListError(StructuredHeaders.parseList('(a,'));
+      assertListError(StructuredHeaders.parseList('(a,b'));
+    });
+  });
+  describe('Serialization', () => {
+    it('Basic integer serialization', () => {
+      assertSerializeResult(
+          StructuredHeaders.serializeItem(makeItem({kind: StructuredHeaders.ResultKind.Integer, value: -45})), '-45');
+      assertSerializeResult(
+          StructuredHeaders.serializeItem(
+              makeItem({kind: StructuredHeaders.ResultKind.Integer, value: 999999999999999})),
+          '999999999999999');
+      assertSerializeResult(
+          StructuredHeaders.serializeItem(
+              makeItem({kind: StructuredHeaders.ResultKind.Integer, value: -999999999999999})),
+          '-999999999999999');
+
+      assertSerializeError(
+          StructuredHeaders.serializeItem(makeItem({kind: StructuredHeaders.ResultKind.Integer, value: 3.14})));
+      assertSerializeError(StructuredHeaders.serializeItem(
+          makeItem({kind: StructuredHeaders.ResultKind.Integer, value: -1000000000000000})));
+      assertSerializeError(StructuredHeaders.serializeItem(
+          makeItem({kind: StructuredHeaders.ResultKind.Integer, value: 1000000000000000})));
+    });
+    it('Basic string serialization', () => {
+      assertSerializeResult(
+          StructuredHeaders.serializeItem(makeItem({kind: StructuredHeaders.ResultKind.String, value: 'str'})),
+          '"str"');
+      assertSerializeResult(
+          StructuredHeaders.serializeItem(makeItem({kind: StructuredHeaders.ResultKind.String, value: 'str"\\'})),
+          '"str\\"\\\\"');
+      assertSerializeResult(
+          StructuredHeaders.serializeItem(makeItem({kind: StructuredHeaders.ResultKind.String, value: ''})), '""');
+
+      // Only printable ASCII....
+      assertSerializeError(
+          StructuredHeaders.serializeItem(makeItem({kind: StructuredHeaders.ResultKind.String, value: '\u2124'})));
+      assertSerializeError(
+          StructuredHeaders.serializeItem(makeItem({kind: StructuredHeaders.ResultKind.String, value: '\u007f'})));
+      assertSerializeError(
+          StructuredHeaders.serializeItem(makeItem({kind: StructuredHeaders.ResultKind.String, value: '\u001f'})));
+    });
+    it('Basic token serialization', () => {
+      assertSerializeResult(
+          StructuredHeaders.serializeItem(makeItem({kind: StructuredHeaders.ResultKind.Token, value: 'tok'})), 'tok');
+      assertSerializeResult(
+          StructuredHeaders.serializeItem(makeItem({kind: StructuredHeaders.ResultKind.Token, value: '*foo:bar/baz'})),
+          '*foo:bar/baz');
+
+      assertSerializeError(
+          StructuredHeaders.serializeItem(makeItem({kind: StructuredHeaders.ResultKind.Token, value: '/foo'})));
+      assertSerializeError(
+          StructuredHeaders.serializeItem(makeItem({kind: StructuredHeaders.ResultKind.Token, value: '*,'})));
+      assertSerializeError(
+          StructuredHeaders.serializeItem(makeItem({kind: StructuredHeaders.ResultKind.Token, value: ''})));
+    });
+    it('Basic boolean serialization', () => {
+      assertSerializeResult(
+          StructuredHeaders.serializeItem(makeItem({kind: StructuredHeaders.ResultKind.Boolean, value: true})), '?1');
+      assertSerializeResult(
+          StructuredHeaders.serializeItem(makeItem({kind: StructuredHeaders.ResultKind.Boolean, value: false})), '?0');
+    });
+    it('Parameter serialization', () => {
+      assertSerializeResult(
+          StructuredHeaders.serializeItem(makeItemWithParams(
+              {kind: StructuredHeaders.ResultKind.Boolean, value: true},
+              [
+                ['arg1', {kind: StructuredHeaders.ResultKind.Boolean, value: true}],
+                ['arg2', {kind: StructuredHeaders.ResultKind.Boolean, value: false}],
+              ])),
+          '?1;arg1;arg2=?0');
+      assertSerializeResult(
+          StructuredHeaders.serializeItem(makeItemWithParams(
+              {kind: StructuredHeaders.ResultKind.Boolean, value: true},
+              [
+                ['*1', {kind: StructuredHeaders.ResultKind.Token, value: 'Yes'}],
+                ['*2', {kind: StructuredHeaders.ResultKind.Integer, value: 1}],
+              ])),
+          '?1;*1=Yes;*2=1');
+
+      assertSerializeError(StructuredHeaders.serializeItem(makeItemWithParams(
+          {kind: StructuredHeaders.ResultKind.Boolean, value: true},
+          [['Arg1', {kind: StructuredHeaders.ResultKind.Boolean, value: true}]])));
+      assertSerializeError(StructuredHeaders.serializeItem(makeItemWithParams(
+          {kind: StructuredHeaders.ResultKind.Boolean, value: true},
+          [['*Arg1', {kind: StructuredHeaders.ResultKind.Boolean, value: true}]])));
+    });
+  });
+  it('List serialization', () => {
+    assertSerializeResult(StructuredHeaders.serializeList(makeList([])), '');
+    assertSerializeResult(
+        StructuredHeaders.serializeList(makeList([
+          makeItem({kind: StructuredHeaders.ResultKind.Boolean, value: false}),
+          makeItem({kind: StructuredHeaders.ResultKind.Boolean, value: true}),
+        ])),
+        '?0, ?1');
+    assertSerializeResult(
+        StructuredHeaders.serializeList(makeList([
+          makeItemWithParams(
+              {kind: StructuredHeaders.ResultKind.String, value: 'hi'},
+              [
+                ['arg1', {kind: StructuredHeaders.ResultKind.Boolean, value: true}],
+                ['arg2', {kind: StructuredHeaders.ResultKind.Boolean, value: false}],
+              ]),
+          makeItem({kind: StructuredHeaders.ResultKind.Boolean, value: true}),
+        ])),
+        '"hi";arg1;arg2=?0, ?1');
+
+    assertSerializeResult(
+        StructuredHeaders.serializeList(
+            makeList([makeItem({kind: StructuredHeaders.ResultKind.Boolean, value: true}), makeInnerList([], [])])),
+        '?1, ()');
+
+    assertSerializeResult(
+        StructuredHeaders.serializeList(makeList([
+          makeItem({kind: StructuredHeaders.ResultKind.Boolean, value: true}),
+          makeInnerList(
+              [
+                makeItem({kind: StructuredHeaders.ResultKind.Integer, value: 1}),
+                makeItem({kind: StructuredHeaders.ResultKind.Integer, value: 2}),
+              ],
+              []),
+          makeInnerList(
+              [
+                makeItem({kind: StructuredHeaders.ResultKind.Integer, value: 3}),
+                makeItemWithParams(
+                    {kind: StructuredHeaders.ResultKind.Integer, value: 4},
+                    [['p1', {kind: StructuredHeaders.ResultKind.Boolean, value: true}]]),
+              ],
+              [['o1', {kind: StructuredHeaders.ResultKind.String, value: 'val'}]]),
+        ])),
+        '?1, (1 2), (3 4;p1);o1="val"');
+
+
+    assertSerializeError(StructuredHeaders.serializeList(makeList([
+      makeItem({kind: StructuredHeaders.ResultKind.String, value: '\u0000'}),
+      makeItem({kind: StructuredHeaders.ResultKind.Boolean, value: true}),
+    ])));
+
+    assertSerializeError(StructuredHeaders.serializeList(makeList([
+      makeItemWithParams(
+          {kind: StructuredHeaders.ResultKind.String, value: 'hi'},
+          [
+            ['Arg1', {kind: StructuredHeaders.ResultKind.Boolean, value: true}],
+            ['arg2', {kind: StructuredHeaders.ResultKind.Boolean, value: false}],
+          ]),
+      makeItem({kind: StructuredHeaders.ResultKind.Boolean, value: true}),
+    ])));
+
+    assertSerializeError(StructuredHeaders.serializeList(makeList([
+      makeItem({kind: StructuredHeaders.ResultKind.Boolean, value: true}),
+      makeInnerList(
+          [
+            makeItem({kind: StructuredHeaders.ResultKind.Integer, value: 1.34}),
+            makeItem({kind: StructuredHeaders.ResultKind.Integer, value: 2}),
+          ],
+          []),
+    ])));
+
+    assertSerializeError(StructuredHeaders.serializeList(
+        makeList([makeInnerList([], [['+o1', {kind: StructuredHeaders.ResultKind.String, value: 'val'}]])])));
   });
 });
