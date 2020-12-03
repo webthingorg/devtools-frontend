@@ -39,6 +39,30 @@
       },
       "revId": "05d10138aa0a46ec2a993bbf200d4a6a7c542306",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11c2e3e5_5d736d16",
+        "filename": "front_end/ui/toolbar.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-03T10:01:45Z",
+      "side": 1,
+      "message": "Turns out I was mistaken and we don\u0027t even need the !important 👍",
+      "parentUuid": "b34ba028_5605b6d8",
+      "range": {
+        "startLine": 292,
+        "startChar": 18,
+        "endLine": 292,
+        "endChar": 27
+      },
+      "revId": "05d10138aa0a46ec2a993bbf200d4a6a7c542306",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
