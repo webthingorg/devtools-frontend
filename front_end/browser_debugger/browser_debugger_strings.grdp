@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <grit-part>
+  <message name="IDS_DEVTOOLS_0ca08f8f4a8a19f7f1ae87c119494327" desc="Title as part of a tool to override existing configurations">
+    Overrides
+  </message>
   <message name="IDS_DEVTOOLS_1106d01848580ffc52dd36e2d60316d9" desc="Title of the 'XHR/fetch Breakpoints' tool in the bottom sidebar of the Sources tool">
     XHR/fetch Breakpoints
   </message>
