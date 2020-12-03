@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b4923ce6_b9051dd3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-03T15:22:34Z",
+      "side": 1,
+      "message": "Thanks for the clarification. The chosen approach seems appropriate and the overall architecture looks good.\n\nIt would be great for reviewing if its possible to land the StructuredHeaders file in 2 or 3 pieces. Reviewing 800 lines + corresponding tests at once would be a challenge otherwise :)",
+      "parentUuid": "0df7c8e4_020e2c7a",
+      "revId": "ea9cfd98eb260594432af95ea6ca8ab39ef4e155",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d0ba4675_67504432",
         "filename": "front_end/emulation/DevicesSettingsTab.js",
         "patchSetId": 16
@@ -90,6 +108,30 @@
       "side": 1,
       "message": "Does unit tests for emulation count as same module?\n... I guess I should look at some other tests.",
       "parentUuid": "d0ba4675_67504432",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 60
+      },
+      "revId": "ea9cfd98eb260594432af95ea6ca8ab39ef4e155",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2adc9ca1_f5995033",
+        "filename": "front_end/emulation/DevicesSettingsTab.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-03T15:22:34Z",
+      "side": 1,
+      "message": "The unit tests are considered a separate module, so the emulation unit tests must use the cross-module import for the actual emulation module :)",
+      "parentUuid": "47d76229_08f0f832",
       "range": {
         "startLine": 10,
         "startChar": 0,
