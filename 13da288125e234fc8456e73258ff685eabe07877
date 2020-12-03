@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "407fc4b3_1c5e5609",
+        "filename": "front_end/browser_sdk/IssuesManager.js",
+        "patchSetId": 19
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-03T10:46:39Z",
+      "side": 1,
+      "message": "Good point. Actually the refactor would be minimal because in the issue creation at IssuesModel.js, all functions are taking the issue model, just that in some cases the model is an unused variable.",
+      "parentUuid": "29123433_fb2603e8",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 46
+      },
+      "revId": "13da288125e234fc8456e73258ff685eabe07877",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2dbd2405_9a71fab9",
         "filename": "front_end/browser_sdk/IssuesManager.js",
         "patchSetId": 19
