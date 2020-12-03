@@ -33,6 +33,9 @@
   <message name="IDS_DEVTOOLS_2dac8a7ec30b19fa5861a79d178d354a" desc="Place holder text stating that there are no text tracks on this player.">
     No text tracks
   </message>
+  <message name="IDS_DEVTOOLS_90589c47f06eb971d548591f23c285af" desc="Text in Network Throttling Selector of the Network panel">
+    Custom
+  </message>
   <message name="IDS_DEVTOOLS_d928d8098a117772494521c159acec1d" desc="A score describing how choppy the video playback is.">
     Video freezing score
   </message>
