@@ -88,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79346541_b149234e",
+        "filename": "front_end/browser_sdk/IssuesManager.js",
+        "patchSetId": 19
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-03T11:02:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2dbd2405_9a71fab9",
+      "range": {
+        "startLine": 141,
+        "startChar": 6,
+        "endLine": 141,
+        "endChar": 56
+      },
+      "revId": "13da288125e234fc8456e73258ff685eabe07877",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45844b71_fe6abb62",
@@ -125,6 +149,30 @@
       "side": 1,
       "message": "```\n  issues() {\n    return this._filteredIssues.values();\n  }\n```",
       "parentUuid": "45844b71_fe6abb62",
+      "range": {
+        "startLine": 52,
+        "startChar": 38,
+        "endLine": 52,
+        "endChar": 44
+      },
+      "revId": "13da288125e234fc8456e73258ff685eabe07877",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31fe9e59_d50d9b31",
+        "filename": "front_end/browser_sdk/SourceFrameIssuesManager.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-03T11:02:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc74bdf2_80ef311a",
       "range": {
         "startLine": 52,
         "startChar": 38,
