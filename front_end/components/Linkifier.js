@@ -859,7 +859,7 @@ export class Linkifier {
         }
       }
     }
-    if (resource || info.url) {
+    if (resource || info.url || contentProvider) {
       result.push({
         section: 'reveal',
         title: UI.UIUtils.openLinkExternallyLabel(),
@@ -871,6 +871,16 @@ export class Linkifier {
         handler: () => Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(url)
       });
     }
+
+    if (uiLocation && uiLocation.uiSourceCode) {
+      const contentProvider = /** @type {!Workspace.UISourceCode.UISourceCode} */ uiLocation.uiSourceCode;
+      result.push({
+        section: 'clipboard',
+        title: UI.UIUtils.copyFileNameLabel(),
+        handler: () => Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(contentProvider.displayName())
+      });
+    }
+
     return result;
   }
 }
@@ -1017,7 +1027,7 @@ export class ContentProviderContextMenuProvider {
    * @param {!Object} target
    */
   appendApplicableItems(event, contextMenu, target) {
-    const contentProvider = /** @type {!TextUtils.ContentProvider.ContentProvider} */ (target);
+    const contentProvider = /** @type {!Workspace.UISourceCode.UISourceCode} */ (target);
     if (!contentProvider.contentURL()) {
       return;
     }
@@ -1037,9 +1047,14 @@ export class ContentProviderContextMenuProvider {
       return;
     }
 
+    // 增加复制文件名
     contextMenu.clipboardSection().appendItem(
         UI.UIUtils.copyLinkAddressLabel(),
         () => Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(contentProvider.contentURL()));
+
+    contextMenu.clipboardSection().appendItem(
+        UI.UIUtils.copyFileNameLabel(),
+        () => Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(contentProvider.displayName()));
   }
 }
 
