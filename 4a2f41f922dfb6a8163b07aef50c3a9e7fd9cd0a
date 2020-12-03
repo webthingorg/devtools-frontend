@@ -56,6 +56,30 @@
       },
       "revId": "4a2f41f922dfb6a8163b07aef50c3a9e7fd9cd0a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5537dcd_07c44965",
+        "filename": "test/unittests/front_end/ui/components/DataGrid_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-03T09:53:35Z",
+      "side": 1,
+      "message": "Because now the colors are loaded in the test, the data-grid has a bottom border that it didn\u0027t have before (because var(--color-foo) wasn\u0027t defined) which makes it 1px higher.",
+      "parentUuid": "5bd93c69_914cad1d",
+      "range": {
+        "startLine": 586,
+        "startChar": 52,
+        "endLine": 586,
+        "endChar": 54
+      },
+      "revId": "4a2f41f922dfb6a8163b07aef50c3a9e7fd9cd0a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
