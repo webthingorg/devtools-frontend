@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "29123433_fb2603e8",
+        "filename": "front_end/browser_sdk/IssuesManager.js",
+        "patchSetId": 19
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-03T09:25:26Z",
+      "side": 1,
+      "message": "I just realized that for CSPIssues we already pass in the model to the issue itself. So each issue knows its model. We could also extend that approach to the super-class, so each issue has a \"getModel()\" accessor, then we wouldn\u0027t need this map. We can discuss that with sigurd next week as moving from this map to the accessor should be a simple refactoring.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 46
+      },
+      "revId": "13da288125e234fc8456e73258ff685eabe07877",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2dbd2405_9a71fab9",
         "filename": "front_end/browser_sdk/IssuesManager.js",
         "patchSetId": 19
