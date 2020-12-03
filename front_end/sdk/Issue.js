@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Common from '../common/common.js';
+import {IssuesModel} from './IssuesModel.js';  // eslint-disable-line no-unused-vars
 
 /** @enum {symbol} */
 export const IssueCategory = {
@@ -71,11 +72,13 @@ export let AffectedSource;  // eslint-disable-line no-unused-vars
 export class Issue extends Common.ObjectWrapper.ObjectWrapper {
   /**
    * @param {string} code
+   * @param {!IssuesModel} issuesModel
    */
-  constructor(code) {
+  constructor(code, issuesModel) {
     super();
     /** @type {string} */
     this._code = code;
+    this._issuesModel = issuesModel;
   }
 
   /**
@@ -152,6 +155,13 @@ export class Issue extends Common.ObjectWrapper.ObjectWrapper {
       }
     }
     return false;
+  }
+
+  /**
+   * @returns {!IssuesModel}
+   */
+  model() {
+    return this._issuesModel;
   }
 
   /**
