@@ -16,6 +16,24 @@
       "message": "Thanks for contributing to the Markdown view!\n\nUnfortunately I have to block this CL for now. When we initially designed this component, we explicitly said we are not supporting inline html. We saw Markdown as an attack/injection vector resulting in potentially arbitrary HTML/JS being rendered or run.\n\nIIRC links should also go through the DevTools machinery instead of being rendered as-is. This means rather than specifying a link in Markdown, we want to specify an Id, that is then backed by an actual URL in the DevTools code. This could potentially be simplified by emitting a custom element for links in Markdown that handles this translation.\n\nFeel free to start a thread on devtools-dev@ to discuss this further, and/or start a Design doc where you outline what you want to use raw html for and how we can fix this in another way :) Sorry for the inconvenience.",
       "revId": "1e3e0c6955d26725b666b4f8c44f2f5a6a32e0f9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ceca27f3_0938fe3e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-12-03T17:40:10Z",
+      "side": 1,
+      "message": "Got it, thank you for the explanation.\nI was also concerned about the rendering HTML as is, however I thought if the HTML is sanitized then it might be safer. But if the markdown text is coming from uncontrolled scenarios as you said then it might lead to bad situations.\nI will investigate your suggested solution for links and images.",
+      "parentUuid": "7afd5c5f_cf06f710",
+      "revId": "1e3e0c6955d26725b666b4f8c44f2f5a6a32e0f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
