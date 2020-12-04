@@ -16,6 +16,23 @@
       "message": "Hi Benedikt,\n\nhere\u0027s the fix to not show the Strings as an option in the settings.\nThis will fix the two problems in the LMI (Strings not implemented,\nnot being able to close settings).\nI\u0027m leaving what I have on the implementation side though.\n\nPTAL!",
       "revId": "06d26ffbdd8863daaf36567d9ec7c2a8a03a2db8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0cd21f3_7e434346",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-12-04T08:16:25Z",
+      "side": 1,
+      "message": "Thanks for the review!",
+      "revId": "06d26ffbdd8863daaf36567d9ec7c2a8a03a2db8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
