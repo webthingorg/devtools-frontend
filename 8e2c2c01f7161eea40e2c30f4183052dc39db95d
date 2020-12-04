@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "071916fd_c881db23",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-12-04T00:16:00Z",
+      "side": 1,
+      "message": "Hey folks, can I get another review of this patch. I\u0027m particularly interested in feedback on the comment in Patchset 14. Thanks!",
+      "revId": "8e2c2c01f7161eea40e2c30f4183052dc39db95d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f395f927_6ca74d20",
+        "filename": "front_end/emulation/SensorsView.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 875,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-12-04T00:16:00Z",
+      "side": 1,
+      "message": "There are a number of places in the product where we export object literals with properties that have localized strings [1]. To avoid this, I\u0027m proposing we follow this pattern instead. While I\u0027m not a fan of indirection caused by getters/setters, this approach requires little change to caller code.\n\nWhere possible, we\u0027d group related object literals in the same class. For example in ref [1], all the mobile conditions would be encapsulated in a single `MobileConditions` class.\n\n[1] https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/mobile_throttling/ThrottlingPresets.js;l\u003d18?q\u003dthrottlingpres\u0026ss\u003dchromium",
+      "range": {
+        "startLine": 875,
+        "startChar": 0,
+        "endLine": 875,
+        "endChar": 29
+      },
+      "revId": "8e2c2c01f7161eea40e2c30f4183052dc39db95d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
