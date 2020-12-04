@@ -16,6 +16,24 @@
       "message": "FYI I have added screenshot capturing to help understand the flakiness today. You can find the screenshots in the log output.",
       "revId": "1d840fff64db40650fa463e1f603c34e9923e58e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57f1329f_c2d580ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-12-04T01:48:04Z",
+      "side": 1,
+      "message": "Thanks!  That was super useful in debugging these tests",
+      "parentUuid": "12d03f0f_363c3641",
+      "revId": "1d840fff64db40650fa463e1f603c34e9923e58e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
