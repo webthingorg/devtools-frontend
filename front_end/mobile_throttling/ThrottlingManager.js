@@ -10,7 +10,7 @@ import * as UI from '../ui/ui.js';
 
 import {MobileThrottlingSelector} from './MobileThrottlingSelector.js';
 import {NetworkThrottlingSelector} from './NetworkThrottlingSelector.js';
-import {Conditions, ConditionsList, cpuThrottlingPresets, CPUThrottlingRates, CustomConditions, MobileThrottlingConditionsGroup, NetworkThrottlingConditionsGroup} from './ThrottlingPresets.js';  // eslint-disable-line no-unused-vars
+import {Conditions, ConditionsList, MobileThrottlingConditionsGroup, NetworkThrottlingConditionsGroup, ThrottlingPresets} from './ThrottlingPresets.js';  // eslint-disable-line no-unused-vars
 
 export const UIStrings = {
   /**
@@ -72,11 +72,10 @@ export class ThrottlingManager extends Common.ObjectWrapper.ObjectWrapper {
    */
   constructor() {
     super();
-    /** @type {!CPUThrottlingRates} */
-    this._cpuThrottlingRate = CPUThrottlingRates.NoThrottling;
+    this._cpuThrottlingRate = ThrottlingPresets.CPUThrottlingRates.NoThrottling;
     /** @type {!Set<!UI.Toolbar.ToolbarComboBox>} */
     this._cpuThrottlingControls = new Set();
-    this._cpuThrottlingRates = cpuThrottlingPresets;
+    this._cpuThrottlingRates = ThrottlingPresets.cpuThrottlingPresets;
     /** @type {!Common.Settings.Setting<!Array<!SDK.NetworkManager.Conditions>>} */
     this._customNetworkConditionsSetting = Common.Settings.Settings.instance().moduleSetting('customNetworkConditions');
     /** @type {!SDK.NetworkManager.Conditions} */
@@ -226,7 +225,8 @@ export class ThrottlingManager extends Common.ObjectWrapper.ObjectWrapper {
         if (!conditions) {
           continue;
         }
-        if (conditions.title === CustomConditions.title && conditions.description === CustomConditions.description) {
+        if (conditions.title === ThrottlingPresets.getCustomConditions().title &&
+            conditions.description === ThrottlingPresets.getCustomConditions().description) {
           continue;
         }
         contextMenu.defaultSection().appendCheckboxItem(
@@ -271,7 +271,7 @@ export class ThrottlingManager extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @param {!CPUThrottlingRates} rate
+   * @param {!number} rate
    */
   setCPUThrottlingRate(rate) {
     this._cpuThrottlingRate = rate;
@@ -279,7 +279,7 @@ export class ThrottlingManager extends Common.ObjectWrapper.ObjectWrapper {
       emulationModel.setCPUThrottlingRate(this._cpuThrottlingRate);
     }
     let icon = null;
-    if (this._cpuThrottlingRate !== CPUThrottlingRates.NoThrottling) {
+    if (this._cpuThrottlingRate !== ThrottlingPresets.CPUThrottlingRates.NoThrottling) {
       Host.userMetrics.actionTaken(Host.UserMetrics.Action.CpuThrottlingEnabled);
       icon = UI.Icon.Icon.create('smallicon-warning');
       UI.Tooltip.Tooltip.install(icon, i18nString(UIStrings.cpuThrottlingIsEnabled));
@@ -297,7 +297,7 @@ export class ThrottlingManager extends Common.ObjectWrapper.ObjectWrapper {
    * @param {!SDK.EmulationModel.EmulationModel} emulationModel
    */
   modelAdded(emulationModel) {
-    if (this._cpuThrottlingRate !== CPUThrottlingRates.NoThrottling) {
+    if (this._cpuThrottlingRate !== ThrottlingPresets.CPUThrottlingRates.NoThrottling) {
       emulationModel.setCPUThrottlingRate(this._cpuThrottlingRate);
     }
   }
