@@ -132,6 +132,7 @@ export class LinearMemoryInspector extends HTMLElement {
       <div class="view">
         <devtools-linear-memory-inspector-navigator
           .data=${{address: navigatorAddressToShow, valid: navigatorAddressIsValid, mode: this.currentNavigatorMode, error: errorMsg} as LinearMemoryNavigatorData}
+          @refresh-requested=${this.onRefreshRequest}
           @address-changed=${this.onAddressChange}
           @page-navigation=${this.navigatePage}
           @history-navigation=${this.navigateHistory}></devtools-linear-memory-inspector-navigator>
@@ -155,6 +156,11 @@ export class LinearMemoryInspector extends HTMLElement {
       eventContext: this,
     });
     // clang-format on
+  }
+
+  private onRefreshRequest() {
+    const {start, end} = this.getPageRangeForAddress(this.address, this.numBytesPerPage);
+    this.dispatchEvent(new MemoryRequestEvent(start, end, this.address));
   }
 
   private onByteSelected(e: ByteSelectedEvent) {

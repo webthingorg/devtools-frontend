@@ -208,7 +208,26 @@ describe('LinearMemoryInspector', () => {
     assertUpdatesInNavigator(navigator, '-2', 'Address has to be a number between 0x00000000 and 0x000003E8');
   });
 
-  it('formats a hexadecimal number', async () => {
+  it('triggers MemoryRequestEvent on refresh', async () => {
+    const {component, data} = setUpComponent();
+    const navigator = getNavigator(component);
+    const viewer = getViewer(component);
+
+    const bytes = getElementsWithinComponent(viewer, VIEWER_BYTE_CELL_SELECTOR, HTMLSpanElement);
+    const numBytesPerPage = bytes.length;
+
+    const eventPromise =
+        getEventPromise<LinearMemoryInspector.LinearMemoryInspector.MemoryRequestEvent>(component, 'memory-request');
+    navigator.dispatchEvent(new LinearMemoryInspector.LinearMemoryNavigator.RefreshRequestedEvent());
+    const event = await eventPromise;
+    const {start, end, address} = event.data;
+
+    assert.strictEqual(address, data.address);
+    assert.isAbove(end, start);
+    assert.strictEqual(numBytesPerPage, end - start);
+  });
+
+  it('formats a hexadecimal number', () => {
     const number = 23;
     assert.strictEqual(
         LinearMemoryInspector.LinearMemoryInspectorUtils.toHexString({number, pad: 0, prefix: false}), '17');

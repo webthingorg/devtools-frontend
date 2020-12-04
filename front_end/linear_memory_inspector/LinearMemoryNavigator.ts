@@ -43,9 +43,9 @@ export class HistoryNavigationEvent extends Event {
   }
 }
 
-export class RefreshEvent extends Event {
+export class RefreshRequestedEvent extends Event {
   constructor() {
-    super('refresh', {});
+    super('refresh-requested', {});
   }
 }
 
@@ -125,7 +125,7 @@ export class LinearMemoryNavigator extends HTMLElement {
           ${this.createAddressInput()}
           ${this.createButton('ic_page_next_16x16_icon', new PageNavigationEvent(Navigation.Forward))}
         </div>
-        ${this.createButton('refresh_12x12_icon', new RefreshEvent())}
+        ${this.createButton('refresh_12x12_icon', new RefreshRequestedEvent())}
       </div>
       `;
       render(result, this.shadow, {eventContext: this});
