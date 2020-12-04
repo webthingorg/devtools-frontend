@@ -22,6 +22,23 @@
       },
       "revId": "fe225a88e81830058416b9ad7355cdb1c16433f7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f442206_d8285fc0",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-12-04T13:18:22Z",
+      "side": 1,
+      "message": "I don\u0027t think you need to put this into DebuggerModel. The ranges returned from sourceLocationToRawLocations are already merged according to the DWARF, and you don\u0027t need to merge them further int the front-end (actually if you do, you cross statement boundaries).",
+      "revId": "fe225a88e81830058416b9ad7355cdb1c16433f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
