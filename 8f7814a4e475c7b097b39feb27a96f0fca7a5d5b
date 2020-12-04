@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f6f1d53_95a50141",
+        "filename": "front_end/source_frame/ImageView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-12-04T04:06:48Z",
+      "side": 1,
+      "message": "Why don\u0027t we just use `this._url`?",
+      "revId": "8f7814a4e475c7b097b39feb27a96f0fca7a5d5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
