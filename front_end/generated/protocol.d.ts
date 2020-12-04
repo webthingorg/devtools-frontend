@@ -910,6 +910,13 @@ declare namespace Protocol {
       violatingNodeId?: DOM.BackendNodeId;
     }
 
+    export interface LowTextContrastIssueDetails {
+      violatingNodeId: DOM.BackendNodeId;
+      violatingNodeSelector: string;
+      contrastRatio: number;
+      violatedContrastAlgorithm: Overlay.ContrastAlgorithm;
+    }
+
     /**
      * A unique identifier for the type of issue. Each type may use one of the
      * optional fields in InspectorIssueDetails to convey more specific
@@ -921,6 +928,7 @@ declare namespace Protocol {
       BlockedByResponseIssue = 'BlockedByResponseIssue',
       HeavyAdIssue = 'HeavyAdIssue',
       ContentSecurityPolicyIssue = 'ContentSecurityPolicyIssue',
+      LowTextContrastIssue = 'LowTextContrastIssue',
     }
 
     /**
@@ -934,6 +942,7 @@ declare namespace Protocol {
       blockedByResponseIssueDetails?: BlockedByResponseIssueDetails;
       heavyAdIssueDetails?: HeavyAdIssueDetails;
       contentSecurityPolicyIssueDetails?: ContentSecurityPolicyIssueDetails;
+      lowTextContrastIssueDetails?: LowTextContrastIssueDetails;
     }
 
     /**

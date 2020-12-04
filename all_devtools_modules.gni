@@ -463,6 +463,7 @@ all_typescript_module_sources = [
   "sdk/IssuesModel.js",
   "sdk/LayerTreeBase.js",
   "sdk/LogModel.js",
+  "sdk/LowTextContrastIssue.js",
   "sdk/MixedContentIssue.js",
   "sdk/NetworkLog.js",
   "sdk/NetworkManager.js",

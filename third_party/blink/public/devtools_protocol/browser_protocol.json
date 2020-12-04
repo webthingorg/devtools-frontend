@@ -961,7 +961,8 @@
             "description": "Audits domain allows investigation of page violations and possible improvements.",
             "experimental": true,
             "dependencies": [
-                "Network"
+                "Network",
+                "Overlay"
             ],
             "types": [
                 {
@@ -1314,6 +1315,28 @@
                     ]
                 },
                 {
+                    "id": "LowTextContrastIssueDetails",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "violatingNodeId",
+                            "$ref": "DOM.BackendNodeId"
+                        },
+                        {
+                            "name": "violatingNodeSelector",
+                            "type": "string"
+                        },
+                        {
+                            "name": "contrastRatio",
+                            "type": "number"
+                        },
+                        {
+                            "name": "violatedContrastAlgorithm",
+                            "$ref": "Overlay.ContrastAlgorithm"
+                        }
+                    ]
+                },
+                {
                     "id": "InspectorIssueCode",
                     "description": "A unique identifier for the type of issue. Each type may use one of the\noptional fields in InspectorIssueDetails to convey more specific\ninformation about the kind of issue.",
                     "type": "string",
@@ -1322,7 +1345,8 @@
                         "MixedContentIssue",
                         "BlockedByResponseIssue",
                         "HeavyAdIssue",
-                        "ContentSecurityPolicyIssue"
+                        "ContentSecurityPolicyIssue",
+                        "LowTextContrastIssue"
                     ]
                 },
                 {
@@ -1354,6 +1378,11 @@
                             "name": "contentSecurityPolicyIssueDetails",
                             "optional": true,
                             "$ref": "ContentSecurityPolicyIssueDetails"
+                        },
+                        {
+                            "name": "lowTextContrastIssueDetails",
+                            "optional": true,
+                            "$ref": "LowTextContrastIssueDetails"
                         }
                     ]
                 },

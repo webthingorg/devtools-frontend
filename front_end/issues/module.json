@@ -52,6 +52,7 @@
     "descriptions/cspURLViolation.md",
     "descriptions/cspTrustedTypesSinkViolation.md",
     "descriptions/cspTrustedTypesPolicyViolation.md",
+    "descriptions/LowTextContrast.md",
     "descriptions/mixedContent.md",
     "descriptions/SameSiteUnspecifiedLaxAllowUnsafeRead.md",
     "descriptions/SameSiteUnspecifiedLaxAllowUnsafeSet.md",
