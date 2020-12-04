@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5fadafb_3622c9a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-12-04T09:03:39Z",
+      "side": 1,
+      "message": "Hi Benedikt,\n\nAlex and I fixed the settings button, ptal!",
+      "revId": "0f9c6621beb407f3c45907c75bf66d34c0168604",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
