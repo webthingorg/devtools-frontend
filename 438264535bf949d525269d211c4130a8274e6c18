@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2944de4_4b50ced3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-12-04T07:11:13Z",
+      "side": 1,
+      "message": "Hi Benedikt, hi Jack,\n\nI\u0027m adding the feature to jump to an address. Flow:\nuser types in an address (hexadecimal or decimal), and we jump to that address\nif the address is valid. If the address is not valid, we show an error message (tooltip).\n\nThis also fixes some errors that were revealed due to this new feature (e.g. showing N/A\nif we cannot display a value, which happens if we jump to the last memory address and want\nto show values that are bigger than 1 byte).\n\nPTAL!",
+      "revId": "438264535bf949d525269d211c4130a8274e6c18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "789a96a8_8af29a20",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspector.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-12-04T07:11:13Z",
+      "side": 1,
+      "message": "I\u0027ve added some new lines to group the fields.",
+      "revId": "438264535bf949d525269d211c4130a8274e6c18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a9b6cde_b87c0c38",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryNavigator.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-12-04T07:11:13Z",
+      "side": 1,
+      "message": "This class now takes a string instead of a number, so whatever this address string is will be shown as an address. The reason for changing it is that the user may edit this field, and we do not want to overwrite it on re-render (e.g. re-rendering because inserted address is invalid).",
+      "revId": "438264535bf949d525269d211c4130a8274e6c18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
