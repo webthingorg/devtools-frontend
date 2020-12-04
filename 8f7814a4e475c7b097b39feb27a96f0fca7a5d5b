@@ -70,6 +70,24 @@
       "parentUuid": "f28a312f_722ff418",
       "revId": "8f7814a4e475c7b097b39feb27a96f0fca7a5d5b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e979997f_7e772a94",
+        "filename": "front_end/source_frame/ImageView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-12-04T15:31:33Z",
+      "side": 1,
+      "message": "So can we preview images larger than 1MB? I think the ultimate goal is to hope that pictures of any size can be previewed normally.",
+      "parentUuid": "6c9c4ca7_a40a11de",
+      "revId": "8f7814a4e475c7b097b39feb27a96f0fca7a5d5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
