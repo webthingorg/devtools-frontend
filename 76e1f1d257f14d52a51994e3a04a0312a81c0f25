@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "54f36b48_56eab31e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-12-04T14:13:16Z",
+      "side": 1,
+      "message": "Thank you for your approval.\n\nI am not sure whether the relative path is equivalent to the relative path of local development, because many times the path will change when the resource to publish online.",
+      "parentUuid": "015ce78b_54d2ef99",
+      "revId": "76e1f1d257f14d52a51994e3a04a0312a81c0f25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "20c82bd4_c3e86a1f",
