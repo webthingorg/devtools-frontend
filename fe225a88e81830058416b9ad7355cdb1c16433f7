@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4330b285_515aef0e",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-12-04T16:41:32Z",
+      "side": 1,
+      "message": "Merging is still required. This gets me a breakpoint at every column, so I get 8 breakpoints from my twice inlined function with four inline locations, and I only want two.",
+      "parentUuid": "07afeac9_9735cbef",
+      "revId": "fe225a88e81830058416b9ad7355cdb1c16433f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4374d9e8_b426fe64",
         "filename": "front_end/sdk/DebuggerModel.js",
         "patchSetId": 5
