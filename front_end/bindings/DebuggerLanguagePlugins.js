@@ -738,6 +738,9 @@ export class DebuggerLanguagePluginManager {
     debuggerModel.addEventListener(SDK.DebuggerModel.Events.ParsedScriptSource, this._parsedScriptSource, this);
     debuggerModel.setEvaluateOnCallFrameCallback(this._evaluateOnCallFrame.bind(this));
     debuggerModel.setExpandCallFramesCallback(this._expandCallFrames.bind(this));
+    debuggerModel.setUiLocationToRawLocationRangesCallback(
+        (uiSourceCode, lineNumber, columnNumber) =>
+            this.uiLocationToRawLocationRanges(uiSourceCode, lineNumber, columnNumber));
   }
 
   /**
@@ -749,6 +752,7 @@ export class DebuggerLanguagePluginManager {
     debuggerModel.removeEventListener(SDK.DebuggerModel.Events.ParsedScriptSource, this._parsedScriptSource, this);
     debuggerModel.setEvaluateOnCallFrameCallback(null);
     debuggerModel.setExpandCallFramesCallback(null);
+    debuggerModel.setUiLocationToRawLocationRangesCallback(null);
     const modelData = this._debuggerModelToData.get(debuggerModel);
     if (modelData) {
       modelData._dispose();
