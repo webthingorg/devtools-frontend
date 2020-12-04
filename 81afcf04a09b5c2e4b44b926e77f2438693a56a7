@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebe27a4b_b938eaa3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-12-04T13:09:40Z",
+      "side": 1,
+      "message": "Hi Benedikt,\n\nhere I\u0027m changing view of signed/unsigned values, ptal!\n\n",
+      "revId": "81afcf04a09b5c2e4b44b926e77f2438693a56a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
