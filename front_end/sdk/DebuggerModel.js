@@ -109,6 +109,8 @@ export class DebuggerModel extends SDKModel {
     this._beforePausedCallback = null;
     /** @type {?function(!StepMode, !CallFrame):!Promise<!Array<!{start: !Location, end: !Location}>>} */
     this._computeAutoStepRangesCallback = null;
+    /** @type {?function(any, number, number):!Promise<!Array<!{start: !Location, end: !Location}>|null>} */
+    this._uiLocationToRawLocationRangesCallback = null;
     /** @type {?function(!Array<!CallFrame>):!Promise<!Array<!CallFrame>>} */
     this._expandCallFramesCallback = null;
     /** @type {?function(!CallFrame, !EvaluationOptions):!Promise<?EvaluationResult>} */
@@ -343,6 +345,13 @@ export class DebuggerModel extends SDKModel {
   }
 
   /**
+   * @param {?function(any, number, number):!Promise<!Array<!{start: !Location, end: !Location}>|null>} callback
+   */
+  setUiLocationToRawLocationRangesCallback(callback) {
+    this._uiLocationToRawLocationRangesCallback = callback;
+  }
+
+  /**
    * @param {!StepMode} mode
    * @return {!Promise<!Array<!Protocol.Debugger.LocationRange>>}
    */
@@ -380,6 +389,30 @@ export class DebuggerModel extends SDKModel {
     } else {
       this._agent.invoke_stepOut();
     }
+  }
+
+  /**
+   * With debugger plugins, maps a UILocation to potentially multiple
+   * raw locations (due to inlining or loop unrolling).
+   * @param {any} uiSourceCode
+   * @param {number} lineNumber
+   * @param {number} columnNumber
+   * @return {!Promise<!Array<!Location>>}
+   */
+  async getPluginBreakpointLocations(uiSourceCode, lineNumber, columnNumber) {
+    if (this._uiLocationToRawLocationRangesCallback) {
+      const ranges = await this._uiLocationToRawLocationRangesCallback(uiSourceCode, lineNumber, columnNumber);
+      if (ranges) {
+        const rangeList = sortAndMergeRanges(ranges.map(
+            // @ts-ignore
+            location => new LocationRange(
+                location.start.scriptId, new ScriptPosition(location.start.lineNumber, location.start.columnNumber),
+                new ScriptPosition(location.end.lineNumber, location.end.columnNumber))));
+        return rangeList.map(
+            range => new Location(this, range.scriptId, range.start.lineNumber, range.start.columnNumber));
+      }
+    }
+    return [];
   }
 
   scheduleStepIntoAsync() {
