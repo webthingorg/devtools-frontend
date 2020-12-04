@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "30f41e10_293457dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-12-04T11:48:29Z",
+      "side": 1,
+      "message": "Done!",
+      "parentUuid": "bdf5e984_aeabb1c7",
+      "revId": "438264535bf949d525269d211c4130a8274e6c18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "789a96a8_8af29a20",
@@ -99,6 +117,30 @@
       "writtenOn": "2020-12-04T10:03:08Z",
       "side": 1,
       "message": "nit, but you don\u0027t need quotes if you\u0027re interpolating the value: `class\u003d${LitHtml.Directives...}` works just fine.",
+      "range": {
+        "startLine": 140,
+        "startChar": 5,
+        "endLine": 143,
+        "endChar": 113
+      },
+      "revId": "438264535bf949d525269d211c4130a8274e6c18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8358220c_4230e5cd",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryNavigator.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-12-04T11:48:29Z",
+      "side": 1,
+      "message": "Ah, thanks Jack for pointing it out, changed it!",
+      "parentUuid": "b21f8938_5d9a4807",
       "range": {
         "startLine": 140,
         "startChar": 5,
