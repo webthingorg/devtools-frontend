@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b44e20ea_38305a25",
+        "filename": "test/e2e/inline_editor/color-swatch_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-12-04T09:56:18Z",
+      "side": 1,
+      "message": "On my computer, when I open devtools, body is always expanded by default. If I press twice the right arrow key then, I move down to the first child of body, and then expand that element.\nIt\u0027s not a problem since we\u0027d still be selecting that element, but isn\u0027t it weird that this test sometimes requires 2 key presses to work? I\u0027ve seen other tests do the same thing, and not be flaky. I\u0027m wondering why this one is different.",
+      "range": {
+        "startLine": 18,
+        "startChar": 2,
+        "endLine": 18,
+        "endChar": 103
+      },
+      "revId": "5d8bb6fc700c99bacbcbd0bd6dc7093fe59ac105",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
