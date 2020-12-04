@@ -46,6 +46,30 @@
       },
       "revId": "5d8bb6fc700c99bacbcbd0bd6dc7093fe59ac105",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ed52874_653cb75c",
+        "filename": "test/e2e/inline_editor/color-swatch_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-12-04T10:05:52Z",
+      "side": 1,
+      "message": "Actually, I see that some tests have a call to expandSelectedNodeRecursively after waiting for the body. And some other tests have a 50ms timeout probably required for the very same race condition.",
+      "parentUuid": "e7dd8fa8_6a7a90ec",
+      "range": {
+        "startLine": 18,
+        "startChar": 2,
+        "endLine": 18,
+        "endChar": 103
+      },
+      "revId": "5d8bb6fc700c99bacbcbd0bd6dc7093fe59ac105",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
