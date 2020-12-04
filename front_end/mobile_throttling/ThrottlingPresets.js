@@ -2,9 +2,45 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as Common from '../common/common.js';
+import * as i18n from '../i18n/i18n.js';
 import * as SDK from '../sdk/sdk.js';
 
+export const UIStrings = {
+  /**
+  *@description Text for no network throttling
+  */
+  noThrottling: 'No throttling',
+  /**
+  *@description Text in Throttling Presets of the Network panel
+  */
+  noInternetConnectivity: 'No internet connectivity',
+  /**
+  *@description Text in Throttling Presets of the Network panel
+  */
+  lowendMobile: 'Low-end mobile',
+  /**
+  *@description Text in Throttling Presets of the Network panel
+  */
+  slowGXCpuSlowdown: 'Slow 3G & 6x CPU slowdown',
+  /**
+  *@description Text in Throttling Presets of the Network panel
+  */
+  midtierMobile: 'Mid-tier mobile',
+  /**
+  *@description Text in Throttling Presets of the Network panel
+  */
+  fastGXCpuSlowdown: 'Fast 3G & 4x CPU slowdown',
+  /**
+  *@description Text in Network Throttling Selector of the Network panel
+  */
+  custom: 'Custom',
+  /**
+  *@description Text in Throttling Presets of the Network panel
+  */
+  checkNetworkAndPerformancePanels: 'Check Network and Performance panels',
+};
+const str_ = i18n.i18n.registerUIStrings('mobile_throttling/ThrottlingPresets.js', UIStrings);
+const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 /** @enum {number} */
 export const CPUThrottlingRates = {
   NoThrottling: 1,
@@ -15,7 +51,7 @@ export const CPUThrottlingRates = {
 /** @type {!Conditions} */
 export const NoThrottlingConditions = {
   title: SDK.NetworkManager.NoThrottlingConditions.title,
-  description: Common.UIString.UIString('No throttling'),
+  description: i18nString(UIStrings.noThrottling),
   network: SDK.NetworkManager.NoThrottlingConditions,
   cpuThrottlingRate: CPUThrottlingRates.NoThrottling,
 };
@@ -23,31 +59,31 @@ export const NoThrottlingConditions = {
 /** @type {!Conditions} */
 export const OfflineConditions = {
   title: SDK.NetworkManager.OfflineConditions.title,
-  description: Common.UIString.UIString('No internet connectivity'),
+  description: i18nString(UIStrings.noInternetConnectivity),
   network: SDK.NetworkManager.OfflineConditions,
   cpuThrottlingRate: CPUThrottlingRates.NoThrottling,
 };
 
 /** @type {!Conditions} */
 export const LowEndMobileConditions = {
-  title: Common.UIString.UIString('Low-end mobile'),
-  description: Common.UIString.UIString('Slow 3G & 6x CPU slowdown'),
+  title: i18nString(UIStrings.lowendMobile),
+  description: i18nString(UIStrings.slowGXCpuSlowdown),
   network: SDK.NetworkManager.Slow3GConditions,
   cpuThrottlingRate: CPUThrottlingRates.LowEndMobile,
 };
 
 /** @type {!Conditions} */
 export const MidTierMobileConditions = {
-  title: Common.UIString.UIString('Mid-tier mobile'),
-  description: Common.UIString.UIString('Fast 3G & 4x CPU slowdown'),
+  title: i18nString(UIStrings.midtierMobile),
+  description: i18nString(UIStrings.fastGXCpuSlowdown),
   network: SDK.NetworkManager.Fast3GConditions,
   cpuThrottlingRate: CPUThrottlingRates.MidTierMobile,
 };
 
 /** @type {!PlaceholderConditions} */
 export const CustomConditions = {
-  title: Common.UIString.UIString('Custom'),
-  description: Common.UIString.UIString('Check Network and Performance panels'),
+  title: i18nString(UIStrings.custom),
+  description: i18nString(UIStrings.checkNetworkAndPerformancePanels),
 };
 
 /** @type {!Array.<(!Conditions|!PlaceholderConditions)>} */
