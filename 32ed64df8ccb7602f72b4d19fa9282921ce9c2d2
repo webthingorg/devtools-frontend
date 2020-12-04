@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d7de944_db27982d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-12-04T19:55:03Z",
+      "side": 1,
+      "message": "Hi Benedikt,\n\nluckily, the bug where we couldn\u0027t open the LMI was an easy bug to fix: \nwe didn\u0027t open the LMI drawer on revealing the tab.\n\nPTAL!",
+      "revId": "32ed64df8ccb7602f72b4d19fa9282921ce9c2d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
