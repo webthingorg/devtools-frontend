@@ -56,6 +56,30 @@
       },
       "revId": "44784c06be74925073b0474d7987788befc6f363",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4dabb3c0_50a4b928",
+        "filename": "front_end/issues/issues_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-12-04T22:05:27Z",
+      "side": 1,
+      "message": "Good catch! Updated.",
+      "parentUuid": "67fb4e2f_e973f870",
+      "range": {
+        "startLine": 12,
+        "startChar": 70,
+        "endLine": 12,
+        "endChar": 122
+      },
+      "revId": "44784c06be74925073b0474d7987788befc6f363",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
