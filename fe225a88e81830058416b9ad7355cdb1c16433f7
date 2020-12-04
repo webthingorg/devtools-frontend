@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4374d9e8_b426fe64",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-12-04T12:42:50Z",
+      "side": 1,
+      "message": "I\u0027m not sure how to add the Workspace.UISourceCode.UISourceCode type here without creating an import cycle.",
+      "range": {
+        "startLine": 397,
+        "startChar": 5,
+        "endLine": 397,
+        "endChar": 30
+      },
+      "revId": "fe225a88e81830058416b9ad7355cdb1c16433f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
