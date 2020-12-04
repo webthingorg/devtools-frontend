@@ -5,7 +5,9 @@
 import * as Bindings from '../bindings/bindings.js';
 import * as ColorPicker from '../color_picker/color_picker.js';
 import * as Common from '../common/common.js';
+import * as Host from '../host/host.js';
 import * as InlineEditor from '../inline_editor/inline_editor.js';
+import * as Root from '../root/root.js';
 import * as UI from '../ui/ui.js';
 
 import {StylePropertyTreeElement} from './StylePropertyTreeElement.js';  // eslint-disable-line no-unused-vars
@@ -35,6 +37,10 @@ export class BezierPopoverIcon {
    * @param {!Event} event
    */
   _iconClick(event) {
+    Host.userMetrics.cssEditorOpened('bezierEditor');
+    if (Root.Runtime.experiments.isEnabled('fontEditor')) {
+      Host.userMetrics.cssEditorOpened('bezierEditorFontEditorEnabled');
+    }
     event.consume(true);
     if (this._swatchPopoverHelper.isShowing()) {
       this._swatchPopoverHelper.hide(true);
@@ -151,6 +157,10 @@ export class ColorSwatchPopoverIcon {
    * @param {!Event} event
    */
   _iconClick(event) {
+    Host.userMetrics.cssEditorOpened('colorPicker');
+    if (Root.Runtime.experiments.isEnabled('fontEditor')) {
+      Host.userMetrics.cssEditorOpened('colorPickerFontEditorEnabled');
+    }
     event.consume(true);
     this.showPopover();
   }
@@ -271,6 +281,10 @@ export class ShadowSwatchPopoverHelper {
    * @param {!Event} event
    */
   _iconClick(event) {
+    Host.userMetrics.cssEditorOpened('shadowEditor');
+    if (Root.Runtime.experiments.isEnabled('fontEditor')) {
+      Host.userMetrics.cssEditorOpened('shadowEditorFontEditorEnabled');
+    }
     event.consume(true);
     this.showPopover();
   }
