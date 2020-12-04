@@ -85,6 +85,24 @@
       "parentUuid": "5533a9ec_292d009e",
       "revId": "007be8b03715ef861db853a0b1e3a629e5755256",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f00d886_d2bd2fba",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspectorPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-12-04T10:02:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0f3308d1_34079055",
+      "revId": "007be8b03715ef861db853a0b1e3a629e5755256",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
