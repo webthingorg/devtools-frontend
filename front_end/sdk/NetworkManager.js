@@ -1023,10 +1023,28 @@ export class NetworkDispatcher {
     return request;
   }
 
-  webTransportCreated() {
+  /**
+   * @override
+   * @param {!Protocol.Network.WebTransportCreatedEvent} request
+   */
+  webTransportCreated({transportId, url: requestURL, initiator}) {
+    const networkRequest = new NetworkRequest(transportId, requestURL, '', '', '', initiator || null);
+    requestToManagerMap.set(networkRequest, this._manager);
+    networkRequest.setResourceType(Common.ResourceType.resourceTypes.WebSocket);
+    networkRequest.setIssueTime(0.1, 0.2);
+    this._startNetworkRequest(networkRequest, null);
   }
 
-  webTransportClosed() {
+  /**
+   * @override
+   * @param {!Protocol.Network.WebTransportClosedEvent} request
+   */
+  webTransportClosed({transportId}) {
+    const networkRequest = this._inflightRequestsById.get(transportId);
+    if (!networkRequest) {
+      return;
+    }
+    this._finishNetworkRequest(networkRequest, 1, -1);
   }
 
   /** @param {!Protocol.Network.TrustTokenOperationDoneEvent} event */
