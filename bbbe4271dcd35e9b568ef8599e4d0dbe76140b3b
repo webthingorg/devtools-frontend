@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "efd26b40_87329a8f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-12-04T10:52:06Z",
+      "side": 1,
+      "message": "Hi Benedikt, hi Jack!\n\nI\u0027m adding keyboard navigation (arrows) for navigating the main view.\nI\u0027ve also added tests, and restructured the test file a bit to only\nhave one level of \"describe\". I\u0027ve added comments to help you\nidentify which parts are the relevant ones.\n\nPTAL!",
+      "revId": "bbbe4271dcd35e9b568ef8599e4d0dbe76140b3b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec112e24_ed582a23",
+        "filename": "test/unittests/front_end/linear_memory_inspector/LinearMemoryViewer_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-12-04T10:52:06Z",
+      "side": 1,
+      "message": "I have restructured this test file to only have one level of describe. This is from an old test. I\u0027m adding one more comment below to highlight what\u0027s new, so you can skip the in-between.",
+      "revId": "bbbe4271dcd35e9b568ef8599e4d0dbe76140b3b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "effb74e0_28074de0",
+        "filename": "test/unittests/front_end/linear_memory_inspector/LinearMemoryViewer_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-12-04T10:52:06Z",
+      "side": 1,
+      "message": "This function is new",
+      "revId": "bbbe4271dcd35e9b568ef8599e4d0dbe76140b3b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f0daa2d_85462d7a",
+        "filename": "test/unittests/front_end/linear_memory_inspector/LinearMemoryViewer_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-12-04T10:52:06Z",
+      "side": 1,
+      "message": "Tests from here on are new",
+      "revId": "bbbe4271dcd35e9b568ef8599e4d0dbe76140b3b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
