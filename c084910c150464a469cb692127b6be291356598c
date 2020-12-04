@@ -33,6 +33,24 @@
       "message": "LGTM (still misaligned a bit?)",
       "revId": "c084910c150464a469cb692127b6be291356598c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3de96aae_9620d2ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-12-04T12:32:12Z",
+      "side": 1,
+      "message": "No, it does not notify. I am not sure how Also-by works.",
+      "parentUuid": "1e559d2c_83cdbc03",
+      "revId": "c084910c150464a469cb692127b6be291356598c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
