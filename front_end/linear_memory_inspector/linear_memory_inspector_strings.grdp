@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <grit-part>
+  <message name="IDS_DEVTOOLS_16ded2dc32322d80ce2362a47f4d7ef4" desc="Tooltip text that appears when hovering over the page back icon in the Linear Memory Navigator">
+    Previous page
+  </message>
+  <message name="IDS_DEVTOOLS_36c2683e78f7e4b2d615f6aa37a83d34" desc="Tooltip text that appears when hovering over the history back icon in the Linear Memory Navigator">
+    Go back in history
+  </message>
+  <message name="IDS_DEVTOOLS_374bea6cf8bd1e8fd64570b629cc6562" desc="Tooltip text that appears when hovering over the next page icon in the Linear Memory Navigator">
+    Next page
+  </message>
+  <message name="IDS_DEVTOOLS_76ac083341f61a62350f5b4c59c39803" desc="Tooltip text that appears when hovering over the history forward icon in the Linear Memory Navigator">
+    Go forward in history
+  </message>
   <message name="IDS_DEVTOOLS_93e8992f1c3e014b608bf11f62cbb43e" desc="Tooltip text that appears when hovering over an unsigned interpretation of the memory under the Value Interpreter">
     Unsigned value
   </message>

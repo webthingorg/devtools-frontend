@@ -62,11 +62,21 @@ export const enum Mode {
   InvalidSubmit = 'InvalidSubmit'
 }
 
+const enum Button {
+  HistoryBack = 'HistoryBack',
+  HistoryForward = 'HistoryForward',
+  PageBack = 'PageBack',
+  PageForward = 'PageForward',
+  Refresh = 'Refresh'
+}
+
 export class LinearMemoryNavigator extends HTMLElement {
   private readonly shadow = this.attachShadow({mode: 'open'});
   private address = '0';
   private error: string|undefined = undefined;
   private valid = true;
+
+  private buttonHoveredOver: Button|undefined = undefined;
 
   set data(data: LinearMemoryNavigatorData) {
     this.address = data.address;
@@ -101,6 +111,7 @@ export class LinearMemoryNavigator extends HTMLElement {
         }
 
         .navigator-item {
+          display: flex;
           white-space: nowrap;
           overflow: hidden;
         }
@@ -118,24 +129,41 @@ export class LinearMemoryNavigator extends HTMLElement {
         }
 
         .navigator-button {
+          display: flex;
+          width: 20px;
+          height: 20px;
           background: transparent;
           overflow: hidden;
-          vertical-align: middle;
           border: none;
           padding: 0px;
+          outline: none;
+          justify-content: center;
+          align-items: center;
         }
-      </style>
+
+        .navigator-button devtools-icon {
+          height: 14px;
+          width: 14px;
+          min-height: 14px;
+          min-width: 14px;
+        }
+
+        .navigator-button.hover devtools-icon {
+          --icon-color: var(--color-text-primary);
+        }
+
+        </style>
       <div class="navigator">
         <div class="navigator-item">
-          ${this.createButton('ic_undo_16x16_icon', new HistoryNavigationEvent(Navigation.Backward))}
-          ${this.createButton('ic_redo_16x16_icon', new HistoryNavigationEvent(Navigation.Forward))}
+          ${this.createButton('ic_undo_16x16_icon', ls`Go back in history`, new HistoryNavigationEvent(Navigation.Backward), Button.HistoryBack)}
+          ${this.createButton('ic_redo_16x16_icon', ls`Go forward in history`, new HistoryNavigationEvent(Navigation.Forward), Button.HistoryForward)}
         </div>
         <div class="navigator-item">
-          ${this.createButton('ic_page_prev_16x16_icon', new PageNavigationEvent(Navigation.Backward))}
+          ${this.createButton('ic_page_prev_16x16_icon', ls`Previous page`, new PageNavigationEvent(Navigation.Backward), Button.PageBack)}
           ${this.createAddressInput()}
-          ${this.createButton('ic_page_next_16x16_icon', new PageNavigationEvent(Navigation.Forward))}
+          ${this.createButton('ic_page_next_16x16_icon', ls`Next page`, new PageNavigationEvent(Navigation.Forward), Button.PageForward)}
         </div>
-        ${this.createButton('refresh_12x12_icon', new RefreshRequestedEvent())}
+        ${this.createButton('refresh_12x12_icon', ls`Refresh`, new RefreshRequestedEvent(), Button.Refresh)}
       </div>
       `;
       render(result, this.shadow, {eventContext: this});
@@ -158,13 +186,27 @@ export class LinearMemoryNavigator extends HTMLElement {
     this.dispatchEvent(new AddressInputChangedEvent(addressInput.value, mode));
   }
 
-  private createButton(name: string, event: Event) {
+  private createButton(name: string, title: string, event: Event, button: Button) {
     return html`
-      <button class="navigator-button" data-button=${event.type} @click=${this.dispatchEvent.bind(this, event)}>
+      <button class="navigator-button ${this.buttonHoveredOver === button ? 'hover' : ''}"
+        data-button=${event.type} title=${title}
+        @click=${this.dispatchEvent.bind(this, event)}
+        @mouseenter=${this.onMouseEnter.bind(this, button)}
+        @mouseleave=${this.onMouseLeave}>
         <devtools-icon .data=${
-        {iconName: name, color: 'rgb(110 110 110)', width: '16px'} as Elements.Icon.IconWithName}>
+        {iconName: name, color: 'var(--color-text-secondary)', width: '14px'} as Elements.Icon.IconWithName}>
         </devtools-icon>
       </button>`;
+  }
+
+  private onMouseEnter(button: Button) {
+    this.buttonHoveredOver = button;
+    this.render();
+  }
+
+  private onMouseLeave() {
+    this.buttonHoveredOver = undefined;
+    this.render();
   }
 }
 
