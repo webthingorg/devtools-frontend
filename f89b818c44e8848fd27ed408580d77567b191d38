@@ -70,6 +70,24 @@
       "parentUuid": "7d5c86e8_2964245d",
       "revId": "f89b818c44e8848fd27ed408580d77567b191d38",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b1c86ba_afe4da16",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-12-04T00:29:59Z",
+      "side": 1,
+      "message": "Works for me. I\u0027ll stage another CL with another approach. Thanks y\u0027all.",
+      "parentUuid": "f15821dd_d86a227b",
+      "revId": "f89b818c44e8848fd27ed408580d77567b191d38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
