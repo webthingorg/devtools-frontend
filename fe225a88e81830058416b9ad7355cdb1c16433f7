@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38e46625_67d37adc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-04T14:11:02Z",
+      "side": 1,
+      "message": "INFRA LGTM",
+      "revId": "fe225a88e81830058416b9ad7355cdb1c16433f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4374d9e8_b426fe64",
@@ -24,6 +41,29 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbdb5f59_a98e49d5",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-04T14:11:02Z",
+      "side": 1,
+      "message": "FYI `any` is technically not part of JSDoc, but is supported by TypeScript specifically. The universally supported JSDoc notation for any type would be `*`.",
+      "range": {
+        "startLine": 397,
+        "startChar": 13,
+        "endLine": 397,
+        "endChar": 16
+      },
+      "revId": "fe225a88e81830058416b9ad7355cdb1c16433f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f442206_d8285fc0",
@@ -37,6 +77,29 @@
       "writtenOn": "2020-12-04T13:18:22Z",
       "side": 1,
       "message": "I don\u0027t think you need to put this into DebuggerModel. The ranges returned from sourceLocationToRawLocations are already merged according to the DWARF, and you don\u0027t need to merge them further int the front-end (actually if you do, you cross statement boundaries).",
+      "revId": "fe225a88e81830058416b9ad7355cdb1c16433f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e0b187c_47037754",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-04T14:11:02Z",
+      "side": 1,
+      "message": "Please add the reasoning for ignoring any type errors on this and what would need to happen to make it pass the type-checker. Ideally we don\u0027t introduce any new `@ts-ignore` statements.",
+      "range": {
+        "startLine": 407,
+        "startChar": 12,
+        "endLine": 407,
+        "endChar": 25
+      },
       "revId": "fe225a88e81830058416b9ad7355cdb1c16433f7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
