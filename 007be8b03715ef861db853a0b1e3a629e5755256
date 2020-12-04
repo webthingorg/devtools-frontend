@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74bce07b_10f7d2c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-12-04T07:15:14Z",
+      "side": 1,
+      "message": "Hi Benedikt, hi Alex,\n\nI\u0027m adding the functionality to refresh the view, by clicking on the refresh button.\nThis also extracts some of the functionality that is used by refreshing the memory\nfrom the LinearMemoryInspectorPane into the LinearMemoryInspectorController.\n\nPTAL!",
+      "revId": "007be8b03715ef861db853a0b1e3a629e5755256",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
