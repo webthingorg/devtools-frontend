@@ -2,10 +2,13 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as ComponentHelpers from '../component_helpers/component_helpers.js';
 import * as LitHtml from '../third_party/lit-html/lit-html.js';
 
 const html = LitHtml.html;
 const render = LitHtml.render;
+const unsafeHtml = LitHtml.Directives.unsafeHTML;
+const getStyleSheets = ComponentHelpers.GetStylesheet.getStyleSheets;
 
 export interface MarkdownViewData {
   tokens: Object[];
@@ -15,6 +18,13 @@ export class MarkdownView extends HTMLElement {
   private readonly shadow = this.attachShadow({mode: 'open'});
 
   private tokenData: readonly Object[] = [];
+
+  constructor() {
+    super();
+    this.shadow.adoptedStyleSheets = [
+      ...getStyleSheets('ui/inspectorCommon.css'),
+    ];
+  }
 
   set data(data: MarkdownViewData) {
     this.tokenData = data.tokens;
@@ -68,6 +78,10 @@ export class MarkdownView extends HTMLElement {
         user-select: text;
         cursor: text;
         background: var(--issue-code);
+      }
+
+      .devtools-link {
+        color: var(--accent-foreground-rest);
       }
       </style>
       <div class='message'>
@@ -123,13 +137,15 @@ const renderText = (token: any) => {
 
 // TODO(crbug.com/1108699): Fix types when they are available.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const tokenRenderers = new Map<string,(token: any) => LitHtml.TemplateResult>([
+const tokenRenderers = new Map<string, (token: any) => LitHtml.TemplateResult>([
   ['paragraph', token => html`<p>${renderChildTokens(token)}</p>`],
   ['list', token => html`<ul>${token.items.map(renderToken)}</ul>`],
   ['list_item', token => html`<li>${renderChildTokens(token)}</li>`],
   ['text', renderText],
   ['codespan', token => html`<code>${unescape(token.text)}</code>`],
   ['space', () => html``],
+  ['link', token => html`<a class="devtools-link" href=${token.href} target="_blank">${token.text}</a>`],
+  ['html', token => html`${unsafeHtml(token.text)}`],
 ]);
 
 // TODO(crbug.com/1108699): Fix types when they are available.
