@@ -16,6 +16,57 @@
       "message": "Please PTAL.",
       "revId": "76e1f1d257f14d52a51994e3a04a0312a81c0f25",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "015ce78b_54d2ef99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-04T10:46:16Z",
+      "side": 1,
+      "message": "The code LGTM, and I appreciate the drive-by improvements too! Very nice.\n\nHowever, given the discussion on the issue, I think \"copy file name\" by itself is probably not as useful as \"copy (full) path\" and \"copy relative path\". WDYT, can we change the scope of this feature as such? The code would be similar of course.",
+      "revId": "76e1f1d257f14d52a51994e3a04a0312a81c0f25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20c82bd4_c3e86a1f",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 880,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-04T10:46:16Z",
+      "side": 1,
+      "message": "nit: add trailing comma",
+      "revId": "76e1f1d257f14d52a51994e3a04a0312a81c0f25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c055e3e_1bc6659b",
+        "filename": "front_end/workspace/UISourceCode.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-04T10:46:16Z",
+      "side": 1,
+      "message": "Nice!",
+      "revId": "76e1f1d257f14d52a51994e3a04a0312a81c0f25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
