@@ -6,7 +6,7 @@ import * as i18n from '../i18n/i18n.js';
 import * as SDK from '../sdk/sdk.js';
 
 import {Events, throttlingManager} from './ThrottlingManager.js';
-import {advancedMobilePresets, Conditions, ConditionsList, CustomConditions, mobilePresets, MobileThrottlingConditionsGroup, NoThrottlingConditions} from './ThrottlingPresets.js';  // eslint-disable-line no-unused-vars
+import {Conditions, ConditionsList, MobileThrottlingConditionsGroup, ThrottlingPresets} from './ThrottlingPresets.js';  // eslint-disable-line no-unused-vars
 
 export const UIStrings = {
   /**
@@ -52,9 +52,12 @@ export class MobileThrottlingSelector {
    * @return {!ConditionsList}
    */
   _populateOptions() {
-    const disabledGroup = {title: i18nString(UIStrings.disabled), items: [NoThrottlingConditions]};
-    const presetsGroup = {title: i18nString(UIStrings.presets), items: mobilePresets};
-    const advancedGroup = {title: i18nString(UIStrings.advanced), items: advancedMobilePresets};
+    const disabledGroup = {
+      title: i18nString(UIStrings.disabled),
+      items: [ThrottlingPresets.getNoThrottlingConditions()]
+    };
+    const presetsGroup = {title: i18nString(UIStrings.presets), items: ThrottlingPresets.getMobilePresets()};
+    const advancedGroup = {title: i18nString(UIStrings.advanced), items: ThrottlingPresets.getAdvancedMobilePresets()};
     return this._populateCallback([disabledGroup, presetsGroup, advancedGroup]);
   }
 
@@ -69,6 +72,6 @@ export class MobileThrottlingSelector {
         return;
       }
     }
-    this._selectCallback(this._options.indexOf(CustomConditions));
+    this._selectCallback(this._options.indexOf(ThrottlingPresets.getCustomConditions()));
   }
 }

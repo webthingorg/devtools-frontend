@@ -6,7 +6,7 @@ import * as Common from '../common/common.js';
 import * as i18n from '../i18n/i18n.js';
 import * as SDK from '../sdk/sdk.js';
 
-import {networkPresets, NetworkThrottlingConditionsGroup} from './ThrottlingPresets.js';  // eslint-disable-line no-unused-vars
+import {NetworkThrottlingConditionsGroup, ThrottlingPresets} from './ThrottlingPresets.js';  // eslint-disable-line no-unused-vars
 
 export const UIStrings = {
   /**
@@ -58,7 +58,7 @@ export class NetworkThrottlingSelector {
 
   _populateOptions() {
     const disabledGroup = {title: i18nString(UIStrings.disabled), items: [SDK.NetworkManager.NoThrottlingConditions]};
-    const presetsGroup = {title: i18nString(UIStrings.presets), items: networkPresets};
+    const presetsGroup = {title: i18nString(UIStrings.presets), items: ThrottlingPresets.networkPresets};
     const customGroup = {title: i18nString(UIStrings.custom), items: this._customNetworkConditionsSetting.get()};
     this._options = this._populateCallback([disabledGroup, presetsGroup, customGroup]);
     if (!this._networkConditionsChanged()) {
