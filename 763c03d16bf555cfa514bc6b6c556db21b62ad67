@@ -16,6 +16,23 @@
       "message": "Hey Kim,\n\nHere\u0027s a fix for the change the Ingvar requested (V8 change pending).\nPlease take a look.\n\ncheers,\nBenedikt",
       "revId": "763c03d16bf555cfa514bc6b6c556db21b62ad67",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07a66bbc_7a7a2e92",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-12-04T17:15:52Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "763c03d16bf555cfa514bc6b6c556db21b62ad67",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
