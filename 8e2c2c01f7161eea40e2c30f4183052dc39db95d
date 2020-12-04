@@ -39,6 +39,30 @@
       },
       "revId": "8e2c2c01f7161eea40e2c30f4183052dc39db95d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3758efc4_4ee3a545",
+        "filename": "front_end/emulation/SensorsView.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 875,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-12-04T07:21:59Z",
+      "side": 1,
+      "message": "Here is another of example of how we tackled this issue with Kalon\u0027s proposed approach:\n2572862: [Loc] Migrate mobile throttling  setting panel to Localization V2 | https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2572862",
+      "parentUuid": "f395f927_6ca74d20",
+      "range": {
+        "startLine": 875,
+        "startChar": 0,
+        "endLine": 875,
+        "endChar": 29
+      },
+      "revId": "8e2c2c01f7161eea40e2c30f4183052dc39db95d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
