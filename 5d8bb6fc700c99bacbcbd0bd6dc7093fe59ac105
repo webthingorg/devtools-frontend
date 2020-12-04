@@ -22,6 +22,30 @@
       },
       "revId": "5d8bb6fc700c99bacbcbd0bd6dc7093fe59ac105",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7dd8fa8_6a7a90ec",
+        "filename": "test/e2e/inline_editor/color-swatch_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-12-04T09:59:37Z",
+      "side": 1,
+      "message": "I am not sure why it is different from other tests but I assume the expansion of the body is not sync so it might be that it gets selected and expanded later. So if you press the down key, it goes to the html element. I saw that the html element was selected in the screenshots taken after failure.",
+      "parentUuid": "b44e20ea_38305a25",
+      "range": {
+        "startLine": 18,
+        "startChar": 2,
+        "endLine": 18,
+        "endChar": 103
+      },
+      "revId": "5d8bb6fc700c99bacbcbd0bd6dc7093fe59ac105",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
