@@ -109,16 +109,11 @@ export class ImageView extends UI.View.SimpleView {
     const contentEncoded = await this._contentProvider.contentEncoded();
     /** @type {?string} */
     this._cachedContent = content;
-    let imageSrc = TextUtils.ContentProvider.contentAsDataURL(content, this._mimeType, contentEncoded);
-    if (content === null) {
-      imageSrc = this._url;
-    }
+    const imageSrc = TextUtils.ContentProvider.contentAsDataURL(content, this._mimeType, contentEncoded) || this._url;
     const loadPromise = new Promise(x => {
       this._imagePreviewElement.onload = x;
     });
-    if (imageSrc) {
-      this._imagePreviewElement.src = imageSrc;
-    }
+    this._imagePreviewElement.src = imageSrc;
     this._imagePreviewElement.alt = ls`Image from ${this._url}`;
     const size = content && !contentEncoded ? content.length : base64ToSize(content);
     this._sizeLabel.setText(Platform.NumberUtilities.bytesToString(size));
