@@ -16,6 +16,40 @@
       "message": "Hi Benedikt, hi Alex,\n\nI\u0027m adding the functionality to refresh the view, by clicking on the refresh button.\nThis also extracts some of the functionality that is used by refreshing the memory\nfrom the LinearMemoryInspectorPane into the LinearMemoryInspectorController.\n\nPTAL!",
       "revId": "007be8b03715ef861db853a0b1e3a629e5755256",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4851ec89_55b9902d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-12-04T07:35:05Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "007be8b03715ef861db853a0b1e3a629e5755256",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5533a9ec_292d009e",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspectorPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-12-04T07:35:05Z",
+      "side": 1,
+      "message": "would it be better to add this to wasShown callback or similar?",
+      "revId": "007be8b03715ef861db853a0b1e3a629e5755256",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
