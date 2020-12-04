@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0fda671_7c18e804",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-12-04T09:49:25Z",
+      "side": 1,
+      "message": "Thanks for the reviews! I addressed your suggestion, thanks Alex. PT(another)L!",
+      "revId": "c433a1136caf4a6c8dfabe171ebd87bd1e664bb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

@@ -67,6 +67,24 @@
       "message": "would it be better to add this to wasShown callback or similar?",
       "revId": "007be8b03715ef861db853a0b1e3a629e5755256",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f3308d1_34079055",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspectorPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-12-04T09:49:25Z",
+      "side": 1,
+      "message": "Yes, that makes sense! Thanks for the suggestion. I have added a new Event (AddressChangedEvent) that is thrown from the main component.\n\nThe old \"AddressChangedEvent\" that was coming from the LinearMemoryNavigator.ts (when the user inputs anything) and is handled in the main component was renamed to \"AddressInputChangedEvent\" to distinguish the two.",
+      "parentUuid": "5533a9ec_292d009e",
+      "revId": "007be8b03715ef861db853a0b1e3a629e5755256",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
