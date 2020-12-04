@@ -1914,6 +1914,13 @@ declare namespace ProtocolProxyApi {
     webSocketWillSendHandshakeRequest(params: Protocol.Network.WebSocketWillSendHandshakeRequestEvent): void;
 
     /**
+     * Fired upon WebTransport creation.
+     */
+    webTransportCreated(params: Protocol.Network.WebTransportCreatedEvent): void;
+
+    webTransportClosed(params: Protocol.Network.WebTransportClosedEvent): void;
+
+    /**
      * Fired when additional information about a requestWillBeSent event is available from the
      * network stack. Not every requestWillBeSent event will have an additional
      * requestWillBeSentExtraInfo fired for it, and there is no guarantee whether requestWillBeSent
