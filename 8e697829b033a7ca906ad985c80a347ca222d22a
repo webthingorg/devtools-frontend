@@ -16,6 +16,23 @@
       "message": "wolfi@: Can you review this CL? Thank you!",
       "revId": "8e697829b033a7ca906ad985c80a347ca222d22a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f3446dd_649609f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-12-04T14:44:15Z",
+      "side": 1,
+      "message": "It would be great to add a link to the backend CL to the description.\n\nSimon, is it ok to mention a specific Chrome version? IIRC we phrase it something like \"in a future version of Chrome...\" elsewhere.",
+      "revId": "8e697829b033a7ca906ad985c80a347ca222d22a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
