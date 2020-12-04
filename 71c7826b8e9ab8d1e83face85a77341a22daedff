@@ -16,6 +16,24 @@
       "message": "What if user has a custom `class Memory {}` - will it also get all the way here? If so, maybe better to do an `instanceof` check with handling of that case instead of casting?",
       "revId": "71c7826b8e9ab8d1e83face85a77341a22daedff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22002810_ec000d4a",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-12-04T20:41:07Z",
+      "side": 1,
+      "message": "Yeah, we already have the same problem with the earlier check for className being either \u0027Uint8Array\u0027 or \u0027Memory\u0027. We\u0027ll need a different mechanism here going forward.",
+      "parentUuid": "707f33d9_934555ee",
+      "revId": "71c7826b8e9ab8d1e83face85a77341a22daedff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
