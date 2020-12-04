@@ -88,6 +88,24 @@
       "parentUuid": "6c9c4ca7_a40a11de",
       "revId": "8f7814a4e475c7b097b39feb27a96f0fca7a5d5b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d903a74d_abba07fb",
+        "filename": "front_end/source_frame/ImageView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-12-04T17:45:55Z",
+      "side": 1,
+      "message": "Yes, that\u0027s exactly what this CL intends to do :)",
+      "parentUuid": "e979997f_7e772a94",
+      "revId": "8f7814a4e475c7b097b39feb27a96f0fca7a5d5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
