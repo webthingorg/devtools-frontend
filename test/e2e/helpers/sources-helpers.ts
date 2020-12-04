@@ -342,6 +342,11 @@ async function expandSourceTreeItem(selector: string) {
     // FIXME(crbug/1112692): Refactor test to remove the timeout.
     await timeout(50);
     await doubleClickSourceTreeItem(selector);
+    await waitForFunction(async () => {
+      return await sourceTreeItem.evaluate(element => {
+        return element.getAttribute('aria-expanded') === 'true';
+      });
+    });
   }
 }
 
