@@ -63,6 +63,30 @@
       },
       "revId": "8e2c2c01f7161eea40e2c30f4183052dc39db95d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4408c3b6_e697f8f2",
+        "filename": "front_end/emulation/SensorsView.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 875,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-12-04T08:15:37Z",
+      "side": 1,
+      "message": "This approach looks good to me to avoid module-time localization calls, but is it necessary here? I can\u0027t see any uses of this class outside this file, so it might not need to be exported at all?\n\nAlso a suggestion: at some point, can you document this pattern in the documentation folder? That would be awesome for future reference",
+      "parentUuid": "3758efc4_4ee3a545",
+      "range": {
+        "startLine": 875,
+        "startChar": 0,
+        "endLine": 875,
+        "endChar": 29
+      },
+      "revId": "8e2c2c01f7161eea40e2c30f4183052dc39db95d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
