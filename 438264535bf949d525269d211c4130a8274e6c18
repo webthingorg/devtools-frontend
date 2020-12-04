@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdf5e984_aeabb1c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-12-04T08:10:38Z",
+      "side": 1,
+      "message": "As per VC discussion: I think when entering an invalid address focus should stay on the input field and ideally the full content should be selected (my intuition).\n\n",
+      "revId": "438264535bf949d525269d211c4130a8274e6c18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "789a96a8_8af29a20",
