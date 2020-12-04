@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c6f4cbae_44a5cae3",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-12-04T18:49:17Z",
+      "side": 1,
+      "message": "Pass undefined here if columnNumber is absent.",
+      "parentUuid": "4330b285_515aef0e",
+      "revId": "fe225a88e81830058416b9ad7355cdb1c16433f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4374d9e8_b426fe64",
         "filename": "front_end/sdk/DebuggerModel.js",
         "patchSetId": 5
@@ -130,6 +148,24 @@
       "side": 1,
       "message": "If I don\u0027t do it here, I can\u0027t make the change only happen for when we use the plugin. If we\u0027re getting multiple raw locations in non-plugin scenarios we will set multiple breakpoints.",
       "parentUuid": "9f442206_d8285fc0",
+      "revId": "fe225a88e81830058416b9ad7355cdb1c16433f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c6b084b_673aa6c9",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-12-04T18:49:17Z",
+      "side": 1,
+      "message": "This also doesn\u0027t preserve undefined for columnNumber.",
+      "parentUuid": "eb0b0a33_1aaa66d6",
       "revId": "fe225a88e81830058416b9ad7355cdb1c16433f7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
