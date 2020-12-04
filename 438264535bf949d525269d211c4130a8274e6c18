@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "58d08e26_fbfc0cdf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-04T10:03:08Z",
+      "side": 1,
+      "message": "Nice, this LGTM, and great tests too. I have one small nit but otherwise 👍",
+      "revId": "438264535bf949d525269d211c4130a8274e6c18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "789a96a8_8af29a20",
@@ -65,6 +82,29 @@
       "writtenOn": "2020-12-04T07:11:13Z",
       "side": 1,
       "message": "This class now takes a string instead of a number, so whatever this address string is will be shown as an address. The reason for changing it is that the user may edit this field, and we do not want to overwrite it on re-render (e.g. re-rendering because inserted address is invalid).",
+      "revId": "438264535bf949d525269d211c4130a8274e6c18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b21f8938_5d9a4807",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryNavigator.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-04T10:03:08Z",
+      "side": 1,
+      "message": "nit, but you don\u0027t need quotes if you\u0027re interpolating the value: `class\u003d${LitHtml.Directives...}` works just fine.",
+      "range": {
+        "startLine": 140,
+        "startChar": 5,
+        "endLine": 143,
+        "endChar": 113
+      },
       "revId": "438264535bf949d525269d211c4130a8274e6c18",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
