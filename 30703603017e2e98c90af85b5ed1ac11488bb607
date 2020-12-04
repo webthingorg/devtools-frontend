@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c523c73_398e8453",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-12-04T18:19:50Z",
+      "side": 1,
+      "message": "@szuend@chromium.org I have updated as per your suggestion, so there are separate MarkdownLink and MarkdownImage components which handle the converting key to link and image/icon respectively.\n\nLet me know what you think, I will add tests and examples if it looks good.",
+      "revId": "30703603017e2e98c90af85b5ed1ac11488bb607",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
