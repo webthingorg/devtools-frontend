@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "07afeac9_9735cbef",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-12-04T15:58:36Z",
+      "side": 1,
+      "message": "You should be able to ask the plugin manager here, i.e.\n\n```\nconst {pluginManager} \u003d DebuggerWorkspaceBinding.instance();\nif (pluginManager) {\n  debuggerLocations \u003d await pluginManager.uiLocationToRawLocationRanges(...);\n  // ....\n}\n```",
+      "revId": "fe225a88e81830058416b9ad7355cdb1c16433f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4374d9e8_b426fe64",
         "filename": "front_end/sdk/DebuggerModel.js",
         "patchSetId": 5
