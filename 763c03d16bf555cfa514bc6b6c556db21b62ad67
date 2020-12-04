@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "978824d7_b95cd157",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-12-04T16:31:09Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nHere\u0027s a fix for the change the Ingvar requested (V8 change pending).\nPlease take a look.\n\ncheers,\nBenedikt",
+      "revId": "763c03d16bf555cfa514bc6b6c556db21b62ad67",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
