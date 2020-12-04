@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9736a074_660a8634",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-12-04T19:55:42Z",
+      "side": 0,
+      "message": "Removing the todo here: we are nowadays already refreshing on revealing.",
+      "revId": "2d21a8fb4dbe775643ecf8fbd2ba910ca6d1ea8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
