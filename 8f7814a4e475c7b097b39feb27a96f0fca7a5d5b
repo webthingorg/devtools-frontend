@@ -34,6 +34,24 @@
       "parentUuid": "5f6f1d53_95a50141",
       "revId": "8f7814a4e475c7b097b39feb27a96f0fca7a5d5b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f28a312f_722ff418",
+        "filename": "front_end/source_frame/ImageView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-12-04T10:52:05Z",
+      "side": 1,
+      "message": "For any other unexpected error conditions, I think it would be better to add a prompt text.",
+      "parentUuid": "1d30566e_4120f6c5",
+      "revId": "8f7814a4e475c7b097b39feb27a96f0fca7a5d5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
