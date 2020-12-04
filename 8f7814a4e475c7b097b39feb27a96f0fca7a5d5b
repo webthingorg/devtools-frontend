@@ -52,6 +52,24 @@
       "parentUuid": "1d30566e_4120f6c5",
       "revId": "8f7814a4e475c7b097b39feb27a96f0fca7a5d5b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c9c4ca7_a40a11de",
+        "filename": "front_end/source_frame/ImageView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-12-04T15:21:50Z",
+      "side": 1,
+      "message": "By default a data URL is used to display the image but in case the image size exceeds 1MB this is not longer the behaviour and a regular URL is used. That\u0027s why contentAsDataURL needs to be invoked, to determine what the type of URL the \u0027src\u0027 of the image would be and depending on the outcome of this call \u0027this._url\u0027 might not be used. \n\nI think the bug is not caused by an unexpected outcome but rather by an unfinished handling of an intended behaviour.",
+      "parentUuid": "f28a312f_722ff418",
+      "revId": "8f7814a4e475c7b097b39feb27a96f0fca7a5d5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
