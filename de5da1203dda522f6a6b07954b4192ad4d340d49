@@ -16,6 +16,23 @@
       "message": "# Template for Gerrit Attention Set related issues\n#\n# Documentation for the Attention Set feature can be found at:\n# https://gerrit-review.googlesource.com/Documentation/user-attention-\nset.html\n#\n# Links, screenshots and timestamps are very helpful for debugging! :-)\n#\n# This is a public issue tracker. Do not leak anything confidential!",
       "revId": "de5da1203dda522f6a6b07954b4192ad4d340d49",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3259c54a_036a883f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1471750
+      },
+      "writtenOn": "2020-12-06T02:51:34Z",
+      "side": 1,
+      "message": "[Loc] Migrate snippets to Localization V2\n\nBug: 1136655\nChange-Id: I724747d248b047ce85761b9ec7c6ae512c939ddb\nReviewed-on: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2548691\nCommit-Queue: Kalon Hinds \u003ckahinds@microsoft.com\u003e\nReviewed-by: Simon Zünd \u003cszuend@chromium.org\u003e",
+      "revId": "de5da1203dda522f6a6b07954b4192ad4d340d49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
