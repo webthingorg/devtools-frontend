@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "acb1f1a8_42f38867",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1471750
+      },
+      "writtenOn": "2020-12-06T02:50:23Z",
+      "side": 1,
+      "message": "# Template for Gerrit Attention Set related issues\n#\n# Documentation for the Attention Set feature can be found at:\n# https://gerrit-review.googlesource.com/Documentation/user-attention-\nset.html\n#\n# Links, screenshots and timestamps are very helpful for debugging! :-)\n#\n# This is a public issue tracker. Do not leak anything confidential!",
+      "revId": "de5da1203dda522f6a6b07954b4192ad4d340d49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
