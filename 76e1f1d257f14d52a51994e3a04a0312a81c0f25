@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "145a31ab_78415643",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-07T09:12:27Z",
+      "side": 1,
+      "message": "Alright then, let\u0027s just go with file name copying. Please post this resolution on the issue as well.",
+      "parentUuid": "54f36b48_56eab31e",
+      "revId": "76e1f1d257f14d52a51994e3a04a0312a81c0f25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "20c82bd4_c3e86a1f",
