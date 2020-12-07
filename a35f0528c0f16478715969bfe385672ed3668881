@@ -16,6 +16,23 @@
       "message": "Hi Benedikt, hi Philip,\n\nmoving to use \u0027subtype\u0027 for copy/store context menu items.\n\nBest,\n\nKim",
       "revId": "a35f0528c0f16478715969bfe385672ed3668881",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "353955d0_328fd40e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-12-07T14:17:25Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "a35f0528c0f16478715969bfe385672ed3668881",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
