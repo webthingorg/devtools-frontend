@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "34a0d7ec_641f932c",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-12-07T11:10:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08635aca_c161f87b",
+      "revId": "fe225a88e81830058416b9ad7355cdb1c16433f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "07afeac9_9735cbef",
@@ -90,6 +108,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "089aadfb_640f941c",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-12-07T11:10:00Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c6f4cbae_44a5cae3",
+      "revId": "fe225a88e81830058416b9ad7355cdb1c16433f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "9a0de736_87e4514d",
         "filename": "front_end/bindings/BreakpointManager.js",
         "patchSetId": 5
@@ -101,6 +137,24 @@
       "writtenOn": "2020-12-07T09:46:42Z",
       "side": 1,
       "message": "`const {url, scriptId, scriptHash} \u003d newState` would be simpler.",
+      "revId": "fe225a88e81830058416b9ad7355cdb1c16433f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6e5d986_525c6e4c",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 804,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-12-07T11:10:00Z",
+      "side": 1,
+      "message": "Good call, done.",
+      "parentUuid": "9a0de736_87e4514d",
       "revId": "fe225a88e81830058416b9ad7355cdb1c16433f7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -122,6 +176,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "04ed3789_09a7d8f8",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 807,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-12-07T11:10:00Z",
+      "side": 1,
+      "message": "Actually it appears the code would fail if neither branch of the if/else if were hit. Fixed.",
+      "parentUuid": "7665f09a_4da441a1",
+      "revId": "fe225a88e81830058416b9ad7355cdb1c16433f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "868bc546_4fe5d150",
@@ -135,6 +207,24 @@
       "writtenOn": "2020-12-07T09:46:42Z",
       "side": 1,
       "message": "Are `positions` ordered?",
+      "revId": "fe225a88e81830058416b9ad7355cdb1c16433f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30cd0013_a00f5305",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 990,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-12-07T11:10:00Z",
+      "side": 1,
+      "message": "Ooh, good question. I\u0027m assuming that uiLocationToRawLocationRanges will return them in the same order every time, so it shouldn\u0027t cause problems to make this order dependent. Worst case we think the breakpoint has been changed when it hasn\u0027t and we remove and re-add it.",
+      "parentUuid": "868bc546_4fe5d150",
       "revId": "fe225a88e81830058416b9ad7355cdb1c16433f7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -238,6 +328,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c082e3a3_0de25f72",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-12-07T11:10:00Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3c6b084b_673aa6c9",
+      "revId": "fe225a88e81830058416b9ad7355cdb1c16433f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5e0b187c_47037754",
@@ -251,6 +359,30 @@
       "writtenOn": "2020-12-04T14:11:02Z",
       "side": 1,
       "message": "Please add the reasoning for ignoring any type errors on this and what would need to happen to make it pass the type-checker. Ideally we don\u0027t introduce any new `@ts-ignore` statements.",
+      "range": {
+        "startLine": 407,
+        "startChar": 12,
+        "endLine": 407,
+        "endChar": 25
+      },
+      "revId": "fe225a88e81830058416b9ad7355cdb1c16433f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00d68ea9_8c2e8fbf",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-12-07T11:10:00Z",
+      "side": 1,
+      "message": "Ack. All changes to this file are reverted now which takes care of the TS issues!",
+      "parentUuid": "5e0b187c_47037754",
       "range": {
         "startLine": 407,
         "startChar": 12,
