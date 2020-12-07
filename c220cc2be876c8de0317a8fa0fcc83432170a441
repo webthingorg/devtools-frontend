@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9161cc87_0b347d6c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2020-12-07T21:26:57Z",
+      "side": 1,
+      "message": "Also, as per team chat, we have a bug! Change this line to \n\nBug: 887173\n\nAnd when the CL is merged the bug will be updated",
+      "revId": "c220cc2be876c8de0317a8fa0fcc83432170a441",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "7b0d1fda_6e1eb3ce",
@@ -65,6 +82,24 @@
       "writtenOn": "2020-12-07T07:24:49Z",
       "side": 1,
       "message": "FYI you need to add this to the end of the list (see the comment for DevtoolsExperiments) because the experiment number 37 has been already used. Also, you need to define it on the backend (example: https://chromium-review.googlesource.com/c/chromium/src/+/2534830) because we track what experiments the user has enabled and the backend CL needs to be merged first.",
+      "revId": "c220cc2be876c8de0317a8fa0fcc83432170a441",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c70cb64_3d7c656d",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2020-12-07T21:26:57Z",
+      "side": 1,
+      "message": "Already on it, have added you as a reviewer. https://crrev.com/c/2577076\n\nThe experiment number will obviously need to change there as well. Does the backend change need to be landed before this goes in?",
+      "parentUuid": "ca115db4_b4c1afd9",
       "revId": "c220cc2be876c8de0317a8fa0fcc83432170a441",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
