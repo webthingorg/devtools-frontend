@@ -103,6 +103,23 @@
       "message": "Hey Paul,\n\nFriendly ping. I\u0027ve continued my research and found that the issue is not that codemirror is imported from a different file but it is imported twice when testing. First from runmode_standalone.js and then from codemirror.js.\n\nThe second import re-defines the CodeMirror object and my hypothesis is wherever the import is done there is no subsequent css.js import (to define the appropriate mimeMode for css parsing). Still not sure how this explains the difference between the test environment and the production environment.\n\nThanks in advance for any guidance!",
       "revId": "c7401ea3698af6ef78f72da2d5414fdbc3afd2d5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6adf7aaf_d492ec0a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1466793
+      },
+      "writtenOn": "2020-12-07T17:36:28Z",
+      "side": 1,
+      "message": "Hey Paul,\n\nSorry i was not familiar with the attention set before so i did not add you on my previous comments. Just wanted to make sure you received.\n\nThanks again for any guidance regarding those.\n\nBest",
+      "revId": "c7401ea3698af6ef78f72da2d5414fdbc3afd2d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
