@@ -51,6 +51,24 @@
       "parentUuid": "20085cee_f848756f",
       "revId": "a9dc01c524889fb04261f72b3c279877c3e74145",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc7e023b_fa9ed087",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-07T09:55:37Z",
+      "side": 1,
+      "message": "We could record the state of the check-box at the time the issues panel is created, or on page-load (plus logging state changes). Don\u0027t we have prior art for this kind of problem?",
+      "parentUuid": "77d08eb0_e4194993",
+      "revId": "a9dc01c524889fb04261f72b3c279877c3e74145",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
