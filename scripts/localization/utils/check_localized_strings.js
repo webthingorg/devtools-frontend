@@ -105,24 +105,10 @@ let devtoolsFrontendDirs;
 // e.g. const migratedDirsSet = new Set(['settings', 'console']);
 // TODO(crbug.com/941561): Remove once localization V1 is no longer used.
 const migratedDirsSet = new Set([
-  'animation',
-  'changes',
-  'coverage',
-  'developer_resources',
-  'devices',
-  'layers',
-  'layer_viewer',
-  'lighthouse',
-  'media',
-  'performance_monitor',
-  'protocol_monitor',
-  'search',
-  'security',
-  'settings',
-  'snippets',
-  'text_editor',
-  'web_audio',
-  'webauthn',
+  'animation',    'changes',    'coverage', 'developer_resources', 'devices',          'layers',
+  'layer_viewer', 'lighthouse', 'media',    'performance_monitor', 'protocol_monitor', 'search',
+  'security',     'settings',   'snippets', 'text_editor',         'web_audio',        'webauthn',
+  'workspace',
 ]);
 const locV1CallsInMigratedFiles = new Set();
 
