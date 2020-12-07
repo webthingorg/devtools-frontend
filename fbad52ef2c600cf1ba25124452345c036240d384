@@ -16,6 +16,24 @@
       "message": "Is there a case where we get multiple locations in JS / with source maps? I think the defensive approach here is fine, just wondering whether you\u0027ve actually hit this problem somewhere?",
       "revId": "fbad52ef2c600cf1ba25124452345c036240d384",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b41eaa5_2e921e49",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 761,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-12-07T12:34:13Z",
+      "side": 1,
+      "message": "Not sure. I believe I originally put a console error when this happened, but I don\u0027t remember seeing it in non-plugin cases.",
+      "parentUuid": "5cb1774e_cdc787a3",
+      "revId": "fbad52ef2c600cf1ba25124452345c036240d384",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
