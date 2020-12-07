@@ -70,7 +70,14 @@ export class PreRegisteredView {
   }
 
   tags() {
-    return this._viewRegistration.tags;
+    const keys = this._viewRegistration.tags || '';
+    // Get localized keys and separate by null character to prevent fuzzy matching from matching across them.
+    const keyList = keys.split(',');
+    let key = '';
+    keyList.forEach(k => {
+      key += (ls(k.trim()) + '\0');
+    });
+    return key;
   }
 
   persistence() {
