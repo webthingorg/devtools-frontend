@@ -15,9 +15,6 @@
   <message name="IDS_DEVTOOLS_02d56cf7754ce16d7ce0193fbca7c90a" desc="Text in Network Config View of the Network panel">
     Caching
   </message>
-  <message name="IDS_DEVTOOLS_0382c94481db9197dd5a72ea4bdd2ff0" desc="A tag of Network Conditions tool that can be searched in the command menu">
-    disk cache
-  </message>
   <message name="IDS_DEVTOOLS_06337a0bc6e91b2adb10567bee4d6f14" desc="Text in Network Log View of the Network panel">
     Copy all as HAR
   </message>
@@ -107,9 +104,6 @@
   </message>
   <message name="IDS_DEVTOOLS_1c047e32d57295a9f0319976c543162e" desc="Text in Network Data Grid Node of the Network panel">
     (blocked:<ph name="REASON">$1s<ex>mixed-content</ex></ph>)
-  </message>
-  <message name="IDS_DEVTOOLS_1cf0226d974af378b6aa6070bb2a37c3" desc="A tag of Network Conditions tool that can be searched in the command menu">
-    network throttling
   </message>
   <message name="IDS_DEVTOOLS_1d420bebb54e53a8d8a4d809576b58d5" desc="An option in the user agent dropdown menu in the Network conditions tool">
     <ph name="LOCKED_1">Chrome — Mac</ph>
@@ -482,9 +476,6 @@
   </message>
   <message name="IDS_DEVTOOLS_7734a3eb999c4910e2ae5dcd906bdefc" desc="Data grid name for Network Log data grids">
     Network Log
-  </message>
-  <message name="IDS_DEVTOOLS_b85f4d2fed0fc1c5f95fd4a49ff6f2e7" desc="A tag of Network Conditions tool that can be searched in the command menu">
-    user-agent
   </message>
   <message name="IDS_DEVTOOLS_be54c703eb3d0bf55a44e731f730f714" desc="Label for a filter in the Network panel">
     Blocked Requests
@@ -900,9 +891,6 @@
   <message name="IDS_DEVTOOLS_c0c7145bdb8a2311e11528eaacf7f41d" desc="Tooltip to explain what request cookies are">
     Cookies that were sent to the server in the &apos;cookie&apos; header of the request
   </message>
-  <message name="IDS_DEVTOOLS_c0635a52980f98eff8adf2279c8ad8e0" desc="A tag of Network Conditions tool that can be searched in the command menu">
-    useragent
-  </message>
   <message name="IDS_DEVTOOLS_c14108bc627e61f0e445dda0ff029f58" desc="An option in the user agent dropdown menu in the Network conditions tool">
     <ph name="LOCKED_1">Chrome — iPhone</ph>
   </message>
@@ -1067,9 +1055,6 @@
   </message>
   <message name="IDS_DEVTOOLS_f15c1cae7882448b3fb0404682e17e61" desc="Text in Network Log View Columns of the Network panel">
     Content
-  </message>
-  <message name="IDS_DEVTOOLS_f2a4bb0e0bae2587046fb2bd377f3922" desc="A tag of Network Conditions tool that can be searched in the command menu">
-    user agent
   </message>
   <message name="IDS_DEVTOOLS_f312b3f268931a1367de22756237b197" desc="Text in Network Item View of the Network panel">
     Headers and request body
