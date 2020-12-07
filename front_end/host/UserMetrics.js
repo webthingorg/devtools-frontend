@@ -550,6 +550,7 @@ export const DevtoolsExperiments = {
   'cssGridFeatures': 33,
   'keyboardShortcutEditor': 35,
   'cssFlexboxFeatures': 36,
+  'fullAccessibilityTree': 37,
   'recorder': 38,
   'APCA': 39,
   'cspViolationsView': 40,

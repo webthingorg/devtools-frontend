@@ -77,6 +77,7 @@ let elementsPanelInstance;
 export class ElementsPanel extends UI.Panel.Panel {
   constructor() {
     super('elements');
+
     this.registerRequiredCSS('elements/elementsPanel.css', {enableLegacyPatching: true});
     this._splitWidget = new UI.SplitWidget.SplitWidget(true, true, 'elementsPanelSplitViewState', 325, 325);
     this._splitWidget.addEventListener(
