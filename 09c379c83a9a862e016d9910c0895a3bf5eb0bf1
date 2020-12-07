@@ -16,6 +16,23 @@
       "message": "PTAL.\n\nI\u0027ve \"tested\" this by clicking around a bunch in light and dark mode and making sure things don\u0027t look visually broken. ",
       "revId": "09c379c83a9a862e016d9910c0895a3bf5eb0bf1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8029fb0b_62696864",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-12-07T19:35:22Z",
+      "side": 1,
+      "message": "Neither of the Lighthouse changes will stick, they\u0027ll get overwritten on the next Lighthouse import. Did you mean to change those files? If so, we\u0027ll need to modify this file: https://github.com/GoogleChrome/lighthouse/blob/master/build/build-dt-report-resources.js#L32-L37",
+      "revId": "09c379c83a9a862e016d9910c0895a3bf5eb0bf1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
