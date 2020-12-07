@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e6ec624_1d0f74b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-12-07T07:56:22Z",
+      "side": 1,
+      "message": "Hi Alex,\n\nI\u0027m adding tooltips to the buttons in the LinearMemoryNavigator, align them and add some CSS to style them.\n\nPTAL!",
+      "revId": "6558753f801b354d7f5acd0e3113de0e7f1aae3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
