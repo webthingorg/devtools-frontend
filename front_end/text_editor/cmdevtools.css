@@ -11,19 +11,19 @@
 
 .CodeMirror-gutter-performance {
   width: 60px;
-  background-color: white;
+  background-color: var(--color-background);
   margin-left: 3px;
 }
 
 .CodeMirror-gutter-memory {
   width: 48px;
-  background-color: white;
+  background-color: var(--color-background);
   margin-left: 3px;
 }
 
 .CodeMirror-gutter-coverage {
   width: 5px;
-  background-color: white;
+  background-color: var(--color-background);
   margin-left: 3px;
 }
 
@@ -117,7 +117,7 @@
 .CodeMirror-gutters {
   border-right: 1px solid var(--divider-color);
   white-space: nowrap;
-  background-color: white;
+  background-color: var(--color-background);
 }
 
 .CodeMirror-linenumber {
@@ -147,7 +147,7 @@
 
 @keyframes fadeout {
   from { background-color: rgb(255 255 120); }
-  to { background-color: white; }
+  to { background-color: var(--color-background); }
 }
 
 @keyframes fadeout-dark {
@@ -334,7 +334,7 @@
 }
 
 .cm-execution-line-tail .cm-inline-breakpoint {
-  background-color: white;
+  background-color: var(--color-background);
 }
 
 .cm-inline-breakpoint.cm-inline-conditional {
@@ -659,7 +659,7 @@ div.CodeMirror:focus-within span.CodeMirror-nonmatchingbracket {
 
 .CodeMirror-scrollbar-filler,
 .CodeMirror-gutter-filler {
-  background-color: white; /* The little square between H and V scrollbars */
+  background-color: var(--color-background) /* The little square between H and V scrollbars */
 }
 
 /* Shown when moving in bi-directional text */

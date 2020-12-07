@@ -19,7 +19,7 @@
 }
 
 .CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {
-  background-color: white; /* The little square between H and V scrollbars */
+  background-color: var(--color-background) /* The little square between H and V scrollbars */
 }
 
 /* GUTTER */
@@ -159,7 +159,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #a22;}
 .CodeMirror {
   position: relative;
   overflow: hidden;
-  background: white;
+  background: var(--color-background);
 }
 
 .CodeMirror-scroll {

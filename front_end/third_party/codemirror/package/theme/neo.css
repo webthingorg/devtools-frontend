@@ -3,7 +3,7 @@
 /* Color scheme */
 
 .cm-s-neo.CodeMirror {
-  background-color:#ffffff;
+  background-color: var(--color-background);
   color:#2e383c;
   line-height:1.4375;
 }

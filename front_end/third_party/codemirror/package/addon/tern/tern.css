@@ -58,7 +58,7 @@
   padding: 2px 5px;
   font-size: 90%;
   font-family: monospace;
-  background-color: white;
+  background-color: var(--color-background);
   white-space: pre-wrap;
 
   max-width: 40em;

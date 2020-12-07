@@ -110,7 +110,7 @@
   --plugin-icon-size: 65%;
   --pwa-icon-margin: 0 6px 0 -2px;
   --pwa-icon-size: var(--topbar-logo-size);
-  --report-background-color: #fff;
+  --report-background-color: var(--color-background);
   --report-border-color-secondary: #ebebeb;
   --report-font-family-monospace: 'Roboto Mono', 'Menlo', 'dejavu sans mono', 'Consolas', 'Lucida Console', monospace;
   --report-font-family: Roboto, Helvetica, Arial, sans-serif;
@@ -440,7 +440,7 @@
 .lh-audit--pass .lh-audit__display-text {
   color: var(--color-pass-secondary);
 }
-.lh-audit--pass .lh-audit__score-icon, 
+.lh-audit--pass .lh-audit__score-icon,
 .lh-scorescale-range--pass::before {
   border-radius: 100%;
   background: var(--color-pass);
@@ -449,7 +449,7 @@
 .lh-audit--average .lh-audit__display-text {
   color: var(--color-average-secondary);
 }
-.lh-audit--average .lh-audit__score-icon, 
+.lh-audit--average .lh-audit__score-icon,
 .lh-scorescale-range--average::before {
   background: var(--color-average);
   width: var(--icon-square-size);
@@ -460,7 +460,7 @@
   color: var(--color-fail-secondary);
 }
 .lh-audit--fail .lh-audit__score-icon,
-.lh-audit--error .lh-audit__score-icon, 
+.lh-audit--error .lh-audit__score-icon,
 .lh-scorescale-range--fail::before {
   border-left: calc(var(--score-icon-size) / 2) solid transparent;
   border-right: calc(var(--score-icon-size) / 2) solid transparent;
@@ -688,7 +688,7 @@
   flex: 1;
 }
 
-.lh-metric .lh-metric__innerwrap::before, 
+.lh-metric .lh-metric__innerwrap::before,
 .lh-scorescale-range::before {
   content: '';
   width: var(--score-icon-size);
@@ -1484,7 +1484,7 @@
   position: absolute;
   display: none; /* Don't retain these layers when not needed */
   opacity: 0;
-  background: #ffffff;
+  background: var(--color-background);
   min-width: 246px;
   max-width: 275px;
   padding: 15px;
@@ -1547,7 +1547,7 @@
 }
 .lh-element-screenshot__image {
   outline: 2px solid #777;
-  background-color: white;
+  background-color: var(--color-background);
   background-repeat: no-repeat;
 }
 .lh-element-screenshot__mask {

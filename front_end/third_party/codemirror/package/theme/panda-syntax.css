@@ -14,7 +14,7 @@
 	background: rgba(99, 123, 156, 0.1);
 }
 .cm-s-panda-syntax .CodeMirror-selected {
-	background: #FFF;
+	background: var(--color-background);
 }
 .cm-s-panda-syntax .cm-comment {
 	font-style: italic;
