@@ -69,6 +69,24 @@
       "parentUuid": "77d08eb0_e4194993",
       "revId": "a9dc01c524889fb04261f72b3c279877c3e74145",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af3f568a_bd9d72b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-12-07T16:40:11Z",
+      "side": 1,
+      "message": "Good idea, I\u0027ve added sending a UMA event on issue panel creates which reports the status of the checkbox at this point in time.",
+      "parentUuid": "bc7e023b_fa9ed087",
+      "revId": "a9dc01c524889fb04261f72b3c279877c3e74145",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
