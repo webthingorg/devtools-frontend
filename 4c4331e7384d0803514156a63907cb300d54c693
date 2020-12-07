@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d14971b9_4d4ab5c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-12-07T21:31:56Z",
+      "side": 1,
+      "message": "Migrate a small folder (workspace), PTAL 😊",
+      "revId": "4c4331e7384d0803514156a63907cb300d54c693",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
