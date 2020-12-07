@@ -52,6 +52,24 @@
       "parentUuid": "22002810_ec000d4a",
       "revId": "71c7826b8e9ab8d1e83face85a77341a22daedff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea42c14c_00d79bc6",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-12-07T06:43:55Z",
+      "side": 1,
+      "message": "https://crrev.com/c/2574699 adds a new subtype for Memory objects.\n\n@Kim, we should generally check on subtype (either \u0027typedarray\u0027 or \u0027webassemblymemory\u0027) for LMI, and always create a new \u0027UintArray8\u0027 for the LMI based on the \u0027buffer\u0027 property of whatever we matched.",
+      "parentUuid": "7c665b10_5f9fe1b0",
+      "revId": "71c7826b8e9ab8d1e83face85a77341a22daedff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
