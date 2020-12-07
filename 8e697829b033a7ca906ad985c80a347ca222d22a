@@ -33,6 +33,24 @@
       "message": "It would be great to add a link to the backend CL to the description.\n\nSimon, is it ok to mention a specific Chrome version? IIRC we phrase it something like \"in a future version of Chrome...\" elsewhere.",
       "revId": "8e697829b033a7ca906ad985c80a347ca222d22a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4ed9797_b7e66c95",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1411314
+      },
+      "writtenOn": "2020-12-07T05:06:10Z",
+      "side": 1,
+      "message": "Thank you for your comment!\n\nThis is the backend CL: https://chromium-review.googlesource.com/c/chromium/src/+/2567057\n\nThe message will show in the console too and it includes a specific Chrome version. If it\u0027s not ok to mention a specific Chrome version, I can update the message in this CL and in the backend CL.",
+      "parentUuid": "2f3446dd_649609f7",
+      "revId": "8e697829b033a7ca906ad985c80a347ca222d22a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
