@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66254280_102f86cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-12-07T11:02:33Z",
+      "side": 1,
+      "message": "Hi Benedikt, hi Philip,\n\nhere\u0027s the Cl to check for arrabuffer based types when opening the LMI. PTAL!",
+      "revId": "58f49e2d60b8fc3b012a2f1922421631ad339e62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
