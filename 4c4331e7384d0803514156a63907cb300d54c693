@@ -39,6 +39,30 @@
       },
       "revId": "4c4331e7384d0803514156a63907cb300d54c693",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51dcc9ca_91021766",
+        "filename": "scripts/localization/utils/check_localized_strings.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-12-07T23:40:29Z",
+      "side": 1,
+      "message": "It\u0027s done by presubmit :/ it\u0027s doing the same in my other CL https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2577943/2/scripts/localization/utils/check_localized_strings.js",
+      "parentUuid": "5e0f7383_f1e5a94c",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 14
+      },
+      "revId": "4c4331e7384d0803514156a63907cb300d54c693",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
