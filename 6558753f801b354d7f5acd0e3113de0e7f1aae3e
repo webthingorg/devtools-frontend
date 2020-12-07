@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7db068d2_5ec66891",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryNavigator.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-12-07T07:59:15Z",
+      "side": 1,
+      "message": "The buttons will require focus styles as well, most likely.",
+      "revId": "6558753f801b354d7f5acd0e3113de0e7f1aae3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fb61ca42_93d981eb",
         "filename": "front_end/linear_memory_inspector/LinearMemoryNavigator.ts",
         "patchSetId": 2
