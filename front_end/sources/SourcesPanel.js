@@ -902,7 +902,17 @@ export class SourcesPanel extends UI.Panel.Panel {
     const indent = Common.Settings.Settings.instance().moduleSetting('textEditorIndent').get();
     const remoteObject = /** @type {!SDK.RemoteObject.RemoteObject} */ (target);
     const executionContext = UI.Context.Context.instance().flavor(SDK.RuntimeModel.ExecutionContext);
-    const copyContextMenuTitle = remoteObject.subtype === 'node' ? 'outerHTML' : remoteObject.type;
+
+    function getObjectTitle() {
+      if (remoteObject.type === 'wasm') {
+        return remoteObject.subtype;
+      }
+      if (remoteObject.subtype === 'node') {
+        return 'outerHTML';
+      }
+      return remoteObject.type;
+    }
+    const copyContextMenuTitle = getObjectTitle();
 
     contextMenu.debugSection().appendItem(
         ls`Store ${remoteObject.type} as global variable`,
