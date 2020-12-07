@@ -1389,6 +1389,9 @@ export class IssuesPaneImpl extends UI.Widget.VBox {
         ls`Include third-party cookie issues`);
     rightToolbar.appendToolbarItem(this._showThirdPartyCheckbox);
     this.setDefaultFocusedElement(this._showThirdPartyCheckbox.inputElement);
+    Host.userMetrics.actionTaken(
+        thirdPartySetting.get() ? Host.UserMetrics.Action.ThirdPartyCookieIssuesEnabled :
+                                  Host.UserMetrics.Action.ThirdPartyCookieIssuesDisabled);
 
     rightToolbar.appendSeparator();
     const toolbarWarnings = document.createElement('div');

@@ -309,6 +309,8 @@ export const Action = {
   ServiceWorkerNetworkRequestClosedQuickly: 50,
   NetworkPanelServiceWorkerRespondWith: 51,
   NetworkPanelCopyValue: 52,
+  ThirdPartyCookieIssuesEnabled: 53,
+  ThirdPartyCookieIssuesDisabled: 54,
 };
 
 /** @type {!Object<string, number>} */

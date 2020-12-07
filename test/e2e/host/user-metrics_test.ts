@@ -458,6 +458,29 @@ describe('User Metrics', () => {
       },
     ]);
   });
+
+  it('dispatches event about third-party cookie checkbox status when opening the issues tab', async () => {
+    await openPanelViaMoreTools('Issues');
+    await waitFor('[aria-label="Include third-party cookie issues"]');
+    await assertCapturedEvents([
+      {
+        name: 'DevTools.IssuesPanelOpenedFrom',
+        value: 3,  // 'HamburgerMenu'
+      },
+      {
+        name: 'DevTools.PanelShown',
+        value: 10,  // console-view
+      },
+      {
+        name: 'DevTools.PanelShown',
+        value: 37,  // issues-pane
+      },
+      {
+        name: 'DevTools.ActionTaken',
+        value: 54,  // ThirdPartyCookieIssuesEnabled
+      },
+    ]);
+  });
 });
 
 describe('User Metrics for dual screen emulation', () => {
@@ -592,6 +615,7 @@ describe('User Metrics for Issue Panel', () => {
   beforeEach(async () => {
     await openPanelViaMoreTools('Issues');
     const {frontend} = getBrowserAndPages();
+    await waitFor('[aria-label="Include third-party cookie issues"]');
     await beginCatchEvents(frontend);
   });
 
@@ -647,6 +671,23 @@ describe('User Metrics for Issue Panel', () => {
       {
         name: 'DevTools.IssuesPanelResourceOpened',
         value: 12,  // ContentSecurityPolicyLearnMore
+      },
+    ]);
+  });
+
+  it('dispatch event when clicking the "third-party cookie checkbox"', async () => {
+    await goToResource('host/cookie-issue.html');
+    await waitFor('[aria-label="Include third-party cookie issues"]');
+    await click('[aria-label="Include third-party cookie issues"]');
+    await click('[aria-label="Include third-party cookie issues"]');
+    await assertCapturedEvents([
+      {
+        name: 'DevTools.ActionTaken',
+        value: 53,  // ThirdPartyCookieIssuesEnabled
+      },
+      {
+        name: 'DevTools.ActionTaken',
+        value: 54,  // ThirdPartyCookieIssuesDisabled
       },
     ]);
   });
