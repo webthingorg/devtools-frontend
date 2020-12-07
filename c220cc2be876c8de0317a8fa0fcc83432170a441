@@ -69,6 +69,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "99430394_d3b00b01",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2020-12-07T23:17:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7eeac64_00170ced",
+      "revId": "c220cc2be876c8de0317a8fa0fcc83432170a441",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ca115db4_b4c1afd9",
@@ -100,6 +118,24 @@
       "side": 1,
       "message": "Already on it, have added you as a reviewer. https://crrev.com/c/2577076\n\nThe experiment number will obviously need to change there as well. Does the backend change need to be landed before this goes in?",
       "parentUuid": "ca115db4_b4c1afd9",
+      "revId": "c220cc2be876c8de0317a8fa0fcc83432170a441",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dde80b99_ca4ea769",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2020-12-07T23:17:01Z",
+      "side": 1,
+      "message": "I\u0027ve updated the experiment number and lastValidEnumPosition. Could you please double check that this is correct? Thanks!",
+      "parentUuid": "4c70cb64_3d7c656d",
       "revId": "c220cc2be876c8de0317a8fa0fcc83432170a441",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
