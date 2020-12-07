@@ -50,6 +50,23 @@
       "message": "nit: remove this whitespace",
       "revId": "c220cc2be876c8de0317a8fa0fcc83432170a441",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca115db4_b4c1afd9",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-12-07T07:24:49Z",
+      "side": 1,
+      "message": "FYI you need to add this to the end of the list (see the comment for DevtoolsExperiments) because the experiment number 37 has been already used. Also, you need to define it on the backend (example: https://chromium-review.googlesource.com/c/chromium/src/+/2534830) because we track what experiments the user has enabled and the backend CL needs to be merged first.",
+      "revId": "c220cc2be876c8de0317a8fa0fcc83432170a441",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
