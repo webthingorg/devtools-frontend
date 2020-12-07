@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3488040_c1a801e5",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-12-07T11:44:04Z",
+      "side": 1,
+      "message": "This doesn\u0027t handle the ArrayBuffer case correctly, where the `obj` doesn\u0027t have a `buffer` property. You\u0027ll need something like:\n\n```js\nreturn new Uint8Array(this instanceof ArrayBuffer ? this : this.buffer);\n```",
+      "revId": "341ede80307404617cc4849799a7509a7dec6330",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "223f703d_107c86f1",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-12-07T11:44:04Z",
+      "side": 1,
+      "message": "How about merging this into the getUint8ArrayFromObject() above?",
+      "revId": "341ede80307404617cc4849799a7509a7dec6330",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
