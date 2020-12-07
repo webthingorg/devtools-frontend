@@ -16,6 +16,23 @@
       "message": "Hi Simon,\n\nThis CL Migrates mobile_throttling to Localization V2.\n\nIn this case I splitted the CL in two parts for testing/readability but I plan to check-in only this one (if it gets approved) For this I\u0027ll retarget this branch to master/main so that it gets checked atomically and abandon the linked CL\n\nThe linked CL contains the usual changes we do to any other module, but on runtime there is a race condition between i18n and mobile_throttling, (which manifest as a custom exception on i18n)\n\nThis CL contains a fix for the mentioned issue based on a proposal by Kalon on this thread:\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2522640/14/front_end/emulation/SensorsView.js#875\n\nHigh level involves the usage of getters to differ the getLocalizedStrings call. PTAL and feel free to join dicussion on Kalon\u0027s thread.",
       "revId": "2785fce1efff63898a6dafd72f6d66345e79803e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3125b424_b08e176e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-12-07T17:17:22Z",
+      "side": 1,
+      "message": "Friendly ping 😊",
+      "revId": "2785fce1efff63898a6dafd72f6d66345e79803e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
