@@ -11,6 +11,7 @@ import {LinearMemoryInspectorPaneImpl} from './LinearMemoryInspectorPane.js';
 
 const LINEAR_MEMORY_INSPECTOR_OBJECT_GROUP = 'linear-memory-inspector';
 const MEMORY_TRANSFER_MIN_CHUNK_SIZE = 1000;
+export const ACCEPTED_MEMORY_TYPES = ['webassemblymemory', 'typedarray', 'dataview', 'arraybuffer'];
 
 let controllerInstance: LinearMemoryInspectorController;
 
@@ -48,6 +49,15 @@ export class RemoteArrayWrapper implements LazyUint8Array {
     }
     return await Promise.all(promises);
   }
+}
+
+export async function getUint8ArrayFromObject(obj: SDK.RemoteObject.RemoteObject) {
+  if (!obj.subtype || !ACCEPTED_MEMORY_TYPES.includes(obj.subtype)) {
+    throw new Error(`Object does not contain an array buffer ${obj.objectId}.`);
+  }
+  return (await obj.callFunction(function() {
+           return new Uint8Array((this as {buffer: ArrayBuffer}).buffer);
+         }, [])).object as SDK.RemoteObject.RemoteObject;
 }
 
 export class LinearMemoryInspectorController extends SDK.SDKModel.SDKModelObserver<SDK.RuntimeModel.RuntimeModel> {
@@ -111,12 +121,8 @@ export class LinearMemoryInspectorController extends SDK.SDKModel.SDKModelObserv
       UI.ViewManager.ViewManager.instance().showView('linear-memory-inspector');
       return;
     }
-    let objBoundToLMI = await this.getObjectWithExtendedLifetime(obj);
-    if (objBoundToLMI.className === 'Memory') {
-      objBoundToLMI = (await objBoundToLMI.callFunction(function() {
-                        return new Uint8Array((this as WebAssembly.Memory).buffer);
-                      }, [])).object as SDK.RemoteObject.RemoteObject;
-    }
+    const objBoundToLMI = await getUint8ArrayFromObject(await this.getObjectWithExtendedLifetime(obj));
+
     this.scriptIdToRemoteObject.set(scriptId, objBoundToLMI);
     const remoteArray = new SDK.RemoteObject.RemoteArray(objBoundToLMI);
     const arrayWrapper = new RemoteArrayWrapper(remoteArray);
