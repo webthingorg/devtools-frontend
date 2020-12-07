@@ -33,6 +33,23 @@
       "message": "I\u0027m pretty sure that setting \"document.title\" is actually\nnot happening in practice. When I try setting document.title on a\nsimple HTML page, it definitely changes the \u003ctitle\u003e element inside\nthe \u003chead\u003e to that text. But when I inspect DevTools in Canary,\nthere\u0027s still no \u003ctitle\u003e element even after it loads (see below).\n\nWould it be worth maybe debugging that instead of fixing it here?\n\n\u003chead\u003e\n    \u003cmeta charset\u003d\"utf-8\"\u003e\n    \u003cmeta http-equiv\u003d\"Content-Security-Policy\" content\u003d\"object-src \u0027none\u0027; script-src \u0027self\u0027 \u0027unsafe-eval\u0027 \u0027unsafe-inline\u0027 https://chrome-devtools-frontend.appspot.com\"\u003e\n    \u003cmeta name\u003d\"referrer\" content\u003d\"no-referrer\"\u003e\n    \u003cstyle\u003e\n      @media (prefers-color-scheme: dark) {\n        body {\n          background-color: rgb(41 42 45);\n        }\n      }\n    \u003c/style\u003e\n    \u003cscript type\u003d\"module\" src\u003d\"devtools_app.js\"\u003e\u003c/script\u003e\n\u003c/head\u003e\n",
       "revId": "3fa84febcc9e6218722d4db50a7d4e07b570efe4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ff193b5_917bb435",
+        "filename": "front_end/entrypoint_template.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000678
+      },
+      "writtenOn": "2020-12-07T16:55:06Z",
+      "side": 1,
+      "message": "Is DevTools internationalized?",
+      "revId": "3fa84febcc9e6218722d4db50a7d4e07b570efe4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
