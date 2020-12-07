@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "08635aca_c161f87b",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-12-07T09:46:42Z",
+      "side": 1,
+      "message": "Below, this is filled with `BreakpointId`s. Would breakpointIds be a better name? (Could also use the BreakpointId type)",
+      "revId": "fe225a88e81830058416b9ad7355cdb1c16433f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "07afeac9_9735cbef",
@@ -67,6 +84,57 @@
       "side": 1,
       "message": "Pass undefined here if columnNumber is absent.",
       "parentUuid": "4330b285_515aef0e",
+      "revId": "fe225a88e81830058416b9ad7355cdb1c16433f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a0de736_87e4514d",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 804,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-12-07T09:46:42Z",
+      "side": 1,
+      "message": "`const {url, scriptId, scriptHash} \u003d newState` would be simpler.",
+      "revId": "fe225a88e81830058416b9ad7355cdb1c16433f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7665f09a_4da441a1",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 807,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-12-07T09:46:42Z",
+      "side": 1,
+      "message": "If you declare this as `!Promise\u003c...\u003e`, does typescript understand that it\u0027s not undefined?",
+      "revId": "fe225a88e81830058416b9ad7355cdb1c16433f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "868bc546_4fe5d150",
+        "filename": "front_end/bindings/BreakpointManager.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 990,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-12-07T09:46:42Z",
+      "side": 1,
+      "message": "Are `positions` ordered?",
       "revId": "fe225a88e81830058416b9ad7355cdb1c16433f7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
