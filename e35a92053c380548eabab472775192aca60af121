@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "770af4f9_8e67a851",
+        "filename": "front_end/host/InspectorFrontendHost.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-07T11:55:58Z",
+      "side": 1,
+      "message": "Ingvar, per https://stackoverflow.com/a/50747267/96656 you seem to have context here :) Do you think we should be able to get rid of these `else if` + `else` branches, and just assume `navigator.clipboard` is always available?",
+      "revId": "e35a92053c380548eabab472775192aca60af121",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
