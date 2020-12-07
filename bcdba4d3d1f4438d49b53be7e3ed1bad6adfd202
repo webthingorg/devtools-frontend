@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36922a7f_a235a0c6",
+        "filename": "front_end/entrypoint_template.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-07T09:04:05Z",
+      "side": 1,
+      "message": "In case you’re wondering “why insert \u003ctitle\u003e here, and not group the \u003cmeta\u003es together?”:\n\n\u003cmeta charset\u003e must go first: https://github.com/h5bp/html5-boilerplate/blob/master/dist/doc/html.md#the-order-of-the-title-and-meta-tags\n\n\u003ctitle\u003e must come immediately after, since it affects rendering (the title appears in the browser’s UI).\n\nThe remaining \u003cmeta\u003es don’t directly impact rendering and can thus be placed later. (Ideally, the \u003cstyle\u003e would be moved after \u003ctitle\u003e, but I’ll do that in a separate CL.)",
+      "revId": "bcdba4d3d1f4438d49b53be7e3ed1bad6adfd202",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
