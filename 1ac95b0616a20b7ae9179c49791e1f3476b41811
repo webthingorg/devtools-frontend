@@ -71,6 +71,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8bd3e279_db495d0a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-08T15:59:07Z",
+      "side": 1,
+      "message": "We can keep the explicit error handling if you strongly prefer it. We can also catch it in the single exported function and have the API boundary return the error as it is now.\n\nRandom drive-by comment: Rusts \u0027?\u0027 operator would be nice here xD",
+      "parentUuid": "1298770e_0fb21f7e",
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "39b1f226_453b431d",
         "filename": "front_end/emulation/StructuredHeaders.ts",
         "patchSetId": 2
@@ -228,6 +246,30 @@
       "side": 1,
       "message": "SP and OWS are terms from the spec, though?",
       "parentUuid": "050f775d_f8accd35",
+      "range": {
+        "startLine": 204,
+        "startChar": 2,
+        "endLine": 204,
+        "endChar": 8
+      },
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bd86c24_3c98b6ec",
+        "filename": "front_end/emulation/StructuredHeaders.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-08T15:59:07Z",
+      "side": 1,
+      "message": "Ah, makes sense to keep them as-is then.",
+      "parentUuid": "c34316a6_247ffc86",
       "range": {
         "startLine": 204,
         "startChar": 2,
