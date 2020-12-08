@@ -33,6 +33,23 @@
       "message": "Friendly ping 😊",
       "revId": "2785fce1efff63898a6dafd72f6d66345e79803e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ac93b4f_636f635c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-08T06:15:17Z",
+      "side": 1,
+      "message": "Sorry, was OOO for Friday and Monday.\n\nlgtm, although this CL seems to break the mobile throttling web test. Is there a fix in-flight or does it need to be rebased?",
+      "revId": "2785fce1efff63898a6dafd72f6d66345e79803e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
