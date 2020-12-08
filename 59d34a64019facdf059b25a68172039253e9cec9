@@ -18,6 +18,40 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d6b9d90_dc1b284f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-12-08T15:00:20Z",
+      "side": 1,
+      "message": "Thanks for working on this :P Will take a closer look later.",
+      "revId": "59d34a64019facdf059b25a68172039253e9cec9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f87524a_a774f1d7",
+        "filename": "front_end/components/ImagePreview.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-12-08T15:00:20Z",
+      "side": 1,
+      "message": "Without looking into every line in this function, I\u0027m wondering if we can extract this to some LitHTML web component so that these UI-drawing logic can become declarative. WDYT?",
+      "revId": "59d34a64019facdf059b25a68172039253e9cec9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5640eba6_914b4908",
