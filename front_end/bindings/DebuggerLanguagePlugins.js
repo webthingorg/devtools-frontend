@@ -719,9 +719,16 @@ export class DebuggerLanguagePluginManager {
   _expandCallFrames(callFrames) {
     return Promise
         .all(callFrames.map(async callFrame => {
-          const {frames} = await this.getFunctionInfo(callFrame);
+          const {frames, prologue} = await this.getFunctionInfo(callFrame);
           if (frames.length) {
-            return frames.map(({name}, index) => callFrame.createVirtualCallFrame(index, name));
+            return frames.map(({name}, index) => {
+              const prologueRange = prologue === undefined ? undefined : {
+                scriptId: callFrame.script.scriptId,
+                start: {lineNumber: 0, columnNumber: prologue.startOffset},
+                end: {lineNumber: 0, columnNumber: prologue.endOffset}
+              };
+              return callFrame.createVirtualCallFrame(index, name, prologueRange);
+            });
           }
           return callFrame;
         }))
@@ -1087,10 +1094,10 @@ export class DebuggerLanguagePluginManager {
 
   /**
    * @param {!SDK.DebuggerModel.CallFrame} callFrame
-   * @return {!Promise<!{frames: !Array<!FunctionInfo>}>}
+   * @return {!Promise<!{frames: !Array<!FunctionInfo>, prologue: !RawLocationRange|undefined}>}
    */
   async getFunctionInfo(callFrame) {
-    const noDwarfInfo = {frames: []};
+    const noDwarfInfo = {frames: [], prologue: undefined};
     if (!callFrame) {
       return noDwarfInfo;
     }
@@ -1110,7 +1117,18 @@ export class DebuggerLanguagePluginManager {
     };
 
     try {
-      return await plugin.getFunctionInfo(location);
+      const {frames, prologue} = await plugin.getFunctionInfo(location);
+      if (prologue === undefined) {
+        return {frames, prologue};
+      }
+      return {
+        frames,
+        prologue: {
+          rawModuleId: prologue.rawModuleId,
+          startOffset: prologue.startOffset + (script.codeOffset() || 0),
+          endOffset: prologue.endOffset + (script.codeOffset() || 0)
+        }
+      };
     } catch (error) {
       Common.Console.Console.instance().warn(ls`Error in debugger language plugin: ${error.message}`);
       return noDwarfInfo;
@@ -1490,7 +1508,7 @@ export class DebuggerLanguagePlugin {
 
   /** Find locations in source files from a location in a raw module
    * @param {!RawLocation} rawLocation
-   * @return {!Promise<!{frames: !Array<!FunctionInfo>}>}
+   * @return {!Promise<!{frames: !Array<!FunctionInfo>, prologue: !RawLocationRange|undefined}>}
   */
   async getFunctionInfo(rawLocation) {
     throw new Error('Not implemented yet');
