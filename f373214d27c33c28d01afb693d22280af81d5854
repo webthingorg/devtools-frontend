@@ -51,6 +51,24 @@
       "parentUuid": "87a8d90c_239607a7",
       "revId": "f373214d27c33c28d01afb693d22280af81d5854",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e839e4b1_780decd4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-08T12:47:36Z",
+      "side": 1,
+      "message": "Re test: Your call. I would assume that close/reopen is somewhat difficult in an e2e test.",
+      "parentUuid": "4236e898_5503f419",
+      "revId": "f373214d27c33c28d01afb693d22280af81d5854",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
