@@ -48,6 +48,7 @@ declare global {
     __colorFixed: (evt: Event) => void;
     __issuesPanelIssueExpanded: (evt: Event) => void;
     __issuesPanelResourceOpened: (evt: Event) => void;
+    __issuesPanelIssueCreated: (evt: Event) => void;
     Host: {
       UserMetrics: UserMetrics; userMetrics: {actionTaken(name: number): void; colorFixed(threshold: string): void;}
     };
@@ -126,6 +127,11 @@ async function beginCatchEvents(frontend: puppeteer.Page) {
       window.__caughtEvents.push({name: 'DevTools.IssuesPanelResourceOpened', value: customEvt.detail.value});
     };
 
+    window.__issuesPanelIssueCreated = (evt: Event) => {
+      const customEvt = evt as CustomEvent;
+      window.__caughtEvents.push({name: 'DevTools.IssueCreated', value: customEvt.detail.value});
+    };
+
     window.__caughtEvents = [];
     window.__beginCatchEvents = () => {
       window.addEventListener('DevTools.PanelShown', window.__panelShown);
@@ -142,6 +148,7 @@ async function beginCatchEvents(frontend: puppeteer.Page) {
       window.addEventListener('DevTools.ColorPicker.FixedColor', window.__colorFixed);
       window.addEventListener('DevTools.IssuesPanelIssueExpanded', window.__issuesPanelIssueExpanded);
       window.addEventListener('DevTools.IssuesPanelResourceOpened', window.__issuesPanelResourceOpened);
+      window.addEventListener('DevTools.IssueCreated', window.__issuesPanelIssueCreated);
     };
 
     window.__endCatchEvents = () => {
@@ -159,6 +166,7 @@ async function beginCatchEvents(frontend: puppeteer.Page) {
       window.removeEventListener('DevTools.ColorPicker.FixedColor', window.__colorFixed);
       window.removeEventListener('DevTools.IssuesPanelIssueExpanded', window.__issuesPanelIssueExpanded);
       window.removeEventListener('DevTools.IssuesPanelResourceOpened', window.__issuesPanelResourceOpened);
+      window.removeEventListener('DevTools.IssueCreated', window.__issuesPanelIssueCreated);
     };
 
     window.__beginCatchEvents();
@@ -603,6 +611,14 @@ describe('User Metrics for Issue Panel', () => {
 
     await assertCapturedEvents([
       {
+        name: 'DevTools.IssueCreated',
+        value: 15,  // SameSiteCookieIssue
+      },
+      {
+        name: 'DevTools.IssueCreated',
+        value: 15,  // SameSiteCookieIssue
+      },
+      {
         name: 'DevTools.IssuesPanelIssueExpanded',
         value: 2,  // SameSiteCookie
       },
@@ -619,6 +635,14 @@ describe('User Metrics for Issue Panel', () => {
     await click('.element-reveal-icon');
 
     await assertCapturedEvents([
+      {
+        name: 'DevTools.IssueCreated',
+        value: 1,  // ContentSecurityPolicyIssue
+      },
+      {
+        name: 'DevTools.IssueCreated',
+        value: 1,  // ContentSecurityPolicyIssue
+      },
       {
         name: 'DevTools.IssuesPanelIssueExpanded',
         value: 4,  // ContentSecurityPolicy
@@ -640,6 +664,14 @@ describe('User Metrics for Issue Panel', () => {
     await click('.link-list a');
 
     await assertCapturedEvents([
+      {
+        name: 'DevTools.IssueCreated',
+        value: 1,  // ContentSecurityPolicyIssue
+      },
+      {
+        name: 'DevTools.IssueCreated',
+        value: 1,  // ContentSecurityPolicyIssue
+      },
       {
         name: 'DevTools.IssuesPanelIssueExpanded',
         value: 4,  // ContentSecurityPolicy
