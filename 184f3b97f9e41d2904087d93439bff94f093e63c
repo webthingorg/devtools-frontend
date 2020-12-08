@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d98096f_09b52c5e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-12-08T13:42:30Z",
+      "side": 1,
+      "message": "Manually submitting this since the offending tests are disable for now: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2577566",
+      "revId": "184f3b97f9e41d2904087d93439bff94f093e63c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
