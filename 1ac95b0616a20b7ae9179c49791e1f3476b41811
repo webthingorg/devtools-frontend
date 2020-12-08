@@ -52,6 +52,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1298770e_0fb21f7e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-12-08T14:42:12Z",
+      "side": 1,
+      "message": "Working on most of them, so flushing out the one thing I want to discuss rather than immediately do, and renaming all the things will take a bit...\n\n(Well, I also like the explicit error handling, but that one\u0027s kinda marginal and I am not sure I can make a coherent argument quickly.)\n",
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "39b1f226_453b431d",
@@ -83,6 +100,24 @@
       "side": 1,
       "message": "Yes please",
       "parentUuid": "39b1f226_453b431d",
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95ec75fa_9bb5d6fa",
+        "filename": "front_end/emulation/StructuredHeaders.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-12-08T14:42:12Z",
+      "side": 1,
+      "message": "Thanks for the style guide link. I really should have realized there will be one....",
+      "parentUuid": "3536db1e_8711027f",
       "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -169,6 +204,30 @@
       "writtenOn": "2020-12-08T08:55:06Z",
       "side": 1,
       "message": "Let\u0027s spell it out to reduce mental overhead \u0027skipSpace\u0027.",
+      "range": {
+        "startLine": 204,
+        "startChar": 2,
+        "endLine": 204,
+        "endChar": 8
+      },
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c34316a6_247ffc86",
+        "filename": "front_end/emulation/StructuredHeaders.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-12-08T14:42:12Z",
+      "side": 1,
+      "message": "SP and OWS are terms from the spec, though?",
+      "parentUuid": "050f775d_f8accd35",
       "range": {
         "startLine": 204,
         "startChar": 2,
