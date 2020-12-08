@@ -16,6 +16,29 @@
       "message": "Migrate help directory to loc v2. PTAL, thanks!",
       "revId": "256942f4c0a6d35f553845d59554be2727dc91f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c3faefa_1926ffea",
+        "filename": "scripts/localization/utils/check_localized_strings.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-12-08T02:25:15Z",
+      "side": 1,
+      "message": "should we skip this file from presubmit checks?",
+      "range": {
+        "startLine": 107,
+        "startChar": 6,
+        "endLine": 108,
+        "endChar": 109
+      },
+      "revId": "256942f4c0a6d35f553845d59554be2727dc91f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
