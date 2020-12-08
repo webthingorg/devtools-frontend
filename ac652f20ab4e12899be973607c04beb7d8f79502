@@ -34,6 +34,24 @@
       "parentUuid": "11f2d393_56c4ca4e",
       "revId": "ac652f20ab4e12899be973607c04beb7d8f79502",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c75eba3_b34e75b3",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 726,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-12-08T13:30:44Z",
+      "side": 1,
+      "message": "Aye, gotcha. Yeah, let\u0027s stick to this for now. Maybe over time we\u0027ll figure out how to do this in a non confusing way :-)",
+      "parentUuid": "203bbd34_e95b4fcb",
+      "revId": "ac652f20ab4e12899be973607c04beb7d8f79502",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
