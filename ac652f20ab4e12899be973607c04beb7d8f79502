@@ -16,6 +16,24 @@
       "message": "This is confusing, since it slaps the prologue on all of the virtual call frames. We could do a single getFunctionInfo() call just for the top frame?",
       "revId": "ac652f20ab4e12899be973607c04beb7d8f79502",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "203bbd34_e95b4fcb",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 726,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2020-12-08T13:21:19Z",
+      "side": 1,
+      "message": "Wouldn\u0027t that be even more weird? The topmost virtual frame is the innermost inlined function, but only the last function in a virtual sequence can have an actual prologue.\n\nTo check whether it\u0027s paused in a prologue the DebuggerModel would then have to find that last function every time.",
+      "parentUuid": "11f2d393_56c4ca4e",
+      "revId": "ac652f20ab4e12899be973607c04beb7d8f79502",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
