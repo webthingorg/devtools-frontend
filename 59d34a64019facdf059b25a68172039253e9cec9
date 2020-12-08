@@ -16,6 +16,40 @@
       "message": "PTAL",
       "revId": "59d34a64019facdf059b25a68172039253e9cec9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5640eba6_914b4908",
+        "filename": "front_end/components/ImagePreview.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-12-08T14:55:03Z",
+      "side": 1,
+      "message": "Now we can click on the image directly to open it in the new tab.",
+      "revId": "59d34a64019facdf059b25a68172039253e9cec9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89b0c0cc_4cf9283d",
+        "filename": "front_end/components/ImagePreview.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-12-08T14:55:03Z",
+      "side": 1,
+      "message": "No need for localization",
+      "revId": "59d34a64019facdf059b25a68172039253e9cec9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
