@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3206511_7b76f2f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-12-08T09:37:35Z",
+      "side": 1,
+      "message": "Simon has covered the majority of the feedback I\u0027d give, so consider this a prospective LGTM from me on the assumption that Simon is also happy.",
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "39b1f226_453b431d",
@@ -48,6 +65,24 @@
       "writtenOn": "2020-12-08T08:55:06Z",
       "side": 1,
       "message": "@Paul: following go/tsstyle should we name enum variants and the char constants in ALL_UPPER_CASE?",
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3536db1e_8711027f",
+        "filename": "front_end/emulation/StructuredHeaders.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-12-08T09:37:35Z",
+      "side": 1,
+      "message": "Yes please",
+      "parentUuid": "39b1f226_453b431d",
       "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -70,6 +105,29 @@
         "startChar": 7,
         "endLine": 121,
         "endChar": 45
+      },
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12ef01c0_b2c50c13",
+        "filename": "front_end/emulation/StructuredHeaders.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-12-08T09:37:35Z",
+      "side": 1,
+      "message": "nit: these should be in camelCase, i.e. isDigit",
+      "range": {
+        "startLine": 123,
+        "startChar": 9,
+        "endLine": 123,
+        "endChar": 16
       },
       "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
