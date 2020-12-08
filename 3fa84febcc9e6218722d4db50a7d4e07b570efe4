@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5dfd115a_2d5d3460",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-08T10:22:02Z",
+      "side": 1,
+      "message": "Prior to this patch, there are two mechanisms controlling the DevTools title text in the Chrome UI:\n\n1. In the UI (title bar of the undocked DevTools window), the initial title is set here: https://source.chromium.org/chromium/chromium/src/+/master:chrome/browser/devtools/devtools_ui_bindings.cc;l\u003d845-848;drc\u003d5daec7e1318a420ad23e2e295fa3b43afca2c968 Except screen readers apparently do not have access to this string.\n\n2. When the inspected URL changes (not for the initial load!), document.title is set here: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/host/InspectorFrontendHost.js;l\u003d157;drc\u003d742a05ac3897c690d67eea5c484e75805e90f23a (Confusingly, both this and the code from step 1 are named `inspectedURLChanged`, but step 1 sets the initial title while step 2 doesn’t. I’m not sure if this is intentional.)\n\nThis patch adds a third layer:\n\n3. Set a reasonable initial \u003ctitle\u003e, specifically for screen readers. \n\nAn alternate solution would be to change step 1 above so that it also impacts screen readers. (I have no idea why it doesn’t affect screen readers, but Dominic, perhaps you do?) Still, it seems like this patch is the simplest possible change that fixes the reported issue.",
+      "parentUuid": "dc9556c4_0f1707d1",
+      "revId": "3fa84febcc9e6218722d4db50a7d4e07b570efe4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2ff193b5_917bb435",
         "filename": "front_end/entrypoint_template.html",
         "patchSetId": 2
