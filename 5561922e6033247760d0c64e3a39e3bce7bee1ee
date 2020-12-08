@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04b562d2_8198cd39",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-12-08T10:34:56Z",
+      "side": 1,
+      "message": "I\u0027m not sure if we also need the wall time - could you take a look at it?",
+      "revId": "5561922e6033247760d0c64e3a39e3bce7bee1ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7603e70_485b74f6",
+        "filename": "front_end/sdk/NetworkManager.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 1035,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-12-08T10:34:56Z",
+      "side": 1,
+      "message": "Do you know if we could maybe also get a value for the second parameter?\nI\u0027m not quite sure how it\u0027s used but it does seem relevant to me. WDYT?",
+      "range": {
+        "startLine": 1035,
+        "startChar": 19,
+        "endLine": 1035,
+        "endChar": 31
+      },
+      "revId": "5561922e6033247760d0c64e3a39e3bce7bee1ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
