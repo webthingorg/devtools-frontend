@@ -7,8 +7,12 @@
 // (the ABNF fragments are quoted from the spec, unless otherwise specified,
 //  and the code pretty much just follows the algorithms given there).
 //
-// As of this CL, parseItem is the main entry point, and only item parsing is
-// supported.
+// parseList, parseItem, serializeList, and serializeItem are the main entry points.
+//
+// Currently dictionary handling is not implemented (but would likely be easy
+// to add).  Serialization of decimals and byte sequences is also not
+// implemented.
+
 
 export const enum ResultKind {
   ERROR = 0,
@@ -22,6 +26,9 @@ export const enum ResultKind {
   TOKEN = 8,
   BINARY = 9,
   BOOLEAN = 10,
+  LIST = 11,
+  INNER_LIST = 12,
+  SERIALIZATION_RESULT = 13,
 }
 
 export interface Error {
@@ -87,6 +94,28 @@ export interface Item {
   kind: ResultKind.ITEM;
   value: BareItem;
   parameters: Parameters;
+}
+
+// inner-list    = "(" *SP [ sf-item *( 1*SP sf-item ) *SP ] ")"
+//                   parameters
+export interface InnerList {
+  kind: ResultKind.INNER_LIST;
+  items: Item[];
+  parameters: Parameters;
+}
+
+// list-member = sf-item / inner-list
+export type ListMember = Item|InnerList;
+
+// sf-list = list-member *( OWS "," OWS list-member )
+export interface List {
+  kind: ResultKind.LIST;
+  items: ListMember[];
+}
+
+export interface SerializationResult {
+  kind: ResultKind.SERIALIZATION_RESULT;
+  value: string;
 }
 
 const CHAR_MINUS: number = '-'.charCodeAt(0);
@@ -232,6 +261,79 @@ class Input {
 
 function makeError(): Error {
   return {kind: ResultKind.ERROR};
+}
+
+// 4.2.1. Parsing a list
+function parseListInternal(input: Input): List|Error {
+  const result: List = {kind: ResultKind.LIST, items: []};
+
+  while (!input.atEnd()) {
+    const piece: ListMember|Error = parseItemOrInnerList(input);
+    if (piece.kind === ResultKind.ERROR) {
+      return piece;
+    }
+    result.items.push(piece);
+    input.skipOWS();
+    if (input.atEnd()) {
+      return result;
+    }
+
+    if (input.peek() !== ',') {
+      return makeError();
+    }
+    input.eat();
+    input.skipOWS();
+
+    // "If input_string is empty, there is a trailing comma; fail parsing."
+    if (input.atEnd()) {
+      return makeError();
+    }
+  }
+  return result;  // this case corresponds to an empty list.
+}
+
+// 4.2.1.1.  Parsing an Item or Inner List
+function parseItemOrInnerList(input: Input): ListMember|Error {
+  if (input.peek() === '(') {
+    return parseInnerList(input);
+  }
+  return parseItemInternal(input);
+}
+
+// 4.2.1.2.  Parsing an Inner List
+function parseInnerList(input: Input): InnerList|Error {
+  if (input.peek() !== '(') {
+    return makeError();
+  }
+  input.eat();
+
+  const items: Item[] = [];
+  while (!input.atEnd()) {
+    input.skipSP();
+    if (input.peek() === ')') {
+      input.eat();
+      const params: Parameters|Error = parseParameters(input);
+      if (params.kind === ResultKind.ERROR) {
+        return params;
+      }
+      return {
+        kind: ResultKind.INNER_LIST,
+        items: items,
+        parameters: params,
+      };
+    }
+    const item: Item|Error = parseItemInternal(input);
+    if (item.kind === ResultKind.ERROR) {
+      return item;
+    }
+    items.push(item);
+    if (input.peek() !== ' ' && input.peek() !== ')') {
+      return makeError();
+    }
+  }
+
+  // Didn't see ), so error.
+  return makeError();
 }
 
 // 4.2.3.  Parsing an Item
@@ -494,4 +596,202 @@ export function parseItem(input: string): Item|Error {
     return makeError();
   }
   return result;
+}
+
+export function parseList(input: string): List|Error {
+  // No need to look for trailing stuff here since parseListInternal does it already.
+  return parseListInternal(new Input(input));
+}
+
+// 4.1.3.  Serializing an Item
+export function serializeItem(input: Item): SerializationResult|Error {
+  const bareItemVal = serializeBareItem(input.value);
+  if (bareItemVal.kind === ResultKind.ERROR) {
+    return bareItemVal;
+  }
+  const paramVal = serializeParameters(input.parameters);
+  if (paramVal.kind === ResultKind.ERROR) {
+    return paramVal;
+  }
+  return {kind: ResultKind.SERIALIZATION_RESULT, value: bareItemVal.value + paramVal.value};
+}
+
+// 4.1.1.  Serializing a List
+export function serializeList(input: List): SerializationResult|Error {
+  let output = '';
+  for (let i = 0; i < input.items.length; ++i) {
+    const item = input.items[i];
+    if (item.kind === ResultKind.INNER_LIST) {
+      const itemResult = serializeInnerList(item);
+      if (itemResult.kind === ResultKind.ERROR) {
+        return itemResult;
+      }
+      output += itemResult.value;
+    } else {
+      const itemResult = serializeItem(item);
+      if (itemResult.kind === ResultKind.ERROR) {
+        return itemResult;
+      }
+      output += itemResult.value;
+    }
+
+    if (i !== (input.items.length - 1)) {
+      output += ', ';
+    }
+  }
+  return {kind: ResultKind.SERIALIZATION_RESULT, value: output};
+}
+
+// 4.1.1.1.  Serializing an Inner List
+function serializeInnerList(input: InnerList): SerializationResult|Error {
+  let output = '(';
+  for (let i = 0; i < input.items.length; ++i) {
+    const itemResult = serializeItem(input.items[i]);
+    if (itemResult.kind === ResultKind.ERROR) {
+      return itemResult;
+    }
+    output += itemResult.value;
+    if (i !== (input.items.length - 1)) {
+      output += ' ';
+    }
+  }
+  output += ')';
+  const paramResult = serializeParameters(input.parameters);
+  if (paramResult.kind === ResultKind.ERROR) {
+    return paramResult;
+  }
+  output += paramResult.value;
+  return {kind: ResultKind.SERIALIZATION_RESULT, value: output};
+}
+
+// 4.1.1.2.  Serializing Parameters
+function serializeParameters(input: Parameters): SerializationResult|Error {
+  let output = '';
+  for (const item of input.items) {
+    output += ';';
+    const nameResult = serializeKey(item.name);
+    if (nameResult.kind === ResultKind.ERROR) {
+      return nameResult;
+    }
+    output += nameResult.value;
+    const itemVal: BareItem = item.value;
+    if (itemVal.kind !== ResultKind.BOOLEAN || !itemVal.value) {
+      output += '=';
+      const itemValResult = serializeBareItem(itemVal);
+      if (itemValResult.kind === ResultKind.ERROR) {
+        return itemValResult;
+      }
+      output += itemValResult.value;
+    }
+  }
+  return {kind: ResultKind.SERIALIZATION_RESULT, value: output};
+}
+
+// 4.1.1.3.  Serializing a Key
+function serializeKey(input: ParamName): SerializationResult|Error {
+  if (input.value.length === 0) {
+    return makeError();
+  }
+
+  const firstChar = input.value.charCodeAt(0);
+  if (!isLcAlpha(firstChar) && firstChar !== CHAR_STAR) {
+    return makeError();
+  }
+
+  for (let i = 1; i < input.value.length; ++i) {
+    const char = input.value.charCodeAt(i);
+    if (!isLcAlpha(char) && !isDigit(char) && char !== CHAR_UNDERSCORE && char !== CHAR_MINUS && char !== CHAR_DOT &&
+        char !== CHAR_STAR) {
+      return makeError();
+    }
+  }
+  return {kind: ResultKind.SERIALIZATION_RESULT, value: input.value};
+}
+
+// 4.1.3.1.  Serializing a Bare Item
+function serializeBareItem(input: BareItem): SerializationResult|Error {
+  if (input.kind === ResultKind.INTEGER) {
+    return serializeInteger(input);
+  }
+  if (input.kind === ResultKind.DECIMAL) {
+    return serializeDecimal(input);
+  }
+  if (input.kind === ResultKind.STRING) {
+    return serializeString(input);
+  }
+  if (input.kind === ResultKind.TOKEN) {
+    return serializeToken(input);
+  }
+  if (input.kind === ResultKind.BOOLEAN) {
+    return serializeBoolean(input);
+  }
+  if (input.kind === ResultKind.BINARY) {
+    return serializeByteSequence(input);
+  }
+  return makeError();
+}
+
+// 4.1.4.  Serializing an Integer
+function serializeInteger(input: Integer): SerializationResult|Error {
+  if (input.value < -999999999999999 || input.value > 999999999999999 || !Number.isInteger(input.value)) {
+    return makeError();
+  }
+  return {kind: ResultKind.SERIALIZATION_RESULT, value: input.value.toString(10)};
+}
+
+// 4.1.5.  Serializing a Decimal
+function serializeDecimal(_input: Decimal): SerializationResult|Error {
+  throw 'Unimplemented';
+}
+
+// 4.1.6.  Serializing a String
+function serializeString(input: String): SerializationResult|Error {
+  // Only printable ASCII strings are supported by the spec.
+  for (let i = 0; i < input.value.length; ++i) {
+    const char = input.value.charCodeAt(i);
+    if (char < 0x20 || char >= 0x7f) {
+      return makeError();
+    }
+  }
+  let output = '"';
+  for (let i = 0; i < input.value.length; ++i) {
+    const charStr = input.value[i];
+    if (charStr === '"' || charStr === '\\') {
+      output += '\\';
+    }
+    output += charStr;
+  }
+  output += '"';
+
+  return {kind: ResultKind.SERIALIZATION_RESULT, value: output};
+}
+
+// 4.1.7.  Serializing a Token
+function serializeToken(input: Token): SerializationResult|Error {
+  if (input.value.length === 0) {
+    return makeError();
+  }
+
+  const firstChar = input.value.charCodeAt(0);
+  if (!isAlpha(firstChar) && firstChar !== CHAR_STAR) {
+    return makeError();
+  }
+
+  for (let i = 1; i < input.value.length; ++i) {
+    const char = input.value.charCodeAt(i);
+    if (!isTChar(char) && char !== CHAR_COLON && char !== CHAR_SLASH) {
+      return makeError();
+    }
+  }
+  return {kind: ResultKind.SERIALIZATION_RESULT, value: input.value};
+}
+
+// 4.1.8.  Serializing a Byte Sequence
+function serializeByteSequence(_input: Binary): SerializationResult|Error {
+  throw 'Unimplemented';
+}
+
+// 4.1.9.  Serializing a Boolean
+function serializeBoolean(input: Boolean): SerializationResult|Error {
+  return {kind: ResultKind.SERIALIZATION_RESULT, value: input.value ? '?1' : '?0'};
 }
