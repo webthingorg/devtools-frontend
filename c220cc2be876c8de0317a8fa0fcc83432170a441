@@ -138,6 +138,24 @@
       "parentUuid": "4c70cb64_3d7c656d",
       "revId": "c220cc2be876c8de0317a8fa0fcc83432170a441",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "655612a5_4370a19c",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-12-08T06:26:35Z",
+      "side": 1,
+      "message": "Yes, the backend CL needs to go first, I believe.",
+      "parentUuid": "dde80b99_ca4ea769",
+      "revId": "c220cc2be876c8de0317a8fa0fcc83432170a441",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
