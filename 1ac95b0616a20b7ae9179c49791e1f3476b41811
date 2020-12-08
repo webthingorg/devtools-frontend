@@ -16,6 +16,362 @@
       "message": "Sorry for the late reply, I was out sick on Friday and Monday. I will take a look today or tomorrow at the latest.",
       "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03016160_ebd899d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-08T08:55:06Z",
+      "side": 1,
+      "message": "Thanks! First round of comments but it looks mostly Ok.\n\nI\u0027ll add a second reviewer for TS as my experience with writing TS is rather limited.\n\nPaul: Could you give this a rough TS readability once-over pretty please? :)",
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39b1f226_453b431d",
+        "filename": "front_end/emulation/StructuredHeaders.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-08T08:55:06Z",
+      "side": 1,
+      "message": "@Paul: following go/tsstyle should we name enum variants and the char constants in ALL_UPPER_CASE?",
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f13f68bc_e05b29a9",
+        "filename": "front_end/emulation/StructuredHeaders.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-08T08:55:06Z",
+      "side": 1,
+      "message": "super-nit: Superfluous \u0027are\u0027. And missing \u0027.\u0027?",
+      "range": {
+        "startLine": 121,
+        "startChar": 7,
+        "endLine": 121,
+        "endChar": 45
+      },
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6b4ebec_bb04bdea",
+        "filename": "front_end/emulation/StructuredHeaders.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-08T08:55:06Z",
+      "side": 1,
+      "message": "lets make this `ReadOnly\u003cstring\u003e` to indicate that we don\u0027t write to it.",
+      "range": {
+        "startLine": 180,
+        "startChar": 16,
+        "endLine": 180,
+        "endChar": 22
+      },
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "050f775d_f8accd35",
+        "filename": "front_end/emulation/StructuredHeaders.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-08T08:55:06Z",
+      "side": 1,
+      "message": "Let\u0027s spell it out to reduce mental overhead \u0027skipSpace\u0027.",
+      "range": {
+        "startLine": 204,
+        "startChar": 2,
+        "endLine": 204,
+        "endChar": 8
+      },
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "860079e2_0219c118",
+        "filename": "front_end/emulation/StructuredHeaders.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-08T08:55:06Z",
+      "side": 1,
+      "message": "Same here, \u0027skipSpaceAndTabs\u0027 or similar.",
+      "range": {
+        "startLine": 212,
+        "startChar": 2,
+        "endLine": 212,
+        "endChar": 9
+      },
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fd7b490_fbf8eccc",
+        "filename": "front_end/emulation/StructuredHeaders.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-08T08:55:06Z",
+      "side": 1,
+      "message": "nit: In TS we don\u0027t prefix private/unexported functions with \u0027_\u0027.",
+      "range": {
+        "startLine": 229,
+        "startChar": 9,
+        "endLine": 229,
+        "endChar": 19
+      },
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "432aa309_9bb9d86d",
+        "filename": "front_end/emulation/StructuredHeaders.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-08T08:55:06Z",
+      "side": 1,
+      "message": "I was wondering, is there a case where we \"catch\" such an error and then divert parsing? Otherwise it might simplify the code somewhat if we just throw an exception instead of bubbling up the error manually. I.e. replace all _makeError() calls with \u0027throw new Error(\u0027...\u0027)`. Wdyt?",
+      "range": {
+        "startLine": 229,
+        "startChar": 0,
+        "endLine": 231,
+        "endChar": 1
+      },
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67412a1c_4363fab1",
+        "filename": "front_end/emulation/StructuredHeaders.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-08T08:55:06Z",
+      "side": 1,
+      "message": "Lets implement this using a standard JavaScript Map. The advantage is, that Map is guaranteed to iterate in insertion order. This means, we can check with \u0027has\u0027 if a parameter name already exists, then delete it and re-insert it, and it will have the proper position in the Map afterwards, no need for the PosDict.\n\n(So the map becomes `Map\u003cstring, Parameter\u003e`).",
+      "range": {
+        "startLine": 279,
+        "startChar": 0,
+        "endLine": 284,
+        "endChar": 3
+      },
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4962de3f_b771f29f",
+        "filename": "front_end/emulation/StructuredHeaders.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-08T08:55:06Z",
+      "side": 1,
+      "message": "With the map this becomes\n\n return {kind: ResultKind.Parameters, items: [...items.values()]};",
+      "range": {
+        "startLine": 315,
+        "startChar": 0,
+        "endLine": 318,
+        "endChar": 53
+      },
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f549873_a21f7796",
+        "filename": "front_end/emulation/StructuredHeaders.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-08T08:55:06Z",
+      "side": 1,
+      "message": "can we have named constants for these?",
+      "range": {
+        "startLine": 421,
+        "startChar": 4,
+        "endLine": 421,
+        "endChar": 40
+      },
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10bcb147_94c945df",
+        "filename": "test/unittests/front_end/emulation/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-08T08:55:06Z",
+      "side": 1,
+      "message": "Missing license header. I know that others in unittest are missing them as well.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 59
+      },
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "820ef2f8_571c5324",
+        "filename": "test/unittests/front_end/emulation/StructuredHeaders_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-08T08:55:06Z",
+      "side": 1,
+      "message": "You can overwrite the error message of `assert.strictEqual`:\n\n assert.strictNotEqual(result.kind, StructuredHeaders.ResultKind.Error, `Got error instead of Item containing ${expectedKind}`);\n\nSame below (no strong opinion though if you prefer it this way).",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 3
+      },
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "199a6fd3_d3ee9a70",
+        "filename": "test/unittests/front_end/emulation/StructuredHeaders_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-08T08:55:06Z",
+      "side": 1,
+      "message": "chai has a `assert.deepStrictEquals`, does that not work here?",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 0
+      },
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06a14c78_5a83251d",
+        "filename": "test/unittests/front_end/emulation/StructuredHeaders_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-08T08:55:06Z",
+      "side": 1,
+      "message": "nit: These should work like \"normal\" sentences. The \u0027it\u0027 refers to the string we pass to \u0027describe\u0027. This makes test failures somewhat easier to read. In this case the \u0027it\u0027 block should contain something like\n\n it(\u0027parses basic integers correctly\u0027), ...  // it \u003d\u003d\u003d \"StructuredHeaders Parsing\"",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 39
+      },
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2271470_dd7b8a28",
+        "filename": "test/unittests/front_end/emulation/StructuredHeaders_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-08T08:55:06Z",
+      "side": 1,
+      "message": "lets extract this into a separate test that makes it clear that we test the override/ordering for parsing parameters.",
+      "range": {
+        "startLine": 152,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 9
+      },
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
