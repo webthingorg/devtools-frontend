@@ -1,6 +1,92 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "645fdf17_46e98c9b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-08T11:54:42Z",
+      "side": 1,
+      "message": "We initially wanted to avoid the Issue -\u003e IssuesModel link, but looking at the other CLs this seems to be the least complex way to do it.\n\nI would recommend making the association optional, though, i.e. change the type of the constructor argument to IssueModel|null, and give it a default value of null.\n\nYou might need to put in additional null checks at the two use-sites of the model() getter in IssuesPane.js, but that should be a very small change.\n\nLGTM once my comments are addressed.",
+      "revId": "2ae079af8a7f8a93285fc846e1b3f604506624fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cc8a135_bbd0360c",
+        "filename": "front_end/sdk/Issue.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-08T11:54:42Z",
+      "side": 1,
+      "message": "IssuesModel|null",
+      "range": {
+        "startLine": 75,
+        "startChar": 13,
+        "endLine": 75,
+        "endChar": 25
+      },
+      "revId": "2ae079af8a7f8a93285fc846e1b3f604506624fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81a6ed58_0ed54362",
+        "filename": "front_end/sdk/Issue.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-08T11:54:42Z",
+      "side": 1,
+      "message": "IssuesModel|null",
+      "range": {
+        "startLine": 161,
+        "startChar": 15,
+        "endLine": 161,
+        "endChar": 27
+      },
+      "revId": "2ae079af8a7f8a93285fc846e1b3f604506624fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4337196_449bb060",
+        "filename": "front_end/sdk/Issue.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-08T11:54:42Z",
+      "side": 1,
+      "message": "Please add a comment that the model might be unavailable or belong to a target that has already been disposed.",
+      "range": {
+        "startLine": 162,
+        "startChar": 3,
+        "endLine": 162,
+        "endChar": 5
+      },
+      "revId": "2ae079af8a7f8a93285fc846e1b3f604506624fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d5bc900a_009138a1",
@@ -32,6 +118,24 @@
       "side": 1,
       "message": "The issue itself doesn\u0027t use the model. So I suggest we pass it in as constructor argument as well. This way, tests can decide whether to pass an empty mock or some other stub that does something more. With the recent work on unit/integration tests, we might also be able to instantiate a real IssuesModel in the tests that need it.",
       "parentUuid": "d5bc900a_009138a1",
+      "revId": "2ae079af8a7f8a93285fc846e1b3f604506624fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cafe0d9_5bc38649",
+        "filename": "test/unittests/front_end/sdk/StubIssue.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-08T11:54:42Z",
+      "side": 1,
+      "message": "See my top-level comment, for now no change should be necessary here.",
+      "parentUuid": "5b4bbdcc_b49c02ab",
       "revId": "2ae079af8a7f8a93285fc846e1b3f604506624fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
