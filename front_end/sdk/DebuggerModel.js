@@ -737,6 +737,10 @@ export class DebuggerModel extends SDKModel {
       pausedDetails.callFrames = await this._expandCallFramesCallback.call(null, pausedDetails.callFrames);
     }
 
+    if (pausedDetails.callFrames.length > 0 && pausedDetails.callFrames[0].isInPrologue()) {
+      this._agent.invoke_stepOver({skipList: [/** @type {!LocationRange} */ (pausedDetails.callFrames[0].prologue)]});
+    }
+
     if (this._continueToLocationCallback) {
       const callback = this._continueToLocationCallback;
       this._continueToLocationCallback = null;
@@ -1495,8 +1499,9 @@ export class CallFrame {
    * @param {!Protocol.Debugger.CallFrame} payload
    * @param {number=} inlineFrameIndex
    * @param {string=} functionName
+   * @param {Protocol.Debugger.LocationRange=} prologue
    */
-  constructor(debuggerModel, script, payload, inlineFrameIndex, functionName) {
+  constructor(debuggerModel, script, payload, inlineFrameIndex, functionName, prologue) {
     this.debuggerModel = debuggerModel;
     this._script = script;
     this._payload = payload;
@@ -1518,6 +1523,8 @@ export class CallFrame {
     }
     this._returnValue =
         payload.returnValue ? this.debuggerModel._runtimeModel.createRemoteObject(payload.returnValue) : null;
+
+    this.prologue = prologue;
   }
 
   /**
@@ -1540,9 +1547,10 @@ export class CallFrame {
   /**
    * @param {number=} inlineFrameIndex
    * @param {string=} functionName
+   * @param {Protocol.Debugger.LocationRange=} prologue
    */
-  createVirtualCallFrame(inlineFrameIndex, functionName) {
-    return new CallFrame(this.debuggerModel, this._script, this._payload, inlineFrameIndex, functionName);
+  createVirtualCallFrame(inlineFrameIndex, functionName, prologue) {
+    return new CallFrame(this.debuggerModel, this._script, this._payload, inlineFrameIndex, functionName, prologue);
   }
 
   /**
@@ -1578,6 +1586,20 @@ export class CallFrame {
    */
   localScope() {
     return this._localScope;
+  }
+
+  /**
+   * @return {boolean}
+   */
+  isInPrologue() {
+    if (this.prologue === undefined) {
+      return false;
+    }
+
+    const {start, end} = this.prologue;
+    const {lineNumber, columnNumber} = this._location;
+    return (lineNumber > start.lineNumber || (lineNumber === start.lineNumber && columnNumber >= start.columnNumber)) &&
+        (lineNumber < end.lineNumber || (lineNumber === end.lineNumber && columnNumber < end.columnNumber));
   }
 
   /**
