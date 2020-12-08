@@ -80,6 +80,30 @@
       },
       "revId": "b2d509ab27a642436e1ea874cf990a5d0ba47ec6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "710639fe_7530a2a5",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-12-08T18:01:54Z",
+      "side": 1,
+      "message": "Agreed, this is a better way to do it 😊. Thanks for the suggestion Peter.",
+      "parentUuid": "2004aa52_335a2f2e",
+      "range": {
+        "startLine": 142,
+        "startChar": 135,
+        "endLine": 142,
+        "endChar": 216
+      },
+      "revId": "b2d509ab27a642436e1ea874cf990a5d0ba47ec6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
