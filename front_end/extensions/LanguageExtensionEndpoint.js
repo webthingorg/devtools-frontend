@@ -160,10 +160,10 @@ export class LanguageExtensionEndpoint extends Bindings.DebuggerLanguagePlugins.
   /** List all function names (including inlined frames) at location
    * @override
    * @param {!Bindings.DebuggerLanguagePlugins.RawLocation} rawLocation
-   * @return {!Promise<!{frames: !Array<!Bindings.DebuggerLanguagePlugins.FunctionInfo>}>}
+   * @return {!Promise<!{frames: !Array<!Bindings.DebuggerLanguagePlugins.FunctionInfo>, prologue?: !Bindings.DebuggerLanguagePlugins.RawLocationRange}>}
    */
   getFunctionInfo(rawLocation) {
-    return /** @type {!Promise<!{frames: !Array<!Bindings.DebuggerLanguagePlugins.FunctionInfo>}>} */ (
+    return /** @type {!Promise<!{frames: !Array<!Bindings.DebuggerLanguagePlugins.FunctionInfo>, prologue?: !Bindings.DebuggerLanguagePlugins.RawLocationRange}>} */ (
         this._sendRequest(this._commands.GetFunctionInfo, {rawLocation}));
   }
 

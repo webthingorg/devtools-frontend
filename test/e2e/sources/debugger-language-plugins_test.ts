@@ -7,7 +7,7 @@ import {assert} from 'chai';
 import {$, click, enableExperiment, getBrowserAndPages, getResourcesPath, goToResource, pasteText, waitFor, waitForFunction, waitForMany, waitForNone} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {CONSOLE_TAB_SELECTOR, focusConsolePrompt, getCurrentConsoleMessages} from '../helpers/console-helpers.js';
-import {addBreakpointForLine, getCallFrameLocations, getCallFrameNames, getValuesForScope, listenForSourceFilesAdded, openFileInEditor, openFileInSourcesPanel, openSourcesPanel, PAUSE_ON_EXCEPTION_BUTTON, RESUME_BUTTON, retrieveSourceFilesAdded, retrieveTopCallFrameScriptLocation, switchToCallFrame, waitForAdditionalSourceFiles} from '../helpers/sources-helpers.js';
+import {addBreakpointForLine, getCallFrameLocations, getCallFrameNames, getValuesForScope, listenForSourceFilesAdded, openFileInEditor, openFileInSourcesPanel, openSourcesPanel, PAUSE_ON_EXCEPTION_BUTTON, RESUME_BUTTON, retrieveSourceFilesAdded, retrieveTopCallFrameScriptLocation, retrieveTopCallFrameWithoutResuming, stepIntoCall, switchToCallFrame, waitForAdditionalSourceFiles, waitForPause} from '../helpers/sources-helpers.js';
 
 
 // TODO: Remove once Chromium updates its version of Node.js to 12+.
@@ -114,7 +114,7 @@ interface TestPluginImpl {
 
   getFormatter?(expressionOrField: string|{base: EvalBase, field: FieldInfo[]}, context: RawLocation):
       Promise<{js: string}|null>;
-  getFunctionInfo?(rawLocation: RawLocation): Promise<{frames: Array<FunctionInfo>}|null>;
+  getFunctionInfo?(rawLocation: RawLocation): Promise<{frames: Array<FunctionInfo>, prologue?: RawLocationRange}|null>;
 
   dispose?(): void;
 }
@@ -342,7 +342,7 @@ describe('The Debugger Language Plugins', async () => {
           }
 
           RegisterExtension(
-              extensionAPI, new VariableListingPlugin(), 'Location Mapping',
+              extensionAPI, new VariableListingPlugin(), 'Variable Listing',
               {language: 'WebAssembly', symbol_types: ['None']});
         }));
 
@@ -512,7 +512,7 @@ describe('The Debugger Language Plugins', async () => {
     const {frontend} = getBrowserAndPages();
     await frontend.evaluateHandle(
         () => globalThis.installExtensionPlugin((extensionServerClient: unknown, extensionAPI: unknown) => {
-          class VariableListingPlugin {
+          class FormatterPlugin {
             private modules: Map<string, {rawLocationRange?: RawLocationRange, sourceLocation?: SourceLocation}>;
             constructor() {
               this.modules = new Map();
@@ -644,8 +644,7 @@ describe('The Debugger Language Plugins', async () => {
 
 
           RegisterExtension(
-              extensionAPI, new VariableListingPlugin(), 'Location Mapping',
-              {language: 'WebAssembly', symbol_types: ['None']});
+              extensionAPI, new FormatterPlugin(), 'Formatters', {language: 'WebAssembly', symbol_types: ['None']});
         }));
 
     await openSourcesPanel();
@@ -668,7 +667,7 @@ describe('The Debugger Language Plugins', async () => {
     const {frontend} = getBrowserAndPages();
     await frontend.evaluateHandle(
         () => globalThis.installExtensionPlugin((extensionServerClient: unknown, extensionAPI: unknown) => {
-          class VariableListingPlugin {
+          class FormatterPlugin {
             private modules: Map<string, {rawLocationRange?: RawLocationRange, sourceLocation?: SourceLocation}>;
             constructor() {
               this.modules = new Map();
@@ -748,8 +747,7 @@ describe('The Debugger Language Plugins', async () => {
           }
 
           RegisterExtension(
-              extensionAPI, new VariableListingPlugin(), 'Location Mapping',
-              {language: 'WebAssembly', symbol_types: ['None']});
+              extensionAPI, new FormatterPlugin(), 'Formatters', {language: 'WebAssembly', symbol_types: ['None']});
         }));
 
     await openSourcesPanel();
@@ -901,5 +899,88 @@ describe('The Debugger Language Plugins', async () => {
 
     const messages = await getCurrentConsoleMessages();
     assert.deepStrictEqual(messages.filter(m => !m.startsWith('[Formatter Errors]')), ['Uncaught No typeinfo for bar']);
+  });
+
+  it('steps over function prologues.', async () => {
+    const {frontend, target} = getBrowserAndPages();
+    await frontend.evaluate(
+        () => globalThis.installExtensionPlugin((extensionServerClient: unknown, extensionAPI: unknown) => {
+          // A simple plugin that resolves to a single source file
+          class FunctionProloguePlugin {
+            private rawModuleId: string|undefined;
+            private sourceFileURL: string|undefined;
+            constructor() {
+            }
+
+            async addRawModule(rawModuleId: string, symbols: string, rawModule: RawModule) {
+              const sourceFileURL = new URL('call.ll', rawModule.url || symbols).href;
+              this.rawModuleId = rawModuleId;
+              this.sourceFileURL = sourceFileURL;
+              return [sourceFileURL];
+            }
+
+            async rawLocationToSourceLocation(rawLocation: RawLocation) {
+              const {rawModuleId, codeOffset} = rawLocation;
+              const {sourceFileURL} = this;
+              if (this.rawModuleId !== rawModuleId || sourceFileURL === undefined) {
+                return [];
+              }
+              if (codeOffset === 0x35) {
+                return [{rawModuleId, sourceFileURL, lineNumber: 14, columnNumber: 3}];
+              }
+              if (codeOffset === 0x1f) {
+                return [{rawModuleId, sourceFileURL, lineNumber: 9, columnNumber: 3}];
+              }
+              return [];
+            }
+
+
+            async sourceLocationToRawLocation(sourceLocation: SourceLocation) {
+              const {rawModuleId, sourceFileURL, lineNumber, columnNumber} = sourceLocation;
+              if (this.rawModuleId !== rawModuleId || this.sourceFileURL !== sourceFileURL) {
+                return [];
+              }
+              if (lineNumber === 14 && (columnNumber === -1 || columnNumber === 3)) {
+                return [{rawModuleId, startOffset: 0x35, endOffset: 0x3b}];
+              }
+              if (lineNumber === 9 && (columnNumber === -1 || columnNumber === 3)) {
+                return [{rawModuleId, startOffset: 0x1f, endOffset: 0x23}];
+              }
+              return [];
+            }
+
+            async getFunctionInfo(rawLocation: RawLocation) {
+              const {rawModuleId, codeOffset} = rawLocation;
+              if (this.rawModuleId !== rawModuleId) {
+                return null;
+              }
+              if (codeOffset >= 0x5 && codeOffset < 0x1f) {
+                return {frames: [{name: 'Func'}], prologue: {rawModuleId, startOffset: 0x5, endOffset: 0x1f}};
+              }
+              return null;
+            }
+          }
+
+          RegisterExtension(
+              extensionAPI, new FunctionProloguePlugin(), 'Function Prologue Plugin',
+              {language: 'WebAssembly', symbol_types: ['None']});
+        }));
+
+    // Open source file and set breakpoint
+    await openFileInSourcesPanel('wasm/call.html');
+    await target.evaluate('go();');
+    await openFileInEditor('call.ll');
+    await addBreakpointForLine(frontend, 15);
+
+    // Run the main function and wait for the breakpoint to hit.
+    target.evaluate('main();');
+    await waitForPause();
+
+    // Now step into the call and expect to skip the function prologue.
+    await stepIntoCall();
+
+    // Get and verify the paused position.
+    const pausedLocation = await retrieveTopCallFrameWithoutResuming();
+    assert.strictEqual(pausedLocation, 'call.ll:10');
   });
 });

@@ -17,6 +17,7 @@ export const PAUSE_INDICATOR_SELECTOR = '.paused-status';
 export const CODE_LINE_SELECTOR = '.CodeMirror-code .CodeMirror-linenumber';
 export const SCOPE_LOCAL_VALUES_SELECTOR = 'li[aria-label="Local"] + ol';
 export const SELECTED_THREAD_SELECTOR = 'div.thread-item.selected > div.thread-item-title';
+export const STEP_INTO_BUTTON = '[aria-label="Step into next function call"]';
 export const TURNED_OFF_PAUSE_BUTTON_SELECTOR = 'button.toolbar-state-off';
 export const TURNED_ON_PAUSE_BUTTON_SELECTOR = 'button.toolbar-state-on';
 export const DEBUGGER_PAUSED_EVENT = 'DevTools.DebuggerPaused';
@@ -354,10 +355,22 @@ export async function expandFileTree(selectors: NestedFileSelector) {
   return await waitFor(selectors.fileSelector);
 }
 
+export async function waitForPause() {
+  const {frontend} = getBrowserAndPages();
+  await waitForFunction(() => getPendingEvents(frontend, DEBUGGER_PAUSED_EVENT));
+  await waitFor(PAUSE_INDICATOR_SELECTOR);
+}
+
+export async function stepIntoCall() {
+  await click(STEP_INTO_BUTTON);
+  await waitForPause();
+  await waitFor(PAUSE_INDICATOR_SELECTOR);
+}
+
 export async function stepThroughTheCode() {
   const {frontend} = getBrowserAndPages();
   await frontend.keyboard.press('F9');
-  await waitForFunction(() => getPendingEvents(frontend, DEBUGGER_PAUSED_EVENT));
+  await waitForPause();
   await waitFor(PAUSE_INDICATOR_SELECTOR);
 }
 
