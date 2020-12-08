@@ -936,10 +936,24 @@ export class ElementsPanel extends UI.Panel.Panel {
         this._metricsWidget.show(computedStylePanesWrapper.element, this._computedStyleWidget.element);
       } else {
         this._metricsWidget.show(matchedStylePanesWrapper.element);
+        if (!this._stylesWidget.initialUpdateCompleted()) {
+          this._metricsWidget.hideWidget();
+        }
       }
     };
 
     let skippedInitialTabSelectedEvent = false;
+
+    /**
+     * @param {!Common.EventTarget.EventTargetEvent} event
+     */
+    const toggleMetricsWidget = event => {
+      if (event.data.hasStyle) {
+        this._metricsWidget.showWidget();
+      } else {
+        this._metricsWidget.hideWidget();
+      }
+    };
 
     /**
      * @param {!Common.EventTarget.EventTargetEvent} event
@@ -949,15 +963,11 @@ export class ElementsPanel extends UI.Panel.Panel {
       if (tabId === Common.UIString.UIString('Computed')) {
         computedStylePanesWrapper.show(computedView.element);
         this._metricsWidget.show(computedStylePanesWrapper.element, this._computedStyleWidget.element);
+        this._stylesWidget.removeEventListener(StylesSidebarPaneEvents.StylesUpdateCompleted, toggleMetricsWidget);
       } else if (tabId === Common.UIString.UIString('Styles')) {
         stylesSplitWidget.setSidebarWidget(computedStylePanesWrapper);
-        if (this._stylesWidget.initialUpdateCompleted()) {
-          showMetricsWidgetInStylesPane();
-        } else {
-          this._stylesWidget.addEventListener(StylesSidebarPaneEvents.InitialUpdateCompleted, () => {
-            showMetricsWidgetInStylesPane();
-          });
-        }
+        showMetricsWidgetInStylesPane();
+        this._stylesWidget.addEventListener(StylesSidebarPaneEvents.StylesUpdateCompleted, toggleMetricsWidget);
       }
 
       if (skippedInitialTabSelectedEvent) {
