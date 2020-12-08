@@ -104,6 +104,14 @@ export class MetricsSidebarPane extends ElementsSidebarPane {
   }
 
   /**
+   *
+   * @param {boolean} isVisible
+   */
+  toggleVisibility(isVisible) {
+    this.element.classList.toggle('invisible', !isVisible);
+  }
+
+  /**
    * @param {!Map.<string, string>} style
    * @param {string} propertyName
    * @return {number}
