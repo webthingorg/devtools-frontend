@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcec2d48_a73c948c",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1097,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-12-08T12:10:53Z",
+      "side": 1,
+      "message": "Likewise, `prologue?: RawLocationRange`, then leave it out of returns where it is undefined.",
+      "range": {
+        "startLine": 1097,
+        "startChar": 56,
+        "endLine": 1097,
+        "endChar": 93
+      },
+      "revId": "4ef3051f45a830de225e9f348e44f759b509f460",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3cb2a62_d99422a8",
+        "filename": "front_end/extensions/LanguageExtensionEndpoint.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-12-08T12:10:53Z",
+      "side": 1,
+      "message": "Can this be `prologue?: Bindings.DebuggerLanguagePlugins.RawLocationRange`?",
+      "range": {
+        "startLine": 163,
+        "startChar": 89,
+        "endLine": 163,
+        "endChar": 159
+      },
+      "revId": "4ef3051f45a830de225e9f348e44f759b509f460",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ceba025_883c414d",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1527,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-12-08T12:10:53Z",
+      "side": 1,
+      "message": "this._prologue for consistency",
+      "range": {
+        "startLine": 1527,
+        "startChar": 4,
+        "endLine": 1527,
+        "endChar": 17
+      },
+      "revId": "4ef3051f45a830de225e9f348e44f759b509f460",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5ea1834_ccff6d8d",
+        "filename": "test/e2e/sources/debugger-language-plugins_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 970,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2020-12-08T12:10:53Z",
+      "side": 1,
+      "message": "Need this file",
+      "range": {
+        "startLine": 970,
+        "startChar": 34,
+        "endLine": 970,
+        "endChar": 48
+      },
+      "revId": "4ef3051f45a830de225e9f348e44f759b509f460",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
