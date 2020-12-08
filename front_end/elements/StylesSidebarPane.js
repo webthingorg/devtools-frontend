@@ -677,6 +677,7 @@ export class StylesSidebarPane extends ElementsSidebarPane {
     if (!matchedStyles || !node) {
       this._sectionsContainer.removeChildren();
       this._noMatchesElement.classList.remove('hidden');
+      this.dispatchEventToListeners(Events.StylesUpdateCompleted, {hasStyle: false});
       return;
     }
 
@@ -728,6 +729,8 @@ export class StylesSidebarPane extends ElementsSidebarPane {
 
     // Record the elements tool load time after the sidepane has loaded.
     Host.userMetrics.panelLoaded('elements', 'DevTools.Launch.Elements');
+
+    this.dispatchEventToListeners(Events.StylesUpdateCompleted, {hasStyle: true});
   }
 
   /**
@@ -1030,6 +1033,7 @@ export class StylesSidebarPane extends ElementsSidebarPane {
 /** @enum {symbol} */
 export const Events = {
   InitialUpdateCompleted: Symbol('InitialUpdateCompleted'),
+  StylesUpdateCompleted: Symbol('StylesUpdateCompleted'),
 };
 
 export const _maxLinkLength = 23;
