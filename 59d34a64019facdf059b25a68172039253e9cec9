@@ -71,6 +71,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ac664f46_6bd73d1a",
+        "filename": "front_end/components/ImagePreview.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-08T15:09:52Z",
+      "side": 1,
+      "message": "Please use DOM attributes where possible, i.e.\n\n    link.href \u003d ...;\n    link.target \u003d ...;",
+      "parentUuid": "5640eba6_914b4908",
+      "revId": "59d34a64019facdf059b25a68172039253e9cec9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "89b0c0cc_4cf9283d",
         "filename": "front_end/components/ImagePreview.js",
         "patchSetId": 8
@@ -82,6 +100,24 @@
       "writtenOn": "2020-12-08T14:55:03Z",
       "side": 1,
       "message": "No need for localization",
+      "revId": "59d34a64019facdf059b25a68172039253e9cec9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cc7f316_0c76d63f",
+        "filename": "front_end/components/ImagePreview.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-08T15:09:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "89b0c0cc_4cf9283d",
       "revId": "59d34a64019facdf059b25a68172039253e9cec9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
