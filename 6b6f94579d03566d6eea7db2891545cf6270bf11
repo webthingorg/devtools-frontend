@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37278d99_e84b64a9",
+        "filename": "front_end/formatter_worker/CSSFormatter.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-08T13:36:27Z",
+      "side": 1,
+      "message": "This is the fix to make our formatter work with the CodeMirror overrides we perform at https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/text_editor/CodeMirrorTextEditor.js;l\u003d1517;drc\u003dd47c1d7073b808b55bdd7644882c5e974f2848d7",
+      "range": {
+        "startLine": 92,
+        "startChar": 18,
+        "endLine": 92,
+        "endChar": 25
+      },
+      "revId": "6b6f94579d03566d6eea7db2891545cf6270bf11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
