@@ -87,6 +87,24 @@
       "parentUuid": "bc7e023b_fa9ed087",
       "revId": "a9dc01c524889fb04261f72b3c279877c3e74145",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20b9f5ac_59701fcb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-08T08:07:39Z",
+      "side": 1,
+      "message": "As Sigurd mentioned, there might be prior art for this. I am still not sure that we can extract any meaningful data out of this event. If a user toggles the checkbox multiple times per day, then we get one enabled and one disabled event for that day for that unique user (?? or do we?). That still doesn\u0027t tell us if its mostly enabled, or mostly disabled.\n\nI am kind of tempted to just report the state of the setting when the issues tab is created. That gives us the \"common\" state for all users, which might be more meaningful (x% have the checkbox enabled by default).\n\nWe might not get data whether the checkbox is used, but we could that track separately.",
+      "parentUuid": "af3f568a_bd9d72b0",
+      "revId": "a9dc01c524889fb04261f72b3c279877c3e74145",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
