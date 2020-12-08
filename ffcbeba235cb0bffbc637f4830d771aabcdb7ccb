@@ -16,6 +16,24 @@
       "message": "Hey folks. This seems to be the cause of https://crbug.com/1155552, in particular this CL assumes that all RemoteObject\u0027s live in V8 and it\u0027s possible to run JSON.stringify() on them, but that\u0027s not true for example for LocalJSONObject instances as well as the EvalNode in DebuggerLanguagePlugins.js.\n\nFrom a glance it seems that the appropriate fix is to introduce a copy() method on the RemoteObject that is implemented appropriately in the various places, potentially combined with a predicate that says whether copying is even possible.\n\nCould you take a look?",
       "revId": "ffcbeba235cb0bffbc637f4830d771aabcdb7ccb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a51b6256_37e80787",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-12-08T04:47:01Z",
+      "side": 1,
+      "message": "I don\u0027t have the permission to open this issue. Please tell me the specific steps of reproduction.\n\nIn particular, I don\u0027t understand the LocalJSONObject.",
+      "parentUuid": "c179b668_12340075",
+      "revId": "ffcbeba235cb0bffbc637f4830d771aabcdb7ccb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
