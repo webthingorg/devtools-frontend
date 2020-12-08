@@ -11,7 +11,8 @@ export class HeavyAdIssue extends Issue {
    * @param {!Protocol.Audits.HeavyAdIssueDetails} issueDetails
    */
   constructor(issueDetails) {
-    super(Protocol.Audits.InspectorIssueCode.HeavyAdIssue);
+    const issue_code = [Protocol.Audits.InspectorIssueCode.HeavyAdIssue, issueDetails.reason].join('::');
+    super(issue_code);
     this._issueDetails = issueDetails;
   }
 
