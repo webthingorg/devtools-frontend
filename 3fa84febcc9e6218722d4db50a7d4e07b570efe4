@@ -68,6 +68,24 @@
       "message": "Is DevTools internationalized?",
       "revId": "3fa84febcc9e6218722d4db50a7d4e07b570efe4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21d979de_23c8bb71",
+        "filename": "front_end/entrypoint_template.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-08T10:23:42Z",
+      "side": 1,
+      "message": "It is not currently (in Chrome) although work is happening on it. For now, I’ll change the title to just “DevTools” (which more closely matches the visual title anyway).",
+      "parentUuid": "2ff193b5_917bb435",
+      "revId": "3fa84febcc9e6218722d4db50a7d4e07b570efe4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
