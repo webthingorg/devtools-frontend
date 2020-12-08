@@ -39,6 +39,30 @@
       },
       "revId": "989d313377fef4f3d5d3246ba265e6ef64d7490d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfa2eec9_03b10913",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-12-08T14:58:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b02a0dd9_3b207a74",
+      "range": {
+        "startLine": 222,
+        "startChar": 60,
+        "endLine": 222,
+        "endChar": 70
+      },
+      "revId": "989d313377fef4f3d5d3246ba265e6ef64d7490d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

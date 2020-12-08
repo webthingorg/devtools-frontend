@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "611f6231_5faa39c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-12-08T14:58:40Z",
+      "side": 1,
+      "message": "PTanotherL\n\nAs can be seen in the tests, issues are usually created twice. The deduplication happens in the IssueAggregator, and only happens once the user actually visits the issues tab. Since we want to send info about created issues even when the issues tab is not visited, I chose to put it in the Issue\u0027s constructor causing the events to be sent twice. Is there a better way to do this?",
+      "revId": "011ec1a6f732a104678368602916ad6d82034a90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2a818e4d_8f8a6c58",
