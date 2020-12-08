@@ -16,6 +16,23 @@
       "message": "Publishing fix for Application report view separators",
       "revId": "a3f1bf4dd225824f89bea3c2eb1d4f50a5a8d088",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cad631e0_4609a76a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-12-08T10:17:18Z",
+      "side": 1,
+      "message": "Thanks LGTM!",
+      "revId": "a3f1bf4dd225824f89bea3c2eb1d4f50a5a8d088",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
