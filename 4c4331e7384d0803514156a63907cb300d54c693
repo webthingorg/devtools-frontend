@@ -80,6 +80,30 @@
       },
       "revId": "4c4331e7384d0803514156a63907cb300d54c693",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5d83246_c59d6eba",
+        "filename": "scripts/localization/utils/check_localized_strings.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-12-08T19:23:12Z",
+      "side": 1,
+      "message": "Fixed with Peter\u0027s suggestion in this CL https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2578185",
+      "parentUuid": "51dcc9ca_91021766",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 14
+      },
+      "revId": "4c4331e7384d0803514156a63907cb300d54c693",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
