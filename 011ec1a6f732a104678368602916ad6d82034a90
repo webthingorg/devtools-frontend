@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30e19d52_e00e0521",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-08T14:57:17Z",
+      "side": 1,
+      "message": "LGTM with one comment.",
+      "revId": "011ec1a6f732a104678368602916ad6d82034a90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a818e4d_8f8a6c58",
+        "filename": "front_end/sdk/HeavyAdIssue.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-08T14:57:17Z",
+      "side": 1,
+      "message": "not sure if we need this granularity here, we are reporting the same issue for all of those after all.",
+      "range": {
+        "startLine": 14,
+        "startChar": 3,
+        "endLine": 15,
+        "endChar": 22
+      },
+      "revId": "011ec1a6f732a104678368602916ad6d82034a90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
