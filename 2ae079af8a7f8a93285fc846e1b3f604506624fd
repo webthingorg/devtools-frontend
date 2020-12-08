@@ -16,6 +16,24 @@
       "message": "Now that all issues require a model, how do we build StubIssue?",
       "revId": "2ae079af8a7f8a93285fc846e1b3f604506624fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b4bbdcc_b49c02ab",
+        "filename": "test/unittests/front_end/sdk/StubIssue.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-08T07:45:38Z",
+      "side": 1,
+      "message": "The issue itself doesn\u0027t use the model. So I suggest we pass it in as constructor argument as well. This way, tests can decide whether to pass an empty mock or some other stub that does something more. With the recent work on unit/integration tests, we might also be able to instantiate a real IssuesModel in the tests that need it.",
+      "parentUuid": "d5bc900a_009138a1",
+      "revId": "2ae079af8a7f8a93285fc846e1b3f604506624fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
