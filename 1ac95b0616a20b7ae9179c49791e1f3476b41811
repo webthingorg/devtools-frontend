@@ -140,6 +140,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "90d10f8e_bd2bb869",
+        "filename": "front_end/emulation/StructuredHeaders.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-12-08T16:44:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95ec75fa_9bb5d6fa",
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f13f68bc_e05b29a9",
@@ -153,6 +171,30 @@
       "writtenOn": "2020-12-08T08:55:06Z",
       "side": 1,
       "message": "super-nit: Superfluous \u0027are\u0027. And missing \u0027.\u0027?",
+      "range": {
+        "startLine": 121,
+        "startChar": 7,
+        "endLine": 121,
+        "endChar": 45
+      },
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "487b42a7_0eed2349",
+        "filename": "front_end/emulation/StructuredHeaders.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-12-08T16:44:28Z",
+      "side": 1,
+      "message": "Rephrased to not be two sentences at once.",
+      "parentUuid": "f13f68bc_e05b29a9",
       "range": {
         "startLine": 121,
         "startChar": 7,
@@ -186,6 +228,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba137cd5_7957e6bc",
+        "filename": "front_end/emulation/StructuredHeaders.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-12-08T16:44:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12ef01c0_b2c50c13",
+      "range": {
+        "startLine": 123,
+        "startChar": 9,
+        "endLine": 123,
+        "endChar": 16
+      },
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6b4ebec_bb04bdea",
@@ -199,6 +265,30 @@
       "writtenOn": "2020-12-08T08:55:06Z",
       "side": 1,
       "message": "lets make this `ReadOnly\u003cstring\u003e` to indicate that we don\u0027t write to it.",
+      "range": {
+        "startLine": 180,
+        "startChar": 16,
+        "endLine": 180,
+        "endChar": 22
+      },
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cc59d1e_bb01e5d6",
+        "filename": "front_end/emulation/StructuredHeaders.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-12-08T16:44:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6b4ebec_bb04bdea",
       "range": {
         "startLine": 180,
         "startChar": 16,
@@ -326,6 +416,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ae76e92_9b246c53",
+        "filename": "front_end/emulation/StructuredHeaders.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-12-08T16:44:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fd7b490_fbf8eccc",
+      "range": {
+        "startLine": 229,
+        "startChar": 9,
+        "endLine": 229,
+        "endChar": 19
+      },
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "432aa309_9bb9d86d",
@@ -372,6 +486,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38bd87ca_0a4fa058",
+        "filename": "front_end/emulation/StructuredHeaders.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-12-08T16:44:28Z",
+      "side": 1,
+      "message": "Oooh, neat, done.",
+      "parentUuid": "67412a1c_4363fab1",
+      "range": {
+        "startLine": 279,
+        "startChar": 0,
+        "endLine": 284,
+        "endChar": 3
+      },
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4962de3f_b771f29f",
@@ -385,6 +523,30 @@
       "writtenOn": "2020-12-08T08:55:06Z",
       "side": 1,
       "message": "With the map this becomes\n\n return {kind: ResultKind.Parameters, items: [...items.values()]};",
+      "range": {
+        "startLine": 315,
+        "startChar": 0,
+        "endLine": 318,
+        "endChar": 53
+      },
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "518c2c8d_cbe0063d",
+        "filename": "front_end/emulation/StructuredHeaders.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-12-08T16:44:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4962de3f_b771f29f",
       "range": {
         "startLine": 315,
         "startChar": 0,
@@ -418,6 +580,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c6065f9_ff582c17",
+        "filename": "front_end/emulation/StructuredHeaders.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-12-08T16:44:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f549873_a21f7796",
+      "range": {
+        "startLine": 421,
+        "startChar": 4,
+        "endLine": 421,
+        "endChar": 40
+      },
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "10bcb147_94c945df",
@@ -431,6 +617,30 @@
       "writtenOn": "2020-12-08T08:55:06Z",
       "side": 1,
       "message": "Missing license header. I know that others in unittest are missing them as well.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 59
+      },
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23342908_75468da5",
+        "filename": "test/unittests/front_end/emulation/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-12-08T16:44:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10bcb147_94c945df",
       "range": {
         "startLine": 1,
         "startChar": 0,
@@ -466,6 +676,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c2d9951f_3c2a07ef",
+        "filename": "test/unittests/front_end/emulation/StructuredHeaders_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-12-08T16:44:28Z",
+      "side": 1,
+      "message": "That doesn\u0027t help Typescript see that the thing below isn\u0027t StructuredHeaders.Error, unlike the if.",
+      "parentUuid": "820ef2f8_571c5324",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 3
+      },
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "199a6fd3_d3ee9a70",
         "filename": "test/unittests/front_end/emulation/StructuredHeaders_test.ts",
         "patchSetId": 2
@@ -477,6 +711,30 @@
       "writtenOn": "2020-12-08T08:55:06Z",
       "side": 1,
       "message": "chai has a `assert.deepStrictEquals`, does that not work here?",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 0
+      },
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6c7b9ff_bbfac1a7",
+        "filename": "test/unittests/front_end/emulation/StructuredHeaders_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-12-08T16:44:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "199a6fd3_d3ee9a70",
       "range": {
         "startLine": 53,
         "startChar": 0,
@@ -510,6 +768,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e160df9a_dacedb0f",
+        "filename": "test/unittests/front_end/emulation/StructuredHeaders_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-12-08T16:44:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06a14c78_5a83251d",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 39
+      },
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d2271470_dd7b8a28",
@@ -523,6 +805,30 @@
       "writtenOn": "2020-12-08T08:55:06Z",
       "side": 1,
       "message": "lets extract this into a separate test that makes it clear that we test the override/ordering for parsing parameters.",
+      "range": {
+        "startLine": 152,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 9
+      },
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ccfb2bf_12f56283",
+        "filename": "test/unittests/front_end/emulation/StructuredHeaders_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-12-08T16:44:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2271470_dd7b8a28",
       "range": {
         "startLine": 152,
         "startChar": 0,
