@@ -51,6 +51,24 @@
       "parentUuid": "770af4f9_8e67a851",
       "revId": "e35a92053c380548eabab472775192aca60af121",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da07f257_b20df6c8",
+        "filename": "front_end/host/InspectorFrontendHost.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-08T12:51:54Z",
+      "side": 1,
+      "message": "Ack, thanks!",
+      "parentUuid": "ab91ac96_93386465",
+      "revId": "e35a92053c380548eabab472775192aca60af121",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
