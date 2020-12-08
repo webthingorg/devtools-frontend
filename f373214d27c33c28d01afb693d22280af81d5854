@@ -16,6 +16,23 @@
       "message": "PTAL.",
       "revId": "f373214d27c33c28d01afb693d22280af81d5854",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87a8d90c_239607a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-08T12:22:13Z",
+      "side": 1,
+      "message": "- Does this also apply the filter?\n- Is it possible to test this?",
+      "revId": "f373214d27c33c28d01afb693d22280af81d5854",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
