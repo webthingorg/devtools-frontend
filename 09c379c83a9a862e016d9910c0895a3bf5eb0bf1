@@ -51,6 +51,24 @@
       "parentUuid": "8029fb0b_62696864",
       "revId": "09c379c83a9a862e016d9910c0895a3bf5eb0bf1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3333601a_d9bdf381",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-08T12:09:45Z",
+      "side": 1,
+      "message": "Ah thanks for picking these up Connor.\n\nI\u0027m not sure what best to do here with regards to third parties. We want to ditch the legacy color patching in DevTools so that\u0027s why we\u0027re replacing the values with our own variables (which we define in themeColors.css). But it does feel slightly odd to change 3rd party ones.\n\nMaybe we should instead have a script that can take the stylesheet we\u0027re given, run it through our legacy color patching and generate a dark mode stylesheet that we can also load in.\n\n@aerotwist WDYT?",
+      "parentUuid": "d57c741a_8ca1da40",
+      "revId": "09c379c83a9a862e016d9910c0895a3bf5eb0bf1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
