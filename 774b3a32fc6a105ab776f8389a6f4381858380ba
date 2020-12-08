@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a145a823_059cd0a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-12-08T13:16:04Z",
+      "side": 1,
+      "message": "PTAL (another attempt to change the test to reduce flakiness) ",
+      "revId": "774b3a32fc6a105ab776f8389a6f4381858380ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
