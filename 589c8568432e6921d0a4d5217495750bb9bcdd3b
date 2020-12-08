@@ -22,6 +22,30 @@
       },
       "revId": "589c8568432e6921d0a4d5217495750bb9bcdd3b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b7e5a6e_f9a56132",
+        "filename": "front_end/resources/AppManifestView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1411314
+      },
+      "writtenOn": "2020-12-08T05:38:20Z",
+      "side": 1,
+      "message": "Thank you for your comment! That make senses. I updated M93 to Chrome 93 in this CL and the backend CL too.",
+      "parentUuid": "73afe3e1_36549b37",
+      "range": {
+        "startLine": 394,
+        "startChar": 96,
+        "endLine": 394,
+        "endChar": 99
+      },
+      "revId": "589c8568432e6921d0a4d5217495750bb9bcdd3b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
