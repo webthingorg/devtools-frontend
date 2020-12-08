@@ -564,6 +564,8 @@ export class OverlayModel extends SDKModel {
           },
           mainDistributedSpace: {hatchColor: Common.Color.PageHighlight.FlexContainerBorder.toProtocolRGBA()},
           crossDistributedSpace: {hatchColor: Common.Color.PageHighlight.FlexContainerBorder.toProtocolRGBA()},
+          rowGapSpace: {hatchColor: Common.Color.PageHighlight.FlexContainerBorder.toProtocolRGBA()},
+          columnGapSpace: {hatchColor: Common.Color.PageHighlight.FlexContainerBorder.toProtocolRGBA()},
         };
       }
     }
@@ -584,6 +586,26 @@ export class OverlayModel extends SDKModel {
             Common.Color.PageHighlight.GridColumnGapBackground.toProtocolRGBA();
         highlightConfig.gridHighlightConfig.columnHatchColor =
             Common.Color.PageHighlight.GridColumnGapHatch.toProtocolRGBA();
+      }
+    }
+
+    if (mode.endsWith('gap') && this._flexFeaturesExperimentEnabled) {
+      highlightConfig.flexContainerHighlightConfig = {
+        containerBorder: {
+          color: Common.Color.PageHighlight.FlexContainerBorder.toProtocolRGBA(),
+          pattern: Protocol.Overlay.LineStylePattern.Dashed,
+        },
+      };
+
+      if (mode === 'gap' || mode === 'row-gap') {
+        highlightConfig.flexContainerHighlightConfig.rowGapSpace = {
+          hatchColor: Common.Color.PageHighlight.FlexContainerBorder.toProtocolRGBA()
+        };
+      }
+      if (mode === 'gap' || mode === 'column-gap') {
+        highlightConfig.flexContainerHighlightConfig.columnGapSpace = {
+          hatchColor: Common.Color.PageHighlight.FlexContainerBorder.toProtocolRGBA()
+        };
       }
     }
 
