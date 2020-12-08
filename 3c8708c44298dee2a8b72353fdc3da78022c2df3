@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d5c02ed_93ccb57f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-08T11:40:11Z",
+      "side": 1,
+      "message": "Seems like there is a DevToolsSanityTest that is looking for the \"network\" view but not finding it: https://source.chromium.org/chromium/chromium/src/+/master:chrome/browser/devtools/devtools_sanity_browsertest.cc;l\u003d1982;drc\u003d5daec7e1318a420ad23e2e295fa3b43afca2c968\n\nIt calls this function: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/Tests.js;l\u003d604;drc\u003df52d4a0d1edf4a5b13adf8d4a8de6fd0fc3bec02 but it isn\u0027t immediately clear to me why this would fail 😞",
+      "revId": "3c8708c44298dee2a8b72353fdc3da78022c2df3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
