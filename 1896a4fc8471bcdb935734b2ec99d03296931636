@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c1fb3b0_38b8d39d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-08T13:03:17Z",
+      "side": 1,
+      "message": "PTAL. See prior discussion in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2575093/1/front_end/host/InspectorFrontendHost.js#171 (+ offline chat to confirm the error case)",
+      "revId": "1896a4fc8471bcdb935734b2ec99d03296931636",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
