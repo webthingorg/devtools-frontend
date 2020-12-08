@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce3f75ec_b53bd0fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-08T12:51:42Z",
+      "side": 1,
+      "message": "How difficult would it be to unittest the message bucket? If it is possible, I\u0027d leave out the SourceFrameIssuesManager.ts change, and land this CL (including tests) first.\n\nThe other CL seems to be the more controversial, and it is basically your last week, so let\u0027s get this in so we can focus on the other CL.",
+      "revId": "901e5dce9049d316da4568c8c49305dc2b2ed292",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f927118c_78dd169b",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-08T12:51:42Z",
+      "side": 1,
+      "message": "Let\u0027s move the logic that determines whether to show the errors or issues to the messageBucket class.",
+      "range": {
+        "startLine": 576,
+        "startChar": 9,
+        "endLine": 579,
+        "endChar": 102
+      },
+      "revId": "901e5dce9049d316da4568c8c49305dc2b2ed292",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b08a2f1_8ed66c86",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 832,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-08T12:51:42Z",
+      "side": 1,
+      "message": "Consolidate this method and the one below into a messageDescritpion(Set\u003cWorkspace.UISourceCode.Message.Level\u003e) to remove code duplication.",
+      "range": {
+        "startLine": 832,
+        "startChar": 2,
+        "endLine": 832,
+        "endChar": 26
+      },
+      "revId": "901e5dce9049d316da4568c8c49305dc2b2ed292",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bea34d3_aee38bd5",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-08T12:51:42Z",
+      "side": 1,
+      "message": "nit: for (const message of this._messages.filter(...))",
+      "range": {
+        "startLine": 836,
+        "startChar": 4,
+        "endLine": 837,
+        "endChar": 95
+      },
+      "revId": "901e5dce9049d316da4568c8c49305dc2b2ed292",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b17cee3f_fb41049c",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 852,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-08T12:51:42Z",
+      "side": 1,
+      "message": "nit: for (const message of this._messages.filter(...))",
+      "range": {
+        "startLine": 851,
+        "startChar": 4,
+        "endLine": 852,
+        "endChar": 95
+      },
+      "revId": "901e5dce9049d316da4568c8c49305dc2b2ed292",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
