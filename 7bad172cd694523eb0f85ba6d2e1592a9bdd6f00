@@ -16,6 +16,24 @@
       "message": "LGTM with a note:\n\nThe red text in dark theme seems to have low-contrast. https://imgur.com/a/6Gmfjbp\nWe have a separate CL to fix the dark theme in DevTools, so I assume that would be addressed in that CL, @aerotwist?\n",
       "revId": "7bad172cd694523eb0f85ba6d2e1592a9bdd6f00",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0d985a5_29aa5913",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-12-08T08:59:57Z",
+      "side": 1,
+      "message": "Yes, we can manage it via that CL 👍",
+      "parentUuid": "cde79a01_e6fcb65e",
+      "revId": "7bad172cd694523eb0f85ba6d2e1592a9bdd6f00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
