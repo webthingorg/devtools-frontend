@@ -104,6 +104,30 @@
       },
       "revId": "256942f4c0a6d35f553845d59554be2727dc91f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85b91f07_35f003d8",
+        "filename": "scripts/localization/utils/check_localized_strings.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-12-08T19:28:52Z",
+      "side": 1,
+      "message": "It worked! thanks :)",
+      "parentUuid": "a3f2e306_c4baf768",
+      "range": {
+        "startLine": 107,
+        "startChar": 6,
+        "endLine": 108,
+        "endChar": 109
+      },
+      "revId": "256942f4c0a6d35f553845d59554be2727dc91f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
