@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "328e0568_f07bc7d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-08T06:16:30Z",
+      "side": 1,
+      "message": "Sorry for the late reply, I was out sick on Friday and Monday. I will take a look today or tomorrow at the latest.",
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
