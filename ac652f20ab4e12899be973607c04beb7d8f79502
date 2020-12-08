@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11f2d393_56c4ca4e",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 726,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-12-08T12:43:31Z",
+      "side": 1,
+      "message": "This is confusing, since it slaps the prologue on all of the virtual call frames. We could do a single getFunctionInfo() call just for the top frame?",
+      "revId": "ac652f20ab4e12899be973607c04beb7d8f79502",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
