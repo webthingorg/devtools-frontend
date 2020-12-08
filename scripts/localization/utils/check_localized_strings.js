@@ -101,6 +101,7 @@ const uiStringsMap = new Map();
 
 const devtoolsFrontendPath = path.resolve(__dirname, '..', '..', '..', 'front_end');
 let devtoolsFrontendDirs;
+// clang-format off
 // During migration process, we will update this when a directory is migrated
 // e.g. const migratedDirsSet = new Set(['settings', 'console']);
 // TODO(crbug.com/941561): Remove once localization V1 is no longer used.
@@ -114,6 +115,7 @@ const migratedDirsSet = new Set([
   'layer_viewer',
   'lighthouse',
   'media',
+  'mobile_throttling',
   'performance_monitor',
   'protocol_monitor',
   'search',
@@ -124,6 +126,7 @@ const migratedDirsSet = new Set([
   'web_audio',
   'webauthn',
 ]);
+// clang-format on
 const locV1CallsInMigratedFiles = new Set();
 
 /**
