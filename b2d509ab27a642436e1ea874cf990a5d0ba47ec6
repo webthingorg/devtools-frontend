@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "512ab512_9a96d08f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-12-08T03:03:03Z",
+      "side": 1,
+      "message": "Hi Peter,\n\nMigrating node_main module to loc V2. Also adding a skip to presubmit (left a comment). PTAL.",
+      "revId": "b2d509ab27a642436e1ea874cf990a5d0ba47ec6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bee64a9f_b8e638b5",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-12-08T03:03:03Z",
+      "side": 1,
+      "message": "@Peter, I was getting some format fixes on the check_localized strings which made readability worst, it was putting everything in a single line instead of a folder per line. I added this to skip presubmit checks on localization folder as we are going to continue to add lines to the check_localized_strings.js file. thoughts on this?",
+      "range": {
+        "startLine": 142,
+        "startChar": 135,
+        "endLine": 142,
+        "endChar": 216
+      },
+      "revId": "b2d509ab27a642436e1ea874cf990a5d0ba47ec6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
