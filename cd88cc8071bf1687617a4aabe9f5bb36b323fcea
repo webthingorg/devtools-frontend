@@ -16,6 +16,24 @@
       "message": "I think the __lastValidEnumPosition should be 42.",
       "revId": "cd88cc8071bf1687617a4aabe9f5bb36b323fcea",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f86afa5b_26ceab7a",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2020-12-09T23:06:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4e3ff40_47020f46",
+      "revId": "cd88cc8071bf1687617a4aabe9f5bb36b323fcea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
