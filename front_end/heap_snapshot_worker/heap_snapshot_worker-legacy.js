@@ -4,6 +4,8 @@
 
 // @ts-nocheck
 
+import './heap_snapshot_worker-entrypoint.js';
+
 import * as HeapSnapshotWorkerModule from './heap_snapshot_worker.js';
 
 self.HeapSnapshotWorker = self.HeapSnapshotWorker || {};
