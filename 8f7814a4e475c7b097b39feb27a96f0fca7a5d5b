@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ccddd9f_5b395572",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-09T11:14:02Z",
+      "side": 1,
+      "message": "LGTM - worth checking SVGs as the other comment pointed out.",
+      "revId": "8f7814a4e475c7b097b39feb27a96f0fca7a5d5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5f6f1d53_95a50141",
@@ -139,6 +156,24 @@
       "writtenOn": "2020-12-07T15:13:05Z",
       "side": 1,
       "message": "If you get this._url, the result here is not as expected.",
+      "revId": "8f7814a4e475c7b097b39feb27a96f0fca7a5d5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3a01d95_7aaa5807",
+        "filename": "front_end/source_frame/ImageView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-09T11:14:02Z",
+      "side": 1,
+      "message": "@Andres will this work even if we\u0027ve shown an image \u003e1MB?",
+      "parentUuid": "8ef2f0b7_447362bd",
       "revId": "8f7814a4e475c7b097b39feb27a96f0fca7a5d5b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
