@@ -4,6 +4,12 @@
 
 import("../../scripts/build/ninja/devtools_entrypoint.gni")
 
+devtools_module("node_debugger") {
+  sources = [ "ModuleUIStrings.js" ]
+
+  deps = [ "../i18n:bundle" ]
+}
+
 devtools_entrypoint("bundle") {
   entrypoint = "node_debugger.js"
 
