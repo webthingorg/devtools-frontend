@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "583dca75_e0794b41",
+        "filename": "front_end/components/ImagePreview.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-12-09T11:19:27Z",
+      "side": 1,
+      "message": "Yes, let us do it in the next CL. But I don’t necessarily have time.",
+      "parentUuid": "e1b18a51_39aa689f",
+      "revId": "59d34a64019facdf059b25a68172039253e9cec9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5640eba6_914b4908",
         "filename": "front_end/components/ImagePreview.js",
         "patchSetId": 8
