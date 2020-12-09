@@ -1557,7 +1557,7 @@ export class DebuggerPlugin extends Plugin {
       const handle = this._textEditor.textEditorPositionHandle(editorLocation.lineNumber, editorLocation.columnNumber);
       decoration = new BreakpointDecoration(
           this._textEditor, handle, breakpoint.condition(), breakpoint.enabled(),
-          breakpoint.bound() || !breakpoint.hasBoundScript(), breakpoint);
+          breakpoint.isInstalled() && (breakpoint.bound() || !breakpoint.hasBoundScript()), breakpoint);
       decoration.element.addEventListener('click', this._inlineBreakpointClick.bind(this, decoration), true);
       decoration.element.addEventListener(
           'contextmenu', this._inlineBreakpointContextMenu.bind(this, decoration), true);

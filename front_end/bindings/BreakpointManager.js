@@ -535,6 +535,18 @@ export class Breakpoint {
   /**
    * @return {boolean}
    */
+  isInstalled() {
+    for (const modelBreakpoint of this._modelBreakpoints.values()) {
+      if (modelBreakpoint.hasLocation()) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  /**
+   * @return {boolean}
+   */
   bound() {
     return this._uiLocations.size !== 0;
   }
@@ -939,6 +951,12 @@ export class ModelBreakpoint {
         location, this._locationUpdated.bind(this), this._liveLocations);
     return true;
   }
+
+
+  hasLocation() {
+    return this._liveLocations._locations.size > 0;
+  }
+
 
   _cleanUpAfterDebuggerIsGone() {
     if (this._isUpdating) {
