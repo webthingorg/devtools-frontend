@@ -123,6 +123,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aab926dd_1b0d8a9c",
+        "filename": "BUILD.gn",
+        "patchSetId": 9
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-12-09T22:29:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "06787524_7254664d",
+      "range": {
+        "startLine": 232,
+        "startChar": 10,
+        "endLine": 232,
+        "endChar": 41
+      },
+      "revId": "14f650a09ff85e63ffcf0fb8e4b3abcd194ae3f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f9ec09e9_35f8d3af",
@@ -183,6 +207,30 @@
       "writtenOn": "2020-12-09T07:30:04Z",
       "side": 1,
       "message": "Do we need to format this ourselves? The old string used \"%.1f\".",
+      "range": {
+        "startLine": 349,
+        "startChar": 45,
+        "endLine": 349,
+        "endChar": 68
+      },
+      "revId": "14f650a09ff85e63ffcf0fb8e4b3abcd194ae3f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d974c9d3_4e7a8e7e",
+        "filename": "front_end/mobile_throttling/ThrottlingSettingsTab.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-12-09T22:29:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "025ccfa7_76a00e8d",
       "range": {
         "startLine": 349,
         "startChar": 45,
