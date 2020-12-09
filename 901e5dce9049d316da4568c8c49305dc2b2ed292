@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e668f9b7_cdaf8a6f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-09T15:32:25Z",
+      "side": 1,
+      "message": "Considering the lack of existing unittest for the class and that is a very interactive feature I think that it can get quite tricky to properly unittest it and it would require a new CL. So for the moment I would rely on the E2E tests.\n\nAbout the other CL, I have change the dependencies so that now this one can be merged independently.",
+      "parentUuid": "ce3f75ec_b53bd0fc",
+      "revId": "901e5dce9049d316da4568c8c49305dc2b2ed292",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f927118c_78dd169b",
@@ -31,6 +49,30 @@
       "writtenOn": "2020-12-08T12:51:42Z",
       "side": 1,
       "message": "Let\u0027s move the logic that determines whether to show the errors or issues to the messageBucket class.",
+      "range": {
+        "startLine": 576,
+        "startChar": 9,
+        "endLine": 579,
+        "endChar": 102
+      },
+      "revId": "901e5dce9049d316da4568c8c49305dc2b2ed292",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c56d42f2_300d3362",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-09T15:32:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f927118c_78dd169b",
       "range": {
         "startLine": 576,
         "startChar": 9,
