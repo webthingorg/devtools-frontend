@@ -24,9 +24,5 @@ export const UIStrings = {
   *@description Text in Settings Screen of the Settings
   */
   experiments: 'Experiments',
-  /**
-  *@description Title of Blackboxing settings
-  */
-  blackboxing: 'Blackboxing',
 };
 i18n.i18n.registerUIStrings('settings/ModuleUIStrings.js', UIStrings);
