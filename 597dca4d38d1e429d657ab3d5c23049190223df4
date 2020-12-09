@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "40c3c4c1_f8b9284e",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1484,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-12-09T19:41:14Z",
+      "side": 1,
+      "message": "I\u0027m hesitant to update these, as the rest of the params don\u0027t currently use them, and now that we have TS, the autocomplete support is quite good. I was able to see the param name when editing. But, I\u0027m not sure if this means we are moving away from inline comments on params.  I\u0027m happy to add these in if there is a strong preference for them still.",
+      "parentUuid": "3dc51980_d346c407",
+      "revId": "597dca4d38d1e429d657ab3d5c23049190223df4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "63d1e151_b72e3448",
         "filename": "front_end/protocol_monitor/ProtocolMonitor.js",
         "patchSetId": 3
@@ -65,6 +83,24 @@
       "writtenOn": "2020-12-09T18:49:12Z",
       "side": 1,
       "message": "Nit: Name this true parameter in comments",
+      "revId": "597dca4d38d1e429d657ab3d5c23049190223df4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f685b0c_f8b29205",
+        "filename": "front_end/protocol_monitor/ProtocolMonitor.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-12-09T19:41:14Z",
+      "side": 1,
+      "message": "See other comment",
+      "parentUuid": "63d1e151_b72e3448",
       "revId": "597dca4d38d1e429d657ab3d5c23049190223df4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -86,6 +122,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "61639b1a_d3eff809",
+        "filename": "front_end/ui/FilterBar.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-12-09T19:41:14Z",
+      "side": 1,
+      "message": "See other comment",
+      "parentUuid": "b09eda4f_7c1c64b7",
+      "revId": "597dca4d38d1e429d657ab3d5c23049190223df4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eb79b235_d36675eb",
@@ -99,6 +153,24 @@
       "writtenOn": "2020-12-09T18:49:12Z",
       "side": 1,
       "message": "I wouldn\u0027t know what this parameter meant by its name (in other words, given its name, from a call site, I wouldn\u0027t know what it meant).",
+      "revId": "597dca4d38d1e429d657ab3d5c23049190223df4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad73595d_9074e559",
+        "filename": "front_end/ui/Toolbar.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-12-09T19:41:14Z",
+      "side": 1,
+      "message": "Good point. updated to \u0027usesSuggestionBuilder\u0027. Let me know if that makes more sense",
+      "parentUuid": "eb79b235_d36675eb",
       "revId": "597dca4d38d1e429d657ab3d5c23049190223df4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
