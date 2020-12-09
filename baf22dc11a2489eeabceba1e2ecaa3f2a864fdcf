@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0788502_a81ddd1d",
+        "filename": "front_end/browser_sdk/SourceFrameIssuesManager.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-09T15:37:54Z",
+      "side": 1,
+      "message": "Currently sources() does not behave as expected and since we are only working with CSP issues we can rely on details() until sources() gets fixed.",
+      "parentUuid": "ed796eff_12500194",
+      "range": {
+        "startLine": 34,
+        "startChar": 3,
+        "endLine": 37,
+        "endChar": 5
+      },
+      "revId": "baf22dc11a2489eeabceba1e2ecaa3f2a864fdcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c39bf1be_4bfbb765",
@@ -54,6 +78,30 @@
       "writtenOn": "2020-12-08T12:56:57Z",
       "side": 1,
       "message": "What if the source location is in the HTML portion of an HTML file? Or a CSS file?",
+      "range": {
+        "startLine": 40,
+        "startChar": 8,
+        "endLine": 40,
+        "endChar": 20
+      },
+      "revId": "baf22dc11a2489eeabceba1e2ecaa3f2a864fdcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c269e064_f690b80c",
+        "filename": "front_end/browser_sdk/SourceFrameIssuesManager.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-09T15:37:54Z",
+      "side": 1,
+      "message": "Most of the tests that I run are on JS embedded inside HTML and it worked fine, nonetheless we can add custom tests for more tricky situations like JS code inside an `onclick\u003d\"\"`",
+      "parentUuid": "c39bf1be_4bfbb765",
       "range": {
         "startLine": 40,
         "startChar": 8,

@@ -22,6 +22,30 @@
       },
       "revId": "19b1f43288c7eebfa15215d9da68f694c1dba2ea",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48a7636f_2856419a",
+        "filename": "front_end/browser_sdk/SourceFrameIssuesManager.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-09T15:37:54Z",
+      "side": 1,
+      "message": "Thanks for the suggestion, I was not aware of this Typescript feature, very useful!",
+      "parentUuid": "2a0060cb_dc2e9e60",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 3
+      },
+      "revId": "19b1f43288c7eebfa15215d9da68f694c1dba2ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
