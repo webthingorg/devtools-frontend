@@ -68,15 +68,19 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
     this._loadCompletions;
     /** @type {string} */
     this._completionStopCharacters;
+    /** @type {boolean} */
+    this.dynamicCompletions;
   }
 
   /**
    * @param {function(this:null, string, string, boolean=):!Promise<!Suggestions>} completions
    * @param {string=} stopCharacters
+   * @param {boolean=} dynamicCompletions
    */
-  initialize(completions, stopCharacters) {
+  initialize(completions, stopCharacters, dynamicCompletions) {
     this._loadCompletions = completions;
     this._completionStopCharacters = stopCharacters || ' =:[({;,!+-*/&|^<>.';
+    this._dynamicCompletions = dynamicCompletions || false;
   }
 
   /**
@@ -481,7 +485,8 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
     if (!result) {
       result = this._acceptSuggestionInternal();
     }
-    if (result) {
+    if (this._dynamicCompletions && result) {
+      // Trigger autocompletions for text prompts using suggestion builders
       this.autoCompleteSoon();
     }
     return result;
@@ -777,6 +782,10 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper {
     }
 
     return true;
+  }
+
+  _isSemiColonAtEndOfPrompt() {
+    return this.text().endsWith(':');
   }
 
   moveCaretToEndOfPrompt() {
