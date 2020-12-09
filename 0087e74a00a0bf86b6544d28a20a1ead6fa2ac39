@@ -16,6 +16,24 @@
       "message": "Changhao, PTAL\n\nPaul, how would you suggest we test this?\n\nMarking as -1 for now since it’s blocked on the upstream CL + ideally (but not necessarily) a DEPS roll into DevTools.",
       "revId": "0087e74a00a0bf86b6544d28a20a1ead6fa2ac39",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79bf39cd_d7ce704b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-12-09T14:15:41Z",
+      "side": 1,
+      "message": "I would suggest e2e for this one.",
+      "parentUuid": "2a3aca6e_2ba7eba5",
+      "revId": "0087e74a00a0bf86b6544d28a20a1ead6fa2ac39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
