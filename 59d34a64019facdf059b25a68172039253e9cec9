@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e1b18a51_39aa689f",
+        "filename": "front_end/components/ImagePreview.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-12-09T10:05:59Z",
+      "side": 1,
+      "message": "After a more careful look, I think we _can_ convert it to TS+LitHTML. It\u0027s just the effort might be big and it would be better in a separate CL. Could you file an issue for converting the UI-building logic in imagePreview.js to TS+LitHTML and add a TODO here? We can then do this in a follow-up.",
+      "parentUuid": "4f87524a_a774f1d7",
+      "revId": "59d34a64019facdf059b25a68172039253e9cec9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5640eba6_914b4908",
         "filename": "front_end/components/ImagePreview.js",
         "patchSetId": 8
