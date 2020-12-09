@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14601c48_ffadfe29",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-09T10:23:57Z",
+      "side": 1,
+      "message": "Can RowMessageBucket have a dedicated on click handler on this._issueIcon that does this lookup? Then we wouldn\u0027t have to change the event handler.",
+      "range": {
+        "startLine": 965,
+        "startChar": 6,
+        "endLine": 969,
+        "endChar": 7
+      },
+      "revId": "a099b4d1f7d1ed8e65e584280f2a121c99ba2579",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
