@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b03de136_fd31d64c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-09T07:20:43Z",
+      "side": 1,
+      "message": "Thanks for improving our Markdown support! Adding our resident component expert to take a second look. Could you also add unit tests for this component? Ideally one with a link present in the the map and one where the link key is missing. You can add them to the existing MarkdownView_test.ts or even introduce a new file to test the MarkdownLink component in isolation.\n\nJack: Can you also take a look? I don\u0027t know what the current state of our component library is and whether we need to (or should) re-use a general \"devtools link\" component.",
+      "revId": "3558575f9063ec8eadd4fe33d60cfc2badb1ab3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e90b6145_bba17d69",
+        "filename": "front_end/issues/BUILD.gn",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-09T07:20:43Z",
+      "side": 1,
+      "message": "nit: We don\u0027t have file names that start with lower-case. \"MarkdownLinks.ts\" is fine IMO.",
+      "range": {
+        "startLine": 20,
+        "startChar": 5,
+        "endLine": 20,
+        "endChar": 18
+      },
+      "revId": "3558575f9063ec8eadd4fe33d60cfc2badb1ab3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d58a15d_0a5ead1c",
+        "filename": "front_end/issues/MarkdownLink.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-09T07:20:43Z",
+      "side": 1,
+      "message": "The if is not needed here as the function throws an error if the \u0027key\u0027 is not found. See the other comment on how to make TS happy here.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 23
+      },
+      "revId": "3558575f9063ec8eadd4fe33d60cfc2badb1ab3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29929869_835a851b",
+        "filename": "front_end/issues/MarkdownView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-09T07:20:43Z",
+      "side": 1,
+      "message": "This is kind-of an anit-pattern in lit-html. Since markdown is a registered custom element, its preferred to render it this way:\n\n token \u003d\u003e html`\n   \u003cdevtools-markdown-link .data\u003d${{key: token.href, title: token.text} as MarkdownLinkData}\u003e\n   \u003c/devtools-markdown-link\u003e\n `;",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 6
+      },
+      "revId": "3558575f9063ec8eadd4fe33d60cfc2badb1ab3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a94a4471_c82270b6",
+        "filename": "front_end/issues/markdownLinks.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-09T07:20:43Z",
+      "side": 1,
+      "message": "Jack: To unit test the component we have to expose the \"link registry\" for unit tests to modify. Should we simply export this field with a comment to use the helper in production code? We can also introduce additional test helpers.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 3
+      },
+      "revId": "3558575f9063ec8eadd4fe33d60cfc2badb1ab3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9e9cd14_906b23d1",
+        "filename": "front_end/issues/markdownLinks.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-09T07:20:43Z",
+      "side": 1,
+      "message": "If you re-write this as:\n\n const link \u003d markdownLinks.get(key);\n if (!link) {\n   throw new Error(...);\n }\n return link;\n\nThen TS can infer that this method is guaranteed to return a non-null string and you can get rid of the if in the component",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 101
+      },
+      "revId": "3558575f9063ec8eadd4fe33d60cfc2badb1ab3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
