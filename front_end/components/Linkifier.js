@@ -204,6 +204,7 @@ export class Linkifier {
    * @return {?HTMLElement}
    */
   maybeLinkifyScriptLocation(target, scriptId, sourceURL, lineNumber, options) {
+    /** @type {HTMLElement?} */
     let fallbackAnchor = null;
     const linkifyURLOptions = {
       lineNumber,
@@ -218,6 +219,22 @@ export class Linkifier {
     const {columnNumber = 0, className = ''} = linkifyURLOptions;
     if (sourceURL) {
       fallbackAnchor = Linkifier.linkifyURL(sourceURL, linkifyURLOptions);
+    } else {
+      fallbackAnchor = Linkifier.linkifyURL('', linkifyURLOptions);
+      if (target) {
+        const runtimeModel = target.model(SDK.RuntimeModel.RuntimeModel);
+        if (runtimeModel && scriptId) {
+          /**
+           * @param {string} url
+           */
+          const callback = url => {
+            if (fallbackAnchor) {
+              fallbackAnchor = Linkifier.linkifyURL(url, linkifyURLOptions);
+            }
+          };
+          Bindings.SourceURLResolver.SourceURLResolver.instance().registerItem(runtimeModel, scriptId, callback);
+        }
+      }
     }
     if (!target || target.isDisposed()) {
       return fallbackAnchor;

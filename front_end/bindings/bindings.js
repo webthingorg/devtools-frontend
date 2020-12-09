@@ -18,6 +18,7 @@ import * as ResourceMapping from './ResourceMapping.js';
 import * as ResourceScriptMapping from './ResourceScriptMapping.js';
 import * as ResourceUtils from './ResourceUtils.js';
 import * as SASSSourceMapping from './SASSSourceMapping.js';
+import * as SourceURLResolver from './SourceURLResolver.js';
 import * as StylesSourceMapping from './StylesSourceMapping.js';
 import * as TempFile from './TempFile.js';
 
@@ -38,6 +39,7 @@ export {
   ResourceScriptMapping,
   ResourceUtils,
   SASSSourceMapping,
+  SourceURLResolver,
   StylesSourceMapping,
   TempFile,
 };

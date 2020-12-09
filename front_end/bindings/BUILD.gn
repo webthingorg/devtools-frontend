@@ -23,6 +23,7 @@ devtools_module("bindings") {
     "ResourceScriptMapping.js",
     "ResourceUtils.js",
     "SASSSourceMapping.js",
+    "SourceURLResolver.ts",
     "StylesSourceMapping.js",
     "TempFile.js",
   ]

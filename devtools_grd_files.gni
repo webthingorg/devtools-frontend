@@ -423,6 +423,7 @@ grd_files_debug_sources = [
   "front_end/bindings/ResourceScriptMapping.js",
   "front_end/bindings/ResourceUtils.js",
   "front_end/bindings/SASSSourceMapping.js",
+  "front_end/bindings/SourceURLResolver.js",
   "front_end/bindings/StylesSourceMapping.js",
   "front_end/bindings/TempFile.js",
   "front_end/browser_debugger/CSPViolationBreakpointsSidebarPane.js",

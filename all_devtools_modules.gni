@@ -37,6 +37,7 @@ all_typescript_module_sources = [
   "bindings/ResourceScriptMapping.js",
   "bindings/ResourceUtils.js",
   "bindings/SASSSourceMapping.js",
+  "bindings/SourceURLResolver.js",
   "bindings/StylesSourceMapping.js",
   "bindings/TempFile.js",
   "browser_debugger/CSPViolationBreakpointsSidebarPane.js",
