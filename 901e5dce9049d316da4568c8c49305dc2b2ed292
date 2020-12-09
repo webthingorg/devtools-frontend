@@ -64,6 +64,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8eddfcbf_96f01878",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 832,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-09T08:51:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b08a2f1_8ed66c86",
+      "range": {
+        "startLine": 832,
+        "startChar": 2,
+        "endLine": 832,
+        "endChar": 26
+      },
+      "revId": "901e5dce9049d316da4568c8c49305dc2b2ed292",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3bea34d3_aee38bd5",
@@ -87,6 +111,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "11a5ad44_a311691d",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-09T08:51:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3bea34d3_aee38bd5",
+      "range": {
+        "startLine": 836,
+        "startChar": 4,
+        "endLine": 837,
+        "endChar": 95
+      },
+      "revId": "901e5dce9049d316da4568c8c49305dc2b2ed292",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b17cee3f_fb41049c",
@@ -100,6 +148,30 @@
       "writtenOn": "2020-12-08T12:51:42Z",
       "side": 1,
       "message": "nit: for (const message of this._messages.filter(...))",
+      "range": {
+        "startLine": 851,
+        "startChar": 4,
+        "endLine": 852,
+        "endChar": 95
+      },
+      "revId": "901e5dce9049d316da4568c8c49305dc2b2ed292",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "817e47ca_656de5dd",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 852,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-09T08:51:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b17cee3f_fb41049c",
       "range": {
         "startLine": 851,
         "startChar": 4,
