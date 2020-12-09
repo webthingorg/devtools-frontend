@@ -16,6 +16,23 @@
       "message": "Small change adding .ts to collect-strings, PTAL 😊",
       "revId": "31a15cc4712e2475395795c9d5c929502b15c005",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "427744b6_9cdaa1ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-09T07:01:43Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "31a15cc4712e2475395795c9d5c929502b15c005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
