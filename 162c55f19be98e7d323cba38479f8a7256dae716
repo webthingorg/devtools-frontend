@@ -16,6 +16,23 @@
       "message": "Migrate input folder. PTAL, thank you!",
       "revId": "162c55f19be98e7d323cba38479f8a7256dae716",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2cd59a1_4d194c83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-09T07:03:06Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "162c55f19be98e7d323cba38479f8a7256dae716",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
