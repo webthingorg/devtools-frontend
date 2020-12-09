@@ -16,6 +16,23 @@
       "message": "Dominic, I’ve responded to your comments and clarified the CL description accordingly. Could you please take another look?",
       "revId": "2397f3da5679f6f7cd0feaad8fab874478ec638b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "801a60af_2f1adf72",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000678
+      },
+      "writtenOn": "2020-12-09T18:32:21Z",
+      "side": 1,
+      "message": "OK, agreed, let\u0027s land this. I\u0027ll follow up on #1 because\nthat seems useful too.\n",
+      "revId": "2397f3da5679f6f7cd0feaad8fab874478ec638b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
