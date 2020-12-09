@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa3f8e6b_abb647ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-09T08:57:50Z",
+      "side": 1,
+      "message": "lgtm % a question for sigurd",
+      "revId": "8ca4d1346429bcc36dfe6e1e6b1161cee208b1fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "520c3f60_adb02e8f",
+        "filename": "front_end/sdk/Issue.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-09T08:57:50Z",
+      "side": 1,
+      "message": "Sigurd: Should we WeakRef the model and deref in the getter? Or is it ok to keep the models alive until issues are cleaned up?",
+      "range": {
+        "startLine": 81,
+        "startChar": 4,
+        "endLine": 81,
+        "endChar": 21
+      },
+      "revId": "8ca4d1346429bcc36dfe6e1e6b1161cee208b1fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
