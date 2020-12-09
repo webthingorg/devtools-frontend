@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51d920db_5dba7b71",
+        "filename": "front_end/settings/ModuleUIStrings.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-12-09T15:40:09Z",
+      "side": 0,
+      "message": "Don\u0027t we still need a value here?",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 29
+      },
+      "revId": "406bc3320344d329f2741806da49ed1bd82a10a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
