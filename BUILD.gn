@@ -228,6 +228,8 @@ group("devtools_all_files") {
     # This enables us to test bots with whitespace changes.
     "scripts/whitespaces.txt",
   ]
+
+  data += generated_devtools_locale_files
   data_deps = devtools_frontend_resources_deps
 }
 
