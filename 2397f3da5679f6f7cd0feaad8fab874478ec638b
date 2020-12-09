@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bc670c1_3411251f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-09T10:12:48Z",
+      "side": 1,
+      "message": "Dominic, I’ve responded to your comments and clarified the CL description accordingly. Could you please take another look?",
+      "revId": "2397f3da5679f6f7cd0feaad8fab874478ec638b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
