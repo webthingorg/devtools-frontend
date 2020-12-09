@@ -143,7 +143,10 @@ export class ImageView extends UI.View.SimpleView {
 
     contextMenu.clipboardSection().appendItem(
         Common.UIString.UIString('Open image in new tab'), this._openInNewTab.bind(this));
-    contextMenu.clipboardSection().appendItem(Common.UIString.UIString('Save…'), this._saveImage.bind(this));
+    contextMenu.clipboardSection().appendItem(ls`Save image as…`, async () => {
+      await this._saveImage();
+    });
+
     contextMenu.show();
   }
 
@@ -155,11 +158,62 @@ export class ImageView extends UI.View.SimpleView {
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(this._url);
   }
 
-  _saveImage() {
-    const link = document.createElement('a');
-    link.download = this._parsedURL.displayName;
-    link.href = this._url;
-    link.click();
+
+  /**
+   * @param {string} mimeType
+   */
+  async _imageToBlob(mimeType) {
+    return new Promise(resolve => {
+      const img = new Image();
+      img.crossOrigin = '';
+      img.src = this._url;
+
+      img.onload = function() {
+        /** @type {!HTMLCanvasElement} */
+        const canvas = document.createElement('canvas');
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        const ctx = (canvas.getContext('2d'));
+        if (!ctx) {
+          throw new Error('Could not get 2d context from canvas.');
+        }
+
+        ctx.drawImage(img, 0, 0);
+
+        canvas.toBlob(blob => {
+          resolve(blob);
+        }, mimeType);
+      };
+    });
+  }
+
+  async _saveImage() {
+    const mimeType = this._mimeType;
+    const blob = await this._imageToBlob(mimeType);
+    const lastPath = this._parsedURL.lastPathComponent;
+    let extension = lastPath.slice((lastPath.lastIndexOf('.') - 1 >>> 0) + 2) || mimeType.split('/')[1];
+    extension = '.' + extension;
+
+    try {
+      // @ts-ignore
+      const handle = await window.showSaveFilePicker({
+        types: [
+          {
+            accept: {
+              // TODO: https://bugs.chromium.org/p/chromium/issues/detail?id=1103133
+              // TODO: Custom file name https://github.com/WICG/file-system-access/issues/80
+              [mimeType]: [extension],
+            },
+          },
+        ],
+      });
+      const writable = await handle.createWritable();
+      await writable.write(blob);
+      await writable.close();
+      return handle;
+    } catch (err) {
+      console.error(err.name, err.message);
+    }
   }
 
   _openInNewTab() {
