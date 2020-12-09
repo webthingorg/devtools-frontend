@@ -59,6 +59,11 @@ describeWithEnvironment('MarkdownView', async () => {
       assert.deepStrictEqual(renderedParts[1].values, ['and a nested codespan to boot']);
     });
 
+    it('renders links tokens', () => {
+      const renderResult = Issues.MarkdownView.renderToken({type: 'link', text: 'Learn more', href: 'exampleLink'});
+      assert.deepStrictEqual(renderResult.strings.raw, ['<a>', '</a>']);
+    });
+
     it('throws an error for invalid or unsupported token types', () => {
       assert.throws(() => Issues.MarkdownView.renderToken({type: 'no_way_this_is_a_valid_markdown_token'}));
     });
