@@ -16,6 +16,23 @@
       "message": "In patchset1 of this CL,\nI modified the browser protocol type MouseWheel to Wheel.\nBut in content/browser/devtools, didn\u0027t want to modify the protocol.\n(https://chromium-review.googlesource.com/c/chromium/src/+/2551863)\n\nSo, I uploaded the patchset2 again, which changed only the event type.\nWhat is your opinion?\nIs this enough to modify only the event type?? 😊",
       "revId": "86bf1041f5286f26141548ff6d4cb7aadbbb3a2f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9f5feb6_953a2b17",
+        "filename": "front_end/screencast/InputModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-12-09T12:53:16Z",
+      "side": 1,
+      "message": "Out of interest is deltaY the equivalent of -wheelDeltaY?",
+      "revId": "86bf1041f5286f26141548ff6d4cb7aadbbb3a2f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
