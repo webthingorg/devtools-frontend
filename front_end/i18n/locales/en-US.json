@@ -1058,6 +1058,9 @@
   "media/PlayerPropertiesView.js | videoPlaybackRoughness": {
     "message": "Video playback roughness"
   },
+  "node_debugger/ModuleUIStrings.js | node": {
+    "message": "Node"
+  },
   "performance_monitor/ModuleUIStrings.js | activity": {
     "message": "activity"
   },
