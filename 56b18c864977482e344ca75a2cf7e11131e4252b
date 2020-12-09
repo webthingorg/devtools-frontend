@@ -16,6 +16,24 @@
       "message": "I need to understand a little more here. Why don\u0027t we have a devices-legacy that does the same thing as the other legacy files?",
       "revId": "56b18c864977482e344ca75a2cf7e11131e4252b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cd4b13a_b277e5a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-09T10:06:49Z",
+      "side": 1,
+      "message": "This folder contains code for the deprecated panel. The panel doesn\u0027t have all the infrastructure that other folders have. Since we are planning on throwing this code soon, I opted for the simplest fix to display the deprecation message again.",
+      "parentUuid": "6615df60_5b48b0f4",
+      "revId": "56b18c864977482e344ca75a2cf7e11131e4252b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
