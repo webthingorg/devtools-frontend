@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99fbe4f2_3d3a4c37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-12-09T06:39:15Z",
+      "side": 1,
+      "message": "Hey Simon, \n\nThis became an interesting CL, there are some changes required because of the way we are deferring execution. I left some comments there is one related to some changes needed on chromium.src to fix the webtests. PTAL (Easier to review if you diff HEAD and patcheset 8)\n\nI\u0027m still figuring out the presubmit error as it is passing locally 😞, but we can start syncing on the process to checkin both CLs. Please let me know if you have any questions.",
+      "revId": "14f650a09ff85e63ffcf0fb8e4b3abcd194ae3f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55ff4000_fa185cfd",
+        "filename": "BUILD.gn",
+        "patchSetId": 9
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-12-09T06:39:15Z",
+      "side": 1,
+      "message": "The en-US.json needs to be included in the tests so that strings can be retrieved.",
+      "range": {
+        "startLine": 232,
+        "startChar": 10,
+        "endLine": 232,
+        "endChar": 41
+      },
+      "revId": "14f650a09ff85e63ffcf0fb8e4b3abcd194ae3f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9ec09e9_35f8d3af",
+        "filename": "front_end/mobile_throttling/MobileThrottlingSelector.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-12-09T06:39:15Z",
+      "side": 1,
+      "message": "This was an interesting one. Because we defer the execution to solve the \"early-modules\", indexOf was not working anymore as the returned object is not the same object that was populated in the options variable. So we need to compare the properties instead of comparing the object reference. A similar pattern can be seen above (line: 66)",
+      "range": {
+        "startLine": 76,
+        "startChar": 3,
+        "endLine": 76,
+        "endChar": 69
+      },
+      "revId": "14f650a09ff85e63ffcf0fb8e4b3abcd194ae3f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c59e78e3_2d6d0d79",
+        "filename": "front_end/mobile_throttling/mobile_throttling-legacy.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-12-09T06:39:15Z",
+      "side": 1,
+      "message": "We expose the getter to defer execution. This requires changes on the web_tests:\n2580134: [Loc] Changing mobile throttling settings webtest to match frontend | https://chromium-review.googlesource.com/c/chromium/src/+/2580134\n\nHow should I do this, I proposed on the CL to fix and disable the test, then checkin this one, then reenable the test, but I\u0027m open to any suggestion.",
+      "range": {
+        "startLine": 35,
+        "startChar": 45,
+        "endLine": 35,
+        "endChar": 88
+      },
+      "revId": "14f650a09ff85e63ffcf0fb8e4b3abcd194ae3f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

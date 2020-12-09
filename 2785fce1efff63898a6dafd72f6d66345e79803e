@@ -50,6 +50,24 @@
       "message": "Sorry, was OOO for Friday and Monday.\n\nlgtm, although this CL seems to break the mobile throttling web test. Is there a fix in-flight or does it need to be rebased?",
       "revId": "2785fce1efff63898a6dafd72f6d66345e79803e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6197275f_dfe6faee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2020-12-09T06:39:15Z",
+      "side": 1,
+      "message": "This was actually catching an error, I added more information on the latest changes and on the lastest iteration message.",
+      "parentUuid": "5ac93b4f_636f635c",
+      "revId": "2785fce1efff63898a6dafd72f6d66345e79803e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
