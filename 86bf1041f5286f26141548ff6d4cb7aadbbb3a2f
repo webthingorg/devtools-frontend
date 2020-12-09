@@ -33,6 +33,24 @@
       "message": "Out of interest is deltaY the equivalent of -wheelDeltaY?",
       "revId": "86bf1041f5286f26141548ff6d4cb7aadbbb3a2f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9065507d_e06678bd",
+        "filename": "front_end/screencast/InputModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1227574
+      },
+      "writtenOn": "2020-12-09T14:32:23Z",
+      "side": 1,
+      "message": "The Y position of MouseWheelEvent and WheelEvent work opposite each other.\nFor example, MouseWheelEvent is +120 per tick, but WheelEvent is -53 per tick(only Y, not X).",
+      "parentUuid": "d9f5feb6_953a2b17",
+      "revId": "86bf1041f5286f26141548ff6d4cb7aadbbb3a2f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
