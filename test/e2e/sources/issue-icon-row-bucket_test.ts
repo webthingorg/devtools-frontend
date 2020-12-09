@@ -51,4 +51,31 @@ describe('Display issues information next to affected lines', async () => {
       assert.strictEqual(imageFile, 'breaking_change_icon.svg');
     }
   });
+  it('Issues icon should reveal Issues Tab', async () => {
+    const issueIconComponents = await waitForFunction(async () => {
+      const icons = await $$('devtools-icon.text-editor-line-decoration-icon-issue');
+      return icons.length === 1 ? icons : undefined;
+    });
+    const issueIconComponent = issueIconComponents[0];
+    await click(issueIconComponent);
+
+    const vbox = await waitFor('div.vbox.flex-auto.no-pointer-events');  // await waitFor('.vbox');
+    const rowMessage = await waitFor('.text-editor-row-message', vbox);
+    const issueTitle = await rowMessage.evaluate(x => (x instanceof HTMLElement) ? x.innerText : '');
+    const issueIcon = await waitFor('.text-editor-row-message-icon', rowMessage);
+    issueIcon.click();
+
+    const expandedIssues = new Set();
+    await waitFor('.issue');
+    const issues = await $$('.issue');
+    for (const issue of issues) {
+      const expanded = await issue.evaluate(x => x.classList.contains('expanded'));
+      if (expanded) {
+        const titleHandler = await waitFor('.title', issue);
+        const title = await titleHandler.evaluate(x => (x instanceof HTMLElement) ? x.innerText : '');
+        expandedIssues.add(title);
+      }
+    }
+    assert.isTrue(expandedIssues.has(issueTitle));
+  });
 });
