@@ -3,9 +3,11 @@
 // found in the LICENSE file.
 
 import * as Common from '../common/common.js';
+import * as Host from '../host/host.js';
 import * as Platform from '../platform/platform.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
+
 
 /** @typedef {{
  * renderedWidth: number,
@@ -41,6 +43,14 @@ export class ImagePreview {
       return Promise.resolve(/** @type {?Element} */ (null));
     }
 
+    const displayName = resource.displayName;
+
+    // Open DevTools for the first time, base64 resource has no content.
+    const content = resource.content ? resource.content : resource.url.split('base64,')[1];
+    const resourceSize = resource.contentSize() ? Number(resource.contentSize()) : base64ToSize(content);
+    const formatResourceSize = Platform.NumberUtilities.bytesToString(resourceSize);
+    const formatResourceSizeText = resourceSize > 0 ? formatResourceSize : '';
+
     /** @type {function(*):void} */
     let fulfill;
     const promise = new Promise(x => {
@@ -67,27 +77,63 @@ export class ImagePreview {
       const container = document.createElement('table');
       UI.Utils.appendStyle(container, 'components/imagePreview.css', {enableLegacyPatching: false});
       container.className = 'image-preview-container';
+
+
+      const imageRow =
+          /** @type {!HTMLTableDataCellElement} */ (container.createChild('tr').createChild('td', 'image-container'));
+      imageRow.colSpan = 2;
+
+      const link = /** @type {!HTMLLinkElement} */ (imageRow.createChild('div'));
+      link.title = displayName;
+      link.appendChild(imageElement);
+
+      // Open image in new tab.
+      link.addEventListener('click', () => {
+        Host.InspectorFrontendHost.InspectorFrontendHostInstance.openInNewTab(imageURL);
+      });
+
       const intrinsicWidth = imageElement.naturalWidth;
       const intrinsicHeight = imageElement.naturalHeight;
       const renderedWidth = precomputedFeatures ? precomputedFeatures.renderedWidth : intrinsicWidth;
       const renderedHeight = precomputedFeatures ? precomputedFeatures.renderedHeight : intrinsicHeight;
-      let description;
+
+      const renderedTitle = ls`Rendered size:`;
+      const intrinsicTitle = ls`Intrinsic size:`;
+      const fileTitle = ls`File size:`;
+      const renderedRow = container.createChild('tr', 'row');
+
       if (showDimensions) {
         if (renderedHeight !== intrinsicHeight || renderedWidth !== intrinsicWidth) {
-          description =
-              ls`${renderedWidth} × ${renderedHeight} px (intrinsic: ${intrinsicWidth} × ${intrinsicHeight} px)`;
+          renderedRow.createChild('td', 'title').textContent = renderedTitle;
+          renderedRow.createChild('td', 'description').textContent = `${renderedWidth} × ${renderedHeight} px`;
+
+          const intrinsicRow = container.createChild('tr', 'row');
+          intrinsicRow.createChild('td', 'title').textContent = intrinsicTitle;
+          intrinsicRow.createChild('td', 'description').textContent = `${intrinsicWidth} × ${intrinsicHeight} px`;
         } else {
-          description = ls`${renderedWidth} × ${renderedHeight} px`;
+          renderedRow.createChild('td', 'title').textContent = renderedTitle;
+          renderedRow.createChild('td', 'description').textContent = `${renderedWidth} × ${renderedHeight} px`;
         }
       }
 
-      container.createChild('tr').createChild('td', 'image-container').appendChild(imageElement);
-      if (description) {
-        container.createChild('tr').createChild('td').createChild('span', 'description').textContent = description;
-      }
+      // File size
+      const fileRow = container.createChild('tr', 'row');
+      fileRow.createChild('td', 'title').textContent = fileTitle;
+      fileRow.createChild('td', 'description').textContent = `${formatResourceSizeText}`;
+
+
+      // srcset
       if (imageURL !== originalImageURL) {
-        container.createChild('tr').createChild('td').createChild('span', 'description').textContent =
-            Platform.StringUtilities.sprintf('currentSrc: %s', imageURL.trimMiddle(100));
+        const originalTitle = ls`Current source:`;
+        const originalRow = container.createChild('tr', 'row');
+        originalRow.createChild('td', 'title').textContent = originalTitle;
+
+        const sourceURL = imageURL.trimMiddle(100);
+        const link = /** @type {!HTMLLinkElement} */ (
+            originalRow.createChild('td', 'description description-link').createChild('a', 'source-link'));
+        link.href = sourceURL;
+        link.target = '_blank';
+        link.textContent = sourceURL;
       }
       fulfill(container);
     }
