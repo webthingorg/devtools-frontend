@@ -50,6 +50,7 @@ export class IDBDatabaseView extends UI.Widget.VBox {
     /** @type {!Database} */
     this._database;
 
+    // TODO(crbug.com/1156978): Replace UI.ReportView.ReportView with ReportView.ts web component.
     this._reportView = new UI.ReportView.ReportView(databaseName);
     this._reportView.show(this.contentElement);
 
