@@ -46,6 +46,30 @@
       },
       "revId": "6b6f94579d03566d6eea7db2891545cf6270bf11",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "877ef9bf_213613e6",
+        "filename": "front_end/formatter_worker/CSSFormatter.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-09T13:41:40Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "141b8134_94db4187",
+      "range": {
+        "startLine": 92,
+        "startChar": 18,
+        "endLine": 92,
+        "endChar": 25
+      },
+      "revId": "6b6f94579d03566d6eea7db2891545cf6270bf11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
