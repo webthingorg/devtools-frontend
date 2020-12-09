@@ -137,6 +137,23 @@
       "message": "Tim, I think you were just looking at this stuff?",
       "revId": "c7401ea3698af6ef78f72da2d5414fdbc3afd2d5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76d72791_ec5c1fc2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-09T13:45:49Z",
+      "side": 1,
+      "message": "My apologies. I wasn\u0027t aware that somebody else was working on the corresponding bug. Your fix is exactly the same as mine, for which I had a CL sent out: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2578938 I have added you as co-author of that CL, including the addition to AUTHORS. Once again sorry for the confusion.",
+      "revId": "c7401ea3698af6ef78f72da2d5414fdbc3afd2d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
