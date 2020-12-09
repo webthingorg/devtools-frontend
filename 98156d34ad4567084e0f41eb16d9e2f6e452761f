@@ -16,6 +16,40 @@
       "message": "Thanks for fixing this. Please file an issue for this and link it in the description.",
       "revId": "98156d34ad4567084e0f41eb16d9e2f6e452761f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae6a96fc_2415bc33",
+        "filename": "front_end/source_frame/ImageView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-12-09T21:31:41Z",
+      "side": 1,
+      "message": "Could we remove the surrounding `()` here?",
+      "revId": "98156d34ad4567084e0f41eb16d9e2f6e452761f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf217751_fba328af",
+        "filename": "front_end/source_frame/ImageView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-12-09T21:31:41Z",
+      "side": 1,
+      "message": "What TS error is being ignored here?",
+      "revId": "98156d34ad4567084e0f41eb16d9e2f6e452761f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
