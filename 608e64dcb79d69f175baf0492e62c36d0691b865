@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "41e5ded2_09c1513a",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-09T15:38:34Z",
+      "side": 1,
+      "message": "The logic has been redesigned to avoid this.",
+      "parentUuid": "a68ff325_f9f5efde",
+      "range": {
+        "startLine": 967,
+        "startChar": 56,
+        "endLine": 967,
+        "endChar": 78
+      },
+      "revId": "608e64dcb79d69f175baf0492e62c36d0691b865",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "42515c2d_0b3e44ac",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-12-08T13:00:55Z",
       "side": 1,
       "message": "Am I reading this correctly that we only ever link to the first issue if there is a list of issues?",
+      "range": {
+        "startLine": 982,
+        "startChar": 8,
+        "endLine": 982,
+        "endChar": 64
+      },
+      "revId": "608e64dcb79d69f175baf0492e62c36d0691b865",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d4de7c7_9e2f777c",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 982,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-09T15:38:34Z",
+      "side": 1,
+      "message": "Yes, following the design doc we link to the first issue in the bucket. Can be quite useful considering that the popover disappears easily.",
+      "parentUuid": "42515c2d_0b3e44ac",
       "range": {
         "startLine": 982,
         "startChar": 8,
