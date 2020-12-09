@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87c2b4e5_58fb69c8",
+        "filename": "front_end/source_frame/SourceFrame.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-09T16:53:20Z",
+      "side": 1,
+      "message": "for my understanding: why do we pass this through and how does this work? :D",
+      "range": {
+        "startLine": 336,
+        "startChar": 0,
+        "endLine": 336,
+        "endChar": 91
+      },
+      "revId": "b3a2f6a8f58af5a60b3faf7ad8bfa47869528a09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
