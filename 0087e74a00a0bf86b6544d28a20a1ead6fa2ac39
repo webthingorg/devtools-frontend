@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a3aca6e_2ba7eba5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-09T11:48:19Z",
+      "side": 1,
+      "message": "Changhao, PTAL\n\nPaul, how would you suggest we test this?\n\nMarking as -1 for now since it’s blocked on the upstream CL + ideally (but not necessarily) a DEPS roll into DevTools.",
+      "revId": "0087e74a00a0bf86b6544d28a20a1ead6fa2ac39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
