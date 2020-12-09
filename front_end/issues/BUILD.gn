@@ -14,8 +14,10 @@ devtools_module("issues") {
     "IssueRevealer.js",
     "IssueSurveyLink.ts",
     "IssuesPane.js",
+    "MarkdownImage.ts",
     "MarkdownIssueDescription.ts",
     "MarkdownView.ts",
+    "markdownImages.ts",
   ]
 
   deps = [
