@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "230a0c33_a4847ff3",
+        "filename": "scripts/eslint_rules/tests/es_modules_import_test.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-09T14:30:40Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "4b64ab04_b60d4af7",
+      "range": {
+        "startLine": 31,
+        "startChar": 17,
+        "endLine": 31,
+        "endChar": 38
+      },
+      "revId": "34e5f31b2cb0d26d21c47577cc11d328cb0009eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cd9f308e_1aa5d9ca",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-12-09T14:17:30Z",
       "side": 0,
       "message": "Why was this one removed? I would have assumed that this would be a valid case.",
+      "range": {
+        "startLine": 104,
+        "startChar": 6,
+        "endLine": 104,
+        "endChar": 31
+      },
+      "revId": "34e5f31b2cb0d26d21c47577cc11d328cb0009eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9559c5df_767825ff",
+        "filename": "scripts/eslint_rules/tests/es_modules_import_test.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-09T14:30:40Z",
+      "side": 0,
+      "message": "Ah yes - I got a bit eager with the delete key. Reinstated!",
+      "parentUuid": "cd9f308e_1aa5d9ca",
       "range": {
         "startLine": 104,
         "startChar": 6,
