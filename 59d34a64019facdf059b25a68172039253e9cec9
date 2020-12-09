@@ -87,6 +87,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "23b6982d_49ed5a2c",
+        "filename": "front_end/components/ImagePreview.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-12-09T05:30:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac664f46_6bd73d1a",
+      "revId": "59d34a64019facdf059b25a68172039253e9cec9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "89b0c0cc_4cf9283d",
