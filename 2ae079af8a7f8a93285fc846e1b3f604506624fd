@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "333d3c9c_acbe42f4",
+        "filename": "front_end/sdk/Issue.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-09T08:51:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8cc8a135_bbd0360c",
+      "range": {
+        "startLine": 75,
+        "startChar": 13,
+        "endLine": 75,
+        "endChar": 25
+      },
+      "revId": "2ae079af8a7f8a93285fc846e1b3f604506624fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "81a6ed58_0ed54362",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fa3d6fd_f3a62ceb",
+        "filename": "front_end/sdk/Issue.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-09T08:51:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81a6ed58_0ed54362",
+      "range": {
+        "startLine": 161,
+        "startChar": 15,
+        "endLine": 161,
+        "endChar": 27
+      },
+      "revId": "2ae079af8a7f8a93285fc846e1b3f604506624fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c4337196_449bb060",
@@ -77,6 +125,30 @@
       "writtenOn": "2020-12-08T11:54:42Z",
       "side": 1,
       "message": "Please add a comment that the model might be unavailable or belong to a target that has already been disposed.",
+      "range": {
+        "startLine": 162,
+        "startChar": 3,
+        "endLine": 162,
+        "endChar": 5
+      },
+      "revId": "2ae079af8a7f8a93285fc846e1b3f604506624fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0201dd3c_703e1580",
+        "filename": "front_end/sdk/Issue.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-09T08:51:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4337196_449bb060",
       "range": {
         "startLine": 162,
         "startChar": 3,
