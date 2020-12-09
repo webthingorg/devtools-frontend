@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "1a82878c30fd6a03a9af4cb956ed52c718a8e7c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8fe3e7d_09f3b0a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-12-09T12:51:14Z",
+      "side": 1,
+      "message": "LGTM but WDYT about also changing the e2e test that use keydown events to select an element to instead\nuse a different way that involves clicking on them?",
+      "revId": "1a82878c30fd6a03a9af4cb956ed52c718a8e7c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
