@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c1370d7_049545ec",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2020-12-09T21:45:21Z",
+      "side": 1,
+      "message": "nit: Sounds like we\u0027re going to keep building on this CL, so make sure to update the description to include a brief overview of what the components we\u0027re adding are for, as well as the bug number. Just so reviewers have some context for what they\u0027re reviewing.\n\nDepending on the timeline we might also want to link in the design doc if we make good progress on that :)",
+      "revId": "9d14da9d1f3838649aa86644c5b0b96aefe49574",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "6ac85389_39d0913b",
@@ -14,6 +31,40 @@
       "writtenOn": "2020-12-09T05:33:42Z",
       "side": 1,
       "message": "PTAL:)",
+      "revId": "9d14da9d1f3838649aa86644c5b0b96aefe49574",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76c48317_3231bc1f",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2020-12-09T21:45:21Z",
+      "side": 1,
+      "message": "Since this is just the default constructor and we aren\u0027t doing any special setup, I think we can just remove it. Looking at other devtools web components, instead of doing setup in the constructor, most seem to omit it entirely and rely on the set data(...) method to assign values to member variables.",
+      "revId": "9d14da9d1f3838649aa86644c5b0b96aefe49574",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e20db0d6_25cc1dae",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2020-12-09T21:45:21Z",
+      "side": 1,
+      "message": "As discussed in the meeting yesterday, let\u0027s land the experiment change first and then we can hide all of this behind a flag.\n\nOther files (https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/sdk/OverlayModel.js;l\u003d60) save the result of checking the flags enabled to a local variable, I think we could probably do the same since we may need to check it in multiple places (like also in the click handlers).\n\nWe can abstract this out to a function as well, something roughly along the lines of:\n\n```\nif (flag enabled):\n  setupAccessibilityTree()\n```\n\nwhere `setupAccessibilityTree()` creates the buttons and appends them to the stackElement, so these pieces of UI are only created if the flag is enabled.",
       "revId": "9d14da9d1f3838649aa86644c5b0b96aefe49574",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
