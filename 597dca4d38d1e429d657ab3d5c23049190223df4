@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77683438_86f584cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-12-09T18:43:39Z",
+      "side": 1,
+      "message": "Cl to limit autocomplete retry in filters to those using suggestion builders.\n\nNote that this is to fix a regression in 88 as well. Unfortunately, the suggestion filters use 2 different filter widgets, so I had to add a new optional param in a few different places to limit to suggestion builders.\n\nIf we think this change is too risky for 88, I\u0027m ok putting in a revert of the original fix before this one, and only cherry picking the revert to 88.",
+      "revId": "597dca4d38d1e429d657ab3d5c23049190223df4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
