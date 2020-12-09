@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c06cb7d4_1cadc0fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-09T16:56:14Z",
+      "side": 1,
+      "message": "LGTM (disabling autosubmit due to test failures)",
+      "revId": "b05d5272850fa309ac6603dd74cb0b5fc74b81c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
