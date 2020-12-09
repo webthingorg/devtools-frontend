@@ -172,6 +172,24 @@
       "parentUuid": "76d72791_ec5c1fc2",
       "revId": "c7401ea3698af6ef78f72da2d5414fdbc3afd2d5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31351a41_7060b6e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-09T15:19:20Z",
+      "side": 1,
+      "message": "I think we can abandon this CL in favor of the other one. Thanks for sticking with us!",
+      "parentUuid": "001ef0d2_864b2cb3",
+      "revId": "c7401ea3698af6ef78f72da2d5414fdbc3afd2d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
