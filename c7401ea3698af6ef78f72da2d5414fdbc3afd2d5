@@ -154,6 +154,24 @@
       "message": "My apologies. I wasn\u0027t aware that somebody else was working on the corresponding bug. Your fix is exactly the same as mine, for which I had a CL sent out: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2578938 I have added you as co-author of that CL, including the addition to AUTHORS. Once again sorry for the confusion.",
       "revId": "c7401ea3698af6ef78f72da2d5414fdbc3afd2d5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "001ef0d2_864b2cb3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1466793
+      },
+      "writtenOn": "2020-12-09T15:17:26Z",
+      "side": 1,
+      "message": "No problem. Thanks for the co-author!\n\nNice to know we had the same fix. I was still having issues getting the unittest to run after I rebased with your other CLs and was going to follow up but i\u0027ll check out your test file and see.\n\nIs there anything left for me to do here on this CL?",
+      "parentUuid": "76d72791_ec5c1fc2",
+      "revId": "c7401ea3698af6ef78f72da2d5414fdbc3afd2d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
