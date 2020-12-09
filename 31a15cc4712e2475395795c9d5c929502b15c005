@@ -33,6 +33,23 @@
       "message": "lgtm",
       "revId": "31a15cc4712e2475395795c9d5c929502b15c005",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe999444_67d428f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-12-09T08:42:28Z",
+      "side": 1,
+      "message": "Awesome. Thanks Christy!",
+      "revId": "31a15cc4712e2475395795c9d5c929502b15c005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
