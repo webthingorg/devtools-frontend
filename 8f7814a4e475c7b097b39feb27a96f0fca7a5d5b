@@ -143,6 +143,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c0e7319_e679dacf",
+        "filename": "front_end/source_frame/ImageView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-12-09T11:35:31Z",
+      "side": 1,
+      "message": "I think Mathias mentioned that using the original URL to preview an image might be a security issue. Also, the image might not be always available because the original request to get it might be different from the preview request, right?\n\nCan we use https://developer.mozilla.org/en-US/docs/Web/API/Blob instead of Data URL?",
+      "parentUuid": "32eead2b_2b604353",
+      "revId": "8f7814a4e475c7b097b39feb27a96f0fca7a5d5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ef2f0b7_447362bd",
