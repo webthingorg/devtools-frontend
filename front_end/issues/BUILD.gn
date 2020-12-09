@@ -15,7 +15,9 @@ devtools_module("issues") {
     "IssueSurveyLink.ts",
     "IssuesPane.js",
     "MarkdownIssueDescription.ts",
+    "MarkdownLink.ts",
     "MarkdownView.ts",
+    "markdownLinks.ts",
   ]
 
   deps = [
