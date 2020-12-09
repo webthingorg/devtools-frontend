@@ -91,6 +91,30 @@
       },
       "revId": "011ec1a6f732a104678368602916ad6d82034a90",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1687b6cb_eb8bb561",
+        "filename": "front_end/sdk/HeavyAdIssue.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-12-09T09:07:10Z",
+      "side": 1,
+      "message": "I put it in because I figured it wouldn\u0027t hurt to see this info in the UMA histogram even though they look the same in the DevTools UI.",
+      "parentUuid": "2a818e4d_8f8a6c58",
+      "range": {
+        "startLine": 14,
+        "startChar": 3,
+        "endLine": 15,
+        "endChar": 22
+      },
+      "revId": "011ec1a6f732a104678368602916ad6d82034a90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
