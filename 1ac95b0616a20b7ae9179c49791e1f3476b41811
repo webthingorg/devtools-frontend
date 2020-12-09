@@ -205,6 +205,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8390856d_695213ab",
+        "filename": "front_end/emulation/StructuredHeaders.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-09T07:00:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "487b42a7_0eed2349",
+      "range": {
+        "startLine": 121,
+        "startChar": 7,
+        "endLine": 121,
+        "endChar": 45
+      },
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12ef01c0_b2c50c13",
@@ -688,6 +712,30 @@
       "side": 1,
       "message": "That doesn\u0027t help Typescript see that the thing below isn\u0027t StructuredHeaders.Error, unlike the if.",
       "parentUuid": "820ef2f8_571c5324",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 3
+      },
+      "revId": "1ac95b0616a20b7ae9179c49791e1f3476b41811",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7960eefe_f47f952e",
+        "filename": "test/unittests/front_end/emulation/StructuredHeaders_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-09T07:00:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c2d9951f_3c2a07ef",
       "range": {
         "startLine": 16,
         "startChar": 0,
