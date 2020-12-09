@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a0060cb_dc2e9e60",
+        "filename": "front_end/browser_sdk/SourceFrameIssuesManager.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-09T10:18:06Z",
+      "side": 1,
+      "message": "private isTrustedTypeIssue(issue: SDK.Issue.Issue|\n                             null): issue is SDK.ContentSecurityPolicyIssue.ContentSecurityPolicyIssue {\n    return issue instanceof SDK.ContentSecurityPolicyIssue.ContentSecurityPolicyIssue \u0026\u0026\n        (issue.code() \u003d\u003d\u003d SDK.ContentSecurityPolicyIssue.trustedTypesSinkViolationCode ||\n         issue.code() \u003d\u003d\u003d SDK.ContentSecurityPolicyIssue.trustedTypesPolicyViolationCode);\n  }\n\nthen you don\u0027t need to repeat the instanceof check at the call sites.",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 3
+      },
+      "revId": "19b1f43288c7eebfa15215d9da68f694c1dba2ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
