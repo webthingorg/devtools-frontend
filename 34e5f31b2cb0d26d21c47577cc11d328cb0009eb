@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b64ab04_b60d4af7",
+        "filename": "scripts/eslint_rules/tests/es_modules_import_test.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-09T14:17:30Z",
+      "side": 0,
+      "message": "Given that this in in `test/` rather than `test/unittests`, I think we should remove this case altogether? We require unit tests to import the entrypoint in any case, so I don\u0027t think this case is valid in any scenario anymore.",
+      "range": {
+        "startLine": 31,
+        "startChar": 17,
+        "endLine": 31,
+        "endChar": 38
+      },
+      "revId": "34e5f31b2cb0d26d21c47577cc11d328cb0009eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd9f308e_1aa5d9ca",
+        "filename": "scripts/eslint_rules/tests/es_modules_import_test.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-09T14:17:30Z",
+      "side": 0,
+      "message": "Why was this one removed? I would have assumed that this would be a valid case.",
+      "range": {
+        "startLine": 104,
+        "startChar": 6,
+        "endLine": 104,
+        "endChar": 31
+      },
+      "revId": "34e5f31b2cb0d26d21c47577cc11d328cb0009eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
