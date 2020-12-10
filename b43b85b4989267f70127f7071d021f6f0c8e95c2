@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "527abbbb_83e4df44",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 704,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-10T14:56:11Z",
+      "side": 1,
+      "message": "Right",
+      "parentUuid": "e59beffa_cf6472be",
+      "range": {
+        "startLine": 704,
+        "startChar": 4,
+        "endLine": 704,
+        "endChar": 64
+      },
+      "revId": "b43b85b4989267f70127f7071d021f6f0c8e95c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "772b95fb_93dd97df",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "650c143b_0b654413",
+        "filename": "test/e2e/sources/icon-row-bucket_test.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-10T14:56:11Z",
+      "side": 1,
+      "message": "Indeed there was a confusion when rebasing, fixed!",
+      "parentUuid": "772b95fb_93dd97df",
+      "range": {
+        "startLine": 54,
+        "startChar": 6,
+        "endLine": 54,
+        "endChar": 36
+      },
+      "revId": "b43b85b4989267f70127f7071d021f6f0c8e95c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "41339786_790e7bb0",
@@ -60,6 +108,30 @@
       "writtenOn": "2020-12-10T10:30:13Z",
       "side": 1,
       "message": "I\u0027m missing a click in this test ... is the description correct?",
+      "range": {
+        "startLine": 76,
+        "startChar": 6,
+        "endLine": 76,
+        "endChar": 42
+      },
+      "revId": "b43b85b4989267f70127f7071d021f6f0c8e95c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87774825_4144490b",
+        "filename": "test/e2e/sources/icon-row-bucket_test.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-10T14:56:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41339786_790e7bb0",
       "range": {
         "startLine": 76,
         "startChar": 6,
