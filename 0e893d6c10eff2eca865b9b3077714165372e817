@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acf86edb_13549a48",
+        "filename": "front_end/resources/IndexedDBViews.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-12-10T16:05:22Z",
+      "side": 1,
+      "message": "is the update that the backend sends synchronous or how do we make sure that it\u0027s received before _clearingObjectStore is set to false?",
+      "revId": "0e893d6c10eff2eca865b9b3077714165372e817",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
