@@ -19,6 +19,9 @@ export const enum ViewLocationValues {
   SETTINGS_VIEW = 'settings-view',
   ELEMENTS_SIDEBAR = 'elements-sidebar',
   SOURCES_SIDEBAR_BOTTOM = 'sources.sidebar-bottom',
+  NAVIGATOR_VIEW = 'navigator-view',
+  DRAWER_VIEW = 'drawer-view',
+  NETWORK_SIDEBAR = 'network-sidebar',
 }
 
 export interface ViewRegistration {
@@ -29,7 +32,10 @@ export interface ViewRegistration {
   id: string;
   location?: ViewLocationValues;
   hasToolbar?: boolean;
-  loadView: () => Promise<Widget>, order?: number, settings?: Array<string>, tags?: string;
+  loadView: () => Promise<Widget>;
+  order?: number;
+  settings?: Array<string>;
+  tags?: Array<string>;
 }
 
 export function registerViewExtension(registration: ViewRegistration) {
