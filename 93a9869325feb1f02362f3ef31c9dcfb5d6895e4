@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afefe797_5ba95592",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-10T10:02:50Z",
+      "side": 1,
+      "message": "maybe querying for text-editor-line-decoration-icon is enough here.",
+      "range": {
+        "startLine": 555,
+        "startChar": 20,
+        "endLine": 555,
+        "endChar": 102
+      },
+      "revId": "93a9869325feb1f02362f3ef31c9dcfb5d6895e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae1c6b7b_5fcf0385",
+        "filename": "test/e2e/sources/icon-row-bucket_test.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-10T10:02:50Z",
+      "side": 1,
+      "message": "Is this test also testing the popover?",
+      "range": {
+        "startLine": 19,
+        "startChar": 6,
+        "endLine": 19,
+        "endChar": 36
+      },
+      "revId": "93a9869325feb1f02362f3ef31c9dcfb5d6895e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5626f095_eb21864c",
+        "filename": "test/e2e/sources/icon-row-bucket_test.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-10T10:02:50Z",
+      "side": 1,
+      "message": "nit: is this comment insightful?",
+      "range": {
+        "startLine": 31,
+        "startChar": 75,
+        "endLine": 31,
+        "endChar": 101
+      },
+      "revId": "93a9869325feb1f02362f3ef31c9dcfb5d6895e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
