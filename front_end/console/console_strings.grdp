@@ -150,6 +150,9 @@
   <message name="IDS_DEVTOOLS_84d0c431d1472a0609d69b39dcb3a287" desc="Text for the index of something">
     (index)
   </message>
+  <message name="IDS_DEVTOOLS_902b0d55fddef6f8d651fe1035b7d4bd" desc="Text for errors">
+    Error
+  </message>
   <message name="IDS_DEVTOOLS_93977f1310f482395375a9950b512462" desc="Title of a setting under the Console category that can be invoked through the Command Menu">
     Eagerly evaluate console prompt text
   </message>
