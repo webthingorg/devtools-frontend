@@ -24,6 +24,7 @@ devtools_entrypoint("bundle") {
     "../dom_extension:bundle",
     "../extensions:legacy",
     "../host:legacy",
+    "../network:meta",
     "../persistence:legacy",
     "../platform:bundle",
     "../protocol_client:legacy",
