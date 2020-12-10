@@ -22,6 +22,30 @@
       },
       "revId": "406bc3320344d329f2741806da49ed1bd82a10a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3d7f825_bae37e5b",
+        "filename": "front_end/settings/ModuleUIStrings.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-12-10T10:25:08Z",
+      "side": 0,
+      "message": "You\u0027re right, thanks! Earlier I didn\u0027t see where this was used, but now I\u0027m aware that it\u0027s for translating the module.json strings.",
+      "parentUuid": "51d920db_5dba7b71",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 29
+      },
+      "revId": "406bc3320344d329f2741806da49ed1bd82a10a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
