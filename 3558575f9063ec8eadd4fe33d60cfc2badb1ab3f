@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9f427ca7_f528f534",
+        "filename": "front_end/issues/BUILD.gn",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-12-10T01:40:58Z",
+      "side": 1,
+      "message": "Updated to MarkdownLinksMap.ts, I figured if I renamed it to MarkdownLinks.ts, it might be slightly less readable if the other component is called MarkdownLink.",
+      "parentUuid": "e90b6145_bba17d69",
+      "range": {
+        "startLine": 20,
+        "startChar": 5,
+        "endLine": 20,
+        "endChar": 18
+      },
+      "revId": "3558575f9063ec8eadd4fe33d60cfc2badb1ab3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4d58a15d_0a5ead1c",
         "filename": "front_end/issues/MarkdownLink.ts",
         "patchSetId": 4
@@ -54,6 +78,30 @@
       "writtenOn": "2020-12-09T07:20:43Z",
       "side": 1,
       "message": "The if is not needed here as the function throws an error if the \u0027key\u0027 is not found. See the other comment on how to make TS happy here.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 23
+      },
+      "revId": "3558575f9063ec8eadd4fe33d60cfc2badb1ab3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b84bed2_4ffed0fb",
+        "filename": "front_end/issues/MarkdownLink.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-12-10T01:40:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d58a15d_0a5ead1c",
       "range": {
         "startLine": 24,
         "startChar": 0,
@@ -77,6 +125,30 @@
       "writtenOn": "2020-12-09T07:20:43Z",
       "side": 1,
       "message": "This is kind-of an anit-pattern in lit-html. Since markdown is a registered custom element, its preferred to render it this way:\n\n token \u003d\u003e html`\n   \u003cdevtools-markdown-link .data\u003d${{key: token.href, title: token.text} as MarkdownLinkData}\u003e\n   \u003c/devtools-markdown-link\u003e\n `;",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 6
+      },
+      "revId": "3558575f9063ec8eadd4fe33d60cfc2badb1ab3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c367a06_8f9dc5d6",
+        "filename": "front_end/issues/MarkdownView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-12-10T01:40:58Z",
+      "side": 1,
+      "message": "I tried using this way, it doesn\u0027t seem to work, the component renders but props are not passed.",
+      "parentUuid": "29929869_835a851b",
       "range": {
         "startLine": 137,
         "startChar": 0,
@@ -123,6 +195,30 @@
       "writtenOn": "2020-12-09T07:20:43Z",
       "side": 1,
       "message": "If you re-write this as:\n\n const link \u003d markdownLinks.get(key);\n if (!link) {\n   throw new Error(...);\n }\n return link;\n\nThen TS can infer that this method is guaranteed to return a non-null string and you can get rid of the if in the component",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 101
+      },
+      "revId": "3558575f9063ec8eadd4fe33d60cfc2badb1ab3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f966654a_2630b315",
+        "filename": "front_end/issues/markdownLinks.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-12-10T01:40:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9e9cd14_906b23d1",
       "range": {
         "startLine": 16,
         "startChar": 0,
