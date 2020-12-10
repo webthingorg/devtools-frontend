@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "803bc65d_5e24ebe5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002513
+      },
+      "writtenOn": "2020-12-10T17:49:44Z",
+      "side": 1,
+      "message": "Please take a look. The patch to expose isLocked is here: https://chromium-review.googlesource.com/c/chromium/src/+/2585144",
+      "revId": "bb94d8dc342f5de38479a3f8f32d0688e42af17e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
