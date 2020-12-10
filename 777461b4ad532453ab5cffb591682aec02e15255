@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81d227ec_b21c2cac",
+        "filename": "front_end/sources/sources-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-10T15:23:03Z",
+      "side": 1,
+      "message": "Nit: These are now removable right?",
+      "range": {
+        "startLine": 118,
+        "startChar": 1,
+        "endLine": 122,
+        "endChar": 18
+      },
+      "revId": "777461b4ad532453ab5cffb591682aec02e15255",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
