@@ -605,6 +605,7 @@ export class SourcesPanel extends UI.Panel.Panel {
     if (!uiSourceCode) {
       return;
     }
+
     const target = UI.Context.Context.instance().flavor(SDK.SDKModel.Target);
     if (!target) {
       return;
