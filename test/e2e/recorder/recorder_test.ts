@@ -97,52 +97,62 @@ describe('Recorder', function() {
     {
         const target = page;
         const frame = target.mainFrame();
+        await frame.waitForSelector("aria/Test Button");
         await frame.click("aria/Test Button");
     }
     {
         const target = page;
         const frame = target.mainFrame();
+        await frame.waitForSelector("html > body > div > form.form1");
         await frame.submit("html > body > div > form.form1");
     }
     {
         const target = page;
         const frame = target.mainFrame();
+        await frame.waitForSelector("aria/Hello World");
         await frame.click("aria/Hello World");
     }
     {
         const target = page;
         const frame = target.mainFrame();
+        await frame.waitForSelector("span#span2");
         await frame.click("span#span2");
     }
     {
         const target = page;
         const frame = target.mainFrame();
+        await frame.waitForSelector("aria/Input");
         await frame.type("aria/Input", "test");
     }
     {
         const target = page;
         const frame = target.mainFrame();
+        await frame.waitForSelector("aria/Hello World");
         await frame.click("aria/Hello World");
     }
     {
         const target = page;
         const frame = target.mainFrame().childFrames()[0];
+        await frame.waitForSelector("aria/iframe button");
         await frame.click("aria/iframe button");
     }
     {
         const target = page;
         const frame = target.mainFrame().childFrames()[0].childFrames()[0];
+        await frame.waitForSelector("aria/Inner iframe button");
         await frame.click("aria/Inner iframe button");
     }
     {
         const target = page;
         const frame = target.mainFrame();
+        await frame.waitForSelector("aria/Open Popup");
         await frame.click("aria/Open Popup");
     }
     {
         const pages = await browser.pages();
         const target = pages.find(p => p.url() === "https://<url>/test/e2e/resources/recorder/popup.html");
         const frame = target.mainFrame();
+        await frame.waitForSelector("aria/Button in Popup");
         await frame.click("aria/Button in Popup");
     }
     await browser.close();
