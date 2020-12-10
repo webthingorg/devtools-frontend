@@ -16,6 +16,24 @@
       "message": "is the update that the backend sends synchronous or how do we make sure that it\u0027s received before _clearingObjectStore is set to false?",
       "revId": "0e893d6c10eff2eca865b9b3077714165372e817",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06a084d5_b7333da4",
+        "filename": "front_end/resources/IndexedDBViews.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-12-10T16:24:51Z",
+      "side": 1,
+      "message": "It\u0027s async (CDP event). The problem is that we receive it while awaiting clearObjectStore(). I think it\u0027s guaranteed to arrive before clearObjectStore() resolves (sometimes CDP has contracts like this).\n\nIf it doesn\u0027t arrive before _clearingObjectStore is set to false, we have already called _updateData and pulled the (old) data from the model, and then we\u0027ll be sitting there with the warning displayed (_needsRefresh will be visible). In that case it will be obviously broken (not glitchy).\n\nI will check the backend and see if the event works that way or not",
+      "parentUuid": "acf86edb_13549a48",
+      "revId": "0e893d6c10eff2eca865b9b3077714165372e817",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
