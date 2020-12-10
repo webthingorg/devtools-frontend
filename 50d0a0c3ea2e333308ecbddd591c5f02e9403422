@@ -16,6 +16,23 @@
       "message": "I updated the cl to use the format Mathias recommended.\nThis cl also addresses the flakiness of the recorder test.",
       "revId": "50d0a0c3ea2e333308ecbddd591c5f02e9403422",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac765d0d_d33e1deb",
+        "filename": "front_end/recorder/RecordingSession.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-10T10:45:55Z",
+      "side": 1,
+      "message": "We should re-use the DevTools -\u003e Settings indentation preference, but I guess this is taken care of later by `appendStepToScript`?",
+      "revId": "50d0a0c3ea2e333308ecbddd591c5f02e9403422",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
