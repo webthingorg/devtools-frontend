@@ -110,6 +110,30 @@
       },
       "revId": "baf22dc11a2489eeabceba1e2ecaa3f2a864fdcf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5d7f1c8_1d11850c",
+        "filename": "front_end/browser_sdk/SourceFrameIssuesManager.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-10T15:01:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c269e064_f690b80c",
+      "range": {
+        "startLine": 40,
+        "startChar": 8,
+        "endLine": 40,
+        "endChar": 20
+      },
+      "revId": "baf22dc11a2489eeabceba1e2ecaa3f2a864fdcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
