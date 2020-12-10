@@ -62,6 +62,16 @@ describeWithEnvironment('MarkdownView', async () => {
     it('throws an error for invalid or unsupported token types', () => {
       assert.throws(() => Issues.MarkdownView.renderToken({type: 'no_way_this_is_a_valid_markdown_token'}));
     });
+
+    it('renders link with valid key', () => {
+      const renderResult = Issues.MarkdownView.renderToken({type: 'link', text: 'learn more', href: 'exampleLink'});
+      assert.deepStrictEqual(renderResult.strings.raw, ['<a>', '</a>']);
+      assert.deepStrictEqual(renderResult.values, ['https://web.dev/']);
+    });
+
+    it('throws an error if invalid link key is provided', () => {
+      assert.throws(() => Issues.MarkdownView.renderToken({type: 'link', text: 'learn more', href: 'testErrorLink'}));
+    });
   });
 
   const paragraphText =
