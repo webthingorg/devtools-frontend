@@ -24,14 +24,26 @@
   <message name="IDS_DEVTOOLS_146bdebb324a64d327b1dde22a07d0bd" desc="Text in Device Mode View of the Device Toolbar">
     Laptop
   </message>
+  <message name="IDS_DEVTOOLS_1ceb5ef713f3dc4b7f29d9ca39b14590" desc="Error message in the Device settings pane that shows that the entered brands list has wrong syntax">
+    Unable to parse as structured headers list
+  </message>
   <message name="IDS_DEVTOOLS_2310408a63388fe57e3a4177168a8798" desc="Text for the desktop platform, as opposed to mobile">
     Desktop
+  </message>
+  <message name="IDS_DEVTOOLS_2d242bb36ec91b32005f9296ff03a912" desc="Field in Devices pane letting customize which CPU architecture the edited device presents via User Agent Client Hints">
+    Architecture
   </message>
   <message name="IDS_DEVTOOLS_33485fcae7737ceb110576dc3ef1a316" desc="Description of the Touch select in Sensors tab">
     Forces touch instead of click
   </message>
   <message name="IDS_DEVTOOLS_391e4e3cd855d914f85f3a4e1b9a00ea" desc="Title of the rotate/screen orientation button">
     Screen orientation options
+  </message>
+  <message name="IDS_DEVTOOLS_419f3742e6de8e0ec4b22cce005e7630" desc="Field in Devices pane letting customize which operating system the edited device presents via User Agent Client Hints">
+    Platform
+  </message>
+  <message name="IDS_DEVTOOLS_445b8178609bbfdf97fe430bc7448fa7" desc="Title of foldable group of options in Devices pane letting customize what information is sent about the browser and device via user agent client hints functionality">
+    User agent client hints
   </message>
   <message name="IDS_DEVTOOLS_52089bab86bd75e95090797a7ff551e7" desc="Title of an option in Sensors tab idle emulation select">
     User active, screen unlocked
@@ -42,14 +54,26 @@
   <message name="IDS_DEVTOOLS_55c0b68e68ef5e4d687c6170f80b3d49" desc="Description of the Emulate Idle State select in Sensors tab">
     Forces selected idle state emulation
   </message>
+  <message name="IDS_DEVTOOLS_69cc636448fc5471fdb001009b9513f7" desc="Error message in the Device settings pane that shows that the entered brands list includes the wrong information">
+    Brand list must consist of strings, each with a v parameter with a string value
+  </message>
+  <message name="IDS_DEVTOOLS_71b401e30652987d57dc21cc1a84875b" desc="Field in the Devices pane letting customize the name the edited device presents via User Agent Client Hints">
+    Device model
+  </message>
   <message name="IDS_DEVTOOLS_769667ac82abe561c47b57d183f6aa57" desc="Title of a section option in Sensors tab for idle emulation">
     Emulate Idle Detector state
+  </message>
+  <message name="IDS_DEVTOOLS_7a66b5109bf73bdf1dc0b20037605423" desc="Field in the Devices pane letting customize precise browser version the edited device presents via User Agent Client Hints">
+    Full version
   </message>
   <message name="IDS_DEVTOOLS_7c4e6c518a502500856e59e1a1481260" desc="Text for experimental api button when the api is enabled">
     &quot;<ph name="LOCKED_1">Experimental Web Platform Feature</ph>&quot; flag is enabled. Click to disable it.
   </message>
   <message name="IDS_DEVTOOLS_7cc843457525ef424db9f857de4939a2" desc="Title of an option in Sensors tab idle emulation select">
     User active, screen locked
+  </message>
+  <message name="IDS_DEVTOOLS_88b2916952c53e53cd9b309e4d1415f5" desc="This will be a helpful message of sorts, but the English version hasn't been figured out yet, either">
+    ### Help goes here
   </message>
   <message name="IDS_DEVTOOLS_89999eac57e5838aa3adb04ad831f5d3" desc="Text in Sensors View of the Device Toolbar">
     Custom orientation
@@ -291,11 +315,17 @@
   <message name="IDS_DEVTOOLS_a7e2da1e5160847a88912b69027bca09" desc="Stage element title in Sensors View of the Device Toolbar">
     Enable orientation to rotate
   </message>
+  <message name="IDS_DEVTOOLS_b74ce9c976d19b27f922918af1c1ac6b" desc="Field in Devices pane letting customize which browser names and major versions edited device presents via User Agent Client Hints">
+    UA brands list
+  </message>
   <message name="IDS_DEVTOOLS_c15b53cb50624f0e86e1a9ef5a9dd120" desc="Title of the span/un-span button">
     Toggle dual-screen mode
   </message>
   <message name="IDS_DEVTOOLS_eb81441fe20963ff9e8e69c5b32fc625" desc="Title for a group of configuration options">
     Presets
+  </message>
+  <message name="IDS_DEVTOOLS_e80db117a6c2bad899068992535b3436" desc="Field in Devices pane letting customize which operating system version the edited device presents via User Agent Client Hints">
+    Platform version
   </message>
   <message name="IDS_DEVTOOLS_eebd338ddbd547e41e4a1296de82963a" desc="Title of Locations settings">
     Locations
@@ -416,5 +446,8 @@
   </message>
   <message name="IDS_DEVTOOLS_fd37e9411d9f8a6af8fb4d3b787ccfc6" desc="Error message in the Devices settings pane that declares the minimum value for the width input">
     Width must be greater than or equal to <ph name="EMULATION_DEVICEMODEMODEL_MINDEVICESIZE">$1s<ex>50</ex></ph>.
+  </message>
+  <message name="IDS_DEVTOOLS_fdc437433d058adbaf6f7020f1200f76" desc="Error message in the Device settings pane that shows that the entered value has characters that can't be represented in the corresponding User Agent Client Hints">
+    Not representable as structured headers string.
   </message>
 </grit-part>
