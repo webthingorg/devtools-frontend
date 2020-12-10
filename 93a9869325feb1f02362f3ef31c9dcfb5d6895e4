@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "15afbea2_414b8762",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-10T14:47:28Z",
+      "side": 1,
+      "message": "I have re-organized it a bit to make it more robust. Now we ensure that we never display an empty box, and that the bucket of the underline is only showed when you are actually on the line (and not over the icons div).",
+      "parentUuid": "5c8ee060_1b7ef11c",
+      "range": {
+        "startLine": 555,
+        "startChar": 20,
+        "endLine": 555,
+        "endChar": 102
+      },
+      "revId": "93a9869325feb1f02362f3ef31c9dcfb5d6895e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae1c6b7b_5fcf0385",
@@ -78,6 +102,30 @@
       "writtenOn": "2020-12-10T10:02:50Z",
       "side": 1,
       "message": "Is this test also testing the popover?",
+      "range": {
+        "startLine": 19,
+        "startChar": 6,
+        "endLine": 19,
+        "endChar": 36
+      },
+      "revId": "93a9869325feb1f02362f3ef31c9dcfb5d6895e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d81d886_f6cec951",
+        "filename": "test/e2e/sources/icon-row-bucket_test.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-10T14:47:28Z",
+      "side": 1,
+      "message": "Updated to also check it. I have refactored to be able to use the same code for checking the issues.",
+      "parentUuid": "ae1c6b7b_5fcf0385",
       "range": {
         "startLine": 19,
         "startChar": 6,
