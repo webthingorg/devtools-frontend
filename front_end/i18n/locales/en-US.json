@@ -326,6 +326,9 @@
   "help/ReleaseNoteView.js | s": {
     "message": "{PH1}"
   },
+  "js_profiler/ModuleUIStrings.js | profiler": {
+    "message": "Profiler"
+  },
   "layer_viewer/LayerDetailsView.js | compositingReasons": {
     "message": "Compositing Reasons"
   },
