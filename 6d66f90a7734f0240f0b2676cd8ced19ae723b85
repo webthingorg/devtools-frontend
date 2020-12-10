@@ -16,6 +16,69 @@
       "message": "Piece 2. ",
       "revId": "6d66f90a7734f0240f0b2676cd8ced19ae723b85",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c78fb5c_281c22d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-10T07:08:58Z",
+      "side": 1,
+      "message": "lgtm % question",
+      "revId": "6d66f90a7734f0240f0b2676cd8ced19ae723b85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "388746e7_78dcd7fa",
+        "filename": "front_end/emulation/StructuredHeaders.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-10T07:08:58Z",
+      "side": 1,
+      "message": "For my understanding: Why is this check necessary? Does this serve more as an \"assert\" role? Or is \"parseInnerList\" called from more places than above in \"parseItemOrInnerList\"?",
+      "range": {
+        "startLine": 297,
+        "startChar": 0,
+        "endLine": 299,
+        "endChar": 3
+      },
+      "revId": "6d66f90a7734f0240f0b2676cd8ced19ae723b85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc2cbf1e_aa8df172",
+        "filename": "test/unittests/front_end/emulation/StructuredHeaders_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-10T07:08:58Z",
+      "side": 1,
+      "message": "\"it(\"parses empty inner lists successfully\", ...)\"\n\n:) IMO I\u0027d prefer splitting these up in 5 test cases, but no strong opinion if you rather have it as-is. Wdyt?",
+      "range": {
+        "startLine": 225,
+        "startChar": 0,
+        "endLine": 229,
+        "endChar": 32
+      },
+      "revId": "6d66f90a7734f0240f0b2676cd8ced19ae723b85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
