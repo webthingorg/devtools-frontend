@@ -3,6 +3,29 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "1cda8aef_0731b7e8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-12-10T15:51:13Z",
+      "side": 1,
+      "message": "Thanks for the very detailed explanation! No wonder devs have trouble reasoning about these things 😊",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 27
+      },
+      "revId": "ceb16cb1e2c907111f3b91d0a48648f38f67aae7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5cf40e76_225b41e2",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
@@ -14,6 +37,92 @@
       "writtenOn": "2020-12-10T11:57:06Z",
       "side": 1,
       "message": "should we add a few unit tests for the new functions?",
+      "revId": "ceb16cb1e2c907111f3b91d0a48648f38f67aae7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "696f0193_92f707fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-12-10T15:51:13Z",
+      "side": 1,
+      "message": "couple of nits, but overall lgtm!",
+      "revId": "ceb16cb1e2c907111f3b91d0a48648f38f67aae7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b61710fa_704a75cf",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-12-10T15:51:13Z",
+      "side": 1,
+      "message": "Something to consider for the future, should we use different default colors for the distributed and gap space. I can imagine a case where a user is moving back and forth between properties, and the highlight appears in a slightly different spot but with the same color and might be confusing? Then again, that might not happen between these two types of gaps, so feel free to ignore if that scenario is not possible",
+      "range": {
+        "startLine": 565,
+        "startChar": 10,
+        "endLine": 580,
+        "endChar": 12
+      },
+      "revId": "ceb16cb1e2c907111f3b91d0a48648f38f67aae7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c09ee6c3_db4d2dc6",
+        "filename": "inspector_overlay/highlight_flex_common.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-12-10T15:51:13Z",
+      "side": 1,
+      "message": "nit, can we end these with \u0027;\u0027 instead of \u0027,\u0027 so they appear on separate lines?",
+      "range": {
+        "startLine": 20,
+        "startChar": 2,
+        "endLine": 20,
+        "endChar": 68
+      },
+      "revId": "ceb16cb1e2c907111f3b91d0a48648f38f67aae7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0acc7a6c_9c3f4f50",
+        "filename": "inspector_overlay/highlight_flex_common.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 692,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-12-10T15:51:13Z",
+      "side": 1,
+      "message": "nit: consider moving to a common file in case we need this for other overlays",
+      "range": {
+        "startLine": 689,
+        "startChar": 0,
+        "endLine": 692,
+        "endChar": 1
+      },
       "revId": "ceb16cb1e2c907111f3b91d0a48648f38f67aae7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
