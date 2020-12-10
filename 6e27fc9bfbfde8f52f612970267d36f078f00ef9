@@ -16,6 +16,29 @@
       "message": "lgtm % one last nit",
       "revId": "6e27fc9bfbfde8f52f612970267d36f078f00ef9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3090aac8_4fa4b58e",
+        "filename": "front_end/browser_sdk/SourceFrameIssuesManager.ts",
+        "patchSetId": 29
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-10T10:06:22Z",
+      "side": 1,
+      "message": "Do we want to use a weakmap from Model -\u003e Pool (so pools are cleaned up once the associated model is cleaned up)?",
+      "range": {
+        "startLine": 17,
+        "startChar": 10,
+        "endLine": 17,
+        "endChar": 69
+      },
+      "revId": "6e27fc9bfbfde8f52f612970267d36f078f00ef9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
