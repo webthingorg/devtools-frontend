@@ -5,11 +5,12 @@
 import {assert} from 'chai';
 
 import {enableExperiment, getBrowserAndPages, getTestServerPort, goToResource, waitForFunction} from '../../shared/helper.js';
+import {describe, it} from '../../shared/mocha-extensions.js';
 import {createNewRecording, openRecorderSubPane, openSourcesPanel} from '../helpers/sources-helpers.js';
 
 function retrieveCodeMirrorEditorContent() {
   // @ts-ignore
-  return Array.from(document.querySelectorAll('.CodeMirror-line'), l => l.textContent).join('\n').trim();
+  return document.querySelector('.CodeMirror').CodeMirror.getValue();
 }
 
 async function getCode() {
@@ -20,18 +21,22 @@ async function getCode() {
 }
 
 function getWaitForScriptToChangeFunction() {
-  const previousScript = '';
+  let previousScript = '';
   return async function waitForScriptToChange() {
-    return waitForFunction(async () => {
+    const newScript = await waitForFunction(async () => {
       const currentScript = await getCode();
-      return previousScript !== currentScript;
+      return previousScript !== currentScript ? currentScript : undefined;
     });
+    previousScript = newScript;
+    return newScript;
   };
 }
 
-describe('Recorder', () => {
-  // crbug.com/1154575 flaky
-  it.skip('[crbug.com/1154575] should connect to the browser via DevTools own connection', async () => {
+describe('Recorder', function() {
+  // The tests in this suite are particularly slow, as they perform a lot of actions
+  this.timeout(10000);
+
+  it('should record the interactions with the browser as a script', async function() {
     const waitForScriptToChange = getWaitForScriptToChangeFunction();
     await enableExperiment('recorder');
     await goToResource('recorder/recorder.html');
@@ -89,16 +94,57 @@ describe('Recorder', () => {
     const page = await browser.newPage();
 
     await page.goto("https://<url>/test/e2e/resources/recorder/recorder.html");
-    await page.click("aria/Test Button");
-    await page.submit("html > body > div > form.form1");
-    await page.click("aria/Hello World");
-    await page.click("span#span2");
-    await page.type("aria/Input", "test");
-    await page.click("aria/Hello World");
-    await page.mainFrame().childFrames()[0].click("aria/iframe button");
-    await page.mainFrame().childFrames()[0].childFrames()[0].click("aria/Inner iframe button");
-    await page.click("aria/Open Popup");
-    await (await browser.pages()).find(p => p.url() === "https://<url>/test/e2e/resources/recorder/popup.html").click("aria/Button in Popup");
+    {
+        const target = page;
+        const frame = target.mainFrame();
+        await frame.click("aria/Test Button");
+    }
+    {
+        const target = page;
+        const frame = target.mainFrame();
+        await frame.submit("html > body > div > form.form1");
+    }
+    {
+        const target = page;
+        const frame = target.mainFrame();
+        await frame.click("aria/Hello World");
+    }
+    {
+        const target = page;
+        const frame = target.mainFrame();
+        await frame.click("span#span2");
+    }
+    {
+        const target = page;
+        const frame = target.mainFrame();
+        await frame.type("aria/Input", "test");
+    }
+    {
+        const target = page;
+        const frame = target.mainFrame();
+        await frame.click("aria/Hello World");
+    }
+    {
+        const target = page;
+        const frame = target.mainFrame().childFrames()[0];
+        await frame.click("aria/iframe button");
+    }
+    {
+        const target = page;
+        const frame = target.mainFrame().childFrames()[0].childFrames()[0];
+        await frame.click("aria/Inner iframe button");
+    }
+    {
+        const target = page;
+        const frame = target.mainFrame();
+        await frame.click("aria/Open Popup");
+    }
+    {
+        const pages = await browser.pages();
+        const target = pages.find(p => p.url() === "https://<url>/test/e2e/resources/recorder/popup.html");
+        const frame = target.mainFrame();
+        await frame.click("aria/Button in Popup");
+    }
     await browser.close();
 })();
 
