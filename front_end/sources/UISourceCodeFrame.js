@@ -697,6 +697,12 @@ export class RowMessage {
     this._icon.data = getIconClassPerLevel(message.level());
     this._icon.classList.add('text-editor-row-message-icon');
 
+    const clickHandler = message.clickHandler();
+    if (clickHandler) {
+      this._icon.addEventListener('click', clickHandler);
+    }
+    this._clickHandler = clickHandler ? clickHandler : () => {};
+
     this.element.append(this._icon);
     /** @type {!UI.UIUtils.DevToolsSmallBubble} */
     this._repeatCountElement =
@@ -716,6 +722,10 @@ export class RowMessage {
    */
   message() {
     return this._message;
+  }
+
+  callClickHandler() {
+    this._clickHandler();
   }
 
   /**
@@ -768,6 +778,7 @@ export class RowMessageBucket {
     this._issueIcon = new Elements.Icon.Icon();
     this._issueIcon.data = getIconClassPerLevel(Workspace.UISourceCode.Message.Level.Issue);
     this._issueIcon.classList.add('text-editor-line-decoration-icon-issue', 'hidden');
+    this._issueIcon.addEventListener('click', () => this._issueClickHandler());
 
     const iconsElement = this._wave.createChild('span');
     iconsElement.append(this._errorIcon);
@@ -842,6 +853,13 @@ export class RowMessageBucket {
    */
   uniqueMessagesCount() {
     return this._messages.length;
+  }
+
+  _issueClickHandler() {
+    const firstIssue = this._messages.find(m => m.message().level() === Workspace.UISourceCode.Message.Level.Issue);
+    if (firstIssue) {
+      firstIssue.callClickHandler();
+    }
   }
 
   /**
