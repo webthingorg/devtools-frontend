@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1c52f9b_508e7756",
+        "filename": "front_end/browser_sdk/SourceFrameIssuesManager.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-10T09:19:10Z",
+      "side": 1,
+      "message": "Good catch! Actually since we have the models CL about to land, I have rebased on it so that we can access the model from the issue. That should also simplify the logic. As commented offline, in the future we could refactor how IssueManager.IssueAdded works to avoid passing the model.",
+      "parentUuid": "3033f28c_6d1e8c07",
+      "range": {
+        "startLine": 53,
+        "startChar": 10,
+        "endLine": 53,
+        "endChar": 86
+      },
+      "revId": "e613123ab60761a9af76a3e6ad11a95ed08f003e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee588a0a_4695e4bc",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-12-10T07:30:10Z",
       "side": 1,
       "message": "Do you still plan to add one or two unit tests for this class? I\u0027d prefer if we have some :)",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 1
+      },
+      "revId": "e613123ab60761a9af76a3e6ad11a95ed08f003e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "250276fd_bcc9aaab",
+        "filename": "front_end/browser_sdk/SourceFrameIssuesManager.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-10T09:19:10Z",
+      "side": 1,
+      "message": "As discussed offline, unfortunately unittesting functions like IssueAdd would require mocking things like IssueModel, Target, DebuggerModel, createRawLocationByURL... And other alternatives would not really allow us to test it in a useful way. Thus for the moment I suggest to rely on the E2E tests.",
+      "parentUuid": "ee588a0a_4695e4bc",
       "range": {
         "startLine": 91,
         "startChar": 0,
