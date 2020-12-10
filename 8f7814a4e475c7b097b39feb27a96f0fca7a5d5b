@@ -179,6 +179,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bbc3d0c_1383d1d5",
+        "filename": "front_end/source_frame/ImageView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-12-10T17:44:51Z",
+      "side": 1,
+      "message": "@Alex You mean using Blob URL irregardless of the size of the image? If so, that would imply removing the functionality to copy the image URL with the context menu, if I am correct.",
+      "parentUuid": "ba9349f6_82be53b4",
+      "revId": "8f7814a4e475c7b097b39feb27a96f0fca7a5d5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ef2f0b7_447362bd",
@@ -210,6 +228,24 @@
       "side": 1,
       "message": "@Andres will this work even if we\u0027ve shown an image \u003e1MB?",
       "parentUuid": "8ef2f0b7_447362bd",
+      "revId": "8f7814a4e475c7b097b39feb27a96f0fca7a5d5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0ad3662_04f48070",
+        "filename": "front_end/source_frame/ImageView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-12-10T17:44:51Z",
+      "side": 1,
+      "message": "Good catch! If the src of the image element is not a data URI, the context menu shouldn\u0027t display this option.",
+      "parentUuid": "e3a01d95_7aaa5807",
       "revId": "8f7814a4e475c7b097b39feb27a96f0fca7a5d5b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
