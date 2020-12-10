@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7d366475_ca0ac392",
+        "filename": "front_end/source_frame/ImageView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-12-10T09:34:39Z",
+      "side": 1,
+      "message": "The file system access API was discarded.",
+      "parentUuid": "ae6a96fc_2415bc33",
+      "revId": "98156d34ad4567084e0f41eb16d9e2f6e452761f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cf217751_fba328af",
         "filename": "front_end/source_frame/ImageView.js",
         "patchSetId": 1
@@ -48,6 +66,24 @@
       "writtenOn": "2020-12-09T21:31:41Z",
       "side": 1,
       "message": "What TS error is being ignored here?",
+      "revId": "98156d34ad4567084e0f41eb16d9e2f6e452761f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6afd686a_0d8eca51",
+        "filename": "front_end/source_frame/ImageView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-12-10T09:34:39Z",
+      "side": 1,
+      "message": "The file system access API was discarded.",
+      "parentUuid": "cf217751_fba328af",
       "revId": "98156d34ad4567084e0f41eb16d9e2f6e452761f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
