@@ -1,6 +1,115 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a1499b0_8facdbed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-10T11:08:37Z",
+      "side": 1,
+      "message": "Thanks for your contribution! I\u0027ve left some comments; let me know if anything isn\u0027t clear.",
+      "revId": "852bd44d054d4c8ac95a46095e5f049405458d53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f8aff13_1999809c",
+        "filename": "front_end/issues/MarkdownLink.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-10T11:08:37Z",
+      "side": 1,
+      "message": "please could you see if there\u0027s a color in `themeColors.css` that would work for this? (we are currently in the middle of a migration to tidy our CSS variables and themeColors.css houses the new variables we want to use moving forwards)",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 47
+      },
+      "revId": "852bd44d054d4c8ac95a46095e5f049405458d53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1da8e35f_5de46911",
+        "filename": "front_end/issues/MarkdownLink.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-10T11:08:37Z",
+      "side": 1,
+      "message": "the clang-format off comment should be before your `LitHtml.html` call so the entire block is unformatted by Clang.",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 22
+      },
+      "revId": "852bd44d054d4c8ac95a46095e5f049405458d53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a845b973_112082dc",
+        "filename": "front_end/issues/MarkdownLinksMap.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-10T11:08:37Z",
+      "side": 1,
+      "message": "should this be empty by default?",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 38
+      },
+      "revId": "852bd44d054d4c8ac95a46095e5f049405458d53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae9e2cf1_b94b6dc0",
+        "filename": "front_end/issues/MarkdownView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-10T11:08:37Z",
+      "side": 1,
+      "message": "We should use LitHtml here, otherwise we\u0027ll end up recreating the MarkdownLink instance many times.\n\nLitHtml.html`\u003cdevtools-markdown-link .data\u003d${{}\u003e`\n\nHave a look at goo.gle/building-ui-devtools if you need some pointers.",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 35
+      },
+      "revId": "852bd44d054d4c8ac95a46095e5f049405458d53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "95c82954_74f74d51",
@@ -14,6 +123,30 @@
       "writtenOn": "2020-12-10T06:24:49Z",
       "side": 1,
       "message": "Thanks for adding tests! I\u0027d prefer if we export the map and then let the unit test add the example link itself rather than have data around thats for tests only. (Even without Jack\u0027s approval for now, I\u0027ll clean it up afterwards if he proposes a better solution).",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 116
+      },
+      "revId": "852bd44d054d4c8ac95a46095e5f049405458d53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58f51be4_31ccf3e9",
+        "filename": "test/unittests/front_end/issues/MarkdownView_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-10T11:08:37Z",
+      "side": 1,
+      "message": "We definitely shouldn\u0027t have data defined just for the sake of testing. Can the test instead register a new link and then render it and test the output?",
+      "parentUuid": "95c82954_74f74d51",
       "range": {
         "startLine": 66,
         "startChar": 0,
