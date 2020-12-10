@@ -210,6 +210,7 @@ export class MainImpl {
 
     Root.Runtime.experiments.enableExperimentsByDefault([
       'cssGridFeatures',
+      'keyboardShortcutEditor',
     ]);
 
     // Font Editor
