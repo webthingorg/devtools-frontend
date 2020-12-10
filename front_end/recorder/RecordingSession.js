@@ -72,7 +72,8 @@ export class ClickStep extends Step {
   toString() {
     return `{
       ${this.context}
-      await frame.click(${JSON.stringify(this.selector)});
+      const element = await frame.waitForSelector(${JSON.stringify(this.selector)});
+      await element.click();
     }`;
   }
 }
@@ -111,7 +112,8 @@ export class SubmitStep extends Step {
   toString() {
     return `{
       ${this.context}
-      await frame.submit(${JSON.stringify(this.selector)});
+      const element = await frame.waitForSelector(${JSON.stringify(this.selector)});
+      await element.submit();
     }`;
   }
 }
@@ -135,7 +137,8 @@ export class ChangeStep extends Step {
   toString() {
     return `{
       ${this.context}
-      await frame.type(${JSON.stringify(this.selector)}, ${JSON.stringify(this.value)});
+      const element = await frame.waitForSelector(${JSON.stringify(this.selector)});
+      await element.type(${JSON.stringify(this.value)});
     }`;
   }
 }

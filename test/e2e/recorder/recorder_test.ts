@@ -97,53 +97,63 @@ describe('Recorder', function() {
     {
         const target = page;
         const frame = target.mainFrame();
-        await frame.click("aria/Test Button");
+        const element = await frame.waitForSelector("aria/Test Button");
+        await element.click();
     }
     {
         const target = page;
         const frame = target.mainFrame();
-        await frame.submit("html > body > div > form.form1");
+        const element = await frame.waitForSelector("html > body > div > form.form1");
+        await element.submit();
     }
     {
         const target = page;
         const frame = target.mainFrame();
-        await frame.click("aria/Hello World");
+        const element = await frame.waitForSelector("aria/Hello World");
+        await element.click();
     }
     {
         const target = page;
         const frame = target.mainFrame();
-        await frame.click("span#span2");
+        const element = await frame.waitForSelector("span#span2");
+        await element.click();
     }
     {
         const target = page;
         const frame = target.mainFrame();
-        await frame.type("aria/Input", "test");
+        const element = await frame.waitForSelector("aria/Input");
+        await element.type("test");
     }
     {
         const target = page;
         const frame = target.mainFrame();
-        await frame.click("aria/Hello World");
+        const element = await frame.waitForSelector("aria/Hello World");
+        await element.click();
     }
     {
         const target = page;
         const frame = target.mainFrame().childFrames()[0];
-        await frame.click("aria/iframe button");
+        const element = await frame.waitForSelector("aria/iframe button");
+        await element.click();
     }
     {
         const target = page;
         const frame = target.mainFrame().childFrames()[0].childFrames()[0];
-        await frame.click("aria/Inner iframe button");
+        const element = await frame.waitForSelector("aria/Inner iframe button");
+        await element.click();
     }
     {
         const target = page;
         const frame = target.mainFrame();
-        await frame.click("aria/Open Popup");
+        const element = await frame.waitForSelector("aria/Open Popup");
+        await element.click();
     }
     {
         const pages = await browser.pages();
         const target = pages.find(p => p.url() === "https://<url>/test/e2e/resources/recorder/popup.html");
         const frame = target.mainFrame();
-        await frame.click("aria/Button in Popup");
+        const element = await frame.waitForSelector("aria/Button in Popup");
+        await element.click();
     }
     await browser.close();
 })();
