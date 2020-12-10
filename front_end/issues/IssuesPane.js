@@ -1087,6 +1087,9 @@ class IssueCategoryView extends UI.TreeOutline.TreeElement {
     /** @type {!Array<!AggregatedIssue>} */
     this._issues = [];
 
+    this.setExpandable(true);
+    this.expand();
+
     this.toggleOnClick = true;
     this.listItemElement.classList.add('issue-category');
   }
