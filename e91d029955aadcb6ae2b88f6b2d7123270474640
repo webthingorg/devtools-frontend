@@ -33,6 +33,23 @@
       "message": "bump Tony from CC to reviewer.",
       "revId": "e91d029955aadcb6ae2b88f6b2d7123270474640",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0db1dc4_de6a3597",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2020-12-10T23:44:33Z",
+      "side": 1,
+      "message": "LGTM, thanks John!",
+      "revId": "e91d029955aadcb6ae2b88f6b2d7123270474640",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
