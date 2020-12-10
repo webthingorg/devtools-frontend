@@ -143,7 +143,10 @@ export class ImageView extends UI.View.SimpleView {
 
     contextMenu.clipboardSection().appendItem(
         Common.UIString.UIString('Open image in new tab'), this._openInNewTab.bind(this));
-    contextMenu.clipboardSection().appendItem(Common.UIString.UIString('Save…'), this._saveImage.bind(this));
+    contextMenu.clipboardSection().appendItem(ls`Save image as...`, async () => {
+      await this._saveImage();
+    });
+
     contextMenu.show();
   }
 
@@ -155,11 +158,24 @@ export class ImageView extends UI.View.SimpleView {
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(this._url);
   }
 
-  _saveImage() {
+  async _saveImage() {
+    const contentEncoded = await this._contentProvider.contentEncoded();
+    /** @type {?string} */
+    const cachedContent = this._cachedContent || null;
+    const imageDataURL =
+        TextUtils.ContentProvider.contentAsDataURL(cachedContent, this._mimeType, contentEncoded, '', false);
+
+    if (!imageDataURL) {
+      return;
+    }
+
     const link = document.createElement('a');
-    link.download = this._parsedURL.displayName;
-    link.href = this._url;
+    link.href = imageDataURL;
+
+    // If it is a Base64 image, set a default file name.
+    link.download = this._parsedURL.scheme === 'data' ? ls`download` : this._parsedURL.displayName;
     link.click();
+    link.remove();
   }
 
   _openInNewTab() {
