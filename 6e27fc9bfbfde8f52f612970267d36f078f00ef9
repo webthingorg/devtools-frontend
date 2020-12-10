@@ -104,6 +104,30 @@
       },
       "revId": "6e27fc9bfbfde8f52f612970267d36f078f00ef9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8deb5e8_94c73d40",
+        "filename": "front_end/browser_sdk/SourceFrameIssuesManager.ts",
+        "patchSetId": 29
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-10T10:32:40Z",
+      "side": 1,
+      "message": "But that would then also mean we would accumulate issues at the same rate? I think we should be good here :)",
+      "parentUuid": "bf03b309_02342c71",
+      "range": {
+        "startLine": 17,
+        "startChar": 10,
+        "endLine": 17,
+        "endChar": 69
+      },
+      "revId": "6e27fc9bfbfde8f52f612970267d36f078f00ef9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
