@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff7b060a_14e90e76",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 29
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-10T10:25:37Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "6e27fc9bfbfde8f52f612970267d36f078f00ef9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3090aac8_4fa4b58e",
@@ -55,6 +72,30 @@
       "side": 1,
       "message": "What would the advantage be over the current approach? The pool is emptied for all \"FullUpdatedRequired\" events, which seems simpler and I am not that worried about locations accumulating/leaking.",
       "parentUuid": "3090aac8_4fa4b58e",
+      "range": {
+        "startLine": 17,
+        "startChar": 10,
+        "endLine": 17,
+        "endChar": 69
+      },
+      "revId": "6e27fc9bfbfde8f52f612970267d36f078f00ef9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf03b309_02342c71",
+        "filename": "front_end/browser_sdk/SourceFrameIssuesManager.ts",
+        "patchSetId": 29
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-10T10:25:37Z",
+      "side": 1,
+      "message": "I was worried about accumulation due to subframe navigations (which don\u0027t trigger a FullUpdatedRequired event). If you are confident we can try this approach and fix it if we encounter a problem.",
+      "parentUuid": "dce3251a_152285ff",
       "range": {
         "startLine": 17,
         "startChar": 10,
