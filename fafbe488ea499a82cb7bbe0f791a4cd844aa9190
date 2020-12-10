@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57e57a94_64d168cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-12-10T13:46:31Z",
+      "side": 1,
+      "message": "Re-attempt at https://crrev.com/c/2568876, PTAL",
+      "revId": "fafbe488ea499a82cb7bbe0f791a4cd844aa9190",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
