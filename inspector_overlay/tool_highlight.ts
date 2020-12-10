@@ -385,7 +385,11 @@ function _createElementDescription(elementInfo: ElementInfo, colorFormat: string
   let elementInfoBodyElement: HTMLElement;
 
   if (elementInfo.isLockedAncestor) {
-    addTextRow('Showing the locked ancestor', '');
+    addTextRow('Showing content-visibility ancestor', '');
+  }
+
+  if (elementInfo.isLocked) {
+    addTextRow('Descedants are skipped due to content-visibility', '');
   }
 
   const color = style['color'];
