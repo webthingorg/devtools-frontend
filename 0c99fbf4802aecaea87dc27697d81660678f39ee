@@ -16,6 +16,24 @@
       "message": "nit: \"save\" -\u003e \"saves\"",
       "revId": "0c99fbf4802aecaea87dc27697d81660678f39ee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "722565c9_1aff3881",
+        "filename": "front_end/source_frame/ImageView.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-12-10T13:10:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4272c9b3_faafb143",
+      "revId": "0c99fbf4802aecaea87dc27697d81660678f39ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

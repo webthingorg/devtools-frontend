@@ -60,6 +60,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ab0cb229_212ad55e",
+        "filename": "front_end/source_frame/ImageView.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-12-10T13:10:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab29805e_96a69687",
+      "revId": "fec9eefd8dc3fc23f19395d28d20f3e228c38d4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f13e5e1f_5bf93597",
         "filename": "front_end/source_frame/ImageView.js",
         "patchSetId": 6
