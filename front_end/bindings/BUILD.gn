@@ -17,6 +17,7 @@ devtools_module("bindings") {
     "DefaultScriptMapping.js",
     "FileUtils.js",
     "LiveLocation.js",
+    "ModuleUIStrings.js",
     "NetworkProject.js",
     "PresentationConsoleMessageHelper.js",
     "ResourceMapping.js",
@@ -30,6 +31,7 @@ devtools_module("bindings") {
   deps = [
     "../common:bundle",
     "../host:bundle",
+    "../i18n:bundle",
     "../sdk:bundle",
     "../text_utils:bundle",
     "../workspace:bundle",

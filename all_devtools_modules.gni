@@ -31,6 +31,7 @@ all_typescript_module_sources = [
   "bindings/DefaultScriptMapping.js",
   "bindings/FileUtils.js",
   "bindings/LiveLocation.js",
+  "bindings/ModuleUIStrings.js",
   "bindings/NetworkProject.js",
   "bindings/PresentationConsoleMessageHelper.js",
   "bindings/ResourceMapping.js",

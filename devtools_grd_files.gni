@@ -417,6 +417,7 @@ grd_files_debug_sources = [
   "front_end/bindings/DefaultScriptMapping.js",
   "front_end/bindings/FileUtils.js",
   "front_end/bindings/LiveLocation.js",
+  "front_end/bindings/ModuleUIStrings.js",
   "front_end/bindings/NetworkProject.js",
   "front_end/bindings/PresentationConsoleMessageHelper.js",
   "front_end/bindings/ResourceMapping.js",
