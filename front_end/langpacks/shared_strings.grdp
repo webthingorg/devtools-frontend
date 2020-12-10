@@ -106,9 +106,6 @@
   <message name="IDS_DEVTOOLS_3793ea52a7be2d7deafd858fda50775c" desc="Text exposed to screen readers on checked items.">
     checked
   </message>
-  <message name="IDS_DEVTOOLS_393c3f5ea8ad35c02691d507bdbb31b0" desc="Text for revealing an item in its destination">
-    Reveal
-  </message>
   <message name="IDS_DEVTOOLS_3afbd9828e011526955ca93b48b57524" desc="Text for one or a group of screenshots">
     Screenshot
   </message>
@@ -296,9 +293,6 @@
   <message name="IDS_DEVTOOLS_91e02cd2b8621d0c05197f645668c5c4" desc="A tag of Group Network by frame setting that can be searched in the command menu">
     network
   </message>
-  <message name="IDS_DEVTOOLS_93898e12951c906e5286ccb36d980ce5" desc="Text for scripts that should not be stepped into when debugging">
-    Blackbox script
-  </message>
   <message name="IDS_DEVTOOLS_939aaa05e0943b39eab3a34fd609384d" desc="Text to scroll the displayed content into view">
     Scroll into view
   </message>
@@ -319,9 +313,6 @@
   </message>
   <message name="IDS_DEVTOOLS_9d8c209e49e328528c39c273798e98c9" desc="Text to save content as a specific file type">
     Save as...
-  </message>
-  <message name="IDS_DEVTOOLS_9df22f196a33acd0b372fe502de51211" desc="Text short for automatic">
-    auto
   </message>
   <message name="IDS_DEVTOOLS_9e65b51e82f2a9b9f72ebe3e083582bb" desc="Text to show an item is empty">
     (empty)
@@ -418,9 +409,6 @@
   </message>
   <message name="IDS_DEVTOOLS_bec25a46972e4fa86df9413508add5c2" desc="Text that refers to disabling local fonts">
     Disable local fonts
-  </message>
-  <message name="IDS_DEVTOOLS_c3fe109bf99ade2d76a55e5737015e3e" desc="Text to stop preventing the debugger from stepping into library code">
-    Stop blackboxing
   </message>
   <message name="IDS_DEVTOOLS_c9ad95228aa735bdda1aebf38da022af" desc="Text to parse something">
     Parse

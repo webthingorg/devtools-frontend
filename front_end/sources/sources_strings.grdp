@@ -390,6 +390,9 @@
   <message name="IDS_DEVTOOLS_923dab99a01b578dbf1ec09277a0ed2e" desc="A context menu item in the Navigator View of the Sources panel">
     Rename…
   </message>
+  <message name="IDS_DEVTOOLS_93898e12951c906e5286ccb36d980ce5" desc="Text for scripts that should not be stepped into when debugging">
+    Blackbox script
+  </message>
   <message name="IDS_DEVTOOLS_945efe35b9e3950bd1a796a9310736a6" desc="Text in Go To Line Quick Open of the Sources panel">
     Go to line <ph name="POSITION_LINE">$1s<ex>2</ex></ph> and column <ph name="POSITION_COLUMN">$2s<ex>2</ex></ph>.
   </message>
@@ -521,6 +524,9 @@
   </message>
   <message name="IDS_DEVTOOLS_c322e65e12002c3bd486ff62ff5b1fd6" desc="Text in Debugger Paused Message of the Sources panel">
     node removal
+  </message>
+  <message name="IDS_DEVTOOLS_c3fe109bf99ade2d76a55e5737015e3e" desc="Text to stop preventing the debugger from stepping into library code">
+    Stop blackboxing
   </message>
   <message name="IDS_DEVTOOLS_c42094126c68a61cc5359460681e1d90" desc="Text in Snippets Plugin of the Sources panel">
     ⌘+Enter
