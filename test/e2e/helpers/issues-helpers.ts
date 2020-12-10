@@ -41,6 +41,13 @@ export async function assertStatus(status: 'blocked'|'report-only') {
   assert.strictEqual(selectedIssueMessage, status);
 }
 
+export async function assertCategoryExpanded() {
+  const categoryElement = await waitFor(CATEGORY);
+  const isCategoryExpanded = await categoryElement.evaluate(node => node.classList.contains('expanded'));
+
+  assert.isTrue(isCategoryExpanded);
+}
+
 export async function expandCategory() {
   const categoryElement = await waitFor(CATEGORY);
   const isCategoryExpanded = await categoryElement.evaluate(node => node.classList.contains('expanded'));
