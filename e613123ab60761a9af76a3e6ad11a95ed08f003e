@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3033f28c_6d1e8c07",
+        "filename": "front_end/browser_sdk/SourceFrameIssuesManager.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-10T07:30:10Z",
+      "side": 1,
+      "message": "Given the new isTrustedType helper, this instanceof check shouldn\u0027t be necessary?\nMoreover, since \"addIssue\" handles the filtering and we unconditionally call \"addIssue\" in the event handler, i\u0027d say we also skip the \"this.isTrustedTypeIssue(issue)\" here and let \"addIssue\" handle the filtering.",
+      "range": {
+        "startLine": 53,
+        "startChar": 10,
+        "endLine": 53,
+        "endChar": 86
+      },
+      "revId": "e613123ab60761a9af76a3e6ad11a95ed08f003e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee588a0a_4695e4bc",
+        "filename": "front_end/browser_sdk/SourceFrameIssuesManager.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-10T07:30:10Z",
+      "side": 1,
+      "message": "Do you still plan to add one or two unit tests for this class? I\u0027d prefer if we have some :)",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 1
+      },
+      "revId": "e613123ab60761a9af76a3e6ad11a95ed08f003e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
