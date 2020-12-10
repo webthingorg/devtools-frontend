@@ -161,6 +161,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba9349f6_82be53b4",
+        "filename": "front_end/source_frame/ImageView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-12-10T06:51:37Z",
+      "side": 1,
+      "message": "So do we need to deal with the no cache option in the Network[1]?\n\nIn addition, can we always use Base64?\n\n[1]: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/sdk/NetworkRequest.js;l\u003d1447-1450",
+      "parentUuid": "9c0e7319_e679dacf",
+      "revId": "8f7814a4e475c7b097b39feb27a96f0fca7a5d5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ef2f0b7_447362bd",
