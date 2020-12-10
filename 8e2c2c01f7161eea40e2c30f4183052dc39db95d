@@ -87,6 +87,30 @@
       },
       "revId": "8e2c2c01f7161eea40e2c30f4183052dc39db95d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47de9a10_ef3e78f9",
+        "filename": "front_end/emulation/SensorsView.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 875,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-12-10T12:59:28Z",
+      "side": 1,
+      "message": "@Peter, you\u0027re right, the export isn\u0027t needed in this case. I\u0027ll also include the solution discussed in the docs.",
+      "parentUuid": "4408c3b6_e697f8f2",
+      "range": {
+        "startLine": 875,
+        "startChar": 0,
+        "endLine": 875,
+        "endChar": 29
+      },
+      "revId": "8e2c2c01f7161eea40e2c30f4183052dc39db95d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
