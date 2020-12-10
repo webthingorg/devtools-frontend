@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "31662038_f0ab6713",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1436067
+      },
+      "writtenOn": "2020-12-10T11:10:12Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "7684a9c80b331a0292ef63f4514faa85df5e028d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "96e7ddff_e827cd92",
         "filename": "test/e2e/recorder/recorder_test.ts",
         "patchSetId": 2
