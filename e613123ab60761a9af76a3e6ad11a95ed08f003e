@@ -93,6 +93,30 @@
       },
       "revId": "e613123ab60761a9af76a3e6ad11a95ed08f003e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c624f811_47e3b0ce",
+        "filename": "front_end/browser_sdk/SourceFrameIssuesManager.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-10T09:31:45Z",
+      "side": 1,
+      "message": "Then lets remove this method :)",
+      "parentUuid": "250276fd_bcc9aaab",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 1
+      },
+      "revId": "e613123ab60761a9af76a3e6ad11a95ed08f003e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
