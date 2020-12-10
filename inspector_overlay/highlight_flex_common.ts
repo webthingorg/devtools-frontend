@@ -15,8 +15,9 @@ export interface FlexContainerHighlight {
   containerBorder: PathCommands;
   lines: FlexLinesHighlight;
   isHorizontalFlow: boolean;
+  isReverse: boolean;
   alignItemsStyle: string;
-  flexContainerHighlightConfig: {
+  mainGap: number, crossGap: number, flexContainerHighlightConfig: {
     containerBorder?: LineStyle;
     lineSeparator?: LineStyle;
     itemSeparator?: LineStyle;
@@ -34,6 +35,11 @@ interface LineQuads {
   extendedItems: Quad[];
 }
 
+interface GapQuads {
+  mainGaps: Quad[][];
+  crossGaps: Quad[];
+}
+
 const ALIGNMENT_LINE_THICKNESS = 2;
 const ALIGNMENT_ARROW_BODY_HEIGHT = 5;
 const ALIGNMENT_ARROW_BODY_WIDTH = 5;
@@ -47,7 +53,7 @@ export function drawLayoutFlexContainerHighlight(
   const config = highlight.flexContainerHighlightConfig;
   const bounds = emptyBounds();
   const borderPath = buildPath(highlight.containerBorder, bounds, emulationScaleFactor);
-  const {isHorizontalFlow, lines} = highlight;
+  const {isHorizontalFlow, isReverse, lines} = highlight;
   drawPathWithLineStyle(context, borderPath, config.containerBorder);
 
   // If there are no lines, bail out now.
@@ -56,7 +62,7 @@ export function drawLayoutFlexContainerHighlight(
   }
 
   // Process the item paths we received from the backend into quads we can use to draw what we need.
-  const lineQuads = getLinesAndItemsQuads(highlight.containerBorder, lines, isHorizontalFlow);
+  const lineQuads = getLinesAndItemsQuads(highlight.containerBorder, lines, isHorizontalFlow, isReverse);
 
   // Draw lines and items.
   drawFlexLinesAndItems(highlight, context, emulationScaleFactor, lineQuads, isHorizontalFlow);
@@ -105,46 +111,84 @@ function drawFlexLinesAndItems(
  * distribution).
  * Space created by content distribution along the cross axis (align-content) appears between flex lines.
  * Space created by content distribution along the main axis (justify-content) appears between flex items.
- * Note: space created by gaps isn't taken into account yet, and requires the backend to send data about the gap size.
+ * Space created by gap along the cross axis appears between flex lines.
+ * Space created by gap along the main axis appears between flex items.
  */
 function drawFlexSpace(
     highlight: FlexContainerHighlight, context: CanvasRenderingContext2D, emulationScaleFactor: number,
     container: PathCommands, lineQuads: LineQuads[]) {
-  const {mainDistributedSpace, crossDistributedSpace} = highlight.flexContainerHighlightConfig;
+  const {isHorizontalFlow} = highlight;
+  const {mainDistributedSpace, crossDistributedSpace, rowGapSpace, columnGapSpace} =
+      highlight.flexContainerHighlightConfig;
+  const mainGapSpace = isHorizontalFlow ? columnGapSpace : rowGapSpace;
+  const crossGapSpace = isHorizontalFlow ? rowGapSpace : columnGapSpace;
+
   const drawMainSpace = mainDistributedSpace && !!(mainDistributedSpace.fillColor || mainDistributedSpace.hatchColor);
   const drawCrossSpace = lineQuads.length > 1 && crossDistributedSpace &&
       !!(crossDistributedSpace.fillColor || crossDistributedSpace.hatchColor);
+  const drawMainGapSpace = mainGapSpace && !!(mainGapSpace.fillColor || mainGapSpace.hatchColor);
+  const drawCrossGapSpace =
+      lineQuads.length > 1 && crossGapSpace && !!(crossGapSpace.fillColor || crossGapSpace.hatchColor);
 
-  if (!drawMainSpace && !drawCrossSpace) {
-    return;
-  }
+  const isSameStyle = mainDistributedSpace && crossDistributedSpace && mainGapSpace && crossGapSpace &&
+      mainDistributedSpace.fillColor === crossDistributedSpace.fillColor &&
+      mainDistributedSpace.hatchColor === crossDistributedSpace.hatchColor &&
+      mainDistributedSpace.fillColor === mainGapSpace.fillColor &&
+      mainDistributedSpace.hatchColor === mainGapSpace.hatchColor &&
+      mainDistributedSpace.fillColor === crossGapSpace.fillColor &&
+      mainDistributedSpace.hatchColor === crossGapSpace.hatchColor;
 
   const containerQuad = rectPathToQuad(container);
 
   // Start with the case where we want to draw all types of space, with the same style. This is important because it's
   // a common case that we can optimize by drawing in one go, and therefore avoiding having visual offsets between
   // mutliple hatch patterns.
-  if (drawMainSpace && drawCrossSpace && mainDistributedSpace && crossDistributedSpace &&
-      mainDistributedSpace.fillColor === crossDistributedSpace.fillColor &&
-      mainDistributedSpace.hatchColor === crossDistributedSpace.hatchColor) {
+  if (isSameStyle) {
     // Draw in one go by constructing a path that covers the entire container but punches holes where items are.
     const allItemQuads = lineQuads.map(line => line.extendedItems).flat().map(item => item);
-    drawHatchPatternInQuad(containerQuad, allItemQuads, mainDistributedSpace, context, emulationScaleFactor);
+    drawFlexSpaceInQuad(containerQuad, allItemQuads, mainDistributedSpace, context, emulationScaleFactor);
     return;
   }
 
-  // In other cases, we're forced to draw the empty space in multiple go's. First drawing the space betweeb flex lines.
-  // And then the space between flex items, per line.
+  // Compute quads for the gaps between lines and items, if any. This will be useful when drawing the flex space.
+  const gapQuads = getGapQuads(highlight, lineQuads);
+
   if (drawCrossSpace) {
-    // If we're drawing only cross space, then we do the same thing but punching holes where flex lines are.
-    const allLineQuads = lineQuads.map(line => line.quad);
-    drawHatchPatternInQuad(containerQuad, allLineQuads, crossDistributedSpace, context, emulationScaleFactor);
+    // For cross-space we draw a path that covers everything.
+    const quadsToClip = [
+      // But we clip holes where lines are.
+      ...lineQuads.map(line => line.quad),
+      // And also clip holds where gaps are, if those are also drawn.
+      ...(drawCrossGapSpace ? gapQuads.crossGaps : []),
+    ];
+    drawFlexSpaceInQuad(containerQuad, quadsToClip, crossDistributedSpace, context, emulationScaleFactor);
   }
 
   if (drawMainSpace) {
-    for (const line of lineQuads) {
-      const itemQuads = line.extendedItems;
-      drawHatchPatternInQuad(line.quad, itemQuads, mainDistributedSpace, context, emulationScaleFactor);
+    // Main space is draw per flex line.
+    for (const [index, line] of lineQuads.entries()) {
+      // For main-space, we draw a path that covers each line.
+      const quadsToClip = [
+        // But we clip holes were items on the lines are.
+        ...line.extendedItems,
+        // And where gaps are, if those are also drawn.
+        ...(drawMainGapSpace ? gapQuads.mainGaps[index] : []),
+      ];
+      drawFlexSpaceInQuad(line.quad, quadsToClip, mainDistributedSpace, context, emulationScaleFactor);
+    }
+  }
+
+  if (drawCrossGapSpace) {
+    for (const quad of gapQuads.crossGaps) {
+      drawFlexSpaceInQuad(quad, [], crossGapSpace, context, emulationScaleFactor);
+    }
+  }
+
+  if (drawMainGapSpace) {
+    for (const line of gapQuads.mainGaps) {
+      for (const quad of line) {
+        drawFlexSpaceInQuad(quad, [], mainGapSpace, context, emulationScaleFactor);
+      }
     }
   }
 }
@@ -359,17 +403,26 @@ function drawAlignmentArrow(
   context.restore();
 }
 
-function drawHatchPatternInQuad(
+function drawFlexSpaceInQuad(
     outerQuad: Quad, quadsToClip: Quad[], boxStyle: BoxStyle|undefined, context: CanvasRenderingContext2D,
     emulationScaleFactor: number) {
-  if (!boxStyle || !boxStyle.hatchColor) {
+  if (!boxStyle) {
     return;
   }
 
-  const angle = Math.atan2(outerQuad.p2.y - outerQuad.p1.y, outerQuad.p2.x - outerQuad.p1.x) * 180 / Math.PI;
-  const bounds = emptyBounds();
-  const path = createPathForQuad(outerQuad, quadsToClip, bounds, emulationScaleFactor);
-  hatchFillPath(context, path, bounds, 10, boxStyle.hatchColor, angle, false);
+  if (boxStyle.fillColor) {
+    const bounds = emptyBounds();
+    const path = createPathForQuad(outerQuad, quadsToClip, bounds, emulationScaleFactor);
+    context.fillStyle = boxStyle.fillColor;
+    context.fill(path);
+  }
+
+  if (boxStyle.hatchColor) {
+    const angle = Math.atan2(outerQuad.p2.y - outerQuad.p1.y, outerQuad.p2.x - outerQuad.p1.x) * 180 / Math.PI;
+    const bounds = emptyBounds();
+    const path = createPathForQuad(outerQuad, quadsToClip, bounds, emulationScaleFactor);
+    hatchFillPath(context, path, bounds, 10, boxStyle.hatchColor, angle, false);
+  }
 }
 
 /**
@@ -382,7 +435,7 @@ function drawHatchPatternInQuad(
  * @param isHorizontalFlow
  */
 function getLinesAndItemsQuads(
-    container: PathCommands, lines: FlexLinesHighlight, isHorizontalFlow: boolean): LineQuads[] {
+    container: PathCommands, lines: FlexLinesHighlight, isHorizontalFlow: boolean, isReverse: boolean): LineQuads[] {
   const containerQuad = rectPathToQuad(container);
 
   // Create a quad for each line that's as big as the items it contains and extends to the edges of the container in the
@@ -397,7 +450,7 @@ function getLinesAndItemsQuads(
     const itemQuads: Quad[] = [];
     for (const {itemBorder} of line) {
       const itemQuad = rectPathToQuad(itemBorder);
-      lineQuad = !lineQuad ? itemQuad : uniteQuads(lineQuad, itemQuad, isHorizontalFlow);
+      lineQuad = !lineQuad ? itemQuad : uniteQuads(lineQuad, itemQuad, isHorizontalFlow, isReverse);
       itemQuads.push(itemQuad);
     }
 
@@ -413,6 +466,99 @@ function getLinesAndItemsQuads(
   }
 
   return lineQuads;
+}
+
+function getGapQuads(highlight: FlexContainerHighlight, lineQuads: LineQuads[]): GapQuads {
+  const {crossGap, mainGap, isHorizontalFlow, isReverse} = highlight;
+  const mainGaps: Quad[][] = [];
+  const crossGaps: Quad[] = [];
+
+  if (crossGap && lineQuads.length > 1) {
+    for (let i = 0, j = i + 1; i < lineQuads.length - 1; i++, j = i + 1) {
+      const line1 = lineQuads[i].quad;
+      const line2 = lineQuads[j].quad;
+
+      crossGaps.push(getGapQuadBetweenQuads(line1, line2, crossGap, isHorizontalFlow));
+    }
+  }
+
+  if (mainGap) {
+    for (const {extendedItems} of lineQuads) {
+      const lineGapQuads = [];
+      for (let i = 0, j = i + 1; i < extendedItems.length - 1; i++, j = i + 1) {
+        const item1 = extendedItems[i];
+        const item2 = extendedItems[j];
+
+        lineGapQuads.push(getGapQuadBetweenQuads(item1, item2, mainGap, !isHorizontalFlow, isReverse));
+      }
+      mainGaps.push(lineGapQuads);
+    }
+  }
+
+  return {mainGaps, crossGaps};
+}
+
+/**
+ * Create a quad for the gap that exists between 2 quads.
+ *
+ * +-------+   +-+   +-------+
+ * | quad1 |   |/|   | quad2 |
+ * +-------+   +-+   +-------+
+ *           gap quad
+ *
+ * @param quad1
+ * @param quad2
+ * @param size The size of the gap between the 2 quads
+ * @param horizontally whether the 2 quads are stacked horizontally (quad1 above quad2), or vertically (quad1 left of
+ * quad2)
+ * @param isReverse whether the direction is reversed (quad1 below quad2 or quad1 right of quad2)
+ */
+function getGapQuadBetweenQuads(quad1: Quad, quad2: Quad, size: number, horizontally: boolean, isReverse?: boolean) {
+  if (isReverse) {
+    [quad1, quad2] = [quad2, quad1];
+  }
+  const angle = horizontally ? Math.atan2(quad1.p4.y - quad1.p1.y, quad1.p4.x - quad1.p1.x) :
+                               Math.atan2(quad1.p2.y - quad1.p1.y, quad1.p2.x - quad1.p1.x);
+  const d = horizontally ? distance(quad1.p4, quad2.p1) : distance(quad1.p2, quad2.p1);
+  const startOffset = (d / 2) - (size / 2);
+  const endOffset = (d / 2) + (size / 2);
+
+  return horizontally ? {
+    p1: {
+      x: quad1.p4.x + (startOffset * Math.cos(angle)),
+      y: quad1.p4.y + (startOffset * Math.sin(angle)),
+    },
+    p2: {
+      x: quad1.p3.x + (startOffset * Math.cos(angle)),
+      y: quad1.p3.y + (startOffset * Math.sin(angle)),
+    },
+    p3: {
+      x: quad1.p3.x + (endOffset * Math.cos(angle)),
+      y: quad1.p3.y + (endOffset * Math.sin(angle)),
+    },
+    p4: {
+      x: quad1.p4.x + (endOffset * Math.cos(angle)),
+      y: quad1.p4.y + (endOffset * Math.sin(angle)),
+    },
+  } :
+                        {
+                          p1: {
+                            x: quad1.p2.x + (startOffset * Math.cos(angle)),
+                            y: quad1.p2.y + (startOffset * Math.sin(angle)),
+                          },
+                          p2: {
+                            x: quad1.p2.x + (endOffset * Math.cos(angle)),
+                            y: quad1.p2.y + (endOffset * Math.sin(angle)),
+                          },
+                          p3: {
+                            x: quad1.p3.x + (endOffset * Math.cos(angle)),
+                            y: quad1.p3.y + (endOffset * Math.sin(angle)),
+                          },
+                          p4: {
+                            x: quad1.p3.x + (startOffset * Math.cos(angle)),
+                            y: quad1.p3.y + (startOffset * Math.sin(angle)),
+                          },
+                        };
 }
 
 function quadToHorizontalLinesPath(quad: Quad, nextQuad: Quad|undefined): PathCommands {
@@ -447,13 +593,17 @@ function rectPathToQuad(commands: PathCommands): Quad {
 
 /**
  * Get a quad that bounds the provided 2 quads.
- * This only works if quad1 is before quad2 in the flow direction and if both quads have their respective sides parallel
- * to eachother.
+ * This only works if both quads have their respective sides parallel to eachother.
  * @param quad1
  * @param quad2
  * @param isHorizontalFlow
+ * @param isReverse
  */
-function uniteQuads(quad1: Quad, quad2: Quad, isHorizontalFlow: boolean): Quad {
+function uniteQuads(quad1: Quad, quad2: Quad, isHorizontalFlow: boolean, isReverse: boolean): Quad {
+  if (isReverse) {
+    [quad1, quad2] = [quad2, quad1];
+  }
+
   const mainStartSegment = isHorizontalFlow ? [quad1.p1, quad1.p4] : [quad1.p1, quad1.p2];
   const mainEndSegment = isHorizontalFlow ? [quad2.p2, quad2.p3] : [quad2.p3, quad2.p4];
 
@@ -535,4 +685,8 @@ function segmentContains([p1, p2]: Position[], point: Position): boolean {
   }
 
   return (point.y - p1.y) * (p2.x - p1.x) === (p2.y - p1.y) * (point.x - p1.x);
+}
+
+function distance(p1: Position, p2: Position) {
+  return Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));
 }
