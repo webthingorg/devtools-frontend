@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d05edbea_6d3477e8",
+        "filename": "front_end/emulation/StructuredHeaders.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-12-10T15:20:01Z",
+      "side": 1,
+      "message": "I don\u0027t believe it is; I kept it because it\u0027s in the spec pseudo-code, and felt like skipping it would require comments explaining why it\u0027s not there, which is awkward, and there is some epsilon chance I am wrong?",
+      "parentUuid": "388746e7_78dcd7fa",
+      "range": {
+        "startLine": 297,
+        "startChar": 0,
+        "endLine": 299,
+        "endChar": 3
+      },
+      "revId": "6d66f90a7734f0240f0b2676cd8ced19ae723b85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fc2cbf1e_aa8df172",
         "filename": "test/unittests/front_end/emulation/StructuredHeaders_test.ts",
         "patchSetId": 4
@@ -71,6 +95,30 @@
       "writtenOn": "2020-12-10T07:08:58Z",
       "side": 1,
       "message": "\"it(\"parses empty inner lists successfully\", ...)\"\n\n:) IMO I\u0027d prefer splitting these up in 5 test cases, but no strong opinion if you rather have it as-is. Wdyt?",
+      "range": {
+        "startLine": 225,
+        "startChar": 0,
+        "endLine": 229,
+        "endChar": 32
+      },
+      "revId": "6d66f90a7734f0240f0b2676cd8ced19ae723b85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b043f8f_51929eaa",
+        "filename": "test/unittests/front_end/emulation/StructuredHeaders_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-12-10T15:20:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc2cbf1e_aa8df172",
       "range": {
         "startLine": 225,
         "startChar": 0,
