@@ -22,6 +22,30 @@
       },
       "revId": "b3a2f6a8f58af5a60b3faf7ad8bfa47869528a09",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26fec20e_7204c453",
+        "filename": "front_end/source_frame/SourceFrame.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-10T09:55:10Z",
+      "side": 1,
+      "message": "`import.meta.url` is a meta object that is passed into every single module file. The URL property contains the absolute path to the current module. The URL constructor takes an optional second parameter to define the relative base path.\n\nThis means that this URL constructor is roughly equivalent to:\n\n    path.join(import.meta.url, \u0027../wasm_parser_worker/wasmparser_worker-entrypoint.js)\n\nSince this file is `source_frame/SourceFrame.js`, the resulting URL will be pointing to the `wasmparser_worker-entrypoint.js` file.",
+      "parentUuid": "87c2b4e5_58fb69c8",
+      "range": {
+        "startLine": 336,
+        "startChar": 0,
+        "endLine": 336,
+        "endChar": 91
+      },
+      "revId": "b3a2f6a8f58af5a60b3faf7ad8bfa47869528a09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
