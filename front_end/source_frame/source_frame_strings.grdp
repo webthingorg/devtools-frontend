@@ -27,6 +27,9 @@
   <message name="IDS_DEVTOOLS_70a0a440eed4f94a3632d346b03d9a53" desc="A drop-down menu option to set indentation to 2 spaces">
     2 spaces
   </message>
+  <message name="IDS_DEVTOOLS_7614f0bed267d2f1e6cd281e6989954a" desc="A context menu item in the Image Preview">
+    Save image as...
+  </message>
   <message name="IDS_DEVTOOLS_7894a953b2e5c818b263e862929417f3" desc="A drop-down menu option to set indentation to tab character">
     Tab character
   </message>
