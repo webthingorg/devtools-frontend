@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95c82954_74f74d51",
+        "filename": "test/unittests/front_end/issues/MarkdownView_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-10T06:24:49Z",
+      "side": 1,
+      "message": "Thanks for adding tests! I\u0027d prefer if we export the map and then let the unit test add the example link itself rather than have data around thats for tests only. (Even without Jack\u0027s approval for now, I\u0027ll clean it up afterwards if he proposes a better solution).",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 116
+      },
+      "revId": "852bd44d054d4c8ac95a46095e5f049405458d53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68e97c84_5fd88ee1",
+        "filename": "test/unittests/front_end/issues/MarkdownView_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-10T06:24:49Z",
+      "side": 1,
+      "message": "Could you please explain this test to me? I don\u0027t understand why we are expecting the empty strings and not the \u0027\u003ca\u003e\u0027 tags :)",
+      "range": {
+        "startLine": 68,
+        "startChar": 6,
+        "endLine": 68,
+        "endChar": 65
+      },
+      "revId": "852bd44d054d4c8ac95a46095e5f049405458d53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

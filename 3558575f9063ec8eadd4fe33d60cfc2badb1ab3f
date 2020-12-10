@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f16a112_e4578879",
+        "filename": "front_end/issues/BUILD.gn",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-10T06:24:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9f427ca7_f528f534",
+      "range": {
+        "startLine": 20,
+        "startChar": 5,
+        "endLine": 20,
+        "endChar": 18
+      },
+      "revId": "3558575f9063ec8eadd4fe33d60cfc2badb1ab3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4d58a15d_0a5ead1c",
@@ -149,6 +173,30 @@
       "side": 1,
       "message": "I tried using this way, it doesn\u0027t seem to work, the component renders but props are not passed.",
       "parentUuid": "29929869_835a851b",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 6
+      },
+      "revId": "3558575f9063ec8eadd4fe33d60cfc2badb1ab3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cabf146_9a398442",
+        "filename": "front_end/issues/MarkdownView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-10T06:24:49Z",
+      "side": 1,
+      "message": "This should really work though. You can take a look at various other components where this pattern is used. Please note that the dot in front of \"data\" is important, as otherwise its treated as an attribute instead of a property.\n\nIf it still doesn\u0027t work, let me know and I can also take a look tomorrow :)",
+      "parentUuid": "3c367a06_8f9dc5d6",
       "range": {
         "startLine": 137,
         "startChar": 0,
