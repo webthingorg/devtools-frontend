@@ -68,6 +68,24 @@
       "message": "Sounds good!",
       "revId": "1a82878c30fd6a03a9af4cb956ed52c718a8e7c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e35ea7d_81f7de43",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-12-10T08:45:16Z",
+      "side": 1,
+      "message": "So it still fails :-/ https://logs.chromium.org/logs/devtools-frontend/buildbucket/cr-buildbucket.appspot.com/8861322312590722928/+/steps/E2E_tests/0/stdout",
+      "parentUuid": "5e620b82_485595ab",
+      "revId": "1a82878c30fd6a03a9af4cb956ed52c718a8e7c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
