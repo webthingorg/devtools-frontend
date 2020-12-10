@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e59beffa_cf6472be",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 704,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-10T10:30:13Z",
+      "side": 1,
+      "message": "We don\u0027t really need this field, since we have this._message, right?",
+      "range": {
+        "startLine": 704,
+        "startChar": 4,
+        "endLine": 704,
+        "endChar": 64
+      },
+      "revId": "b43b85b4989267f70127f7071d021f6f0c8e95c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "772b95fb_93dd97df",
+        "filename": "test/e2e/sources/icon-row-bucket_test.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-10T10:30:13Z",
+      "side": 1,
+      "message": "I\u0027m confused about the renaming of the test expectations. Should this be done in the previous CL?",
+      "range": {
+        "startLine": 54,
+        "startChar": 6,
+        "endLine": 54,
+        "endChar": 36
+      },
+      "revId": "b43b85b4989267f70127f7071d021f6f0c8e95c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41339786_790e7bb0",
+        "filename": "test/e2e/sources/icon-row-bucket_test.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-10T10:30:13Z",
+      "side": 1,
+      "message": "I\u0027m missing a click in this test ... is the description correct?",
+      "range": {
+        "startLine": 76,
+        "startChar": 6,
+        "endLine": 76,
+        "endChar": 42
+      },
+      "revId": "b43b85b4989267f70127f7071d021f6f0c8e95c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
