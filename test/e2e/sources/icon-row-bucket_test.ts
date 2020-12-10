@@ -15,6 +15,7 @@ async function getIconComponents(className: string, root?: puppeteer.ElementHand
     return icons.length > 0 ? icons : undefined;
   });
 }
+
 async function getRowsText(root: puppeteer.ElementHandle<Element>): Promise<string[]> {
   const rowMessages = await $$('.text-editor-row-message', root);
   const messages = [];
@@ -67,6 +68,36 @@ describe('Display error information next to affected lines', async () => {
         assert.strictEqual(await getIconFile(iconComponent), 'error_icon.svg');
       }
       assert.strictEqual(await getIconFile(bucketIconComponent), 'error_icon.svg');
+    }
+  });
+  it('Issues should be displayed', async () => {
+    await openFileInSourceTab('trusted-type-violations-report-only.rawresponse');
+    const issueIconComponents = await getIconComponents('text-editor-line-decoration-icon-issue');
+
+    const issueMessages: string[] = [];
+    const expectedIssueMessages = [
+      'Trusted Type policy creation blocked by Content Security Policy',
+      'Trusted Type expected, but String received',
+    ];
+    for (const issueIconComponent of issueIconComponents) {
+      await click(issueIconComponent);
+      const vbox = await waitFor('div.vbox.flex-auto.no-pointer-events');
+      const rowMessages = await getRowsText(vbox);
+      issueMessages.push(...rowMessages);
+    }
+    assert.deepEqual(issueMessages, expectedIssueMessages);
+  });
+  it('Issues icon should be correct', async () => {
+    await openFileInSourceTab('trusted-type-violations-report-only.rawresponse');
+    const bucketIssueIconComponents = await getIconComponents('text-editor-line-decoration-icon-issue');
+    for (const bucketIssueIconComponent of bucketIssueIconComponents) {
+      await click(bucketIssueIconComponent);
+      const vbox = await waitFor('div.vbox.flex-auto.no-pointer-events');
+      const issueIconComponents = await getIconComponents('text-editor-row-message-icon', vbox);
+      for (const issueIconComponent of issueIconComponents) {
+        assert.strictEqual(await getIconFile(issueIconComponent), 'breaking_change_icon.svg');
+      }
+      assert.strictEqual(await getIconFile(bucketIssueIconComponent), 'breaking_change_icon.svg');
     }
   });
 });
