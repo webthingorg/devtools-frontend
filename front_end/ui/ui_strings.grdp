@@ -30,6 +30,9 @@
   <message name="IDS_DEVTOOLS_3b41735478b3a3fd8bcc06f6c7a6b56c" desc="label to copy link address">
     Copy link address
   </message>
+  <message name="IDS_DEVTOOLS_6feab1a8f70b4209f82a628b7395ede3" desc="Message to display if a setting change requires a reload of DevTools">
+    One or more settings have changed which requires a reload to take effect.
+  </message>
   <message name="IDS_DEVTOOLS_727b701bcc5f26422461f10c07a58d48" desc="Text for context menu action to move a tab to the main panel">
     Move to top
   </message>
@@ -110,6 +113,9 @@
   </message>
   <message name="IDS_DEVTOOLS_adf7e09e4a939c3d54adfe6f42b6ead9" desc="label to copy file name">
     Copy file name
+  </message>
+  <message name="IDS_DEVTOOLS_af9ccba3ec4346e3acf785f9bea514d8" desc="Text to show a tool or panel">
+    Show <ph name="EXTENSION_TITLE">$1s<ex>Audits</ex></ph>
   </message>
   <message name="IDS_DEVTOOLS_b6da8d6392710f305d7176a134971514" desc="Text in UIUtils">
     Promise rejected (async)

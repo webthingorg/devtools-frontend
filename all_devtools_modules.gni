@@ -400,6 +400,7 @@ all_typescript_module_sources = [
   "quick_open/CommandMenu.js",
   "quick_open/FilteredListWidget.js",
   "quick_open/HelpQuickOpen.js",
+  "quick_open/ModuleUIStrings.js",
   "quick_open/QuickInput.js",
   "quick_open/QuickOpen.js",
   "quick_open/QuickPick.js",

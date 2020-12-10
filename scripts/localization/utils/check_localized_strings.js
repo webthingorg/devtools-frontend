@@ -122,6 +122,7 @@ const migratedDirsSet = new Set([
   'mobile_throttling',
   'performance_monitor',
   'protocol_monitor',
+  'quick_open',
   'search',
   'security',
   'settings',

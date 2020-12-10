@@ -5,11 +5,30 @@
 import * as Common from '../common/common.js';
 import * as Diff from '../diff/diff.js';
 import * as Host from '../host/host.js';
+import * as i18n from '../i18n/i18n.js';
 import * as Root from '../root/root.js';
 import * as UI from '../ui/ui.js';
 
 import {FilteredListWidget, Provider} from './FilteredListWidget.js';
 import {QuickOpenImpl} from './QuickOpen.js';
+
+export const UIStrings = {
+  /**
+  * @description Message to display if a setting change requires a reload of DevTools
+  */
+  oneOrMoreSettingsHaveChanged: 'One or more settings have changed which requires a reload to take effect.',
+  /**
+  * @description Text to show a tool or panel
+  * @example {Audits} PH1
+  */
+  show: 'Show {PH1}',
+  /**
+  * @description Text in Command Menu of the Command Menu
+  */
+  noCommandsFound: 'No commands found',
+};
+const str_ = i18n.i18n.registerUIStrings('quick_open/CommandMenu.js', UIStrings);
+const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 /** @type {!CommandMenu} */
 let commandMenuInstance;
@@ -75,7 +94,7 @@ export class CommandMenu {
         setting.set(value);
         if (reloadRequired) {
           UI.InspectorView.InspectorView.instance().displayReloadRequiredWarning(
-              ls`One or more settings have changed which requires a reload to take effect.`);
+              i18nString(UIStrings.oneOrMoreSettingsHaveChanged));
         }
       },
       availableHandler,
@@ -159,7 +178,7 @@ export class CommandMenu {
       /** @type {!RevealViewCommandOptions} */
       const options = {
         id: extensionDescriptor.id,
-        title: Common.UIString.UIString('Show %s', extensionDescriptor.title),
+        title: i18nString(UIStrings.show, {PH1: extensionDescriptor.title}),
         tags,
         category: ls(category),
         userActionCode: undefined
@@ -389,7 +408,7 @@ export class CommandMenuProvider extends Provider {
    * @return {string}
    */
   notFoundText() {
-    return ls`No commands found`;
+    return i18nString(UIStrings.noCommandsFound);
   }
 }
 

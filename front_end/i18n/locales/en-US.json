@@ -1325,6 +1325,42 @@
   "protocol_monitor/ProtocolMonitor.js | timestamp": {
     "message": "Timestamp"
   },
+  "quick_open/CommandMenu.js | noCommandsFound": {
+    "message": "No commands found"
+  },
+  "quick_open/CommandMenu.js | oneOrMoreSettingsHaveChanged": {
+    "message": "One or more settings have changed which requires a reload to take effect."
+  },
+  "quick_open/CommandMenu.js | show": {
+    "message": "Show {PH1}"
+  },
+  "quick_open/FilteredListWidget.js | noResultsFound": {
+    "message": "No results found"
+  },
+  "quick_open/FilteredListWidget.js | quickOpen": {
+    "message": "Quick open"
+  },
+  "quick_open/FilteredListWidget.js | quickOpenPrompt": {
+    "message": "Quick open prompt"
+  },
+  "quick_open/ModuleUIStrings.js | global": {
+    "message": "Global"
+  },
+  "quick_open/ModuleUIStrings.js | openFile": {
+    "message": "Open file"
+  },
+  "quick_open/ModuleUIStrings.js | runCommand": {
+    "message": "Run command"
+  },
+  "quick_open/QuickInput.js | pressEnterToConfirmOrEscapeTo": {
+    "message": "{PH1} (Press 'Enter' to confirm or 'Escape' to cancel.)"
+  },
+  "quick_open/QuickOpen.js | typeQuestionMarkToSeeAvailable": {
+    "message": "Type question mark to see available commands"
+  },
+  "quick_open/QuickOpen.js | typeToSeeAvailableCommands": {
+    "message": "Type '?' to see available commands"
+  },
   "recorder/RecordingFileSystem.js | defaultRecordingName": {
     "message": "Recording #{nextId}"
   },

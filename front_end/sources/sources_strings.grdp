@@ -96,6 +96,9 @@
   <message name="IDS_DEVTOOLS_216a9080bf22a993b2d7f9331d34cc68" desc="Text in Sources Panel of the Sources panel">
     Don&apos;t pause on exceptions
   </message>
+  <message name="IDS_DEVTOOLS_22b6fe30dec1ae9c09480cce01cd4065" desc="Text to run commands">
+    Run command
+  </message>
   <message name="IDS_DEVTOOLS_23682ad11e062879a37272dce2948fa5" desc="Tooltip text that appears when hovering over the largeicon clear button in the Sources Navigator of the Sources panel">
     Clear configuration
   </message>
@@ -317,6 +320,9 @@
   </message>
   <message name="IDS_DEVTOOLS_74313a1b4f28fd0980e0c7677b38373c" desc="Title of a setting under the Sources category that can be invoked through the Command Menu">
     Show all whitespace characters
+  </message>
+  <message name="IDS_DEVTOOLS_74540c79e377bea903e1023a46df5574" desc="Text to open a file">
+    Open file
   </message>
   <message name="IDS_DEVTOOLS_745b08105fff497904dacce4da1712c3" desc="Text in Sources Navigator of the Sources panel">
     Create and save code snippets for later reuse
@@ -599,6 +605,9 @@
   </message>
   <message name="IDS_DEVTOOLS_e00091b180f1cf683d5271820cd71b4f" desc="Text in Debugger Plugin of the Sources panel">
     The debugger will skip stepping through this script, and will not stop on exceptions.
+  </message>
+  <message name="IDS_DEVTOOLS_e576c23d915755d83e2d1f47bd9f6c22" desc="Text to show no results have been found">
+    No results found
   </message>
   <message name="IDS_DEVTOOLS_e64479370fed877b3ff0b51ee73c95ac" desc="A context menu item in the Sources Panel of the Sources panel">
     Reveal in sidebar

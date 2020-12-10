@@ -70,9 +70,6 @@
   <message name="IDS_DEVTOOLS_1f1e990a1d2ba8ab4dd873a192237c30" desc="Time in miliseconds">
     <ph name="VALUE">$1.1f<ex>30.1</ex></ph> ms
   </message>
-  <message name="IDS_DEVTOOLS_22b6fe30dec1ae9c09480cce01cd4065" desc="Text to run commands">
-    Run command
-  </message>
   <message name="IDS_DEVTOOLS_231afe47f3f37d3808096b36c28b4ded" desc="Label for the column in the element list in the CSS Overview report">
     Element
   </message>
@@ -242,17 +239,11 @@
   <message name="IDS_DEVTOOLS_6f6cb72d544962fa333e2e34ce64f719" desc="Text for the size of something">
     Size
   </message>
-  <message name="IDS_DEVTOOLS_6feab1a8f70b4209f82a628b7395ede3" desc="Message to display if a setting change requires a reload of DevTools">
-    One or more settings have changed which requires a reload to take effect.
-  </message>
   <message name="IDS_DEVTOOLS_72507d307327a430052f9fcd914dfaee" desc="Title of an action that reloads the DevTools">
     Reload DevTools
   </message>
   <message name="IDS_DEVTOOLS_74421a69b1bc40c166be4de5caf0b036" desc="Text of a DOM element in Contrast Details of the Color Picker">
     Contrast ratio
-  </message>
-  <message name="IDS_DEVTOOLS_74540c79e377bea903e1023a46df5574" desc="Text to open a file">
-    Open file
   </message>
   <message name="IDS_DEVTOOLS_76c3e002d3c052bd6a909366a8dc3845" desc="Text that appears on a button for the manifest resource type filter.">
     Manifest
@@ -380,9 +371,6 @@
   <message name="IDS_DEVTOOLS_af4bb376939e77df0e7c2332b837a866" desc="Text that refers to closure as a programming term">
     Closure
   </message>
-  <message name="IDS_DEVTOOLS_af9ccba3ec4346e3acf785f9bea514d8" desc="Text to show a tool or panel">
-    Show <ph name="EXTENSION_TITLE">$1s<ex>Audits</ex></ph>
-  </message>
   <message name="IDS_DEVTOOLS_afb4ea732ebcf8bd51a3d99a1b8909a8" desc="Text to show something is linked to another">
     Linked to <ph name="PATH">$1s<ex>example.url</ex></ph>
   </message>
@@ -484,9 +472,6 @@
   </message>
   <message name="IDS_DEVTOOLS_e55f75a29310d7b60f7ac1d390c8ae42" desc="Text for a module, the programming concept">
     Module
-  </message>
-  <message name="IDS_DEVTOOLS_e576c23d915755d83e2d1f47bd9f6c22" desc="Text to show no results have been found">
-    No results found
   </message>
   <message name="IDS_DEVTOOLS_e6b391a8d2c4d45902a23a8b6585703d" desc="Text for web URLs">
     URL
