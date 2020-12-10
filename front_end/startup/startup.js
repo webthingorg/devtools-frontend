@@ -6,6 +6,7 @@ import '../root/root-legacy.js';
 import '../platform/platform.js';
 import '../common/common-legacy.js';
 import '../text_utils/text_utils-legacy.js';
+import './network/network-meta.js';
 
 import * as RuntimeInstantiator from './RuntimeInstantiator.js';
 
