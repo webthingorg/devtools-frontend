@@ -292,6 +292,7 @@
     "bindings",
     "components",
     "host",
+    "i18n",
     "platform",
     "ui",
     "mobile_throttling"
