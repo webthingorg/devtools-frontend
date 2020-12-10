@@ -5,6 +5,7 @@
 import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
 import * as SDK from '../sdk/sdk.js';
 import * as Workspace from '../workspace/workspace.js';  // eslint-disable-line no-unused-vars
+
 import {RecordingEventHandler} from './RecordingEventHandler.js';
 
 export class StepFrameContext {
@@ -21,18 +22,18 @@ export class StepFrameContext {
   toString() {
     let expression = '';
     if (this.target === 'main') {
-      expression = 'page';
+      expression = 'const target = page;\n';
     } else {
-      expression = `(await browser.pages()).find(p => p.url() === ${JSON.stringify(this.target)})`;
+      expression = `const pages = await browser.pages();
+        const target = pages.find(p => p.url() === ${JSON.stringify(this.target)});
+      `;
     }
 
-    if (this.path.length) {
-      expression += '.mainFrame()';
-    }
+    expression += '  const frame = target.mainFrame()';
     for (const index of this.path) {
       expression += `.childFrames()[${index}]`;
     }
-
+    expression += ';';
     return expression;
   }
 }
@@ -69,7 +70,11 @@ export class ClickStep extends Step {
    * @override
    */
   toString() {
-    return `await ${this.context}.click(${JSON.stringify(this.selector)});`;
+    return `{
+      ${this.context}
+      await frame.waitForSelector(${JSON.stringify(this.selector)});
+      await frame.click(${JSON.stringify(this.selector)});
+    }`;
   }
 }
 
@@ -105,7 +110,11 @@ export class SubmitStep extends Step {
    * @override
    */
   toString() {
-    return `await ${this.context}.submit(${JSON.stringify(this.selector)});`;
+    return `{
+      ${this.context}
+      await frame.waitForSelector(${JSON.stringify(this.selector)});
+      await frame.submit(${JSON.stringify(this.selector)});
+    }`;
   }
 }
 
@@ -126,7 +135,11 @@ export class ChangeStep extends Step {
    * @override
    */
   toString() {
-    return `await ${this.context}.type(${JSON.stringify(this.selector)}, ${JSON.stringify(this.value)});`;
+    return `{
+      ${this.context}
+      await frame.waitForSelector(${JSON.stringify(this.selector)});
+      await frame.type(${JSON.stringify(this.selector)}, ${JSON.stringify(this.value)});
+    }`;
   }
 }
 
@@ -177,21 +190,21 @@ export class RecordingSession {
     if (!mainFrame) {
       throw new Error('Could not find main frame');
     }
-    this.appendLineToScript('const puppeteer = require(\'puppeteer\');');
-    this.appendLineToScript('');
-    this.appendLineToScript('(async () => {');
+    await this.appendLineToScript('const puppeteer = require(\'puppeteer\');');
+    await this.appendLineToScript('');
+    await this.appendLineToScript('(async () => {');
     this._currentIndentation += 1;
-    this.appendLineToScript('const browser = await puppeteer.launch();');
-    this.appendLineToScript('const page = await browser.newPage();');
-    this.appendLineToScript('');
-    this.appendStepToScript(new NavigationStep(mainFrame.url));
+    await this.appendLineToScript('const browser = await puppeteer.launch();');
+    await this.appendLineToScript('const page = await browser.newPage();');
+    await this.appendLineToScript('');
+    await this.appendStepToScript(new NavigationStep(mainFrame.url));
   }
 
   async stop() {
-    this.appendLineToScript('await browser.close();');
+    await this.appendLineToScript('await browser.close();');
     this._currentIndentation -= 1;
-    this.appendLineToScript('})();');
-    this.appendLineToScript('');
+    await this.appendLineToScript('})();');
+    await this.appendLineToScript('');
 
     await this._debuggerModel.ignoreDebuggerPausedEvents(false);
   }
@@ -199,18 +212,29 @@ export class RecordingSession {
   /**
    * @param {string} line
    */
-  appendLineToScript(line) {
+  async appendLineToScript(line) {
     let content = this._uiSourceCode.content();
     const indent = Common.Settings.Settings.instance().moduleSetting('textEditorIndent').get();
     content += (indent.repeat(this._currentIndentation) + line).trimRight() + '\n';
-    this._uiSourceCode.setContent(content, false);
+    await this._uiSourceCode.setContent(content, false);
+    const lastLine = content.split('\n').length;
+    Common.Revealer.reveal(this._uiSourceCode.uiLocation(lastLine));
   }
 
   /**
    * @param {!Step} step
    */
-  appendStepToScript(step) {
-    this.appendLineToScript(step.toString());
+  async appendStepToScript(step) {
+    const lines = step.toString().split('\n').map(l => l.trim());
+    for (const line of lines) {
+      if (line === '}') {
+        this._currentIndentation -= 1;
+      }
+      await this.appendLineToScript(line);
+      if (line === '{') {
+        this._currentIndentation += 1;
+      }
+    }
   }
 
   /**
