@@ -555,6 +555,7 @@ export class UISourceCodeFrame extends SourceFrame.SourceFrame.SourceFrameImpl {
     const element = eventTarget.enclosingNodeOrSelfWithClass('text-editor-line-decoration-icon-error') ||
         eventTarget.enclosingNodeOrSelfWithClass('text-editor-line-decoration-icon-issue') ||
         eventTarget.enclosingNodeOrSelfWithClass('text-editor-line-decoration-wave');
+
     if (!element) {
       return null;
     }
@@ -811,7 +812,7 @@ export class RowMessageBucket {
    * @param {Set<Workspace.UISourceCode.Message.Level>} levels
    * @return {!Element}
    */
-  messageDescription(levels) {
+  _messageDescription(levels) {
     this._messagesDescriptionElement.removeChildren();
     UI.Utils.appendStyle(
         this._messagesDescriptionElement, 'source_frame/messagesPopover.css', {enableLegacyPatching: false});
@@ -935,6 +936,27 @@ export class RowMessageBucket {
   /**
    * @param {!Element} element
    * @param {!HTMLElement} eventTarget
+   * @return {?Element}
+  */
+  _getPopoverMessages(element, eventTarget) {
+    /** @type {?Element} */
+    let messagesOutline = null;
+    if (element.enclosingNodeOrSelfWithClass('text-editor-line-decoration-icon-error')) {
+      messagesOutline = this._messageDescription(
+          new Set([Workspace.UISourceCode.Message.Level.Error, Workspace.UISourceCode.Message.Level.Warning]));
+    } else if (element.enclosingNodeOrSelfWithClass('text-editor-line-decoration-icon-issue')) {
+      messagesOutline = this._messageDescription(new Set([Workspace.UISourceCode.Message.Level.Issue]));
+    } else if (
+        eventTarget.enclosingNodeOrSelfWithClass('text-editor-line-decoration-wave') &&
+        !eventTarget.enclosingNodeOrSelfWithClass('text-editor-line-decoration-icon')) {
+      messagesOutline = this._messageDescription(
+          new Set([Workspace.UISourceCode.Message.Level.Error, Workspace.UISourceCode.Message.Level.Warning]));
+    }
+    return messagesOutline;
+  }
+  /**
+   * @param {!Element} element
+   * @param {!HTMLElement} eventTarget
    * @param {!MouseEvent} mouseEvent
    * @return {?UI.PopoverHelper.PopoverRequest}
   */
@@ -943,6 +965,11 @@ export class RowMessageBucket {
                     eventTarget.enclosingNodeOrSelfWithClass('text-editor-line-decoration-icon-issue')) ?
         element.boxInWindow() :
         new AnchorBox(mouseEvent.clientX, mouseEvent.clientY, 1, 1);
+
+    const messagesOutline = this._getPopoverMessages(element, eventTarget);
+    if (!messagesOutline) {
+      return null;
+    }
     return {
       box: anchor,
       hide() {},
@@ -950,23 +977,7 @@ export class RowMessageBucket {
      * @param {!UI.GlassPane.GlassPane} popover
      */
       show: popover => {
-        const messageBucket = elementToMessageBucket.get(
-            /** @type {!Element} */ (element.enclosingNodeOrSelfWithClass('text-editor-line-decoration')));
-        if (messageBucket) {
-          if (element.enclosingNodeOrSelfWithClass('text-editor-line-decoration-icon-error')) {
-            const messagesOutline = messageBucket.messageDescription(
-                new Set([Workspace.UISourceCode.Message.Level.Error, Workspace.UISourceCode.Message.Level.Warning]));
-            popover.contentElement.append(messagesOutline);
-          } else if (element.enclosingNodeOrSelfWithClass('text-editor-line-decoration-icon-issue')) {
-            const messagesOutline =
-                messageBucket.messageDescription(new Set([Workspace.UISourceCode.Message.Level.Issue]));
-            popover.contentElement.append(messagesOutline);
-          } else if (eventTarget.enclosingNodeOrSelfWithClass('text-editor-line-decoration-wave')) {
-            const messagesOutline = messageBucket.messageDescription(
-                new Set([Workspace.UISourceCode.Message.Level.Error, Workspace.UISourceCode.Message.Level.Warning]));
-            popover.contentElement.append(messagesOutline);
-          }
-        }
+        popover.contentElement.append(messagesOutline);
         return Promise.resolve(true);
       }
     };
