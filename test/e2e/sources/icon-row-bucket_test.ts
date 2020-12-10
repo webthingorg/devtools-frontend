@@ -8,7 +8,7 @@ import {$$, click, goToResource, waitFor, waitForFunction} from '../../shared/he
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {openSourcesPanel} from '../helpers/sources-helpers.js';
 
-describe('Display error information next to affected lines', async () => {
+describe('Display error and issue information next to affected lines', async () => {
   beforeEach(async () => {
     await goToResource('network/trusted-type-violations-report-only.rawresponse');
     await openSourcesPanel();
@@ -49,6 +49,41 @@ describe('Display error information next to affected lines', async () => {
       const splitImageSrc = imageSrc.substring(5, imageSrc.length - 2).split('/');
       const imageFile = splitImageSrc[splitImageSrc.length - 1];
       assert.strictEqual(imageFile, 'error_icon.svg');
+    }
+  });
+  it('Issues should be displayed', async () => {
+    const issueIconComponents = await waitForFunction(async () => {
+      const icons = await $$('devtools-icon.text-editor-line-decoration-icon-issue');
+      return icons.length === 1 ? icons : undefined;
+    });
+    const issueMessages: string[] = [];
+    const expectedIssueMessages = [
+      'Trusted Type policy creation blocked by Content Security Policy',
+      'Trusted Type expected, but String received',
+    ];
+    for (const issueIconComponent of issueIconComponents) {
+      await click(issueIconComponent);
+      const vbox = await waitFor('div.vbox.flex-auto.no-pointer-events');
+      const rowMessages = await $$('.text-editor-row-message', vbox);
+
+      for (const rowMessage of rowMessages) {
+        const messageText = await rowMessage.evaluate(x => (x instanceof HTMLElement) ? x.innerText : '');
+        issueMessages.push(messageText);
+      }
+    }
+    assert.deepEqual(issueMessages, expectedIssueMessages);
+  });
+  it('Issues icon should be correct', async () => {
+    const issueIconComponents = await waitForFunction(async () => {
+      const icons = await $$('devtools-icon.text-editor-line-decoration-icon-issue');
+      return icons.length === 1 ? icons : undefined;
+    });
+    for (const issueIconComponent of issueIconComponents) {
+      const issueIcon = await waitFor('.icon-basic', issueIconComponent);
+      const imageSrc = await issueIcon.evaluate(x => window.getComputedStyle(x).backgroundImage);
+      const splitImageSrc = imageSrc.substring(5, imageSrc.length - 2).split('/');
+      const imageFile = splitImageSrc[splitImageSrc.length - 1];
+      assert.strictEqual(imageFile, 'breaking_change_icon.svg');
     }
   });
 });
