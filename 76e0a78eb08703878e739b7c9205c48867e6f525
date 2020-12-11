@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8537b68_44e158c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-11T15:15:37Z",
+      "side": 1,
+      "message": " PTAL. Whilst it\u0027s not committed as part of this CL (it will be a follow-up), I have generated a dark mode stylesheet for lighthouse, and run it locally, and it works.",
+      "revId": "76e0a78eb08703878e739b7c9205c48867e6f525",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
