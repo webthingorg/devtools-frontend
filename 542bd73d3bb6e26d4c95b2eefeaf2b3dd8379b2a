@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a14f8f4_827896e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-11T07:40:12Z",
+      "side": 1,
+      "message": "lgtm % suggestions",
+      "revId": "542bd73d3bb6e26d4c95b2eefeaf2b3dd8379b2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9eee2b28_b891ab6a",
+        "filename": "front_end/emulation/StructuredHeaders.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-11T07:40:12Z",
+      "side": 1,
+      "message": "Not sure how close to the spec you want to stay, but alternatively you could do:\n\n const outputPieces \u003d [];\n for (const item of input.items) {\n  // Instead of \"output +\u003d\" we do \"outputPieces.push\"\n  // and leave out the manual interleaving of \",\"\n }\n\n const output \u003d outputPieces.join(\", \");\n\nwdyt?",
+      "range": {
+        "startLine": 620,
+        "startChar": 0,
+        "endLine": 622,
+        "endChar": 32
+      },
+      "revId": "542bd73d3bb6e26d4c95b2eefeaf2b3dd8379b2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62eb5ebb_45c16f97",
+        "filename": "front_end/emulation/StructuredHeaders.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-11T07:40:12Z",
+      "side": 1,
+      "message": "Same suggestion as above, use an array + join would make it more readable IMO.",
+      "range": {
+        "startLine": 646,
+        "startChar": 2,
+        "endLine": 646,
+        "endChar": 19
+      },
+      "revId": "542bd73d3bb6e26d4c95b2eefeaf2b3dd8379b2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
