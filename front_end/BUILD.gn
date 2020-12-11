@@ -39,6 +39,7 @@ group("front_end") {
     "elements:meta",
     "emulated_devices/optimized:optimized_emulated_devices",
     "emulation:bundle",
+    "emulation:meta",
     "event_listeners:bundle",
     "extensions:bundle",
     "formatter:bundle",
