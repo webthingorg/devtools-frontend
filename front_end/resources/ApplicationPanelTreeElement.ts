@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Common from '../common/common.js';
 import * as UI from '../ui/ui.js';
 
 import {ResourcesPanel} from './ResourcesPanel.js';
@@ -39,5 +40,48 @@ export class ApplicationPanelTreeElement extends UI.TreeOutline.TreeElement {
 
   showView(view: UI.Widget.Widget|null) {
     this.resourcesPanel.showView(view);
+  }
+}
+
+export class ExpandableApplicationPanelTreeElement extends ApplicationPanelTreeElement {
+  protected readonly expandedSetting: Common.Settings.Setting<boolean>;
+  protected readonly categoryName: string;
+  protected categoryLink: string|null;
+
+  constructor(storagePanel: ResourcesPanel, categoryName: string, settingsKey: string, settingsDefault = false) {
+    super(storagePanel, categoryName, false);
+    this.expandedSetting =
+        Common.Settings.Settings.instance().createSetting('resources' + settingsKey + 'Expanded', settingsDefault);
+    this.categoryName = categoryName;
+    this.categoryLink = null;
+  }
+
+  get itemURL() {
+    return 'category://' + this.categoryName;
+  }
+
+  setLink(link: string) {
+    this.categoryLink = link;
+  }
+
+  onselect(selectedByUser: boolean|undefined): boolean {
+    super.onselect(selectedByUser);
+    this.resourcesPanel.showCategoryView(this.categoryName, this.categoryLink);
+    return false;
+  }
+
+  onattach() {
+    super.onattach();
+    if (this.expandedSetting.get()) {
+      this.expand();
+    }
+  }
+
+  onexpand() {
+    this.expandedSetting.set(true);
+  }
+
+  oncollapse() {
+    this.expandedSetting.set(false);
   }
 }
