@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17030ef4_a9394770",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-11T15:23:14Z",
+      "side": 1,
+      "message": "Since this script is short-lived, I don\u0027t think we needed the Python script. We probably could have invoked the JavaScript file as-is. Still, this is intended to be gone soon anyways.",
+      "revId": "76e0a78eb08703878e739b7c9205c48867e6f525",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0bff9e33_538fe6ea",
