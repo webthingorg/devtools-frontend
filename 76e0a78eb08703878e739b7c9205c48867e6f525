@@ -16,6 +16,52 @@
       "message": " PTAL. Whilst it\u0027s not committed as part of this CL (it will be a follow-up), I have generated a dark mode stylesheet for lighthouse, and run it locally, and it works.",
       "revId": "76e0a78eb08703878e739b7c9205c48867e6f525",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bff9e33_538fe6ea",
+        "filename": "scripts/dark_mode/generate_dark_theme_sheet.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-11T15:17:51Z",
+      "side": 1,
+      "message": "TODO: this `foo` is supposed to be the URL but it\u0027s irrelevant, so we should pass an empty string and leave a comment",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 73
+      },
+      "revId": "76e0a78eb08703878e739b7c9205c48867e6f525",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e1a278a_a213b5e8",
+        "filename": "scripts/dark_mode/run_dark_theme_generator.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-11T15:17:51Z",
+      "side": 1,
+      "message": "if these were defined in JS we could avoid this Python script - maybe a follow-up...",
+      "range": {
+        "startLine": 17,
+        "startChar": 7,
+        "endLine": 17,
+        "endChar": 21
+      },
+      "revId": "76e0a78eb08703878e739b7c9205c48867e6f525",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
