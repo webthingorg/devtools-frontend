@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd0ac266_d411441c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-11T09:33:59Z",
+      "side": 1,
+      "message": "Peter, could you kindly take a look at the screenshots for some UX feedback :)\n\nI\u0027ll add tests and send the code out for review once the majority of your feedback is addressed.",
+      "revId": "f781be63918fa44deb5b034cb3620add64c300bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
