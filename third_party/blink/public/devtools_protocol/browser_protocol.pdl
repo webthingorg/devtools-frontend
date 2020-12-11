@@ -470,6 +470,7 @@ experimental domain ApplicationCache
 # Audits domain allows investigation of page violations and possible improvements.
 experimental domain Audits
   depends on Network
+  depends on Overlay
 
   # Information about a cookie that is affected by an inspector issue.
   type AffectedCookie extends object
@@ -649,6 +650,13 @@ experimental domain Audits
       optional SourceCodeLocation sourceCodeLocation
       optional DOM.BackendNodeId violatingNodeId
 
+  type LowTextContrastIssueDetails extends object
+    properties
+      DOM.BackendNodeId violatingNodeId
+      string violatingNodeSelector
+      number contrastRatio
+      Overlay.ContrastAlgorithm violatedContrastAlgorithm
+
   # A unique identifier for the type of issue. Each type may use one of the
   # optional fields in InspectorIssueDetails to convey more specific
   # information about the kind of issue.
@@ -659,6 +667,7 @@ experimental domain Audits
       BlockedByResponseIssue
       HeavyAdIssue
       ContentSecurityPolicyIssue
+      LowTextContrastIssue
 
   # This struct holds a list of optional fields with additional information
   # specific to the kind of issue. When adding a new issue code, please also
@@ -670,6 +679,7 @@ experimental domain Audits
       optional BlockedByResponseIssueDetails blockedByResponseIssueDetails
       optional HeavyAdIssueDetails heavyAdIssueDetails
       optional ContentSecurityPolicyIssueDetails contentSecurityPolicyIssueDetails
+      optional LowTextContrastIssueDetails lowTextContrastIssueDetails
 
   # An inspector issue reported from the back-end.
   type InspectorIssue extends object

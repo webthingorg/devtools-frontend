@@ -250,7 +250,8 @@ export function registerCommands(inspectorBackend) {
     MixedContentIssue: 'MixedContentIssue',
     BlockedByResponseIssue: 'BlockedByResponseIssue',
     HeavyAdIssue: 'HeavyAdIssue',
-    ContentSecurityPolicyIssue: 'ContentSecurityPolicyIssue'
+    ContentSecurityPolicyIssue: 'ContentSecurityPolicyIssue',
+    LowTextContrastIssue: 'LowTextContrastIssue'
   });
   inspectorBackend.registerEvent('Audits.issueAdded', ['issue']);
   inspectorBackend.registerEnum('Audits.GetEncodedResponseRequestEncoding', {Webp: 'webp', Jpeg: 'jpeg', Png: 'png'});

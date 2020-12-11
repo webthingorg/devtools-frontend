@@ -850,6 +850,7 @@ grd_files_debug_sources = [
   "front_end/sdk/IssuesModel.js",
   "front_end/sdk/LayerTreeBase.js",
   "front_end/sdk/LogModel.js",
+  "front_end/sdk/LowTextContrastIssue.js",
   "front_end/sdk/MixedContentIssue.js",
   "front_end/sdk/NetworkLog.js",
   "front_end/sdk/NetworkManager.js",
