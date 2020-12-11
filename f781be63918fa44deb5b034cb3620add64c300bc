@@ -16,6 +16,23 @@
       "message": "Peter, could you kindly take a look at the screenshots for some UX feedback :)\n\nI\u0027ll add tests and send the code out for review once the majority of your feedback is addressed.",
       "revId": "f781be63918fa44deb5b034cb3620add64c300bc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2eb11f39_4c3e2dd8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2020-12-11T11:34:33Z",
+      "side": 1,
+      "message": "Looks cool. Only nit is the distance between labels and content: could we get those tighter together? For example like in the Applications panel, if you click a Frame.\n\nScreenshot: https://i.imgur.com/BW2XFuy.png",
+      "revId": "f781be63918fa44deb5b034cb3620add64c300bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
