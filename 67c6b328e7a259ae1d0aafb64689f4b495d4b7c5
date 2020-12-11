@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85bdf456_3330e6b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-12-11T23:42:19Z",
+      "side": 1,
+      "message": "This CL adds image/icon support for MarkdownView.ts",
+      "revId": "67c6b328e7a259ae1d0aafb64689f4b495d4b7c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
