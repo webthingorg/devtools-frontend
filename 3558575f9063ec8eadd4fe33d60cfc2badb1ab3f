@@ -207,6 +207,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "893f79bd_c0686998",
+        "filename": "front_end/issues/MarkdownView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-12-11T02:09:37Z",
+      "side": 1,
+      "message": "It worked, so it seems like previously since I have not exported it in issues.js, custom component was not getting registered.",
+      "parentUuid": "3cabf146_9a398442",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 6
+      },
+      "revId": "3558575f9063ec8eadd4fe33d60cfc2badb1ab3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a94a4471_c82270b6",

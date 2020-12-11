@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "82ddcca1_c45b5122",
+        "filename": "front_end/issues/MarkdownLink.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-12-11T02:09:37Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "1f8aff13_1999809c",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 47
+      },
+      "revId": "852bd44d054d4c8ac95a46095e5f049405458d53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1da8e35f_5de46911",
@@ -89,6 +113,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0f5b49d8_517d1623",
+        "filename": "front_end/issues/MarkdownLinksMap.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-12-11T02:09:37Z",
+      "side": 1,
+      "message": "Yes this is currently empty, we can add an example/placeholder link.",
+      "parentUuid": "a845b973_112082dc",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 38
+      },
+      "revId": "852bd44d054d4c8ac95a46095e5f049405458d53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ae9e2cf1_b94b6dc0",
         "filename": "front_end/issues/MarkdownView.ts",
         "patchSetId": 7
@@ -100,6 +148,30 @@
       "writtenOn": "2020-12-10T11:08:37Z",
       "side": 1,
       "message": "We should use LitHtml here, otherwise we\u0027ll end up recreating the MarkdownLink instance many times.\n\nLitHtml.html`\u003cdevtools-markdown-link .data\u003d${{}\u003e`\n\nHave a look at goo.gle/building-ui-devtools if you need some pointers.",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 35
+      },
+      "revId": "852bd44d054d4c8ac95a46095e5f049405458d53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6738cf62_8cb98c7e",
+        "filename": "front_end/issues/MarkdownView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-12-11T02:09:37Z",
+      "side": 1,
+      "message": "Updated, it looks like the custom component was not getting registered until I had imported in issues.ts.",
+      "parentUuid": "ae9e2cf1_b94b6dc0",
       "range": {
         "startLine": 140,
         "startChar": 0,
@@ -159,6 +231,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3a49ab67_ebdf7703",
+        "filename": "test/unittests/front_end/issues/MarkdownView_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-12-11T02:09:37Z",
+      "side": 1,
+      "message": "Done fixed, I wanted to define a link there as an example. I have removed the exampleLink and added it instead in test.",
+      "parentUuid": "58f51be4_31ccf3e9",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 116
+      },
+      "revId": "852bd44d054d4c8ac95a46095e5f049405458d53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "68e97c84_5fd88ee1",
         "filename": "test/unittests/front_end/issues/MarkdownView_test.ts",
         "patchSetId": 7
@@ -170,6 +266,30 @@
       "writtenOn": "2020-12-10T06:24:49Z",
       "side": 1,
       "message": "Could you please explain this test to me? I don\u0027t understand why we are expecting the empty strings and not the \u0027\u003ca\u003e\u0027 tags :)",
+      "range": {
+        "startLine": 68,
+        "startChar": 6,
+        "endLine": 68,
+        "endChar": 65
+      },
+      "revId": "852bd44d054d4c8ac95a46095e5f049405458d53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db4f3b1d_b79a1eb2",
+        "filename": "test/unittests/front_end/issues/MarkdownView_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-12-11T02:09:37Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "68e97c84_5fd88ee1",
       "range": {
         "startLine": 68,
         "startChar": 6,
