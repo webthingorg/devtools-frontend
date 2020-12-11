@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0530d1d3_deb7903c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-11T11:36:09Z",
+      "side": 1,
+      "message": "LGTM. Looping in overlay expert Alex as FYI.",
+      "revId": "cb7d4ba5f70f3d8988869330043870492aeff17f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02d2f013_427c26e7",
+        "filename": "inspector_overlay/tool_highlight.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-11T11:36:09Z",
+      "side": 1,
+      "message": "typo: Descendants",
+      "range": {
+        "startLine": 393,
+        "startChar": 16,
+        "endLine": 393,
+        "endChar": 26
+      },
+      "revId": "cb7d4ba5f70f3d8988869330043870492aeff17f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
