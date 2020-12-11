@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0495ffe7_b0ff896f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-12-11T01:06:59Z",
+      "side": 1,
+      "message": "Migrate components directory, PTAL, thank you!",
+      "revId": "453c28c780d9b20d0c9e8605f4f55e6511c31533",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
