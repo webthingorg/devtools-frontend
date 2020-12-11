@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5fb29d6_36aad8c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-11T06:25:26Z",
+      "side": 1,
+      "message": "lgtm % one last nit. Thanks for sticking with the CL! I know the review cycle across timezones can be frustrating at times :)",
+      "revId": "85d6028a7ccc5bdca4b30a1b1de591f40ac11df0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf5c9464_b3f3a690",
+        "filename": "front_end/issues/MarkdownLinksMap.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-11T06:25:26Z",
+      "side": 1,
+      "message": "last nit: Let\u0027s leave a comment here that it\u0027s only exported for unit tests and should be accessed using the method below in production code.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 57
+      },
+      "revId": "85d6028a7ccc5bdca4b30a1b1de591f40ac11df0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
