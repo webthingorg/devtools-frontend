@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e865701_31c6b390",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-11T10:58:42Z",
+      "side": 1,
+      "message": "I think that it will work and indeed will simplify a lot the code. Now that the popover is only displayed when the text is non empty we can do this kind of simplifications. Thanks for the detailed comments!",
+      "parentUuid": "16e5bf42_aec74e81",
+      "revId": "60405788462f2904e04088570544473c04529884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c971311_94533dee",
@@ -31,6 +49,30 @@
       "writtenOn": "2020-12-11T10:33:02Z",
       "side": 1,
       "message": "I think this can be removed.",
+      "range": {
+        "startLine": 555,
+        "startChar": 3,
+        "endLine": 560,
+        "endChar": 5
+      },
+      "revId": "60405788462f2904e04088570544473c04529884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c0d41c4_edf3fece",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 22
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-11T10:58:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c971311_94533dee",
       "range": {
         "startLine": 555,
         "startChar": 3,
@@ -64,6 +106,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ae0e7de_e60efe24",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 22
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-11T10:58:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32a2cf1f_57dff923",
+      "range": {
+        "startLine": 566,
+        "startChar": 36,
+        "endLine": 566,
+        "endChar": 43
+      },
+      "revId": "60405788462f2904e04088570544473c04529884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "875a5eb2_c877e6b1",
@@ -77,6 +143,30 @@
       "writtenOn": "2020-12-11T10:33:02Z",
       "side": 1,
       "message": "this check and the next check can be replaced by a .classList.contains check.",
+      "range": {
+        "startLine": 942,
+        "startChar": 8,
+        "endLine": 942,
+        "endChar": 86
+      },
+      "revId": "60405788462f2904e04088570544473c04529884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56448b3d_21c9cb42",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 22
+      },
+      "lineNbr": 942,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-11T10:58:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "875a5eb2_c877e6b1",
       "range": {
         "startLine": 942,
         "startChar": 8,
@@ -110,6 +200,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "baeadb68_cefaf8ac",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 22
+      },
+      "lineNbr": 961,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-11T10:58:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8da3e312_f0b58e01",
+      "range": {
+        "startLine": 961,
+        "startChar": 13,
+        "endLine": 961,
+        "endChar": 20
+      },
+      "revId": "60405788462f2904e04088570544473c04529884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9e2e9bbd_9530e271",
@@ -123,6 +237,30 @@
       "writtenOn": "2020-12-11T10:33:02Z",
       "side": 1,
       "message": "const anchorElement \u003d eventTarget.enclosingNodeOrSelfWithClass(\u0027text-editor-line-decoration-icon-error\u0027) ||\n        eventTarget.enclosingNodeOrSelfWithClass(\u0027text-editor-line-decoration-icon-issue\u0027);\n    const anchor \u003d\n        anchorElement ? anchorElement.boxInWindow() : new AnchorBox(mouseEvent.clientX, mouseEvent.clientY, 1, 1);\n    const messagesOutline \u003d this._getPopoverMessages(anchorElement, eventTarget);",
+      "range": {
+        "startLine": 962,
+        "startChar": 4,
+        "endLine": 966,
+        "endChar": 75
+      },
+      "revId": "60405788462f2904e04088570544473c04529884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3550ae80_0196443d",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 22
+      },
+      "lineNbr": 966,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-11T10:58:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e2e9bbd_9530e271",
       "range": {
         "startLine": 962,
         "startChar": 4,
