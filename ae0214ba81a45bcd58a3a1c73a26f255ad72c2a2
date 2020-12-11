@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2333aa6_654d6127",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-11T12:01:28Z",
+      "side": 1,
+      "message": "I added a regression test. PT(another)L. The test feels slightly brittle as we don\u0027t have proper infra for mocking all the moving parts involved, but I think its better than nothing. Wdyt?",
+      "revId": "ae0214ba81a45bcd58a3a1c73a26f255ad72c2a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
