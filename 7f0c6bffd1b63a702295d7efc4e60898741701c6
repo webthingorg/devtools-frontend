@@ -16,6 +16,23 @@
       "message": "What a beautiful stylesheet 😄",
       "revId": "7f0c6bffd1b63a702295d7efc4e60898741701c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76d9829a_195c6531",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-12-11T21:32:16Z",
+      "side": 1,
+      "message": "What is this? Lighthouse already has a dark mode in devtools :)",
+      "revId": "7f0c6bffd1b63a702295d7efc4e60898741701c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
