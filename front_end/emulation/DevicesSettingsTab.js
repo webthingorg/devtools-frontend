@@ -7,6 +7,7 @@ import * as UI from '../ui/ui.js';
 
 import {DeviceModeModel, MaxDeviceNameLength, UA} from './DeviceModeModel.js';
 import {Capability, EmulatedDevice, EmulatedDevicesList, Events, Horizontal, Vertical,} from './EmulatedDevices.js';
+import * as StructuredHeaders from './StructuredHeaders.js';
 
 /**
  * @implements {UI.ListWidget.Delegate<!EmulatedDevice>}
@@ -163,6 +164,16 @@ export class DevicesSettingsTab extends UI.Widget.VBox {
     if (uaType === UA.Mobile || uaType === UA.DesktopTouch) {
       device.capabilities.push(Capability.Touch);
     }
+    const brandsOrError = DevicesSettingsTab._parseBrandsList(editor.control('brands').value.trim());
+    device.userAgentMetadata = {
+      brands: (typeof brandsOrError === 'string' ? [] : brandsOrError),
+      fullVersion: editor.control('full-version').value.trim(),
+      platform: editor.control('platform').value.trim(),
+      platformVersion: editor.control('platform-version').value.trim(),
+      architecture: editor.control('arch').value.trim(),
+      model: editor.control('model').value.trim(),
+      mobile: (uaType === UA.Mobile || uaType === UA.MobileNoTouch)
+    };
     if (isNew) {
       this._emulatedDevicesList.addCustomDevice(device);
     } else {
@@ -191,7 +202,83 @@ export class DevicesSettingsTab extends UI.Widget.VBox {
       uaType = device.touch() ? UA.DesktopTouch : UA.Desktop;
     }
     editor.control('ua-type').value = uaType;
+    if (device.userAgentMetadata) {
+      editor.control('brands').value = DevicesSettingsTab._serializeBrandsList(device.userAgentMetadata.brands);
+      editor.control('full-version').value = device.userAgentMetadata.fullVersion;
+      editor.control('platform').value = device.userAgentMetadata.platform;
+      editor.control('platform-version').value = device.userAgentMetadata.platformVersion;
+      editor.control('arch').value = device.userAgentMetadata.architecture;
+      editor.control('model').value = device.userAgentMetadata.model;
+    }
     return editor;
+  }
+
+  /**
+   * @param {string} stringForm
+   * @return {Protocol.Emulation.UserAgentBrandVersion[]|string}
+   * Returned string is for error
+   */
+  static _parseBrandsList(stringForm) {
+    const brandList = /** @type {Protocol.Emulation.UserAgentBrandVersion[]}*/ ([]);
+    const parseResult = StructuredHeaders.parseList(stringForm);
+    if (parseResult.kind === StructuredHeaders.ResultKind.ERROR) {
+      return ls`Unable to parse as structured headers list`;
+    }
+    const errorStruct = ls`Brand list must consist of strings, each with a v parameter with a string value`;
+    for (const listItem of parseResult.items) {
+      if (listItem.kind !== StructuredHeaders.ResultKind.ITEM) {
+        return errorStruct;
+      }
+      const bareItem = listItem.value;
+      if (bareItem.kind !== StructuredHeaders.ResultKind.STRING) {
+        return errorStruct;
+      }
+      if (listItem.parameters.items.length !== 1) {
+        return errorStruct;
+      }
+      const param = listItem.parameters.items[0];
+      if (param.name.value !== 'v') {
+        return errorStruct;
+      }
+      const paramValue = param.value;
+      if (paramValue.kind !== StructuredHeaders.ResultKind.STRING) {
+        return errorStruct;
+      }
+
+      brandList.push({brand: bareItem.value, version: paramValue.value});
+    }
+
+    return brandList;
+  }
+
+  /**
+   * @param{Protocol.Emulation.UserAgentBrandVersion[]} brands
+   * @return {string}
+   */
+  static _serializeBrandsList(brands) {
+    const shList = /** @type {StructuredHeaders.List}*/ ({kind: StructuredHeaders.ResultKind.LIST, items: []});
+    const vParamName =
+        /** @type {StructuredHeaders.ParamName}*/ ({kind: StructuredHeaders.ResultKind.PARAM_NAME, value: 'v'});
+    for (const brand of brands) {
+      const nameString =
+          /** @type {StructuredHeaders.String}*/ ({kind: StructuredHeaders.ResultKind.STRING, value: brand.brand});
+      const verString =
+          /** @type {StructuredHeaders.String}*/ ({kind: StructuredHeaders.ResultKind.STRING, value: brand.version});
+      const verParams = /** @type {StructuredHeaders.Parameters}*/ ({
+        kind: StructuredHeaders.ResultKind.PARAMETERS,
+        items: [
+          /** @type {StructuredHeaders.Parameter}*/ (
+              {kind: StructuredHeaders.ResultKind.PARAMETER, name: vParamName, value: verString})
+        ]
+      });
+
+      const shItem = /** @type {StructuredHeaders.Item}*/ (
+          {kind: StructuredHeaders.ResultKind.ITEM, value: nameString, parameters: verParams});
+      shList.items.push(shItem);
+    }
+
+    const serializeResult = StructuredHeaders.serializeList(shList);
+    return serializeResult.kind === StructuredHeaders.ResultKind.ERROR ? '' : serializeResult.value;
   }
 
   /**
@@ -206,15 +293,21 @@ export class DevicesSettingsTab extends UI.Widget.VBox {
     this._editor = editor;
     const content = editor.contentElement();
 
-    const fields = content.createChild('div', 'devices-edit-fields');
-    fields.createChild('div', 'hbox').appendChild(editor.createInput('title', 'text', ls`Device Name`, titleValidator));
-    const screen = fields.createChild('div', 'hbox');
+    const deviceFields = content.createChild('div', 'devices-edit-fields');
+    UI.UIUtils.createTextChild(deviceFields.createChild('b'), ls`Device`);
+    deviceFields.createChild('div', 'hbox')
+        .appendChild(editor.createInput('title', 'text', ls`Device Name`, titleValidator));
+    const screen = deviceFields.createChild('div', 'hbox');
     screen.appendChild(editor.createInput('width', 'text', ls`Width`, widthValidator));
     screen.appendChild(editor.createInput('height', 'text', ls`Height`, heightValidator));
     const dpr = editor.createInput('scale', 'text', ls`Device pixel ratio`, scaleValidator);
     dpr.classList.add('device-edit-fixed');
     screen.appendChild(dpr);
-    const ua = fields.createChild('div', 'hbox');
+
+    const uaStringFields = content.createChild('div', 'devices-edit-fields');
+    UI.UIUtils.createTextChild(uaStringFields.createChild('b'), ls`User agent string`);
+
+    const ua = uaStringFields.createChild('div', 'hbox');
     ua.appendChild(editor.createInput('user-agent', 'text', ls`User agent string`, () => {
       return {valid: true, errorMessage: undefined};
     }));
@@ -225,7 +318,98 @@ export class DevicesSettingsTab extends UI.Widget.VBox {
     uaType.classList.add('device-edit-fixed');
     ua.appendChild(uaType);
 
+    const uaChFields = content.createChild('div', 'devices-edit-client-hints-heading');
+    UI.UIUtils.createTextChild(uaChFields.createChild('b'), ls`User agent client hints`);
+
+    // ### should use ? not i, different style?
+    const icon = UI.Icon.Icon.create('mediumicon-info', 'help-icon');
+    const iconSpan = document.createElement('span');
+    iconSpan.title = ls`### Help goes here`;
+    iconSpan.appendChild(icon);
+    uaChFields.appendChild(iconSpan);
+
+    const tree = new UI.TreeOutline.TreeOutlineInShadow();
+    tree.registerRequiredCSS('emulation/devicesSettingsTab.css', {enableLegacyPatching: true});
+    tree.setShowSelectionOnKeyboardFocus(true, false);
+    const treeRoot = new UI.TreeOutline.TreeElement(uaChFields, true);
+    tree.appendChild(treeRoot);
+    content.appendChild(tree.element);
+
+    /**
+     * @param {!HTMLInputElement|!HTMLSelectElement} input
+     */
+    function addToTree(input) {
+      const treeNode = new UI.TreeOutline.TreeElement(input, false);
+      // The inputs themselves are selectable, no need for the tree nodes to be.
+      treeNode.selectable = false;
+      treeNode.listItemElement.classList.add('devices-edit-client-hints-field');
+      treeRoot.appendChild(treeNode);
+    }
+
+    // ### autocomplete hint for current?
+    const brands =
+        editor.createInput('brands', 'text', ls`UA brands list (e.g. "Chromium";v="87")`, brandListValidator);
+    addToTree(brands);
+
+    const fullVersion =
+        editor.createInput('full-version', 'text', ls`Full browser version (e.g. 87.0.4280.88)`, chStringValidator);
+    addToTree(fullVersion);
+
+    const platform = editor.createInput('platform', 'text', ls`Platform (e.g. Android)`, chStringValidator);
+    addToTree(platform);
+
+    const platformVersion = editor.createInput('platform-version', 'text', ls`Platform version`, chStringValidator);
+    addToTree(platformVersion);
+
+    // ### autocomplete hints for x86/arm?
+    const arch = editor.createInput('arch', 'text', ls`Architecture (e.g. x86)`, chStringValidator);
+    addToTree(arch);
+
+    const model = editor.createInput('model', 'text', ls`Device model`, chStringValidator);
+    addToTree(model);
+
     return editor;
+
+    /**
+    * @param {string} value
+    * @param {string} errorString
+    * @return {{valid: boolean, errorMessage: (string|undefined)}}
+    */
+    function chStringValidatorHelper(value, errorString) {
+      const parsedResult = StructuredHeaders.serializeItem({
+        kind: StructuredHeaders.ResultKind.ITEM,
+        value: {kind: StructuredHeaders.ResultKind.STRING, value: value},
+        parameters: {kind: StructuredHeaders.ResultKind.PARAMETERS, items: []}
+      });
+      if (parsedResult.kind === StructuredHeaders.ResultKind.ERROR) {
+        return {valid: false, errorMessage: errorString};
+      }
+      return {valid: true, errorMessage: undefined};
+    }
+
+    /**
+     * @param {*} item
+     * @param {number} index
+     * @param {!HTMLInputElement|!HTMLSelectElement} input
+     * @return {!UI.ListWidget.ValidatorResult}
+     */
+    function chStringValidator(item, index, input) {
+      return chStringValidatorHelper(input.value, ls`Not representable as structured headers string.`);
+    }
+
+    /**
+     * @param {*} item
+     * @param {number} index
+     * @param {!HTMLInputElement|!HTMLSelectElement} input
+     * @return {!UI.ListWidget.ValidatorResult}
+     */
+    function brandListValidator(item, index, input) {
+      const errorOrResult = DevicesSettingsTab._parseBrandsList(input.value);
+      if (typeof errorOrResult === 'string') {
+        return {valid: false, errorMessage: errorOrResult};
+      }
+      return {valid: true, errorMessage: undefined};
+    }
 
     /**
      * @param {*} item
