@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbbaf5e5_4282be8b",
+        "filename": "test/e2e/recorder/recorder_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1436067
+      },
+      "writtenOn": "2020-12-11T07:26:53Z",
+      "side": 1,
+      "message": "Even better then chaining. Nice!",
+      "revId": "8e937f0eed52ee6be6596a15183bad2ceed19f3c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
