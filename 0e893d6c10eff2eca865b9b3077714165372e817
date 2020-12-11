@@ -34,6 +34,24 @@
       "parentUuid": "acf86edb_13549a48",
       "revId": "0e893d6c10eff2eca865b9b3077714165372e817",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45635297_e103fac2",
+        "filename": "front_end/resources/IndexedDBViews.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-12-11T09:03:43Z",
+      "side": 1,
+      "message": "I traced this through chrome. We send IndexedDB.clearObjectStore which goes to the renderer for the page, which sends it to the browser process, which sends it to the IDB impl, which then dispatches a Storage.indexedDBContentUpdated event over CDP (which triggers markNeedsRefresh here).\n\nI can\u0027t figure out any timing guarantee from looking at the code as there are too many mojo hops involved. But if there is a race, it already existed and this will make it clearer",
+      "parentUuid": "06a084d5_b7333da4",
+      "revId": "0e893d6c10eff2eca865b9b3077714165372e817",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
