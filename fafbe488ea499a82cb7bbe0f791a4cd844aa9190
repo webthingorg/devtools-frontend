@@ -16,6 +16,23 @@
       "message": "Re-attempt at https://crrev.com/c/2568876, PTAL",
       "revId": "fafbe488ea499a82cb7bbe0f791a4cd844aa9190",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d32c65c_00c7d97f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-11T06:48:21Z",
+      "side": 1,
+      "message": "lgtm, thanks! Please wait for Peters +1 though as well :)",
+      "revId": "fafbe488ea499a82cb7bbe0f791a4cd844aa9190",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
