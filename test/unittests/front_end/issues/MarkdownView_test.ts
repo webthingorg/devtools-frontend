@@ -73,6 +73,20 @@ describeWithEnvironment('MarkdownView', async () => {
     it('throws an error if invalid link key is provided', () => {
       assert.throws(() => Issues.MarkdownLinksMap.getMarkdownLink('testErrorLink'));
     });
+
+    it('renders image with valid key', () => {
+      Issues.MarkdownImagesMap.markdownImages.set('testExampleImage', {
+        src: 'largeicon-phone',
+        isIcon: true,
+      });
+      const renderResult = Issues.MarkdownView.renderToken({type: 'image', text: 'phone', href: 'testExampleImage'});
+      assert.deepStrictEqual(
+          renderResult.strings.raw, ['<devtools-markdown-image .data=', '></devtools-markdown-image>']);
+    });
+
+    it('throws an error if invalid image key is provided', () => {
+      assert.throws(() => Issues.MarkdownImagesMap.getMarkdownImage('testErrorImageLink'));
+    });
   });
 
   const paragraphText =
