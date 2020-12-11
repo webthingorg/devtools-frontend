@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3462fcd8_6d2b727c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-12-11T09:44:02Z",
+      "side": 1,
+      "message": "Alex, PTAL.\n\nI don\u0027t see why the toolbar (and other parts of the device mode toolbar) was wrappable in the first place, but maybe I\u0027m missing something. ",
+      "revId": "65a0963c2729ab1ac06a6dc7c0faf9f98eeac94e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
