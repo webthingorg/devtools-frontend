@@ -52,6 +52,24 @@
       "parentUuid": "06a084d5_b7333da4",
       "revId": "0e893d6c10eff2eca865b9b3077714165372e817",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ce1b51e_ac824074",
+        "filename": "front_end/resources/IndexedDBViews.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2020-12-11T09:05:06Z",
+      "side": 1,
+      "message": "LGTM then. Thanks!",
+      "parentUuid": "45635297_e103fac2",
+      "revId": "0e893d6c10eff2eca865b9b3077714165372e817",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
