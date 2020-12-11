@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16e5bf42_aec74e81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-11T10:33:02Z",
+      "side": 1,
+      "message": "Let\u0027s get this in!\n\nI have an idea about how to improve it. Do you see any problems with it?",
+      "revId": "60405788462f2904e04088570544473c04529884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c971311_94533dee",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 22
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-11T10:33:02Z",
+      "side": 1,
+      "message": "I think this can be removed.",
+      "range": {
+        "startLine": 555,
+        "startChar": 3,
+        "endLine": 560,
+        "endChar": 5
+      },
+      "revId": "60405788462f2904e04088570544473c04529884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32a2cf1f_57dff923",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 22
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-11T10:33:02Z",
+      "side": 1,
+      "message": "This argument can be removed.",
+      "range": {
+        "startLine": 566,
+        "startChar": 36,
+        "endLine": 566,
+        "endChar": 43
+      },
+      "revId": "60405788462f2904e04088570544473c04529884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "875a5eb2_c877e6b1",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 22
+      },
+      "lineNbr": 942,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-11T10:33:02Z",
+      "side": 1,
+      "message": "this check and the next check can be replaced by a .classList.contains check.",
+      "range": {
+        "startLine": 942,
+        "startChar": 8,
+        "endLine": 942,
+        "endChar": 86
+      },
+      "revId": "60405788462f2904e04088570544473c04529884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8da3e312_f0b58e01",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 22
+      },
+      "lineNbr": 961,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-11T10:33:02Z",
+      "side": 1,
+      "message": "This argument can be removed.",
+      "range": {
+        "startLine": 961,
+        "startChar": 13,
+        "endLine": 961,
+        "endChar": 20
+      },
+      "revId": "60405788462f2904e04088570544473c04529884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e2e9bbd_9530e271",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 22
+      },
+      "lineNbr": 966,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-11T10:33:02Z",
+      "side": 1,
+      "message": "const anchorElement \u003d eventTarget.enclosingNodeOrSelfWithClass(\u0027text-editor-line-decoration-icon-error\u0027) ||\n        eventTarget.enclosingNodeOrSelfWithClass(\u0027text-editor-line-decoration-icon-issue\u0027);\n    const anchor \u003d\n        anchorElement ? anchorElement.boxInWindow() : new AnchorBox(mouseEvent.clientX, mouseEvent.clientY, 1, 1);\n    const messagesOutline \u003d this._getPopoverMessages(anchorElement, eventTarget);",
+      "range": {
+        "startLine": 962,
+        "startChar": 4,
+        "endLine": 966,
+        "endChar": 75
+      },
+      "revId": "60405788462f2904e04088570544473c04529884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
