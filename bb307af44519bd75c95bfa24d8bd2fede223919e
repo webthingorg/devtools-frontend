@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "efa85e3e_424b6913",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-12-11T20:18:15Z",
+      "side": 1,
+      "message": "I can\u0027t +1 regardless, but I think a small refactor makes this change a lot better.",
+      "revId": "bb307af44519bd75c95bfa24d8bd2fede223919e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d648940_4f2d9163",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-12-11T20:18:15Z",
+      "side": 1,
+      "message": "It would be nice if `addSidebarSection` set the `childrenListElement` title by default. This feels like \"falls into the pit of failure\" by default.",
+      "revId": "bb307af44519bd75c95bfa24d8bd2fede223919e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3239d5b4_25cd7770",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-12-11T20:18:15Z",
+      "side": 1,
+      "message": "Definitely feeling the same vibe here.",
+      "revId": "bb307af44519bd75c95bfa24d8bd2fede223919e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "437caaa1_b67a4fd0",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-12-11T20:18:15Z",
+      "side": 1,
+      "message": "And here.",
+      "revId": "bb307af44519bd75c95bfa24d8bd2fede223919e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c37488c3_b87e2a59",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-12-11T20:18:15Z",
+      "side": 1,
+      "message": "And here",
+      "revId": "bb307af44519bd75c95bfa24d8bd2fede223919e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46090a9a_b86e1073",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-12-11T20:18:15Z",
+      "side": 1,
+      "message": "And here.",
+      "revId": "bb307af44519bd75c95bfa24d8bd2fede223919e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
