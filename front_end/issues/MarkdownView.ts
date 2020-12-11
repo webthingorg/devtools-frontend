@@ -4,6 +4,7 @@
 
 import * as LitHtml from '../third_party/lit-html/lit-html.js';
 
+import {MarkdownImageData} from './MarkdownImage.js';
 import {MarkdownLinkData} from './MarkdownLink.js';
 
 const html = LitHtml.html;
@@ -134,8 +135,13 @@ const tokenRenderers = new Map<string, (token: any) => LitHtml.TemplateResult>([
   ['space', () => html``],
   [
     'link',
-    token => html`<devtools-markdown-link .data=${
-        {key: token.href, title: token.text} as MarkdownLinkData}></devtools-markdown-link>`,
+    token => html`<devtools-markdown-link
+      .data=${{key: token.href, title: token.text} as MarkdownLinkData}></devtools-markdown-link>`,
+  ],
+  [
+    'image',
+    token => html`<devtools-markdown-image
+      .data=${{key: token.href, title: token.text} as MarkdownImageData}></devtools-markdown-image>`,
   ],
 ]);
 
