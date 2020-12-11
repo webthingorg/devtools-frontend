@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2638708d_098ef2ba",
+        "filename": "front_end/platform/string-utilities.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-11T10:14:21Z",
+      "side": 1,
+      "message": "Ah we should try to lint this, but yes, I\u0027ll swap to ; as clang understands it better.",
+      "parentUuid": "e3cacec2_97d0763c",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 69
+      },
+      "revId": "b952e47e4ec7510517940651b11bcc029ed2926b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "901f633c_61e20062",
@@ -54,6 +78,30 @@
       "writtenOn": "2020-12-11T06:44:08Z",
       "side": 1,
       "message": "nit: Lets remove the JSDoc here.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 5
+      },
+      "revId": "b952e47e4ec7510517940651b11bcc029ed2926b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42a36ed5_d60a77cc",
+        "filename": "front_end/platform/string-utilities.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-11T10:14:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "901f633c_61e20062",
       "range": {
         "startLine": 43,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "27b713c9_9288829a",
+        "filename": "front_end/platform/string-utilities.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-11T10:14:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35aa1a3b_f43d2a39",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 37
+      },
+      "revId": "b952e47e4ec7510517940651b11bcc029ed2926b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f9836448_03a65a8f",
@@ -100,6 +172,30 @@
       "writtenOn": "2020-12-11T06:44:08Z",
       "side": 1,
       "message": "nit: Lets also remove this :)",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 5
+      },
+      "revId": "b952e47e4ec7510517940651b11bcc029ed2926b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bfe8f57_d842a31d",
+        "filename": "front_end/platform/string-utilities.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-11T10:14:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9836448_03a65a8f",
       "range": {
         "startLine": 67,
         "startChar": 0,
@@ -133,6 +229,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "153b5586_9fff3683",
+        "filename": "front_end/platform/string-utilities.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-11T10:14:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93801040_a0aa2cf1",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 120
+      },
+      "revId": "b952e47e4ec7510517940651b11bcc029ed2926b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b21fcafb_0e8face7",
@@ -146,6 +266,30 @@
       "writtenOn": "2020-12-11T06:44:08Z",
       "side": 1,
       "message": "While we are here:\n\n for (const token of tokens) {\n\nSorry in case I missed any usage of \u0027i\u0027 below.",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 28
+      },
+      "revId": "b952e47e4ec7510517940651b11bcc029ed2926b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8620f20_dd387951",
+        "filename": "front_end/platform/string-utilities.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-11T10:14:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b21fcafb_0e8face7",
       "range": {
         "startLine": 155,
         "startChar": 0,
@@ -179,6 +323,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca0aa575_5a504366",
+        "filename": "front_end/platform/string-utilities.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-11T10:14:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76dcad63_38b896f6",
+      "range": {
+        "startLine": 218,
+        "startChar": 0,
+        "endLine": 221,
+        "endChar": 5
+      },
+      "revId": "b952e47e4ec7510517940651b11bcc029ed2926b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e13cac0d_2d90e0eb",
@@ -192,6 +360,30 @@
       "writtenOn": "2020-12-11T06:44:08Z",
       "side": 1,
       "message": "nit:\n\n (a, b) \u003d\u003e a + b",
+      "range": {
+        "startLine": 241,
+        "startChar": 69,
+        "endLine": 243,
+        "endChar": 10
+      },
+      "revId": "b952e47e4ec7510517940651b11bcc029ed2926b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1da1f0e7_c39748e9",
+        "filename": "front_end/platform/string-utilities.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-11T10:14:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e13cac0d_2d90e0eb",
       "range": {
         "startLine": 241,
         "startChar": 69,
@@ -225,6 +417,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb107047_73ae0777",
+        "filename": "front_end/platform/string-utilities.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-11T10:14:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4f6a0ec_bec2bd5b",
+      "range": {
+        "startLine": 394,
+        "startChar": 0,
+        "endLine": 399,
+        "endChar": 3
+      },
+      "revId": "b952e47e4ec7510517940651b11bcc029ed2926b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2918b93a_fc710140",
@@ -238,6 +454,30 @@
       "writtenOn": "2020-12-11T06:44:08Z",
       "side": 1,
       "message": "nit: Remove",
+      "range": {
+        "startLine": 419,
+        "startChar": 0,
+        "endLine": 423,
+        "endChar": 3
+      },
+      "revId": "b952e47e4ec7510517940651b11bcc029ed2926b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36423c02_ccbca52f",
+        "filename": "front_end/platform/string-utilities.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-11T10:14:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2918b93a_fc710140",
       "range": {
         "startLine": 419,
         "startChar": 0,

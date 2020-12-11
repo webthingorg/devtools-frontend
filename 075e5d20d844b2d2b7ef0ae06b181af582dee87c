@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15b876ee_058d860f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-11T10:14:21Z",
+      "side": 1,
+      "message": "Don\u0027t apologise for the nits! Thanks for picking them up :)",
+      "revId": "075e5d20d844b2d2b7ef0ae06b181af582dee87c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
