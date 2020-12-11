@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cc91f53_dcdd3e4d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 24
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-11T11:59:01Z",
+      "side": 1,
+      "message": "still LGTM, thanks!",
+      "revId": "3a289468765a8ce99f94a1c718911a6f5c656846",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce16eadb_8c948770",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 24
+      },
+      "lineNbr": 935,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-11T11:59:01Z",
+      "side": 1,
+      "message": "This bakes in information about the possible nesting structures of the elements, but it looks like it is working.",
+      "range": {
+        "startLine": 935,
+        "startChar": 8,
+        "endLine": 935,
+        "endChar": 30
+      },
+      "revId": "3a289468765a8ce99f94a1c718911a6f5c656846",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
