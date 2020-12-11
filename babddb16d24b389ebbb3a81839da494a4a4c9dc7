@@ -39,6 +39,23 @@
       "message": "PTanotherL",
       "revId": "babddb16d24b389ebbb3a81839da494a4a4c9dc7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6faf891b_18f0d45c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-11T11:43:38Z",
+      "side": 1,
+      "message": "Summarizing our discussion from yesterday: Let\u0027s first think about which decisions we want to drive with this data before decide on a particular way to track interaction with the 3P filter option.",
+      "revId": "babddb16d24b389ebbb3a81839da494a4a4c9dc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
