@@ -16,6 +16,23 @@
       "message": "PTAL, this was the least obtrusive way I could think of for handling this situation. Do you have a better/cleaner idea?",
       "revId": "c3e994b9a09544e200800c708cc28cf177d04855",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f60279f_3b82aef6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-11T09:36:54Z",
+      "side": 1,
+      "message": "LGTM.. Is there a simple way to test this?",
+      "revId": "c3e994b9a09544e200800c708cc28cf177d04855",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
