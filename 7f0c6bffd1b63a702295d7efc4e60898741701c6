@@ -33,6 +33,41 @@
       "message": "What is this? Lighthouse already has a dark mode in devtools :)",
       "revId": "7f0c6bffd1b63a702295d7efc4e60898741701c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97c55c81_955506ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2020-12-11T22:11:42Z",
+      "side": 1,
+      "message": "\u003e What is this? Lighthouse already has a dark mode in devtools :)\n\naye.\n\nthese lines read the dt theme and then flip state in our css:\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/lighthouse/LighthouseReportRenderer.js;l\u003d152-159;drc\u003d5e1aeb0577a63dd919e3c0efeb8cb34dd3f462a9\n\nour dark styles:\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/third_party/lighthouse/report-assets/report.css;l\u003d172-183;drc\u003db8265a3093143b59922e93c0ad3af6c3e1858c8e (which are rolled in)\n\n\ni could see this breaking if the LighthouseReportRenderer.js lines don\u0027t run or it sets the class on the wrong element... \n\nbut otherwise it _should_ be doing its thing.\n\n\n(we could also change the impl if this is a problem, but let\u0027s chat about it as we want to manage our dark styles in our repo and roll em in)",
+      "parentUuid": "76d9829a_195c6531",
+      "revId": "7f0c6bffd1b63a702295d7efc4e60898741701c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e42e35b_acb27342",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2020-12-11T22:11:42Z",
+      "side": 1,
+      "message": "Apologies if the -1 is rude.. unsure of modern-day chromium etiquette :p",
+      "revId": "7f0c6bffd1b63a702295d7efc4e60898741701c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
