@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "967e10a9_1f2a1ada",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 29
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-12-13T15:44:03Z",
+      "side": 1,
+      "message": "So this is rough, but functional:\n1) I am not really sure what to do with the help thing (also using a different\n   icon than the mockup)\n2) No idea on what should be done for testing; a couple methods should probably\n   be unit-tested, but it seems like there may be ways of doing end-to-end stuff as well?\n3) There is a pre-existing bug that saving a change to UA doesn\u0027t apply until\n   switching to abd from the device. I would probably prefer to deal with it\n   separately (maybe as a pre-req) given the pre-existence.\n4) Some sort of auto-complete for some of the fields may be nice? There seems to\n   be some sort of SuggestionBox or such class around, but I am not sure if it\u0027s\n   a good fit.\n\nScreenshot:\ncurrent look, before any changes:\nhttps://imgur.com/OHq1GMS\n\nnew, UA-CH section folded:\nhttps://imgur.com/n2SGG0c\n\nnew section open and empty:\nhttps://imgur.com/5uvxewJ\n\nentering data:\nhttps://imgur.com/ygIqS9z\n\nall done:\nhttps://imgur.com/5BH1Pse\n",
+      "revId": "fddcd5322b604e67fe362a8bd45f9cee6efb6f84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
