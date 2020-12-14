@@ -23,6 +23,7 @@ async function loadNetworkModule(): Promise<typeof Network> {
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.PANEL,
   id: 'network',
+  localizableTitle: 'Network',
   title: ls`Network`,
   order: 40,
   async loadView() {
@@ -34,6 +35,7 @@ UI.ViewManager.registerViewExtension({
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
   id: 'network.blocked-urls',
+  localizableTitle: 'Network request blocking',
   title: ls`Network request blocking`,
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
   order: 60,
@@ -46,6 +48,7 @@ UI.ViewManager.registerViewExtension({
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
   id: 'network.config',
+  localizableTitle: 'Network conditions',
   title: ls`Network conditions`,
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
   order: 40,
@@ -59,6 +62,7 @@ UI.ViewManager.registerViewExtension({
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.NETWORK_SIDEBAR,
   id: 'network.search-network-tab',
+  localizableTitle: 'Search',
   title: ls`Search`,
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
   async loadView() {

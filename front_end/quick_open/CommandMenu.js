@@ -198,7 +198,7 @@ export class CommandMenu {
 
       /** @type {!RevealViewCommandOptions} */
       const options = {
-        title: view.title(),
+        title: Common.UIString.UIString('Show %s', view.localizableTitle()),
         tags: view.tags() || '',
         category: ls(category),
         userActionCode: undefined,
