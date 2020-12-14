@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02bdbf5c_4191e3ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-12-14T22:42:00Z",
+      "side": 1,
+      "message": "Submitting as is and delegating further discussed improvements to an upcoming CL.",
+      "revId": "92496844424d5b48e618769fc2232cbb33c8ca39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
