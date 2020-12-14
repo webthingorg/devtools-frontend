@@ -16,6 +16,24 @@
       "message": "LGTM.\n\nAre there any other rules in our root .eslintrc that make more sense to live in front_end? No need to change in this CL obviously, but might be worth thinking about.\n\nSimilarly the test only rules could go in a tests/.eslintrc.",
       "revId": "07f6728e6845e526805d4709df51caf2a6b21e5c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fe53825_9dc5b07d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-14T14:42:16Z",
+      "side": 1,
+      "message": "Yeah we should take a closer look at these in a follow-up. Filed crbug.com/1158382",
+      "parentUuid": "008d83e6_c40e36ab",
+      "revId": "07f6728e6845e526805d4709df51caf2a6b21e5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
