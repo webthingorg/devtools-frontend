@@ -26,6 +26,6 @@
 }
 
 .text-editor-row-message-icon {
-  flex: none;
+  display: flex;
   margin-right: 6px;
 }
