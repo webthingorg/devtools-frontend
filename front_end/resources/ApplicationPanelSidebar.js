@@ -948,6 +948,78 @@ export class DatabaseTableTreeElement extends ApplicationPanelTreeElement {
   }
 }
 
+export class SWCacheTreeElement extends ApplicationPanelTreeElement {
+  /**
+   * @param {!ResourcesPanel} storagePanel
+   * @param {!SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel} model
+   * @param {!SDK.ServiceWorkerCacheModel.Cache} cache
+   */
+  constructor(storagePanel, model, cache) {
+    super(storagePanel, cache.cacheName + ' - ' + cache.securityOrigin, false);
+    this._model = model;
+    this._cache = cache;
+    /** @type {?ServiceWorkerCacheView} */
+    this._view = null;
+    const icon = UI.Icon.Icon.create('mediumicon-table', 'resource-tree-item');
+    this.setLeadingIcons([icon]);
+  }
+
+  /**
+   * @override
+   * @return {string}
+   */
+  get itemURL() {
+    // I don't think this will work at all.
+    return 'cache://' + this._cache.cacheId;
+  }
+
+  /**
+   * @override
+   */
+  onattach() {
+    super.onattach();
+    this.listItemElement.addEventListener('contextmenu', this._handleContextMenuEvent.bind(this), true);
+  }
+
+  /**
+   * @param {!MouseEvent} event
+   */
+  _handleContextMenuEvent(event) {
+    const contextMenu = new UI.ContextMenu.ContextMenu(event);
+    contextMenu.defaultSection().appendItem(Common.UIString.UIString('Delete'), this._clearCache.bind(this));
+    contextMenu.show();
+  }
+
+  _clearCache() {
+    this._model.deleteCache(this._cache);
+  }
+
+  /**
+   * @param {!SDK.ServiceWorkerCacheModel.Cache} cache
+   */
+  update(cache) {
+    this._cache = cache;
+    if (this._view) {
+      this._view.update(cache);
+    }
+  }
+
+  /**
+   * @override
+   * @param {boolean=} selectedByUser
+   * @return {boolean}
+   */
+  onselect(selectedByUser) {
+    super.onselect(selectedByUser);
+    if (!this._view) {
+      this._view = new ServiceWorkerCacheView(this._model, this._cache);
+    }
+
+    this.showView(this._view);
+    return false;
+  }
+}
+
 export class ServiceWorkersTreeElement extends ApplicationPanelTreeElement {
   /**
    * @param {!ResourcesPanel} storagePanel
