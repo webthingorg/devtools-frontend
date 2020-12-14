@@ -55,6 +55,42 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "92da1c7e_a91f67ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 29
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-12-14T18:51:34Z",
+      "side": 1,
+      "message": "\u003e Thanks for the screenshots! Feel free to also add them to the CL description :) FYI for the future you can add multiple images to the same Imgur post.\n\u003e \n\u003e 1) As the domain expert, you might know better what the help text should be. Probably something along the lines of \"User agent client hints are intended to replace user agent strings ..., used for ..., learn more at ...\"\n\nIt doesn\u0027t seem like I can include links in the tooltip? Also I am wondering what sort of thing is appropriate for \"learn more\" --- can I just link to the explainer, or does there have to be official documentation?\n\n\n\u003e \n\u003e 2) Testing \"legacy UI\" code is tricky. They are very hard to bootstrap in Unit test land. You could add a couple of e2e tests instead (test/e2etest/...). They are written with Puppeteer and are intended to test user workflows. (See also go/devtools-tests).\n\nReading through existing ones now.",
+      "parentUuid": "f62e4e23_809d1773",
+      "revId": "fddcd5322b604e67fe362a8bd45f9cee6efb6f84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07e5ea2e_5d551297",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 29
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-12-14T18:51:34Z",
+      "side": 1,
+      "message": "Done, and added some unit tests. Some of them also benefited from being written in TS...",
+      "parentUuid": "39c5495d_fb4fac9f",
+      "revId": "fddcd5322b604e67fe362a8bd45f9cee6efb6f84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cd5cc119_802d4a46",
         "filename": "front_end/emulation/DevicesSettingsTab.js",
         "patchSetId": 29
@@ -124,6 +160,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c98f1b8_d48687e1",
+        "filename": "front_end/emulation/DevicesSettingsTab.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-12-14T18:51:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1de2ba03_0c924cd2",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 60
+      },
+      "revId": "fddcd5322b604e67fe362a8bd45f9cee6efb6f84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6cb2e3ca_5587fcb8",
@@ -137,6 +197,30 @@
       "writtenOn": "2020-12-14T07:39:55Z",
       "side": 1,
       "message": "Wdyt about \"Brands list is not a valid structured headers list.\", to make it a bit more descriptive?",
+      "range": {
+        "startLine": 228,
+        "startChar": 16,
+        "endLine": 228,
+        "endChar": 58
+      },
+      "revId": "fddcd5322b604e67fe362a8bd45f9cee6efb6f84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4245cdf_348bb7e0",
+        "filename": "front_end/emulation/DevicesSettingsTab.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-12-14T18:51:34Z",
+      "side": 1,
+      "message": "Done\u0027ish, though apparently my terminology is out-of-date and it\u0027s structured fields now.",
+      "parentUuid": "6cb2e3ca_5587fcb8",
       "range": {
         "startLine": 228,
         "startChar": 16,
@@ -183,6 +267,30 @@
       "writtenOn": "2020-12-14T07:39:55Z",
       "side": 1,
       "message": "I\u0027d not worry about autocomplete in this CL.",
+      "range": {
+        "startLine": 352,
+        "startChar": 4,
+        "endLine": 352,
+        "endChar": 41
+      },
+      "revId": "fddcd5322b604e67fe362a8bd45f9cee6efb6f84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "038ac677_afe8b4d8",
+        "filename": "front_end/emulation/DevicesSettingsTab.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-12-14T18:51:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c6057a5_bf6ff8a7",
       "range": {
         "startLine": 352,
         "startChar": 4,
