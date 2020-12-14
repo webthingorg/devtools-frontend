@@ -27,6 +27,7 @@ export const enum ViewLocationValues {
 export interface ViewRegistration {
   experiment?: Root.Runtime.ExperimentName;
   condition?: Root.Runtime.ConditionName;
+  localizableTitle: string;
   title: string;
   persistence?: ViewPersistence;
   id: string;
