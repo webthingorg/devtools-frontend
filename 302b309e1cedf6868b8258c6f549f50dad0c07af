@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8570f06a_a37e6d68",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-14T10:42:27Z",
+      "side": 1,
+      "message": "Sigurd, PTAL. I addressed Peters feedback, but didn\u0027t update the screenshots yet, so the spacing is now the same as in Peters linked screenshot.",
+      "revId": "302b309e1cedf6868b8258c6f549f50dad0c07af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
