@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9544b677_1d31f34d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-14T07:59:05Z",
+      "side": 1,
+      "message": "Thanks! Initial comments :)",
+      "revId": "de788e06bc59129bce77999a0bc42860fbb36e1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a3dc25d_b90e5fff",
+        "filename": "front_end/issues/MarkdownImage.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-14T07:59:05Z",
+      "side": 1,
+      "message": "Please do not use legacy widgets in modern web component code. AFAICT its only for UIIcon, for which we already have a replacement component with \"ui/components/Icon.ts\".",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 34
+      },
+      "revId": "de788e06bc59129bce77999a0bc42860fbb36e1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79d03bce_5ad2970e",
+        "filename": "front_end/issues/MarkdownImage.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-14T07:59:05Z",
+      "side": 1,
+      "message": "Please replace the usage of this with \u003cdevtools-icon\u003e",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 39
+      },
+      "revId": "de788e06bc59129bce77999a0bc42860fbb36e1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34ac224d_ac039e27",
+        "filename": "front_end/issues/MarkdownImagesMap.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-14T07:59:05Z",
+      "side": 1,
+      "message": "Having styles directly tied to the images in this global manner feels wrong. For links, this was fine, since its just a string-to-string mapping. For images/icons I feel we should pass the  \"markdownImages\" map locally to any new \"MarkdownView\", which then forwards the data to \"MarkdownImage\". This would require a refactoring of \"MarkdownView\" though and will make call-sites more complicated, as the \"markdownImages\" Map is dependent on what Markdown file is loaded.\n\nJack, wdyt?",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 33
+      },
+      "revId": "de788e06bc59129bce77999a0bc42860fbb36e1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
