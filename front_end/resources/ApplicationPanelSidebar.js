@@ -948,6 +948,186 @@ export class DatabaseTableTreeElement extends ApplicationPanelTreeElement {
   }
 }
 
+export class ServiceWorkerCacheTreeElement extends ExpandableApplicationPanelTreeElement {
+  /**
+   * @param {!ResourcesPanel} storagePanel
+   */
+  constructor(storagePanel) {
+    super(storagePanel, Common.UIString.UIString('Cache Storage'), 'CacheStorage');
+    const icon = UI.Icon.Icon.create('mediumicon-database', 'resource-tree-item');
+    this.setLink('https://developers.google.com/web/tools/chrome-devtools/storage/cache?utm_source=devtools');
+    this.setLeadingIcons([icon]);
+    /** @type {?SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel} */
+    this._swCacheModel = null;
+    /** @type {!Set<!SWCacheTreeElement>} */
+    this._swCacheTreeElements = new Set();
+  }
+
+  /**
+   * @param {?SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel} model
+   */
+  _initialize(model) {
+    this._swCacheTreeElements.clear();
+    this._swCacheModel = model;
+    if (model) {
+      for (const cache of model.caches()) {
+        this._addCache(model, cache);
+      }
+    }
+    SDK.SDKModel.TargetManager.instance().addModelListener(
+        SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel, SDK.ServiceWorkerCacheModel.Events.CacheAdded,
+        this._cacheAdded, this);
+    SDK.SDKModel.TargetManager.instance().addModelListener(
+        SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel, SDK.ServiceWorkerCacheModel.Events.CacheRemoved,
+        this._cacheRemoved, this);
+  }
+
+  /**
+   * @override
+   */
+  onattach() {
+    super.onattach();
+    this.listItemElement.addEventListener('contextmenu', this._handleContextMenuEvent.bind(this), true);
+  }
+
+  /**
+   * @param {!MouseEvent} event
+   */
+  _handleContextMenuEvent(event) {
+    const contextMenu = new UI.ContextMenu.ContextMenu(event);
+    contextMenu.defaultSection().appendItem(Common.UIString.UIString('Refresh Caches'), this._refreshCaches.bind(this));
+    contextMenu.show();
+  }
+
+  _refreshCaches() {
+    if (this._swCacheModel) {
+      this._swCacheModel.refreshCacheNames();
+    }
+  }
+
+  /**
+   * @param {!Common.EventTarget.EventTargetEvent} event
+   */
+  _cacheAdded(event) {
+    const cache = /** @type {!SDK.ServiceWorkerCacheModel.Cache} */ (event.data.cache);
+    const model = /** @type {!SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel} */ (event.data.model);
+    this._addCache(model, cache);
+  }
+
+  /**
+   * @param {!SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel} model
+   * @param {!SDK.ServiceWorkerCacheModel.Cache} cache
+   */
+  _addCache(model, cache) {
+    const swCacheTreeElement = new SWCacheTreeElement(this.resourcesPanel, model, cache);
+    this._swCacheTreeElements.add(swCacheTreeElement);
+    this.appendChild(swCacheTreeElement);
+  }
+
+  /**
+   * @param {!Common.EventTarget.EventTargetEvent} event
+   */
+  _cacheRemoved(event) {
+    const cache = /** @type {!SDK.ServiceWorkerCacheModel.Cache} */ (event.data.cache);
+    const model = /** @type {!SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel} */ (event.data.model);
+
+    const swCacheTreeElement = this._cacheTreeElement(model, cache);
+    if (!swCacheTreeElement) {
+      return;
+    }
+
+    this.removeChild(swCacheTreeElement);
+    this._swCacheTreeElements.delete(swCacheTreeElement);
+    this.setExpandable(this.childCount() > 0);
+  }
+
+  /**
+   * @param {!SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel} model
+   * @param {!SDK.ServiceWorkerCacheModel.Cache} cache
+   * @return {?SWCacheTreeElement}
+   */
+  _cacheTreeElement(model, cache) {
+    for (const cacheTreeElement of this._swCacheTreeElements) {
+      if (cacheTreeElement._cache.equals(cache) && cacheTreeElement._model === model) {
+        return cacheTreeElement;
+      }
+    }
+    return null;
+  }
+}
+
+export class SWCacheTreeElement extends ApplicationPanelTreeElement {
+  /**
+   * @param {!ResourcesPanel} storagePanel
+   * @param {!SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel} model
+   * @param {!SDK.ServiceWorkerCacheModel.Cache} cache
+   */
+  constructor(storagePanel, model, cache) {
+    super(storagePanel, cache.cacheName + ' - ' + cache.securityOrigin, false);
+    this._model = model;
+    this._cache = cache;
+    /** @type {?ServiceWorkerCacheView} */
+    this._view = null;
+    const icon = UI.Icon.Icon.create('mediumicon-table', 'resource-tree-item');
+    this.setLeadingIcons([icon]);
+  }
+
+  /**
+   * @override
+   * @return {string}
+   */
+  get itemURL() {
+    // I don't think this will work at all.
+    return 'cache://' + this._cache.cacheId;
+  }
+
+  /**
+   * @override
+   */
+  onattach() {
+    super.onattach();
+    this.listItemElement.addEventListener('contextmenu', this._handleContextMenuEvent.bind(this), true);
+  }
+
+  /**
+   * @param {!MouseEvent} event
+   */
+  _handleContextMenuEvent(event) {
+    const contextMenu = new UI.ContextMenu.ContextMenu(event);
+    contextMenu.defaultSection().appendItem(Common.UIString.UIString('Delete'), this._clearCache.bind(this));
+    contextMenu.show();
+  }
+
+  _clearCache() {
+    this._model.deleteCache(this._cache);
+  }
+
+  /**
+   * @param {!SDK.ServiceWorkerCacheModel.Cache} cache
+   */
+  update(cache) {
+    this._cache = cache;
+    if (this._view) {
+      this._view.update(cache);
+    }
+  }
+
+  /**
+   * @override
+   * @param {boolean=} selectedByUser
+   * @return {boolean}
+   */
+  onselect(selectedByUser) {
+    super.onselect(selectedByUser);
+    if (!this._view) {
+      this._view = new ServiceWorkerCacheView(this._model, this._cache);
+    }
+
+    this.showView(this._view);
+    return false;
+  }
+}
+
 export class ServiceWorkersTreeElement extends ApplicationPanelTreeElement {
   /**
    * @param {!ResourcesPanel} storagePanel
