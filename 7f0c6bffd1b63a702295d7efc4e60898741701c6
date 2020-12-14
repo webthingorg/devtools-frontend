@@ -68,6 +68,23 @@
       "message": "Apologies if the -1 is rude.. unsure of modern-day chromium etiquette :p",
       "revId": "7f0c6bffd1b63a702295d7efc4e60898741701c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad7a4bde_d79fef37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-14T09:46:01Z",
+      "side": 1,
+      "message": "No worries on the -1, thanks for clarifying! I think this is just me misunderstanding.\n\nThe legacy color patching that DevTools does at run time (take stylesheet, invert colors if in dark mode, append new stylesheet) was being applied to the Lighthouse stylesheet, hence this work to generate it at build time.\n\nIf LH does it already (which I didn\u0027t know about!) then we don\u0027t need this and we can just disable the legacy color patching for the LH stylesheet and leave Lighthouse to sort itself out, so I\u0027ll abandon this and put up a CL that does that and test that it works as we expect.\n\nThanks!",
+      "revId": "7f0c6bffd1b63a702295d7efc4e60898741701c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
