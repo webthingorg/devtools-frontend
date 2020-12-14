@@ -16,6 +16,23 @@
       "message": "I added a regression test. PT(another)L. The test feels slightly brittle as we don\u0027t have proper infra for mocking all the moving parts involved, but I think its better than nothing. Wdyt?",
       "revId": "ae0214ba81a45bcd58a3a1c73a26f255ad72c2a2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9b97076_1ac7cd59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-14T09:55:28Z",
+      "side": 1,
+      "message": "Still LGTM. The lifetime of the Dispatcher is tied to the model (NetworkManager in this case), so we don\u0027t need to clean-up the map. Does this argument also hold for the main target?",
+      "revId": "ae0214ba81a45bcd58a3a1c73a26f255ad72c2a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
