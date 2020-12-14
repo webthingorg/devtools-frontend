@@ -36,6 +36,9 @@ export class PreRegisteredView {
     return this._viewRegistration.title;
   }
 
+  localizableTitle() {
+    return this._viewRegistration.localizableTitle;
+  }
   /**
    * @override
    */
