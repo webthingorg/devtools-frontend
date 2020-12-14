@@ -16,6 +16,91 @@
       "message": "PTAL",
       "revId": "8d143593e975eb8e3f39ae1f3e57b1dbb457ed53",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84275722_c055bec2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-12-14T09:18:03Z",
+      "side": 1,
+      "message": "LGTM with nits",
+      "revId": "8d143593e975eb8e3f39ae1f3e57b1dbb457ed53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82f49829_6a612afb",
+        "filename": "front_end/resources/ApplicationPanelCacheSection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-12-14T09:18:03Z",
+      "side": 1,
+      "message": "What does this do?",
+      "revId": "8d143593e975eb8e3f39ae1f3e57b1dbb457ed53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "712645a6_7ff30943",
+        "filename": "front_end/resources/ApplicationPanelCacheSection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-12-14T09:18:03Z",
+      "side": 1,
+      "message": "get itemURL():string {\n?",
+      "revId": "8d143593e975eb8e3f39ae1f3e57b1dbb457ed53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bd88a41_abcb1b7c",
+        "filename": "front_end/resources/ApplicationPanelCacheSection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-12-14T09:18:03Z",
+      "side": 1,
+      "message": "Should we think about removing this line? It doesn\u0027t look helpful to me.",
+      "revId": "8d143593e975eb8e3f39ae1f3e57b1dbb457ed53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21dbc840_405916a6",
+        "filename": "front_end/resources/ApplicationPanelCacheSection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-12-14T09:18:03Z",
+      "side": 1,
+      "message": "add return type?",
+      "revId": "8d143593e975eb8e3f39ae1f3e57b1dbb457ed53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
