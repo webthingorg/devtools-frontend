@@ -66,6 +66,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fea234c8_f5570428",
+        "filename": "front_end/issues/MarkdownImage.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-14T09:52:36Z",
+      "side": 1,
+      "message": "we shouldn\u0027t be interpolating styles in like this; instead could we use StyleMap (https://lit-html.polymer-project.org/guide/styling-templates#stylemap) which will do it more efficiently?",
+      "range": {
+        "startLine": 49,
+        "startChar": 7,
+        "endLine": 53,
+        "endChar": 13
+      },
+      "revId": "de788e06bc59129bce77999a0bc42860fbb36e1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "34ac224d_ac039e27",
         "filename": "front_end/issues/MarkdownImagesMap.ts",
         "patchSetId": 7
@@ -82,6 +105,53 @@
         "startChar": 0,
         "endLine": 29,
         "endChar": 33
+      },
+      "revId": "de788e06bc59129bce77999a0bc42860fbb36e1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c446a8f_32700b37",
+        "filename": "front_end/issues/MarkdownImagesMap.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-14T09:52:36Z",
+      "side": 1,
+      "message": "I agree, this doesn\u0027t sit right with me. I feel like we should define in code a few variants for how we might want these images to appear as classes, and then let the caller define the class they want to apply to the image.\n\nOr we allow a very small subset of styles through that we\u0027ve decided are legitimate styles users could pass in. \n\nDo you think we\u0027ll want to display images in Markdown so differently that we have to have this blanket allow-all inline styles? Or could we at least start stricter and open it up if we hit issues?",
+      "parentUuid": "34ac224d_ac039e27",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 33
+      },
+      "revId": "de788e06bc59129bce77999a0bc42860fbb36e1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "042e489b_68de7108",
+        "filename": "front_end/issues/MarkdownImagesMap.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-14T09:52:36Z",
+      "side": 1,
+      "message": "I don\u0027t fully follow this; how is someone supposed to populate this ?",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 61
       },
       "revId": "de788e06bc59129bce77999a0bc42860fbb36e1f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
