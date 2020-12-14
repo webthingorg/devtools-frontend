@@ -83,6 +83,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "19125c81_0b51152f",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-12-14T11:38:51Z",
+      "side": 1,
+      "message": "Hm, that could indeed be confusing, if you had a, say, 10px gap but there was enough space on the line to distribute the items with justify-content in a way that the gap between items ended up being 12px wide. So, 10px would be due to the gap property, and 2px to the justify-content property.\nIn that case, hovering over those 2 properties in the Styles pane would result in almost the same thing, and it\u0027d be really hard to spot the difference.\nSo that\u0027s a good point, I\u0027m inclined to wait until we start working on v2 though to address this. In v2 we\u0027re planning on making this feature more discoverable, so it\u0027d be a good time to revisit the colors then too.",
+      "parentUuid": "b61710fa_704a75cf",
+      "range": {
+        "startLine": 565,
+        "startChar": 10,
+        "endLine": 580,
+        "endChar": 12
+      },
+      "revId": "ceb16cb1e2c907111f3b91d0a48648f38f67aae7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c09ee6c3_db4d2dc6",
         "filename": "inspector_overlay/highlight_flex_common.ts",
         "patchSetId": 4
@@ -106,6 +130,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "35b67851_b22c1e54",
+        "filename": "inspector_overlay/highlight_flex_common.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-12-14T11:38:51Z",
+      "side": 1,
+      "message": "Oh, thanks so much for spotting this. I couldn\u0027t understand why, for the life of me, the formatter kept on insisting that those properties should be on the same line.",
+      "parentUuid": "c09ee6c3_db4d2dc6",
+      "range": {
+        "startLine": 20,
+        "startChar": 2,
+        "endLine": 20,
+        "endChar": 68
+      },
+      "revId": "ceb16cb1e2c907111f3b91d0a48648f38f67aae7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0acc7a6c_9c3f4f50",
         "filename": "inspector_overlay/highlight_flex_common.ts",
         "patchSetId": 4
@@ -117,6 +165,30 @@
       "writtenOn": "2020-12-10T15:51:13Z",
       "side": 1,
       "message": "nit: consider moving to a common file in case we need this for other overlays",
+      "range": {
+        "startLine": 689,
+        "startChar": 0,
+        "endLine": 692,
+        "endChar": 1
+      },
+      "revId": "ceb16cb1e2c907111f3b91d0a48648f38f67aae7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d31d6c35_f497b03f",
+        "filename": "inspector_overlay/highlight_flex_common.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 692,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-12-14T11:38:51Z",
+      "side": 1,
+      "message": "We don\u0027t need this anywhere else for now. I\u0027m on the fence about this. I definitely see the value of making those general-looking functions more easily available by moving them to a common file. That said, until they are actually used elsewhere, I think this also adds the risk of ending up with a giant helper file that becomes a place where we throw everything without really knowing what\u0027s used anymore.",
+      "parentUuid": "0acc7a6c_9c3f4f50",
       "range": {
         "startLine": 689,
         "startChar": 0,
