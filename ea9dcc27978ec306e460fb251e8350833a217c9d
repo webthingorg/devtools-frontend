@@ -16,6 +16,29 @@
       "message": "The error is caused because the commands for showing panels are not added correctly. I expect crrev.com/c/2590524 to fix this issue.",
       "revId": "ea9dcc27978ec306e460fb251e8350833a217c9d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27094431_1338442a",
+        "filename": "front_end/shell.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-12-14T22:00:42Z",
+      "side": 1,
+      "message": "Why is this particular meta file imported here instead of in devtools_app.js?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 35
+      },
+      "revId": "ea9dcc27978ec306e460fb251e8350833a217c9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
