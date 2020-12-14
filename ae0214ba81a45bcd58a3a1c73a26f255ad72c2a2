@@ -33,6 +33,24 @@
       "message": "Still LGTM. The lifetime of the Dispatcher is tied to the model (NetworkManager in this case), so we don\u0027t need to clean-up the map. Does this argument also hold for the main target?",
       "revId": "ae0214ba81a45bcd58a3a1c73a26f255ad72c2a2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cf4bd26_f317310c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-14T10:10:09Z",
+      "side": 1,
+      "message": "Good catch. The Map would leak data with the combination of 1) the event is part of the main target, and 2) does not have a corresponding `requestWillBeSent` event. (as we remove the Trust Token result data from the map there).\n\nThis seems a hard edge case that I am not particularly worried about. Moreover, as we know, main frame navigations are a \"sub-optimal\" boundary, so clearing the map on main frame navigations might clear data thats still needed. I\u0027d leave it as, the size of the map is then bounded by failed trust token request attempts.",
+      "parentUuid": "d9b97076_1ac7cd59",
+      "revId": "ae0214ba81a45bcd58a3a1c73a26f255ad72c2a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
