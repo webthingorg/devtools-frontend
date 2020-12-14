@@ -10,6 +10,8 @@ import * as Workspace from '../workspace/workspace.js';
 
 import {SamplingHeapProfileNode} from './HeapProfileView.js';  // eslint-disable-line no-unused-vars
 
+/** @type {LiveHeapProfileView} */
+let liveHeapProfileViewInstance;
 /**
  * @extends {UI.Widget.VBox}
  */
@@ -46,6 +48,13 @@ export class LiveHeapProfileView extends UI.Widget.VBox {
     this._dataGrid.asWidget().show(this.contentElement);
 
     this._currentPollId = 0;
+  }
+
+  static instance() {
+    if (!liveHeapProfileViewInstance) {
+      liveHeapProfileViewInstance = new LiveHeapProfileView();
+    }
+    return liveHeapProfileViewInstance;
   }
 
   /**
