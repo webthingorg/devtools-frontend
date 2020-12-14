@@ -99,12 +99,17 @@ export class AccessibilitySidebarView extends UI.ThrottledWidget.ThrottledWidget
     if (!node) {
       return;
     }
+
+    // TODO: figure out how to get reference without specifying node?
     const accessibilityModel = node.domModel().target().model(SDK.AccessibilityModel.AccessibilityModel);
+    // const accessibilityModel = SDK.AccessibilityModel.AccessibilityModel;
     if (!accessibilityModel) {
       return;
     }
     accessibilityModel.clear();
     await accessibilityModel.requestPartialAXTree(node);
+    // await accessibilityModel.requestFullAXTree();
+    // console.log('doing update');
     this.accessibilityNodeCallback(accessibilityModel.axNodeForDOMNode(node));
   }
 
