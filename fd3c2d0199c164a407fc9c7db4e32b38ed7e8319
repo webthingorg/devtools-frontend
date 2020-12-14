@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2b3fcc1_aa0dcd2a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-14T17:03:12Z",
+      "side": 1,
+      "message": "PTAL\n\nThis is pre-work for SAB deprecation issues.",
+      "revId": "fd3c2d0199c164a407fc9c7db4e32b38ed7e8319",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
