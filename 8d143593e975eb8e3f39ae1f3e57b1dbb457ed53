@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd3a2136_5b8f7f6e",
+        "filename": "front_end/resources/ApplicationPanelCacheSection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-14T09:46:56Z",
+      "side": 1,
+      "message": "Great catch, thanks!",
+      "parentUuid": "82f49829_6a612afb",
+      "revId": "8d143593e975eb8e3f39ae1f3e57b1dbb457ed53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "712645a6_7ff30943",
@@ -65,6 +83,24 @@
       "writtenOn": "2020-12-14T09:18:03Z",
       "side": 1,
       "message": "get itemURL():string {\n?",
+      "revId": "8d143593e975eb8e3f39ae1f3e57b1dbb457ed53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "475f09d7_78fa9e87",
+        "filename": "front_end/resources/ApplicationPanelCacheSection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-14T09:46:56Z",
+      "side": 1,
+      "message": "Done. Also pinged Tim and Paul about enforcing return type annotations via an eslint rule.",
+      "parentUuid": "712645a6_7ff30943",
       "revId": "8d143593e975eb8e3f39ae1f3e57b1dbb457ed53",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -86,6 +122,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8fe4097_94b10742",
+        "filename": "front_end/resources/ApplicationPanelCacheSection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-14T09:46:56Z",
+      "side": 1,
+      "message": "Someone thought this wouldn\u0027t work, and I didn\u0027t investigate yet, so decided to keep it. At least it serves as a warning to investigate whether this works at some point.",
+      "parentUuid": "8bd88a41_abcb1b7c",
+      "revId": "8d143593e975eb8e3f39ae1f3e57b1dbb457ed53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "21dbc840_405916a6",
@@ -99,6 +153,24 @@
       "writtenOn": "2020-12-14T09:18:03Z",
       "side": 1,
       "message": "add return type?",
+      "revId": "8d143593e975eb8e3f39ae1f3e57b1dbb457ed53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de8f4e64_d5b3a5a4",
+        "filename": "front_end/resources/ApplicationPanelCacheSection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-14T09:46:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21dbc840_405916a6",
       "revId": "8d143593e975eb8e3f39ae1f3e57b1dbb457ed53",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
