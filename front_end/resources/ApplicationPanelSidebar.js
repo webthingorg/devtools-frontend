@@ -955,6 +955,7 @@ export class ServiceWorkerCacheTreeElement extends ExpandableApplicationPanelTre
   constructor(storagePanel) {
     super(storagePanel, Common.UIString.UIString('Cache Storage'), 'CacheStorage');
     const icon = UI.Icon.Icon.create('mediumicon-database', 'resource-tree-item');
+    this.setLink('https://developers.google.com/web/tools/chrome-devtools/storage/cache?utm_source=devtools');
     this.setLeadingIcons([icon]);
     /** @type {?SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel} */
     this._swCacheModel = null;
