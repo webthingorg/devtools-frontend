@@ -16,4 +16,5 @@ import './persistence/persistence-legacy.js';
 import './browser_sdk/browser_sdk.js';
 import './extensions/extensions-legacy.js';
 import './console_counters/console_counters-legacy.js';
+import './console/console-meta.js';
 // We generate the descriptors in this file, which depend on the runtime.
