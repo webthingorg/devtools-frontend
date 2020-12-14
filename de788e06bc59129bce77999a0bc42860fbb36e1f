@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "51505aa3_56dc61f0",
+        "filename": "front_end/issues/MarkdownImage.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-12-14T23:53:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a3dc25d_b90e5fff",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 34
+      },
+      "revId": "de788e06bc59129bce77999a0bc42860fbb36e1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "79d03bce_5ad2970e",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "64a57a95_417d8800",
+        "filename": "front_end/issues/MarkdownImage.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-12-14T23:53:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79d03bce_5ad2970e",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 39
+      },
+      "revId": "de788e06bc59129bce77999a0bc42860fbb36e1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fea234c8_f5570428",
@@ -77,6 +125,30 @@
       "writtenOn": "2020-12-14T09:52:36Z",
       "side": 1,
       "message": "we shouldn\u0027t be interpolating styles in like this; instead could we use StyleMap (https://lit-html.polymer-project.org/guide/styling-templates#stylemap) which will do it more efficiently?",
+      "range": {
+        "startLine": 49,
+        "startChar": 7,
+        "endLine": 53,
+        "endChar": 13
+      },
+      "revId": "de788e06bc59129bce77999a0bc42860fbb36e1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be826d43_4805bd06",
+        "filename": "front_end/issues/MarkdownImage.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-12-14T23:53:36Z",
+      "side": 1,
+      "message": "Using icon component and removed styling support instead added width, height and color as props to align more with the IconData.",
+      "parentUuid": "fea234c8_f5570428",
       "range": {
         "startLine": 49,
         "startChar": 7,
@@ -136,6 +208,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c3174fa8_57ffd720",
+        "filename": "front_end/issues/MarkdownImagesMap.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-12-14T23:53:36Z",
+      "side": 1,
+      "message": "That is a great idea, having subset of classes to define styling for images/icons, that should work for majority of use cases. \n\nI have replaced styling with color, width and height to align with the Icon data props. If more styling options are needed, we can add classes as discussed above. Let me know what you guys think.",
+      "parentUuid": "2c446a8f_32700b37",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 33
+      },
+      "revId": "de788e06bc59129bce77999a0bc42860fbb36e1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "042e489b_68de7108",
         "filename": "front_end/issues/MarkdownImagesMap.ts",
         "patchSetId": 7
@@ -171,6 +267,30 @@
       "side": 1,
       "message": "For links, we have a global Map that maps Id -\u003e actual URL. For images we wanted to do something similar, to prevent loading arbitrary images from the web. This means we need a mapping of \"Image Id\" to \"ImageData\" struct.\n\nThis CL proposes a global structure, that serves as the backing for all MarkdownImage instances. There are a few ways we could do this:\n\n1) The global structure as proposed here. This would allow easier re-usability of the same image in multiple Markdown files. It also makes the code simpler (globals tend to do that xD)\n\n2) The Map is created locally when a new \"MarkdownView\" is created and populated with the entries for a specific Markdown file locally. We still need to hardcode the struct somewhere, probably where the View is instantiated. This approach would require some refactoring of MarkdownView, as the required Map needs to be passed down into the sub-component.\n\n3, addendum to 2) Alternatively the info could live along side a same-named JSON file. This feels very bloated though, for such a simple problem.\n\nIf the styles are removed from the Map data and it stays a simple \"Id to Image URL\", I\u0027m fine with a global mapping, otherwise I would prefer solution 2).",
       "parentUuid": "042e489b_68de7108",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 61
+      },
+      "revId": "de788e06bc59129bce77999a0bc42860fbb36e1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a14bc28_50c5c2da",
+        "filename": "front_end/issues/MarkdownImagesMap.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-12-14T23:53:36Z",
+      "side": 1,
+      "message": "I removed styling and replaced with width, height and color as data props. So if there is a need for two different sized icons of same icon path, it can be defined as below:\n\n```\n[\n  \u0027settings-small-icon\u0027,\n {\n  src: \u0027Images/settings-gear.svg\u0027,\n  width: \u002720px\u0027,\n  height: \u002720px\u0027,\n }\n],\n[\n  \u0027settings-big-icon\u0027,\n {\n  src: \u0027Images/settings-gear.svg\u0027,\n  width: \u002760px\u0027,\n  height: \u002760px\u0027,\n }\n]\n```\n\nImplementation # 2 sounds like a good idea, we use similar approach for Localization as well so the usage should be similar. However as you said it might be more involved and will potentially touch multiple files and markdown is not so widely used as Localization.",
+      "parentUuid": "d92be88c_82e52158",
       "range": {
         "startLine": 40,
         "startChar": 0,
