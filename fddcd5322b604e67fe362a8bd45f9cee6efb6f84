@@ -78,6 +78,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f1717025_c9cbd171",
+        "filename": "front_end/emulation/DevicesSettingsTab.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-12-14T15:13:15Z",
+      "side": 1,
+      "message": "So this is a bit of a problem, since some of the names there are too generic to be used non-namespaced (e.g.  Boolean). Any suggestions?",
+      "parentUuid": "cd5cc119_802d4a46",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 60
+      },
+      "revId": "fddcd5322b604e67fe362a8bd45f9cee6efb6f84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6cb2e3ca_5587fcb8",
         "filename": "front_end/emulation/DevicesSettingsTab.js",
         "patchSetId": 29
