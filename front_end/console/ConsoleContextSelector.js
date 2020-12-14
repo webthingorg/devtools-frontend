@@ -37,6 +37,8 @@ export class ConsoleContextSelector {
     SDK.SDKModel.TargetManager.instance().addModelListener(
         SDK.ResourceTreeModel.ResourceTreeModel, SDK.ResourceTreeModel.Events.FrameNavigated, this._frameNavigated,
         this);
+    SDK.SDKModel.TargetManager.instance().addModelListener(
+        SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.ParsedScriptSource, this._onParsedScriptSource, this);
 
     UI.Context.Context.instance().addFlavorChangeListener(
         SDK.RuntimeModel.ExecutionContext, this._executionContextChangedExternally, this);
@@ -46,6 +48,16 @@ export class ConsoleContextSelector {
     SDK.SDKModel.TargetManager.instance().addModelListener(
         SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.CallFrameSelected, this._callFrameSelectedInModel,
         this);
+  }
+
+  /**
+   * @param {!Common.EventTarget.EventTargetEvent} event
+   */
+  _onParsedScriptSource(event) {
+    const script = /** @type{!SDK.Script.Script} */ (event.data);
+    const runtimeModel = script.debuggerModel.runtimeModel();
+    this.modelRemoved(runtimeModel);
+    this.modelAdded(runtimeModel);
   }
 
   /**
@@ -275,9 +287,18 @@ export class ConsoleContextSelector {
     }
 
     if (frame) {
-      const callFrame = frame.findCreationCallFrame(callFrame => !!callFrame.url);
-      if (callFrame) {
-        return new Common.ParsedURL.ParsedURL(callFrame.url).domain();
+      const debuggerModel = target.model(SDK.DebuggerModel.DebuggerModel);
+      if (debuggerModel) {
+        const callFrame = frame.findCreationCallFrame(callFrame => {
+          const script = debuggerModel.scriptForId(callFrame.scriptId);
+          return !!script && !!script.sourceURL;
+        });
+        if (callFrame) {
+          const script = debuggerModel.scriptForId(callFrame.scriptId);
+          if (script) {
+            return new Common.ParsedURL.ParsedURL(script.sourceURL).domain();
+          }
+        }
       }
       return Common.UIString.UIString('IFrame');
     }

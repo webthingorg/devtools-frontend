@@ -57,6 +57,91 @@ const linkHandlers = new Map();
 /** @type {!Common.Settings.Setting<string>} */
 let linkHandlerSettingInstance;
 
+/** @type {!SourceURLResolver} */
+let sourceUrlInstance;
+
+class ModelData {
+  constructor() {
+    /** @type {!Array<{scriptId: string, callback: (url: string) => void}>} */
+    this.scriptAndCallback = [];
+  }
+}
+
+/**
+ * @extends SDK.SDKModel.SDKModelObserver<SDK.RuntimeModel.RuntimeModel>
+ */
+class SourceURLResolver extends SDK.SDKModel.SDKModelObserver {
+  /**
+   * @private
+   */
+  constructor() {
+    super();
+    SDK.SDKModel.TargetManager.instance().observeModels(SDK.RuntimeModel.RuntimeModel, this);
+    SDK.SDKModel.TargetManager.instance().addModelListener(
+        SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.ParsedScriptSource, this.onScriptParse, this);
+
+
+    /** @type{!Map<!SDK.RuntimeModel.RuntimeModel, !ModelData>} */
+    this.modelToModelData = new Map();
+  }
+
+  static instance() {
+    if (sourceUrlInstance) {
+      return sourceUrlInstance;
+    }
+    sourceUrlInstance = new SourceURLResolver();
+    return sourceUrlInstance;
+  }
+
+  /**
+   *
+   * @param {SDK.RuntimeModel.RuntimeModel} model
+   * @param {string} scriptId
+   * @param {(url: string) => void} callback
+   */
+  registerItem(model, scriptId, callback) {
+    let modelData = this.modelToModelData.get(model);
+    if (!modelData) {
+      modelData = new ModelData();
+      this.modelToModelData.set(model, modelData);
+    }
+    modelData.scriptAndCallback.push({scriptId, callback});
+  }
+
+  /**
+   *
+   * @param {Common.EventTarget.EventTargetEvent} event
+   */
+  onScriptParse(event) {
+    const script = /** @type {SDK.Script.Script} */ (event.data);
+    const model = script.debuggerModel.runtimeModel();
+    const modelData = this.modelToModelData.get(model);
+    /** @type {Array<(url: string) => void>} */
+    const callbacks = [];
+    if (modelData) {
+      modelData.scriptAndCallback = modelData.scriptAndCallback.filter(({scriptId, callback}) => {
+        if (scriptId === script.scriptId) {
+          callbacks.push(callback);
+          return false;
+        }
+        return true;
+      });
+      for (const callback of callbacks) {
+        callback(script.sourceURL);
+      }
+    }
+  }
+
+  /**
+   *
+   * @param {SDK.RuntimeModel.RuntimeModel} model
+   */
+  modelRemoved(model) {
+    this.modelToModelData.delete(model);
+  }
+}
+
+
 /**
  * @implements {SDK.SDKModel.Observer}
  */
@@ -204,6 +289,7 @@ export class Linkifier {
    * @return {?HTMLElement}
    */
   maybeLinkifyScriptLocation(target, scriptId, sourceURL, lineNumber, options) {
+    /** @type {HTMLElement?} */
     let fallbackAnchor = null;
     const linkifyURLOptions = {
       lineNumber,
@@ -218,6 +304,11 @@ export class Linkifier {
     const {columnNumber = 0, className = ''} = linkifyURLOptions;
     if (sourceURL) {
       fallbackAnchor = Linkifier.linkifyURL(sourceURL, linkifyURLOptions);
+    } else {
+      fallbackAnchor = Linkifier.linkifyURL('', linkifyURLOptions);
+      if (target && scriptId) {
+        this._patchUrlOnScriptParsed(target, fallbackAnchor, scriptId, linkifyURLOptions);
+      }
     }
     if (!target || target.isDisposed()) {
       return fallbackAnchor;
@@ -338,7 +429,7 @@ export class Linkifier {
     console.assert(!!stackTrace.callFrames && !!stackTrace.callFrames.length);
 
     const topFrame = stackTrace.callFrames[0];
-    const fallbackAnchor = Linkifier.linkifyURL(topFrame.url, {
+    const options = {
       className: classes,
       lineNumber: topFrame.lineNumber,
       columnNumber: topFrame.columnNumber,
@@ -347,9 +438,14 @@ export class Linkifier {
       preventClick: undefined,
       tabStop: undefined,
       bypassURLTrimming: undefined
-    });
+    };
+    const fallbackAnchor = Linkifier.linkifyURL(topFrame.url, options);
     if (target.isDisposed()) {
       return fallbackAnchor;
+    }
+
+    if (target && topFrame.url.length === 0) {
+      this._patchUrlOnScriptParsed(target, fallbackAnchor, topFrame.scriptId, options);
     }
 
     const debuggerModel = target.model(SDK.DebuggerModel.DebuggerModel);
@@ -386,6 +482,29 @@ export class Linkifier {
     const anchors = /** @type {!Array<!Element>} */ (this._anchorsByTarget.get(target));
     anchors.push(anchor);
     return anchor;
+  }
+
+  /**
+   * @param {!SDK.SDKModel.Target} target
+   * @param {!HTMLElement} fallbackAnchor
+   * @param {!string} scriptId
+   * @param {*} options
+   */
+  _patchUrlOnScriptParsed(target, fallbackAnchor, scriptId, options) {
+    const runtimeModel = target.model(SDK.RuntimeModel.RuntimeModel);
+    const anchorRef = new WeakRef(fallbackAnchor);
+    if (runtimeModel && scriptId) {
+      /**
+       * @param {string} url
+       */
+      const callback = url => {
+        const anchor = anchorRef.deref();
+        if (anchor !== undefined) {
+          anchor.replaceWith(Linkifier.linkifyURL(url, options));
+        }
+      };
+      SourceURLResolver.instance().registerItem(runtimeModel, scriptId, callback);
+    }
   }
 
   /**
