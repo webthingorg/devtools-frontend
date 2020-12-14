@@ -155,6 +155,30 @@
       },
       "revId": "de788e06bc59129bce77999a0bc42860fbb36e1f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d92be88c_82e52158",
+        "filename": "front_end/issues/MarkdownImagesMap.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-14T10:02:55Z",
+      "side": 1,
+      "message": "For links, we have a global Map that maps Id -\u003e actual URL. For images we wanted to do something similar, to prevent loading arbitrary images from the web. This means we need a mapping of \"Image Id\" to \"ImageData\" struct.\n\nThis CL proposes a global structure, that serves as the backing for all MarkdownImage instances. There are a few ways we could do this:\n\n1) The global structure as proposed here. This would allow easier re-usability of the same image in multiple Markdown files. It also makes the code simpler (globals tend to do that xD)\n\n2) The Map is created locally when a new \"MarkdownView\" is created and populated with the entries for a specific Markdown file locally. We still need to hardcode the struct somewhere, probably where the View is instantiated. This approach would require some refactoring of MarkdownView, as the required Map needs to be passed down into the sub-component.\n\n3, addendum to 2) Alternatively the info could live along side a same-named JSON file. This feels very bloated though, for such a simple problem.\n\nIf the styles are removed from the Map data and it stays a simple \"Id to Image URL\", I\u0027m fine with a global mapping, otherwise I would prefer solution 2).",
+      "parentUuid": "042e489b_68de7108",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 61
+      },
+      "revId": "de788e06bc59129bce77999a0bc42860fbb36e1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
