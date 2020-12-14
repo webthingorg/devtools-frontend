@@ -88,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b858133_e7584639",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1484,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-12-14T19:30:23Z",
+      "side": 1,
+      "message": "Marking as resolved",
+      "parentUuid": "40c3c4c1_f8b9284e",
+      "revId": "597dca4d38d1e429d657ab3d5c23049190223df4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "63d1e151_b72e3448",
