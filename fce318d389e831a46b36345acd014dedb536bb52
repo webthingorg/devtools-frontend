@@ -50,6 +50,23 @@
       "message": "INFRA LGTM",
       "revId": "fce318d389e831a46b36345acd014dedb536bb52",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee60f7d3_8ab09de8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-12-14T19:28:11Z",
+      "side": 1,
+      "message": "LGTM. Thanks for the fix!",
+      "revId": "fce318d389e831a46b36345acd014dedb536bb52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
