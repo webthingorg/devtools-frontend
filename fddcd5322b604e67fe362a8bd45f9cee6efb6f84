@@ -16,6 +16,133 @@
       "message": "So this is rough, but functional:\n1) I am not really sure what to do with the help thing (also using a different\n   icon than the mockup)\n2) No idea on what should be done for testing; a couple methods should probably\n   be unit-tested, but it seems like there may be ways of doing end-to-end stuff as well?\n3) There is a pre-existing bug that saving a change to UA doesn\u0027t apply until\n   switching to abd from the device. I would probably prefer to deal with it\n   separately (maybe as a pre-req) given the pre-existence.\n4) Some sort of auto-complete for some of the fields may be nice? There seems to\n   be some sort of SuggestionBox or such class around, but I am not sure if it\u0027s\n   a good fit.\n\nScreenshot:\ncurrent look, before any changes:\nhttps://imgur.com/OHq1GMS\n\nnew, UA-CH section folded:\nhttps://imgur.com/n2SGG0c\n\nnew section open and empty:\nhttps://imgur.com/5uvxewJ\n\nentering data:\nhttps://imgur.com/ygIqS9z\n\nall done:\nhttps://imgur.com/5BH1Pse\n",
       "revId": "fddcd5322b604e67fe362a8bd45f9cee6efb6f84",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f62e4e23_809d1773",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 29
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-14T07:39:55Z",
+      "side": 1,
+      "message": "Thanks for the screenshots! Feel free to also add them to the CL description :) FYI for the future you can add multiple images to the same Imgur post.\n\n1) As the domain expert, you might know better what the help text should be. Probably something along the lines of \"User agent client hints are intended to replace user agent strings ..., used for ..., learn more at ...\"\n\n2) Testing \"legacy UI\" code is tricky. They are very hard to bootstrap in Unit test land. You could add a couple of e2e tests instead (test/e2etest/...). They are written with Puppeteer and are intended to test user workflows. (See also go/devtools-tests).\n\n3) I am also in favor of fixing the bug independently of this CL. I\u0027ll leave it up to you whether you want to fix the bug first, or go forward with this CL first.\n\n4) Unfortunately, I am not that familiar with the SuggestBox. For the initial CL I suggest we leave it out and follow up in a separate CL. I am not sure we really need auto-complete but feel free to give it a go :)",
+      "parentUuid": "967e10a9_1f2a1ada",
+      "revId": "fddcd5322b604e67fe362a8bd45f9cee6efb6f84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39c5495d_fb4fac9f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 29
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-14T07:39:55Z",
+      "side": 1,
+      "message": "Thanks! Code itself already looks good. Wdyt about organizing it a bit differently? We could move the \"_parseBrandsList\", \"_serializeBrandList\" and the validator functions to a separate TS file. AFAICT they don\u0027t have that strong of a dependency to the UI code. That would also allow us to write unit tests for those functions :)",
+      "revId": "fddcd5322b604e67fe362a8bd45f9cee6efb6f84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd5cc119_802d4a46",
+        "filename": "front_end/emulation/DevicesSettingsTab.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-14T07:39:55Z",
+      "side": 1,
+      "message": "See the initial comment about import conventions in DevTools 😊\n\nThis is not a cross-module import so we should import the symbols directly from the file, similar to how we import things from e.g. \u0027./DeviceModeModel.js\u0027:\n\n import { parseList, ResultKind, .... } from \u0027./StructuredHeaders.js\u0027;",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 60
+      },
+      "revId": "fddcd5322b604e67fe362a8bd45f9cee6efb6f84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cb2e3ca_5587fcb8",
+        "filename": "front_end/emulation/DevicesSettingsTab.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-14T07:39:55Z",
+      "side": 1,
+      "message": "Wdyt about \"Brands list is not a valid structured headers list.\", to make it a bit more descriptive?",
+      "range": {
+        "startLine": 228,
+        "startChar": 16,
+        "endLine": 228,
+        "endChar": 58
+      },
+      "revId": "fddcd5322b604e67fe362a8bd45f9cee6efb6f84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0ee933f_12351109",
+        "filename": "front_end/emulation/DevicesSettingsTab.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-14T07:39:55Z",
+      "side": 1,
+      "message": "IMO the icon is fine.",
+      "range": {
+        "startLine": 327,
+        "startChar": 4,
+        "endLine": 327,
+        "endChar": 47
+      },
+      "revId": "fddcd5322b604e67fe362a8bd45f9cee6efb6f84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c6057a5_bf6ff8a7",
+        "filename": "front_end/emulation/DevicesSettingsTab.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-14T07:39:55Z",
+      "side": 1,
+      "message": "I\u0027d not worry about autocomplete in this CL.",
+      "range": {
+        "startLine": 352,
+        "startChar": 4,
+        "endLine": 352,
+        "endChar": 41
+      },
+      "revId": "fddcd5322b604e67fe362a8bd45f9cee6efb6f84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
