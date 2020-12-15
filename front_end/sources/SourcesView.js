@@ -405,6 +405,7 @@ export class SourcesView extends UI.Widget.VBox {
    * @param {boolean=} omitHighlight
    */
   showSourceLocation(uiSourceCode, lineNumber, columnNumber, omitFocus, omitHighlight) {
+    console.info(`Showing ${uiSourceCode.name()} line ${lineNumber} called by ${new Error().stack}`);
     this._historyManager.updateCurrentState();
     this._editorContainer.showFile(uiSourceCode);
     const currentSourceFrame = this.currentSourceFrame();
