@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbbed2c2_0a68135d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-12-15T16:46:25Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "3db3720a95f2f22dea4b48491b4b27343d96685d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1ec8e6b_123e3083",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-12-15T16:46:25Z",
+      "side": 1,
+      "message": "TIL",
+      "range": {
+        "startLine": 249,
+        "startChar": 15,
+        "endLine": 249,
+        "endChar": 30
+      },
+      "revId": "3db3720a95f2f22dea4b48491b4b27343d96685d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
