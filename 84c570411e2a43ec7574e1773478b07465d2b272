@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "79526732_3ebbbb19",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2020-12-15T07:50:43Z",
+      "side": 1,
+      "message": "This here would change the text from pending (or, currently \u0027unknown\u0027) to the anchor with the actual url.",
+      "revId": "84c570411e2a43ec7574e1773478b07465d2b272",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b0c3f40e_53606fc7",
         "filename": "front_end/console/ConsoleContextSelector.js",
         "patchSetId": 2
