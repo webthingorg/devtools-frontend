@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd1c32ce_0d02d04f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 33
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-15T07:08:46Z",
+      "side": 1,
+      "message": "Thanks for the tests! lgtm % last nits\n\nYou can land the CL as-is and follow-up with the e2e tests in a separate CL if you want. e2e tests have a good chance to be flaky so the CL adding them might get reverted (or the test disabled).",
+      "revId": "8315797074a503b7fdfa8437b87805bcb98d2b36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e03f3b6_fcf38ad9",
+        "filename": "test/unittests/front_end/emulation/UserAgentMetadata_test.ts",
+        "patchSetId": 33
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-15T07:08:46Z",
+      "side": 1,
+      "message": "nit: const instead of import (if it works).",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 6
+      },
+      "revId": "8315797074a503b7fdfa8437b87805bcb98d2b36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

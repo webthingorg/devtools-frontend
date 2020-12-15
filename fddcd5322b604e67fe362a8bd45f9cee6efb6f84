@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "09c3cdb7_348618e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 29
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-15T07:08:46Z",
+      "side": 1,
+      "message": "1) Using Tooltip.js (via Tooltip.install) you might be able to install arbitrary HTML elements for `title` IIRC. Usually we link to web.dev articles, or developer.google.com. If no such thing exists yet for UA-CH, then we might not link to further information.",
+      "parentUuid": "92da1c7e_a91f67ca",
+      "revId": "fddcd5322b604e67fe362a8bd45f9cee6efb6f84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cd5cc119_802d4a46",
         "filename": "front_end/emulation/DevicesSettingsTab.js",
         "patchSetId": 29
