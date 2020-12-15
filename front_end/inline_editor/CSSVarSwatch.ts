@@ -70,7 +70,7 @@ export class CSSVarSwatch extends HTMLElement {
       'css-var-link': true,
       'undefined': !isDefined,
     });
-    const title = isDefined ? ls`Jump to definition` : ls`${variableName} is not defined`;
+    const title = isDefined ? this.computedValue : ls`${variableName} is not defined`;
     // The this.variableName's space must be removed, otherwise it cannot be triggered when clicked.
     const onClick = isDefined ? this.onLinkClick.bind(this, this.variableName.trim()) : null;
 
@@ -94,7 +94,11 @@ export class CSSVarSwatch extends HTMLElement {
       .css-var-link:not(.undefined) {
         cursor: pointer;
         text-decoration: underline;
-        text-underline-position: under;
+        text-underline-offset: 2px;
+      }
+
+      .css-var-link.undefined {
+        color: hsl(0deg 0% 46%);
       }
       </style><span title="${this.computedValue || ''}">${functionParts.pre}${link}${functionParts.post}</span>`,
       this.shadow, { eventContext: this });
