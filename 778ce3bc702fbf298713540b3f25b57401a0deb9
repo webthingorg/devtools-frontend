@@ -16,6 +16,23 @@
       "message": "Adding Yang as FYI",
       "revId": "778ce3bc702fbf298713540b3f25b57401a0deb9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b639dd67_52a8fee8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-12-15T23:19:28Z",
+      "side": 1,
+      "message": "Actually, need owner signoff to submit. Added original reviewers",
+      "revId": "778ce3bc702fbf298713540b3f25b57401a0deb9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
