@@ -525,6 +525,7 @@ export class ConsoleMessage {
     this.scriptId = scriptId || null;
     this.workerId = workerId || null;
     this.frameId = null;
+    this.origin = null;
 
     if (!this.executionContextId && this._runtimeModel) {
       if (this.scriptId) {
@@ -537,6 +538,7 @@ export class ConsoleMessage {
     if (this.executionContextId && this._runtimeModel) {
       const executionContext = this._runtimeModel.executionContext(this.executionContextId);
       this.frameId = executionContext ? executionContext.frameId : null;
+      this.origin = executionContext ? executionContext.origin : null;
     }
 
     if (context) {

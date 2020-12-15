@@ -557,7 +557,7 @@ export class ConsoleView extends UI.Widget.VBox {
       // it, as pre-existing messages from the execution context will be resent.
       if (consoleMessage.frameId && consoleMessage.executionContextId &&
           consoleMessage.executionContextId === executionContext.id &&
-          consoleMessage.frameId === executionContext.frameId) {
+          consoleMessage.frameId === executionContext.frameId && consoleMessage.origin === executionContext.origin) {
         return false;
       }
       return true;
