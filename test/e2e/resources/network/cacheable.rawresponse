@@ -5,7 +5,6 @@ Last-Modified: Wed, 19 Feb 2020 08:04:35 GMT
 ETag: "cacheable-rawresponse"
 Accept-Ranges: bytes
 Content-Length: 28
-Connection: close
 Cache-Control: max-age=315360000
 Content-Type: text/javascript; charset=utf-8
 
