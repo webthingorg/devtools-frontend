@@ -74,10 +74,6 @@ def typescript_compiler_path():
     return path.join(node_modules_path(), 'typescript', 'bin', 'tsc')
 
 
-def hosted_mode_script_path():
-    return path.join(devtools_root_path(), 'scripts', 'hosted_mode', 'server.js')
-
-
 def downloaded_chrome_binary_path():
     return path.abspath(path.join(
     *{

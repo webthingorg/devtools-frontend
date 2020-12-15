@@ -6,7 +6,6 @@ Last-Modified: Sun, 26 Sep 2010 22:04:35 GMT
 ETag: "csp-report-only.rawresponse"
 Accept-Ranges: bytes
 Content-Length: 58
-Connection: close
 Content-Type: text/html; charset=utf-8
 
 <html><body><img src="" style="width:200px"></body></html>
