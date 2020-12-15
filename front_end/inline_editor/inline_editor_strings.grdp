@@ -63,9 +63,6 @@
   <message name="IDS_DEVTOOLS_b56d315e49178ba86341ff3b4e337c6b" desc="Inset button text content in CSSShadow Editor of the inline editor in the Styles tab">
     Inset
   </message>
-  <message name="IDS_DEVTOOLS_bfa0731f918a0e2ee23021896e388b38" desc="Text in CSS Variable Switch">
-    Jump to definition
-  </message>
   <message name="IDS_DEVTOOLS_d0cfdbcc26e8c7cac2acb8a8d68269d9" desc="Error text in Font Editor">
     This property is set to contain units but does not have a defined corresponding unitsArray: <ph name="THIS__PROPERTYNAME">$1s<ex>font-size</ex></ph>
   </message>
