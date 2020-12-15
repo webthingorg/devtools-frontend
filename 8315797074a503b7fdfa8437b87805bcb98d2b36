@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "598b25ff_137cbd8b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 33
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-15T07:09:55Z",
+      "side": 1,
+      "message": "Before landing, please add more details to the CL description. At a minimum link the screenshots and the design doc/explainer.",
+      "revId": "8315797074a503b7fdfa8437b87805bcb98d2b36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fd1c32ce_0d02d04f",
