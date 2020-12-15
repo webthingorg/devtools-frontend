@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5a46063_9ab302ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-15T12:54:55Z",
+      "side": 1,
+      "message": "Peter, could you help us out figuring out a maintainable solution that nicely integrates with the localization system?",
+      "revId": "76ca824b6a90321263bbd8a158742a8096a6abc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47fb6533_1182e7f2",
