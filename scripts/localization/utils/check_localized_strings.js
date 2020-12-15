@@ -115,6 +115,7 @@ const migratedDirsSet = new Set([
   'developer_resources',
   'devices',
   'help',
+  'inline_editor',
   'input',
   'js_profiler',
   'layers',
