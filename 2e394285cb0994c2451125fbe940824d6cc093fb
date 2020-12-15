@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfb15d41_9d008a84",
+        "filename": "front_end/elements/StylePropertyTreeElement.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-12-15T12:55:00Z",
+      "side": 1,
+      "message": "I remember `.which` is either deprecated or non-standard. Please use `.button` or `.buttons` in this case.",
+      "revId": "2e394285cb0994c2451125fbe940824d6cc093fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
