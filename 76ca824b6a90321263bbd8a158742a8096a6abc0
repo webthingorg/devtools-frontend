@@ -39,6 +39,30 @@
       },
       "revId": "76ca824b6a90321263bbd8a158742a8096a6abc0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "072112ce_df764d82",
+        "filename": "front_end/quick_open/CommandMenu.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-12-15T12:37:12Z",
+      "side": 1,
+      "message": "That approach would definitely make more sense as it would avoid duplicity. Unfortunately it seems that it is incorrect usage of the localization system, since we would be assuming word order, according to https://chromium.googlesource.com/chromium/src/+/88dbc6732156fb21c53c4f365c54c27c3f322760/third_party/blink/renderer/devtools/docs/langpacks/adding_strings.md#frontend-source-code",
+      "parentUuid": "47fb6533_1182e7f2",
+      "range": {
+        "startLine": 201,
+        "startChar": 15,
+        "endLine": 201,
+        "endChar": 76
+      },
+      "revId": "76ca824b6a90321263bbd8a158742a8096a6abc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
