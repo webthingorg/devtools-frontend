@@ -432,10 +432,10 @@ export class UISourceCode extends Common.ObjectWrapper.ObjectWrapper {
    * @param {string} content
    * @param {boolean} isBase64
    */
-  setContent(content, isBase64) {
+  async setContent(content, isBase64) {
     this._contentEncoded = isBase64;
     if (this._project.canSetFileContent()) {
-      this._project.setFileContent(this, content, isBase64);
+      await this._project.setFileContent(this, content, isBase64);
     }
     this._contentCommitted(content, true);
   }
