@@ -109,6 +109,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "36c1bf12_3e46bb7b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 29
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-12-15T15:07:04Z",
+      "side": 1,
+      "message": "So this almost works except tooltip disappears before the link can be clicked due to mouse motion.",
+      "parentUuid": "09c3cdb7_348618e0",
+      "revId": "fddcd5322b604e67fe362a8bd45f9cee6efb6f84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cd5cc119_802d4a46",
         "filename": "front_end/emulation/DevicesSettingsTab.js",
         "patchSetId": 29

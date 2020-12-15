@@ -92,6 +92,30 @@
       },
       "revId": "8315797074a503b7fdfa8437b87805bcb98d2b36",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cac987c8_d644bf99",
+        "filename": "test/unittests/front_end/emulation/UserAgentMetadata_test.ts",
+        "patchSetId": 33
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-12-15T15:07:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e03f3b6_fcf38ad9",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 6
+      },
+      "revId": "8315797074a503b7fdfa8437b87805bcb98d2b36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
