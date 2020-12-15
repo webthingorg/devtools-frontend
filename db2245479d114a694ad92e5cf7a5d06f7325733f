@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20ba4b95_297908bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2020-12-15T23:21:13Z",
+      "side": 1,
+      "message": "Just kidding, figured out how to submit, sorry for confusion",
+      "revId": "db2245479d114a694ad92e5cf7a5d06f7325733f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
