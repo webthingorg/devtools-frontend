@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5665cff7_9475ae12",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-15T11:46:49Z",
+      "side": 1,
+      "message": "Ack. I will wait with submitting this CL until the discussion in that CL has resolved.",
+      "parentUuid": "6beccb7c_28f1502f",
+      "revId": "ea9dcc27978ec306e460fb251e8350833a217c9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "27094431_1338442a",
@@ -31,6 +49,30 @@
       "writtenOn": "2020-12-14T22:00:42Z",
       "side": 1,
       "message": "Why is this particular meta file imported here instead of in devtools_app.js?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 35
+      },
+      "revId": "ea9dcc27978ec306e460fb251e8350833a217c9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "adaafbea_97be9ac7",
+        "filename": "front_end/shell.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-15T11:46:49Z",
+      "side": 1,
+      "message": "Because `shell.json` has the dependency on `console`, rather than `devtools_app.json`.",
+      "parentUuid": "27094431_1338442a",
       "range": {
         "startLine": 19,
         "startChar": 0,
