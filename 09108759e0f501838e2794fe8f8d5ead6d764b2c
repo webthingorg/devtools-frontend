@@ -33,6 +33,23 @@
       "message": "Adding Peter to review.  PTAL.  Thanks!",
       "revId": "09108759e0f501838e2794fe8f8d5ead6d764b2c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da3c80cd_fa138ea2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-12-15T08:49:11Z",
+      "side": 1,
+      "message": "LGTM thanks",
+      "revId": "09108759e0f501838e2794fe8f8d5ead6d764b2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
