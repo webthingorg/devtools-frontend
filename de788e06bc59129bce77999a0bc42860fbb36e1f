@@ -299,6 +299,30 @@
       },
       "revId": "de788e06bc59129bce77999a0bc42860fbb36e1f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a826ba11_23ed8306",
+        "filename": "front_end/issues/MarkdownImagesMap.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-15T07:22:58Z",
+      "side": 1,
+      "message": "I like this way better, thanks! This seems a good solution for now, we can always iterate on it more if we want to clean it up.",
+      "parentUuid": "6a14bc28_50c5c2da",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 61
+      },
+      "revId": "de788e06bc59129bce77999a0bc42860fbb36e1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
