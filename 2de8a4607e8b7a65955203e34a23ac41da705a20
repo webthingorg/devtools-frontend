@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff1bf557_3da264a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-15T10:07:17Z",
+      "side": 1,
+      "message": "I have updated the CL to avoid touching third_party which we will deal with separately.",
+      "revId": "2de8a4607e8b7a65955203e34a23ac41da705a20",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
