@@ -16,6 +16,23 @@
       "message": "+ Mathias, PTAL",
       "revId": "cf03199087c099e2ccf7ab3e27037bcdf70d8af3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b3aa63b_72a0afde",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-12-15T21:24:11Z",
+      "side": 1,
+      "message": "Mathias is OOO until next week. Hi Jack, could you PTAL for owner review? Thanks!",
+      "revId": "cf03199087c099e2ccf7ab3e27037bcdf70d8af3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
