@@ -41,6 +41,9 @@
   ],
   "resources": [
     "../issues/descriptions/cspTrustedTypesSinkViolation.md",
-    "../issues/descriptions/cspTrustedTypesPolicyViolation.md"
+    "../issues/descriptions/cspTrustedTypesPolicyViolation.md",
+    "../issues/descriptions/cspEvalViolation.md",
+    "../issues/descriptions/cspURLViolation.md",
+    "../issues/descriptions/cspInlineViolation.md"
   ]
 }
