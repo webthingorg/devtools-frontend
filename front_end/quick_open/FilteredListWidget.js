@@ -55,11 +55,11 @@ export class FilteredListWidget extends UI.Widget.VBox {
     this._items = new UI.ListModel.ListModel();
     /** @type {!UI.ListControl.ListControl<number>} */
     this._list = new UI.ListControl.ListControl(this._items, this, UI.ListControl.ListMode.EqualHeightItems);
+    this._list.markAsListBox();
     this._itemElementsContainer = this._list.element;
     this._itemElementsContainer.classList.add('container');
     this._bottomElementsContainer.appendChild(this._itemElementsContainer);
     this._itemElementsContainer.addEventListener('click', this._onClick.bind(this), false);
-    UI.ARIAUtils.markAsListBox(this._itemElementsContainer);
     UI.ARIAUtils.setControls(this._promptElement, this._itemElementsContainer);
     UI.ARIAUtils.setAutocomplete(this._promptElement, UI.ARIAUtils.AutocompleteInteractionModel.list);
 

@@ -35,9 +35,9 @@ export class XHRBreakpointsSidebarPane extends UI.Widget.VBox {
     /** @type {!UI.ListModel.ListModel<string>} */
     this._breakpoints = new UI.ListModel.ListModel();
     this._list = new UI.ListControl.ListControl(this._breakpoints, this, UI.ListControl.ListMode.NonViewport);
+    this._list.markAsList();
     this.contentElement.appendChild(this._list.element);
     this._list.element.classList.add('breakpoint-list', 'hidden');
-    UI.ARIAUtils.markAsList(this._list.element);
     UI.ARIAUtils.setAccessibleName(this._list.element, ls`XHR/fetch Breakpoints`);
     this._emptyElement = this.contentElement.createChild('div', 'gray-info-message');
     this._emptyElement.textContent = Common.UIString.UIString('No breakpoints');

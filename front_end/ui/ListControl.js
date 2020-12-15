@@ -78,8 +78,10 @@ export class ListControl {
   constructor(model, delegate, mode) {
     this.element = document.createElement('div');
     this.element.style.overflowY = 'auto';
-    this._topElement = this.element.createChild('div');
-    this._bottomElement = this.element.createChild('div');
+    this._list = document.createElement('div');
+    this.element.appendChild(this._list);
+    this._topElement = this._list.createChild('div');
+    this._bottomElement = this._list.createChild('div');
     this._firstIndex = 0;
     this._lastIndex = 0;
     this._renderedHeight = 0;
@@ -99,7 +101,8 @@ export class ListControl {
     this.element.tabIndex = -1;
     this.element.addEventListener('click', this._onClick.bind(this), false);
     this.element.addEventListener('keydown', this._onKeyDown.bind(this), false);
-    ARIAUtils.markAsListBox(this.element);
+    ARIAUtils.markAsApplication(this.element);
+    this.markAsListBox();
 
     this._delegate = delegate;
     this._mode = mode || ListMode.EqualHeightItems;
@@ -113,6 +116,18 @@ export class ListControl {
         this._updateViewport(this.element.scrollTop, this.element.offsetHeight);
       }, false);
     }
+  }
+
+  markAsList() {
+    ARIAUtils.markAsList(this._list);
+  }
+
+  markAsListBox() {
+    ARIAUtils.markAsListBox(this._list);
+  }
+
+  markAsMenu() {
+    ARIAUtils.markAsMenu(this._list);
   }
 
   /**
@@ -686,7 +701,7 @@ export class ListControl {
       /** @type {!HTMLElement} */ (startElement.nextElementSibling).remove();
     }
     while (add--) {
-      this.element.insertBefore(this._elementAtIndex(start + add), startElement.nextElementSibling);
+      this._list.insertBefore(this._elementAtIndex(start + add), startElement.nextElementSibling);
     }
   }
 
@@ -708,8 +723,10 @@ export class ListControl {
     this._topElement.style.height = '0';
     this._bottomElement.style.height = '0';
     this.element.removeChildren();
-    this.element.appendChild(this._topElement);
-    this.element.appendChild(this._bottomElement);
+    this._list.removeChildren();
+    this.element.appendChild(this._list);
+    this._list.appendChild(this._topElement);
+    this._list.appendChild(this._bottomElement);
   }
 
   /**
@@ -750,11 +767,11 @@ export class ListControl {
     this._lastIndex = Math.max(this._lastIndex, firstIndex);
     for (let index = this._firstIndex - 1; index >= firstIndex; index--) {
       const element = this._elementAtIndex(index);
-      this.element.insertBefore(element, this._topElement.nextSibling);
+      this._list.insertBefore(element, this._topElement.nextSibling);
     }
     for (let index = this._lastIndex; index < lastIndex; index++) {
       const element = this._elementAtIndex(index);
-      this.element.insertBefore(element, this._bottomElement);
+      this._list.insertBefore(element, this._bottomElement);
     }
 
     this._firstIndex = firstIndex;

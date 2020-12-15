@@ -100,8 +100,8 @@ export class KeybindsSettingsTab extends UI.Widget.VBox {
     /** @type {!UI.ListModel.ListModel<!KeybindsItem>} */
     this._items = new UI.ListModel.ListModel();
     this._list = new UI.ListControl.ListControl(this._items, this, UI.ListControl.ListMode.NonViewport);
+    this._list.markAsList();
     this._items.replaceAll(this._createListItems());
-    UI.ARIAUtils.markAsList(this._list.element);
     this.registerRequiredCSS('settings/keybindsSettingsTab.css', {enableLegacyPatching: true});
     this.contentElement.appendChild(this._list.element);
     UI.ARIAUtils.setAccessibleName(this._list.element, i18nString(UIStrings.keyboardShortcutsList));

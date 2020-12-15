@@ -330,10 +330,10 @@ export class DropDown {
 
     const listModel = new UI.ListModel.ListModel();
     this._listControl = new UI.ListControl.ListControl(listModel, this, UI.ListControl.ListMode.NonViewport);
+    this._listControl.markAsMenu();
     this._listControl.element.addEventListener('mousemove', this._onMouseMove.bind(this), false);
     listModel.replaceAll(models);
 
-    UI.ARIAUtils.markAsMenu(this._listControl.element);
     UI.ARIAUtils.setAccessibleName(this._listControl.element, ls`Select Timeline Session`);
     contentElement.appendChild(this._listControl.element);
     contentElement.addEventListener('keydown', this._onKeyDown.bind(this), false);
