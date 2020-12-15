@@ -14,7 +14,6 @@ The newer scripts such as for testing and hosted mode are written in Node.js, wh
 - chrome_debug_launcher - automagically finds Chrome Canary and launches it with debugging flags (e.g. remote debugging port)
 - closure - see section on Closure Compiler below
 - gulp - experimental build process written in node.js & gulp to remove the dependency on Chromium-specific build tools (i.e. gn and ninja)
-- hosted_mode - run DevTools on a localhost development server
 
 ### Python Scripts
 - compile_frontend.py - runs closure compiler to do static type analysis
