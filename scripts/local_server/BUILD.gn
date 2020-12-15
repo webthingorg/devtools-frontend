@@ -2,12 +2,23 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
+import("../../third_party/typescript/typescript.gni")
 import("../build/ninja/copy.gni")
 
-copy_to_gen("hosted_mode") {
+group("local_server") {
+  deps = [
+    ":certificate",
+    ":implementation",
+  ]
+}
+
+node_ts_library("implementation") {
+  sources = [ "local_server.ts" ]
+}
+
+copy_to_gen("certificate") {
   sources = [
     "cert.pem",
     "key.pem",
-    "server.js",
   ]
 }

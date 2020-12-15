@@ -5,7 +5,6 @@ Last-Modified: Sun, 26 Sep 2010 22:04:35 GMT
 ETag: "last-modified.rawresponse"
 Accept-Ranges: bytes
 Content-Length: 28
-Connection: close
 Content-Type: text/javascript; charset=utf-8
 
 console.log('Hello world!');
