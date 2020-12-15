@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ecd2debe_e26c8ab8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 33
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-15T14:45:19Z",
+      "side": 1,
+      "message": "No, I think you followed the UI mocks rather closely. Moreover our UX (Peter) is already OOO and I don\u0027t want to block this CL too long. We can always iterate and improve later.",
+      "parentUuid": "6446d313_4973476c",
+      "revId": "8315797074a503b7fdfa8437b87805bcb98d2b36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3e03f3b6_fcf38ad9",
         "filename": "test/unittests/front_end/emulation/UserAgentMetadata_test.ts",
         "patchSetId": 33
