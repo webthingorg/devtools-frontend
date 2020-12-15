@@ -33,6 +33,24 @@
       "message": "We should re-use the DevTools -\u003e Settings indentation preference, but I guess this is taken care of later by `appendStepToScript`?",
       "revId": "50d0a0c3ea2e333308ecbddd591c5f02e9403422",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37785328_caccff7d",
+        "filename": "front_end/recorder/RecordingSession.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-12-15T16:41:29Z",
+      "side": 1,
+      "message": "Yes, this is already taken care of at a later stage.",
+      "parentUuid": "ac765d0d_d33e1deb",
+      "revId": "50d0a0c3ea2e333308ecbddd591c5f02e9403422",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
