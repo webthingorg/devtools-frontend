@@ -16,6 +16,24 @@
       "message": "I\u0027m fine with this, but this is a UX-related change so I\u0027d feel better if Peter could also take a look.\n\nCould you attach a screenshot or gif of the UI with your change applied, so we can more easily make a decision?",
       "revId": "3b21978bd2df5a42e244b3bfd6384c4575c8e247",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d82f6837_5c11be3d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-12-15T13:46:58Z",
+      "side": 1,
+      "message": "Thanks! Screenshot: https://i.imgur.com/BjVx3So.png",
+      "parentUuid": "445e2385_cbee175d",
+      "revId": "3b21978bd2df5a42e244b3bfd6384c4575c8e247",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
