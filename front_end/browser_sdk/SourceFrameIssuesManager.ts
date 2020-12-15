@@ -31,7 +31,7 @@ export class SourceFrameIssuesManager {
   }
 
   private addIssue(issue: SDK.Issue.Issue): void {
-    if (!this.isTrustedTypeIssue(issue)) {
+    if (!(issue instanceof SDK.ContentSecurityPolicyIssue.ContentSecurityPolicyIssue)) {
       return;
     }
     const issuesModel = issue.model();
@@ -71,13 +71,6 @@ export class SourceFrameIssuesManager {
         this.issueMessages.push(new IssueMessage(title, rawLocation, this.locationPool));
       }
     }
-  }
-
-  private isTrustedTypeIssue(issue: SDK.Issue.Issue):
-      issue is SDK.ContentSecurityPolicyIssue.ContentSecurityPolicyIssue {
-    return issue instanceof SDK.ContentSecurityPolicyIssue.ContentSecurityPolicyIssue &&
-        issue.code() === SDK.ContentSecurityPolicyIssue.trustedTypesSinkViolationCode ||
-        issue.code() === SDK.ContentSecurityPolicyIssue.trustedTypesPolicyViolationCode;
   }
 
   private resetMessages(): void {
