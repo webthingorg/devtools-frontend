@@ -46,6 +46,7 @@ DEPS = {
     "@types/sinon": "9.0.9",
     "@typescript-eslint/parser": "4.9.0",
     "@typescript-eslint/eslint-plugin": "4.9.0",
+    "@web/dev-server": "0.0.29",
     "bl": "4.0.3",
     "chai": "4.2.0",
     "escodegen": "2.0.0",
