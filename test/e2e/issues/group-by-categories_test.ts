@@ -4,7 +4,7 @@
 
 import {goToResource} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
-import {assertCategoryName, assertIssueTitle, expandCategory, expandIssue, getGroupByCategoryChecked, navigateToIssuesTab, toggleGroupByCategory} from '../helpers/issues-helpers.js';
+import {assertCategoryExpanded, assertCategoryName, assertIssueTitle, expandIssue, getGroupByCategoryChecked, navigateToIssuesTab, toggleGroupByCategory} from '../helpers/issues-helpers.js';
 
 describe('The Issues tab categories checkbox', async () => {
   it('should group issues by associated categories when checked', async () => {
@@ -15,7 +15,7 @@ describe('The Issues tab categories checkbox', async () => {
       await toggleGroupByCategory();
     }
 
-    await expandCategory();
+    await assertCategoryExpanded();
     await assertCategoryName('Content Security Policy');
     await expandIssue();
     await assertIssueTitle('Content Security Policy blocks inline execution of scripts and stylesheets');
