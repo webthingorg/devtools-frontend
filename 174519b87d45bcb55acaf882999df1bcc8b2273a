@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "516659a8_58f37ae4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2020-12-15T01:39:35Z",
+      "side": 1,
+      "message": "Migrate persistence, PTAL, thank you!",
+      "revId": "174519b87d45bcb55acaf882999df1bcc8b2273a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
