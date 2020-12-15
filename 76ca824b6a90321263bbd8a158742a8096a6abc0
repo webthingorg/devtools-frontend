@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6913094_685bb3bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-15T11:41:56Z",
+      "side": 1,
+      "message": "Nice finding! Was this issue filed in a bug or did you discover it yourself?\n\nI think we need to reconsider our options here, as I don\u0027t think we should duplicate all of our titles in all definitions. Does the proposed solution work by any chance?",
+      "revId": "76ca824b6a90321263bbd8a158742a8096a6abc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47fb6533_1182e7f2",
+        "filename": "front_end/quick_open/CommandMenu.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2020-12-15T11:41:56Z",
+      "side": 1,
+      "message": "I don\u0027t think it is ideal to duplicate all definitions of the title. That is error-prone and likely will cause mismatches over time.\n\nWould it instead be possible to do the following:\n\n   title: ls`Show ` + view.title();",
+      "range": {
+        "startLine": 201,
+        "startChar": 15,
+        "endLine": 201,
+        "endChar": 76
+      },
+      "revId": "76ca824b6a90321263bbd8a158742a8096a6abc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
