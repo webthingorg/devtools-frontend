@@ -558,7 +558,6 @@ div.CodeMirror:focus-within span.CodeMirror-nonmatchingbracket {
   top: -2px;
   right: -4px;
   left: 4px;
-  cursor: pointer;
   height: 4px;
   background-image: url(Images/errorWave.svg);
   background-repeat: repeat-x;

@@ -937,11 +937,6 @@ export class RowMessageBucket {
           new Set([Workspace.UISourceCode.Message.Level.Error, Workspace.UISourceCode.Message.Level.Warning]));
     } else if (eventTarget.classList.contains('text-editor-line-decoration-icon-issue')) {
       messagesOutline = this._messageDescription(new Set([Workspace.UISourceCode.Message.Level.Issue]));
-    } else if (
-        eventTarget.classList.contains('text-editor-line-decoration-wave') &&
-        !eventTarget.classList.contains('text-editor-line-decoration-icon')) {
-      messagesOutline = this._messageDescription(
-          new Set([Workspace.UISourceCode.Message.Level.Error, Workspace.UISourceCode.Message.Level.Warning]));
     }
     return messagesOutline;
   }
