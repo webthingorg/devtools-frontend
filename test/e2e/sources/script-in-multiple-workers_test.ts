@@ -5,7 +5,7 @@
 import {assert} from 'chai';
 import * as puppeteer from 'puppeteer';
 
-import {$$, click, getBrowserAndPages, goToResource, step, timeout, waitFor, waitForFunction} from '../../shared/helper.js';
+import {$$, click, enableCDPLogging, getBrowserAndPages, goToResource, step, timeout, waitFor, waitForFunction} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {addBreakpointForLine, createSelectorsForWorkerFile, getBreakpointDecorators, getExecutionLine, getOpenSources, openNestedWorkerFile, PAUSE_BUTTON, RESUME_BUTTON} from '../helpers/sources-helpers.js';
 
@@ -19,6 +19,7 @@ async function validateSourceTabs() {
       // TODO (crbug.com/1157455): Fix race condition where we sometimes open both,
       // then remove this case.
       assert.deepEqual(openSources, ['multi-workers.js', 'multi-workers.min.js']);
+      assert.fail('Opened both sources');
 
     } else {
       assert.deepEqual(openSources, ['multi-workers.js']);
@@ -75,6 +76,7 @@ describe('Multi-Workers', async function() {
     it(`loads scripts exactly once on break ${withOrWithout}`, async () => {
       const {target} = getBrowserAndPages();
 
+      await enableCDPLogging();
       // Have the target load the page.
       await goToResource(targetPage);
 
@@ -200,6 +202,7 @@ describe('Multi-Workers', async function() {
       beforeEach(async () => {
         const {frontend} = getBrowserAndPages();
 
+        await enableCDPLogging();
         // Have the target load the page.
         await goToResource(targetPage);
 
