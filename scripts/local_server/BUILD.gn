@@ -4,10 +4,10 @@
 
 import("../build/ninja/copy.gni")
 
-copy_to_gen("hosted_mode") {
+copy_to_gen("local_server") {
   sources = [
     "cert.pem",
     "key.pem",
-    "server.js",
+    "local_server.js",
   ]
 }
