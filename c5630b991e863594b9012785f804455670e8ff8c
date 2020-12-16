@@ -115,6 +115,30 @@
       },
       "revId": "c5630b991e863594b9012785f804455670e8ff8c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac636548_5c51da28",
+        "filename": "test/e2e/sources/icon-row-bucket_test.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-16T16:58:45Z",
+      "side": 1,
+      "message": "I think that I was not clear in the previous message. The first click indeed is just there to imitate a hover, while the second it must be a click because you really want to test that by making click in RowInfo it gets revealed.",
+      "parentUuid": "dbd296dd_8157fb6a",
+      "range": {
+        "startLine": 99,
+        "startChar": 4,
+        "endLine": 99,
+        "endChar": 35
+      },
+      "revId": "c5630b991e863594b9012785f804455670e8ff8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
