@@ -16,6 +16,69 @@
       "message": "Sigurd, PTAL. I addressed Peters feedback, but didn\u0027t update the screenshots yet, so the spacing is now the same as in Peters linked screenshot.",
       "revId": "302b309e1cedf6868b8258c6f549f50dad0c07af",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcc9e33b_abdd5da5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-16T09:50:06Z",
+      "side": 1,
+      "message": "LGTM, one comment on spacing: The Trust Token tab is using much bigger padding than the others, but that might be fine.",
+      "revId": "302b309e1cedf6868b8258c6f549f50dad0c07af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd90e667_c5b5e688",
+        "filename": "front_end/network/RequestTrustTokensView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-16T09:50:06Z",
+      "side": 1,
+      "message": "Simply \u0027Issuer\u0027 ? To bring it in line with Issuers.",
+      "range": {
+        "startLine": 151,
+        "startChar": 41,
+        "endLine": 151,
+        "endChar": 54
+      },
+      "revId": "302b309e1cedf6868b8258c6f549f50dad0c07af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45e2ad52_95574e3b",
+        "filename": "front_end/network/RequestTrustTokensView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-16T09:50:06Z",
+      "side": 1,
+      "message": "Are there cases where it existed but wasn\u0027t served from cache?",
+      "range": {
+        "startLine": 215,
+        "startChar": 54,
+        "endLine": 215,
+        "endChar": 76
+      },
+      "revId": "302b309e1cedf6868b8258c6f549f50dad0c07af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
