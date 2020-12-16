@@ -37,6 +37,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "839cda95_b36d8cbb",
+        "filename": "front_end/elements/elements-meta.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-12-16T13:11:03Z",
+      "side": 1,
+      "message": "I think it would be better to have the full string here including \u0027Show\u0027 so that the translation for each string can happen without concats, so we get better translations.\n\ne.g.\n\n    commandPrompt: \u0027Show Elements\u0027",
+      "range": {
+        "startLine": 33,
+        "startChar": 2,
+        "endLine": 33,
+        "endChar": 31
+      },
+      "revId": "76ca824b6a90321263bbd8a158742a8096a6abc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "47fb6533_1182e7f2",
         "filename": "front_end/quick_open/CommandMenu.js",
         "patchSetId": 3
@@ -72,6 +95,30 @@
       "side": 1,
       "message": "That approach would definitely make more sense as it would avoid duplicity. Unfortunately it seems that it is incorrect usage of the localization system, since we would be assuming word order, according to https://chromium.googlesource.com/chromium/src/+/88dbc6732156fb21c53c4f365c54c27c3f322760/third_party/blink/renderer/devtools/docs/langpacks/adding_strings.md#frontend-source-code",
       "parentUuid": "47fb6533_1182e7f2",
+      "range": {
+        "startLine": 201,
+        "startChar": 15,
+        "endLine": 201,
+        "endChar": 76
+      },
+      "revId": "76ca824b6a90321263bbd8a158742a8096a6abc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c417df1e_439a81dc",
+        "filename": "front_end/quick_open/CommandMenu.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-12-16T13:11:03Z",
+      "side": 1,
+      "message": "I think the duplication is unfortunate but I agree that for localizing these strings properly, we shouldn\u0027t be relying on concat which is going to affect word ordering, word-ending-inflections, etc. in some languages.",
+      "parentUuid": "072112ce_df764d82",
       "range": {
         "startLine": 201,
         "startChar": 15,
