@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "242e21ec_95f346d4",
+        "filename": "front_end/browser_sdk/SourceFrameIssuesManager.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-16T16:00:22Z",
+      "side": 1,
+      "message": "nit: do you need the outermost (...) ?",
+      "range": {
+        "startLine": 99,
+        "startChar": 24,
+        "endLine": 99,
+        "endChar": 36
+      },
+      "revId": "c5630b991e863594b9012785f804455670e8ff8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f437c62_3ee94cc5",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 19
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-16T16:00:22Z",
+      "side": 1,
+      "message": "nit: let\u0027s use `() \u003d\u003e this.callClickHandler()` here so everything is in one place.",
+      "range": {
+        "startLine": 695,
+        "startChar": 43,
+        "endLine": 695,
+        "endChar": 55
+      },
+      "revId": "c5630b991e863594b9012785f804455670e8ff8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d67c6719_30702b84",
+        "filename": "test/e2e/sources/icon-row-bucket_test.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-16T16:00:22Z",
+      "side": 1,
+      "message": "Let\u0027s assert the the length of issueIconComponent is \u003e 0 before this.",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 98,
+        "endChar": 60
+      },
+      "revId": "c5630b991e863594b9012785f804455670e8ff8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96498b1e_fd0bbad6",
+        "filename": "test/e2e/sources/icon-row-bucket_test.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-16T16:00:22Z",
+      "side": 1,
+      "message": "Could you explain why the click in L99 and the click in L105 is necessary?",
+      "range": {
+        "startLine": 99,
+        "startChar": 4,
+        "endLine": 99,
+        "endChar": 35
+      },
+      "revId": "c5630b991e863594b9012785f804455670e8ff8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
