@@ -87,7 +87,7 @@
 }
 
 .conditions-edit-optional {
-  position: absolute;
+  position: relative;
   bottom: -20px;
   right: 0;
   color: rgb(128 128 128);
