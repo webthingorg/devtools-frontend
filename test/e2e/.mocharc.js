@@ -24,8 +24,8 @@ let testFiles = glob.sync(path.join(ROOT_DIRECTORY, '**/*_test.ts')).map(fileNam
 
 // Respect the test file if defined.
 // This way you can test one single file instead of running all e2e tests every time.
-if (process.env['TEST_FILE']) {
-  let testFile = process.env['TEST_FILE'];
+if (true) {
+  let testFile = 'sources/script-in-multiple-workers_test.ts';
   // Accept .ts, .js and no extension.
   testFile = testFile.replace(/\.ts$/, '.js');
   if (!testFile.endsWith('.js')) {

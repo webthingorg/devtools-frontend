@@ -337,17 +337,24 @@ export class SourcesPanel extends UI.Panel.Panel {
    * @param {!Common.EventTarget.EventTargetEvent} event
    */
   _debuggerPaused(event) {
-    const debuggerModel = /** @type {!SDK.DebuggerModel.DebuggerModel} */ (event.data);
-    const details = debuggerModel.debuggerPausedDetails();
-    if (!this._paused) {
-      this._setAsCurrentPanel();
-    }
+    console.log(`Pause event from ${new Error().stack}`);
+    try {
+      const debuggerModel = /** @type {!SDK.DebuggerModel.DebuggerModel} */ (event.data);
+      const details = debuggerModel.debuggerPausedDetails();
+      if (!this._paused) {
+        this._setAsCurrentPanel();
+      }
 
-    if (UI.Context.Context.instance().flavor(SDK.SDKModel.Target) === debuggerModel.target()) {
-      this._showDebuggerPausedDetails(/** @type {!SDK.DebuggerModel.DebuggerPausedDetails} */ (details));
-    } else if (!this._paused) {
-      UI.Context.Context.instance().setFlavor(SDK.SDKModel.Target, debuggerModel.target());
+      if (UI.Context.Context.instance().flavor(SDK.SDKModel.Target) === debuggerModel.target()) {
+        this._showDebuggerPausedDetails(/** @type {!SDK.DebuggerModel.DebuggerPausedDetails} */ (details));
+      } else if (!this._paused) {
+        UI.Context.Context.instance().setFlavor(SDK.SDKModel.Target, debuggerModel.target());
+      }
+    } catch (err) {
+      console.log(`Error ${err} from ${err.stack}`);
+      throw err;
     }
+    console.log('Finished handling debugger paused event');
   }
 
   /**

@@ -11,10 +11,13 @@ module.exports = {
     'files': ['*.ts'],
     'rules': {
       '@typescript-eslint/explicit-function-return-type': 2,
-
+      'no-console': 'off',
       'rulesdir/kebab_case_events': 2,
       'rulesdir/set_data_type_reference': 2,
       'rulesdir/lit_html_data_as_type': 2,
     }
-  }]
+  }],
+  'rules': {
+    'no-console': 'off',
+  }
 };

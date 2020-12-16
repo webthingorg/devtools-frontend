@@ -478,7 +478,11 @@ class ModelData {
     const script = /** @type {!SDK.Script.Script} */ (rawLocation.script());
     const location = new Location(script, rawLocation, this._debuggerWorkspaceBinding, updateDelegate, locationPool);
     this._locations.set(script, location);
+    const index = this._locations.get(script).size;
+    console.log(`Location ${index} for script ${script.scriptId} at ${rawLocation.lineNumber}:${
+        rawLocation.columnNumber} called at ${new Error().stack}`);
     await location.update();
+    console.log(`Finished updating location ${index} in script ${script.scriptId}`);
     return location;
   }
 
@@ -486,6 +490,8 @@ class ModelData {
    * @param {!Location} location
    */
   _disposeLocation(location) {
+    console.log(
+        `Clearing location ${this._locations.get(location._script).size} from script ${location._script.scriptId}`);
     this._locations.delete(location._script, location);
   }
 
