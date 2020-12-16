@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ea24b57_4eebde21",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-12-16T17:54:21Z",
+      "side": 1,
+      "message": "Thank you Simon and Jack for all the feedback and patience with this couple of PRs. It was great working with you, until next time.",
+      "parentUuid": "b331721b_22a1ff6f",
+      "revId": "0944cab617cca47aae93a3aebc6fa155294e9e52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c90bd62_42cac111",
@@ -48,6 +66,30 @@
       "writtenOn": "2020-12-16T06:24:53Z",
       "side": 1,
       "message": "We have some helpers for these in DOMHelpers.ts, so you could fold it like this:\n\n assert.isNotNull(getElementWithinComponent(component, \u0027devtools-icon\u0027, Components.Icon.Icon);\n\nWhich asserts that the selected Icon is actually the \u0027Icon\u0027 component. This is more robust then checking for the \"outerHTML\", as renaming the component or changing the implementation would be caught by the Type checker directly :)",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 52
+      },
+      "revId": "0944cab617cca47aae93a3aebc6fa155294e9e52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6194fec_08cae387",
+        "filename": "test/unittests/front_end/issues/MarkdownImage_test.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-12-16T17:54:21Z",
+      "side": 1,
+      "message": "Good point, updated to use getElementWithinComponent, this is much more elegant than using outerHTML method.",
+      "parentUuid": "4c90bd62_42cac111",
       "range": {
         "startLine": 31,
         "startChar": 0,
@@ -81,6 +123,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbd33b37_78b93b78",
+        "filename": "test/unittests/front_end/issues/MarkdownImage_test.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-12-16T17:54:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48e2c4a5_1fd99a3c",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 53
+      },
+      "revId": "0944cab617cca47aae93a3aebc6fa155294e9e52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "32b4ccd8_0106bc4a",
@@ -94,6 +160,30 @@
       "writtenOn": "2020-12-16T06:24:53Z",
       "side": 1,
       "message": "Same comment as in the other test. `getElementWithinComponent` also asserts its not null so you don\u0027t need the \u0027?\u0027 operator :)",
+      "range": {
+        "startLine": 22,
+        "startChar": 5,
+        "endLine": 22,
+        "endChar": 66
+      },
+      "revId": "0944cab617cca47aae93a3aebc6fa155294e9e52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71a8acc4_f81d751f",
+        "filename": "test/unittests/front_end/issues/MarkdownLink_test.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-12-16T17:54:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32b4ccd8_0106bc4a",
       "range": {
         "startLine": 22,
         "startChar": 5,
