@@ -51,6 +51,24 @@
       "parentUuid": "8c0d55ed_08a73306",
       "revId": "ca4249fd3bb7295f88f54b0f19affd2d84eb2e07",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60839162_8d3940fc",
+        "filename": "inspector_overlay/highlight_flex_common.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2020-12-16T17:50:51Z",
+      "side": 1,
+      "message": "\u003e Overlays, right now, don\u0027t support theming or high-contrast cases\n\nI did work to have Overlays support high-contrast: https://chromium-review.googlesource.com/c/chromium/src/+/2049954. Please open a bug if this has regressed or work needs to be done to have the flexbox overlay support high-contrast.",
+      "parentUuid": "5ea6890d_de32e0dd",
+      "revId": "ca4249fd3bb7295f88f54b0f19affd2d84eb2e07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
