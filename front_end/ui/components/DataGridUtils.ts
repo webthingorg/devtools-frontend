@@ -5,6 +5,7 @@ import * as Platform from '../../platform/platform.js';
 import * as LitHtml from '../../third_party/lit-html/lit-html.js';
 
 import * as DataGridRenderers from './DataGridRenderers.js';
+import * as UI from '../../ui/ui.js';
 
 /**
   * A column is an object with the following properties:
@@ -80,6 +81,17 @@ export const ARROW_KEYS = new Set<ArrowKey>([
 
 export function keyIsArrowKey(key: string): key is ArrowKey {
   return ARROW_KEYS.has(key as ArrowKey);
+}
+
+export function createContextMenu(options: {columns: readonly Column[], event: MouseEvent, onColumnVisibilityToggle: (id: string) => void}): UI.ContextMenu.ContextMenu {
+  const {event, columns, onColumnVisibilityToggle} = options;
+  const menu = new UI.ContextMenu.ContextMenu(event);
+  for (const column of columns) {
+    if (column.hideable) {
+      menu.headerSection().appendCheckboxItem(column.title, () => onColumnVisibilityToggle(column.id), column.visible);
+    }
+  }
+  return menu;
 }
 
 export function getRowEntryForColumnId(row: Row, id: string): Cell {

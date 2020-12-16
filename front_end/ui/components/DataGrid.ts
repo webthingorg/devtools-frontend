@@ -5,8 +5,9 @@
 import * as Host from '../../host/host.js';
 import * as Platform from '../../platform/platform.js';
 import * as LitHtml from '../../third_party/lit-html/lit-html.js';
+import * as UI from '../../ui/ui.js';
 
-import {calculateColumnWidthPercentageFromWeighting, calculateFirstFocusableCell, Cell, CellPosition, Column, getRowEntryForColumnId, handleArrowKeyNavigation, keyIsArrowKey, renderCellValue, Row, SortDirection, SortState} from './DataGridUtils.js';
+import {calculateColumnWidthPercentageFromWeighting, calculateFirstFocusableCell, Cell, CellPosition, Column, createContextMenu, getRowEntryForColumnId, handleArrowKeyNavigation, keyIsArrowKey, renderCellValue, Row, SortDirection, SortState} from './DataGridUtils.js';
 
 export interface DataGridData {
   columns: Column[];
@@ -242,6 +243,28 @@ export class DataGrid extends HTMLElement {
     return undefined;
   }
 
+  private onColumnHeaderContextMenu(event: MouseEvent):void {
+    if (event.button !== 2) { // 2 = secondary button = right click
+      return;
+    }
+
+    const menu = createContextMenu({
+      columns: this.columns,
+      event,
+      onColumnVisibilityToggle: columnId => {
+        const matchingColumnIndex = this.columns.findIndex(c => c.id === columnId);
+        if (matchingColumnIndex < 0) {
+          return;
+        }
+
+        this.columns[matchingColumnIndex].visible = !this.columns[matchingColumnIndex].visible;
+        this.render();
+      },
+    });
+
+    menu.show();
+  }
+
 
   private renderFillerRow(): LitHtml.TemplateResult {
     const emptyCells = this.columns.map((col, colIndex) => {
@@ -273,6 +296,7 @@ export class DataGrid extends HTMLElement {
     }
     event.preventDefault();
 
+
     const resizerElement = event.target as HTMLElement;
     if (!resizerElement) {
       return;
@@ -292,8 +316,7 @@ export class DataGrid extends HTMLElement {
       cellColumnIndex = leftCellContainingResizer.dataset.fillerRowColumnIndex;
       cellRowIndex = String(this.rows.length);
     }
-
-    if (!cellColumnIndex || !cellRowIndex) {
+    if (cellColumnIndex === undefined || cellRowIndex === undefined) {
       return;
     }
     const positionOfLeftCell: CellPosition =
@@ -308,6 +331,7 @@ export class DataGrid extends HTMLElement {
     const positionOfRightCell = [nextVisibleColumnIndex, positionOfLeftCell[1]];
     const selector = `[data-col-index="${positionOfRightCell[0]}"][data-row-index="${positionOfRightCell[1]}"]`;
     const cellToRight = this.shadow.querySelector<HTMLElement>(selector);
+
     if (!cellToRight) {
       return;
     }
@@ -449,7 +473,7 @@ export class DataGrid extends HTMLElement {
     <style>
       :host {
         --table-divider-color: var(--color-details-hairline);
-        --toolbar-bg-color: var(--color-background-elevation-2);
+        --toolbar-bg-color: var(--color-background-elevation-1);
         --selected-row-color: var(--color-background-elevation-1);
 
         height: 100%;
@@ -584,7 +608,7 @@ export class DataGrid extends HTMLElement {
           })}
         </colgroup>
         <thead>
-          <tr>
+          <tr @contextmenu=${this.onColumnHeaderContextMenu}>
             ${this.columns.map((col, columnIndex) => {
               const thClasses = LitHtml.Directives.classMap({
                 hidden: !col.visible,
