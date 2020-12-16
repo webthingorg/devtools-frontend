@@ -323,6 +323,30 @@
       },
       "revId": "de788e06bc59129bce77999a0bc42860fbb36e1f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30964177_3c9df0dc",
+        "filename": "front_end/issues/MarkdownImagesMap.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-12-16T00:10:02Z",
+      "side": 1,
+      "message": "Sounds good, if we want to customize further we can add types in the future.",
+      "parentUuid": "a826ba11_23ed8306",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 61
+      },
+      "revId": "de788e06bc59129bce77999a0bc42860fbb36e1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

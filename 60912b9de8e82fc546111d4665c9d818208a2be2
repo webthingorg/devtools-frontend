@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a093f6a9_927cd1cf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-12-16T00:10:02Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "11deb050_66d78f36",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 3
+      },
+      "revId": "60912b9de8e82fc546111d4665c9d818208a2be2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "558843c2_cede6110",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 9
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4a40fa8_f1075c6e",
+        "filename": "front_end/issues/MarkdownImage.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-12-16T00:10:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9080a65a_7b9ba7bb",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 34
+      },
+      "revId": "60912b9de8e82fc546111d4665c9d818208a2be2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2c3cf837_159eb417",
@@ -77,6 +125,30 @@
       "writtenOn": "2020-12-15T07:22:58Z",
       "side": 1,
       "message": "Which styles are needed from here? If they were only needed for UIIcon, lets remove them. If the styles re-used here are rather simple, its preferable to straight-up copy them.\n\nThis reduces coupling between old legacy land and new web components land.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 6
+      },
+      "revId": "60912b9de8e82fc546111d4665c9d818208a2be2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5db81adc_59cd0002",
+        "filename": "front_end/issues/MarkdownImage.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-12-16T00:10:02Z",
+      "side": 1,
+      "message": "Yeah I put it for UIIcon, however themeColors.css works without adding legacy patch. Removed it.",
+      "parentUuid": "2c3cf837_159eb417",
       "range": {
         "startLine": 29,
         "startChar": 0,
@@ -110,6 +182,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb0546a0_2f5110a8",
+        "filename": "front_end/issues/MarkdownImage.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-12-16T00:10:02Z",
+      "side": 1,
+      "message": "Updated, you are right clang doesnt seem to complain for small snippets.",
+      "parentUuid": "0259e20e_3f2d84ab",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 22
+      },
+      "revId": "60912b9de8e82fc546111d4665c9d818208a2be2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a6079ed_6b78fe3e",
@@ -133,6 +229,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a73b675_64060d1b",
+        "filename": "front_end/issues/MarkdownImage.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-12-16T00:10:02Z",
+      "side": 1,
+      "message": "Done, went with second approach",
+      "parentUuid": "6a6079ed_6b78fe3e",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 22
+      },
+      "revId": "60912b9de8e82fc546111d4665c9d818208a2be2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "638c3c4c_b311796c",
@@ -146,6 +266,24 @@
       "writtenOn": "2020-12-15T07:22:58Z",
       "side": 1,
       "message": "lets also add a test for normal images and check that the width/height are applied correctly.",
+      "revId": "60912b9de8e82fc546111d4665c9d818208a2be2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7594831f_ded8f870",
+        "filename": "test/unittests/front_end/issues/MarkdownView_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-12-16T00:10:02Z",
+      "side": 1,
+      "message": "Done, added markdownImage and markdownLink tests.",
+      "parentUuid": "638c3c4c_b311796c",
       "revId": "60912b9de8e82fc546111d4665c9d818208a2be2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
