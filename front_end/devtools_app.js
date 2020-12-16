@@ -7,6 +7,7 @@ import './elements/elements-meta.js';
 import './browser_debugger/browser_debugger-meta.js';
 import './sources/sources-meta.js';
 import './network/network-meta.js';
+import './security/security-meta.js';
 import './emulation/emulation-meta.js';
 import * as Startup from './startup/startup.js';
 
