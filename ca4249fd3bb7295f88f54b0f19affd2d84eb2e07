@@ -16,6 +16,23 @@
       "message": "I think Mathias is OOO, switching reviewers.",
       "revId": "ca4249fd3bb7295f88f54b0f19affd2d84eb2e07",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c0d55ed_08a73306",
+        "filename": "inspector_overlay/highlight_flex_common.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2020-12-16T16:34:08Z",
+      "side": 1,
+      "message": "This LGTM, but (due to my ignorance with how the overlay layer works) are there any concerns with respect to color contrast, high-contrast scenarios, or theme selection where this should not just be hard-coded?\n\nAlso you could save a whole byte if you switched this to #fff..... :D",
+      "revId": "ca4249fd3bb7295f88f54b0f19affd2d84eb2e07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
