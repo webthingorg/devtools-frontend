@@ -256,7 +256,7 @@ export class Runtime {
     }
     for (let i = 0; i < contextTypes.length; ++i) {
       const contextType = this._resolve(contextTypes[i]);
-      const isMatching = !!contextType && predicate(contextType);
+      const isMatching = contextType !== null && predicate(contextType);
       if (isMatching) {
         return true;
       }
@@ -798,7 +798,7 @@ export class Extension {
   * @return {boolean}
   */
   canInstantiate() {
-    return !!(this._className || this._factoryName);
+    return Boolean(this._className || this._factoryName);
   }
 
   /**
@@ -902,7 +902,7 @@ export class ExperimentsSupport {
     Runtime._assert(
         !this._experimentNames.has(experimentName), 'Duplicate registration of experiment ' + experimentName);
     this._experimentNames.add(experimentName);
-    this._experiments.push(new Experiment(this, experimentName, experimentTitle, !!unstable));
+    this._experiments.push(new Experiment(this, experimentName, experimentTitle, Boolean(unstable)));
   }
 
   /**
@@ -923,7 +923,7 @@ export class ExperimentsSupport {
       return true;
     }
 
-    return !!Runtime._experimentsSetting()[experimentName];
+    return Boolean(Runtime._experimentsSetting()[experimentName]);
   }
 
   /**
