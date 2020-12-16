@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1b8dad4_754abd93",
+        "filename": "front_end/console/ConsoleContextSelector.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-12-16T10:58:38Z",
+      "side": 0,
+      "message": "Let\u0027s also remove findCreationCallFrame() with this CL.",
+      "revId": "cd5020ceeec9a92526a5c68c6f4dedc8672d5d13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
