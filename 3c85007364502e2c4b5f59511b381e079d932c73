@@ -16,6 +16,23 @@
       "message": "Hi All,\n\nfixing a bug from the first pass at typescriptifying the HAR importer. PTAL!",
       "revId": "3c85007364502e2c4b5f59511b381e079d932c73",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef2e1400_ca03b963",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-12-16T07:27:14Z",
+      "side": 1,
+      "message": "LGTM. Thanks for catching this!",
+      "revId": "3c85007364502e2c4b5f59511b381e079d932c73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
