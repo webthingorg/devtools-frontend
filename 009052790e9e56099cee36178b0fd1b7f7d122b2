@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac859117_9ff245d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-12-16T22:19:56Z",
+      "side": 1,
+      "message": "LGTM but we need to add \n\ncommandPrompt: \u0027Show Security\u0027,\n\nto the registered view extension.\n",
+      "revId": "009052790e9e56099cee36178b0fd1b7f7d122b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
