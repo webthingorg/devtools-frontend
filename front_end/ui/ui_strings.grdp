@@ -144,6 +144,9 @@
   <message name="IDS_DEVTOOLS_ad2ac1967f0165ebf04a84bc1819e0de" desc="Text for context menu action to move a tab to the drawer">
     Move to bottom
   </message>
+  <message name="IDS_DEVTOOLS_ea4788705e6873b424c65e91c2846b19" desc="Text to cancel something">
+    Cancel
+  </message>
   <message name="IDS_DEVTOOLS_f8fbc6412a360fc4f854f34a776e2af2" desc="label for the profiler control button">
     Another profiler is already active
   </message>
