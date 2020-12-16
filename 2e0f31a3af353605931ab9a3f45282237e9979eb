@@ -16,6 +16,23 @@
       "message": "PTAL, alternatively we could use the yellow warning sign icon. The error icon could be confused for a \"close\" button after all.",
       "revId": "2e0f31a3af353605931ab9a3f45282237e9979eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d177ddb_d97bb6af",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-16T09:51:16Z",
+      "side": 1,
+      "message": "I like it, LGTM, thanks!",
+      "revId": "2e0f31a3af353605931ab9a3f45282237e9979eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
