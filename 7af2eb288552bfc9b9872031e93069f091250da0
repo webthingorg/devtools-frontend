@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0b8ab63_810d133f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2020-12-16T21:11:13Z",
+      "side": 1,
+      "message": "sg. \n\nmight want to double-check what kind of elements are at play. I have the feeling that the linkified element is display:inline and our nodes (pre-replacement) are display:block. The screenshot being in an inline world might have tricky consequences.  but i\u0027m not sure.",
+      "revId": "7af2eb288552bfc9b9872031e93069f091250da0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
