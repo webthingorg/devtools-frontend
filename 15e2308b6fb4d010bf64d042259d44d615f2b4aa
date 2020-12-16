@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7dde712a_0b3631a2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-16T10:28:17Z",
+      "side": 1,
+      "message": "Please add some more context: That we think that the stack trace URL was only used because programmatic updates of frames via document.write were not correctly accounted for in the devtools front-end before https://crbug.com/1140481 was fixed, and so the securityOrigin in the front-end would be stale, but we think that we can rely on the security origin now.\n\nPlease also mention that the developer expectation is to see the origin of the frame in the subtitle, and that this CL makes a step into that direction.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 10
+      },
+      "revId": "15e2308b6fb4d010bf64d042259d44d615f2b4aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e7e88bae_914e5075",
@@ -14,6 +37,23 @@
       "writtenOn": "2020-12-16T10:23:30Z",
       "side": 1,
       "message": "Hi Sigurd, hi Benedikt,\n\nthe CL to use the securityOrigin in the ConsoleContextSelector, ptal!",
+      "revId": "15e2308b6fb4d010bf64d042259d44d615f2b4aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e679c0b_da7f4340",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-16T10:28:17Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
       "revId": "15e2308b6fb4d010bf64d042259d44d615f2b4aa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
