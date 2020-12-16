@@ -9,6 +9,7 @@ import * as MobileThrottling from '../mobile_throttling/mobile_throttling.js';
 import * as Network from '../network/network.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
+import {ServiceWorkerUpdateCycleHelper} from './ServiceWorkerUpdateCycleHelper.js';
 
 let throttleDisabledForDebugging = false;
 /**
@@ -43,6 +44,8 @@ export class ServiceWorkersView extends UI.Widget.VBox {
     this._manager = null;
     /** @type {?SDK.SecurityOriginManager.SecurityOriginManager} */
     this._securityOriginManager = null;
+    /** @type {?SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel} */
+    this._cacheModel = null;
 
     /** @type {!WeakMap<!UI.ReportView.Section, !SDK.ServiceWorkerManager.ServiceWorkerRegistration>} */
     this._sectionToRegistration = new WeakMap();
@@ -123,6 +126,7 @@ export class ServiceWorkersView extends UI.Widget.VBox {
     this._securityOriginManager =
         /** @type {!SDK.SecurityOriginManager.SecurityOriginManager} */ (
             serviceWorkerManager.target().model(SDK.SecurityOriginManager.SecurityOriginManager));
+    this._cacheModel = serviceWorkerManager.target().model(SDK.ServiceWorkerCacheModel.ServiceWorkerCacheModel);
 
     for (const registration of this._manager.registrations().values()) {
       this._updateRegistration(registration);
@@ -131,6 +135,8 @@ export class ServiceWorkersView extends UI.Widget.VBox {
     this._eventListeners.set(serviceWorkerManager, [
       this._manager.addEventListener(
           SDK.ServiceWorkerManager.Events.RegistrationUpdated, this._registrationUpdated, this),
+      this._manager.addEventListener(
+          SDK.ServiceWorkerManager.Events.CacheEntrySnapshotTaken, this._cacheSnapshotTaken, this),
       this._manager.addEventListener(
           SDK.ServiceWorkerManager.Events.RegistrationDeleted, this._registrationDeleted, this),
       this._securityOriginManager.addEventListener(
@@ -230,6 +236,14 @@ export class ServiceWorkersView extends UI.Widget.VBox {
     this._gcRegistrations();
   }
 
+  /**
+   * @param {!Common.EventTarget.EventTargetEvent} event
+   */
+  _cacheSnapshotTaken(event) {
+    const registration = /** @type {!SDK.ServiceWorkerManager.ServiceWorkerRegistration} */ (event.data);
+    this._updateCacheChangeView(registration);
+  }
+
   _gcRegistrations() {
     if (!this._manager || !this._securityOriginManager) {
       return;
@@ -298,6 +312,17 @@ export class ServiceWorkersView extends UI.Widget.VBox {
   }
 
   /**
+   * @param {!SDK.ServiceWorkerManager.ServiceWorkerRegistration} registration
+   */
+  _updateCacheChangeView(registration) {
+    let section = this._sections.get(registration);
+    if (!section)
+      return;
+
+    section._scheduleForcedUpdate();
+  }
+
+  /**
    * @param {!Common.EventTarget.EventTargetEvent} event
    */
   _registrationDeleted(event) {
@@ -354,6 +379,8 @@ export class Section {
 
     this._toolbar = section.createToolbar();
     this._toolbar.renderAsLinks();
+
+    this._updateCycleElement = ServiceWorkerUpdateCycleHelper.createTimingTable(registration);
     this._networkRequests = new UI.Toolbar.ToolbarButton(
         Common.UIString.UIString('Network requests'), undefined, Common.UIString.UIString('Network requests'));
     this._networkRequests.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._networkRequestsClicked, this);
@@ -380,6 +407,7 @@ export class Section {
     this._createSyncNotificationField(
         ls`Periodic Sync`, this._periodicSyncTagNameSetting.get(), ls`Periodic Sync tag`,
         tag => this._periodicSync(tag));
+    this._createUpdateCycleField();
 
     this._linkifier = new Components.Linkifier.Linkifier();
     /** @type {!Map<string, !Protocol.Target.TargetInfo>} */
@@ -421,6 +449,14 @@ export class Section {
       return;
     }
     this._throttler.schedule(this._update.bind(this));
+  }
+
+  _scheduleForcedUpdate() {
+    if (throttleDisabledForDebugging) {
+      this._update(true);
+      return;
+    }
+    this._throttler.schedule(() => this._update(true));
   }
 
   /**
@@ -495,11 +531,12 @@ export class Section {
   }
 
   /**
+   * @param {boolean=} force
    * @return {!Promise<void>}
    */
-  _update() {
+  _update(force) {
     const fingerprint = this._registration.fingerprint();
-    if (fingerprint === this._fingerprint) {
+    if (fingerprint === this._fingerprint && !force) {
       return Promise.resolve();
     }
     this._fingerprint = fingerprint;
@@ -522,7 +559,8 @@ export class Section {
 
     if (active) {
       this._updateSourceField(active);
-      const localizedRunningStatus = SDK.ServiceWorkerManager.ServiceWorkerVersion.RunningStatus[active.runningStatus];
+      const localizedRunningStatus =
+          SDK.ServiceWorkerManager.ServiceWorkerVersion.RunningStatus[active.currentState.runningStatus];
       const activeEntry = this._addVersion(
           versionsStack, 'service-worker-active-circle', ls`#${active.id} activated and is ${localizedRunningStatus}`);
 
@@ -570,6 +608,9 @@ export class Section {
             installingEntry, Common.UIString.UIString('inspect'), this._inspectButtonClicked.bind(this, installing.id));
       }
     }
+
+    ServiceWorkerUpdateCycleHelper.refresh(this._updateCycleElement, this._registration);
+
     return Promise.resolve();
   }
 
@@ -599,6 +640,11 @@ export class Section {
    */
   _unregisterButtonClicked(event) {
     this._manager.deleteRegistration(this._registration.id);
+  }
+
+  _createUpdateCycleField() {
+    this._updateCycleForm = this._wrapWidget(this._section.appendField('Update Cycle')).createChild('form');
+    this._updateCycleForm.appendChild(this._updateCycleElement);
   }
 
   /**
