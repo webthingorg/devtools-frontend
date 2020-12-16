@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b331721b_22a1ff6f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-16T06:24:53Z",
+      "side": 1,
+      "message": "still lgtm (with some comments for the tests)\n\nFeel free to land the CL if Jack hasn\u0027t reviewed by End of day, we can address his feedback in a followup.",
+      "revId": "0944cab617cca47aae93a3aebc6fa155294e9e52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c90bd62_42cac111",
+        "filename": "test/unittests/front_end/issues/MarkdownImage_test.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-16T06:24:53Z",
+      "side": 1,
+      "message": "We have some helpers for these in DOMHelpers.ts, so you could fold it like this:\n\n assert.isNotNull(getElementWithinComponent(component, \u0027devtools-icon\u0027, Components.Icon.Icon);\n\nWhich asserts that the selected Icon is actually the \u0027Icon\u0027 component. This is more robust then checking for the \"outerHTML\", as renaming the component or changing the implementation would be caught by the Type checker directly :)",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 52
+      },
+      "revId": "0944cab617cca47aae93a3aebc6fa155294e9e52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48e2c4a5_1fd99a3c",
+        "filename": "test/unittests/front_end/issues/MarkdownImage_test.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-16T06:24:53Z",
+      "side": 1,
+      "message": "Same as above but using HTMLImgElement :)",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 53
+      },
+      "revId": "0944cab617cca47aae93a3aebc6fa155294e9e52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32b4ccd8_0106bc4a",
+        "filename": "test/unittests/front_end/issues/MarkdownLink_test.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-16T06:24:53Z",
+      "side": 1,
+      "message": "Same comment as in the other test. `getElementWithinComponent` also asserts its not null so you don\u0027t need the \u0027?\u0027 operator :)",
+      "range": {
+        "startLine": 22,
+        "startChar": 5,
+        "endLine": 22,
+        "endChar": 66
+      },
+      "revId": "0944cab617cca47aae93a3aebc6fa155294e9e52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
