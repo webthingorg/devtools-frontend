@@ -75,6 +75,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a800c5b2_ddec7975",
+        "filename": "front_end/elements/elements-meta.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-12-16T15:41:49Z",
+      "side": 1,
+      "message": "Done. Thank you!",
+      "parentUuid": "839cda95_b36d8cbb",
+      "range": {
+        "startLine": 33,
+        "startChar": 2,
+        "endLine": 33,
+        "endChar": 31
+      },
+      "revId": "76ca824b6a90321263bbd8a158742a8096a6abc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47fb6533_1182e7f2",
@@ -136,6 +160,30 @@
       "side": 1,
       "message": "I think the duplication is unfortunate but I agree that for localizing these strings properly, we shouldn\u0027t be relying on concat which is going to affect word ordering, word-ending-inflections, etc. in some languages.",
       "parentUuid": "072112ce_df764d82",
+      "range": {
+        "startLine": 201,
+        "startChar": 15,
+        "endLine": 201,
+        "endChar": 76
+      },
+      "revId": "76ca824b6a90321263bbd8a158742a8096a6abc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5dc8fcf4_da217f96",
+        "filename": "front_end/quick_open/CommandMenu.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2020-12-16T15:41:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c417df1e_439a81dc",
       "range": {
         "startLine": 201,
         "startChar": 15,
