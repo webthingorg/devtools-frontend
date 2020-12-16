@@ -33,6 +33,24 @@
       "message": "This LGTM, but (due to my ignorance with how the overlay layer works) are there any concerns with respect to color contrast, high-contrast scenarios, or theme selection where this should not just be hard-coded?\n\nAlso you could save a whole byte if you switched this to #fff..... :D",
       "revId": "ca4249fd3bb7295f88f54b0f19affd2d84eb2e07",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ea6890d_de32e0dd",
+        "filename": "inspector_overlay/highlight_flex_common.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-12-16T16:50:07Z",
+      "side": 1,
+      "message": "Very good point, there probably are concerns with this, but unfortunately Overlays, right now, don\u0027t support theming or high-contrast cases. They likely should, but that\u0027s a project on its own.",
+      "parentUuid": "8c0d55ed_08a73306",
+      "revId": "ca4249fd3bb7295f88f54b0f19affd2d84eb2e07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
