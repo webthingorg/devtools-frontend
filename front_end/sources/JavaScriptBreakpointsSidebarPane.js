@@ -192,8 +192,8 @@ export class JavaScriptBreakpointsSidebarPane extends UI.ThrottledWidget.Throttl
       const locations = locationsGroupedById[idx];
       const breakpointLocation = locations[0];
       const uiLocation = breakpointLocation.uiLocation;
-      const isSelected =
-          !!selectedUILocation && locations.some(location => location.uiLocation.id() === selectedUILocation.id());
+      const isSelected = selectedUILocation !== null &&
+          locations.some(location => location.uiLocation.id() === selectedUILocation.id());
       const showColumn = locationIdsByLineId.get(uiLocation.lineId()).size > 1;
       const text = /** @type {!TextUtils.Text.Text} */ (content[idx]);
       breakpoints.push(new BreakpointItem(locations, text, isSelected, showColumn));

@@ -678,7 +678,7 @@ export class ConsoleView extends UI.Widget.VBox {
       return;
     }
     this._filterStatusText.setText(ls`${this._hiddenByFilterCount} hidden`);
-    this._filterStatusText.setVisible(!!this._hiddenByFilterCount);
+    this._filterStatusText.setVisible(Boolean(this._hiddenByFilterCount));
     this._lastShownHiddenByFilterCount = this._hiddenByFilterCount;
   }
 
@@ -1190,7 +1190,7 @@ export class ConsoleView extends UI.Widget.VBox {
       return;
     }
 
-    const level = !!exceptionDetails ? SDK.ConsoleModel.MessageLevel.Error : SDK.ConsoleModel.MessageLevel.Info;
+    const level = Boolean(exceptionDetails) ? SDK.ConsoleModel.MessageLevel.Error : SDK.ConsoleModel.MessageLevel.Info;
     let message;
     if (!exceptionDetails) {
       message = new SDK.ConsoleModel.ConsoleMessage(
@@ -1255,7 +1255,7 @@ export class ConsoleView extends UI.Widget.VBox {
     this._currentMatchRangeIndex = -1;
 
     if (shouldJump) {
-      this._searchShouldJumpBackwards = !!jumpBackwards;
+      this._searchShouldJumpBackwards = Boolean(jumpBackwards);
     }
 
     this._searchProgressIndicator = new UI.ProgressIndicator.ProgressIndicator();
