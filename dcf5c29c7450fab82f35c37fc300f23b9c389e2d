@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4d37067_860609be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1130574
+      },
+      "writtenOn": "2020-12-16T01:22:20Z",
+      "side": 1,
+      "message": "Revert is already in CQ here - https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2594474.\n\nCould you ptal and abandon this change?",
+      "revId": "dcf5c29c7450fab82f35c37fc300f23b9c389e2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
