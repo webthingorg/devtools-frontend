@@ -2,8 +2,4 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as EnvironmentSetup from './environment-setup.js';
-import * as ToggleDarkMode from './toggle_dark_mode.js';
-
-ToggleDarkMode.init();
-EnvironmentSetup.init();
+export * as SetupEnvironment from './setup_environment.js';

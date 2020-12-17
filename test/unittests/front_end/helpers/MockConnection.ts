@@ -3,9 +3,8 @@
 // found in the LICENSE file.
 
 import {ProtocolMapping} from '../../../../front_end/generated/protocol-mapping.js';  // eslint-disable-line rulesdir/es_modules_import
+import * as MockEnvironment from '../../../../front_end/mock_environment/mock_environment.js';
 import * as ProtocolClient from '../../../../front_end/protocol_client/protocol_client.js';
-
-import {deinitializeGlobalVars, initializeGlobalVars} from './EnvironmentHelpers.js';
 
 type ProtocolCommand = keyof ProtocolMapping.Commands;
 type ProtocolCommandParams<C extends ProtocolCommand> = ProtocolMapping.Commands[C]['paramsType'];
@@ -42,7 +41,7 @@ function enable({reset = true} = {}) {
   // The DevTools frontend code expects certain things to be in place
   // before it can run. This function will ensure those things are
   // minimally there.
-  initializeGlobalVars({reset});
+  MockEnvironment.SetupEnvironment.initializeGlobalVars({reset});
 
   let messageCallback: MessageCallback;
   ProtocolClient.InspectorBackend.Connection.setFactory(() => {
@@ -85,7 +84,7 @@ function enable({reset = true} = {}) {
 }
 
 function disable() {
-  deinitializeGlobalVars();
+  MockEnvironment.SetupEnvironment.deinitializeGlobalVars();
   // @ts-ignore Setting back to undefined as a hard reset.
   ProtocolClient.InspectorBackend.Connection.setFactory(undefined);
 }

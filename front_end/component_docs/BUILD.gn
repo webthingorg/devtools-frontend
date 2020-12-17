@@ -26,7 +26,11 @@ group("component_docs") {
 }
 
 devtools_module("component_docs_module") {
-  sources = [ "toggle_dark_mode.ts" ]
+  sources = [
+    "environment-setup.ts",
+    "toggle_dark_mode.ts",
+  ]
+  deps = [ "../mock_environment:bundle" ]
 }
 devtools_entrypoint("bundle") {
   entrypoint = "component_docs.ts"
