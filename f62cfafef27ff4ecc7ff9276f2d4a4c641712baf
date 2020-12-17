@@ -79,6 +79,54 @@
       },
       "revId": "f62cfafef27ff4ecc7ff9276f2d4a4c641712baf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a81e309_20df444a",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 2169,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-12-17T14:34:03Z",
+      "side": 1,
+      "message": "Thanks, I wasn\u0027t aware, but I agree that it still makes sense to proceed with the change as is.",
+      "parentUuid": "1f08b48d_ccc0c5e8",
+      "range": {
+        "startLine": 2169,
+        "startChar": 84,
+        "endLine": 2169,
+        "endChar": 95
+      },
+      "revId": "f62cfafef27ff4ecc7ff9276f2d4a4c641712baf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f5e8f74_04b3b3cd",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 2169,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-12-17T14:34:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bce9041d_078f8b56",
+      "range": {
+        "startLine": 2169,
+        "startChar": 45,
+        "endLine": 2169,
+        "endChar": 59
+      },
+      "revId": "f62cfafef27ff4ecc7ff9276f2d4a4c641712baf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
