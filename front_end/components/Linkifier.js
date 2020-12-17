@@ -284,14 +284,14 @@ export class Linkifier {
     const anchor = /** @type {!HTMLElement} */ (Linkifier._createLink('\u200b', className, createLinkOptions));
     const info = Linkifier.linkInfo(anchor);
     if (!info) {
-      return null;
+      return fallbackAnchor;
     }
     info.enableDecorator = this._useLinkDecorator;
     info.fallback = fallbackAnchor;
 
     const pool = this._locationPoolByTarget.get(rawLocation.debuggerModel.target());
     if (!pool) {
-      return null;
+      return fallbackAnchor;
     }
     Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance()
         .createLiveLocation(rawLocation, this._updateAnchor.bind(this, anchor), pool)

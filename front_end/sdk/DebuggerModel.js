@@ -77,7 +77,6 @@ export class DebuggerModel extends SDKModel {
    */
   constructor(target) {
     super(target);
-
     target.registerDebuggerDispatcher(new DebuggerDispatcher(this));
     this._agent = target.debuggerAgent();
     this._runtimeModel = /** @type {!RuntimeModel} */ (target.model(RuntimeModel));
@@ -901,7 +900,7 @@ export class DebuggerModel extends SDKModel {
    * @return {!Location}
    */
   createRawLocation(script, lineNumber, columnNumber) {
-    return new Location(this, script.scriptId, lineNumber, columnNumber);
+    return this.createRawLocationByScriptId(script.scriptId, lineNumber, columnNumber);
   }
 
   /**
@@ -934,11 +933,10 @@ export class DebuggerModel extends SDKModel {
    * @param {!Protocol.Runtime.ScriptId} scriptId
    * @param {number} lineNumber
    * @param {number} columnNumber
-   * @return {?Location}
+   * @return {!Location}
    */
   createRawLocationByScriptId(scriptId, lineNumber, columnNumber) {
-    const script = this.scriptForId(scriptId);
-    return script ? this.createRawLocation(script, lineNumber, columnNumber) : null;
+    return new Location(this, scriptId, lineNumber, columnNumber);
   }
 
   /**
