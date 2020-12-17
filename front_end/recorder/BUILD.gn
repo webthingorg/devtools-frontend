@@ -18,6 +18,7 @@ devtools_module("recorder") {
     "../common:bundle",
     "../elements:bundle",
     "../i18n:bundle",
+    "../i18n:bundle",
     "../persistence:bundle",
     "../ui:bundle",
   ]
