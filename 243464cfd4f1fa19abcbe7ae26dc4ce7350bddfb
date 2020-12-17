@@ -16,6 +16,23 @@
       "message": "LG, but needs tests.",
       "revId": "243464cfd4f1fa19abcbe7ae26dc4ce7350bddfb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24401404_ff42b8f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1117099
+      },
+      "writtenOn": "2020-12-17T10:03:52Z",
+      "side": 1,
+      "message": "Generally looks good, but I think DevTools reviewers should have the last word here.\n\nI briefly looked over the resources this includes. They are fine, but might use one more round of polish. Examples:\n\n- Inconsistency: The eval + URL explanation explicitly reference \"the CSP of your site\", while the inline warning doesn\u0027t.\n- Helpfulness: The \u0027eval\u0027 directive also affects several eval-like things, which may be surprising to developers. E.g., when first encountering this, it wasn\u0027t at all obvious to me that \u0027new Function(\"xxx\")\u0027 would count as \"eval\" in this context. This is (correctly) implied in the \"To solve this issue\" sentence, but IMHO it\u0027d be better to clearly state what functionality this directive actually affects.",
+      "revId": "243464cfd4f1fa19abcbe7ae26dc4ce7350bddfb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
