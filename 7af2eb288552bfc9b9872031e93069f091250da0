@@ -16,6 +16,24 @@
       "message": "sg. \n\nmight want to double-check what kind of elements are at play. I have the feeling that the linkified element is display:inline and our nodes (pre-replacement) are display:block. The screenshot being in an inline world might have tricky consequences.  but i\u0027m not sure.",
       "revId": "7af2eb288552bfc9b9872031e93069f091250da0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "974bf54a_801e97aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2020-12-17T23:05:25Z",
+      "side": 1,
+      "message": "I took another look. There\u0027s weirdness as I suspected but nothing that\u0027ll cause real problems...\n\nit\u0027s typically\n\n    \u003cspan lh-node\u003e (inline)\n      \u003cdiv elem-screenshot) (block)\n      \u003cspan monspace.. devtools-linkified-node\u003e  (inline)\n\nthis will cause problems if these lh-nodes are next to eachother (due to the float, actually).. https://imgur.com/qLV3ZbC\ni think that\u0027d only happen if we shows nodes in LH.Audit.Details.List (which we don\u0027t use anymore)\n\nAs long as we present them in a \u0027table\u0027, the table cells sort our problems and we good.",
+      "parentUuid": "c0b8ab63_810d133f",
+      "revId": "7af2eb288552bfc9b9872031e93069f091250da0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
