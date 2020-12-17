@@ -19,6 +19,7 @@ ts_library("helpers") {
     "../../../../front_end/common:bundle",
     "../../../../front_end/host:bundle",
     "../../../../front_end/i18n:bundle",
+    "../../../../front_end/mock_environment:bundle",
     "../../../../front_end/protocol_client:bundle",
     "../../../../front_end/root:bundle",
     "../../../../front_end/sdk:bundle",
