@@ -187,6 +187,30 @@
       },
       "revId": "c5630b991e863594b9012785f804455670e8ff8c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c347a8bd_739f3b7e",
+        "filename": "test/e2e/sources/icon-row-bucket_test.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-17T07:49:33Z",
+      "side": 1,
+      "message": "That would make sense, wouldn\u0027t it?",
+      "parentUuid": "fd2e017f_dd1ae598",
+      "range": {
+        "startLine": 99,
+        "startChar": 4,
+        "endLine": 99,
+        "endChar": 35
+      },
+      "revId": "c5630b991e863594b9012785f804455670e8ff8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
