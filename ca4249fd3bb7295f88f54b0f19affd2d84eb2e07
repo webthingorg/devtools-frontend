@@ -69,6 +69,24 @@
       "parentUuid": "5ea6890d_de32e0dd",
       "revId": "ca4249fd3bb7295f88f54b0f19affd2d84eb2e07",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0c1db3c_7734dd20",
+        "filename": "inspector_overlay/highlight_flex_common.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-12-17T07:21:01Z",
+      "side": 1,
+      "message": "Oh wow, I had no idea, this happened before I started working on this and I guess I never had a chance to look into the element tooltip! Thanks for letting me know.\n\nThe code that you changed back then has been moved to https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/inspector_overlay/tool_highlight.css and I can confirm your fix is still in there.\n\nThe new grid and flex overlay features haven\u0027t changed the way the tooltip looks.\nWe did add a lot of new UI in the overlays, like grid labels and others, but not in the element tooltip. It might be good to review this and see if there\u0027s any work needed for the high contrast mode.\nI\u0027ll file a bug.",
+      "parentUuid": "60839162_8d3940fc",
+      "revId": "ca4249fd3bb7295f88f54b0f19affd2d84eb2e07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
