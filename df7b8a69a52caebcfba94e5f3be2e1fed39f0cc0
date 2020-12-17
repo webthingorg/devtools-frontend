@@ -33,6 +33,24 @@
       "message": "LGTM, thanks! Could you add a test?",
       "revId": "df7b8a69a52caebcfba94e5f3be2e1fed39f0cc0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fcd921e_2ce279f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-12-17T10:57:05Z",
+      "side": 1,
+      "message": "Done, please take another look!",
+      "parentUuid": "f2b0a09b_5b8d631d",
+      "revId": "df7b8a69a52caebcfba94e5f3be2e1fed39f0cc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
