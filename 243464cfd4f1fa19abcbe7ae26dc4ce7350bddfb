@@ -68,6 +68,24 @@
       "message": "Regarding tests: Some of the issues will have source locations pointing to HTML (not scripts). We need tests to make sure that this is working correctly.",
       "revId": "243464cfd4f1fa19abcbe7ae26dc4ce7350bddfb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63708a2f_30534bc7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1117099
+      },
+      "writtenOn": "2020-12-17T15:33:14Z",
+      "side": 1,
+      "message": "I don\u0027t have comment access there... 😊\n\nThe first issue (Inconsistency) is fixed there. The second still applies. Anyways, this is arguably off-topic for this CL.",
+      "parentUuid": "a35c6ea2_c7d6dab0",
+      "revId": "243464cfd4f1fa19abcbe7ae26dc4ce7350bddfb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
