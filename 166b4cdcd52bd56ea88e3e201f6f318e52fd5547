@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "87008a0c_e88c5e2d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-17T15:19:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07e7706a_429ce660",
+      "revId": "166b4cdcd52bd56ea88e3e201f6f318e52fd5547",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "8fb34a64_ea6e711d",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 5
@@ -69,6 +87,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "de53a694_97f92c9b",
+        "filename": "front_end/issues/AffectedSharedArrayBufferTransferDetailsView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-17T15:19:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7a53580_9a2cffe1",
+      "revId": "166b4cdcd52bd56ea88e3e201f6f318e52fd5547",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "048b03e9_8e158544",
@@ -82,6 +118,24 @@
       "writtenOn": "2020-12-17T14:12:12Z",
       "side": 1,
       "message": "Would it be possible to call `appendColumnTitle()` from the previous CL instead?",
+      "revId": "166b4cdcd52bd56ea88e3e201f6f318e52fd5547",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7ca9158_fbe90520",
+        "filename": "front_end/issues/AffectedSharedArrayBufferTransferDetailsView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-17T15:19:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "048b03e9_8e158544",
       "revId": "166b4cdcd52bd56ea88e3e201f6f318e52fd5547",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -103,6 +157,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6414332_3e2eaeaf",
+        "filename": "front_end/sdk/SharedArrayBufferTransferIssue.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-17T15:19:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5de5a0cf_cc3598d1",
+      "revId": "166b4cdcd52bd56ea88e3e201f6f318e52fd5547",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "abc9c4af_a663f428",
@@ -116,6 +188,24 @@
       "writtenOn": "2020-12-17T14:12:12Z",
       "side": 1,
       "message": "Nice! I would have guessed that a test would be more complicated than this. That\u0027s really straightforward.",
+      "revId": "166b4cdcd52bd56ea88e3e201f6f318e52fd5547",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "966308ef_b59420de",
+        "filename": "test/e2e/issues/sab-issues_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-17T15:19:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "abc9c4af_a663f428",
       "revId": "166b4cdcd52bd56ea88e3e201f6f318e52fd5547",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
