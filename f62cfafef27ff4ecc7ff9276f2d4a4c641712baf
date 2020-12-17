@@ -16,6 +16,69 @@
       "message": "PTanotherL",
       "revId": "f62cfafef27ff4ecc7ff9276f2d4a4c641712baf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae7b8ab1_7b6b525d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-17T12:52:45Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "f62cfafef27ff4ecc7ff9276f2d4a4c641712baf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f08b48d_ccc0c5e8",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 2169,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-17T12:52:45Z",
+      "side": 1,
+      "message": "This has previously been \"Workers\", and the ExpandableApplicationPanelTreeElement uses that for a settings key. I don\u0027t think it is a problem that we change key names, but want to point it out.",
+      "range": {
+        "startLine": 2169,
+        "startChar": 84,
+        "endLine": 2169,
+        "endChar": 95
+      },
+      "revId": "f62cfafef27ff4ecc7ff9276f2d4a4c641712baf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bce9041d_078f8b56",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 2169,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2020-12-17T12:52:45Z",
+      "side": 1,
+      "message": "We should at some point create a const enum for these strings.",
+      "range": {
+        "startLine": 2169,
+        "startChar": 45,
+        "endLine": 2169,
+        "endChar": 59
+      },
+      "revId": "f62cfafef27ff4ecc7ff9276f2d4a4c641712baf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
