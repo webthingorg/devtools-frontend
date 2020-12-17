@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85494931_e98f8cda",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-12-17T07:00:31Z",
+      "side": 1,
+      "message": "New test looks good to me, just made a suggestion about adding one more case to the test.",
+      "revId": "364bed998a9d6405040812c6dbd1daa690aa9336",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fccdd10_d55f9e75",
+        "filename": "test/unittests/front_end/har_importer/HARImporter_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-12-17T07:00:31Z",
+      "side": 1,
+      "message": "Would it make sense to also add an entry in there that does have a `pageref` property so we test both sides of the conditional that you changed in CL 2594147?",
+      "range": {
+        "startLine": 10,
+        "startChar": 6,
+        "endLine": 10,
+        "endChar": 17
+      },
+      "revId": "364bed998a9d6405040812c6dbd1daa690aa9336",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
