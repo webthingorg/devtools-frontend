@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9797f4e_a44194bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-12-17T11:36:28Z",
+      "side": 1,
+      "message": "Pinging the same reviewers as on the original CL.\nI\u0027m not sure what happened, the triangles did look right when I authored and tested that CL.\nAnyway, here\u0027s a tiny CSS follow-up fix to make them look like other triangles in devtools.",
+      "revId": "12126c14107ef0f4b68318ae2ec523e38dcf1966",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
