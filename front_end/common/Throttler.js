@@ -89,7 +89,7 @@ export class Throttler {
       this._clearTimeout(this._processTimeout);
     }
 
-    const timeout = this._asSoonAsPossible ? 0 : this._timeout;
+    const timeout = this._asSoonAsPossible ? 1 : this._timeout;
     this._processTimeout = this._setTimeout(this._onTimeout.bind(this), timeout);
   }
 
