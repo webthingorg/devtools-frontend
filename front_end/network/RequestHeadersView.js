@@ -804,17 +804,24 @@ export class RequestHeadersView extends UI.Widget.VBox {
       headersTreeElement.appendChild(headerTreeElement);
 
       if (headerId === 'x-client-data') {
-        const data = ClientVariations.parseClientVariations(header.value);
-        const output = ClientVariations.formatClientVariations(
-            data, ls`Active client experiment variation IDs.`,
-            ls`Active client experiment variation IDs that trigger server-side behavior.`);
-        const wrapper = document.createElement('div');
-        wrapper.classList.add('x-client-data-details');
-        UI.UIUtils.createTextChild(wrapper, ls`Decoded:`);
-        const div = wrapper.createChild('div');
-        div.classList.add('source-code');
-        div.textContent = output;
-        headerTreeElement.listItemElement.appendChild(wrapper);
+        try {
+          const data = ClientVariations.parseClientVariations(header.value);
+          const output = ClientVariations.formatClientVariations(
+              data, ls`Active client experiment variation IDs.`,
+              ls`Active client experiment variation IDs that trigger server-side behavior.`);
+          const wrapper = document.createElement('div');
+          wrapper.classList.add('x-client-data-details');
+          UI.UIUtils.createTextChild(wrapper, ls`Decoded:`);
+          const div = wrapper.createChild('div');
+          div.classList.add('source-code');
+          div.textContent = output;
+          headerTreeElement.listItemElement.appendChild(wrapper);
+        } catch (ex) {
+          // If ClientVariations.parseClientVariations throws an error,
+          // this catch block will ensure that decoding header value doesnt break Request headers view.
+          // Encoded value gets appended either way and decoded value
+          // only gets appended if parseClientVariations doesnt throw an error.
+        }
       }
     }
   }
