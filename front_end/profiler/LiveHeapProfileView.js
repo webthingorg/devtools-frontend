@@ -394,10 +394,20 @@ export class GridNode extends DataGrid.SortableDataGrid.SortableDataGridNode {
   }
 }
 
+/** @type {!ActionDelegate} */
+let profilerActionDelegateInstance;
+
 /**
  * @implements {UI.ActionRegistration.ActionDelegate}
  */
 export class ActionDelegate {
+  static instance() {
+    if (!profilerActionDelegateInstance) {
+      profilerActionDelegateInstance = new ActionDelegate();
+    }
+    return profilerActionDelegateInstance;
+  }
+
   /**
    * @override
    * @param {!UI.Context.Context} context
