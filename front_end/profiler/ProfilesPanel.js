@@ -725,6 +725,10 @@ export class ProfilesSidebarTreeElement extends UI.TreeOutline.TreeElement {
   }
 }
 
+/** @type {!JSProfilerPanel} */
+let jsProfilerPanelInstance;
+
+
 /**
  * @implements {UI.ActionRegistration.ActionDelegate}
  */
@@ -734,6 +738,12 @@ export class JSProfilerPanel extends ProfilesPanel {
     super('js_profiler', [registry.cpuProfileType], 'profiler.js-toggle-recording');
   }
 
+  static instance() {
+    if (!jsProfilerPanelInstance) {
+      jsProfilerPanelInstance = new JSProfilerPanel();
+    }
+    return jsProfilerPanelInstance;
+  }
   /**
    * @override
    */
