@@ -16,6 +16,40 @@
       "message": "@Paul PTAL, thanks!",
       "revId": "d62758548f196166270022fb8dff9ee81e0d7ea8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70585107_e0ba6352",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-21T08:57:02Z",
+      "side": 1,
+      "message": "LGTM with a question",
+      "revId": "d62758548f196166270022fb8dff9ee81e0d7ea8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e99311c6_e0bb47f2",
+        "filename": "front_end/text_utils/ContentProvider.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-21T08:57:02Z",
+      "side": 1,
+      "message": "Why don\u0027t we use blob: URLs? That way we don\u0027t have to worry about URL length limits.",
+      "revId": "d62758548f196166270022fb8dff9ee81e0d7ea8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
