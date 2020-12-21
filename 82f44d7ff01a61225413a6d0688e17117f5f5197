@@ -68,6 +68,24 @@
       "parentUuid": "ede5acae_2366bff0",
       "revId": "82f44d7ff01a61225413a6d0688e17117f5f5197",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea37e8ea_f72ff0bd",
+        "filename": "front_end/resources/ClearStorageView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-21T14:10:23Z",
+      "side": 1,
+      "message": "It just seems very similar to known anti-patterns like duplicating link text in the `title` attribute. It makes the DOM larger to try and support a very narrow scenario, which the rest of your patch already addresses sufficiently through CSS IMHO. I’d suggest dropping this change from the patch",
+      "parentUuid": "a48b22cf_3ac38077",
+      "revId": "82f44d7ff01a61225413a6d0688e17117f5f5197",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
