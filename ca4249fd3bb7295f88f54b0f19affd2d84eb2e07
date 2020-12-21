@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "97f79014_b1dca2e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-21T07:40:24Z",
+      "side": 1,
+      "message": "I was indeed OOO last week. Back now. Will merge this as well, thanks for the patch!",
+      "revId": "ca4249fd3bb7295f88f54b0f19affd2d84eb2e07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c0d55ed_08a73306",
