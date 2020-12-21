@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d4c08c4_3fb1abdb",
+        "filename": "front_end/browser_sdk/SourceFrameIssuesManager.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-21T11:01:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "242e21ec_95f346d4",
+      "range": {
+        "startLine": 99,
+        "startChar": 24,
+        "endLine": 99,
+        "endChar": 36
+      },
+      "revId": "c5630b991e863594b9012785f804455670e8ff8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f437c62_3ee94cc5",
@@ -81,6 +105,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b42a41d_598e9214",
+        "filename": "front_end/sources/UISourceCodeFrame.js",
+        "patchSetId": 19
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-21T11:01:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f437c62_3ee94cc5",
+      "range": {
+        "startLine": 695,
+        "startChar": 43,
+        "endLine": 695,
+        "endChar": 55
+      },
+      "revId": "c5630b991e863594b9012785f804455670e8ff8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d67c6719_30702b84",
@@ -94,6 +142,30 @@
       "writtenOn": "2020-12-16T16:00:22Z",
       "side": 1,
       "message": "Let\u0027s assert the the length of issueIconComponent is \u003e 0 before this.",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 98,
+        "endChar": 60
+      },
+      "revId": "c5630b991e863594b9012785f804455670e8ff8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f1bf4b5_9037b1c4",
+        "filename": "test/e2e/sources/icon-row-bucket_test.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-21T11:01:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d67c6719_30702b84",
       "range": {
         "startLine": 98,
         "startChar": 4,
@@ -237,6 +309,30 @@
       "side": 1,
       "message": "That would make sense, wouldn\u0027t it?",
       "parentUuid": "fd2e017f_dd1ae598",
+      "range": {
+        "startLine": 99,
+        "startChar": 4,
+        "endLine": 99,
+        "endChar": 35
+      },
+      "revId": "c5630b991e863594b9012785f804455670e8ff8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "720c48de_9caacd0d",
+        "filename": "test/e2e/sources/icon-row-bucket_test.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1459972
+      },
+      "writtenOn": "2020-12-21T11:01:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c347a8bd_739f3b7e",
       "range": {
         "startLine": 99,
         "startChar": 4,
