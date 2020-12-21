@@ -16,6 +16,23 @@
       "message": "lgtm\n\nFor the future, we like to include before/after screenshots for small UI fixes. Easier for reviewers to have context :)",
       "revId": "4e23abcfa6b23c714ed04ef0d15d7d7196116386",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1819d53_8ac97917",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2020-12-21T14:35:48Z",
+      "side": 1,
+      "message": "hmm, looks like some internal extension complains about imgur use now. The reasoning mostly doesn\u0027t apply to public stuff, but there isn\u0027t an explicit exception, either.",
+      "revId": "4e23abcfa6b23c714ed04ef0d15d7d7196116386",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
