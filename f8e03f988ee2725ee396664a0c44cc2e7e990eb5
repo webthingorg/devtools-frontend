@@ -34,6 +34,24 @@
       "parentUuid": "327963ec_58de43ba",
       "revId": "f8e03f988ee2725ee396664a0c44cc2e7e990eb5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffb25d19_4a7a14f4",
+        "filename": "front_end/resources/ServiceWorkersView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-21T12:45:04Z",
+      "side": 1,
+      "message": "Nice!",
+      "parentUuid": "bbb0fd8a_e57d3296",
+      "revId": "f8e03f988ee2725ee396664a0c44cc2e7e990eb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
