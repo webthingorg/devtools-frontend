@@ -33,6 +33,23 @@
       "message": "SGTM",
       "revId": "b54e2a90cfd73d48cf761f0133768fe07324676e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13e91c6b_f7847efc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-12-21T09:44:43Z",
+      "side": 1,
+      "message": "This is currently listed under unstable experiments, so I am surprised that this is to be enabled by default. So I played around a bit with this, and found that it doesn\u0027t really work that well.\n\nFor example:\n- I try to add a short cut to close all sources windows via Command+W. Surprise: that closes the entire browser window.\n- I try to add a short cut to close all sources windows via Option+W. Surprise: it records that as `⌥ Σ` even though there is already another action successfully mapped to `⌥ W` by default.\n\nI found these issues within five minutes, so I\u0027m not entirely convinced this is ready to be enabled by default yet.",
+      "revId": "b54e2a90cfd73d48cf761f0133768fe07324676e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
