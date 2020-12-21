@@ -16,6 +16,23 @@
       "message": "LGTM, but I\u0027d like to also have Yang and Benedikt\u0027s explicit LGTM before shipping this.",
       "revId": "b54e2a90cfd73d48cf761f0133768fe07324676e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abca43d5_bb178afa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-12-21T09:40:24Z",
+      "side": 1,
+      "message": "SGTM",
+      "revId": "b54e2a90cfd73d48cf761f0133768fe07324676e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
