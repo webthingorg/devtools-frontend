@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef927423_efed2fa9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-21T08:52:56Z",
+      "side": 1,
+      "message": "I\u0027m deferring to Patrick on the code review and to Peter on the UX review.",
+      "revId": "ad6837a65a8e9077377fa13757dae4a046349211",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
