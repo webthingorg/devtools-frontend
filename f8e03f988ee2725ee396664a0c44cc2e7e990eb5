@@ -16,6 +16,24 @@
       "message": "To add multiple class names at once, pass separate parameters:\n\n    errorsLabel.classList.add(\u0027devtools-link\u0027, \u0027link\u0027);\n\nOtherwise I think we get\n\n    Uncaught DOMException: Failed to execute \u0027add\u0027 on \u0027DOMTokenList\u0027: The token provided contains HTML space characters, which are not valid in tokens.\n\n(unless this is not the built-in DOM classList, but some DevTools-provided monkeypatched version?)",
       "revId": "f8e03f988ee2725ee396664a0c44cc2e7e990eb5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbb0fd8a_e57d3296",
+        "filename": "front_end/resources/ServiceWorkersView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2020-12-21T12:44:01Z",
+      "side": 1,
+      "message": "Oops. Fixed! I checked it worked (added a pic)",
+      "parentUuid": "327963ec_58de43ba",
+      "revId": "f8e03f988ee2725ee396664a0c44cc2e7e990eb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
