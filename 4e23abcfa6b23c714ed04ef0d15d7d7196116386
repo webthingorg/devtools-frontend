@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9358d321_13d9f968",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-21T06:43:19Z",
+      "side": 1,
+      "message": "lgtm\n\nFor the future, we like to include before/after screenshots for small UI fixes. Easier for reviewers to have context :)",
+      "revId": "4e23abcfa6b23c714ed04ef0d15d7d7196116386",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
