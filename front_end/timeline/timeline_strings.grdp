@@ -277,6 +277,9 @@ Click the reload button <ph name="RELOADBUTTON">$3s<ex>reload</ex></ph> or hit <
   <message name="IDS_DEVTOOLS_3b419ceb25fddb807ea9483f65fded06" desc="Tooltip text that appears when hovering over the largeicon settings gear in show settings pane setting in timeline panel of the performance panel">
     Capture settings
   </message>
+  <message name="IDS_DEVTOOLS_3bb3e8c8a24891ba0f7608bcc96f8b0a" desc="Text for a rendering frame">
+    Frame
+  </message>
   <message name="IDS_DEVTOOLS_3de9387fc230ce74214446e58c4fefde" desc="Text in Timeline UIUtils of the Performance panel">
     Compile
   </message>

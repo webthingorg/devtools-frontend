@@ -10,33 +10,20 @@ import * as SDK from '../sdk/sdk.js';     // eslint-disable-line no-unused-vars
  * @interface
  */
 export class MarkerDecorator {
-  /**
-   * @param {!SDK.DOMModel.DOMNode} node
-   * @return {?{title: string, color: string}}
-   */
-  decorate(node) {
+  decorate(node: SDK.DOMModel.DOMNode): {title: string; color: string;}|null {
     throw new Error('Not implemented yet');
   }
 }
 
-/**
- * @implements {MarkerDecorator}
- */
-export class GenericDecorator {
-  /**
-   * @param {!Root.Runtime.Extension} extension
-   */
-  constructor(extension) {
+export class GenericDecorator implements MarkerDecorator {
+  _title: string;
+  _color: string;
+  constructor(extension: Root.Runtime.Extension) {
     this._title = Common.UIString.UIString(extension.title());
-    this._color = /** @type {string} */ (extension.descriptor()['color']);
+    this._color = (extension.descriptor()['color'] as string);
   }
 
-  /**
-   * @override
-   * @param {!SDK.DOMModel.DOMNode} node
-   * @return {?{title: string, color: string}}
-   */
-  decorate(node) {
+  decorate(node: SDK.DOMModel.DOMNode): {title: string; color: string;}|null {
     return {title: this._title, color: this._color};
   }
 }

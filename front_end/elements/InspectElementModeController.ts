@@ -40,11 +40,10 @@ import {ElementsPanel} from './ElementsPanel.js';
  */
 let inspectElementModeController;
 
-
-/**
- * @implements {SDK.SDKModel.SDKModelObserver<!SDK.OverlayModel.OverlayModel>}
- */
-export class InspectElementModeController {
+export class InspectElementModeController implements SDK.SDKModel.SDKModelObserver {
+  _toggleSearchAction: UI.ActionRegistration.Action|null;
+  _mode: Protocol.Overlay.InspectMode;
+  _showDetailedInspectTooltipSetting: Common.Settings.Setting<any>;
   constructor() {
     this._toggleSearchAction = UI.ActionRegistry.ActionRegistry.instance().action('elements.toggle-element-search');
     this._mode = Protocol.Overlay.InspectMode.None;
@@ -60,7 +59,7 @@ export class InspectElementModeController {
         Common.Settings.Settings.instance().moduleSetting('showDetailedInspectTooltip');
     this._showDetailedInspectTooltipSetting.addChangeListener(this._showDetailedInspectTooltipChanged.bind(this));
 
-    document.addEventListener('keydown', event => {
+    document.addEventListener('keydown', (event: KeyboardEvent) => {
       if (event.keyCode !== UI.KeyboardShortcut.Keys.Esc.code) {
         return;
       }
@@ -72,10 +71,7 @@ export class InspectElementModeController {
     }, true);
   }
 
-  /**
-   * @param {{forceNew: boolean}} opts
-   */
-  static instance({forceNew} = {forceNew: false}) {
+  static instance({forceNew}: {forceNew: boolean;} = {forceNew: false}) {
     if (!inspectElementModeController || forceNew) {
       inspectElementModeController = new InspectElementModeController();
     }
@@ -83,11 +79,7 @@ export class InspectElementModeController {
     return inspectElementModeController;
   }
 
-  /**
-   * @override
-   * @param {!SDK.OverlayModel.OverlayModel} overlayModel
-   */
-  modelAdded(overlayModel) {
+  modelAdded(overlayModel: SDK.OverlayModel.OverlayModel) {
     // When DevTools are opening in the inspect element mode, the first target comes in
     // much later than the InspectorFrontendAPI.enterInspectElementMode event.
     if (this._mode === Protocol.Overlay.InspectMode.None) {
@@ -96,17 +88,10 @@ export class InspectElementModeController {
     overlayModel.setInspectMode(this._mode, this._showDetailedInspectTooltipSetting.get());
   }
 
-  /**
-   * @override
-   * @param {!SDK.OverlayModel.OverlayModel} overlayModel
-   */
-  modelRemoved(overlayModel) {
+  modelRemoved(overlayModel: SDK.OverlayModel.OverlayModel) {
   }
 
-  /**
-   * @return {boolean}
-   */
-  _isInInspectElementMode() {
+  _isInInspectElementMode(): boolean {
     return this._mode !== Protocol.Overlay.InspectMode.None;
   }
 
@@ -126,10 +111,7 @@ export class InspectElementModeController {
     this._setMode(Protocol.Overlay.InspectMode.CaptureAreaScreenshot);
   }
 
-  /**
-   * @param {!Protocol.Overlay.InspectMode} mode
-   */
-  _setMode(mode) {
+  _setMode(mode: Protocol.Overlay.InspectMode) {
     if (SDK.SDKModel.TargetManager.instance().allTargetsSuspended()) {
       return;
     }
@@ -153,10 +135,7 @@ export class InspectElementModeController {
     }
   }
 
-  /**
-   * @param {!SDK.DOMModel.DOMNode} node
-   */
-  _inspectNode(node) {
+  _inspectNode(node: SDK.DOMModel.DOMNode) {
     ElementsPanel.instance().revealAndSelectNode(node, true, true);
   }
 
@@ -168,17 +147,8 @@ export class InspectElementModeController {
 /** @type {!ToggleSearchActionDelegate} */
 let toggleSearchActionDelegateInstance;
 
-/**
- * @implements {UI.ActionRegistration.ActionDelegate}
- */
-export class ToggleSearchActionDelegate {
-  /**
-   * @override
-   * @param {!UI.Context.Context} context
-   * @param {string} actionId
-   * @return {boolean}
-   */
-  handleAction(context, actionId) {
+export class ToggleSearchActionDelegate implements UI.ActionRegistration.ActionDelegate {
+  handleAction(context: UI.Context.Context, actionId: string): boolean {
     if (Root.Runtime.Runtime.queryParam('isSharedWorker')) {
       return false;
     }
@@ -195,11 +165,7 @@ export class ToggleSearchActionDelegate {
     return true;
   }
 
-  /**
-   * @param {{forceNew: ?boolean}=} opts
-   * @return {!ToggleSearchActionDelegate}
-   */
-  static instance(opts = {forceNew: null}) {
+  static instance(opts: {forceNew: boolean|null;}|undefined = {forceNew: null}): ToggleSearchActionDelegate {
     const {forceNew} = opts;
     if (!toggleSearchActionDelegateInstance || forceNew) {
       toggleSearchActionDelegateInstance = new ToggleSearchActionDelegate();

@@ -8,75 +8,74 @@ import * as UI from '../ui/ui.js';
 const ls = Common.ls;
 
 /**
- * @enum {string}
  * Use a normal object instead of making it null-prototyped because
  * Closure requires enum initialization to be an object literal.
  * Will be a proper enum class once this file becomes TypeScript.
  */
-export const AdornerCategories = {
-  Security: 'Security',
-  Layout: 'Layout',
-  Default: 'Default',
-};
+export const enum AdornerCategories {
+  Security = 'Security',
+  Layout = 'Layout',
+  Default = 'Default'
+}
+
 Object.freeze(AdornerCategories);
 
 const template = document.createElement('template');
 template.innerHTML = `
   <style>
-    :host {
-      display: inline-flex;
-    }
+  :host {
+  display: inline-flex;
+  }
 
-    :host(.hidden) {
-      display: none;
-    }
+  :host(.hidden) {
+  display: none;
+  }
 
-    :host(.clickable) {
-      cursor: pointer;
-    }
+  :host(.clickable) {
+  cursor: pointer;
+  }
 
-    :host(:focus) slot {
-      border: var(--adorner-border-focus, 1px solid #1a73e8);
-    }
+  :host(:focus) slot {
+  border: var(--adorner-border-focus, 1px solid #1a73e8);
+  }
 
-    :host([aria-pressed=true]) slot {
-      color: var(--adorner-text-color-active, #ffffff);
-      background-color: var(--adorner-background-color-active, #1a73e8);
-    }
+  :host([aria-pressed=true]) slot {
+  color: var(--adorner-text-color-active, #ffffff);
+  background-color: var(--adorner-background-color-active, #1a73e8);
+  }
 
-    slot {
-      display: inline-flex;
-      box-sizing: border-box;
-      height: 13px;
-      line-height: 13px;
-      padding: 0 6px;
-      font-size: 8.5px;
-      color: var(--adorner-text-color, #3c4043);
-      background-color: var(--adorner-background-color, #f1f3f4);
-      border: var(--adorner-border, 1px solid #dadce0);
-      border-radius: var(--adorner-border-radius, 10px);
-    }
+  slot {
+  display: inline-flex;
+  box-sizing: border-box;
+  height: 13px;
+  line-height: 13px;
+  padding: 0 6px;
+  font-size: 8.5px;
+  color: var(--adorner-text-color, #3c4043);
+  background-color: var(--adorner-background-color, #f1f3f4);
+  border: var(--adorner-border, 1px solid #dadce0);
+  border-radius: var(--adorner-border-radius, 10px);
+  }
 
-    ::slotted(*) {
-      height: 10px;
-    }
+  ::slotted(*) {
+  height: 10px;
+  }
   </style>
   <slot name="content"></slot>
 `;
 
 export class Adorner extends HTMLElement {
-  /**
-   *
-   * @param {!HTMLElement} content
-   * @param {string} name
-   * @param {!{category: (!AdornerCategories|undefined)}} options
-   * @return {!Adorner}
-   */
+  name: string;
+  category: AdornerCategories;
+  _isToggle: boolean;
+  _ariaLabelDefault: string;
+  _ariaLabelActive: string;
+  tabIndex: number|undefined;
   // @ts-ignore typedef TODO(changhaohan): properly type options once this is .ts
-  static create(content, name, options = {}) {
+  static create(content: HTMLElement, name: string, options: {category: (AdornerCategories|undefined);} = {}): Adorner {
     const {category = AdornerCategories.Default} = options;
 
-    const adorner = /** @type {!Adorner} */ (document.createElement('devtools-adorner'));
+    const adorner = (document.createElement('devtools-adorner') as Adorner);
     content.slot = 'content';
     adorner.append(content);
 
@@ -99,28 +98,21 @@ export class Adorner extends HTMLElement {
     this._ariaLabelActive = ls`adorner active`;
   }
 
-  /**
-   * @override
-   */
   connectedCallback() {
     if (!this.getAttribute('aria-label')) {
       UI.ARIAUtils.setAccessibleName(this, ls`${this.name} adorner`);
     }
   }
 
-  /**
-   * @return {boolean}
-   */
-  isActive() {
+  isActive(): boolean {
     return this.getAttribute('aria-pressed') === 'true';
   }
 
   /**
    * Toggle the active state of the adorner. Optionally pass `true` to force-set
    * an active state; pass `false` to force-set an inactive state.
-   * @param {boolean=} forceActiveState
    */
-  toggle(forceActiveState) {
+  toggle(forceActiveState?: boolean|undefined) {
     if (!this._isToggle) {
       return;
     }
@@ -140,11 +132,13 @@ export class Adorner extends HTMLElement {
   /**
    * Make adorner interactive by responding to click events with the provided action
    * and simulating ARIA-capable toggle button behavior.
-   * @param {!EventListener} action
-   * @param {!{isToggle: (boolean|undefined), shouldPropagateOnKeydown: (boolean|undefined), ariaLabelDefault: (string|undefined), ariaLabelActive: (string|undefined)}} options
    */
   // @ts-ignore typedef TODO(changhaohan): properly type options once this is .ts
-  addInteraction(action, options = {}) {
+  addInteraction(action: EventListener, options: {
+    isToggle: (boolean|undefined); shouldPropagateOnKeydown: (boolean | undefined);
+    ariaLabelDefault: (string | undefined);
+    ariaLabelActive: (string | undefined);
+  } = {}) {
     const {isToggle = false, shouldPropagateOnKeydown = false, ariaLabelDefault, ariaLabelActive} = options;
 
     this._isToggle = isToggle;
@@ -170,7 +164,7 @@ export class Adorner extends HTMLElement {
     this.classList.add('clickable');
     UI.ARIAUtils.markAsButton(this);
     this.tabIndex = 0;
-    this.addEventListener('keydown', event => {
+    this.addEventListener('keydown', (event: KeyboardEvent) => {
       if (event.code === 'Enter' || event.code === 'Space') {
         this.click();
         if (!shouldPropagateOnKeydown) {

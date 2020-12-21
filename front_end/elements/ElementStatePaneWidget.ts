@@ -9,6 +9,9 @@ import * as UI from '../ui/ui.js';
 import {ElementsPanel} from './ElementsPanel.js';
 
 export class ElementStatePaneWidget extends UI.Widget.Widget {
+  _inputs: HTMLInputElement[];
+  _inputStates: WeakMap<HTMLInputElement, string>;
+  _cssModel: (SDK.CSSModel.CSSModel|null|undefined)|undefined;
   constructor() {
     super(true);
     this.registerRequiredCSS('elements/elementStatePaneWidget.css', {enableLegacyPatching: true});
@@ -22,13 +25,9 @@ export class ElementStatePaneWidget extends UI.Widget.Widget {
     const inputs = [];
     this._inputs = inputs;
 
-    /** @type {!WeakMap<!HTMLInputElement,string>} */
     this._inputStates = new WeakMap();
 
-    /**
-     * @param {!MouseEvent} event
-     */
-    const clickListener = event => {
+    const clickListener = (event: MouseEvent) => {
       const node = UI.Context.Context.instance().flavor(SDK.DOMModel.DOMNode);
       if (!node || !(event.target instanceof HTMLInputElement)) {
         return;
@@ -40,22 +39,18 @@ export class ElementStatePaneWidget extends UI.Widget.Widget {
       node.domModel().cssModel().forcePseudoState(node, state, event.target.checked);
     };
 
-    /**
-     * @param {string} state
-     * @return {!Element}
-     */
-    const createCheckbox = state => {
+    const createCheckbox = (state: string): Element => {
       const td = document.createElement('td');
       const label = UI.UIUtils.CheckboxLabel.create(':' + state);
       const input = label.checkboxElement;
       this._inputStates.set(input, state);
-      input.addEventListener('click', /** @type {!EventListener} */ (clickListener), false);
+      input.addEventListener('click', (clickListener as EventListener), false);
       inputs.push(input);
       td.appendChild(label);
       return td;
     };
 
-    let tr = table.createChild('tr');
+    let tr: HTMLElement = table.createChild('tr');
     tr.appendChild(createCheckbox('active'));
     tr.appendChild(createCheckbox('hover'));
 
@@ -71,26 +66,19 @@ export class ElementStatePaneWidget extends UI.Widget.Widget {
     UI.Context.Context.instance().addFlavorChangeListener(SDK.DOMModel.DOMNode, this._update, this);
   }
 
-  /**
-   * @param {?SDK.CSSModel.CSSModel} cssModel
-   */
-  _updateModel(cssModel) {
+  _updateModel(cssModel: SDK.CSSModel.CSSModel|null) {
     if (this._cssModel === cssModel) {
       return;
     }
     if (this._cssModel) {
       this._cssModel.removeEventListener(SDK.CSSModel.Events.PseudoStateForced, this._update, this);
     }
-    /** @type {?SDK.CSSModel.CSSModel} */
     this._cssModel = cssModel;
     if (this._cssModel) {
       this._cssModel.addEventListener(SDK.CSSModel.Events.PseudoStateForced, this._update, this);
     }
   }
 
-  /**
-   * @override
-   */
   wasShown() {
     this._update();
   }
@@ -100,7 +88,7 @@ export class ElementStatePaneWidget extends UI.Widget.Widget {
       return;
     }
 
-    let node = UI.Context.Context.instance().flavor(SDK.DOMModel.DOMNode);
+    let node: (SDK.DOMModel.DOMNode|null) = UI.Context.Context.instance().flavor(SDK.DOMModel.DOMNode);
     if (node) {
       node = node.enclosingElementOrSelf();
     }
@@ -122,10 +110,9 @@ export class ElementStatePaneWidget extends UI.Widget.Widget {
   }
 }
 
-/**
- * @implements {UI.Toolbar.Provider}
- */
-export class ButtonProvider {
+export class ButtonProvider implements UI.Toolbar.Provider {
+  _button: UI.Toolbar.ToolbarToggle;
+  _view: ElementStatePaneWidget;
   constructor() {
     this._button = new UI.Toolbar.ToolbarToggle(Common.UIString.UIString('Toggle Element State'), '');
     this._button.setText(Common.UIString.UIString(':hov'));
@@ -138,11 +125,7 @@ export class ButtonProvider {
     ElementsPanel.instance().showToolbarPane(!this._view.isShowing() ? this._view : null, this._button);
   }
 
-  /**
-   * @override
-   * @return {!UI.Toolbar.ToolbarItem}
-   */
-  item() {
+  item(): UI.Toolbar.ToolbarItem {
     return this._button;
   }
 }

@@ -8,27 +8,27 @@ import {StylePropertyTreeElement} from './StylePropertyTreeElement.js';  // esli
 import {StylesSidebarPane} from './StylesSidebarPane.js';                // eslint-disable-line no-unused-vars
 
 export class StylePropertyHighlighter {
-  /**
-   * @param {!StylesSidebarPane} ssp
-   */
-  constructor(ssp) {
+  _styleSidebarPane: StylesSidebarPane;
+  constructor(ssp: StylesSidebarPane) {
     this._styleSidebarPane = ssp;
   }
 
   /**
    * Expand all shorthands, find the given property, scroll to it and highlight it.
-   * @param {!SDK.CSSProperty.CSSProperty} cssProperty
    */
-  highlightProperty(cssProperty) {
+  highlightProperty(cssProperty: SDK.CSSProperty.CSSProperty) {
     // Expand all shorthands.
     for (const section of this._styleSidebarPane.allSections()) {
-      for (let treeElement = section.propertiesTreeOutline.firstChild(); treeElement;
-           treeElement = treeElement.nextSibling) {
+      for (let treeElement:
+               (import('/Users/janscheffler/dev/devtools/devtools-frontend/out/Default/gen/front_end/ui/Treeoutline')
+                    .TreeElement|null) = section.propertiesTreeOutline.firstChild();
+           treeElement; treeElement = treeElement.nextSibling) {
         treeElement.onpopulate();
       }
     }
 
-    const treeElement = this._findTreeElement(treeElement => treeElement.property === cssProperty);
+    const treeElement =
+        this._findTreeElement((treeElement: StylePropertyTreeElement) => treeElement.property === cssProperty);
     if (treeElement) {
       treeElement.parent && treeElement.parent.expand();
       this._scrollAndHighlightTreeElement(treeElement);
@@ -37,10 +37,10 @@ export class StylePropertyHighlighter {
 
   /**
    * Find the first property that matches the provided name, scroll to it and highlight it.
-   * @param {string} propertyName
    */
-  findAndHighlightPropertyName(propertyName) {
-    const treeElement = this._findTreeElement(treeElement => treeElement.property.name === propertyName);
+  findAndHighlightPropertyName(propertyName: string) {
+    const treeElement =
+        this._findTreeElement((treeElement: StylePropertyTreeElement) => treeElement.property.name === propertyName);
     if (treeElement) {
       this._scrollAndHighlightTreeElement(treeElement);
     }
@@ -49,13 +49,13 @@ export class StylePropertyHighlighter {
   /**
    * Traverse the styles pane tree, execute the provided callback for every tree element found, and
    * return the first tree element for which the callback returns a truthy value.
-   * @param {function(!StylePropertyTreeElement):boolean} compareCb
-   * @return {?StylePropertyTreeElement}
    */
-  _findTreeElement(compareCb) {
-    let result = null;
+  _findTreeElement(compareCb: (arg0: StylePropertyTreeElement) => boolean): StylePropertyTreeElement|null {
+    let result: StylePropertyTreeElement|null = null;
     for (const section of this._styleSidebarPane.allSections()) {
-      let treeElement = section.propertiesTreeOutline.firstChild();
+      let treeElement:
+          (import('/Users/janscheffler/dev/devtools/devtools-frontend/out/Default/gen/front_end/ui/Treeoutline')
+               .TreeElement|null) = section.propertiesTreeOutline.firstChild();
       while (treeElement && !result && (treeElement instanceof StylePropertyTreeElement)) {
         if (compareCb(treeElement)) {
           result = treeElement;
@@ -70,15 +70,13 @@ export class StylePropertyHighlighter {
     return result;
   }
 
-  /**
-   * @param {!StylePropertyTreeElement} treeElement
-   */
-  _scrollAndHighlightTreeElement(treeElement) {
+  _scrollAndHighlightTreeElement(treeElement: StylePropertyTreeElement) {
     treeElement.listItemElement.scrollIntoViewIfNeeded();
     treeElement.listItemElement.animate(
         [
           {offset: 0, backgroundColor: 'rgba(255, 255, 0, 0.2)'},
-          {offset: 0.1, backgroundColor: 'rgba(255, 255, 0, 0.7)'}, {offset: 1, backgroundColor: 'transparent'}
+          {offset: 0.1, backgroundColor: 'rgba(255, 255, 0, 0.7)'},
+          {offset: 1, backgroundColor: 'transparent'},
         ],
         {duration: 2000, easing: 'cubic-bezier(0, 0, 0.2, 1)'});
   }

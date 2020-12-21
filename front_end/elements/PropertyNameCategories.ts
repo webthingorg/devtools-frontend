@@ -4,19 +4,19 @@
 
 import * as SDK from '../sdk/sdk.js';
 
-/** @enum {string} */
-export const Category = {
-  Layout: 'Layout',
-  Text: 'Text',
-  Appearance: 'Appearance',
-  Animation: 'Animation',
-  Grid: 'Grid',
-  Flex: 'Flex',
-  Table: 'Table',
-  CSSVariables: 'CSS Variables',
-  GeneratedContent: 'Generated Content',
-  Other: 'Other',
-};
+export const enum Category {
+  Layout = 'Layout',
+  Text = 'Text',
+  Appearance = 'Appearance',
+  Animation = 'Animation',
+  Grid = 'Grid',
+  Flex = 'Flex',
+  Table = 'Table',
+  CSSVariables = 'CSS Variables',
+  GeneratedContent = 'Generated Content',
+  Other = 'Other'
+}
+
 
 export const DefaultCategoryOrder = [
   Category.Layout,
@@ -46,7 +46,7 @@ const CategorizedProperties = new Map([
       'flex-flow',     'flex-grow',   'flex-shrink',     'flex-wrap',      'justify-content', 'order',
       'inline-size',   'block-size',  'min-inline-size', 'min-block-size', 'max-inline-size', 'max-block-size',
       'min-width',     'max-width',   'min-height',      'max-height',
-    ]
+    ],
   ],
   [
     Category.Text,
@@ -81,7 +81,7 @@ const CategorizedProperties = new Map([
       'white-space',
       'word-break',
       'word-wrap',
-    ]
+    ],
   ],
   [
     Category.Appearance,
@@ -99,7 +99,7 @@ const CategorizedProperties = new Map([
       'box-shadow',
       '≈',
       'tap-highlight-color',
-    ]
+    ],
   ],
   [
     Category.Animation,
@@ -118,7 +118,7 @@ const CategorizedProperties = new Map([
       'transition-duration',
       'transition-property',
       'transition-timing-function',
-    ]
+    ],
   ],
   [
     Category.Grid,
@@ -130,7 +130,7 @@ const CategorizedProperties = new Map([
       'place-items',
       'place-content',
       'place-self',
-    ]
+    ],
   ],
   [
     Category.Flex,
@@ -140,7 +140,7 @@ const CategorizedProperties = new Map([
       'place-items',
       'place-content',
       'place-self',
-    ]
+    ],
   ],
   [
     Category.Table,
@@ -150,7 +150,7 @@ const CategorizedProperties = new Map([
       'caption-side',
       'empty-cells',
       'table-layout',
-    ]
+    ],
   ],
   [
     Category.GeneratedContent,
@@ -159,37 +159,30 @@ const CategorizedProperties = new Map([
       'quotes',
       'counter-reset',
       'counter-increment',
-    ]
+    ],
   ],
 ]);
 
 /** @type {!Map<string, !Array<!Category>>} */
-const CategoriesByPropertyName = new Map();
+const CategoriesByPropertyName = new Map<string, never[]>();
 
 for (const [category, styleNames] of CategorizedProperties) {
   for (const styleName of styleNames) {
     if (!CategoriesByPropertyName.has(styleName)) {
       CategoriesByPropertyName.set(styleName, []);
     }
-    const categories = /** @type Array<Category> */ (CategoriesByPropertyName.get(styleName));
+    const categories: Category[] = (CategoriesByPropertyName.get(styleName) as Category[]);
     categories.push(category);
   }
 }
 
-/**
- * @param {string} propertyName
- * @return {!Array<!Category>}
- */
-const matchCategoriesByPropertyName = propertyName => {
+const matchCategoriesByPropertyName = (propertyName: string): Category[] => {
   if (CategoriesByPropertyName.has(propertyName)) {
-    return /** @type {!Array<!Category>} */ (CategoriesByPropertyName.get(propertyName));
+    return CategoriesByPropertyName.get(propertyName) as Category[];
   }
-
-  // dynamic rules can be appended here
   if (propertyName.startsWith('--')) {
     return [Category.CSSVariables];
   }
-
   return [];
 };
 
@@ -200,11 +193,8 @@ const matchCategoriesByPropertyName = propertyName => {
  * matches against several dynamic rules. It then tries to use the canonical
  * name's shorthands for matching. If nothing matches, it returns the "Other"
  * category.
- *
- * @param {string} propertyName
- * @return {!Array<!Category>}
  */
-export const categorizePropertyName = propertyName => {
+export const categorizePropertyName = (propertyName: string): Category[] => {
   const cssMetadata = SDK.CSSMetadata.cssMetadata();
   const canonicalName = cssMetadata.canonicalPropertyName(propertyName);
   const categories = matchCategoriesByPropertyName(canonicalName);

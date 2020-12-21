@@ -13,12 +13,12 @@ import * as UI from '../ui/ui.js';
  * set the property HrefSymbol.
  */
 export class ImagePreviewPopover {
-  /**
-    * @param {!Element} container
-    * @param {function(!Event):?Element} getLinkElement
-    * @param {function(!Element):?SDK.DOMModel.DOMNode} getDOMNode
-    */
-  constructor(container, getLinkElement, getDOMNode) {
+  _getLinkElement: (arg0: Event) => Element | null;
+  _getDOMNode: (arg0: Element) => SDK.DOMModel.DOMNode | null;
+  _popover: UI.PopoverHelper.PopoverHelper;
+  constructor(
+      container: Element, getLinkElement: (arg0: Event) => Element | null,
+      getDOMNode: (arg0: Element) => SDK.DOMModel.DOMNode | null) {
     this._getLinkElement = getLinkElement;
     this._getDOMNode = getDOMNode;
     this._popover = new UI.PopoverHelper.PopoverHelper(container, this._handleRequest.bind(this));
@@ -26,11 +26,7 @@ export class ImagePreviewPopover {
     this._popover.setTimeout(0, 100);
   }
 
-  /**
-    * @param {!Event} event
-    * @return {?UI.PopoverHelper.PopoverRequest}
-    */
-  _handleRequest(event) {
+  _handleRequest(event: Event): UI.PopoverHelper.PopoverRequest|null {
     const link = this._getLinkElement(event);
     if (!link) {
       return null;
@@ -42,8 +38,8 @@ export class ImagePreviewPopover {
     return {
       box: link.boxInWindow(),
       hide: undefined,
-      show: async popover => {
-        const node = this._getDOMNode(/** @type {!Element} */ (link));
+      show: async (popover: UI.GlassPane.GlassPane) => {
+        const node = this._getDOMNode((link as Element));
         if (!node) {
           return false;
         }
@@ -54,7 +50,7 @@ export class ImagePreviewPopover {
           popover.contentElement.appendChild(preview);
         }
         return !!preview;
-      }
+      },
     };
   }
 
@@ -62,19 +58,12 @@ export class ImagePreviewPopover {
     this._popover.hidePopover();
   }
 
-  /**
-     * @param {!Element} element
-     * @param {string} url
-     */
-  static setImageUrl(element, url) {
+  static setImageUrl(element: Element, url: string) {
     elementToURLMap.set(element, url);
     return element;
   }
 
-  /**
-   * @param {!Element} element
-   */
-  static getImageURL(element) {
+  static getImageURL(element: Element) {
     return elementToURLMap.get(element);
   }
 }

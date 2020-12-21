@@ -7,43 +7,34 @@ import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
 export class ComputedStyleModel extends Common.ObjectWrapper.ObjectWrapper {
+  _node: SDK.DOMModel.DOMNode|null;
+  _cssModel: SDK.CSSModel.CSSModel|null;
+  _eventListeners: Common.EventTarget.EventDescriptor[];
+  _frameResizedTimer: (number|undefined)|undefined;
+  _computedStylePromise: (Promise<ComputedStyle|null>|undefined)|undefined;
   constructor() {
     super();
     this._node = UI.Context.Context.instance().flavor(SDK.DOMModel.DOMNode);
-    /** @type {?SDK.CSSModel.CSSModel} */
     this._cssModel = null;
-    /** @type {!Array<!Common.EventTarget.EventDescriptor>} */
     this._eventListeners = [];
     UI.Context.Context.instance().addFlavorChangeListener(SDK.DOMModel.DOMNode, this._onNodeChanged, this);
   }
 
-  /**
-   * @return {?SDK.DOMModel.DOMNode}
-   */
-  node() {
+  node(): SDK.DOMModel.DOMNode|null {
     return this._node;
   }
 
-  /**
-   * @return {?SDK.CSSModel.CSSModel}
-   */
-  cssModel() {
+  cssModel(): SDK.CSSModel.CSSModel|null {
     return this._cssModel && this._cssModel.isEnabled() ? this._cssModel : null;
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _onNodeChanged(event) {
-    this._node = /** @type {?SDK.DOMModel.DOMNode} */ (event.data);
+  _onNodeChanged(event: Common.EventTarget.EventTargetEvent) {
+    this._node = (event.data as SDK.DOMModel.DOMNode | null);
     this._updateModel(this._node ? this._node.domModel().cssModel() : null);
     this._onComputedStyleChanged(null);
   }
 
-  /**
-   * @param {?SDK.CSSModel.CSSModel} cssModel
-   */
-  _updateModel(cssModel) {
+  _updateModel(cssModel: SDK.CSSModel.CSSModel|null) {
     if (this._cssModel === cssModel) {
       return;
     }
@@ -66,20 +57,14 @@ export class ComputedStyleModel extends Common.ObjectWrapper.ObjectWrapper {
     }
   }
 
-  /**
-   * @param {?Common.EventTarget.EventTargetEvent} event
-   */
-  _onComputedStyleChanged(event) {
+  _onComputedStyleChanged(event: Common.EventTarget.EventTargetEvent|null) {
     delete this._computedStylePromise;
     this.dispatchEventToListeners(Events.ComputedStyleChanged, event ? event.data : null);
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _onDOMModelChanged(event) {
+  _onDOMModelChanged(event: Common.EventTarget.EventTargetEvent) {
     // Any attribute removal or modification can affect the styles of "related" nodes.
-    const node = /** @type {!SDK.DOMModel.DOMNode} */ (event.data);
+    const node = (event.data as SDK.DOMModel.DOMNode);
     if (!this._node ||
         this._node !== node && node.parentNode !== this._node.parentNode && !node.isAncestor(this._node)) {
       return;
@@ -87,14 +72,8 @@ export class ComputedStyleModel extends Common.ObjectWrapper.ObjectWrapper {
     this._onComputedStyleChanged(null);
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _onFrameResized(event) {
-    /**
-     * @this {ComputedStyleModel}
-     */
-    function refreshContents() {
+  _onFrameResized(event: Common.EventTarget.EventTargetEvent) {
+    function refreshContents(this: ComputedStyleModel) {
       this._onComputedStyleChanged(null);
       delete this._frameResizedTimer;
     }
@@ -106,10 +85,7 @@ export class ComputedStyleModel extends Common.ObjectWrapper.ObjectWrapper {
     this._frameResizedTimer = setTimeout(refreshContents.bind(this), 100);
   }
 
-  /**
-   * @return {?SDK.DOMModel.DOMNode}
-   */
-  _elementNode() {
+  _elementNode(): SDK.DOMModel.DOMNode|null {
     const node = this.node();
     if (!node) {
       return null;
@@ -117,18 +93,15 @@ export class ComputedStyleModel extends Common.ObjectWrapper.ObjectWrapper {
     return node.enclosingElementOrSelf();
   }
 
-  /**
-   * @return {!Promise.<?ComputedStyle>}
-   */
-  fetchComputedStyle() {
+  fetchComputedStyle(): Promise<ComputedStyle|null> {
     const elementNode = this._elementNode();
     const cssModel = this.cssModel();
     if (!elementNode || !cssModel) {
-      return Promise.resolve(/** @type {?ComputedStyle} */ (null));
+      return Promise.resolve((null as ComputedStyle | null));
     }
     const nodeId = elementNode.id;
     if (!nodeId) {
-      return Promise.resolve(/** @type {?ComputedStyle} */ (null));
+      return Promise.resolve((null as ComputedStyle | null));
     }
 
     if (!this._computedStylePromise) {
@@ -137,30 +110,24 @@ export class ComputedStyleModel extends Common.ObjectWrapper.ObjectWrapper {
 
     return this._computedStylePromise;
 
-    /**
-     * @param {!SDK.DOMModel.DOMNode} elementNode
-     * @param {?Map.<string, string>} style
-     * @return {?ComputedStyle}
-     * @this {ComputedStyleModel}
-     */
-    function verifyOutdated(elementNode, style) {
+    function verifyOutdated(
+        this: ComputedStyleModel, elementNode: SDK.DOMModel.DOMNode, style: Map<string, string>|null): ComputedStyle|
+        null {
       return elementNode === this._elementNode() && style ? new ComputedStyle(elementNode, style) :
-                                                            /** @type {?ComputedStyle} */ (null);
+                                                            null as ComputedStyle | null;
     }
   }
 }
 
-/** @enum {symbol} */
-export const Events = {
-  ComputedStyleChanged: Symbol('ComputedStyleChanged')
-};
+export const enum Events {
+  ComputedStyleChanged = 'ComputedStyleChanged'
+}
+
 
 export class ComputedStyle {
-  /**
-   * @param {!SDK.DOMModel.DOMNode} node
-   * @param {!Map.<string, string>} computedStyle
-   */
-  constructor(node, computedStyle) {
+  node: SDK.DOMModel.DOMNode;
+  computedStyle: Map<string, string>;
+  constructor(node: SDK.DOMModel.DOMNode, computedStyle: Map<string, string>) {
     this.node = node;
     this.computedStyle = computedStyle;
   }

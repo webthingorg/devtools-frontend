@@ -10,6 +10,13 @@ import * as UI from '../ui/ui.js';
 import {ElementsPanel} from './ElementsPanel.js';
 
 export class ClassesPaneWidget extends UI.Widget.Widget {
+  _input: HTMLElement;
+  _classesContainer: HTMLElement;
+  _prompt: ClassNamePrompt;
+  _mutatingNodes: Set<SDK.DOMModel.DOMNode>;
+  _pendingNodeClasses: Map<SDK.DOMModel.DOMNode, string>;
+  _updateNodeThrottler: Common.Throttler.Throttler;
+  _previousTarget: SDK.DOMModel.DOMNode|null;
   constructor() {
     super(true);
     this.registerRequiredCSS('elements/classesPaneWidget.css', {enableLegacyPatching: true});
@@ -30,28 +37,20 @@ export class ClassesPaneWidget extends UI.Widget.Widget {
 
     SDK.SDKModel.TargetManager.instance().addModelListener(
         SDK.DOMModel.DOMModel, SDK.DOMModel.Events.DOMMutated, this._onDOMMutated, this);
-    /** @type {!Set<!SDK.DOMModel.DOMNode>} */
     this._mutatingNodes = new Set();
-    /** @type {!Map<!SDK.DOMModel.DOMNode, string>} */
     this._pendingNodeClasses = new Map();
     this._updateNodeThrottler = new Common.Throttler.Throttler(0);
-    /** @type {?SDK.DOMModel.DOMNode} */
     this._previousTarget = null;
     UI.Context.Context.instance().addFlavorChangeListener(SDK.DOMModel.DOMNode, this._onSelectedNodeChanged, this);
   }
 
-  /**
-   * @param {string} text
-   * @return {!Array.<string>}
-   */
-  _splitTextIntoClasses(text) {
-    return text.split(/[,\s]/).map(className => className.trim()).filter(className => className.length);
+  _splitTextIntoClasses(text: string): string[] {
+    return text.split(/[,\s]/)
+        .map((className: string) => className.trim())
+        .filter((className: string) => className.length);
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _onKeyDown(event) {
+  _onKeyDown(event: Event) {
     if (!isEnterKey(event) && !isEscKey(event)) {
       return;
     }
@@ -63,8 +62,8 @@ export class ClassesPaneWidget extends UI.Widget.Widget {
       }
     }
 
-    const eventTarget = /** @type {!HTMLElement} */ (event.target);
-    let text = /** @type {string} */ (eventTarget.textContent);
+    const eventTarget = (event.target as HTMLElement);
+    let text: string = (eventTarget.textContent as string);
     if (isEscKey(event)) {
       if (!Platform.StringUtilities.isWhitespace(text)) {
         event.consume(true);
@@ -108,11 +107,8 @@ export class ClassesPaneWidget extends UI.Widget.Widget {
     this._installNodeClasses(node);
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _onDOMMutated(event) {
-    const node = /** @type {!SDK.DOMModel.DOMNode} */ (event.data);
+  _onDOMMutated(event: Common.EventTarget.EventTargetEvent) {
+    const node = (event.data as SDK.DOMModel.DOMNode);
     if (this._mutatingNodes.has(node)) {
       return;
     }
@@ -120,21 +116,15 @@ export class ClassesPaneWidget extends UI.Widget.Widget {
     this._update();
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _onSelectedNodeChanged(event) {
+  _onSelectedNodeChanged(event: Common.EventTarget.EventTargetEvent) {
     if (this._previousTarget && this._prompt.text()) {
       this._input.textContent = '';
       this._installNodeClasses(this._previousTarget);
     }
-    this._previousTarget = /** @type {?SDK.DOMModel.DOMNode} */ (event.data);
+    this._previousTarget = (event.data as SDK.DOMModel.DOMNode | null);
     this._update();
   }
 
-  /**
-   * @override
-   */
   wasShown() {
     this._update();
   }
@@ -144,7 +134,7 @@ export class ClassesPaneWidget extends UI.Widget.Widget {
       return;
     }
 
-    let node = UI.Context.Context.instance().flavor(SDK.DOMModel.DOMNode);
+    let node: (SDK.DOMModel.DOMNode|null) = UI.Context.Context.instance().flavor(SDK.DOMModel.DOMNode);
     if (node) {
       node = node.enclosingElementOrSelf();
     }
@@ -168,26 +158,18 @@ export class ClassesPaneWidget extends UI.Widget.Widget {
     }
   }
 
-  /**
-   * @param {string} className
-   * @param {!Event} event
-   */
-  _onClick(className, event) {
+  _onClick(className: string, event: Event) {
     const node = UI.Context.Context.instance().flavor(SDK.DOMModel.DOMNode);
     if (!node) {
       return;
     }
-    const enabled = /** @type {!HTMLInputElement} */ (event.target).checked;
+    const enabled = (event.target as HTMLInputElement).checked;
     this._toggleClass(node, className, enabled);
     this._installNodeClasses(node);
   }
 
-  /**
-   * @param {!SDK.DOMModel.DOMNode} node
-   * @return {!Map<string, boolean>}
-   */
-  _nodeClasses(node) {
-    let result = cachedClassesMap.get(node);
+  _nodeClasses(node: SDK.DOMModel.DOMNode): Map<string, boolean> {
+    let result: (Map<string, boolean>|undefined) = cachedClassesMap.get(node);
     if (!result) {
       const classAttribute = node.getAttribute('class') || '';
       const classes = classAttribute.split(/\s/);
@@ -204,22 +186,14 @@ export class ClassesPaneWidget extends UI.Widget.Widget {
     return result;
   }
 
-  /**
-   * @param {!SDK.DOMModel.DOMNode} node
-   * @param {string} className
-   * @param {boolean} enabled
-   */
-  _toggleClass(node, className, enabled) {
+  _toggleClass(node: SDK.DOMModel.DOMNode, className: string, enabled: boolean) {
     const classes = this._nodeClasses(node);
     classes.set(className, enabled);
   }
 
-  /**
-   * @param {!SDK.DOMModel.DOMNode} node
-   */
-  _installNodeClasses(node) {
+  _installNodeClasses(node: SDK.DOMModel.DOMNode) {
     const classes = this._nodeClasses(node);
-    const activeClasses = new Set();
+    const activeClasses = new Set<string>();
     for (const className of classes.keys()) {
       if (classes.get(className)) {
         activeClasses.add(className);
@@ -237,25 +211,18 @@ export class ClassesPaneWidget extends UI.Widget.Widget {
     this._updateNodeThrottler.schedule(this._flushPendingClasses.bind(this));
   }
 
-  /**
-   * @return {!Promise<void>}
-   */
-  async _flushPendingClasses() {
+  async _flushPendingClasses(): Promise<void> {
     const promises = [];
     for (const node of this._pendingNodeClasses.keys()) {
       this._mutatingNodes.add(node);
-      const promise = node.setAttributeValuePromise('class', /** @type {string} */ (this._pendingNodeClasses.get(node)))
+      const promise = node.setAttributeValuePromise('class', (this._pendingNodeClasses.get(node) as string))
                           .then(onClassValueUpdated.bind(this, node));
       promises.push(promise);
     }
     this._pendingNodeClasses.clear();
     await Promise.all(promises);
 
-    /**
-     * @param {!SDK.DOMModel.DOMNode} node
-     * @this {ClassesPaneWidget}
-     */
-    function onClassValueUpdated(node) {
+    function onClassValueUpdated(this: ClassesPaneWidget, node: SDK.DOMModel.DOMNode) {
       this._mutatingNodes.delete(node);
     }
   }
@@ -264,10 +231,9 @@ export class ClassesPaneWidget extends UI.Widget.Widget {
 /** @type {!WeakMap<!SDK.DOMModel.DOMNode, !Map<string, boolean>>} */
 const cachedClassesMap = new WeakMap();
 
-/**
- * @implements {UI.Toolbar.Provider}
- */
-export class ButtonProvider {
+export class ButtonProvider implements UI.Toolbar.Provider {
+  _button: UI.Toolbar.ToolbarToggle;
+  _view: ClassesPaneWidget;
   constructor() {
     this._button = new UI.Toolbar.ToolbarToggle(Common.UIString.UIString('Element Classes'), '');
     this._button.setText('.cls');
@@ -280,36 +246,27 @@ export class ButtonProvider {
     ElementsPanel.instance().showToolbarPane(!this._view.isShowing() ? this._view : null, this._button);
   }
 
-  /**
-   * @override
-   * @return {!UI.Toolbar.ToolbarItem}
-   */
-  item() {
+  item(): UI.Toolbar.ToolbarItem {
     return this._button;
   }
 }
 
 export class ClassNamePrompt extends UI.TextPrompt.TextPrompt {
-  /**
-   * @param {function(!SDK.DOMModel.DOMNode):!Map<string, boolean>} nodeClasses
-   */
-  constructor(nodeClasses) {
+  _nodeClasses: (arg0: SDK.DOMModel.DOMNode) => Map<string, boolean>;
+  _selectedFrameId: string|null;
+  _classNamesPromise: Promise<string[]>|null;
+  constructor(nodeClasses: (arg0: SDK.DOMModel.DOMNode) => Map<string, boolean>) {
     super();
     this._nodeClasses = nodeClasses;
     this.initialize(this._buildClassNameCompletions.bind(this), ' ');
     this.disableDefaultSuggestionForEmptyInput();
-    /** @type {?string} */
     this._selectedFrameId = '';
     this._classNamesPromise = null;
   }
 
-  /**
-   * @param {!SDK.DOMModel.DOMNode} selectedNode
-   * @return {!Promise.<!Array.<string>>}
-   */
-  async _getClassNames(selectedNode) {
+  async _getClassNames(selectedNode: SDK.DOMModel.DOMNode): Promise<string[]> {
     const promises = [];
-    const completions = new Set();
+    const completions = new Set<string>();
     this._selectedFrameId = selectedNode.frameId();
 
     const cssModel = selectedNode.domModel().cssModel();
@@ -318,7 +275,7 @@ export class ClassNamePrompt extends UI.TextPrompt.TextPrompt {
       if (stylesheet.frameId !== this._selectedFrameId) {
         continue;
       }
-      const cssPromise = cssModel.classNamesPromise(stylesheet.id).then(classes => {
+      const cssPromise = cssModel.classNamesPromise(stylesheet.id).then((classes: string[]) => {
         for (const className of classes) {
           completions.add(className);
         }
@@ -326,10 +283,9 @@ export class ClassNamePrompt extends UI.TextPrompt.TextPrompt {
       promises.push(cssPromise);
     }
 
-    const ownerDocumentId = /** @type {number} */ (
-        /** @type {!SDK.DOMModel.DOMDocument} */ (selectedNode.ownerDocument).id);
+    const ownerDocumentId: number = ((selectedNode.ownerDocument as SDK.DOMModel.DOMDocument).id);
 
-    const domPromise = selectedNode.domModel().classNamesPromise(ownerDocumentId).then(classes => {
+    const domPromise = selectedNode.domModel().classNamesPromise(ownerDocumentId).then((classes: string[]) => {
       for (const className of classes) {
         completions.add(className);
       }
@@ -339,13 +295,8 @@ export class ClassNamePrompt extends UI.TextPrompt.TextPrompt {
     return [...completions];
   }
 
-  /**
-   * @param {string} expression
-   * @param {string} prefix
-   * @param {boolean=} force
-   * @return {!Promise<!UI.SuggestBox.Suggestions>}
-   */
-  _buildClassNameCompletions(expression, prefix, force) {
+  _buildClassNameCompletions(expression: string, prefix: string, force?: boolean|undefined):
+      Promise<UI.SuggestBox.Suggestions> {
     if (!prefix || force) {
       this._classNamesPromise = null;
     }
@@ -359,25 +310,25 @@ export class ClassNamePrompt extends UI.TextPrompt.TextPrompt {
       this._classNamesPromise = this._getClassNames(selectedNode);
     }
 
-    return this._classNamesPromise.then(completions => {
-      const classesMap = this._nodeClasses(/** @type {!SDK.DOMModel.DOMNode} */ (selectedNode));
-      completions = completions.filter(value => !classesMap.get(value));
+    return this._classNamesPromise.then((completions: string[]) => {
+      const classesMap = this._nodeClasses((selectedNode as SDK.DOMModel.DOMNode));
+      completions = completions.filter((value: string) => !classesMap.get(value));
 
       if (prefix[0] === '.') {
-        completions = completions.map(value => '.' + value);
+        completions = completions.map((value: string) => '.' + value);
       }
-      return completions.filter(value => value.startsWith(prefix)).sort().map(completion => ({
-                                                                                text: completion,
-                                                                                title: undefined,
-                                                                                subtitle: undefined,
-                                                                                iconType: undefined,
-                                                                                priority: undefined,
-                                                                                isSecondary: undefined,
-                                                                                subtitleRenderer: undefined,
-                                                                                selectionRange: undefined,
-                                                                                hideGhostText: undefined,
-                                                                                iconElement: undefined,
-                                                                              }));
+      return completions.filter((value: string) => value.startsWith(prefix)).sort().map((completion: string) => ({
+                                                                                          text: completion,
+                                                                                          title: undefined,
+                                                                                          subtitle: undefined,
+                                                                                          iconType: undefined,
+                                                                                          priority: undefined,
+                                                                                          isSecondary: undefined,
+                                                                                          subtitleRenderer: undefined,
+                                                                                          selectionRange: undefined,
+                                                                                          hideGhostText: undefined,
+                                                                                          iconElement: undefined,
+                                                                                        }));
     });
   }
 }

@@ -6,12 +6,8 @@ import * as Common from '../common/common.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
-/**
- * @param {!SDK.DOMModel.DOMNode} node
- * @param {!HTMLElement} parentElement
- * @param {string=} tooltipContent
- */
-export const decorateNodeLabel = function(node, parentElement, tooltipContent) {
+export const decorateNodeLabel = function(
+    node: SDK.DOMModel.DOMNode, parentElement: HTMLElement, tooltipContent?: string|undefined) {
   const originalNode = node;
   const isPseudo = node.nodeType() === Node.ELEMENT_NODE && node.pseudoType();
   if (isPseudo && node.parentNode) {
@@ -38,7 +34,7 @@ export const decorateNodeLabel = function(node, parentElement, tooltipContent) {
   if (classAttribute) {
     const classes = classAttribute.split(/\s+/);
     if (classes.length) {
-      const foundClasses = new Set();
+      const foundClasses = new Set<string>();
       const classesElement = parentElement.createChild('span', 'extra node-label-class');
       for (let i = 0; i < classes.length; ++i) {
         const className = classes[i];
@@ -61,15 +57,11 @@ export const decorateNodeLabel = function(node, parentElement, tooltipContent) {
   UI.Tooltip.Tooltip.install(parentElement, tooltipContent || title);
 };
 
-/**
- * @param {?SDK.DOMModel.DOMNode} node
- * @param {!Common.Linkifier.Options=} options
- * @return {!Node}
- */
-export const linkifyNodeReference = function(node, options = {
-  tooltip: undefined,
-  preventKeyboardFocus: undefined,
-}) {
+export const linkifyNodeReference = function(
+    node: SDK.DOMModel.DOMNode|null, options: Common.Linkifier.Options|undefined = {
+      tooltip: undefined,
+      preventKeyboardFocus: undefined,
+    }): Node {
   if (!node) {
     return document.createTextNode(Common.UIString.UIString('<node>'));
   }
@@ -78,7 +70,7 @@ export const linkifyNodeReference = function(node, options = {
   root.classList.add('monospace');
   const shadowRoot = UI.Utils.createShadowRootWithCoreStyles(
       root, {cssFile: 'elements/domLinkifier.css', enableLegacyPatching: false, delegatesFocus: undefined});
-  const link = /** @type {!HTMLDivElement} */ (shadowRoot.createChild('div', 'node-link'));
+  const link = (shadowRoot.createChild('div', 'node-link') as HTMLDivElement);
 
   decorateNodeLabel(node, link, options.tooltip);
 
@@ -87,7 +79,8 @@ export const linkifyNodeReference = function(node, options = {
   link.addEventListener('mouseleave', () => SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight(), false);
 
   if (!options.preventKeyboardFocus) {
-    link.addEventListener('keydown', event => isEnterKey(event) && Common.Revealer.reveal(node, false) && false);
+    link.addEventListener(
+        'keydown', (event: KeyboardEvent) => isEnterKey(event) && Common.Revealer.reveal(node, false) && false);
     link.tabIndex = 0;
     UI.ARIAUtils.markAsLink(link);
   }
@@ -95,50 +88,35 @@ export const linkifyNodeReference = function(node, options = {
   return root;
 };
 
-/**
- * @param {!SDK.DOMModel.DeferredDOMNode} deferredNode
- * @param {!Common.Linkifier.Options=} options
- * @return {!Node}
- */
-export const linkifyDeferredNodeReference = function(deferredNode, options = {
-  tooltip: undefined,
-  preventKeyboardFocus: undefined,
-}) {
+export const linkifyDeferredNodeReference = function(
+    deferredNode: SDK.DOMModel.DeferredDOMNode, options: Common.Linkifier.Options|undefined = {
+      tooltip: undefined,
+      preventKeyboardFocus: undefined,
+    }): Node {
   const root = document.createElement('div');
   const shadowRoot = UI.Utils.createShadowRootWithCoreStyles(
       root, {cssFile: 'elements/domLinkifier.css', enableLegacyPatching: false, delegatesFocus: undefined});
-  const link = /** @type {!HTMLDivElement} */ (shadowRoot.createChild('div', 'node-link'));
+  const link = (shadowRoot.createChild('div', 'node-link') as HTMLDivElement);
   link.createChild('slot');
   link.addEventListener('click', deferredNode.resolve.bind(deferredNode, onDeferredNodeResolved), false);
-  link.addEventListener('mousedown', e => e.consume(), false);
+  link.addEventListener('mousedown', (e: MouseEvent) => e.consume(), false);
 
   if (!options.preventKeyboardFocus) {
-    link.addEventListener('keydown', event => isEnterKey(event) && deferredNode.resolve(onDeferredNodeResolved));
+    link.addEventListener(
+        'keydown', (event: KeyboardEvent) => isEnterKey(event) && deferredNode.resolve(onDeferredNodeResolved));
     link.tabIndex = 0;
     UI.ARIAUtils.markAsLink(link);
   }
 
-  /**
-   * @param {?SDK.DOMModel.DOMNode} node
-   */
-  function onDeferredNodeResolved(node) {
+  function onDeferredNodeResolved(node: SDK.DOMModel.DOMNode|null) {
     Common.Revealer.reveal(node);
   }
 
   return root;
 };
 
-/**
- * @implements {Common.Linkifier.Linkifier}
- */
-export class Linkifier {
-  /**
-   * @override
-   * @param {!Object} object
-   * @param {!Common.Linkifier.Options=} options
-   * @return {!Node}
-   */
-  linkify(object, options) {
+export class Linkifier implements Common.Linkifier.Linkifier {
+  linkify(object: Object, options?: Common.Linkifier.Options|undefined): Node {
     if (object instanceof SDK.DOMModel.DOMNode) {
       return linkifyNodeReference(object, options);
     }

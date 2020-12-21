@@ -10,6 +10,9 @@ import * as UI from '../ui/ui.js';
 let nodeStackTraceWidgetInstance;
 
 export class NodeStackTraceWidget extends UI.ThrottledWidget.ThrottledWidget {
+  _noStackTraceElement: HTMLElement;
+  _creationStackTraceElement: HTMLElement;
+  _linkifier: Components.Linkifier.Linkifier;
   constructor() {
     super(true /* isWebComponent */);
     this.registerRequiredCSS('elements/nodeStackTraceWidget.css', {enableLegacyPatching: false});
@@ -21,11 +24,7 @@ export class NodeStackTraceWidget extends UI.ThrottledWidget.ThrottledWidget {
     this._linkifier = new Components.Linkifier.Linkifier(MaxLengthForLinks);
   }
 
-  /**
-   * @param {{forceNew: ?boolean}=} opts
-   * @return {!NodeStackTraceWidget}
-   */
-  static instance(opts = {forceNew: null}) {
+  static instance(opts: {forceNew: boolean|null;}|undefined = {forceNew: null}): NodeStackTraceWidget {
     const {forceNew} = opts;
     if (!nodeStackTraceWidgetInstance || forceNew) {
       nodeStackTraceWidgetInstance = new NodeStackTraceWidget();
@@ -34,27 +33,19 @@ export class NodeStackTraceWidget extends UI.ThrottledWidget.ThrottledWidget {
     return nodeStackTraceWidgetInstance;
   }
 
-  /**
-   * @override
-   */
   wasShown() {
     UI.Context.Context.instance().addFlavorChangeListener(SDK.DOMModel.DOMNode, this.update, this);
     this.update();
   }
 
-  /**
-   * @override
-   */
   willHide() {
     UI.Context.Context.instance().removeFlavorChangeListener(SDK.DOMModel.DOMNode, this.update, this);
   }
 
   /**
-   * @override
    * @protected
-   * @return {!Promise<void>}
    */
-  async doUpdate() {
+  async doUpdate(): Promise<void> {
     const node = UI.Context.Context.instance().flavor(SDK.DOMModel.DOMNode);
 
     if (!node) {
@@ -82,6 +73,5 @@ export class NodeStackTraceWidget extends UI.ThrottledWidget.ThrottledWidget {
 
 /**
  * @const
- * @type {number}
  */
-export const MaxLengthForLinks = 40;
+export const MaxLengthForLinks: number = 40;

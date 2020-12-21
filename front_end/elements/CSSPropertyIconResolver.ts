@@ -2,26 +2,22 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-const writingModesAffectingFlexDirection = new Set([
+const writingModesAffectingFlexDirection = new Set<string>([
   'tb',
   'tb-rl',
   'vertical-lr',
   'vertical-rl',
 ]);
 
-/** @enum {string} */
-export const PhysicalFlexDirection = {
-  LEFT_TO_RIGHT: 'left-to-right',
-  RIGHT_TO_LEFT: 'right-to-left',
-  BOTTOM_TO_TOP: 'bottom-to-top',
-  TOP_TO_BOTTOM: 'top-to-bottom',
-};
+export const enum PhysicalFlexDirection {
+  LEFT_TO_RIGHT = 'left-to-right',
+  RIGHT_TO_LEFT = 'right-to-left',
+  BOTTOM_TO_TOP = 'bottom-to-top',
+  TOP_TO_BOTTOM = 'top-to-bottom'
+}
 
-/**
- * @param {!PhysicalFlexDirection} direction
- * @return {!PhysicalFlexDirection}
- */
-export function reverseDirection(direction) {
+
+export function reverseDirection(direction: PhysicalFlexDirection): PhysicalFlexDirection {
   if (direction === PhysicalFlexDirection.LEFT_TO_RIGHT) {
     return PhysicalFlexDirection.RIGHT_TO_LEFT;
   }
@@ -37,11 +33,8 @@ export function reverseDirection(direction) {
   throw new Error('Unknown PhysicalFlexDirection');
 }
 
-/**
- * @param {!Object.<string, !PhysicalFlexDirection>} directions
- * @return {!Object.<string, !PhysicalFlexDirection>}
- */
-function extendWithReverseDirections(directions) {
+function extendWithReverseDirections(directions: {[x: string]: PhysicalFlexDirection;}):
+    {[x: string]: PhysicalFlexDirection;} {
   return {
     ...directions,
     'row-reverse': reverseDirection(directions.row),
@@ -52,11 +45,8 @@ function extendWithReverseDirections(directions) {
 /**
  * Returns absolute directions for row and column values of flex-direction
  * taking into account the direction and writing-mode attributes.
- *
- * @param {!Map<string, string>} computedStyles
- * @return {!Object.<string, !PhysicalFlexDirection>}
  */
-export function getPhysicalFlexDirections(computedStyles) {
+export function getPhysicalFlexDirections(computedStyles: Map<string, string>): {[x: string]: PhysicalFlexDirection;} {
   const isRtl = computedStyles.get('direction') === 'rtl';
   const writingMode = computedStyles.get('writing-mode');
   const isVertical = writingMode && writingModesAffectingFlexDirection.has(writingMode);
@@ -64,7 +54,7 @@ export function getPhysicalFlexDirections(computedStyles) {
   if (isVertical) {
     return extendWithReverseDirections({
       row: isRtl ? PhysicalFlexDirection.BOTTOM_TO_TOP : PhysicalFlexDirection.TOP_TO_BOTTOM,
-      column: writingMode === 'vertical-lr' ? PhysicalFlexDirection.LEFT_TO_RIGHT : PhysicalFlexDirection.RIGHT_TO_LEFT
+      column: writingMode === 'vertical-lr' ? PhysicalFlexDirection.LEFT_TO_RIGHT : PhysicalFlexDirection.RIGHT_TO_LEFT,
     });
   }
 
@@ -80,15 +70,12 @@ export function getPhysicalFlexDirections(computedStyles) {
  * or at the right.
  *
  * By default, the icon is pointing top-down with the arrow on the right-hand side.
- *
- * @param {!PhysicalFlexDirection} direction
- * @return {!IconInfo}
  */
-export function rotateFlexDirectionIcon(direction) {
+export function rotateFlexDirectionIcon(direction: PhysicalFlexDirection): IconInfo {
   // Default to LTR.
-  let flipX = true;
-  let flipY = false;
-  let rotate = -90;
+  let flipX: false|true = true;
+  let flipY: false|true = false;
+  let rotate: 90|0|- 90 = -90;
 
   if (direction === PhysicalFlexDirection.RIGHT_TO_LEFT) {
     rotate = 90;
@@ -112,12 +99,7 @@ export function rotateFlexDirectionIcon(direction) {
   };
 }
 
-/**
- * @param {string} iconName
- * @param {!PhysicalFlexDirection} direction
- * @return {!IconInfo}
- */
-export function rotateAlignContentIcon(iconName, direction) {
+export function rotateAlignContentIcon(iconName: string, direction: PhysicalFlexDirection): IconInfo {
   return {
     iconName,
     rotate: direction === PhysicalFlexDirection.RIGHT_TO_LEFT ?
@@ -128,12 +110,7 @@ export function rotateAlignContentIcon(iconName, direction) {
   };
 }
 
-/**
- * @param {string} iconName
- * @param {!PhysicalFlexDirection} direction
- * @return {!IconInfo}
- */
-export function rotateJustifyContentIcon(iconName, direction) {
+export function rotateJustifyContentIcon(iconName: string, direction: PhysicalFlexDirection): IconInfo {
   return {
     iconName,
     rotate: direction === PhysicalFlexDirection.TOP_TO_BOTTOM ?
@@ -144,12 +121,7 @@ export function rotateJustifyContentIcon(iconName, direction) {
   };
 }
 
-/**
- * @param {string} iconName
- * @param {!PhysicalFlexDirection} direction
- * @return {!IconInfo}
- */
-export function rotateAlignItemsIcon(iconName, direction) {
+export function rotateAlignItemsIcon(iconName: string, direction: PhysicalFlexDirection): IconInfo {
   return {
     iconName,
     rotate: direction === PhysicalFlexDirection.RIGHT_TO_LEFT ?
@@ -160,34 +132,16 @@ export function rotateAlignItemsIcon(iconName, direction) {
   };
 }
 
-/**
- *
- * @param {string} value
- * @return {function(!Map<string, string>):!IconInfo}
- */
-function flexDirectionIcon(value) {
-  /**
-   * @param {!Map<string, string>} computedStyles
-   * @return {!IconInfo}
-   */
-  function getIcon(computedStyles) {
+function flexDirectionIcon(value: string): (arg0: Map<string, string>) => IconInfo {
+  function getIcon(computedStyles: Map<string, string>): IconInfo {
     const directions = getPhysicalFlexDirections(computedStyles);
     return rotateFlexDirectionIcon(directions[value]);
   }
   return getIcon;
 }
 
-/**
- *
- * @param {string} iconName
- * @return {function(!Map<string, string>):!IconInfo}
- */
-function flexAlignContentIcon(iconName) {
-  /**
-   * @param {!Map<string, string>} computedStyles
-   * @return {!IconInfo}
-   */
-  function getIcon(computedStyles) {
+function flexAlignContentIcon(iconName: string): (arg0: Map<string, string>) => IconInfo {
+  function getIcon(computedStyles: Map<string, string>): IconInfo {
     const directions = getPhysicalFlexDirections(computedStyles);
     /**
      * @type {!Map<string, !PhysicalFlexDirection>}
@@ -208,34 +162,16 @@ function flexAlignContentIcon(iconName) {
   return getIcon;
 }
 
-/**
- *
- * @param {string} iconName
- * @return {function(!Map<string, string>):!IconInfo}
- */
-function flexJustifyContentIcon(iconName) {
-  /**
-   * @param {!Map<string, string>} computedStyles
-   * @return {!IconInfo}
-   */
-  function getIcon(computedStyles) {
+function flexJustifyContentIcon(iconName: string): (arg0: Map<string, string>) => IconInfo {
+  function getIcon(computedStyles: Map<string, string>): IconInfo {
     const directions = getPhysicalFlexDirections(computedStyles);
     return rotateJustifyContentIcon(iconName, directions[computedStyles.get('flex-direction') || 'row']);
   }
   return getIcon;
 }
 
-/**
- *
- * @param {string} iconName
- * @return {function(!Map<string, string>):!IconInfo}
- */
-function flexAlignItemsIcon(iconName) {
-  /**
-   * @param {!Map<string, string>} computedStyles
-   * @return {!IconInfo}
-   */
-  function getIcon(computedStyles) {
+function flexAlignItemsIcon(iconName: string): (arg0: Map<string, string>) => IconInfo {
+  function getIcon(computedStyles: Map<string, string>): IconInfo {
     const directions = getPhysicalFlexDirections(computedStyles);
     /**
      * @type {!Map<string, !PhysicalFlexDirection>}
@@ -260,10 +196,8 @@ function flexAlignItemsIcon(iconName) {
  * The baseline icon contains the letter A to indicate that we're aligning based on where the text baseline is.
  * Therefore we're not rotating this icon like the others, as this would become confusing. Plus baseline alignment
  * is likely only really useful in horizontal flow cases.
- *
- * @return {!IconInfo}
  */
-function baselineIcon() {
+function baselineIcon(): IconInfo {
   return {
     iconName: 'baseline-icon',
     rotate: 0,
@@ -273,17 +207,10 @@ function baselineIcon() {
 }
 
 /**
- *
- * @param {string} iconName
- * @return {function(!Map<string, string>,!Map<string, string>)}):!IconInfo}
+ *):!IconInfo}
  */
-function flexAlignSelfIcon(iconName) {
-  /**
-   * @param {!Map<string, string>} computedStyles
-   * @param {!Map<string, string>} parentComputedStyles
-   * @return {!IconInfo}
-   */
-  function getIcon(computedStyles, parentComputedStyles) {
+function flexAlignSelfIcon(iconName: string): (arg0: Map<string, string>, arg1: Map<string, string>) => any {
+  function getIcon(computedStyles: Map<string, string>, parentComputedStyles: Map<string, string>): IconInfo {
     return flexAlignItemsIcon(iconName)(parentComputedStyles);
   }
   return getIcon;
@@ -333,27 +260,18 @@ const textToIconResolver = new Map([
   ['align-self: stretch', flexAlignSelfIcon('flex-align-self-stretch-icon')],
 ]);
 
-/**
- * @param {string} text
- * @param {?Map<string, string>} computedStyles
- * @param {?Map<string, string>=} parentComputedStyles
- * @return {?IconInfo}
- */
-export function findIcon(text, computedStyles, parentComputedStyles) {
+export function findIcon(
+    text: string, computedStyles: Map<string, string>|null,
+    parentComputedStyles?: Map<string, string>|null|undefined): IconInfo|null {
   const resolver = textToIconResolver.get(text);
   if (resolver) {
     return resolver(computedStyles || new Map(), parentComputedStyles || new Map());
   }
   return null;
 }
-
-/**
- * @typedef {{
- *  iconName: string,
- *  rotate: number,
- *  scaleX: number,
- *  scaleY: number,
- * }}
- */
-// @ts-ignore typedef
-export let IconInfo;
+export interface IconInfo {
+  iconName: string;
+  rotate: number;
+  scaleX: number;
+  scaleY: number;
+}

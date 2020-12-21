@@ -35,10 +35,10 @@ import * as UI from '../ui/ui.js';
 import {ComputedStyleModel, Events} from './ComputedStyleModel.js';  // eslint-disable-line no-unused-vars
 
 export class PlatformFontsWidget extends UI.ThrottledWidget.ThrottledWidget {
-  /**
-   * @param {!ComputedStyleModel} sharedModel
-   */
-  constructor(sharedModel) {
+  _sharedModel: ComputedStyleModel;
+  _sectionTitle: HTMLDivElement;
+  _fontStatsSection: HTMLElement;
+  constructor(sharedModel: ComputedStyleModel) {
     super(true);
     this.registerRequiredCSS('elements/platformFontsWidget.css', {enableLegacyPatching: true});
 
@@ -54,11 +54,9 @@ export class PlatformFontsWidget extends UI.ThrottledWidget.ThrottledWidget {
   }
 
   /**
-   * @override
    * @protected
-   * @return {!Promise.<?>}
    */
-  doUpdate() {
+  doUpdate(): Promise<any> {
     const cssModel = this._sharedModel.cssModel();
     const node = this._sharedModel.node();
     if (!node || !cssModel) {
@@ -68,11 +66,7 @@ export class PlatformFontsWidget extends UI.ThrottledWidget.ThrottledWidget {
     return cssModel.platformFontsPromise(node.id).then(this._refreshUI.bind(this, node));
   }
 
-  /**
-   * @param {!SDK.DOMModel.DOMNode} node
-   * @param {?Array.<!Protocol.CSS.PlatformFontUsage>} platformFonts
-   */
-  _refreshUI(node, platformFonts) {
+  _refreshUI(node: SDK.DOMModel.DOMNode, platformFonts: Protocol.CSS.PlatformFontUsage[]|null) {
     if (this._sharedModel.node() !== node) {
       return;
     }
@@ -85,7 +79,7 @@ export class PlatformFontsWidget extends UI.ThrottledWidget.ThrottledWidget {
       return;
     }
 
-    platformFonts.sort(function(a, b) {
+    platformFonts.sort(function(a: Protocol.CSS.PlatformFontUsage, b: Protocol.CSS.PlatformFontUsage) {
       return b.glyphCount - a.glyphCount;
     });
     for (let i = 0; i < platformFonts.length; ++i) {

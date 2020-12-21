@@ -4,30 +4,20 @@
 
 import * as SDK from '../sdk/sdk.js';
 
-/**
- * @param {!SDK.DOMModel.DOMNode} node
- * @param {boolean=} justSelector
- * @return {string}
- */
-export const fullQualifiedSelector = function(node, justSelector) {
+export const fullQualifiedSelector = function(node: SDK.DOMModel.DOMNode, justSelector?: boolean|undefined): string {
   if (node.nodeType() !== Node.ELEMENT_NODE) {
     return node.localName() || node.nodeName().toLowerCase();
   }
   return cssPath(node, justSelector);
 };
 
-/**
- * @param {!SDK.DOMModel.DOMNode} node
- * @param {boolean=} optimized
- * @return {string}
- */
-export const cssPath = function(node, optimized) {
+export const cssPath = function(node: SDK.DOMModel.DOMNode, optimized?: boolean|undefined): string {
   if (node.nodeType() !== Node.ELEMENT_NODE) {
     return '';
   }
 
   const steps = [];
-  let contextNode = /** @type {?SDK.DOMModel.DOMNode} */ (node);
+  let contextNode = (node as SDK.DOMModel.DOMNode | null);
   while (contextNode) {
     const step = _cssPathStep(contextNode, !!optimized, contextNode === node);
     if (!step) {
@@ -44,13 +34,9 @@ export const cssPath = function(node, optimized) {
   return steps.join(' > ');
 };
 
-/**
- * @param {!SDK.DOMModel.DOMNode} node
- * @return {boolean}
- */
-export const canGetJSPath = function(node) {
+export const canGetJSPath = function(node: SDK.DOMModel.DOMNode): boolean {
   /** @type {?SDK.DOMModel.DOMNode} */
-  let wp = node;
+  let wp: (SDK.DOMModel.DOMNode|null)|SDK.DOMModel.DOMNode = node;
   while (wp) {
     const shadowRoot = wp.ancestorShadowRoot();
     if (shadowRoot && shadowRoot.shadowRootType() !== SDK.DOMModel.DOMNode.ShadowRootTypes.Open) {
@@ -61,19 +47,14 @@ export const canGetJSPath = function(node) {
   return true;
 };
 
-/**
- * @param {!SDK.DOMModel.DOMNode} node
- * @param {boolean=} optimized
- * @return {string}
- */
-export const jsPath = function(node, optimized) {
+export const jsPath = function(node: SDK.DOMModel.DOMNode, optimized?: boolean|undefined): string {
   if (node.nodeType() !== Node.ELEMENT_NODE) {
     return '';
   }
 
   const path = [];
   /** @type {?SDK.DOMModel.DOMNode} */
-  let wp = node;
+  let wp: (SDK.DOMModel.DOMNode|null)|SDK.DOMModel.DOMNode = node;
   while (wp) {
     path.push(cssPath(wp, optimized));
     wp = wp.ancestorShadowHost();
@@ -91,13 +72,7 @@ export const jsPath = function(node, optimized) {
   return result;
 };
 
-/**
- * @param {!SDK.DOMModel.DOMNode} node
- * @param {boolean} optimized
- * @param {boolean} isTargetNode
- * @return {?Step}
- */
-export const _cssPathStep = function(node, optimized, isTargetNode) {
+export const _cssPathStep = function(node: SDK.DOMModel.DOMNode, optimized: boolean, isTargetNode: boolean): Step|null {
   if (node.nodeType() !== Node.ELEMENT_NODE) {
     return null;
   }
@@ -122,34 +97,26 @@ export const _cssPathStep = function(node, optimized, isTargetNode) {
     return new Step(nodeName, true);
   }
 
-  /**
-   * @param {!SDK.DOMModel.DOMNode} node
-   * @return {!Array.<string>}
-   */
-  function prefixedElementClassNames(node) {
+  function prefixedElementClassNames(node: SDK.DOMModel.DOMNode): string[] {
     const classAttribute = node.getAttribute('class');
     if (!classAttribute) {
       return [];
     }
 
-    return classAttribute.split(/\s+/g).filter(Boolean).map(function(name) {
+    return classAttribute.split(/\s+/g).filter(Boolean).map(function(name: string) {
       // The prefix is required to store "__proto__" in a object-based map.
       return '$' + name;
     });
   }
 
-  /**
-   * @param {string} id
-   * @return {string}
-   */
-  function idSelector(id) {
+  function idSelector(id: string): string {
     return '#' + CSS.escape(id);
   }
 
   const prefixedOwnClassNamesArray = prefixedElementClassNames(node);
-  let needsClassNames = false;
-  let needsNthChild = false;
-  let ownIndex = -1;
+  let needsClassNames: true|false = false;
+  let needsNthChild: true|false = false;
+  let ownIndex: number|- 1 = -1;
   let elementIndex = -1;
   const siblings = parent.children();
   for (let i = 0; siblings && (ownIndex === -1 || !needsNthChild) && i < siblings.length; ++i) {
@@ -170,7 +137,7 @@ export const _cssPathStep = function(node, optimized, isTargetNode) {
     }
 
     needsClassNames = true;
-    const ownClassNames = new Set(prefixedOwnClassNamesArray);
+    const ownClassNames = new Set<string>(prefixedOwnClassNamesArray);
     if (!ownClassNames.size) {
       needsNthChild = true;
       continue;
@@ -205,18 +172,13 @@ export const _cssPathStep = function(node, optimized, isTargetNode) {
   return new Step(result, false);
 };
 
-/**
- * @param {!SDK.DOMModel.DOMNode} node
- * @param {boolean=} optimized
- * @return {string}
- */
-export const xPath = function(node, optimized) {
+export const xPath = function(node: SDK.DOMModel.DOMNode, optimized?: boolean|undefined): string {
   if (node.nodeType() === Node.DOCUMENT_NODE) {
     return '/';
   }
 
   const steps = [];
-  let contextNode = /** @type {?SDK.DOMModel.DOMNode} */ (node);
+  let contextNode = (node as SDK.DOMModel.DOMNode | null);
   while (contextNode) {
     const step = _xPathValue(contextNode, optimized);
     if (!step) {
@@ -233,12 +195,7 @@ export const xPath = function(node, optimized) {
   return (steps.length && steps[0].optimized ? '' : '/') + steps.join('/');
 };
 
-/**
- * @param {!SDK.DOMModel.DOMNode} node
- * @param {boolean=} optimized
- * @return {?Step}
- */
-export const _xPathValue = function(node, optimized) {
+export const _xPathValue = function(node: SDK.DOMModel.DOMNode, optimized?: boolean|undefined): Step|null {
   let ownValue;
   const ownIndex = _xPathIndex(node);
   if (ownIndex === -1) {
@@ -280,19 +237,12 @@ export const _xPathValue = function(node, optimized) {
   return new Step(ownValue, node.nodeType() === Node.DOCUMENT_NODE);
 };
 
-/**
- * @param {!SDK.DOMModel.DOMNode} node
- * @return {number}
- */
-export const _xPathIndex = function(node) {
+export const _xPathIndex = function(node: SDK.DOMModel.DOMNode): number {
   /**
    * Returns -1 in case of error, 0 if no siblings matching the same expression,
    * <XPath index among the same expression-matching sibling nodes> otherwise.
-   *
-   * @param {!SDK.DOMModel.DOMNode} left
-   * @param {!SDK.DOMModel.DOMNode} right
    */
-  function areNodesSimilar(left, right) {
+  function areNodesSimilar(left: SDK.DOMModel.DOMNode, right: SDK.DOMModel.DOMNode) {
     if (left === right) {
       return true;
     }
@@ -338,20 +288,14 @@ export const _xPathIndex = function(node) {
 };
 
 export class Step {
-  /**
-   * @param {string} value
-   * @param {boolean} optimized
-   */
-  constructor(value, optimized) {
+  value: string;
+  optimized: boolean;
+  constructor(value: string, optimized: boolean) {
     this.value = value;
     this.optimized = optimized || false;
   }
 
-  /**
-   * @override
-   * @return {string}
-   */
-  toString() {
+  toString(): string {
     return this.value;
   }
 }

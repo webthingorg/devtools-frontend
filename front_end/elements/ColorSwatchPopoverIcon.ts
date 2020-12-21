@@ -10,16 +10,21 @@ import * as InlineEditor from '../inline_editor/inline_editor.js';
 import * as Root from '../root/root.js';
 import * as UI from '../ui/ui.js';
 
-import {StylePropertyTreeElement} from './StylePropertyTreeElement.js';  // eslint-disable-line no-unused-vars
+import {StylePropertyTreeElement} from './StylePropertyTreeElement.js';            // eslint-disable-line no-unused-vars
 import {StylePropertiesSection, StylesSidebarPane} from './StylesSidebarPane.js';  // eslint-disable-line no-unused-vars
 
 export class BezierPopoverIcon {
-  /**
-   * @param {!StylePropertyTreeElement} treeElement
-   * @param {!InlineEditor.SwatchPopoverHelper.SwatchPopoverHelper} swatchPopoverHelper
-   * @param {!InlineEditor.Swatches.BezierSwatch} swatch
-   */
-  constructor(treeElement, swatchPopoverHelper, swatch) {
+  _treeElement: StylePropertyTreeElement;
+  _swatchPopoverHelper: InlineEditor.SwatchPopoverHelper.SwatchPopoverHelper;
+  _swatch: InlineEditor.Swatches.BezierSwatch;
+  _boundBezierChanged: (event: Common.EventTarget.EventTargetEvent) => void;
+  _boundOnScroll: (event: Event) => void;
+  _bezierEditor: (InlineEditor.BezierEditor.BezierEditor|undefined)|undefined;
+  _scrollerElement: (Element|undefined)|undefined;
+  _originalPropertyText: (string|null|undefined)|undefined;
+  constructor(
+      treeElement: StylePropertyTreeElement, swatchPopoverHelper: InlineEditor.SwatchPopoverHelper.SwatchPopoverHelper,
+      swatch: InlineEditor.Swatches.BezierSwatch) {
     this._treeElement = treeElement;
     this._swatchPopoverHelper = swatchPopoverHelper;
     this._swatch = swatch;
@@ -27,16 +32,15 @@ export class BezierPopoverIcon {
     UI.Tooltip.Tooltip.install(this._swatch.iconElement(), Common.UIString.UIString('Open cubic bezier editor.'));
     this._swatch.iconElement().addEventListener('click', this._iconClick.bind(this), false);
     this._swatch.iconElement().addEventListener(
-        'mousedown', /** @param {!Event} event */ event => event.consume(), false);
+        'mousedown', /** @param {!Event} event */ /** @param {!Event} event */
+        (/** @param {!Event} event */ /** @param {!Event} event */ event: Event) => event.consume(),
+        false);
 
     this._boundBezierChanged = this._bezierChanged.bind(this);
     this._boundOnScroll = this._onScroll.bind(this);
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _iconClick(event) {
+  _iconClick(event: Event) {
     if (Root.Runtime.experiments.isEnabled('fontEditor')) {
       Host.userMetrics.cssEditorOpened('bezierEditor');
     }
@@ -47,7 +51,7 @@ export class BezierPopoverIcon {
     }
 
     const cubicBezier = UI.Geometry.CubicBezier.parse(this._swatch.bezierText()) ||
-        /** @type {!UI.Geometry.CubicBezier} */ (UI.Geometry.CubicBezier.parse('linear'));
+        (UI.Geometry.CubicBezier.parse('linear') as UI.Geometry.CubicBezier);
     this._bezierEditor = new InlineEditor.BezierEditor.BezierEditor(cubicBezier);
     this._bezierEditor.setBezier(cubicBezier);
     this._bezierEditor.addEventListener(InlineEditor.BezierEditor.Events.BezierChanged, this._boundBezierChanged);
@@ -66,25 +70,16 @@ export class BezierPopoverIcon {
     }
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _bezierChanged(event) {
-    this._swatch.setBezierText(/** @type {string} */ (event.data));
+  _bezierChanged(event: Common.EventTarget.EventTargetEvent) {
+    this._swatch.setBezierText((event.data as string));
     this._treeElement.applyStyleText(this._treeElement.renderedPropertyText(), false);
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _onScroll(event) {
+  _onScroll(event: Event) {
     this._swatchPopoverHelper.hide(true);
   }
 
-  /**
-   * @param {boolean} commitEdit
-   */
-  _onPopoverHidden(commitEdit) {
+  _onPopoverHidden(commitEdit: boolean) {
     if (this._scrollerElement) {
       this._scrollerElement.removeEventListener('scroll', this._boundOnScroll, false);
     }
@@ -102,12 +97,18 @@ export class BezierPopoverIcon {
 }
 
 export class ColorSwatchPopoverIcon {
-  /**
-   * @param {!StylePropertyTreeElement} treeElement
-   * @param {!InlineEditor.SwatchPopoverHelper.SwatchPopoverHelper} swatchPopoverHelper
-   * @param {!InlineEditor.ColorSwatch.ColorSwatch} swatch
-   */
-  constructor(treeElement, swatchPopoverHelper, swatch) {
+  _treeElement: StylePropertyTreeElement;
+  _swatchPopoverHelper: InlineEditor.SwatchPopoverHelper.SwatchPopoverHelper;
+  _swatch: InlineEditor.ColorSwatch.ColorSwatch;
+  _contrastInfo: ColorPicker.ContrastInfo.ContrastInfo|null;
+  _boundSpectrumChanged: (event: Common.EventTarget.EventTargetEvent) => void;
+  _boundOnScroll: (event: Event) => void;
+  _spectrum: (ColorPicker.Spectrum.Spectrum|undefined)|undefined;
+  _scrollerElement: (Element|undefined)|undefined;
+  _originalPropertyText: (string|null|undefined)|undefined;
+  constructor(
+      treeElement: StylePropertyTreeElement, swatchPopoverHelper: InlineEditor.SwatchPopoverHelper.SwatchPopoverHelper,
+      swatch: InlineEditor.ColorSwatch.ColorSwatch) {
     this._treeElement = treeElement;
     this._swatchPopoverHelper = swatchPopoverHelper;
     this._swatch = swatch;
@@ -118,10 +119,7 @@ export class ColorSwatchPopoverIcon {
     this._boundOnScroll = this._onScroll.bind(this);
   }
 
-  /**
-   * @return {!ColorPicker.Spectrum.Palette}
-   */
-  _generateCSSVariablesPalette() {
+  _generateCSSVariablesPalette(): ColorPicker.Spectrum.Palette {
     const matchedStyles = this._treeElement.matchedStyles();
     const style = this._treeElement.property.ownerStyle;
     const cssVariables = matchedStyles.availableCSSVariables(style);
@@ -145,17 +143,11 @@ export class ColorSwatchPopoverIcon {
     return {title: 'CSS Variables', mutable: false, matchUserFormat: true, colors: colors, colorNames: colorNames};
   }
 
-  /**
-   * @param {!ColorPicker.ContrastInfo.ContrastInfo} contrastInfo
-   */
-  setContrastInfo(contrastInfo) {
+  setContrastInfo(contrastInfo: ColorPicker.ContrastInfo.ContrastInfo) {
     this._contrastInfo = contrastInfo;
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _iconClick(event) {
+  _iconClick(event: Event) {
     if (Root.Runtime.experiments.isEnabled('fontEditor')) {
       Host.userMetrics.cssEditorOpened('colorPicker');
     }
@@ -170,7 +162,7 @@ export class ColorSwatchPopoverIcon {
     }
 
     const color = this._swatch.color;
-    let format = this._swatch.format;
+    let format: string|(string | null) = this._swatch.format;
     if (!color || !format) {
       return;
     }
@@ -199,18 +191,12 @@ export class ColorSwatchPopoverIcon {
     }
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _spectrumResized(event) {
+  _spectrumResized(event: Common.EventTarget.EventTargetEvent) {
     this._swatchPopoverHelper.reposition();
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _spectrumChanged(event) {
-    const color = Common.Color.Color.parse(/** @type {string} */ (event.data));
+  _spectrumChanged(event: Common.EventTarget.EventTargetEvent) {
+    const color = Common.Color.Color.parse((event.data as string));
     if (!color) {
       return;
     }
@@ -228,17 +214,11 @@ export class ColorSwatchPopoverIcon {
     this._treeElement.applyStyleText(this._treeElement.renderedPropertyText(), false);
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _onScroll(event) {
+  _onScroll(event: Event) {
     this._swatchPopoverHelper.hide(true);
   }
 
-  /**
-   * @param {boolean} commitEdit
-   */
-  _onPopoverHidden(commitEdit) {
+  _onPopoverHidden(commitEdit: boolean) {
     if (this._scrollerElement) {
       this._scrollerElement.removeEventListener('scroll', this._boundOnScroll, false);
     }
@@ -256,12 +236,18 @@ export class ColorSwatchPopoverIcon {
 }
 
 export class ShadowSwatchPopoverHelper {
-  /**
-   * @param {!StylePropertyTreeElement} treeElement
-   * @param {!InlineEditor.SwatchPopoverHelper.SwatchPopoverHelper} swatchPopoverHelper
-   * @param {!InlineEditor.Swatches.CSSShadowSwatch} shadowSwatch
-   */
-  constructor(treeElement, swatchPopoverHelper, shadowSwatch) {
+  _treeElement: StylePropertyTreeElement;
+  _swatchPopoverHelper: InlineEditor.SwatchPopoverHelper.SwatchPopoverHelper;
+  _shadowSwatch: InlineEditor.Swatches.CSSShadowSwatch;
+  _iconElement: HTMLSpanElement;
+  _boundShadowChanged: (event: Common.EventTarget.EventTargetEvent) => void;
+  _boundOnScroll: (event: Event) => void;
+  _cssShadowEditor: (InlineEditor.CSSShadowEditor.CSSShadowEditor|undefined)|undefined;
+  _scrollerElement: (Element|undefined)|undefined;
+  _originalPropertyText: (string|null|undefined)|undefined;
+  constructor(
+      treeElement: StylePropertyTreeElement, swatchPopoverHelper: InlineEditor.SwatchPopoverHelper.SwatchPopoverHelper,
+      shadowSwatch: InlineEditor.Swatches.CSSShadowSwatch) {
     this._treeElement = treeElement;
     this._swatchPopoverHelper = swatchPopoverHelper;
     this._shadowSwatch = shadowSwatch;
@@ -269,16 +255,13 @@ export class ShadowSwatchPopoverHelper {
 
     UI.Tooltip.Tooltip.install(this._iconElement, Common.UIString.UIString('Open shadow editor.'));
     this._iconElement.addEventListener('click', this._iconClick.bind(this), false);
-    this._iconElement.addEventListener('mousedown', event => event.consume(), false);
+    this._iconElement.addEventListener('mousedown', (event: MouseEvent) => event.consume(), false);
 
     this._boundShadowChanged = this._shadowChanged.bind(this);
     this._boundOnScroll = this._onScroll.bind(this);
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _iconClick(event) {
+  _iconClick(event: Event) {
     if (Root.Runtime.experiments.isEnabled('fontEditor')) {
       Host.userMetrics.cssEditorOpened('shadowEditor');
     }
@@ -310,25 +293,16 @@ export class ShadowSwatchPopoverHelper {
     }
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _shadowChanged(event) {
-    this._shadowSwatch.setCSSShadow(/** @type {!InlineEditor.CSSShadowModel.CSSShadowModel} */ (event.data));
+  _shadowChanged(event: Common.EventTarget.EventTargetEvent) {
+    this._shadowSwatch.setCSSShadow((event.data as InlineEditor.CSSShadowModel.CSSShadowModel));
     this._treeElement.applyStyleText(this._treeElement.renderedPropertyText(), false);
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _onScroll(event) {
+  _onScroll(event: Event) {
     this._swatchPopoverHelper.hide(true);
   }
 
-  /**
-   * @param {boolean} commitEdit
-   */
-  _onPopoverHidden(commitEdit) {
+  _onPopoverHidden(commitEdit: boolean) {
     if (this._scrollerElement) {
       this._scrollerElement.removeEventListener('scroll', this._boundOnScroll, false);
     }
@@ -347,27 +321,27 @@ export class ShadowSwatchPopoverHelper {
 }
 
 export class FontEditorSectionManager {
-  /**
-   * @param {!InlineEditor.SwatchPopoverHelper.SwatchPopoverHelper} swatchPopoverHelper
-   * @param {!StylePropertiesSection} section
-   */
-  constructor(swatchPopoverHelper, section) {
-    /** @type {!Map<string, !StylePropertyTreeElement>} */
+  _treeElementMap: Map<string, StylePropertyTreeElement>;
+  _swatchPopoverHelper: InlineEditor.SwatchPopoverHelper.SwatchPopoverHelper;
+  _section: StylePropertiesSection;
+  _parentPane: StylesSidebarPane|null;
+  _fontEditor: InlineEditor.FontEditor.FontEditor|null;
+  _scrollerElement: Element|null;
+  _boundFontChanged: (event: Common.EventTarget.EventTargetEvent) => void;
+  _boundOnScroll: () => void;
+  _boundResized: () => void;
+  constructor(
+      swatchPopoverHelper: InlineEditor.SwatchPopoverHelper.SwatchPopoverHelper, section: StylePropertiesSection) {
     this._treeElementMap = new Map();
 
-    /** @type {!InlineEditor.SwatchPopoverHelper.SwatchPopoverHelper} */
     this._swatchPopoverHelper = swatchPopoverHelper;
 
-    /** @type {!StylePropertiesSection} */
     this._section = section;
 
-    /** @type {?StylesSidebarPane} */
     this._parentPane = null;
 
-    /** @type {?InlineEditor.FontEditor.FontEditor} */
     this._fontEditor = null;
 
-    /** @type {?Element} */
     this._scrollerElement = null;
 
     this._boundFontChanged = this._fontChanged.bind(this);
@@ -375,24 +349,16 @@ export class FontEditorSectionManager {
     this._boundResized = this._fontEditorResized.bind(this);
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _fontChanged(event) {
+  _fontChanged(event: Common.EventTarget.EventTargetEvent) {
     const {propertyName, value} = event.data;
     const treeElement = this._treeElementMap.get(propertyName);
     this._updateFontProperty(propertyName, value, treeElement);
   }
 
-  /**
-   * @param {string} propertyName
-   * @param {string} value
-   * @param {!StylePropertyTreeElement=} treeElement
-   */
-  async _updateFontProperty(propertyName, value, treeElement) {
+  async _updateFontProperty(propertyName: string, value: string, treeElement?: StylePropertyTreeElement|undefined) {
     if (treeElement && treeElement.treeOutline && treeElement.valueElement && treeElement.property.parsedOk &&
         treeElement.property.range) {
-      let elementRemoved = false;
+      let elementRemoved: true|false = false;
       treeElement.valueElement.textContent = value;
       treeElement.property.value = value;
       let styleText;
@@ -428,10 +394,7 @@ export class FontEditorSectionManager {
     this._swatchPopoverHelper.reposition();
   }
 
-  /**
-   * @param {number} removedIndex
-   */
-  _fixIndex(removedIndex) {
+  _fixIndex(removedIndex: number) {
     for (const treeElement of this._treeElementMap.values()) {
       if (treeElement.property.index > removedIndex) {
         treeElement.property.index -= 1;
@@ -439,13 +402,10 @@ export class FontEditorSectionManager {
     }
   }
 
-  /**
-   * @return {!Map<string, string>}
-   */
-  _createPropertyValueMap() {
-    const propertyMap = new Map();
+  _createPropertyValueMap(): Map<string, string> {
+    const propertyMap = new Map<string, string>();
     for (const fontProperty of this._treeElementMap) {
-      const propertyName = /** @type {string} */ (fontProperty[0]);
+      const propertyName: string = (fontProperty[0] as string);
       const treeElement = fontProperty[1];
       if (treeElement.property.value.length) {
         propertyMap.set(propertyName, treeElement.property.value);
@@ -456,10 +416,7 @@ export class FontEditorSectionManager {
     return propertyMap;
   }
 
-  /**
-   * @param {!StylePropertyTreeElement} treeElement
-   */
-  registerFontProperty(treeElement) {
+  registerFontProperty(treeElement: StylePropertyTreeElement) {
     const propertyName = treeElement.property.name;
     if (this._treeElementMap.has(propertyName)) {
       const treeElementFromMap = this._treeElementMap.get(propertyName);
@@ -471,11 +428,7 @@ export class FontEditorSectionManager {
     }
   }
 
-  /**
-   * @param {!Element} iconElement
-   * @param {!StylesSidebarPane} parentPane
-   */
-  async showPopover(iconElement, parentPane) {
+  async showPopover(iconElement: Element, parentPane: StylesSidebarPane) {
     if (this._swatchPopoverHelper.isShowing()) {
       this._swatchPopoverHelper.hide(true);
       return;

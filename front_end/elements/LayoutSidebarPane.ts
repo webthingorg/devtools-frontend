@@ -10,11 +10,7 @@ import * as UI from '../ui/ui.js';
 import {ElementsPanel} from './ElementsPanel.js';
 import {LayoutElement, LayoutPane} from './LayoutPane.js';  // eslint-disable-line no-unused-vars
 
-/**
- * @param {!SDK.DOMModel.DOMNode} node
- * @return {!LayoutElement}
- */
-const nodeToLayoutElement = node => {
+const nodeToLayoutElement = (node: SDK.DOMModel.DOMNode): LayoutElement => {
   const className = node.getAttribute('class');
   const nodeId = node.id;
   return {
@@ -22,7 +18,7 @@ const nodeToLayoutElement = node => {
     color: '#000',
     name: node.localName(),
     domId: node.getAttribute('id'),
-    domClasses: className ? className.split(/\s+/).filter(s => !!s) : undefined,
+    domClasses: className ? className.split(/\s+/).filter((s: string) => !!s) : undefined,
     enabled: false,
     reveal: () => {
       ElementsPanel.instance().revealAndSelectNode(node, true, true);
@@ -34,35 +30,31 @@ const nodeToLayoutElement = node => {
     hideHighlight: () => {
       SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight();
     },
-    toggle: value => {
+    toggle: (value: boolean) => {
       throw new Error('Not implemented');
     },
-    setColor(value) {
+    setColor(value: string) {
       throw new Error('Not implemented');
     },
   };
 };
 
-/**
- * @param {!Array<!SDK.DOMModel.DOMNode>} nodes
- * @return {!Array<!LayoutElement>}
- */
-const gridNodesToElements = nodes => {
-  return nodes.map(node => {
+const gridNodesToElements = (nodes: SDK.DOMModel.DOMNode[]): LayoutElement[] => {
+  return nodes.map((node: SDK.DOMModel.DOMNode) => {
     const layoutElement = nodeToLayoutElement(node);
     const nodeId = node.id;
     return {
       ...layoutElement,
       color: node.domModel().overlayModel().colorOfGridInPersistentOverlay(nodeId) || '#000',
       enabled: node.domModel().overlayModel().isHighlightedGridInPersistentOverlay(nodeId),
-      toggle: value => {
+      toggle: (value: boolean) => {
         if (value) {
           node.domModel().overlayModel().highlightGridInPersistentOverlay(nodeId);
         } else {
           node.domModel().overlayModel().hideGridInPersistentOverlay(nodeId);
         }
       },
-      setColor(value) {
+      setColor(value: string) {
         this.color = value;
         node.domModel().overlayModel().setColorOfGridInPersistentOverlay(nodeId, value);
       },
@@ -73,26 +65,22 @@ const gridNodesToElements = nodes => {
 /** @type {!LayoutSidebarPane} */
 let layoutSidebarPaneInstance;
 
-/**
- * @param {!Array<!SDK.DOMModel.DOMNode>} nodes
- * @return {!Array<!LayoutElement>}
- */
-const flexContainerNodesToElements = nodes => {
-  return nodes.map(node => {
+const flexContainerNodesToElements = (nodes: SDK.DOMModel.DOMNode[]): LayoutElement[] => {
+  return nodes.map((node: SDK.DOMModel.DOMNode) => {
     const layoutElement = nodeToLayoutElement(node);
     const nodeId = node.id;
     return {
       ...layoutElement,
       color: node.domModel().overlayModel().colorOfFlexInPersistentOverlay(nodeId) || '#000',
       enabled: node.domModel().overlayModel().isHighlightedFlexContainerInPersistentOverlay(nodeId),
-      toggle: value => {
+      toggle: (value: boolean) => {
         if (value) {
           node.domModel().overlayModel().highlightFlexContainerInPersistentOverlay(nodeId);
         } else {
           node.domModel().overlayModel().hideFlexContainerInPersistentOverlay(nodeId);
         }
       },
-      setColor(value) {
+      setColor(value: string) {
         this.color = value;
         node.domModel().overlayModel().setColorOfFlexInPersistentOverlay(nodeId, value);
       },
@@ -101,6 +89,11 @@ const flexContainerNodesToElements = nodes => {
 };
 
 export class LayoutSidebarPane extends UI.ThrottledWidget.ThrottledWidget {
+  _layoutPane: LayoutPane;
+  _settings: string[];
+  _uaShadowDOMSetting: Common.Settings.Setting<any>;
+  _boundOnSettingChanged: (event: any) => void;
+  _domModels: SDK.DOMModel.DOMModel[];
   constructor() {
     super(true /* isWebComponent */);
     this._layoutPane = new LayoutPane();
@@ -108,17 +101,10 @@ export class LayoutSidebarPane extends UI.ThrottledWidget.ThrottledWidget {
     this._settings = ['showGridLineLabels', 'showGridTrackSizes', 'showGridAreas', 'extendGridLines'];
     this._uaShadowDOMSetting = Common.Settings.Settings.instance().moduleSetting('showUAShadowDOM');
     this._boundOnSettingChanged = this.onSettingChanged.bind(this);
-    /**
-     * @type {!Array<!SDK.DOMModel.DOMModel>}
-     */
     this._domModels = [];
   }
 
-  /**
-   * @param {{forceNew: ?boolean}=} opts
-   * @return {!LayoutSidebarPane}
-   */
-  static instance(opts = {forceNew: null}) {
+  static instance(opts: {forceNew: boolean|null;}|undefined = {forceNew: null}): LayoutSidebarPane {
     const {forceNew} = opts;
     if (!layoutSidebarPaneInstance || forceNew) {
       layoutSidebarPaneInstance = new LayoutSidebarPane();
@@ -127,10 +113,7 @@ export class LayoutSidebarPane extends UI.ThrottledWidget.ThrottledWidget {
     return layoutSidebarPaneInstance;
   }
 
-  /**
-   * @param {!SDK.DOMModel.DOMModel} domModel
-   */
-  modelAdded(domModel) {
+  modelAdded(domModel: SDK.DOMModel.DOMModel) {
     const overlayModel = domModel.overlayModel();
     overlayModel.addEventListener(SDK.OverlayModel.Events.PersistentGridOverlayStateChanged, this.update, this);
     overlayModel.addEventListener(
@@ -138,21 +121,15 @@ export class LayoutSidebarPane extends UI.ThrottledWidget.ThrottledWidget {
     this._domModels.push(domModel);
   }
 
-  /**
-   * @param {!SDK.DOMModel.DOMModel} domModel
-   */
-  modelRemoved(domModel) {
+  modelRemoved(domModel: SDK.DOMModel.DOMModel) {
     const overlayModel = domModel.overlayModel();
     overlayModel.removeEventListener(SDK.OverlayModel.Events.PersistentGridOverlayStateChanged, this.update, this);
     overlayModel.removeEventListener(
         SDK.OverlayModel.Events.PersistentFlexContainerOverlayStateChanged, this.update, this);
-    this._domModels = this._domModels.filter(model => model !== domModel);
+    this._domModels = this._domModels.filter((model: SDK.DOMModel.DOMModel) => model !== domModel);
   }
 
-  /**
-   * @param {!Array<{ name: string, value: string }>} style
-   */
-  async _fetchNodesByStyle(style) {
+  async _fetchNodesByStyle(style: {name: string; value: string;}[]) {
     const showUAShadowDOM = this._uaShadowDOMSetting.get();
 
     const nodes = [];
@@ -183,7 +160,7 @@ export class LayoutSidebarPane extends UI.ThrottledWidget.ThrottledWidget {
       const setting = Common.Settings.Settings.instance().moduleSetting(settingName);
       const settingValue = setting.get();
       const mappedSetting = {
-        type: /** @type {*} */ (setting.type()),
+        type: (setting.type() as any),
         name: setting.name,
         title: setting.title(),
       };
@@ -191,19 +168,19 @@ export class LayoutSidebarPane extends UI.ThrottledWidget.ThrottledWidget {
         settings.push({
           ...mappedSetting,
           value: settingValue,
-          options: setting.options().map(opt => ({
+          options: setting.options().map((opt: Common.Settings.SettingExtensionOption) => ({
                                            ...opt,
-                                           value: /** @type {boolean} */ (opt.value),
-                                         }))
+                                           value: (opt.value as boolean),
+                                         })),
         });
       } else if (typeof settingValue === 'string') {
         settings.push({
           ...mappedSetting,
           value: settingValue,
-          options: setting.options().map(opt => ({
+          options: setting.options().map((opt: Common.Settings.SettingExtensionOption) => ({
                                            ...opt,
-                                           value: /** @type {string} */ (opt.value),
-                                         }))
+                                           value: (opt.value as string),
+                                         })),
         });
       }
     }
@@ -211,11 +188,9 @@ export class LayoutSidebarPane extends UI.ThrottledWidget.ThrottledWidget {
   }
 
   /**
-   * @override
    * @protected
-   * @return {!Promise<void>}
    */
-  async doUpdate() {
+  async doUpdate(): Promise<void> {
     this._layoutPane.data = {
       gridElements: gridNodesToElements(await this._fetchGridNodes()),
       flexContainerElements: Root.Runtime.experiments.isEnabled('cssFlexboxFeatures') ?
@@ -225,16 +200,10 @@ export class LayoutSidebarPane extends UI.ThrottledWidget.ThrottledWidget {
     };
   }
 
-  /**
-   * @param {*} event
-   */
-  onSettingChanged(event) {
+  onSettingChanged(event: any) {
     Common.Settings.Settings.instance().moduleSetting(event.data.setting).set(event.data.value);
   }
 
-  /**
-   * @override
-   */
   wasShown() {
     for (const setting of this._settings) {
       Common.Settings.Settings.instance().moduleSetting(setting).addChangeListener(this.update, this);
@@ -250,9 +219,6 @@ export class LayoutSidebarPane extends UI.ThrottledWidget.ThrottledWidget {
     this.update();
   }
 
-  /**
-   * @override
-   */
   willHide() {
     for (const setting of this._settings) {
       Common.Settings.Settings.instance().moduleSetting(setting).removeChangeListener(this.update, this);

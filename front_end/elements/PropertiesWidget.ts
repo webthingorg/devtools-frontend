@@ -1,3 +1,7 @@
+// Copyright 2020 The Chromium Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
 /*
  * Copyright (C) 2007 Apple Inc.  All rights reserved.
  * Copyright (C) 2014 Google Inc. All rights reserved.
@@ -37,6 +41,10 @@ import * as UI from '../ui/ui.js';
 let propertiesWidgetInstance;
 
 export class PropertiesWidget extends UI.ThrottledWidget.ThrottledWidget {
+  _node: SDK.DOMModel.DOMNode|null;
+  _treeOutline: ObjectUI.ObjectPropertiesSection.ObjectPropertiesSectionsTreeOutline;
+  _expandController: ObjectUI.ObjectPropertiesSection.ObjectPropertiesSectionsTreeExpandController;
+  _lastRequestedNode: (SDK.DOMModel.DOMNode|undefined)|undefined;
   constructor() {
     super(true /* isWebComponent */);
     this.registerRequiredCSS('elements/propertiesWidget.css', {enableLegacyPatching: false});
@@ -64,11 +72,7 @@ export class PropertiesWidget extends UI.ThrottledWidget.ThrottledWidget {
 
     this.update();
   }
-  /**
-   * @param {{forceNew: ?boolean}=} opts
-   * @return {!PropertiesWidget}
-   */
-  static instance(opts = {forceNew: null}) {
+  static instance(opts: {forceNew: boolean|null;}|undefined = {forceNew: null}): PropertiesWidget {
     const {forceNew} = opts;
     if (!propertiesWidgetInstance || forceNew) {
       propertiesWidgetInstance = new PropertiesWidget();
@@ -77,20 +81,16 @@ export class PropertiesWidget extends UI.ThrottledWidget.ThrottledWidget {
     return propertiesWidgetInstance;
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _setNode(event) {
-    this._node = /** @type {?SDK.DOMModel.DOMNode} */ (event.data);
+  _setNode(event: Common.EventTarget.EventTargetEvent) {
+    this._node = (event.data as SDK.DOMModel.DOMNode | null);
     this.update();
   }
 
   /**
    * @override
    * @protected
-   * @return {!Promise<void>}
    */
-  async doUpdate() {
+  async doUpdate(): Promise<void> {
     if (this._lastRequestedNode) {
       this._lastRequestedNode.domModel().runtimeModel().releaseObjectGroup(_objectGroupName);
       delete this._lastRequestedNode;
@@ -124,7 +124,7 @@ export class PropertiesWidget extends UI.ThrottledWidget.ThrottledWidget {
     const properties = propertiesResult.properties;
     this._treeOutline.removeChildren();
 
-    let selected = false;
+    let selected: true|false = false;
     // Get array of property user-friendly names.
     for (let i = 0; i < properties.length; ++i) {
       if (!parseInt(properties[i].name, 10)) {
@@ -134,7 +134,7 @@ export class PropertiesWidget extends UI.ThrottledWidget.ThrottledWidget {
       if (!property) {
         continue;
       }
-      let title = property.description;
+      let title: string|(string | undefined) = property.description;
       if (!title) {
         continue;
       }
@@ -148,10 +148,7 @@ export class PropertiesWidget extends UI.ThrottledWidget.ThrottledWidget {
       }
     }
 
-    /**
-     * @this {*}
-     */
-    function protoList() {
+    function protoList(this: *) {
       let proto = this;
       /** @type {!Object<(number|string), *>} */
       const result = {__proto__: null};
@@ -164,12 +161,8 @@ export class PropertiesWidget extends UI.ThrottledWidget.ThrottledWidget {
     }
   }
 
-  /**
-   * @param {!SDK.RemoteObject.RemoteObject} property
-   * @param {string} title
-   * @returns {!ObjectUI.ObjectPropertiesSection.RootElement}
-   */
-  _createSectionTreeElement(property, title) {
+  _createSectionTreeElement(property: SDK.RemoteObject.RemoteObject, title: string):
+      ObjectUI.ObjectPropertiesSection.RootElement {
     const titleElement = document.createElement('span');
     titleElement.classList.add('tree-element-title');
     titleElement.textContent = title;
@@ -181,15 +174,12 @@ export class PropertiesWidget extends UI.ThrottledWidget.ThrottledWidget {
     return section;
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _onNodeChange(event) {
+  _onNodeChange(event: Common.EventTarget.EventTargetEvent) {
     if (!this._node) {
       return;
     }
     const data = event.data;
-    const node = /** @type {!SDK.DOMModel.DOMNode} */ (data instanceof SDK.DOMModel.DOMNode ? data : data.node);
+    const node = (data instanceof SDK.DOMModel.DOMNode ? data : data.node as SDK.DOMModel.DOMNode);
     if (this._node !== node) {
       return;
     }

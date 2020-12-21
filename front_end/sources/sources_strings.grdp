@@ -234,6 +234,9 @@
   <message name="IDS_DEVTOOLS_5d113f2038d289f391614c39043629e8" desc="Title of the sources scopeChain">
     Scope
   </message>
+  <message name="IDS_DEVTOOLS_5de39fa1bce4bbf9232597a2120bc4d4" desc="Text to open the cubic bezier editor">
+    Open cubic bezier editor.
+  </message>
   <message name="IDS_DEVTOOLS_5e4d28f3a2277fcc37e95ce3fcd08418" desc="Text to be shown in the status bar if no coverage data is available">
     Coverage: n/a
   </message>

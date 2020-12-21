@@ -198,6 +198,9 @@
   <message name="IDS_DEVTOOLS_91b442d385b54e1418d81adc34871053" desc="Accessibility attribute name that appears under the Computed Properties section in the Accessibility pane of the Elements pane">
     Selected
   </message>
+  <message name="IDS_DEVTOOLS_939aaa05e0943b39eab3a34fd609384d" desc="Text to scroll the displayed content into view">
+    Scroll into view
+  </message>
   <message name="IDS_DEVTOOLS_953f80ed9077d40149a8e68448f09e47" desc="Accessibility attribute name that appears under the Computed Properties section in the Accessibility pane of the Elements pane">
     From label (wrapped)
   </message>

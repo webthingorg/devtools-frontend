@@ -1,3 +1,7 @@
+// Copyright 2020 The Chromium Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
 /*
  * Copyright (C) 2007 Apple Inc.  All rights reserved.
  * Copyright (C) 2009 Joseph Pecoraro
@@ -35,10 +39,13 @@ import * as UI from '../ui/ui.js';
 /** @type {!EventListenersWidget} */
 let eventListenersWidgetInstance;
 
-/**
- * @implements {UI.Toolbar.ItemsProvider}
- */
-export class EventListenersWidget extends UI.ThrottledWidget.ThrottledWidget {
+export class EventListenersWidget extends UI.ThrottledWidget.ThrottledWidget implements UI.Toolbar.ItemsProvider {
+  _toolbarItems: (UI.Toolbar.ToolbarButton|UI.Toolbar.ToolbarComboBox|UI.Toolbar.ToolbarSettingCheckbox)[];
+  _showForAncestorsSetting: Common.Settings.Setting<any>;
+  _dispatchFilterBySetting: Common.Settings.LegacySetting<any>;
+  _showFrameworkListenersSetting: Common.Settings.LegacySetting<any>;
+  _eventListenersView: EventListeners.EventListenersView.EventListenersView;
+  _lastRequestedNode: (SDK.DOMModel.DOMNode|undefined)|undefined;
   constructor() {
     super();
     this._toolbarItems = [];
@@ -66,12 +73,7 @@ export class EventListenersWidget extends UI.ThrottledWidget.ThrottledWidget {
     const dispatchFilter =
         new UI.Toolbar.ToolbarComboBox(this._onDispatchFilterTypeChanged.bind(this), ls`Event listeners category`);
 
-    /**
-     * @param {string} name
-     * @param {string} value
-     * @this {EventListenersWidget}
-     */
-    function addDispatchFilterOption(name, value) {
+    function addDispatchFilterOption(this: EventListenersWidget, name: string, value: string) {
       const option = dispatchFilter.createOption(name, value);
       if (value === this._dispatchFilterBySetting.get()) {
         dispatchFilter.select(option);
@@ -89,11 +91,7 @@ export class EventListenersWidget extends UI.ThrottledWidget.ThrottledWidget {
     this.update();
   }
 
-  /**
-   * @param {{forceNew: ?boolean}=} opts
-   * @return {!EventListenersWidget}
-   */
-  static instance(opts = {forceNew: null}) {
+  static instance(opts: {forceNew: boolean|null;}|undefined = {forceNew: null}): EventListenersWidget {
     const {forceNew} = opts;
     if (!eventListenersWidgetInstance || forceNew) {
       eventListenersWidgetInstance = new EventListenersWidget();
@@ -105,9 +103,8 @@ export class EventListenersWidget extends UI.ThrottledWidget.ThrottledWidget {
   /**
    * @override
    * @protected
-   * @return {!Promise.<?>}
    */
-  doUpdate() {
+  doUpdate(): Promise<any> {
     if (this._lastRequestedNode) {
       this._lastRequestedNode.domModel().runtimeModel().releaseObjectGroup(_objectGroupName);
       delete this._lastRequestedNode;
@@ -123,7 +120,7 @@ export class EventListenersWidget extends UI.ThrottledWidget.ThrottledWidget {
     const promises = [];
     promises.push(node.resolveToObject(_objectGroupName));
     if (!selectedNodeOnly) {
-      let currentNode = node.parentNode;
+      let currentNode: (SDK.DOMModel.DOMNode|null) = node.parentNode;
       while (currentNode) {
         promises.push(currentNode.resolveToObject(_objectGroupName));
         currentNode = currentNode.parentNode;
@@ -135,19 +132,12 @@ export class EventListenersWidget extends UI.ThrottledWidget.ThrottledWidget {
         .then(this._showFrameworkListenersChanged.bind(this));
   }
 
-  /**
-   * @override
-   * @return {!Array<!UI.Toolbar.ToolbarItem>}
-   */
-  toolbarItems() {
+  toolbarItems(): UI.Toolbar.ToolbarItem[] {
     return this._toolbarItems;
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _onDispatchFilterTypeChanged(event) {
-    const filter = /** @type {!HTMLInputElement} */ (event.target);
+  _onDispatchFilterTypeChanged(event: Event) {
+    const filter = (event.target as HTMLInputElement);
     this._dispatchFilterBySetting.set(filter.value);
   }
 
@@ -159,13 +149,9 @@ export class EventListenersWidget extends UI.ThrottledWidget.ThrottledWidget {
         this._showFrameworkListenersSetting.get(), showPassive, showBlocking);
   }
 
-  /**
-   * @param {!SDK.DOMModel.DOMNode} node
-   * @return {!Promise<?SDK.RemoteObject.RemoteObject>}
-   */
-  _windowObjectInNodeContext(node) {
+  _windowObjectInNodeContext(node: SDK.DOMModel.DOMNode): Promise<SDK.RemoteObject.RemoteObject|null> {
     const executionContexts = node.domModel().runtimeModel().executionContexts();
-    let context = executionContexts[0];
+    let context: SDK.RuntimeModel.ExecutionContext = executionContexts[0];
     if (node.frameId()) {
       for (let i = 0; i < executionContexts.length; ++i) {
         const executionContext = executionContexts[i];
@@ -192,7 +178,7 @@ export class EventListenersWidget extends UI.ThrottledWidget.ThrottledWidget {
             },
             /* userGesture */ false,
             /* awaitPromise */ false)
-        .then(result => {
+        .then((result: SDK.RuntimeModel.EvaluationResult) => {
           if ('object' in result) {
             return result.object;
           }
@@ -207,7 +193,7 @@ export class EventListenersWidget extends UI.ThrottledWidget.ThrottledWidget {
 export const DispatchFilterBy = {
   All: 'All',
   Blocking: 'Blocking',
-  Passive: 'Passive'
+  Passive: 'Passive',
 };
 
 export const _objectGroupName = 'event-listeners-panel';
