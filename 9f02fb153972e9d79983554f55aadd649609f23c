@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "203a440e_2d088069",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-21T10:22:33Z",
+      "side": 1,
+      "message": "Thanks for this contribution.\n\nDo these changes make any impact at normal sizes? I\u0027m always wary of changes in inspectorCommon as it effects nearly everything; so it would be good to just double check that at normal font size everything looks as it should.",
+      "revId": "9f02fb153972e9d79983554f55aadd649609f23c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
