@@ -16,6 +16,40 @@
       "message": "PTAL, thanks!",
       "revId": "82f44d7ff01a61225413a6d0688e17117f5f5197",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c5ac531_8023fcf9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-21T11:55:39Z",
+      "side": 1,
+      "message": "LGTM % question",
+      "revId": "82f44d7ff01a61225413a6d0688e17117f5f5197",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ede5acae_2366bff0",
+        "filename": "front_end/resources/ClearStorageView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-21T11:55:39Z",
+      "side": 1,
+      "message": "What\u0027s the benefit of having the tooltip if it\u0027s the same as the label text?",
+      "revId": "82f44d7ff01a61225413a6d0688e17117f5f5197",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
