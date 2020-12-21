@@ -50,6 +50,24 @@
       "message": "What\u0027s the benefit of having the tooltip if it\u0027s the same as the label text?",
       "revId": "82f44d7ff01a61225413a6d0688e17117f5f5197",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a48b22cf_3ac38077",
+        "filename": "front_end/resources/ClearStorageView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-12-21T13:20:57Z",
+      "side": 1,
+      "message": "In a situation where the label is not fully visible because of text-overflow: ellipsis I thought it would be nice if the user could still see what the checkbox is about. If you know of a better pattern, please let me know!",
+      "parentUuid": "ede5acae_2366bff0",
+      "revId": "82f44d7ff01a61225413a6d0688e17117f5f5197",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
