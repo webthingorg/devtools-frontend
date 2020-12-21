@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "663811ef_60dcacf3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-21T06:48:40Z",
+      "side": 1,
+      "message": "As requested on the bug, could you please give a failing example, and then add a test to ClientVariations_test.ts as part of this patch? I imagine it\u0027s when base64-decoding succeeds but proto-decoding fails, so e.g. `\u0027Z2liYmVyaXNo\u0027`?",
+      "revId": "aa8e0f9af5eee2b043dad6aecc9aafb6226165bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3001683_81943775",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 808,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-21T06:48:40Z",
+      "side": 1,
+      "message": "Instead of try-catching this whole block, WDYT about addressing this in parseClientVariations itself? We could make it return `null` for this error case, for example, and then break early from this in that case. (We already detect when base64-decoding fails, so I guess the example you had in mind is one where base64-decoding succeeds but proto-decoding fails?)\n https://source.chromium.org/chromium/chromium/src/+/master:components/variations/proto/devtools/client_variations_uncompiled.js;l\u003d35;drc\u003dc167a96509c1cd47923288d3656ccb5ff250ef9e",
+      "revId": "aa8e0f9af5eee2b043dad6aecc9aafb6226165bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
