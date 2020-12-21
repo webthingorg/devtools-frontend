@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "084f5848_dfe0e293",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2020-12-21T08:12:14Z",
+      "side": 1,
+      "message": "PTAL, kindly double-check file names and whether the contents was migrated correctly :)",
+      "revId": "f47a7282230102d6e975d6202d544c16dde5a58c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
