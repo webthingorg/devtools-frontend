@@ -16,6 +16,23 @@
       "message": "PTAL, please also double-check filenames and content :)",
       "revId": "39145c47365496839cf4e6cd12fabc53b7c89b7c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3621206b_95380294",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2020-12-21T11:00:26Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "39145c47365496839cf4e6cd12fabc53b7c89b7c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
