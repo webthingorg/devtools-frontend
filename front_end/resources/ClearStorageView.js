@@ -120,7 +120,9 @@ export class ClearStorageView extends UI.ThrottledWidget.ThrottledWidget {
     clearButtonSection.appendChild(this._clearButton);
 
     this._includeThirdPartyCookiesCheckbox = UI.SettingsUI.createSettingCheckbox(
-        ls`including third-party cookies`, this._includeThirdPartyCookiesSetting, true);
+        ls`including third-party cookies`, this._includeThirdPartyCookiesSetting, true,
+        ls`including third-party cookies`);
+    this._includeThirdPartyCookiesCheckbox.classList.add('include-third-party-cookies');
     clearButtonSection.appendChild(this._includeThirdPartyCookiesCheckbox);
 
     const application = this._reportView.appendSection(Common.UIString.UIString('Application'));
