@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59fd29d8_4b7641da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-12-22T09:43:49Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "d5a427389d32e373363469b08057a4ec034b26a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6571a635_d8ed833f",
@@ -14,6 +31,30 @@
       "writtenOn": "2020-12-22T09:27:10Z",
       "side": 1,
       "message": "the eslint rules get confused here because we\u0027re nested within `ui/components` but we want the `ui/ui` entrypoint because `ui/components` is its own entry point.\n\nWe can fix this in the ESLint rules or move this folder up into say `front_end/ui_components`. I\u0027m not sure what\u0027s best here. @Paul WDYT?",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 37
+      },
+      "revId": "d5a427389d32e373363469b08057a4ec034b26a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba2a7dbb_53f9b1f7",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-12-22T09:43:49Z",
+      "side": 1,
+      "message": "Yeah I think you can call it either way. In the longer term, assuming we tidy up all these top level dirs, we\u0027re going to need to update the rules, so I\u0027m inclined to add an exception in the rule for this with a note explaining that we anticipate it needing a redo later.",
+      "parentUuid": "6571a635_d8ed833f",
       "range": {
         "startLine": 8,
         "startChar": 0,
@@ -47,6 +88,76 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d50a2f67_84a6f061",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-12-22T09:43:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "81d6bb5a_94c2a045",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 103
+      },
+      "revId": "d5a427389d32e373363469b08057a4ec034b26a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f4a0523_3a3d7679",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-12-22T09:43:49Z",
+      "side": 1,
+      "message": "This function is fairly lengthy. If it can\u0027t be broken up can you add some comments?",
+      "range": {
+        "startLine": 467,
+        "startChar": 10,
+        "endLine": 467,
+        "endChar": 29
+      },
+      "revId": "d5a427389d32e373363469b08057a4ec034b26a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a92d75f1_8ebe2eb6",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-12-22T09:43:49Z",
+      "side": 1,
+      "message": "Can you add a comment or make this a var, i.e. SECONDARY_BUTTON \u003d 2?",
+      "range": {
+        "startLine": 468,
+        "startChar": 4,
+        "endLine": 468,
+        "endChar": 29
+      },
+      "revId": "d5a427389d32e373363469b08057a4ec034b26a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d52b65df_e639b7ff",
@@ -72,6 +183,99 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5c9b0ad9_e249dbee",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-12-22T09:43:49Z",
+      "side": 1,
+      "message": "In this CL or a later one?",
+      "parentUuid": "d52b65df_e639b7ff",
+      "range": {
+        "startLine": 472,
+        "startChar": 0,
+        "endLine": 472,
+        "endChar": 47
+      },
+      "revId": "d5a427389d32e373363469b08057a4ec034b26a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db2c5ca0_52934a6d",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-12-22T09:43:49Z",
+      "side": 1,
+      "message": "nit: if (!column.hideable) { continue; }",
+      "range": {
+        "startLine": 475,
+        "startChar": 6,
+        "endLine": 475,
+        "endChar": 28
+      },
+      "revId": "d5a427389d32e373363469b08057a4ec034b26a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0fa6d93_149d4717",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-12-22T09:43:49Z",
+      "side": 1,
+      "message": "When we\u0027ve dispatched an event here do we want to return?",
+      "range": {
+        "startLine": 497,
+        "startChar": 10,
+        "endLine": 497,
+        "endChar": 74
+      },
+      "revId": "d5a427389d32e373363469b08057a4ec034b26a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b99dad4a_0b6d6127",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-12-22T09:43:49Z",
+      "side": 1,
+      "message": "Same question about returning",
+      "range": {
+        "startLine": 503,
+        "startChar": 6,
+        "endLine": 503,
+        "endChar": 71
+      },
+      "revId": "d5a427389d32e373363469b08057a4ec034b26a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c826309d_02eccf99",
         "filename": "test/unittests/front_end/helpers/EnvironmentHelpers.ts",
         "patchSetId": 1
@@ -83,6 +287,30 @@
       "writtenOn": "2020-12-22T09:27:10Z",
       "side": 1,
       "message": "needed to avoid error when using context menu in component docs",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 53
+      },
+      "revId": "d5a427389d32e373363469b08057a4ec034b26a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b71085a2_a89db2ca",
+        "filename": "test/unittests/front_end/helpers/EnvironmentHelpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-12-22T09:43:49Z",
+      "side": 1,
+      "message": "Add a comment to the code, I think. That way the rationale isn\u0027t lost.",
+      "parentUuid": "c826309d_02eccf99",
       "range": {
         "startLine": 138,
         "startChar": 0,
