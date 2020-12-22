@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4df6ca55_aa84a719",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-12-22T14:46:14Z",
+      "side": 1,
+      "message": "PTAL! \nI added a unregisterDispatcher implementation to the InspectorBackend to enable unregistering the recorder after it is done.",
+      "revId": "96cd4432c0d6cf0dc370f601532af9d942ffec58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
