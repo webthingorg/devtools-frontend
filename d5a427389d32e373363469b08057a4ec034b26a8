@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1222398e_2b0ecb99",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-22T11:55:33Z",
+      "side": 1,
+      "message": "Ack. My plan is to leave this be for this CL; I\u0027m going to follow up with a CL that adds the exemption to the ESLint checker and file a CRBug for it.",
+      "parentUuid": "ba2a7dbb_53f9b1f7",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 37
+      },
+      "revId": "d5a427389d32e373363469b08057a4ec034b26a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "81d6bb5a_94c2a045",
@@ -135,6 +159,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49811405_70b116d6",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-22T11:55:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f4a0523_3a3d7679",
+      "range": {
+        "startLine": 467,
+        "startChar": 10,
+        "endLine": 467,
+        "endChar": 29
+      },
+      "revId": "d5a427389d32e373363469b08057a4ec034b26a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a92d75f1_8ebe2eb6",
@@ -148,6 +196,30 @@
       "writtenOn": "2020-12-22T09:43:49Z",
       "side": 1,
       "message": "Can you add a comment or make this a var, i.e. SECONDARY_BUTTON \u003d 2?",
+      "range": {
+        "startLine": 468,
+        "startChar": 4,
+        "endLine": 468,
+        "endChar": 29
+      },
+      "revId": "d5a427389d32e373363469b08057a4ec034b26a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b2b6c4d_ff77dc26",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-22T11:55:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a92d75f1_8ebe2eb6",
       "range": {
         "startLine": 468,
         "startChar": 4,
@@ -205,6 +277,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6eab396d_a67a8dfa",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-22T11:55:33Z",
+      "side": 1,
+      "message": "Sorry - not clear. Done in this CL",
+      "parentUuid": "5c9b0ad9_e249dbee",
+      "range": {
+        "startLine": 472,
+        "startChar": 0,
+        "endLine": 472,
+        "endChar": 47
+      },
+      "revId": "d5a427389d32e373363469b08057a4ec034b26a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "db2c5ca0_52934a6d",
@@ -218,6 +314,30 @@
       "writtenOn": "2020-12-22T09:43:49Z",
       "side": 1,
       "message": "nit: if (!column.hideable) { continue; }",
+      "range": {
+        "startLine": 475,
+        "startChar": 6,
+        "endLine": 475,
+        "endChar": 28
+      },
+      "revId": "d5a427389d32e373363469b08057a4ec034b26a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20e9f49a_6c450bb9",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-22T11:55:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db2c5ca0_52934a6d",
       "range": {
         "startLine": 475,
         "startChar": 6,
@@ -253,6 +373,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2c1370e7_f1a4bc2a",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-22T11:55:33Z",
+      "side": 1,
+      "message": "I don\u0027t think we need to - this function is the handler for the click event when the user clicks on the item in the menu so all it does is call this.dispatchEvent and therefore I don\u0027t think we need any returns?",
+      "parentUuid": "b0fa6d93_149d4717",
+      "range": {
+        "startLine": 497,
+        "startChar": 10,
+        "endLine": 497,
+        "endChar": 74
+      },
+      "revId": "d5a427389d32e373363469b08057a4ec034b26a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b99dad4a_0b6d6127",
         "filename": "front_end/ui/components/DataGrid.ts",
         "patchSetId": 1
@@ -264,6 +408,30 @@
       "writtenOn": "2020-12-22T09:43:49Z",
       "side": 1,
       "message": "Same question about returning",
+      "range": {
+        "startLine": 503,
+        "startChar": 6,
+        "endLine": 503,
+        "endChar": 71
+      },
+      "revId": "d5a427389d32e373363469b08057a4ec034b26a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ef45293_db62ab68",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-22T11:55:33Z",
+      "side": 1,
+      "message": "See comment above.",
+      "parentUuid": "b99dad4a_0b6d6127",
       "range": {
         "startLine": 503,
         "startChar": 6,
@@ -311,6 +479,30 @@
       "side": 1,
       "message": "Add a comment to the code, I think. That way the rationale isn\u0027t lost.",
       "parentUuid": "c826309d_02eccf99",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 53
+      },
+      "revId": "d5a427389d32e373363469b08057a4ec034b26a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a4bcce7_1b5a51fa",
+        "filename": "test/unittests/front_end/helpers/EnvironmentHelpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-22T11:55:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b71085a2_a89db2ca",
       "range": {
         "startLine": 138,
         "startChar": 0,
