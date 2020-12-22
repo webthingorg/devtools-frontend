@@ -134,6 +134,8 @@ export async function initializeGlobalVars({reset = true} = {}) {
   UI = await import('../../../../front_end/ui/ui.js');
   UI.ZoomManager.ZoomManager.instance(
       {forceNew: true, win: window, frontendHost: Host.InspectorFrontendHost.InspectorFrontendHostInstance});
+
+  UI.GlassPane.GlassPane.setContainer(document.body);
 }
 
 export async function deinitializeGlobalVars() {

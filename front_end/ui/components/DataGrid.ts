@@ -5,13 +5,21 @@
 import * as Host from '../../host/host.js';
 import * as Platform from '../../platform/platform.js';
 import * as LitHtml from '../../third_party/lit-html/lit-html.js';
+// eslint-disable-next-line rulesdir/es_modules_import
+import * as UI from '../../ui/ui.js';
 
 import {calculateColumnWidthPercentageFromWeighting, calculateFirstFocusableCell, Cell, CellPosition, Column, getRowEntryForColumnId, handleArrowKeyNavigation, keyIsArrowKey, renderCellValue, Row, SortDirection, SortState} from './DataGridUtils.js';
+
+export interface DataGridContextMenusConfiguration {
+  headerRow?: (menu: UI.ContextMenu.ContextMenu, columns: readonly Column[]) => void;
+  bodyRow?: (menu: UI.ContextMenu.ContextMenu, columns: readonly Column[], row: Readonly<Row>) => void;
+}
 
 export interface DataGridData {
   columns: Column[];
   rows: Row[];
   activeSort: SortState|null;
+  contextMenus?: DataGridContextMenusConfiguration;
 }
 
 export class ColumnHeaderClickEvent extends Event {
@@ -50,6 +58,19 @@ export class BodyCellFocusedEvent extends Event {
   }
 }
 
+export class ContextMenuColumnSortClickEvent extends Event {
+  data: {
+    column: Column,
+  };
+
+  constructor(column: Column) {
+    super('context-menu-column-sort-click');
+    this.data = {
+      column,
+    };
+  }
+}
+
 const KEYS_TREATED_AS_CLICKS = new Set([' ', 'Enter']);
 
 export class DataGrid extends HTMLElement {
@@ -57,6 +78,7 @@ export class DataGrid extends HTMLElement {
   private columns: readonly Column[] = [];
   private rows: readonly Row[] = [];
   private sortState: Readonly<SortState>|null = null;
+  private contextMenus?: DataGridContextMenusConfiguration;
   private currentResize: {
     rightCellCol: HTMLTableColElement,
     leftCellCol: HTMLTableColElement,
@@ -97,6 +119,7 @@ export class DataGrid extends HTMLElement {
       columns: this.columns as Column[],
       rows: this.rows as Row[],
       activeSort: this.sortState,
+      contextMenus: this.contextMenus,
     };
   }
 
@@ -104,6 +127,7 @@ export class DataGrid extends HTMLElement {
     this.columns = data.columns;
     this.rows = data.rows;
     this.sortState = data.activeSort;
+    this.contextMenus = data.contextMenus;
 
     /**
      * On first render, now we have data, we can figure out which cell is the
@@ -440,6 +464,52 @@ export class DataGrid extends HTMLElement {
     return index;
   }
 
+  private onHeaderContextMenu(event: MouseEvent): void {
+    if (event.button !== 2) {
+      return;
+    }
+
+    // TODO: translations for things and use ls
+    const menu = new UI.ContextMenu.ContextMenu(event);
+    for (const column of this.columns) {
+      if (column.hideable) {
+        menu.defaultSection().appendCheckboxItem(column.title, () => {
+          const newVisibility = !column.visible;
+          const newColumns = this.columns.map(col => {
+            if (col === column) {
+              col.visible = newVisibility;
+            }
+            return col;
+          });
+          this.data = {
+            ...this.data,
+            columns: newColumns,
+          };
+        }, column.visible);
+      }
+    }
+
+    const sortableColumns = this.columns.filter(col => col.sortable === true);
+    if (sortableColumns.length > 0) {
+      const sortMenu = menu.defaultSection().appendSubMenuItem('Sort by');
+      for (const column of sortableColumns) {
+        sortMenu.defaultSection().appendItem(column.title, () => {
+          this.dispatchEvent(new ContextMenuColumnSortClickEvent(column));
+        });
+      }
+    }
+
+    menu.defaultSection().appendItem('Reset columns', () => {
+      this.dispatchEvent(new Event('context-menu-header-reset-click'));
+    });
+
+    if (this.contextMenus && this.contextMenus.headerRow) {
+      // Let the user append things to the menu
+      this.contextMenus.headerRow(menu, this.columns);
+    }
+    menu.show();
+  }
+
   private render(): void {
     const indexOfFirstVisibleColumn = this.columns.findIndex(col => col.visible);
     const anyColumnsSortable = this.columns.some(col => col.sortable === true);
@@ -584,7 +654,7 @@ export class DataGrid extends HTMLElement {
           })}
         </colgroup>
         <thead>
-          <tr>
+          <tr @contextmenu=${this.onHeaderContextMenu}>
             ${this.columns.map((col, columnIndex) => {
               const thClasses = LitHtml.Directives.classMap({
                 hidden: !col.visible,
