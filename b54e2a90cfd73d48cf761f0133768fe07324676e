@@ -85,6 +85,41 @@
       "parentUuid": "5476eb95_a79b2496",
       "revId": "b54e2a90cfd73d48cf761f0133768fe07324676e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99aba2c3_151edc10",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-12-22T02:56:58Z",
+      "side": 1,
+      "message": "Yikes! I think those are mac-specific because Option behaves differently from Alt and we\u0027re not able to capture some shortcuts involving the Command key.",
+      "parentUuid": "13e91c6b_f7847efc",
+      "revId": "b54e2a90cfd73d48cf761f0133768fe07324676e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c1ed6ab_6071d561",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2020-12-22T02:56:58Z",
+      "side": 1,
+      "message": "Thanks for the feedback. I\u0027ll investigate the issues Yang uncovered and then put up a CL to move to a stable experiment first.",
+      "revId": "b54e2a90cfd73d48cf761f0133768fe07324676e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
