@@ -240,6 +240,13 @@ export class ResourceTreeModel extends SDKModel {
       this.dispatchEventToListeners(Events.ResourceAdded, resources[i]);
     }
 
+    if (!frame._resourcesMap.get(framePayload.url)) {
+      const frameResource = this._createResourceFromFramePayload(
+          framePayload, framePayload.url, Common.ResourceType.resourceTypes.Document, framePayload.mimeType, null,
+          null);
+      frame.addResource(frameResource);
+    }
+
     if (frame.isMainFrame()) {
       this.target().setInspectedURL(frame.url);
     }

@@ -2126,6 +2126,9 @@ export class FrameTreeElement extends ApplicationPanelTreeElement {
     if (statusCode >= 301 && statusCode <= 303) {
       return;
     }
+    if (this._treeElementForResource.get(resource.url)) {
+      return;
+    }
 
     const resourceType = resource.resourceType();
     const categoryName = resourceType.name();
