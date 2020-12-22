@@ -110,12 +110,14 @@ export class AccessibilitySidebarView extends UI.ThrottledWidget.ThrottledWidget
     if (!node) {
       return;
     }
+
     const accessibilityModel = node.domModel().target().model(SDK.AccessibilityModel.AccessibilityModel);
     if (!accessibilityModel) {
       return;
     }
     accessibilityModel.clear();
     await accessibilityModel.requestPartialAXTree(node);
+    // await accessibilityModel.requestFullAXTree();
     this.accessibilityNodeCallback(accessibilityModel.axNodeForDOMNode(node));
   }
 

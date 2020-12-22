@@ -232,6 +232,7 @@ export class AccessibilityModel extends SDKModel {
     this._axIdToAXNode.clear();
   }
 
+
   /**
    * @param {!DOMNode} node
    * @return {!Promise<void>}
@@ -252,6 +253,31 @@ export class AccessibilityModel extends SDKModel {
         axChild._setParentNode(axNode);
       }
     }
+  }
+
+  /**
+   * @return ?{!Promise<Object>}
+   */
+  async requestFullAXTree() {
+    const {nodes} = await this._agent.invoke_getFullAXTree({max_depth: 3});
+    if (!nodes) {
+      return;
+    }
+
+    for (const payload of nodes) {
+      new AccessibilityNode(this, payload);
+    }
+
+    for (const axNode of this._axIdToAXNode.values()) {
+      for (const axChild of axNode.children()) {
+        axChild._setParentNode(axNode);
+        // let axChildName = axChild.name();
+        // if (axChildName && axChildName.value) {
+        //     console.log(axChildName.value);
+        // }
+      }
+    }
+    return {nodes};
   }
 
   /**

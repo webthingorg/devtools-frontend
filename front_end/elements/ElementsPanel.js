@@ -430,6 +430,9 @@ export class ElementsPanel extends UI.Panel.Panel {
       return;
     }
     selectedNode.setAsInspectedNode();
+    this._accessibilityTreeView.setNode(selectedNode);
+    // TODO(annabelzhou): re-render components here?
+
     if (focus) {
       this._selectedNodeOnReset = selectedNode;
       this._hasNonDefaultSelectedNode = true;
