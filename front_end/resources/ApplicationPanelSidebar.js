@@ -2008,7 +2008,6 @@ export class FrameTreeElement extends ApplicationPanelTreeElement {
     this._treeElementForWindow = new Map();
     /** @type {!Map<string, !WorkerTreeElement>} */
     this._treeElementForWorker = new Map();
-    this.setExpandable(true);
     this.frameNavigated(frame);
     /** @type {?FrameDetailsView} */
     this._view = null;
