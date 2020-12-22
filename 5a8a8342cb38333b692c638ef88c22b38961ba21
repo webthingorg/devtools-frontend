@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccc233a3_656303e6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1153586
+      },
+      "writtenOn": "2020-12-22T11:24:03Z",
+      "side": 1,
+      "message": "setTimeout(..., 0) is clamped up to 1ms in Chromium: https://source.chromium.org/chromium/chromium/src/+/master:third_party/blink/renderer/core/frame/dom_timer.cc;l\u003d112;bpv\u003d0 for historical reasons crbug.com/402694, I am working on fixing this issue at https://crrev.com/c/2578703, where there reproduces many flaky tests, including these devtool tests that I was intended to fix in this CL.",
+      "parentUuid": "41dd9364_75326c47",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 31
+      },
+      "revId": "5a8a8342cb38333b692c638ef88c22b38961ba21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0c7c8f7e_4edee433",
