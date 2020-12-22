@@ -397,6 +397,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "856dd069_7e118667",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-12-22T12:01:53Z",
+      "side": 1,
+      "message": "Not necessarily a need so much as indicating that the event has been handled by the dispatch. More of a clarity than a correctness thing, perhaps.",
+      "parentUuid": "2c1370e7_f1a4bc2a",
+      "range": {
+        "startLine": 497,
+        "startChar": 10,
+        "endLine": 497,
+        "endChar": 74
+      },
+      "revId": "d5a427389d32e373363469b08057a4ec034b26a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b99dad4a_0b6d6127",
         "filename": "front_end/ui/components/DataGrid.ts",
         "patchSetId": 1
