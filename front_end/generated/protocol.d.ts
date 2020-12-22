@@ -216,6 +216,8 @@ declare namespace Protocol {
      * A node in the accessibility tree.
      */
     export interface AXNode {
+      children?: AXNode[];
+      parent?: AXNode;
       /**
        * Unique identifier for this node.
        */
