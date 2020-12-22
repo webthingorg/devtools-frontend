@@ -33,6 +33,24 @@
       "message": "Instead of try-catching this whole block, WDYT about addressing this in parseClientVariations itself? We could make it return `null` for this error case, for example, and then break early from this in that case. (We already detect when base64-decoding fails, so I guess the example you had in mind is one where base64-decoding succeeds but proto-decoding fails?)\n https://source.chromium.org/chromium/chromium/src/+/master:components/variations/proto/devtools/client_variations_uncompiled.js;l\u003d35;drc\u003dc167a96509c1cd47923288d3656ccb5ff250ef9e",
       "revId": "aa8e0f9af5eee2b043dad6aecc9aafb6226165bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49baa0c7_6be12554",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 808,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-12-22T00:43:41Z",
+      "side": 1,
+      "message": "Yes currently parseClientVariations throws an error if decoding works but proto-decoding fails. Since we are handling the decoding fail in parseClientVariations, it makes sense to handle the proto-deocing failing parseClientVariations as well. \n\nI will update this and also add a test case. I have added an example in the bug as a comment.",
+      "parentUuid": "d3001683_81943775",
+      "revId": "aa8e0f9af5eee2b043dad6aecc9aafb6226165bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
