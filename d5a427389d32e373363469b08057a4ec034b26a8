@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6571a635_d8ed833f",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-22T09:27:10Z",
+      "side": 1,
+      "message": "the eslint rules get confused here because we\u0027re nested within `ui/components` but we want the `ui/ui` entrypoint because `ui/components` is its own entry point.\n\nWe can fix this in the ESLint rules or move this folder up into say `front_end/ui_components`. I\u0027m not sure what\u0027s best here. @Paul WDYT?",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 37
+      },
+      "revId": "d5a427389d32e373363469b08057a4ec034b26a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81d6bb5a_94c2a045",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-22T09:27:10Z",
+      "side": 1,
+      "message": "note that this CL does not add support for the body row context menu, that\u0027s my next step, but I wanted to get the typedefs in now",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 103
+      },
+      "revId": "d5a427389d32e373363469b08057a4ec034b26a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d52b65df_e639b7ff",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-22T09:27:10Z",
+      "side": 1,
+      "message": "will swap to ls",
+      "range": {
+        "startLine": 472,
+        "startChar": 0,
+        "endLine": 472,
+        "endChar": 47
+      },
+      "revId": "d5a427389d32e373363469b08057a4ec034b26a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c826309d_02eccf99",
+        "filename": "test/unittests/front_end/helpers/EnvironmentHelpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2020-12-22T09:27:10Z",
+      "side": 1,
+      "message": "needed to avoid error when using context menu in component docs",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 53
+      },
+      "revId": "d5a427389d32e373363469b08057a4ec034b26a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
