@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "904ea85b_5b50e2e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-12-22T17:22:57Z",
+      "side": 1,
+      "message": "PTAL, thanks! \nFor now, I decided to already implement it with the existing functionality \nthat puppeteer already provides.",
+      "revId": "118cd5f3e1d1f55cec405cd68aa85aa95fb7da98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
