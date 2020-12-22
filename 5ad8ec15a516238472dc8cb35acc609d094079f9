@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d25d86d7_6576995b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1461707
+      },
+      "writtenOn": "2020-12-22T10:01:41Z",
+      "side": 1,
+      "message": "I removed the comment from Patch Set #6, Line 12. ",
+      "revId": "5ad8ec15a516238472dc8cb35acc609d094079f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
