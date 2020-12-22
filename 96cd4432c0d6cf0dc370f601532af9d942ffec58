@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb9ca396_3c49df61",
+        "filename": "front_end/protocol_client/InspectorBackend.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1362,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-12-22T17:25:58Z",
+      "side": 1,
+      "message": "Sounds like a good idea!",
+      "parentUuid": "70178b05_273d4cee",
+      "revId": "96cd4432c0d6cf0dc370f601532af9d942ffec58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4fa0a738_349c95bc",
@@ -65,6 +83,24 @@
       "writtenOn": "2020-12-22T14:56:50Z",
       "side": 1,
       "message": "nit: space after `if`",
+      "revId": "96cd4432c0d6cf0dc370f601532af9d942ffec58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8159bfea_ae77b2a6",
+        "filename": "front_end/recorder/RecordingSession.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-12-22T17:25:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4fa0a738_349c95bc",
       "revId": "96cd4432c0d6cf0dc370f601532af9d942ffec58",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
