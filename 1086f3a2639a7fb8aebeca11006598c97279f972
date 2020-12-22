@@ -33,6 +33,24 @@
       "message": "I\u0027d love to see a follow-up investigation into blob: URLs instead of data: URLs here. They seem strictly better for these use cases (but maybe I\u0027m missing something!).",
       "revId": "1086f3a2639a7fb8aebeca11006598c97279f972",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd3bbde5_87290cda",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-12-22T09:25:25Z",
+      "side": 1,
+      "message": "I will consider studying blob: URLs later.",
+      "parentUuid": "8fa5ec93_ba5ee9b2",
+      "revId": "1086f3a2639a7fb8aebeca11006598c97279f972",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
