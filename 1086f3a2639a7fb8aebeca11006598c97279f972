@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "039e51f6_db26ee37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2020-12-22T08:10:15Z",
+      "side": 1,
+      "message": "@Mathias Please help me click CQ, I don\u0027t have permission.",
+      "revId": "1086f3a2639a7fb8aebeca11006598c97279f972",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
