@@ -36,6 +36,7 @@ import * as Root from '../root/root.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
+import {AccessibilityTreeView} from './AccessibilityTreeView.js';
 import {ComputedStyleWidget} from './ComputedStyleWidget.js';
 import {DOMNode, ElementsBreadcrumbs} from './ElementsBreadcrumbs.js';  // eslint-disable-line no-unused-vars
 import {ElementsTreeElement} from './ElementsTreeElement.js';           // eslint-disable-line no-unused-vars
@@ -90,6 +91,15 @@ export class ElementsPanel extends UI.Panel.Panel {
 
     this._contentElement = document.createElement('div');
     const crumbsContainer = document.createElement('div');
+    this._button = document.createElement('button');
+    this._button.innerText = 'Go to A11y Tree';
+    this._button.addEventListener('click', this._showAccessibilityTree.bind(this));
+
+    this.toggleButton = document.createElement('button');
+    this.toggleButton.innerText = 'Go to DOM Tree';
+    this.toggleButton.addEventListener('click', this._showDOMTree.bind(this));
+
+    stackElement.appendChild(this._button);
     stackElement.appendChild(this._contentElement);
     stackElement.appendChild(crumbsContainer);
 
@@ -107,6 +117,8 @@ export class ElementsPanel extends UI.Panel.Panel {
         .addChangeListener(this._domWordWrapSettingChanged.bind(this));
 
     crumbsContainer.id = 'elements-crumbs';
+
+    this._accessibilityTreeView = new AccessibilityTreeView(this.toggleButton);
 
     this._breadcrumbs = new ElementsBreadcrumbs();
     this._breadcrumbs.addEventListener('node-selected', /** @param {!Event} event */ event => {
@@ -149,6 +161,14 @@ export class ElementsPanel extends UI.Panel.Panel {
     this._currentSearchResultIndex = -1;  // -1 represents the initial invalid state
 
     this._pendingNodeReveal = false;
+  }
+
+  _showAccessibilityTree() {
+    this._splitWidget.setMainWidget(this._accessibilityTreeView);
+  }
+
+  _showDOMTree() {
+    this._splitWidget.setMainWidget(this._searchableView);
   }
 
   /**
