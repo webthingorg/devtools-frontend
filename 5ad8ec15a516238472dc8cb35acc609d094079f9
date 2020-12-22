@@ -16,6 +16,23 @@
       "message": "I removed the comment from Patch Set #6, Line 12. ",
       "revId": "5ad8ec15a516238472dc8cb35acc609d094079f9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8292bc78_6da4ea75",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1461707
+      },
+      "writtenOn": "2020-12-22T19:22:55Z",
+      "side": 1,
+      "message": "The comment was removed in patchset #7.\nIs there anything else I need to review or take action on?\n",
+      "revId": "5ad8ec15a516238472dc8cb35acc609d094079f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
