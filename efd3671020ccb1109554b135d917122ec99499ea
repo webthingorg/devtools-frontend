@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca317ce5_a1fa60aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-12-22T08:25:04Z",
+      "side": 1,
+      "message": "LGTM. Is there anything we can do here in terms of testing?",
+      "revId": "efd3671020ccb1109554b135d917122ec99499ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4616c68_0322200c",
+        "filename": "front_end/profiler/LiveHeapProfileView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-12-22T08:25:04Z",
+      "side": 1,
+      "message": "Please can you add a forceNew param similar to https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/network/NetworkConfigView.js;l\u003d29",
+      "range": {
+        "startLine": 404,
+        "startChar": 9,
+        "endLine": 404,
+        "endChar": 17
+      },
+      "revId": "efd3671020ccb1109554b135d917122ec99499ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf229d67_5cdabc13",
+        "filename": "front_end/profiler/ProfilesPanel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 741,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-12-22T08:25:04Z",
+      "side": 1,
+      "message": "Same thing with forceNew 😊",
+      "range": {
+        "startLine": 741,
+        "startChar": 9,
+        "endLine": 741,
+        "endChar": 17
+      },
+      "revId": "efd3671020ccb1109554b135d917122ec99499ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
