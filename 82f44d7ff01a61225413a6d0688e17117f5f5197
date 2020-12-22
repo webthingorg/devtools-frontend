@@ -86,6 +86,24 @@
       "parentUuid": "a48b22cf_3ac38077",
       "revId": "82f44d7ff01a61225413a6d0688e17117f5f5197",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db149ad5_490c94b4",
+        "filename": "front_end/resources/ClearStorageView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-12-22T10:54:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea37e8ea_f72ff0bd",
+      "revId": "82f44d7ff01a61225413a6d0688e17117f5f5197",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
