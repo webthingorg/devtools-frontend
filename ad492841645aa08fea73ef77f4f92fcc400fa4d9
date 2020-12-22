@@ -33,6 +33,24 @@
       "message": "I don\u0027t think this fix is working entirely, I tried locally and could still reproduce for extreme values.\n\nIn general, DevTools has line heights fixed to pixel values in almost all places, which makes it not play nice with changed font sizes. Just apply the settings from the repro in the bug and go to the sources panel to see more problems.\n\nI think we should generally work towards a responsive UI also wrt. font sizes and I\u0027m not convinced that working around each problem one-by-one will lead to a good solution.\n\nMathias, Jack, are you aware of this problem, is it already on the roadmap?",
       "revId": "ad492841645aa08fea73ef77f4f92fcc400fa4d9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ddac6a3_64681444",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-22T14:19:26Z",
+      "side": 1,
+      "message": "Responded here: https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1156023#c4",
+      "parentUuid": "2b4146eb_4242d4c9",
+      "revId": "ad492841645aa08fea73ef77f4f92fcc400fa4d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
