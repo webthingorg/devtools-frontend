@@ -166,6 +166,30 @@
       },
       "revId": "9252c6d1b758255bca7b35c3346a690cf47967c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca68b18a_1175dfed",
+        "filename": "front_end/resources/resources_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1359736
+      },
+      "writtenOn": "2020-12-23T03:09:43Z",
+      "side": 1,
+      "message": "Sent you https://chromium-review.googlesource.com/c/chromium/src/+/2599733 for the Chrome check.",
+      "parentUuid": "f71d6296_39054640",
+      "range": {
+        "startLine": 338,
+        "startChar": 217,
+        "endLine": 338,
+        "endChar": 245
+      },
+      "revId": "9252c6d1b758255bca7b35c3346a690cf47967c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
