@@ -16,6 +16,23 @@
       "message": "PTAL 😊",
       "revId": "ab01c255b9d482ec9b15198e42c022ca8a264e33",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ffda107_80c22fa2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2020-12-23T05:09:51Z",
+      "side": 1,
+      "message": "LGTM, thanks! Also adding Mathias for owner review.",
+      "revId": "ab01c255b9d482ec9b15198e42c022ca8a264e33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
