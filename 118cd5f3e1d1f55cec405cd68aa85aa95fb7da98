@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c01a9b98_450c9856",
+        "filename": "front_end/recorder/RecordingSession.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-12-23T08:44:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "994381a7_9d472a5c",
+      "revId": "118cd5f3e1d1f55cec405cd68aa85aa95fb7da98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4f62c01f_2e70d761",
@@ -75,6 +93,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4ce3bfb_9f038981",
+        "filename": "front_end/recorder/RecordingSession.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-12-23T08:44:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f62c01f_2e70d761",
+      "range": {
+        "startLine": 164,
+        "startChar": 8,
+        "endLine": 164,
+        "endChar": 17
+      },
+      "revId": "118cd5f3e1d1f55cec405cd68aa85aa95fb7da98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8b98dd5f_0aeaf78a",
@@ -88,6 +130,24 @@
       "writtenOn": "2020-12-23T08:08:38Z",
       "side": 1,
       "message": "Do we want a trailing comma here to make it easier to extend?",
+      "revId": "118cd5f3e1d1f55cec405cd68aa85aa95fb7da98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40d1a03f_bfd72736",
+        "filename": "front_end/recorder/RecordingSession.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-12-23T08:44:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b98dd5f_0aeaf78a",
       "revId": "118cd5f3e1d1f55cec405cd68aa85aa95fb7da98",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
