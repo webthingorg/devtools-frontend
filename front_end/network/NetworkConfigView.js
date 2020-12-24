@@ -71,9 +71,7 @@ export class NetworkConfigView extends UI.Widget.VBox {
     const errorElement = /** @type {!HTMLElement} */ (document.createElement('div'));
     errorElement.classList.add('network-config-input-validation-error');
     UI.ARIAUtils.markAsAlert(errorElement);
-    if (!otherUserAgentElement.value) {
-      errorElement.textContent = ls`Custom user agent field is required`;
-    }
+    errorElement.textContent = ls`Custom user agent field is required`;
 
     settingChanged();
     userAgentSelectElement.addEventListener('change', userAgentSelected, false);
@@ -111,9 +109,9 @@ export class NetworkConfigView extends UI.Widget.VBox {
     function applyOtherUserAgent() {
       if (userAgentSetting.get() !== otherUserAgentElement.value) {
         if (!otherUserAgentElement.value) {
-          errorElement.textContent = ls`Custom user agent field is required`;
+          errorElement.classList.remove('hide-error-text');
         } else {
-          errorElement.textContent = '';
+          errorElement.classList.add('hide-error-text');
         }
         userAgentSetting.set(otherUserAgentElement.value);
         UI.Tooltip.Tooltip.install(otherUserAgentElement, otherUserAgentElement.value);
