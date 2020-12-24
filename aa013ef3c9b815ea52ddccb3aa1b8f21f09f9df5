@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de86bbb6_37e322ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-12-24T11:35:35Z",
+      "side": 1,
+      "message": "This seems to work well. Thanks.\nI made a comment in the code below. Also, here is a thought: how about we don\u0027t introduce an extra class for this, but instead use the :empty() CSS pseudo-class? This way, we can keep adding/removing the error text and CSS will show/hide the element depending on whether text is present.",
+      "revId": "aa013ef3c9b815ea52ddccb3aa1b8f21f09f9df5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea4f6a9a_78ad02f7",
+        "filename": "front_end/network/NetworkConfigView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2020-12-24T11:35:35Z",
+      "side": 1,
+      "message": "This can be shorten to 1 line:\n\nerrorElement.classList.toggle(\u0027hide-error-text\u0027, otherUserAgentElement.value);",
+      "range": {
+        "startLine": 111,
+        "startChar": 8,
+        "endLine": 115,
+        "endChar": 9
+      },
+      "revId": "aa013ef3c9b815ea52ddccb3aa1b8f21f09f9df5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
