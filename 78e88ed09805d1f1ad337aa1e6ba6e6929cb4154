@@ -80,6 +80,30 @@
       },
       "revId": "78e88ed09805d1f1ad337aa1e6ba6e6929cb4154",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d510a2e6_c14122e2",
+        "filename": "front_end/elements/ComputedStyleWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2020-12-24T09:40:04Z",
+      "side": 1,
+      "message": "If TS compiles without errors then it is unnecessary. We might choose to leave some casts in place for clarity, but that\u0027s more an art than a science, I\u0027m afraid!",
+      "parentUuid": "022b4430_6c436b76",
+      "range": {
+        "startLine": 278,
+        "startChar": 13,
+        "endLine": 278,
+        "endChar": 66
+      },
+      "revId": "78e88ed09805d1f1ad337aa1e6ba6e6929cb4154",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
