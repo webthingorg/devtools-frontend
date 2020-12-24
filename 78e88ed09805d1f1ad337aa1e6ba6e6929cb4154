@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "47ff760b_42bf8996",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-24T09:13:17Z",
+      "side": 1,
+      "message": "Paul, PTAL the question",
+      "revId": "78e88ed09805d1f1ad337aa1e6ba6e6929cb4154",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7cbc10d1_c6677c30",
@@ -31,6 +48,30 @@
       "writtenOn": "2020-12-24T09:09:28Z",
       "side": 1,
       "message": "Is the cast still needed here?",
+      "range": {
+        "startLine": 278,
+        "startChar": 13,
+        "endLine": 278,
+        "endChar": 66
+      },
+      "revId": "78e88ed09805d1f1ad337aa1e6ba6e6929cb4154",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "022b4430_6c436b76",
+        "filename": "front_end/elements/ComputedStyleWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-24T09:13:17Z",
+      "side": 1,
+      "message": "Paul, do you know? (I kept this CL as minimal as possible, but would be happy to remove these casts as a separate CL if they are indeed unnecessary. There are many more instances like this.)",
+      "parentUuid": "7cbc10d1_c6677c30",
       "range": {
         "startLine": 278,
         "startChar": 13,
