@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2073ae5d_dd548f8f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-12-24T09:09:28Z",
+      "side": 1,
+      "message": "LGTM % nit",
+      "revId": "78e88ed09805d1f1ad337aa1e6ba6e6929cb4154",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cbc10d1_c6677c30",
+        "filename": "front_end/elements/ComputedStyleWidget.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2020-12-24T09:09:28Z",
+      "side": 1,
+      "message": "Is the cast still needed here?",
+      "range": {
+        "startLine": 278,
+        "startChar": 13,
+        "endLine": 278,
+        "endChar": 66
+      },
+      "revId": "78e88ed09805d1f1ad337aa1e6ba6e6929cb4154",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
