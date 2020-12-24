@@ -15,7 +15,7 @@ vars = {
   'depot_tools_revision': '67e12286df04ef0eeec3aeaf6f224d2fe11751b7',
 
   'inspector_protocol_url': 'https://chromium.googlesource.com/deps/inspector_protocol',
-  'inspector_protocol_revision': '88c8137706fc29deeffa8cec39ef793bdafb57dc',
+  'inspector_protocol_revision': '751c62b24e500dc80a40212627ee91331de8abdb',
 
   'clang_format_url': 'https://chromium.googlesource.com/chromium/llvm-project/cfe/tools/clang-format.git',
   'clang_format_revision': '96636aa0e9f047f17447f2d45a094d0b59ed7917',
