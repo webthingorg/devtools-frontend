@@ -16,6 +16,23 @@
       "message": "Hi Mathias, could you PTAL? Thanks!",
       "revId": "ee4fea1d89f5252edc06b99efd429a608027d541",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15883332_1d7e07d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-24T08:29:54Z",
+      "side": 1,
+      "message": "Thanks for the ping, I must have missed the earlier email! LGTM",
+      "revId": "ee4fea1d89f5252edc06b99efd429a608027d541",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
