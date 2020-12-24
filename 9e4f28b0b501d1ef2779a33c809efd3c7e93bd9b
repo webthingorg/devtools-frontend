@@ -50,6 +50,24 @@
       "message": "Sorry, wrong account",
       "revId": "9e4f28b0b501d1ef2779a33c809efd3c7e93bd9b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aac26e3b_4ec84457",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-24T09:10:51Z",
+      "side": 1,
+      "message": "Could you please +1 it first? Only then can we land this :) Thanks!",
+      "parentUuid": "726faa70_85b15f70",
+      "revId": "9e4f28b0b501d1ef2779a33c809efd3c7e93bd9b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
