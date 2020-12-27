@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f2b61d3_808ba27f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1461707
+      },
+      "writtenOn": "2020-12-27T06:26:57Z",
+      "side": 1,
+      "message": "I made a new change in throttlingSettingsTab.css that resolves the original issue. Could you please review? ",
+      "revId": "41807af4f6e378046b781745755f319246cc4008",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
