@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfa67839_27f9b94d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2020-12-28T08:50:35Z",
+      "side": 1,
+      "message": "LGTM, but I didn\u0027t check the equality of the files  `.png`  and `.avif`",
+      "revId": "9660659f57288be0e98b5c6e9bedab4e05e1d352",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
