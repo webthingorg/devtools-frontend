@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "bb2a2f902eced83ea98b138b4c421d7bed97c3ae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8dcebf8e_612d4f3e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2020-12-28T08:52:32Z",
+      "side": 1,
+      "message": "LGTM, but I didn\u0027t compare the changed images themselves.",
+      "revId": "bb2a2f902eced83ea98b138b4c421d7bed97c3ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
