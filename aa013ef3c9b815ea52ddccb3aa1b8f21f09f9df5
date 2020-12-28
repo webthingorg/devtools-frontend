@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "77c62189_4bb2ebdf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-12-28T18:01:38Z",
+      "side": 1,
+      "message": "I like the psuedo-class approach a lot better.  Thanks for the suggestion!",
+      "parentUuid": "de86bbb6_37e322ad",
+      "revId": "aa013ef3c9b815ea52ddccb3aa1b8f21f09f9df5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ea4f6a9a_78ad02f7",
@@ -31,6 +49,30 @@
       "writtenOn": "2020-12-24T11:35:35Z",
       "side": 1,
       "message": "This can be shorten to 1 line:\n\nerrorElement.classList.toggle(\u0027hide-error-text\u0027, otherUserAgentElement.value);",
+      "range": {
+        "startLine": 111,
+        "startChar": 8,
+        "endLine": 115,
+        "endChar": 9
+      },
+      "revId": "aa013ef3c9b815ea52ddccb3aa1b8f21f09f9df5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ddbfd7e_0746f1bb",
+        "filename": "front_end/network/NetworkConfigView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-12-28T18:01:38Z",
+      "side": 1,
+      "message": "not needed after using pseudo-class approach.",
+      "parentUuid": "ea4f6a9a_78ad02f7",
       "range": {
         "startLine": 111,
         "startChar": 8,

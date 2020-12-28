@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "537edacd_06659bb7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2020-12-28T18:01:38Z",
+      "side": 1,
+      "message": "Adding Benedikt as reviewer.\n\nPTAL.",
+      "revId": "3c1102d21a5910bd668f9c66f6652e5c85cbeb8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
