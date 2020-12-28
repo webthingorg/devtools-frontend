@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b137b59f_365b5697",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-12-28T20:33:11Z",
+      "side": 1,
+      "message": "Hi Mathias,\n\nI started a new review https://chromium-review.googlesource.com/c/chromium/src/+/2605396 to update client_variations.js in chromium src. However I am having difficult time to generate the compiled file from uncompiled js file, upon running python script, I am getting the following error\n\n```\ncall D:\\Chrome\\depot_tools\\ninja.bat -C D:\\Chrome\\src\\out\\release_x64 components/variations/proto/devtools -j 240\nninja: Entering directory `D:\\Chrome\\src\\out\\release_x64\u0027\nninja: error: unknown target \u0027components/variations/proto/devtools\u0027\nTraceback (most recent call last):\n  File \"components\\variations\\proto\\devtools\\update_client_variations.py\", line 66, in \u003cmodule\u003e\n    main()\n  File \"components\\variations\\proto\\devtools\\update_client_variations.py\", line 55, in main\n    with open(script_file, \u0027r\u0027) as f:\nIOError: [Errno 2] No such file or directory: \u0027D:\\\\Chrome\\\\src\\\\out\\\\release_x64\\\\gen\\\\components\\\\variations\\\\proto\\\\devtools\\\\client_variations_gen.js\u0027\n```\n\nHow do I resolve this and once I check in the updated and generated client_variations file, how do I update devtools-frontend?\n\nThanks,\nChait.",
+      "revId": "aa8e0f9af5eee2b043dad6aecc9aafb6226165bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d3001683_81943775",
