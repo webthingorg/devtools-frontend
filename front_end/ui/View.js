@@ -2,11 +2,12 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import {ls} from '../platform/platform.js';
 import * as Root from '../root/root.js';
 
 import {TabbedPane} from './TabbedPane.js';  // eslint-disable-line no-unused-vars
 import {ItemsProvider, Toolbar, ToolbarItem, ToolbarMenuButton} from './Toolbar.js';  // eslint-disable-line no-unused-vars
-import {ViewManager} from './ViewManager.js';
+import {ViewLocationValues, ViewManager} from './ViewManager.js';  // eslint-disable-line no-unused-vars
 import {VBox, Widget} from './Widget.js';
 
 /**
@@ -324,3 +325,38 @@ export class ViewLocationResolver {
     throw new Error('not implemented');
   }
 }
+
+/** @type {!Array<!LocationResolverRegistration>} */
+const registeredLocationResolvers = [];
+
+/**
+ * @param {!LocationResolverRegistration} registration
+ */
+export function registerLocationResolver(registration) {
+  registeredLocationResolvers.push(registration);
+}
+
+export function getRegisteredLocationResolvers() {
+  return registeredLocationResolvers;
+}
+
+/** @enum {string} */
+export const ViewLocationcategory = {
+  ELEMENTS: ls`Elements`,
+  DRAWER: ls`Drawer`,
+  DRAWER_SIDEBAR: ls`Drawer sidebar`,
+  PANEL: ls`Panel`,
+  NETWORK: ls`Network`,
+  SETTINGS: ls`Settings`,
+  SOURCES: ls`Sources`,
+};
+
+/**
+ * @typedef {{
+  *   name: ViewLocationValues,
+  *   category: ViewLocationcategory,
+  *   loadResolver: function(): !Promise<!ViewLocationResolver>
+  * }} */
+// @ts-ignore typedef
+
+export let LocationResolverRegistration;
