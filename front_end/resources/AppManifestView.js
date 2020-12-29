@@ -33,6 +33,7 @@ export class AppManifestView extends UI.Widget.VBox {
     this._reportView.registerRequiredCSS('resources/appManifestView.css', {enableLegacyPatching: false});
     this._reportView.element.classList.add('manifest-view-header');
     this._reportView.show(this.contentElement);
+    this._reportView.setBodyScrollable(false);
     this._reportView.hideWidget();
 
     this._errorsSection = this._reportView.appendSection(Common.UIString.UIString('Errors and warnings'));
