@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b158258f_54355ea2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2020-12-29T22:32:26Z",
+      "side": 1,
+      "message": "Added client variations CL here https://chromium-review.googlesource.com/c/chromium/src/+/2605396\nWill merge this CL with test case in once DEPS have been rolled.",
+      "revId": "41fae8b5c04ae2d330ff1425d81f1dee35fd98a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
