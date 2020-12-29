@@ -1,0 +1,12 @@
+import("../../../../third_party/typescript/typescript.gni")
+
+ts_library("meta") {
+  testonly = true
+  sources = [ "view_registration_test.ts" ]
+
+  deps = [
+    "../../../../front_end/quick_open:bundle",
+    "../../../../front_end/ui:bundle",
+    "../helpers",
+  ]
+}
