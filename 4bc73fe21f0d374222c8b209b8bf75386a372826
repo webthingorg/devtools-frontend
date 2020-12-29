@@ -1,0 +1,208 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "782f0b48_1705335c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2020-12-29T22:46:20Z",
+      "side": 1,
+      "message": "Remove WIP\n\n\"Added AccessibilityTreeView and AccessibilityTree components\"\n\nAlso add a little bit of extra description (hidden behind an experiment flag, where the toggle switch is etc. You can also add a link to the design doc! (External one)\n\nI think also a short description of followup CLs, adding click handlers for adding new children into the model if they haven\u0027t been requested, tying it to the DOM inspector.",
+      "revId": "4bc73fe21f0d374222c8b209b8bf75386a372826",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "274c38ff_00810cff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2020-12-29T22:46:20Z",
+      "side": 1,
+      "message": "First pass! Can you add some screenshots/screencasts to https://crbug.com/887173?\n\nYou can either upload them as a comment on the bug, or upload them to a hosting service and link to them. Also update the description to include these? Eg \"screenshots in linked bug\" or \"screenshots: http:/bit.ly...\" etc",
+      "revId": "4bc73fe21f0d374222c8b209b8bf75386a372826",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d653d9eb_e92f1962",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2020-12-29T22:46:20Z",
+      "side": 1,
+      "message": "I wonder if this should have a comment explaining it\u0027s bound to a click handler on ElementsPanel?",
+      "revId": "4bc73fe21f0d374222c8b209b8bf75386a372826",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98c38e1b_e911e170",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2020-12-29T22:46:20Z",
+      "side": 1,
+      "message": "Hmmm, I think maybe we shouldn\u0027t be calling into the AccessibilityModel every time the tree is toggled.\n\nEg, imagine if a user is toggling between the two without any changes in the DOM occurring, nothing in the accessibility tree will have changed but we will continue to be serializing the tree into devtools every time the accessibility tree is toggled.\n\nThis does mean the tree will get \u0027stale\u0027, however. I think this is a section we are still trying to figure out - one idea was to tie the accessibility tree to the DOM tree, something like: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/elements/ElementsTreeOutline.js;l\u003d1136?q\u003dElementsTreeOutline\n\nThat doesn\u0027t need to go into this patch, but it might be worth moving this refreshAccessibilityTree call into setNode()? It seems like we are relying on the DOMNode to be set before we can get the accessibility tree anyway.",
+      "revId": "4bc73fe21f0d374222c8b209b8bf75386a372826",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47c783f6_30a18934",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2020-12-29T22:46:20Z",
+      "side": 1,
+      "message": "If we aren\u0027t using this at the moment, it should be safe to remove this method.",
+      "revId": "4bc73fe21f0d374222c8b209b8bf75386a372826",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb2c6648_be4f9bb7",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2020-12-29T22:46:20Z",
+      "side": 1,
+      "message": "I think we need to move this into it\u0027s own file called AccessibilityTree.ts (within the elements/ subdirectory). goo.gle/building-ui-devtools. Once that exists can update all the build files.",
+      "revId": "4bc73fe21f0d374222c8b209b8bf75386a372826",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35a6277f_1df44e4e",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2020-12-29T22:46:20Z",
+      "side": 1,
+      "message": "Add a comment here explaining that the constructor appends the node into the DOM tree.",
+      "revId": "4bc73fe21f0d374222c8b209b8bf75386a372826",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9bcdc75_5e7ed017",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2020-12-29T22:46:20Z",
+      "side": 1,
+      "message": "Does the constructor ever return null? Also maybe change the variable name (and possibly function name) from nodeElement to axNode? nodeElement implies that it\u0027s a HTML element.",
+      "revId": "4bc73fe21f0d374222c8b209b8bf75386a372826",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e0ce259_2fb6fe8c",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2020-12-29T22:46:20Z",
+      "side": 1,
+      "message": "I wonder if we should change the name of this just to better differentiate it from the SDK.AccessibilityNode. Also maybe do a class level comment above here to explain what this class is for?\n\nIt mostly seems to be just a logical wrapping of behaviours around the presentation of an accessibility node in the tree. I\u0027m not convinced this needs to be a web component as well, but the devtools team might request that.",
+      "revId": "4bc73fe21f0d374222c8b209b8bf75386a372826",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4180969d_45d78d28",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2020-12-29T22:46:20Z",
+      "side": 1,
+      "message": "I think we should move away from using \u0027ax-breadcrumbs\u0027. It\u0027s kinda confusing, and they aren\u0027t breadcrumbs anymore, it\u0027s a full tree!",
+      "revId": "4bc73fe21f0d374222c8b209b8bf75386a372826",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22a9f5a3_fa99f99d",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2020-12-29T22:46:20Z",
+      "side": 1,
+      "message": "nit: remove this comment",
+      "revId": "4bc73fe21f0d374222c8b209b8bf75386a372826",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6da871ea_9f725683",
+        "filename": "front_end/sdk/AccessibilityModel.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2020-12-29T22:46:20Z",
+      "side": 1,
+      "message": "I think this is safe to remove? I\u0027m not sure if it\u0027s being used anywhere currently.",
+      "revId": "4bc73fe21f0d374222c8b209b8bf75386a372826",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
