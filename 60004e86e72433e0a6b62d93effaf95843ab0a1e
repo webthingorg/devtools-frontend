@@ -16,6 +16,23 @@
       "message": "Hey Yang,\n\nPicked up Mathias\u0027 idea for some instant year-end gratification. :-)\nFairly straight-forward refactoring, and nice LOC reduction.\nPlease take a look.\n\nthanks,\nBenedikt",
       "revId": "60004e86e72433e0a6b62d93effaf95843ab0a1e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5384c5d5_ccf12dd7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2020-12-30T12:18:15Z",
+      "side": 1,
+      "message": "lgtm. a lot easier to read indeed!",
+      "revId": "60004e86e72433e0a6b62d93effaf95843ab0a1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
