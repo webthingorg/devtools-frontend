@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffed125d_31625904",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2020-12-30T01:48:22Z",
+      "side": 1,
+      "message": "Maybe extract all this out to a private helper?\n\nSomething like: \n\nif (Root.Runtime.experiments.isEnabled(\u0027fullAccessibilityTree\u0027)) {\n    this._initializeFullAccessibilityTreeView()\n}\n\nwhere _initializeFullAccessibilityTreeView() creates the toggle button and accessibility tree view, binds to events etc, (you\u0027ll probably have to pass in the stackElement to append to).",
+      "revId": "87185d32539720f85ffe0f0e30e1ae38172b7aaa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5137c368_2bcd3d7e",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2020-12-30T01:48:22Z",
+      "side": 1,
+      "message": "The check for the flag probably isn\u0027t necessary, since this.domTreeButton will be null (false) if the flag wasn\u0027t enabled.",
+      "revId": "87185d32539720f85ffe0f0e30e1ae38172b7aaa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f18a264c_c2405689",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2020-12-30T01:48:22Z",
+      "side": 1,
+      "message": "Same here - not sure if we need to check the experiments flag again, can just rely on accessibilityTreeView being null when the flag isn\u0027t enabled (I think)",
+      "revId": "87185d32539720f85ffe0f0e30e1ae38172b7aaa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
