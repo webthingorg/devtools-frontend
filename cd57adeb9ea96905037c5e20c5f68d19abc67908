@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d52a8c6_e8140fdb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2020-12-30T09:22:46Z",
+      "side": 1,
+      "message": "Hey Yang,\n\nFixing some long-standing confusion with the Scope view in huge Wasm applications.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "cd57adeb9ea96905037c5e20c5f68d19abc67908",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
