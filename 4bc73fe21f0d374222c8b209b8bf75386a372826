@@ -123,6 +123,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "31c4d8a1_9abb7926",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2020-12-30T01:39:28Z",
+      "side": 1,
+      "message": "Sounds good :)",
+      "parentUuid": "f2389c1a_b21b75e9",
+      "revId": "4bc73fe21f0d374222c8b209b8bf75386a372826",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47c783f6_30a18934",
@@ -259,6 +277,24 @@
       "side": 1,
       "message": "Currently no, however TypeScript complains if the variable is never used. Is there a better way to get around this or could we maybe disable the linter for the line above?",
       "parentUuid": "c9bcdc75_5e7ed017",
+      "revId": "4bc73fe21f0d374222c8b209b8bf75386a372826",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53392b0b_e96d04cd",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2020-12-30T01:39:28Z",
+      "side": 1,
+      "message": "AXBreadcrumb has an appendChild() function which is what actually attaches it to the DOM. Maybe we could do something similar? Have a function that once we have a reference to the AccessibilityNode returned from the constructor, we can then append that into the DOM.\n\nDoes that make sense?",
+      "parentUuid": "d870e6b6_334a6566",
       "revId": "4bc73fe21f0d374222c8b209b8bf75386a372826",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },

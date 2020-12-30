@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b2be1aa_756642d8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2020-12-30T01:39:28Z",
+      "side": 1,
+      "message": "Any chance you could fix up the line width here? Wrap lines at 80 chars.\n\nAlso give the flag name not the number \"fullAccessibilityTree\".",
+      "revId": "d0162c980b26a3e00ab04485ef8eb811ac5d429f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "6b300387_89a494ed",
@@ -14,6 +31,57 @@
       "writtenOn": "2020-12-30T00:25:06Z",
       "side": 1,
       "message": "PTAL! 😊",
+      "revId": "d0162c980b26a3e00ab04485ef8eb811ac5d429f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04fd43a7_0b236ce9",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2020-12-30T01:39:28Z",
+      "side": 1,
+      "message": "nit: full stop",
+      "revId": "d0162c980b26a3e00ab04485ef8eb811ac5d429f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8dcef14_acd4b110",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2020-12-30T01:39:28Z",
+      "side": 1,
+      "message": "Maybe add something like:\n\nTODO(annabelzhou): Consider converting this to a Web Component.",
+      "revId": "d0162c980b26a3e00ab04485ef8eb811ac5d429f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4320f76_09695400",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2020-12-30T01:39:28Z",
+      "side": 1,
+      "message": "full-tree doesn\u0027t really capture it either. ax-node??? it\u0027s a singular unit of the full tree.",
       "revId": "d0162c980b26a3e00ab04485ef8eb811ac5d429f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
