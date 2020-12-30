@@ -21,9 +21,12 @@ export class CommandMenu {
     this._commands = [];
     this._loadCommands();
   }
-
-  static instance() {
-    if (!commandMenuInstance) {
+  /**
+   * @param {{forceNew: ?boolean}} opts
+   */
+  static instance(opts = {forceNew: null}) {
+    const {forceNew} = opts;
+    if (!commandMenuInstance || forceNew) {
       commandMenuInstance = new CommandMenu();
     }
     return commandMenuInstance;

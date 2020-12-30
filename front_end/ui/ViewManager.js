@@ -285,7 +285,7 @@ export class ViewManager {
 
   /**
    * @param {string} viewId
-   * @return {?View}
+   * @return {View}
    */
   view(viewId) {
     const view = this._views.get(viewId);
