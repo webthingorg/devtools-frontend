@@ -301,6 +301,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c06c491f_c42c9ac3",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2020-12-30T03:56:14Z",
+      "side": 1,
+      "message": "Yes, done! This also means that the parent no longer needs to be passed into the AccessibilityNode class.",
+      "parentUuid": "53392b0b_e96d04cd",
+      "revId": "4bc73fe21f0d374222c8b209b8bf75386a372826",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5e0ce259_2fb6fe8c",
         "filename": "front_end/elements/AccessibilityTreeView.ts",
         "patchSetId": 6
