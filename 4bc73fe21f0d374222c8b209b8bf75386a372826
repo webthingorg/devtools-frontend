@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "54f0187a_8b60d0ce",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2020-12-30T00:25:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "782f0b48_1705335c",
+      "revId": "4bc73fe21f0d374222c8b209b8bf75386a372826",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "274c38ff_00810cff",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 6
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c778cd3_52f8d441",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2020-12-30T00:25:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d653d9eb_e92f1962",
+      "revId": "4bc73fe21f0d374222c8b209b8bf75386a372826",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "98c38e1b_e911e170",
@@ -65,6 +101,24 @@
       "writtenOn": "2020-12-29T22:46:20Z",
       "side": 1,
       "message": "Hmmm, I think maybe we shouldn\u0027t be calling into the AccessibilityModel every time the tree is toggled.\n\nEg, imagine if a user is toggling between the two without any changes in the DOM occurring, nothing in the accessibility tree will have changed but we will continue to be serializing the tree into devtools every time the accessibility tree is toggled.\n\nThis does mean the tree will get \u0027stale\u0027, however. I think this is a section we are still trying to figure out - one idea was to tie the accessibility tree to the DOM tree, something like: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/elements/ElementsTreeOutline.js;l\u003d1136?q\u003dElementsTreeOutline\n\nThat doesn\u0027t need to go into this patch, but it might be worth moving this refreshAccessibilityTree call into setNode()? It seems like we are relying on the DOMNode to be set before we can get the accessibility tree anyway.",
+      "revId": "4bc73fe21f0d374222c8b209b8bf75386a372826",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2389c1a_b21b75e9",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2020-12-30T00:25:06Z",
+      "side": 1,
+      "message": "Ohh - moved refreshAccessibilityTree() into setNode() for now but will have a think about this more!",
+      "parentUuid": "98c38e1b_e911e170",
       "revId": "4bc73fe21f0d374222c8b209b8bf75386a372826",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -86,6 +140,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a341c1a_1c793df4",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2020-12-30T00:25:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47c783f6_30a18934",
+      "revId": "4bc73fe21f0d374222c8b209b8bf75386a372826",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb2c6648_be4f9bb7",
@@ -103,6 +175,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ae552b1_bf62acbe",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2020-12-30T00:25:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb2c6648_be4f9bb7",
+      "revId": "4bc73fe21f0d374222c8b209b8bf75386a372826",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35a6277f_1df44e4e",
@@ -116,6 +206,24 @@
       "writtenOn": "2020-12-29T22:46:20Z",
       "side": 1,
       "message": "Add a comment here explaining that the constructor appends the node into the DOM tree.",
+      "revId": "4bc73fe21f0d374222c8b209b8bf75386a372826",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdf27d72_31833e1a",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2020-12-30T00:25:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35a6277f_1df44e4e",
       "revId": "4bc73fe21f0d374222c8b209b8bf75386a372826",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -139,6 +247,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d870e6b6_334a6566",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2020-12-30T00:25:06Z",
+      "side": 1,
+      "message": "Currently no, however TypeScript complains if the variable is never used. Is there a better way to get around this or could we maybe disable the linter for the line above?",
+      "parentUuid": "c9bcdc75_5e7ed017",
+      "revId": "4bc73fe21f0d374222c8b209b8bf75386a372826",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5e0ce259_2fb6fe8c",
         "filename": "front_end/elements/AccessibilityTreeView.ts",
         "patchSetId": 6
@@ -150,6 +276,24 @@
       "writtenOn": "2020-12-29T22:46:20Z",
       "side": 1,
       "message": "I wonder if we should change the name of this just to better differentiate it from the SDK.AccessibilityNode. Also maybe do a class level comment above here to explain what this class is for?\n\nIt mostly seems to be just a logical wrapping of behaviours around the presentation of an accessibility node in the tree. I\u0027m not convinced this needs to be a web component as well, but the devtools team might request that.",
+      "revId": "4bc73fe21f0d374222c8b209b8bf75386a372826",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4427f8b_2f558b27",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2020-12-30T00:25:06Z",
+      "side": 1,
+      "message": "Good point- comment added, left the name for now until I think of a better alternative",
+      "parentUuid": "5e0ce259_2fb6fe8c",
       "revId": "4bc73fe21f0d374222c8b209b8bf75386a372826",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -171,6 +315,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1134cb1_7a242a4f",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2020-12-30T00:25:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4180969d_45d78d28",
+      "revId": "4bc73fe21f0d374222c8b209b8bf75386a372826",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22a9f5a3_fa99f99d",
@@ -188,6 +350,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "43cb4bad_b2ea3a32",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2020-12-30T00:25:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22a9f5a3_fa99f99d",
+      "revId": "4bc73fe21f0d374222c8b209b8bf75386a372826",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6da871ea_9f725683",
@@ -201,6 +381,24 @@
       "writtenOn": "2020-12-29T22:46:20Z",
       "side": 1,
       "message": "I think this is safe to remove? I\u0027m not sure if it\u0027s being used anywhere currently.",
+      "revId": "4bc73fe21f0d374222c8b209b8bf75386a372826",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bbe0b34_b829beea",
+        "filename": "front_end/sdk/AccessibilityModel.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2020-12-30T00:25:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6da871ea_9f725683",
       "revId": "4bc73fe21f0d374222c8b209b8bf75386a372826",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
