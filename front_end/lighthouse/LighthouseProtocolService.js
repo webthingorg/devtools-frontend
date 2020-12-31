@@ -12,8 +12,10 @@ import * as ReportRenderer from './LighthouseReporterTypes.js';  // eslint-disab
 export class ProtocolService extends Common.ObjectWrapper.ObjectWrapper {
   constructor() {
     super();
-    /** @type {?ProtocolClient.InspectorBackend.Connection} */
+    /** @type {?SDK.Connections.ParallelConnection} */
     this._rawConnection = null;
+    /** @type {!Set<string>} */
+    this._messagesSeenWithoutSessionId = new Set();
     /** @type {?Services.ServiceManager.Service} */
     this._backend = null;
     /** @type {?Promise<void>} */
@@ -35,7 +37,12 @@ export class ProtocolService extends Common.ObjectWrapper.ObjectWrapper {
     if (!childTargetManager) {
       throw new Error('Unable to find child target manager required for LightHouse');
     }
-    this._rawConnection = await childTargetManager.createParallelConnection(this._dispatchProtocolMessage.bind(this));
+    this._rawConnection = await childTargetManager.createParallelConnection(message => {
+      if (typeof message === 'string') {
+        message = JSON.parse(message);
+      }
+      this._dispatchProtocolMessage(message);
+    });
   }
 
   getLocales() {
@@ -57,6 +64,7 @@ export class ProtocolService extends Common.ObjectWrapper.ObjectWrapper {
    * @return {!Promise<void>}
    */
   async detach() {
+    this._messagesSeenWithoutSessionId.clear();
     await this._send('stop');
     if (this._backend) {
       await this._backend.dispose();
@@ -77,9 +85,41 @@ export class ProtocolService extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @param {(!Object|string)} message
+   * @param {(!Object)} message
    */
   _dispatchProtocolMessage(message) {
+    const protocolMessage = /** @type {{id?: string, sessionId?: string, method: string, params: Object}} */ (message);
+
+    // The same message can come in for the root session-one without a sessionId, and one with a sessionId.
+    // We want to drop the one with the sessionId.
+    // Only do this for 'Network.*' messages.
+    // This is a band-aid solution until protocol connection sharing with Lighthouse can be re-worked.
+    // See https://github.com/GoogleChrome/lighthouse/issues/11415
+
+    if (!(protocolMessage.method || '').startsWith('Network.')) {
+      // Early exit.
+      this._send('dispatchProtocolMessage', {message: JSON.stringify(message)});
+      return;
+    }
+
+    // Normalize the message details.
+    const key = JSON.stringify({
+      ...protocolMessage,
+      params: {...protocolMessage.params, timestamp: undefined},
+      sessionId: undefined,
+    });
+    const rootSessionId = this._rawConnection && this._rawConnection.sessionId();
+
+    if (!protocolMessage.sessionId) {
+      this._messagesSeenWithoutSessionId.add(key);
+    }
+
+    if (protocolMessage.sessionId === rootSessionId && this._messagesSeenWithoutSessionId.has(key)) {
+      this._messagesSeenWithoutSessionId.delete(key);
+      return;
+    }
+
+    // Message is OK to send.
     this._send('dispatchProtocolMessage', {message: JSON.stringify(message)});
   }
 
