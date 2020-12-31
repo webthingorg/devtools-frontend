@@ -214,6 +214,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a1eb1710_5d7afe83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-31T09:18:35Z",
+      "side": 1,
+      "message": "As a user, the pattern I\u0027d expect is: hold down the meta key while making the selection. This is how it works on macOS\u0027s screenshot tool as well.",
+      "parentUuid": "f18ada22_3d13e03a",
+      "revId": "4c2804a123a6cded07648b09a508b8f811810575",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3ee8b431_3619b119",
         "filename": "front_end/emulation/DeviceModeView.js",
         "patchSetId": 2
