@@ -92,10 +92,20 @@ export class AccessibilityNode {
 
     if (this.axNode.hasOnlyUnloadedChildren()) {
       this.wrapper.classList.add('children-unloaded');
+      this.getChildAXNodes();
     }
 
     if (!this.axNode.isDOMNode) {
       this.wrapper.classList.add('no-dom-node');
+    }
+  }
+
+  async getChildAXNodes(): Promise<void> {
+    if (this.axNode) {
+      const children = await this.axNode.accessibilityModel().requestAXChildren(this.axNode._id);
+      if (!children) {
+        return;  // always true while getChildAXNodes only returning null
+      }
     }
   }
 
