@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d4b4953_3e4f18a1",
+        "filename": "test/webtests/http/tests/devtools/lighthouse/lighthouse-successful-run.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2020-12-31T04:20:34Z",
+      "side": 1,
+      "message": "Without this CL, this would emit \"2\".",
+      "revId": "ab09c8727e8317a04c57701caaca6c50ab4c1395",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
