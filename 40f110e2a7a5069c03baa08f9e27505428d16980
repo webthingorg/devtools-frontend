@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3bd64db_6b3f3b44",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2020-12-31T09:34:18Z",
+      "side": 1,
+      "message": "PTAL. We’re reaching diminishing returns here, so this is the last file among the list in the tracking issue to be converted to AVIF.",
+      "revId": "40f110e2a7a5069c03baa08f9e27505428d16980",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
