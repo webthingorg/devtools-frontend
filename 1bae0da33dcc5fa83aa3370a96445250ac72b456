@@ -1,0 +1,146 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "501f1156_a23dcd96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 29
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2021-01-04T20:43:10Z",
+      "side": 1,
+      "message": "Left some first pass comments. PTAL, thanks!",
+      "revId": "1bae0da33dcc5fa83aa3370a96445250ac72b456",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bbf3191_b83c5bd1",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleHelper.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2021-01-04T20:43:10Z",
+      "side": 1,
+      "message": "Since this is a new file, I think it needs to be TS-compliant now",
+      "revId": "1bae0da33dcc5fa83aa3370a96445250ac72b456",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a72dd0f_bab3b3c7",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleHelper.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2021-01-04T20:43:10Z",
+      "side": 1,
+      "message": "Suggest packing the arguments into an object so it\u0027s easier to create and configure different variations of the function call (would simplify lines 72..80)",
+      "revId": "1bae0da33dcc5fa83aa3370a96445250ac72b456",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dea99b62_8ea2d856",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleHelper.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2021-01-04T20:43:10Z",
+      "side": 1,
+      "message": "These type signatures look a little odd, should they use \u003c \u003e ?",
+      "range": {
+        "startLine": 62,
+        "startChar": 21,
+        "endLine": 62,
+        "endChar": 22
+      },
+      "revId": "1bae0da33dcc5fa83aa3370a96445250ac72b456",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "787d2cfe_3c9856ef",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleHelper.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2021-01-04T20:43:10Z",
+      "side": 1,
+      "message": "Suggest iterating over the four ServiceWorkerVersionModes to avoid code duplication for the following four blocks.",
+      "revId": "1bae0da33dcc5fa83aa3370a96445250ac72b456",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da888f71_690e92ce",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleHelper.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2021-01-04T20:43:10Z",
+      "side": 1,
+      "message": "Could a for each loop be used here also?",
+      "revId": "1bae0da33dcc5fa83aa3370a96445250ac72b456",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3861445d_090a288b",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleHelper.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2021-01-04T20:43:10Z",
+      "side": 1,
+      "message": "What is self referencing here?",
+      "revId": "1bae0da33dcc5fa83aa3370a96445250ac72b456",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88678c72_167b604e",
+        "filename": "front_end/sdk/ServiceWorkerManager.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2021-01-04T20:43:10Z",
+      "side": 1,
+      "message": "Suggest using a getter method here (see ES6 getter setters) since the method itself is just a property lookup and would avoid having to update all the above methods.",
+      "revId": "1bae0da33dcc5fa83aa3370a96445250ac72b456",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
