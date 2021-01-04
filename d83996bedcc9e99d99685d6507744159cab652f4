@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42c91ddc_49489bb6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-01-04T19:56:38Z",
+      "side": 1,
+      "message": "Covering edit will be a bit tricky since one needs to get to the little pencil button, so I think I want feedback on this much first.\n\nRelated: is there a way of having a separate it() share state (since edit requires a completed add)?  Hmm, probably want less stuff in the beforeEach then?\n",
+      "revId": "d83996bedcc9e99d99685d6507744159cab652f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
