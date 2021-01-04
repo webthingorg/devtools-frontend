@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9a553236_bc871f07",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1063,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-01-04T21:06:56Z",
+      "side": 1,
+      "message": "+1 for removing it.",
+      "parentUuid": "b0289d00_4cfca483",
+      "range": {
+        "startLine": 1062,
+        "startChar": 4,
+        "endLine": 1063,
+        "endChar": 46
+      },
+      "revId": "f16546c307c55bca65272814dbfee2e0162b9246",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "307e4e58_e7d1b59f",
         "filename": "front_end/sdk/OverlayModel.js",
         "patchSetId": 1
