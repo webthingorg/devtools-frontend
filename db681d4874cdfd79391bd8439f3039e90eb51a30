@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05451170_b1db8c13",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-01-04T16:58:47Z",
+      "side": 1,
+      "message": "I feel like I am kinda fighting with the selection/focus behavior of the tree widget in general --- it seems to work fine, but I did a lot of tweaking that feels like it might be the wrong way of getting it to do the right thing.",
+      "revId": "db681d4874cdfd79391bd8439f3039e90eb51a30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
