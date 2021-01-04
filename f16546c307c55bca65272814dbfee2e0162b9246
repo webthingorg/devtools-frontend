@@ -16,6 +16,69 @@
       "message": "Are you folks ok with removing the experiment now?\nI think this should take care of it, but let me know if I missed a spot.\nI also made a CL for 2 web tests: https://chromium-review.googlesource.com/c/chromium/src/+/2608663/",
       "revId": "f16546c307c55bca65272814dbfee2e0162b9246",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75171dc8_b1d4e7db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2021-01-04T15:58:34Z",
+      "side": 1,
+      "message": "LGTM with a few nits. We also probably want to follow this up with an src change to remove the histogram enum for the devtools experiments once this rolls (If you haven\u0027t put together that already 😊)",
+      "revId": "f16546c307c55bca65272814dbfee2e0162b9246",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0289d00_4cfca483",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1063,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2021-01-04T15:58:34Z",
+      "side": 1,
+      "message": "nit: remove/update comment?",
+      "range": {
+        "startLine": 1062,
+        "startChar": 4,
+        "endLine": 1063,
+        "endChar": 46
+      },
+      "revId": "f16546c307c55bca65272814dbfee2e0162b9246",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "307e4e58_e7d1b59f",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2021-01-04T15:58:34Z",
+      "side": 1,
+      "message": "This line is probably not needed since we unconditionally override on the next line now",
+      "range": {
+        "startLine": 88,
+        "startChar": 3,
+        "endLine": 88,
+        "endChar": 38
+      },
+      "revId": "f16546c307c55bca65272814dbfee2e0162b9246",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
