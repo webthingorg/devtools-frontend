@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85c4c568_a6cc0754",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-01-04T13:46:45Z",
+      "side": 1,
+      "message": "Are you folks ok with removing the experiment now?\nI think this should take care of it, but let me know if I missed a spot.\nI also made a CL for 2 web tests: https://chromium-review.googlesource.com/c/chromium/src/+/2608663/",
+      "revId": "f16546c307c55bca65272814dbfee2e0162b9246",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
