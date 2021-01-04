@@ -131,6 +131,17 @@ export class RequestResponseView extends UI.Widget.VBox {
     const contentData = await this.request.contentData();
     const sourceView = await RequestResponseView.sourceViewForRequest(this.request);
     if ((!contentData.content || !sourceView) && !contentData.error) {
+      const requests = SDK.NetworkLog.NetworkLog.instance().requests();
+      const interceptedRequest = requests.find(
+          request => request.url() === this.request.url() && request.requestMethod === this.request.requestMethod &&
+              request.fetchedViaServiceWorker);
+      if (interceptedRequest) {
+        const interceptedContentData = await interceptedRequest.contentData();
+        const interceptedSourceView = await RequestResponseView.sourceViewForRequest(interceptedRequest);
+        if (interceptedContentData.content && interceptedSourceView) {
+          return interceptedSourceView;
+        }
+      }
       return new UI.EmptyWidget.EmptyWidget(Common.UIString.UIString('This request has no response data available.'));
     }
     if (contentData.content && sourceView) {
