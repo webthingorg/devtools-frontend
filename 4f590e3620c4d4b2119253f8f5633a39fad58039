@@ -16,6 +16,222 @@
       "message": "PTAL thanks! :)",
       "revId": "4f590e3620c4d4b2119253f8f5633a39fad58039",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cb0124a_ffd43d7f",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-05T05:22:09Z",
+      "side": 1,
+      "message": "It doesn\u0027t seem like we gain much from this being a separate method. Could this just be inlined in the method below?",
+      "revId": "4f590e3620c4d4b2119253f8f5633a39fad58039",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dba88b14_d1842b0d",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-05T05:22:09Z",
+      "side": 1,
+      "message": "This seems a bit odd to me. I would expect we would want one \u003cul\u003e for the list of children, with each child being a \u003cli\u003e (created in AccessibilityNode as you pointed out earlier) and appended to the \u003cul\u003e.\n\nThis might be a good time to review what treeoutline.js is doing. Even if we don\u0027t end up using it directly, it would be good to understand the logic it uses; and the point where you\u0027ve implemented some logic yourself is often a good time to understand the thought process of someone who implemented something similar previously.\n\nThey have the \u003col\u003e created as part of the TreeElement class:\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/ui/Treeoutline.js;l\u003d504\n\nThey insert the \u003col\u003e into its parent (i.e. the list of child nodes of the parent tree node) at the same time as they insert the child node\u0027s \u003cli\u003e:\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/ui/Treeoutline.js;l\u003d701",
+      "revId": "4f590e3620c4d4b2119253f8f5633a39fad58039",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a70373a_859e6839",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-05T05:22:09Z",
+      "side": 1,
+      "message": "nit: these should be indented",
+      "revId": "4f590e3620c4d4b2119253f8f5633a39fad58039",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3cd9414_f2ccb948",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-05T05:22:09Z",
+      "side": 1,
+      "message": "Does this need the full-tree-node- prefix?",
+      "revId": "4f590e3620c4d4b2119253f8f5633a39fad58039",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c93fae9e_8b7579e1",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-05T05:22:09Z",
+      "side": 1,
+      "message": "Could presumably combine this and the following style?",
+      "revId": "4f590e3620c4d4b2119253f8f5633a39fad58039",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0448deab_5b6744f0",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-05T05:22:09Z",
+      "side": 1,
+      "message": "Since both full-tree-node and ax-node classes are on the same element, it doesn\u0027t seem right to have a space here (since that would select for .ax-node elements which are descendants of .full-tree-node elements)",
+      "revId": "4f590e3620c4d4b2119253f8f5633a39fad58039",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "637ee6cb_9bddc079",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-05T05:22:09Z",
+      "side": 1,
+      "message": "As discussed: should we move this to AccessibilityTree.ts? Can things other than the custom element definition be in a custom element definition file?\n\nAlternatively, should this be a custom element of its own?",
+      "revId": "4f590e3620c4d4b2119253f8f5633a39fad58039",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a776f26e_30c20009",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-05T05:22:09Z",
+      "side": 1,
+      "message": "Maybe a TODO to track whether there are children and whether the child list is expanded or not?",
+      "revId": "4f590e3620c4d4b2119253f8f5633a39fad58039",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f98fd824_f11650e0",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-05T05:22:09Z",
+      "side": 1,
+      "message": "We should mark the \u003cli\u003e as a treeitem: \n\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/ui/Treeoutline.js;l\u003d500\n\nand the \u003cul\u003e as a group:\n\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/ui/Treeoutline.js;l\u003d507",
+      "revId": "4f590e3620c4d4b2119253f8f5633a39fad58039",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdc0821a_8458a396",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-05T05:22:09Z",
+      "side": 1,
+      "message": "Don\u0027t think we\u0027re using this class for now, so we can probably remove this until we are.",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 5
+      },
+      "revId": "4f590e3620c4d4b2119253f8f5633a39fad58039",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03f64eb4_65234885",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-05T05:22:09Z",
+      "side": 1,
+      "message": "Similarly",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 5
+      },
+      "revId": "4f590e3620c4d4b2119253f8f5633a39fad58039",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15ac2624_53ba94c5",
+        "filename": "front_end/sdk/AccessibilityModel.js",
+        "patchSetId": 19
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-05T05:22:09Z",
+      "side": 1,
+      "message": "We aren\u0027t calling this yet, right? So maybe let\u0027s punt adding this until we are using it.",
+      "revId": "4f590e3620c4d4b2119253f8f5633a39fad58039",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

@@ -3,6 +3,57 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aac20ca3_e70704e0",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-05T05:22:09Z",
+      "side": 1,
+      "message": "Maybe `appendNodeAndChildren()`? `traverse()` is a little unclear.",
+      "revId": "35581c0271cf5ae63bd9c95bc8a3225962f6e4a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "021218bd_b552714a",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-05T05:22:09Z",
+      "side": 1,
+      "message": "If !node, other calls later in this method will fail. Should this early-out if node is null?",
+      "revId": "35581c0271cf5ae63bd9c95bc8a3225962f6e4a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60c1e561_8687c578",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-05T05:22:09Z",
+      "side": 1,
+      "message": "When would `node.numChildren()` not be \u003d\u003d\u003d 0 in this case?",
+      "revId": "35581c0271cf5ae63bd9c95bc8a3225962f6e4a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4bba5464_36df1387",
         "filename": "front_end/elements/ElementsPanel.js",
         "patchSetId": 17
