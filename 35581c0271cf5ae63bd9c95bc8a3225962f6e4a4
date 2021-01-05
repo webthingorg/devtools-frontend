@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bba5464_36df1387",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-05T00:42:48Z",
+      "side": 1,
+      "message": "@param {UI.Widget.WidgetElement} stackElement",
+      "revId": "35581c0271cf5ae63bd9c95bc8a3225962f6e4a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db468421_d702d5f1",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-05T00:42:48Z",
+      "side": 1,
+      "message": "Hmm, I think these labels need to be localized as well, similar to how we\u0027re using the ls\u0027Ignored`.\n\nWe\u0027ll need to add an entry for both toggle buttons into shared_strings.grdp.\n\nAlso maybe \"Switch to [Accessibility|DOM] Tree view\" is better?",
+      "revId": "35581c0271cf5ae63bd9c95bc8a3225962f6e4a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
