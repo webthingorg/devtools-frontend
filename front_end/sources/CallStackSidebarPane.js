@@ -67,6 +67,10 @@ export class CallStackSidebarPane extends UI.View.SimpleView {
       }
     });
 
+    SDK.SDKModel.TargetManager.instance().addModelListener(
+        SDK.ResourceTreeModel.ResourceTreeModel, SDK.ResourceTreeModel.Events.FrameNavigated, this._frameNavigated,
+        this);
+
     this._showMoreMessageElement = this._createShowMoreMessageElement();
     this._showMoreMessageElement.classList.add('hidden');
     this.contentElement.appendChild(this._showMoreMessageElement);
@@ -144,8 +148,7 @@ export class CallStackSidebarPane extends UI.View.SimpleView {
     let asyncStackTrace = details.asyncStackTrace;
     if (!asyncStackTrace && details.asyncStackTraceId) {
       if (details.asyncStackTraceId.debuggerId) {
-        debuggerModel = await SDK.DebuggerModel.DebuggerModel.modelForDebuggerIdResyncIfNecessary(
-            details.asyncStackTraceId.debuggerId);
+        debuggerModel = await SDK.DebuggerModel.DebuggerModel.modelForDebuggerId(details.asyncStackTraceId.debuggerId);
       }
       asyncStackTrace = debuggerModel ? await debuggerModel.fetchAsyncStackTrace(details.asyncStackTraceId) : null;
     }
@@ -172,8 +175,7 @@ export class CallStackSidebarPane extends UI.View.SimpleView {
         asyncStackTrace = asyncStackTrace.parent;
       } else if (asyncStackTrace.parentId) {
         if (asyncStackTrace.parentId.debuggerId) {
-          debuggerModel = await SDK.DebuggerModel.DebuggerModel.modelForDebuggerIdResyncIfNecessary(
-              asyncStackTrace.parentId.debuggerId);
+          debuggerModel = await SDK.DebuggerModel.DebuggerModel.modelForDebuggerId(asyncStackTrace.parentId.debuggerId);
         }
         asyncStackTrace = debuggerModel ? await debuggerModel.fetchAsyncStackTrace(asyncStackTrace.parentId) : null;
       } else {
@@ -193,6 +195,14 @@ export class CallStackSidebarPane extends UI.View.SimpleView {
   }
 
   _updatedForTest() {
+  }
+
+  /**
+   * When navigating, debugger id associated with a debugger model might have changed.
+   * @param {!Common.EventTarget.EventTargetEvent} event
+   */
+  _frameNavigated(event) {
+    SDK.DebuggerModel.DebuggerModel.resyncDebuggerIdForModels();
   }
 
   /**

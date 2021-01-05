@@ -247,23 +247,17 @@ export class DebuggerModel extends SDKModel {
    * @param {string} debuggerId
    * @return {?DebuggerModel}
    */
-  static _modelForDebuggerId(debuggerId) {
+  static modelForDebuggerId(debuggerId) {
     return _debuggerIdToModel.get(debuggerId) || null;
   }
 
-  /**
-   * @param {string} debuggerId
-   * @return {!Promise<?DebuggerModel>}
-   */
-  static async modelForDebuggerIdResyncIfNecessary(debuggerId) {
-    const model = DebuggerModel._modelForDebuggerId(debuggerId);
-    if (!model) {
-      const dbgModels = _debuggerIdToModel.values();
-      for (const dbgModel of dbgModels) {
+  static async resyncDebuggerIdForModels() {
+    const dbgModels = _debuggerIdToModel.values();
+    for (const dbgModel of dbgModels) {
+      if (dbgModel.debuggerEnabled()) {
         await dbgModel.syncDebuggerId();
       }
     }
-    return DebuggerModel._modelForDebuggerId(debuggerId);
   }
 
   /**
