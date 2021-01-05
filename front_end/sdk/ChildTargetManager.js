@@ -201,7 +201,7 @@ export class ChildTargetManager extends SDKModel {
 
   /**
    * @param {function((!Object|string)):void} onMessage
-   * @return {!Promise<!ProtocolClient.InspectorBackend.Connection>}
+   * @return {!Promise<!ParallelConnection>}
    */
   async createParallelConnection(onMessage) {
     // The main Target id is actually just `main`, instead of the real targetId.
@@ -217,7 +217,7 @@ export class ChildTargetManager extends SDKModel {
   /**
    * @param {!Target} target
    * @param {string} targetId
-   * @return {!Promise<!{connection: !ProtocolClient.InspectorBackend.Connection, sessionId: string}>}
+   * @return {!Promise<!{connection: !ParallelConnection, sessionId: string}>}
    */
   async _createParallelConnectionAndSessionForTarget(target, targetId) {
     const targetAgent = target.targetAgent();
