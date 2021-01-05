@@ -190,6 +190,30 @@
       },
       "revId": "9252c6d1b758255bca7b35c3346a690cf47967c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f305a7a5_dc6dd505",
+        "filename": "front_end/resources/resources_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1359736
+      },
+      "writtenOn": "2021-01-05T04:55:09Z",
+      "side": 1,
+      "message": "@dominickn ok to merge this now?",
+      "parentUuid": "ca68b18a_1175dfed",
+      "range": {
+        "startLine": 338,
+        "startChar": 217,
+        "endLine": 338,
+        "endChar": 245
+      },
+      "revId": "9252c6d1b758255bca7b35c3346a690cf47967c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
