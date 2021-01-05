@@ -29,6 +29,7 @@ export class AccessibilityNode {
   constructor(accessibilityModel, payload) {
     this._accessibilityModel = accessibilityModel;
     this._agent = accessibilityModel._agent;
+    this._agent.invoke_enable();
 
     this._id = payload.nodeId;
     accessibilityModel._setAXNodeForAXId(this._id, this);
@@ -252,6 +253,52 @@ export class AccessibilityModel extends SDKModel {
         axChild._setParentNode(axNode);
       }
     }
+  }
+
+  /**
+   * @return ?{!Promise<AccessibilityNode>}
+   */
+  async requestFullAXTree() {
+    // await this._agent.invoke_enable();
+    const {nodes} = await this._agent.invoke_getFullAXTree({max_depth: 2});
+    if (!nodes) {
+      return;
+    }
+
+    const axNodes = [];
+    for (const payload of nodes) {
+      axNodes.push(new AccessibilityNode(this, payload));
+    }
+
+    for (const axNode of this._axIdToAXNode.values()) {
+      for (const axChild of axNode.children()) {
+        axChild._setParentNode(axNode);
+      }
+    }
+    return axNodes[0];
+  }
+
+  /**
+   * @param {!string} nodeId
+   * @return ?{!Promise<AccessibilityNode[]>}
+   */
+  async requestAXChildren(nodeId) {
+    const {nodes} = await this._agent.invoke_getChildAXNodes({id: nodeId});
+    if (!nodes) {
+      return;
+    }
+
+    const axNodes = [];
+    for (const payload of nodes) {
+      axNodes.push(new AccessibilityNode(this, payload));
+    }
+
+    for (const axNode of this._axIdToAXNode.values()) {
+      for (const axChild of axNode.children()) {
+        axChild._setParentNode(axNode);
+      }
+    }
+    return axNodes;
   }
 
   /**
