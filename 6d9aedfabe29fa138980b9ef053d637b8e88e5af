@@ -16,6 +16,98 @@
       "message": "PTAL",
       "revId": "6d9aedfabe29fa138980b9ef053d637b8e88e5af",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27a69c6b_42d8d3bc",
+        "filename": "test/unittests/front_end/meta/action_registration_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-05T11:47:51Z",
+      "side": 1,
+      "message": "I suppose that we need to figure out a way to teardown these singletons in a `after` block, to not leave behind any state. I am not sure how to do that though. It is truly unfortunate such a small unit test transitively relies on singletons, but I am not sure if that is possible to fix anytime soon?",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 84
+      },
+      "revId": "6d9aedfabe29fa138980b9ef053d637b8e88e5af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "658ea764_34eff93d",
+        "filename": "test/unittests/front_end/meta/action_registration_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-05T11:47:51Z",
+      "side": 1,
+      "message": "Ultra-nit: start test cases with a lower case. That would show the full sentence in the console as the following:\n\n```\nAction registration retrieves a registered action\n```",
+      "range": {
+        "startLine": 56,
+        "startChar": 6,
+        "endLine": 56,
+        "endChar": 7
+      },
+      "revId": "6d9aedfabe29fa138980b9ef053d637b8e88e5af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e3bc0fc_2a9ace74",
+        "filename": "test/unittests/front_end/meta/action_registration_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-05T11:47:51Z",
+      "side": 1,
+      "message": "Nit: since we perform the `assert.isNotNull` check in the line after this, do we need to have the cast here?",
+      "range": {
+        "startLine": 58,
+        "startChar": 69,
+        "endLine": 58,
+        "endChar": 113
+      },
+      "revId": "6d9aedfabe29fa138980b9ef053d637b8e88e5af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe9d452f_1e4d4db3",
+        "filename": "test/unittests/front_end/meta/action_registration_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-05T11:47:51Z",
+      "side": 1,
+      "message": "I would have assumed that the `assert.isNotNull` would be sufficient to convince TypeScript that `preRegisteredAction` is truthy, but I might be wrong on that?",
+      "range": {
+        "startLine": 60,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 30
+      },
+      "revId": "6d9aedfabe29fa138980b9ef053d637b8e88e5af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
