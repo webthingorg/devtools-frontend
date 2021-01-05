@@ -139,6 +139,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "812f1bf3_76bf0277",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-05T23:41:53Z",
+      "side": 1,
+      "message": "Custom element, sgtm. It looks like there is precedent to include non-custom element code in the .ts file (https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/ui/components/DataGrid.ts?q\u003d%22extends%20HTMLElement%22%20file:devtools-frontend%20-file:out%20-file:web_tests) but these seem to be more utility/helper classes.",
+      "parentUuid": "637ee6cb_9bddc079",
+      "revId": "4f590e3620c4d4b2119253f8f5633a39fad58039",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a776f26e_30c20009",
         "filename": "front_end/elements/AccessibilityTreeView.ts",
         "patchSetId": 19
