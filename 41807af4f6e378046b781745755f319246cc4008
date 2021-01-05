@@ -16,6 +16,23 @@
       "message": "I made a new change in throttlingSettingsTab.css that resolves the original issue. Could you please review? ",
       "revId": "41807af4f6e378046b781745755f319246cc4008",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54daad4a_ee720c72",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-05T10:23:44Z",
+      "side": 1,
+      "message": "@Daniel this LGTM but needs a rebase as there\u0027s now a git conflict. Would you like to resolve this? If not, I am happy to take this over and land it. Just let me know, thanks!",
+      "revId": "41807af4f6e378046b781745755f319246cc4008",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
