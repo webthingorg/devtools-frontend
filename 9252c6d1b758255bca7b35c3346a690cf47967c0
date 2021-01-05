@@ -214,6 +214,30 @@
       },
       "revId": "9252c6d1b758255bca7b35c3346a690cf47967c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf673394_96c734ce",
+        "filename": "front_end/resources/resources_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1359736
+      },
+      "writtenOn": "2021-01-05T04:56:34Z",
+      "side": 1,
+      "message": "nm, you went back in time and +1\u0027d it 😎 (or I didn\u0027t refresh :P)",
+      "parentUuid": "f305a7a5_dc6dd505",
+      "range": {
+        "startLine": 338,
+        "startChar": 217,
+        "endLine": 338,
+        "endChar": 245
+      },
+      "revId": "9252c6d1b758255bca7b35c3346a690cf47967c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
