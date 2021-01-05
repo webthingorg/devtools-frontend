@@ -39,6 +39,30 @@
       },
       "revId": "38e846315f48f0c5fc2f6fc03179d9b2d56383cf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cc197a5_e4956c27",
+        "filename": "front_end/ui/Toolbar.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2021-01-05T00:27:10Z",
+      "side": 1,
+      "message": "Yes, the typedef does require the property to be explicitly undefined. If I remember correctly, back when it was when written, there were some limitations around missing properties vs. undefined to Closure Compiler in using typedefs, hence the explicit undefined. \n\nI think when this file is migrated to TypeScript, we can revisit having the property be optional inside a TypeScript interface rather than a typedef.",
+      "parentUuid": "768c350c_86e8a4b6",
+      "range": {
+        "startLine": 420,
+        "startChar": 92,
+        "endLine": 420,
+        "endChar": 119
+      },
+      "revId": "38e846315f48f0c5fc2f6fc03179d9b2d56383cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
