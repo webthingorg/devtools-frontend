@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2fb9a49_6339a7b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1461707
+      },
+      "writtenOn": "2021-01-05T21:37:48Z",
+      "side": 1,
+      "message": "This cl fixes 1152980. I was originally working on https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2596124/6\nBut there were merge conflicts. This cl is cleaner.\nCould you please review this new cl? Thank you.\n",
+      "revId": "d09d34f9125674ae6af3e8a6e07e429704c2f824",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
