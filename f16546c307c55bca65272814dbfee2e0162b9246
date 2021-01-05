@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2dad95e3_8296f7ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-01-05T09:32:35Z",
+      "side": 1,
+      "message": "I was looking into that yesterday and wasn\u0027t sure if I really needed to do it.\n\nhttps://source.chromium.org/chromium/chromium/src/+/master:tools/metrics/histograms/enums.xml;l\u003d16954-16999;drc\u003dc9883028b2eea0a7cf6f3fa79b0fc9a709533d3c\nYou can see here that all of the enum values are still defined, even those that have been removed from devtools (e.g. customKeyboardShortcuts).\n\nSo I wasn\u0027t sure if they needed to stay or could be removed. Do you know?",
+      "parentUuid": "75171dc8_b1d4e7db",
+      "revId": "f16546c307c55bca65272814dbfee2e0162b9246",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b0289d00_4cfca483",
         "filename": "front_end/elements/ElementsPanel.js",
         "patchSetId": 1
@@ -82,6 +100,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "602d9815_842c7971",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1063,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-01-05T09:32:35Z",
+      "side": 1,
+      "message": "Thanks for catching this! There\u0027s nothing more confusing than old comments that remain next to pieces of code that aren\u0027t related to them anymore. Will fix.",
+      "parentUuid": "9a553236_bc871f07",
+      "range": {
+        "startLine": 1062,
+        "startChar": 4,
+        "endLine": 1063,
+        "endChar": 46
+      },
+      "revId": "f16546c307c55bca65272814dbfee2e0162b9246",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "307e4e58_e7d1b59f",
@@ -95,6 +137,30 @@
       "writtenOn": "2021-01-04T15:58:34Z",
       "side": 1,
       "message": "This line is probably not needed since we unconditionally override on the next line now",
+      "range": {
+        "startLine": 88,
+        "startChar": 3,
+        "endLine": 88,
+        "endChar": 38
+      },
+      "revId": "f16546c307c55bca65272814dbfee2e0162b9246",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c00d477a_b5e9d632",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-01-05T09:32:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "307e4e58_e7d1b59f",
       "range": {
         "startLine": 88,
         "startChar": 3,
