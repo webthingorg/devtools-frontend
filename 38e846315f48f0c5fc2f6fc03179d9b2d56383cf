@@ -16,6 +16,29 @@
       "message": "Small CL to fix a mismatched argument type. PTAL, thanks!",
       "revId": "38e846315f48f0c5fc2f6fc03179d9b2d56383cf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "768c350c_86e8a4b6",
+        "filename": "front_end/ui/Toolbar.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1339167
+      },
+      "writtenOn": "2021-01-05T00:15:15Z",
+      "side": 1,
+      "message": "nit: does this have to be explicitly undefined?\n\notherwise LGTM",
+      "range": {
+        "startLine": 420,
+        "startChar": 92,
+        "endLine": 420,
+        "endChar": 119
+      },
+      "revId": "38e846315f48f0c5fc2f6fc03179d9b2d56383cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
