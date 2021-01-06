@@ -16,6 +16,108 @@
       "message": "Addressed comments. Thanks!",
       "revId": "255321063b16d663ab8d27bf4d780a0465f1ab4a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb1168cb_e2fa114c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 32
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2021-01-06T19:59:59Z",
+      "side": 1,
+      "message": "Thanks! I left some more comments, PTAL.",
+      "revId": "255321063b16d663ab8d27bf4d780a0465f1ab4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5aa3aa12_1392f91d",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleHelper.js",
+        "patchSetId": 32
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2021-01-06T19:59:59Z",
+      "side": 1,
+      "message": "Is this type annotation still needed?",
+      "revId": "255321063b16d663ab8d27bf4d780a0465f1ab4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f815a62_f6e9863b",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleHelper.js",
+        "patchSetId": 32
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2021-01-06T19:59:59Z",
+      "side": 1,
+      "message": "Since this object is constructed with no arguments, no constructor declaration is needed (default constructor is okay)",
+      "revId": "255321063b16d663ab8d27bf4d780a0465f1ab4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6812449b_be9dd295",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleHelper.js",
+        "patchSetId": 32
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2021-01-06T19:59:59Z",
+      "side": 1,
+      "message": "nit: can just use {id, phase: ...} instead of {id: id, phase: ...} for these three objects.",
+      "revId": "255321063b16d663ab8d27bf4d780a0465f1ab4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6312fbee_4b980a95",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleHelper.js",
+        "patchSetId": 32
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2021-01-06T19:59:59Z",
+      "side": 1,
+      "message": "Nit: prefer ls` over Common.UIString.UIString",
+      "revId": "255321063b16d663ab8d27bf4d780a0465f1ab4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96497eef_818fb721",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleHelper.js",
+        "patchSetId": 32
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2021-01-06T19:59:59Z",
+      "side": 1,
+      "message": "This JSDoc type annotation should have more specific types",
+      "revId": "255321063b16d663ab8d27bf4d780a0465f1ab4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
