@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7181418d_93dae579",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleHelper.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-01-06T05:40:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bbf3191_b83c5bd1",
+      "revId": "1bae0da33dcc5fa83aa3370a96445250ac72b456",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8a72dd0f_bab3b3c7",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-01-04T20:43:10Z",
       "side": 1,
       "message": "Suggest packing the arguments into an object so it\u0027s easier to create and configure different variations of the function call (would simplify lines 72..80)",
+      "revId": "1bae0da33dcc5fa83aa3370a96445250ac72b456",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04d3dc0d_efe881d7",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleHelper.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-01-06T05:40:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a72dd0f_bab3b3c7",
       "revId": "1bae0da33dcc5fa83aa3370a96445250ac72b456",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -75,6 +111,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3acf3e80_37c2ea9d",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleHelper.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-01-06T05:40:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dea99b62_8ea2d856",
+      "range": {
+        "startLine": 62,
+        "startChar": 21,
+        "endLine": 62,
+        "endChar": 22
+      },
+      "revId": "1bae0da33dcc5fa83aa3370a96445250ac72b456",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "787d2cfe_3c9856ef",
@@ -88,6 +148,24 @@
       "writtenOn": "2021-01-04T20:43:10Z",
       "side": 1,
       "message": "Suggest iterating over the four ServiceWorkerVersionModes to avoid code duplication for the following four blocks.",
+      "revId": "1bae0da33dcc5fa83aa3370a96445250ac72b456",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2dc6cbd_ef846d80",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleHelper.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-01-06T05:40:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "787d2cfe_3c9856ef",
       "revId": "1bae0da33dcc5fa83aa3370a96445250ac72b456",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -109,6 +187,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b8b2a00_61d38179",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleHelper.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-01-06T05:40:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da888f71_690e92ce",
+      "revId": "1bae0da33dcc5fa83aa3370a96445250ac72b456",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3861445d_090a288b",
@@ -126,6 +222,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b5c1002_b586c471",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleHelper.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-01-06T05:40:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3861445d_090a288b",
+      "revId": "1bae0da33dcc5fa83aa3370a96445250ac72b456",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "88678c72_167b604e",
@@ -139,6 +253,24 @@
       "writtenOn": "2021-01-04T20:43:10Z",
       "side": 1,
       "message": "Suggest using a getter method here (see ES6 getter setters) since the method itself is just a property lookup and would avoid having to update all the above methods.",
+      "revId": "1bae0da33dcc5fa83aa3370a96445250ac72b456",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61a28841_9452910c",
+        "filename": "front_end/sdk/ServiceWorkerManager.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-01-06T05:40:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88678c72_167b604e",
       "revId": "1bae0da33dcc5fa83aa3370a96445250ac72b456",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
