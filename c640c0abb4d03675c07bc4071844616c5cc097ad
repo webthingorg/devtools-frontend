@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d237a12a_1ed068f1",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-06T15:09:25Z",
+      "side": 1,
+      "message": "Is there a particular reason why we don\u0027t have a specific subclass for `Event` here? I would have assumed that we would always subclass Event for typability and completeability and such, but maybe I am missing something?",
+      "range": {
+        "startLine": 512,
+        "startChar": 25,
+        "endLine": 512,
+        "endChar": 34
+      },
+      "revId": "c640c0abb4d03675c07bc4071844616c5cc097ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0d4d2d2_88329ae4",
+        "filename": "front_end/ui/components/DataGridContextMenuUtils.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-06T15:09:25Z",
+      "side": 1,
+      "message": "Could we add some small documentation to this what it does? It isn\u0027t 100% clear to me, but I am probably missing some context.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 38
+      },
+      "revId": "c640c0abb4d03675c07bc4071844616c5cc097ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
