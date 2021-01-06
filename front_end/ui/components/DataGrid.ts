@@ -9,6 +9,7 @@ import * as LitHtml from '../../third_party/lit-html/lit-html.js';
 // eslint-disable-next-line rulesdir/es_modules_import
 import * as UI from '../../ui/ui.js';
 
+import {addColumnVisibilityCheckboxes, addSortableColumnItems} from './DataGridContextMenuUtils.js';
 import {calculateColumnWidthPercentageFromWeighting, calculateFirstFocusableCell, Cell, CellPosition, Column, getRowEntryForColumnId, handleArrowKeyNavigation, keyIsArrowKey, renderCellValue, Row, SortDirection, SortState} from './DataGridUtils.js';
 
 export interface DataGridContextMenusConfiguration {
@@ -55,19 +56,6 @@ export class BodyCellFocusedEvent extends Event {
     this.data = {
       cell,
       row,
-    };
-  }
-}
-
-export class ContextMenuColumnSortClickEvent extends Event {
-  data: {
-    column: Column,
-  };
-
-  constructor(column: Column) {
-    super('context-menu-column-sort-click');
-    this.data = {
-      column,
     };
   }
 }
@@ -491,19 +479,8 @@ export class DataGrid extends HTMLElement {
     }
 
     const menu = new UI.ContextMenu.ContextMenu(event);
-    for (const column of this.columns) {
-      if (!column.hideable) {
-        continue;
-      }
-      /**
-       * Append checkboxes for each column that is hideable; these will show
-       * with checkboxes if the column is visible and allow the user to click in
-       * the context menu to toggle an individual column's visibility.
-       */
-      menu.defaultSection().appendCheckboxItem(column.title, () => {
-        this.toggleColumnVisibility(column);
-      }, column.visible);
-    }
+
+    addColumnVisibilityCheckboxes(this, menu);
 
     /**
      * The header row context menu also lists a sub-menu for selecting which
@@ -511,15 +488,8 @@ export class DataGrid extends HTMLElement {
      * data-grid-controller, we don't control the sort here, but dispatch an
      * event so the parent can handle the sort event.
      */
-    const sortableColumns = this.columns.filter(col => col.sortable === true);
-    if (sortableColumns.length > 0) {
-      const sortMenu = menu.defaultSection().appendSubMenuItem(Common.ls`Sort By`);
-      for (const column of sortableColumns) {
-        sortMenu.defaultSection().appendItem(column.title, () => {
-          this.dispatchEvent(new ContextMenuColumnSortClickEvent(column));
-        });
-      }
-    }
+    const sortMenu = menu.defaultSection().appendSubMenuItem(Common.ls`Sort By`);
+    addSortableColumnItems(this, sortMenu);
 
     menu.defaultSection().appendItem(Common.ls`Reset Columns`, () => {
       this.dispatchEvent(new Event('context-menu-header-reset-click'));
@@ -528,6 +498,44 @@ export class DataGrid extends HTMLElement {
     if (this.contextMenus && this.contextMenus.headerRow) {
       // Let the user append things to the menu
       this.contextMenus.headerRow(menu, this.columns);
+    }
+    menu.show();
+  }
+
+  private onBodyRowContextMenu(event: MouseEvent): void {
+    if (event.button !== 2) {
+      // 2 = secondary button = right click. We only show context menus if the
+      // user has right clicked.
+      return;
+    }
+
+    if (!event.target || !(event.target instanceof HTMLElement)) {
+      return;
+    }
+
+    const rowIndexAttribute = event.target.dataset.rowIndex;
+
+    if (!rowIndexAttribute) {
+      return;
+    }
+
+    const rowIndex = parseInt(rowIndexAttribute, 10);
+    const rowThatWasClicked = this.rows[rowIndex - 1];
+
+    const menu = new UI.ContextMenu.ContextMenu(event);
+    const sortMenu = menu.defaultSection().appendSubMenuItem(Common.ls`Sort By`);
+    addSortableColumnItems(this, sortMenu);
+
+    const headerOptionsMenu = menu.defaultSection().appendSubMenuItem(Common.ls`Header Options`);
+    addColumnVisibilityCheckboxes(this, headerOptionsMenu);
+    headerOptionsMenu.defaultSection().appendItem(Common.ls`Reset Columns`, () => {
+      this.dispatchEvent(new Event('context-menu-header-reset-click'));
+    });
+
+
+    if (this.contextMenus && this.contextMenus.bodyRow) {
+      // Let the user append things to the menu
+      this.contextMenus.bodyRow(menu, this.columns, rowThatWasClicked);
     }
     menu.show();
   }
@@ -720,6 +728,7 @@ export class DataGrid extends HTMLElement {
               <tr
                 aria-rowindex=${rowIndex + 1}
                 class=${rowClasses}
+                @contextmenu=${this.onBodyRowContextMenu}
               >${this.columns.map((col, columnIndex) => {
                 const cell = getRowEntryForColumnId(row, col.id);
                 const cellClasses = LitHtml.Directives.classMap({
