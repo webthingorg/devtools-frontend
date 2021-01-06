@@ -33,6 +33,23 @@
       "message": "@Daniel this LGTM but needs a rebase as there\u0027s now a git conflict. Would you like to resolve this? If not, I am happy to take this over and land it. Just let me know, thanks!",
       "revId": "41807af4f6e378046b781745755f319246cc4008",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6f4d3c1_c702d9ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1461707
+      },
+      "writtenOn": "2021-01-06T08:30:29Z",
+      "side": 1,
+      "message": "I wanted to rebase on my own but I was unsuccessful. I uploaded a new change list that fixes issue 1152980. The new cl should not have any conflicts https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2611909/\nThank you, Jack.",
+      "revId": "41807af4f6e378046b781745755f319246cc4008",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
