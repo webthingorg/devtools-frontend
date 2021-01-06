@@ -16,6 +16,24 @@
       "message": "Played around with this and I think actually if we just drop all the non-session ID ones, we\u0027re good.  so just something like this.. and you can drop the rest of this method.\n\n\n    if (protocolMessage.sessionId || (protocolMessage.method \u0026\u0026 protocolMessage.method.startsWith(\u0027Target\u0027))) {\n      this._send(\u0027dispatchProtocolMessage\u0027, {message: JSON.stringify(message)});\n    }\n\n\u0027Target\u0027 domain needs to be allowlisted since its the autoAttach one that gets all these duplicates up and running.\n\ni\u0027m not 100% about this but feeling pretty good.",
       "revId": "cceb2d8810d0854d3a9adeac706207c672ac0d1d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95413506_75348567",
+        "filename": "front_end/lighthouse/LighthouseProtocolService.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2021-01-06T04:03:27Z",
+      "side": 1,
+      "message": "nice idea - ignore messages for the \"main\" session (no session id) except for it kickstarting everything\n\nthere\u0027s just one issue I see: in LH, we assume no session id \u003d\u003d\u003d in process frame (search for sessionId in LH).\n\nso I\u0027ll have to play with that; either another workaround in the protocol layer (deleting the session id field if \u003d\u003d\u003d the \"parallel\" session id to simulate \"main\") or a refactor in LH (don\u0027t rely on \"empty session id means main frame\")",
+      "parentUuid": "7ff57823_b589ca76",
+      "revId": "cceb2d8810d0854d3a9adeac706207c672ac0d1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
