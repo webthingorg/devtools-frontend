@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dda2d9fe_adffb630",
+        "filename": "test/interactions/data_grid_controller/data_grid_controller_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-01-06T11:36:47Z",
+      "side": 1,
+      "message": "nit: I wonder if we have a platform switch here to make it explicit? https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/test/shared/helper.ts;l\u003d20-33",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 37,
+        "endChar": 3
+      },
+      "revId": "d944913cd9a1a84cc8b8a9559dbd77669ba89ab1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
