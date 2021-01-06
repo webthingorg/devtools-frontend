@@ -50,6 +50,24 @@
       "message": "I wanted to rebase on my own but I was unsuccessful. I uploaded a new change list that fixes issue 1152980. The new cl should not have any conflicts https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2611909/\nThank you, Jack.",
       "revId": "41807af4f6e378046b781745755f319246cc4008",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35092c61_8f1929a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-06T16:22:09Z",
+      "side": 1,
+      "message": "Thanks - I will mark this CL as abandoned. Appreciate the contribution :)",
+      "parentUuid": "e6f4d3c1_c702d9ab",
+      "revId": "41807af4f6e378046b781745755f319246cc4008",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
