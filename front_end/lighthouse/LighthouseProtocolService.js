@@ -12,8 +12,10 @@ import * as ReportRenderer from './LighthouseReporterTypes.js';  // eslint-disab
 export class ProtocolService extends Common.ObjectWrapper.ObjectWrapper {
   constructor() {
     super();
-    /** @type {?ProtocolClient.InspectorBackend.Connection} */
+    /** @type {?SDK.Connections.ParallelConnection} */
     this._rawConnection = null;
+    /** @type {!Set<string>} */
+    this._messagesSeenWithoutSessionId = new Set();
     /** @type {?Services.ServiceManager.Service} */
     this._backend = null;
     /** @type {?Promise<void>} */
@@ -35,7 +37,12 @@ export class ProtocolService extends Common.ObjectWrapper.ObjectWrapper {
     if (!childTargetManager) {
       throw new Error('Unable to find child target manager required for LightHouse');
     }
-    this._rawConnection = await childTargetManager.createParallelConnection(this._dispatchProtocolMessage.bind(this));
+    this._rawConnection = await childTargetManager.createParallelConnection(message => {
+      if (typeof message === 'string') {
+        message = JSON.parse(message);
+      }
+      this._dispatchProtocolMessage(message);
+    });
   }
 
   getLocales() {
@@ -57,6 +64,7 @@ export class ProtocolService extends Common.ObjectWrapper.ObjectWrapper {
    * @return {!Promise<void>}
    */
   async detach() {
+    this._messagesSeenWithoutSessionId.clear();
     await this._send('stop');
     if (this._backend) {
       await this._backend.dispose();
@@ -77,10 +85,22 @@ export class ProtocolService extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   /**
-   * @param {(!Object|string)} message
+   * @param {(!Object)} message
    */
   _dispatchProtocolMessage(message) {
-    this._send('dispatchProtocolMessage', {message: JSON.stringify(message)});
+    // A message without a sessionId is the main session of the main target (call it "Main session").
+    // A parallel connection and session was made that connects to the same main target (call it "Lighthouse session").
+    // Messages from the "Lighthouse session" have a sessionId.
+    // Without some care, there is a risk of sending the same events for the same main frame to Lighthouse–the backend
+    // will create events for the "Main session" and the "Lighthouse session".
+    // The workaround–only send message to Lighthouse if:
+    //   * the message has a sessionId (is not for the "Main session")
+    //   * the message does not have a sessionId (is for the "Main session"), but only for the Target domain
+    //     (to kickstart autoAttach in LH).
+    const protocolMessage = /** @type {{sessionId?: string, method?: string}} */ (message);
+    if (protocolMessage.sessionId || (protocolMessage.method && protocolMessage.method.startsWith('Target'))) {
+      this._send('dispatchProtocolMessage', {message: JSON.stringify(message)});
+    }
   }
 
   _initWorker() {
