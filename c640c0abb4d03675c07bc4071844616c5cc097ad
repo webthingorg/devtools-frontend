@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb1b9793_595e1b78",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-06T15:30:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d237a12a_1ed068f1",
+      "range": {
+        "startLine": 512,
+        "startChar": 25,
+        "endLine": 512,
+        "endChar": 34
+      },
+      "revId": "c640c0abb4d03675c07bc4071844616c5cc097ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c0d4d2d2_88329ae4",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-01-06T15:09:25Z",
       "side": 1,
       "message": "Could we add some small documentation to this what it does? It isn\u0027t 100% clear to me, but I am probably missing some context.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 38
+      },
+      "revId": "c640c0abb4d03675c07bc4071844616c5cc097ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbe05a3f_428994ac",
+        "filename": "front_end/ui/components/DataGridContextMenuUtils.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-06T15:30:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0d4d2d2_88329ae4",
       "range": {
         "startLine": 44,
         "startChar": 0,
