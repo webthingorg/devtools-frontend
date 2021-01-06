@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ff57823_b589ca76",
+        "filename": "front_end/lighthouse/LighthouseProtocolService.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1111657
+      },
+      "writtenOn": "2021-01-06T01:33:43Z",
+      "side": 1,
+      "message": "Played around with this and I think actually if we just drop all the non-session ID ones, we\u0027re good.  so just something like this.. and you can drop the rest of this method.\n\n\n    if (protocolMessage.sessionId || (protocolMessage.method \u0026\u0026 protocolMessage.method.startsWith(\u0027Target\u0027))) {\n      this._send(\u0027dispatchProtocolMessage\u0027, {message: JSON.stringify(message)});\n    }\n\n\u0027Target\u0027 domain needs to be allowlisted since its the autoAttach one that gets all these duplicates up and running.\n\ni\u0027m not 100% about this but feeling pretty good.",
+      "revId": "cceb2d8810d0854d3a9adeac706207c672ac0d1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
