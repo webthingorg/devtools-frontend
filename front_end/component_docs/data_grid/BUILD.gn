@@ -3,8 +3,19 @@
 # found in the LICENSE file.
 
 import("../../../scripts/build/ninja/copy.gni")
+import("../../../third_party/typescript/typescript.gni")
 
-copy_to_gen("data_grid") {
+ts_library("ts") {
+  sources = [ "basic.ts" ]
+
+  deps = [
+    "../../../test/unittests/front_end/helpers",
+    "../../component_helpers:bundle",
+    "../../ui/components:bundle",
+  ]
+}
+
+copy_to_gen("html") {
   sources = [
     "adding-data.html",
     "basic.html",
@@ -18,5 +29,12 @@ copy_to_gen("data_grid") {
     "../../../test/unittests/front_end/helpers",
     "../../component_helpers:bundle",
     "../../ui/components:bundle",
+  ]
+}
+
+group("data_grid") {
+  deps = [
+    ":html",
+    ":ts",
   ]
 }
