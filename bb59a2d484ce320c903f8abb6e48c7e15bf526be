@@ -16,6 +16,131 @@
       "message": "This cl is ready to review :)",
       "revId": "bb59a2d484ce320c903f8abb6e48c7e15bf526be",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fd300fd_e48ba2db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-01-07T21:35:54Z",
+      "side": 1,
+      "message": "Thanks for creating this CL! It\u0027s definitely in the right direction; I just have a few small questions and nits before we can land this.",
+      "revId": "bb59a2d484ce320c903f8abb6e48c7e15bf526be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f9db0e0_d8c5bbaa",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-01-07T21:35:54Z",
+      "side": 1,
+      "message": "Just curious, when the node is the closing tag of \u003chead\u003e (i.e. \u003c/head\u003e), would it still pass the `node.isHeadNode()` check and call `this.checkForMetaCharset()` here?",
+      "revId": "bb59a2d484ce320c903f8abb6e48c7e15bf526be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0d6c408_7ee80bdc",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2226,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-01-07T21:35:54Z",
+      "side": 1,
+      "message": "nit: we could use `Boolean(children)` here to be more concise.",
+      "revId": "bb59a2d484ce320c903f8abb6e48c7e15bf526be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "482e59ed_4cf602b9",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2231,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-01-07T21:35:54Z",
+      "side": 1,
+      "message": "Now that we already have `hasChildren` defined above, we could instead use that variable here.",
+      "revId": "bb59a2d484ce320c903f8abb6e48c7e15bf526be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e235e6a7_945c3973",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2236,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-01-07T21:35:54Z",
+      "side": 1,
+      "message": "nit: same with above. I\u0027d suggest using `Boolean(...)` for these two boolean values as well.\n\nAnother nit: IIRC the past participle of \"set\" is \"set\", so maybe `isCharsetValueSet` is better?",
+      "range": {
+        "startLine": 2235,
+        "startChar": 10,
+        "endLine": 2236,
+        "endChar": 81
+      },
+      "revId": "bb59a2d484ce320c903f8abb6e48c7e15bf526be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a05c6b58_5a38aaa7",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2241,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-01-07T21:35:54Z",
+      "side": 1,
+      "message": "I feel like an adorner saying \"Warning\" might be a little vague. What do you think about saying something more specific, like \"Meta\" or something? @mathias maybe Mathias has better ideas?",
+      "revId": "bb59a2d484ce320c903f8abb6e48c7e15bf526be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b5b33c8_590805d1",
+        "filename": "front_end/sdk/DOMModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-01-07T21:35:54Z",
+      "side": 1,
+      "message": "Instead of checking this predicate and return true if it passes, and return false otherwise, could we just return the result of checking the predicate? i.e.\n```\nreturn this._nodeType ... \u0026\u0026 this._nodeName...\n```",
+      "revId": "bb59a2d484ce320c903f8abb6e48c7e15bf526be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
