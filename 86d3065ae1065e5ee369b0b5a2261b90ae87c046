@@ -73,6 +73,23 @@
       "message": "Reassigning to Mathias for a CSS rule domain review.",
       "revId": "86d3065ae1065e5ee369b0b5a2261b90ae87c046",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "744ca0b6_8f69c73c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-01-07T10:33:12Z",
+      "side": 1,
+      "message": "This LGTM, but I feel like Changhao is more familiar with this code. Changhao, PTAL",
+      "revId": "86d3065ae1065e5ee369b0b5a2261b90ae87c046",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
