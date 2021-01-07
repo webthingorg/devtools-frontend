@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81dde250_082e65c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-01-07T23:04:03Z",
+      "side": 1,
+      "message": "ran scripts/deps/roll_deps.py script for updating client variations from this PR\nhttps://chromium-review.googlesource.com/c/chromium/src/+/2605396\n\nPresubmit script has generated files in front_end/generated/*\n\nI had to update front_end\\sdk\\DebuggerModel.js it looks like backend API has changed, and build was failing, please let me know if it is wrong @pfaffe@chromium.org",
+      "revId": "3620e39e52afcfc93f2e21b418dbe59578d7fdef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
