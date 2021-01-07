@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c99aa9b_bfc61725",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-01-07T14:05:32Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "cc98225fd90f084371bd2ded2244c378a636a3f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5e83ae1_31ec215d",
+        "filename": "scripts/build/generate_devtools_grd.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-01-07T14:05:32Z",
+      "side": 1,
+      "message": "Note #1: this is not the formatting I’d use, but `git cl format` decided otherwise.\n\nNote #2: we don’t seem to be using WebP images right now. Happy to drop the webp part here, but it felt safer to include it in case we ever decide to use such an image.",
+      "revId": "cc98225fd90f084371bd2ded2244c378a636a3f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
