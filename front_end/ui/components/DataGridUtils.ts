@@ -1,10 +1,14 @@
 // Copyright 2020 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
+import * as Host from '../../host/host.js';
 import * as Platform from '../../platform/platform.js';
 import * as LitHtml from '../../third_party/lit-html/lit-html.js';
+// eslint-disable-next-line rulesdir/es_modules_import
+import * as UI from '../../ui/ui.js';
 
 import * as DataGridRenderers from './DataGridRenderers.js';
+
 
 /**
   * A column is an object with the following properties:
@@ -80,6 +84,52 @@ export const ARROW_KEYS = new Set<ArrowKey>([
 
 export function keyIsArrowKey(key: string): key is ArrowKey {
   return ARROW_KEYS.has(key as ArrowKey);
+}
+
+export function createHeaderContextMenu(
+    options: {columns: readonly Column[], event: MouseEvent, onColumnVisibilityToggle: (id: string) => void}):
+    UI.ContextMenu.ContextMenu {
+  const {event, columns, onColumnVisibilityToggle} = options;
+  const menu = new UI.ContextMenu.ContextMenu(event);
+  for (const column of columns) {
+    if (column.hideable) {
+      menu.headerSection().appendCheckboxItem(column.title, () => onColumnVisibilityToggle(column.id), column.visible);
+    }
+  }
+  return menu;
+}
+
+export function createRowContextMenu(options: {
+  columns: readonly Column[],
+  event: MouseEvent,
+  onColumnVisibilityToggle: (id: string) => void,
+  currentRow: Readonly<Row>,
+  onRowFilterClick: (row: Readonly<Row>) => void,
+}): UI.ContextMenu.ContextMenu {
+  const {event, columns, onColumnVisibilityToggle, currentRow, onRowFilterClick} = options;
+  const menu = new UI.ContextMenu.ContextMenu(event);
+  for (const column of columns) {
+    if (column.hideable) {
+      menu.headerSection().appendCheckboxItem(column.title, () => onColumnVisibilityToggle(column.id), column.visible);
+    }
+  }
+
+  menu.defaultSection().appendItem('Filter', () => {
+    onRowFilterClick(currentRow);
+  });
+
+  menu.defaultSection().appendItem('Documentation', () => {
+    const direction = getRowEntryForColumnId(currentRow, 'direction');
+    const method = getRowEntryForColumnId(currentRow, 'method');
+    if (typeof method.value !== 'string') {
+      return;
+    }
+    const [domain, methodName] = method.value.split('.');
+    const type = direction.value === 'sent' ? 'method' : 'event';
+    Host.InspectorFrontendHost.InspectorFrontendHostInstance.openInNewTab(
+        `https://chromedevtools.github.io/devtools-protocol/tot/${domain}#${type}-${methodName}`);
+  });
+  return menu;
 }
 
 export function getRowEntryForColumnId(row: Row, id: string): Cell {
