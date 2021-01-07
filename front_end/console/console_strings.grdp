@@ -268,7 +268,7 @@
     Warnings
   </message>
   <message name="IDS_DEVTOOLS_e1dd1b8e32626f508bd3a5612a60ab97" desc="Title of an action in the console tool to create pin">
-    Create live expression
+    Create <ph name="LOCKED_1">live expression</ph>
   </message>
   <message name="IDS_DEVTOOLS_e3951a5d9f5fdfae4ccd5469ff230eae" desc="Note title in Console View Message of the Console panel">
     This value was evaluated upon first expanding. It may have changed since then.
