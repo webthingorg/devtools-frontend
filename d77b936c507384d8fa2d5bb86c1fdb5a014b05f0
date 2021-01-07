@@ -16,6 +16,29 @@
       "message": "It looks like keyboard navigation is not selecting the correct table row correctly. So to fix this issue either keyboard navigation has to be updated or do it this way.\n\nEdit key context menu does it this way.",
       "revId": "d77b936c507384d8fa2d5bb86c1fdb5a014b05f0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6be297d0_a4cc1274",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1441,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2021-01-07T20:47:54Z",
+      "side": 1,
+      "message": "I don\u0027t know if column zero is guarenteed to be an editable column. We should probably use the _nextEditableColumn(-1) function like the if block below does. WDYT?",
+      "range": {
+        "startLine": 1441,
+        "startChar": 81,
+        "endLine": 1441,
+        "endChar": 114
+      },
+      "revId": "d77b936c507384d8fa2d5bb86c1fdb5a014b05f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
