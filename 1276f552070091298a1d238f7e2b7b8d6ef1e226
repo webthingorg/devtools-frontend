@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61f9fb48_0ad0410a",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-07T05:55:00Z",
+      "side": 1,
+      "message": "So I think I know what the issue is!\n\nBasically, we don\u0027t need to call traverseChildren recursively. It\u0027s still recursive because of the way we render components, but not in the way you expect. The recursive aspect filters through via the set data method. Every time we set data on an accessibility node, it\u0027s going to call render on that node, and then recursively call traverseChildren as part of how it renders. Make sense?\n\nI think this method should just return a single TemplateResult, that represents the rendered form of it\u0027s entire subtree.\n\nSo something approximating:\n\nif !node:\n  return template result html``\n\nconst children \u003d []\n\nfor each child in children:\n  child_template \u003d html`\u003cdevtools-a11y-node .data\u003d{axNode: child}/\u003e`\n  children.push(child_template)\n\nreturn html`\u003cul class\u003dchildren\u003e${children}\u003c/ul\u003e`\n\n\nWhat this does, is create a new \u003cdevtools-a11y-node\u003e and render it and it\u0027s subtree, which is recursive, but we aren\u0027t managing the recursion.\n\n\nAlso maybe change the name to renderChildren() rather than traverseChildren()?",
+      "revId": "1276f552070091298a1d238f7e2b7b8d6ef1e226",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "513c2f83_24bf658d",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-07T05:55:00Z",
+      "side": 1,
+      "message": "I think this should just be a span. the \u003cli\u003e should wrap the whole accessibility node component, not just the role/name.",
+      "revId": "1276f552070091298a1d238f7e2b7b8d6ef1e226",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cd1ce03_22bcad91",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-07T05:55:00Z",
+      "side": 1,
+      "message": "Lets not pass parts in here. I think the traverseChildren function should return a LitHtml.TemplateResult that we can add into parts.\n\neg. parts.push(this.traverseChildren())",
+      "revId": "1276f552070091298a1d238f7e2b7b8d6ef1e226",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef99896d_df8a5c85",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-07T05:55:00Z",
+      "side": 1,
+      "message": "I think parts should be rendered inside an \u003cli\u003e",
+      "revId": "1276f552070091298a1d238f7e2b7b8d6ef1e226",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
