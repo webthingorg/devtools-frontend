@@ -2106,6 +2106,11 @@ export function registerCommands(inspectorBackend) {
       'Performance.setTimeDomain', [{'name': 'timeDomain', 'type': 'string', 'optional': false}], []);
   inspectorBackend.registerCommand('Performance.getMetrics', [], ['metrics']);
 
+  // PerformanceTimeline.
+  inspectorBackend.registerEvent('PerformanceTimeline.timelineEventAdded', ['event']);
+  inspectorBackend.registerCommand(
+      'PerformanceTimeline.enable', [{'name': 'eventTypes', 'type': 'object', 'optional': false}], []);
+
   // Security.
   inspectorBackend.registerEnum(
       'Security.MixedContentType', {Blockable: 'blockable', OptionallyBlockable: 'optionally-blockable', None: 'none'});
@@ -2615,14 +2620,6 @@ export function registerCommands(inspectorBackend) {
       ],
       ['result', 'exceptionDetails']);
   inspectorBackend.registerCommand(
-      'Debugger.executeWasmEvaluator',
-      [
-        {'name': 'callFrameId', 'type': 'string', 'optional': false},
-        {'name': 'evaluator', 'type': 'string', 'optional': false},
-        {'name': 'timeout', 'type': 'number', 'optional': true}
-      ],
-      ['result', 'exceptionDetails']);
-  inspectorBackend.registerCommand(
       'Debugger.getPossibleBreakpoints',
       [
         {'name': 'start', 'type': 'object', 'optional': false}, {'name': 'end', 'type': 'object', 'optional': true},
@@ -2867,7 +2864,13 @@ export function registerCommands(inspectorBackend) {
     Weakset: 'weakset',
     Iterator: 'iterator',
     Generator: 'generator',
-    Error: 'error'
+    Error: 'error',
+    Proxy: 'proxy',
+    Promise: 'promise',
+    Typedarray: 'typedarray',
+    Arraybuffer: 'arraybuffer',
+    Dataview: 'dataview',
+    Webassemblymemory: 'webassemblymemory'
   });
   inspectorBackend.registerEnum('Runtime.PropertyPreviewType', {
     Object: 'object',
@@ -2892,7 +2895,13 @@ export function registerCommands(inspectorBackend) {
     Weakset: 'weakset',
     Iterator: 'iterator',
     Generator: 'generator',
-    Error: 'error'
+    Error: 'error',
+    Proxy: 'proxy',
+    Promise: 'promise',
+    Typedarray: 'typedarray',
+    Arraybuffer: 'arraybuffer',
+    Dataview: 'dataview',
+    Webassemblymemory: 'webassemblymemory'
   });
   inspectorBackend.registerEvent('Runtime.bindingCalled', ['name', 'payload', 'executionContextId']);
   inspectorBackend.registerEnum('Runtime.ConsoleAPICalledEventType', {
