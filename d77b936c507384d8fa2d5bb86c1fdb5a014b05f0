@@ -39,6 +39,48 @@
       },
       "revId": "d77b936c507384d8fa2d5bb86c1fdb5a014b05f0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e702ccb8_5e4c0301",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1441,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-01-07T21:03:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20d60c20_5cc051f6",
+      "revId": "d77b936c507384d8fa2d5bb86c1fdb5a014b05f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6032ce35_ce499920",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1441,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-01-07T21:03:43Z",
+      "side": 1,
+      "message": "Yup, makes sense. updated",
+      "parentUuid": "6be297d0_a4cc1274",
+      "range": {
+        "startLine": 1441,
+        "startChar": 81,
+        "endLine": 1441,
+        "endChar": 114
+      },
+      "revId": "d77b936c507384d8fa2d5bb86c1fdb5a014b05f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
