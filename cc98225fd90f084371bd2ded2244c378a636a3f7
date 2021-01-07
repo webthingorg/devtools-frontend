@@ -51,6 +51,24 @@
       "parentUuid": "c5e83ae1_31ec215d",
       "revId": "cc98225fd90f084371bd2ded2244c378a636a3f7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdaae990_20845907",
+        "filename": "scripts/build/generate_devtools_grd.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-01-07T14:23:16Z",
+      "side": 1,
+      "message": "Ack. I’ll land this as-is, since it fixes a missing “what\u0027s new” image in Release builds.",
+      "parentUuid": "c48cc136_ee0a857f",
+      "revId": "cc98225fd90f084371bd2ded2244c378a636a3f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
