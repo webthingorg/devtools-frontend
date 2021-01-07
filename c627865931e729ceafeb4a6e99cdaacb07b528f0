@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "921f9354_e8049c50",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2021-01-07T18:39:04Z",
+      "side": 1,
+      "message": "We\u0027ll have to rework some things in LH to realize this vision: we made the LH repo the \"source of truth\" for the layout tests + made a way to run them from LH repo last August, and we\u0027ve seen many benefits since. So we now occasionally add more layout tests when adding features that may have compat issues inside devtools.\n\nRight now it only runs the layout tests. I haven\u0027t looked into running the e2e tests.\n\nsee: https://github.com/GoogleChrome/lighthouse/blob/407bc5b9393d00343ada2b445ba05e2b195ff348/package.json#L72",
+      "parentUuid": "cbc9c928_67c10a1b",
+      "revId": "c627865931e729ceafeb4a6e99cdaacb07b528f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "574d23bd_cf39e6d3",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-01-07T09:07:50Z",
       "side": 1,
       "message": "nit: in general I prefer early exits rather than the entire body of a function being wrapped in an if statement. It tends to be clearer under what circumstances the function proceeds or exits.",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 100,
+        "endChar": 5
+      },
+      "revId": "c627865931e729ceafeb4a6e99cdaacb07b528f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7b0733d_53b61e64",
+        "filename": "front_end/lighthouse/LighthouseProtocolService.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2021-01-07T18:39:04Z",
+      "side": 1,
+      "message": "agreed and we do the same in LH, but not usually when the functionality of the method is short or there is just one if.",
+      "parentUuid": "574d23bd_cf39e6d3",
       "range": {
         "startLine": 98,
         "startChar": 4,
