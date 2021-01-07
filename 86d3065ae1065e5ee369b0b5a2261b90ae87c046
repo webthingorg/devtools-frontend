@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9419a2cd_6fda83d7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-01-07T09:36:10Z",
+      "side": 1,
+      "message": "It\u0027s a good practice to have a first short line in your commit message that describes the fix, so that `git log` (and similar tools) are more helpful.\n\nYou could rephrase to just: \n\"Styles: Prevent invisible properties to invalidate visible ones\"",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 59
+      },
+      "revId": "86d3065ae1065e5ee369b0b5a2261b90ae87c046",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1b0cb4e8_603fb293",
@@ -14,6 +37,23 @@
       "writtenOn": "2021-01-06T18:59:01Z",
       "side": 1,
       "message": "PTAL",
+      "revId": "86d3065ae1065e5ee369b0b5a2261b90ae87c046",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f218bab4_a27d64de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-01-07T09:36:10Z",
+      "side": 1,
+      "message": "I had no idea the backend did that. It\u0027s good to know!\nThe fix seems right to me, I just made a comment about your commit message.",
       "revId": "86d3065ae1065e5ee369b0b5a2261b90ae87c046",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
