@@ -16,6 +16,91 @@
       "message": "PTAL :)",
       "revId": "e1af4baf533db3c43569fdf20d281fc362313de6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ed10dd5_2dcdc229",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-07T07:32:22Z",
+      "side": 1,
+      "message": "nit: can probably remove the // comment syntax from the start of the line here :)",
+      "revId": "e1af4baf533db3c43569fdf20d281fc362313de6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e69fc67d_2d4890db",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-07T07:32:22Z",
+      "side": 1,
+      "message": "I wonder if we should move most of this functionality (communicating with the accessibility/DOM model) into AccessibilityTree? That way we aren\u0027t really relying on this \"legacy\" style UI that much, and when it eventually goes away it will hopefully be less work. What do you think?",
+      "revId": "e1af4baf533db3c43569fdf20d281fc362313de6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d44ee593_8945f37b",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-07T07:32:22Z",
+      "side": 1,
+      "message": "Is this null check necessary? If the flag isn\u0027t enabled, the button and handlers are never created. Is this just because TS complains that the value is null?",
+      "revId": "e1af4baf533db3c43569fdf20d281fc362313de6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b33b00ee_111bcf89",
+        "filename": "front_end/sdk/AccessibilityModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-07T07:32:22Z",
+      "side": 1,
+      "message": "I\u0027m not sure this is needed for this change, was this a hangover from working with getChildAXNodes?",
+      "revId": "e1af4baf533db3c43569fdf20d281fc362313de6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12c6a122_8f1a3c4f",
+        "filename": "front_end/sdk/AccessibilityModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-07T07:32:22Z",
+      "side": 1,
+      "message": "@Alice, WDYT about this? We figured that the tree UI itself doesn\u0027t really need access to anything else other than the root node and handle the traversal itself, but curious to hear what you think.",
+      "revId": "e1af4baf533db3c43569fdf20d281fc362313de6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
