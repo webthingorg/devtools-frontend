@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f32636b6_65b4d6fc",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-07T07:04:50Z",
+      "side": 1,
+      "message": "Yes this makes sense! Fixed and working now :)",
+      "parentUuid": "61f9fb48_0ad0410a",
+      "revId": "1276f552070091298a1d238f7e2b7b8d6ef1e226",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "513c2f83_24bf658d",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-01-07T05:55:00Z",
       "side": 1,
       "message": "I think this should just be a span. the \u003cli\u003e should wrap the whole accessibility node component, not just the role/name.",
+      "revId": "1276f552070091298a1d238f7e2b7b8d6ef1e226",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6c5c0ff_34e68e0e",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-07T07:04:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "513c2f83_24bf658d",
       "revId": "1276f552070091298a1d238f7e2b7b8d6ef1e226",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2b312c1_94f1191b",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-07T07:04:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8cd1ce03_22bcad91",
+      "revId": "1276f552070091298a1d238f7e2b7b8d6ef1e226",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ef99896d_df8a5c85",
@@ -65,6 +119,24 @@
       "writtenOn": "2021-01-07T05:55:00Z",
       "side": 1,
       "message": "I think parts should be rendered inside an \u003cli\u003e",
+      "revId": "1276f552070091298a1d238f7e2b7b8d6ef1e226",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65c392e7_36f31d6b",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-07T07:04:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef99896d_df8a5c85",
       "revId": "1276f552070091298a1d238f7e2b7b8d6ef1e226",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
