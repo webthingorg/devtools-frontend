@@ -80,6 +80,30 @@
       },
       "revId": "38e846315f48f0c5fc2f6fc03179d9b2d56383cf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13b91794_228750cc",
+        "filename": "front_end/ui/Toolbar.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-01-07T09:01:19Z",
+      "side": 1,
+      "message": "Right, the original typedefs came from Closure, and it doesn\u0027t really do optional in the same way as TS. The types need converting from JSDoc to TS interfaces/types then we can make them optional, so until then +1 to the undefined (sadly).",
+      "parentUuid": "6cc197a5_e4956c27",
+      "range": {
+        "startLine": 420,
+        "startChar": 92,
+        "endLine": 420,
+        "endChar": 119
+      },
+      "revId": "38e846315f48f0c5fc2f6fc03179d9b2d56383cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
