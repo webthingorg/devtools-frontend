@@ -16,6 +16,23 @@
       "message": "ran scripts/deps/roll_deps.py script for updating client variations from this PR\nhttps://chromium-review.googlesource.com/c/chromium/src/+/2605396\n\nPresubmit script has generated files in front_end/generated/*\n\nI had to update front_end\\sdk\\DebuggerModel.js it looks like backend API has changed, and build was failing, please let me know if it is wrong @pfaffe@chromium.org",
       "revId": "3620e39e52afcfc93f2e21b418dbe59578d7fdef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2d5dd94_3d46ceb5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002410
+      },
+      "writtenOn": "2021-01-07T23:06:22Z",
+      "side": 1,
+      "message": "LG, but I don\u0027t think I\u0027m a meaningful reviewer here. Thanks for rolling in the dependencies!",
+      "revId": "3620e39e52afcfc93f2e21b418dbe59578d7fdef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
