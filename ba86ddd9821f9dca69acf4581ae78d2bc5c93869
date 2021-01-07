@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af2cd2c9_160b0ccc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 35
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-01-07T00:05:01Z",
+      "side": 1,
+      "message": "Also, could you pls take a look at the UI (images attached)? Thanks.",
+      "revId": "ba86ddd9821f9dca69acf4581ae78d2bc5c93869",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

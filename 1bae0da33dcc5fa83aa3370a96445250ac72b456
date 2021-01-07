@@ -223,6 +223,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "48170cc5_3244eba8",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleHelper.js",
+        "patchSetId": 29
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-01-07T00:05:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89ea85a1_64bc866e",
+      "revId": "1bae0da33dcc5fa83aa3370a96445250ac72b456",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3861445d_090a288b",

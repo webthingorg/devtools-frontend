@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc820fce_e200ffec",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleHelper.js",
+        "patchSetId": 32
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-01-07T00:05:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5aa3aa12_1392f91d",
+      "revId": "255321063b16d663ab8d27bf4d780a0465f1ab4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5f815a62_f6e9863b",
@@ -65,6 +83,24 @@
       "writtenOn": "2021-01-06T19:59:59Z",
       "side": 1,
       "message": "Since this object is constructed with no arguments, no constructor declaration is needed (default constructor is okay)",
+      "revId": "255321063b16d663ab8d27bf4d780a0465f1ab4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a63233b7_1ef7aa14",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleHelper.js",
+        "patchSetId": 32
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-01-07T00:05:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f815a62_f6e9863b",
       "revId": "255321063b16d663ab8d27bf4d780a0465f1ab4a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -86,6 +122,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "778069b5_074c709d",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleHelper.js",
+        "patchSetId": 32
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-01-07T00:05:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6812449b_be9dd295",
+      "revId": "255321063b16d663ab8d27bf4d780a0465f1ab4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6312fbee_4b980a95",
@@ -103,6 +157,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0f7ab0c_e46e1272",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleHelper.js",
+        "patchSetId": 32
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-01-07T00:05:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6312fbee_4b980a95",
+      "revId": "255321063b16d663ab8d27bf4d780a0465f1ab4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "96497eef_818fb721",
@@ -116,6 +188,24 @@
       "writtenOn": "2021-01-06T19:59:59Z",
       "side": 1,
       "message": "This JSDoc type annotation should have more specific types",
+      "revId": "255321063b16d663ab8d27bf4d780a0465f1ab4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20b7b984_c28439b8",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleHelper.js",
+        "patchSetId": 32
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-01-07T00:05:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96497eef_818fb721",
       "revId": "255321063b16d663ab8d27bf4d780a0465f1ab4a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
