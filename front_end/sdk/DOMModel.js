@@ -228,6 +228,16 @@ export class DOMNode {
   /**
    * @return {boolean}
    */
+  isHeadNode() {
+    if (this._nodeType === Node.ELEMENT_NODE && this._nodeName === 'HEAD') {
+      return true;
+    }
+    return false;
+  }
+
+  /**
+   * @return {boolean}
+   */
   isSVGNode() {
     return this._isSVGNode;
   }

@@ -107,6 +107,10 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
 
     /** @type {?UI.TreeOutline.TreeElement} */
     this.expandAllButtonElement = null;
+
+    if (node.isHeadNode()) {
+      this.checkForMetaCharset();
+    }
   }
 
   /**
@@ -2222,6 +2226,29 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
         });
 
     return adorner;
+  }
+
+  checkForMetaCharset() {
+    this._node.getChildNodes(children => {
+      const hasChildren = children ? true : false;
+      let isFirstChildMetaNode = false;
+      let isFirstChildCharsetNode = false;
+      let isCharsetValueSetted = false;
+
+      if (children) {
+        const firstChild = children[0];
+        isFirstChildMetaNode = firstChild.nodeName() === 'META';
+        if (firstChild.hasAttributes()) {
+          isFirstChildCharsetNode = firstChild.attributes()[0].name === 'charset' ? true : false;
+          isCharsetValueSetted = firstChild.attributes()[0].value ? true : false;
+        }
+      }
+
+      if (!hasChildren || !isFirstChildMetaNode || !isFirstChildCharsetNode || !isCharsetValueSetted) {
+        const adorner = this.adornText('Warning', AdornerCategories.Default);
+        UI.Tooltip.Tooltip.install(adorner, 'charset should be setted');
+      }
+    });
   }
 }
 
