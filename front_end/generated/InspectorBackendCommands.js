@@ -2106,6 +2106,11 @@ export function registerCommands(inspectorBackend) {
       'Performance.setTimeDomain', [{'name': 'timeDomain', 'type': 'string', 'optional': false}], []);
   inspectorBackend.registerCommand('Performance.getMetrics', [], ['metrics']);
 
+  // PerformanceTimeline.
+  inspectorBackend.registerEvent('PerformanceTimeline.timelineEventAdded', ['event']);
+  inspectorBackend.registerCommand(
+      'PerformanceTimeline.enable', [{'name': 'eventTypes', 'type': 'object', 'optional': false}], []);
+
   // Security.
   inspectorBackend.registerEnum(
       'Security.MixedContentType', {Blockable: 'blockable', OptionallyBlockable: 'optionally-blockable', None: 'none'});
@@ -2611,14 +2616,6 @@ export function registerCommands(inspectorBackend) {
         {'name': 'returnByValue', 'type': 'boolean', 'optional': true},
         {'name': 'generatePreview', 'type': 'boolean', 'optional': true},
         {'name': 'throwOnSideEffect', 'type': 'boolean', 'optional': true},
-        {'name': 'timeout', 'type': 'number', 'optional': true}
-      ],
-      ['result', 'exceptionDetails']);
-  inspectorBackend.registerCommand(
-      'Debugger.executeWasmEvaluator',
-      [
-        {'name': 'callFrameId', 'type': 'string', 'optional': false},
-        {'name': 'evaluator', 'type': 'string', 'optional': false},
         {'name': 'timeout', 'type': 'number', 'optional': true}
       ],
       ['result', 'exceptionDetails']);
