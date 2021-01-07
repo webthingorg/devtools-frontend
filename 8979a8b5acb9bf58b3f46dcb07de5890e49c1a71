@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "290ae7b9_1ece15b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-01-07T09:03:37Z",
+      "side": 1,
+      "message": "+1 to Tim\u0027s comments. Otherwise LGTM.",
+      "revId": "8979a8b5acb9bf58b3f46dcb07de5890e49c1a71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "89a19295_9ed2c024",
@@ -37,6 +54,30 @@
       "writtenOn": "2021-01-05T11:43:45Z",
       "side": 1,
       "message": "Nit: this loads a fair bit of code. Should we maybe also define a `MockPanel` and load that here?",
+      "range": {
+        "startLine": 35,
+        "startChar": 15,
+        "endLine": 35,
+        "endChar": 52
+      },
+      "revId": "8979a8b5acb9bf58b3f46dcb07de5890e49c1a71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d293ece_2e0d46ce",
+        "filename": "test/unittests/front_end/meta/view_registration_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-01-07T09:03:37Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "8a4f0134_48f0dcf5",
       "range": {
         "startLine": 35,
         "startChar": 15,
