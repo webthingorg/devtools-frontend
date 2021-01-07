@@ -1438,7 +1438,7 @@ export class DataGridImpl extends Common.ObjectWrapper.ObjectWrapper {
       if (this._editCallback) {
         if (gridNode === this.creationNode) {
           contextMenu.defaultSection().appendItem(
-              Common.UIString.UIString('Add new'), this._startEditing.bind(this, target));
+              Common.UIString.UIString('Add new'), this._startEditing.bind(this, gridNode.element().children[0]));
         } else if (isContextMenuKey) {
           const firstEditColumnIndex = this._nextEditableColumn(-1);
           if (firstEditColumnIndex > -1) {
