@@ -39,6 +39,30 @@
       },
       "revId": "5561922e6033247760d0c64e3a39e3bce7bee1ee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fbaeade_78902c3c",
+        "filename": "front_end/sdk/NetworkManager.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 1035,
+      "author": {
+        "id": 1116070
+      },
+      "writtenOn": "2021-01-07T08:35:31Z",
+      "side": 1,
+      "message": "requestWillBeSent and webSocketWillSendHandshakeRequest handler also call networkRequest.setIssueTime(time, wallTime).\nthird_party/blink/renderer/core/inspector/inspector_network_agent.cc calls\nthe requests.\nIt seems they are really same value except unit (seconds or tick).",
+      "parentUuid": "e7603e70_485b74f6",
+      "range": {
+        "startLine": 1035,
+        "startChar": 19,
+        "endLine": 1035,
+        "endChar": 31
+      },
+      "revId": "5561922e6033247760d0c64e3a39e3bce7bee1ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
