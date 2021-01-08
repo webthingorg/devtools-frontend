@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d426313f_e747ed75",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-01-08T09:18:46Z",
+      "side": 1,
+      "message": "Hello!\n\nThis is a change to use live locations in order to resolve the source url. PTAL!\n\n@Paul: EnvironmentHelpers ptal!\n@Simon: I added two TODOs on your name regarding the \u0027zero width space\u0027, ptal if that\u0027s fine!\n@all: Red bot requires updating a web test, will re-run as soon as this CL is reviewed and the web test is disabled.",
+      "revId": "76f85a618ce05ad316cf67ae761717a3a676621a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
