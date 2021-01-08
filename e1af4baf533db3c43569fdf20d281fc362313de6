@@ -125,6 +125,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6aa39387_ee54552d",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-08T04:45:53Z",
+      "side": 1,
+      "message": "Nah, don\u0027t turn off the linter. I was just curious. Perhaps there\u0027s a better design pattern for this and devtools can advise.",
+      "parentUuid": "60589d23_aca446d7",
+      "revId": "e1af4baf533db3c43569fdf20d281fc362313de6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b33b00ee_111bcf89",
         "filename": "front_end/sdk/AccessibilityModel.js",
         "patchSetId": 5
