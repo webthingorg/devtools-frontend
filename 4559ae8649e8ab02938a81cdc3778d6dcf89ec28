@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44da5414_e9090089",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-01-08T06:02:55Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nBringing devtools-frontend up to speed with the latest changes to Wasm on the inspector side.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "4559ae8649e8ab02938a81cdc3778d6dcf89ec28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
