@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ff846a9_bacfd7f7",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-08T04:09:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ed10dd5_2dcdc229",
+      "revId": "e1af4baf533db3c43569fdf20d281fc362313de6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e69fc67d_2d4890db",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-01-07T07:32:22Z",
       "side": 1,
       "message": "I wonder if we should move most of this functionality (communicating with the accessibility/DOM model) into AccessibilityTree? That way we aren\u0027t really relying on this \"legacy\" style UI that much, and when it eventually goes away it will hopefully be less work. What do you think?",
+      "revId": "e1af4baf533db3c43569fdf20d281fc362313de6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a40bae21_37da6cb7",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-08T04:09:44Z",
+      "side": 1,
+      "message": "Agreed! I think it makes sense to have as much logic in the web components as possible so I have moved most of this function into AccessibilityTree. Can @DevTools team please confirm?",
+      "parentUuid": "e69fc67d_2d4890db",
       "revId": "e1af4baf533db3c43569fdf20d281fc362313de6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -71,6 +107,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "60589d23_aca446d7",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-08T04:09:44Z",
+      "side": 1,
+      "message": "Yep TS complains that this could be undefined, hence the extra check. Is this ok to leave in, or is there a better way around this instead of turning off the linter for this line?",
+      "parentUuid": "d44ee593_8945f37b",
+      "revId": "e1af4baf533db3c43569fdf20d281fc362313de6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b33b00ee_111bcf89",
         "filename": "front_end/sdk/AccessibilityModel.js",
         "patchSetId": 5
@@ -82,6 +136,24 @@
       "writtenOn": "2021-01-07T07:32:22Z",
       "side": 1,
       "message": "I\u0027m not sure this is needed for this change, was this a hangover from working with getChildAXNodes?",
+      "revId": "e1af4baf533db3c43569fdf20d281fc362313de6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd5157ca_413f7283",
+        "filename": "front_end/sdk/AccessibilityModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-08T04:09:44Z",
+      "side": 1,
+      "message": "Oops this was a hangover from the merge. Removed!",
+      "parentUuid": "b33b00ee_111bcf89",
       "revId": "e1af4baf533db3c43569fdf20d281fc362313de6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
