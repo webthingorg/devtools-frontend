@@ -26,7 +26,12 @@ group("component_docs") {
 }
 
 devtools_module("component_docs_module") {
-  sources = [ "toggle_dark_mode.ts" ]
+  sources = [
+    "create_breadcrumbs.ts",
+    "toggle_dark_mode.ts",
+  ]
+
+  deps = [ "../third_party/lit-html:bundle" ]
 }
 devtools_entrypoint("bundle") {
   entrypoint = "component_docs.ts"
