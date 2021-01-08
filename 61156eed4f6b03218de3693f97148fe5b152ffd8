@@ -50,6 +50,24 @@
       "message": "nit: 2021",
       "revId": "61156eed4f6b03218de3693f97148fe5b152ffd8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80b39102_19f3b476",
+        "filename": "test/unittests/front_end/sdk/ConsoleModel_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2021-01-08T10:45:01Z",
+      "side": 1,
+      "message": "Good catch!",
+      "parentUuid": "559f68f2_48c18148",
+      "revId": "61156eed4f6b03218de3693f97148fe5b152ffd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
