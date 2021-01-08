@@ -69,6 +69,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "851b2110_5abed6bf",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-01-08T10:33:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2cad23a9_4ab16aa4",
+      "revId": "76f85a618ce05ad316cf67ae761717a3a676621a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "144f7057_c7726e63",
@@ -86,6 +104,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "294c0099_b51e479e",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-01-08T10:33:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "144f7057_c7726e63",
+      "revId": "76f85a618ce05ad316cf67ae761717a3a676621a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "71ce141a_c35e0bcd",
@@ -99,6 +135,30 @@
       "writtenOn": "2021-01-08T09:38:13Z",
       "side": 1,
       "message": "Linkifier",
+      "range": {
+        "startLine": 108,
+        "startChar": 41,
+        "endLine": 108,
+        "endChar": 51
+      },
+      "revId": "76f85a618ce05ad316cf67ae761717a3a676621a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aebcc120_57c3bab9",
+        "filename": "front_end/components/JSPresentationUtils.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-01-08T10:33:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71ce141a_c35e0bcd",
       "range": {
         "startLine": 108,
         "startChar": 41,
