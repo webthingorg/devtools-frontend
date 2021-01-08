@@ -16,6 +16,80 @@
       "message": "Hello!\n\nThis is a change to use live locations in order to resolve the source url. PTAL!\n\n@Paul: EnvironmentHelpers ptal!\n@Simon: I added two TODOs on your name regarding the \u0027zero width space\u0027, ptal if that\u0027s fine!\n@all: Red bot requires updating a web test, will re-run as soon as this CL is reviewed and the web test is disabled.",
       "revId": "76f85a618ce05ad316cf67ae761717a3a676621a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce4d98c1_0ac4e9de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-01-08T09:38:13Z",
+      "side": 1,
+      "message": "LGTM with nits.",
+      "revId": "76f85a618ce05ad316cf67ae761717a3a676621a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cad23a9_4ab16aa4",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-01-08T09:38:13Z",
+      "side": 1,
+      "message": "Nit: `rawLocation.scriptId !\u003d\u003d \u0027\u0027` to make it clear that it\u0027s a string.",
+      "revId": "76f85a618ce05ad316cf67ae761717a3a676621a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "144f7057_c7726e63",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-01-08T09:38:13Z",
+      "side": 1,
+      "message": "Nit: This test should not be necessary.",
+      "revId": "76f85a618ce05ad316cf67ae761717a3a676621a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71ce141a_c35e0bcd",
+        "filename": "front_end/components/JSPresentationUtils.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-01-08T09:38:13Z",
+      "side": 1,
+      "message": "Linkifier",
+      "range": {
+        "startLine": 108,
+        "startChar": 41,
+        "endLine": 108,
+        "endChar": 51
+      },
+      "revId": "76f85a618ce05ad316cf67ae761717a3a676621a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
