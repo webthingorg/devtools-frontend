@@ -128,6 +128,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2aa54bf9_10077a0b",
+        "filename": "front_end/elements/ElementsTreeElement.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2241,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-01-08T06:58:23Z",
+      "side": 1,
+      "message": "Per the discussion on the bug, I think we should first implement the Issues tab aspect, i.e. report this warning to the Issues tab. Then later, in a separate CL we can add an adorner that links to the relevant issue in the Issues tab.\n\nAs a general rule we’re trying to avoid adding adorners that cannot be clicked.",
+      "parentUuid": "a05c6b58_5a38aaa7",
+      "revId": "bb59a2d484ce320c903f8abb6e48c7e15bf526be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4b5b33c8_590805d1",
         "filename": "front_end/sdk/DOMModel.js",
         "patchSetId": 2
