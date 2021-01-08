@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0acd93b_d5d473dd",
+        "filename": "front_end/ui/inspectorCommon.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2021-01-08T18:51:29Z",
+      "side": 1,
+      "message": "Good call.  Removing image set / only using one svg per theme",
+      "parentUuid": "1ab7ae40_27329fc4",
+      "range": {
+        "startLine": 254,
+        "startChar": 20,
+        "endLine": 254,
+        "endChar": 107
+      },
+      "revId": "480c036abd2b1aa3e43f24651ffc8764049bd0e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "574b84c4_e3eddb11",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-01-08T08:11:54Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 268,
+        "startChar": 20,
+        "endLine": 268,
+        "endChar": 115
+      },
+      "revId": "480c036abd2b1aa3e43f24651ffc8764049bd0e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63167c43_42f68aa0",
+        "filename": "front_end/ui/inspectorCommon.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2021-01-08T18:51:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "574b84c4_e3eddb11",
       "range": {
         "startLine": 268,
         "startChar": 20,
