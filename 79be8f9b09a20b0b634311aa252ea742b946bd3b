@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e750b8da_c8de888c",
+        "filename": "front_end/css_overview/CSSOverviewCompletedView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-08T10:30:22Z",
+      "side": 1,
+      "message": "Is this OK for bundling? I thought we needed import *",
+      "range": {
+        "startLine": 8,
+        "startChar": 7,
+        "endLine": 8,
+        "endChar": 11
+      },
+      "revId": "79be8f9b09a20b0b634311aa252ea742b946bd3b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "beb63312_e7815d03",
+        "filename": "front_end/media/EventTimelineView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-08T10:30:22Z",
+      "side": 1,
+      "message": "Should be media/EventTimelineView.js",
+      "range": {
+        "startLine": 23,
+        "startChar": 41,
+        "endLine": 23,
+        "endChar": 68
+      },
+      "revId": "79be8f9b09a20b0b634311aa252ea742b946bd3b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dce88b2c_6209d575",
+        "filename": "test/unittests/front_end/elements/Adorner_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-08T10:30:22Z",
+      "side": 1,
+      "message": "I\u0027m curious what this actually does at runtime. Won\u0027t it fail to find the translated string?",
+      "range": {
+        "startLine": 57,
+        "startChar": 29,
+        "endLine": 57,
+        "endChar": 32
+      },
+      "revId": "79be8f9b09a20b0b634311aa252ea742b946bd3b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
