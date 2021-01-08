@@ -37,6 +37,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aedcb69d_5f316488",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-01-08T13:30:04Z",
+      "side": 1,
+      "message": "@Jack I remember that most of our new web components will call `this.render()` after setting data. Should we suggest calling `this.render()` here as well?",
+      "revId": "f73ed13d487b2ab4e080bbd032f17fec9b7cb051",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0fb1d2fb_15478390",
         "filename": "front_end/elements/AccessibilityTree.ts",
         "patchSetId": 11
@@ -54,6 +71,23 @@
         "endLine": 46,
         "endChar": 25
       },
+      "revId": "f73ed13d487b2ab4e080bbd032f17fec9b7cb051",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4deb5819_801ba8dc",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-01-08T13:30:04Z",
+      "side": 1,
+      "message": "Same thing with my previous comment: if we call `this.render()` in the data setter in the component, then we wouldn\u0027t need to manually call refresh here. But maybe there are benefits to separate data setting and re-rendering in your case, so I\u0027m not saying 100% we should change this. @Jack WDYT?",
       "revId": "f73ed13d487b2ab4e080bbd032f17fec9b7cb051",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
