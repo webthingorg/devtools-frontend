@@ -36,12 +36,23 @@ import * as MapUtilities from './map-utilities.js';
 import * as NumberUtilities from './number-utilities.js';
 import * as SetUtilities from './set-utilities.js';
 import * as StringUtilities from './string-utilities.js';
+import * as TypeScriptUtilities from './typescript-utilities.js';
 import * as UIString from './UIString.js';
 
 /* We expose `ls` directly to make importing + referring to it easy
  * as it's such a commonly referenced and used utility.
  */
 export const {ls} = UIString;
+export {assertNotNull} from './typescript-utilities.js';
 
 export {Multimap, runOnWindowLoad, assertNever} from './utilities.js';
-export {ArrayUtilities, DateUtilities, MapUtilities, NumberUtilities, SetUtilities, StringUtilities, UIString};
+export {
+  ArrayUtilities,
+  TypeScriptUtilities,
+  DateUtilities,
+  MapUtilities,
+  NumberUtilities,
+  SetUtilities,
+  StringUtilities,
+  UIString
+};
