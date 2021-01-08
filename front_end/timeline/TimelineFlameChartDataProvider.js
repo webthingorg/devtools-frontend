@@ -417,7 +417,6 @@ Timeline.TimelineFlameChartDataProvider = class extends Common.Object {
     }
     const isExtension = entryType === Timeline.TimelineFlameChartDataProvider.EntryType.ExtensionEvent;
     const openEvents = [];
-    const flowEventsEnabled = Root.Runtime.experiments.isEnabled('timelineFlowEvents');
     const blackboxingEnabled = !isExtension && Root.Runtime.experiments.isEnabled('blackboxJSFramesOnTimeline');
     let maxStackDepth = 0;
     let group = null;
@@ -462,9 +461,6 @@ Timeline.TimelineFlameChartDataProvider = class extends Common.Object {
       }
 
       const level = this._currentLevel + openEvents.length;
-      if (flowEventsEnabled) {
-        this._appendFlowEvent(e, level);
-      }
       const index = this._appendEvent(e, level);
       if (openEvents.length) {
         this._entryParent[index] = openEvents.peekLast();
@@ -1015,47 +1011,6 @@ Timeline.TimelineFlameChartDataProvider = class extends Common.Object {
       this._timelineData.entryLevels[index] = level;
       this._timelineData.entryTotalTimes[index] = steps[i + 1].startTime - startTime;
       this._timelineData.entryStartTimes[index] = startTime;
-    }
-  }
-
-  /**
-   * @param {!SDK.TracingModel.Event} event
-   * @param {number} level
-   */
-  _appendFlowEvent(event, level) {
-    const timelineData = this._timelineData;
-    /**
-     * @param {!SDK.TracingModel.Event} event
-     * @return {number}
-     */
-    function pushStartFlow(event) {
-      const flowIndex = timelineData.flowStartTimes.length;
-      timelineData.flowStartTimes.push(event.startTime);
-      timelineData.flowStartLevels.push(level);
-      return flowIndex;
-    }
-
-    /**
-     * @param {!SDK.TracingModel.Event} event
-     * @param {number} flowIndex
-     */
-    function pushEndFlow(event, flowIndex) {
-      timelineData.flowEndTimes[flowIndex] = event.startTime;
-      timelineData.flowEndLevels[flowIndex] = level;
-    }
-
-    switch (event.phase) {
-      case SDK.TracingModel.Phase.FlowBegin:
-        this._flowEventIndexById.set(event.id, pushStartFlow(event));
-        break;
-      case SDK.TracingModel.Phase.FlowStep:
-        pushEndFlow(event, this._flowEventIndexById.get(event.id));
-        this._flowEventIndexById.set(event.id, pushStartFlow(event));
-        break;
-      case SDK.TracingModel.Phase.FlowEnd:
-        pushEndFlow(event, this._flowEventIndexById.get(event.id));
-        this._flowEventIndexById.delete(event.id);
-        break;
     }
   }
 
