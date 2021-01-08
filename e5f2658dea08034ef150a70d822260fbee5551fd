@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76b93c37_40c20a85",
+        "filename": "front_end/component_docs/create_breadcrumbs.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-08T15:58:17Z",
+      "side": 1,
+      "message": "Nit: let\u0027s use append here to prevent a layout shift.",
+      "range": {
+        "startLine": 38,
+        "startChar": 16,
+        "endLine": 38,
+        "endChar": 23
+      },
+      "revId": "e5f2658dea08034ef150a70d822260fbee5551fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
