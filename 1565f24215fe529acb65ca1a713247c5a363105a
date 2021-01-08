@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec195f2a_e8d7d933",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 36
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2021-01-08T20:39:36Z",
+      "side": 1,
+      "message": "Just a few more comments :) Do you have recommendations for how to test this change?",
+      "revId": "1565f24215fe529acb65ca1a713247c5a363105a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c389e93_4ec8f857",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleHelper.js",
+        "patchSetId": 36
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2021-01-08T20:39:36Z",
+      "side": 1,
+      "message": "Hmm, the code duplication for joining the array elements together seems unneeded here. I suggest something like the following:\n\nconst allTimeRanges \u003d timeRanges.reduce((a, b) \u003d\u003e a.concat(b), []);\nconst startTimes \u003d allTimeRanges.map(r \u003d\u003e r.begin).reduce( ... );\nconst endTimes \u003d allTimeRanges.map(r \u003d\u003e r.end).reduce( ... );",
+      "revId": "1565f24215fe529acb65ca1a713247c5a363105a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7924f4a6_65a8c6fc",
+        "filename": "front_end/resources/ServiceWorkersView.js",
+        "patchSetId": 36
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2021-01-08T20:39:36Z",
+      "side": 1,
+      "message": "nit: need newline between import * and import {...}",
+      "revId": "1565f24215fe529acb65ca1a713247c5a363105a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d3f7480_1c519713",
+        "filename": "front_end/resources/ServiceWorkersView.js",
+        "patchSetId": 36
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2021-01-08T20:39:36Z",
+      "side": 1,
+      "message": "Does \u0027Update Cycle\u0027 need to be localized?",
+      "revId": "1565f24215fe529acb65ca1a713247c5a363105a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
