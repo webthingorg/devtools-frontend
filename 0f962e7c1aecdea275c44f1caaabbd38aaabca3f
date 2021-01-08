@@ -22,6 +22,30 @@
       },
       "revId": "0f962e7c1aecdea275c44f1caaabbd38aaabca3f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fd095c4_3785f676",
+        "filename": "front_end/console/console_strings.grdp",
+        "patchSetId": 5
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-01-08T17:23:23Z",
+      "side": 1,
+      "message": "Hi Peter,\n\nIs good that this spawn the discussion, I was also unsure on how to proceed here. The reason why I decided to go with the lock is that I could not found examples of \"live expression\" outside of the Devtools, so I assumed this was a technical term. I think the description gives a nice middle ground and we can leave any further action to the specific implementations if needed :). Thanks for the feedback",
+      "parentUuid": "bc9bd51e_14939472",
+      "range": {
+        "startLine": 271,
+        "startChar": 31,
+        "endLine": 271,
+        "endChar": 46
+      },
+      "revId": "0f962e7c1aecdea275c44f1caaabbd38aaabca3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
