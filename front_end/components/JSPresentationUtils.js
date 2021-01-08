@@ -104,6 +104,11 @@ export function buildStackTracePreviewContents(target, linkifier, options = {
         }
         row.createChild('td').textContent = ' @ ';
         row.createChild('td').appendChild(link);
+        // Linkifier is using a workaround with the 'zero width space' (\u200b).
+        // TODO(szuend): Remove once the Linkfier is no longer using the workaround.
+        if (!link.textContent || link.textContent === '\u200b') {
+          link.textContent = 'unknown';
+        }
         links.push(link);
       }
       if (shouldHide) {
