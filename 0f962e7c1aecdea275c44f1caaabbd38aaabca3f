@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc9bd51e_14939472",
+        "filename": "front_end/console/console_strings.grdp",
+        "patchSetId": 5
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-08T08:34:21Z",
+      "side": 1,
+      "message": "I\u0027m not sure if locking this term is the best solution. I\u0027m not familiar with the guidelines for which technical terms should be translated and which not. Perhaps in some languages that would be translitered into that alphabet, spelled phonetically, rather than kept as english text. So maybe it\u0027s a better idea to put necessary info in the description.\n\ne.g.\n\nA live expression is code that the user can enter into the console and it will be pinned in the UI. Live expressions are constantly evaluated as the user interacts with the console (hence \u0027live\u0027).\n\nWDY?T",
+      "range": {
+        "startLine": 271,
+        "startChar": 31,
+        "endLine": 271,
+        "endChar": 46
+      },
+      "revId": "0f962e7c1aecdea275c44f1caaabbd38aaabca3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
