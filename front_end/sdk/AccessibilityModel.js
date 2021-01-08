@@ -255,6 +255,29 @@ export class AccessibilityModel extends SDKModel {
   }
 
   /**
+   * @param {number} depth
+   * @return ?{!Promise<AccessibilityNode>}
+   */
+  async requestRootNode(depth = 2) {
+    const {nodes} = await this._agent.invoke_getFullAXTree({max_depth: depth});
+    if (!nodes) {
+      return;
+    }
+
+    const axNodes = [];
+    for (const payload of nodes) {
+      axNodes.push(new AccessibilityNode(this, payload));
+    }
+
+    for (const axNode of this._axIdToAXNode.values()) {
+      for (const axChild of axNode.children()) {
+        axChild._setParentNode(axNode);
+      }
+    }
+    return axNodes[0];
+  }
+
+  /**
    * @param {string} axId
    * @return {?AccessibilityNode}
    */
