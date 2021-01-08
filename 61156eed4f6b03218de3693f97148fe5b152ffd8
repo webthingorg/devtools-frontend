@@ -16,6 +16,23 @@
       "message": "LGTM modulo redness.",
       "revId": "61156eed4f6b03218de3693f97148fe5b152ffd8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b24de3e_d73452bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-01-08T06:34:12Z",
+      "side": 1,
+      "message": "LGTM, thanks Eric!",
+      "revId": "61156eed4f6b03218de3693f97148fe5b152ffd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
