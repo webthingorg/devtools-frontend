@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcbf031a_830bd97d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 36
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-01-08T21:48:47Z",
+      "side": 1,
+      "message": "To test, go to a website with service worker. Go to Application, observe update timeline. Then try to 1) unregister and reload, or 2) reload the page with \"update on reload\" checked, or 3) navigate away and/or close pages and navigate to the page again. And observe the timeline. Sometimes I use this page: https://anubhamathur14.github.io/sw-test/",
+      "parentUuid": "ec195f2a_e8d7d933",
+      "revId": "1565f24215fe529acb65ca1a713247c5a363105a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c389e93_4ec8f857",
