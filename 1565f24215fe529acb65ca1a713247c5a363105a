@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "47ce3b87_3b3b83bf",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleHelper.js",
+        "patchSetId": 36
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-01-08T22:51:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c389e93_4ec8f857",
+      "revId": "1565f24215fe529acb65ca1a713247c5a363105a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7924f4a6_65a8c6fc",
@@ -70,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "08d9c482_a08a60c0",
+        "filename": "front_end/resources/ServiceWorkersView.js",
+        "patchSetId": 36
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-01-08T22:51:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7924f4a6_65a8c6fc",
+      "revId": "1565f24215fe529acb65ca1a713247c5a363105a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4d3f7480_1c519713",
@@ -83,6 +119,24 @@
       "writtenOn": "2021-01-08T20:39:36Z",
       "side": 1,
       "message": "Does \u0027Update Cycle\u0027 need to be localized?",
+      "revId": "1565f24215fe529acb65ca1a713247c5a363105a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3d80223_58d5266d",
+        "filename": "front_end/resources/ServiceWorkersView.js",
+        "patchSetId": 36
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-01-08T22:51:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d3f7480_1c519713",
       "revId": "1565f24215fe529acb65ca1a713247c5a363105a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
