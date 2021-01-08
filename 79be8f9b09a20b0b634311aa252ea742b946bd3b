@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2f8ed4d_47d9aa46",
+        "filename": "front_end/css_overview/CSSOverviewCompletedView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-08T11:25:28Z",
+      "side": 1,
+      "message": "Yes, `ls` is exempted from the general `import * as` rule. With the new i18n, we don\u0027t have this unique situation any longer.",
+      "parentUuid": "e750b8da_c8de888c",
+      "range": {
+        "startLine": 8,
+        "startChar": 7,
+        "endLine": 8,
+        "endChar": 11
+      },
+      "revId": "79be8f9b09a20b0b634311aa252ea742b946bd3b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "beb63312_e7815d03",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bf261d7_e6e8cfb7",
+        "filename": "front_end/media/EventTimelineView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-08T11:25:28Z",
+      "side": 1,
+      "message": "Good catch. Filed crbug.com/1164327 for adding a presubmit check to prevent this from happening again.",
+      "parentUuid": "beb63312_e7815d03",
+      "range": {
+        "startLine": 23,
+        "startChar": 41,
+        "endLine": 23,
+        "endChar": 68
+      },
+      "revId": "79be8f9b09a20b0b634311aa252ea742b946bd3b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dce88b2c_6209d575",
@@ -60,6 +108,30 @@
       "writtenOn": "2021-01-08T10:30:22Z",
       "side": 1,
       "message": "I\u0027m curious what this actually does at runtime. Won\u0027t it fail to find the translated string?",
+      "range": {
+        "startLine": 57,
+        "startChar": 29,
+        "endLine": 57,
+        "endChar": 32
+      },
+      "revId": "79be8f9b09a20b0b634311aa252ea742b946bd3b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c4ee71f_01a25436",
+        "filename": "test/unittests/front_end/elements/Adorner_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-08T11:25:28Z",
+      "side": 1,
+      "message": "As it turns out, `ls` returns the passed in `string` if only a single string was passed in. E.g. if you don\u0027t have any arguments, then `ls` does not do any localization at all. We should probably fix this by moving to `i18n` instead, which doesn\u0027t have this problem, but I think that would be better in a follow-up CL where we address all the other `ls` calls.",
+      "parentUuid": "dce88b2c_6209d575",
       "range": {
         "startLine": 57,
         "startChar": 29,
