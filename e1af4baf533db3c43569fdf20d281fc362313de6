@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d701f1aa_a5a8960b",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-01-08T06:51:36Z",
+      "side": 1,
+      "message": "This sounds sensible to me. Looping in legacy expert Changhao and component expert Jack so they can double-check",
+      "parentUuid": "a40bae21_37da6cb7",
+      "revId": "e1af4baf533db3c43569fdf20d281fc362313de6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d44ee593_8945f37b",
         "filename": "front_end/elements/ElementsPanel.js",
         "patchSetId": 5
