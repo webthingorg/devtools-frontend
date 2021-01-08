@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "056c6721_8b598bd0",
+        "filename": "front_end/component_docs/linear_memory_inspector/basic.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-08T10:45:48Z",
+      "side": 1,
+      "message": "this can now be done I think, going to look in a follow up CL",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 34
+      },
+      "revId": "d19c7a09aba0c53d36f72b897cb6cf8b8575acde",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
