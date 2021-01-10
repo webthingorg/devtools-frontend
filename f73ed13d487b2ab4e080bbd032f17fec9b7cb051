@@ -70,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcaf11fe_baaf5573",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-10T23:07:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3865dbdd_bef32e8e",
+      "revId": "f73ed13d487b2ab4e080bbd032f17fec9b7cb051",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0fb1d2fb_15478390",
@@ -83,6 +101,30 @@
       "writtenOn": "2021-01-08T06:49:29Z",
       "side": 1,
       "message": "Since this is a user-visible string, perhaps refer to the tracking bug instead?\n\n    TODO(crbug.com/887173): …",
+      "range": {
+        "startLine": 46,
+        "startChar": 14,
+        "endLine": 46,
+        "endChar": 25
+      },
+      "revId": "f73ed13d487b2ab4e080bbd032f17fec9b7cb051",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5287959a_23fe6718",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-10T23:07:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fb1d2fb_15478390",
       "range": {
         "startLine": 46,
         "startChar": 14,
@@ -128,6 +170,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d579692e_4d3e4599",
+        "filename": "front_end/elements/AccessibilityTreeView.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-10T23:07:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23194be7_9f9c1537",
+      "revId": "f73ed13d487b2ab4e080bbd032f17fec9b7cb051",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "09cc6667_583aa0aa",
@@ -151,6 +211,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00a2fb75_08e8a665",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-10T23:07:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09cc6667_583aa0aa",
+      "range": {
+        "startLine": 165,
+        "startChar": 34,
+        "endLine": 165,
+        "endChar": 43
+      },
+      "revId": "f73ed13d487b2ab4e080bbd032f17fec9b7cb051",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aa1daf3d_0a0e3dc2",
@@ -164,6 +248,30 @@
       "writtenOn": "2021-01-08T06:49:29Z",
       "side": 1,
       "message": "This is effectively\n\n    const axNodes \u003d nodes.map(node \u003d\u003e new AccessibilityNode(this, node));\n\nBut I like your version too.",
+      "range": {
+        "startLine": 267,
+        "startChar": 0,
+        "endLine": 270,
+        "endChar": 5
+      },
+      "revId": "f73ed13d487b2ab4e080bbd032f17fec9b7cb051",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "810e78fc_e10b672d",
+        "filename": "front_end/sdk/AccessibilityModel.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-10T23:07:46Z",
+      "side": 1,
+      "message": "I like your version more!",
+      "parentUuid": "aa1daf3d_0a0e3dc2",
       "range": {
         "startLine": 267,
         "startChar": 0,
