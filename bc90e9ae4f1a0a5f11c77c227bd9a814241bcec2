@@ -1,6 +1,40 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "217059f2_b305d8d1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-11T02:59:34Z",
+      "side": 1,
+      "message": "Shorten title to 1 line.",
+      "revId": "bc90e9ae4f1a0a5f11c77c227bd9a814241bcec2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "053f8d73_8b025b09",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-11T02:59:34Z",
+      "side": 1,
+      "message": "Can you add screenshots for this current version?",
+      "revId": "bc90e9ae4f1a0a5f11c77c227bd9a814241bcec2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "239caeba_61187bbb",
@@ -14,6 +48,74 @@
       "writtenOn": "2021-01-11T01:51:45Z",
       "side": 1,
       "message": "PTAL 😊",
+      "revId": "bc90e9ae4f1a0a5f11c77c227bd9a814241bcec2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d535442_422bc9b3",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-11T02:59:34Z",
+      "side": 1,
+      "message": "Hmmm, I\u0027m not sure this is needed since we do a check for `this.axNode` when `render()` is called.",
+      "revId": "bc90e9ae4f1a0a5f11c77c227bd9a814241bcec2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "292b4afc_ecabe230",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-11T02:59:34Z",
+      "side": 1,
+      "message": "The treeitem role should be on the \u003cli\u003e, rather than the individual spans inside the tree item, I think. Similar to how you\u0027re adding the role\u003dgroup to the \u003cul\u003e that encloses the children.\n\nI think the expanded and parent class should also apply to the li.\n\nAlso, what are these wrapping spans providing? Just a way to differentiate between a node that has children and doesn\u0027t?",
+      "revId": "bc90e9ae4f1a0a5f11c77c227bd9a814241bcec2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a85340d_40f32a6c",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-11T02:59:34Z",
+      "side": 1,
+      "message": "@aboxhall: Does an ignored node have children? Is there a cleaner way to differentiate between how an Ignored node should be rendered compared to a node with role/name/state etc?",
+      "revId": "bc90e9ae4f1a0a5f11c77c227bd9a814241bcec2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be4e9a83_66b9cae6",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-11T02:59:34Z",
+      "side": 1,
+      "message": "Should these styles instead be applied to the \u003cli\u003e?",
       "revId": "bc90e9ae4f1a0a5f11c77c227bd9a814241bcec2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
