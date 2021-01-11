@@ -86,6 +86,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ebb6d7b_1f3688e2",
+        "filename": "test/e2e/emulation/custom-ua-ch_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-01-11T16:27:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e54408f_11791e2d",
+      "revId": "d83996bedcc9e99d99685d6507744159cab652f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e814d020_99790bc5",
@@ -103,6 +121,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f37242f8_091f93de",
+        "filename": "test/e2e/resources/emulation/custom-ua-ch.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-01-11T16:27:04Z",
+      "side": 1,
+      "message": "Nope.",
+      "parentUuid": "e814d020_99790bc5",
+      "revId": "d83996bedcc9e99d99685d6507744159cab652f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e134a316_0b1180e8",
@@ -116,6 +152,30 @@
       "writtenOn": "2021-01-11T07:38:04Z",
       "side": 1,
       "message": "const",
+      "range": {
+        "startLine": 12,
+        "startChar": 2,
+        "endLine": 12,
+        "endChar": 5
+      },
+      "revId": "d83996bedcc9e99d99685d6507744159cab652f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de83a9b0_53195a43",
+        "filename": "test/e2e/resources/emulation/custom-ua-ch.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-01-11T16:27:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e134a316_0b1180e8",
       "range": {
         "startLine": 12,
         "startChar": 2,
@@ -149,6 +209,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "edd6a402_34c1d610",
+        "filename": "test/e2e/resources/emulation/custom-ua-ch.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-01-11T16:27:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6cde3821_0876d345",
+      "range": {
+        "startLine": 13,
+        "startChar": 2,
+        "endLine": 13,
+        "endChar": 52
+      },
+      "revId": "d83996bedcc9e99d99685d6507744159cab652f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ee532b0_7c91b65e",
@@ -172,6 +256,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e136f561_221b46e6",
+        "filename": "test/e2e/resources/emulation/custom-ua-ch.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-01-11T16:27:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ee532b0_7c91b65e",
+      "range": {
+        "startLine": 14,
+        "startChar": 2,
+        "endLine": 14,
+        "endChar": 5
+      },
+      "revId": "d83996bedcc9e99d99685d6507744159cab652f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e7dfec93_6bfaf82e",
@@ -185,6 +293,30 @@
       "writtenOn": "2021-01-11T07:38:04Z",
       "side": 1,
       "message": "Simpler:\n\n    s.append(value);",
+      "range": {
+        "startLine": 16,
+        "startChar": 2,
+        "endLine": 16,
+        "endChar": 48
+      },
+      "revId": "d83996bedcc9e99d99685d6507744159cab652f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "527ed262_0e050b1b",
+        "filename": "test/e2e/resources/emulation/custom-ua-ch.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-01-11T16:27:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7dfec93_6bfaf82e",
       "range": {
         "startLine": 16,
         "startChar": 2,
