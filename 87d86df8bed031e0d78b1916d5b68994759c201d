@@ -70,6 +70,30 @@
       },
       "revId": "87d86df8bed031e0d78b1916d5b68994759c201d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1531c3e_e604a5c3",
+        "filename": "front_end/text_editor/cmdevtools.darkmode.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-11T14:47:06Z",
+      "side": 1,
+      "message": "https://crbug.com/1164945",
+      "parentUuid": "e3dd823e_fd105b19",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 80
+      },
+      "revId": "87d86df8bed031e0d78b1916d5b68994759c201d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
