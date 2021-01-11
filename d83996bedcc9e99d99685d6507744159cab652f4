@@ -33,6 +33,149 @@
       "message": "Mathias, can you give this a quick look? Is this the right way to test the form for UserAgent Client hints when adding custom devices?",
       "revId": "d83996bedcc9e99d99685d6507744159cab652f4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fccd9cc7_b3e52588",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-01-11T07:38:04Z",
+      "side": 1,
+      "message": "LGTM % nits",
+      "revId": "d83996bedcc9e99d99685d6507744159cab652f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e54408f_11791e2d",
+        "filename": "test/e2e/emulation/custom-ua-ch_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-01-11T07:38:04Z",
+      "side": 1,
+      "message": "Minor nit for this and previous comments: code comments should be full sentences in this codebase, starting with a capital letter and ending with a period.",
+      "revId": "d83996bedcc9e99d99685d6507744159cab652f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e814d020_99790bc5",
+        "filename": "test/e2e/resources/emulation/custom-ua-ch.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-01-11T07:38:04Z",
+      "side": 1,
+      "message": "Is this needed?",
+      "revId": "d83996bedcc9e99d99685d6507744159cab652f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e134a316_0b1180e8",
+        "filename": "test/e2e/resources/emulation/custom-ua-ch.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-01-11T07:38:04Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 12,
+        "startChar": 2,
+        "endLine": 12,
+        "endChar": 5
+      },
+      "revId": "d83996bedcc9e99d99685d6507744159cab652f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cde3821_0876d345",
+        "filename": "test/e2e/resources/emulation/custom-ua-ch.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-01-11T07:38:04Z",
+      "side": 1,
+      "message": "Simpler:\n\n    d.append(key + \u0027\u003d\u0027);",
+      "range": {
+        "startLine": 13,
+        "startChar": 2,
+        "endLine": 13,
+        "endChar": 52
+      },
+      "revId": "d83996bedcc9e99d99685d6507744159cab652f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ee532b0_7c91b65e",
+        "filename": "test/e2e/resources/emulation/custom-ua-ch.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-01-11T07:38:04Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 14,
+        "startChar": 2,
+        "endLine": 14,
+        "endChar": 5
+      },
+      "revId": "d83996bedcc9e99d99685d6507744159cab652f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7dfec93_6bfaf82e",
+        "filename": "test/e2e/resources/emulation/custom-ua-ch.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-01-11T07:38:04Z",
+      "side": 1,
+      "message": "Simpler:\n\n    s.append(value);",
+      "range": {
+        "startLine": 16,
+        "startChar": 2,
+        "endLine": 16,
+        "endChar": 48
+      },
+      "revId": "d83996bedcc9e99d99685d6507744159cab652f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
