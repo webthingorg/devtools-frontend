@@ -16,6 +16,23 @@
       "message": "Covering edit will be a bit tricky since one needs to get to the little pencil button, so I think I want feedback on this much first.\n\nRelated: is there a way of having a separate it() share state (since edit requires a completed add)?  Hmm, probably want less stuff in the beforeEach then?\n",
       "revId": "d83996bedcc9e99d99685d6507744159cab652f4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "312de4da_3edf3abf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-11T07:28:01Z",
+      "side": 1,
+      "message": "Mathias, can you give this a quick look? Is this the right way to test the form for UserAgent Client hints when adding custom devices?",
+      "revId": "d83996bedcc9e99d99685d6507744159cab652f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
