@@ -50,6 +50,29 @@
       "message": "Thanks. LGTM.",
       "revId": "9f677cd75c79a37fa9b1728cd6a4f5b7d8094da8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c97da142_d8e904ed",
+        "filename": "front_end/sources/CallStackSidebarPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-11T07:37:52Z",
+      "side": 1,
+      "message": "Is there a reason why the DebuggerModel itself can\u0027t listen to the \"Frame navigated\" event? Letting a UI panel trigger house-keeping in a SDK model class feels wrong to me.",
+      "range": {
+        "startLine": 200,
+        "startChar": 0,
+        "endLine": 206,
+        "endChar": 3
+      },
+      "revId": "9f677cd75c79a37fa9b1728cd6a4f5b7d8094da8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
