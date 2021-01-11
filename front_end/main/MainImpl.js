@@ -220,6 +220,7 @@ export class MainImpl {
       'backgroundServicesPushMessaging',
       'backgroundServicesPaymentHandler',
       'webauthnPane',
+      'developerResourcesView',
     ]);
 
     if (Host.InspectorFrontendHost.isUnderTest()) {

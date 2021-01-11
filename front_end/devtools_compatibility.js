@@ -377,6 +377,7 @@
     ExperimentEnabled: 'DevTools.ExperimentEnabled',
     ExperimentDisabled: 'DevTools.ExperimentDisabled',
     CssEditorOpened: 'DevTools.CssEditorOpened',
+    PageResourceLoad: 'DevTools.PageResourceLoad',
   };
 
   /**
