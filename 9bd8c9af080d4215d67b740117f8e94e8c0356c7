@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5eb9adaf_23e93c8b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2021-01-11T15:51:20Z",
+      "side": 1,
+      "message": "I very much appreciated the thoroughness of the reasoning behind what amounted to a +2 change. As someone who has worked with this APIs in the past, it was easy to follow and digest. Thanks!",
+      "revId": "9bd8c9af080d4215d67b740117f8e94e8c0356c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
