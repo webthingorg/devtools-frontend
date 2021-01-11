@@ -51,6 +51,24 @@
       "parentUuid": "5e7a5231_625282cd",
       "revId": "e8f04215ff8b979b7c45e0db57f1a61ea35d8e3a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a81d0b2d_068ff2bf",
+        "filename": "inspector_overlay/tool_source_order.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-01-11T12:35:44Z",
+      "side": 1,
+      "message": "Probably, it\u0027s best to leave the hard-coded colors for now. The overlay does not have any dark mode support AFAIK.",
+      "parentUuid": "9c605a86_2763a74a",
+      "revId": "e8f04215ff8b979b7c45e0db57f1a61ea35d8e3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
