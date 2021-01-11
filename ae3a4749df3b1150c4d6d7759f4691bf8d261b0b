@@ -16,6 +16,98 @@
       "message": "Thanks for the review Benedikt!",
       "revId": "ae3a4749df3b1150c4d6d7759f4691bf8d261b0b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3cd69fc_3fe463b9",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-11T12:24:57Z",
+      "side": 1,
+      "message": "Is this accessing a private field of another class? This raises the question: Are we sure that no one is accessing Location.script anymore?",
+      "range": {
+        "startLine": 485,
+        "startChar": 27,
+        "endLine": 485,
+        "endChar": 45
+      },
+      "revId": "ae3a4749df3b1150c4d6d7759f4691bf8d261b0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a12b6d95_ede06629",
+        "filename": "front_end/components/JSPresentationUtils.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-11T12:24:57Z",
+      "side": 1,
+      "message": "Is this informative to the user? Is resolution pending in this case, or are we definitively unable to resolve in this case? \u0027\n\nWould it be possible to let maybeLinkifyConsoleCallFrame take care of checking and assigning unknown?\n\nAlso, this probably should be localized.",
+      "range": {
+        "startLine": 110,
+        "startChar": 30,
+        "endLine": 110,
+        "endChar": 37
+      },
+      "revId": "ae3a4749df3b1150c4d6d7759f4691bf8d261b0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be4c9c79_2f9f96d2",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-11T12:24:57Z",
+      "side": 1,
+      "message": "nit: I think this cast isn\u0027t necessary anymore.",
+      "range": {
+        "startLine": 284,
+        "startChar": 19,
+        "endLine": 284,
+        "endChar": 46
+      },
+      "revId": "ae3a4749df3b1150c4d6d7759f4691bf8d261b0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9647f534_8b57b5b3",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-11T12:24:57Z",
+      "side": 1,
+      "message": "Is this an unrelated change? Should it be split off?",
+      "range": {
+        "startLine": 284,
+        "startChar": 4,
+        "endLine": 296,
+        "endChar": 28
+      },
+      "revId": "ae3a4749df3b1150c4d6d7759f4691bf8d261b0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
