@@ -11,7 +11,7 @@ devtools_module("platform") {
     "array-utilities.ts",
     "date-utilities.ts",
     "map-utilities.ts",
-    "number-utilities.js",
+    "number-utilities.ts",
     "set-utilities.ts",
     "string-utilities.ts",
     "utilities.js",
