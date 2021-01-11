@@ -111,7 +111,7 @@ main img,
   max-width: 100%;
   border: 1px solid #d0d0d0;
   box-shadow: 0 6px 7px 0 rgb(0 0 0 / 11%);
-  background: #fff;
+  background: var(--color-background);
   cursor: pointer;
 }
 
