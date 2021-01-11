@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d100a10e_e7a0e414",
+        "filename": "front_end/platform/platform.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-11T16:37:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1329d0c_6398201d",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 56
+      },
+      "revId": "6506bbcdc75872c4d292fb5d3fefd09f437a7f8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "60dcfd9e_237af96e",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-01-11T08:59:25Z",
       "side": 1,
       "message": "nit: would be nice if this comment were wrapped to keep line lengths a bit shorter. Wonder if we could eslint this.",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 3
+      },
+      "revId": "6506bbcdc75872c4d292fb5d3fefd09f437a7f8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b3ce96a_3d90591a",
+        "filename": "front_end/platform/typescript-utilities.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-11T16:37:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60dcfd9e_237af96e",
       "range": {
         "startLine": 5,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fac062a4_983ae636",
+        "filename": "scripts/eslint_rules/lib/es_modules_import.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-11T16:37:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80fbea33_d3976657",
+      "range": {
+        "startLine": 207,
+        "startChar": 0,
+        "endLine": 207,
+        "endChar": 87
+      },
+      "revId": "6506bbcdc75872c4d292fb5d3fefd09f437a7f8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0f9c7b95_fca15130",
@@ -100,6 +172,30 @@
       "writtenOn": "2021-01-11T08:59:25Z",
       "side": 1,
       "message": "worth updating go/building-ui-devtools as the example in there will now be outdated I expect",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 73
+      },
+      "revId": "6506bbcdc75872c4d292fb5d3fefd09f437a7f8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2e995e1_8b07ddba",
+        "filename": "test/unittests/front_end/common/Color_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-11T16:37:31Z",
+      "side": 1,
+      "message": "I don\u0027t see any mention of `assertNotNull` in there. Let me know if I missed any.",
+      "parentUuid": "0f9c7b95_fca15130",
       "range": {
         "startLine": 8,
         "startChar": 0,
