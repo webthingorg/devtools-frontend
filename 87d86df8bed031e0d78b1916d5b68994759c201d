@@ -46,6 +46,30 @@
       },
       "revId": "87d86df8bed031e0d78b1916d5b68994759c201d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3dd823e_fd105b19",
+        "filename": "front_end/text_editor/cmdevtools.darkmode.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-11T13:10:13Z",
+      "side": 1,
+      "message": "Sounds good to me.",
+      "parentUuid": "2baced56_2ab3428d",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 80
+      },
+      "revId": "87d86df8bed031e0d78b1916d5b68994759c201d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
