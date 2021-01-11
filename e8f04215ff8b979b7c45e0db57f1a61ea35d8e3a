@@ -16,6 +16,23 @@
       "message": "@Alex PTAL as an OWNER of inspector_overlay",
       "revId": "e8f04215ff8b979b7c45e0db57f1a61ea35d8e3a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e7a5231_625282cd",
+        "filename": "inspector_overlay/tool_source_order.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-01-11T12:32:39Z",
+      "side": 1,
+      "message": "I think that the overlay code might not have the CSS variables defined like the frontend. Could you check please?",
+      "revId": "e8f04215ff8b979b7c45e0db57f1a61ea35d8e3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
