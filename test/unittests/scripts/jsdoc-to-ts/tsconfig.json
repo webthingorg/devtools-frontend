@@ -1,0 +1,14 @@
+{
+  "extends": "../../../../tsconfig.base.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "declaration": true,
+  },
+  "references": [
+    { "path": "../../../../scripts/jsdoc-to-ts"}
+  ],
+  "include": [
+    "*.ts",
+  ]
+}
