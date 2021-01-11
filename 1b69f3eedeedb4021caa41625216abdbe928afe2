@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "480ce660_8908414d",
+        "filename": "front_end/webauthn/WebauthnPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-11T16:07:30Z",
+      "side": 1,
+      "message": "As mentioned in the chat, we can replace this with the following:\n\n    _enableCheckbox!: UI.Toolbar.ToolbarCheckbox;",
+      "range": {
+        "startLine": 209,
+        "startChar": 2,
+        "endLine": 209,
+        "endChar": 15
+      },
+      "revId": "1b69f3eedeedb4021caa41625216abdbe928afe2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "668aaaa4_df21c5d6",
+        "filename": "front_end/webauthn/WebauthnPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-11T16:07:30Z",
+      "side": 1,
+      "message": "Interestingly this one remained. It\u0027s not an issue, but I wonder if the logic for this particular usage is different?",
+      "range": {
+        "startLine": 567,
+        "startChar": 4,
+        "endLine": 567,
+        "endChar": 36
+      },
+      "revId": "1b69f3eedeedb4021caa41625216abdbe928afe2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbdd2c6b_f5b307a9",
+        "filename": "front_end/webauthn/WebauthnPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 742,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-11T16:07:30Z",
+      "side": 1,
+      "message": "Left-over here as well, maybe the same situation?",
+      "range": {
+        "startLine": 740,
+        "startChar": 0,
+        "endLine": 742,
+        "endChar": 7
+      },
+      "revId": "1b69f3eedeedb4021caa41625216abdbe928afe2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
