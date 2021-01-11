@@ -22,3 +22,8 @@ export const removeElement = <T>(array: T[], element: T, firstOnly?: boolean): b
   array.length = index;
   return true;
 };
+
+export const binaryIndexOf = <T, S>(array: T[], value: S, comparator: (a: S, b: T) => number): number => {
+  const index = array.lowerBound(value, comparator);
+  return index < array.length && comparator(value, array[index]) === 0 ? index : -1;
+};
