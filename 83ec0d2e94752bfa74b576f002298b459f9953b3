@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5531ab0_f310fb75",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-01-11T09:59:38Z",
+      "side": 1,
+      "message": "This is the roll of https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2620978 including the test update. PTAL!",
+      "revId": "83ec0d2e94752bfa74b576f002298b459f9953b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
