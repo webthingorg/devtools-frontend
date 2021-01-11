@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35eabb28_80adf626",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-11T08:59:25Z",
+      "side": 1,
+      "message": "LGTM % nits. Prob worth an email to devtools-dev to make people aware they can use this helper in \"normal\" code now? WDYT?",
+      "revId": "6506bbcdc75872c4d292fb5d3fefd09f437a7f8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1329d0c_6398201d",
+        "filename": "front_end/platform/platform.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-11T08:59:25Z",
+      "side": 1,
+      "message": "is it worth a comment explaining why we export this explicitly ?",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 56
+      },
+      "revId": "6506bbcdc75872c4d292fb5d3fefd09f437a7f8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60dcfd9e_237af96e",
+        "filename": "front_end/platform/typescript-utilities.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-11T08:59:25Z",
+      "side": 1,
+      "message": "nit: would be nice if this comment were wrapped to keep line lengths a bit shorter. Wonder if we could eslint this.",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 3
+      },
+      "revId": "6506bbcdc75872c4d292fb5d3fefd09f437a7f8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80fbea33_d3976657",
+        "filename": "scripts/eslint_rules/lib/es_modules_import.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-11T08:59:25Z",
+      "side": 1,
+      "message": "this comment is out of date now we allow other utils",
+      "range": {
+        "startLine": 207,
+        "startChar": 0,
+        "endLine": 207,
+        "endChar": 87
+      },
+      "revId": "6506bbcdc75872c4d292fb5d3fefd09f437a7f8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f9c7b95_fca15130",
+        "filename": "test/unittests/front_end/common/Color_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-11T08:59:25Z",
+      "side": 1,
+      "message": "worth updating go/building-ui-devtools as the example in there will now be outdated I expect",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 73
+      },
+      "revId": "6506bbcdc75872c4d292fb5d3fefd09f437a7f8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
