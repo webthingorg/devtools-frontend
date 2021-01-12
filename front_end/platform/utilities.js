@@ -276,18 +276,6 @@ Object.defineProperty(Array.prototype, 'binaryIndexOf', {
   configurable: true
 });
 
-Object.defineProperty(Array.prototype, 'peekLast', {
-  /**
-   * @return {!T|undefined}
-   * @this {Array.<!T>}
-   * @template T
-   */
-  value: function() {
-    return this[this.length - 1];
-  },
-  configurable: true
-});
-
 (function() {
   /**
    * @param {!Array.<T>} array1
