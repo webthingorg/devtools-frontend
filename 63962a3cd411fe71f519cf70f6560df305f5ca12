@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "513bce8c_5b9db703",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-12T12:24:50Z",
+      "side": 1,
+      "message": "As per the chat, we can\u0027t land this CL until the localization pipeline can handle TypeScript files or the folder is migrated to i18n. (Putting -1 on just to make sure we don\u0027t accidentally land this, but I am +1 for the rest of the CL)\n\n@Vidal What is your proposed way forward to unblock the migration to TypeScript for this and other yet-to-migrated folders?",
+      "revId": "63962a3cd411fe71f519cf70f6560df305f5ca12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
