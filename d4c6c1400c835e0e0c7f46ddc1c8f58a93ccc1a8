@@ -16,6 +16,268 @@
       "message": "PTAL!",
       "revId": "d4c6c1400c835e0e0c7f46ddc1c8f58a93ccc1a8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91221625_fa9b62e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-12T03:53:03Z",
+      "side": 1,
+      "message": "This is looking really great! I have a lot of comments but they\u0027re all low-level stuff; overall this is really looking excellent.",
+      "revId": "d4c6c1400c835e0e0c7f46ddc1c8f58a93ccc1a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f2a12df_ed305e01",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-12T03:53:03Z",
+      "side": 1,
+      "message": "Let\u0027s leave this here for now, but it should be possible to use `ElementInternals` to set this as an intrinsic role for the custom element.\n\nThat would look something like\n\n private readonly internals \u003d this.attachInternals();\n \n ...\n\n internals.role \u003d \u0027treeitem\u0027;\n\nWould need to chat with the devtools folks to see how they would feel about that.\n\nhttps://html.spec.whatwg.org/multipage/custom-elements.html#the-elementinternals-interface",
+      "range": {
+        "startLine": 30,
+        "startChar": 37,
+        "endLine": 30,
+        "endChar": 52
+      },
+      "revId": "d4c6c1400c835e0e0c7f46ddc1c8f58a93ccc1a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22a11f80_02a442f0",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-12T03:53:03Z",
+      "side": 1,
+      "message": "This seems like a bit of a misnomer given it\u0027s not appending anything to anything else. Maybe just \"renderNodeContent()\" ?",
+      "range": {
+        "startLine": 41,
+        "startChar": 10,
+        "endLine": 41,
+        "endChar": 34
+      },
+      "revId": "d4c6c1400c835e0e0c7f46ddc1c8f58a93ccc1a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "785be772_f450008f",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-12T03:53:03Z",
+      "side": 1,
+      "message": "Probably don\u0027t need to initialise this before we do the null checks below?",
+      "revId": "d4c6c1400c835e0e0c7f46ddc1c8f58a93ccc1a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c3ae841_9d81bf8e",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-12T03:53:03Z",
+      "side": 1,
+      "message": "Similarly, let\u0027s wait to initialise this until after the null check.",
+      "revId": "d4c6c1400c835e0e0c7f46ddc1c8f58a93ccc1a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b17ecc6_548024b7",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-12T03:53:03Z",
+      "side": 1,
+      "message": "I wonder if we can move this state to the custom element and get rid of this wrapper span altogether... you could do something like (in the \u003cstyle\u003e element):\n\n :host.parent.expanded::before {\n   -webkit-mask-position: -16px 0;\n }\n\nand here you could do something like\n\n if (this.axNode.numChildren()) {\n   this.getRootNode().host.classList.add(\u0027parent\u0027, \u0027expanded\u0027);\n   parts.push(LitHtml.html`${nodeContent}`);\n } else {\n   this.getRootNode().host.classList.add(\u0027no-children\u0027);\n }\n\nhttps://developer.mozilla.org/en-US/docs/Web/CSS/:host",
+      "range": {
+        "startLine": 80,
+        "startChar": 32,
+        "endLine": 80,
+        "endChar": 70
+      },
+      "revId": "d4c6c1400c835e0e0c7f46ddc1c8f58a93ccc1a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "895cb374_659f36bf",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-12T03:53:03Z",
+      "side": 1,
+      "message": "This could just be `:host`, we don\u0027t need the class any more.",
+      "revId": "d4c6c1400c835e0e0c7f46ddc1c8f58a93ccc1a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9d18a50_7a555c84",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-12T03:53:03Z",
+      "side": 1,
+      "message": "Similarly, this could just be `span` (since this applies to all spans inside the shadowRoot).",
+      "revId": "d4c6c1400c835e0e0c7f46ddc1c8f58a93ccc1a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2962e325_7c018735",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-12T03:53:03Z",
+      "side": 1,
+      "message": ":host.no-children",
+      "revId": "d4c6c1400c835e0e0c7f46ddc1c8f58a93ccc1a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f64b78c_f43a183d",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-12T03:53:03Z",
+      "side": 1,
+      "message": ":host.parent.expanded::before",
+      "revId": "d4c6c1400c835e0e0c7f46ddc1c8f58a93ccc1a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0528351_c5718d5f",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-12T03:53:03Z",
+      "side": 1,
+      "message": ":host.parent::before",
+      "revId": "d4c6c1400c835e0e0c7f46ddc1c8f58a93ccc1a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2ae726e_453fb12d",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-12T03:53:03Z",
+      "side": 1,
+      "message": "This also needs a role of \"tree\". We could either set it using ElementInternals, or by just doing something like\n\n this.getRootNode().host.setAttribute(\"role\", \"tree\");\n\nor if we want to keep using ARIAUtils:\n\n import * as UI from \u0027../ui/ui.js\u0027;\n\n ... \n\n UI.ARIAUtils.markAsTree(this.getRootNode().host);",
+      "revId": "d4c6c1400c835e0e0c7f46ddc1c8f58a93ccc1a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "306b7b61_8dc952c4",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-12T03:53:03Z",
+      "side": 1,
+      "message": "If we made the role intrinsic, we could also get rid of this.",
+      "range": {
+        "startLine": 41,
+        "startChar": 37,
+        "endLine": 41,
+        "endChar": 52
+      },
+      "revId": "d4c6c1400c835e0e0c7f46ddc1c8f58a93ccc1a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "baecf3f3_a5e27d56",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-12T03:53:03Z",
+      "side": 1,
+      "message": "It\u0027s kind of neat how just putting the root node in here causes the whole tree to get rendered!",
+      "revId": "d4c6c1400c835e0e0c7f46ddc1c8f58a93ccc1a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

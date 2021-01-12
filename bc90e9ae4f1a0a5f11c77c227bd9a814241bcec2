@@ -142,6 +142,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e53c152a_bac4fcd3",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-12T03:53:03Z",
+      "side": 1,
+      "message": "Sorry for the moving target on that! I didn\u0027t take the custom elements part into account originally.",
+      "parentUuid": "9ab8b9f2_2dd7c560",
+      "revId": "bc90e9ae4f1a0a5f11c77c227bd9a814241bcec2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3a85340d_40f32a6c",
         "filename": "front_end/elements/AccessibilityNode.ts",
         "patchSetId": 5
