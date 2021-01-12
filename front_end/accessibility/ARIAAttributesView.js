@@ -194,7 +194,7 @@ export class ARIAAttributesTreeElement extends UI.TreeOutline.TreeElement {
       return;
     }
 
-    if (isEnterKey(event)) {
+    if (event.key === 'Enter') {
       const target = /** @type {!HTMLElement} */ (event.target);
       this._editingCommitted(target.textContent || '', previousContent);
       event.consume();
