@@ -162,6 +162,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "263a56ae_2baed6f1",
+        "filename": "front_end/components/JSPresentationUtils.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-01-12T08:57:37Z",
+      "side": 1,
+      "message": "Yes that\u0027s true, the Linkifier adds children (among others text nodes, which seem to just have the same effect on the dom as if you set the textContent). The \u0027unknown\u0027 will be removed here:\n\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/components/Linkifier.js;l\u003d695;drc\u003dd7cfd148144b8bc0964ddfab1a2c91980519361c\n\nAnd then new \u0027text nodes\u0027 will be added, e.g. here:\n\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/components/Linkifier.js;l\u003d736;drc\u003dd7cfd148144b8bc0964ddfab1a2c91980519361c\n\nSo the if case should also correctly handle the case if we happen to already have a live location before getting to this point. Correct me if I\u0027m missing something!\n\n\nThe reason for only adding the \u0027unknown\u0027 here is that we subjectively concluded that it may be confusing to see \u0027unknown\u0027 for every console message line that is not yet resolved (previously we would also not show anything until the live locatin is resolved). However, in comparison to stack traces it would be weird to have the \"@ \" with nothing following it. This was a subjective decision, so if you think that we should always show unknown if we do not know yet/ may never know, I\u0027m fine with that.\n@Benedikt: you too?",
+      "parentUuid": "7e071cd8_bad70898",
+      "range": {
+        "startLine": 110,
+        "startChar": 30,
+        "endLine": 110,
+        "endChar": 37
+      },
+      "revId": "ae3a4749df3b1150c4d6d7759f4691bf8d261b0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "be4c9c79_2f9f96d2",
         "filename": "front_end/components/Linkifier.js",
         "patchSetId": 12
