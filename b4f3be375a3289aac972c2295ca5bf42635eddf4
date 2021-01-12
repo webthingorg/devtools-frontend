@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efb981cc_bd8eb5a4",
+        "filename": "front_end/changes/ChangesTextEditor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-12T12:48:38Z",
+      "side": 1,
+      "message": "I think something has gone wrong here 😄",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 99
+      },
+      "revId": "b4f3be375a3289aac972c2295ca5bf42635eddf4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36bfb289_b9be544b",
+        "filename": "front_end/changes/ChangesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-12T12:48:38Z",
+      "side": 1,
+      "message": "Interesting. It\u0027s not wrong I suppose 😄 We can probably best clean this up after the whole migration, if that would even be worth it...",
+      "range": {
+        "startLine": 381,
+        "startChar": 24,
+        "endLine": 381,
+        "endChar": 36
+      },
+      "revId": "b4f3be375a3289aac972c2295ca5bf42635eddf4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
