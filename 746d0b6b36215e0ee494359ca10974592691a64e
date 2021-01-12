@@ -34,6 +34,24 @@
       "parentUuid": "e356b1b6_f40b4204",
       "revId": "746d0b6b36215e0ee494359ca10974592691a64e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8bd4d1d_83c5196f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2021-01-12T15:59:02Z",
+      "side": 1,
+      "message": "Thanks for the update!\n\nOn the screenshot you provided, there is a white area on the right side, while the width should be the very same as the original viewport\u0027s width. The reason of it can be correlated with the difference in the markup, and can be cause by the wrong param `scale: 1` of the `clip`.",
+      "parentUuid": "a689afb6_03817196",
+      "revId": "746d0b6b36215e0ee494359ca10974592691a64e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
