@@ -684,6 +684,7 @@ export class EmulatedDevicesList extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   saveCustomDevices() {
+    console.log('saveCustomDevices');
     /** @type {!Array<?>} */
     const json = [];
     this._custom.forEach(device => json.push(device._toJSON()));

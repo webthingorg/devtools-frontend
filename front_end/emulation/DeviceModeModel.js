@@ -550,6 +550,7 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
    * @param {boolean} resetPageScaleFactor
    */
   _calculateAndEmulate(resetPageScaleFactor) {
+    console.log('_calculateAndEmulate/' + this._type + '/' + this._device + '/' + this._mode);
     if (!this._emulationModel) {
       this._onModelAvailable = this._calculateAndEmulate.bind(this, resetPageScaleFactor);
     }
@@ -662,6 +663,7 @@ export class DeviceModeModel extends Common.ObjectWrapper.ObjectWrapper {
    * @param {?Protocol.Emulation.UserAgentMetadata} userAgentMetadata
    */
   _applyUserAgent(userAgent, userAgentMetadata) {
+    console.log('_applyUserAgent:' + (userAgentMetadata ? userAgentMetadata.platform : '(bull)'));
     SDK.NetworkManager.MultitargetNetworkManager.instance().setUserAgentOverride(userAgent, userAgentMetadata);
   }
 

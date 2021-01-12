@@ -515,17 +515,24 @@ export class DeviceModeToolbar {
    */
   _deviceListChanged() {
     const device = this._model.device();
+    console.log('_deviceListChanged called!/' + device);
     if (!device) {
       return;
     }
 
     const devices = this._allDevices();
-    if (devices.indexOf(device) === -1) {
+    const deviceIndex = devices.indexOf(device);
+    if (deviceIndex === -1) {
+      console.log('Not found');
       if (devices.length) {
+        console.log('First');
         this._emulateDevice(devices[0]);
       } else {
+        console.log('None');
         this._model.emulate(Type.Responsive, null, null);
       }
+    } else {
+      this._emulateDevice(device);
     }
   }
 
