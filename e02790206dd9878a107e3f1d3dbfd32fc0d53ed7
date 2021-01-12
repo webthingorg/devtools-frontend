@@ -16,6 +16,23 @@
       "message": "Thanks, done!",
       "revId": "e02790206dd9878a107e3f1d3dbfd32fc0d53ed7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ede5581_682b74ad",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1001310
+      },
+      "writtenOn": "2021-01-12T19:03:52Z",
+      "side": 1,
+      "message": "nit: please add the standard warning label here\nhttps://chromium.googlesource.com/chromium/src.git/+/HEAD/tools/metrics/histograms/README.md#requirements",
+      "revId": "e02790206dd9878a107e3f1d3dbfd32fc0d53ed7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
