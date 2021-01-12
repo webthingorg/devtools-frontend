@@ -16,6 +16,41 @@
       "message": "As per the chat, we can\u0027t land this CL until the localization pipeline can handle TypeScript files or the folder is migrated to i18n. (Putting -1 on just to make sure we don\u0027t accidentally land this, but I am +1 for the rest of the CL)\n\n@Vidal What is your proposed way forward to unblock the migration to TypeScript for this and other yet-to-migrated folders?",
       "revId": "63962a3cd411fe71f519cf70f6560df305f5ca12",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e222e4ba_97c9a0d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-01-12T18:52:24Z",
+      "side": 1,
+      "message": "Hi Tim and Jan,\nThanks for tagging me on this one 😊, to correctly understand the issue I have a couple of questions:\n\n- What is the blocker for this one? (been focused on loc and not completely aware of the ts migration requirements)\n- \"localization pipeline can handle TypeScript\" does this refers to the presubmit scripts and our validation scripts (collects-strings, check_localizable_resources)?",
+      "parentUuid": "513bce8c_5b9db703",
+      "revId": "63962a3cd411fe71f519cf70f6560df305f5ca12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cefe6951_67acff71",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-01-12T18:52:24Z",
+      "side": 1,
+      "message": "Hi everyone,\n\nleft some open questions for clarification, thanks for letting us know about this issue 😊",
+      "revId": "63962a3cd411fe71f519cf70f6560df305f5ca12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
