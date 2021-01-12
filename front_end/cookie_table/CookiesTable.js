@@ -200,6 +200,15 @@ export class CookiesTable extends UI.Widget.VBox {
         editable: editable,
       },
       {
+        id: SDK.Cookie.Attributes.SameParty,
+        title: 'SameParty',
+        sortable: true,
+        align: DataGrid.DataGrid.Align.Center,
+        weight: 7,
+        dataType: DataGrid.DataGrid.DataType.Boolean,
+        editable: false,
+      },
+      {
         id: SDK.Cookie.Attributes.Priority,
         title: i18nString(UIStrings.priority),
         sortable: true,
@@ -362,6 +371,7 @@ export class CookiesTable extends UI.Widget.VBox {
         groupData[SDK.Cookie.Attributes.HttpOnly] = '';
         groupData[SDK.Cookie.Attributes.Secure] = '';
         groupData[SDK.Cookie.Attributes.SameSite] = '';
+        groupData[SDK.Cookie.Attributes.SameParty] = '';
         groupData[SDK.Cookie.Attributes.Priority] = '';
 
         const groupNode = /** @type {!DataGrid.DataGrid.DataGridNode<!DataGridNode>} */ (
@@ -461,6 +471,8 @@ export class CookiesTable extends UI.Widget.VBox {
           return String(cookie.secure());
         case SDK.Cookie.Attributes.SameSite:
           return String(cookie.sameSite());
+        case SDK.Cookie.Attributes.SameParty:
+          return String(cookie.sameParty());
         default:
           return String(cookie.name());
       }
@@ -573,6 +585,7 @@ export class CookiesTable extends UI.Widget.VBox {
     data[SDK.Cookie.Attributes.HttpOnly] = cookie.httpOnly();
     data[SDK.Cookie.Attributes.Secure] = cookie.secure();
     data[SDK.Cookie.Attributes.SameSite] = cookie.sameSite() || '';
+    data[SDK.Cookie.Attributes.SameParty] = cookie.sameParty() || '';
     data[SDK.Cookie.Attributes.Priority] = cookie.priority() || '';
 
     const blockedReasons = this._cookieToBlockedReasons ? this._cookieToBlockedReasons.get(cookie) : null;
@@ -668,6 +681,9 @@ export class CookiesTable extends UI.Widget.VBox {
     }
     if (data[SDK.Cookie.Attributes.SameSite]) {
       cookie.addAttribute(SDK.Cookie.Attributes.SameSite, data[SDK.Cookie.Attributes.SameSite]);
+    }
+    if (data[SDK.Cookie.Attributes.SameParty]) {
+      cookie.addAttribute(SDK.Cookie.Attributes.SameParty);
     }
     cookie.setSize(data[SDK.Cookie.Attributes.Name].length + data[SDK.Cookie.Attributes.Value].length);
     return cookie;
