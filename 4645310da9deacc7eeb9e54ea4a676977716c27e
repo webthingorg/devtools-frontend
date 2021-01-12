@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b38f038_5cc9e2f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-12T15:58:42Z",
+      "side": 1,
+      "message": "lgtm % q",
+      "revId": "4645310da9deacc7eeb9e54ea4a676977716c27e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efecf0c7_e34d3e65",
+        "filename": "front_end/sdk_test_runner/sdk_test_runner.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-12T15:58:42Z",
+      "side": 1,
+      "message": "I thought the test runners don\u0027t work with ES modules?",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 52
+      },
+      "revId": "4645310da9deacc7eeb9e54ea4a676977716c27e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
