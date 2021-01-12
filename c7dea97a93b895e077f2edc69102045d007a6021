@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2d1fd53_9e3d43a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-12T08:36:26Z",
+      "side": 1,
+      "message": "I\u0027m not sure that saving the click is worth it given that the issues tab provides less of an overview if everything is expanded initially. Peter, what do you think?\n\nYou are free to do this change in Edge of course.",
+      "revId": "c7dea97a93b895e077f2edc69102045d007a6021",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
