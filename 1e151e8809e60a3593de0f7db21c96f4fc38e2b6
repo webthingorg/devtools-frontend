@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a1d9cff_528bcd2d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2021-01-12T16:28:05Z",
+      "side": 1,
+      "message": "Let\u0027s keep them in sync with code. People might want to Google those keywords.",
+      "parentUuid": "2ebb9289_54e30207",
+      "revId": "1e151e8809e60a3593de0f7db21c96f4fc38e2b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "59a5e642_9ff67c19",
