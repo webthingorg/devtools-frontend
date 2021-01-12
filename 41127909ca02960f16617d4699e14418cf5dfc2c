@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58a3600c_1595a102",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-01-12T07:20:30Z",
+      "side": 1,
+      "message": "Hi Almothana!\n\nThanks for the change, please see my comments below :)!",
+      "revId": "41127909ca02960f16617d4699e14418cf5dfc2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71dff295_6b946e48",
+        "filename": "test/e2e/resources/sources/wasm/syntax-highlighting.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-01-12T07:20:30Z",
+      "side": 1,
+      "message": "nit: 2021",
+      "revId": "41127909ca02960f16617d4699e14418cf5dfc2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d132167_d118cab6",
+        "filename": "test/e2e/resources/sources/wasm/syntax-highlighting.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-01-12T07:20:30Z",
+      "side": 1,
+      "message": "In order to get a string we can export the function that you have defined. I.e. \nfunction $add (export \"add\") and check for the \"add\" string. I\u0027ve uploaded an uploaded wasm file :).",
+      "revId": "41127909ca02960f16617d4699e14418cf5dfc2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2977314_bf03b53f",
+        "filename": "test/e2e/sources/syntax-highlighting_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-01-12T07:20:30Z",
+      "side": 1,
+      "message": "nit: 2021",
+      "revId": "41127909ca02960f16617d4699e14418cf5dfc2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c828d66_c9670348",
+        "filename": "test/e2e/sources/syntax-highlighting_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-01-12T07:20:30Z",
+      "side": 1,
+      "message": "I\u0027m wondering whether we should check the colors, or just that the colors for keywords, variables etc. are different. In case of a change it would be more robust, WDYT?",
+      "revId": "41127909ca02960f16617d4699e14418cf5dfc2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
