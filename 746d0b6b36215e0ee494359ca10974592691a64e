@@ -16,6 +16,24 @@
       "message": "@patrick.brosset Even though the CL is landed, can I ask you to describe the way you tested the change and provide the artefacts? Having lack of integration tests on this part of functionality, it\u0027s important to make sure nothing\u0027s broken.",
       "revId": "746d0b6b36215e0ee494359ca10974592691a64e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a689afb6_03817196",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-01-12T15:47:57Z",
+      "side": 1,
+      "message": "Sure! I tested this by running the same steps as described in the bug. Before the fix, this would produce an image almost twice as wide as the website. \nWith the fix, I could visually confirm that the rendering of the site in the image matched the rendering of the site in chrome.\nAfter looking at it more closely, I can see that it\u0027s still a few pixels off (line wrapping doesn\u0027t occur in exactly the same locations), but it\u0027s way closer than it used to be.\n\nScreenshots: https://imgur.com/a/vgYD2Ep",
+      "parentUuid": "e356b1b6_f40b4204",
+      "revId": "746d0b6b36215e0ee494359ca10974592691a64e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
