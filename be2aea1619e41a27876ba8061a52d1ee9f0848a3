@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "132094d1_22e44c85",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-12T08:30:41Z",
+      "side": 1,
+      "message": "Yeah that crossed my mind. I decided to leave it be because I\u0027d rather build up a big collection of utils rather than have people not realise a util already exists in another file and introduce a duplicated util function. WDYT?",
+      "parentUuid": "23160399_befefa52",
+      "revId": "be2aea1619e41a27876ba8061a52d1ee9f0848a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "03e5eea4_6bc35708",
