@@ -253,7 +253,7 @@ export class FontEditor extends UI.Widget.VBox {
         'keydown',
         /** @param {!Event} event */
         event => {
-          if (isEnterKey(event)) {
+          if (event.key === 'Enter') {
             event.consume();
           }
         },
@@ -558,7 +558,7 @@ class FontPropertyInputs {
         'keydown',
         /** @param {!Event} event */
         event => {
-          if (isEnterKey(event)) {
+          if (event.key === 'Enter') {
             event.consume();
           }
         },
@@ -587,7 +587,7 @@ class FontPropertyInputs {
         'keydown',
         /** @param {!Event} event */
         event => {
-          if (isEnterKey(event)) {
+          if (event.key === 'Enter') {
             event.consume();
           }
         },
@@ -704,7 +704,7 @@ class FontPropertyInputs {
    * @param {!Event=} event
    */
   _toggleInputType(event) {
-    if (event && isEnterKey(event)) {
+    if (event && event.key === 'Enter') {
       event.consume();
     }
     if (this._showSliderMode) {

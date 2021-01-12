@@ -1901,7 +1901,7 @@ export class HeapAllocationStackView extends UI.Widget.Widget {
     if (!target) {
       return;
     }
-    if (isEnterKey(event)) {
+    if (event.key === 'Enter') {
       const link = stackFrameToURLElement.get(target);
       if (!link) {
         return;
