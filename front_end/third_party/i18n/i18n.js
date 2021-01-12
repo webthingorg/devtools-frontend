@@ -3865,6 +3865,7 @@ var intlMessageformat = createCommonjsModule(function (module, exports) {
 
 const locales = {
   'en-US': {'title': 'value'}, // The 'source' strings, with descriptions
+  'en-XA': {'title': 'value'}, // Pseudolocalization from the translation pipeline - strings are extra-long too.
   'en-XL': {'title': 'value'}, // local pseudolocalization
 };
 

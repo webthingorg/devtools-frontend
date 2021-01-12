@@ -89,7 +89,7 @@ export class MainImpl {
   }
 
   async requestAndRegisterLocaleData() {
-    const hostLocale = navigator.language || 'en-US';
+    const hostLocale = 'en-XA';
     i18n.i18n.registerLocale(hostLocale);
     const locale = i18n.i18n.registeredLocale;
     if (locale) {

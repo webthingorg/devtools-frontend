@@ -1,0 +1,2237 @@
+{
+  "animation/AnimationTimeline.js | animationPreviewS": {
+    "message": "[Åñîmåţîöñ Þŕévîéŵ ᐅ{PH1}ᐊ one two three four five]"
+  },
+  "animation/AnimationTimeline.js | animationPreviews": {
+    "message": "[Åñîmåţîöñ þŕévîéŵš one two three]"
+  },
+  "animation/AnimationTimeline.js | clearAll": {
+    "message": "[Çļéåŕ åļļ one two]"
+  },
+  "animation/AnimationTimeline.js | listeningForAnimations": {
+    "message": "[Ļîšţéñîñĝ ƒöŕ åñîmåţîöñš... one two three]"
+  },
+  "animation/AnimationTimeline.js | pause": {
+    "message": "[Þåûšé one]"
+  },
+  "animation/AnimationTimeline.js | pauseAll": {
+    "message": "[Þåûšé åļļ one two]"
+  },
+  "animation/AnimationTimeline.js | pauseTimeline": {
+    "message": "[Þåûšé ţîméļîñé one two]"
+  },
+  "animation/AnimationTimeline.js | playTimeline": {
+    "message": "[Þļåý ţîméļîñé one two]"
+  },
+  "animation/AnimationTimeline.js | playbackRatePlaceholder": {
+    "message": "[ᐅ{PH1}ᐊ% one]"
+  },
+  "animation/AnimationTimeline.js | playbackRates": {
+    "message": "[Þļåýбåçķ ŕåţéš one two]"
+  },
+  "animation/AnimationTimeline.js | replayTimeline": {
+    "message": "[Ŕéþļåý ţîméļîñé one two]"
+  },
+  "animation/AnimationTimeline.js | resumeAll": {
+    "message": "[Ŕéšûmé åļļ one two]"
+  },
+  "animation/AnimationTimeline.js | selectAnEffectAboveToInspectAnd": {
+    "message": "[Šéļéçţ åñ éƒƒéçţ åбövé ţö îñšþéçţ åñð möðîƒý. one two three four five six seven eight nine]"
+  },
+  "animation/AnimationTimeline.js | setSpeedToS": {
+    "message": "[Šéţ šþééð ţö ᐅ{PH1}ᐊ one two three four]"
+  },
+  "animation/AnimationUI.js | animationEndpointSlider": {
+    "message": "[Åñîmåţîöñ Éñðþöîñţ šļîðéŕ one two three]"
+  },
+  "animation/AnimationUI.js | animationKeyframeSlider": {
+    "message": "[Åñîmåţîöñ Ķéýƒŕåmé šļîðéŕ one two three]"
+  },
+  "animation/AnimationUI.js | sSlider": {
+    "message": "[ᐅ{PH1}ᐊ šļîðéŕ one two three]"
+  },
+  "animation/ModuleUIStrings.js | animations": {
+    "message": "[Åñîmåţîöñš one two]"
+  },
+  "changes/ChangesSidebar.js | sFromSourceMap": {
+    "message": "[ᐅ{PH1}ᐊ (ƒŕöm šöûŕçé måþ) one two three four five]"
+  },
+  "changes/ChangesTextEditor.js | additions": {
+    "message": "[Åððîţîöñ:ᐅ{PH1}ᐊ one two three]"
+  },
+  "changes/ChangesTextEditor.js | deletions": {
+    "message": "[Ðéļéţîöñ:ᐅ{PH1}ᐊ one two three]"
+  },
+  "changes/ChangesView.js | SkippingDMatchingLines": {
+    "message": "[( … Šķîþþîñĝ ᐅ{PH1}ᐊ måţçĥîñĝ ļîñéš … ) one two three four five six seven eight]"
+  },
+  "changes/ChangesView.js | binaryData": {
+    "message": "[Бîñåŕý ðåţå one two]"
+  },
+  "changes/ChangesView.js | changesDiffViewer": {
+    "message": "[Çĥåñĝéš ðîƒƒ vîéŵéŕ one two three]"
+  },
+  "changes/ChangesView.js | noChanges": {
+    "message": "[Ñö çĥåñĝéš one two]"
+  },
+  "changes/ChangesView.js | revertAllChangesToCurrentFile": {
+    "message": "[Ŕévéŕţ åļļ çĥåñĝéš ţö çûŕŕéñţ ƒîļé one two three four five six seven]"
+  },
+  "changes/ChangesView.js | sDeletion": {
+    "message": "[ᐅ{PH1}ᐊ ðéļéţîöñ (-) one two three four]"
+  },
+  "changes/ChangesView.js | sDeletions": {
+    "message": "[ᐅ{PH1}ᐊ ðéļéţîöñš (-) one two three four]"
+  },
+  "changes/ChangesView.js | sInsertion": {
+    "message": "[ᐅ{PH1}ᐊ îñšéŕţîöñ (+), one two three four]"
+  },
+  "changes/ChangesView.js | sInsertions": {
+    "message": "[ᐅ{PH1}ᐊ îñšéŕţîöñš (+), one two three four]"
+  },
+  "changes/ModuleUIStrings.js | changes": {
+    "message": "[Çĥåñĝéš one]"
+  },
+  "changes/ModuleUIStrings.js | changesDrawer": {
+    "message": "[Çĥåñĝéš ðŕåŵéŕ one two]"
+  },
+  "components/ImagePreview.js | imageFromS": {
+    "message": "[Îmåĝé ƒŕöm ᐅ{PH1}ᐊ one two three]"
+  },
+  "components/ImagePreview.js | sSPx": {
+    "message": "[ᐅ{PH1}ᐊ × ᐅ{PH2}ᐊ þx one two three]"
+  },
+  "components/ImagePreview.js | sSPxIntrinsicSSPx": {
+    "message": "[ᐅ{PH1}ᐊ × ᐅ{PH2}ᐊ þx (îñţŕîñšîç: ᐅ{PH3}ᐊ × ᐅ{PH4}ᐊ þx) one two three four five six seven eight]"
+  },
+  "components/ImagePreview.js | unknownSource": {
+    "message": "[ûñķñöŵñ šöûŕçé one two]"
+  },
+  "components/JSPresentationUtils.js | addToIgnore": {
+    "message": "[Åðð šçŕîþţ ţö îĝñöŕé ļîšţ one two three four five six]"
+  },
+  "components/JSPresentationUtils.js | removeFromIgnore": {
+    "message": "[Ŕémövé ƒŕöm îĝñöŕé ļîšţ one two three four five]"
+  },
+  "components/JSPresentationUtils.js | showMoreFrame": {
+    "message": "[Šĥöŵ 1 möŕé ƒŕåmé one two three four]"
+  },
+  "components/JSPresentationUtils.js | showSMoreFrames": {
+    "message": "[Šĥöŵ ᐅ{PH1}ᐊ möŕé ƒŕåméš one two three four five]"
+  },
+  "components/Linkifier.js | auto": {
+    "message": "[åûţö one]"
+  },
+  "components/Linkifier.js | linkHandling": {
+    "message": "[Ļîñķ ĥåñðļîñĝ: one two]"
+  },
+  "components/Linkifier.js | openUsingS": {
+    "message": "[Öþéñ ûšîñĝ ᐅ{PH1}ᐊ one two three]"
+  },
+  "components/Linkifier.js | reveal": {
+    "message": "[Ŕévéåļ one]"
+  },
+  "components/Linkifier.js | revealInS": {
+    "message": "[Ŕévéåļ îñ ᐅ{PH1}ᐊ one two three]"
+  },
+  "components/Linkifier.js | unknown": {
+    "message": "[(ûñķñöŵñ) one two]"
+  },
+  "components/TargetDetachedDialog.js | websocketDisconnected": {
+    "message": "[ŴéбŠöçķéţ ðîšçöññéçţéð one two three]"
+  },
+  "cookie_table/CookiesTable.js | cookies": {
+    "message": "[Çööķîéš one]"
+  },
+  "cookie_table/CookiesTable.js | domain": {
+    "message": "[Ðömåîñ one]"
+  },
+  "cookie_table/CookiesTable.js | editableCookies": {
+    "message": "[Éðîţåбļé Çööķîéš one two]"
+  },
+  "cookie_table/CookiesTable.js | expiresMaxage": {
+    "message": "[Éxþîŕéš / Måx-Åĝé one two three]"
+  },
+  "cookie_table/CookiesTable.js | httponly": {
+    "message": "[ĤţţþÖñļý one]"
+  },
+  "cookie_table/CookiesTable.js | na": {
+    "message": "[Ñ/Å one]"
+  },
+  "cookie_table/CookiesTable.js | name": {
+    "message": "[Ñåmé one]"
+  },
+  "cookie_table/CookiesTable.js | path": {
+    "message": "[Þåţĥ one]"
+  },
+  "cookie_table/CookiesTable.js | priority": {
+    "message": "[Þŕîöŕîţý one]"
+  },
+  "cookie_table/CookiesTable.js | samesite": {
+    "message": "[ŠåméŠîţé one]"
+  },
+  "cookie_table/CookiesTable.js | secure": {
+    "message": "[Šéçûŕé one]"
+  },
+  "cookie_table/CookiesTable.js | session": {
+    "message": "[Šéššîöñ one]"
+  },
+  "cookie_table/CookiesTable.js | showIssueAssociatedWithThis": {
+    "message": "[Šĥöŵ îššûé åššöçîåţéð ŵîţĥ ţĥîš çööķîé one two three four five six seven eight]"
+  },
+  "cookie_table/CookiesTable.js | showRequestsWithThisCookie": {
+    "message": "[Šĥöŵ Ŕéqûéšţš Ŵîţĥ Ţĥîš Çööķîé one two three four five six seven]"
+  },
+  "cookie_table/CookiesTable.js | size": {
+    "message": "[Šîžé one]"
+  },
+  "cookie_table/CookiesTable.js | value": {
+    "message": "[Våļûé one]"
+  },
+  "coverage/CoverageListView.js | Byte": {
+    "message": "[1 бýţé one]"
+  },
+  "coverage/CoverageListView.js | ByteS": {
+    "message": "[1 бýţé, ᐅ{PH1}ᐊ one two three]"
+  },
+  "coverage/CoverageListView.js | codeCoverage": {
+    "message": "[Çöðé Çövéŕåĝé one two]"
+  },
+  "coverage/CoverageListView.js | css": {
+    "message": "[ÇŠŠ one]"
+  },
+  "coverage/CoverageListView.js | jsCoverageWithPerBlock": {
+    "message": "[ĴŠ çövéŕåĝé ŵîţĥ þéŕ бļöçķ ĝŕåñûļåŕîţý: Öñçé å бļöçķ öƒ ĴåvåŠçŕîþţ ŵåš éxéçûţéð, ţĥåţ бļöçķ îš måŕķéð åš çövéŕéð. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen]"
+  },
+  "coverage/CoverageListView.js | jsCoverageWithPerFunction": {
+    "message": "[ĴŠ çövéŕåĝé ŵîţĥ þéŕ ƒûñçţîöñ ĝŕåñûļåŕîţý: Öñçé å ƒûñçţîöñ ŵåš éxéçûţéð, ţĥé ŵĥöļé ƒûñçţîöñ îš måŕķéð åš çövéŕéð. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen]"
+  },
+  "coverage/CoverageListView.js | jsPerBlock": {
+    "message": "[ĴŠ (þéŕ бļöçķ) one two]"
+  },
+  "coverage/CoverageListView.js | jsPerFunction": {
+    "message": "[ĴŠ (þéŕ ƒûñçţîöñ) one two three]"
+  },
+  "coverage/CoverageListView.js | sBytes": {
+    "message": "[ᐅ{PH1}ᐊ бýţéš one two three]"
+  },
+  "coverage/CoverageListView.js | sBytesS": {
+    "message": "[ᐅ{PH1}ᐊ бýţéš, ᐅ{PH2}ᐊ one two three]"
+  },
+  "coverage/CoverageListView.js | sBytesSBelongToBlocksOf": {
+    "message": "[ᐅ{PH1}ᐊ бýţéš (ᐅ{PH2}ᐊ %) бéļöñĝ ţö бļöçķš öƒ ĴåvåŠçŕîþţ ţĥåţ ĥåvé ñöţ (ýéţ) бééñ éxéçûţéð. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen]"
+  },
+  "coverage/CoverageListView.js | sBytesSBelongToBlocksOfJavascript": {
+    "message": "[ᐅ{PH1}ᐊ бýţéš (ᐅ{PH2}ᐊ %) бéļöñĝ ţö бļöçķš öƒ ĴåvåŠçŕîþţ ţĥåţ ĥåvé éxéçûţéð åţ ļéåšţ öñçé. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen]"
+  },
+  "coverage/CoverageListView.js | sBytesSBelongToFunctionsThatHave": {
+    "message": "[ᐅ{PH1}ᐊ бýţéš (ᐅ{PH2}ᐊ %) бéļöñĝ ţö ƒûñçţîöñš ţĥåţ ĥåvé ñöţ (ýéţ) бééñ éxéçûţéð. one two three four five six seven eight nine ten eleven twelve thirteen]"
+  },
+  "coverage/CoverageListView.js | sBytesSBelongToFunctionsThatHaveExecuted": {
+    "message": "[ᐅ{PH1}ᐊ бýţéš (ᐅ{PH2}ᐊ %) бéļöñĝ ţö ƒûñçţîöñš ţĥåţ ĥåvé éxéçûţéð åţ ļéåšţ öñçé. one two three four five six seven eight nine ten eleven twelve thirteen]"
+  },
+  "coverage/CoverageListView.js | sOfFileUnusedSOfFileUsed": {
+    "message": "[ᐅ{PH1}ᐊ % oƒ ƒîļé ûñûšéð, ᐅ{PH2}ᐊ % oƒ ƒîļé ûšéð one two three four five six seven eight]"
+  },
+  "coverage/CoverageListView.js | sPercent": {
+    "message": "[ᐅ{PH1}ᐊ % one two]"
+  },
+  "coverage/CoverageListView.js | totalBytes": {
+    "message": "[Ţöţåļ Бýţéš one two]"
+  },
+  "coverage/CoverageListView.js | type": {
+    "message": "[Ţýþé one]"
+  },
+  "coverage/CoverageListView.js | unusedBytes": {
+    "message": "[Ûñûšéð Бýţéš one two]"
+  },
+  "coverage/CoverageListView.js | url": {
+    "message": "[ÛŔĻ one]"
+  },
+  "coverage/CoverageListView.js | usageVisualization": {
+    "message": "[Ûšåĝé Vîšûåļîžåţîöñ one two three]"
+  },
+  "coverage/CoverageView.js | all": {
+    "message": "[Åļļ one]"
+  },
+  "coverage/CoverageView.js | chooseCoverageGranularityPer": {
+    "message": "[Çĥööšé çövéŕåĝé ĝŕåñûļåŕîţý: Þéŕ ƒûñçţîöñ ĥåš ļöŵ övéŕĥéåð, þéŕ бļöçķ ĥåš šîĝñîƒîçåñţ övéŕĥéåð. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen]"
+  },
+  "coverage/CoverageView.js | clearAll": {
+    "message": "[Çļéåŕ åļļ one two]"
+  },
+  "coverage/CoverageView.js | clickTheRecordButtonSToStart": {
+    "message": "[Çļîçķ ţĥé ŕéçöŕð бûţţöñ ᐅ{PH1}ᐊ ţö šţåŕţ çåþţûŕîñĝ çövéŕåĝé. one two three four five six seven eight nine ten eleven]"
+  },
+  "coverage/CoverageView.js | clickTheReloadButtonSToReloadAnd": {
+    "message": "[Çļîçķ ţĥé ŕéļöåð бûţţöñ ᐅ{PH1}ᐊ ţö ŕéļöåð åñð šţåŕţ çåþţûŕîñĝ çövéŕåĝé. one two three four five six seven eight nine ten eleven twelve thirteen]"
+  },
+  "coverage/CoverageView.js | contentScripts": {
+    "message": "[Çöñţéñţ šçŕîþţš one two]"
+  },
+  "coverage/CoverageView.js | css": {
+    "message": "[ÇŠŠ one]"
+  },
+  "coverage/CoverageView.js | export": {
+    "message": "[Éxþöŕţ... one two]"
+  },
+  "coverage/CoverageView.js | filterCoverageByType": {
+    "message": "[Fîļţéŕ çövéŕåĝé бý ţýþé one two three four five]"
+  },
+  "coverage/CoverageView.js | filteredSTotalS": {
+    "message": "[Fîļţéŕéð: ᐅ{PH1}ᐊ  Ţöţåļ: ᐅ{PH2}ᐊ one two three four five six]"
+  },
+  "coverage/CoverageView.js | includeExtensionContentScripts": {
+    "message": "[Îñçļûðé éxţéñšîöñ çöñţéñţ šçŕîþţš one two three four five six seven]"
+  },
+  "coverage/CoverageView.js | javascript": {
+    "message": "[ĴåvåŠçŕîþţ one two]"
+  },
+  "coverage/CoverageView.js | perBlock": {
+    "message": "[Þéŕ бļöçķ one two]"
+  },
+  "coverage/CoverageView.js | perFunction": {
+    "message": "[Þéŕ ƒûñçţîöñ one two]"
+  },
+  "coverage/CoverageView.js | sOfSSUsedSoFarSUnused": {
+    "message": "[ᐅ{PH1}ᐊ öƒ ᐅ{PH2}ᐊ (ᐅ{PH3}ᐊ%) ûšéð šö ƒåŕ,\n        ᐅ{PH4}ᐊ ûñûšéð. one two three four five six seven eight nine ten eleven]"
+  },
+  "coverage/CoverageView.js | urlFilter": {
+    "message": "[ÛŔĻ ƒîļţéŕ one two]"
+  },
+  "coverage/ModuleUIStrings.js | coverage": {
+    "message": "[Çövéŕåĝé one]"
+  },
+  "coverage/ModuleUIStrings.js | instrumentCoverage": {
+    "message": "[Îñšţŕûméñţ çövéŕåĝé one two three]"
+  },
+  "coverage/ModuleUIStrings.js | performance": {
+    "message": "[Þéŕƒöŕmåñçé one two]"
+  },
+  "coverage/ModuleUIStrings.js | startInstrumentingCoverageAnd": {
+    "message": "[Šţåŕţ îñšţŕûméñţîñĝ çövéŕåĝé åñð ŕéļöåð þåĝé one two three four five six seven eight nine]"
+  },
+  "coverage/ModuleUIStrings.js | stopInstrumentingCoverageAndShow": {
+    "message": "[Šţöþ îñšţŕûméñţîñĝ çövéŕåĝé åñð šĥöŵ ŕéšûļţš one two three four five six seven eight nine]"
+  },
+  "developer_resources/DeveloperResourcesListView.js | Byte": {
+    "message": "[1 бýţé one]"
+  },
+  "developer_resources/DeveloperResourcesListView.js | copyInitiatorUrl": {
+    "message": "[Çöþý îñîţîåţöŕ ÛŔĻ one two three]"
+  },
+  "developer_resources/DeveloperResourcesListView.js | copyUrl": {
+    "message": "[Çöþý ÛŔĻ one]"
+  },
+  "developer_resources/DeveloperResourcesListView.js | developerResources": {
+    "message": "[Ðévéļöþéŕ Ŕéšöûŕçéš one two three]"
+  },
+  "developer_resources/DeveloperResourcesListView.js | error": {
+    "message": "[Éŕŕöŕ one]"
+  },
+  "developer_resources/DeveloperResourcesListView.js | failure": {
+    "message": "[ƒåîļûŕé one]"
+  },
+  "developer_resources/DeveloperResourcesListView.js | initiator": {
+    "message": "[Îñîţîåţöŕ one two]"
+  },
+  "developer_resources/DeveloperResourcesListView.js | pending": {
+    "message": "[þéñðîñĝ one]"
+  },
+  "developer_resources/DeveloperResourcesListView.js | sBytes": {
+    "message": "[ᐅ{PH1}ᐊ бýţéš one two three]"
+  },
+  "developer_resources/DeveloperResourcesListView.js | status": {
+    "message": "[Šţåţûš one]"
+  },
+  "developer_resources/DeveloperResourcesListView.js | success": {
+    "message": "[šûççéšš one]"
+  },
+  "developer_resources/DeveloperResourcesListView.js | totalBytes": {
+    "message": "[Ţöţåļ Бýţéš one two]"
+  },
+  "developer_resources/DeveloperResourcesListView.js | url": {
+    "message": "[ÛŔĻ one]"
+  },
+  "developer_resources/DeveloperResourcesView.js | enableLoadingThroughTarget": {
+    "message": "[Éñåбļé ļöåðîñĝ ţĥŕöûĝĥ ţåŕĝéţ one two three four five six seven]"
+  },
+  "developer_resources/DeveloperResourcesView.js | enterTextToSearchTheUrlAndError": {
+    "message": "[Éñţéŕ ţéxţ ţö šéåŕçĥ ţĥé ÛŔĻ åñð Éŕŕöŕ çöļûmñš one two three four five six seven eight nine ten]"
+  },
+  "developer_resources/DeveloperResourcesView.js | loadHttpsDeveloperResources": {
+    "message": "[Ļöåð ĤŢŢÞ(Š) ðévéļöþéŕ ŕéšöûŕçéš ţĥŕöûĝĥ ţĥé îñšþéçţéð ţåŕĝéţ one two three four five six seven eight nine ten eleven twelve]"
+  },
+  "developer_resources/DeveloperResourcesView.js | resources": {
+    "message": "[ᐅ{PH1}ᐊ ŕéšöûŕçéš one two three]"
+  },
+  "developer_resources/DeveloperResourcesView.js | resourcesCurrentlyLoading": {
+    "message": "[ᐅ{PH1}ᐊ ŕéšöûŕçéš, ᐅ{PH2}ᐊ çûŕŕéñţļý ļöåðîñĝ one two three four five six seven eight]"
+  },
+  "developer_resources/ModuleUIStrings.js | developerResources": {
+    "message": "[Ðévéļöþéŕ Ŕéšöûŕçéš one two three]"
+  },
+  "devices/DevicesView.js | thisPanelHasBeenDeprecatedIn": {
+    "message": "[Ţĥîš þåñéļ ĥåš бééñ ðéþŕéçåţéð îñ ƒåvöŕ öƒ ţĥé ᐅ{PH1}ᐊ îñţéŕƒåçé, ŵĥîçĥ ĥåš éqûîvåļéñţ ƒûñçţîöñåļîţý. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen]"
+  },
+  "devices/ModuleUIStrings.js | android": {
+    "message": "[åñðŕöîð one]"
+  },
+  "devices/ModuleUIStrings.js | mobile": {
+    "message": "[möбîļé one]"
+  },
+  "devices/ModuleUIStrings.js | remoteDevices": {
+    "message": "[Ŕémöţé ðévîçéš one two]"
+  },
+  "devices/ModuleUIStrings.js | usb": {
+    "message": "[ûšб one]"
+  },
+  "help/ModuleUIStrings.js | appearance": {
+    "message": "[Åþþéåŕåñçé one two]"
+  },
+  "help/ModuleUIStrings.js | bug": {
+    "message": "[бûĝ one]"
+  },
+  "help/ModuleUIStrings.js | doNotShowWhatsNewAfterEachUpdate": {
+    "message": "[Ðö ñöţ šĥöŵ Ŵĥåţ'š Ñéŵ åƒţéŕ éåçĥ ûþðåţé one two three four five six seven eight]"
+  },
+  "help/ModuleUIStrings.js | help": {
+    "message": "[Ĥéļþ one]"
+  },
+  "help/ModuleUIStrings.js | releaseNotes": {
+    "message": "[Ŕéļéåšé ñöţéš one two]"
+  },
+  "help/ModuleUIStrings.js | reportADevtoolsIssue": {
+    "message": "[Ŕéþöŕţ å ÐévŢööļš îššûé one two three four five]"
+  },
+  "help/ModuleUIStrings.js | showWhatsNewAfterEachUpdate": {
+    "message": "[Šĥöŵ Ŵĥåţ'š Ñéŵ åƒţéŕ éåçĥ ûþðåţé one two three four five six seven]"
+  },
+  "help/ModuleUIStrings.js | whatsNew": {
+    "message": "[Ŵĥåţ'š Ñéŵ one two]"
+  },
+  "help/ReleaseNoteView.js | close": {
+    "message": "[Çļöšé one]"
+  },
+  "help/ReleaseNoteView.js | learnMore": {
+    "message": "[Ļéåŕñ möŕé one two]"
+  },
+  "help/ReleaseNoteView.js | s": {
+    "message": "{PH1}"
+  },
+  "input/InputTimeline.js | clearAll": {
+    "message": "[Çļéåŕ åļļ one two]"
+  },
+  "input/InputTimeline.js | loadProfile": {
+    "message": "[Ļöåð þŕöƒîļé… one two]"
+  },
+  "input/InputTimeline.js | saveProfile": {
+    "message": "[Šåvé þŕöƒîļé… one two]"
+  },
+  "input/ModuleUIStrings.js | inputs": {
+    "message": "[Îñþûţš one]"
+  },
+  "input/ModuleUIStrings.js | pause": {
+    "message": "[Þåûšé one]"
+  },
+  "input/ModuleUIStrings.js | resume": {
+    "message": "[Ŕéšûmé one]"
+  },
+  "input/ModuleUIStrings.js | startRecording": {
+    "message": "[Šţåŕţ ŕéçöŕðîñĝ one two]"
+  },
+  "input/ModuleUIStrings.js | startReplaying": {
+    "message": "[Šţåŕţ ŕéþļåýîñĝ one two]"
+  },
+  "input/ModuleUIStrings.js | stopRecording": {
+    "message": "[Šţöþ ŕéçöŕðîñĝ one two]"
+  },
+  "js_profiler/ModuleUIStrings.js | profiler": {
+    "message": "[Þŕöƒîļéŕ one]"
+  },
+  "layer_viewer/LayerDetailsView.js | compositingReasons": {
+    "message": "[Çömþöšîţîñĝ Ŕéåšöñš one two three]"
+  },
+  "layer_viewer/LayerDetailsView.js | containingBlocRectangleDimensions": {
+    "message": "[Çöñţåîñîñĝ Бļöçķ ᐅ{PH1}ᐊ × ᐅ{PH2}ᐊ (åţ ᐅ{PH3}ᐊ, ᐅ{PH4}ᐊ) one two three four five six seven eight]"
+  },
+  "layer_viewer/LayerDetailsView.js | hasABackdropFilter": {
+    "message": "[Ĥåš å бåçķðŕöþ ƒîļţéŕ. one two three four five]"
+  },
+  "layer_viewer/LayerDetailsView.js | hasABlendingEffectThatNeedsToBe": {
+    "message": "[Ĥåš å бļéñðîñĝ éƒƒéçţ ţĥåţ ñééðš ţö бé ķñöŵñ бý çömþöšîţöŕ бéçåûšé öƒ çömþöšîţéð ðéšçéñðåñţš. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen]"
+  },
+  "layer_viewer/LayerDetailsView.js | hasAClipThatNeedsToBeKnownBy": {
+    "message": "[Ĥåš å çļîþ ţĥåţ ñééðš ţö бé ķñöŵñ бý çömþöšîţöŕ бéçåûšé öƒ çömþöšîţéð ðéšçéñðåñţš. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen]"
+  },
+  "layer_viewer/LayerDetailsView.js | hasADTransform": {
+    "message": "[Ĥåš å 3ð ţŕåñšƒöŕm. one two three four]"
+  },
+  "layer_viewer/LayerDetailsView.js | hasAFilterEffectThatNeedsToBe": {
+    "message": "[Ĥåš å ƒîļţéŕ éƒƒéçţ ţĥåţ ñééðš ţö бé ķñöŵñ бý çömþöšîţöŕ бéçåûšé öƒ çömþöšîţéð ðéšçéñðåñţš. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen]"
+  },
+  "layer_viewer/LayerDetailsView.js | hasAMaskThatNeedsToBeKnownBy": {
+    "message": "[Ĥåš å måšķ ţĥåţ ñééðš ţö бé ķñöŵñ бý çömþöšîţöŕ бéçåûšé öƒ çömþöšîţéð ðéšçéñðåñţš. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen]"
+  },
+  "layer_viewer/LayerDetailsView.js | hasAPerspectiveTransformThat": {
+    "message": "[Ĥåš å þéŕšþéçţîvé ţŕåñšƒöŕm ţĥåţ ñééðš ţö бé ķñöŵñ бý çömþöšîţöŕ бéçåûšé öƒ 3ð ðéšçéñðåñţš. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen]"
+  },
+  "layer_viewer/LayerDetailsView.js | hasAPreservesdPropertyThatNeeds": {
+    "message": "[Ĥåš å þŕéšéŕvéš-3ð þŕöþéŕţý ţĥåţ ñééðš ţö бé ķñöŵñ бý çömþöšîţöŕ бéçåûšé öƒ 3ð ðéšçéñðåñţš. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen]"
+  },
+  "layer_viewer/LayerDetailsView.js | hasAReflectionThatNeedsToBeKnown": {
+    "message": "[Ĥåš å ŕéƒļéçţîöñ ţĥåţ ñééðš ţö бé ķñöŵñ бý çömþöšîţöŕ бéçåûšé öƒ çömþöšîţéð ðéšçéñðåñţš. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen]"
+  },
+  "layer_viewer/LayerDetailsView.js | hasAWillchangeCompositingHint": {
+    "message": "[Ĥåš å ŵîļļ-çĥåñĝé çömþöšîţîñĝ ĥîñţ öţĥéŕ ţĥåñ ţŕåñšƒöŕm åñð öþåçîţý. one two three four five six seven eight nine ten eleven twelve thirteen]"
+  },
+  "layer_viewer/LayerDetailsView.js | hasAWillchangeOpacityCompositing": {
+    "message": "[Ĥåš å ŵîļļ-çĥåñĝé: öþåçîţý çömþöšîţîñĝ ĥîñţ. one two three four five six seven eight nine]"
+  },
+  "layer_viewer/LayerDetailsView.js | hasAWillchangeTransform": {
+    "message": "[Ĥåš å ŵîļļ-çĥåñĝé: ţŕåñšƒöŕm çömþöšîţîñĝ ĥîñţ. one two three four five six seven eight nine ten]"
+  },
+  "layer_viewer/LayerDetailsView.js | hasAnActiveAcceleratedBackdrop": {
+    "message": "[Ĥåš åñ åçţîvé åççéļéŕåţéð бåçķðŕöþ ƒîļţéŕ åñîmåţîöñ öŕ ţŕåñšîţîöñ. one two three four five six seven eight nine ten eleven twelve thirteen]"
+  },
+  "layer_viewer/LayerDetailsView.js | hasAnActiveAcceleratedFilter": {
+    "message": "[Ĥåš åñ åçţîvé åççéļéŕåţéð ƒîļţéŕ åñîmåţîöñ öŕ ţŕåñšîţîöñ. one two three four five six seven eight nine ten eleven twelve]"
+  },
+  "layer_viewer/LayerDetailsView.js | hasAnActiveAcceleratedOpacity": {
+    "message": "[Ĥåš åñ åçţîvé åççéļéŕåţéð öþåçîţý åñîmåţîöñ öŕ ţŕåñšîţîöñ. one two three four five six seven eight nine ten eleven twelve]"
+  },
+  "layer_viewer/LayerDetailsView.js | hasAnActiveAcceleratedTransform": {
+    "message": "[Ĥåš åñ åçţîvé åççéļéŕåţéð ţŕåñšƒöŕm åñîmåţîöñ öŕ ţŕåñšîţîöñ. one two three four five six seven eight nine ten eleven twelve]"
+  },
+  "layer_viewer/LayerDetailsView.js | hasBackfacevisibilityHidden": {
+    "message": "[Ĥåš бåçķƒåçé-vîšîбîļîţý: ĥîððéñ. one two three four]"
+  },
+  "layer_viewer/LayerDetailsView.js | hasClippingAncestor": {
+    "message": "[Ĥåš çļîþþîñĝ åñçéšţöŕ. one two three]"
+  },
+  "layer_viewer/LayerDetailsView.js | hasOpacityThatNeedsToBeAppliedBy": {
+    "message": "[Ĥåš öþåçîţý ţĥåţ ñééðš ţö бé åþþļîéð бý çömþöšîţöŕ бéçåûšé öƒ çömþöšîţéð ðéšçéñðåñţš. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen]"
+  },
+  "layer_viewer/LayerDetailsView.js | isAPositionfixedElementWith": {
+    "message": "[Îš å þöšîţîöñ:ƒîxéð éļéméñţ ŵîţĥ çömþöšîţéð ðéšçéñðåñţš. one two three four five six seven eight nine ten eleven]"
+  },
+  "layer_viewer/LayerDetailsView.js | isAScrollableOverflowElement": {
+    "message": "[Îš å šçŕöļļåбļé övéŕƒļöŵ éļéméñţ. one two three four five six seven]"
+  },
+  "layer_viewer/LayerDetailsView.js | isAnAcceleratedCanvasOrIsA": {
+    "message": "[Îš åñ åççéļéŕåţéð çåñvåš, öŕ îš å ðîšþļåý ļîšţ бåçķéð çåñvåš ţĥåţ ŵåš þŕömöţéð ţö å ļåýéŕ бåšéð öñ å þéŕƒöŕmåñçé ĥéûŕîšţîç. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen]"
+  },
+  "layer_viewer/LayerDetailsView.js | isAnAcceleratedIframe": {
+    "message": "[Îš åñ åççéļéŕåţéð îFŕåmé. one two three four five six]"
+  },
+  "layer_viewer/LayerDetailsView.js | isAnAcceleratedPlugin": {
+    "message": "[Îš åñ åççéļéŕåţéð þļûĝîñ. one two three four five six]"
+  },
+  "layer_viewer/LayerDetailsView.js | isAnAcceleratedVideo": {
+    "message": "[Îš åñ åççéļéŕåţéð vîðéö. one two three four five]"
+  },
+  "layer_viewer/LayerDetailsView.js | isDomOverlayForWebxrImmersivear": {
+    "message": "[Îš ÐÖM övéŕļåý ƒöŕ ŴéбXŔ îmméŕšîvé-åŕ möðé. one two three four five six seven eight nine]"
+  },
+  "layer_viewer/LayerDetailsView.js | isFixedOrStickyPosition": {
+    "message": "[Îš ƒîxéð öŕ šţîçķý þöšîţîöñ. one two three four five six]"
+  },
+  "layer_viewer/LayerDetailsView.js | isOverlayControlsForVideo": {
+    "message": "[Îš övéŕļåý çöñţŕöļš ƒöŕ vîðéö. one two three four five six seven]"
+  },
+  "layer_viewer/LayerDetailsView.js | isTheDocumentrootscroller": {
+    "message": "[Îš ţĥé ðöçûméñţ.ŕööţŠçŕöļļéŕ. one two three four]"
+  },
+  "layer_viewer/LayerDetailsView.js | isTheRootLayer": {
+    "message": "[Îš ţĥé ŕööţ ļåýéŕ. one two three four]"
+  },
+  "layer_viewer/LayerDetailsView.js | layerForLinkHighlightFrame": {
+    "message": "[Ļåýéŕ ƒöŕ ļîñķ ĥîĝĥļîĝĥţ, ƒŕåmé övéŕļåý, éţç. one two three four five six seven eight nine]"
+  },
+  "layer_viewer/LayerDetailsView.js | layerPaintedOnTopOfOtherLayersAs": {
+    "message": "[Ļåýéŕ þåîñţéð öñ ţöþ öƒ öţĥéŕ ļåýéŕš åš ðéçöŕåţîöñ. one two three four five six seven eight nine ten eleven]"
+  },
+  "layer_viewer/LayerDetailsView.js | layerWasSeparatelyComposited": {
+    "message": "[Ļåýéŕ ŵåš šéþåŕåţéļý çömþöšîţéð бéçåûšé îţ çöûļð ñöţ бé šqûåšĥéð. one two three four five six seven eight nine ten eleven twelve thirteen]"
+  },
+  "layer_viewer/LayerDetailsView.js | mainThreadScrollingReason": {
+    "message": "[Måîñ ţĥŕéåð šçŕöļļîñĝ ŕéåšöñ one two three four five six]"
+  },
+  "layer_viewer/LayerDetailsView.js | memoryEstimate": {
+    "message": "[Mémöŕý éšţîmåţé one two]"
+  },
+  "layer_viewer/LayerDetailsView.js | mightOverlapOtherComposited": {
+    "message": "[Mîĝĥţ övéŕļåþ öţĥéŕ çömþöšîţéð çöñţéñţ. one two three four five six seven eight]"
+  },
+  "layer_viewer/LayerDetailsView.js | nearestLayerShiftingContaining": {
+    "message": "[Ñéåŕéšţ Ļåýéŕ Šĥîƒţîñĝ Çöñţåîñîñĝ Бļöçķ one two three four five six seven eight]"
+  },
+  "layer_viewer/LayerDetailsView.js | nearestLayerShiftingStickyBox": {
+    "message": "[Ñéåŕéšţ Ļåýéŕ Šĥîƒţîñĝ Šţîçķý Бöx one two three four five six seven]"
+  },
+  "layer_viewer/LayerDetailsView.js | nonFastScrollable": {
+    "message": "[Ñöñ ƒåšţ šçŕöļļåбļé one two three]"
+  },
+  "layer_viewer/LayerDetailsView.js | overlapsOtherCompositedContent": {
+    "message": "[Övéŕļåþš öţĥéŕ çömþöšîţéð çöñţéñţ. one two three four five six seven]"
+  },
+  "layer_viewer/LayerDetailsView.js | paintCount": {
+    "message": "[Þåîñţ çöûñţ one two]"
+  },
+  "layer_viewer/LayerDetailsView.js | paintProfiler": {
+    "message": "[Þåîñţ Þŕöƒîļéŕ one two]"
+  },
+  "layer_viewer/LayerDetailsView.js | parentWithCompositedNegative": {
+    "message": "[Þåŕéñţ ŵîţĥ çömþöšîţéð ñéĝåţîvé ž-îñðéx çöñţéñţ. one two three four five six seven eight nine ten]"
+  },
+  "layer_viewer/LayerDetailsView.js | repaintsOnScroll": {
+    "message": "[Ŕéþåîñţš öñ šçŕöļļ one two three]"
+  },
+  "layer_viewer/LayerDetailsView.js | scrollParentIsNotAnAncestor": {
+    "message": "[Šçŕöļļ þåŕéñţ îš ñöţ åñ åñçéšţöŕ. one two three four five six seven]"
+  },
+  "layer_viewer/LayerDetailsView.js | scrollRectangleDimensions": {
+    "message": "[ᐅ{PH1}ᐊ ᐅ{PH2}ᐊ × ᐅ{PH3}ᐊ (åţ ᐅ{PH4}ᐊ, ᐅ{PH5}ᐊ) one two three four five six]"
+  },
+  "layer_viewer/LayerDetailsView.js | secondaryLayerHomeForAGroupOf": {
+    "message": "[Šéçöñðåŕý ļåýéŕ, ĥömé ƒöŕ å ĝŕöûþ öƒ šqûåšĥåбļé çöñţéñţ. one two three four five six seven eight nine ten eleven]"
+  },
+  "layer_viewer/LayerDetailsView.js | secondaryLayerNoopLayerToPlace": {
+    "message": "[Šéçöñðåŕý ļåýéŕ, ñö-öþ ļåýéŕ ţö þļåçé ţĥé šqûåšĥîñĝ ļåýéŕ çöŕŕéçţļý îñ ţĥé çömþöšîţéð ļåýéŕ ţŕéé. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen]"
+  },
+  "layer_viewer/LayerDetailsView.js | secondaryLayerTheHorizontal": {
+    "message": "[Šéçöñðåŕý ļåýéŕ, ţĥé ĥöŕîžöñţåļ šçŕöļļбåŕ ļåýéŕ. one two three four five six seven eight nine ten]"
+  },
+  "layer_viewer/LayerDetailsView.js | secondaryLayerTheOverflow": {
+    "message": "[Šéçöñðåŕý ļåýéŕ, ţĥé övéŕƒļöŵ çöñţŕöļš ĥöšţ ļåýéŕ. one two three four five six seven eight nine ten eleven]"
+  },
+  "layer_viewer/LayerDetailsView.js | secondaryLayerTheScrollCorner": {
+    "message": "[Šéçöñðåŕý ļåýéŕ, ţĥé šçŕöļļ çöŕñéŕ ļåýéŕ. one two three four five six seven eight nine]"
+  },
+  "layer_viewer/LayerDetailsView.js | secondaryLayerTheVertical": {
+    "message": "[Šéçöñðåŕý ļåýéŕ, ţĥé véŕţîçåļ šçŕöļļбåŕ ļåýéŕ. one two three four five six seven eight nine ten]"
+  },
+  "layer_viewer/LayerDetailsView.js | secondaryLayerToContainAnyNormal": {
+    "message": "[Šéçöñðåŕý ļåýéŕ, ţö çöñţåîñ åñý ñöŕmåļ ƒļöŵ åñð þöšîţîvé ž-îñðéx çöñţéñţš öñ ţöþ öƒ å ñéĝåţîvé ž-îñðéx ļåýéŕ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen]"
+  },
+  "layer_viewer/LayerDetailsView.js | secondaryLayerToContainTheMask": {
+    "message": "[Šéçöñðåŕý ļåýéŕ, ţö çöñţåîñ ţĥé måšķ çöñţéñţš. one two three four five six seven eight nine ten]"
+  },
+  "layer_viewer/LayerDetailsView.js | secondaryLayerToHouseContents": {
+    "message": "[Šéçöñðåŕý ļåýéŕ, ţö ĥöûšé çöñţéñţš ţĥåţ çåñ бé šçŕöļļéð. one two three four five six seven eight nine ten eleven]"
+  },
+  "layer_viewer/LayerDetailsView.js | secondaryLayerUsedToPositionThe": {
+    "message": "[Šéçöñðåŕý ļåýéŕ, ûšéð ţö þöšîţîöñ ţĥé šçŕöļļîñĝ çöñţéñţš ŵĥîļé šçŕöļļîñĝ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen]"
+  },
+  "layer_viewer/LayerDetailsView.js | selectALayerToSeeItsDetails": {
+    "message": "[Šéļéçţ å ļåýéŕ ţö šéé îţš ðéţåîļš one two three four five six seven]"
+  },
+  "layer_viewer/LayerDetailsView.js | shouldIsolateDescendantsToApplyA": {
+    "message": "[Šĥöûļð îšöļåţé ðéšçéñðåñţš ţö åþþļý å бļéñð éƒƒéçţ. one two three four five six seven eight nine ten eleven]"
+  },
+  "layer_viewer/LayerDetailsView.js | size": {
+    "message": "[Šîžé one]"
+  },
+  "layer_viewer/LayerDetailsView.js | slowScrollRegions": {
+    "message": "[Šļöŵ šçŕöļļ ŕéĝîöñš one two three]"
+  },
+  "layer_viewer/LayerDetailsView.js | stickyAncenstorLayersS": {
+    "message": "[ᐅ{PH1}ᐊ: ᐅ{PH2}ᐊ (ᐅ{PH3}ᐊ) one two three]"
+  },
+  "layer_viewer/LayerDetailsView.js | stickyBoxRectangleDimensions": {
+    "message": "[Šţîçķý Бöx ᐅ{PH1}ᐊ × ᐅ{PH2}ᐊ (åţ ᐅ{PH3}ᐊ, ᐅ{PH4}ᐊ) one two three four five six seven]"
+  },
+  "layer_viewer/LayerDetailsView.js | stickyPositionConstraint": {
+    "message": "[Šţîçķý þöšîţîöñ çöñšţŕåîñţ one two three]"
+  },
+  "layer_viewer/LayerDetailsView.js | touchEventHandler": {
+    "message": "[Ţöûçĥ évéñţ ĥåñðļéŕ one two three]"
+  },
+  "layer_viewer/LayerDetailsView.js | unnamed": {
+    "message": "[<unnamed>]"
+  },
+  "layer_viewer/LayerDetailsView.js | updateRectangleDimensions": {
+    "message": "[ᐅ{PH1}ᐊ × ᐅ{PH2}ᐊ (åţ ᐅ{PH3}ᐊ,ᐅ{PH4}ᐊ) one two three four five]"
+  },
+  "layer_viewer/LayerDetailsView.js | wheelEventHandler": {
+    "message": "[Ŵĥééļ évéñţ ĥåñðļéŕ one two three]"
+  },
+  "layer_viewer/LayerTreeOutline.js | layersTreePane": {
+    "message": "[Ļåýéŕš Ţŕéé Þåñé one two]"
+  },
+  "layer_viewer/LayerTreeOutline.js | showPaintProfiler": {
+    "message": "[Šĥöŵ Þåîñţ Þŕöƒîļéŕ one two three]"
+  },
+  "layer_viewer/LayerTreeOutline.js | updateChildDimension": {
+    "message": "[ (ᐅ{PH1}ᐊ × ᐅ{PH2}ᐊ) one two three]"
+  },
+  "layer_viewer/LayerViewHost.js | showInternalLayers": {
+    "message": "[Šĥöŵ îñţéŕñåļ ļåýéŕš one two three]"
+  },
+  "layer_viewer/Layers3DView.js | cantDisplayLayers": {
+    "message": "[Çåñ'ţ ðîšþļåý ļåýéŕš, one two three]"
+  },
+  "layer_viewer/Layers3DView.js | checkSForPossibleReasons": {
+    "message": "[Çĥéçķ ᐅ{PH1}ᐊ ƒöŕ þöššîбļé ŕéåšöñš. one two three four five six seven]"
+  },
+  "layer_viewer/Layers3DView.js | dLayersView": {
+    "message": "[3Ð Ļåýéŕš Vîéŵ one two]"
+  },
+  "layer_viewer/Layers3DView.js | layerInformationIsNotYet": {
+    "message": "[Ļåýéŕ îñƒöŕmåţîöñ îš ñöţ ýéţ åvåîļåбļé. one two three four five six seven eight]"
+  },
+  "layer_viewer/Layers3DView.js | mousewheelEventListener": {
+    "message": "[möûšéŵĥééļ évéñţ ļîšţéñéŕ one two three]"
+  },
+  "layer_viewer/Layers3DView.js | paints": {
+    "message": "[Þåîñţš one]"
+  },
+  "layer_viewer/Layers3DView.js | repaintsOnScroll": {
+    "message": "[ŕéþåîñţš öñ šçŕöļļ one two three]"
+  },
+  "layer_viewer/Layers3DView.js | resetView": {
+    "message": "[Ŕéšéţ Vîéŵ one two]"
+  },
+  "layer_viewer/Layers3DView.js | showPaintProfiler": {
+    "message": "[Šĥöŵ Þåîñţ Þŕöƒîļéŕ one two three]"
+  },
+  "layer_viewer/Layers3DView.js | slowScrollRects": {
+    "message": "[Šļöŵ šçŕöļļ ŕéçţš one two three]"
+  },
+  "layer_viewer/Layers3DView.js | touchEventListener": {
+    "message": "[ţöûçĥ évéñţ ļîšţéñéŕ one two three]"
+  },
+  "layer_viewer/Layers3DView.js | webglSupportIsDisabledInYour": {
+    "message": "[ŴéбĜĻ šûþþöŕţ îš ðîšåбļéð îñ ýöûŕ бŕöŵšéŕ. one two three four five six seven eight nine]"
+  },
+  "layer_viewer/ModuleUIStrings.js | layers": {
+    "message": "[Ļåýéŕš one]"
+  },
+  "layer_viewer/ModuleUIStrings.js | panOrRotateDown": {
+    "message": "[Þåñ öŕ ŕöţåţé ðöŵñ one two three four]"
+  },
+  "layer_viewer/ModuleUIStrings.js | panOrRotateLeft": {
+    "message": "[Þåñ öŕ ŕöţåţé ļéƒţ one two three four]"
+  },
+  "layer_viewer/ModuleUIStrings.js | panOrRotateRight": {
+    "message": "[Þåñ öŕ ŕöţåţé ŕîĝĥţ one two three four]"
+  },
+  "layer_viewer/ModuleUIStrings.js | panOrRotateUp": {
+    "message": "[Þåñ öŕ ŕöţåţé ûþ one two three four]"
+  },
+  "layer_viewer/ModuleUIStrings.js | resetView": {
+    "message": "[Ŕéšéţ vîéŵ one two]"
+  },
+  "layer_viewer/ModuleUIStrings.js | switchToPanMode": {
+    "message": "[Šŵîţçĥ ţö þåñ möðé one two three four]"
+  },
+  "layer_viewer/ModuleUIStrings.js | switchToRotateMode": {
+    "message": "[Šŵîţçĥ ţö ŕöţåţé möðé one two three four five]"
+  },
+  "layer_viewer/ModuleUIStrings.js | zoomIn": {
+    "message": "[Žööm îñ one]"
+  },
+  "layer_viewer/ModuleUIStrings.js | zoomOut": {
+    "message": "[Žööm öûţ one]"
+  },
+  "layer_viewer/PaintProfilerView.js | bitmap": {
+    "message": "[Бîţmåþ one]"
+  },
+  "layer_viewer/PaintProfilerView.js | commandLog": {
+    "message": "[Çömmåñð Ļöĝ one two]"
+  },
+  "layer_viewer/PaintProfilerView.js | misc": {
+    "message": "[Mîšç one]"
+  },
+  "layer_viewer/PaintProfilerView.js | profiling": {
+    "message": "[Þŕöƒîļîñĝ… one two]"
+  },
+  "layer_viewer/PaintProfilerView.js | profilingResults": {
+    "message": "[Þŕöƒîļîñĝ ŕéšûļţš one two three]"
+  },
+  "layer_viewer/PaintProfilerView.js | shapes": {
+    "message": "[Šĥåþéš one]"
+  },
+  "layer_viewer/PaintProfilerView.js | text": {
+    "message": "[Ţéxţ one]"
+  },
+  "layer_viewer/TransformController.js | panModeX": {
+    "message": "[Þåñ möðé (X) one two]"
+  },
+  "layer_viewer/TransformController.js | resetTransform": {
+    "message": "[Ŕéšéţ ţŕåñšƒöŕm (0) one two three]"
+  },
+  "layer_viewer/TransformController.js | rotateModeV": {
+    "message": "[Ŕöţåţé möðé (V) one two]"
+  },
+  "layers/LayersPanel.js | details": {
+    "message": "[Ðéţåîļš one]"
+  },
+  "layers/LayersPanel.js | profiler": {
+    "message": "[Þŕöƒîļéŕ one]"
+  },
+  "layers/ModuleUIStrings.js | layers": {
+    "message": "[Ļåýéŕš one]"
+  },
+  "lighthouse/LighthouseController.js | accessibility": {
+    "message": "[Åççéššîбîļîţý one two]"
+  },
+  "lighthouse/LighthouseController.js | applyMobileEmulation": {
+    "message": "[Åþþļý möбîļé émûļåţîöñ one two three]"
+  },
+  "lighthouse/LighthouseController.js | applyMobileEmulationDuring": {
+    "message": "[Åþþļý möбîļé émûļåţîöñ ðûŕîñĝ åûðîţîñĝ one two three four five six seven eight]"
+  },
+  "lighthouse/LighthouseController.js | atLeastOneCategoryMustBeSelected": {
+    "message": "[Åţ ļéåšţ öñé çåţéĝöŕý mûšţ бé šéļéçţéð. one two three four five six seven eight]"
+  },
+  "lighthouse/LighthouseController.js | bestPractices": {
+    "message": "[Бéšţ þŕåçţîçéš one two]"
+  },
+  "lighthouse/LighthouseController.js | canOnlyAuditHttphttpsPagesAnd": {
+    "message": "[Çåñ öñļý åûðîţ ĤŢŢÞ/ĤŢŢÞŠ þåĝéš åñð ᐅChromeᐊ éxţéñšîöñš. Ñåvîĝåţé ţö å ðîƒƒéŕéñţ þåĝé ţö šţåŕţ åñ åûðîţ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen]"
+  },
+  "lighthouse/LighthouseController.js | clearStorage": {
+    "message": "[Çļéåŕ šţöŕåĝé one two]"
+  },
+  "lighthouse/LighthouseController.js | desktop": {
+    "message": "[Ðéšķţöþ one]"
+  },
+  "lighthouse/LighthouseController.js | doesThisPageFollowBestPractices": {
+    "message": "[Ðöéš ţĥîš þåĝé ƒöļļöŵ бéšţ þŕåçţîçéš ƒöŕ möðéŕñ ŵéб ðévéļöþméñţ one two three four five six seven eight nine ten eleven twelve]"
+  },
+  "lighthouse/LighthouseController.js | doesThisPageMeetTheStandardOfA": {
+    "message": "[Ðöéš ţĥîš þåĝé mééţ ţĥé šţåñðåŕð öƒ å Þŕöĝŕéššîvé Ŵéб Åþþ one two three four five six seven eight nine ten eleven twelve]"
+  },
+  "lighthouse/LighthouseController.js | howLongDoesThisAppTakeToShow": {
+    "message": "[Ĥöŵ ļöñĝ ðöéš ţĥîš åþþ ţåķé ţö šĥöŵ çöñţéñţ åñð бéçömé ûšåбļé one two three four five six seven eight nine ten eleven twelve]"
+  },
+  "lighthouse/LighthouseController.js | indexeddb": {
+    "message": "[ÎñðéxéðÐБ one two]"
+  },
+  "lighthouse/LighthouseController.js | isThisPageOptimizedForAdSpeedAnd": {
+    "message": "[Îš ţĥîš þåĝé öþţîmîžéð ƒöŕ åð šþééð åñð qûåļîţý one two three four five six seven eight nine ten]"
+  },
+  "lighthouse/LighthouseController.js | isThisPageOptimizedForSearch": {
+    "message": "[Îš ţĥîš þåĝé öþţîmîžéð ƒöŕ šéåŕçĥ éñĝîñé ŕéšûļţš ŕåñķîñĝ one two three four five six seven eight nine ten eleven]"
+  },
+  "lighthouse/LighthouseController.js | isThisPageUsableByPeopleWith": {
+    "message": "[Îš ţĥîš þåĝé ûšåбļé бý þéöþļé ŵîţĥ ðîšåбîļîţîéš öŕ îmþåîŕméñţš one two three four five six seven eight nine ten eleven twelve]"
+  },
+  "lighthouse/LighthouseController.js | localStorage": {
+    "message": "[Ļöçåļ Šţöŕåĝé one two]"
+  },
+  "lighthouse/LighthouseController.js | mobile": {
+    "message": "[Möбîļé one]"
+  },
+  "lighthouse/LighthouseController.js | multipleTabsAreBeingControlledBy": {
+    "message": "[Mûļţîþļé ţåбš åŕé бéîñĝ çöñţŕöļļéð бý ţĥé šåmé ᐅservice workerᐊ. Çļöšé ýöûŕ öţĥéŕ ţåбš öñ ţĥé šåmé öŕîĝîñ ţö åûðîţ ţĥîš þåĝé. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen]"
+  },
+  "lighthouse/LighthouseController.js | performance": {
+    "message": "[Þéŕƒöŕmåñçé one two]"
+  },
+  "lighthouse/LighthouseController.js | progressiveWebApp": {
+    "message": "[Þŕöĝŕéššîvé Ŵéб Åþþ one two three]"
+  },
+  "lighthouse/LighthouseController.js | publisherAds": {
+    "message": "[Þûбļîšĥéŕ Åðš one two]"
+  },
+  "lighthouse/LighthouseController.js | resetStorageLocalstorage": {
+    "message": "[Ŕéšéţ šţöŕåĝé (ļöçåļŠţöŕåĝé, ÎñðéxéðÐБ, éţç) бéƒöŕé åûðîţîñĝ. (Ĝööð ƒöŕ þéŕƒöŕmåñçé & ÞŴÅ ţéšţîñĝ) one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen]"
+  },
+  "lighthouse/LighthouseController.js | seo": {
+    "message": "[ŠÉÖ one]"
+  },
+  "lighthouse/LighthouseController.js | simulateASlowerPageLoadBasedOn": {
+    "message": "[Šîmûļåţé å šļöŵéŕ þåĝé ļöåð, бåšéð öñ ðåţå ƒŕöm åñ îñîţîåļ ûñţĥŕöţţļéð ļöåð. Îƒ ðîšåбļéð, ţĥé þåĝé îš åçţûåļļý šļöŵéð ŵîţĥ åþþļîéð ţĥŕöţţļîñĝ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone]"
+  },
+  "lighthouse/LighthouseController.js | simulatedThrottling": {
+    "message": "[Šîmûļåţéð ţĥŕöţţļîñĝ one two three]"
+  },
+  "lighthouse/LighthouseController.js | thereMayBeStoredDataAffectingLoadingPlural": {
+    "message": "[Ţĥéŕé måý бé šţöŕéð ðåţå åƒƒéçţîñĝ ļöåðîñĝ þéŕƒöŕmåñçé îñ ţĥéšé ļöçåţîöñš: ᐅ{PH1}ᐊ. Åûðîţ ţĥîš þåĝé îñ åñ îñçöĝñîţö ŵîñðöŵ ţö þŕévéñţ ţĥöšé ŕéšöûŕçéš ƒŕöm åƒƒéçţîñĝ ýöûŕ šçöŕéš. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone twentytwo twentythree twentyfour]"
+  },
+  "lighthouse/LighthouseController.js | thereMayBeStoredDataAffectingSingular": {
+    "message": "[Ţĥéŕé måý бé šţöŕéð ðåţå åƒƒéçţîñĝ ļöåðîñĝ þéŕƒöŕmåñçé îñ ţĥîš ļöçåţîöñ: ᐅ{PH1}ᐊ. Åûðîţ ţĥîš þåĝé îñ åñ îñçöĝñîţö ŵîñðöŵ ţö þŕévéñţ ţĥöšé ŕéšöûŕçéš ƒŕöm åƒƒéçţîñĝ ýöûŕ šçöŕéš. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone twentytwo twentythree twentyfour]"
+  },
+  "lighthouse/LighthouseController.js | webSql": {
+    "message": "[Ŵéб ŠQĻ one]"
+  },
+  "lighthouse/LighthousePanel.js | cancelling": {
+    "message": "[Çåñçéļļîñĝ one two]"
+  },
+  "lighthouse/LighthousePanel.js | clearAll": {
+    "message": "[Çļéåŕ åļļ one two]"
+  },
+  "lighthouse/LighthousePanel.js | dropLighthouseJsonHere": {
+    "message": "[Ðŕöþ ᐅLighthouseᐊ ĴŠÖÑ ĥéŕé one two three four]"
+  },
+  "lighthouse/LighthousePanel.js | lighthouseSettings": {
+    "message": "[ᐅLighthouseᐊ šéţţîñĝš one two three]"
+  },
+  "lighthouse/LighthousePanel.js | performAnAudit": {
+    "message": "[Þéŕƒöŕm åñ åûðîţ… one two three]"
+  },
+  "lighthouse/LighthousePanel.js | printing": {
+    "message": "[Þŕîñţîñĝ one]"
+  },
+  "lighthouse/LighthousePanel.js | thePrintPopupWindowIsOpenPlease": {
+    "message": "[Ţĥé þŕîñţ þöþûþ ŵîñðöŵ îš öþéñ. Þļéåšé çļöšé îţ ţö çöñţîñûé. one two three four five six seven eight nine ten eleven twelve]"
+  },
+  "lighthouse/LighthouseReportRenderer.js | thePerformanceMetricsAboveAre": {
+    "message": "[Ţĥé þéŕƒöŕmåñçé méţŕîçš åбövé åŕé šîmûļåţéð åñð ŵöñ'ţ måţçĥ ţĥé ţîmîñĝš ƒöûñð îñ ţĥîš ţŕåçé. Ðîšåбļé šîmûļåţéð ţĥŕöţţļîñĝ îñ \"Ļîĝĥţĥöûšé Šéţţîñĝš\" îƒ ýöû ŵåñţ ţĥé ţîmîñĝš ţö måţçĥ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone twentytwo twentythree twentyfour twentyfive]"
+  },
+  "lighthouse/LighthouseReportRenderer.js | viewOriginalTrace": {
+    "message": "[Vîéŵ Öŕîĝîñåļ Ţŕåçé one two three]"
+  },
+  "lighthouse/LighthouseReportRenderer.js | viewTrace": {
+    "message": "[Vîéŵ Ţŕåçé one two]"
+  },
+  "lighthouse/LighthouseReportSelector.js | newReport": {
+    "message": "[(ñéŵ ŕéþöŕţ) one two]"
+  },
+  "lighthouse/LighthouseReportSelector.js | reports": {
+    "message": "[Ŕéþöŕţš one]"
+  },
+  "lighthouse/LighthouseStartView.js | categories": {
+    "message": "[Çåţéĝöŕîéš one two]"
+  },
+  "lighthouse/LighthouseStartView.js | communityPluginsBeta": {
+    "message": "[Çömmûñîţý Þļûĝîñš (бéţå) one two three]"
+  },
+  "lighthouse/LighthouseStartView.js | device": {
+    "message": "[Ðévîçé one]"
+  },
+  "lighthouse/LighthouseStartView.js | generateReport": {
+    "message": "[Ĝéñéŕåţé ŕéþöŕţ one two]"
+  },
+  "lighthouse/LighthouseStartView.js | identifyAndFixCommonProblemsThat": {
+    "message": "[Îðéñţîƒý åñð ƒîx çömmöñ þŕöбļémš ţĥåţ åƒƒéçţ ýöûŕ šîţé'š þéŕƒöŕmåñçé, åççéššîбîļîţý, åñð ûšéŕ éxþéŕîéñçé. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen]"
+  },
+  "lighthouse/LighthouseStartView.js | learnMore": {
+    "message": "[Ļéåŕñ möŕé one two]"
+  },
+  "lighthouse/LighthouseStatusView.js | OfGlobalMobileUsersInWereOnGOrG": {
+    "message": "[75% oƒ ĝļöбåļ möбîļé ûšéŕš îñ 2016 ŵéŕé öñ 2Ĝ öŕ 3Ĝ [Šöûŕçé: ᐅGSMA Mobileᐊ] one two three four five six seven eight nine ten eleven twelve thirteen]"
+  },
+  "lighthouse/LighthouseStatusView.js | OfMobilePagesTakeNearlySeconds": {
+    "message": "[70% oƒ möбîļé þåĝéš ţåķé ñéåŕļý 7 šéçöñðš ƒöŕ ţĥé vîšûåļ çöñţéñţ åбövé ţĥé ƒöļð ţö ðîšþļåý öñ ţĥé šçŕééñ. [Šöûŕçé: ᐅThink with Googleᐊ] one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen]"
+  },
+  "lighthouse/LighthouseStatusView.js | SecondsIsTheAverageTimeAMobile": {
+    "message": "[19 šéçöñðš îš ţĥé åvéŕåĝé ţîmé å möбîļé ŵéб þåĝé ţåķéš ţö ļöåð öñ å 3Ĝ çöññéçţîöñ [Šöûŕçé: ᐅGoogle DoubleClick blogᐊ] one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen]"
+  },
+  "lighthouse/LighthouseStatusView.js | ahSorryWeRanIntoAnError": {
+    "message": "[Åĥ, šöŕŕý¡ Ŵé ŕåñ îñţö åñ éŕŕöŕ. one two three four five six seven]"
+  },
+  "lighthouse/LighthouseStatusView.js | almostThereLighthouseIsNow": {
+    "message": "[Åļmöšţ ţĥéŕé¡ ᐅLighthouseᐊ îš ñöŵ ĝéñéŕåţîñĝ ýöûŕ ŕéþöŕţ. one two three four five six seven eight nine ten]"
+  },
+  "lighthouse/LighthouseStatusView.js | asPageLoadTimeIncreasesFromOne": {
+    "message": "[Åš þåĝé ļöåð ţîmé îñçŕéåšéš ƒŕöm öñé šéçöñð ţö šévéñ šéçöñðš, ţĥé þŕöбåбîļîţý öƒ å möбîļé šîţé vîšîţöŕ бöûñçîñĝ îñçŕéåšéš 113%. [Šöûŕçé: ᐅThink with Googleᐊ] one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone]"
+  },
+  "lighthouse/LighthouseStatusView.js | asTheNumberOfElementsOnAPage": {
+    "message": "[Åš ţĥé ñûmбéŕ öƒ éļéméñţš öñ å þåĝé îñçŕéåšéš ƒŕöm 400 ţö 6,000, ţĥé þŕöбåбîļîţý öƒ çöñvéŕšîöñ ðŕöþš 95%. [Šöûŕçé: ᐅThink with Googleᐊ] one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen]"
+  },
+  "lighthouse/LighthouseStatusView.js | auditingS": {
+    "message": "[Åûðîţîñĝ ᐅ{PH1}ᐊ one two three]"
+  },
+  "lighthouse/LighthouseStatusView.js | auditingYourWebPage": {
+    "message": "[Åûðîţîñĝ ýöûŕ ŵéб þåĝé one two three four five]"
+  },
+  "lighthouse/LighthouseStatusView.js | byReducingTheResponseSizeOfJson": {
+    "message": "[Бý ŕéðûçîñĝ ţĥé ŕéšþöñšé šîžé öƒ ĴŠÖÑ ñééðéð ƒöŕ ðîšþļåýîñĝ çömméñţš, Îñšţåĝŕåm šåŵ îñçŕéåšéð îmþŕéššîöñš [Šöûŕçé: ᐅWPO Statsᐊ] one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen]"
+  },
+  "lighthouse/LighthouseStatusView.js | cancel": {
+    "message": "[Çåñçéļ one]"
+  },
+  "lighthouse/LighthouseStatusView.js | cancelling": {
+    "message": "[Çåñçéļļîñĝ… one two]"
+  },
+  "lighthouse/LighthouseStatusView.js | fastFactMessageWithPlaceholder": {
+    "message": "[💡 ᐅ{PH1}ᐊ one two]"
+  },
+  "lighthouse/LighthouseStatusView.js | ifASiteTakesSecondToBecome": {
+    "message": "[Îƒ å šîţé ţåķéš >1 šéçöñð ţö бéçömé îñţéŕåçţîvé, ûšéŕš ļöšé åţţéñţîöñ, åñð ţĥéîŕ þéŕçéþţîöñ öƒ çömþļéţîñĝ ţĥé þåĝé ţåšķ îš бŕöķéñ [Šöûŕçé: ᐅGoogle Developers Blogᐊ] one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone twentytwo]"
+  },
+  "lighthouse/LighthouseStatusView.js | ifThisIssueIsReproduciblePlease": {
+    "message": "[Îƒ ţĥîš îššûé îš ŕéþŕöðûçîбļé, þļéåšé ŕéþöŕţ îţ åţ ţĥé ᐅLighthouseᐊ ᐅGitHubᐊ ŕéþö. one two three four five six seven eight nine ten eleven twelve thirteen]"
+  },
+  "lighthouse/LighthouseStatusView.js | lighthouseIsGatheringInformation": {
+    "message": "[ᐅLighthouseᐊ îš ĝåţĥéŕîñĝ îñƒöŕmåţîöñ åбöûţ ţĥé þåĝé ţö çömþûţé ýöûŕ šçöŕé. one two three four five six seven eight nine ten eleven twelve thirteen]"
+  },
+  "lighthouse/LighthouseStatusView.js | lighthouseIsLoadingThePage": {
+    "message": "[Ļîĝĥţĥöûšé îš ļöåðîñĝ ţĥé þåĝé. one two three four five six seven]"
+  },
+  "lighthouse/LighthouseStatusView.js | lighthouseIsLoadingYourPage": {
+    "message": "[ᐅLighthouseᐊ îš ļöåðîñĝ ýöûŕ þåĝé one two three four five]"
+  },
+  "lighthouse/LighthouseStatusView.js | lighthouseIsLoadingYourPageWith": {
+    "message": "[ᐅLighthouseᐊ îš ļöåðîñĝ ýöûŕ þåĝé ŵîţĥ ţĥŕöţţļîñĝ ţö méåšûŕé þéŕƒöŕmåñçé öñ å möбîļé ðévîçé öñ 3Ĝ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen]"
+  },
+  "lighthouse/LighthouseStatusView.js | lighthouseIsLoadingYourPageWithMobile": {
+    "message": "[ᐅLighthouseᐊ îš ļöåðîñĝ ýöûŕ þåĝé ŵîţĥ möбîļé émûļåţîöñ. one two three four five six seven eight nine ten]"
+  },
+  "lighthouse/LighthouseStatusView.js | lighthouseIsLoadingYourPageWithThrottling": {
+    "message": "[ᐅLighthouseᐊ îš ļöåðîñĝ ýöûŕ þåĝé ŵîţĥ ţĥŕöţţļîñĝ ţö méåšûŕé þéŕƒöŕmåñçé öñ å šļöŵ ðéšķţöþ öñ 3Ĝ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen]"
+  },
+  "lighthouse/LighthouseStatusView.js | lighthouseIsWarmingUp": {
+    "message": "[ᐅLighthouseᐊ îš ŵåŕmîñĝ ûþ… one two three four]"
+  },
+  "lighthouse/LighthouseStatusView.js | lighthouseOnlySimulatesMobile": {
+    "message": "[ᐅLighthouseᐊ öñļý šîmûļåţéš möбîļé þéŕƒöŕmåñçé; ţö méåšûŕé þéŕƒöŕmåñçé öñ å ŕéåļ ðévîçé, ţŕý ŴéбÞåĝéŢéšţ.öŕĝ [Šöûŕçé: ᐅLighthouseᐊ ţéåm] one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen]"
+  },
+  "lighthouse/LighthouseStatusView.js | loading": {
+    "message": "[Ļöåðîñĝ… one]"
+  },
+  "lighthouse/LighthouseStatusView.js | mbTakesAMinimumOfSecondsTo": {
+    "message": "[1MБ ţåķéš å mîñîmûm öƒ 5 šéçöñðš ţö ðöŵñļöåð öñ å ţýþîçåļ 3Ĝ çöññéçţîöñ [Šöûŕçé: ᐅWebPageTestᐊ åñð ᐅDevToolsᐊ 3Ĝ ðéƒîñîţîöñ]. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen]"
+  },
+  "lighthouse/LighthouseStatusView.js | rebuildingPinterestPagesFor": {
+    "message": "[Ŕéбûîļðîñĝ Þîñţéŕéšţ þåĝéš ƒöŕ þéŕƒöŕmåñçé îñçŕéåšéð çöñvéŕšîöñ ŕåţéš бý 15% [Šöûŕçé: ᐅWPO Statsᐊ] one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen]"
+  },
+  "lighthouse/LighthouseStatusView.js | theAverageUserDeviceCostsLess": {
+    "message": "[Ţĥé åvéŕåĝé ûšéŕ ðévîçé çöšţš ļéšš ţĥåñ 200 ÛŠÐ. [Šöûŕçé: ᐅInternational Data Corporationᐊ] one two three four five six seven eight nine ten eleven twelve]"
+  },
+  "lighthouse/LighthouseStatusView.js | tryToNavigateToTheUrlInAFresh": {
+    "message": "[Ţŕý ţö ñåvîĝåţé ţö ţĥé ÛŔĻ îñ å ƒŕéšĥ ᐅChromeᐊ þŕöƒîļé ŵîţĥöûţ åñý öţĥéŕ ţåбš öŕ éxţéñšîöñš öþéñ åñð ţŕý åĝåîñ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen]"
+  },
+  "lighthouse/LighthouseStatusView.js | walmartSawAIncreaseInRevenueFor": {
+    "message": "[Ŵåļmåŕţ šåŵ å 1% îñçŕéåšé îñ ŕévéñûé ƒöŕ évéŕý 100mš îmþŕövéméñţ îñ þåĝé ļöåð [Šöûŕçé: ᐅWPO Statsᐊ] one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen]"
+  },
+  "lighthouse/ModuleUIStrings.js | pwa": {
+    "message": "[þŵå one]"
+  },
+  "media/EventDisplayTable.js | eventDisplay": {
+    "message": "[Évéñţ ðîšþļåý one two]"
+  },
+  "media/EventDisplayTable.js | eventName": {
+    "message": "[Évéñţ ñåmé one two]"
+  },
+  "media/EventDisplayTable.js | timestamp": {
+    "message": "[Ţîméšţåmþ one two]"
+  },
+  "media/EventDisplayTable.js | value": {
+    "message": "[Våļûé one]"
+  },
+  "media/EventTimelineView.js | bufferingStatus": {
+    "message": "[Бûƒƒéŕîñĝ Šţåţûš one two]"
+  },
+  "media/EventTimelineView.js | playbackStatus": {
+    "message": "[Þļåýбåçķ Šţåţûš one two]"
+  },
+  "media/ModuleUIStrings.js | media": {
+    "message": "[Méðîå one]"
+  },
+  "media/ModuleUIStrings.js | video": {
+    "message": "[vîðéö one]"
+  },
+  "media/PlayerDetailView.js | events": {
+    "message": "[Évéñţš one]"
+  },
+  "media/PlayerDetailView.js | messages": {
+    "message": "[Méššåĝéš one]"
+  },
+  "media/PlayerDetailView.js | playerEvents": {
+    "message": "[Þļåýéŕ évéñţš one two]"
+  },
+  "media/PlayerDetailView.js | playerMessages": {
+    "message": "[Þļåýéŕ méššåĝéš one two]"
+  },
+  "media/PlayerDetailView.js | playerProperties": {
+    "message": "[Þļåýéŕ þŕöþéŕţîéš one two three]"
+  },
+  "media/PlayerDetailView.js | playerTimeline": {
+    "message": "[Þļåýéŕ ţîméļîñé one two]"
+  },
+  "media/PlayerDetailView.js | properties": {
+    "message": "[Þŕöþéŕţîéš one two]"
+  },
+  "media/PlayerDetailView.js | timeline": {
+    "message": "[Ţîméļîñé one]"
+  },
+  "media/PlayerListView.js | hideAllOthers": {
+    "message": "[Ĥîðé åļļ öţĥéŕš one two]"
+  },
+  "media/PlayerListView.js | hidePlayer": {
+    "message": "[Ĥîðé þļåýéŕ one two]"
+  },
+  "media/PlayerListView.js | players": {
+    "message": "[Þļåýéŕš one]"
+  },
+  "media/PlayerListView.js | savePlayerInfo": {
+    "message": "[Šåvé þļåýéŕ îñƒö one two]"
+  },
+  "media/PlayerMessagesView.js | all": {
+    "message": "[Åļļ one]"
+  },
+  "media/PlayerMessagesView.js | custom": {
+    "message": "[Çûšţöm one]"
+  },
+  "media/PlayerMessagesView.js | debug": {
+    "message": "[Ðéбûĝ one]"
+  },
+  "media/PlayerMessagesView.js | default": {
+    "message": "[Ðéƒåûļţ one]"
+  },
+  "media/PlayerMessagesView.js | error": {
+    "message": "[Éŕŕöŕ one]"
+  },
+  "media/PlayerMessagesView.js | filterLogMessages": {
+    "message": "[Fîļţéŕ ļöĝ méššåĝéš one two three]"
+  },
+  "media/PlayerMessagesView.js | info": {
+    "message": "[Îñƒö one]"
+  },
+  "media/PlayerMessagesView.js | logLevel": {
+    "message": "[Ļöĝ ļévéļ: one two]"
+  },
+  "media/PlayerMessagesView.js | warning": {
+    "message": "[Ŵåŕñîñĝ one]"
+  },
+  "media/PlayerPropertiesView.js | audio": {
+    "message": "[Åûðîö one]"
+  },
+  "media/PlayerPropertiesView.js | bitrate": {
+    "message": "[Бîţŕåţé one]"
+  },
+  "media/PlayerPropertiesView.js | decoder": {
+    "message": "[Ðéçöðéŕ one]"
+  },
+  "media/PlayerPropertiesView.js | decoderName": {
+    "message": "[Ðéçöðéŕ ñåmé one two]"
+  },
+  "media/PlayerPropertiesView.js | decryptingDemuxer": {
+    "message": "[Ðéçŕýþţîñĝ ðémûxéŕ one two three]"
+  },
+  "media/PlayerPropertiesView.js | duration": {
+    "message": "[Ðûŕåţîöñ one]"
+  },
+  "media/PlayerPropertiesView.js | encoderName": {
+    "message": "[Éñçöðéŕ ñåmé one two]"
+  },
+  "media/PlayerPropertiesView.js | fileSize": {
+    "message": "[Fîļé šîžé one two]"
+  },
+  "media/PlayerPropertiesView.js | frameRate": {
+    "message": "[Fŕåmé ŕåţé one two]"
+  },
+  "media/PlayerPropertiesView.js | hardwareDecoder": {
+    "message": "[Ĥåŕðŵåŕé ðéçöðéŕ one two]"
+  },
+  "media/PlayerPropertiesView.js | hardwareEncoder": {
+    "message": "[Ĥåŕðŵåŕé éñçöðéŕ one two]"
+  },
+  "media/PlayerPropertiesView.js | noDecoder": {
+    "message": "[Ñö ðéçöðéŕ one two]"
+  },
+  "media/PlayerPropertiesView.js | noEncoder": {
+    "message": "[Ñö éñçöðéŕ one two]"
+  },
+  "media/PlayerPropertiesView.js | noTextTracks": {
+    "message": "[Ñö ţéxţ ţŕåçķš one two]"
+  },
+  "media/PlayerPropertiesView.js | playbackFrameTitle": {
+    "message": "[Þļåýбåçķ ƒŕåmé ţîţļé one two three]"
+  },
+  "media/PlayerPropertiesView.js | playbackFrameUrl": {
+    "message": "[Þļåýбåçķ ƒŕåmé ÛŔĻ one two three]"
+  },
+  "media/PlayerPropertiesView.js | properties": {
+    "message": "[Þŕöþéŕţîéš one two]"
+  },
+  "media/PlayerPropertiesView.js | rangeHeaderSupport": {
+    "message": "[Ŕåñĝé ĥéåðéŕ šûþþöŕţ one two three]"
+  },
+  "media/PlayerPropertiesView.js | resolution": {
+    "message": "[Ŕéšöļûţîöñ one two]"
+  },
+  "media/PlayerPropertiesView.js | singleoriginPlayback": {
+    "message": "[Šîñĝļé-öŕîĝîñ þļåýбåçķ one two three]"
+  },
+  "media/PlayerPropertiesView.js | startTime": {
+    "message": "[Šţåŕţ ţîmé one two]"
+  },
+  "media/PlayerPropertiesView.js | streaming": {
+    "message": "[Šţŕéåmîñĝ one two]"
+  },
+  "media/PlayerPropertiesView.js | textTrack": {
+    "message": "[Ţéxţ ţŕåçķ one two]"
+  },
+  "media/PlayerPropertiesView.js | track": {
+    "message": "[Ţŕåçķ one]"
+  },
+  "media/PlayerPropertiesView.js | video": {
+    "message": "[Vîðéö one]"
+  },
+  "media/PlayerPropertiesView.js | videoFreezingScore": {
+    "message": "[Vîðéö ƒŕééžîñĝ šçöŕé one two three]"
+  },
+  "media/PlayerPropertiesView.js | videoPlaybackRoughness": {
+    "message": "[Vîðéö þļåýбåçķ ŕöûĝĥñéšš one two three]"
+  },
+  "mobile_throttling/MobileThrottlingSelector.js | advanced": {
+    "message": "[Åðvåñçéð one]"
+  },
+  "mobile_throttling/MobileThrottlingSelector.js | disabled": {
+    "message": "[Ðîšåбļéð one]"
+  },
+  "mobile_throttling/MobileThrottlingSelector.js | presets": {
+    "message": "[Þŕéšéţš one]"
+  },
+  "mobile_throttling/ModuleUIStrings.js | device": {
+    "message": "[ðévîçé one]"
+  },
+  "mobile_throttling/ModuleUIStrings.js | enableFastGThrottling": {
+    "message": "[Éñåбļé ƒåšţ 3Ĝ ţĥŕöţţļîñĝ one two three four five six]"
+  },
+  "mobile_throttling/ModuleUIStrings.js | enableSlowGThrottling": {
+    "message": "[Éñåбļé šļöŵ 3Ĝ ţĥŕöţţļîñĝ one two three four five six]"
+  },
+  "mobile_throttling/ModuleUIStrings.js | goOffline": {
+    "message": "[Ĝö öƒƒļîñé one two]"
+  },
+  "mobile_throttling/ModuleUIStrings.js | goOnline": {
+    "message": "[Ĝö öñļîñé one two]"
+  },
+  "mobile_throttling/ModuleUIStrings.js | network": {
+    "message": "[Ñéţŵöŕķ one]"
+  },
+  "mobile_throttling/ModuleUIStrings.js | throttling": {
+    "message": "[ţĥŕöţţļîñĝ one two]"
+  },
+  "mobile_throttling/NetworkPanelIndicator.js | networkThrottlingIsEnabled": {
+    "message": "[Ñéţŵöŕķ ţĥŕöţţļîñĝ îš éñåбļéð one two three four five six seven]"
+  },
+  "mobile_throttling/NetworkPanelIndicator.js | requestsMayBeBlocked": {
+    "message": "[Ŕéqûéšţš måý бé бļöçķéð one two three four five]"
+  },
+  "mobile_throttling/NetworkPanelIndicator.js | requestsMayBeRewrittenByLocal": {
+    "message": "[Ŕéqûéšţš måý бé ŕéŵŕîţţéñ бý ļöçåļ övéŕŕîðéš one two three four five six seven eight nine]"
+  },
+  "mobile_throttling/NetworkThrottlingSelector.js | custom": {
+    "message": "[Çûšţöm one]"
+  },
+  "mobile_throttling/NetworkThrottlingSelector.js | disabled": {
+    "message": "[Ðîšåбļéð one]"
+  },
+  "mobile_throttling/NetworkThrottlingSelector.js | presets": {
+    "message": "[Þŕéšéţš one]"
+  },
+  "mobile_throttling/ThrottlingManager.js | add": {
+    "message": "[Åðð… one]"
+  },
+  "mobile_throttling/ThrottlingManager.js | addS": {
+    "message": "[Åðð ᐅ{PH1}ᐊ one two]"
+  },
+  "mobile_throttling/ThrottlingManager.js | cpuThrottling": {
+    "message": "[ÇÞÛ ţĥŕöţţļîñĝ one two]"
+  },
+  "mobile_throttling/ThrottlingManager.js | cpuThrottlingIsEnabled": {
+    "message": "[ÇÞÛ ţĥŕöţţļîñĝ îš éñåбļéð one two three four five six]"
+  },
+  "mobile_throttling/ThrottlingManager.js | dSlowdown": {
+    "message": "[ᐅ{PH1}ᐊ× šļöŵðöŵñ one two three]"
+  },
+  "mobile_throttling/ThrottlingManager.js | forceDisconnectedFromNetwork": {
+    "message": "[Föŕçé ðîšçöññéçţéð ƒŕöm ñéţŵöŕķ one two three four five six seven]"
+  },
+  "mobile_throttling/ThrottlingManager.js | noThrottling": {
+    "message": "[Ñö ţĥŕöţţļîñĝ one two]"
+  },
+  "mobile_throttling/ThrottlingManager.js | offline": {
+    "message": "[Öƒƒļîñé one]"
+  },
+  "mobile_throttling/ThrottlingManager.js | sS": {
+    "message": "[ᐅ{PH1}ᐊ: ᐅ{PH2}ᐊ one two]"
+  },
+  "mobile_throttling/ThrottlingManager.js | throttling": {
+    "message": "[Ţĥŕöţţļîñĝ one two]"
+  },
+  "mobile_throttling/ThrottlingPresets.js | checkNetworkAndPerformancePanels": {
+    "message": "[Çĥéçķ Ñéţŵöŕķ åñð Þéŕƒöŕmåñçé þåñéļš one two three four five six seven eight]"
+  },
+  "mobile_throttling/ThrottlingPresets.js | custom": {
+    "message": "[Çûšţöm one]"
+  },
+  "mobile_throttling/ThrottlingPresets.js | fastGXCpuSlowdown": {
+    "message": "[Fåšţ 3Ĝ & 4x ÇÞÛ šļöŵðöŵñ one two three four five six]"
+  },
+  "mobile_throttling/ThrottlingPresets.js | lowendMobile": {
+    "message": "[Ļöŵ-éñð möбîļé one two]"
+  },
+  "mobile_throttling/ThrottlingPresets.js | midtierMobile": {
+    "message": "[Mîð-ţîéŕ möбîļé one two]"
+  },
+  "mobile_throttling/ThrottlingPresets.js | noInternetConnectivity": {
+    "message": "[Ñö îñţéŕñéţ çöññéçţîvîţý one two three]"
+  },
+  "mobile_throttling/ThrottlingPresets.js | noThrottling": {
+    "message": "[Ñö ţĥŕöţţļîñĝ one two]"
+  },
+  "mobile_throttling/ThrottlingPresets.js | slowGXCpuSlowdown": {
+    "message": "[Šļöŵ 3Ĝ & 6x ÇÞÛ šļöŵðöŵñ one two three four five six]"
+  },
+  "mobile_throttling/ThrottlingSettingsTab.js | addCustomProfile": {
+    "message": "[Åðð çûšţöm þŕöƒîļé... one two three]"
+  },
+  "mobile_throttling/ThrottlingSettingsTab.js | dms": {
+    "message": "[ᐅ{PH1}ᐊmš one two]"
+  },
+  "mobile_throttling/ThrottlingSettingsTab.js | download": {
+    "message": "[Ðöŵñļöåð one]"
+  },
+  "mobile_throttling/ThrottlingSettingsTab.js | dskbs": {
+    "message": "[ᐅ{PH1}ᐊᐅ{PH2}ᐊķБ/š one two three]"
+  },
+  "mobile_throttling/ThrottlingSettingsTab.js | fsmbs": {
+    "message": "[ᐅ{PH1}ᐊᐅ{PH2}ᐊMБ/š one two three]"
+  },
+  "mobile_throttling/ThrottlingSettingsTab.js | kbs": {
+    "message": "[ķб/š one]"
+  },
+  "mobile_throttling/ThrottlingSettingsTab.js | latency": {
+    "message": "[Ļåţéñçý one]"
+  },
+  "mobile_throttling/ThrottlingSettingsTab.js | latencyMustBeAnIntegerBetweenSms": {
+    "message": "[Ļåţéñçý mûšţ бé åñ îñţéĝéŕ бéţŵééñ ᐅ{PH1}ᐊmš ţö ᐅ{PH2}ᐊmš îñçļûšîvé one two three four five six seven eight nine ten eleven twelve]"
+  },
+  "mobile_throttling/ThrottlingSettingsTab.js | ms": {
+    "message": "[mš one]"
+  },
+  "mobile_throttling/ThrottlingSettingsTab.js | networkThrottlingProfiles": {
+    "message": "[Ñéţŵöŕķ Ţĥŕöţţļîñĝ Þŕöƒîļéš one two three]"
+  },
+  "mobile_throttling/ThrottlingSettingsTab.js | optional": {
+    "message": "[öþţîöñåļ one]"
+  },
+  "mobile_throttling/ThrottlingSettingsTab.js | profileName": {
+    "message": "[Þŕöƒîļé Ñåmé one two]"
+  },
+  "mobile_throttling/ThrottlingSettingsTab.js | profileNameCharactersLengthMust": {
+    "message": "[Þŕöƒîļé Ñåmé çĥåŕåçţéŕš ļéñĝţĥ mûšţ бé бéţŵééñ 1 ţö ᐅ{PH1}ᐊ îñçļûšîvé one two three four five six seven eight nine ten eleven twelve thirteen]"
+  },
+  "mobile_throttling/ThrottlingSettingsTab.js | sMustBeANumberBetweenSkbsToSkbs": {
+    "message": "[ᐅ{PH1}ᐊ mûšţ бé å ñûmбéŕ бéţŵééñ ᐅ{PH2}ᐊķб/š ţö ᐅ{PH3}ᐊķб/š îñçļûšîvé one two three four five six seven eight nine ten eleven twelve]"
+  },
+  "mobile_throttling/ThrottlingSettingsTab.js | upload": {
+    "message": "[Ûþļöåð one]"
+  },
+  "node_debugger/ModuleUIStrings.js | node": {
+    "message": "[Ñöðé one]"
+  },
+  "node_main/ModuleUIStrings.js | connection": {
+    "message": "[Çöññéçţîöñ one two]"
+  },
+  "node_main/ModuleUIStrings.js | node": {
+    "message": "[ñöðé one]"
+  },
+  "node_main/NodeConnectionsPanel.js | addConnection": {
+    "message": "[Åðð çöññéçţîöñ one two]"
+  },
+  "node_main/NodeConnectionsPanel.js | networkAddressEgLocalhost": {
+    "message": "[Ñéţŵöŕķ åððŕéšš (é.ĝ. ļöçåļĥöšţ:9229) one two three four five six seven eight]"
+  },
+  "node_main/NodeConnectionsPanel.js | noConnectionsSpecified": {
+    "message": "[Ñö çöññéçţîöñš šþéçîƒîéð one two three]"
+  },
+  "node_main/NodeConnectionsPanel.js | nodejsDebuggingGuide": {
+    "message": "[Ñöðé.ĵš ðéбûĝĝîñĝ ĝûîðé one two three]"
+  },
+  "node_main/NodeConnectionsPanel.js | specifyNetworkEndpointAnd": {
+    "message": "[Šþéçîƒý ñéţŵöŕķ éñðþöîñţ åñð ÐévŢööļš ŵîļļ çöññéçţ ţö îţ åûţömåţîçåļļý. Ŕéåð ᐅ{PH1}ᐊ ţö ļéåŕñ möŕé. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen]"
+  },
+  "node_main/NodeMain.js | main": {
+    "message": "[Måîñ one]"
+  },
+  "node_main/NodeMain.js | nodejsS": {
+    "message": "[Ñöðé.ĵš: ᐅ{PH1}ᐊ one two three]"
+  },
+  "performance_monitor/ModuleUIStrings.js | activity": {
+    "message": "[åçţîvîţý one]"
+  },
+  "performance_monitor/ModuleUIStrings.js | metrics": {
+    "message": "[méţŕîçš one]"
+  },
+  "performance_monitor/ModuleUIStrings.js | monitor": {
+    "message": "[möñîţöŕ one]"
+  },
+  "performance_monitor/ModuleUIStrings.js | performance": {
+    "message": "[þéŕƒöŕmåñçé one two]"
+  },
+  "performance_monitor/ModuleUIStrings.js | performanceMonitor": {
+    "message": "[Þéŕƒöŕmåñçé möñîţöŕ one two three]"
+  },
+  "performance_monitor/ModuleUIStrings.js | systemMonitor": {
+    "message": "[šýšţém möñîţöŕ one two]"
+  },
+  "performance_monitor/PerformanceMonitor.js | cpuUsage": {
+    "message": "[ÇÞÛ ûšåĝé one two]"
+  },
+  "performance_monitor/PerformanceMonitor.js | documentFrames": {
+    "message": "[Ðöçûméñţ Fŕåméš one two]"
+  },
+  "performance_monitor/PerformanceMonitor.js | documents": {
+    "message": "[Ðöçûméñţš one two]"
+  },
+  "performance_monitor/PerformanceMonitor.js | domNodes": {
+    "message": "[ÐÖM Ñöðéš one two]"
+  },
+  "performance_monitor/PerformanceMonitor.js | graphsDisplayingARealtimeViewOf": {
+    "message": "[Ĝŕåþĥš ðîšþļåýîñĝ å ŕéåļ-ţîmé vîéŵ öƒ þéŕƒöŕmåñçé méţŕîçš one two three four five six seven eight nine ten eleven twelve]"
+  },
+  "performance_monitor/PerformanceMonitor.js | jsEventListeners": {
+    "message": "[ĴŠ évéñţ ļîšţéñéŕš one two three]"
+  },
+  "performance_monitor/PerformanceMonitor.js | jsHeapSize": {
+    "message": "[ĴŠ ĥéåþ šîžé one two]"
+  },
+  "performance_monitor/PerformanceMonitor.js | layoutsSec": {
+    "message": "[Ļåýöûţš / šéç one two]"
+  },
+  "performance_monitor/PerformanceMonitor.js | paused": {
+    "message": "[Þåûšéð one]"
+  },
+  "performance_monitor/PerformanceMonitor.js | styleRecalcsSec": {
+    "message": "[Šţýļé ŕéçåļçš / šéç one two three four]"
+  },
+  "persistence/Automapping.js | theAttemptToBindSInTheWorkspace": {
+    "message": "[Ţĥé åţţémþţ ţö бîñð \"ᐅ{PH1}ᐊ\" îñ ţĥé ŵöŕķšþåçé ƒåîļéð åš ţĥîš ÛŔÎ îš måļƒöŕméð. one two three four five six seven eight nine ten eleven twelve thirteen fourteen]"
+  },
+  "persistence/EditFileSystemView.js | add": {
+    "message": "[Åðð one]"
+  },
+  "persistence/EditFileSystemView.js | enterAPath": {
+    "message": "[Éñţéŕ å þåţĥ one two]"
+  },
+  "persistence/EditFileSystemView.js | enterAUniquePath": {
+    "message": "[Éñţéŕ å ûñîqûé þåţĥ one two three four]"
+  },
+  "persistence/EditFileSystemView.js | excludedFolders": {
+    "message": "[Éxçļûðéð ƒöļðéŕš one two]"
+  },
+  "persistence/EditFileSystemView.js | folderPath": {
+    "message": "[Föļðéŕ þåţĥ one two]"
+  },
+  "persistence/EditFileSystemView.js | none": {
+    "message": "[Ñöñé one]"
+  },
+  "persistence/EditFileSystemView.js | sViaDevtools": {
+    "message": "[ᐅ{PH1}ᐊ (vîå .ðévţööļš) one two three four]"
+  },
+  "persistence/IsolatedFileSystem.js | blobCouldNotBeLoaded": {
+    "message": "[Бļöб çöûļð ñöţ бé ļöåðéð. one two three four five six]"
+  },
+  "persistence/IsolatedFileSystem.js | cantReadFileSS": {
+    "message": "[Çåñ'ţ ŕéåð ƒîļé: ᐅ{PH1}ᐊ: ᐅ{PH2}ᐊ one two three four five six]"
+  },
+  "persistence/IsolatedFileSystem.js | fileSystemErrorS": {
+    "message": "[Fîļé šýšţém éŕŕöŕ: ᐅ{PH1}ᐊ one two three four five]"
+  },
+  "persistence/IsolatedFileSystem.js | linkedToS": {
+    "message": "[Ļîñķéð ţö ᐅ{PH1}ᐊ one two three]"
+  },
+  "persistence/IsolatedFileSystem.js | unknownErrorReadingFileS": {
+    "message": "[Ûñķñöŵñ éŕŕöŕ ŕéåðîñĝ ƒîļé: ᐅ{PH1}ᐊ one two three four five six seven]"
+  },
+  "persistence/IsolatedFileSystemManager.js | unableToAddFilesystemS": {
+    "message": "[Ûñåбļé ţö åðð ƒîļéšýšţém: ᐅ{PH1}ᐊ one two three four five six seven]"
+  },
+  "persistence/ModuleUIStrings.js | disableOverrideNetworkRequests": {
+    "message": "[Ðîšåбļé övéŕŕîðé ñéţŵöŕķ ŕéqûéšţš one two three four five six seven]"
+  },
+  "persistence/ModuleUIStrings.js | enableLocalOverrides": {
+    "message": "[Éñåбļé Ļöçåļ Övéŕŕîðéš one two three]"
+  },
+  "persistence/ModuleUIStrings.js | enableOverrideNetworkRequests": {
+    "message": "[Éñåбļé övéŕŕîðé ñéţŵöŕķ ŕéqûéšţš one two three four five six seven]"
+  },
+  "persistence/ModuleUIStrings.js | interception": {
+    "message": "[îñţéŕçéþţîöñ one two]"
+  },
+  "persistence/ModuleUIStrings.js | network": {
+    "message": "[ñéţŵöŕķ one]"
+  },
+  "persistence/ModuleUIStrings.js | override": {
+    "message": "[övéŕŕîðé one]"
+  },
+  "persistence/ModuleUIStrings.js | persistence": {
+    "message": "[Þéŕšîšţéñçé one two]"
+  },
+  "persistence/ModuleUIStrings.js | request": {
+    "message": "[ŕéqûéšţ one]"
+  },
+  "persistence/ModuleUIStrings.js | rewrite": {
+    "message": "[ŕéŵŕîţé one]"
+  },
+  "persistence/ModuleUIStrings.js | workspace": {
+    "message": "[Ŵöŕķšþåçé one two]"
+  },
+  "persistence/PersistenceActions.js | openInContainingFolder": {
+    "message": "[Öþéñ îñ çöñţåîñîñĝ ƒöļðéŕ one two three four five six]"
+  },
+  "persistence/PersistenceActions.js | saveAs": {
+    "message": "[Šåvé åš... one two]"
+  },
+  "persistence/PersistenceActions.js | saveForOverrides": {
+    "message": "[Šåvé ƒöŕ övéŕŕîðéš one two three]"
+  },
+  "persistence/PersistenceActions.js | saveImage": {
+    "message": "[Šåvé îmåĝé one two]"
+  },
+  "persistence/PersistenceUtils.js | linkedToS": {
+    "message": "[Ļîñķéð ţö ᐅ{PH1}ᐊ one two three]"
+  },
+  "persistence/PersistenceUtils.js | linkedToSourceMapS": {
+    "message": "[Ļîñķéð ţö šöûŕçé måþ: ᐅ{PH1}ᐊ one two three four five six]"
+  },
+  "persistence/PlatformFileSystem.js | unableToReadFilesWithThis": {
+    "message": "[Ûñåбļé ţö ŕéåð ƒîļéš ŵîţĥ ţĥîš îmþļéméñţåţîöñ. one two three four five six seven eight nine ten]"
+  },
+  "persistence/WorkspaceSettingsTab.js | addFolder": {
+    "message": "[Åðð ƒöļðéŕ… one two]"
+  },
+  "persistence/WorkspaceSettingsTab.js | folderExcludePattern": {
+    "message": "[Föļðéŕ éxçļûðé þåţţéŕñ one two three]"
+  },
+  "persistence/WorkspaceSettingsTab.js | mappingsAreInferredAutomatically": {
+    "message": "[Måþþîñĝš åŕé îñƒéŕŕéð åûţömåţîçåļļý. one two three four five six seven eight]"
+  },
+  "persistence/WorkspaceSettingsTab.js | remove": {
+    "message": "[Ŕémövé one]"
+  },
+  "persistence/WorkspaceSettingsTab.js | workspace": {
+    "message": "[Ŵöŕķšþåçé one two]"
+  },
+  "protocol_monitor/ModuleUIStrings.js | protocolMonitor": {
+    "message": "[Þŕöţöçöļ möñîţöŕ one two]"
+  },
+  "protocol_monitor/ProtocolMonitor.js | clearAll": {
+    "message": "[Çļéåŕ åļļ one two]"
+  },
+  "protocol_monitor/ProtocolMonitor.js | direction": {
+    "message": "[Ðîŕéçţîöñ one two]"
+  },
+  "protocol_monitor/ProtocolMonitor.js | documentation": {
+    "message": "[Ðöçûméñţåţîöñ one two]"
+  },
+  "protocol_monitor/ProtocolMonitor.js | filter": {
+    "message": "[Fîļţéŕ one]"
+  },
+  "protocol_monitor/ProtocolMonitor.js | method": {
+    "message": "[Méţĥöð one]"
+  },
+  "protocol_monitor/ProtocolMonitor.js | noMessageSelected": {
+    "message": "[Ñö méššåĝé šéļéçţéð one two three]"
+  },
+  "protocol_monitor/ProtocolMonitor.js | protocolMonitor": {
+    "message": "[Þŕöţöçöļ Möñîţöŕ one two]"
+  },
+  "protocol_monitor/ProtocolMonitor.js | record": {
+    "message": "[Ŕéçöŕð one]"
+  },
+  "protocol_monitor/ProtocolMonitor.js | request": {
+    "message": "[Ŕéqûéšţ one]"
+  },
+  "protocol_monitor/ProtocolMonitor.js | response": {
+    "message": "[Ŕéšþöñšé one]"
+  },
+  "protocol_monitor/ProtocolMonitor.js | sMs": {
+    "message": "[ᐅ{PH1}ᐊ mš one two]"
+  },
+  "protocol_monitor/ProtocolMonitor.js | target": {
+    "message": "[Ţåŕĝéţ one]"
+  },
+  "protocol_monitor/ProtocolMonitor.js | timestamp": {
+    "message": "[Ţîméšţåmþ one two]"
+  },
+  "recorder/RecordingFileSystem.js | defaultRecordingName": {
+    "message": "[Ŕéçöŕðîñĝ #ᐅ{nextId}ᐊ one two three]"
+  },
+  "recorder/RecordingFileSystem.js | linkedToS": {
+    "message": "[Ļîñķéð ţö ᐅ{PH1}ᐊ one two three]"
+  },
+  "resources/ClearStorageView.js | storageQuotaUsed": {
+    "message": "[ᐅ{PH1}ᐊ ûšéð öûţ öƒ ᐅ{PH2}ᐊ šţöŕåĝé qûöţå one two three four five six seven]"
+  },
+  "resources/ClearStorageView.js | storageQuotaUsedWithBytes": {
+    "message": "[ᐅ{PH1}ᐊ бýţéš ûšéð öûţ öƒ ᐅ{PH2}ᐊ бýţéš šţöŕåĝé qûöţå one two three four five six seven eight nine]"
+  },
+  "resources/ClearStorageView.js | storageWithCustomMarker": {
+    "message": "[ᐅ{PH1}ᐊ (çûšţöm) one two three]"
+  },
+  "search/SearchResultsPane.js | lineS": {
+    "message": "[Ļîñé ᐅ{PH1}ᐊ one two]"
+  },
+  "search/SearchResultsPane.js | matchesCountS": {
+    "message": "[Måţçĥéš Çöûñţ ᐅ{PH1}ᐊ one two three four]"
+  },
+  "search/SearchResultsPane.js | showDMore": {
+    "message": "[Šĥöŵ ᐅ{PH1}ᐊ möŕé one two three]"
+  },
+  "search/SearchView.js | clear": {
+    "message": "[Çļéåŕ one]"
+  },
+  "search/SearchView.js | foundDMatchingLinesInDFiles": {
+    "message": "[Föûñð ᐅ{PH1}ᐊ måţçĥîñĝ ļîñéš îñ ᐅ{PH2}ᐊ ƒîļéš. one two three four five six seven eight]"
+  },
+  "search/SearchView.js | foundDMatchingLinesInFile": {
+    "message": "[Föûñð ᐅ{PH1}ᐊ måţçĥîñĝ ļîñéš îñ 1 ƒîļé. one two three four five six seven eight]"
+  },
+  "search/SearchView.js | foundMatchingLineInFile": {
+    "message": "[Föûñð 1 måţçĥîñĝ ļîñé îñ 1 ƒîļé. one two three four five six seven]"
+  },
+  "search/SearchView.js | indexing": {
+    "message": "[Îñðéxîñĝ… one two]"
+  },
+  "search/SearchView.js | indexingInterrupted": {
+    "message": "[Îñðéxîñĝ îñţéŕŕûþţéð. one two three]"
+  },
+  "search/SearchView.js | matchCase": {
+    "message": "[Måţçĥ Çåšé one two]"
+  },
+  "search/SearchView.js | noMatchesFound": {
+    "message": "[Ñö måţçĥéš ƒöûñð. one two three]"
+  },
+  "search/SearchView.js | refresh": {
+    "message": "[Ŕéƒŕéšĥ one]"
+  },
+  "search/SearchView.js | search": {
+    "message": "[Šéåŕçĥ one]"
+  },
+  "search/SearchView.js | searchFinished": {
+    "message": "[Šéåŕçĥ ƒîñîšĥéð. one two]"
+  },
+  "search/SearchView.js | searchInterrupted": {
+    "message": "[Šéåŕçĥ îñţéŕŕûþţéð. one two three]"
+  },
+  "search/SearchView.js | searchQuery": {
+    "message": "[Šéåŕçĥ Qûéŕý one two]"
+  },
+  "search/SearchView.js | searching": {
+    "message": "[Šéåŕçĥîñĝ… one two]"
+  },
+  "search/SearchView.js | useRegularExpression": {
+    "message": "[Ûšé Ŕéĝûļåŕ Éxþŕéššîöñ one two three]"
+  },
+  "security/SecurityModel.js | cipherWithMAC": {
+    "message": "[ᐅ{PH1}ᐊ ŵîţĥ ᐅ{PH2}ᐊ one two three]"
+  },
+  "security/SecurityModel.js | keyExchangeWithGroup": {
+    "message": "[ᐅ{PH1}ᐊ ŵîţĥ ᐅ{PH2}ᐊ one two three]"
+  },
+  "security/SecurityModel.js | theSecurityOfThisPageIsUnknown": {
+    "message": "[Ţĥé šéçûŕîţý öƒ ţĥîš þåĝé îš ûñķñöŵñ. one two three four five six seven eight]"
+  },
+  "security/SecurityModel.js | thisPageIsNotSecure": {
+    "message": "[Ţĥîš þåĝé îš ñöţ šéçûŕé. one two three four five]"
+  },
+  "security/SecurityModel.js | thisPageIsNotSecureBrokenHttps": {
+    "message": "[Ţĥîš þåĝé îš ñöţ šéçûŕé (бŕöķéñ ĤŢŢÞŠ). one two three four five six seven eight]"
+  },
+  "security/SecurityModel.js | thisPageIsSecureValidHttps": {
+    "message": "[Ţĥîš þåĝé îš šéçûŕé (våļîð ĤŢŢÞŠ). one two three four five six seven]"
+  },
+  "security/SecurityPanel.js | activeContentWithCertificate": {
+    "message": "[åçţîvé çöñţéñţ ŵîţĥ çéŕţîƒîçåţé éŕŕöŕš one two three four five six seven eight]"
+  },
+  "security/SecurityPanel.js | activeMixedContent": {
+    "message": "[åçţîvé mîxéð çöñţéñţ one two three]"
+  },
+  "security/SecurityPanel.js | allResourcesOnThisPageAreServed": {
+    "message": "[Åļļ ŕéšöûŕçéš öñ ţĥîš þåĝé åŕé šéŕvéð šéçûŕéļý. one two three four five six seven eight nine ten]"
+  },
+  "security/SecurityPanel.js | allServedSecurely": {
+    "message": "[åļļ šéŕvéð šéçûŕéļý one two three]"
+  },
+  "security/SecurityPanel.js | blockedMixedContent": {
+    "message": "[Бļöçķéð mîxéð çöñţéñţ one two three]"
+  },
+  "security/SecurityPanel.js | certificate": {
+    "message": "[Çéŕţîƒîçåţé one two]"
+  },
+  "security/SecurityPanel.js | certificateExpiresSoon": {
+    "message": "[Çéŕţîƒîçåţé éxþîŕéš šööñ one two three]"
+  },
+  "security/SecurityPanel.js | certificateTransparency": {
+    "message": "[Çéŕţîƒîçåţé Ţŕåñšþåŕéñçý one two three]"
+  },
+  "security/SecurityPanel.js | chromeHasDeterminedThatThisSite": {
+    "message": "[Çĥŕömé ĥåš ðéţéŕmîñéð ţĥåţ ţĥîš šîţé çöûļð бé ƒåķé öŕ ƒŕåûðûļéñţ.\n\nÎƒ ýöû бéļîévé ţĥîš îš šĥöŵñ îñ éŕŕöŕ þļéåšé vîšîţ ĥţţþš://бûĝš.çĥŕömîûm.öŕĝ/þ/çĥŕömîûm/îššûéš/éñţŕý¿ţémþļåţé=Šåƒéţý+Ţîþš+Åþþéåļš. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone twentytwo twentythree twentyfour twentyfive twentysix twentyseven]"
+  },
+  "security/SecurityPanel.js | cipher": {
+    "message": "[Çîþĥéŕ one]"
+  },
+  "security/SecurityPanel.js | connection": {
+    "message": "[Çöññéçţîöñ one two]"
+  },
+  "security/SecurityPanel.js | contentWithCertificateErrors": {
+    "message": "[çöñţéñţ ŵîţĥ çéŕţîƒîçåţé éŕŕöŕš one two three four five six seven]"
+  },
+  "security/SecurityPanel.js | dataWasEnteredInAFieldOnA": {
+    "message": "[Ðåţå ŵåš éñţéŕéð îñ å ƒîéļð öñ å ñöñ-šéçûŕé þåĝé. Å ŵåŕñîñĝ ĥåš бééñ åððéð ţö ţĥé ÛŔĻ бåŕ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen]"
+  },
+  "security/SecurityPanel.js | flaggedByGoogleSafeBrowsing": {
+    "message": "[Fļåĝĝéð бý Ĝööĝļé Šåƒé Бŕöŵšîñĝ one two three four five six seven]"
+  },
+  "security/SecurityPanel.js | formFieldEditedOnANonsecurePage": {
+    "message": "[Föŕm ƒîéļð éðîţéð öñ å ñöñ-šéçûŕé þåĝé one two three four five six seven eight]"
+  },
+  "security/SecurityPanel.js | hashAlgorithm": {
+    "message": "[Ĥåšĥ åļĝöŕîţĥm one two]"
+  },
+  "security/SecurityPanel.js | hideFullDetails": {
+    "message": "[Ĥîðé ƒûļļ ðéţåîļš one two three]"
+  },
+  "security/SecurityPanel.js | info": {
+    "message": "[Îñƒö one]"
+  },
+  "security/SecurityPanel.js | insecureSha": {
+    "message": "[îñšéçûŕé (ŠĤÅ-1) one two]"
+  },
+  "security/SecurityPanel.js | issuedAt": {
+    "message": "[Îššûéð åţ one two]"
+  },
+  "security/SecurityPanel.js | issuer": {
+    "message": "[Îššûéŕ one]"
+  },
+  "security/SecurityPanel.js | keyExchange": {
+    "message": "[Ķéý éxçĥåñĝé one two]"
+  },
+  "security/SecurityPanel.js | keyExchangeGroup": {
+    "message": "[Ķéý éxçĥåñĝé ĝŕöûþ one two three]"
+  },
+  "security/SecurityPanel.js | logId": {
+    "message": "[Ļöĝ ÎÐ one]"
+  },
+  "security/SecurityPanel.js | logName": {
+    "message": "[Ļöĝ ñåmé one]"
+  },
+  "security/SecurityPanel.js | mainOrigin": {
+    "message": "[Måîñ öŕîĝîñ one two]"
+  },
+  "security/SecurityPanel.js | mainOriginNonsecure": {
+    "message": "[Måîñ öŕîĝîñ (ñöñ-šéçûŕé) one two three]"
+  },
+  "security/SecurityPanel.js | mainOriginSecure": {
+    "message": "[Måîñ öŕîĝîñ (šéçûŕé) one two three]"
+  },
+  "security/SecurityPanel.js | missing": {
+    "message": "[mîššîñĝ one]"
+  },
+  "security/SecurityPanel.js | mixedContent": {
+    "message": "[mîxéð çöñţéñţ one two]"
+  },
+  "security/SecurityPanel.js | na": {
+    "message": "[(ñ/å) one]"
+  },
+  "security/SecurityPanel.js | noSecurityDetailsAreAvailableFor": {
+    "message": "[Ñö šéçûŕîţý ðéţåîļš åŕé åvåîļåбļé ƒöŕ ţĥîš öŕîĝîñ. one two three four five six seven eight nine ten eleven]"
+  },
+  "security/SecurityPanel.js | noSecurityInformation": {
+    "message": "[Ñö šéçûŕîţý îñƒöŕmåţîöñ one two three]"
+  },
+  "security/SecurityPanel.js | nonsecureForm": {
+    "message": "[ñöñ-šéçûŕé ƒöŕm one two]"
+  },
+  "security/SecurityPanel.js | nonsecureOrigins": {
+    "message": "[Ñöñ-šéçûŕé öŕîĝîñš one two three]"
+  },
+  "security/SecurityPanel.js | notSecure": {
+    "message": "[Ñöţ šéçûŕé one two]"
+  },
+  "security/SecurityPanel.js | notSecureBroken": {
+    "message": "[Ñöţ šéçûŕé (бŕöķéñ) one two three]"
+  },
+  "security/SecurityPanel.js | obsoleteConnectionSettings": {
+    "message": "[öбšöļéţé çöññéçţîöñ šéţţîñĝš one two three]"
+  },
+  "security/SecurityPanel.js | openFullCertificateDetails": {
+    "message": "[Öþéñ ƒûļļ çéŕţîƒîçåţé ðéţåîļš one two three four five six seven]"
+  },
+  "security/SecurityPanel.js | origin": {
+    "message": "[Öŕîĝîñ one]"
+  },
+  "security/SecurityPanel.js | overview": {
+    "message": "[Övéŕvîéŵ one]"
+  },
+  "security/SecurityPanel.js | possibleSpoofingUrl": {
+    "message": "[Þöššîбļé šþööƒîñĝ ÛŔĻ one two three]"
+  },
+  "security/SecurityPanel.js | protocol": {
+    "message": "[Þŕöţöçöļ one]"
+  },
+  "security/SecurityPanel.js | publickeypinningBypassed": {
+    "message": "[Þûбļîç-Ķéý-Þîññîñĝ бýþåššéð one two three]"
+  },
+  "security/SecurityPanel.js | publickeypinningWasBypassedByA": {
+    "message": "[Þûбļîç-Ķéý-Þîññîñĝ ŵåš бýþåššéð бý å ļöçåļ ŕööţ çéŕţîƒîçåţé. one two three four five six seven eight nine ten eleven twelve]"
+  },
+  "security/SecurityPanel.js | reloadThePageToRecordRequestsFor": {
+    "message": "[Ŕéļöåð ţĥé þåĝé ţö ŕéçöŕð ŕéqûéšţš ƒöŕ ĤŢŢÞ ŕéšöûŕçéš. one two three four five six seven eight nine ten eleven]"
+  },
+  "security/SecurityPanel.js | reloadToViewDetails": {
+    "message": "[Ŕéļöåð ţö vîéŵ ðéţåîļš one two three four five]"
+  },
+  "security/SecurityPanel.js | resources": {
+    "message": "[Ŕéšöûŕçéš one two]"
+  },
+  "security/SecurityPanel.js | rsaKeyExchangeIsObsoleteEnableAn": {
+    "message": "[ŔŠÅ ķéý éxçĥåñĝé îš öбšöļéţé. Éñåбļé åñ ÉÇÐĤÉ-бåšéð çîþĥéŕ šûîţé. one two three four five six seven eight nine ten eleven twelve thirteen]"
+  },
+  "security/SecurityPanel.js | sIsObsoleteEnableAnAesgcmbased": {
+    "message": "[ᐅ{PH1}ᐊ îš öбšöļéţé. Éñåбļé åñ ÅÉŠ-ĜÇM-бåšéð çîþĥéŕ šûîţé. one two three four five six seven eight nine ten eleven]"
+  },
+  "security/SecurityPanel.js | sIsObsoleteEnableTlsOrLater": {
+    "message": "[ᐅ{PH1}ᐊ îš öбšöļéţé. Éñåбļé ŢĻŠ 1.2 öŕ ļåţéŕ. one two three four five six seven eight nine]"
+  },
+  "security/SecurityPanel.js | san": {
+    "message": "[ŠÅÑ one]"
+  },
+  "security/SecurityPanel.js | sct": {
+    "message": "[ŠÇŢ one]"
+  },
+  "security/SecurityPanel.js | secure": {
+    "message": "[Šéçûŕé one]"
+  },
+  "security/SecurityPanel.js | secureConnectionSettings": {
+    "message": "[šéçûŕé çöññéçţîöñ šéţţîñĝš one two three]"
+  },
+  "security/SecurityPanel.js | secureOrigins": {
+    "message": "[Šéçûŕé öŕîĝîñš one two]"
+  },
+  "security/SecurityPanel.js | securityOverview": {
+    "message": "[Šéçûŕîţý övéŕvîéŵ one two three]"
+  },
+  "security/SecurityPanel.js | showFullDetails": {
+    "message": "[Šĥöŵ ƒûļļ ðéţåîļš one two three]"
+  },
+  "security/SecurityPanel.js | showLess": {
+    "message": "[Šĥöŵ ļéšš one two]"
+  },
+  "security/SecurityPanel.js | showMoreSTotal": {
+    "message": "[Šĥöŵ möŕé (ᐅ{PH1}ᐊ ţöţåļ) one two three four five]"
+  },
+  "security/SecurityPanel.js | signatureAlgorithm": {
+    "message": "[Šîĝñåţûŕé åļĝöŕîţĥm one two three]"
+  },
+  "security/SecurityPanel.js | signatureData": {
+    "message": "[Šîĝñåţûŕé ðåţå one two]"
+  },
+  "security/SecurityPanel.js | source": {
+    "message": "[Šöûŕçé one]"
+  },
+  "security/SecurityPanel.js | subject": {
+    "message": "[Šûбĵéçţ one]"
+  },
+  "security/SecurityPanel.js | subjectAlternativeNameMissing": {
+    "message": "[Šûбĵéçţ Åļţéŕñåţîvé Ñåmé mîššîñĝ one two three four five six seven]"
+  },
+  "security/SecurityPanel.js | theCertificateChainForThisSite": {
+    "message": "[Ţĥé çéŕţîƒîçåţé çĥåîñ ƒöŕ ţĥîš šîţé çöñţåîñš å çéŕţîƒîçåţé šîĝñéð ûšîñĝ ŠĤÅ-1. one two three four five six seven eight nine ten eleven twelve thirteen fourteen]"
+  },
+  "security/SecurityPanel.js | theCertificateForThisSiteDoesNot": {
+    "message": "[Ţĥé çéŕţîƒîçåţé ƒöŕ ţĥîš šîţé ðöéš ñöţ çöñţåîñ å Šûбĵéçţ Åļţéŕñåţîvé Ñåmé éxţéñšîöñ çöñţåîñîñĝ å ðömåîñ ñåmé öŕ ÎÞ åððŕéšš. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen]"
+  },
+  "security/SecurityPanel.js | theCertificateForThisSiteExpires": {
+    "message": "[Ţĥé çéŕţîƒîçåţé ƒöŕ ţĥîš šîţé éxþîŕéš îñ ļéšš ţĥåñ 48 ĥöûŕš åñð ñééðš ţö бé ŕéñéŵéð. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen]"
+  },
+  "security/SecurityPanel.js | theConnectionToThisSiteIs": {
+    "message": "[Ţĥé çöññéçţîöñ ţö ţĥîš šîţé îš éñçŕýþţéð åñð åûţĥéñţîçåţéð ûšîñĝ ᐅ{PH1}ᐊ, ᐅ{PH2}ᐊ, åñð ᐅ{PH3}ᐊ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen]"
+  },
+  "security/SecurityPanel.js | theConnectionToThisSiteIsUsingA": {
+    "message": "[Ţĥé çöññéçţîöñ ţö ţĥîš šîţé îš ûšîñĝ å våļîð, ţŕûšţéð šéŕvéŕ çéŕţîƒîçåţé îššûéð бý ᐅ{PH1}ᐊ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen]"
+  },
+  "security/SecurityPanel.js | theSecurityDetailsAboveAreFrom": {
+    "message": "[Ţĥé šéçûŕîţý ðéţåîļš åбövé åŕé ƒŕöm ţĥé ƒîŕšţ îñšþéçţéð ŕéšþöñšé. one two three four five six seven eight nine ten eleven twelve thirteen]"
+  },
+  "security/SecurityPanel.js | theSecurityOfThisPageIsUnknown": {
+    "message": "[Ţĥé šéçûŕîţý öƒ ţĥîš þåĝé îš ûñķñöŵñ. one two three four five six seven eight]"
+  },
+  "security/SecurityPanel.js | theServerSignatureUsesShaWhichIs": {
+    "message": "[Ţĥé šéŕvéŕ šîĝñåţûŕé ûšéš ŠĤÅ-1, ŵĥîçĥ îš öбšöļéţé. Éñåбļé å ŠĤÅ-2 šîĝñåţûŕé åļĝöŕîţĥm îñšţéåð. (Ñöţé ţĥîš îš ðîƒƒéŕéñţ ƒŕöm ţĥé šîĝñåţûŕé îñ ţĥé çéŕţîƒîçåţé.) one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone twentytwo twentythree]"
+  },
+  "security/SecurityPanel.js | thisIsAnErrorPage": {
+    "message": "[Ţĥîš îš åñ éŕŕöŕ þåĝé. one two three four five]"
+  },
+  "security/SecurityPanel.js | thisOriginIsANonhttpsSecure": {
+    "message": "[Ţĥîš öŕîĝîñ îš å ñöñ-ĤŢŢÞŠ šéçûŕé öŕîĝîñ. one two three four five six seven eight nine]"
+  },
+  "security/SecurityPanel.js | thisPageHasANonhttpsSecureOrigin": {
+    "message": "[Ţĥîš þåĝé ĥåš å ñöñ-ĤŢŢÞŠ šéçûŕé öŕîĝîñ. one two three four five six seven eight]"
+  },
+  "security/SecurityPanel.js | thisPageIncludesAFormWithA": {
+    "message": "[Ţĥîš þåĝé îñçļûðéš å ƒöŕm ŵîţĥ å ñöñ-šéçûŕé \"åçţîöñ\" åţţŕîбûţé. one two three four five six seven eight nine ten eleven twelve]"
+  },
+  "security/SecurityPanel.js | thisPageIncludesHttpResources": {
+    "message": "[Ţĥîš þåĝé îñçļûðéš ĤŢŢÞ ŕéšöûŕçéš. one two three four five six seven]"
+  },
+  "security/SecurityPanel.js | thisPageIncludesResourcesThat": {
+    "message": "[Ţĥîš þåĝé îñçļûðéš ŕéšöûŕçéš ţĥåţ ŵéŕé ļöåðéð ŵîţĥ çéŕţîƒîçåţé éŕŕöŕš. one two three four five six seven eight nine ten eleven twelve thirteen]"
+  },
+  "security/SecurityPanel.js | thisPageIsDangerousFlaggedBy": {
+    "message": "[Ţĥîš þåĝé îš ðåñĝéŕöûš (ƒļåĝĝéð бý Ĝööĝļé Šåƒé Бŕöŵšîñĝ). one two three four five six seven eight nine ten eleven twelve]"
+  },
+  "security/SecurityPanel.js | thisPageIsInsecureUnencrypted": {
+    "message": "[Ţĥîš þåĝé îš îñšéçûŕé (ûñéñçŕýþţéð ĤŢŢÞ). one two three four five six seven eight nine]"
+  },
+  "security/SecurityPanel.js | thisPageIsNotSecure": {
+    "message": "[Ţĥîš þåĝé îš ñöţ šéçûŕé. one two three four five]"
+  },
+  "security/SecurityPanel.js | thisPageIsNotSecureBrokenHttps": {
+    "message": "[Ţĥîš þåĝé îš ñöţ šéçûŕé (бŕöķéñ ĤŢŢÞŠ). one two three four five six seven eight]"
+  },
+  "security/SecurityPanel.js | thisPageIsSecureValidHttps": {
+    "message": "[Ţĥîš þåĝé îš šéçûŕé (våļîð ĤŢŢÞŠ). one two three four five six seven]"
+  },
+  "security/SecurityPanel.js | thisPageIsSuspicious": {
+    "message": "[Ţĥîš þåĝé îš šûšþîçîöûš one two three four five]"
+  },
+  "security/SecurityPanel.js | thisPageIsSuspiciousFlaggedBy": {
+    "message": "[Ţĥîš þåĝé îš šûšþîçîöûš (ƒļåĝĝéð бý Çĥŕömé). one two three four five six seven eight nine]"
+  },
+  "security/SecurityPanel.js | thisRequestCompliesWithChromes": {
+    "message": "[Ţĥîš ŕéqûéšţ çömþļîéš ŵîţĥ ᐅChromeᐊ'š Çéŕţîƒîçåţé Ţŕåñšþåŕéñçý þöļîçý. one two three four five six seven eight nine ten eleven twelve thirteen]"
+  },
+  "security/SecurityPanel.js | thisRequestDoesNotComplyWith": {
+    "message": "[Ţĥîš ŕéqûéšţ ðöéš ñöţ çömþļý ŵîţĥ ᐅChromeᐊ'š Çéŕţîƒîçåţé Ţŕåñšþåŕéñçý þöļîçý. one two three four five six seven eight nine ten eleven twelve thirteen]"
+  },
+  "security/SecurityPanel.js | thisResponseWasLoadedFromCache": {
+    "message": "[Ţĥîš ŕéšþöñšé ŵåš ļöåðéð ƒŕöm çåçĥé. Šömé šéçûŕîţý ðéţåîļš mîĝĥţ бé mîššîñĝ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen]"
+  },
+  "security/SecurityPanel.js | thisSiteIsMissingAValidTrusted": {
+    "message": "[Ţĥîš šîţé îš mîššîñĝ å våļîð, ţŕûšţéð çéŕţîƒîçåţé (ᐅ{PH1}ᐊ). one two three four five six seven eight nine ten eleven]"
+  },
+  "security/SecurityPanel.js | thisSitesHostnameLooksSimilarToS": {
+    "message": "[Ţĥîš šîţé'š ĥöšţñåmé ļööķš šîmîļåŕ ţö ᐅ{PH1}ᐊ. Åţţåçķéŕš šöméţîméš mîmîç šîţéš бý måķîñĝ šmåļļ, ĥåŕð-ţö-šéé çĥåñĝéš ţö ţĥé ðömåîñ ñåmé.\n\nÎƒ ýöû бéļîévé ţĥîš îš šĥöŵñ îñ éŕŕöŕ þļéåšé vîšîţ ĥţţþš://бûĝš.çĥŕömîûm.öŕĝ/þ/çĥŕömîûm/îššûéš/éñţŕý¿ţémþļåţé=Šåƒéţý+Ţîþš+Åþþéåļš. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone twentytwo twentythree twentyfour twentyfive twentysix twentyseven twentyeight twentynine thirty thirtyone thirtytwo thirtythree]"
+  },
+  "security/SecurityPanel.js | toCheckThisPagesStatusVisit": {
+    "message": "[Ţö çĥéçķ ţĥîš þåĝé'š šţåţûš, vîšîţ ĝ.çö/šåƒéбŕöŵšîñĝšţåţûš. one two three four five six seven eight nine ten eleven twelve]"
+  },
+  "security/SecurityPanel.js | unknownCanceled": {
+    "message": "[Ûñķñöŵñ / çåñçéļéð one two three]"
+  },
+  "security/SecurityPanel.js | validAndTrusted": {
+    "message": "[våļîð åñð ţŕûšţéð one two three]"
+  },
+  "security/SecurityPanel.js | validFrom": {
+    "message": "[Våļîð ƒŕöm one two]"
+  },
+  "security/SecurityPanel.js | validUntil": {
+    "message": "[Våļîð ûñţîļ one two]"
+  },
+  "security/SecurityPanel.js | validationStatus": {
+    "message": "[Våļîðåţîöñ šţåţûš one two three]"
+  },
+  "security/SecurityPanel.js | viewCertificate": {
+    "message": "[Vîéŵ çéŕţîƒîçåţé one two]"
+  },
+  "security/SecurityPanel.js | viewDRequestInNetworkPanel": {
+    "message": "[Vîéŵ ᐅ{PH1}ᐊ ŕéqûéšţ îñ Ñéţŵöŕķ Þåñéļ one two three four five six seven]"
+  },
+  "security/SecurityPanel.js | viewDRequestsInNetworkPanel": {
+    "message": "[Vîéŵ ᐅ{PH1}ᐊ ŕéqûéšţš îñ Ñéţŵöŕķ Þåñéļ one two three four five six seven]"
+  },
+  "security/SecurityPanel.js | viewRequestsInNetworkPanel": {
+    "message": "[Vîéŵ ŕéqûéšţš îñ Ñéţŵöŕķ Þåñéļ one two three four five six seven]"
+  },
+  "security/SecurityPanel.js | youHaveRecentlyAllowedContent": {
+    "message": "[Ýöû ĥåvé ŕéçéñţļý åļļöŵéð çöñţéñţ ļöåðéð ŵîţĥ çéŕţîƒîçåţé éŕŕöŕš (šûçĥ åš šçŕîþţš öŕ îƒŕåméš) ţö ŕûñ öñ ţĥîš šîţé. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen]"
+  },
+  "security/SecurityPanel.js | youHaveRecentlyAllowedNonsecure": {
+    "message": "[Ýöû ĥåvé ŕéçéñţļý åļļöŵéð ñöñ-šéçûŕé çöñţéñţ (šûçĥ åš šçŕîþţš öŕ îƒŕåméš) ţö ŕûñ öñ ţĥîš šîţé. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen]"
+  },
+  "security/SecurityPanel.js | yourConnectionToThisOriginIsNot": {
+    "message": "[Ýöûŕ çöññéçţîöñ ţö ţĥîš öŕîĝîñ îš ñöţ šéçûŕé. one two three four five six seven eight nine]"
+  },
+  "security/SecurityPanel.js | yourPageRequestedNonsecure": {
+    "message": "[Ýöûŕ þåĝé ŕéqûéšţéð ñöñ-šéçûŕé ŕéšöûŕçéš ţĥåţ ŵéŕé бļöçķéð. one two three four five six seven eight nine ten eleven twelve]"
+  },
+  "settings/FrameworkIgnoreListSettingsTab.js | addFilenamePattern": {
+    "message": "[Åðð ƒîļéñåmé þåţţéŕñ one two three]"
+  },
+  "settings/FrameworkIgnoreListSettingsTab.js | addPattern": {
+    "message": "[Åðð þåţţéŕñ... one two]"
+  },
+  "settings/FrameworkIgnoreListSettingsTab.js | behavior": {
+    "message": "[Бéĥåvîöŕ one]"
+  },
+  "settings/FrameworkIgnoreListSettingsTab.js | debuggerWillSkipThroughThe": {
+    "message": "[Ðéбûĝĝéŕ ŵîļļ šķîþ ţĥŕöûĝĥ ţĥé šçŕîþţš åñð ŵîļļ ñöţ šţöþ öñ éxçéþţîöñš ţĥŕöŵñ бý ţĥém. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen]"
+  },
+  "settings/FrameworkIgnoreListSettingsTab.js | disabled": {
+    "message": "[Ðîšåбļéð one]"
+  },
+  "settings/FrameworkIgnoreListSettingsTab.js | frameworkIgnoreList": {
+    "message": "[Fŕåméŵöŕķ Îĝñöŕé Ļîšţ one two three]"
+  },
+  "settings/FrameworkIgnoreListSettingsTab.js | ignoreList": {
+    "message": "[Îĝñöŕé Ļîšţ one two]"
+  },
+  "settings/FrameworkIgnoreListSettingsTab.js | ignoreListContentScripts": {
+    "message": "[Åðð çöñţéñţ šçŕîþţš ţö îĝñöŕé ļîšţ one two three four five six seven]"
+  },
+  "settings/FrameworkIgnoreListSettingsTab.js | ignoreListContentScriptsExtension": {
+    "message": "[Åðð çöñţéñţ šçŕîþţš ţö îĝñöŕé ļîšţ (éxţéñšîöñ šçŕîþţš îñ ţĥé þåĝé) one two three four five six seven eight nine ten eleven twelve thirteen]"
+  },
+  "settings/FrameworkIgnoreListSettingsTab.js | ignoreScriptsWhoseNamesMatchS": {
+    "message": "[Îĝñöŕé šçŕîþţš ŵĥöšé ñåméš måţçĥ 'ᐅ{PH1}ᐊ' one two three four five six seven eight]"
+  },
+  "settings/FrameworkIgnoreListSettingsTab.js | noIgnoreListPatterns": {
+    "message": "[Ñö îĝñöŕé ļîšţ þåţţéŕñš one two three four five]"
+  },
+  "settings/FrameworkIgnoreListSettingsTab.js | pattern": {
+    "message": "[Þåţţéŕñ one]"
+  },
+  "settings/FrameworkIgnoreListSettingsTab.js | patternAlreadyExists": {
+    "message": "[Þåţţéŕñ åļŕéåðý éxîšţš one two three]"
+  },
+  "settings/FrameworkIgnoreListSettingsTab.js | patternCannotBeEmpty": {
+    "message": "[Þåţţéŕñ çåññöţ бé émþţý one two three four five]"
+  },
+  "settings/FrameworkIgnoreListSettingsTab.js | patternMustBeAValidRegular": {
+    "message": "[Þåţţéŕñ mûšţ бé å våļîð ŕéĝûļåŕ éxþŕéššîöñ one two three four five six seven eight nine]"
+  },
+  "settings/KeybindsSettingsTab.js | FullListOfDevtoolsKeyboard": {
+    "message": "[Fûļļ ļîšţ öƒ ÐévŢööļš ķéýбöåŕð šĥöŕţçûţš åñð ĝéšţûŕéš one two three four five six seven eight nine ten eleven]"
+  },
+  "settings/KeybindsSettingsTab.js | ResetShortcutsForAction": {
+    "message": "[Ŕéšéţ šĥöŕţçûţš ƒöŕ åçţîöñ one two three four five six]"
+  },
+  "settings/KeybindsSettingsTab.js | RestoreDefaultShortcuts": {
+    "message": "[Ŕéšţöŕé ðéƒåûļţ šĥöŕţçûţš one two three]"
+  },
+  "settings/KeybindsSettingsTab.js | addAShortcut": {
+    "message": "[Åðð å šĥöŕţçûţ one two]"
+  },
+  "settings/KeybindsSettingsTab.js | confirmChanges": {
+    "message": "[Çöñƒîŕm çĥåñĝéš one two]"
+  },
+  "settings/KeybindsSettingsTab.js | discardChanges": {
+    "message": "[Ðîšçåŕð çĥåñĝéš one two]"
+  },
+  "settings/KeybindsSettingsTab.js | editShortcut": {
+    "message": "[Éðîţ šĥöŕţçûţ one two]"
+  },
+  "settings/KeybindsSettingsTab.js | keyboardShortcutsList": {
+    "message": "[Ķéýбöåŕð šĥöŕţçûţš ļîšţ one two three]"
+  },
+  "settings/KeybindsSettingsTab.js | matchShortcutsFromPreset": {
+    "message": "[Måţçĥ šĥöŕţçûţš ƒŕöm þŕéšéţ one two three four five six]"
+  },
+  "settings/KeybindsSettingsTab.js | noShortcutForAction": {
+    "message": "[Ñö šĥöŕţçûţ ƒöŕ åçţîöñ one two three four five]"
+  },
+  "settings/KeybindsSettingsTab.js | removeShortcut": {
+    "message": "[Ŕémövé šĥöŕţçûţ one two]"
+  },
+  "settings/KeybindsSettingsTab.js | shortcutModified": {
+    "message": "[Šĥöŕţçûţ möðîƒîéð one two three]"
+  },
+  "settings/KeybindsSettingsTab.js | shortcuts": {
+    "message": "[Šĥöŕţçûţš one two]"
+  },
+  "settings/KeybindsSettingsTab.js | shortcutsCannotContainOnly": {
+    "message": "[Šĥöŕţçûţš çåññöţ çöñţåîñ öñļý möðîƒîéŕ ķéýš. one two three four five six seven eight nine]"
+  },
+  "settings/KeybindsSettingsTab.js | thisShortcutIsInUseByS": {
+    "message": "[Ţĥîš šĥöŕţçûţ îš îñ ûšé бý ᐅ{PH1}ᐊ: ᐅ{PH2}ᐊ. one two three four five six seven eight]"
+  },
+  "settings/ModuleUIStrings.js | documentation": {
+    "message": "[Ðöçûméñţåţîöñ one two]"
+  },
+  "settings/ModuleUIStrings.js | experiments": {
+    "message": "[Éxþéŕîméñţš one two]"
+  },
+  "settings/ModuleUIStrings.js | ignoreList": {
+    "message": "[Îĝñöŕé Ļîšţ one two]"
+  },
+  "settings/ModuleUIStrings.js | preferences": {
+    "message": "[Þŕéƒéŕéñçéš one two]"
+  },
+  "settings/ModuleUIStrings.js | settings": {
+    "message": "[Šéţţîñĝš one]"
+  },
+  "settings/ModuleUIStrings.js | shortcuts": {
+    "message": "[Šĥöŕţçûţš one two]"
+  },
+  "settings/SettingsScreen.js | experiments": {
+    "message": "[Éxþéŕîméñţš one two]"
+  },
+  "settings/SettingsScreen.js | oneOrMoreSettingsHaveChanged": {
+    "message": "[Öñé öŕ möŕé šéţţîñĝš ĥåvé çĥåñĝéð ŵĥîçĥ ŕéqûîŕéš å ŕéļöåð ţö ţåķé éƒƒéçţ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen]"
+  },
+  "settings/SettingsScreen.js | preferences": {
+    "message": "[Þŕéƒéŕéñçéš one two]"
+  },
+  "settings/SettingsScreen.js | restoreDefaultsAndReload": {
+    "message": "[Ŕéšţöŕé ðéƒåûļţš åñð ŕéļöåð one two three four five six]"
+  },
+  "settings/SettingsScreen.js | settings": {
+    "message": "[Šéţţîñĝš one]"
+  },
+  "settings/SettingsScreen.js | shortcuts": {
+    "message": "[Šĥöŕţçûţš one two]"
+  },
+  "settings/SettingsScreen.js | theseExperimentsAreParticularly": {
+    "message": "[Ţĥéšé éxþéŕîméñţš åŕé þåŕţîçûļåŕļý ûñšţåбļé. Éñåбļé åţ ýöûŕ öŵñ ŕîšķ. one two three four five six seven eight nine ten eleven twelve thirteen]"
+  },
+  "settings/SettingsScreen.js | theseExperimentsCouldBeUnstable": {
+    "message": "[Ţĥéšé éxþéŕîméñţš çöûļð бé ûñšţåбļé öŕ ûñŕéļîåбļé åñð måý ŕéqûîŕé ýöû ţö ŕéšţåŕţ ÐévŢööļš. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen]"
+  },
+  "settings/SettingsScreen.js | warning": {
+    "message": "[ŴÅŔÑÎÑĜ: one]"
+  },
+  "snippets/ModuleUIStrings.js | runSnippet": {
+    "message": "[Ŕûñ šñîþþéţ one two]"
+  },
+  "snippets/ScriptSnippetFileSystem.js | linkedTo": {
+    "message": "[Ļîñķéð ţö ᐅ{PH1}ᐊ one two three]"
+  },
+  "snippets/ScriptSnippetFileSystem.js | scriptSnippet": {
+    "message": "[Šçŕîþţ šñîþþéţ #ᐅ{PH1}ᐊ one two three four]"
+  },
+  "snippets/SnippetsQuickOpen.js | noSnippetsFound": {
+    "message": "[Ñö šñîþþéţš ƒöûñð. one two three]"
+  },
+  "text_editor/CodeMirrorTextEditor.js | codeEditor": {
+    "message": "[Çöðé éðîţöŕ one two]"
+  },
+  "web_audio/AudioContextContentBuilder.js | audiocontext": {
+    "message": "[ÅûðîöÇöñţéxţ one two]"
+  },
+  "web_audio/AudioContextContentBuilder.js | callbackBufferSize": {
+    "message": "[Çåļļбåçķ Бûƒƒéŕ Šîžé one two three]"
+  },
+  "web_audio/AudioContextContentBuilder.js | callbackInterval": {
+    "message": "[Çåļļбåçķ Îñţéŕvåļ one two three]"
+  },
+  "web_audio/AudioContextContentBuilder.js | currentTime": {
+    "message": "[Çûŕŕéñţ Ţîmé one two]"
+  },
+  "web_audio/AudioContextContentBuilder.js | maxOutputChannels": {
+    "message": "[Måx Öûţþûţ Çĥåññéļš one two three]"
+  },
+  "web_audio/AudioContextContentBuilder.js | offlineaudiocontext": {
+    "message": "[ÖƒƒļîñéÅûðîöÇöñţéxţ one two three]"
+  },
+  "web_audio/AudioContextContentBuilder.js | renderCapacity": {
+    "message": "[Ŕéñðéŕ Çåþåçîţý one two]"
+  },
+  "web_audio/AudioContextContentBuilder.js | sampleRate": {
+    "message": "[Šåmþļé Ŕåţé one two]"
+  },
+  "web_audio/AudioContextContentBuilder.js | state": {
+    "message": "[Šţåţé one]"
+  },
+  "web_audio/AudioContextSelector.js | audioContextS": {
+    "message": "[Åûðîö çöñţéxţ: ᐅ{PH1}ᐊ one two three four]"
+  },
+  "web_audio/AudioContextSelector.js | noRecordings": {
+    "message": "[(ñö ŕéçöŕðîñĝš) one two]"
+  },
+  "web_audio/ModuleUIStrings.js | audio": {
+    "message": "[åûðîö one]"
+  },
+  "web_audio/ModuleUIStrings.js | webaudio": {
+    "message": "[ŴéбÅûðîö one]"
+  },
+  "web_audio/WebAudioView.js | openAPageThatUsesWebAudioApiTo": {
+    "message": "[Öþéñ å þåĝé ţĥåţ ûšéš Ŵéб Åûðîö ÅÞÎ ţö šţåŕţ möñîţöŕîñĝ. one two three four five six seven eight nine ten eleven]"
+  },
+  "webauthn/ModuleUIStrings.js | webauthn": {
+    "message": "[ŴéбÅûţĥñ one]"
+  },
+  "webauthn/WebauthnPane.js | actions": {
+    "message": "[Åçţîöñš one]"
+  },
+  "webauthn/WebauthnPane.js | active": {
+    "message": "[Åçţîvé one]"
+  },
+  "webauthn/WebauthnPane.js | add": {
+    "message": "[Åðð one]"
+  },
+  "webauthn/WebauthnPane.js | addAuthenticator": {
+    "message": "[Åðð åûţĥéñţîçåţöŕ one two three]"
+  },
+  "webauthn/WebauthnPane.js | authenticatorS": {
+    "message": "[Åûţĥéñţîçåţöŕ ᐅ{PH1}ᐊ one two three four]"
+  },
+  "webauthn/WebauthnPane.js | credentials": {
+    "message": "[Çŕéðéñţîåļš one two]"
+  },
+  "webauthn/WebauthnPane.js | editName": {
+    "message": "[Éðîţ ñåmé one two]"
+  },
+  "webauthn/WebauthnPane.js | enableVirtualAuthenticator": {
+    "message": "[Éñåбļé vîŕţûåļ åûţĥéñţîçåţöŕ éñvîŕöñméñţ one two three four five six seven eight]"
+  },
+  "webauthn/WebauthnPane.js | export": {
+    "message": "[Éxþöŕţ one]"
+  },
+  "webauthn/WebauthnPane.js | id": {
+    "message": "[ÎÐ one]"
+  },
+  "webauthn/WebauthnPane.js | isResident": {
+    "message": "[Îš Ŕéšîðéñţ one two]"
+  },
+  "webauthn/WebauthnPane.js | learnMore": {
+    "message": "[Ļéåŕñ möŕé one two]"
+  },
+  "webauthn/WebauthnPane.js | newAuthenticator": {
+    "message": "[Ñéŵ åûţĥéñţîçåţöŕ one two three]"
+  },
+  "webauthn/WebauthnPane.js | no": {
+    "message": "[Ñö one]"
+  },
+  "webauthn/WebauthnPane.js | noCredentialsTryCallingSFromYour": {
+    "message": "[Ñö çŕéðéñţîåļš. Ţŕý çåļļîñĝ ᐅ{PH1}ᐊ ƒŕöm ýöûŕ ŵéбšîţé. one two three four five six seven eight nine ten eleven]"
+  },
+  "webauthn/WebauthnPane.js | privateKeypem": {
+    "message": "[Þŕîvåţé ķéý.þém one two]"
+  },
+  "webauthn/WebauthnPane.js | protocol": {
+    "message": "[Þŕöţöçöļ one]"
+  },
+  "webauthn/WebauthnPane.js | remove": {
+    "message": "[Ŕémövé one]"
+  },
+  "webauthn/WebauthnPane.js | rpId": {
+    "message": "[ŔÞ ÎÐ one]"
+  },
+  "webauthn/WebauthnPane.js | saveName": {
+    "message": "[Šåvé ñåmé one two]"
+  },
+  "webauthn/WebauthnPane.js | setSAsTheActiveAuthenticator": {
+    "message": "[Šéţ ᐅ{PH1}ᐊ åš ţĥé åçţîvé åûţĥéñţîçåţöŕ one two three four five six seven eight]"
+  },
+  "webauthn/WebauthnPane.js | signCount": {
+    "message": "[Šîĝñ Çöûñţ one two]"
+  },
+  "webauthn/WebauthnPane.js | supportsResidentKeys": {
+    "message": "[Šûþþöŕţš ŕéšîðéñţ ķéýš one two three]"
+  },
+  "webauthn/WebauthnPane.js | supportsUserVerification": {
+    "message": "[Šûþþöŕţš ûšéŕ véŕîƒîçåţîöñ one two three]"
+  },
+  "webauthn/WebauthnPane.js | transport": {
+    "message": "[Ţŕåñšþöŕţ one two]"
+  },
+  "webauthn/WebauthnPane.js | useWebauthnForPhishingresistant": {
+    "message": "[Ûšé ŴéбÅûţĥñ ƒöŕ þĥîšĥîñĝ-ŕéšîšţåñţ åûţĥéñţîçåţîöñ one two three four five six seven eight nine ten eleven]"
+  },
+  "webauthn/WebauthnPane.js | userHandle": {
+    "message": "[Ûšéŕ Ĥåñðļé one two]"
+  },
+  "webauthn/WebauthnPane.js | uuid": {
+    "message": "[ÛÛÎÐ one]"
+  },
+  "webauthn/WebauthnPane.js | yes": {
+    "message": "[Ýéš one]"
+  },
+  "workspace/UISourceCode.js | index": {
+    "message": "[(îñðéx) one]"
+  },
+  "workspace/UISourceCode.js | thisFileWasChangedExternally": {
+    "message": "[Ţĥîš ƒîļé ŵåš çĥåñĝéð éxţéŕñåļļý. Ŵöûļð ýöû ļîķé ţö ŕéļöåð îţ¿ one two three four five six seven eight nine ten eleven twelve]"
+  }
+}
