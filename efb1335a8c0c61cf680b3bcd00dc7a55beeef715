@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d48d494_f091db87",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-01-12T19:08:02Z",
+      "side": 1,
+      "message": "I actually couldn\u0027t get the workaround to work in the integration test --- for some reason the devices drop down stops showing up at the point I would need it despite the test seemingly clicking on the right thing --- otherwise this would have been two CLs.",
+      "revId": "efb1335a8c0c61cf680b3bcd00dc7a55beeef715",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
