@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18718f89_b37d162b",
+        "filename": "front_end/developer_resources/developer_resources-meta.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-01-12T21:08:55Z",
+      "side": 1,
+      "message": "Let\u0027s add this to the enum in Runtime.js and refer to that value instead.",
+      "range": {
+        "startLine": 30,
+        "startChar": 15,
+        "endLine": 30,
+        "endChar": 37
+      },
+      "revId": "e907f012cc41ccc67c990f22267141e21d206bb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
