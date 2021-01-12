@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23160399_befefa52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-12T07:34:11Z",
+      "side": 1,
+      "message": "Thanks!\n\nFor \"utilities\" like these (only one file/one use-site), I am kind of tempted to just move the function to MetricsSidebarPane.js directly and unit test it in that corresponding file. wdyt?",
+      "revId": "be2aea1619e41a27876ba8061a52d1ee9f0848a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03e5eea4_6bc35708",
+        "filename": "test/unittests/front_end/platform/NumberUtilities_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-12T07:34:11Z",
+      "side": 1,
+      "message": "wdyt about also adding the NaN case? :)",
+      "revId": "be2aea1619e41a27876ba8061a52d1ee9f0848a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
