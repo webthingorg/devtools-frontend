@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50272a7c_22145485",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-12T08:08:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b2a7f579_4515d8e7",
+      "range": {
+        "startLine": 485,
+        "startChar": 27,
+        "endLine": 485,
+        "endChar": 45
+      },
+      "revId": "ae3a4749df3b1150c4d6d7759f4691bf8d261b0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a12b6d95_ede06629",
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "It may be both actually (pending, unable to resolve); it\u0027s pending in the sense that we wait for the scriptParsed event. However, it may also happen that we never get a scriptParsed event for some cases as far as I understood.\n\nThis is only shown if we use the link in combination with an \"@\" sign, e.g. for stack traces we show \" @ unknown\" instead of \" @ \" (\"at nothing\"). The linkifier only provides the link / link text, but doesn\u0027t know how it is used. I moved it out since the missing context here is that it is used with an \" @ \" as prefix, and it feels that the Linkifier shouldn\u0027t know about the context.\n\nOn the other hand, Benedikt and I were also discussing using \"pending\" in the Linkifier as a text to start with (I think this might be your suggestion?), but in some cases we never resolve since we do not get a scriptParsed event. \n\nDone @ localization.\n\nWDYT?",
       "parentUuid": "a12b6d95_ede06629",
+      "range": {
+        "startLine": 110,
+        "startChar": 30,
+        "endLine": 110,
+        "endChar": 37
+      },
+      "revId": "ae3a4749df3b1150c4d6d7759f4691bf8d261b0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e071cd8_bad70898",
+        "filename": "front_end/components/JSPresentationUtils.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-12T08:08:11Z",
+      "side": 1,
+      "message": "Ack on using unknown even if it is pending. and thanks for localizing.\n\nI just looked at the linkifier, and that doesn\u0027t seem to set the textContent of the link itself, but rather adds child nodes. Will that be a problem.\n\nCould you elaborate why this will be only used with an @ sign? Isn\u0027t the case that the linkifier cannot resolve a script location a common one now? If that is the case, it seems we should provide a senstible placeholder text for all cases?",
+      "parentUuid": "d5f71fe7_952924c9",
       "range": {
         "startLine": 110,
         "startChar": 30,
@@ -196,6 +244,30 @@
       "side": 1,
       "message": "Yes, this is unrelated; I fixed it since I\u0027m already touching this code, can split it off (but it\u0027s only these two lines; let me know if you\u0027d rather see this in another CL and I\u0027ll split it off). Returning null was introduced due to our typescriptification work; changed it to return the fallbackAnchor in order to behave the same as other linkify functions int he Linkifier.",
       "parentUuid": "9647f534_8b57b5b3",
+      "range": {
+        "startLine": 284,
+        "startChar": 4,
+        "endLine": 296,
+        "endChar": 28
+      },
+      "revId": "ae3a4749df3b1150c4d6d7759f4691bf8d261b0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ba7f486_a9d762ef",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-12T08:08:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d6e783fe_a657b0d1",
       "range": {
         "startLine": 284,
         "startChar": 4,
