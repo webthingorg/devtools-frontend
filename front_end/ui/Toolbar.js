@@ -396,7 +396,7 @@ export class Toolbar {
         nonSeparatorVisible = true;
       }
     }
-    if (lastSeparator && lastSeparator !== this._items.peekLast()) {
+    if (lastSeparator && lastSeparator !== this._items[_items.length - 1]) {
       lastSeparator.setVisible(false);
     }
 
