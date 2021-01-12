@@ -88,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ab396a2_887b03f9",
+        "filename": "front_end/devtools_compatibility.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-12T12:25:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5214301_3414e6a5",
+      "revId": "dfe48df248b305bb85ece9236d4bb226ff7061c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d6e57fdd_ab9e7536",
