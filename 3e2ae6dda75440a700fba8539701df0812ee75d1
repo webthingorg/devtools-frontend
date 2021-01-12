@@ -16,6 +16,24 @@
       "message": "lgtm\n\nNot sure if you are aware, we need to rip out the layout test version of the unit test first: https://source.chromium.org/chromium/chromium/src/+/master:third_party/blink/web_tests/http/tests/devtools/components/utilities.js;l\u003d47;drc\u003d20b49a5ea214f0dc90b588e6e14bdb1231aaf02d",
       "revId": "3e2ae6dda75440a700fba8539701df0812ee75d1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa2df959_1eb7b013",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-12T09:20:43Z",
+      "side": 1,
+      "message": "Thanks, CL for that: https://crrev.com/c/2624207",
+      "parentUuid": "5f701009_8e2af9ea",
+      "revId": "3e2ae6dda75440a700fba8539701df0812ee75d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
