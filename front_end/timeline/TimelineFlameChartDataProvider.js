@@ -33,6 +33,7 @@ import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
 import * as PerfUI from '../perf_ui/perf_ui.js';
 import * as Platform from '../platform/platform.js';
+import * as Platform from '../platform/platform.js';
 import * as Root from '../root/root.js';
 import * as SDK from '../sdk/sdk.js';
 import * as ThemeSupport from '../theme_support/theme_support.js';
@@ -1030,7 +1031,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
    */
   _genericTraceEventColor(event) {
     const key = event.categoriesString || event.name;
-    return key ? `hsl(${String.hashCode(key) % 300 + 30}, 40%, 70%)` : '#ccc';
+    return key ? `hsl(${Platform.StringUtilities.hashCode(key) % 300 + 30}, 40%, 70%)` : '#ccc';
   }
 
   /**
