@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
 import * as SDK from '../sdk/sdk.js';  // eslint-disable-line no-unused-vars
 import * as UI from '../ui/ui.js';
 
@@ -9,6 +10,8 @@ import {AccessibilitySubPane} from './AccessibilitySubPane.js';
 import {ariaMetadata} from './ARIAMetadata.js';
 
 export class ARIAAttributesPane extends AccessibilitySubPane {
+  _noPropertiesInfo: Element;
+  _treeOutline: UI.TreeOutline.TreeOutline;
   constructor() {
     super(ls`ARIA Attributes`);
 
@@ -16,11 +19,7 @@ export class ARIAAttributesPane extends AccessibilitySubPane {
     this._treeOutline = this.createTreeOutline();
   }
 
-  /**
-   * @override
-   * @param {?SDK.DOMModel.DOMNode} node
-   */
-  setNode(node) {
+  setNode(node: SDK.DOMModel.DOMNode|null): void {
     super.setNode(node);
     this._treeOutline.removeChildren();
     if (!node) {
@@ -42,22 +41,18 @@ export class ARIAAttributesPane extends AccessibilitySubPane {
     this._treeOutline.element.classList.toggle('hidden', !foundAttributes);
   }
 
-  /**
-   * @param {!SDK.DOMModel.Attribute} attribute
-   * @return {boolean}
-   */
-  _isARIAAttribute(attribute) {
+  _isARIAAttribute(attribute: SDK.DOMModel.Attribute): boolean {
     return _attributes.has(attribute.name);
   }
 }
 
 export class ARIAAttributesTreeElement extends UI.TreeOutline.TreeElement {
-  /**
-   * @param {!ARIAAttributesPane} parentPane
-   * @param {!SDK.DOMModel.Attribute} attribute
-   * @param {!SDK.SDKModel.Target} target
-   */
-  constructor(parentPane, attribute, target) {
+  _parentPane: ARIAAttributesPane;
+  _attribute: SDK.DOMModel.Attribute;
+  _nameElement: HTMLSpanElement|undefined;
+  _valueElement: Element|undefined;
+  _prompt: ARIAAttributePrompt|undefined;
+  constructor(parentPane: ARIAAttributesPane, attribute: SDK.DOMModel.Attribute, _target: SDK.SDKModel.Target) {
     super('');
 
     this._parentPane = parentPane;
@@ -66,11 +61,7 @@ export class ARIAAttributesTreeElement extends UI.TreeOutline.TreeElement {
     this.selectable = false;
   }
 
-  /**
-   * @param {string} value
-   * @return {!Element}
-   */
-  static createARIAValueElement(value) {
+  static createARIAValueElement(value: string): Element {
     const valueElement = document.createElement('span');
     valueElement.classList.add('monospace');
     // TODO(aboxhall): quotation marks?
@@ -78,25 +69,19 @@ export class ARIAAttributesTreeElement extends UI.TreeOutline.TreeElement {
     return valueElement;
   }
 
-  /**
-   * @override
-   */
-  onattach() {
+  onattach(): void {
     this._populateListItem();
     this.listItemElement.addEventListener('click', this._mouseClick.bind(this));
   }
 
-  _populateListItem() {
+  _populateListItem(): void {
     this.listItemElement.removeChildren();
     this.appendNameElement(this._attribute.name);
     this.listItemElement.createChild('span', 'separator').textContent = ':\xA0';
     this.appendAttributeValueElement(this._attribute.value);
   }
 
-  /**
-   * @param {string} name
-   */
-  appendNameElement(name) {
+  appendNameElement(name: string): void {
     this._nameElement = document.createElement('span');
     this._nameElement.textContent = name;
     this._nameElement.classList.add('ax-name');
@@ -104,18 +89,12 @@ export class ARIAAttributesTreeElement extends UI.TreeOutline.TreeElement {
     this.listItemElement.appendChild(this._nameElement);
   }
 
-  /**
-   * @param {string} value
-   */
-  appendAttributeValueElement(value) {
+  appendAttributeValueElement(value: string): void {
     this._valueElement = ARIAAttributesTreeElement.createARIAValueElement(value);
     this.listItemElement.appendChild(this._valueElement);
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _mouseClick(event) {
+  _mouseClick(event: Event): void {
     if (event.target === this.listItemElement) {
       return;
     }
@@ -125,7 +104,7 @@ export class ARIAAttributesTreeElement extends UI.TreeOutline.TreeElement {
     this._startEditing();
   }
 
-  _startEditing() {
+  _startEditing(): void {
     const valueElement = this._valueElement;
 
     if (!valueElement || UI.UIUtils.isBeingEdited(valueElement)) {
@@ -134,18 +113,13 @@ export class ARIAAttributesTreeElement extends UI.TreeOutline.TreeElement {
 
     const previousContent = valueElement.textContent || '';
 
-    /**
-     * @param {string} previousContent
-     * @param {!Event} event
-     * @this {ARIAAttributesTreeElement}
-     */
-    function blurListener(previousContent, event) {
-      const target = /** @type {!HTMLElement} */ (event.target);
+    function blurListener(this: ARIAAttributesTreeElement, previousContent: string, event: Event): void {
+      const target = (event.target as HTMLElement);
       const text = target.textContent || '';
       this._editingCommitted(text, previousContent);
     }
 
-    const attributeName = /** @type {!HTMLSpanElement} */ (this._nameElement).textContent || '';
+    const attributeName = /** @type {!HTMLSpanElement} */ (this._nameElement as HTMLSpanElement).textContent || '';
     this._prompt = new ARIAAttributePrompt(ariaMetadata().valuesForProperty(attributeName), this);
     this._prompt.setAutocompletionTimeout(0);
     const proxyElement = this._prompt.attachAndStartEditing(valueElement, blurListener.bind(this, previousContent));
@@ -158,7 +132,7 @@ export class ARIAAttributesTreeElement extends UI.TreeOutline.TreeElement {
     }
   }
 
-  _removePrompt() {
+  _removePrompt(): void {
     if (!this._prompt) {
       return;
     }
@@ -166,36 +140,28 @@ export class ARIAAttributesTreeElement extends UI.TreeOutline.TreeElement {
     delete this._prompt;
   }
 
-  /**
-   * @param {string} userInput
-   * @param {string} previousContent
-   */
-  _editingCommitted(userInput, previousContent) {
+  _editingCommitted(userInput: string, previousContent: string): void {
     this._removePrompt();
 
     // Make the changes to the attribute
     if (userInput !== previousContent) {
-      const node = /** @type {!SDK.DOMModel.DOMNode} */ (this._parentPane.node());
+      const node = (this._parentPane.node() as SDK.DOMModel.DOMNode);
       node.setAttributeValue(this._attribute.name, userInput);
     }
   }
 
-  _editingCancelled() {
+  _editingCancelled(): void {
     this._removePrompt();
     this._populateListItem();
   }
 
-  /**
-   * @param {string} previousContent
-   * @param {!Event} event
-   */
-  _editingValueKeyDown(previousContent, event) {
+  _editingValueKeyDown(previousContent: string, event: Event): void {
     if (event.handled) {
       return;
     }
 
     if (isEnterKey(event)) {
-      const target = /** @type {!HTMLElement} */ (event.target);
+      const target = (event.target as HTMLElement);
       this._editingCommitted(target.textContent || '', previousContent);
       event.consume();
       return;
@@ -210,11 +176,9 @@ export class ARIAAttributesTreeElement extends UI.TreeOutline.TreeElement {
 }
 
 export class ARIAAttributePrompt extends UI.TextPrompt.TextPrompt {
-  /**
-   * @param {!Array<string>} ariaCompletions
-   * @param {!ARIAAttributesTreeElement} treeElement
-   */
-  constructor(ariaCompletions, treeElement) {
+  _ariaCompletions: string[];
+  _treeElement: ARIAAttributesTreeElement;
+  constructor(ariaCompletions: string[], treeElement: ARIAAttributesTreeElement) {
     super();
     this.initialize(this._buildPropertyCompletions.bind(this));
 
@@ -222,18 +186,20 @@ export class ARIAAttributePrompt extends UI.TextPrompt.TextPrompt {
     this._treeElement = treeElement;
   }
 
-  /**
-   * @param {string} expression
-   * @param {string} prefix
-   * @param {boolean=} force
-   * @return {!Promise<!UI.SuggestBox.Suggestions>}
-   */
-  async _buildPropertyCompletions(expression, prefix, force) {
+  async _buildPropertyCompletions(expression: string, prefix: string, force?: boolean|undefined):
+      Promise<UI.SuggestBox.Suggestions> {
     prefix = prefix.toLowerCase();
     if (!prefix && !force && expression) {
       return [];
     }
-    return this._ariaCompletions.filter(value => value.startsWith(prefix)).map(c => {
+    return this._ariaCompletions.filter((value: string): boolean => value.startsWith(prefix)).map((c: string): {
+      text: string; title: undefined; subtitle: undefined; iconType: undefined; priority: undefined;
+      isSecondary: undefined;
+      subtitleRenderer: undefined;
+      selectionRange: undefined;
+      hideGhostText: undefined;
+      iconElement: undefined;
+    } => {
       return {
         text: c,
         title: undefined,
@@ -251,7 +217,7 @@ export class ARIAAttributePrompt extends UI.TextPrompt.TextPrompt {
 }
 
 // Keep this list in sync with https://w3c.github.io/aria/#state_prop_def
-const _attributes = new Set([
+const _attributes = new Set<string>([
   'role',
   'aria-activedescendant',
   'aria-atomic',

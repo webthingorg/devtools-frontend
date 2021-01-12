@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
 import * as Host from '../host/host.js';
 import * as SDK from '../sdk/sdk.js';  // eslint-disable-line no-unused-vars
 import * as UI from '../ui/ui.js';
@@ -11,6 +12,13 @@ import {AccessibilitySubPane} from './AccessibilitySubPane.js';
 const MAX_CHILD_ELEMENTS_THRESHOLD = 300;
 
 export class SourceOrderPane extends AccessibilitySubPane {
+  _noNodeInfo: Element;
+  _warning: Element;
+  _checked: boolean;
+  _checkboxLabel: UI.UIUtils.CheckboxLabel;
+  _checkboxElement: HTMLInputElement;
+  _node: SDK.DOMModel.DOMNode|null;
+  _overlayModel: SDK.OverlayModel.OverlayModel|null;
   constructor() {
     super(ls`Source Order Viewer`);
 
@@ -26,16 +34,11 @@ export class SourceOrderPane extends AccessibilitySubPane {
     this._checkboxElement.addEventListener('click', this._checkboxClicked.bind(this), false);
     this.element.appendChild(this._checkboxLabel);
 
-    /** @type {?SDK.DOMModel.DOMNode} */
     this._node = null;
     this._overlayModel = null;
   }
 
-  /**
-   * @param {?SDK.DOMModel.DOMNode} node
-   * @returns {!Promise.<?>}
-   */
-  async setNodeAsync(node) {
+  async setNodeAsync(node: SDK.DOMModel.DOMNode|null): Promise<void> {
     if (!this._checkboxLabel.classList.contains('hidden')) {
       this._checked = this._checkboxElement.checked;
     }
@@ -47,14 +50,15 @@ export class SourceOrderPane extends AccessibilitySubPane {
       return;
     }
 
-    let foundSourceOrder = false;
+    let foundSourceOrder: boolean|false = false;
     const childCount = this._node.childNodeCount();
     if (childCount > 0) {
       if (!this._node.children()) {
         await this._node.getSubtree(1, false);
       }
-      const children = /** @type {!Array<!SDK.DOMModel.DOMNode>} */ (this._node.children());
-      foundSourceOrder = children.some(child => child.nodeType() === Node.ELEMENT_NODE);
+      const children = (this._node.children() as SDK.DOMModel.DOMNode[]);
+      foundSourceOrder =
+          children.some((child: SDK.DOMModel.DOMNode): boolean => child.nodeType() === Node.ELEMENT_NODE);
     }
 
     this._noNodeInfo.classList.toggle('hidden', foundSourceOrder);
@@ -69,7 +73,7 @@ export class SourceOrderPane extends AccessibilitySubPane {
     }
   }
 
-  _checkboxClicked() {
+  _checkboxClicked(): void {
     if (!this._node || !this._overlayModel) {
       return;
     }
