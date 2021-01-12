@@ -16,6 +16,24 @@
       "message": "Seems like it is still used here: https://chromium.googlesource.com/chromium/src/+/5c07f3fe700fb5f17dd4f6207e238767299744fe/third_party/blink/web_tests/http/tests/devtools/elements/styles-1/edit-resource-referred-by-multiple-styletags.js#59",
       "revId": "5167283013f925e15cd7f69b92447780b976b21c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d5e3fd6_0138a4e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-12T08:52:59Z",
+      "side": 1,
+      "message": "Ah thanks! CL to rewrite that use case: https://crrev.com/c/2623928",
+      "parentUuid": "a6a0298f_cf81170a",
+      "revId": "5167283013f925e15cd7f69b92447780b976b21c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
