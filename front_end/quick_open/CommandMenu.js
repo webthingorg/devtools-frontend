@@ -132,6 +132,7 @@ export class CommandMenu {
     // TODO(crbug.com/1134103): replace this implementation for the one on _loadCommandsFromPreRegisteredExtensions once
     // all settings, views and type lookups extensions have been migrated.
     const locations = new Map();
+    // TODO(crbug.com/1134103): Remove this call when all ViewLocationResolver lookups are migrated
     Root.Runtime.Runtime.instance().extensions(UI.View.ViewLocationResolver).forEach(extension => {
       const category = extension.descriptor()['category'];
       const name = extension.descriptor()['name'];
@@ -139,6 +140,12 @@ export class CommandMenu {
         locations.set(name, category);
       }
     });
+    for (const {category, name} of UI.ViewManager.getRegisteredLocationResolvers()) {
+      if (category && name) {
+        locations.set(name, category);
+      }
+    }
+
     // TODO(crbug.com/1134103): Remove this call when all views are migrated
     const viewExtensions = Root.Runtime.Runtime.instance().extensions('view');
     for (const extension of viewExtensions) {
