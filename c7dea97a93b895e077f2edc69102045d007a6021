@@ -34,6 +34,24 @@
       "parentUuid": "d2d1fd53_9e3d43a0",
       "revId": "c7dea97a93b895e077f2edc69102045d007a6021",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8da2ce41_0dd2e73e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-12T08:47:20Z",
+      "side": 1,
+      "message": "That issue could be solved by remembering the expanded / collapsed state across reloads as well.",
+      "parentUuid": "63bd907c_36afad7a",
+      "revId": "c7dea97a93b895e077f2edc69102045d007a6021",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
