@@ -2,11 +2,12 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import {ls} from '../platform/platform.js';
 import * as Root from '../root/root.js';
 
 import {TabbedPane} from './TabbedPane.js';  // eslint-disable-line no-unused-vars
 import {ItemsProvider, Toolbar, ToolbarItem, ToolbarMenuButton} from './Toolbar.js';  // eslint-disable-line no-unused-vars
-import {ViewManager} from './ViewManager.js';
+import {ViewManager} from './ViewManager.js';  // eslint-disable-line no-unused-vars
 import {VBox, Widget} from './Widget.js';
 
 /**
