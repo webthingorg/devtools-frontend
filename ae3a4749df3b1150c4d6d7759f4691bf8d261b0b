@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b2a7f579_4515d8e7",
+        "filename": "front_end/bindings/DebuggerWorkspaceBinding.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-01-12T06:56:57Z",
+      "side": 1,
+      "message": "Yes it is. It is. We seem to do that several times in DebuggerWorkspaceBinding (maybe because the other class is defined in here anyway..?). \n\nI couldn\u0027t find any other usage of Location._script.",
+      "parentUuid": "f3cd69fc_3fe463b9",
+      "range": {
+        "startLine": 485,
+        "startChar": 27,
+        "endLine": 485,
+        "endChar": 45
+      },
+      "revId": "ae3a4749df3b1150c4d6d7759f4691bf8d261b0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a12b6d95_ede06629",
         "filename": "front_end/components/JSPresentationUtils.js",
         "patchSetId": 12
@@ -54,6 +78,30 @@
       "writtenOn": "2021-01-11T12:24:57Z",
       "side": 1,
       "message": "Is this informative to the user? Is resolution pending in this case, or are we definitively unable to resolve in this case? \u0027\n\nWould it be possible to let maybeLinkifyConsoleCallFrame take care of checking and assigning unknown?\n\nAlso, this probably should be localized.",
+      "range": {
+        "startLine": 110,
+        "startChar": 30,
+        "endLine": 110,
+        "endChar": 37
+      },
+      "revId": "ae3a4749df3b1150c4d6d7759f4691bf8d261b0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5f71fe7_952924c9",
+        "filename": "front_end/components/JSPresentationUtils.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-01-12T06:56:57Z",
+      "side": 1,
+      "message": "It may be both actually (pending, unable to resolve); it\u0027s pending in the sense that we wait for the scriptParsed event. However, it may also happen that we never get a scriptParsed event for some cases as far as I understood.\n\nThis is only shown if we use the link in combination with an \"@\" sign, e.g. for stack traces we show \" @ unknown\" instead of \" @ \" (\"at nothing\"). The linkifier only provides the link / link text, but doesn\u0027t know how it is used. I moved it out since the missing context here is that it is used with an \" @ \" as prefix, and it feels that the Linkifier shouldn\u0027t know about the context.\n\nOn the other hand, Benedikt and I were also discussing using \"pending\" in the Linkifier as a text to start with (I think this might be your suggestion?), but in some cases we never resolve since we do not get a scriptParsed event. \n\nDone @ localization.\n\nWDYT?",
+      "parentUuid": "a12b6d95_ede06629",
       "range": {
         "startLine": 110,
         "startChar": 30,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "62fab6d0_0bb2c138",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-01-12T06:56:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be4c9c79_2f9f96d2",
+      "range": {
+        "startLine": 284,
+        "startChar": 19,
+        "endLine": 284,
+        "endChar": 46
+      },
+      "revId": "ae3a4749df3b1150c4d6d7759f4691bf8d261b0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9647f534_8b57b5b3",
@@ -100,6 +172,30 @@
       "writtenOn": "2021-01-11T12:24:57Z",
       "side": 1,
       "message": "Is this an unrelated change? Should it be split off?",
+      "range": {
+        "startLine": 284,
+        "startChar": 4,
+        "endLine": 296,
+        "endChar": 28
+      },
+      "revId": "ae3a4749df3b1150c4d6d7759f4691bf8d261b0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6e783fe_a657b0d1",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-01-12T06:56:57Z",
+      "side": 1,
+      "message": "Yes, this is unrelated; I fixed it since I\u0027m already touching this code, can split it off (but it\u0027s only these two lines; let me know if you\u0027d rather see this in another CL and I\u0027ll split it off). Returning null was introduced due to our typescriptification work; changed it to return the fallbackAnchor in order to behave the same as other linkify functions int he Linkifier.",
+      "parentUuid": "9647f534_8b57b5b3",
       "range": {
         "startLine": 284,
         "startChar": 4,
