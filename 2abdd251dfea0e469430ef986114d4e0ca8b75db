@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a765c0e7_8851b3bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-01-12T10:38:40Z",
+      "side": 1,
+      "message": "LGTM, thanks Almothana! One more comment on the test, otherwise good to go from my side :)!",
+      "revId": "2abdd251dfea0e469430ef986114d4e0ca8b75db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c08b53e7_7d9b9182",
+        "filename": "test/e2e/sources/syntax-highlighting_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-01-12T10:38:40Z",
+      "side": 1,
+      "message": "Can we check whether the colors are the same in each group?",
+      "revId": "2abdd251dfea0e469430ef986114d4e0ca8b75db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
