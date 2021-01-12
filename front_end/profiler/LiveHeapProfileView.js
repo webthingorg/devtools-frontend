@@ -266,7 +266,7 @@ export class LiveHeapProfileView extends UI.Widget.VBox {
    * @param {!Event} event
    */
   _onKeyDown(event) {
-    if (!isEnterKey(event)) {
+    if (!event.key === 'Enter') {
       return;
     }
     event.consume(true);
