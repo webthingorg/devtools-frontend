@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ee445613_4fd48ba3",
+        "filename": "test/unittests/front_end/meta/action_registration_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-01-12T20:52:21Z",
+      "side": 1,
+      "message": "`removeInstance` methods were added on the instanced class and called in an `after` block, along with a call to `deinitializeGlobalVars`. Please take a look to the next patch.",
+      "parentUuid": "27a69c6b_42d8d3bc",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 84
+      },
+      "revId": "6d9aedfabe29fa138980b9ef053d637b8e88e5af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "658ea764_34eff93d",
         "filename": "test/unittests/front_end/meta/action_registration_test.ts",
         "patchSetId": 3
@@ -54,6 +78,30 @@
       "writtenOn": "2021-01-05T11:47:51Z",
       "side": 1,
       "message": "Ultra-nit: start test cases with a lower case. That would show the full sentence in the console as the following:\n\n```\nAction registration retrieves a registered action\n```",
+      "range": {
+        "startLine": 56,
+        "startChar": 6,
+        "endLine": 56,
+        "endChar": 7
+      },
+      "revId": "6d9aedfabe29fa138980b9ef053d637b8e88e5af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7acd47e_fc42f51e",
+        "filename": "test/unittests/front_end/meta/action_registration_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-01-12T20:52:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "658ea764_34eff93d",
       "range": {
         "startLine": 56,
         "startChar": 6,
@@ -89,6 +137,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e0e68d4c_0523a915",
+        "filename": "test/unittests/front_end/meta/action_registration_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-01-12T20:52:21Z",
+      "side": 1,
+      "message": "This cast was meant to force the type returned by `action()` to be `PreRegisteredAction` instead of Action, but since no property specific to the `PreRegisteredAction` type is accessed the cast is removed.",
+      "parentUuid": "3e3bc0fc_2a9ace74",
+      "range": {
+        "startLine": 58,
+        "startChar": 69,
+        "endLine": 58,
+        "endChar": 113
+      },
+      "revId": "6d9aedfabe29fa138980b9ef053d637b8e88e5af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "fe9d452f_1e4d4db3",
         "filename": "test/unittests/front_end/meta/action_registration_test.ts",
         "patchSetId": 3
@@ -100,6 +172,30 @@
       "writtenOn": "2021-01-05T11:47:51Z",
       "side": 1,
       "message": "I would have assumed that the `assert.isNotNull` would be sufficient to convince TypeScript that `preRegisteredAction` is truthy, but I might be wrong on that?",
+      "range": {
+        "startLine": 60,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 30
+      },
+      "revId": "6d9aedfabe29fa138980b9ef053d637b8e88e5af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ea31e37_b6bc6c5c",
+        "filename": "test/unittests/front_end/meta/action_registration_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-01-12T20:52:21Z",
+      "side": 1,
+      "message": "Manually removing this check shows that the call to `assert.isNotNull` doesn\u0027t change the variable\u0027s nullability for the subsequent code.",
+      "parentUuid": "fe9d452f_1e4d4db3",
       "range": {
         "startLine": 60,
         "startChar": 4,
