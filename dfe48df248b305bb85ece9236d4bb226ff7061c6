@@ -105,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "43f614e6_be719b66",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-01-12T11:31:55Z",
+      "side": 1,
+      "message": "I am unsure whether checking \u0027reportedValue \u003c size\u0027(strictly less than) is even necessary (and therefore the +1 we add in the various methods in \u0027UserMetrics.js\u0027, but that\u0027s probably beyond scope.\n\nYour current check ensures that the error case is not triggered in the backend, but a value of 8 which is beyond the enum\u0027s values would not trigger the early return here.",
+      "parentUuid": "2d6b9dc1_29e8442e",
+      "revId": "dfe48df248b305bb85ece9236d4bb226ff7061c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4a44d787_d9fdec32",
