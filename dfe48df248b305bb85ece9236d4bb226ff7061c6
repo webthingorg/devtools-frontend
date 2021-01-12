@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f5214301_3414e6a5",
+        "filename": "front_end/devtools_compatibility.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-01-12T11:36:26Z",
+      "side": 1,
+      "message": "Developer not Page?",
+      "parentUuid": "505fe4f6_5d52a8ca",
+      "revId": "dfe48df248b305bb85ece9236d4bb226ff7061c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d6e57fdd_ab9e7536",
         "filename": "front_end/host/UserMetrics.js",
         "patchSetId": 2
