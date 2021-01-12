@@ -39,6 +39,30 @@
       },
       "revId": "4645310da9deacc7eeb9e54ea4a676977716c27e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7dc22cdc_61719452",
+        "filename": "front_end/sdk_test_runner/sdk_test_runner.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-12T16:03:44Z",
+      "side": 1,
+      "message": "The tests themselves can\u0027t use ES modules. I am not 100% sure about the test runner implementations, so I decided to give it a go. Let\u0027s see whether they all start crashing \u003e.\u003c",
+      "parentUuid": "efecf0c7_e34d3e65",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 52
+      },
+      "revId": "4645310da9deacc7eeb9e54ea4a676977716c27e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
