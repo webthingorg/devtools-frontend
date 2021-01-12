@@ -52,11 +52,11 @@ export class ClassesPaneWidget extends UI.Widget.Widget {
    * @param {!Event} event
    */
   _onKeyDown(event) {
-    if (!isEnterKey(event) && !isEscKey(event)) {
+    if (!event.key === 'Enter' && !isEscKey(event)) {
       return;
     }
 
-    if (isEnterKey(event)) {
+    if (event.key === 'Enter') {
       event.consume();
       if (this._prompt.acceptAutoComplete()) {
         return;

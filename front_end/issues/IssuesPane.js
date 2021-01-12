@@ -55,7 +55,7 @@ class AffectedElementsView extends AffectedResourcesView {
     anchorElement.textContent = nodeName;
     anchorElement.addEventListener('click', this._sendTelemetry);
     anchorElement.addEventListener('keydown', /** @param {!Event} event */ event => {
-      if (isEnterKey(event)) {
+      if (event.key === 'Enter') {
         this._sendTelemetry();
       }
     });

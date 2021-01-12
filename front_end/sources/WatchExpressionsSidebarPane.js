@@ -527,7 +527,7 @@ export class WatchExpression extends Common.ObjectWrapper.ObjectWrapper {
     this._treeElement.title = this._element;
     this._treeElement.listItemElement.classList.add('watch-expression-tree-item');
     this._treeElement.listItemElement.addEventListener('keydown', event => {
-      if (isEnterKey(event) && !this.isEditing()) {
+      if (event.key === 'Enter' && !this.isEditing()) {
         this.startEditing();
         event.consume(true);
       }
@@ -567,7 +567,7 @@ export class WatchExpression extends Common.ObjectWrapper.ObjectWrapper {
    * @param {!Event} event
    */
   _promptKeyDown(event) {
-    if (isEnterKey(event) || isEscKey(event)) {
+    if (event.key === 'Enter' || isEscKey(event)) {
       this._finishEditing(event, isEscKey(event));
     }
   }
