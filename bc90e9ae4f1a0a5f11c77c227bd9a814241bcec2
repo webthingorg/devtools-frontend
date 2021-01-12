@@ -37,6 +37,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "711feb3c_6fba392f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-12T01:29:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "053f8d73_8b025b09",
+      "revId": "bc90e9ae4f1a0a5f11c77c227bd9a814241bcec2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "239caeba_61187bbb",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 5
@@ -69,6 +87,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aae58374_337b02fc",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-12T01:29:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d535442_422bc9b3",
+      "revId": "bc90e9ae4f1a0a5f11c77c227bd9a814241bcec2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "292b4afc_ecabe230",
@@ -82,6 +118,24 @@
       "writtenOn": "2021-01-11T02:59:34Z",
       "side": 1,
       "message": "The treeitem role should be on the \u003cli\u003e, rather than the individual spans inside the tree item, I think. Similar to how you\u0027re adding the role\u003dgroup to the \u003cul\u003e that encloses the children.\n\nI think the expanded and parent class should also apply to the li.\n\nAlso, what are these wrapping spans providing? Just a way to differentiate between a node that has children and doesn\u0027t?",
+      "revId": "bc90e9ae4f1a0a5f11c77c227bd9a814241bcec2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ab8b9f2_2dd7c560",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-12T01:29:27Z",
+      "side": 1,
+      "message": "As discussed with @aboxhall, the treeitem role has been moved onto \u003cdevtools-accessibility-node\u003e and the \u003cul\u003e and \u003cli\u003e elements have been removed. Children with the group role are now in a \u003cdiv\u003e.",
+      "parentUuid": "292b4afc_ecabe230",
       "revId": "bc90e9ae4f1a0a5f11c77c227bd9a814241bcec2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -105,6 +159,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b8a99a1f_cc9934b2",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-12T01:29:27Z",
+      "side": 1,
+      "message": "TODO added to handle this later on",
+      "parentUuid": "3a85340d_40f32a6c",
+      "revId": "bc90e9ae4f1a0a5f11c77c227bd9a814241bcec2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "be4e9a83_66b9cae6",
         "filename": "front_end/elements/AccessibilityNode.ts",
         "patchSetId": 5
@@ -116,6 +188,24 @@
       "writtenOn": "2021-01-11T02:59:34Z",
       "side": 1,
       "message": "Should these styles instead be applied to the \u003cli\u003e?",
+      "revId": "bc90e9ae4f1a0a5f11c77c227bd9a814241bcec2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cc39a0f_da0f5484",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-12T01:29:27Z",
+      "side": 1,
+      "message": "Styles are still on the \u003cspan\u003e now that the \u003cli\u003e elements have been removed entirely.\n(see comment at line 81)",
+      "parentUuid": "be4e9a83_66b9cae6",
       "revId": "bc90e9ae4f1a0a5f11c77c227bd9a814241bcec2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
