@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "505fe4f6_5d52a8ca",
+        "filename": "front_end/devtools_compatibility.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-12T08:32:38Z",
+      "side": 1,
+      "message": "Great catch, thanks!",
+      "parentUuid": "248f0402_3d9984a1",
+      "revId": "dfe48df248b305bb85ece9236d4bb226ff7061c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d6e57fdd_ab9e7536",
@@ -71,6 +89,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2d6b9dc1_29e8442e",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-12T08:32:38Z",
+      "side": 1,
+      "message": "If we get this wrong, the back-end will trigger a crash report here:\nhttps://source.chromium.org/chromium/chromium/src/+/master:chrome/browser/devtools/devtools_ui_bindings.cc;l\u003d1294;drc\u003dbd25816fff5e8c0f27a2f84667fa0b2eb42f02c4\n\nIn (some) other cases, we have logic to prevent this, so I added logic here as well. I\u0027m leaning to keep it.",
+      "parentUuid": "d6e57fdd_ab9e7536",
+      "revId": "dfe48df248b305bb85ece9236d4bb226ff7061c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4a44d787_d9fdec32",
         "filename": "front_end/i18n/locales/en-US.json",
         "patchSetId": 2
@@ -82,6 +118,24 @@
       "writtenOn": "2021-01-12T08:03:05Z",
       "side": 1,
       "message": "What do these (unrelated?) changes do?",
+      "revId": "dfe48df248b305bb85ece9236d4bb226ff7061c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1ae4608_63607987",
+        "filename": "front_end/i18n/locales/en-US.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 2141,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-12T08:32:38Z",
+      "side": 1,
+      "message": "This was added by the presubmit (see crbug.com/1164983), and I couldn\u0027t upload without it.",
+      "parentUuid": "4a44d787_d9fdec32",
       "revId": "dfe48df248b305bb85ece9236d4bb226ff7061c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
