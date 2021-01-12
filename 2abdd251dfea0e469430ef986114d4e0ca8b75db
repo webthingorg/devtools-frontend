@@ -33,6 +33,24 @@
       "message": "Can we check whether the colors are the same in each group?",
       "revId": "2abdd251dfea0e469430ef986114d4e0ca8b75db",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce7a320a_3cb04260",
+        "filename": "test/e2e/sources/syntax-highlighting_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2021-01-12T10:57:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c08b53e7_7d9b9182",
+      "revId": "2abdd251dfea0e469430ef986114d4e0ca8b75db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
