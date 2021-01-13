@@ -81,6 +81,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e08e5d46_f1a8a68d",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-13T01:37:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22a11f80_02a442f0",
+      "range": {
+        "startLine": 41,
+        "startChar": 10,
+        "endLine": 41,
+        "endChar": 34
+      },
+      "revId": "d4c6c1400c835e0e0c7f46ddc1c8f58a93ccc1a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "785be772_f450008f",
@@ -98,6 +122,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "93ddefe9_459c6cf7",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-13T01:37:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "785be772_f450008f",
+      "revId": "d4c6c1400c835e0e0c7f46ddc1c8f58a93ccc1a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1c3ae841_9d81bf8e",
@@ -111,6 +153,24 @@
       "writtenOn": "2021-01-12T03:53:03Z",
       "side": 1,
       "message": "Similarly, let\u0027s wait to initialise this until after the null check.",
+      "revId": "d4c6c1400c835e0e0c7f46ddc1c8f58a93ccc1a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32d9c5d5_f247502c",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-13T01:37:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c3ae841_9d81bf8e",
       "revId": "d4c6c1400c835e0e0c7f46ddc1c8f58a93ccc1a8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -138,6 +198,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "36fca4da_bf265b8f",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-13T01:37:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b17ecc6_548024b7",
+      "range": {
+        "startLine": 80,
+        "startChar": 32,
+        "endLine": 80,
+        "endChar": 70
+      },
+      "revId": "d4c6c1400c835e0e0c7f46ddc1c8f58a93ccc1a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "895cb374_659f36bf",
@@ -151,6 +235,24 @@
       "writtenOn": "2021-01-12T03:53:03Z",
       "side": 1,
       "message": "This could just be `:host`, we don\u0027t need the class any more.",
+      "revId": "d4c6c1400c835e0e0c7f46ddc1c8f58a93ccc1a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c08ce9a_dba06599",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-13T01:37:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "895cb374_659f36bf",
       "revId": "d4c6c1400c835e0e0c7f46ddc1c8f58a93ccc1a8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -172,6 +274,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "caaec4ea_7bd22fe6",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-13T01:37:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9d18a50_7a555c84",
+      "revId": "d4c6c1400c835e0e0c7f46ddc1c8f58a93ccc1a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2962e325_7c018735",
@@ -185,6 +305,24 @@
       "writtenOn": "2021-01-12T03:53:03Z",
       "side": 1,
       "message": ":host.no-children",
+      "revId": "d4c6c1400c835e0e0c7f46ddc1c8f58a93ccc1a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b027f56c_caad3045",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-13T01:37:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2962e325_7c018735",
       "revId": "d4c6c1400c835e0e0c7f46ddc1c8f58a93ccc1a8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -206,6 +344,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f15eb7b1_e02ee92d",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-13T01:37:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f64b78c_f43a183d",
+      "revId": "d4c6c1400c835e0e0c7f46ddc1c8f58a93ccc1a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d0528351_c5718d5f",
@@ -223,6 +379,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "92594e8c_4e565b52",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-13T01:37:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0528351_c5718d5f",
+      "revId": "d4c6c1400c835e0e0c7f46ddc1c8f58a93ccc1a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a2ae726e_453fb12d",
@@ -236,6 +410,24 @@
       "writtenOn": "2021-01-12T03:53:03Z",
       "side": 1,
       "message": "This also needs a role of \"tree\". We could either set it using ElementInternals, or by just doing something like\n\n this.getRootNode().host.setAttribute(\"role\", \"tree\");\n\nor if we want to keep using ARIAUtils:\n\n import * as UI from \u0027../ui/ui.js\u0027;\n\n ... \n\n UI.ARIAUtils.markAsTree(this.getRootNode().host);",
+      "revId": "d4c6c1400c835e0e0c7f46ddc1c8f58a93ccc1a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ff1a855_6d184115",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-13T01:37:19Z",
+      "side": 1,
+      "message": "Set using this.shadow.host.setAttribute(\"role\", \"tree\"); for now, will possibly eventually use ElementInternals.",
+      "parentUuid": "a2ae726e_453fb12d",
       "revId": "d4c6c1400c835e0e0c7f46ddc1c8f58a93ccc1a8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
