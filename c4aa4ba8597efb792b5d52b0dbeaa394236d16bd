@@ -39,6 +39,30 @@
       },
       "revId": "c4aa4ba8597efb792b5d52b0dbeaa394236d16bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7950ff2_eea1ed85",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 2130,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-01-13T09:44:34Z",
+      "side": 1,
+      "message": "Thanks! This check was necessary for an earlier Patchset only, so I\u0027m removing it.",
+      "parentUuid": "054e281a_020e872b",
+      "range": {
+        "startLine": 2130,
+        "startChar": 4,
+        "endLine": 2130,
+        "endChar": 57
+      },
+      "revId": "c4aa4ba8597efb792b5d52b0dbeaa394236d16bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
