@@ -177,6 +177,24 @@
       "message": "Question for devtools folks: We had to add this in to make the nested component rendering work. Previously we were just getting an empty \u003cdevtools-accessibility-node\u003e as the data setter wasn\u0027t executing. Should we also be importing/exporting AccessibilityTree here as well to make it part of the ElementsModule?",
       "revId": "88396a8e5e7656f33668ed29f34e41663072acf8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26a10446_dbf490fb",
+        "filename": "front_end/elements/elements.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-13T09:07:06Z",
+      "side": 1,
+      "message": "Yeah I think so. We tend to export everything from the \"entrypoint\" (e.g. elements/elements.js is the entrypoint of the \"elements\" module) for completeness.",
+      "parentUuid": "c5af7570_e68d811d",
+      "revId": "88396a8e5e7656f33668ed29f34e41663072acf8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
