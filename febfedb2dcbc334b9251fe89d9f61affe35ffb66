@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff4ffc5b_04ce066f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-13T15:01:57Z",
+      "side": 1,
+      "message": "Looks great with one nit! ",
+      "revId": "febfedb2dcbc334b9251fe89d9f61affe35ffb66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aea9449f_dd4b5456",
+        "filename": "front_end/resources/TrustTokensView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-13T15:01:57Z",
+      "side": 1,
+      "message": "tiny nit: I would normally explicitly annotate this as `const gridData: Components.DataGrid.DataGridData` as then if you make a typo when defining this object, you\u0027ll get a type error, rather than getting a type error on line 112 where you cast it with `as`.",
+      "range": {
+        "startLine": 75,
+        "startChar": 3,
+        "endLine": 82,
+        "endChar": 6
+      },
+      "revId": "febfedb2dcbc334b9251fe89d9f61affe35ffb66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
