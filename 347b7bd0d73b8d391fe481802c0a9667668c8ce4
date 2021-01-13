@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8462506e_56cdd19e",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-01-13T17:50:25Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1ddea058_d391493e",
+      "revId": "347b7bd0d73b8d391fe481802c0a9667668c8ce4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cfc91acb_5276396f",
@@ -66,6 +84,30 @@
       "writtenOn": "2021-01-13T07:15:52Z",
       "side": 1,
       "message": "The code in its current form now contains a data race. \u0027CallStackSidebarPane\u0027 awaits the result of `modelForDebuggerId`, even though it no longer returns a promise. In turn, \u0027resyncDebuggerIdForModels` is not awaited (since it\u0027s triggered in an event, and event handlers are not awaited).\n\nThis means, that if we trigger re-sync and *immediately* afterwards call `modelForDebuggerId`, we return the wrong Id here. as the `syncDebuggerId` is on the Microtask Queue but has not yet run.\n\nThe solution (if we want to do this cleanly), is to store the promise returned by `resyncDebuggerIdForModels` in the event handler. And then `await` that promise in `modelForDebuggerId` and make `modelForDebuggerId` async again.",
+      "range": {
+        "startLine": 257,
+        "startChar": 0,
+        "endLine": 263,
+        "endChar": 3
+      },
+      "revId": "347b7bd0d73b8d391fe481802c0a9667668c8ce4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42d6414b_c39c7e48",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-01-13T17:50:25Z",
+      "side": 1,
+      "message": "Right. And since resyncDebuggerIdForModels is a constant Promise, we can just set a flag in the event handler.",
+      "parentUuid": "cfc91acb_5276396f",
       "range": {
         "startLine": 257,
         "startChar": 0,
