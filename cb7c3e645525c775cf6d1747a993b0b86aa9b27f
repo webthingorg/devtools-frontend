@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9aabd6e3_c725c2d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-01-13T15:00:17Z",
+      "side": 1,
+      "message": "The image is ~10 kB larger than the previous one. Please try playing around with Squoosh settings to reduce file size while maintaining decent visual quality.\n\nI’ve made some minor tweaks to the copy, PTAL.",
+      "revId": "cb7c3e645525c775cf6d1747a993b0b86aa9b27f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
