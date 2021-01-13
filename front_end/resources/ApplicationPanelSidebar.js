@@ -1759,6 +1759,7 @@ export class ResourcesSection {
   constructor(storagePanel, treeElement) {
     this._panel = storagePanel;
     this._treeElement = treeElement;
+    UI.ARIAUtils.setAccessibleName(this._treeElement._listItemNode, 'Resources Section');
     /** @type {!Map<string, !FrameTreeElement>} */
     this._treeElementForFrameId = new Map();
     /** @type {!Map<string, !FrameTreeElement>} */
