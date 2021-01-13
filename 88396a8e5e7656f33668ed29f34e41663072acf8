@@ -16,6 +16,57 @@
       "message": "PTAL, thanks!",
       "revId": "88396a8e5e7656f33668ed29f34e41663072acf8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a117d508_a8d2f81d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-01-13T07:30:04Z",
+      "side": 1,
+      "message": "In general, LGTM. Thanks!",
+      "revId": "88396a8e5e7656f33668ed29f34e41663072acf8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe46f7ab_d6b87815",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-01-13T07:30:04Z",
+      "side": 1,
+      "message": "I am not sure if we want to mix different styles for building elements. Would it be possible to render all of this with lit-html?",
+      "revId": "88396a8e5e7656f33668ed29f34e41663072acf8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0594f604_8b08b825",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-01-13T07:30:04Z",
+      "side": 1,
+      "message": "I think we might want to use a CSS variable instead of hard-coding the color to support dark mode. Jack, do you know if we already have a suitable one?",
+      "revId": "88396a8e5e7656f33668ed29f34e41663072acf8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
