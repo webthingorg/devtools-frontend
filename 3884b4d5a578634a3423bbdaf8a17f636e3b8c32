@@ -34,6 +34,24 @@
       "parentUuid": "6cfd1208_fa71c6bd",
       "revId": "3884b4d5a578634a3423bbdaf8a17f636e3b8c32",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b16f2e8_68381e4f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-13T10:33:58Z",
+      "side": 1,
+      "message": "This is about removing the hover from the underlining. It is difficult to hover over the underlining (because it is just a few pixels high) and hence doesn\u0027t seem to provide good UX.",
+      "parentUuid": "11671807_22450fd1",
+      "revId": "3884b4d5a578634a3423bbdaf8a17f636e3b8c32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
