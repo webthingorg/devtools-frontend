@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f5ed6fd_35c7d200",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-13T06:44:53Z",
+      "side": 1,
+      "message": "Thanks, I\u0027ll remove the other translations from the column headers (where appropriate) in a follow up and land all CLs together after branch cut.",
+      "parentUuid": "5a1d9cff_528bcd2d",
+      "revId": "1e151e8809e60a3593de0f7db21c96f4fc38e2b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "59a5e642_9ff67c19",
