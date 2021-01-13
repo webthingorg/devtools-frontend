@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c2383c4_2bf2b2e9",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-01-13T06:02:51Z",
+      "side": 1,
+      "message": "You could just resync for `this` DebuggerModel and remove the static method below.",
+      "revId": "347b7bd0d73b8d391fe481802c0a9667668c8ce4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
