@@ -70,6 +70,24 @@
       "parentUuid": "8da2ce41_0dd2e73e",
       "revId": "c7dea97a93b895e077f2edc69102045d007a6021",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43324881_63bd0f89",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2021-01-13T17:09:38Z",
+      "side": 1,
+      "message": "I tend to agree with Peter. \n\nI don\u0027t think the collapsed categories provide enough detail on their own. Being able to collapse one when I don\u0027t currently care about it is useful, but by default I want a little more information to help me decide what to focus on first. \n\nAlso, we have explicitly heard complaints in Edge about requiring the extra click. As Sigurd noted, we could make this change in Edge only, but I suspect we\u0027ll want the change here too once categories are on-by-default in Chrome.",
+      "parentUuid": "4963045c_2f2e6643",
+      "revId": "c7dea97a93b895e077f2edc69102045d007a6021",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
