@@ -27,18 +27,82 @@ export const enum ViewLocationValues {
 }
 
 export interface ViewRegistration {
+  /**
+   * The name of the experiment a view is associated with. Enabling and disabling the declared
+   * experiment will enable and disable the view respectively.
+   */
   experiment?: Root.Runtime.ExperimentName;
+
+  /**
+   * A condition represented as a string the view's availability depends on. Conditions come
+   * from the queryParamsObject defined in Runtime and just as the experiment field, they determine the availability
+   * of the view. A condition can be negated by prepending a ‘!’ to the value of the condition
+   * property and in that case the behaviour of the view's availability will be inverted.
+   */
   condition?: Root.Runtime.ConditionName;
+  /**
+   * The command added to the command menu used to show the view.
+   */
   commandPrompt: string;
+  /**
+   * A UI string used as the title of the view.
+   */
   title: Platform.UIString.LocalizedString;
+  /**
+   * Determines if the view is closeable, permanent or transient.
+   */
   persistence?: ViewPersistence;
+  /**
+   * Unique identifier of the view.
+   */
   id: string;
+  /**
+   * An identifier for the location of the view. The location is resolved by
+   * an extension of type '@UI.ViewLocationResolver'.
+   */
   location?: ViewLocationValues;
+  /**
+   * Whether the view has a toolbar.
+   */
   hasToolbar?: boolean;
+  /**
+   * Returns an instance of the class that wraps the view.
+   * The common pattern for implementing this function is loading the module with the wrapping 'Widget'
+   * lazily loaded. As an example:
+   *
+   * ```js
+   * let loadedElementsModule;
+   *
+   * async function loadElementsModule() {
+   *
+   *   if (!loadedElementsModule) {
+   *     loadedElementsModule = await import('./elements.js');
+   *   }
+   *   return loadedElementsModule;
+   * }
+   * UI.ViewManager.registerViewExtension({
+   *   <...>
+   *   async loadView() {
+   *      const Elements = await loadElementsModule();
+   *      return Elements.ElementsPanel.ElementsPanel.instance();
+   *   },
+   *   <...>
+   * });
+   * ```
+   */
   loadView: () => Promise<Widget>;
+  /**
+   * Used to sort the views that appear in a shared location.
+   */
   order?: number;
+  /**
+   * The names of the settings the registered view performs as UI for.
+   */
   settings?: Array<string>;
-  tags?: Array<string>;
+  /**
+   * Words used to find the view in the Command Menu.
+   */
+  tags?: Array<Platform.UIString.LocalizedString>;
 }
 
 export function registerViewExtension(registration: ViewRegistration): void {
