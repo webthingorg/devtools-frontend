@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c6db87a6_abcbda27",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-13T03:49:59Z",
+      "side": 1,
+      "message": "The web component doesn\u0027t seem to be able to access ElementInternals. Attempting to use it gives the following:\n\nerror TS2339: Property \u0027attachInternals\u0027 does not exist on type \u0027AccessibilityNode\u0027.\n\nSame error applies when moved to the constructor/set data. Can @DevTools team please advise?",
+      "parentUuid": "1f2a12df_ed305e01",
+      "range": {
+        "startLine": 30,
+        "startChar": 37,
+        "endLine": 30,
+        "endChar": 52
+      },
+      "revId": "d4c6c1400c835e0e0c7f46ddc1c8f58a93ccc1a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "22a11f80_02a442f0",
         "filename": "front_end/elements/AccessibilityNode.ts",
         "patchSetId": 7
