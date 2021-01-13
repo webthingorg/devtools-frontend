@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d90cb56_0ffe80bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-13T07:48:04Z",
+      "side": 1,
+      "message": "Nice, this is looking great! Left a couple of small suggestions - the main thing is around the DOM rendering in `AccessibilityNode.ts` and trying to avoid `document.createElement` where possible.",
+      "revId": "88396a8e5e7656f33668ed29f34e41663072acf8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fe46f7ab_d6b87815",
@@ -54,6 +71,47 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "285a045c_4ba05c5a",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-13T07:48:04Z",
+      "side": 1,
+      "message": "Agreed, we should ideally use exclusively LitHtml as it will also be more efficient at re-rendering.\n\nI\u0027m guessing the reason we can\u0027t here is because of the `setTextContentTruncatedIfNeeded` ?\n\nWhat we could do is take the logic from `setTextContentTruncatedIfNeeded` and make a variant that returns the new truncated text. Then you could do:\n\n```\nconst role \u003d LitHtml.html`\u003cp\u003e${truncateTextIfNeeded(role.value || \u0027\u0027}\u003c/p\u003e\n```\n\nThat way we allow LitHtml to own all the rendering and creation of DOM nodes, which is highly preferred (see https://docs.google.com/document/d/1LhPLAZxPoaZZhB-6VRqprAjKlcGQekF-MLmBSPNTX_Y/edit#heading\u003dh.lfayusb2gxrh for more details)",
+      "parentUuid": "fe46f7ab_d6b87815",
+      "revId": "88396a8e5e7656f33668ed29f34e41663072acf8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1c2bc00_fc2c0c9f",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-13T07:48:04Z",
+      "side": 1,
+      "message": "do we need this important? I\u0027d have hoped that because this CSS is scoped that nothing else is overriding it.",
+      "range": {
+        "startLine": 101,
+        "startChar": 50,
+        "endLine": 101,
+        "endChar": 61
+      },
+      "revId": "88396a8e5e7656f33668ed29f34e41663072acf8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0594f604_8b08b825",
         "filename": "front_end/elements/AccessibilityNode.ts",
         "patchSetId": 11
@@ -65,6 +123,24 @@
       "writtenOn": "2021-01-13T07:30:04Z",
       "side": 1,
       "message": "I think we might want to use a CSS variable instead of hard-coding the color to support dark mode. Jack, do you know if we already have a suitable one?",
+      "revId": "88396a8e5e7656f33668ed29f34e41663072acf8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6854a457_d0fc7de8",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-13T07:48:04Z",
+      "side": 1,
+      "message": "Yes please, if possible. @Annabel can you see if any colors here work ? https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/ui/themeColors.css;l\u003d1?q\u003dthemecolors.css\u0026sq\u003d\u0026ss\u003dchromium",
+      "parentUuid": "0594f604_8b08b825",
       "revId": "88396a8e5e7656f33668ed29f34e41663072acf8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
