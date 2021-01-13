@@ -16,6 +16,24 @@
       "message": "The image is ~10 kB larger than the previous one. Please try playing around with Squoosh settings to reduce file size while maintaining decent visual quality.\n\nI’ve made some minor tweaks to the copy, PTAL.",
       "revId": "cb7c3e645525c775cf6d1747a993b0b86aa9b27f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd1a9201_8c20aad7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2021-01-13T15:11:54Z",
+      "side": 1,
+      "message": "Updated the image. :)\n\nWhat copy did you change (assuming you are talking about the copy writing)?",
+      "parentUuid": "9aabd6e3_c725c2d9",
+      "revId": "cb7c3e645525c775cf6d1747a993b0b86aa9b27f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
