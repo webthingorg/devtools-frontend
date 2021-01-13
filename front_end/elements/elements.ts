@@ -26,6 +26,7 @@ import './ClassesPaneWidget.js';
 import './ElementStatePaneWidget.js';
 import './ElementsTreeElementHighlighter.js';
 
+import * as AccessibilityNode from './AccessibilityNode.js';
 import * as Adorner from './Adorner.js';
 import * as ClassesPaneWidget from './ClassesPaneWidget.js';
 import * as ColorSwatchPopoverIcon from './ColorSwatchPopoverIcon.js';
@@ -61,6 +62,7 @@ import * as StylePropertyTreeElement from './StylePropertyTreeElement.js';
 import * as StylesSidebarPane from './StylesSidebarPane.js';
 
 export {
+  AccessibilityNode,
   Adorner,
   ClassesPaneWidget,
   ColorSwatchPopoverIcon,
