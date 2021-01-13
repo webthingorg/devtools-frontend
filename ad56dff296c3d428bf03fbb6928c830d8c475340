@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d26ca628_06f2329a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-13T03:07:45Z",
+      "side": 1,
+      "message": "Also expanded/collapsing of child containers",
+      "revId": "ad56dff296c3d428bf03fbb6928c830d8c475340",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9dd55bca_e69e1e13",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-13T03:07:45Z",
+      "side": 1,
+      "message": "I think instead of returning null here, we should just return an empty TemplateResult array, same as in renderChildren.\n\nSo you can move the declaration of nodeContent up to the first line, and return that if !axNode or !role.",
+      "revId": "ad56dff296c3d428bf03fbb6928c830d8c475340",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
