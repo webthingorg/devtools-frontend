@@ -51,6 +51,24 @@
       "message": "Hi everyone,\n\nleft some open questions for clarification, thanks for letting us know about this issue 😊",
       "revId": "63962a3cd411fe71f519cf70f6560df305f5ca12",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aaafba33_8a7e0049",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-13T12:52:37Z",
+      "side": 1,
+      "message": "We are performing a migration to convert all JavaScript files to Typescript-authored files: https://docs.google.com/document/d/1BOlE89KvSb_SXct1MSTooHh7Igm_U46fzr5MStHQsmA/edit?usp\u003dsharing_eip\u0026ts\u003d5fd8b6ca\n\nSince the files are now TypeScript-authored, the localization pipeline uses `parse_typescript_files.js` to parse the AST. However, the logic in `walkTree` in there only handles `ls`. As such, as you can see in this particular CL, if a file uses a different localization mechanism, the pipeline misses the usage. Therefore, the GRDP entries are erroneously removed.\n\nBased on my chats with Peter, I am aware of the following options that we could try:\n1. Update `parse_typescript_files.js` to handle *all* localization patterns of localization v1\n2. Speed up the localization migration to port to i18n to unblock the TypeScript migration, such that all TypeScript files use localization v2, which is already supported\n\nBased on these, I think that option 2 would be ideal, as it saves us doing additional engineering work that option 1 includes. Are there any opportunities that could get us to option 2 quicker?",
+      "parentUuid": "e222e4ba_97c9a0d6",
+      "revId": "63962a3cd411fe71f519cf70f6560df305f5ca12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
