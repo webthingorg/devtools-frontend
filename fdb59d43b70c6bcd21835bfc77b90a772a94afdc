@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2945b339_e7dce781",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-13T07:36:56Z",
+      "side": 1,
+      "message": "lgtm once compilation errors are fixed.",
+      "revId": "fdb59d43b70c6bcd21835bfc77b90a772a94afdc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8712e99_5d46600e",
+        "filename": "front_end/coverage/CoverageListView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-13T07:36:56Z",
+      "side": 1,
+      "message": "Search \u0026 Replace error",
+      "range": {
+        "startLine": 271,
+        "startChar": 3,
+        "endLine": 271,
+        "endChar": 33
+      },
+      "revId": "fdb59d43b70c6bcd21835bfc77b90a772a94afdc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8728a0f_53c0f3e6",
+        "filename": "front_end/elements/ClassesPaneWidget.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-13T07:36:56Z",
+      "side": 1,
+      "message": "Search \u0026 Replace error",
+      "range": {
+        "startLine": 55,
+        "startChar": 8,
+        "endLine": 55,
+        "endChar": 30
+      },
+      "revId": "fdb59d43b70c6bcd21835bfc77b90a772a94afdc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03b8acfa_aac4e835",
+        "filename": "front_end/profiler/LiveHeapProfileView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-13T07:36:56Z",
+      "side": 1,
+      "message": "Search \u0026 Replace error",
+      "range": {
+        "startLine": 269,
+        "startChar": 4,
+        "endLine": 269,
+        "endChar": 33
+      },
+      "revId": "fdb59d43b70c6bcd21835bfc77b90a772a94afdc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59687986_33775cda",
+        "filename": "front_end/ui/SearchableView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-13T07:36:56Z",
+      "side": 1,
+      "message": "Search \u0026 Replace error :)",
+      "range": {
+        "startLine": 401,
+        "startChar": 4,
+        "endLine": 401,
+        "endChar": 33
+      },
+      "revId": "fdb59d43b70c6bcd21835bfc77b90a772a94afdc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee15adaa_99f12d49",
+        "filename": "front_end/ui/SoftContextMenu.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-13T07:36:56Z",
+      "side": 1,
+      "message": "Search \u0026 Replace error",
+      "range": {
+        "startLine": 519,
+        "startChar": 8,
+        "endLine": 519,
+        "endChar": 45
+      },
+      "revId": "fdb59d43b70c6bcd21835bfc77b90a772a94afdc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
