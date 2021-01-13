@@ -16,6 +16,24 @@
       "message": "Peter, do you think this makes sense?",
       "revId": "3884b4d5a578634a3423bbdaf8a17f636e3b8c32",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11671807_22450fd1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2021-01-13T10:27:15Z",
+      "side": 1,
+      "message": "What\u0027s the rationale behind not having the same behavior as code editors (hover over the error code, tooltip above the line shows the error)?",
+      "parentUuid": "6cfd1208_fa71c6bd",
+      "revId": "3884b4d5a578634a3423bbdaf8a17f636e3b8c32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
