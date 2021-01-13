@@ -30,6 +30,7 @@ group("front_end") {
     "persistence",
     "platform",
     "protocol_client",
+    "resources",
     "root",
     "sdk",
     "sources",
