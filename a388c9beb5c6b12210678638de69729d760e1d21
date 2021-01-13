@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6cbaf09_9825fff6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-13T11:59:28Z",
+      "side": 1,
+      "message": "Thanks for fixing the non-unique URL problem.",
+      "revId": "a388c9beb5c6b12210678638de69729d760e1d21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "049337c4_bb92c1bc",
+        "filename": "front_end/sdk/ResourceTreeModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-13T11:59:28Z",
+      "side": 1,
+      "message": "Under which circumstances does this happen?",
+      "range": {
+        "startLine": 256,
+        "startChar": 4,
+        "endLine": 258,
+        "endChar": 5
+      },
+      "revId": "a388c9beb5c6b12210678638de69729d760e1d21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89dd3406_0f7a2196",
+        "filename": "front_end/sdk/ResourceTreeModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-13T11:59:28Z",
+      "side": 1,
+      "message": "Hmm, can you explain why this is necessary here? How does this interact with what _processCachedResources does?",
+      "range": {
+        "startLine": 260,
+        "startChar": 33,
+        "endLine": 260,
+        "endChar": 64
+      },
+      "revId": "a388c9beb5c6b12210678638de69729d760e1d21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
