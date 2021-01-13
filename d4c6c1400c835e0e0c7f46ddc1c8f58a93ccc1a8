@@ -84,6 +84,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "08b914c3_55f4b779",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-13T07:49:17Z",
+      "side": 1,
+      "message": "I suspect TypeScript doesn\u0027t have those definitions defined.\n\nYou could either define them, or for now do:\n\n```\n// @ts-expect-error crbug.com/ABC\nprivate readonly internals \u003d this.attachInternals()\n```\n\nAnd then file a crbug noting this issue so we can track it.",
+      "parentUuid": "c6db87a6_abcbda27",
+      "range": {
+        "startLine": 30,
+        "startChar": 37,
+        "endLine": 30,
+        "endChar": 52
+      },
+      "revId": "d4c6c1400c835e0e0c7f46ddc1c8f58a93ccc1a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "22a11f80_02a442f0",
         "filename": "front_end/elements/AccessibilityNode.ts",
         "patchSetId": 7
