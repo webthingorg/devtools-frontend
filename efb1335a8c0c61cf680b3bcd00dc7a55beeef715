@@ -16,6 +16,23 @@
       "message": "I actually couldn\u0027t get the workaround to work in the integration test --- for some reason the devices drop down stops showing up at the point I would need it despite the test seemingly clicking on the right thing --- otherwise this would have been two CLs.",
       "revId": "efb1335a8c0c61cf680b3bcd00dc7a55beeef715",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d27573c8_b410288f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-13T07:39:14Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "efb1335a8c0c61cf680b3bcd00dc7a55beeef715",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
