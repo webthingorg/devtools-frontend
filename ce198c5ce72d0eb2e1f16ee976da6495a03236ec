@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e2bb0b2_8dc9bed5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-13T10:27:02Z",
+      "side": 1,
+      "message": "Still LGTM. Paul, could you take a look as well?",
+      "revId": "ce198c5ce72d0eb2e1f16ee976da6495a03236ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
