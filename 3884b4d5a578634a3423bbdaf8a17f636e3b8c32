@@ -52,6 +52,24 @@
       "parentUuid": "11671807_22450fd1",
       "revId": "3884b4d5a578634a3423bbdaf8a17f636e3b8c32",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b11166f_d8e49705",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2021-01-13T10:43:57Z",
+      "side": 1,
+      "message": "Sorry, what I meant is: instead of removing the underline-hover, it would be easier to hover over the whole word.\n\nLike code editors do: https://i.imgur.com/12LqI3J.gif",
+      "parentUuid": "7b16f2e8_68381e4f",
+      "revId": "3884b4d5a578634a3423bbdaf8a17f636e3b8c32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
