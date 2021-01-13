@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1afa60aa_b8b6dd79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-13T10:10:18Z",
+      "side": 1,
+      "message": "PTAL. Note that the layout tests will fail until the CL in Chromium lands that updates them to not rely on #compareTo.",
+      "revId": "5293ac6336cdbce2e2b46a84ae50b61348990d56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
