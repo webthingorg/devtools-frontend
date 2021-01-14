@@ -7551,6 +7551,13 @@ experimental domain Storage
       # Storage usage (bytes).
       number usage
 
+  # Pair of issuer origin and number of available (signed, but not used) Trust
+  # Tokens from that issuer.
+  experimental type StoredTrustTokens extends object
+    properties
+      string issuerOrigin
+      number count
+
   # Clears storage for origin.
   command clearDataForOrigin
     parameters
@@ -7634,6 +7641,12 @@ experimental domain Storage
     parameters
       # Security origin.
       string origin
+
+  # Returns the number of stored Trust Tokens per issuer for the
+  # current browsing context.
+  experimental command getStoredTrustTokens
+    returns
+      array of StoredTrustTokens tokens
 
   # A cache's contents have been modified.
   event cacheStorageContentUpdated

@@ -11086,6 +11086,15 @@ declare namespace Protocol {
       usage: number;
     }
 
+    /**
+     * Pair of issuer origin and number of available (signed, but not used) Trust
+     * Tokens from that issuer.
+     */
+    export interface StoredTrustTokens {
+      issuerOrigin: string;
+      count: number;
+    }
+
     export interface ClearDataForOriginRequest {
       /**
        * Security origin.
@@ -11198,6 +11207,10 @@ declare namespace Protocol {
        * Security origin.
        */
       origin: string;
+    }
+
+    export interface GetStoredTrustTokensResponse extends ProtocolResponseWithError {
+      tokens: StoredTrustTokens[];
     }
 
     /**
