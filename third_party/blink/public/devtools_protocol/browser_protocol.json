@@ -1357,6 +1357,32 @@
                     ]
                 },
                 {
+                    "id": "LowTextContrastIssueDetails",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "violatingNodeId",
+                            "$ref": "DOM.BackendNodeId"
+                        },
+                        {
+                            "name": "violatingNodeSelector",
+                            "type": "string"
+                        },
+                        {
+                            "name": "contrastRatio",
+                            "type": "number"
+                        },
+                        {
+                            "name": "passedAA",
+                            "type": "boolean"
+                        },
+                        {
+                            "name": "passedAAA",
+                            "type": "boolean"
+                        }
+                    ]
+                },
+                {
                     "id": "InspectorIssueCode",
                     "description": "A unique identifier for the type of issue. Each type may use one of the\noptional fields in InspectorIssueDetails to convey more specific\ninformation about the kind of issue.",
                     "type": "string",
@@ -1366,7 +1392,8 @@
                         "BlockedByResponseIssue",
                         "HeavyAdIssue",
                         "ContentSecurityPolicyIssue",
-                        "SharedArrayBufferTransferIssue"
+                        "SharedArrayBufferTransferIssue",
+                        "LowTextContrastIssue"
                     ]
                 },
                 {
@@ -1403,6 +1430,11 @@
                             "name": "sharedArrayBufferTransferIssueDetails",
                             "optional": true,
                             "$ref": "SharedArrayBufferTransferIssueDetails"
+                        },
+                        {
+                            "name": "lowTextContrastIssueDetails",
+                            "optional": true,
+                            "$ref": "LowTextContrastIssueDetails"
                         }
                     ]
                 },

@@ -254,7 +254,8 @@ export function registerCommands(inspectorBackend) {
     BlockedByResponseIssue: 'BlockedByResponseIssue',
     HeavyAdIssue: 'HeavyAdIssue',
     ContentSecurityPolicyIssue: 'ContentSecurityPolicyIssue',
-    SharedArrayBufferTransferIssue: 'SharedArrayBufferTransferIssue'
+    SharedArrayBufferTransferIssue: 'SharedArrayBufferTransferIssue',
+    LowTextContrastIssue: 'LowTextContrastIssue'
   });
   inspectorBackend.registerEvent('Audits.issueAdded', ['issue']);
   inspectorBackend.registerEnum('Audits.GetEncodedResponseRequestEncoding', {Webp: 'webp', Jpeg: 'jpeg', Png: 'png'});

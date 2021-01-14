@@ -936,6 +936,14 @@ declare namespace Protocol {
       isWarning: boolean;
     }
 
+    export interface LowTextContrastIssueDetails {
+      violatingNodeId: DOM.BackendNodeId;
+      violatingNodeSelector: string;
+      contrastRatio: number;
+      passedAA: boolean;
+      passedAAA: boolean;
+    }
+
     /**
      * A unique identifier for the type of issue. Each type may use one of the
      * optional fields in InspectorIssueDetails to convey more specific
@@ -948,6 +956,7 @@ declare namespace Protocol {
       HeavyAdIssue = 'HeavyAdIssue',
       ContentSecurityPolicyIssue = 'ContentSecurityPolicyIssue',
       SharedArrayBufferTransferIssue = 'SharedArrayBufferTransferIssue',
+      LowTextContrastIssue = 'LowTextContrastIssue',
     }
 
     /**
@@ -962,6 +971,7 @@ declare namespace Protocol {
       heavyAdIssueDetails?: HeavyAdIssueDetails;
       contentSecurityPolicyIssueDetails?: ContentSecurityPolicyIssueDetails;
       sharedArrayBufferTransferIssueDetails?: SharedArrayBufferTransferIssueDetails;
+      lowTextContrastIssueDetails?: LowTextContrastIssueDetails;
     }
 
     /**
