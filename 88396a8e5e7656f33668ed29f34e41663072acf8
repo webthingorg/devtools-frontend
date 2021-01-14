@@ -104,6 +104,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "46813a61_9b035b9d",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-14T03:58:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "285a045c_4ba05c5a",
+      "revId": "88396a8e5e7656f33668ed29f34e41663072acf8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d1c2bc00_fc2c0c9f",
@@ -117,6 +135,30 @@
       "writtenOn": "2021-01-13T07:48:04Z",
       "side": 1,
       "message": "do we need this important? I\u0027d have hoped that because this CSS is scoped that nothing else is overriding it.",
+      "range": {
+        "startLine": 101,
+        "startChar": 50,
+        "endLine": 101,
+        "endChar": 61
+      },
+      "revId": "88396a8e5e7656f33668ed29f34e41663072acf8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73deabec_f5fd1f80",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-14T03:58:26Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "d1c2bc00_fc2c0c9f",
       "range": {
         "startLine": 101,
         "startChar": 50,
@@ -158,6 +200,24 @@
       "side": 1,
       "message": "Yes please, if possible. @Annabel can you see if any colors here work ? https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/ui/themeColors.css;l\u003d1?q\u003dthemecolors.css\u0026sq\u003d\u0026ss\u003dchromium",
       "parentUuid": "0594f604_8b08b825",
+      "revId": "88396a8e5e7656f33668ed29f34e41663072acf8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f48731bb_2b77e481",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-14T03:58:26Z",
+      "side": 1,
+      "message": "Changed to use --color-syntax-7",
+      "parentUuid": "6854a457_d0fc7de8",
       "revId": "88396a8e5e7656f33668ed29f34e41663072acf8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
