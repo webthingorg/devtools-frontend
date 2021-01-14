@@ -1759,6 +1759,7 @@ export class ResourcesSection {
   constructor(storagePanel, treeElement) {
     this._panel = storagePanel;
     this._treeElement = treeElement;
+    UI.ARIAUtils.setAccessibleName(this._treeElement._listItemNode, 'Resources Section');
     /** @type {!Map<string, !FrameTreeElement>} */
     this._treeElementForFrameId = new Map();
     /** @type {!Map<string, !FrameTreeElement>} */
@@ -2133,6 +2134,9 @@ export class FrameTreeElement extends ApplicationPanelTreeElement {
     if (statusCode >= 301 && statusCode <= 303) {
       return;
     }
+    if (this.isDuplicate(resource)) {
+      return;
+    }
 
     const resourceType = resource.resourceType();
     const categoryName = resourceType.name();
@@ -2151,6 +2155,19 @@ export class FrameTreeElement extends ApplicationPanelTreeElement {
     if (this._view) {
       this._view.update();
     }
+  }
+
+  /**
+   * @param {!SDK.Resource.Resource} resource
+   * @return {boolean}
+   */
+  isDuplicate(resource) {
+    const existingElement = this._treeElementForResource.get(resource.url);
+    if (!existingElement) {
+      return false;
+    }
+    // URLs alone are not necessarily unique
+    return existingElement.itemCategory === resource.resourceType().name();
   }
 
   /**
@@ -2213,15 +2230,6 @@ export class FrameTreeElement extends ApplicationPanelTreeElement {
     if (windowTreeElement) {
       windowTreeElement.windowClosed();
     }
-  }
-
-  /**
-   * @param {string} url
-   * @return {?SDK.Resource.Resource}
-   */
-  resourceByURL(url) {
-    const treeElement = this._treeElementForResource.get(url);
-    return treeElement ? treeElement._resource : null;
   }
 
   /**
@@ -2293,6 +2301,13 @@ export class FrameResourceTreeElement extends ApplicationPanelTreeElement {
    */
   get itemURL() {
     return this._resource.url;
+  }
+
+  /**
+   * @return {string}
+   */
+  get itemCategory() {
+    return this._resource.resourceType().name();
   }
 
   /**
