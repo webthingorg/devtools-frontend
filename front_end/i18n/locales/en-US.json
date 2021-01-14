@@ -398,9 +398,6 @@
   "help/ModuleUIStrings.js | showWhatsNewAfterEachUpdate": {
     "message": "Show What's New after each update"
   },
-  "help/ModuleUIStrings.js | whatsNew": {
-    "message": "What's New"
-  },
   "help/ReleaseNoteView.js | close": {
     "message": "Close"
   },
