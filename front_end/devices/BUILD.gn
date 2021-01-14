@@ -23,3 +23,9 @@ devtools_entrypoint("bundle") {
 
   deps = [ ":devices" ]
 }
+
+devtools_entrypoint("meta") {
+  entrypoint = "devices-meta.ts"
+
+  deps = [ ":bundle" ]
+}
