@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18cacf33_39e4e2f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-01-14T14:47:36Z",
+      "side": 1,
+      "message": "PTAL, thanks!\nJust FYI: The first patch set is what the script outputted and the third one includes my manual changes.\n",
+      "revId": "3f198b31635d4a8d2fcad42a1c3e887ee1fcd38f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
