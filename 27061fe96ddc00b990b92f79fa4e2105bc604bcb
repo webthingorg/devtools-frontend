@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "128983a2_e226dafd",
+        "filename": "scripts/devtools_paths.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-14T14:35:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e224503_b282b335",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 57
+      },
+      "revId": "27061fe96ddc00b990b92f79fa4e2105bc604bcb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de33a73c_c1faf96d",
@@ -78,6 +102,30 @@
       "writtenOn": "2021-01-14T12:35:36Z",
       "side": 1,
       "message": "Is there a particular reason we can\u0027t really use `export`-statements here? I thought our version of Node did support ESM, but I might be wrong.",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 7
+      },
+      "revId": "27061fe96ddc00b990b92f79fa4e2105bc604bcb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87520c77_1ac00712",
+        "filename": "scripts/devtools_paths.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-14T14:35:21Z",
+      "side": 1,
+      "message": "Unfortunately not 😞\n\n```\n python third_party/node/node.py scripts/devtools_paths.js\n[\u0027third_party/node/linux/node-linux-x64/bin/node\u0027, \u0027scripts/devtools_paths.js\u0027] failed:\n\n/usr/local/google/home/jacktfranklin/src/devtools-frontend/scripts/devtools_paths.js:57\nexport function thirdPartyPath() {\n^^^^^^\n\nSyntaxError: Unexpected token \u0027export\u0027\n    at Module._compile (internal/modules/cjs/loader.js:891:18)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:991:10)\n    at Module.load (internal/modules/cjs/loader.js:811:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:723:14)\n    at Function.Module.runMain (internal/modules/cjs/loader.js:1043:10)\n```",
+      "parentUuid": "de33a73c_c1faf96d",
       "range": {
         "startLine": 57,
         "startChar": 0,
