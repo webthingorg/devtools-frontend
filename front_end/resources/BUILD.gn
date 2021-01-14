@@ -29,6 +29,7 @@ devtools_module("resources") {
     "ServiceWorkerCacheViews.js",
     "ServiceWorkersView.js",
     "StorageItemsView.js",
+    "TrustTokensView.ts",
   ]
 
   deps = [
