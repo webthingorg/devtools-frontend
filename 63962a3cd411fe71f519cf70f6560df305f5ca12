@@ -69,6 +69,24 @@
       "parentUuid": "e222e4ba_97c9a0d6",
       "revId": "63962a3cd411fe71f519cf70f6560df305f5ca12",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4eed0518_ef705218",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-01-14T01:07:51Z",
+      "side": 1,
+      "message": "Hi Tim,\nThanks for the explanation it definitely helped understanding the issue. It is probably better to do a follow up on this one during tomorrows sync meeting (1/14 Pacific Time) We added it to the agenda.",
+      "parentUuid": "aaafba33_8a7e0049",
+      "revId": "63962a3cd411fe71f519cf70f6560df305f5ca12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
