@@ -761,9 +761,6 @@
   "layers/LayersPanel.js | profiler": {
     "message": "Profiler"
   },
-  "layers/ModuleUIStrings.js | layers": {
-    "message": "Layers"
-  },
   "lighthouse/LighthouseController.js | accessibility": {
     "message": "Accessibility"
   },
