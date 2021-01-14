@@ -18,6 +18,46 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ceb062a_e17f4afa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-14T15:20:31Z",
+      "side": 1,
+      "message": "LGTM with some small comments 😊",
+      "revId": "e9e9cfed3aedb33b9f28e8c379b780e6e5ca490d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b58b08d9_8f0ae714",
+        "filename": "front_end/component_docs/icon_component/basic.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-14T15:20:31Z",
+      "side": 1,
+      "message": "small nit: I think you could do document.getElementById\u003cUIComponents.Icon.Icon\u003e(\u0027icon-in-flex\u0027) here.",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 85
+      },
+      "revId": "e9e9cfed3aedb33b9f28e8c379b780e6e5ca490d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb7df04f_ba192fd9",
@@ -36,6 +76,53 @@
         "startChar": 16,
         "endLine": 69,
         "endChar": 21
+      },
+      "revId": "e9e9cfed3aedb33b9f28e8c379b780e6e5ca490d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6783f80_650848ac",
+        "filename": "front_end/ui/components/Icon.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-14T15:20:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bb7df04f_ba192fd9",
+      "range": {
+        "startLine": 69,
+        "startChar": 16,
+        "endLine": 69,
+        "endChar": 21
+      },
+      "revId": "e9e9cfed3aedb33b9f28e8c379b780e6e5ca490d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4762678b_68c8c894",
+        "filename": "front_end/ui/toolbar.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-14T15:20:31Z",
+      "side": 1,
+      "message": "I\u0027m not sure if we have guidance on this, but typically when the values are the same like this I\u0027d go for the shorthand margin: 0 7px;",
+      "range": {
+        "startLine": 374,
+        "startChar": 1,
+        "endLine": 374,
+        "endChar": 22
       },
       "revId": "e9e9cfed3aedb33b9f28e8c379b780e6e5ca490d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
