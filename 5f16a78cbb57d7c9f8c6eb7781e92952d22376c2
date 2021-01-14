@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5f655ee_a09aaa98",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-14T06:32:21Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "5f16a78cbb57d7c9f8c6eb7781e92952d22376c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c53e83f_ebe27941",
+        "filename": "front_end/sdk/DebuggerModel.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-14T06:32:21Z",
+      "side": 1,
+      "message": "super-nit: Braces for if statements. Surprised that no linter complains.",
+      "range": {
+        "startLine": 234,
+        "startChar": 0,
+        "endLine": 235,
+        "endChar": 13
+      },
+      "revId": "5f16a78cbb57d7c9f8c6eb7781e92952d22376c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
