@@ -179,15 +179,18 @@ export class StylesSidebarPane extends ElementsSidebarPane {
     if (!StylesSidebarPane.ignoreErrorsForProperty(property)) {
       exclamationElement.type = 'smallicon-warning';
     }
+    let invalidMessage;
     if (title) {
       UI.Tooltip.Tooltip.install(exclamationElement, title);
+      invalidMessage = title;
     } else {
-      UI.Tooltip.Tooltip.install(
-          exclamationElement,
-          SDK.CSSMetadata.cssMetadata().isCSSPropertyName(property.name) ?
-              Common.UIString.UIString('Invalid property value') :
-              Common.UIString.UIString('Unknown property name'));
+      invalidMessage = SDK.CSSMetadata.cssMetadata().isCSSPropertyName(property.name) ?
+          Common.UIString.UIString('Invalid property value') :
+          Common.UIString.UIString('Unknown property name');
+      UI.Tooltip.Tooltip.install(exclamationElement, invalidMessage);
     }
+    UI.ARIAUtils.alert(
+        ls`${invalidMessage}, property name: ${property.name}, property value: ${property.value}`, exclamationElement);
     return exclamationElement;
   }
 

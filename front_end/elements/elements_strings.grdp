@@ -24,6 +24,9 @@
   <message name="IDS_DEVTOOLS_45ed537c6d17178db23db9e579f4f6c3" desc="A context menu item in Styles panel to copy CSS declaration">
     Copy declaration
   </message>
+  <message name="IDS_DEVTOOLS_5cddda8bf3539f43268b01d5618ffd4f" desc="Screen reader announcement for invalid property names or values">
+    <ph name="INVALIDMESSAGE">$1s<ex>Invalid property value</ex></ph>, property name: <ph name="PROPERTY_NAME">$2s<ex>color</ex></ph>, property value: <ph name="PROPERTY_VALUE">$3s<ex>12px</ex></ph>
+  </message>
   <message name="IDS_DEVTOOLS_9df0e8cc86e20861ac1440068aa6b49a" desc="A context menu item in Styles panel to copy CSS rule">
     Copy rule
   </message>
