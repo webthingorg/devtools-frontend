@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "39bfb6e0_524daf22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-14T16:35:19Z",
+      "side": 1,
+      "message": "The HaTS link looks good to me, but the Learn More link seems off now - https://imgur.com/a/FRxIMZu\n\nBTW instructions for getting a survey up are here: https://docs.google.com/document/d/1wMRb1hI2zJ1mzOSJjjF46C2hToGksQf2AxurorxaiTg/edit#heading\u003dh.jsb88vjhhtl5",
+      "parentUuid": "be123f9d_7afeb2b2",
+      "revId": "e9e9cfed3aedb33b9f28e8c379b780e6e5ca490d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b58b08d9_8f0ae714",
         "filename": "front_end/component_docs/icon_component/basic.ts",
         "patchSetId": 1
