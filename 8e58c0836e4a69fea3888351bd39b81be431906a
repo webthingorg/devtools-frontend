@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c43de6b1_29ec15aa",
+        "filename": "front_end/quick_open/CommandMenu.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-01-14T13:34:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "739df2e7_82bd8e62",
+      "range": {
+        "startLine": 143,
+        "startChar": 4,
+        "endLine": 149,
+        "endChar": 7
+      },
+      "revId": "8e58c0836e4a69fea3888351bd39b81be431906a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2046ccd0_413bfd59",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-01-05T11:37:48Z",
       "side": 1,
       "message": "This type is defined in `ViewRegistration.ts`. Therefore, should we maybe move the registration-related functions/typedefs into `ViewRegistration.ts` to prevent circular dependencies?",
+      "range": {
+        "startLine": 10,
+        "startChar": 8,
+        "endLine": 10,
+        "endChar": 26
+      },
+      "revId": "8e58c0836e4a69fea3888351bd39b81be431906a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67b14b49_c0912438",
+        "filename": "front_end/ui/View.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-01-14T13:34:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2046ccd0_413bfd59",
       "range": {
         "startLine": 10,
         "startChar": 8,
