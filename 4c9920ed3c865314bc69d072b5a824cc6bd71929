@@ -16,6 +16,24 @@
       "message": "Migrating screencast panel to localization v2.",
       "revId": "4c9920ed3c865314bc69d072b5a824cc6bd71929",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a79e344_97f8ad7b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-01-14T03:30:27Z",
+      "side": 1,
+      "message": "PTAL 😊",
+      "parentUuid": "86188bdb_5e3a88ff",
+      "revId": "4c9920ed3c865314bc69d072b5a824cc6bd71929",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
