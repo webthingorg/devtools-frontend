@@ -50,6 +50,23 @@
       "message": "Ah nice that it ships that build in. Thanks for the heads up :)",
       "revId": "7922025487b17cd1271938476b2bc2cfcaa58231",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d03861b0_079af15c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-14T12:37:50Z",
+      "side": 1,
+      "message": "Love the cleanup of ResizeObserver. Easy upgrade 🎉",
+      "revId": "7922025487b17cd1271938476b2bc2cfcaa58231",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
