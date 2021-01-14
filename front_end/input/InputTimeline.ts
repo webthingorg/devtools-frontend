@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Bindings from '../bindings/bindings.js';
 import * as i18n from '../i18n/i18n.js';
 import * as Platform from '../platform/platform.js';
@@ -26,13 +28,24 @@ export const UIStrings = {
   */
   saveProfile: 'Save profile…',
 };
-const str_ = i18n.i18n.registerUIStrings('input/InputTimeline.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('input/InputTimeline.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
-/**
- * @implements {Timeline.TimelineLoader.Client}
- */
-export class InputTimeline extends UI.Widget.VBox {
+export class InputTimeline extends UI.Widget.VBox implements Timeline.TimelineLoader.Client {
+  _tracingClient: TracingClient|null;
+  _tracingModel: SDK.TracingModel.TracingModel|null;
+  _inputModel: InputModel|null;
+  _state: State;
+  _toggleRecordAction: UI.ActionRegistration.Action;
+  _startReplayAction: UI.ActionRegistration.Action;
+  _togglePauseAction: UI.ActionRegistration.Action;
+  _panelToolbar: UI.Toolbar.Toolbar;
+  _clearButton: UI.Toolbar.ToolbarButton;
+  _loadButton: UI.Toolbar.ToolbarButton;
+  _saveButton: UI.Toolbar.ToolbarButton;
+  _fileSelectorElement?: HTMLInputElement;
+  _loader?: Timeline.TimelineLoader.TimelineLoader;
+
   constructor() {
     super(true);
     this.registerRequiredCSS('input/inputTimeline.css', {enableLegacyPatching: true});
@@ -43,19 +56,12 @@ export class InputTimeline extends UI.Widget.VBox {
     this._inputModel = null;
 
     this._state = State.Idle;
-
-    /** @type {!UI.ActionRegistration.Action}*/
     this._toggleRecordAction =
-        /** @type {!UI.ActionRegistration.Action}*/ (
-            UI.ActionRegistry.ActionRegistry.instance().action('input.toggle-recording'));
-    /** @type {!UI.ActionRegistration.Action}*/
+        UI.ActionRegistry.ActionRegistry.instance().action('input.toggle-recording') as UI.ActionRegistration.Action;
     this._startReplayAction =
-        /** @type {!UI.ActionRegistration.Action}*/ (
-            UI.ActionRegistry.ActionRegistry.instance().action('input.start-replaying'));
-    /** @type {!UI.ActionRegistration.Action}*/
+        UI.ActionRegistry.ActionRegistry.instance().action('input.start-replaying') as UI.ActionRegistration.Action;
     this._togglePauseAction =
-        /** @type {!UI.ActionRegistration.Action}*/ (
-            UI.ActionRegistry.ActionRegistry.instance().action('input.toggle-pause'));
+        UI.ActionRegistry.ActionRegistry.instance().action('input.toggle-pause') as UI.ActionRegistration.Action;
 
     const toolbarContainer = this.contentElement.createChild('div', 'input-timeline-toolbar-container');
     this._panelToolbar = new UI.Toolbar.Toolbar('input-timeline-toolbar', toolbarContainer);
@@ -74,7 +80,7 @@ export class InputTimeline extends UI.Widget.VBox {
     this._loadButton = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.loadProfile), 'largeicon-load');
     this._loadButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, () => this._selectFileToLoad());
     this._saveButton = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.saveProfile), 'largeicon-download');
-    this._saveButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, event => {
+    this._saveButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, _event => {
       this._saveToFile();
     });
     this._panelToolbar.appendSeparator();
@@ -86,14 +92,14 @@ export class InputTimeline extends UI.Widget.VBox {
     this._updateControls();
   }
 
-  _reset() {
+  _reset(): void {
     this._tracingClient = null;
     this._tracingModel = null;
     this._inputModel = null;
     this._setState(State.Idle);
   }
 
-  _createFileSelector() {
+  _createFileSelector(): void {
     if (this._fileSelectorElement) {
       this._fileSelectorElement.remove();
     }
@@ -101,34 +107,22 @@ export class InputTimeline extends UI.Widget.VBox {
     this.element.appendChild(this._fileSelectorElement);
   }
 
-  /**
-   * @override
-   */
-  wasShown() {
+  wasShown(): void {
   }
 
-  /**
-   * @override
-   */
-  willHide() {
+  willHide(): void {
   }
 
-  /**
-   * @param {!State} state
-   */
-  _setState(state) {
+  _setState(state: State): void {
     this._state = state;
     this._updateControls();
   }
 
-  /**
-   * @return {boolean}
-   */
-  _isAvailableState() {
+  _isAvailableState(): boolean {
     return this._state === State.Idle || this._state === State.ReplayPaused;
   }
 
-  _updateControls() {
+  _updateControls(): void {
     this._toggleRecordAction.setToggled(this._state === State.Recording);
     this._toggleRecordAction.setEnabled(this._isAvailableState() || this._state === State.Recording);
     this._startReplayAction.setEnabled(this._isAvailableState() && Boolean(this._tracingModel));
@@ -139,7 +133,7 @@ export class InputTimeline extends UI.Widget.VBox {
     this._saveButton.setEnabled(this._isAvailableState() && Boolean(this._tracingModel));
   }
 
-  _toggleRecording() {
+  _toggleRecording(): void {
     switch (this._state) {
       case State.Recording: {
         this._stopRecording();
@@ -152,11 +146,11 @@ export class InputTimeline extends UI.Widget.VBox {
     }
   }
 
-  _startReplay() {
+  _startReplay(): void {
     this._replayEvents();
   }
 
-  _toggleReplayPause() {
+  _toggleReplayPause(): void {
     switch (this._state) {
       case State.Replaying: {
         this._pauseReplay();
@@ -172,7 +166,7 @@ export class InputTimeline extends UI.Widget.VBox {
   /**
    * Saves all current events in a file (JSON format).
    */
-  async _saveToFile() {
+  async _saveToFile(): Promise<void> {
     console.assert(this._state === State.Idle);
     if (!this._tracingModel) {
       return;
@@ -186,23 +180,18 @@ export class InputTimeline extends UI.Widget.VBox {
       return;
     }
 
-    const backingStorage =
-        /** @type {!Bindings.TempFile.TempFileBackingStorage} */ (this._tracingModel.backingStorage());
+    const backingStorage = this._tracingModel.backingStorage() as Bindings.TempFile.TempFileBackingStorage;
     await backingStorage.writeToStream(stream);
     stream.close();
   }
 
-
-  _selectFileToLoad() {
+  _selectFileToLoad(): void {
     if (this._fileSelectorElement) {
       this._fileSelectorElement.click();
     }
   }
 
-  /**
-   * @param {!File} file
-   */
-  _loadFromFile(file) {
+  _loadFromFile(file: File): void {
     console.assert(this._isAvailableState());
 
     this._setState(State.Loading);
@@ -211,11 +200,10 @@ export class InputTimeline extends UI.Widget.VBox {
     this._createFileSelector();
   }
 
-  async _startRecording() {
+  async _startRecording(): Promise<void> {
     this._setState(State.StartPending);
-
-    this._tracingClient = new TracingClient(
-        /** @type {!SDK.SDKModel.Target} */ (SDK.SDKModel.TargetManager.instance().mainTarget()), this);
+    this._tracingClient =
+        new TracingClient(SDK.SDKModel.TargetManager.instance().mainTarget() as SDK.SDKModel.Target, this);
 
     const response = await this._tracingClient.startRecording();
     // @ts-ignore crbug.com/1011811 Fix tracing manager type once Closure is gone
@@ -226,7 +214,7 @@ export class InputTimeline extends UI.Widget.VBox {
     }
   }
 
-  async _stopRecording() {
+  async _stopRecording(): Promise<void> {
     if (!this._tracingClient) {
       return;
     }
@@ -235,7 +223,7 @@ export class InputTimeline extends UI.Widget.VBox {
     this._tracingClient = null;
   }
 
-  async _replayEvents() {
+  async _replayEvents(): Promise<void> {
     if (!this._inputModel) {
       return;
     }
@@ -243,7 +231,7 @@ export class InputTimeline extends UI.Widget.VBox {
     await this._inputModel.startReplay(this.replayStopped.bind(this));
   }
 
-  _pauseReplay() {
+  _pauseReplay(): void {
     if (!this._inputModel) {
       return;
     }
@@ -251,7 +239,7 @@ export class InputTimeline extends UI.Widget.VBox {
     this._setState(State.ReplayPaused);
   }
 
-  _resumeReplay() {
+  _resumeReplay(): void {
     if (!this._inputModel) {
       return;
     }
@@ -259,92 +247,60 @@ export class InputTimeline extends UI.Widget.VBox {
     this._setState(State.Replaying);
   }
 
-  /**
-   * @override
-   */
-  loadingStarted() {
+  loadingStarted(): void {
   }
 
-  /**
-   * @override
-   * @param {number=} progress
-   */
-  loadingProgress(progress) {
+  loadingProgress(_progress?: number): void {
   }
 
-
-  /**
-   * @override
-   */
-  processingStarted() {
+  processingStarted(): void {
   }
 
-  /**
-   * @override
-   * @param {?SDK.TracingModel.TracingModel} tracingModel
-   */
-  loadingComplete(tracingModel) {
+  loadingComplete(tracingModel: SDK.TracingModel.TracingModel|null): void {
     if (!tracingModel) {
       this._reset();
       return;
     }
-    this._inputModel =
-        new InputModel(/** @type {!SDK.SDKModel.Target} */ (SDK.SDKModel.TargetManager.instance().mainTarget()));
+    this._inputModel = new InputModel(SDK.SDKModel.TargetManager.instance().mainTarget() as SDK.SDKModel.Target);
     this._tracingModel = tracingModel;
     this._inputModel.setEvents(tracingModel);
 
     this._setState(State.Idle);
   }
 
-  _recordingFailed() {
+  _recordingFailed(): void {
     this._tracingClient = null;
     this._setState(State.Idle);
   }
 
-  replayStopped() {
+  replayStopped(): void {
     this._setState(State.Idle);
   }
 }
 
-/**
- * @enum {symbol}
- */
-export const State = {
-  Idle: Symbol('Idle'),
-  StartPending: Symbol('StartPending'),
-  Recording: Symbol('Recording'),
-  StopPending: Symbol('StopPending'),
-  Replaying: Symbol('Replaying'),
-  ReplayPaused: Symbol('ReplayPaused'),
-  Loading: Symbol('Loading')
-};
+export const enum State {
+  Idle = 'Idle',
+  StartPending = 'StartPending',
+  Recording = 'Recording',
+  StopPending = 'StopPending',
+  Replaying = 'Replaying',
+  ReplayPaused = 'ReplayPaused',
+  Loading = 'Loading'
+}
 
 
-/**
- * @implements {UI.ActionRegistration.ActionDelegate}
- */
-export class ActionDelegate {
-  /**
-   * @override
-   * @param {!UI.Context.Context} context
-   * @param {string} actionId
-   * @return {boolean}
-   */
-  handleAction(context, actionId) {
+export class ActionDelegate implements UI.ActionRegistration.ActionDelegate {
+  handleAction(context: UI.Context.Context, actionId: string): boolean {
     const inputViewId = 'Inputs';
     UI.ViewManager.ViewManager.instance()
         .showView(inputViewId)
-        .then(() => /** @type {!UI.View.View} */ (UI.ViewManager.ViewManager.instance().view(inputViewId)).widget())
-        .then(widget => this._innerHandleAction(/** @type {!InputTimeline} */ (widget), actionId));
+        .then(() => (UI.ViewManager.ViewManager.instance().view(inputViewId) as UI.View.View).widget())
+        .then(widget => this._innerHandleAction(widget as InputTimeline, actionId));
 
     return true;
   }
 
-  /**
-   * @param {!InputTimeline} inputTimeline
-   * @param {string} actionId
-   */
-  _innerHandleAction(inputTimeline, actionId) {
+  _innerHandleAction(inputTimeline: InputTimeline, actionId: string): void {
     switch (actionId) {
       case 'input.toggle-recording':
         inputTimeline._toggleRecording();
@@ -361,15 +317,13 @@ export class ActionDelegate {
   }
 }
 
-/**
- * @implements {SDK.TracingManager.TracingManagerClient}
- */
-export class TracingClient {
-  /**
-   * @param {!SDK.SDKModel.Target} target
-   * @param {!InputTimeline} client
-   */
-  constructor(target, client) {
+export class TracingClient implements SDK.TracingManager.TracingManagerClient {
+  _target: SDK.SDKModel.Target;
+  _tracingManager: SDK.TracingManager.TracingManager|null;
+  _client: InputTimeline;
+  _tracingModel: SDK.TracingModel.TracingModel;
+  _tracingCompleteCallback: (() => void)|null;
+  constructor(target: SDK.SDKModel.Target, client: InputTimeline) {
     this._target = target;
     this._tracingManager = target.model(SDK.TracingManager.TracingManager);
     this._client = client;
@@ -377,14 +331,10 @@ export class TracingClient {
     const backingStorage = new Bindings.TempFile.TempFileBackingStorage();
     this._tracingModel = new SDK.TracingModel.TracingModel(backingStorage);
 
-    /** @type {?function():void} */
     this._tracingCompleteCallback = null;
   }
 
-  /**
-   * @return {!Promise<!Object>}
-   */
-  async startRecording() {
+  async startRecording(): Promise<Object> {
     if (!this._tracingManager) {
       return {};
     }
@@ -400,7 +350,7 @@ export class TracingClient {
     return response;
   }
 
-  async stopRecording() {
+  async stopRecording(): Promise<void> {
     if (this._tracingManager) {
       this._tracingManager.stop();
     }
@@ -410,43 +360,24 @@ export class TracingClient {
     this._tracingModel.tracingComplete();
     this._client.loadingComplete(this._tracingModel);
   }
-  /**
-   * @param {!Array.<!SDK.TracingManager.EventPayload>} events
-   * @override
-   */
-  traceEventsCollected(events) {
+  traceEventsCollected(events: SDK.TracingManager.EventPayload[]): void {
     this._tracingModel.addEvents(events);
   }
 
-  /**
-   * @override
-   */
-  tracingComplete() {
+  tracingComplete(): void {
     if (this._tracingCompleteCallback) {
       this._tracingCompleteCallback();
     }
     this._tracingCompleteCallback = null;
   }
 
-  /**
-   * @param {number} usage
-   * @override
-   */
-  tracingBufferUsage(usage) {
+  tracingBufferUsage(_usage: number): void {
   }
 
-  /**
-   * @param {number} progress
-   * @override
-   */
-  eventsRetrievalProgress(progress) {
+  eventsRetrievalProgress(_progress: number): void {
   }
 
-  /**
-   * @param {boolean} awaitTracingCompleteCallback - Whether to wait for the _tracingCompleteCallback to happen
-   * @return {!Promise<void>}
-   */
-  _waitForTracingToStop(awaitTracingCompleteCallback) {
+  _waitForTracingToStop(awaitTracingCompleteCallback: boolean): Promise<void> {
     return new Promise(resolve => {
       if (this._tracingManager && awaitTracingCompleteCallback) {
         this._tracingCompleteCallback = resolve;
