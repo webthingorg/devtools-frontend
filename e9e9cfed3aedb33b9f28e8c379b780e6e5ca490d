@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be123f9d_7afeb2b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-14T15:15:30Z",
+      "side": 1,
+      "message": "Jack, please take a look overall.\n\nPeter, I couldn\u0027t get a hats survey to show up, so I don\u0027t know if my change looks good there, but the components_docs look good.",
+      "revId": "e9e9cfed3aedb33b9f28e8c379b780e6e5ca490d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb7df04f_ba192fd9",
+        "filename": "front_end/ui/components/Icon.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-14T15:15:30Z",
+      "side": 1,
+      "message": "Review Guide: I\u0027m changing both the display style and the span to a div to make it very easy to read (a span with display: block could be unexpected for the reader).",
+      "range": {
+        "startLine": 69,
+        "startChar": 16,
+        "endLine": 69,
+        "endChar": 21
+      },
+      "revId": "e9e9cfed3aedb33b9f28e8c379b780e6e5ca490d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
