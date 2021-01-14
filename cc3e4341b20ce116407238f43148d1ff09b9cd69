@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10f6c580_520dc9ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 39
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-01-14T03:50:17Z",
+      "side": 1,
+      "message": "I\u0027m not familiar with this feature. Since Peter LGTM\u0027ed the explainer, he may have better judgment here :D",
+      "revId": "cc3e4341b20ce116407238f43148d1ff09b9cd69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c823011f_aafb884f",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleHelper.js",
+        "patchSetId": 39
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-01-14T03:50:17Z",
+      "side": 1,
+      "message": "A high-level question: this class doesn\u0027t seem to have internal states shared between different instance methods. Do you think it would be better to make them either static or module-level functions? Might make unit-testing them easier as well.",
+      "revId": "cc3e4341b20ce116407238f43148d1ff09b9cd69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
