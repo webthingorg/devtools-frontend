@@ -19,7 +19,13 @@ const str_ = i18n.i18n.registerUIStrings('devices/DevicesView.js', UIStrings);
 // @ts-ignore
 self.Devices = self.Devices || {};
 
-Devices.DevicesView = class extends UI.Widget.VBox {
+/** @type {!DevicesView} */
+let devicesViewInstance;
+
+export class DevicesView extends UI.Widget.VBox {
+  /**
+   * @private
+   */
   constructor() {
     super(true);
 
@@ -41,4 +47,17 @@ Devices.DevicesView = class extends UI.Widget.VBox {
 
     this.setDefaultFocusedElement(documentationLink);
   }
-};
+  /**
+   * @param {{forceNew: ?boolean}} opts
+   */
+  static instance(opts = {forceNew: null}) {
+    const {forceNew} = opts;
+    if (!devicesViewInstance || forceNew) {
+      devicesViewInstance = new DevicesView();
+    }
+
+    return devicesViewInstance;
+  }
+}
+
+Devices.DevicesView = DevicesView;
