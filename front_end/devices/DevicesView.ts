@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as i18n from '../i18n/i18n.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
@@ -19,13 +21,15 @@ const str_ = i18n.i18n.registerUIStrings('devices/DevicesView.js', UIStrings);
 // @ts-ignore
 self.Devices = self.Devices || {};
 
-Devices.DevicesView = class extends UI.Widget.VBox {
+// @ts-ignore
+self.Devices.DevicesView = class extends UI.Widget.VBox {
   constructor() {
     super(true);
 
     const deprecationMessage = this.contentElement.createChild('span');
-    const documentationLink = UI.Fragment.html
-    `<a class="devtools-link" role="link" tabindex="0" href="#" style="display: inline; cursor: pointer;">chrome://inspect/#devices</a>`;
+    const documentationLink =
+        UI.Fragment
+            .html`<a class="devtools-link" role="link" tabindex="0" href="#" style="display: inline; cursor: pointer;">chrome://inspect/#devices</a>`;
 
     self.onInvokeElement(documentationLink, event => {
       const mainTarget = SDK.SDKModel.TargetManager.instance().mainTarget();
