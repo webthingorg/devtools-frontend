@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "81a648d2_70176943",
+        "filename": "front_end/component_docs/icon_component/basic.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-14T15:26:38Z",
+      "side": 1,
+      "message": "I had tried that, but getElementById isn\u0027t declared as a generic.",
+      "parentUuid": "b58b08d9_8f0ae714",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 85
+      },
+      "revId": "e9e9cfed3aedb33b9f28e8c379b780e6e5ca490d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb7df04f_ba192fd9",
@@ -118,6 +142,30 @@
       "writtenOn": "2021-01-14T15:20:31Z",
       "side": 1,
       "message": "I\u0027m not sure if we have guidance on this, but typically when the values are the same like this I\u0027d go for the shorthand margin: 0 7px;",
+      "range": {
+        "startLine": 374,
+        "startChar": 1,
+        "endLine": 374,
+        "endChar": 22
+      },
+      "revId": "e9e9cfed3aedb33b9f28e8c379b780e6e5ca490d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "101212f8_d17507d2",
+        "filename": "front_end/ui/toolbar.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-14T15:26:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4762678b_68c8c894",
       "range": {
         "startLine": 374,
         "startChar": 1,
