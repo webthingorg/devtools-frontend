@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "f16ccee4_df5ae8c7",
+        "filename": "front_end/changes/ChangesTextEditor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-01-14T13:25:06Z",
+      "side": 1,
+      "message": "Interesting 😄\nI\u0027ll check out what went wrong there ^^",
+      "parentUuid": "efb981cc_bd8eb5a4",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 99
+      },
+      "revId": "b4f3be375a3289aac972c2295ca5bf42635eddf4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "36bfb289_b9be544b",
         "filename": "front_end/changes/ChangesView.ts",
         "patchSetId": 2
@@ -37,6 +61,30 @@
       "writtenOn": "2021-01-12T12:48:38Z",
       "side": 1,
       "message": "Interesting. It\u0027s not wrong I suppose 😄 We can probably best clean this up after the whole migration, if that would even be worth it...",
+      "range": {
+        "startLine": 381,
+        "startChar": 24,
+        "endLine": 381,
+        "endChar": 36
+      },
+      "revId": "b4f3be375a3289aac972c2295ca5bf42635eddf4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb2a57c9_ec96de12",
+        "filename": "front_end/changes/ChangesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-01-14T13:25:06Z",
+      "side": 1,
+      "message": "I fixed the script for future cls ^^",
+      "parentUuid": "36bfb289_b9be544b",
       "range": {
         "startLine": 381,
         "startChar": 24,
