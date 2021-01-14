@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f9c4693_0de61505",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-14T12:26:07Z",
+      "side": 1,
+      "message": "Animation 😜",
+      "range": {
+        "startLine": 7,
+        "startChar": 20,
+        "endLine": 7,
+        "endChar": 33
+      },
+      "revId": "e45ec02c61bbd703c823fcf2c3224373fab7b17a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d34de72b_f677ee04",
@@ -14,6 +37,115 @@
       "writtenOn": "2021-01-14T10:02:01Z",
       "side": 1,
       "message": "PTAL, thanks!",
+      "revId": "e45ec02c61bbd703c823fcf2c3224373fab7b17a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b98d937e_caa1aed8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-14T12:26:07Z",
+      "side": 1,
+      "message": "It seems like there are also a couple of compilation errors left, but overall this LGTM. Nice work!",
+      "revId": "e45ec02c61bbd703c823fcf2c3224373fab7b17a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c97e8e7_747a4f1c",
+        "filename": "front_end/animation/AnimationGroupPreviewUI.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-14T12:26:07Z",
+      "side": 1,
+      "message": "Nit: `SVGLineElement` per the removed comment.",
+      "range": {
+        "startLine": 74,
+        "startChar": 15,
+        "endLine": 74,
+        "endChar": 26
+      },
+      "revId": "e45ec02c61bbd703c823fcf2c3224373fab7b17a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "471e62ef_d2796d21",
+        "filename": "front_end/animation/AnimationModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-14T12:26:07Z",
+      "side": 1,
+      "message": "I am so happy we are able to deduce this 🎉",
+      "range": {
+        "startLine": 119,
+        "startChar": 39,
+        "endLine": 119,
+        "endChar": 47
+      },
+      "revId": "e45ec02c61bbd703c823fcf2c3224373fab7b17a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b00fbf8d_1aef8b3c",
+        "filename": "front_end/animation/AnimationTimeline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-14T12:26:07Z",
+      "side": 1,
+      "message": "Ultra-nit: remove comment.",
+      "range": {
+        "startLine": 202,
+        "startChar": 0,
+        "endLine": 203,
+        "endChar": 7
+      },
+      "revId": "e45ec02c61bbd703c823fcf2c3224373fab7b17a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "681cd832_1bdec08d",
+        "filename": "front_end/animation/AnimationUI.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-14T12:26:07Z",
+      "side": 1,
+      "message": "Hm something must have gone wrong here, but I guess this is the TypeScript compiler being pedantic? In any case, we can fix this by adding the following:\n\n```\nimport type {AnimationModel} from \u0027./AnimationModel.js\u0027;\n```",
+      "range": {
+        "startLine": 38,
+        "startChar": 29,
+        "endLine": 38,
+        "endChar": 41
+      },
       "revId": "e45ec02c61bbd703c823fcf2c3224373fab7b17a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
