@@ -11,11 +11,19 @@ export interface AccessibilityNodeData {
 
 export class AccessibilityNode extends HTMLElement {
   private readonly shadow = this.attachShadow({mode: 'open'});
+  // @ts-expect-error crbug.com/ABC
+  private readonly internals = this.attachInternals();
   private axNode: SDK.AccessibilityModel.AccessibilityNode|null = null;
+
+  constructor() {
+    super();
+    this.internals.role = 'treeitem';
+  }
 
   set data(data: AccessibilityNodeData) {
     this.axNode = data.axNode;
-    this.shadow.host.setAttribute('role', 'treeitem');
+    // this.internals.role = 'treeitem';
+    // this.shadow.host.setAttribute('role', 'treeitem');
     this.render();
   }
 
