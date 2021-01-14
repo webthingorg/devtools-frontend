@@ -67,6 +67,24 @@
       "message": "nit: please add the standard warning label here\nhttps://chromium.googlesource.com/chromium/src.git/+/HEAD/tools/metrics/histograms/README.md#requirements",
       "revId": "e02790206dd9878a107e3f1d3dbfd32fc0d53ed7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66500173_2a55f866",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-14T10:25:37Z",
+      "side": 1,
+      "message": "That comment is in L295 in this file (so as to not duplicate it for each definition).",
+      "parentUuid": "8ede5581_682b74ad",
+      "revId": "e02790206dd9878a107e3f1d3dbfd32fc0d53ed7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
