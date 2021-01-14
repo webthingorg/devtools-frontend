@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55aa0849_3953d366",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-01-14T09:21:15Z",
+      "side": 1,
+      "message": "Why store the filter text on data? Seems unnecessary.\n\nclass NewUserFilterTextEvent extends Event {\n  constructor(public filterText: string) {\n    super(\u0027newuserfiltertext\u0027, {composed: true});\n  }\n}\n\nOther nit: I think we want to miss hyphens in the name if we\u0027re being like platform events.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 1
+      },
+      "revId": "83be7c2699151ea0ce6c8add62110a8c3b7d5b61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ede123a_e7df832c",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-01-14T09:21:15Z",
+      "side": 1,
+      "message": "Same 😊",
+      "range": {
+        "startLine": 70,
+        "startChar": 11,
+        "endLine": 70,
+        "endChar": 23
+      },
+      "revId": "83be7c2699151ea0ce6c8add62110a8c3b7d5b61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96b7a891_21dc9a2a",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-01-14T09:21:15Z",
+      "side": 1,
+      "message": "the nittiest of nits: please remove",
+      "revId": "83be7c2699151ea0ce6c8add62110a8c3b7d5b61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dec81e2_522ff82c",
+        "filename": "front_end/ui/components/DataGridControllerIntegrator.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-01-14T09:21:15Z",
+      "side": 1,
+      "message": "Can you add a comment for what these params map to?",
+      "revId": "83be7c2699151ea0ce6c8add62110a8c3b7d5b61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5be95fc_afecbcfb",
+        "filename": "front_end/ui/components/DataGridUtils.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-01-14T09:21:15Z",
+      "side": 1,
+      "message": "😄  Please remove.",
+      "revId": "83be7c2699151ea0ce6c8add62110a8c3b7d5b61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
