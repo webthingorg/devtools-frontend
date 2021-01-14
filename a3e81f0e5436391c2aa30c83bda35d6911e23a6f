@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6e45129_9f1faa49",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-01-14T22:32:12Z",
+      "side": 1,
+      "message": "Thank you very much for adding component docs for markdown image and view, some minor nits.\n\nI am unable to +1 the review, but LGTM.",
+      "revId": "a3e81f0e5436391c2aa30c83bda35d6911e23a6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d60e1af_5c6e2cad",
+        "filename": "front_end/component_docs/markdown_image/basic.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-01-14T22:32:12Z",
+      "side": 1,
+      "message": "Add width, height to icon.",
+      "revId": "a3e81f0e5436391c2aa30c83bda35d6911e23a6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7dda47fa_8ba84cf8",
+        "filename": "front_end/component_docs/markdown_view/basic.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-01-14T22:32:12Z",
+      "side": 1,
+      "message": "Add link in markdown, I will add component doc for markdown-link component.\n\n```\n// Register a link in the markdown link map.\nIssues.MarkdownLinksMap.markdownLinks.set(\u0027test-link\u0027, \u0027https://exampleLink.com/\u0027);\n\nconst markdownAst \u003d Marked.Marked.lexer(`\nParagraph\n\n* List item 1\n* List item 2\n* \\`code\\`\n\nMarkdown example link: [Example link](test-link)\n\n![Image](test-image)\n`);\n```",
+      "revId": "a3e81f0e5436391c2aa30c83bda35d6911e23a6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
