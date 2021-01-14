@@ -39,6 +39,30 @@
       },
       "revId": "50cb85ae7d1813a6c9a3e4d03c9882dd106cd1d0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3e090ab_ef409df3",
+        "filename": "front_end/component_helpers/set-css-property.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-14T14:53:55Z",
+      "side": 1,
+      "message": "Yes, great shout! Will update.",
+      "parentUuid": "c5d7d635_5dc22815",
+      "range": {
+        "startLine": 9,
+        "startChar": 3,
+        "endLine": 9,
+        "endChar": 29
+      },
+      "revId": "50cb85ae7d1813a6c9a3e4d03c9882dd106cd1d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
