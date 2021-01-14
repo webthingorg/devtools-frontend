@@ -263,6 +263,9 @@
   <message name="IDS_DEVTOOLS_86408593c34af77fdd90df932f8b5261" desc="Text for a programming function">
     Function
   </message>
+  <message name="IDS_DEVTOOLS_87bfda183c4f851a101e97bbb1bbace7" desc="Title of the Layers tool">
+    Layers
+  </message>
   <message name="IDS_DEVTOOLS_87d17f4624a514e81dc7c8e016a7405c" desc="Text for the mobile platform, as opposed to desktop">
     Mobile
   </message>
