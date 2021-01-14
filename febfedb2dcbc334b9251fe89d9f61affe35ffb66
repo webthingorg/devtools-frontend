@@ -39,6 +39,30 @@
       },
       "revId": "febfedb2dcbc334b9251fe89d9f61affe35ffb66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bb63b92_365b410c",
+        "filename": "front_end/resources/TrustTokensView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-14T07:40:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aea9449f_dd4b5456",
+      "range": {
+        "startLine": 75,
+        "startChar": 3,
+        "endLine": 82,
+        "endChar": 6
+      },
+      "revId": "febfedb2dcbc334b9251fe89d9f61affe35ffb66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
