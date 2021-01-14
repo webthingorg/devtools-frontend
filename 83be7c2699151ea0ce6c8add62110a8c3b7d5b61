@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "45459d56_cdbe9b70",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-14T10:09:34Z",
+      "side": 1,
+      "message": "In https://crbug.com/1145972 Tim and I landed on using kebab case because we felt the readability was worth it to deviate slightly from the platform. I\u0027m happy to revisit that but would rather do one sweep over the entire codebase (and update the linting rules) in a follow up CL. WDYT?\n\nUsed .data for consistencies sake as it\u0027s what we\u0027ve used for all other custom events in e.g. Breadcrumbs. Again, can change it but would rather keep it consistent one way or another.",
+      "parentUuid": "55aa0849_3953d366",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 1
+      },
+      "revId": "83be7c2699151ea0ce6c8add62110a8c3b7d5b61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2ede123a_e7df832c",
         "filename": "front_end/ui/components/DataGrid.ts",
         "patchSetId": 10
@@ -64,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d5b6c3a_a784fba0",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-14T10:09:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96b7a891_21dc9a2a",
+      "revId": "83be7c2699151ea0ce6c8add62110a8c3b7d5b61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2dec81e2_522ff82c",
@@ -81,6 +123,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bac5e55e_85350fb5",
+        "filename": "front_end/ui/components/DataGridControllerIntegrator.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-14T10:09:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2dec81e2_522ff82c",
+      "revId": "83be7c2699151ea0ce6c8add62110a8c3b7d5b61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a5be95fc_afecbcfb",
@@ -94,6 +154,24 @@
       "writtenOn": "2021-01-14T09:21:15Z",
       "side": 1,
       "message": "😄  Please remove.",
+      "revId": "83be7c2699151ea0ce6c8add62110a8c3b7d5b61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa15b975_1510aadd",
+        "filename": "front_end/ui/components/DataGridUtils.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-14T10:09:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5be95fc_afecbcfb",
       "revId": "83be7c2699151ea0ce6c8add62110a8c3b7d5b61",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
