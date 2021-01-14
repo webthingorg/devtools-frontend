@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "148b500c_975fc057",
+        "filename": "front_end/ui/ViewRegistration.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-14T15:15:30Z",
+      "side": 1,
+      "message": "Nit: if you use `import type`, I think ESLint will no longer complain.",
+      "range": {
+        "startLine": 8,
+        "startChar": 49,
+        "endLine": 8,
+        "endChar": 86
+      },
+      "revId": "eb734da4ff3e04f1baf853b112534230dd145b06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
