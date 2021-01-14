@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Common from '../common/common.js';
+import * as Platform from '../platform/platform.js';
 import {ls} from '../platform/platform.js';
 import * as Root from '../root/root.js';
 
@@ -297,7 +298,7 @@ export function getRegisteredActionExtensions(): Array<PreRegisteredAction> {
           Root.Runtime.Runtime.isDescriptorEnabled({experiment: action.experiment(), condition: action.condition()}));
 }
 
-export const enum Platform {
+export const enum Platforms {
   All = 'All platforms',
   Mac = 'mac',
   WindowsLinux = 'windows,linux',
@@ -338,7 +339,7 @@ export interface ExtensionOption {
 }
 
 export interface Binding {
-  platform?: Platform;
+  platform?: Platforms;
   shortcut: string;
   keybindSets?: Array<KeybindSet>;
 }
@@ -358,15 +359,15 @@ export interface ActionRegistration {
   /**
    * The title with which the action is displayed in the UI.
    */
-  title?: string;
+  title?: Platform.UIString.LocalizedString;
   /**
    * The type of the icon used to trigger the action.
    */
-  iconClass?: string;
+  iconClass?: IconClass;
   /**
-   * Whether the style of the icon toggles on interaction.
+   * The type of the icon used to trigger the action when it's toggled.
    */
-  toggledIconClass?: string;
+  toggledIconClass?: IconClass;
   /**
    * Whether the class 'toolbar-toggle-with-red-color' is toggled on the icon on interaction.
    */
@@ -374,15 +375,11 @@ export interface ActionRegistration {
   /**
    * Words used to find an action in the Command Menu.
    */
-  tags?: Array<string>;
+  tags?: Array<Platform.UIString.LocalizedString>;
   /**
    * Whether the action is toggleable.
    */
   toggleable?: boolean;
-  /**
-   * Loads the class that handles the action when it is triggered.
-   */
-  loadActionDelegate?: () => Promise<ActionDelegate>;
   /**
    * Returns the classes that represent the 'context flavors' under which the action is available for triggering.
    * The context of the application is described in 'flavors' that are usually views added and removed to the context
@@ -426,7 +423,32 @@ export interface ActionRegistration {
    */
   contextTypes?: () => Array<unknown>;
   /**
-   * The descriptions for each of the two states in which toggleable can be.
+   * Loads the class that handles the action when it is triggered. The common pattern for implementing
+   * this function relies on having the module that contains the action’s handler lazily loaded. For example:
+   * ```js
+   *  let loadedElementsModule;
+   *
+   *  async function loadElementsModule() {
+   *
+   *    if (!loadedElementsModule) {
+   *      loadedElementsModule = await import('./elements.js');
+   *    }
+   *    return loadedElementsModule;
+   *  }
+   *  UI.ActionRegistration.registerActionExtension({
+   *   <...>
+   *    async loadActionDelegate() {
+   *      const Elements = await loadElementsModule();
+   *      return Elements.ElementsPanel.ElementsActionDelegate.instance();
+   *    },
+   *   <...>
+   *  });
+   * ```
+   */
+  loadActionDelegate?: () => Promise<ActionDelegate>;
+
+  /**
+   * The descriptions for each of the two states in which a toggleable action can be.
    */
   options?: Array<ExtensionOption>;
   /**
@@ -439,11 +461,15 @@ export interface ActionRegistration {
    */
   bindings?: Array<Binding>;
   /**
-   * The name of the experiment an action is associated with.
+   * The name of the experiment an action is associated with. Enabling and disabling the declared
+   * experiment will enable and disable the action respectively.
    */
   experiment?: Root.Runtime.ExperimentName;
   /**
-   * A condition represented as a string the action's availability depends on.
+   * A condition represented as a string the action's availability depends on. Conditions come
+   * from the queryParamsObject defined in Runtime and just as the experiment field, they determine the availability
+   * of the action. A condition can be negated by prepending a ‘!’ to the value of the condition
+   * property and in that case the behaviour of the action's availability will be inverted.
    */
   condition?: Root.Runtime.ConditionName;
 }
