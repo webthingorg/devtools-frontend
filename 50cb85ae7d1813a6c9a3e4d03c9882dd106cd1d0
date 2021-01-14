@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f41c2a04_20e970a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-14T12:31:13Z",
+      "side": 1,
+      "message": "1 nit regarding the `shadow.host` which I just realized. Does that work?",
+      "revId": "50cb85ae7d1813a6c9a3e4d03c9882dd106cd1d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5d7d635_5dc22815",
+        "filename": "front_end/component_helpers/set-css-property.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-14T12:31:13Z",
+      "side": 1,
+      "message": "Now that I think of it, `shadow.host` would be equivalent to `this` in a custom element, isn\u0027t it? In that case, it might be better to pass in the custom element itself as `element: HTMLElement` as the first argument and change its usage to the following:\n\n```\nComponentHelpers.SetCSSProperty.set(this, \u0027--clock-dial-length\u0027, `${CLOCK_DIAL_LENGTH}px`\n```\n\nI think it still would be valuable to have this helper, simply to enforce a strict pattern for handling these kind of CSS properties and allowing us to tweak it in the future if we desire to do so.",
+      "range": {
+        "startLine": 9,
+        "startChar": 3,
+        "endLine": 9,
+        "endChar": 29
+      },
+      "revId": "50cb85ae7d1813a6c9a3e4d03c9882dd106cd1d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
