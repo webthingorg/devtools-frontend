@@ -2,15 +2,20 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as UI from '../ui/ui.js';
 import {AnimationGroup} from './AnimationModel.js';  // eslint-disable-line no-unused-vars
 import {AnimationUI} from './AnimationUI.js';
 
 export class AnimationGroupPreviewUI {
-  /**
-   * @param {!AnimationGroup} model
-   */
-  constructor(model) {
+  _model: AnimationGroup;
+  element: HTMLDivElement;
+  _removeButton: HTMLElement;
+  _replayOverlayElement: HTMLElement;
+  _svg: Element;
+  _viewBoxHeight: number;
+  constructor(model: AnimationGroup) {
     this._model = model;
     this.element = document.createElement('div');
     this.element.classList.add('animation-buffer-preview');
@@ -28,10 +33,7 @@ export class AnimationGroupPreviewUI {
     this._render();
   }
 
-  /**
-   * @return {number}
-   */
-  _groupDuration() {
+  _groupDuration(): number {
     let duration = 0;
     for (const anim of this._model.animations()) {
       const animDuration = anim.source().delay() + anim.source().duration();
@@ -42,23 +44,21 @@ export class AnimationGroupPreviewUI {
     return duration;
   }
 
-  /**
-   * @return {!Element}
-   */
-  removeButton() {
+  removeButton(): Element {
     return this._removeButton;
   }
 
-  replay() {
+  replay(): void {
     this._replayOverlayElement.animate(
         [
-          {offset: 0, width: '0%', opacity: 1}, {offset: 0.9, width: '100%', opacity: 1},
-          {offset: 1, width: '100%', opacity: 0}
+          {offset: 0, width: '0%', opacity: 1},
+          {offset: 0.9, width: '100%', opacity: 1},
+          {offset: 1, width: '100%', opacity: 0},
         ],
         {duration: 200, easing: 'cubic-bezier(0, 0, 0.2, 1)'});
   }
 
-  _render() {
+  _render(): void {
     this._svg.removeChildren();
     const maxToShow = 10;
     const numberOfAnimations = Math.min(this._model.animations().length, maxToShow);
@@ -71,10 +71,7 @@ export class AnimationGroupPreviewUI {
       const y = String(Math.floor(this._viewBoxHeight / Math.max(6, numberOfAnimations) * i + 1));
       line.setAttribute('y1', y);
       line.setAttribute('y2', y);
-      // TODO(crbug.com/1011811): Switch to SVGLineElement, since Closure doesn't know about that particular
-      // type. We are using `HTMLElement` now, since it has the same interface that the code here is
-      // concerned about.
-      /** @type {!HTMLElement} */ (line).style.stroke = AnimationUI.Color(this._model.animations()[i]);
+      (line as HTMLElement).style.stroke = AnimationUI.Color(this._model.animations()[i]);
     }
   }
 }
