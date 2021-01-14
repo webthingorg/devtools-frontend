@@ -2,12 +2,14 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';
 import * as i18n from '../i18n/i18n.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
-import {DeveloperResourcesListView} from './DeveloperResourcesListView.js';
+import { DeveloperResourcesListView } from './DeveloperResourcesListView.js';
 
 export const UIStrings = {
   /**
@@ -37,30 +39,33 @@ export const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('developer_resources/DeveloperResourcesView.js', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
-/** @type {!DeveloperResourcesView} */
-let developerResourcesViewInstance;
+let developerResourcesViewInstance: DeveloperResourcesView;
 
 export class DeveloperResourcesView extends UI.Widget.VBox {
-  /** @private */
-  constructor() {
+  _textFilterRegExp: RegExp | null;
+  _filterInput: UI.Toolbar.ToolbarInput;
+  _coverageResultsElement: HTMLElement;
+  _listView: DeveloperResourcesListView;
+  _statusToolbarElement: HTMLElement;
+  _statusMessageElement: HTMLElement;
+  _throttler: Common.Throttler.Throttler;
+  _loader: SDK.PageResourceLoader.PageResourceLoader;
+  private constructor() {
     super(true);
-    this.registerRequiredCSS('developer_resources/developerResourcesView.css', {enableLegacyPatching: true});
+    this.registerRequiredCSS('developer_resources/developerResourcesView.css', { enableLegacyPatching: true });
 
     const toolbarContainer = this.contentElement.createChild('div', 'developer-resource-view-toolbar-container');
     const toolbar = new UI.Toolbar.Toolbar('developer-resource-view-toolbar', toolbarContainer);
 
-    /** @type {?RegExp} */
     this._textFilterRegExp = null;
-    const accessiblePlaceholder = '';  // Indicates that ToobarInput should use the placeholder as ARIA label.
+    const accessiblePlaceholder = ''; // Indicates that ToobarInput should use the placeholder as ARIA label.
     this._filterInput =
-        new UI.Toolbar.ToolbarInput(i18nString(UIStrings.enterTextToSearchTheUrlAndError), accessiblePlaceholder, 1);
+      new UI.Toolbar.ToolbarInput(i18nString(UIStrings.enterTextToSearchTheUrlAndError), accessiblePlaceholder, 1);
     this._filterInput.addEventListener(UI.Toolbar.ToolbarInput.Event.TextChanged, this._onFilterChanged, this);
     toolbar.appendToolbarItem(this._filterInput);
 
     const loadThroughTarget = SDK.PageResourceLoader.getLoadThroughTargetSetting();
-    const loadThroughTargetCheckbox = new UI.Toolbar.ToolbarSettingCheckbox(
-        loadThroughTarget, i18nString(UIStrings.loadHttpsDeveloperResources),
-        i18nString(UIStrings.enableLoadingThroughTarget));
+    const loadThroughTargetCheckbox = new UI.Toolbar.ToolbarSettingCheckbox(loadThroughTarget, i18nString(UIStrings.loadHttpsDeveloperResources), i18nString(UIStrings.enableLoadingThroughTarget));
     toolbar.appendToolbarItem(loadThroughTargetCheckbox);
 
     this._coverageResultsElement = this.contentElement.createChild('div', 'developer-resource-view-results');
@@ -75,46 +80,43 @@ export class DeveloperResourcesView extends UI.Widget.VBox {
     this._onUpdate();
   }
 
-  static instance() {
+  static instance(): DeveloperResourcesView {
     if (!developerResourcesViewInstance) {
       developerResourcesViewInstance = new DeveloperResourcesView();
     }
     return developerResourcesViewInstance;
   }
 
-  _onUpdate() {
+  _onUpdate(): void {
     this._throttler.schedule(this._update.bind(this));
   }
 
-  async _update() {
+  async _update(): Promise<void> {
     this._listView.reset();
     this._listView.update(this._loader.getResourcesLoaded().values());
     this._updateStats();
   }
 
-  _updateStats() {
-    const {loading, resources} = this._loader.getNumberOfResources();
+  _updateStats(): void {
+    const { loading, resources } = this._loader.getNumberOfResources();
     if (loading > 0) {
       this._statusMessageElement.textContent =
-          i18nString(UIStrings.resourcesCurrentlyLoading, {PH1: resources, PH2: loading});
-    } else {
-      this._statusMessageElement.textContent = i18nString(UIStrings.resources, {PH1: resources});
+        i18nString(UIStrings.resourcesCurrentlyLoading, { PH1: resources, PH2: loading });
+    }
+    else {
+      this._statusMessageElement.textContent = i18nString(UIStrings.resources, { PH1: resources });
     }
   }
 
-  /**
-   * @param {!SDK.PageResourceLoader.PageResource} item
-   * @return {boolean}
-  */
-  _isVisible(item) {
+  _isVisible(item: SDK.PageResourceLoader.PageResource): boolean {
     return !this._textFilterRegExp || this._textFilterRegExp.test(item.url) ||
-        this._textFilterRegExp.test(item.errorMessage || '');
+      this._textFilterRegExp.test(item.errorMessage || '');
   }
 
   /**
    *
    */
-  _onFilterChanged() {
+  _onFilterChanged(): void {
     if (!this._listView) {
       return;
     }
