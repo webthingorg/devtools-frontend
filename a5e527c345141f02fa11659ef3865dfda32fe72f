@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33fe5fc0_e539a624",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-14T13:13:13Z",
+      "side": 1,
+      "message": "Documentation is looking good, but I think there are a couple of opportunities where we can simplify some sentences to make it a bit easier to follow. Do you mind if I take a stab at it? Then we can ask Paul as native speaker to review it as well, to make sure it is all a-okay 😄",
+      "revId": "a5e527c345141f02fa11659ef3865dfda32fe72f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c097585_bc5aeb52",
+        "filename": "front_end/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-14T13:13:13Z",
+      "side": 1,
+      "message": "Ultra-nit: add newlines after the end of a sentence. The syntax highlighter of Gerrit (and other systems) can\u0027t handle long lines and therefore if we break them up, we can maintain the nice Markdown syntax highlighting.",
+      "range": {
+        "startLine": 3,
+        "startChar": 114,
+        "endLine": 3,
+        "endChar": 115
+      },
+      "revId": "a5e527c345141f02fa11659ef3865dfda32fe72f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50c24b18_3696ae50",
+        "filename": "front_end/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-14T13:13:13Z",
+      "side": 1,
+      "message": "I don\u0027t think we need to describe this, if we assume that the `.json` files are going away.",
+      "range": {
+        "startLine": 7,
+        "startChar": 436,
+        "endLine": 7,
+        "endChar": 657
+      },
+      "revId": "a5e527c345141f02fa11659ef3865dfda32fe72f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "953bc555_095cd230",
+        "filename": "front_end/common/SettingRegistration.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-14T13:13:13Z",
+      "side": 1,
+      "message": "I think we can encode this in the type system, does this work?\n\n```\ninterface LocalizedSettingExtensionOption {\n  value: boolean|string;\n  title: Platform.UIString.LocalizedString;\n  raw?: false;\n}\ninterface RawSettingExtensionOption {\n  value: boolean|string;\n  title: Platform.UIString.LocalizedString;\n  text: string;\n  raw: true;\n}\nexport type SettingExtensionOption \u003d LocalizedSettingExtensionOption|RawSettingExtensionOption;\n```",
+      "range": {
+        "startLine": 128,
+        "startChar": 39,
+        "endLine": 128,
+        "endChar": 74
+      },
+      "revId": "a5e527c345141f02fa11659ef3865dfda32fe72f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
