@@ -33,6 +33,24 @@
       "message": "A high-level question: this class doesn\u0027t seem to have internal states shared between different instance methods. Do you think it would be better to make them either static or module-level functions? Might make unit-testing them easier as well.",
       "revId": "cc3e4341b20ce116407238f43148d1ff09b9cd69",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7828cfea_8af03262",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleHelper.js",
+        "patchSetId": 39
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-01-14T05:57:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c823011f_aafb884f",
+      "revId": "cc3e4341b20ce116407238f43148d1ff09b9cd69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
