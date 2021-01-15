@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "99734801a4d898550e18c58fbefda27087599e93",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b62d00a2_0a06f648",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-15T16:00:45Z",
+      "side": 1,
+      "message": "lgtm % super nit",
+      "revId": "99734801a4d898550e18c58fbefda27087599e93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79d9c103_12794cbf",
+        "filename": "devtools_grd_files.gni",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-15T16:00:45Z",
+      "side": 1,
+      "message": "super-nit: All other file names use underscore.",
+      "range": {
+        "startLine": 70,
+        "startChar": 20,
+        "endLine": 70,
+        "endChar": 41
+      },
+      "revId": "99734801a4d898550e18c58fbefda27087599e93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
