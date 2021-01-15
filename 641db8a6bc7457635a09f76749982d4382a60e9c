@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "180b93b6_ec525705",
+        "filename": "front_end/component_docs/markdown_view/basic.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-01-15T10:40:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ae9d5a0_dd8016fe",
+      "range": {
+        "startLine": 18,
+        "startChar": 2,
+        "endLine": 18,
+        "endChar": 14
+      },
+      "revId": "641db8a6bc7457635a09f76749982d4382a60e9c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cf4f6c9b_d54a0648",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-01-15T09:26:21Z",
       "side": 1,
       "message": "This seems to render inline, if that is intended, please also place this image somewhere in the text (so we can see how that is supposed to look like).\n\nLet\u0027s also have an image that is not rendered inline.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 20
+      },
+      "revId": "641db8a6bc7457635a09f76749982d4382a60e9c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aeddbd27_13b460b8",
+        "filename": "front_end/component_docs/markdown_view/basic.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-01-15T10:40:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf4f6c9b_d54a0648",
       "range": {
         "startLine": 28,
         "startChar": 0,
