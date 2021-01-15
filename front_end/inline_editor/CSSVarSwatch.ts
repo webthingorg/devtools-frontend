@@ -93,7 +93,6 @@ export class CSSVarSwatch extends HTMLElement {
       html`<style>
       .css-var-link:not(.undefined) {
         cursor: pointer;
-        text-decoration: underline;
         text-underline-position: under;
       }
 
