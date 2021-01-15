@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5611428_ab8f9bf9",
+        "filename": "front_end/recorder/RecordingEventHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-01-15T11:17:14Z",
+      "side": 1,
+      "message": "Unfortunately it\u0027s just a string in InspectorMain.js and I wouldn\u0027t want to add a dependency on inspector_main to the recorder just for this. It might be worth refactoring this in the future though and move it to TargetManager.\n\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/inspector_main/InspectorMain.js;l\u003d26?q\u003dfile:%5Ethird_party%2Fdevtools-frontend%2Fsrc%2F%20InspectorMain",
+      "parentUuid": "4d9b07de_b761e90b",
+      "revId": "6abc3c2a63bb67a6a925f16dc56ab89394521aa7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4aafb4bf_20093727",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-01-15T11:10:13Z",
       "side": 1,
       "message": "Should this be uncommented or removed?",
+      "revId": "6abc3c2a63bb67a6a925f16dc56ab89394521aa7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a10c8e5_580d35d4",
+        "filename": "front_end/recorder/RecordingSession.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-01-15T11:17:14Z",
+      "side": 1,
+      "message": "Good catch - that line should be removed.",
+      "parentUuid": "4aafb4bf_20093727",
       "revId": "6abc3c2a63bb67a6a925f16dc56ab89394521aa7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
