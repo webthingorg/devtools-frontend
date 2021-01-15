@@ -25,8 +25,13 @@ export const UIStrings = {
 };
 const str_ = i18n.i18n.registerUIStrings('help/ReleaseNoteView.js', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+/** @type {!ReleaseNoteView} */
+let releaseNoteViewInstance;
 
 export class ReleaseNoteView extends UI.Widget.VBox {
+  /**
+   * @private
+   */
   constructor() {
     super(true);
     this.registerRequiredCSS('help/releaseNote.css', {enableLegacyPatching: true});
@@ -35,7 +40,17 @@ export class ReleaseNoteView extends UI.Widget.VBox {
     topSection.textContent = i18nString(UIStrings.s, {PH1: latestReleaseNote().header});
     this.contentElement.appendChild(this._releaseNoteElement);
   }
+  /**
+   * @param {{forceNew: ?boolean}} opts
+   */
+  static instance(opts = {forceNew: null}) {
+    const {forceNew} = opts;
+    if (!releaseNoteViewInstance || forceNew) {
+      releaseNoteViewInstance = new ReleaseNoteView();
+    }
 
+    return releaseNoteViewInstance;
+  }
   /**
    * @override
    * @return {!Array<!Element>}
