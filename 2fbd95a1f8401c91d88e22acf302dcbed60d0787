@@ -16,6 +16,23 @@
       "message": "Hi everyone,\nmigrating event_listener pane to localizationV2. Tree seems to be closed hence the presubmit failures, but should be ready for review (still requires a clean run before checking in).PTAL",
       "revId": "2fbd95a1f8401c91d88e22acf302dcbed60d0787",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f9dc57f_2f77d20a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-15T07:59:21Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "2fbd95a1f8401c91d88e22acf302dcbed60d0787",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
