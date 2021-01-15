@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8976e04f_92424c59",
+        "filename": "front_end/sources/NavigatorView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-15T08:31:49Z",
+      "side": 1,
+      "message": "Moved these to named functions because we need to keep a ref to them to be able to deregister them properly.",
+      "range": {
+        "startLine": 307,
+        "startChar": 2,
+        "endLine": 307,
+        "endChar": 23
+      },
+      "revId": "15d99decc6886de80bbc8850a9de9bc8898340b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
