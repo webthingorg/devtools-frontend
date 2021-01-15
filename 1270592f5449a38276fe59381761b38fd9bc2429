@@ -58,6 +58,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ff5944c_1966abcf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 41
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-15T12:33:57Z",
+      "side": 1,
+      "message": "One ot",
+      "revId": "1270592f5449a38276fe59381761b38fd9bc2429",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d79ee26c_b99d7286",
@@ -76,6 +93,29 @@
         "startChar": 0,
         "endLine": 29,
         "endChar": 3
+      },
+      "revId": "1270592f5449a38276fe59381761b38fd9bc2429",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cdc3437_00960402",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleHelper.js",
+        "patchSetId": 41
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-15T12:33:57Z",
+      "side": 1,
+      "message": "One other thing to add about this file - I think you can add news files as pure .ts and it will work, as we don\u0027t have closure anymore. Can you try that?",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 1
       },
       "revId": "1270592f5449a38276fe59381761b38fd9bc2429",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
