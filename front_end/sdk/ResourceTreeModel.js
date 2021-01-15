@@ -247,6 +247,42 @@ export class ResourceTreeModel extends SDKModel {
   }
 
   /**
+   * @param {!Protocol.Page.Frame} framePayload
+   */
+  _documentOpened(framePayload) {
+    const frame = this._frames.get(framePayload.id);
+    if (frame) {
+      this._agent.invoke_getResourceTree().then(event => {
+        if (event.frameTree) {
+          this._helper(event.frameTree, framePayload.id);
+        }
+      });
+    }
+  }
+
+  /**
+   * @param {!Protocol.Page.FrameResourceTree} frameTreePayload
+   * @param {string} frameId
+   */
+  _helper(frameTreePayload, frameId) {
+    // if (frameTreePayload.frame.id === frameId) {
+    //   console.log('FOUND');
+    //   this._addFramesRecursively(null, frameTreePayload);
+    //   return;
+    // }
+    for (const childFrame of frameTreePayload.childFrames || []) {
+      if (childFrame.frame.id === frameId) {
+        const frame = this._frames.get(frameTreePayload.frame.id);
+        if (frame) {
+          this._addFramesRecursively(frame, childFrame, true);
+        }
+        return;
+      }
+      this._helper(childFrame, frameId);
+    }
+  }
+
+  /**
    * @param {!Protocol.Page.FrameId} frameId
    */
   _frameDetached(frameId) {
@@ -352,8 +388,9 @@ export class ResourceTreeModel extends SDKModel {
   /**
    * @param {?ResourceTreeFrame} sameTargetParentFrame
    * @param {!Protocol.Page.FrameResourceTree} frameTreePayload
+   * @param {boolean} isDocumentGenerated
    */
-  _addFramesRecursively(sameTargetParentFrame, frameTreePayload) {
+  _addFramesRecursively(sameTargetParentFrame, frameTreePayload, isDocumentGenerated = false) {
     const framePayload = frameTreePayload.frame;
     const frame = new ResourceTreeFrame(this, sameTargetParentFrame, framePayload.id, framePayload, null);
     if (!sameTargetParentFrame && framePayload.parentId) {
@@ -377,6 +414,9 @@ export class ResourceTreeModel extends SDKModel {
       const frameResource = this._createResourceFromFramePayload(
           framePayload, framePayload.url, Common.ResourceType.resourceTypes.Document, framePayload.mimeType, null,
           null);
+      if (isDocumentGenerated) {
+        frameResource.isGenerated = true;
+      }
       frame.addResource(frameResource);
     }
   }
@@ -1060,7 +1100,7 @@ export class PageDispatcher {
  * @param {!Protocol.Page.DocumentOpenedEvent} event
  */
   documentOpened({frame}) {
-    this._resourceTreeModel._frameNavigated(frame);
+    this._resourceTreeModel._documentOpened(frame);
   }
 
   /**
