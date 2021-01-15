@@ -2,10 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 import * as Common from '../common/common.js';
 import * as i18n from '../i18n/i18n.js';
 import * as Persistence from '../persistence/persistence.js';
+import * as Platform from '../platform/platform.js';
 import * as SDK from '../sdk/sdk.js';
 import * as TextUtils from '../text_utils/text_utils.js';  // eslint-disable-line no-unused-vars
 import * as UI from '../ui/ui.js';
@@ -158,7 +158,7 @@ export class SnippetFileSystem extends Persistence.PlatformFileSystem.PlatformFi
    * @return {!Promise<!Array<string>>}
    */
   async searchInPath(query, progress) {
-    const re = new RegExp(query.escapeForRegExp(), 'i');
+    const re = new RegExp(Platform.StringUtilities.escapeForRegExp(query), 'i');
     /** @type {!Array<!Snippet>} */
     const allSnippets = this._snippetsSetting.get();
     const matchedSnippets = allSnippets.filter(snippet => snippet.content.match(re));

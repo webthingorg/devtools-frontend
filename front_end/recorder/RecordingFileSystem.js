@@ -5,6 +5,7 @@
 import * as Common from '../common/common.js';
 import * as i18n from '../i18n/i18n.js';
 import * as Persistence from '../persistence/persistence.js';
+import * as Platform from '../platform/platform.js';
 import * as TextUtils from '../text_utils/text_utils.js';  // eslint-disable-line no-unused-vars
 import * as Workspace from '../workspace/workspace.js';    // eslint-disable-line no-unused-vars
 
@@ -155,7 +156,7 @@ export class RecordingFileSystem extends Persistence.PlatformFileSystem.Platform
    * @return {!Promise<!Array<string>>}
    */
   async searchInPath(query, progress) {
-    const re = new RegExp(query.escapeForRegExp(), 'i');
+    const re = new RegExp(Platform.StringUtilities.escapeForRegExp(query), 'i');
     /** @type {!Array<!Recording>} */
     const allRecordings = this._recordingsSetting.get();
     const matchedRecordings = allRecordings.filter(recording => recording.content.match(re));
