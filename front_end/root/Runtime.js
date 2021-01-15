@@ -1124,6 +1124,7 @@ export const ExperimentName = {
   LIVE_HEAP_PROFILE: 'liveHeapProfile',
   DEVELOPER_RESOURCES_VIEW: 'developerResourcesView',
   TIMELINE_REPLAY_EVENT: 'timelineReplayEvent',
+  WASM_DWARF_DEBUGGING: 'wasmDWARFDebugging',
 };
 
 /** @enum {string} */
