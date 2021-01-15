@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "0727c7986c9d6ded47738ef05bb8bfc2f7c09070",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4402910a_14f57fc9",
+        "filename": "front_end/network/RequestInitiatorView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2021-01-15T22:17:17Z",
+      "side": 1,
+      "message": "Minor typo, should be `@return`.",
+      "revId": "0727c7986c9d6ded47738ef05bb8bfc2f7c09070",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

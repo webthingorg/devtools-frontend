@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "962397ae_43427b85",
+        "filename": "front_end/network/requestInitiatorViewTree.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1390564
+      },
+      "writtenOn": "2021-01-15T22:17:17Z",
+      "side": 1,
+      "message": "Can these styles be deleted from requestInitiatorView.css since they were moved here?",
+      "revId": "d07cb0be1fcfb7740354d7ea5165c6338f62b6ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
