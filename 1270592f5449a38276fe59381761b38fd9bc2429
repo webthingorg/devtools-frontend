@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "4496ad22_5e9e6d11",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 41
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-15T10:03:32Z",
+      "side": 1,
+      "message": "Nit: Add\n\nBug: 1066604\n\nline so the bug gets tagged on submit",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 17
+      },
+      "revId": "1270592f5449a38276fe59381761b38fd9bc2429",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "f7af0bea_fb6d6203",
@@ -14,6 +37,161 @@
       "writtenOn": "2021-01-14T16:52:33Z",
       "side": 1,
       "message": "I can take a look tomorrow, thanks",
+      "revId": "1270592f5449a38276fe59381761b38fd9bc2429",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a87b7461_d16a52e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 41
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-15T10:03:32Z",
+      "side": 1,
+      "message": "Thanks, some initial feedback",
+      "revId": "1270592f5449a38276fe59381761b38fd9bc2429",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d79ee26c_b99d7286",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleHelper.js",
+        "patchSetId": 41
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-15T10:03:32Z",
+      "side": 1,
+      "message": "Please use the new copyright header:\n\n// Copyright (c) 2021 The Chromium Authors. All rights reserved.\n// Use of this source code is governed by a BSD-style license that can be\n// found in the LICENSE file.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 3
+      },
+      "revId": "1270592f5449a38276fe59381761b38fd9bc2429",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00e162cc_e8a1ef39",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleHelper.js",
+        "patchSetId": 41
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-15T10:03:32Z",
+      "side": 1,
+      "message": "It\u0027s great that you separated out these helper functions - could you add unit tests for them?",
+      "range": {
+        "startLine": 40,
+        "startChar": 9,
+        "endLine": 40,
+        "endChar": 43
+      },
+      "revId": "1270592f5449a38276fe59381761b38fd9bc2429",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54e81d80_58219d7e",
+        "filename": "front_end/resources/resources_strings.grdp",
+        "patchSetId": 41
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-15T10:03:32Z",
+      "side": 1,
+      "message": "Please specify \u0027update\u0027 is a noun here to avoid translation confusion",
+      "range": {
+        "startLine": 39,
+        "startChar": 70,
+        "endLine": 39,
+        "endChar": 122
+      },
+      "revId": "1270592f5449a38276fe59381761b38fd9bc2429",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec3f2d43_0caa2e82",
+        "filename": "front_end/resources/resources_strings.grdp",
+        "patchSetId": 41
+      },
+      "lineNbr": 720,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-15T10:03:32Z",
+      "side": 1,
+      "message": "Same here",
+      "range": {
+        "startLine": 720,
+        "startChar": 70,
+        "endLine": 720,
+        "endChar": 98
+      },
+      "revId": "1270592f5449a38276fe59381761b38fd9bc2429",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dd2aafb_263044fd",
+        "filename": "front_end/sdk/ServiceWorkerManager.js",
+        "patchSetId": 41
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-15T10:03:32Z",
+      "side": 1,
+      "message": "maybe last_updated_timestamp to avoid the need for a comment explaining the contents of the var?",
+      "range": {
+        "startLine": 357,
+        "startChar": 9,
+        "endLine": 357,
+        "endChar": 18
+      },
+      "revId": "1270592f5449a38276fe59381761b38fd9bc2429",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46fc5da2_f8068a17",
+        "filename": "front_end/sdk/ServiceWorkerManager.js",
+        "patchSetId": 41
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-15T10:03:32Z",
+      "side": 1,
+      "message": "ServiceWorkerVersion.previousState isn\u0027t declared in the constructor and doesn\u0027t look to be used anywhere - is it needed?",
+      "range": {
+        "startLine": 385,
+        "startChar": 4,
+        "endLine": 385,
+        "endChar": 43
+      },
       "revId": "1270592f5449a38276fe59381761b38fd9bc2429",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
