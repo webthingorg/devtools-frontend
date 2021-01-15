@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e85911b0_5eb8419e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-15T09:18:30Z",
+      "side": 1,
+      "message": "Nice work! This was on my list as it causes many problems.\n\nI think we can also update the frontend environment test helpers which make sure ls is global - can do that in a follow up perhaps.",
+      "revId": "b75889db7f4f16c55309c6d129418e4c518efeab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
