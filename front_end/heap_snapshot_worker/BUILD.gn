@@ -11,11 +11,13 @@ devtools_module("heap_snapshot_worker") {
     "HeapSnapshot.js",
     "HeapSnapshotLoader.js",
     "HeapSnapshotWorkerDispatcher.js",
+    "ModuleUIStrings.js",
   ]
 
   deps = [
     "../common:bundle",
     "../heap_snapshot_model:bundle",
+    "../i18n:bundle",
     "../platform:bundle",
     "../text_utils:bundle",
   ]

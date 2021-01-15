@@ -377,6 +377,78 @@
   "devices/ModuleUIStrings.js | usb": {
     "message": "usb"
   },
+  "heap_snapshot_worker/ModuleUIStrings.js | buildingAllocationStatistics": {
+    "message": "Building allocation statistics…"
+  },
+  "heap_snapshot_worker/ModuleUIStrings.js | buildingDominatedNodes": {
+    "message": "Building dominated nodes…"
+  },
+  "heap_snapshot_worker/ModuleUIStrings.js | buildingDominatorTree": {
+    "message": "Building dominator tree…"
+  },
+  "heap_snapshot_worker/ModuleUIStrings.js | buildingEdgeIndexes": {
+    "message": "Building edge indexes…"
+  },
+  "heap_snapshot_worker/ModuleUIStrings.js | buildingLocations": {
+    "message": "Building locations…"
+  },
+  "heap_snapshot_worker/ModuleUIStrings.js | buildingPostorderIndex": {
+    "message": "Building postorder index…"
+  },
+  "heap_snapshot_worker/ModuleUIStrings.js | buildingRetainers": {
+    "message": "Building retainers…"
+  },
+  "heap_snapshot_worker/ModuleUIStrings.js | calculatingDistances": {
+    "message": "Calculating distances…"
+  },
+  "heap_snapshot_worker/ModuleUIStrings.js | calculatingNodeFlags": {
+    "message": "Calculating node flags…"
+  },
+  "heap_snapshot_worker/ModuleUIStrings.js | calculatingRetainedSizes": {
+    "message": "Calculating retained sizes…"
+  },
+  "heap_snapshot_worker/ModuleUIStrings.js | calculatingSamples": {
+    "message": "Calculating samples…"
+  },
+  "heap_snapshot_worker/ModuleUIStrings.js | calculatingStatistics": {
+    "message": "Calculating statistics…"
+  },
+  "heap_snapshot_worker/ModuleUIStrings.js | done": {
+    "message": "Done"
+  },
+  "heap_snapshot_worker/ModuleUIStrings.js | finishedProcessing": {
+    "message": "Finished processing."
+  },
+  "heap_snapshot_worker/ModuleUIStrings.js | loadingAllocationTracesD": {
+    "message": "Loading allocation traces… {PH1}%%"
+  },
+  "heap_snapshot_worker/ModuleUIStrings.js | loadingEdgesD": {
+    "message": "Loading edges… {PH1}%%"
+  },
+  "heap_snapshot_worker/ModuleUIStrings.js | loadingLocations": {
+    "message": "Loading locations…"
+  },
+  "heap_snapshot_worker/ModuleUIStrings.js | loadingNodesD": {
+    "message": "Loading nodes… {PH1}%%"
+  },
+  "heap_snapshot_worker/ModuleUIStrings.js | loadingSamples": {
+    "message": "Loading samples…"
+  },
+  "heap_snapshot_worker/ModuleUIStrings.js | loadingSnapshotInfo": {
+    "message": "Loading snapshot info…"
+  },
+  "heap_snapshot_worker/ModuleUIStrings.js | loadingStrings": {
+    "message": "Loading strings…"
+  },
+  "heap_snapshot_worker/ModuleUIStrings.js | parsingStrings": {
+    "message": "Parsing strings…"
+  },
+  "heap_snapshot_worker/ModuleUIStrings.js | processingSnapshot": {
+    "message": "Processing snapshot…"
+  },
+  "heap_snapshot_worker/ModuleUIStrings.js | propagatingDomState": {
+    "message": "Propagating DOM state…"
+  },
   "help/ModuleUIStrings.js | appearance": {
     "message": "Appearance"
   },
