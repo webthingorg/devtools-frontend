@@ -135,6 +135,9 @@
   <message name="IDS_DEVTOOLS_339ba442656bbc8e43e64b427dc598ff" desc="Text in Go To Line Quick Open of the Sources panel">
     Type a number to go to that line.
   </message>
+  <message name="IDS_DEVTOOLS_340641a167ad6da1bcb4016357f4695d" desc="Title for a type of source files">
+    Content scripts
+  </message>
   <message name="IDS_DEVTOOLS_348b4e067738aac6d7d6c30ccdb59beb" desc="Text in Debugger Plugin of the Sources panel">
     Source Map detected.
   </message>
