@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b125fbf_2494d365",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-15T11:23:38Z",
+      "side": 1,
+      "message": "1 nit about the localization V2 bit, but other than that LGTM.",
+      "revId": "e8dd5ccdf1c90fba92e93fd1530e48afe1853c38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

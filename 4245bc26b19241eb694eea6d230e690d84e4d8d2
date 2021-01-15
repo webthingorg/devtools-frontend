@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37c8b0c3_0b069a16",
+        "filename": "front_end/help/ModuleUIStrings.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-15T11:23:38Z",
+      "side": 0,
+      "message": "It seems like help was already migrated to localization V2 and therefore we need to use the i18n method, rather than the `ls` in this folder.",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 26
+      },
+      "revId": "4245bc26b19241eb694eea6d230e690d84e4d8d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
