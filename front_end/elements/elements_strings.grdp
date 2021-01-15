@@ -24,6 +24,9 @@
   <message name="IDS_DEVTOOLS_220e24dec914bdfff417ebca7eff61d3" desc="Title of the switch to DOM tree button in the Elements panel">
     Switch to DOM Tree view
   </message>
+  <message name="IDS_DEVTOOLS_3f8f88e3686b2345cecc9530e19e6172" desc="Text to store an HTML element or JavaScript variable or expression result as a global variable">
+    Store as global variable
+  </message>
   <message name="IDS_DEVTOOLS_45ed537c6d17178db23db9e579f4f6c3" desc="A context menu item in Styles panel to copy CSS declaration">
     Copy declaration
   </message>
