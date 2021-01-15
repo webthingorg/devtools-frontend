@@ -16,6 +16,24 @@
       "message": "I think there may have been some sort of automation error on:\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2623940/4/front_end/i18n/locales/en-US.json\n\n... since the message got removed in:\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2612854/3/front_end/i18n/locales/en-US.json#b53\n\nIt also somehow kept the changes message even though it\u0027s not in:\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2623940/4/front_end/changes/ModuleUIStrings.ts\n\n... So maybe the i18n script has some slight difficulty with renames or something? At any rate this seems right, so I am going ahead.",
       "revId": "65c824b5adc918400877f7f1d65f17c901e42421",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1923561_6399ccc7",
+        "filename": "front_end/i18n/locales/en-US.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-15T07:21:06Z",
+      "side": 0,
+      "message": "Yeah the i18n scripts are acting up. This is looked into on our end :)",
+      "parentUuid": "b377dd70_e6714441",
+      "revId": "65c824b5adc918400877f7f1d65f17c901e42421",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
