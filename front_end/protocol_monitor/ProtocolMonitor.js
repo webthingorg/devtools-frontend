@@ -418,7 +418,7 @@ export class ProtocolNode extends DataGrid.SortableDataGrid.SortableDataGridNode
     const createSourceCell = () => {
       const cell = this.createTD(columnId);
       const obj = SDK.RemoteObject.RemoteObject.fromLocalObject(this.data[columnId]);
-      cell.textContent = obj.description ? obj.description.trimEndWithMaxLength(50) : '';
+      cell.textContent = obj.description ? Platform.StringUtilities.trimEndWithMaxLength(obj.description, 50) : '';
       cell.classList.add('source-code');
       return cell;
     };
