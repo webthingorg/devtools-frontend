@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41282cfd_7db6d5a8",
+        "filename": "front_end/network/RequestTrustTokensView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-15T11:44:35Z",
+      "side": 0,
+      "message": "Could you double-check on https://trusttoken.dev that the new Trust Token report looks reasonable. Getting rid of the 150px size could mean that everything \"sticks\" to the left now and we might need a margin/padding on the whole report.",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 9
+      },
+      "revId": "29da6d23a9d7472552ac4728825cfd8ae860e0cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
