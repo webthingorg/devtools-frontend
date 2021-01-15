@@ -15,22 +15,36 @@ const os = require('os');
 
 /**
  * You would think we can use __filename here but we cannot because __filename
- * has any symlinks resolved. This means we can't use it to tell if the user
- * is using the external repo with a standalone build setup because the
- * symlink from chromium/src/third_party/devtools-frontend =>
- * devtools-frontend repo gets resolved by Node before it gives us __filename.
+ * has any symlinks resolved. This means we can't use it to tell if the user is
+ * using the external repo with a standalone build setup because the symlink
+ * from chromium/src/third_party/devtools-frontend => devtools-frontend repo
+ * gets resolved by Node before it gives us __filename.
  *
- * Instead we can use process.argv, whose first two arguments are the path to
- * the Node binary, and then the path to the file being executed, but without
- * symlinks being resolved. So if this script gets run in the Chromium dir
- * through a symlink, the path will still contain
- * /path/to/chromium/src/third-party/devtools-frontend/scripts/... - this is
- * NOT the case if we were to use __filename.
+ * We can use process.argv[1], which is the path to the file currently being
+ * executed without any symlinks resolution. If we assume that file is always in
+ * the scripts directory, we can take that path and walk up the file structure
+ * until we find the scripts directory, at which point we've found this file and
+ * can use it for all subsequent logic.
+ *
+ * e.g. the user executes a script: scripts/test/run_lint_check_css.js
+ *
+ * process.argv[1] =
+ * /full/path/devtools-frontend/src/scripts/test/run_lint_check_css.js
+ *
+ * We then walk up to find /scripts/, and append `devtools_paths.js` to it to
+ * get the full path to this file. If we're inside Chromium this will get us the
+ * full chromium/src/third_party/devtools/... path, and if we're standalone
+ * it'll just give us the standalone path.
+ *
+
  */
-const ABS_PATH_TO_CURRENT_FILE = process.argv[1];
+let pathToScriptsDirectory = process.argv[1];
+while (path.basename(path.dirname(pathToScriptsDirectory)) !== 'scripts') {
+  pathToScriptsDirectory = path.dirname(pathToScriptsDirectory);
+}
+const ABS_PATH_TO_CURRENT_FILE = path.join(path.dirname(pathToScriptsDirectory), path.basename(__filename));
 
 /** Find the root path of the checkout.
-* In the Chromium repository, this is the src/chromium directory.
 * In the external repository, standalone build, this is the devtools-frontend directory.
 * In the external repository, integrated build, this is the src/chromium directory.
 */
@@ -50,7 +64,7 @@ function rootPath() {
 }
 
 function thirdPartyPath() {
-  path.join(rootPath(), 'third_party');
+  return path.join(rootPath(), 'third_party');
 }
 
 function nodePath() {
@@ -59,7 +73,7 @@ function nodePath() {
     'linux': path.join('linux', 'node-linux-x64', 'bin', 'node'),
     'win32': path.join('win', 'node.exe'),
   };
-  return path.join(thirdPartyPath(), 'node', paths[os.platform]);
+  return path.join(thirdPartyPath(), 'node', paths[os.platform()]);
 }
 
 function devtoolsRootPath() {
@@ -70,4 +84,14 @@ function nodeModulesPath() {
   return path.join(devtoolsRootPath(), 'node_modules');
 }
 
-export {thirdPartyPath, nodePath, devtoolsRootPath, nodeModulesPath};
+function stylelintExecutablePath() {
+  return path.join(nodeModulesPath(), 'stylelint', 'bin', 'stylelint.js');
+}
+
+module.exports = {
+  thirdPartyPath,
+  nodePath,
+  devtoolsRootPath,
+  nodeModulesPath,
+  stylelintExecutablePath
+};
