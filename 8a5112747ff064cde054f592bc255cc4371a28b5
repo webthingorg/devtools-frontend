@@ -16,6 +16,24 @@
       "message": "Hi Patrick and Chait,\n\nthanks for adding image support to markdown. \n\nCould you please consider adding a example for the MarkdownImage to front_end/component_docs so we have an easy way of seeing how the component looks like? Currently, if we need to change CSS of components the MarkdownImage depends on, it is cumbersome to verify whether things still look right.\n\nThanks!\n\nSigurd",
       "revId": "8a5112747ff064cde054f592bc255cc4371a28b5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4aa65d6d_4004e115",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-01-15T08:59:16Z",
+      "side": 1,
+      "message": "I opened a CL for this, will ping you and Chait for a review: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2629450/",
+      "parentUuid": "cd9ca6e2_e6011d35",
+      "revId": "8a5112747ff064cde054f592bc255cc4371a28b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
