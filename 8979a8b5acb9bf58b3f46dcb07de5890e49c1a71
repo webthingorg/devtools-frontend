@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f07853f_034a6080",
+        "filename": "test/unittests/front_end/meta/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-01-15T13:15:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89a19295_9ed2c024",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 6
+      },
+      "revId": "8979a8b5acb9bf58b3f46dcb07de5890e49c1a71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8a4f0134_48f0dcf5",
@@ -88,6 +112,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f86a27d9_bf6b1712",
+        "filename": "test/unittests/front_end/meta/view_registration_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-01-15T13:15:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d293ece_2e0d46ce",
+      "range": {
+        "startLine": 35,
+        "startChar": 15,
+        "endLine": 35,
+        "endChar": 52
+      },
+      "revId": "8979a8b5acb9bf58b3f46dcb07de5890e49c1a71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "72188478_1db924c6",
@@ -101,6 +149,30 @@
       "writtenOn": "2021-01-05T11:43:45Z",
       "side": 1,
       "message": "Since tests automatically will fail if an error is thrown, I don\u0027t think we should explicitly catch these kind of errors in a unit test. By using an `assert.fail` here, we hide the callstack from the `error` object, which might make debugging more difficult. Therefore, I think we can omit this and let the test fail if this error would be thrown.",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 5
+      },
+      "revId": "8979a8b5acb9bf58b3f46dcb07de5890e49c1a71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "423e3f92_cf7eb6c2",
+        "filename": "test/unittests/front_end/meta/view_registration_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-01-15T13:15:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72188478_1db924c6",
       "range": {
         "startLine": 49,
         "startChar": 0,
@@ -134,6 +206,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9058803f_ac2128be",
+        "filename": "test/unittests/front_end/meta/view_registration_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-01-15T13:15:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3cec259c_99c2ed63",
+      "range": {
+        "startLine": 57,
+        "startChar": 98,
+        "endLine": 57,
+        "endChar": 105
+      },
+      "revId": "8979a8b5acb9bf58b3f46dcb07de5890e49c1a71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "624e9382_2ea982a0",
@@ -147,6 +243,30 @@
       "writtenOn": "2021-01-05T11:43:45Z",
       "side": 1,
       "message": "Nit: extract this ID so that we can be sure that we only define it once.",
+      "range": {
+        "startLine": 64,
+        "startChar": 13,
+        "endLine": 64,
+        "endChar": 21
+      },
+      "revId": "8979a8b5acb9bf58b3f46dcb07de5890e49c1a71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcbaf736_5e65d8ff",
+        "filename": "test/unittests/front_end/meta/view_registration_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-01-15T13:15:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "624e9382_2ea982a0",
       "range": {
         "startLine": 64,
         "startChar": 13,
