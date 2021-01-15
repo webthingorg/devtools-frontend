@@ -377,6 +377,9 @@
   "devices/ModuleUIStrings.ts | usb": {
     "message": "usb"
   },
+  "help/help-meta.ts | whatsNew": {
+    "message": "What's New"
+  },
   "help/ModuleUIStrings.js | appearance": {
     "message": "Appearance"
   },
@@ -397,9 +400,6 @@
   },
   "help/ModuleUIStrings.js | showWhatsNewAfterEachUpdate": {
     "message": "Show What's New after each update"
-  },
-  "help/ModuleUIStrings.js | whatsNew": {
-    "message": "What's New"
   },
   "help/ReleaseNoteView.js | close": {
     "message": "Close"
