@@ -16,6 +16,23 @@
       "message": "PTAL, thanks!",
       "revId": "6abc3c2a63bb67a6a925f16dc56ab89394521aa7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4aafb4bf_20093727",
+        "filename": "front_end/recorder/RecordingSession.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-01-15T11:10:13Z",
+      "side": 1,
+      "message": "Should this be uncommented or removed?",
+      "revId": "6abc3c2a63bb67a6a925f16dc56ab89394521aa7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
