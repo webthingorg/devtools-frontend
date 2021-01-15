@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be4410c5_ebfbdd39",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-15T12:31:23Z",
+      "side": 1,
+      "message": "PTAL - as mentioned the logic around paths is messy and I\u0027m not sure if I\u0027m missing an easy way to improve things. Thoughts welcome!",
+      "revId": "194215acb9f343fe2f64a8fba3fa841e022b1500",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
