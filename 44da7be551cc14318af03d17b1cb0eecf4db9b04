@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f83f982_b5c99924",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-01-15T10:45:07Z",
+      "side": 1,
+      "message": "The change looks good to me. I\u0027m just a little concerned with regards to consistency since all other links in devtools are underlined. But since Peter is happy with it, I\u0027m fine too.",
+      "revId": "44da7be551cc14318af03d17b1cb0eecf4db9b04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
