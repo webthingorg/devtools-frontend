@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd650f4c_fb417ae6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-15T11:45:39Z",
+      "side": 1,
+      "message": "Turned out to be an infra issue, this CL can reland as-is.",
+      "revId": "29da6d23a9d7472552ac4728825cfd8ae860e0cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
