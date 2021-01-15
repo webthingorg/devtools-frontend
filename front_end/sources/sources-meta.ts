@@ -143,3 +143,42 @@ UI.ViewManager.registerViewExtension({
     return Sources.JavaScriptBreakpointsSidebarPane.JavaScriptBreakpointsSidebarPane.instance();
   },
 });
+
+UI.ViewManager.registerViewExtension({
+  location: UI.ViewManager.ViewLocationValues.NAVIGATOR_VIEW,
+  id: 'navigator-network',
+  title: ls`Page`,
+  commandPrompt: 'Show Page',
+  order: 2,
+  persistence: UI.ViewManager.ViewPersistence.PERMANENT,
+  async loadView() {
+    const Sources = await loadSourcesModule();
+    return Sources.SourcesNavigator.NetworkNavigatorView.instance();
+  },
+});
+
+UI.ViewManager.registerViewExtension({
+  location: UI.ViewManager.ViewLocationValues.NAVIGATOR_VIEW,
+  id: 'navigator-overrides',
+  title: ls`Overrides`,
+  commandPrompt: 'Show Overrides',
+  order: 4,
+  persistence: UI.ViewManager.ViewPersistence.PERMANENT,
+  async loadView() {
+    const Sources = await loadSourcesModule();
+    return Sources.SourcesNavigator.OverridesNavigatorView.instance();
+  },
+});
+
+UI.ViewManager.registerViewExtension({
+  location: UI.ViewManager.ViewLocationValues.NAVIGATOR_VIEW,
+  id: 'navigator-contentScripts',
+  title: ls`Content scripts`,
+  commandPrompt: 'Show Content scripts',
+  order: 5,
+  persistence: UI.ViewManager.ViewPersistence.PERMANENT,
+  async loadView() {
+    const Sources = await loadSourcesModule();
+    return Sources.SourcesNavigator.ContentScriptsNavigatorView.instance();
+  },
+});
