@@ -853,7 +853,7 @@ export class HeapSnapshotProgress {
    */
   updateProgress(title, value, total) {
     const percentValue = ((total ? (value / total) : 0) * 100).toFixed(0);
-    this._sendUpdateEvent(i18n.i18n.serializeUIString(title, [percentValue]));
+    this._sendUpdateEvent(i18n.i18n.serializeUIString(title, [{PH1: percentValue}]));
   }
 
   /**
