@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "914ee5d1_1459b0dc",
+        "filename": "front_end/devices/ModuleUIStrings.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-15T11:26:44Z",
+      "side": 0,
+      "message": "Same stuff here. We will need to use the i18n module for `devices/`",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 19
+      },
+      "revId": "6d32fb19b04333d12291c860a9fbe0f8593d7ce4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
