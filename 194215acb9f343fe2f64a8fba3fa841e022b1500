@@ -16,6 +16,52 @@
       "message": "PTAL - as mentioned the logic around paths is messy and I\u0027m not sure if I\u0027m missing an easy way to improve things. Thoughts welcome!",
       "revId": "194215acb9f343fe2f64a8fba3fa841e022b1500",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74717b59_c8eb90de",
+        "filename": "scripts/devtools_paths.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-15T13:04:57Z",
+      "side": 1,
+      "message": "Unfortunately, I don\u0027t think this promise necessarily holds. For example, our `ts_library.py` implementation lives in `third_party/typescript` and requests the `node_path()`.\n\nAt the least, can we update the logic to take this into account? E.g. update the while-loop to add a check that you can reach `/` and it would crash at that point.",
+      "range": {
+        "startLine": 24,
+        "startChar": 45,
+        "endLine": 25,
+        "endChar": 24
+      },
+      "revId": "194215acb9f343fe2f64a8fba3fa841e022b1500",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6977394_bbbe704d",
+        "filename": "scripts/test/run_lint_check_css.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-15T13:04:57Z",
+      "side": 1,
+      "message": "Nit: I thought `argv` was an array of string arguments? If it is an object, I think we can omit the unused variables, because we are using object destructuring here.",
+      "range": {
+        "startLine": 36,
+        "startChar": 8,
+        "endLine": 36,
+        "endChar": 9
+      },
+      "revId": "194215acb9f343fe2f64a8fba3fa841e022b1500",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
