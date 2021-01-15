@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "286a5d00_4d053ee0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-01-15T09:03:02Z",
+      "side": 1,
+      "message": "Hey Alex,\n\nHere\u0027s the fix we\u0027ve looked into previously.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "e69d16685af8c525a8c5a79bf0692c6610f3ae69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
