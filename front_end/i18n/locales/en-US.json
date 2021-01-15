@@ -755,14 +755,14 @@
   "layer_viewer/TransformController.js | rotateModeV": {
     "message": "Rotate mode (V)"
   },
+  "layers/layers-meta.ts | layers": {
+    "message": "Layers"
+  },
   "layers/LayersPanel.js | details": {
     "message": "Details"
   },
   "layers/LayersPanel.js | profiler": {
     "message": "Profiler"
-  },
-  "layers/ModuleUIStrings.js | layers": {
-    "message": "Layers"
   },
   "lighthouse/LighthouseController.js | accessibility": {
     "message": "Accessibility"

@@ -4,9 +4,5 @@
 
 import * as i18n from '../i18n/i18n.js';
 export const UIStrings = {
-  /**
-  *@description Title of the Layers tool
-  */
-  layers: 'Layers',
 };
 i18n.i18n.registerUIStrings('layers/ModuleUIStrings.js', UIStrings);
