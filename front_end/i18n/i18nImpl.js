@@ -20,23 +20,35 @@ export const registerLocaleData = i18nBundle.registerLocaleData;
 export let registeredLocale;
 
 /**
- * The strings from the module.json file
- * @type {!Object|undefined}
+ * The en-US strings from the module.json file, used for reverse lookup.
+ * e.g when the strings "hello world" is provided but you need the id for the localized
+ * version.
+ * @type {*}
  */
-let moduleJSONStrings;
+let enUsModuleJSONStrings;
 
 /**
- * Returns an instance of an object of formatted strings based on locale. If the instance is not
- * set at the time of calling, it is created.
- * @return {!Object}
+ * The localized strings from the module.json file. Used for fallback lookup.
+ * e.g when you have a partial id and want the localized string.
+ * @type {*}
  */
-function getOrSetModuleJSONStrings() {
+let localizedModuleJSONStrings;
+
+/**
+ * Initializes an instance of an object of formatted strings based for en-US and the locale.
+ * If the instance is not set at the time of calling, it is created.
+ */
+function initializeModuleJSONStrings() {
   if (!registeredLocale) {
     throw new Error(`Unsupported locale '${registeredLocale}'`);
   }
 
-  moduleJSONStrings = moduleJSONStrings || i18nBundle.getRendererFormattedStrings(registeredLocale);
-  return moduleJSONStrings;
+  // initialized the en-US strings for reverse lookup of ModuleUIStrings strings.
+  enUsModuleJSONStrings = enUsModuleJSONStrings || i18nBundle.getRendererFormattedStrings('en-US');
+  if (registeredLocale.toLowerCase() !== 'en-us') {
+    // if available initiate reverse lookup
+    localizedModuleJSONStrings = localizedModuleJSONStrings || i18nBundle.getRendererFormattedStrings(registeredLocale);
+  }
 }
 
 /**
@@ -72,8 +84,9 @@ export function getLocalizedString(str_, id, values = {}) {
  */
 export function registerUIStrings(path, stringStructure) {
   /**
-   * Convert a message string & replacement values into an
-   * indexed id value in the form '{messageid} | # {index}'.
+   * Retrieves the translated value for the provided string.
+   * If the string is not found it will try to get it from the ModuleUIStrings
+   * fallback mechanism in which will return the
    *
    * @param {string} id
    * @param {?Object} value
@@ -85,10 +98,22 @@ export function registerUIStrings(path, stringStructure) {
     } catch (e) {
       // ID was not in the main file search for module.json strings
       if (e instanceof i18nBundle.idNotInMainDictionaryException) {
-        const stringMappingArray = Object.getOwnPropertyNames(getOrSetModuleJSONStrings());
-        const index = stringMappingArray.indexOf(id);
-        if (index >= 0) {
-          return stringMappingArray[index];
+        initializeModuleJSONStrings();
+
+        // reverse lookup: ID was not found so we try to match the received string
+        // in (en-US) with the en-US moduleUIStrings resources.
+        const idMappingArray = Object.getOwnPropertyNames(enUsModuleJSONStrings);
+        const stringMappingArray = Object.values(enUsModuleJSONStrings);
+        for (let i = 0; i < stringMappingArray.length; i++) {
+          // If the strings is found we retrieve the id and then search in the
+          // localized ModuleUIStrings structure.
+          if (stringMappingArray[i] === id) {
+            /** @type {string | undefined} */
+            const stringId = idMappingArray[i];
+            if (stringId) {
+              return localizedModuleJSONStrings[stringId].toString();
+            }
+          }
         }
       }
 

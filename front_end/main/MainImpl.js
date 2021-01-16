@@ -84,12 +84,22 @@ export class MainImpl {
     await Root.Runtime.appStarted;
     Root.Runtime.Runtime.setPlatform(Host.Platform.platform());
     Root.Runtime.Runtime.setL10nCallback(ls);
-    await this.requestAndRegisterLocaleData();
+
+    // Order matters we register en-US for reverse lookup and then the displayed
+    // locale.
+    await this.requestAndRegisterLocaleData('en-US');
+    if (navigator.language && navigator.language.toLowerCase() !== 'en-us') {
+      await this.requestAndRegisterLocaleData('en-XL');
+    }
+
+
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.getPreferences(this._gotPreferences.bind(this));
   }
 
-  async requestAndRegisterLocaleData() {
-    const hostLocale = navigator.language || 'en-US';
+  /**
+   * @param {!string} hostLocale
+   */
+  async requestAndRegisterLocaleData(hostLocale) {
     i18n.i18n.registerLocale(hostLocale);
     const locale = i18n.i18n.registeredLocale;
     if (locale) {
