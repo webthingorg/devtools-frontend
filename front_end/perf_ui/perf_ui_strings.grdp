@@ -18,6 +18,9 @@
   <message name="IDS_DEVTOOLS_2bd10b449de36fcff52a5d91a97a7365" desc="Element text content in Line Level Profile of the Performance panel">
     %.<ph name="FRACTIONDIGITS">$1s<ex>3</ex></ph>f
   </message>
+  <message name="IDS_DEVTOOLS_3e56c011b37f0bc78fb9eb175c1181c6" desc="A unit">
+    kB
+  </message>
   <message name="IDS_DEVTOOLS_3f21c340f01b96cb3325a5d38ece9da6" desc="Title of a setting under the Memory category in Settings">
     Live memory allocation annotations
   </message>
