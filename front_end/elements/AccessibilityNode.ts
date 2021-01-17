@@ -12,11 +12,39 @@ export interface AccessibilityNodeData {
 export class AccessibilityNode extends HTMLElement {
   private readonly shadow = this.attachShadow({mode: 'open'});
   private axNode: SDK.AccessibilityModel.AccessibilityNode|null = null;
+  private expanded: boolean = true;
+
+  constructor() {
+    super();
+    this.addEventListener('click', this.onClick.bind(this));
+  }
 
   set data(data: AccessibilityNodeData) {
     this.axNode = data.axNode;
     this.shadow.host.setAttribute('role', 'treeitem');
     this.render();
+  }
+
+  private onClick(e: MouseEvent): void {
+    e.stopPropagation();
+    this.expanded ? false : true;
+    this.toggleChildren();
+  }
+
+  private toggleChildren(): void {
+    const children = this.shadow.querySelector<HTMLDivElement>('.children');
+    if (!children) {
+      return;
+    }
+
+    if (!this.expanded) {
+      children.classList.remove('hidden');
+      this.classList.add('expanded');
+    } else {
+      children.classList.add('hidden');
+      this.classList.remove('expanded');
+    }
+    this.expanded = !this.expanded;
   }
 
   // TODO(annabelzhou): Track whether the children should be expanded and change arrow accordingly
@@ -69,7 +97,6 @@ export class AccessibilityNode extends HTMLElement {
     if (name && name.value) {
       nodeContent.push(LitHtml.html`<span class='ax-readable-string'>"${name.value}"</span>`);
     }
-
     return nodeContent;
   }
 
@@ -133,7 +160,11 @@ export class AccessibilityNode extends HTMLElement {
           }
 
           .children {
-            padding-inline-start: 16px;
+            padding-inline-start: 12px;
+          }
+
+          .hidden {
+            display: none;
           }
 
           :host(.no-children) {
