@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f342ef80_cd299a63",
+        "filename": "front_end/sdk/ResourceTreeModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-01-18T10:34:00Z",
+      "side": 1,
+      "message": "This case should not happen, I added the check to satisfy the type checker.",
+      "parentUuid": "049337c4_bb92c1bc",
+      "range": {
+        "startLine": 256,
+        "startChar": 4,
+        "endLine": 258,
+        "endChar": 5
+      },
+      "revId": "a388c9beb5c6b12210678638de69729d760e1d21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "89dd3406_0f7a2196",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-01-13T11:59:28Z",
       "side": 1,
       "message": "Hmm, can you explain why this is necessary here? How does this interact with what _processCachedResources does?",
+      "range": {
+        "startLine": 260,
+        "startChar": 33,
+        "endLine": 260,
+        "endChar": 64
+      },
+      "revId": "a388c9beb5c6b12210678638de69729d760e1d21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c07372dc_2263aa64",
+        "filename": "front_end/sdk/ResourceTreeModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-01-18T10:34:00Z",
+      "side": 1,
+      "message": "Thanks! This caused me to choose a different approach.",
+      "parentUuid": "89dd3406_0f7a2196",
       "range": {
         "startLine": 260,
         "startChar": 33,
