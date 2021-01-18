@@ -273,6 +273,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a2a035f0_5b7a1589",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-18T09:18:44Z",
+      "side": 1,
+      "message": "I think this can be resolved via the other comment - we should have the state for expanded, but then let LitHtml apply it via LitHtml.Directives.classMap - see here for an example: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/elements/ElementsBreadcrumbs.ts;l\u003d342?q\u003delementsbread\u0026ss\u003dchromium\n\nIn terms of boolean props, LitHtml does support those via the ?foo\u003d{foo} syntax: https://lit-html.polymer-project.org/guide/template-reference#binding-types\n\nI\u0027m not 100% confident I\u0027ve understood and answered the question fully though so please let me know if I haven\u0027t!",
+      "parentUuid": "23a046cf_7695ab76",
+      "revId": "9f3b9a9f30e366a47fd33f4e58f16e6ff5685db0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f1f6925b_d08e574e",
         "filename": "front_end/elements/AccessibilityNode.ts",
         "patchSetId": 3
