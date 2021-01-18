@@ -16,6 +16,29 @@
       "message": "Sigurd, I have changed the approach for the main logic of this CL, please take another look.",
       "revId": "3491a4726cc0786ff71020636f74fafabf2d7818",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2555076_6237b2f2",
+        "filename": "front_end/sdk/ResourceTreeModel.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-18T10:42:28Z",
+      "side": 1,
+      "message": "Is this reliable when we receive the document.open notification? (I presume that the document could be extended after getting that CDP event)",
+      "range": {
+        "startLine": 255,
+        "startChar": 6,
+        "endLine": 255,
+        "endChar": 42
+      },
+      "revId": "3491a4726cc0786ff71020636f74fafabf2d7818",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
