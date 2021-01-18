@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "2288f51d5018d4e5f00fdd8dfc83c98466ffb353",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8f3704b_e73b6e0d",
+        "filename": "front_end/elements/LayoutSidebarPane.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-01-18T13:03:24Z",
+      "side": 1,
+      "message": "Can we file a crbug and point to it here, in case we don’t get to this any time soon?",
+      "range": {
+        "startLine": 169,
+        "startChar": 16,
+        "endLine": 169,
+        "endChar": 27
+      },
+      "revId": "2288f51d5018d4e5f00fdd8dfc83c98466ffb353",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
