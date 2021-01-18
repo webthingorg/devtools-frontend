@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e9c0560_538591e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1143154
+      },
+      "writtenOn": "2021-01-18T04:53:04Z",
+      "side": 1,
+      "message": "Otherwise, LGTM.",
+      "revId": "405ad8aebe77ed291a6241d9410119e1b961c3d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "360f58ee_96214200",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1143154
+      },
+      "writtenOn": "2021-01-18T04:53:04Z",
+      "side": 1,
+      "message": "Do we have examples of ternaries with side effects elsewhere in the codebase?\n\nI normally prefer for ternaries to only be used for their resulting value, but I\u0027m not familiar with Devtools style.\n\nIf this style is used elsewhere within Devtools then you can ignore this comment.",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 87
+      },
+      "revId": "405ad8aebe77ed291a6241d9410119e1b961c3d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
