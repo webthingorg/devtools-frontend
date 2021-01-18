@@ -2,142 +2,90 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
+/* eslint-disable rulesdir/no_underscored_properties */
+
+import * as Common from '../common/common.js'; // eslint-disable-line no-unused-vars
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
-import {MediaModel, PlayerEvent, ProtocolTriggers} from './MediaModel.js';  // eslint-disable-line no-unused-vars
-import {PlayerDetailView} from './PlayerDetailView.js';
-import {PlayerListView} from './PlayerListView.js';
+import { MediaModel, PlayerEvent, ProtocolTriggers } from './MediaModel.js'; // eslint-disable-line no-unused-vars
+import { PlayerDetailView } from './PlayerDetailView.js';
+import { PlayerListView } from './PlayerListView.js';
 
 /** @interface */
-export class TriggerHandler {
-  /** @param {!Protocol.Media.PlayerProperty} property */
-  onProperty(property) {
-  }
+export interface TriggerHandler {
+  onProperty(property: Protocol.Media.PlayerProperty): void;
 
-  /** @param {!Protocol.Media.PlayerError} error */
-  onError(error) {
-  }
+  onError(error: Protocol.Media.PlayerError): void;
 
-  /** @param {!Protocol.Media.PlayerMessage} message */
-  onMessage(message) {
-  }
+  onMessage(message: Protocol.Media.PlayerMessage): void;
 
-  /** @param {!PlayerEvent} event */
-  onEvent(event) {
-  }
+  onEvent(event: PlayerEvent): void;
 }
 
 /** @interface */
-export class TriggerDispatcher {
-  /**
-   * @param {string} playerID
-   * @param {!Protocol.Media.PlayerProperty} property
-   */
-  onProperty(playerID, property) {
-  }
+export interface TriggerDispatcher {
+  onProperty(playerID: string, property: Protocol.Media.PlayerProperty): void;
 
-  /**
-   * @param {string} playerID
-   * @param {!Protocol.Media.PlayerError} error
-   */
-  onError(playerID, error) {
-  }
+  onError(playerID: string, error: Protocol.Media.PlayerError): void;
 
-  /**
-   * @param {string} playerID
-   * @param {!Protocol.Media.PlayerMessage} message
-   */
-  onMessage(playerID, message) {
-  }
+  onMessage(playerID: string, message: Protocol.Media.PlayerMessage): void;
 
-  /**
-   * @param {string} playerID
-   * @param {!PlayerEvent} event
-   */
-  onEvent(playerID, event) {
-  }
+  onEvent(playerID: string, event: PlayerEvent): void;
 }
 
-/**
- * @implements TriggerHandler
- */
-class PlayerDataCollection {
+class PlayerDataCollection implements TriggerHandler {
+  _properties: Map<string, string>;
+  _messages: Protocol.Media.PlayerMessage[];
+  _events: PlayerEvent[];
+  _errors: Protocol.Media.PlayerError[];
   constructor() {
-    /** @type {!Map<string, string>} */
     this._properties = new Map();
 
-    /** @type {!Array<!Protocol.Media.PlayerMessage>} */
     this._messages = [];
 
-    /** @type {!Array<!PlayerEvent>} */
     this._events = [];
 
-    /** @type {!Array<!Protocol.Media.PlayerError>} */
     this._errors = [];
   }
 
-  /**
-   * @override
-   * @param {!Protocol.Media.PlayerProperty} property
-   */
-  onProperty(property) {
+  onProperty(property: Protocol.Media.PlayerProperty): void {
     this._properties.set(property.name, property.value);
   }
 
-  /**
-   * @override
-   * @param {!Protocol.Media.PlayerError} error */
-  onError(error) {
+  onError(error: Protocol.Media.PlayerError): void {
     this._errors.push(error);
   }
 
-  /**
-   * @override
-   * @param {!Protocol.Media.PlayerMessage} message
-   */
-  onMessage(message) {
+  onMessage(message: Protocol.Media.PlayerMessage): void {
     this._messages.push(message);
   }
 
-  /**
-   * @override
-   * @param {!PlayerEvent} event
-   */
-  onEvent(event) {
+  onEvent(event: PlayerEvent): void {
     this._events.push(event);
   }
 
-  export() {
-    return {'properties': this._properties, 'messages': this._messages, 'events': this._events, 'errors': this._errors};
+  export(): {
+    properties: Map<string, string>;
+    messages: Protocol.Media.PlayerMessage[];
+    events: PlayerEvent[];
+    errors: Protocol.Media.PlayerError[];
+  } {
+    return { 'properties': this._properties, 'messages': this._messages, 'events': this._events, 'errors': this._errors };
   }
 }
 
-/**
- * @implements TriggerDispatcher
- */
-class PlayerDataDownloadManager {
+class PlayerDataDownloadManager implements TriggerDispatcher {
+  _playerDataCollection: Map<string, PlayerDataCollection>;
   constructor() {
-    /**
-     * @type {!Map<string, !PlayerDataCollection>}
-     */
     this._playerDataCollection = new Map();
   }
 
-  /**
-   * @param {string} playerID
-   */
-  addPlayer(playerID) {
+  addPlayer(playerID: string): void {
     this._playerDataCollection.set(playerID, new PlayerDataCollection());
   }
 
-  /**
-   * @override
-   * @param {string} playerID
-   * @param {!Protocol.Media.PlayerProperty} property
-   */
-  onProperty(playerID, property) {
+  onProperty(playerID: string, property: Protocol.Media.PlayerProperty): void {
     const playerProperty = this._playerDataCollection.get(playerID);
     if (!playerProperty) {
       return;
@@ -146,12 +94,7 @@ class PlayerDataDownloadManager {
     playerProperty.onProperty(property);
   }
 
-  /**
-   * @override
-   * @param {string} playerID
-   * @param {!Protocol.Media.PlayerError} error
-   */
-  onError(playerID, error) {
+  onError(playerID: string, error: Protocol.Media.PlayerError): void {
     const playerProperty = this._playerDataCollection.get(playerID);
     if (!playerProperty) {
       return;
@@ -160,12 +103,7 @@ class PlayerDataDownloadManager {
     playerProperty.onError(error);
   }
 
-  /**
-   * @override
-   * @param {string} playerID
-   * @param {!Protocol.Media.PlayerMessage} message
-   */
-  onMessage(playerID, message) {
+  onMessage(playerID: string, message: Protocol.Media.PlayerMessage): void {
     const playerProperty = this._playerDataCollection.get(playerID);
     if (!playerProperty) {
       return;
@@ -174,12 +112,7 @@ class PlayerDataDownloadManager {
     playerProperty.onMessage(message);
   }
 
-  /**
-   * @override
-   * @param {string} playerID
-   * @param {!PlayerEvent} event
-   */
-  onEvent(playerID, event) {
+  onEvent(playerID: string, event: PlayerEvent): void {
     const playerProperty = this._playerDataCollection.get(playerID);
     if (!playerProperty) {
       return;
@@ -188,10 +121,12 @@ class PlayerDataDownloadManager {
     playerProperty.onEvent(event);
   }
 
-  /**
-   * @param {string} playerID
-   */
-  exportPlayerData(playerID) {
+  exportPlayerData(playerID: string): {
+    properties: Map<string, string>;
+    messages: Protocol.Media.PlayerMessage[];
+    events: PlayerEvent[];
+    errors: Protocol.Media.PlayerError[];
+  } {
     const playerProperty = this._playerDataCollection.get(playerID);
     if (!playerProperty) {
       throw new Error('Unable to find player');
@@ -200,21 +135,19 @@ class PlayerDataDownloadManager {
     return playerProperty.export();
   }
 
-  /**
-   * @param {string} playerID
-   */
-  deletePlayer(playerID) {
+  deletePlayer(playerID: string): void {
     this._playerDataCollection.delete(playerID);
   }
 }
 
-/**
- * @implements {SDK.SDKModel.SDKModelObserver<!MediaModel>}
- */
-export class MainView extends UI.Panel.PanelWithSidebar {
+export class MainView extends UI.Panel.PanelWithSidebar implements SDK.SDKModel.SDKModelObserver {
+  _detailPanels: Map<any, any>;
+  _deletedPlayers: Set<any>;
+  _downloadStore: PlayerDataDownloadManager;
+  _sidebar: PlayerListView;
   constructor() {
     super('Media');
-    this.registerRequiredCSS('media/mediaView.css', {enableLegacyPatching: true});
+    this.registerRequiredCSS('media/mediaView.css', { enableLegacyPatching: true });
 
     // Map<PlayerDetailView>
     this._detailPanels = new Map();
@@ -230,10 +163,7 @@ export class MainView extends UI.Panel.PanelWithSidebar {
     SDK.SDKModel.TargetManager.instance().observeModels(MediaModel, this);
   }
 
-  /**
-   * @param {string} playerID
-   */
-  renderMainPanel(playerID) {
+  renderMainPanel(playerID: string): void {
     if (!this._detailPanels.has(playerID)) {
       return;
     }
@@ -244,47 +174,30 @@ export class MainView extends UI.Panel.PanelWithSidebar {
     this._detailPanels.get(playerID).show(this.mainElement());
   }
 
-  /**
-   * @override
-   */
-  wasShown() {
+  wasShown(): void {
     super.wasShown();
     for (const model of SDK.SDKModel.TargetManager.instance().models(MediaModel)) {
       this._addEventListeners(model);
     }
   }
 
-  /**
-   * @override
-   */
-  willHide() {
+  willHide(): void {
     for (const model of SDK.SDKModel.TargetManager.instance().models(MediaModel)) {
       this._removeEventListeners(model);
     }
   }
 
-  /**
-   * @override
-   * @param {!MediaModel} model
-   */
-  modelAdded(model) {
+  modelAdded(model: MediaModel): void {
     if (this.isShowing()) {
       this._addEventListeners(model);
     }
   }
 
-  /**
-   * @override
-   * @param {!MediaModel} model
-   */
-  modelRemoved(model) {
+  modelRemoved(model: MediaModel): void {
     this._removeEventListeners(model);
   }
 
-  /**
-   * @param {!MediaModel} mediaModel
-   */
-  _addEventListeners(mediaModel) {
+  _addEventListeners(mediaModel: MediaModel): void {
     mediaModel.ensureEnabled();
     mediaModel.addEventListener(ProtocolTriggers.PlayerPropertiesChanged, this._propertiesChanged, this);
     mediaModel.addEventListener(ProtocolTriggers.PlayerEventsAdded, this._eventsAdded, this);
@@ -293,10 +206,7 @@ export class MainView extends UI.Panel.PanelWithSidebar {
     mediaModel.addEventListener(ProtocolTriggers.PlayersCreated, this._playersCreated, this);
   }
 
-  /**
-   * @param {!MediaModel} mediaModel
-   */
-  _removeEventListeners(mediaModel) {
+  _removeEventListeners(mediaModel: MediaModel): void {
     mediaModel.removeEventListener(ProtocolTriggers.PlayerPropertiesChanged, this._propertiesChanged, this);
     mediaModel.removeEventListener(ProtocolTriggers.PlayerEventsAdded, this._eventsAdded, this);
     mediaModel.removeEventListener(ProtocolTriggers.PlayerMessagesLogged, this._messagesLogged, this);
@@ -304,64 +214,41 @@ export class MainView extends UI.Panel.PanelWithSidebar {
     mediaModel.removeEventListener(ProtocolTriggers.PlayersCreated, this._playersCreated, this);
   }
 
-  /**
-   * @param {string} playerID
-   */
-  _onPlayerCreated(playerID) {
+  _onPlayerCreated(playerID: string): void {
     this._sidebar.addMediaElementItem(playerID);
     this._detailPanels.set(playerID, new PlayerDetailView());
     this._downloadStore.addPlayer(playerID);
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _propertiesChanged(event) {
+  _propertiesChanged(event: Common.EventTarget.EventTargetEvent): void {
     for (const property of event.data.properties) {
       this.onProperty(event.data.playerId, property);
     }
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _eventsAdded(event) {
+  _eventsAdded(event: Common.EventTarget.EventTargetEvent): void {
     for (const ev of event.data.events) {
       this.onEvent(event.data.playerId, ev);
     }
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _messagesLogged(event) {
+  _messagesLogged(event: Common.EventTarget.EventTargetEvent): void {
     for (const message of event.data.messages) {
       this.onMessage(event.data.playerId, message);
     }
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _errorsRaised(event) {
+  _errorsRaised(event: Common.EventTarget.EventTargetEvent): void {
     for (const error of event.data.errors) {
       this.onError(event.data.playerId, error);
     }
   }
 
-  /**
-   * @param {string} playerID
-   * @return {boolean}
-   */
-  _shouldPropagate(playerID) {
+  _shouldPropagate(playerID: string): boolean {
     return !this._deletedPlayers.has(playerID) && this._detailPanels.has(playerID);
   }
 
-  /**
-   * @param {string} playerID
-   * @param {!Protocol.Media.PlayerProperty} property
-   */
-  onProperty(playerID, property) {
+  onProperty(playerID: string, property: Protocol.Media.PlayerProperty): void {
     if (!this._shouldPropagate(playerID)) {
       return;
     }
@@ -370,11 +257,7 @@ export class MainView extends UI.Panel.PanelWithSidebar {
     this._detailPanels.get(playerID).onProperty(property);
   }
 
-  /**
-   * @param {string} playerID
-   * @param {!Protocol.Media.PlayerError} error
-   */
-  onError(playerID, error) {
+  onError(playerID: string, error: Protocol.Media.PlayerError): void {
     if (!this._shouldPropagate(playerID)) {
       return;
     }
@@ -383,11 +266,7 @@ export class MainView extends UI.Panel.PanelWithSidebar {
     this._detailPanels.get(playerID).onError(error);
   }
 
-  /**
-   * @param {string} playerID
-   * @param {!Protocol.Media.PlayerMessage} message
-   */
-  onMessage(playerID, message) {
+  onMessage(playerID: string, message: Protocol.Media.PlayerMessage): void {
     if (!this._shouldPropagate(playerID)) {
       return;
     }
@@ -396,11 +275,7 @@ export class MainView extends UI.Panel.PanelWithSidebar {
     this._detailPanels.get(playerID).onMessage(message);
   }
 
-  /**
-   * @param {string} playerID
-   * @param {!PlayerEvent} event
-   */
-  onEvent(playerID, event) {
+  onEvent(playerID: string, event: PlayerEvent): void {
     if (!this._shouldPropagate(playerID)) {
       return;
     }
@@ -409,20 +284,14 @@ export class MainView extends UI.Panel.PanelWithSidebar {
     this._detailPanels.get(playerID).onEvent(event);
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _playersCreated(event) {
-    const playerlist = /** @type {!Iterable.<string>} */ (event.data);
+  _playersCreated(event: Common.EventTarget.EventTargetEvent): void {
+    const playerlist = event.data as Iterable<string>;
     for (const playerID of playerlist) {
       this._onPlayerCreated(playerID);
     }
   }
 
-  /**
-   * @param {string} playerID
-   */
-  markPlayerForDeletion(playerID) {
+  markPlayerForDeletion(playerID: string): void {
     // TODO(tmathmeyer): send this to chromium to save the storage space there too.
     this._deletedPlayers.add(playerID);
     this._detailPanels.delete(playerID);
@@ -430,10 +299,7 @@ export class MainView extends UI.Panel.PanelWithSidebar {
     this._downloadStore.deletePlayer(playerID);
   }
 
-  /**
-   * @param {string} playerID
-   */
-  markOtherPlayersForDeletion(playerID) {
+  markOtherPlayersForDeletion(playerID: string): void {
     for (const keyID of this._detailPanels.keys()) {
       if (keyID !== playerID) {
         this.markPlayerForDeletion(keyID);
@@ -441,10 +307,7 @@ export class MainView extends UI.Panel.PanelWithSidebar {
     }
   }
 
-  /**
-   * @param {string} playerID
-   */
-  exportPlayerData(playerID) {
+  exportPlayerData(playerID: string): void {
     const dump = this._downloadStore.exportPlayerData(playerID);
     const uriContent = 'data:application/octet-stream,' + encodeURIComponent(JSON.stringify(dump, null, 2));
     const anchor = document.createElement('a');
