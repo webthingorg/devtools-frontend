@@ -4,4 +4,5 @@ karma-coverage
 node_modules
 out
 test/**/fixtures
+test/e2e/**/*.ts
 third_party
