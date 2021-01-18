@@ -16,6 +16,23 @@
       "message": "ptal",
       "revId": "afe18748b1f7bb545aa353ae199defb414b111f7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb0056b5_fde40aad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-18T12:48:18Z",
+      "side": 1,
+      "message": "I assume that loading the preferences first won\u0027t cause UI to be loaded that expects translated strings to be there?\n\nlgtm",
+      "revId": "afe18748b1f7bb545aa353ae199defb414b111f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
