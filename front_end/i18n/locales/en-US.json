@@ -1031,10 +1031,10 @@
   "media/EventTimelineView.js | playbackStatus": {
     "message": "Playback Status"
   },
-  "media/ModuleUIStrings.js | media": {
+  "media/media-meta.ts | media": {
     "message": "Media"
   },
-  "media/ModuleUIStrings.js | video": {
+  "media/media-meta.ts | video": {
     "message": "video"
   },
   "media/PlayerDetailView.js | events": {

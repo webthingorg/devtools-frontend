@@ -208,10 +208,14 @@ class PlayerDataDownloadManager {
   }
 }
 
+/** @type {!MainView} */
+let mainViewInstance;
+
 /**
  * @implements {SDK.SDKModel.SDKModelObserver<!MediaModel>}
  */
 export class MainView extends UI.Panel.PanelWithSidebar {
+  /** @private */
   constructor() {
     super('Media');
     this.registerRequiredCSS('media/mediaView.css', {enableLegacyPatching: true});
@@ -230,6 +234,17 @@ export class MainView extends UI.Panel.PanelWithSidebar {
     SDK.SDKModel.TargetManager.instance().observeModels(MediaModel, this);
   }
 
+  /**
+   * @param {{forceNew: ?boolean}} opts
+   */
+  static instance(opts = {forceNew: null}) {
+    const {forceNew} = opts;
+    if (!mainViewInstance || forceNew) {
+      mainViewInstance = new MainView();
+    }
+
+    return mainViewInstance;
+  }
   /**
    * @param {string} playerID
    */

@@ -73,6 +73,7 @@ group("front_end") {
     "linear_memory_inspector:bundle",
     "main:bundle",
     "media:bundle",
+    "media:meta",
     "mobile_throttling:bundle",
     "network:bundle",
     "network:meta",
