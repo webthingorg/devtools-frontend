@@ -25,7 +25,7 @@ describe('ConsoleMessage', () => {
         options.scriptId);
   }
 
-  it('compares using message', () => {
+  it.only('compares using message', () => {
     const a = newMessage({});
     const b = newMessage({});
     const c = newMessage({message: 'DifferentMessage'});
