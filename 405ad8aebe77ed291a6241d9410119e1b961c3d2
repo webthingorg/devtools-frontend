@@ -80,6 +80,30 @@
       },
       "revId": "405ad8aebe77ed291a6241d9410119e1b961c3d2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90d99002_574a53bf",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-18T05:31:21Z",
+      "side": 1,
+      "message": "Done - this is super handy, thanks! :)",
+      "parentUuid": "6eca67f5_29b566ca",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 87
+      },
+      "revId": "405ad8aebe77ed291a6241d9410119e1b961c3d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

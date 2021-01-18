@@ -255,6 +255,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "23a046cf_7695ab76",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-18T05:31:21Z",
+      "side": 1,
+      "message": "(also bubbling)",
+      "parentUuid": "4fdf020d_221da028",
+      "revId": "9f3b9a9f30e366a47fd33f4e58f16e6ff5685db0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f1f6925b_d08e574e",
         "filename": "front_end/elements/AccessibilityNode.ts",
         "patchSetId": 3
