@@ -1760,6 +1760,7 @@ export class ResourcesSection {
   constructor(storagePanel, treeElement) {
     this._panel = storagePanel;
     this._treeElement = treeElement;
+    UI.ARIAUtils.setAccessibleName(this._treeElement._listItemNode, 'Resources Section');
     /** @type {!Map<string, !FrameTreeElement>} */
     this._treeElementForFrameId = new Map();
     /** @type {!Map<string, !FrameTreeElement>} */
@@ -2134,6 +2135,9 @@ export class FrameTreeElement extends ApplicationPanelTreeElement {
     if (statusCode >= 301 && statusCode <= 303) {
       return;
     }
+    if (this.isDuplicate(resource)) {
+      return;
+    }
 
     const resourceType = resource.resourceType();
     const categoryName = resourceType.name();
@@ -2152,6 +2156,19 @@ export class FrameTreeElement extends ApplicationPanelTreeElement {
     if (this._view) {
       this._view.update();
     }
+  }
+
+  /**
+   * @param {!SDK.Resource.Resource} resource
+   * @return {boolean}
+   */
+  isDuplicate(resource) {
+    const existingElement = this._treeElementForResource.get(resource.url);
+    if (!existingElement) {
+      return false;
+    }
+    // URLs alone are not necessarily unique
+    return existingElement.itemCategory === resource.resourceType().name();
   }
 
   /**
@@ -2217,15 +2234,6 @@ export class FrameTreeElement extends ApplicationPanelTreeElement {
   }
 
   /**
-   * @param {string} url
-   * @return {?SDK.Resource.Resource}
-   */
-  resourceByURL(url) {
-    const treeElement = this._treeElementForResource.get(url);
-    return treeElement ? treeElement._resource : null;
-  }
-
-  /**
    * @override
    * @param {!UI.TreeOutline.TreeElement} treeElement
    * @param {(function(!UI.TreeOutline.TreeElement, !UI.TreeOutline.TreeElement):number)=} comparator
@@ -2267,7 +2275,7 @@ export class FrameResourceTreeElement extends ApplicationPanelTreeElement {
    * @param {!SDK.Resource.Resource} resource
    */
   constructor(storagePanel, resource) {
-    super(storagePanel, resource.displayName, false);
+    super(storagePanel, resource.isGenerated ? ls`Document not available` : resource.displayName, false);
     this._panel = storagePanel;
     /** @type {!SDK.Resource.Resource} */
     this._resource = resource;
@@ -2297,6 +2305,13 @@ export class FrameResourceTreeElement extends ApplicationPanelTreeElement {
   }
 
   /**
+   * @return {string}
+   */
+  get itemCategory() {
+    return this._resource.resourceType().name();
+  }
+
+  /**
    * @return {!Promise<!UI.Widget.Widget>}
    */
   _preparePreview() {
@@ -2321,7 +2336,11 @@ export class FrameResourceTreeElement extends ApplicationPanelTreeElement {
    */
   onselect(selectedByUser) {
     super.onselect(selectedByUser);
-    this._panel.scheduleShowView(this._preparePreview());
+    if (this._resource.isGenerated) {
+      this._panel.showCategoryView(ls`The content of this document has been generated dynamically.`, null);
+    } else {
+      this._panel.scheduleShowView(this._preparePreview());
+    }
     return false;
   }
 
