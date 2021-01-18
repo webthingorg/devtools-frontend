@@ -291,6 +291,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2b5cc844_16e2d311",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-18T22:21:12Z",
+      "side": 1,
+      "message": "Hmmm I don\u0027t think I quite follow. If you style based on the content attribute, i.e.\n\n :host(:not[expanded]) .children {\n   display: none;\n }\n\n... you don\u0027t need to do anything in javascript at all, other than make sure the content attribute gets set. I don\u0027t understand why you would want to re-render and use ClassMap to copy state from the content attribute to the classList.\n\nCan you explain what you mean by \"top-down data flow\", and give more detail on why it\u0027s better to use `this.render()`?",
+      "parentUuid": "a2a035f0_5b7a1589",
+      "revId": "9f3b9a9f30e366a47fd33f4e58f16e6ff5685db0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f1f6925b_d08e574e",
         "filename": "front_end/elements/AccessibilityNode.ts",
         "patchSetId": 3
