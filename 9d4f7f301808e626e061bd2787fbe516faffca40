@@ -16,6 +16,57 @@
       "message": "PTAL thanks!",
       "revId": "9d4f7f301808e626e061bd2787fbe516faffca40",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8aeabe6_8a1bd918",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-01-18T07:03:57Z",
+      "side": 1,
+      "message": "Jack, could you please review this CL as well and answer Alice\u0027s question? ",
+      "revId": "9d4f7f301808e626e061bd2787fbe516faffca40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3f62383_68fe08f6",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-01-18T07:03:57Z",
+      "side": 1,
+      "message": "is it possible to use `this.axNode.children()` instead of querying the DOM?",
+      "revId": "9d4f7f301808e626e061bd2787fbe516faffca40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f69623c_ab5b16a0",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-01-18T07:03:57Z",
+      "side": 1,
+      "message": "I think it might be more in line with the top-down data flow to set the expanded attribute and call `this.render()` here and let the render method handle the classList update.",
+      "revId": "9d4f7f301808e626e061bd2787fbe516faffca40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
