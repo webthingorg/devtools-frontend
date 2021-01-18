@@ -55,6 +55,13 @@ export class AccessibilityNode {
   }
 
   /**
+   * @return {string}
+   */
+  id() {
+    return this._id;
+  }
+
+  /**
    * @return {!AccessibilityModel}
    */
   accessibilityModel() {
@@ -259,6 +266,7 @@ export class AccessibilityModel extends SDKModel {
    * @return ?{!Promise<AccessibilityNode>}
    */
   async requestRootNode(depth = 2) {
+    await this._agent.invoke_enable();
     const {nodes} = await this._agent.invoke_getFullAXTree({max_depth: depth});
     if (!nodes) {
       return;
@@ -272,6 +280,29 @@ export class AccessibilityModel extends SDKModel {
       }
     }
     return axNodes[0];
+  }
+
+  /**
+   * @param {!string} nodeId
+   * @return ?{!Promise<AccessibilityNode[]>}
+   */
+  async requestAXChildren(nodeId) {
+    const {nodes} = await this._agent.invoke_getChildAXNodes({id: nodeId});
+    if (!nodes) {
+      return;
+    }
+
+    const axNodes = [];
+    for (const payload of nodes) {
+      axNodes.push(new AccessibilityNode(this, payload));
+    }
+
+    for (const axNode of this._axIdToAXNode.values()) {
+      for (const axChild of axNode.children()) {
+        axChild._setParentNode(axNode);
+      }
+    }
+    return axNodes;
   }
 
   /**
