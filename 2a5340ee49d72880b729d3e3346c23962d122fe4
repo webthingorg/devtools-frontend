@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c72e5884_016cb368",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-18T16:24:55Z",
+      "side": 1,
+      "message": "LGTM % Sinon. Happy if you want to defer that to a follow-up CL.",
+      "revId": "2a5340ee49d72880b729d3e3346c23962d122fe4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "766914a7_595f8cf2",
+        "filename": "front_end/component_docs/counter_button/basic.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-18T16:24:55Z",
+      "side": 1,
+      "message": "should be able to lose these once https://crrev.com/c/2635666 lands",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 31
+      },
+      "revId": "2a5340ee49d72880b729d3e3346c23962d122fe4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b067126a_c722566a",
+        "filename": "test/unittests/front_end/ui/components/CounterButton_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-18T16:24:55Z",
+      "side": 1,
+      "message": "I think we could use Sinon here (https://sinonjs.org/) to produce a spy function that we pass as the handler. We don\u0027t use it yet but it is in the frontend as a Node dep and would make these tests cleaner (there\u0027s probably a few instances where we could rewrite tests).\n\nProbably look something like:\n\n```\nconst clickHandler \u003d sinon.spy();\nconst {shadowRoot} \u003d renderCounterButton({clickHandler, ...});\n// code to click the icon goes here\nassert(spy.calledOnce)\n```\n\nWDYT?\n\nI know this is a bit out the blue as we\u0027ve not used Sinon in tests yet, but I will update the UI doc this week with an example and update some other tests.",
+      "range": {
+        "startLine": 116,
+        "startChar": 3,
+        "endLine": 124,
+        "endChar": 20
+      },
+      "revId": "2a5340ee49d72880b729d3e3346c23962d122fe4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
