@@ -237,6 +237,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4fdf020d_221da028",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-18T05:02:13Z",
+      "side": 1,
+      "message": "(Just bubbling this up for the attention of devtools folks who may only see the latest patch set)",
+      "parentUuid": "6c47069c_0b464b11",
+      "revId": "9f3b9a9f30e366a47fd33f4e58f16e6ff5685db0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f1f6925b_d08e574e",
         "filename": "front_end/elements/AccessibilityNode.ts",
         "patchSetId": 3
@@ -313,6 +331,24 @@
       "side": 1,
       "message": "Done - woahh css is cool 😮",
       "parentUuid": "e30581a2_26b60d95",
+      "revId": "9f3b9a9f30e366a47fd33f4e58f16e6ff5685db0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2060f4c_62c5c3ad",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-18T05:02:13Z",
+      "side": 1,
+      "message": "It *is* cool!",
+      "parentUuid": "0a8c4011_8fba5092",
       "revId": "9f3b9a9f30e366a47fd33f4e58f16e6ff5685db0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

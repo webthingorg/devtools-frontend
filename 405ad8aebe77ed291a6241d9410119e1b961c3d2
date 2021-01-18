@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59b2eb46_e185055d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-18T05:02:13Z",
+      "side": 1,
+      "message": "LGTM with the same nit as Chris",
+      "revId": "405ad8aebe77ed291a6241d9410119e1b961c3d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "360f58ee_96214200",
@@ -31,6 +48,30 @@
       "writtenOn": "2021-01-18T04:53:04Z",
       "side": 1,
       "message": "Do we have examples of ternaries with side effects elsewhere in the codebase?\n\nI normally prefer for ternaries to only be used for their resulting value, but I\u0027m not familiar with Devtools style.\n\nIf this style is used elsewhere within Devtools then you can ignore this comment.",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 87
+      },
+      "revId": "405ad8aebe77ed291a6241d9410119e1b961c3d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6eca67f5_29b566ca",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-18T05:02:13Z",
+      "side": 1,
+      "message": "+1: in any case, you can use classList.toggle[1] (which I conveniently just remembered about):\n\n this.expanded \u003d !this.expanded;\n this.classList.toggle(\u0027expanded\u0027, this.expanded);\n\nOr, you could take the first step towards making expanded a reflected attribute, and give it a setter, e.g.\n\n toggleChildren() {\n   // ... \n   this.expanded \u003d !this.expanded;\n }\n\n set expanded(expanded: boolean) {\n  this._expanded \u003d expanded;\n  this.classlist.toggle(\u0027expanded\u0027, expanded);\n }\n\n--\n\n[1] https://developer.mozilla.org/en-US/docs/Web/API/Element/classList - search for \"toggle\"",
+      "parentUuid": "360f58ee_96214200",
       "range": {
         "startLine": 40,
         "startChar": 4,
