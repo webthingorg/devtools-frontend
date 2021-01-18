@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1223dc1_8e6f0186",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-18T13:53:10Z",
+      "side": 1,
+      "message": "Hi Jack,\n\nI\u0027ve created a simple component, and would like to get early feedback.\n\nI\u0027m currently adding unittests.\n\nSigurd",
+      "revId": "391a193dc4ae654813963fa85a522e4aa36c6b68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57938e7c_c7eb23dd",
+        "filename": "front_end/component_docs/counter_button/basic.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-18T13:53:10Z",
+      "side": 1,
+      "message": "I seem to need these - am I doing something wrong?",
+      "range": {
+        "startLine": 20,
+        "startChar": 6,
+        "endLine": 23,
+        "endChar": 31
+      },
+      "revId": "391a193dc4ae654813963fa85a522e4aa36c6b68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
