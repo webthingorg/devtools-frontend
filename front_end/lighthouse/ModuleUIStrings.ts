@@ -9,4 +9,4 @@ export const UIStrings = {
   */
   pwa: 'pwa',
 };
-i18n.i18n.registerUIStrings('lighthouse/ModuleUIStrings.js', UIStrings);
+i18n.i18n.registerUIStrings('lighthouse/ModuleUIStrings.ts', UIStrings);
