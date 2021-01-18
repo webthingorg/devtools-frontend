@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ec9b2f6_ec3d2174",
+        "filename": "front_end/timeline/timeline-meta.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-18T13:03:37Z",
+      "side": 1,
+      "message": "This one should move into `profiler-meta.ts` instead, just like we moved the `browser_debugger` ones into `sources`.",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 3
+      },
+      "revId": "ade464e0b905acdf096fffb2b709cab11772f899",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
