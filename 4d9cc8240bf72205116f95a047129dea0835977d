@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25f0e389_c422796d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-18T14:15:21Z",
+      "side": 1,
+      "message": "Hi folks,\n\nI wanted to get your opinion on adding a setting in the devtools UI to switch between languages.\n\nRight now the language is the same as the browser UI language. On Linux + Mac this can only be changed by changing the OS-level setting, not in Chrome itself.\nI think some people will want to override the setting in devtools to keep it in English or even pick a different lang. WDYT?\n\nI added a fake en-GB locale file here so you can test it out if you like.",
+      "revId": "4d9cc8240bf72205116f95a047129dea0835977d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
