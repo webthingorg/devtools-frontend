@@ -52,6 +52,24 @@
       "parentUuid": "d6460085_8063a8bf",
       "revId": "c080f918e93876ec3633d153bfd1680487b0813a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d07f3bf3_810267d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-01-18T14:22:12Z",
+      "side": 1,
+      "message": "Ah yes, you\u0027re right — we technically could merge this already, since the test doesn’t actually invoke the option. It might be surprising during a manual e2e-debugging workflow however, but maybe it’s unlikely that anyone would go through that and try this particular feature?",
+      "parentUuid": "c6284f27_4e1fa783",
+      "revId": "c080f918e93876ec3633d153bfd1680487b0813a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
