@@ -94,6 +94,30 @@
       },
       "revId": "f8e2cf99b906c5d983de3f03907d5aa73239db1a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbc05649_4feceaf7",
+        "filename": "front_end/developer_resources/developer_resources-meta.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-18T15:21:20Z",
+      "side": 1,
+      "message": "Ah yes good catch. Fixed 👍",
+      "parentUuid": "9fdd1188_05bbe7fe",
+      "range": {
+        "startLine": 18,
+        "startChar": 42,
+        "endLine": 18,
+        "endChar": 89
+      },
+      "revId": "f8e2cf99b906c5d983de3f03907d5aa73239db1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
