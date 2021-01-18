@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70091b15_70bc441a",
+        "filename": "front_end/js_profiler/js_profiler-meta.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-01-18T21:30:08Z",
+      "side": 1,
+      "message": "Note we are loading from profiler. The profiler module has an identical view with the same id, but because js_profiler belongs to the node_app and js_app while profiler to the shell app they do not collide (and the view has to be declared twice). It seems that js_profiler module whole purpose is to support both the node_app and js_app.",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 48
+      },
+      "revId": "084f2ae20eebfcbe4d64d9a5a22bca1182b3f9e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
