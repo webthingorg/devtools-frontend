@@ -16,6 +16,29 @@
       "message": "This CL runs stylelint against our CSS found in .ts files.\n\n@Tim PTAL.\n\n@Kim tagging you for review because there are some changes in the LinearMemoryInspector which change/fix CSS that might make a difference. I\u0027ve looked at it in the component docs server and it looks OK to me but you know it much more; would you mind double checking?\n\nThanks!",
       "revId": "d1ecfa5081487580b5c144bb21e7103c17b89bb4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d48ee14d_3276e668",
+        "filename": "package.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-18T12:56:51Z",
+      "side": 1,
+      "message": "Should we maybe only run this in the frontend? E.g. `--glob \u0027front_end/**/*.ts\u0027`. Then we don\u0027t need the additional entry in the `.stylelintignore` either.",
+      "range": {
+        "startLine": 32,
+        "startChar": 111,
+        "endLine": 32,
+        "endChar": 115
+      },
+      "revId": "d1ecfa5081487580b5c144bb21e7103c17b89bb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
