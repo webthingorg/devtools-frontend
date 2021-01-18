@@ -39,6 +39,75 @@
       },
       "revId": "9f3b9a9f30e366a47fd33f4e58f16e6ff5685db0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a0dd25b_70cea25f",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1143154
+      },
+      "writtenOn": "2021-01-18T02:08:52Z",
+      "side": 1,
+      "message": "optional mega nit: consider swapping the true and false branches to help readability.\n\nCurrently this code is\n\n```\nif (!this.expanded) { // if (not true)\n  // expand logic\n} else { // else (true)\n  // collapse logic\n}\n```\n\nI find this a little hard to read as the `if` is a negative, making the false positive\nI think it would be slightly easier if we swap the order around to\n\n```\nif (this.expanded) { // if (true)\n  // collapse logic\n} else { // else (false)\n  // expand logic\n}\n```\n\nFeel free to ignore if you disagree style-wise.",
+      "range": {
+        "startLine": 41,
+        "startChar": 3,
+        "endLine": 41,
+        "endChar": 25
+      },
+      "revId": "9f3b9a9f30e366a47fd33f4e58f16e6ff5685db0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94535422_0c6bc4e3",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1143154
+      },
+      "writtenOn": "2021-01-18T02:08:52Z",
+      "side": 1,
+      "message": "Is this `expanded` class currently used? or is this for future styling?\nIf it is for future styling, do we also want a matching `collapsed` class?\n\nThis doesn\u0027t have to be resolved as part of this change, consider me curious.",
+      "range": {
+        "startLine": 43,
+        "startChar": 26,
+        "endLine": 43,
+        "endChar": 34
+      },
+      "revId": "9f3b9a9f30e366a47fd33f4e58f16e6ff5685db0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1f6925b_d08e574e",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1143154
+      },
+      "writtenOn": "2021-01-18T02:08:52Z",
+      "side": 1,
+      "message": "Optional mega nit: consider adding a blank newline before this to help readability.\n\nFeel free to ignore this if you disagree style-wise.",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 35
+      },
+      "revId": "9f3b9a9f30e366a47fd33f4e58f16e6ff5685db0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
