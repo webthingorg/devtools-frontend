@@ -16,6 +16,24 @@
       "message": "nit: consider adding this newline back in to keep styling consistent with rest of file.",
       "revId": "cb01823177ba1b8b01601f0b43df71493d7462de",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8fb1fb3_2015ca5a",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-18T04:31:37Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "e976f2a7_91db81c9",
+      "revId": "cb01823177ba1b8b01601f0b43df71493d7462de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

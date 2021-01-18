@@ -58,6 +58,48 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "82d12a42_d731ea52",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-18T04:31:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29e53930_98725906",
+      "revId": "9f3b9a9f30e366a47fd33f4e58f16e6ff5685db0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b6cf887_1932ca0e",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-18T04:31:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e81c640f_559bd2f6",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 33
+      },
+      "revId": "9f3b9a9f30e366a47fd33f4e58f16e6ff5685db0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a0dd25b_70cea25f",
@@ -71,6 +113,30 @@
       "writtenOn": "2021-01-18T02:08:52Z",
       "side": 1,
       "message": "optional mega nit: consider swapping the true and false branches to help readability.\n\nCurrently this code is\n\n```\nif (!this.expanded) { // if (not true)\n  // expand logic\n} else { // else (true)\n  // collapse logic\n}\n```\n\nI find this a little hard to read as the `if` is a negative, making the false positive\nI think it would be slightly easier if we swap the order around to\n\n```\nif (this.expanded) { // if (true)\n  // collapse logic\n} else { // else (false)\n  // expand logic\n}\n```\n\nFeel free to ignore if you disagree style-wise.",
+      "range": {
+        "startLine": 41,
+        "startChar": 3,
+        "endLine": 41,
+        "endChar": 25
+      },
+      "revId": "9f3b9a9f30e366a47fd33f4e58f16e6ff5685db0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64d0d000_a7aa96f4",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-18T04:31:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a0dd25b_70cea25f",
       "range": {
         "startLine": 41,
         "startChar": 3,
@@ -123,6 +189,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "52f0bbf6_530ab0a6",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-18T04:31:37Z",
+      "side": 1,
+      "message": "It is being used at line 175 `:host(.parent.expanded)::before` to change the direction of the arrows. Instead of making a `collapsed` class I have been adding and removing the `expanded` class.",
+      "parentUuid": "94535422_0c6bc4e3",
+      "range": {
+        "startLine": 43,
+        "startChar": 26,
+        "endLine": 43,
+        "endChar": 34
+      },
+      "revId": "9f3b9a9f30e366a47fd33f4e58f16e6ff5685db0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f1f6925b_d08e574e",
         "filename": "front_end/elements/AccessibilityNode.ts",
         "patchSetId": 3
@@ -134,6 +224,30 @@
       "writtenOn": "2021-01-18T02:08:52Z",
       "side": 1,
       "message": "Optional mega nit: consider adding a blank newline before this to help readability.\n\nFeel free to ignore this if you disagree style-wise.",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 35
+      },
+      "revId": "9f3b9a9f30e366a47fd33f4e58f16e6ff5685db0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5accee4c_660b8bcd",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-18T04:31:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1f6925b_d08e574e",
       "range": {
         "startLine": 48,
         "startChar": 4,
@@ -157,6 +271,24 @@
       "writtenOn": "2021-01-18T03:22:22Z",
       "side": 1,
       "message": "No need for a separate class, instead you can do\n\n :host(:not(.expanded)) .children {\n   display: none;\n }\n\nor if we use an attribute instead of a class, that would be \n\n :host(:not([expanded])) .children {\n   display: none;\n }",
+      "revId": "9f3b9a9f30e366a47fd33f4e58f16e6ff5685db0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a8c4011_8fba5092",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-18T04:31:37Z",
+      "side": 1,
+      "message": "Done - woahh css is cool 😮",
+      "parentUuid": "e30581a2_26b60d95",
       "revId": "9f3b9a9f30e366a47fd33f4e58f16e6ff5685db0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
