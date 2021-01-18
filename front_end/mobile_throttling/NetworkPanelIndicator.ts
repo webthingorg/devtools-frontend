@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as i18n from '../i18n/i18n.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
@@ -20,7 +22,7 @@ export const UIStrings = {
   */
   requestsMayBeBlocked: 'Requests may be blocked',
 };
-const str_ = i18n.i18n.registerUIStrings('mobile_throttling/NetworkPanelIndicator.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('mobile_throttling/NetworkPanelIndicator.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class NetworkPanelIndicator {
   constructor() {
@@ -30,20 +32,21 @@ export class NetworkPanelIndicator {
     }
     const manager = SDK.NetworkManager.MultitargetNetworkManager.instance();
     manager.addEventListener(SDK.NetworkManager.MultitargetNetworkManager.Events.ConditionsChanged, updateVisibility);
-    manager.addEventListener(
-        SDK.NetworkManager.MultitargetNetworkManager.Events.BlockedPatternsChanged, updateVisibility);
+    manager.addEventListener(SDK.NetworkManager.MultitargetNetworkManager.Events.BlockedPatternsChanged, updateVisibility);
     manager.addEventListener(SDK.NetworkManager.MultitargetNetworkManager.Events.InterceptorsChanged, updateVisibility);
     updateVisibility();
 
-    function updateVisibility() {
-      let icon = null;
+    function updateVisibility(): void {
+      let icon: UI.Icon.Icon | null = null;
       if (manager.isThrottling()) {
         icon = UI.Icon.Icon.create('smallicon-warning');
         UI.Tooltip.Tooltip.install(icon, i18nString(UIStrings.networkThrottlingIsEnabled));
-      } else if (SDK.NetworkManager.MultitargetNetworkManager.instance().isIntercepting()) {
+      }
+      else if (SDK.NetworkManager.MultitargetNetworkManager.instance().isIntercepting()) {
         icon = UI.Icon.Icon.create('smallicon-warning');
         UI.Tooltip.Tooltip.install(icon, i18nString(UIStrings.requestsMayBeRewrittenByLocal));
-      } else if (manager.isBlocking()) {
+      }
+      else if (manager.isBlocking()) {
         icon = UI.Icon.Icon.create('smallicon-warning');
         UI.Tooltip.Tooltip.install(icon, i18nString(UIStrings.requestsMayBeBlocked));
       }

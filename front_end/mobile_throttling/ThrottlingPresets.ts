@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as i18n from '../i18n/i18n.js';
 import * as SDK from '../sdk/sdk.js';
 
@@ -40,7 +42,7 @@ export const UIStrings = {
   checkNetworkAndPerformancePanels: 'Check Network and Performance panels',
 };
 
-const str_ = i18n.i18n.registerUIStrings('mobile_throttling/ThrottlingPresets.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('mobile_throttling/ThrottlingPresets.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 export class ThrottlingPresets {
@@ -51,8 +53,7 @@ export class ThrottlingPresets {
     LowEndMobile: 6,
   };
 
-  /** @return {!Conditions} */
-  static getNoThrottlingConditions() {
+  static getNoThrottlingConditions(): Conditions {
     return {
       title: SDK.NetworkManager.NoThrottlingConditions.title,
       description: i18nString(UIStrings.noThrottling),
@@ -61,8 +62,7 @@ export class ThrottlingPresets {
     };
   }
 
-  /** @return {!Conditions} */
-  static getOfflineConditions() {
+  static getOfflineConditions(): Conditions {
     return {
       title: SDK.NetworkManager.OfflineConditions.title,
       description: i18nString(UIStrings.noInternetConnectivity),
@@ -71,8 +71,7 @@ export class ThrottlingPresets {
     };
   }
 
-  /** @return {!Conditions} */
-  static getLowEndMobileConditions() {
+  static getLowEndMobileConditions(): Conditions {
     return {
       title: i18nString(UIStrings.lowendMobile),
       description: i18nString(UIStrings.slowGXCpuSlowdown),
@@ -81,8 +80,7 @@ export class ThrottlingPresets {
     };
   }
 
-  /** @return {!Conditions} */
-  static getMidTierMobileConditions() {
+  static getMidTierMobileConditions(): Conditions {
     return {
       title: i18nString(UIStrings.midtierMobile),
       description: i18nString(UIStrings.fastGXCpuSlowdown),
@@ -91,24 +89,21 @@ export class ThrottlingPresets {
     };
   }
 
-  /** @return {!PlaceholderConditions} */
-  static getCustomConditions() {
+  static getCustomConditions(): PlaceholderConditions {
     return {
       title: i18nString(UIStrings.custom),
       description: i18nString(UIStrings.checkNetworkAndPerformancePanels),
     };
   }
 
-  /** @return {!Array.<(!Conditions|!PlaceholderConditions)>} */
-  static getMobilePresets() {
+  static getMobilePresets(): (Conditions | PlaceholderConditions)[] {
     return [
       ThrottlingPresets.getMidTierMobileConditions(), ThrottlingPresets.getLowEndMobileConditions(),
       ThrottlingPresets.getCustomConditions()
     ];
   }
 
-  /** @return {!Array.<!Conditions>} */
-  static getAdvancedMobilePresets() {
+  static getAdvancedMobilePresets(): Conditions[] {
     return [
       ThrottlingPresets.getOfflineConditions(),
     ];
@@ -128,35 +123,25 @@ export class ThrottlingPresets {
     ThrottlingPresets.CPUThrottlingRates.LowEndMobile,
   ];
 }
-
-/**
- * @typedef {{
- *   title: string,
- *   description: string,
- *   network: !SDK.NetworkManager.Conditions,
- *   cpuThrottlingRate: !CPUThrottlingRates
- * }}
- **/
-// @ts-ignore typedef
-export let Conditions;
-
-/** @typedef {!{title: string, items: !Array<!SDK.NetworkManager.Conditions>}} */
-// @ts-ignore typedef
-export let NetworkThrottlingConditionsGroup;
-
-/** @typedef {!{title: string, items: !Array<!Conditions|!PlaceholderConditions>}} */
-// @ts-ignore typedef
-export let MobileThrottlingConditionsGroup;
+export interface Conditions {
+  title: string;
+  description: string;
+  network: SDK.NetworkManager.Conditions;
+  cpuThrottlingRate: number;
+}
+export interface NetworkThrottlingConditionsGroup {
+  title: string;
+  items: SDK.NetworkManager.Conditions[];
+}
+export interface MobileThrottlingConditionsGroup {
+  title: string;
+  items: (Conditions | PlaceholderConditions)[];
+}
 
 /** @typedef {!Array<?Conditions|!PlaceholderConditions>} */
 // @ts-ignore typedef
 export let ConditionsList;
-
-/**
- * @typedef {{
- *   title: string,
- *   description: string
- * }}
- **/
-// @ts-ignore typedef
-export let PlaceholderConditions;
+export interface PlaceholderConditions {
+  title: string;
+  description: string;
+}
