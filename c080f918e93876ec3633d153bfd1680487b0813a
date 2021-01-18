@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60a96c0a_a73ca58d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-01-18T14:04:41Z",
+      "side": 1,
+      "message": "LGTM, with two notes:\n\n- We’ll probably want to wait until the DevTools DEPS has an up-to-date Chromium before landing this (see my comment)\n- Do we need a test? I think for some of the other emulation functionality, we have high-level e2e test that verifies the \u003cselect\u003e’s contents — we could add a few lines there? Given the upstream tests, this seems sufficient.",
+      "revId": "c080f918e93876ec3633d153bfd1680487b0813a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

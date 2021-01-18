@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ee16493_a489f53a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-01-18T14:04:41Z",
+      "side": 1,
+      "message": "Roll CL: TBD (will appear here: https://chromium-review.googlesource.com/q/owner:devtools-ci-autoroll-builder%2540chops-service-accounts.iam.gserviceaccount.com+%2522Update+DevTools+Chromium+DEPS%2522)",
+      "revId": "b9979f5fb998dae19fce921cdb2bb6b00e94e99b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c061544e_edbae257",
