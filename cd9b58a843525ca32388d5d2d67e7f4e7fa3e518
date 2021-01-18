@@ -18,6 +18,40 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00c93798_b65b5199",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-01-18T08:14:03Z",
+      "side": 1,
+      "message": "LGTM with a question.",
+      "revId": "cd9b58a843525ca32388d5d2d67e7f4e7fa3e518",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15e38db6_2e2a0161",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-01-18T08:14:03Z",
+      "side": 1,
+      "message": "Shouldn\u0027t all callsites pass obj as either ArrayBuffer or SharedArrayBuffer anyways now?",
+      "revId": "cd9b58a843525ca32388d5d2d67e7f4e7fa3e518",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0b0a16a8_9a732bf0",
