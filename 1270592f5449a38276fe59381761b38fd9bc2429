@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "56f1f337_89c73bec",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 41
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-01-18T19:35:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4496ad22_5e9e6d11",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 17
+      },
+      "revId": "1270592f5449a38276fe59381761b38fd9bc2429",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f7af0bea_fb6d6203",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 41
@@ -75,6 +99,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbc76995_91595b1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 41
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-01-18T19:35:02Z",
+      "side": 1,
+      "message": "Thanks.",
+      "parentUuid": "f7af0bea_fb6d6203",
+      "revId": "1270592f5449a38276fe59381761b38fd9bc2429",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d79ee26c_b99d7286",
@@ -88,6 +130,30 @@
       "writtenOn": "2021-01-15T10:03:32Z",
       "side": 1,
       "message": "Please use the new copyright header:\n\n// Copyright (c) 2021 The Chromium Authors. All rights reserved.\n// Use of this source code is governed by a BSD-style license that can be\n// found in the LICENSE file.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 3
+      },
+      "revId": "1270592f5449a38276fe59381761b38fd9bc2429",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "819c40ca_93d05163",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleHelper.js",
+        "patchSetId": 41
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-01-18T19:35:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d79ee26c_b99d7286",
       "range": {
         "startLine": 1,
         "startChar": 0,
@@ -121,6 +187,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "adb2d600_412a9271",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleHelper.js",
+        "patchSetId": 41
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-01-18T19:35:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8cdc3437_00960402",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 1
+      },
+      "revId": "1270592f5449a38276fe59381761b38fd9bc2429",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "00e162cc_e8a1ef39",
@@ -134,6 +224,30 @@
       "writtenOn": "2021-01-15T10:03:32Z",
       "side": 1,
       "message": "It\u0027s great that you separated out these helper functions - could you add unit tests for them?",
+      "range": {
+        "startLine": 40,
+        "startChar": 9,
+        "endLine": 40,
+        "endChar": 43
+      },
+      "revId": "1270592f5449a38276fe59381761b38fd9bc2429",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5b8bf73_5c72630e",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleHelper.js",
+        "patchSetId": 41
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-01-18T19:35:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "00e162cc_e8a1ef39",
       "range": {
         "startLine": 40,
         "startChar": 9,
@@ -167,6 +281,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7346675f_ae9aa965",
+        "filename": "front_end/resources/resources_strings.grdp",
+        "patchSetId": 41
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-01-18T19:35:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "54e81d80_58219d7e",
+      "range": {
+        "startLine": 39,
+        "startChar": 70,
+        "endLine": 39,
+        "endChar": 122
+      },
+      "revId": "1270592f5449a38276fe59381761b38fd9bc2429",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ec3f2d43_0caa2e82",
@@ -180,6 +318,30 @@
       "writtenOn": "2021-01-15T10:03:32Z",
       "side": 1,
       "message": "Same here",
+      "range": {
+        "startLine": 720,
+        "startChar": 70,
+        "endLine": 720,
+        "endChar": 98
+      },
+      "revId": "1270592f5449a38276fe59381761b38fd9bc2429",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3618bf55_f30c11d4",
+        "filename": "front_end/resources/resources_strings.grdp",
+        "patchSetId": 41
+      },
+      "lineNbr": 720,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-01-18T19:35:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ec3f2d43_0caa2e82",
       "range": {
         "startLine": 720,
         "startChar": 70,
@@ -213,6 +375,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b392eb74_127d9144",
+        "filename": "front_end/sdk/ServiceWorkerManager.js",
+        "patchSetId": 41
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-01-18T19:35:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2dd2aafb_263044fd",
+      "range": {
+        "startLine": 357,
+        "startChar": 9,
+        "endLine": 357,
+        "endChar": 18
+      },
+      "revId": "1270592f5449a38276fe59381761b38fd9bc2429",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "46fc5da2_f8068a17",
@@ -226,6 +412,30 @@
       "writtenOn": "2021-01-15T10:03:32Z",
       "side": 1,
       "message": "ServiceWorkerVersion.previousState isn\u0027t declared in the constructor and doesn\u0027t look to be used anywhere - is it needed?",
+      "range": {
+        "startLine": 385,
+        "startChar": 4,
+        "endLine": 385,
+        "endChar": 43
+      },
+      "revId": "1270592f5449a38276fe59381761b38fd9bc2429",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb1add44_deecb3e2",
+        "filename": "front_end/sdk/ServiceWorkerManager.js",
+        "patchSetId": 41
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-01-18T19:35:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "46fc5da2_f8068a17",
       "range": {
         "startLine": 385,
         "startChar": 4,
