@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f830edd_cc697340",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-18T14:28:19Z",
+      "side": 1,
+      "message": "Nice! Looks good to me so far 👍",
+      "revId": "391a193dc4ae654813963fa85a522e4aa36c6b68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "57938e7c_c7eb23dd",
@@ -36,6 +53,76 @@
         "startChar": 6,
         "endLine": 23,
         "endChar": 31
+      },
+      "revId": "391a193dc4ae654813963fa85a522e4aa36c6b68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e91dc99c_2f82fc52",
+        "filename": "front_end/component_docs/counter_button/basic.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-18T14:28:19Z",
+      "side": 1,
+      "message": "You\u0027re not doing anything wrong, it\u0027s just that right now the component docs don\u0027t inject inspectorStyle.css into the examples, which is where these variables are defined. Thinking about it, I think we should, so I have created https://crbug.com/1167724 and will look at that today.",
+      "parentUuid": "57938e7c_c7eb23dd",
+      "range": {
+        "startLine": 20,
+        "startChar": 6,
+        "endLine": 23,
+        "endChar": 31
+      },
+      "revId": "391a193dc4ae654813963fa85a522e4aa36c6b68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe017375_b0422970",
+        "filename": "front_end/ui/components/CounterButton.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-18T14:28:19Z",
+      "side": 1,
+      "message": "I think you forgot to rename this after copy and pasting",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 34
+      },
+      "revId": "391a193dc4ae654813963fa85a522e4aa36c6b68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03282a4e_f48245ea",
+        "filename": "front_end/ui/components/CounterButton.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-18T14:28:19Z",
+      "side": 1,
+      "message": "TIL about `ex` !",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 121
       },
       "revId": "391a193dc4ae654813963fa85a522e4aa36c6b68",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
