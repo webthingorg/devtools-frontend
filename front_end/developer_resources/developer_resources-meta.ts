@@ -14,6 +14,7 @@ let loadedDeveloperResourcesModule: (typeof DeveloperResources|undefined);
 async function loadDeveloperResourcesModule(): Promise<typeof DeveloperResources> {
   if (!loadedDeveloperResourcesModule) {
     // Side-effect import resources in module.json
+    await Root.Runtime.Runtime.instance().loadModulePromise('data_grid');
     await Root.Runtime.Runtime.instance().loadModulePromise('developer_resources');
     loadedDeveloperResourcesModule = await import('./developer_resources.js');
   }
