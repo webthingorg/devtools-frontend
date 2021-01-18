@@ -1181,6 +1181,9 @@
   "media/PlayerPropertiesView.js | videoPlaybackRoughness": {
     "message": "Video playback roughness"
   },
+  "mobile_throttling/mobile_throttling-meta.ts | throttling": {
+    "message": "Throttling"
+  },
   "mobile_throttling/MobileThrottlingSelector.js | advanced": {
     "message": "Advanced"
   },

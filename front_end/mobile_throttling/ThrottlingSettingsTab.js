@@ -82,10 +82,15 @@ export const UIStrings = {
 };
 const str_ = i18n.i18n.registerUIStrings('mobile_throttling/ThrottlingSettingsTab.js', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+
+/** @type {!ThrottlingSettingsTab} */
+let throttlingSettingsTabInstance;
+
 /**
  * @implements {UI.ListWidget.Delegate<!SDK.NetworkManager.Conditions>}
  */
 export class ThrottlingSettingsTab extends UI.Widget.VBox {
+  /** @private */
   constructor() {
     super(true);
     this.registerRequiredCSS('mobile_throttling/throttlingSettingsTab.css', {enableLegacyPatching: true});
@@ -107,6 +112,18 @@ export class ThrottlingSettingsTab extends UI.Widget.VBox {
     this._customSetting.addChangeListener(this._conditionsUpdated, this);
 
     this.setDefaultFocusedElement(addButton);
+  }
+
+  /**
+   * @param {{forceNew: ?boolean}} opts
+   */
+  static instance(opts = {forceNew: null}) {
+    const {forceNew} = opts;
+    if (!throttlingSettingsTabInstance || forceNew) {
+      throttlingSettingsTabInstance = new ThrottlingSettingsTab();
+    }
+
+    return throttlingSettingsTabInstance;
   }
 
   /**

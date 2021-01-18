@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import type * as Platform from '../platform/platform.js';
 import * as i18n from '../i18n/i18n.js';
 import * as Root from '../root/root.js';
 import * as UI from '../ui/ui.js';
@@ -32,7 +33,7 @@ async function loadHelpModule(): Promise<typeof Help> {
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
   id: 'release-note',
-  title: () => i18nString(UIStrings.whatsNew),
+  title: (): Platform.UIString.LocalizedString => i18nString(UIStrings.whatsNew),
   commandPrompt: 'Show What\'s New',
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
   order: 1,
