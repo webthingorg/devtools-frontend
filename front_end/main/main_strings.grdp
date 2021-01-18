@@ -9,8 +9,14 @@
   <message name="IDS_DEVTOOLS_04ce1b14fa66bcc35e8a9085ec849fac" desc="Title of an action that reset the zoom level to its default">
     Reset zoom level
   </message>
+  <message name="IDS_DEVTOOLS_0885f0c211f74834f0109c5abaf4cdc4" desc="Label for a setting that allows the user to change the UI language">
+    Language:
+  </message>
   <message name="IDS_DEVTOOLS_08e71f00acd63d0a546ba42f9e780ddc" desc="Title of item in main">
     Customize and control DevTools
+  </message>
+  <message name="IDS_DEVTOOLS_0a04d4be9881d2e4736f6322c02f70e8" desc="Label for the setting to change the UI language to US English">
+    English - US (en-US)
   </message>
   <message name="IDS_DEVTOOLS_0a0afb342478f201b92cbc89d19bf14d" desc="Title of a setting under the Appearance category that can be invoked through the Command Menu">
     Switch to dark theme
@@ -63,8 +69,14 @@
   <message name="IDS_DEVTOOLS_60737985de866df2b4fee4562844ce8a" desc="A message to display prompting the user to reload DevTools if the OS color scheme changes.">
     The system-preferred color scheme has changed. To apply this change to DevTools, reload.
   </message>
+  <message name="IDS_DEVTOOLS_6d7575c271ecb50467fec9e3cbc167db" desc="Description for a setting that sets the DevTools UI to be in the same language as the browser UI">
+    Switch to the same language as the browser UI
+  </message>
   <message name="IDS_DEVTOOLS_7b91156d64b76a5dda815937fce9119d" desc="Text in the Shortcuts page to explain a keyboard shortcut (zoom in)">
     Zoom in
+  </message>
+  <message name="IDS_DEVTOOLS_81f83ecc77a2f13ec9bfd19ecc89c39a" desc="Label for the setting to change the UI language to British English">
+    English - British (en-GB)
   </message>
   <message name="IDS_DEVTOOLS_8645bf45e76c3f958ae99c114c419743" desc="Text in Main">
     Hide console drawer
@@ -99,6 +111,9 @@
   <message name="IDS_DEVTOOLS_a9e4402481bd9b8e36752bf731f67eb6" desc="Title of a setting under the Appearance category in Settings">
     Theme:
   </message>
+  <message name="IDS_DEVTOOLS_aa98ac38b4fd18cd8629e30c16f1021d" desc="Description for the setting to change the UI language to US English">
+    Switch to English - US
+  </message>
   <message name="IDS_DEVTOOLS_b3bf148a3dc8b3367191419e52380982" desc="Title of a setting under the Appearance category that can be invoked through the Command Menu">
     Use vertical panel layout
   </message>
@@ -132,6 +147,9 @@
   <message name="IDS_DEVTOOLS_debb0ba164edd1f9254b644de3c6d716" desc="(Mac only) Title of a setting under the Appearance category in Settings">
     Enable ⌘ + 1-9 shortcut to switch panels
   </message>
+  <message name="IDS_DEVTOOLS_e3b6587c8185d8e28fba2a58d0abcf17" desc="Description for the setting to change the UI language to British English">
+    Switch to English - British
+  </message>
   <message name="IDS_DEVTOOLS_e472458a8014f14176e3c3c3d4dd0ad9" desc="Title of a setting under the Appearance category that can be invoked through the Command Menu">
     Switch to light theme
   </message>
@@ -158,5 +176,8 @@
   </message>
   <message name="IDS_DEVTOOLS_fa4ab936aaa8ad819e491af0ec0b674b" desc="Title of a setting under the Appearance category that can be invoked through the Command Menu">
     Switch to system preferred color theme
+  </message>
+  <message name="IDS_DEVTOOLS_fa7dc86d4ac8f2ca904dad9841fe2311" desc="Label for the setting to change the UI language to the same language the Browse UI is set to">
+    Browser UI language
   </message>
 </grit-part>

@@ -95,7 +95,12 @@ export class MainImpl {
   }
 
   async requestAndRegisterLocaleData() {
-    const hostLocale = navigator.language || 'en-US';
+    const defaultLanguageSetting = 'browserLanguage';
+    const languageSetting = Common.Settings.Settings.instance().createSetting('language', defaultLanguageSetting);
+    let hostLocale = languageSetting.get();
+    if (hostLocale === defaultLanguageSetting) {
+      hostLocale = navigator.language || 'en-US';
+    }
     i18n.i18n.registerLocale(hostLocale);
     const locale = i18n.i18n.registeredLocale;
     if (locale) {

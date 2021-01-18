@@ -1,0 +1,2273 @@
+{
+  "animation/AnimationTimeline.js | animationPreviews": {
+    "message": "polite Animation previews"
+  },
+  "animation/AnimationTimeline.js | animationPreviewS": {
+    "message": "polite Animation Preview {PH1}"
+  },
+  "animation/AnimationTimeline.js | clearAll": {
+    "message": "polite Clear all"
+  },
+  "animation/AnimationTimeline.js | listeningForAnimations": {
+    "message": "polite Listening for animations..."
+  },
+  "animation/AnimationTimeline.js | pause": {
+    "message": "polite Pause"
+  },
+  "animation/AnimationTimeline.js | pauseAll": {
+    "message": "polite Pause all"
+  },
+  "animation/AnimationTimeline.js | pauseTimeline": {
+    "message": "polite Pause timeline"
+  },
+  "animation/AnimationTimeline.js | playbackRatePlaceholder": {
+    "message": "polite {PH1}%"
+  },
+  "animation/AnimationTimeline.js | playbackRates": {
+    "message": "polite Playback rates"
+  },
+  "animation/AnimationTimeline.js | playTimeline": {
+    "message": "polite Play timeline"
+  },
+  "animation/AnimationTimeline.js | replayTimeline": {
+    "message": "polite Replay timeline"
+  },
+  "animation/AnimationTimeline.js | resumeAll": {
+    "message": "polite Resume all"
+  },
+  "animation/AnimationTimeline.js | selectAnEffectAboveToInspectAnd": {
+    "message": "polite Select an effect above to inspect and modify."
+  },
+  "animation/AnimationTimeline.js | setSpeedToS": {
+    "message": "polite Set speed to {PH1}"
+  },
+  "animation/AnimationUI.js | animationEndpointSlider": {
+    "message": "polite Animation Endpoint slider"
+  },
+  "animation/AnimationUI.js | animationKeyframeSlider": {
+    "message": "polite Animation Keyframe slider"
+  },
+  "animation/AnimationUI.js | sSlider": {
+    "message": "polite {PH1} slider"
+  },
+  "changes/ChangesSidebar.ts | sFromSourceMap": {
+    "message": "polite {PH1} (from source map)"
+  },
+  "changes/ChangesTextEditor.ts | additions": {
+    "message": "polite Addition:{PH1}"
+  },
+  "changes/ChangesTextEditor.ts | deletions": {
+    "message": "polite Deletion:{PH1}"
+  },
+  "changes/ChangesView.ts | binaryData": {
+    "message": "polite Binary data"
+  },
+  "changes/ChangesView.ts | changesDiffViewer": {
+    "message": "polite Changes diff viewer"
+  },
+  "changes/ChangesView.ts | noChanges": {
+    "message": "polite No changes"
+  },
+  "changes/ChangesView.ts | revertAllChangesToCurrentFile": {
+    "message": "polite Revert all changes to current file"
+  },
+  "changes/ChangesView.ts | sDeletion": {
+    "message": "polite {PH1} deletion (-)"
+  },
+  "changes/ChangesView.ts | sDeletions": {
+    "message": "polite {PH1} deletions (-)"
+  },
+  "changes/ChangesView.ts | sInsertion": {
+    "message": "polite {PH1} insertion (+),"
+  },
+  "changes/ChangesView.ts | sInsertions": {
+    "message": "polite {PH1} insertions (+),"
+  },
+  "changes/ChangesView.ts | SkippingDMatchingLines": {
+    "message": "polite ( … Skipping {PH1} matching lines … )"
+  },
+  "changes/ModuleUIStrings.ts | changesDrawer": {
+    "message": "polite Changes drawer"
+  },
+  "components/ImagePreview.js | imageFromS": {
+    "message": "polite Image from {PH1}"
+  },
+  "components/ImagePreview.js | sSPx": {
+    "message": "polite {PH1} × {PH2} px"
+  },
+  "components/ImagePreview.js | sSPxIntrinsicSSPx": {
+    "message": "polite {PH1} × {PH2} px (intrinsic: {PH3} × {PH4} px)"
+  },
+  "components/ImagePreview.js | unknownSource": {
+    "message": "polite unknown source"
+  },
+  "components/JSPresentationUtils.js | addToIgnore": {
+    "message": "polite Add script to ignore list"
+  },
+  "components/JSPresentationUtils.js | removeFromIgnore": {
+    "message": "polite Remove from ignore list"
+  },
+  "components/JSPresentationUtils.js | showMoreFrame": {
+    "message": "polite Show 1 more frame"
+  },
+  "components/JSPresentationUtils.js | showSMoreFrames": {
+    "message": "polite Show {PH1} more frames"
+  },
+  "components/JSPresentationUtils.js | unknownSource": {
+    "message": "polite unknown"
+  },
+  "components/Linkifier.js | auto": {
+    "message": "polite auto"
+  },
+  "components/Linkifier.js | linkHandling": {
+    "message": "polite Link handling:"
+  },
+  "components/Linkifier.js | openUsingS": {
+    "message": "polite Open using {PH1}"
+  },
+  "components/Linkifier.js | reveal": {
+    "message": "polite Reveal"
+  },
+  "components/Linkifier.js | revealInS": {
+    "message": "polite Reveal in {PH1}"
+  },
+  "components/Linkifier.js | unknown": {
+    "message": "polite (unknown)"
+  },
+  "components/TargetDetachedDialog.js | websocketDisconnected": {
+    "message": "polite WebSocket disconnected"
+  },
+  "cookie_table/CookiesTable.ts | cookies": {
+    "message": "polite Cookies"
+  },
+  "cookie_table/CookiesTable.ts | domain": {
+    "message": "polite Domain"
+  },
+  "cookie_table/CookiesTable.ts | editableCookies": {
+    "message": "polite Editable Cookies"
+  },
+  "cookie_table/CookiesTable.ts | expiresMaxage": {
+    "message": "polite Expires / Max-Age"
+  },
+  "cookie_table/CookiesTable.ts | httponly": {
+    "message": "polite HttpOnly"
+  },
+  "cookie_table/CookiesTable.ts | na": {
+    "message": "polite N/A"
+  },
+  "cookie_table/CookiesTable.ts | name": {
+    "message": "polite Name"
+  },
+  "cookie_table/CookiesTable.ts | path": {
+    "message": "polite Path"
+  },
+  "cookie_table/CookiesTable.ts | priority": {
+    "message": "polite Priority"
+  },
+  "cookie_table/CookiesTable.ts | samesite": {
+    "message": "polite SameSite"
+  },
+  "cookie_table/CookiesTable.ts | secure": {
+    "message": "polite Secure"
+  },
+  "cookie_table/CookiesTable.ts | session": {
+    "message": "polite Session"
+  },
+  "cookie_table/CookiesTable.ts | showIssueAssociatedWithThis": {
+    "message": "polite Show issue associated with this cookie"
+  },
+  "cookie_table/CookiesTable.ts | showRequestsWithThisCookie": {
+    "message": "polite Show Requests With This Cookie"
+  },
+  "cookie_table/CookiesTable.ts | size": {
+    "message": "polite Size"
+  },
+  "cookie_table/CookiesTable.ts | value": {
+    "message": "polite Value"
+  },
+  "coverage/CoverageListView.js | Byte": {
+    "message": "polite 1 byte"
+  },
+  "coverage/CoverageListView.js | ByteS": {
+    "message": "polite 1 byte, {PH1}"
+  },
+  "coverage/CoverageListView.js | codeCoverage": {
+    "message": "polite Code Coverage"
+  },
+  "coverage/CoverageListView.js | css": {
+    "message": "polite CSS"
+  },
+  "coverage/CoverageListView.js | jsCoverageWithPerBlock": {
+    "message": "polite JS coverage with per block granularity: Once a block of JavaScript was executed, that block is marked as covered."
+  },
+  "coverage/CoverageListView.js | jsCoverageWithPerFunction": {
+    "message": "polite JS coverage with per function granularity: Once a function was executed, the whole function is marked as covered."
+  },
+  "coverage/CoverageListView.js | jsPerBlock": {
+    "message": "polite JS (per block)"
+  },
+  "coverage/CoverageListView.js | jsPerFunction": {
+    "message": "polite JS (per function)"
+  },
+  "coverage/CoverageListView.js | sBytes": {
+    "message": "polite {PH1} bytes"
+  },
+  "coverage/CoverageListView.js | sBytesS": {
+    "message": "polite {PH1} bytes, {PH2}"
+  },
+  "coverage/CoverageListView.js | sBytesSBelongToBlocksOf": {
+    "message": "polite {PH1} bytes ({PH2} %) belong to blocks of JavaScript that have not (yet) been executed."
+  },
+  "coverage/CoverageListView.js | sBytesSBelongToBlocksOfJavascript": {
+    "message": "polite {PH1} bytes ({PH2} %) belong to blocks of JavaScript that have executed at least once."
+  },
+  "coverage/CoverageListView.js | sBytesSBelongToFunctionsThatHave": {
+    "message": "polite {PH1} bytes ({PH2} %) belong to functions that have not (yet) been executed."
+  },
+  "coverage/CoverageListView.js | sBytesSBelongToFunctionsThatHaveExecuted": {
+    "message": "polite {PH1} bytes ({PH2} %) belong to functions that have executed at least once."
+  },
+  "coverage/CoverageListView.js | sOfFileUnusedSOfFileUsed": {
+    "message": "polite {PH1} % of file unused, {PH2} % of file used"
+  },
+  "coverage/CoverageListView.js | sPercent": {
+    "message": "polite {PH1} %"
+  },
+  "coverage/CoverageListView.js | totalBytes": {
+    "message": "polite Total Bytes"
+  },
+  "coverage/CoverageListView.js | type": {
+    "message": "polite Type"
+  },
+  "coverage/CoverageListView.js | unusedBytes": {
+    "message": "polite Unused Bytes"
+  },
+  "coverage/CoverageListView.js | url": {
+    "message": "polite URL"
+  },
+  "coverage/CoverageListView.js | usageVisualization": {
+    "message": "polite Usage Visualization"
+  },
+  "coverage/CoverageView.js | all": {
+    "message": "polite All"
+  },
+  "coverage/CoverageView.js | chooseCoverageGranularityPer": {
+    "message": "polite Choose coverage granularity: Per function has low overhead, per block has significant overhead."
+  },
+  "coverage/CoverageView.js | clearAll": {
+    "message": "polite Clear all"
+  },
+  "coverage/CoverageView.js | clickTheRecordButtonSToStart": {
+    "message": "polite Click the record button {PH1} to start capturing coverage."
+  },
+  "coverage/CoverageView.js | clickTheReloadButtonSToReloadAnd": {
+    "message": "polite Click the reload button {PH1} to reload and start capturing coverage."
+  },
+  "coverage/CoverageView.js | contentScripts": {
+    "message": "polite Content scripts"
+  },
+  "coverage/CoverageView.js | css": {
+    "message": "polite CSS"
+  },
+  "coverage/CoverageView.js | export": {
+    "message": "polite Export..."
+  },
+  "coverage/CoverageView.js | filterCoverageByType": {
+    "message": "polite Filter coverage by type"
+  },
+  "coverage/CoverageView.js | filteredSTotalS": {
+    "message": "polite Filtered: {PH1}  Total: {PH2}"
+  },
+  "coverage/CoverageView.js | includeExtensionContentScripts": {
+    "message": "polite Include extension content scripts"
+  },
+  "coverage/CoverageView.js | javascript": {
+    "message": "polite JavaScript"
+  },
+  "coverage/CoverageView.js | perBlock": {
+    "message": "polite Per block"
+  },
+  "coverage/CoverageView.js | perFunction": {
+    "message": "polite Per function"
+  },
+  "coverage/CoverageView.js | sOfSSUsedSoFarSUnused": {
+    "message": "polite {PH1} of {PH2} ({PH3}%) used so far,\n        {PH4} unused."
+  },
+  "coverage/CoverageView.js | urlFilter": {
+    "message": "polite URL filter"
+  },
+  "coverage/ModuleUIStrings.js | instrumentCoverage": {
+    "message": "polite Instrument coverage"
+  },
+  "coverage/ModuleUIStrings.js | performance": {
+    "message": "polite Performance"
+  },
+  "coverage/ModuleUIStrings.js | startInstrumentingCoverageAnd": {
+    "message": "polite Start instrumenting coverage and reload page"
+  },
+  "coverage/ModuleUIStrings.js | stopInstrumentingCoverageAndShow": {
+    "message": "polite Stop instrumenting coverage and show results"
+  },
+  "developer_resources/DeveloperResourcesListView.js | Byte": {
+    "message": "polite 1 byte"
+  },
+  "developer_resources/DeveloperResourcesListView.js | copyInitiatorUrl": {
+    "message": "polite Copy initiator URL"
+  },
+  "developer_resources/DeveloperResourcesListView.js | copyUrl": {
+    "message": "polite Copy URL"
+  },
+  "developer_resources/DeveloperResourcesListView.js | developerResources": {
+    "message": "polite Developer Resources"
+  },
+  "developer_resources/DeveloperResourcesListView.js | error": {
+    "message": "polite Error"
+  },
+  "developer_resources/DeveloperResourcesListView.js | failure": {
+    "message": "polite failure"
+  },
+  "developer_resources/DeveloperResourcesListView.js | initiator": {
+    "message": "polite Initiator"
+  },
+  "developer_resources/DeveloperResourcesListView.js | pending": {
+    "message": "polite pending"
+  },
+  "developer_resources/DeveloperResourcesListView.js | sBytes": {
+    "message": "polite {PH1} bytes"
+  },
+  "developer_resources/DeveloperResourcesListView.js | status": {
+    "message": "polite Status"
+  },
+  "developer_resources/DeveloperResourcesListView.js | success": {
+    "message": "polite success"
+  },
+  "developer_resources/DeveloperResourcesListView.js | totalBytes": {
+    "message": "polite Total Bytes"
+  },
+  "developer_resources/DeveloperResourcesListView.js | url": {
+    "message": "polite URL"
+  },
+  "developer_resources/DeveloperResourcesView.js | enableLoadingThroughTarget": {
+    "message": "polite Enable loading through target"
+  },
+  "developer_resources/DeveloperResourcesView.js | enterTextToSearchTheUrlAndError": {
+    "message": "polite Enter text to search the URL and Error columns"
+  },
+  "developer_resources/DeveloperResourcesView.js | loadHttpsDeveloperResources": {
+    "message": "polite Load HTTP(S) developer resources through the inspected target"
+  },
+  "developer_resources/DeveloperResourcesView.js | resources": {
+    "message": "polite {PH1} resources"
+  },
+  "developer_resources/DeveloperResourcesView.js | resourcesCurrentlyLoading": {
+    "message": "polite {PH1} resources, {PH2} currently loading"
+  },
+  "devices/DevicesView.ts | thisPanelHasBeenDeprecatedIn": {
+    "message": "polite This panel has been deprecated in favor of the {PH1} interface, which has equivalent functionality."
+  },
+  "devices/ModuleUIStrings.ts | android": {
+    "message": "polite android"
+  },
+  "devices/ModuleUIStrings.ts | mobile": {
+    "message": "polite mobile"
+  },
+  "devices/ModuleUIStrings.ts | remoteDevices": {
+    "message": "polite Remote devices"
+  },
+  "devices/ModuleUIStrings.ts | usb": {
+    "message": "polite usb"
+  },
+  "event_listeners/EventListenersView.js | deleteEventListener": {
+    "message": "polite Delete event listener"
+  },
+  "event_listeners/EventListenersView.js | noEventListeners": {
+    "message": "polite No event listeners"
+  },
+  "event_listeners/EventListenersView.js | passive": {
+    "message": "polite Passive"
+  },
+  "event_listeners/EventListenersView.js | remove": {
+    "message": "polite Remove"
+  },
+  "event_listeners/EventListenersView.js | revealInElementsPanel": {
+    "message": "polite Reveal in Elements panel"
+  },
+  "event_listeners/EventListenersView.js | togglePassive": {
+    "message": "polite Toggle Passive"
+  },
+  "event_listeners/EventListenersView.js | toggleWhetherEventListenerIs": {
+    "message": "polite Toggle whether event listener is passive or blocking"
+  },
+  "help/ModuleUIStrings.ts | appearance": {
+    "message": "polite Appearance"
+  },
+  "help/ModuleUIStrings.ts | bug": {
+    "message": "polite bug"
+  },
+  "help/ModuleUIStrings.ts | doNotShowWhatsNewAfterEachUpdate": {
+    "message": "polite Do not show What's New after each update"
+  },
+  "help/ModuleUIStrings.ts | help": {
+    "message": "polite Help"
+  },
+  "help/ModuleUIStrings.ts | releaseNotes": {
+    "message": "polite Release notes"
+  },
+  "help/ModuleUIStrings.ts | reportADevtoolsIssue": {
+    "message": "polite Report a DevTools issue"
+  },
+  "help/ModuleUIStrings.ts | showWhatsNewAfterEachUpdate": {
+    "message": "polite Show What's New after each update"
+  },
+  "help/ModuleUIStrings.ts | whatsNew": {
+    "message": "polite What's New"
+  },
+  "help/ReleaseNoteView.ts | close": {
+    "message": "polite Close"
+  },
+  "help/ReleaseNoteView.ts | learnMore": {
+    "message": "polite Learn more"
+  },
+  "help/ReleaseNoteView.ts | s": {
+    "message": "polite {PH1}"
+  },
+  "input/InputTimeline.ts | clearAll": {
+    "message": "polite Clear all"
+  },
+  "input/InputTimeline.ts | loadProfile": {
+    "message": "polite Load profile…"
+  },
+  "input/InputTimeline.ts | saveProfile": {
+    "message": "polite Save profile…"
+  },
+  "input/ModuleUIStrings.ts | inputs": {
+    "message": "polite Inputs"
+  },
+  "input/ModuleUIStrings.ts | pause": {
+    "message": "polite Pause"
+  },
+  "input/ModuleUIStrings.ts | resume": {
+    "message": "polite Resume"
+  },
+  "input/ModuleUIStrings.ts | startRecording": {
+    "message": "polite Start recording"
+  },
+  "input/ModuleUIStrings.ts | startReplaying": {
+    "message": "polite Start replaying"
+  },
+  "input/ModuleUIStrings.ts | stopRecording": {
+    "message": "polite Stop recording"
+  },
+  "js_profiler/ModuleUIStrings.ts | profiler": {
+    "message": "polite Profiler"
+  },
+  "layer_viewer/LayerDetailsView.js | compositingReasons": {
+    "message": "polite Compositing Reasons"
+  },
+  "layer_viewer/LayerDetailsView.js | containingBlocRectangleDimensions": {
+    "message": "polite Containing Block {PH1} × {PH2} (at {PH3}, {PH4})"
+  },
+  "layer_viewer/LayerDetailsView.js | hasABackdropFilter": {
+    "message": "polite Has a backdrop filter."
+  },
+  "layer_viewer/LayerDetailsView.js | hasABlendingEffectThatNeedsToBe": {
+    "message": "polite Has a blending effect that needs to be known by compositor because of composited descendants."
+  },
+  "layer_viewer/LayerDetailsView.js | hasAClipThatNeedsToBeKnownBy": {
+    "message": "polite Has a clip that needs to be known by compositor because of composited descendants."
+  },
+  "layer_viewer/LayerDetailsView.js | hasADTransform": {
+    "message": "polite Has a 3d transform."
+  },
+  "layer_viewer/LayerDetailsView.js | hasAFilterEffectThatNeedsToBe": {
+    "message": "polite Has a filter effect that needs to be known by compositor because of composited descendants."
+  },
+  "layer_viewer/LayerDetailsView.js | hasAMaskThatNeedsToBeKnownBy": {
+    "message": "polite Has a mask that needs to be known by compositor because of composited descendants."
+  },
+  "layer_viewer/LayerDetailsView.js | hasAnActiveAcceleratedBackdrop": {
+    "message": "polite Has an active accelerated backdrop filter animation or transition."
+  },
+  "layer_viewer/LayerDetailsView.js | hasAnActiveAcceleratedFilter": {
+    "message": "polite Has an active accelerated filter animation or transition."
+  },
+  "layer_viewer/LayerDetailsView.js | hasAnActiveAcceleratedOpacity": {
+    "message": "polite Has an active accelerated opacity animation or transition."
+  },
+  "layer_viewer/LayerDetailsView.js | hasAnActiveAcceleratedTransform": {
+    "message": "polite Has an active accelerated transform animation or transition."
+  },
+  "layer_viewer/LayerDetailsView.js | hasAPerspectiveTransformThat": {
+    "message": "polite Has a perspective transform that needs to be known by compositor because of 3d descendants."
+  },
+  "layer_viewer/LayerDetailsView.js | hasAPreservesdPropertyThatNeeds": {
+    "message": "polite Has a preserves-3d property that needs to be known by compositor because of 3d descendants."
+  },
+  "layer_viewer/LayerDetailsView.js | hasAReflectionThatNeedsToBeKnown": {
+    "message": "polite Has a reflection that needs to be known by compositor because of composited descendants."
+  },
+  "layer_viewer/LayerDetailsView.js | hasAWillchangeCompositingHint": {
+    "message": "polite Has a will-change compositing hint other than transform and opacity."
+  },
+  "layer_viewer/LayerDetailsView.js | hasAWillchangeOpacityCompositing": {
+    "message": "polite Has a will-change: opacity compositing hint."
+  },
+  "layer_viewer/LayerDetailsView.js | hasAWillchangeTransform": {
+    "message": "polite Has a will-change: transform compositing hint."
+  },
+  "layer_viewer/LayerDetailsView.js | hasBackfacevisibilityHidden": {
+    "message": "polite Has backface-visibility: hidden."
+  },
+  "layer_viewer/LayerDetailsView.js | hasClippingAncestor": {
+    "message": "polite Has clipping ancestor."
+  },
+  "layer_viewer/LayerDetailsView.js | hasOpacityThatNeedsToBeAppliedBy": {
+    "message": "polite Has opacity that needs to be applied by compositor because of composited descendants."
+  },
+  "layer_viewer/LayerDetailsView.js | isAnAcceleratedCanvasOrIsA": {
+    "message": "polite Is an accelerated canvas, or is a display list backed canvas that was promoted to a layer based on a performance heuristic."
+  },
+  "layer_viewer/LayerDetailsView.js | isAnAcceleratedIframe": {
+    "message": "polite Is an accelerated iFrame."
+  },
+  "layer_viewer/LayerDetailsView.js | isAnAcceleratedPlugin": {
+    "message": "polite Is an accelerated plugin."
+  },
+  "layer_viewer/LayerDetailsView.js | isAnAcceleratedVideo": {
+    "message": "polite Is an accelerated video."
+  },
+  "layer_viewer/LayerDetailsView.js | isAPositionfixedElementWith": {
+    "message": "polite Is a position:fixed element with composited descendants."
+  },
+  "layer_viewer/LayerDetailsView.js | isAScrollableOverflowElement": {
+    "message": "polite Is a scrollable overflow element."
+  },
+  "layer_viewer/LayerDetailsView.js | isDomOverlayForWebxrImmersivear": {
+    "message": "polite Is DOM overlay for WebXR immersive-ar mode."
+  },
+  "layer_viewer/LayerDetailsView.js | isFixedOrStickyPosition": {
+    "message": "polite Is fixed or sticky position."
+  },
+  "layer_viewer/LayerDetailsView.js | isOverlayControlsForVideo": {
+    "message": "polite Is overlay controls for video."
+  },
+  "layer_viewer/LayerDetailsView.js | isTheDocumentrootscroller": {
+    "message": "polite Is the document.rootScroller."
+  },
+  "layer_viewer/LayerDetailsView.js | isTheRootLayer": {
+    "message": "polite Is the root layer."
+  },
+  "layer_viewer/LayerDetailsView.js | layerForLinkHighlightFrame": {
+    "message": "polite Layer for link highlight, frame overlay, etc."
+  },
+  "layer_viewer/LayerDetailsView.js | layerPaintedOnTopOfOtherLayersAs": {
+    "message": "polite Layer painted on top of other layers as decoration."
+  },
+  "layer_viewer/LayerDetailsView.js | layerWasSeparatelyComposited": {
+    "message": "polite Layer was separately composited because it could not be squashed."
+  },
+  "layer_viewer/LayerDetailsView.js | mainThreadScrollingReason": {
+    "message": "polite Main thread scrolling reason"
+  },
+  "layer_viewer/LayerDetailsView.js | memoryEstimate": {
+    "message": "polite Memory estimate"
+  },
+  "layer_viewer/LayerDetailsView.js | mightOverlapOtherComposited": {
+    "message": "polite Might overlap other composited content."
+  },
+  "layer_viewer/LayerDetailsView.js | nearestLayerShiftingContaining": {
+    "message": "polite Nearest Layer Shifting Containing Block"
+  },
+  "layer_viewer/LayerDetailsView.js | nearestLayerShiftingStickyBox": {
+    "message": "polite Nearest Layer Shifting Sticky Box"
+  },
+  "layer_viewer/LayerDetailsView.js | nonFastScrollable": {
+    "message": "polite Non fast scrollable"
+  },
+  "layer_viewer/LayerDetailsView.js | overlapsOtherCompositedContent": {
+    "message": "polite Overlaps other composited content."
+  },
+  "layer_viewer/LayerDetailsView.js | paintCount": {
+    "message": "polite Paint count"
+  },
+  "layer_viewer/LayerDetailsView.js | paintProfiler": {
+    "message": "polite Paint Profiler"
+  },
+  "layer_viewer/LayerDetailsView.js | parentWithCompositedNegative": {
+    "message": "polite Parent with composited negative z-index content."
+  },
+  "layer_viewer/LayerDetailsView.js | repaintsOnScroll": {
+    "message": "polite Repaints on scroll"
+  },
+  "layer_viewer/LayerDetailsView.js | scrollParentIsNotAnAncestor": {
+    "message": "polite Scroll parent is not an ancestor."
+  },
+  "layer_viewer/LayerDetailsView.js | scrollRectangleDimensions": {
+    "message": "polite {PH1} {PH2} × {PH3} (at {PH4}, {PH5})"
+  },
+  "layer_viewer/LayerDetailsView.js | secondaryLayerHomeForAGroupOf": {
+    "message": "polite Secondary layer, home for a group of squashable content."
+  },
+  "layer_viewer/LayerDetailsView.js | secondaryLayerNoopLayerToPlace": {
+    "message": "polite Secondary layer, no-op layer to place the squashing layer correctly in the composited layer tree."
+  },
+  "layer_viewer/LayerDetailsView.js | secondaryLayerTheHorizontal": {
+    "message": "polite Secondary layer, the horizontal scrollbar layer."
+  },
+  "layer_viewer/LayerDetailsView.js | secondaryLayerTheOverflow": {
+    "message": "polite Secondary layer, the overflow controls host layer."
+  },
+  "layer_viewer/LayerDetailsView.js | secondaryLayerTheScrollCorner": {
+    "message": "polite Secondary layer, the scroll corner layer."
+  },
+  "layer_viewer/LayerDetailsView.js | secondaryLayerTheVertical": {
+    "message": "polite Secondary layer, the vertical scrollbar layer."
+  },
+  "layer_viewer/LayerDetailsView.js | secondaryLayerToContainAnyNormal": {
+    "message": "polite Secondary layer, to contain any normal flow and positive z-index contents on top of a negative z-index layer."
+  },
+  "layer_viewer/LayerDetailsView.js | secondaryLayerToContainTheMask": {
+    "message": "polite Secondary layer, to contain the mask contents."
+  },
+  "layer_viewer/LayerDetailsView.js | secondaryLayerToHouseContents": {
+    "message": "polite Secondary layer, to house contents that can be scrolled."
+  },
+  "layer_viewer/LayerDetailsView.js | secondaryLayerUsedToPositionThe": {
+    "message": "polite Secondary layer, used to position the scrolling contents while scrolling."
+  },
+  "layer_viewer/LayerDetailsView.js | selectALayerToSeeItsDetails": {
+    "message": "polite Select a layer to see its details"
+  },
+  "layer_viewer/LayerDetailsView.js | shouldIsolateDescendantsToApplyA": {
+    "message": "polite Should isolate descendants to apply a blend effect."
+  },
+  "layer_viewer/LayerDetailsView.js | size": {
+    "message": "polite Size"
+  },
+  "layer_viewer/LayerDetailsView.js | slowScrollRegions": {
+    "message": "polite Slow scroll regions"
+  },
+  "layer_viewer/LayerDetailsView.js | stickyAncenstorLayersS": {
+    "message": "polite {PH1}: {PH2} ({PH3})"
+  },
+  "layer_viewer/LayerDetailsView.js | stickyBoxRectangleDimensions": {
+    "message": "polite Sticky Box {PH1} × {PH2} (at {PH3}, {PH4})"
+  },
+  "layer_viewer/LayerDetailsView.js | stickyPositionConstraint": {
+    "message": "polite Sticky position constraint"
+  },
+  "layer_viewer/LayerDetailsView.js | touchEventHandler": {
+    "message": "polite Touch event handler"
+  },
+  "layer_viewer/LayerDetailsView.js | unnamed": {
+    "message": "polite <unnamed>"
+  },
+  "layer_viewer/LayerDetailsView.js | updateRectangleDimensions": {
+    "message": "polite {PH1} × {PH2} (at {PH3},{PH4})"
+  },
+  "layer_viewer/LayerDetailsView.js | wheelEventHandler": {
+    "message": "polite Wheel event handler"
+  },
+  "layer_viewer/Layers3DView.js | cantDisplayLayers": {
+    "message": "polite Can't display layers,"
+  },
+  "layer_viewer/Layers3DView.js | checkSForPossibleReasons": {
+    "message": "polite Check {PH1} for possible reasons."
+  },
+  "layer_viewer/Layers3DView.js | dLayersView": {
+    "message": "polite 3D Layers View"
+  },
+  "layer_viewer/Layers3DView.js | layerInformationIsNotYet": {
+    "message": "polite Layer information is not yet available."
+  },
+  "layer_viewer/Layers3DView.js | mousewheelEventListener": {
+    "message": "polite mousewheel event listener"
+  },
+  "layer_viewer/Layers3DView.js | paints": {
+    "message": "polite Paints"
+  },
+  "layer_viewer/Layers3DView.js | repaintsOnScroll": {
+    "message": "polite repaints on scroll"
+  },
+  "layer_viewer/Layers3DView.js | resetView": {
+    "message": "polite Reset View"
+  },
+  "layer_viewer/Layers3DView.js | showPaintProfiler": {
+    "message": "polite Show Paint Profiler"
+  },
+  "layer_viewer/Layers3DView.js | slowScrollRects": {
+    "message": "polite Slow scroll rects"
+  },
+  "layer_viewer/Layers3DView.js | touchEventListener": {
+    "message": "polite touch event listener"
+  },
+  "layer_viewer/Layers3DView.js | webglSupportIsDisabledInYour": {
+    "message": "polite WebGL support is disabled in your browser."
+  },
+  "layer_viewer/LayerTreeOutline.js | layersTreePane": {
+    "message": "polite Layers Tree Pane"
+  },
+  "layer_viewer/LayerTreeOutline.js | showPaintProfiler": {
+    "message": "polite Show Paint Profiler"
+  },
+  "layer_viewer/LayerTreeOutline.js | updateChildDimension": {
+    "message": "polite  ({PH1} × {PH2})"
+  },
+  "layer_viewer/LayerViewHost.js | showInternalLayers": {
+    "message": "polite Show internal layers"
+  },
+  "layer_viewer/ModuleUIStrings.js | layers": {
+    "message": "polite Layers"
+  },
+  "layer_viewer/ModuleUIStrings.js | panOrRotateDown": {
+    "message": "polite Pan or rotate down"
+  },
+  "layer_viewer/ModuleUIStrings.js | panOrRotateLeft": {
+    "message": "polite Pan or rotate left"
+  },
+  "layer_viewer/ModuleUIStrings.js | panOrRotateRight": {
+    "message": "polite Pan or rotate right"
+  },
+  "layer_viewer/ModuleUIStrings.js | panOrRotateUp": {
+    "message": "polite Pan or rotate up"
+  },
+  "layer_viewer/ModuleUIStrings.js | resetView": {
+    "message": "polite Reset view"
+  },
+  "layer_viewer/ModuleUIStrings.js | switchToPanMode": {
+    "message": "polite Switch to pan mode"
+  },
+  "layer_viewer/ModuleUIStrings.js | switchToRotateMode": {
+    "message": "polite Switch to rotate mode"
+  },
+  "layer_viewer/ModuleUIStrings.js | zoomIn": {
+    "message": "polite Zoom in"
+  },
+  "layer_viewer/ModuleUIStrings.js | zoomOut": {
+    "message": "polite Zoom out"
+  },
+  "layer_viewer/PaintProfilerView.js | bitmap": {
+    "message": "polite Bitmap"
+  },
+  "layer_viewer/PaintProfilerView.js | commandLog": {
+    "message": "polite Command Log"
+  },
+  "layer_viewer/PaintProfilerView.js | misc": {
+    "message": "polite Misc"
+  },
+  "layer_viewer/PaintProfilerView.js | profiling": {
+    "message": "polite Profiling…"
+  },
+  "layer_viewer/PaintProfilerView.js | profilingResults": {
+    "message": "polite Profiling results"
+  },
+  "layer_viewer/PaintProfilerView.js | shapes": {
+    "message": "polite Shapes"
+  },
+  "layer_viewer/PaintProfilerView.js | text": {
+    "message": "polite Text"
+  },
+  "layer_viewer/TransformController.js | panModeX": {
+    "message": "polite Pan mode (X)"
+  },
+  "layer_viewer/TransformController.js | resetTransform": {
+    "message": "polite Reset transform (0)"
+  },
+  "layer_viewer/TransformController.js | rotateModeV": {
+    "message": "polite Rotate mode (V)"
+  },
+  "layers/LayersPanel.js | details": {
+    "message": "polite Details"
+  },
+  "layers/LayersPanel.js | profiler": {
+    "message": "polite Profiler"
+  },
+  "layers/ModuleUIStrings.js | layers": {
+    "message": "polite Layers"
+  },
+  "lighthouse/LighthouseController.js | accessibility": {
+    "message": "polite Accessibility"
+  },
+  "lighthouse/LighthouseController.js | applyMobileEmulation": {
+    "message": "polite Apply mobile emulation"
+  },
+  "lighthouse/LighthouseController.js | applyMobileEmulationDuring": {
+    "message": "polite Apply mobile emulation during auditing"
+  },
+  "lighthouse/LighthouseController.js | atLeastOneCategoryMustBeSelected": {
+    "message": "polite At least one category must be selected."
+  },
+  "lighthouse/LighthouseController.js | bestPractices": {
+    "message": "polite Best practices"
+  },
+  "lighthouse/LighthouseController.js | canOnlyAuditHttphttpsPagesAnd": {
+    "message": "polite Can only audit HTTP/HTTPS pages and Chrome extensions. Navigate to a different page to start an audit."
+  },
+  "lighthouse/LighthouseController.js | clearStorage": {
+    "message": "polite Clear storage"
+  },
+  "lighthouse/LighthouseController.js | desktop": {
+    "message": "polite Desktop"
+  },
+  "lighthouse/LighthouseController.js | doesThisPageFollowBestPractices": {
+    "message": "polite Does this page follow best practices for modern web development"
+  },
+  "lighthouse/LighthouseController.js | doesThisPageMeetTheStandardOfA": {
+    "message": "polite Does this page meet the standard of a Progressive Web App"
+  },
+  "lighthouse/LighthouseController.js | howLongDoesThisAppTakeToShow": {
+    "message": "polite How long does this app take to show content and become usable"
+  },
+  "lighthouse/LighthouseController.js | indexeddb": {
+    "message": "polite IndexedDB"
+  },
+  "lighthouse/LighthouseController.js | isThisPageOptimizedForAdSpeedAnd": {
+    "message": "polite Is this page optimized for ad speed and quality"
+  },
+  "lighthouse/LighthouseController.js | isThisPageOptimizedForSearch": {
+    "message": "polite Is this page optimized for search engine results ranking"
+  },
+  "lighthouse/LighthouseController.js | isThisPageUsableByPeopleWith": {
+    "message": "polite Is this page usable by people with disabilities or impairments"
+  },
+  "lighthouse/LighthouseController.js | localStorage": {
+    "message": "polite Local Storage"
+  },
+  "lighthouse/LighthouseController.js | mobile": {
+    "message": "polite Mobile"
+  },
+  "lighthouse/LighthouseController.js | multipleTabsAreBeingControlledBy": {
+    "message": "polite Multiple tabs are being controlled by the same service worker. Close your other tabs on the same origin to audit this page."
+  },
+  "lighthouse/LighthouseController.js | performance": {
+    "message": "polite Performance"
+  },
+  "lighthouse/LighthouseController.js | progressiveWebApp": {
+    "message": "polite Progressive Web App"
+  },
+  "lighthouse/LighthouseController.js | publisherAds": {
+    "message": "polite Publisher Ads"
+  },
+  "lighthouse/LighthouseController.js | resetStorageLocalstorage": {
+    "message": "polite Reset storage (localStorage, IndexedDB, etc) before auditing. (Good for performance & PWA testing)"
+  },
+  "lighthouse/LighthouseController.js | seo": {
+    "message": "polite SEO"
+  },
+  "lighthouse/LighthouseController.js | simulateASlowerPageLoadBasedOn": {
+    "message": "polite Simulate a slower page load, based on data from an initial unthrottled load. If disabled, the page is actually slowed with applied throttling."
+  },
+  "lighthouse/LighthouseController.js | simulatedThrottling": {
+    "message": "polite Simulated throttling"
+  },
+  "lighthouse/LighthouseController.js | thereMayBeStoredDataAffectingLoadingPlural": {
+    "message": "polite There may be stored data affecting loading performance in these locations: {PH1}. Audit this page in an incognito window to prevent those resources from affecting your scores."
+  },
+  "lighthouse/LighthouseController.js | thereMayBeStoredDataAffectingSingular": {
+    "message": "polite There may be stored data affecting loading performance in this location: {PH1}. Audit this page in an incognito window to prevent those resources from affecting your scores."
+  },
+  "lighthouse/LighthouseController.js | webSql": {
+    "message": "polite Web SQL"
+  },
+  "lighthouse/LighthousePanel.js | cancelling": {
+    "message": "polite Cancelling"
+  },
+  "lighthouse/LighthousePanel.js | clearAll": {
+    "message": "polite Clear all"
+  },
+  "lighthouse/LighthousePanel.js | dropLighthouseJsonHere": {
+    "message": "polite Drop Lighthouse JSON here"
+  },
+  "lighthouse/LighthousePanel.js | lighthouseSettings": {
+    "message": "polite Lighthouse settings"
+  },
+  "lighthouse/LighthousePanel.js | performAnAudit": {
+    "message": "polite Perform an audit…"
+  },
+  "lighthouse/LighthousePanel.js | printing": {
+    "message": "polite Printing"
+  },
+  "lighthouse/LighthousePanel.js | thePrintPopupWindowIsOpenPlease": {
+    "message": "polite The print popup window is open. Please close it to continue."
+  },
+  "lighthouse/LighthouseReportRenderer.js | thePerformanceMetricsAboveAre": {
+    "message": "polite The performance metrics above are simulated and won't match the timings found in this trace. Disable simulated throttling in \"Lighthouse Settings\" if you want the timings to match."
+  },
+  "lighthouse/LighthouseReportRenderer.js | viewOriginalTrace": {
+    "message": "polite View Original Trace"
+  },
+  "lighthouse/LighthouseReportRenderer.js | viewTrace": {
+    "message": "polite View Trace"
+  },
+  "lighthouse/LighthouseReportSelector.js | newReport": {
+    "message": "polite (new report)"
+  },
+  "lighthouse/LighthouseReportSelector.js | reports": {
+    "message": "polite Reports"
+  },
+  "lighthouse/LighthouseStartView.js | categories": {
+    "message": "polite Categories"
+  },
+  "lighthouse/LighthouseStartView.js | communityPluginsBeta": {
+    "message": "polite Community Plugins (beta)"
+  },
+  "lighthouse/LighthouseStartView.js | device": {
+    "message": "polite Device"
+  },
+  "lighthouse/LighthouseStartView.js | generateReport": {
+    "message": "polite Generate report"
+  },
+  "lighthouse/LighthouseStartView.js | identifyAndFixCommonProblemsThat": {
+    "message": "polite Identify and fix common problems that affect your site's performance, accessibility, and user experience."
+  },
+  "lighthouse/LighthouseStartView.js | learnMore": {
+    "message": "polite Learn more"
+  },
+  "lighthouse/LighthouseStatusView.js | ahSorryWeRanIntoAnError": {
+    "message": "polite Ah, sorry! We ran into an error."
+  },
+  "lighthouse/LighthouseStatusView.js | almostThereLighthouseIsNow": {
+    "message": "polite Almost there! Lighthouse is now generating your report."
+  },
+  "lighthouse/LighthouseStatusView.js | asPageLoadTimeIncreasesFromOne": {
+    "message": "polite As page load time increases from one second to seven seconds, the probability of a mobile site visitor bouncing increases 113%. [Source: Think with Google]"
+  },
+  "lighthouse/LighthouseStatusView.js | asTheNumberOfElementsOnAPage": {
+    "message": "polite As the number of elements on a page increases from 400 to 6,000, the probability of conversion drops 95%. [Source: Think with Google]"
+  },
+  "lighthouse/LighthouseStatusView.js | auditingS": {
+    "message": "polite Auditing {PH1}"
+  },
+  "lighthouse/LighthouseStatusView.js | auditingYourWebPage": {
+    "message": "polite Auditing your web page"
+  },
+  "lighthouse/LighthouseStatusView.js | byReducingTheResponseSizeOfJson": {
+    "message": "polite By reducing the response size of JSON needed for displaying comments, Instagram saw increased impressions [Source: WPO Stats]"
+  },
+  "lighthouse/LighthouseStatusView.js | cancel": {
+    "message": "polite Cancel"
+  },
+  "lighthouse/LighthouseStatusView.js | cancelling": {
+    "message": "polite Cancelling…"
+  },
+  "lighthouse/LighthouseStatusView.js | fastFactMessageWithPlaceholder": {
+    "message": "polite 💡 {PH1}"
+  },
+  "lighthouse/LighthouseStatusView.js | ifASiteTakesSecondToBecome": {
+    "message": "polite If a site takes >1 second to become interactive, users lose attention, and their perception of completing the page task is broken [Source: Google Developers Blog]"
+  },
+  "lighthouse/LighthouseStatusView.js | ifThisIssueIsReproduciblePlease": {
+    "message": "polite If this issue is reproducible, please report it at the Lighthouse GitHub repo."
+  },
+  "lighthouse/LighthouseStatusView.js | lighthouseIsGatheringInformation": {
+    "message": "polite Lighthouse is gathering information about the page to compute your score."
+  },
+  "lighthouse/LighthouseStatusView.js | lighthouseIsLoadingThePage": {
+    "message": "polite Lighthouse is loading the page."
+  },
+  "lighthouse/LighthouseStatusView.js | lighthouseIsLoadingYourPage": {
+    "message": "polite Lighthouse is loading your page"
+  },
+  "lighthouse/LighthouseStatusView.js | lighthouseIsLoadingYourPageWith": {
+    "message": "polite Lighthouse is loading your page with throttling to measure performance on a mobile device on 3G."
+  },
+  "lighthouse/LighthouseStatusView.js | lighthouseIsLoadingYourPageWithMobile": {
+    "message": "polite Lighthouse is loading your page with mobile emulation."
+  },
+  "lighthouse/LighthouseStatusView.js | lighthouseIsLoadingYourPageWithThrottling": {
+    "message": "polite Lighthouse is loading your page with throttling to measure performance on a slow desktop on 3G."
+  },
+  "lighthouse/LighthouseStatusView.js | lighthouseIsWarmingUp": {
+    "message": "polite Lighthouse is warming up…"
+  },
+  "lighthouse/LighthouseStatusView.js | lighthouseOnlySimulatesMobile": {
+    "message": "polite Lighthouse only simulates mobile performance; to measure performance on a real device, try WebPageTest.org [Source: Lighthouse team]"
+  },
+  "lighthouse/LighthouseStatusView.js | loading": {
+    "message": "polite Loading…"
+  },
+  "lighthouse/LighthouseStatusView.js | mbTakesAMinimumOfSecondsTo": {
+    "message": "polite 1MB takes a minimum of 5 seconds to download on a typical 3G connection [Source: WebPageTest and DevTools 3G definition]."
+  },
+  "lighthouse/LighthouseStatusView.js | OfGlobalMobileUsersInWereOnGOrG": {
+    "message": "polite 75% of global mobile users in 2016 were on 2G or 3G [Source: GSMA Mobile]"
+  },
+  "lighthouse/LighthouseStatusView.js | OfMobilePagesTakeNearlySeconds": {
+    "message": "polite 70% of mobile pages take nearly 7 seconds for the visual content above the fold to display on the screen. [Source: Think with Google]"
+  },
+  "lighthouse/LighthouseStatusView.js | rebuildingPinterestPagesFor": {
+    "message": "polite Rebuilding Pinterest pages for performance increased conversion rates by 15% [Source: WPO Stats]"
+  },
+  "lighthouse/LighthouseStatusView.js | SecondsIsTheAverageTimeAMobile": {
+    "message": "polite 19 seconds is the average time a mobile web page takes to load on a 3G connection [Source: Google DoubleClick blog]"
+  },
+  "lighthouse/LighthouseStatusView.js | theAverageUserDeviceCostsLess": {
+    "message": "polite The average user device costs less than 200 USD. [Source: International Data Corporation]"
+  },
+  "lighthouse/LighthouseStatusView.js | tryToNavigateToTheUrlInAFresh": {
+    "message": "polite Try to navigate to the URL in a fresh Chrome profile without any other tabs or extensions open and try again."
+  },
+  "lighthouse/LighthouseStatusView.js | walmartSawAIncreaseInRevenueFor": {
+    "message": "polite Walmart saw a 1% increase in revenue for every 100ms improvement in page load [Source: WPO Stats]"
+  },
+  "lighthouse/ModuleUIStrings.js | pwa": {
+    "message": "polite pwa"
+  },
+  "media/EventDisplayTable.js | eventDisplay": {
+    "message": "polite Event display"
+  },
+  "media/EventDisplayTable.js | eventName": {
+    "message": "polite Event name"
+  },
+  "media/EventDisplayTable.js | timestamp": {
+    "message": "polite Timestamp"
+  },
+  "media/EventDisplayTable.js | value": {
+    "message": "polite Value"
+  },
+  "media/EventTimelineView.js | bufferingStatus": {
+    "message": "polite Buffering Status"
+  },
+  "media/EventTimelineView.js | playbackStatus": {
+    "message": "polite Playback Status"
+  },
+  "media/ModuleUIStrings.js | media": {
+    "message": "polite Media"
+  },
+  "media/ModuleUIStrings.js | video": {
+    "message": "polite video"
+  },
+  "media/PlayerDetailView.js | events": {
+    "message": "polite Events"
+  },
+  "media/PlayerDetailView.js | messages": {
+    "message": "polite Messages"
+  },
+  "media/PlayerDetailView.js | playerEvents": {
+    "message": "polite Player events"
+  },
+  "media/PlayerDetailView.js | playerMessages": {
+    "message": "polite Player messages"
+  },
+  "media/PlayerDetailView.js | playerProperties": {
+    "message": "polite Player properties"
+  },
+  "media/PlayerDetailView.js | playerTimeline": {
+    "message": "polite Player timeline"
+  },
+  "media/PlayerDetailView.js | properties": {
+    "message": "polite Properties"
+  },
+  "media/PlayerDetailView.js | timeline": {
+    "message": "polite Timeline"
+  },
+  "media/PlayerListView.js | hideAllOthers": {
+    "message": "polite Hide all others"
+  },
+  "media/PlayerListView.js | hidePlayer": {
+    "message": "polite Hide player"
+  },
+  "media/PlayerListView.js | players": {
+    "message": "polite Players"
+  },
+  "media/PlayerListView.js | savePlayerInfo": {
+    "message": "polite Save player info"
+  },
+  "media/PlayerMessagesView.js | all": {
+    "message": "polite All"
+  },
+  "media/PlayerMessagesView.js | custom": {
+    "message": "polite Custom"
+  },
+  "media/PlayerMessagesView.js | debug": {
+    "message": "polite Debug"
+  },
+  "media/PlayerMessagesView.js | default": {
+    "message": "polite Default"
+  },
+  "media/PlayerMessagesView.js | error": {
+    "message": "polite Error"
+  },
+  "media/PlayerMessagesView.js | filterLogMessages": {
+    "message": "polite Filter log messages"
+  },
+  "media/PlayerMessagesView.js | info": {
+    "message": "polite Info"
+  },
+  "media/PlayerMessagesView.js | logLevel": {
+    "message": "polite Log level:"
+  },
+  "media/PlayerMessagesView.js | warning": {
+    "message": "polite Warning"
+  },
+  "media/PlayerPropertiesView.js | audio": {
+    "message": "polite Audio"
+  },
+  "media/PlayerPropertiesView.js | bitrate": {
+    "message": "polite Bitrate"
+  },
+  "media/PlayerPropertiesView.js | decoder": {
+    "message": "polite Decoder"
+  },
+  "media/PlayerPropertiesView.js | decoderName": {
+    "message": "polite Decoder name"
+  },
+  "media/PlayerPropertiesView.js | decryptingDemuxer": {
+    "message": "polite Decrypting demuxer"
+  },
+  "media/PlayerPropertiesView.js | duration": {
+    "message": "polite Duration"
+  },
+  "media/PlayerPropertiesView.js | encoderName": {
+    "message": "polite Encoder name"
+  },
+  "media/PlayerPropertiesView.js | fileSize": {
+    "message": "polite File size"
+  },
+  "media/PlayerPropertiesView.js | frameRate": {
+    "message": "polite Frame rate"
+  },
+  "media/PlayerPropertiesView.js | hardwareDecoder": {
+    "message": "polite Hardware decoder"
+  },
+  "media/PlayerPropertiesView.js | hardwareEncoder": {
+    "message": "polite Hardware encoder"
+  },
+  "media/PlayerPropertiesView.js | noDecoder": {
+    "message": "polite No decoder"
+  },
+  "media/PlayerPropertiesView.js | noEncoder": {
+    "message": "polite No encoder"
+  },
+  "media/PlayerPropertiesView.js | noTextTracks": {
+    "message": "polite No text tracks"
+  },
+  "media/PlayerPropertiesView.js | playbackFrameTitle": {
+    "message": "polite Playback frame title"
+  },
+  "media/PlayerPropertiesView.js | playbackFrameUrl": {
+    "message": "polite Playback frame URL"
+  },
+  "media/PlayerPropertiesView.js | properties": {
+    "message": "polite Properties"
+  },
+  "media/PlayerPropertiesView.js | rangeHeaderSupport": {
+    "message": "polite Range header support"
+  },
+  "media/PlayerPropertiesView.js | resolution": {
+    "message": "polite Resolution"
+  },
+  "media/PlayerPropertiesView.js | singleoriginPlayback": {
+    "message": "polite Single-origin playback"
+  },
+  "media/PlayerPropertiesView.js | startTime": {
+    "message": "polite Start time"
+  },
+  "media/PlayerPropertiesView.js | streaming": {
+    "message": "polite Streaming"
+  },
+  "media/PlayerPropertiesView.js | textTrack": {
+    "message": "polite Text track"
+  },
+  "media/PlayerPropertiesView.js | track": {
+    "message": "polite Track"
+  },
+  "media/PlayerPropertiesView.js | video": {
+    "message": "polite Video"
+  },
+  "media/PlayerPropertiesView.js | videoFreezingScore": {
+    "message": "polite Video freezing score"
+  },
+  "media/PlayerPropertiesView.js | videoPlaybackRoughness": {
+    "message": "polite Video playback roughness"
+  },
+  "mobile_throttling/MobileThrottlingSelector.js | advanced": {
+    "message": "polite Advanced"
+  },
+  "mobile_throttling/MobileThrottlingSelector.js | disabled": {
+    "message": "polite Disabled"
+  },
+  "mobile_throttling/MobileThrottlingSelector.js | presets": {
+    "message": "polite Presets"
+  },
+  "mobile_throttling/ModuleUIStrings.js | device": {
+    "message": "polite device"
+  },
+  "mobile_throttling/ModuleUIStrings.js | enableFastGThrottling": {
+    "message": "polite Enable fast 3G throttling"
+  },
+  "mobile_throttling/ModuleUIStrings.js | enableSlowGThrottling": {
+    "message": "polite Enable slow 3G throttling"
+  },
+  "mobile_throttling/ModuleUIStrings.js | goOffline": {
+    "message": "polite Go offline"
+  },
+  "mobile_throttling/ModuleUIStrings.js | goOnline": {
+    "message": "polite Go online"
+  },
+  "mobile_throttling/ModuleUIStrings.js | network": {
+    "message": "polite Network"
+  },
+  "mobile_throttling/ModuleUIStrings.js | throttling": {
+    "message": "polite throttling"
+  },
+  "mobile_throttling/NetworkPanelIndicator.js | networkThrottlingIsEnabled": {
+    "message": "polite Network throttling is enabled"
+  },
+  "mobile_throttling/NetworkPanelIndicator.js | requestsMayBeBlocked": {
+    "message": "polite Requests may be blocked"
+  },
+  "mobile_throttling/NetworkPanelIndicator.js | requestsMayBeRewrittenByLocal": {
+    "message": "polite Requests may be rewritten by local overrides"
+  },
+  "mobile_throttling/NetworkThrottlingSelector.js | custom": {
+    "message": "polite Custom"
+  },
+  "mobile_throttling/NetworkThrottlingSelector.js | disabled": {
+    "message": "polite Disabled"
+  },
+  "mobile_throttling/NetworkThrottlingSelector.js | presets": {
+    "message": "polite Presets"
+  },
+  "mobile_throttling/ThrottlingManager.js | add": {
+    "message": "polite Add…"
+  },
+  "mobile_throttling/ThrottlingManager.js | addS": {
+    "message": "polite Add {PH1}"
+  },
+  "mobile_throttling/ThrottlingManager.js | cpuThrottling": {
+    "message": "polite CPU throttling"
+  },
+  "mobile_throttling/ThrottlingManager.js | cpuThrottlingIsEnabled": {
+    "message": "polite CPU throttling is enabled"
+  },
+  "mobile_throttling/ThrottlingManager.js | dSlowdown": {
+    "message": "polite {PH1}× slowdown"
+  },
+  "mobile_throttling/ThrottlingManager.js | forceDisconnectedFromNetwork": {
+    "message": "polite Force disconnected from network"
+  },
+  "mobile_throttling/ThrottlingManager.js | noThrottling": {
+    "message": "polite No throttling"
+  },
+  "mobile_throttling/ThrottlingManager.js | offline": {
+    "message": "polite Offline"
+  },
+  "mobile_throttling/ThrottlingManager.js | sS": {
+    "message": "polite {PH1}: {PH2}"
+  },
+  "mobile_throttling/ThrottlingManager.js | throttling": {
+    "message": "polite Throttling"
+  },
+  "mobile_throttling/ThrottlingPresets.js | checkNetworkAndPerformancePanels": {
+    "message": "polite Check Network and Performance panels"
+  },
+  "mobile_throttling/ThrottlingPresets.js | custom": {
+    "message": "polite Custom"
+  },
+  "mobile_throttling/ThrottlingPresets.js | fastGXCpuSlowdown": {
+    "message": "polite Fast 3G & 4x CPU slowdown"
+  },
+  "mobile_throttling/ThrottlingPresets.js | lowendMobile": {
+    "message": "polite Low-end mobile"
+  },
+  "mobile_throttling/ThrottlingPresets.js | midtierMobile": {
+    "message": "polite Mid-tier mobile"
+  },
+  "mobile_throttling/ThrottlingPresets.js | noInternetConnectivity": {
+    "message": "polite No internet connectivity"
+  },
+  "mobile_throttling/ThrottlingPresets.js | noThrottling": {
+    "message": "polite No throttling"
+  },
+  "mobile_throttling/ThrottlingPresets.js | slowGXCpuSlowdown": {
+    "message": "polite Slow 3G & 6x CPU slowdown"
+  },
+  "mobile_throttling/ThrottlingSettingsTab.js | addCustomProfile": {
+    "message": "polite Add custom profile..."
+  },
+  "mobile_throttling/ThrottlingSettingsTab.js | dms": {
+    "message": "polite {PH1}ms"
+  },
+  "mobile_throttling/ThrottlingSettingsTab.js | download": {
+    "message": "polite Download"
+  },
+  "mobile_throttling/ThrottlingSettingsTab.js | dskbs": {
+    "message": "polite {PH1}{PH2}kB/s"
+  },
+  "mobile_throttling/ThrottlingSettingsTab.js | fsmbs": {
+    "message": "polite {PH1}{PH2}MB/s"
+  },
+  "mobile_throttling/ThrottlingSettingsTab.js | kbs": {
+    "message": "polite kb/s"
+  },
+  "mobile_throttling/ThrottlingSettingsTab.js | latency": {
+    "message": "polite Latency"
+  },
+  "mobile_throttling/ThrottlingSettingsTab.js | latencyMustBeAnIntegerBetweenSms": {
+    "message": "polite Latency must be an integer between {PH1}ms to {PH2}ms inclusive"
+  },
+  "mobile_throttling/ThrottlingSettingsTab.js | ms": {
+    "message": "polite ms"
+  },
+  "mobile_throttling/ThrottlingSettingsTab.js | networkThrottlingProfiles": {
+    "message": "polite Network Throttling Profiles"
+  },
+  "mobile_throttling/ThrottlingSettingsTab.js | optional": {
+    "message": "polite optional"
+  },
+  "mobile_throttling/ThrottlingSettingsTab.js | profileName": {
+    "message": "polite Profile Name"
+  },
+  "mobile_throttling/ThrottlingSettingsTab.js | profileNameCharactersLengthMust": {
+    "message": "polite Profile Name characters length must be between 1 to {PH1} inclusive"
+  },
+  "mobile_throttling/ThrottlingSettingsTab.js | sMustBeANumberBetweenSkbsToSkbs": {
+    "message": "polite {PH1} must be a number between {PH2}kb/s to {PH3}kb/s inclusive"
+  },
+  "mobile_throttling/ThrottlingSettingsTab.js | upload": {
+    "message": "polite Upload"
+  },
+  "node_debugger/ModuleUIStrings.js | node": {
+    "message": "polite Node"
+  },
+  "node_main/ModuleUIStrings.js | connection": {
+    "message": "polite Connection"
+  },
+  "node_main/ModuleUIStrings.js | node": {
+    "message": "polite node"
+  },
+  "node_main/NodeConnectionsPanel.js | addConnection": {
+    "message": "polite Add connection"
+  },
+  "node_main/NodeConnectionsPanel.js | networkAddressEgLocalhost": {
+    "message": "polite Network address (e.g. localhost:9229)"
+  },
+  "node_main/NodeConnectionsPanel.js | noConnectionsSpecified": {
+    "message": "polite No connections specified"
+  },
+  "node_main/NodeConnectionsPanel.js | nodejsDebuggingGuide": {
+    "message": "polite Node.js debugging guide"
+  },
+  "node_main/NodeConnectionsPanel.js | specifyNetworkEndpointAnd": {
+    "message": "polite Specify network endpoint and DevTools will connect to it automatically. Read {PH1} to learn more."
+  },
+  "node_main/NodeMain.js | main": {
+    "message": "polite Main"
+  },
+  "node_main/NodeMain.js | nodejsS": {
+    "message": "polite Node.js: {PH1}"
+  },
+  "performance_monitor/ModuleUIStrings.js | activity": {
+    "message": "polite activity"
+  },
+  "performance_monitor/ModuleUIStrings.js | metrics": {
+    "message": "polite metrics"
+  },
+  "performance_monitor/ModuleUIStrings.js | monitor": {
+    "message": "polite monitor"
+  },
+  "performance_monitor/ModuleUIStrings.js | performance": {
+    "message": "polite performance"
+  },
+  "performance_monitor/ModuleUIStrings.js | performanceMonitor": {
+    "message": "polite Performance monitor"
+  },
+  "performance_monitor/ModuleUIStrings.js | systemMonitor": {
+    "message": "polite system monitor"
+  },
+  "performance_monitor/PerformanceMonitor.js | cpuUsage": {
+    "message": "polite CPU usage"
+  },
+  "performance_monitor/PerformanceMonitor.js | documentFrames": {
+    "message": "polite Document Frames"
+  },
+  "performance_monitor/PerformanceMonitor.js | documents": {
+    "message": "polite Documents"
+  },
+  "performance_monitor/PerformanceMonitor.js | domNodes": {
+    "message": "polite DOM Nodes"
+  },
+  "performance_monitor/PerformanceMonitor.js | graphsDisplayingARealtimeViewOf": {
+    "message": "polite Graphs displaying a real-time view of performance metrics"
+  },
+  "performance_monitor/PerformanceMonitor.js | jsEventListeners": {
+    "message": "polite JS event listeners"
+  },
+  "performance_monitor/PerformanceMonitor.js | jsHeapSize": {
+    "message": "polite JS heap size"
+  },
+  "performance_monitor/PerformanceMonitor.js | layoutsSec": {
+    "message": "polite Layouts / sec"
+  },
+  "performance_monitor/PerformanceMonitor.js | paused": {
+    "message": "polite Paused"
+  },
+  "performance_monitor/PerformanceMonitor.js | styleRecalcsSec": {
+    "message": "polite Style recalcs / sec"
+  },
+  "persistence/Automapping.js | theAttemptToBindSInTheWorkspace": {
+    "message": "polite The attempt to bind \"{PH1}\" in the workspace failed as this URI is malformed."
+  },
+  "persistence/EditFileSystemView.js | add": {
+    "message": "polite Add"
+  },
+  "persistence/EditFileSystemView.js | enterAPath": {
+    "message": "polite Enter a path"
+  },
+  "persistence/EditFileSystemView.js | enterAUniquePath": {
+    "message": "polite Enter a unique path"
+  },
+  "persistence/EditFileSystemView.js | excludedFolders": {
+    "message": "polite Excluded folders"
+  },
+  "persistence/EditFileSystemView.js | folderPath": {
+    "message": "polite Folder path"
+  },
+  "persistence/EditFileSystemView.js | none": {
+    "message": "polite None"
+  },
+  "persistence/EditFileSystemView.js | sViaDevtools": {
+    "message": "polite {PH1} (via .devtools)"
+  },
+  "persistence/IsolatedFileSystem.js | blobCouldNotBeLoaded": {
+    "message": "polite Blob could not be loaded."
+  },
+  "persistence/IsolatedFileSystem.js | cantReadFileSS": {
+    "message": "polite Can't read file: {PH1}: {PH2}"
+  },
+  "persistence/IsolatedFileSystem.js | fileSystemErrorS": {
+    "message": "polite File system error: {PH1}"
+  },
+  "persistence/IsolatedFileSystem.js | linkedToS": {
+    "message": "polite Linked to {PH1}"
+  },
+  "persistence/IsolatedFileSystem.js | unknownErrorReadingFileS": {
+    "message": "polite Unknown error reading file: {PH1}"
+  },
+  "persistence/IsolatedFileSystemManager.js | unableToAddFilesystemS": {
+    "message": "polite Unable to add filesystem: {PH1}"
+  },
+  "persistence/ModuleUIStrings.js | disableOverrideNetworkRequests": {
+    "message": "polite Disable override network requests"
+  },
+  "persistence/ModuleUIStrings.js | enableLocalOverrides": {
+    "message": "polite Enable Local Overrides"
+  },
+  "persistence/ModuleUIStrings.js | enableOverrideNetworkRequests": {
+    "message": "polite Enable override network requests"
+  },
+  "persistence/ModuleUIStrings.js | interception": {
+    "message": "polite interception"
+  },
+  "persistence/ModuleUIStrings.js | network": {
+    "message": "polite network"
+  },
+  "persistence/ModuleUIStrings.js | override": {
+    "message": "polite override"
+  },
+  "persistence/ModuleUIStrings.js | persistence": {
+    "message": "polite Persistence"
+  },
+  "persistence/ModuleUIStrings.js | request": {
+    "message": "polite request"
+  },
+  "persistence/ModuleUIStrings.js | rewrite": {
+    "message": "polite rewrite"
+  },
+  "persistence/ModuleUIStrings.js | workspace": {
+    "message": "polite Workspace"
+  },
+  "persistence/PersistenceActions.js | openInContainingFolder": {
+    "message": "polite Open in containing folder"
+  },
+  "persistence/PersistenceActions.js | saveAs": {
+    "message": "polite Save as..."
+  },
+  "persistence/PersistenceActions.js | saveForOverrides": {
+    "message": "polite Save for overrides"
+  },
+  "persistence/PersistenceActions.js | saveImage": {
+    "message": "polite Save image"
+  },
+  "persistence/PersistenceUtils.js | linkedToS": {
+    "message": "polite Linked to {PH1}"
+  },
+  "persistence/PersistenceUtils.js | linkedToSourceMapS": {
+    "message": "polite Linked to source map: {PH1}"
+  },
+  "persistence/PlatformFileSystem.js | unableToReadFilesWithThis": {
+    "message": "polite Unable to read files with this implementation."
+  },
+  "persistence/WorkspaceSettingsTab.js | addFolder": {
+    "message": "polite Add folder…"
+  },
+  "persistence/WorkspaceSettingsTab.js | folderExcludePattern": {
+    "message": "polite Folder exclude pattern"
+  },
+  "persistence/WorkspaceSettingsTab.js | mappingsAreInferredAutomatically": {
+    "message": "polite Mappings are inferred automatically."
+  },
+  "persistence/WorkspaceSettingsTab.js | remove": {
+    "message": "polite Remove"
+  },
+  "persistence/WorkspaceSettingsTab.js | workspace": {
+    "message": "polite Workspace"
+  },
+  "protocol_monitor/ModuleUIStrings.js | protocolMonitor": {
+    "message": "polite Protocol monitor"
+  },
+  "protocol_monitor/ProtocolMonitor.js | clearAll": {
+    "message": "polite Clear all"
+  },
+  "protocol_monitor/ProtocolMonitor.js | direction": {
+    "message": "polite Direction"
+  },
+  "protocol_monitor/ProtocolMonitor.js | documentation": {
+    "message": "polite Documentation"
+  },
+  "protocol_monitor/ProtocolMonitor.js | filter": {
+    "message": "polite Filter"
+  },
+  "protocol_monitor/ProtocolMonitor.js | method": {
+    "message": "polite Method"
+  },
+  "protocol_monitor/ProtocolMonitor.js | noMessageSelected": {
+    "message": "polite No message selected"
+  },
+  "protocol_monitor/ProtocolMonitor.js | protocolMonitor": {
+    "message": "polite Protocol Monitor"
+  },
+  "protocol_monitor/ProtocolMonitor.js | record": {
+    "message": "polite Record"
+  },
+  "protocol_monitor/ProtocolMonitor.js | request": {
+    "message": "polite Request"
+  },
+  "protocol_monitor/ProtocolMonitor.js | response": {
+    "message": "polite Response"
+  },
+  "protocol_monitor/ProtocolMonitor.js | sMs": {
+    "message": "polite {PH1} ms"
+  },
+  "protocol_monitor/ProtocolMonitor.js | target": {
+    "message": "polite Target"
+  },
+  "protocol_monitor/ProtocolMonitor.js | timestamp": {
+    "message": "polite Timestamp"
+  },
+  "recorder/RecordingFileSystem.js | defaultRecordingName": {
+    "message": "polite Recording #{nextId}"
+  },
+  "recorder/RecordingFileSystem.js | linkedToS": {
+    "message": "polite Linked to {PH1}"
+  },
+  "resources/ClearStorageView.js | storageQuotaUsed": {
+    "message": "polite {PH1} used out of {PH2} storage quota"
+  },
+  "resources/ClearStorageView.js | storageQuotaUsedWithBytes": {
+    "message": "polite {PH1} bytes used out of {PH2} bytes storage quota"
+  },
+  "resources/ClearStorageView.js | storageWithCustomMarker": {
+    "message": "polite {PH1} (custom)"
+  },
+  "screencast/ScreencastApp.js | toggleScreencast": {
+    "message": "polite Toggle screencast"
+  },
+  "screencast/ScreencastView.js | addressBar": {
+    "message": "polite Address bar"
+  },
+  "screencast/ScreencastView.js | back": {
+    "message": "polite back"
+  },
+  "screencast/ScreencastView.js | forward": {
+    "message": "polite forward"
+  },
+  "screencast/ScreencastView.js | profilingInProgress": {
+    "message": "polite Profiling in progress"
+  },
+  "screencast/ScreencastView.js | reload": {
+    "message": "polite reload"
+  },
+  "screencast/ScreencastView.js | screencastViewOfDebugTarget": {
+    "message": "polite Screencast view of debug target"
+  },
+  "screencast/ScreencastView.js | theTabIsInactive": {
+    "message": "polite The tab is inactive"
+  },
+  "search/SearchResultsPane.js | lineS": {
+    "message": "polite Line {PH1}"
+  },
+  "search/SearchResultsPane.js | matchesCountS": {
+    "message": "polite Matches Count {PH1}"
+  },
+  "search/SearchResultsPane.js | showDMore": {
+    "message": "polite Show {PH1} more"
+  },
+  "search/SearchView.js | clear": {
+    "message": "polite Clear"
+  },
+  "search/SearchView.js | foundDMatchingLinesInDFiles": {
+    "message": "polite Found {PH1} matching lines in {PH2} files."
+  },
+  "search/SearchView.js | foundDMatchingLinesInFile": {
+    "message": "polite Found {PH1} matching lines in 1 file."
+  },
+  "search/SearchView.js | foundMatchingLineInFile": {
+    "message": "polite Found 1 matching line in 1 file."
+  },
+  "search/SearchView.js | indexing": {
+    "message": "polite Indexing…"
+  },
+  "search/SearchView.js | indexingInterrupted": {
+    "message": "polite Indexing interrupted."
+  },
+  "search/SearchView.js | matchCase": {
+    "message": "polite Match Case"
+  },
+  "search/SearchView.js | noMatchesFound": {
+    "message": "polite No matches found."
+  },
+  "search/SearchView.js | refresh": {
+    "message": "polite Refresh"
+  },
+  "search/SearchView.js | search": {
+    "message": "polite Search"
+  },
+  "search/SearchView.js | searchFinished": {
+    "message": "polite Search finished."
+  },
+  "search/SearchView.js | searching": {
+    "message": "polite Searching…"
+  },
+  "search/SearchView.js | searchInterrupted": {
+    "message": "polite Search interrupted."
+  },
+  "search/SearchView.js | searchQuery": {
+    "message": "polite Search Query"
+  },
+  "search/SearchView.js | useRegularExpression": {
+    "message": "polite Use Regular Expression"
+  },
+  "security/SecurityModel.js | cipherWithMAC": {
+    "message": "polite {PH1} with {PH2}"
+  },
+  "security/SecurityModel.js | keyExchangeWithGroup": {
+    "message": "polite {PH1} with {PH2}"
+  },
+  "security/SecurityModel.js | theSecurityOfThisPageIsUnknown": {
+    "message": "polite The security of this page is unknown."
+  },
+  "security/SecurityModel.js | thisPageIsNotSecure": {
+    "message": "polite This page is not secure."
+  },
+  "security/SecurityModel.js | thisPageIsNotSecureBrokenHttps": {
+    "message": "polite This page is not secure (broken HTTPS)."
+  },
+  "security/SecurityModel.js | thisPageIsSecureValidHttps": {
+    "message": "polite This page is secure (valid HTTPS)."
+  },
+  "security/SecurityPanel.js | activeContentWithCertificate": {
+    "message": "polite active content with certificate errors"
+  },
+  "security/SecurityPanel.js | activeMixedContent": {
+    "message": "polite active mixed content"
+  },
+  "security/SecurityPanel.js | allResourcesOnThisPageAreServed": {
+    "message": "polite All resources on this page are served securely."
+  },
+  "security/SecurityPanel.js | allServedSecurely": {
+    "message": "polite all served securely"
+  },
+  "security/SecurityPanel.js | blockedMixedContent": {
+    "message": "polite Blocked mixed content"
+  },
+  "security/SecurityPanel.js | certificate": {
+    "message": "polite Certificate"
+  },
+  "security/SecurityPanel.js | certificateExpiresSoon": {
+    "message": "polite Certificate expires soon"
+  },
+  "security/SecurityPanel.js | certificateTransparency": {
+    "message": "polite Certificate Transparency"
+  },
+  "security/SecurityPanel.js | chromeHasDeterminedThatThisSite": {
+    "message": "polite Chrome has determined that this site could be fake or fraudulent.\n\nIf you believe this is shown in error please visit https://bugs.chromium.org/p/chromium/issues/entry?template=Safety+Tips+Appeals."
+  },
+  "security/SecurityPanel.js | cipher": {
+    "message": "polite Cipher"
+  },
+  "security/SecurityPanel.js | connection": {
+    "message": "polite Connection"
+  },
+  "security/SecurityPanel.js | contentWithCertificateErrors": {
+    "message": "polite content with certificate errors"
+  },
+  "security/SecurityPanel.js | dataWasEnteredInAFieldOnA": {
+    "message": "polite Data was entered in a field on a non-secure page. A warning has been added to the URL bar."
+  },
+  "security/SecurityPanel.js | flaggedByGoogleSafeBrowsing": {
+    "message": "polite Flagged by Google Safe Browsing"
+  },
+  "security/SecurityPanel.js | formFieldEditedOnANonsecurePage": {
+    "message": "polite Form field edited on a non-secure page"
+  },
+  "security/SecurityPanel.js | hashAlgorithm": {
+    "message": "polite Hash algorithm"
+  },
+  "security/SecurityPanel.js | hideFullDetails": {
+    "message": "polite Hide full details"
+  },
+  "security/SecurityPanel.js | info": {
+    "message": "polite Info"
+  },
+  "security/SecurityPanel.js | insecureSha": {
+    "message": "polite insecure (SHA-1)"
+  },
+  "security/SecurityPanel.js | issuedAt": {
+    "message": "polite Issued at"
+  },
+  "security/SecurityPanel.js | issuer": {
+    "message": "polite Issuer"
+  },
+  "security/SecurityPanel.js | keyExchange": {
+    "message": "polite Key exchange"
+  },
+  "security/SecurityPanel.js | keyExchangeGroup": {
+    "message": "polite Key exchange group"
+  },
+  "security/SecurityPanel.js | logId": {
+    "message": "polite Log ID"
+  },
+  "security/SecurityPanel.js | logName": {
+    "message": "polite Log name"
+  },
+  "security/SecurityPanel.js | mainOrigin": {
+    "message": "polite Main origin"
+  },
+  "security/SecurityPanel.js | mainOriginNonsecure": {
+    "message": "polite Main origin (non-secure)"
+  },
+  "security/SecurityPanel.js | mainOriginSecure": {
+    "message": "polite Main origin (secure)"
+  },
+  "security/SecurityPanel.js | missing": {
+    "message": "polite missing"
+  },
+  "security/SecurityPanel.js | mixedContent": {
+    "message": "polite mixed content"
+  },
+  "security/SecurityPanel.js | na": {
+    "message": "polite (n/a)"
+  },
+  "security/SecurityPanel.js | nonsecureForm": {
+    "message": "polite non-secure form"
+  },
+  "security/SecurityPanel.js | nonsecureOrigins": {
+    "message": "polite Non-secure origins"
+  },
+  "security/SecurityPanel.js | noSecurityDetailsAreAvailableFor": {
+    "message": "polite No security details are available for this origin."
+  },
+  "security/SecurityPanel.js | noSecurityInformation": {
+    "message": "polite No security information"
+  },
+  "security/SecurityPanel.js | notSecure": {
+    "message": "polite Not secure"
+  },
+  "security/SecurityPanel.js | notSecureBroken": {
+    "message": "polite Not secure (broken)"
+  },
+  "security/SecurityPanel.js | obsoleteConnectionSettings": {
+    "message": "polite obsolete connection settings"
+  },
+  "security/SecurityPanel.js | openFullCertificateDetails": {
+    "message": "polite Open full certificate details"
+  },
+  "security/SecurityPanel.js | origin": {
+    "message": "polite Origin"
+  },
+  "security/SecurityPanel.js | overview": {
+    "message": "polite Overview"
+  },
+  "security/SecurityPanel.js | possibleSpoofingUrl": {
+    "message": "polite Possible spoofing URL"
+  },
+  "security/SecurityPanel.js | protocol": {
+    "message": "polite Protocol"
+  },
+  "security/SecurityPanel.js | publickeypinningBypassed": {
+    "message": "polite Public-Key-Pinning bypassed"
+  },
+  "security/SecurityPanel.js | publickeypinningWasBypassedByA": {
+    "message": "polite Public-Key-Pinning was bypassed by a local root certificate."
+  },
+  "security/SecurityPanel.js | reloadThePageToRecordRequestsFor": {
+    "message": "polite Reload the page to record requests for HTTP resources."
+  },
+  "security/SecurityPanel.js | reloadToViewDetails": {
+    "message": "polite Reload to view details"
+  },
+  "security/SecurityPanel.js | resources": {
+    "message": "polite Resources"
+  },
+  "security/SecurityPanel.js | rsaKeyExchangeIsObsoleteEnableAn": {
+    "message": "polite RSA key exchange is obsolete. Enable an ECDHE-based cipher suite."
+  },
+  "security/SecurityPanel.js | san": {
+    "message": "polite SAN"
+  },
+  "security/SecurityPanel.js | sct": {
+    "message": "polite SCT"
+  },
+  "security/SecurityPanel.js | secure": {
+    "message": "polite Secure"
+  },
+  "security/SecurityPanel.js | secureConnectionSettings": {
+    "message": "polite secure connection settings"
+  },
+  "security/SecurityPanel.js | secureOrigins": {
+    "message": "polite Secure origins"
+  },
+  "security/SecurityPanel.js | securityOverview": {
+    "message": "polite Security overview"
+  },
+  "security/SecurityPanel.js | showFullDetails": {
+    "message": "polite Show full details"
+  },
+  "security/SecurityPanel.js | showLess": {
+    "message": "polite Show less"
+  },
+  "security/SecurityPanel.js | showMoreSTotal": {
+    "message": "polite Show more ({PH1} total)"
+  },
+  "security/SecurityPanel.js | signatureAlgorithm": {
+    "message": "polite Signature algorithm"
+  },
+  "security/SecurityPanel.js | signatureData": {
+    "message": "polite Signature data"
+  },
+  "security/SecurityPanel.js | sIsObsoleteEnableAnAesgcmbased": {
+    "message": "polite {PH1} is obsolete. Enable an AES-GCM-based cipher suite."
+  },
+  "security/SecurityPanel.js | sIsObsoleteEnableTlsOrLater": {
+    "message": "polite {PH1} is obsolete. Enable TLS 1.2 or later."
+  },
+  "security/SecurityPanel.js | source": {
+    "message": "polite Source"
+  },
+  "security/SecurityPanel.js | subject": {
+    "message": "polite Subject"
+  },
+  "security/SecurityPanel.js | subjectAlternativeNameMissing": {
+    "message": "polite Subject Alternative Name missing"
+  },
+  "security/SecurityPanel.js | theCertificateChainForThisSite": {
+    "message": "polite The certificate chain for this site contains a certificate signed using SHA-1."
+  },
+  "security/SecurityPanel.js | theCertificateForThisSiteDoesNot": {
+    "message": "polite The certificate for this site does not contain a Subject Alternative Name extension containing a domain name or IP address."
+  },
+  "security/SecurityPanel.js | theCertificateForThisSiteExpires": {
+    "message": "polite The certificate for this site expires in less than 48 hours and needs to be renewed."
+  },
+  "security/SecurityPanel.js | theConnectionToThisSiteIs": {
+    "message": "polite The connection to this site is encrypted and authenticated using {PH1}, {PH2}, and {PH3}."
+  },
+  "security/SecurityPanel.js | theConnectionToThisSiteIsUsingA": {
+    "message": "polite The connection to this site is using a valid, trusted server certificate issued by {PH1}."
+  },
+  "security/SecurityPanel.js | theSecurityDetailsAboveAreFrom": {
+    "message": "polite The security details above are from the first inspected response."
+  },
+  "security/SecurityPanel.js | theSecurityOfThisPageIsUnknown": {
+    "message": "polite The security of this page is unknown."
+  },
+  "security/SecurityPanel.js | theServerSignatureUsesShaWhichIs": {
+    "message": "polite The server signature uses SHA-1, which is obsolete. Enable a SHA-2 signature algorithm instead. (Note this is different from the signature in the certificate.)"
+  },
+  "security/SecurityPanel.js | thisIsAnErrorPage": {
+    "message": "polite This is an error page."
+  },
+  "security/SecurityPanel.js | thisOriginIsANonhttpsSecure": {
+    "message": "polite This origin is a non-HTTPS secure origin."
+  },
+  "security/SecurityPanel.js | thisPageHasANonhttpsSecureOrigin": {
+    "message": "polite This page has a non-HTTPS secure origin."
+  },
+  "security/SecurityPanel.js | thisPageIncludesAFormWithA": {
+    "message": "polite This page includes a form with a non-secure \"action\" attribute."
+  },
+  "security/SecurityPanel.js | thisPageIncludesHttpResources": {
+    "message": "polite This page includes HTTP resources."
+  },
+  "security/SecurityPanel.js | thisPageIncludesResourcesThat": {
+    "message": "polite This page includes resources that were loaded with certificate errors."
+  },
+  "security/SecurityPanel.js | thisPageIsDangerousFlaggedBy": {
+    "message": "polite This page is dangerous (flagged by Google Safe Browsing)."
+  },
+  "security/SecurityPanel.js | thisPageIsInsecureUnencrypted": {
+    "message": "polite This page is insecure (unencrypted HTTP)."
+  },
+  "security/SecurityPanel.js | thisPageIsNotSecure": {
+    "message": "polite This page is not secure."
+  },
+  "security/SecurityPanel.js | thisPageIsNotSecureBrokenHttps": {
+    "message": "polite This page is not secure (broken HTTPS)."
+  },
+  "security/SecurityPanel.js | thisPageIsSecureValidHttps": {
+    "message": "polite This page is secure (valid HTTPS)."
+  },
+  "security/SecurityPanel.js | thisPageIsSuspicious": {
+    "message": "polite This page is suspicious"
+  },
+  "security/SecurityPanel.js | thisPageIsSuspiciousFlaggedBy": {
+    "message": "polite This page is suspicious (flagged by Chrome)."
+  },
+  "security/SecurityPanel.js | thisRequestCompliesWithChromes": {
+    "message": "polite This request complies with Chrome's Certificate Transparency policy."
+  },
+  "security/SecurityPanel.js | thisRequestDoesNotComplyWith": {
+    "message": "polite This request does not comply with Chrome's Certificate Transparency policy."
+  },
+  "security/SecurityPanel.js | thisResponseWasLoadedFromCache": {
+    "message": "polite This response was loaded from cache. Some security details might be missing."
+  },
+  "security/SecurityPanel.js | thisSiteIsMissingAValidTrusted": {
+    "message": "polite This site is missing a valid, trusted certificate ({PH1})."
+  },
+  "security/SecurityPanel.js | thisSitesHostnameLooksSimilarToS": {
+    "message": "polite This site's hostname looks similar to {PH1}. Attackers sometimes mimic sites by making small, hard-to-see changes to the domain name.\n\nIf you believe this is shown in error please visit https://bugs.chromium.org/p/chromium/issues/entry?template=Safety+Tips+Appeals."
+  },
+  "security/SecurityPanel.js | toCheckThisPagesStatusVisit": {
+    "message": "polite To check this page's status, visit g.co/safebrowsingstatus."
+  },
+  "security/SecurityPanel.js | unknownCanceled": {
+    "message": "polite Unknown / canceled"
+  },
+  "security/SecurityPanel.js | validAndTrusted": {
+    "message": "polite valid and trusted"
+  },
+  "security/SecurityPanel.js | validationStatus": {
+    "message": "polite Validation status"
+  },
+  "security/SecurityPanel.js | validFrom": {
+    "message": "polite Valid from"
+  },
+  "security/SecurityPanel.js | validUntil": {
+    "message": "polite Valid until"
+  },
+  "security/SecurityPanel.js | viewCertificate": {
+    "message": "polite View certificate"
+  },
+  "security/SecurityPanel.js | viewDRequestInNetworkPanel": {
+    "message": "polite View {PH1} request in Network Panel"
+  },
+  "security/SecurityPanel.js | viewDRequestsInNetworkPanel": {
+    "message": "polite View {PH1} requests in Network Panel"
+  },
+  "security/SecurityPanel.js | viewRequestsInNetworkPanel": {
+    "message": "polite View requests in Network Panel"
+  },
+  "security/SecurityPanel.js | youHaveRecentlyAllowedContent": {
+    "message": "polite You have recently allowed content loaded with certificate errors (such as scripts or iframes) to run on this site."
+  },
+  "security/SecurityPanel.js | youHaveRecentlyAllowedNonsecure": {
+    "message": "polite You have recently allowed non-secure content (such as scripts or iframes) to run on this site."
+  },
+  "security/SecurityPanel.js | yourConnectionToThisOriginIsNot": {
+    "message": "polite Your connection to this origin is not secure."
+  },
+  "security/SecurityPanel.js | yourPageRequestedNonsecure": {
+    "message": "polite Your page requested non-secure resources that were blocked."
+  },
+  "settings/FrameworkIgnoreListSettingsTab.js | addFilenamePattern": {
+    "message": "polite Add filename pattern"
+  },
+  "settings/FrameworkIgnoreListSettingsTab.js | addPattern": {
+    "message": "polite Add pattern..."
+  },
+  "settings/FrameworkIgnoreListSettingsTab.js | behavior": {
+    "message": "polite Behavior"
+  },
+  "settings/FrameworkIgnoreListSettingsTab.js | debuggerWillSkipThroughThe": {
+    "message": "polite Debugger will skip through the scripts and will not stop on exceptions thrown by them."
+  },
+  "settings/FrameworkIgnoreListSettingsTab.js | disabled": {
+    "message": "polite Disabled"
+  },
+  "settings/FrameworkIgnoreListSettingsTab.js | frameworkIgnoreList": {
+    "message": "polite Framework Ignore List"
+  },
+  "settings/FrameworkIgnoreListSettingsTab.js | ignoreList": {
+    "message": "polite Ignore List"
+  },
+  "settings/FrameworkIgnoreListSettingsTab.js | ignoreListContentScripts": {
+    "message": "polite Add content scripts to ignore list"
+  },
+  "settings/FrameworkIgnoreListSettingsTab.js | ignoreListContentScriptsExtension": {
+    "message": "polite Add content scripts to ignore list (extension scripts in the page)"
+  },
+  "settings/FrameworkIgnoreListSettingsTab.js | ignoreScriptsWhoseNamesMatchS": {
+    "message": "polite Ignore scripts whose names match '{PH1}'"
+  },
+  "settings/FrameworkIgnoreListSettingsTab.js | noIgnoreListPatterns": {
+    "message": "polite No ignore list patterns"
+  },
+  "settings/FrameworkIgnoreListSettingsTab.js | pattern": {
+    "message": "polite Pattern"
+  },
+  "settings/FrameworkIgnoreListSettingsTab.js | patternAlreadyExists": {
+    "message": "polite Pattern already exists"
+  },
+  "settings/FrameworkIgnoreListSettingsTab.js | patternCannotBeEmpty": {
+    "message": "polite Pattern cannot be empty"
+  },
+  "settings/FrameworkIgnoreListSettingsTab.js | patternMustBeAValidRegular": {
+    "message": "polite Pattern must be a valid regular expression"
+  },
+  "settings/KeybindsSettingsTab.js | addAShortcut": {
+    "message": "polite Add a shortcut"
+  },
+  "settings/KeybindsSettingsTab.js | confirmChanges": {
+    "message": "polite Confirm changes"
+  },
+  "settings/KeybindsSettingsTab.js | discardChanges": {
+    "message": "polite Discard changes"
+  },
+  "settings/KeybindsSettingsTab.js | editShortcut": {
+    "message": "polite Edit shortcut"
+  },
+  "settings/KeybindsSettingsTab.js | FullListOfDevtoolsKeyboard": {
+    "message": "polite Full list of DevTools keyboard shortcuts and gestures"
+  },
+  "settings/KeybindsSettingsTab.js | keyboardShortcutsList": {
+    "message": "polite Keyboard shortcuts list"
+  },
+  "settings/KeybindsSettingsTab.js | matchShortcutsFromPreset": {
+    "message": "polite Match shortcuts from preset"
+  },
+  "settings/KeybindsSettingsTab.js | noShortcutForAction": {
+    "message": "polite No shortcut for action"
+  },
+  "settings/KeybindsSettingsTab.js | removeShortcut": {
+    "message": "polite Remove shortcut"
+  },
+  "settings/KeybindsSettingsTab.js | ResetShortcutsForAction": {
+    "message": "polite Reset shortcuts for action"
+  },
+  "settings/KeybindsSettingsTab.js | RestoreDefaultShortcuts": {
+    "message": "polite Restore default shortcuts"
+  },
+  "settings/KeybindsSettingsTab.js | shortcutModified": {
+    "message": "polite Shortcut modified"
+  },
+  "settings/KeybindsSettingsTab.js | shortcuts": {
+    "message": "polite Shortcuts"
+  },
+  "settings/KeybindsSettingsTab.js | shortcutsCannotContainOnly": {
+    "message": "polite Shortcuts cannot contain only modifier keys."
+  },
+  "settings/KeybindsSettingsTab.js | thisShortcutIsInUseByS": {
+    "message": "polite This shortcut is in use by {PH1}: {PH2}."
+  },
+  "settings/ModuleUIStrings.js | documentation": {
+    "message": "polite Documentation"
+  },
+  "settings/ModuleUIStrings.js | experiments": {
+    "message": "polite Experiments"
+  },
+  "settings/ModuleUIStrings.js | ignoreList": {
+    "message": "polite Ignore List"
+  },
+  "settings/ModuleUIStrings.js | preferences": {
+    "message": "polite Preferences"
+  },
+  "settings/ModuleUIStrings.js | settings": {
+    "message": "polite Settings"
+  },
+  "settings/ModuleUIStrings.js | shortcuts": {
+    "message": "polite Shortcuts"
+  },
+  "settings/SettingsScreen.js | experiments": {
+    "message": "polite Experiments"
+  },
+  "settings/SettingsScreen.js | oneOrMoreSettingsHaveChanged": {
+    "message": "polite One or more settings have changed which requires a reload to take effect."
+  },
+  "settings/SettingsScreen.js | preferences": {
+    "message": "polite Preferences"
+  },
+  "settings/SettingsScreen.js | restoreDefaultsAndReload": {
+    "message": "polite Restore defaults and reload"
+  },
+  "settings/SettingsScreen.js | settings": {
+    "message": "polite Settings"
+  },
+  "settings/SettingsScreen.js | shortcuts": {
+    "message": "polite Shortcuts"
+  },
+  "settings/SettingsScreen.js | theseExperimentsAreParticularly": {
+    "message": "polite These experiments are particularly unstable. Enable at your own risk."
+  },
+  "settings/SettingsScreen.js | theseExperimentsCouldBeUnstable": {
+    "message": "polite These experiments could be unstable or unreliable and may require you to restart DevTools."
+  },
+  "settings/SettingsScreen.js | warning": {
+    "message": "polite WARNING:"
+  },
+  "snippets/ModuleUIStrings.js | runSnippet": {
+    "message": "polite Run snippet"
+  },
+  "snippets/ScriptSnippetFileSystem.js | linkedTo": {
+    "message": "polite Linked to {PH1}"
+  },
+  "snippets/ScriptSnippetFileSystem.js | scriptSnippet": {
+    "message": "polite Script snippet #{PH1}"
+  },
+  "snippets/SnippetsQuickOpen.js | noSnippetsFound": {
+    "message": "polite No snippets found."
+  },
+  "text_editor/CodeMirrorTextEditor.js | codeEditor": {
+    "message": "polite Code editor"
+  },
+  "web_audio/AudioContextContentBuilder.ts | audiocontext": {
+    "message": "polite AudioContext"
+  },
+  "web_audio/AudioContextContentBuilder.ts | callbackBufferSize": {
+    "message": "polite Callback Buffer Size"
+  },
+  "web_audio/AudioContextContentBuilder.ts | callbackInterval": {
+    "message": "polite Callback Interval"
+  },
+  "web_audio/AudioContextContentBuilder.ts | currentTime": {
+    "message": "polite Current Time"
+  },
+  "web_audio/AudioContextContentBuilder.ts | maxOutputChannels": {
+    "message": "polite Max Output Channels"
+  },
+  "web_audio/AudioContextContentBuilder.ts | offlineaudiocontext": {
+    "message": "polite OfflineAudioContext"
+  },
+  "web_audio/AudioContextContentBuilder.ts | renderCapacity": {
+    "message": "polite Render Capacity"
+  },
+  "web_audio/AudioContextContentBuilder.ts | sampleRate": {
+    "message": "polite Sample Rate"
+  },
+  "web_audio/AudioContextContentBuilder.ts | state": {
+    "message": "polite State"
+  },
+  "web_audio/AudioContextSelector.ts | audioContextS": {
+    "message": "polite Audio context: {PH1}"
+  },
+  "web_audio/AudioContextSelector.ts | noRecordings": {
+    "message": "polite (no recordings)"
+  },
+  "web_audio/ModuleUIStrings.ts | audio": {
+    "message": "polite audio"
+  },
+  "web_audio/ModuleUIStrings.ts | webaudio": {
+    "message": "polite WebAudio"
+  },
+  "web_audio/WebAudioView.ts | openAPageThatUsesWebAudioApiTo": {
+    "message": "polite Open a page that uses Web Audio API to start monitoring."
+  },
+  "webauthn/ModuleUIStrings.ts | webauthn": {
+    "message": "polite WebAuthn"
+  },
+  "webauthn/WebauthnPane.ts | actions": {
+    "message": "polite Actions"
+  },
+  "webauthn/WebauthnPane.ts | active": {
+    "message": "polite Active"
+  },
+  "webauthn/WebauthnPane.ts | add": {
+    "message": "polite Add"
+  },
+  "webauthn/WebauthnPane.ts | addAuthenticator": {
+    "message": "polite Add authenticator"
+  },
+  "webauthn/WebauthnPane.ts | authenticatorS": {
+    "message": "polite Authenticator {PH1}"
+  },
+  "webauthn/WebauthnPane.ts | credentials": {
+    "message": "polite Credentials"
+  },
+  "webauthn/WebauthnPane.ts | editName": {
+    "message": "polite Edit name"
+  },
+  "webauthn/WebauthnPane.ts | enableVirtualAuthenticator": {
+    "message": "polite Enable virtual authenticator environment"
+  },
+  "webauthn/WebauthnPane.ts | export": {
+    "message": "polite Export"
+  },
+  "webauthn/WebauthnPane.ts | id": {
+    "message": "polite ID"
+  },
+  "webauthn/WebauthnPane.ts | isResident": {
+    "message": "polite Is Resident"
+  },
+  "webauthn/WebauthnPane.ts | learnMore": {
+    "message": "polite Learn more"
+  },
+  "webauthn/WebauthnPane.ts | newAuthenticator": {
+    "message": "polite New authenticator"
+  },
+  "webauthn/WebauthnPane.ts | no": {
+    "message": "polite No"
+  },
+  "webauthn/WebauthnPane.ts | noCredentialsTryCallingSFromYour": {
+    "message": "polite No credentials. Try calling {PH1} from your website."
+  },
+  "webauthn/WebauthnPane.ts | privateKeypem": {
+    "message": "polite Private key.pem"
+  },
+  "webauthn/WebauthnPane.ts | protocol": {
+    "message": "polite Protocol"
+  },
+  "webauthn/WebauthnPane.ts | remove": {
+    "message": "polite Remove"
+  },
+  "webauthn/WebauthnPane.ts | rpId": {
+    "message": "polite RP ID"
+  },
+  "webauthn/WebauthnPane.ts | saveName": {
+    "message": "polite Save name"
+  },
+  "webauthn/WebauthnPane.ts | setSAsTheActiveAuthenticator": {
+    "message": "polite Set {PH1} as the active authenticator"
+  },
+  "webauthn/WebauthnPane.ts | signCount": {
+    "message": "polite Sign Count"
+  },
+  "webauthn/WebauthnPane.ts | supportsResidentKeys": {
+    "message": "polite Supports resident keys"
+  },
+  "webauthn/WebauthnPane.ts | supportsUserVerification": {
+    "message": "polite Supports user verification"
+  },
+  "webauthn/WebauthnPane.ts | transport": {
+    "message": "polite Transport"
+  },
+  "webauthn/WebauthnPane.ts | userHandle": {
+    "message": "polite User Handle"
+  },
+  "webauthn/WebauthnPane.ts | useWebauthnForPhishingresistant": {
+    "message": "polite Use WebAuthn for phishing-resistant authentication"
+  },
+  "webauthn/WebauthnPane.ts | uuid": {
+    "message": "polite UUID"
+  },
+  "webauthn/WebauthnPane.ts | yes": {
+    "message": "polite Yes"
+  },
+  "workspace/UISourceCode.js | index": {
+    "message": "polite (index)"
+  },
+  "workspace/UISourceCode.js | thisFileWasChangedExternally": {
+    "message": "polite This file was changed externally. Would you like to reload it?"
+  }
+}

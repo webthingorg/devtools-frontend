@@ -395,6 +395,32 @@
     {
       "type": "setting",
       "category": "Appearance",
+      "title": "Language:",
+      "settingName": "language",
+      "settingType": "enum",
+      "defaultValue": "browserLanguage",
+      "reloadRequired": true,
+      "options": [
+        {
+          "title": "Switch to the same language as the browser UI",
+          "text": "Browser UI language",
+          "value": "browserLanguage"
+        },
+        {
+          "title": "Switch to English - US",
+          "text": "English - US (en-US)",
+          "value": "en-US"
+        },
+        {
+          "title": "Switch to English - British",
+          "text": "English - British (en-GB)",
+          "value": "en-GB"
+        }
+      ]
+    },
+    {
+      "type": "setting",
+      "category": "Appearance",
       "title": "Panel layout:",
       "settingName": "sidebarPosition",
       "settingType": "enum",
