@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d30ad585_dabc42ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-18T14:05:27Z",
+      "side": 1,
+      "message": "LGTM from a CSS point of view.",
+      "revId": "9bc802e8c549ae5ad22ed7f8a24fa29444e8eeb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4b623bd0_ed655db4",
@@ -48,6 +65,24 @@
       "writtenOn": "2021-01-18T13:14:44Z",
       "side": 1,
       "message": "We\u0027re moving away from the legacy patching (crbug.com/1152736), so it feels weird to use it for this new CSS file (although I get that these are existing styles that are simply moved). Would be great to avoid the legacy patching as part of this CL.\n\nJack, could you PTAl and share your legacy patching migration doc with background?",
+      "revId": "9bc802e8c549ae5ad22ed7f8a24fa29444e8eeb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "114d779c_e6568b5c",
+        "filename": "front_end/network/RequestInitiatorView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-18T14:05:27Z",
+      "side": 1,
+      "message": "Apologies, we had yet to share the dark mode migration docs, but I have now made them available to Chromium members: https://docs.google.com/document/d/1l6BnYEZzaUkKgb9YzQShVJQ0pOSBI-lFBOYBP_DwbtE/. Please let me know if you have problems accessing. This doc should give details on how we\u0027re looking to update our CSS and move away from legacy patching.\n\nIn this case, it looks like there\u0027s no legacy colours used in `requestInitiatorTreeView.css`, so you can change `enableLegacyPatching` to `false` and it should be fine.",
+      "parentUuid": "4b623bd0_ed655db4",
       "revId": "9bc802e8c549ae5ad22ed7f8a24fa29444e8eeb5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
