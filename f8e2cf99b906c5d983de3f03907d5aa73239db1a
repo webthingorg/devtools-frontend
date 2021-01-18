@@ -22,6 +22,30 @@
       },
       "revId": "f8e2cf99b906c5d983de3f03907d5aa73239db1a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd03479d_65ae9d85",
+        "filename": "front_end/developer_resources/developer_resources-meta.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-18T15:04:14Z",
+      "side": 1,
+      "message": "It works for me - did you run\n    node third_party/i18n/collect-strings.js\n\n?",
+      "parentUuid": "315dd593_5293b136",
+      "range": {
+        "startLine": 18,
+        "startChar": 42,
+        "endLine": 18,
+        "endChar": 89
+      },
+      "revId": "f8e2cf99b906c5d983de3f03907d5aa73239db1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
