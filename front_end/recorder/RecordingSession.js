@@ -260,6 +260,7 @@ export class RecordingSession {
         this);
 
     this.attachToTarget(this._target);
+
     const mainTarget = SDK.SDKModel.TargetManager.instance().mainTarget();
     if (!mainTarget) {
       throw new Error('Could not find main target');
@@ -382,7 +383,8 @@ export class RecordingSession {
     const debuggerModel =
         /** @type {!SDK.DebuggerModel.DebuggerModel} */ (target.model(SDK.DebuggerModel.DebuggerModel));
 
-    const childTargetManager = target.model(SDK.ChildTargetManager.ChildTargetManager);
+    const childTargetManager = /** @type {!SDK.ChildTargetManager.ChildTargetManager} */ (
+        target.model(SDK.ChildTargetManager.ChildTargetManager));
 
     const setupEventListeners = `
       if (!window.__recorderEventListener) {
@@ -393,6 +395,7 @@ export class RecordingSession {
         window.__recorderEventListener = recorderEventListener;
       }
     `;
+
 
     // This uses the setEventListenerBreakpoint method from the debugger
     // to get notified about new events. Therefor disable the normal debugger
@@ -405,8 +408,11 @@ export class RecordingSession {
 
     await this.evaluateInAllFrames(target, setupEventListeners);
 
-    childTargetManager?.addEventListener(SDK.ChildTargetManager.Events.TargetCreated, this.handleWindowOpened, this);
-    childTargetManager?.addEventListener(SDK.ChildTargetManager.Events.TargetDestroyed, this.handleWindowClosed, this);
+    childTargetManager.addEventListener(SDK.ChildTargetManager.Events.TargetCreated, this.handleWindowOpened, this);
+    childTargetManager.addEventListener(SDK.ChildTargetManager.Events.TargetDestroyed, this.handleWindowClosed, this);
+    for (const target of childTargetManager.childTargets()) {
+      this.attachToTarget(target);
+    }
   }
 
   /**
