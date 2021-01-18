@@ -43,6 +43,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "29e53930_98725906",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-18T03:22:22Z",
+      "side": 1,
+      "message": "I see you\u0027re actually setting this.expanded in toggleChildren() anyway, so you can delete this line.",
+      "revId": "9f3b9a9f30e366a47fd33f4e58f16e6ff5685db0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6a0dd25b_70cea25f",
         "filename": "front_end/elements/AccessibilityNode.ts",
         "patchSetId": 3
@@ -89,6 +106,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6c47069c_0b464b11",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-18T03:22:22Z",
+      "side": 1,
+      "message": "Another question for the devtools team: this seems like it should be a reflecting boolean attribute to me (i.e. \u003cdevtools-accesibility-node expanded\u003e instead of \u003cdevtools-accessibility-node class\u003d\"expanded\"\u003e), but setting up the machinery for that is a bit tedious:\n\nhttps://developers.google.com/web/fundamentals/web-components/examples/howto-checkbox (search for \"_upgradeProperty\")\n\nand\n\nhttps://developers.google.com/web/fundamentals/web-components/best-practices#lazy-properties\n\nand\n\nhttps://developers.google.com/web/fundamentals/web-components/best-practices#avoid-reentrancy\n\nI don\u0027t see any other custom elements in the devtools codebase using attributes like this (yet?) - is that a deliberate decision?\n\nIf we used that here, we wouldn\u0027t need to synchronise between the expanded property and class here (although we would need the machinery to automatically sync between the expanded property and attribute elsewhere), and this whole method would be a one-liner (just what is currently line 48).",
+      "revId": "9f3b9a9f30e366a47fd33f4e58f16e6ff5685db0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f1f6925b_d08e574e",
         "filename": "front_end/elements/AccessibilityNode.ts",
         "patchSetId": 3
@@ -106,6 +140,23 @@
         "endLine": 48,
         "endChar": 35
       },
+      "revId": "9f3b9a9f30e366a47fd33f4e58f16e6ff5685db0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e30581a2_26b60d95",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-18T03:22:22Z",
+      "side": 1,
+      "message": "No need for a separate class, instead you can do\n\n :host(:not(.expanded)) .children {\n   display: none;\n }\n\nor if we use an attribute instead of a class, that would be \n\n :host(:not([expanded])) .children {\n   display: none;\n }",
       "revId": "9f3b9a9f30e366a47fd33f4e58f16e6ff5685db0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
