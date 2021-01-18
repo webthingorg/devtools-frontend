@@ -16,6 +16,29 @@
       "message": "PTAL 😊",
       "revId": "9f3b9a9f30e366a47fd33f4e58f16e6ff5685db0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e81c640f_559bd2f6",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1143154
+      },
+      "writtenOn": "2021-01-18T01:50:44Z",
+      "side": 1,
+      "message": "I think this line will just evaluate to \u0027true\u0027 or \u0027false\u0027 with no other effect, was this included by accident?",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 33
+      },
+      "revId": "9f3b9a9f30e366a47fd33f4e58f16e6ff5685db0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
