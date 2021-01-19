@@ -34,6 +34,24 @@
       "parentUuid": "1081cf8d_8ae21b9b",
       "revId": "dbd976e22e111b4f69c7b9b0a9bc518c4889944e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99fbf255_347c7294",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-01-19T18:24:41Z",
+      "side": 1,
+      "message": "Doesn\u0027t that require tests? These are pretty safe though, and it is early, so it would be nice. (I could possibly test this since it\u0027s behavioral, if I can figure out how to find an opened tab in pupetter), but changes of rendering seems like a complete headache...",
+      "parentUuid": "1202330e_3108e25a",
+      "revId": "dbd976e22e111b4f69c7b9b0a9bc518c4889944e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
