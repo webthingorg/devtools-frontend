@@ -3,16 +3,16 @@
 // found in the LICENSE file.
 
 import {ls} from '../platform/platform.js';
-import * as SDK from '../sdk/sdk.js';
 import * as LitHtml from '../third_party/lit-html/lit-html.js';
+import {AXNode} from './AccessibilityTreeUtils.js';
 
 export interface AccessibilityNodeData {
-  axNode: SDK.AccessibilityModel.AccessibilityNode|null;
+  axNode: AXNode,
 }
 
 export class AccessibilityNode extends HTMLElement {
   private readonly shadow = this.attachShadow({mode: 'open'});
-  private axNode: SDK.AccessibilityModel.AccessibilityNode|null = null;
+  private axNode: AXNode|null = null;
 
   set data(data: AccessibilityNodeData) {
     this.axNode = data.axNode;
@@ -21,13 +21,13 @@ export class AccessibilityNode extends HTMLElement {
   }
 
   // TODO(annabelzhou): Track whether the children should be expanded and change arrow accordingly
-  private renderChildren(node: SDK.AccessibilityModel.AccessibilityNode): LitHtml.TemplateResult {
+  private renderChildren(node: AXNode): LitHtml.TemplateResult {
     if (!node) {
       return LitHtml.html``;
     }
 
     const children = [];
-    for (const child of node.children()) {
+    for (const child of node.children) {
       const childTemplate = LitHtml.html`
         <devtools-accessibility-node .data=${{
         axNode: child,
@@ -56,19 +56,18 @@ export class AccessibilityNode extends HTMLElement {
       return nodeContent;
     }
 
-    const role = this.axNode.role();
+    const role = this.axNode.role;
     if (!role) {
       return nodeContent;
     }
 
-    const roleElement = LitHtml.html`<span class='monospace'>${this.truncateTextIfNeeded(role.value || '')}</span>`;
+    const roleElement = LitHtml.html`<span class='monospace'>${this.truncateTextIfNeeded(role || '')}</span>`;
     nodeContent.push(LitHtml.html`${roleElement}`);
 
-    nodeContent.push(LitHtml.html`<span class='separator'>\xA0</span>`);
-
-    const name = this.axNode.name();
-    if (name && name.value) {
-      nodeContent.push(LitHtml.html`<span class='ax-readable-string'>"${name.value}"</span>`);
+    const name = this.axNode.name;
+    if (name) {
+      nodeContent.push(LitHtml.html`<span class='separator'>\xA0</span>`);
+      nodeContent.push(LitHtml.html`<span class='ax-readable-string'>"${name}"</span>`);
     }
 
     return nodeContent;
@@ -81,12 +80,12 @@ export class AccessibilityNode extends HTMLElement {
 
     const parts: LitHtml.TemplateResult[] = [];
     // TODO(annabelzhou): Ignored nodes (and their potential children) to be handled in the future.
-    if (this.axNode.ignored()) {
+    if (this.axNode.ignored) {
       parts.push(LitHtml.html`<span class='monospace ignored-node'>${ls`Ignored`}</span>`);
     } else {
       const nodeContent = this.renderNodeContent();
 
-      if (this.axNode.numChildren()) {
+      if (this.axNode.numChildren) {
         this.shadow.host.classList.add('parent', 'expanded');
       } else {
         this.shadow.host.classList.add('no-children');
