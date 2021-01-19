@@ -16,6 +16,46 @@
       "message": "Peter, could you please take a look?",
       "revId": "8577651d5356e3fcf0899d8708b9e41f07e0d85c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6d8df91_99a14fb3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-19T16:40:32Z",
+      "side": 1,
+      "message": "+Vidal FYI",
+      "revId": "8577651d5356e3fcf0899d8708b9e41f07e0d85c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "853f6758_c5f93d1d",
+        "filename": "front_end/i18n/i18nImpl.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-19T16:40:32Z",
+      "side": 1,
+      "message": "Please document the usage here, e.g. what you have in the CL description",
+      "range": {
+        "startLine": 52,
+        "startChar": 3,
+        "endLine": 52,
+        "endChar": 33
+      },
+      "revId": "8577651d5356e3fcf0899d8708b9e41f07e0d85c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
