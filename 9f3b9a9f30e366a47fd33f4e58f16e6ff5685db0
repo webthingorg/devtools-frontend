@@ -327,6 +327,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "de9d00c8_62af6647",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-01-19T07:19:35Z",
+      "side": 1,
+      "message": "By \"top down data flow\", I meant that there should be a single place that is changing DOM (the render function) which is based on the components state (e.g., the expanded attribute). lit-html is expected to figure out what changes have to be made to DOM based on the results of the rendering.\n\n\nJack, do you know if lit-html can be used to update the host element as well? Perhaps, in this case, manual manipulation with DOM is ok.",
+      "parentUuid": "4ed05577_76879651",
+      "revId": "9f3b9a9f30e366a47fd33f4e58f16e6ff5685db0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f1f6925b_d08e574e",
         "filename": "front_end/elements/AccessibilityNode.ts",
         "patchSetId": 3
