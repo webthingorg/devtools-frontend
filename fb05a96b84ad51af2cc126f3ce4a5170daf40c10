@@ -16,6 +16,29 @@
       "message": "Let\u0027s see if the layout tests will actually pass with this...",
       "revId": "fb05a96b84ad51af2cc126f3ce4a5170daf40c10",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecd534b8_5e5ddde2",
+        "filename": "front_end/integration_test_runner.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-01-19T22:43:36Z",
+      "side": 1,
+      "message": "Why don\u0027t we need to import non-legacy files that have been removed from the modules fields as well?",
+      "range": {
+        "startLine": 9,
+        "startChar": 43,
+        "endLine": 9,
+        "endChar": 45
+      },
+      "revId": "fb05a96b84ad51af2cc126f3ce4a5170daf40c10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
