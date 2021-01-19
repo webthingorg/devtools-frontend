@@ -345,6 +345,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "943b2eb3_0eac737d",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-19T08:10:54Z",
+      "side": 1,
+      "message": "Ah sorry I did completely misunderstand the question, apologies for the confusion.\n\nI missed that we are styling the :host item, or `this`, in this case. LitHtml can\u0027t help with that so I suggest we leave it as is and do manual manipulation of the element itself.\n\n@Alice to answer your initial question about reflecting boolean attributes, we haven\u0027t used that approach yet but not purposefully. Happy if you\u0027d like to use it here.\n\n@Meredith regarding re-rendering, it\u0027s usually safe to call the render() method because LitHtml will diff the contents and only re-render the minimal amount of stuff that it needs to.",
+      "parentUuid": "de9d00c8_62af6647",
+      "revId": "9f3b9a9f30e366a47fd33f4e58f16e6ff5685db0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f1f6925b_d08e574e",
         "filename": "front_end/elements/AccessibilityNode.ts",
         "patchSetId": 3
