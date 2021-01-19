@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70685e60_db70fec5",
+        "filename": "front_end/lighthouse/module.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-19T14:12:36Z",
+      "side": 0,
+      "message": "I think this one is still necessary for the layout tests.",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 26
+      },
+      "revId": "f2a99e868d8f26d57ffbfd7833e4bc890cec2d7b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
