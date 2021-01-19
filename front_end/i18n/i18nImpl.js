@@ -162,8 +162,7 @@ export function formatLocalized(formattedString, args) {
  * @return {string} the serialized string.
  */
 export function serializeUIString(string, values = []) {
-  const messageParts = [string];
-  const serializedMessage = {messageParts, values};
+  const serializedMessage = {string, values};
   return JSON.stringify(serializedMessage);
 }
 
