@@ -4,7 +4,7 @@
 
 import * as puppeteer from 'puppeteer';
 
-import {$$, click, goToResource, waitFor} from '../../shared/helper.js';
+import {$$, click, debuggerStatement, goToResource, waitFor, waitForFunction} from '../../shared/helper.js';
 
 export const RECORD_BUTTON_SELECTOR = '[aria-label="Record"]';
 export const STOP_BUTTON_SELECTOR = '[aria-label="Stop"]';
@@ -94,18 +94,20 @@ export async function clickOnFunctionLink() {
   await click(link);
 }
 
-export async function retrieveActivity(frontend: puppeteer.Page, activity_name: string) {
-  const acts = await $$(ACTIVITY_COLUMN_SELECTOR);
-  let act_idx;
-  for (let idx = 0; idx < acts.length; idx++) {
-    const result = await frontend.evaluate(act => act.innerText, acts[idx]);
-    if (result.includes(activity_name)) {
-      act_idx = idx;
-      break;
+export async function retrieveActivity(activity_name: string) {
+  await waitFor(ACTIVITY_COLUMN_SELECTOR);
+  const result = await waitForFunction(async () => {
+    const acts = await $$(ACTIVITY_COLUMN_SELECTOR);
+    const actsTexts = await Promise.all(acts.map(n => n.evaluate(n => n.textContent)));
+    const index = actsTexts.findIndex(text => text ? text.includes(activity_name) : false);
+    console.log(actsTexts);
+    if (index >= 0) {
+      return acts[index];
     }
-  }
-  if (act_idx) {
-    return acts[act_idx];
-  }
-  return;
+    // Scroll to see whether we can find the activity at the bottom.
+    const lastActivity = acts[acts.length - 1];
+    lastActivity.evaluate(a => a.scrollIntoView());
+    return;
+  });
+  return result;
 }
