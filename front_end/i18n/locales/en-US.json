@@ -2126,7 +2126,7 @@
   "snippets/SnippetsQuickOpen.js | noSnippetsFound": {
     "message": "No snippets found."
   },
-  "text_editor/CodeMirrorTextEditor.js | codeEditor": {
+  "text_editor/CodeMirrorTextEditor.ts | codeEditor": {
     "message": "Code editor"
   },
   "web_audio/AudioContextContentBuilder.ts | audiocontext": {
