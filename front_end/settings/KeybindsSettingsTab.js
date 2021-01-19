@@ -76,10 +76,15 @@ export const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('settings/KeybindsSettingsTab.js', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
+/** @type {!KeybindsSettingsTab} */
+let keybindsSettingsTabInstance;
+
+
 /**
  * @implements {UI.ListControl.ListDelegate<!KeybindsItem>}
  */
 export class KeybindsSettingsTab extends UI.Widget.VBox {
+  /** @private */
   constructor() {
     super(true);
     this.registerRequiredCSS('settings/keybindsSettingsTab.css', {enableLegacyPatching: true});
@@ -121,6 +126,18 @@ export class KeybindsSettingsTab extends UI.Widget.VBox {
     this._editingRow = null;
 
     this.update();
+  }
+
+  /**
+   * @param {{forceNew: ?boolean}} opts
+   */
+  static instance(opts = {forceNew: null}) {
+    const {forceNew} = opts;
+    if (!keybindsSettingsTabInstance || forceNew) {
+      keybindsSettingsTabInstance = new KeybindsSettingsTab();
+    }
+
+    return keybindsSettingsTabInstance;
   }
 
   /**

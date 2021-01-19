@@ -72,10 +72,15 @@ export const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('settings/FrameworkIgnoreListSettingsTab.js', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
+
+/** @type {!FrameworkIgnoreListSettingsTab} */
+let frameworkIgnoreListSettingsTabInstance;
+
 /**
  * @implements {UI.ListWidget.Delegate<Common.Settings.RegExpSettingItem>}
  */
 export class FrameworkIgnoreListSettingsTab extends UI.Widget.VBox {
+  /** @private */
   constructor() {
     super(true);
     this.registerRequiredCSS('settings/frameworkIgnoreListSettingsTab.css', {enableLegacyPatching: true});
@@ -114,6 +119,18 @@ export class FrameworkIgnoreListSettingsTab extends UI.Widget.VBox {
     this._setting.addChangeListener(this._settingUpdated, this);
 
     this.setDefaultFocusedElement(addPatternButton);
+  }
+
+  /**
+   * @param {{forceNew: ?boolean}} opts
+   */
+  static instance(opts = {forceNew: null}) {
+    const {forceNew} = opts;
+    if (!frameworkIgnoreListSettingsTabInstance || forceNew) {
+      frameworkIgnoreListSettingsTabInstance = new FrameworkIgnoreListSettingsTab();
+    }
+
+    return frameworkIgnoreListSettingsTabInstance;
   }
 
   /**

@@ -2081,19 +2081,19 @@
   "settings/ModuleUIStrings.js | documentation": {
     "message": "Documentation"
   },
-  "settings/ModuleUIStrings.js | experiments": {
-    "message": "Experiments"
-  },
-  "settings/ModuleUIStrings.js | ignoreList": {
-    "message": "Ignore List"
-  },
-  "settings/ModuleUIStrings.js | preferences": {
-    "message": "Preferences"
-  },
   "settings/ModuleUIStrings.js | settings": {
     "message": "Settings"
   },
-  "settings/ModuleUIStrings.js | shortcuts": {
+  "settings/settings-meta.ts | experiments": {
+    "message": "Experiments"
+  },
+  "settings/settings-meta.ts | ignoreList": {
+    "message": "Ignore List"
+  },
+  "settings/settings-meta.ts | preferences": {
+    "message": "Preferences"
+  },
+  "settings/settings-meta.ts | shortcuts": {
     "message": "Shortcuts"
   },
   "settings/SettingsScreen.js | experiments": {

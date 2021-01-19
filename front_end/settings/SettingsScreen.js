@@ -275,7 +275,12 @@ class SettingsTab extends UI.Widget.VBox {
   }
 }
 
+/** @type {!GenericSettingsTab} */
+let genericSettingsTabInstance;
+
+
 export class GenericSettingsTab extends SettingsTab {
+  /** @private */
   constructor() {
     super(i18nString(UIStrings.preferences), 'preferences-tab-content');
 
@@ -333,6 +338,18 @@ export class GenericSettingsTab extends SettingsTab {
       Common.Settings.Settings.instance().clearAll();
       Components.Reload.reload();
     }
+  }
+
+  /**
+   * @param {{forceNew: ?boolean}} opts
+   */
+  static instance(opts = {forceNew: null}) {
+    const {forceNew} = opts;
+    if (!genericSettingsTabInstance || forceNew) {
+      genericSettingsTabInstance = new GenericSettingsTab();
+    }
+
+    return genericSettingsTabInstance;
   }
 
   /**
@@ -410,7 +427,12 @@ export class GenericSettingsTab extends SettingsTab {
   }
 }
 
+
+/** @type {!ExperimentsSettingsTab} */
+let experimentsSettingsTabInstance;
+
 export class ExperimentsSettingsTab extends SettingsTab {
+  /** @private */
   constructor() {
     super(i18nString(UIStrings.experiments), 'experiments-tab-content');
 
@@ -436,6 +458,18 @@ export class ExperimentsSettingsTab extends SettingsTab {
         }
       }
     }
+  }
+
+  /**
+   * @param {{forceNew: ?boolean}} opts
+   */
+  static instance(opts = {forceNew: null}) {
+    const {forceNew} = opts;
+    if (!experimentsSettingsTabInstance || forceNew) {
+      experimentsSettingsTabInstance = new ExperimentsSettingsTab();
+    }
+
+    return experimentsSettingsTabInstance;
   }
 
   /**
