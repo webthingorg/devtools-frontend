@@ -16,6 +16,57 @@
       "message": "PTAL",
       "revId": "858174890061049c43e2844989034e7362ece84e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ee718af_268e7ca8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-01-19T13:38:22Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "858174890061049c43e2844989034e7362ece84e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ed68a81_a798bf62",
+        "filename": "front_end/sdk/PageResourceLoader.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-01-19T13:38:22Z",
+      "side": 1,
+      "message": "Would this work as a boolean const just as well?",
+      "revId": "858174890061049c43e2844989034e7362ece84e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "574f3a0e_cb660ce4",
+        "filename": "test/e2e/host/user-metrics_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-01-19T13:38:22Z",
+      "side": 1,
+      "message": "nice cleanup!",
+      "revId": "858174890061049c43e2844989034e7362ece84e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
