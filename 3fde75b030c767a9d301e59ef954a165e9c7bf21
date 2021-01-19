@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95fc154d_2b7dafe7",
+        "filename": "front_end/media/EventTimelineView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-19T14:11:05Z",
+      "side": 1,
+      "message": "Interesting, I wouldn\u0027t have expected that. Is this information missing from CDP or so?",
+      "range": {
+        "startLine": 158,
+        "startChar": 8,
+        "endLine": 158,
+        "endChar": 21
+      },
+      "revId": "3fde75b030c767a9d301e59ef954a165e9c7bf21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
