@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5f136d7_4fbee762",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-01-19T11:56:03Z",
+      "side": 1,
+      "message": "Currently, the value is empirical. I am not sure if there is a way to compute it. Basically, there are more colors (in math terms, colors with different luminances) than colors that RGB supports and sometimes multiple colors are converted to the same RGB color due to rounding from float to int.",
+      "parentUuid": "819ce32f_2a2b33be",
+      "revId": "20857538ceb5c4d0ccb6635966359ad1ad9ec9f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "f05ec3f4_9059db0e",
