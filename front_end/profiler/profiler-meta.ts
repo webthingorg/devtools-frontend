@@ -152,3 +152,16 @@ Common.Settings.registerSettingExtension({
   settingType: Common.Settings.SettingTypeObject.BOOLEAN,
   defaultValue: true,
 });
+
+UI.ViewManager.registerViewExtension({
+  location: UI.ViewManager.ViewLocationValues.PANEL,
+  id: 'js_profiler',
+  title: ls`JavaScript Profiler`,
+  commandPrompt: 'Show JavaScript Profiler',
+  persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
+  order: 65,
+  async loadView() {
+    const Profiler = await loadProfilerModule();
+    return Profiler.ProfilesPanel.JSProfilerPanel.instance();
+  },
+});
