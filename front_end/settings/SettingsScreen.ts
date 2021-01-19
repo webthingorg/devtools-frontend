@@ -28,16 +28,17 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
 
 import * as Common from '../common/common.js';
 import * as Components from '../components/components.js';
 import * as Host from '../host/host.js';
 import * as i18n from '../i18n/i18n.js';
-import {ls} from '../platform/platform.js';
+import { ls } from '../platform/platform.js';
 import * as Root from '../root/root.js';
 import * as UI from '../ui/ui.js';
 
-import {KeybindsSettingsTab} from './KeybindsSettingsTab.js';  // eslint-disable-line no-unused-vars
+import { KeybindsSettingsTab } from './KeybindsSettingsTab.js'; // eslint-disable-line no-unused-vars
 
 export const UIStrings = {
   /**
@@ -63,8 +64,7 @@ export const UIStrings = {
   /**
   *@description Message shown in the experiments panel to warn users about any possible unstable features.
   */
-  theseExperimentsCouldBeUnstable:
-      'These experiments could be unstable or unreliable and may require you to restart DevTools.',
+  theseExperimentsCouldBeUnstable: 'These experiments could be unstable or unreliable and may require you to restart DevTools.',
   /**
   *@description Message text content in Settings Screen of the Settings
   */
@@ -78,39 +78,31 @@ export const UIStrings = {
   */
   oneOrMoreSettingsHaveChanged: 'One or more settings have changed which requires a reload to take effect.',
 };
-const str_ = i18n.i18n.registerUIStrings('settings/SettingsScreen.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('settings/SettingsScreen.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
-/** @type {!SettingsScreen} */
-let settingsScreenInstance;
+let settingsScreenInstance: SettingsScreen;
 
-/**
- * @implements {UI.View.ViewLocationResolver}
- */
-export class SettingsScreen extends UI.Widget.VBox {
-  /**
-   * @private
-   */
-  constructor() {
+export class SettingsScreen extends UI.Widget.VBox implements UI.View.ViewLocationResolver {
+  _tabbedLocation: UI.View.TabbedViewLocation;
+  _keybindsTab: KeybindsSettingsTab;
+  _reportTabOnReveal: boolean;
+  private constructor() {
     super(true);
-    this.registerRequiredCSS('settings/settingsScreen.css', {enableLegacyPatching: true});
+    this.registerRequiredCSS('settings/settingsScreen.css', { enableLegacyPatching: true });
 
     this.contentElement.classList.add('settings-window-main');
     this.contentElement.classList.add('vbox');
 
     const settingsLabelElement = document.createElement('div');
-    const settingsTitleElement =
-        UI.Utils
-            .createShadowRootWithCoreStyles(
-                settingsLabelElement,
-                {cssFile: 'settings/settingsScreen.css', enableLegacyPatching: true, delegatesFocus: undefined})
-            .createChild('div', 'settings-window-title');
+    const settingsTitleElement = UI.Utils
+      .createShadowRootWithCoreStyles(settingsLabelElement, { cssFile: 'settings/settingsScreen.css', enableLegacyPatching: true, delegatesFocus: undefined })
+      .createChild('div', 'settings-window-title');
 
     UI.ARIAUtils.markAsHeading(settingsTitleElement, 1);
     settingsTitleElement.textContent = i18nString(UIStrings.settings);
 
-    this._tabbedLocation = UI.ViewManager.ViewManager.instance().createTabbedLocation(
-        () => SettingsScreen._revealSettingsScreen(), 'settings-view');
+    this._tabbedLocation = UI.ViewManager.ViewManager.instance().createTabbedLocation(() => SettingsScreen._revealSettingsScreen(), 'settings-view');
     const tabbedPane = this._tabbedLocation.tabbedPane();
     tabbedPane.leftToolbar().appendToolbarItem(new UI.Toolbar.ToolbarItem(settingsLabelElement));
     tabbedPane.setShrinkableTabs(false);
@@ -118,7 +110,7 @@ export class SettingsScreen extends UI.Widget.VBox {
     const keyBindsView = UI.ViewManager.ViewManager.instance().view('keybinds');
     if (keyBindsView) {
       keyBindsView.widget().then(widget => {
-        this._keybindsTab = /** @type {!KeybindsSettingsTab} */ (widget);
+        this._keybindsTab = widget as KeybindsSettingsTab;
       });
     }
     tabbedPane.show(this.contentElement);
@@ -127,11 +119,10 @@ export class SettingsScreen extends UI.Widget.VBox {
     this._reportTabOnReveal = false;
   }
 
-  /**
-   * @param {{forceNew: ?boolean}} opts
-   */
-  static instance(opts = {forceNew: null}) {
-    const {forceNew} = opts;
+  static instance(opts: {
+    forceNew: boolean | null;
+  } = { forceNew: null }): SettingsScreen {
+    const { forceNew } = opts;
     if (!settingsScreenInstance || forceNew) {
       settingsScreenInstance = new SettingsScreen();
     }
@@ -139,10 +130,7 @@ export class SettingsScreen extends UI.Widget.VBox {
     return settingsScreenInstance;
   }
 
-  /**
-   * @return {!SettingsScreen}
-   */
-  static _revealSettingsScreen() {
+  static _revealSettingsScreen(): SettingsScreen {
     const settingsScreen = SettingsScreen.instance();
     if (settingsScreen.isShowing()) {
       return settingsScreen;
@@ -152,7 +140,7 @@ export class SettingsScreen extends UI.Widget.VBox {
     const dialog = new UI.Dialog.Dialog();
     dialog.contentElement.tabIndex = -1;
     dialog.addCloseButton();
-    dialog.setOutsideClickCallback(() => {});
+    dialog.setOutsideClickCallback(() => { });
     dialog.setPointerEventsBehavior(UI.GlassPane.PointerEventsBehavior.PierceGlassPane);
     dialog.setOutsideTabIndexBehavior(UI.Dialog.OutsideTabIndexBehavior.PreserveMainViewTabIndex);
     settingsScreen.show(dialog.contentElement);
@@ -167,11 +155,8 @@ export class SettingsScreen extends UI.Widget.VBox {
     return settingsScreen;
   }
 
-  /**
-   * @param {!ShowSettingsScreenOptions=} options
-   */
-  static async _showSettingsScreen(options = {name: undefined, focusTabHeader: undefined}) {
-    const {name, focusTabHeader} = options;
+  static async _showSettingsScreen(options: ShowSettingsScreenOptions | undefined = { name: undefined, focusTabHeader: undefined }): Promise<void> {
+    const { name, focusTabHeader } = options;
     const settingsScreen = SettingsScreen._revealSettingsScreen();
 
     settingsScreen._selectTab(name || 'preferences');
@@ -179,32 +164,22 @@ export class SettingsScreen extends UI.Widget.VBox {
     await tabbedPane.waitForTabElementUpdate();
     if (focusTabHeader) {
       tabbedPane.focusSelectedTabHeader();
-    } else {
+    }
+    else {
       tabbedPane.focus();
     }
   }
 
-  /**
-   * @override
-   * @param {string} locationName
-   * @return {?UI.View.ViewLocation}
-   */
-  resolveLocation(locationName) {
+  resolveLocation(locationName: string): UI.View.ViewLocation | null {
     return this._tabbedLocation;
   }
 
-  /**
-   * @param {string} name
-   */
-  _selectTab(name) {
+  _selectTab(name: string): void {
     this._tabbedLocation.tabbedPane().selectTab(name, /* userGesture */ true);
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _tabInvoked(event) {
-    const eventData = /** @type {!UI.TabbedPane.EventData} */ (event.data);
+  _tabInvoked(event: Common.EventTarget.EventTargetEvent): void {
+    const eventData = event.data as UI.TabbedPane.EventData;
     if (!eventData.isUserGesture) {
       return;
     }
@@ -219,10 +194,7 @@ export class SettingsScreen extends UI.Widget.VBox {
     this._reportSettingsPanelShown(tabId);
   }
 
-  /**
-   * @param {string} tabId
-   */
-  _reportSettingsPanelShown(tabId) {
+  _reportSettingsPanelShown(tabId: string): void {
     if (tabId === i18nString(UIStrings.shortcuts)) {
       Host.userMetrics.settingsPanelShown('shortcuts');
       return;
@@ -231,10 +203,7 @@ export class SettingsScreen extends UI.Widget.VBox {
     Host.userMetrics.settingsPanelShown(tabId);
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _onEscapeKeyPressed(event) {
+  _onEscapeKeyPressed(event: Event): void {
     if (this._tabbedLocation.tabbedPane().selectedTabId === 'keybinds' && this._keybindsTab) {
       this._keybindsTab.onEscapeKeyPressed(event);
     }
@@ -242,11 +211,8 @@ export class SettingsScreen extends UI.Widget.VBox {
 }
 
 class SettingsTab extends UI.Widget.VBox {
-  /**
-   * @param {string} name
-   * @param {string=} id
-   */
-  constructor(name, id) {
+  containerElement: HTMLElement;
+  constructor(name: string, id?: string) {
     super();
     this.element.classList.add('settings-tab-container');
     if (id) {
@@ -255,14 +221,10 @@ class SettingsTab extends UI.Widget.VBox {
     const header = this.element.createChild('header');
     UI.UIUtils.createTextChild(header.createChild('h1'), name);
     this.containerElement = this.element.createChild('div', 'settings-container-wrapper')
-                                .createChild('div', 'settings-tab settings-content settings-container');
+      .createChild('div', 'settings-tab settings-content settings-container');
   }
 
-  /**
-   *  @param {string=} name
-   *  @return {!Element}
-   */
-  _appendSection(name) {
+  _appendSection(name?: string): Element {
     const block = this.containerElement.createChild('div', 'settings-block');
     if (name) {
       UI.ARIAUtils.markAsGroup(block);
@@ -276,6 +238,7 @@ class SettingsTab extends UI.Widget.VBox {
 }
 
 export class GenericSettingsTab extends SettingsTab {
+  _nameToSection: Map<string, Element>;
   constructor() {
     super(i18nString(UIStrings.preferences), 'preferences-tab-content');
 
@@ -285,14 +248,12 @@ export class GenericSettingsTab extends SettingsTab {
       'Debugger', 'Global'
     ];
 
-    /** @type {!Map<string, !Element>} */
     this._nameToSection = new Map();
     for (const sectionName of explicitSectionOrder) {
       this._createSectionElement(sectionName);
     }
 
-    /** @type {!Array<SettingDescriptor>} */
-    const unionOfSettings = [
+    const unionOfSettings: SettingDescriptor[] = [
       // TODO(crbug.com/1134103): Remove this call when all settings are migrated
       ...Root.Runtime.Runtime.instance().extensions('setting').map(extension => {
         const category = extension.descriptor().category;
@@ -308,7 +269,7 @@ export class GenericSettingsTab extends SettingsTab {
       ...Common.Settings.getRegisteredSettings().map(setting => {
         const titleMac = setting.titleMac && setting.titleMac();
         const title = setting.title && setting.title();
-        const {category, settingName, order, settingType, defaultValue} = setting;
+        const { category, settingName, order, settingType, defaultValue } = setting;
         return {
           category: category || undefined,
           settingName: settingName,
@@ -320,33 +281,23 @@ export class GenericSettingsTab extends SettingsTab {
       })
     ];
     // Some settings define their initial ordering.
-    unionOfSettings.sort(
-        (firstSetting, secondSetting) =>
-            firstSetting.order && secondSetting.order ? (firstSetting.order - secondSetting.order) : 0);
+    unionOfSettings.sort((firstSetting, secondSetting) => firstSetting.order && secondSetting.order ? (firstSetting.order - secondSetting.order) : 0);
     unionOfSettings.forEach(this._addSetting.bind(this));
     Root.Runtime.Runtime.instance().extensions(UI.SettingsUI.SettingUI).forEach(this._addSettingUI.bind(this));
 
-    this._appendSection().appendChild(
-        UI.UIUtils.createTextButton(i18nString(UIStrings.restoreDefaultsAndReload), restoreAndReload));
+    this._appendSection().appendChild(UI.UIUtils.createTextButton(i18nString(UIStrings.restoreDefaultsAndReload), restoreAndReload));
 
-    function restoreAndReload() {
+    function restoreAndReload(): void {
       Common.Settings.Settings.instance().clearAll();
       Components.Reload.reload();
     }
   }
 
-  /**
-  * @param {!SettingDescriptor} setting
-   * @return {boolean}
-   */
-  static isSettingVisible(setting) {
+  static isSettingVisible(setting: SettingDescriptor): boolean {
     return Boolean(setting.title && setting.category);
   }
 
-  /**
-   * @param {!SettingDescriptor} settingRegistration
-   */
-  _addSetting(settingRegistration) {
+  _addSetting(settingRegistration: SettingDescriptor): void {
     if (!GenericSettingsTab.isSettingVisible(settingRegistration)) {
       return;
     }
@@ -365,20 +316,13 @@ export class GenericSettingsTab extends SettingsTab {
     }
   }
 
-  /**
-   * @param {!Root.Runtime.Extension} extension
-   */
-  _addSettingUI(extension) {
+  _addSettingUI(extension: Root.Runtime.Extension): void {
     const descriptor = extension.descriptor();
     const sectionName = descriptor['category'] || '';
     extension.instance().then(appendCustomSetting.bind(this));
 
-    /**
-     * @param {!Object} object
-     * @this {GenericSettingsTab}
-     */
-    function appendCustomSetting(object) {
-      const settingUI = /** @type {!UI.SettingsUI.SettingUI} */ (object);
+    function appendCustomSetting(this: GenericSettingsTab, object: Object): void {
+      const settingUI = object as UI.SettingsUI.SettingUI;
       const element = settingUI.settingElement();
       if (element) {
         let sectionElement = this._sectionElement(sectionName);
@@ -390,22 +334,14 @@ export class GenericSettingsTab extends SettingsTab {
     }
   }
 
-  /**
-   * @param {string} sectionName
-   * @return {!Element}
-   */
-  _createSectionElement(sectionName) {
+  _createSectionElement(sectionName: string): Element {
     const uiSectionName = sectionName && i18nString(sectionName);
     const sectionElement = this._appendSection(uiSectionName);
     this._nameToSection.set(sectionName, sectionElement);
     return sectionElement;
   }
 
-  /**
-   * @param {string} sectionName
-   * @return {?Element}
-   */
-  _sectionElement(sectionName) {
+  _sectionElement(sectionName: string): Element | null {
     return this._nameToSection.get(sectionName) || null;
   }
 }
@@ -438,11 +374,7 @@ export class ExperimentsSettingsTab extends SettingsTab {
     }
   }
 
-  /**
-   * @param {string} warningMessage
-   * @return {!Element} element
-   */
-  _createExperimentsWarningSubsection(warningMessage) {
+  _createExperimentsWarningSubsection(warningMessage: string): Element {
     const subsection = document.createElement('div');
     const warning = subsection.createChild('span', 'settings-experiments-warning-subsection-warning');
     warning.textContent = i18nString(UIStrings.warning);
@@ -452,22 +384,18 @@ export class ExperimentsSettingsTab extends SettingsTab {
     return subsection;
   }
 
-  /**
-   * @param {*} experiment
-   */
-  _createExperimentCheckbox(experiment) {
+  _createExperimentCheckbox(experiment: any): HTMLParagraphElement {
     const label = UI.UIUtils.CheckboxLabel.create(i18nString(experiment.title), experiment.isEnabled());
     const input = label.checkboxElement;
     input.name = experiment.name;
-    function listener() {
+    function listener(): void {
       experiment.setEnabled(input.checked);
       // TODO(crbug.com/1161439): remove experiment duplication
       if (experiment.name === 'ignoreListJSFramesOnTimeline') {
         Root.Runtime.experiments.setEnabled('blackboxJSFramesOnTimeline', input.checked);
       }
       Host.userMetrics.experimentChanged(experiment.name, experiment.isEnabled());
-      UI.InspectorView.InspectorView.instance().displayReloadRequiredWarning(
-          i18nString(UIStrings.oneOrMoreSettingsHaveChanged));
+      UI.InspectorView.InspectorView.instance().displayReloadRequiredWarning(i18nString(UIStrings.oneOrMoreSettingsHaveChanged));
     }
     input.addEventListener('click', listener, false);
 
@@ -478,49 +406,30 @@ export class ExperimentsSettingsTab extends SettingsTab {
   }
 }
 
-/**
- * @implements {UI.ActionRegistration.ActionDelegate}
- */
-export class ActionDelegate {
-  /**
-   * @override
-   * @param {!UI.Context.Context} context
-   * @param {string} actionId
-   * @return {boolean}
-   */
-  handleAction(context, actionId) {
+export class ActionDelegate implements UI.ActionRegistration.ActionDelegate {
+  handleAction(context: UI.Context.Context, actionId: string): boolean {
     switch (actionId) {
       case 'settings.show':
-        SettingsScreen._showSettingsScreen(/** @type {!ShowSettingsScreenOptions}*/ ({focusTabHeader: true}));
+        SettingsScreen._showSettingsScreen({ focusTabHeader: true } as ShowSettingsScreenOptions);
         return true;
       case 'settings.documentation':
-        Host.InspectorFrontendHost.InspectorFrontendHostInstance.openInNewTab(
-            UI.UIUtils.addReferrerToURL('https://developers.google.com/web/tools/chrome-devtools/'));
+        Host.InspectorFrontendHost.InspectorFrontendHostInstance.openInNewTab(UI.UIUtils.addReferrerToURL('https://developers.google.com/web/tools/chrome-devtools/'));
         return true;
       case 'settings.shortcuts':
-        SettingsScreen._showSettingsScreen({name: 'keybinds', focusTabHeader: true});
+        SettingsScreen._showSettingsScreen({ name: 'keybinds', focusTabHeader: true });
         return true;
     }
     return false;
   }
 }
 
-/**
- * @implements {Common.Revealer.Revealer}
- */
-export class Revealer {
-  /**
-   * @override
-   * @param {!Object} object
-   * @return {!Promise<void>}
-   */
-  reveal(object) {
+export class Revealer implements Common.Revealer.Revealer {
+  reveal(object: Object): Promise<void> {
     console.assert(object instanceof Common.Settings.Setting);
-    const setting = /** @type {!Common.Settings.Setting<*>} */ (object);
+    const setting = object as Common.Settings.Setting<any>;
     let success = false;
 
-    /** @type {!Array<!SettingDescriptor>} */
-    const unionOfSettings = [
+    const unionOfSettings: SettingDescriptor[] = [
       // TODO(crbug.com/1134103): Remove this call when all settings are migrated
       ...Root.Runtime.Runtime.instance().extensions('setting').map(extension => {
         const category = extension.descriptor().category;
@@ -536,7 +445,7 @@ export class Revealer {
       ...Common.Settings.getRegisteredSettings().map(setting => {
         const titleMac = setting.titleMac && setting.titleMac();
         const title = setting.title && setting.title();
-        const {category, settingName, order, settingType, defaultValue} = setting;
+        const { category, settingName, order, settingType, defaultValue } = setting;
         return {
           category: category || undefined,
           settingName: settingName,
@@ -559,17 +468,14 @@ export class Revealer {
         };
       }),
       ...UI.ViewManager.getRegisteredViewExtensions().map(view => {
-        return {location: view.location(), settings: view.settings(), id: view.viewId()};
+        return { location: view.location(), settings: view.settings(), id: view.viewId() };
       }),
     ];
 
     unionOfViews.forEach(revealSettingsView);
     return success ? Promise.resolve() : Promise.reject();
 
-    /**
-     * @param {!SettingDescriptor} settingRegistration
-     */
-    function revealModuleSetting(settingRegistration) {
+    function revealModuleSetting(settingRegistration: SettingDescriptor): void {
       if (!GenericSettingsTab.isSettingVisible(settingRegistration)) {
         return;
       }
@@ -580,10 +486,7 @@ export class Revealer {
       }
     }
 
-    /**
-     * @param {!Root.Runtime.Extension} extension
-     */
-    function revealSettingUI(extension) {
+    function revealSettingUI(extension: Root.Runtime.Extension): void {
       const settings = extension.descriptor()['settings'];
       if (settings && settings.indexOf(setting.name) !== -1) {
         Host.InspectorFrontendHost.InspectorFrontendHostInstance.bringToFront();
@@ -592,10 +495,11 @@ export class Revealer {
       }
     }
 
-    /**
-     * @param {!{settings: (!Array<string>|undefined), location: (?string|undefined), id: string}} extension
-     */
-    function revealSettingsView(extension) {
+    function revealSettingsView(extension: {
+      settings: (Array<string> | undefined);
+      location: ((string | undefined) | null);
+      id: string;
+    }): void {
       const location = extension.location;
       if (location !== UI.ViewManager.ViewLocationValues.SETTINGS_VIEW) {
         return;
@@ -603,32 +507,21 @@ export class Revealer {
       const settings = extension.settings;
       if (settings && settings.indexOf(setting.name) !== -1) {
         Host.InspectorFrontendHost.InspectorFrontendHostInstance.bringToFront();
-        SettingsScreen._showSettingsScreen(
-            /** @type {!ShowSettingsScreenOptions}*/ ({name: extension.id}));
+        SettingsScreen._showSettingsScreen({ name: extension.id } as ShowSettingsScreenOptions);
         success = true;
       }
     }
   }
 }
-
-/**
- * @typedef {{
-  *     name: (string|undefined),
-  *     focusTabHeader: (boolean|undefined)
-  * }}
-  */
-// @ts-ignore typedef
-export let ShowSettingsScreenOptions;
-
-/**
- * @typedef {{
- * category: (string|undefined),
- * settingName: string,
- * title: (string|undefined),
- * order: (number|undefined),
- * settingType: string,
- * defaultValue: unknown,
- * }}
- */
-// @ts-ignore typedef
-export let SettingDescriptor;
+export interface ShowSettingsScreenOptions {
+  name?: string;
+  focusTabHeader?: boolean;
+}
+export interface SettingDescriptor {
+  category?: string;
+  settingName: string;
+  title?: string;
+  order?: number;
+  settingType: string;
+  defaultValue: unknown;
+}
