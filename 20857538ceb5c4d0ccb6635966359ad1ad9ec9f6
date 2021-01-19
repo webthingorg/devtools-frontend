@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "819ce32f_2a2b33be",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-01-19T11:51:22Z",
+      "side": 1,
+      "message": "Just for my own understanding: it’s not clear from the code/patch that this “ensures” it, imho — it’s not obvious that 0.05 is not enough but 0.10 is. Is there a straightforward way of proving this?",
+      "revId": "20857538ceb5c4d0ccb6635966359ad1ad9ec9f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f05ec3f4_9059db0e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-01-19T11:51:22Z",
+      "side": 1,
+      "message": "LGTM with a question",
+      "revId": "20857538ceb5c4d0ccb6635966359ad1ad9ec9f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
