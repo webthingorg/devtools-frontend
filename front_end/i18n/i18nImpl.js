@@ -52,6 +52,16 @@ export function registerLocale(locale) {
  * Retrieve the localized string.
  * @param {function(string, ?Object):string} str_
  * @param {string} id
+ * @return {function(): !Platform.UIString.LocalizedString} the localized version of the
+ */
+export function getLazilyComputedLocalizedString(str_, id) {
+  return () => getLocalizedString(str_, id);
+}
+
+/**
+ * Retrieve the localized string.
+ * @param {function(string, ?Object):string} str_
+ * @param {string} id
  * @param {!Object} values
  * @return {!Platform.UIString.LocalizedString} the localized version of the
  */
