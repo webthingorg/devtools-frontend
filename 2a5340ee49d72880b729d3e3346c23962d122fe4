@@ -110,6 +110,30 @@
       },
       "revId": "2a5340ee49d72880b729d3e3346c23962d122fe4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29ff2a08_39a417ec",
+        "filename": "test/unittests/front_end/ui/components/CounterButton_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-19T08:13:23Z",
+      "side": 1,
+      "message": "👍 great, feel free to ping me if you have any Sinon questions :)",
+      "parentUuid": "13074e58_c63832b8",
+      "range": {
+        "startLine": 116,
+        "startChar": 3,
+        "endLine": 124,
+        "endChar": 20
+      },
+      "revId": "2a5340ee49d72880b729d3e3346c23962d122fe4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
