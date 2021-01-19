@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b08f2c3_6b89df9b",
+        "filename": "front_end/sdk/BUILD.gn",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-19T14:19:35Z",
+      "side": 1,
+      "message": "This is a file in `sdk/`. Why is this file included in this CL?",
+      "range": {
+        "startLine": 57,
+        "startChar": 4,
+        "endLine": 57,
+        "endChar": 23
+      },
+      "revId": "ae21c3a20841e834dec929fa8c011a8912939729",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
