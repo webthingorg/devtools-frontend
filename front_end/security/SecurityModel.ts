@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as i18n from '../i18n/i18n.js';
 import * as SDK from '../sdk/sdk.js';
 
@@ -35,14 +37,13 @@ export const UIStrings = {
   */
   keyExchangeWithGroup: '{PH1} with {PH2}',
 };
-const str_ = i18n.i18n.registerUIStrings('security/SecurityModel.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('security/SecurityModel.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 export class SecurityModel extends SDK.SDKModel.SDKModel {
-  /**
-   * @param {!SDK.SDKModel.Target} target
-   */
-  constructor(target) {
+  _dispatcher: SecurityDispatcher;
+  _securityAgent: ProtocolProxyApi.SecurityApi;
+  constructor(target: SDK.SDKModel.Target) {
     super(target);
     this._dispatcher = new SecurityDispatcher(this);
     this._securityAgent = target.securityAgent();
@@ -50,27 +51,15 @@ export class SecurityModel extends SDK.SDKModel.SDKModel {
     this._securityAgent.invoke_enable();
   }
 
-  /**
-   * @return {!SDK.ResourceTreeModel.ResourceTreeModel}
-   */
-  resourceTreeModel() {
-    return /** @type {!SDK.ResourceTreeModel.ResourceTreeModel} */ (
-        this.target().model(SDK.ResourceTreeModel.ResourceTreeModel));
+  resourceTreeModel(): SDK.ResourceTreeModel.ResourceTreeModel {
+    return /** @type {!SDK.ResourceTreeModel.ResourceTreeModel} */ this.target().model(SDK.ResourceTreeModel.ResourceTreeModel) as SDK.ResourceTreeModel.ResourceTreeModel;
   }
 
-  /**
-   * @return {!SDK.NetworkManager.NetworkManager}
-   */
-  networkManager() {
-    return /** @type {!SDK.NetworkManager.NetworkManager} */ (this.target().model(SDK.NetworkManager.NetworkManager));
+  networkManager(): SDK.NetworkManager.NetworkManager {
+    return /** @type {!SDK.NetworkManager.NetworkManager} */ this.target().model(SDK.NetworkManager.NetworkManager) as SDK.NetworkManager.NetworkManager;
   }
 
-  /**
-   * @param {?Protocol.Security.SecurityState} a
-   * @param {?Protocol.Security.SecurityState} b
-   * @return {number}
-   */
-  static SecurityStateComparator(a, b) {
+  static SecurityStateComparator(a: Protocol.Security.SecurityState | null, b: Protocol.Security.SecurityState | null): number {
     const securityStateMap = getOrCreateSecurityStateOrdinalMap();
     const aScore = a && securityStateMap.get(a) || 0;
     const bScore = b && securityStateMap.get(b) || 0;
@@ -78,13 +67,9 @@ export class SecurityModel extends SDK.SDKModel.SDKModel {
     return aScore - bScore;
   }
 }
-/** @type {?Map<!Protocol.Security.SecurityState, number>} */
-let securityStateToOrdinal = null;
+let securityStateToOrdinal: Map<Protocol.Security.SecurityState, number> | null = null;
 
-/**
- * @return {!Map<!Protocol.Security.SecurityState, number>}
- */
-const getOrCreateSecurityStateOrdinalMap = () => {
+const getOrCreateSecurityStateOrdinalMap = (): Map<Protocol.Security.SecurityState, number> => {
   if (!securityStateToOrdinal) {
     securityStateToOrdinal = new Map();
     const ordering = [
@@ -104,14 +89,15 @@ const getOrCreateSecurityStateOrdinalMap = () => {
 
 SDK.SDKModel.SDKModel.register(SecurityModel, SDK.SDKModel.Capability.Security, false);
 
-/** @enum {symbol} */
-export const Events = {
-  SecurityStateChanged: Symbol('SecurityStateChanged'),
-  VisibleSecurityStateChanged: Symbol('VisibleSecurityStateChanged')
-};
+export const enum Events {
+  SecurityStateChanged = 'SecurityStateChanged',
+  VisibleSecurityStateChanged = 'VisibleSecurityStateChanged'
+}
+;
 
-/** @type {!Object<string, string>} */
-export const SummaryMessages = {
+export const SummaryMessages: {
+  [x: string]: string;
+} = {
   [Protocol.Security.SecurityState.Unknown]: i18nString(UIStrings.theSecurityOfThisPageIsUnknown),
   [Protocol.Security.SecurityState.Insecure]: i18nString(UIStrings.thisPageIsNotSecure),
   [Protocol.Security.SecurityState.Neutral]: i18nString(UIStrings.thisPageIsNotSecure),
@@ -119,14 +105,11 @@ export const SummaryMessages = {
   [Protocol.Security.SecurityState.InsecureBroken]: i18nString(UIStrings.thisPageIsNotSecureBrokenHttps)
 };
 
-
 export class PageSecurityState {
-  /**
-   * @param {!Protocol.Security.SecurityState} securityState
-   * @param {!Array<!Protocol.Security.SecurityStateExplanation>} explanations
-   * @param {?string} summary
-   */
-  constructor(securityState, explanations, summary) {
+  securityState: Protocol.Security.SecurityState;
+  explanations: Protocol.Security.SecurityStateExplanation[];
+  summary: string | null;
+  constructor(securityState: Protocol.Security.SecurityState, explanations: Protocol.Security.SecurityStateExplanation[], summary: string | null) {
     this.securityState = securityState;
     this.explanations = explanations;
     this.summary = summary;
@@ -134,117 +117,96 @@ export class PageSecurityState {
 }
 
 export class PageVisibleSecurityState {
-  /**
-   * @param {!Protocol.Security.SecurityState} securityState
-   * @param {?Protocol.Security.CertificateSecurityState} certificateSecurityState
-   * @param {?Protocol.Security.SafetyTipInfo} safetyTipInfo
-   * @param {!Array<string>} securityStateIssueIds
-   */
-  constructor(securityState, certificateSecurityState, safetyTipInfo, securityStateIssueIds) {
+  securityState: Protocol.Security.SecurityState;
+  certificateSecurityState: CertificateSecurityState | null;
+  safetyTipInfo: SafetyTipInfo | null;
+  securityStateIssueIds: string[];
+  constructor(securityState: Protocol.Security.SecurityState, certificateSecurityState: Protocol.Security.CertificateSecurityState | null, safetyTipInfo: Protocol.Security.SafetyTipInfo | null, securityStateIssueIds: string[]) {
     this.securityState = securityState;
     this.certificateSecurityState =
-        certificateSecurityState ? new CertificateSecurityState(certificateSecurityState) : null;
+      certificateSecurityState ? new CertificateSecurityState(certificateSecurityState) : null;
     this.safetyTipInfo = safetyTipInfo ? new SafetyTipInfo(safetyTipInfo) : null;
     this.securityStateIssueIds = securityStateIssueIds;
   }
 }
 
 export class CertificateSecurityState {
-  /**
-   * @param {!Protocol.Security.CertificateSecurityState} certificateSecurityState
-   */
-  constructor(certificateSecurityState) {
-    /** @type {string} */
+  protocol: string;
+  keyExchange: string;
+  keyExchangeGroup: string | null;
+  cipher: string;
+  mac: string | null;
+  certificate: string[];
+  subjectName: string;
+  issuer: string;
+  validFrom: number;
+  validTo: number;
+  certificateNetworkError: string | null;
+  certificateHasWeakSignature: boolean;
+  certificateHasSha1Signature: boolean;
+  modernSSL: boolean;
+  obsoleteSslProtocol: boolean;
+  obsoleteSslKeyExchange: boolean;
+  obsoleteSslCipher: boolean;
+  obsoleteSslSignature: boolean;
+  constructor(certificateSecurityState: Protocol.Security.CertificateSecurityState) {
     this.protocol = certificateSecurityState.protocol;
-    /** @type {string} */
     this.keyExchange = certificateSecurityState.keyExchange;
-    /** @type {?string} */
     this.keyExchangeGroup = certificateSecurityState.keyExchangeGroup || null;
-    /** @type {string} */
     this.cipher = certificateSecurityState.cipher;
-    /** @type {?string} */
     this.mac = certificateSecurityState.mac || null;
-    /** @type {!Array<string>} */
     this.certificate = certificateSecurityState.certificate;
-    /** @type {string} */
     this.subjectName = certificateSecurityState.subjectName;
-    /** @type {string} */
     this.issuer = certificateSecurityState.issuer;
-    /** @type {!Protocol.Network.TimeSinceEpoch} */
     this.validFrom = certificateSecurityState.validFrom;
-    /** @type {!Protocol.Network.TimeSinceEpoch} */
     this.validTo = certificateSecurityState.validTo;
-    /** @type {?string} */
     this.certificateNetworkError = certificateSecurityState.certificateNetworkError || null;
-    /** @type {boolean} */
     this.certificateHasWeakSignature = certificateSecurityState.certificateHasWeakSignature;
-    /** @type {boolean} */
     this.certificateHasSha1Signature = certificateSecurityState.certificateHasSha1Signature;
-    /** @type {boolean} */
     this.modernSSL = certificateSecurityState.modernSSL;
-    /** @type {boolean} */
     this.obsoleteSslProtocol = certificateSecurityState.obsoleteSslProtocol;
-    /** @type {boolean} */
     this.obsoleteSslKeyExchange = certificateSecurityState.obsoleteSslKeyExchange;
-    /** @type {boolean} */
     this.obsoleteSslCipher = certificateSecurityState.obsoleteSslCipher;
-    /** @type {boolean} */
     this.obsoleteSslSignature = certificateSecurityState.obsoleteSslSignature;
   }
 
-  /**
-   * @return {boolean}
-   */
-  isCertificateExpiringSoon() {
+  isCertificateExpiringSoon(): boolean {
     const expiryDate = new Date(this.validTo * 1000).getTime();
     return (expiryDate < new Date(Date.now()).setHours(48)) && (expiryDate > Date.now());
   }
 
-  /**
-   * @return {string}
-   */
-  getKeyExchangeName() {
+  getKeyExchangeName(): string {
     if (this.keyExchangeGroup) {
       return this.keyExchange ?
-          i18nString(UIStrings.keyExchangeWithGroup, {PH1: this.keyExchange, PH2: this.keyExchangeGroup}) :
-          this.keyExchangeGroup;
+        i18nString(UIStrings.keyExchangeWithGroup, { PH1: this.keyExchange, PH2: this.keyExchangeGroup }) :
+        this.keyExchangeGroup;
     }
     return this.keyExchange;
   }
 
-  /**
-   * @return {string}
-   */
-  getCipherFullName() {
-    return this.mac ? i18nString(UIStrings.cipherWithMAC, {PH1: this.cipher, PH2: this.mac}) : this.cipher;
+  getCipherFullName(): string {
+    return this.mac ? i18nString(UIStrings.cipherWithMAC, { PH1: this.cipher, PH2: this.mac }) : this.cipher;
   }
 }
 
 class SafetyTipInfo {
-  /**
-   * @param {!Protocol.Security.SafetyTipInfo} safetyTipInfo
-   */
-  constructor(safetyTipInfo) {
-    /** @type {string} */
+  safetyTipStatus: string;
+  safeUrl: string | null;
+  constructor(safetyTipInfo: Protocol.Security.SafetyTipInfo) {
     this.safetyTipStatus = safetyTipInfo.safetyTipStatus;
-    /** @type {?string} */
     this.safeUrl = safetyTipInfo.safeUrl || null;
   }
 }
 
 export class SecurityStyleExplanation {
-  /**
-   * @param {!Protocol.Security.SecurityState} securityState
-   * @param {string|undefined} title
-   * @param {string} summary
-   * @param {string} description
-   * @param {!Array<string>=} certificate
-   * @param {!Protocol.Security.MixedContentType=} mixedContentType
-   * @param {!Array<string>=} recommendations
-   */
-  constructor(
-      securityState, title, summary, description, certificate = [],
-      mixedContentType = Protocol.Security.MixedContentType.None, recommendations = []) {
+  securityState: Protocol.Security.SecurityState;
+  title: string | undefined;
+  summary: string;
+  description: string;
+  certificate: string[];
+  mixedContentType: Protocol.Security.MixedContentType;
+  recommendations: string[];
+  constructor(securityState: Protocol.Security.SecurityState, title: string | undefined, summary: string, description: string, certificate: string[] | undefined = [], mixedContentType: Protocol.Security.MixedContentType | undefined = Protocol.Security.MixedContentType.None, recommendations: string[] | undefined = []) {
     this.securityState = securityState;
     this.title = title;
     this.summary = summary;
@@ -255,41 +217,22 @@ export class SecurityStyleExplanation {
   }
 }
 
-/**
- * @implements {ProtocolProxyApi.SecurityDispatcher}
- */
-class SecurityDispatcher {
-  /**
-   * @param {!SecurityModel} model
-   */
-  constructor(model) {
+class SecurityDispatcher implements ProtocolProxyApi.SecurityDispatcher {
+  _model: SecurityModel;
+  constructor(model: SecurityModel) {
     this._model = model;
   }
 
-  /**
-   * @override
-   * @param {!Protocol.Security.SecurityStateChangedEvent} event
-   */
-  securityStateChanged({securityState, schemeIsCryptographic, explanations, insecureContentStatus, summary}) {
+  securityStateChanged({ securityState, schemeIsCryptographic, explanations, insecureContentStatus, summary }: Protocol.Security.SecurityStateChangedEvent): void {
     const pageSecurityState = new PageSecurityState(securityState, explanations, summary || null);
     this._model.dispatchEventToListeners(Events.SecurityStateChanged, pageSecurityState);
   }
 
-  /**
-   * @override
-   * @param {!Protocol.Security.VisibleSecurityStateChangedEvent} event
-   */
-  visibleSecurityStateChanged({visibleSecurityState}) {
-    const pageVisibleSecurityState = new PageVisibleSecurityState(
-        visibleSecurityState.securityState, visibleSecurityState.certificateSecurityState || null,
-        visibleSecurityState.safetyTipInfo || null, visibleSecurityState.securityStateIssueIds);
+  visibleSecurityStateChanged({ visibleSecurityState }: Protocol.Security.VisibleSecurityStateChangedEvent): void {
+    const pageVisibleSecurityState = new PageVisibleSecurityState(visibleSecurityState.securityState, visibleSecurityState.certificateSecurityState || null, visibleSecurityState.safetyTipInfo || null, visibleSecurityState.securityStateIssueIds);
     this._model.dispatchEventToListeners(Events.VisibleSecurityStateChanged, pageVisibleSecurityState);
   }
 
-  /**
-   * @override
-   * @param {!Protocol.Security.CertificateErrorEvent} event
-   */
-  certificateError({eventId, errorType, requestURL}) {
+  certificateError({ eventId, errorType, requestURL }: Protocol.Security.CertificateErrorEvent): void {
   }
 }
