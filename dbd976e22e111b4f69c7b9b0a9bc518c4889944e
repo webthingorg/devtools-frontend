@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1081cf8d_8ae21b9b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-01-19T16:40:15Z",
+      "side": 1,
+      "message": "Sorry for a bit of CL spam... I think I got so happy I got the focus ring to work I managed to not notice a whole bunch of problems..",
+      "revId": "dbd976e22e111b4f69c7b9b0a9bc518c4889944e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
