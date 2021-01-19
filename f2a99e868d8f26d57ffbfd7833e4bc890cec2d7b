@@ -22,6 +22,30 @@
       },
       "revId": "f2a99e868d8f26d57ffbfd7833e4bc890cec2d7b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0de4b20d_9cb6ee8a",
+        "filename": "front_end/media/PlayerMessagesView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-01-19T21:23:22Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "59955e92_fea51adb",
+      "range": {
+        "startLine": 58,
+        "startChar": 20,
+        "endLine": 58,
+        "endChar": 43
+      },
+      "revId": "f2a99e868d8f26d57ffbfd7833e4bc890cec2d7b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

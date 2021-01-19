@@ -22,6 +22,30 @@
       },
       "revId": "3fde75b030c767a9d301e59ef954a165e9c7bf21",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f18cad32_c1f28f5c",
+        "filename": "front_end/media/EventTimelineView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-01-19T21:23:22Z",
+      "side": 1,
+      "message": "In CDP, this is just typed as string in the pdl:\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/blink/public/devtools_protocol/browser_protocol.pdl;l\u003d8772?q\u003dbrowser_protocol",
+      "parentUuid": "95fc154d_2b7dafe7",
+      "range": {
+        "startLine": 158,
+        "startChar": 8,
+        "endLine": 158,
+        "endChar": 21
+      },
+      "revId": "3fde75b030c767a9d301e59ef954a165e9c7bf21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
