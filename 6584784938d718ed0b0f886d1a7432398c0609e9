@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "602f33f8_1765fd09",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-01-20T00:36:56Z",
+      "side": 1,
+      "message": "Migrating heap_snapshot_worker to localization v2.\n\nThis is an interesting one, I left some comments that explain how the migration for\nthis module will work as it is a web worker.",
+      "revId": "6584784938d718ed0b0f886d1a7432398c0609e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

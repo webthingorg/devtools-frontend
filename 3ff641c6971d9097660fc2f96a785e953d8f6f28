@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd58a5f7_1737f0f3",
+        "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1280,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-01-20T00:36:56Z",
+      "side": 1,
+      "message": "as heap_snapshot_worker is a web worker it cannot access the DOM hence the UI, so strings should not be localized in here. Instead we declare them as strings, serialize them and localize them on the view (profiler).",
+      "range": {
+        "startLine": 1280,
+        "startChar": 32,
+        "endLine": 1280,
+        "endChar": 56
+      },
+      "revId": "3ff641c6971d9097660fc2f96a785e953d8f6f28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
