@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de0fb744_59e640a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 49
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-20T11:54:26Z",
+      "side": 1,
+      "message": "LGTM! thanks",
+      "revId": "c7838d04111adbd100bfbde79b7ee227a528ab7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4709c626_b7ad4be8",
+        "filename": "test/unittests/front_end/resources/ServiceWorkerUpdateCycleHelper_test.ts",
+        "patchSetId": 49
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-20T11:54:26Z",
+      "side": 1,
+      "message": "Nit: You can exclude this prefix because the test output connects the nested describe/it blocks, e.g. right now this will output \n\nServiceWorkerUpdateCycleHelper The helper calculates update cycle ranges",
+      "range": {
+        "startLine": 19,
+        "startChar": 6,
+        "endLine": 19,
+        "endChar": 17
+      },
+      "revId": "c7838d04111adbd100bfbde79b7ee227a528ab7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
