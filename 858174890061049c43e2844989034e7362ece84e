@@ -86,6 +86,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "763ce934_3a19520b",
+        "filename": "front_end/sdk/PageResourceLoader.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-20T08:23:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ed68a81_a798bf62",
+      "revId": "858174890061049c43e2844989034e7362ece84e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "574f3a0e_cb660ce4",
@@ -99,6 +117,24 @@
       "writtenOn": "2021-01-19T13:38:22Z",
       "side": 1,
       "message": "nice cleanup!",
+      "revId": "858174890061049c43e2844989034e7362ece84e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "665a7724_d8ca5534",
+        "filename": "test/e2e/host/user-metrics_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-20T08:23:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "574f3a0e_cb660ce4",
       "revId": "858174890061049c43e2844989034e7362ece84e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
