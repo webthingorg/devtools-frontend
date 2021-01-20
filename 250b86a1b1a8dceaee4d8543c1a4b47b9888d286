@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "db3e7610_a0e8809a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1002525
+      },
+      "writtenOn": "2021-01-20T14:09:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4861420e_8e0595b6",
+      "revId": "250b86a1b1a8dceaee4d8543c1a4b47b9888d286",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "821d397a_70f63318",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -82,6 +100,24 @@
       "writtenOn": "2021-01-20T13:53:11Z",
       "side": 1,
       "message": "These strings should still be localized, no?",
+      "revId": "250b86a1b1a8dceaee4d8543c1a4b47b9888d286",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3960aebf_003db4bb",
+        "filename": "front_end/resources/AppManifestView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1002525
+      },
+      "writtenOn": "2021-01-20T14:09:59Z",
+      "side": 1,
+      "message": "Oh you\u0027re right! Thanks for catching.",
+      "parentUuid": "54cee21c_d64bddc5",
       "revId": "250b86a1b1a8dceaee4d8543c1a4b47b9888d286",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
