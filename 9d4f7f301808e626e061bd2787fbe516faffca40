@@ -54,6 +54,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "67ced690_025b502b",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-20T03:13:56Z",
+      "side": 1,
+      "message": "I don\u0027t think we want to get rid of this method. We\u0027ll need it when we add support for keyboard interactions.",
+      "revId": "9d4f7f301808e626e061bd2787fbe516faffca40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a3f62383_68fe08f6",
         "filename": "front_end/elements/AccessibilityNode.ts",
         "patchSetId": 5
