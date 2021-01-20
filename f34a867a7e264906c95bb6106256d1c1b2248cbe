@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd2b0bae_6412f656",
+        "filename": "front_end/sdk/AccessibilityModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-20T05:13:55Z",
+      "side": 1,
+      "message": "@aboxhall: can you advise on when best to enable? It seems like this might be the best option for now, since when we request getChildAXNodes, we need to have called enable beforehand, and since this method is only called via the click handlers, that means we\u0027ve definitely called requestRootNode before. Without enabling on requestRootNode, all the axids are made stale so when we requestAXChildren, we get nothing back.",
+      "revId": "f34a867a7e264906c95bb6106256d1c1b2248cbe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21ca48fd_95f95e8e",
+        "filename": "front_end/sdk/AccessibilityModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-20T05:13:55Z",
+      "side": 1,
+      "message": "I\u0027m wondering if this really needs to return anything at the moment. Once we\u0027ve migrated the AccessibilityTree/Node to use your AXNode interface in the utils file, we might need to. For now, we are returning the children but not doing anything with them, because we set up the parent/child relationship in this method, rather than on the web components themselves.\n\nI think maybe we can just call this loadChildrenIntoModel or loadAXChildren, and return some sort of success state.",
+      "revId": "f34a867a7e264906c95bb6106256d1c1b2248cbe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
