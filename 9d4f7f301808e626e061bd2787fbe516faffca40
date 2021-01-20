@@ -87,6 +87,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f9c0ea2_b216e1b5",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-20T03:13:10Z",
+      "side": 1,
+      "message": "Didn\u0027t we want to early-out if this node doesn\u0027t have children to toggle?",
+      "parentUuid": "b3366690_9f2dc7b9",
+      "revId": "9d4f7f301808e626e061bd2787fbe516faffca40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7f69623c_ab5b16a0",
