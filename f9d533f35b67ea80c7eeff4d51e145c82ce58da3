@@ -16,6 +16,24 @@
       "message": "This patch is ready for another review. PTAL",
       "revId": "f9d533f35b67ea80c7eeff4d51e145c82ce58da3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ee06b40_87eb63c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-20T13:32:38Z",
+      "side": 1,
+      "message": "Is this still needed? I thought with https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2549140 we don\u0027t try to get translated strings at module-instantiation time anymore.\n\nOne issue I have with this CL is that moving requestAndRegisterLocaleData to happen before _createSettings in MainImpl means we can\u0027t have a setting that controls the locale, as I proposed in this CL: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2635663",
+      "parentUuid": "d5f1be62_bf0b111d",
+      "revId": "f9d533f35b67ea80c7eeff4d51e145c82ce58da3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
