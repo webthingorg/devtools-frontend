@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2db64865_40e361d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-01-20T00:26:43Z",
+      "side": 1,
+      "message": "There are some ModuleUIStrings files now migrated to typescript. This CL fixes an issue in the localizationV2Checks",
+      "revId": "ff84004b26248e98156bf5bb983b69aac6bcc765",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
