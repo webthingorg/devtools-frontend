@@ -52,6 +52,24 @@
       "parentUuid": "1202330e_3108e25a",
       "revId": "dbd976e22e111b4f69c7b9b0a9bc518c4889944e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdd7ff8c_f6b9f7a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-20T06:10:44Z",
+      "side": 1,
+      "message": "These tings are kinda hard to check by puppeteer. In the future we plan to have screenshot tests, where we\u0027d screenshot the component, not the whole screen. Unfortunately thats a bit off.\n\nWe could just request the merge and see if it gets approved, the CL seems small ans safe enough as you said.",
+      "parentUuid": "99fbf255_347c7294",
+      "revId": "dbd976e22e111b4f69c7b9b0a9bc518c4889944e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
