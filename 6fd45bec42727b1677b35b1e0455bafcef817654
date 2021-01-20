@@ -56,6 +56,30 @@
       },
       "revId": "6fd45bec42727b1677b35b1e0455bafcef817654",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e58f01ec_a92bf43b",
+        "filename": "front_end/common/Settings.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-01-20T13:13:25Z",
+      "side": 1,
+      "message": "Good catch! Thank you!",
+      "parentUuid": "92762a89_bab432de",
+      "range": {
+        "startLine": 823,
+        "startChar": 16,
+        "endLine": 823,
+        "endChar": 30
+      },
+      "revId": "6fd45bec42727b1677b35b1e0455bafcef817654",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
