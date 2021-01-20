@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6d7ed85_3e8cf414",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1128439
+      },
+      "writtenOn": "2021-01-20T18:27:06Z",
+      "side": 1,
+      "message": "GRD compression is a serializing long pole in Chromium builds. It is particularly bad in debug builds where it can add O(50) seconds to build times (tested on Windows). This change fixes this for debug builds. PTAL.",
+      "revId": "32427740f46e543659e13da8fe15ed633be6a2f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
