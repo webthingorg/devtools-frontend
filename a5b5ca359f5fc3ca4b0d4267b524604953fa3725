@@ -16,6 +16,24 @@
       "message": "Any feasible way to test this?",
       "revId": "a5b5ca359f5fc3ca4b0d4267b524604953fa3725",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df12460d_941609c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2021-01-20T10:22:30Z",
+      "side": 1,
+      "message": "Testing screenshot themselves is tricky. \nI created a feature-request for it: http://crbug.com/1168447",
+      "parentUuid": "dc53fc7b_51b9eb48",
+      "revId": "a5b5ca359f5fc3ca4b0d4267b524604953fa3725",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
