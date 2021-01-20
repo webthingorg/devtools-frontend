@@ -45,7 +45,8 @@ import {GlassPane, PointerEventsBehavior, SizeBehavior} from './GlassPane.js';
 import {Icon} from './Icon.js';
 import {KeyboardShortcut} from './KeyboardShortcut.js';
 import {Toolbar, ToolbarButton} from './Toolbar.js';  // eslint-disable-line no-unused-vars
-import {TreeOutline} from './Treeoutline.js';         // eslint-disable-line no-unused-vars
+import {Tooltip} from './Tooltip.js';
+import {TreeOutline} from './Treeoutline.js';  // eslint-disable-line no-unused-vars
 import {appendStyle} from './utils/append-style.js';
 import {createShadowRootWithCoreStyles} from './utils/create-shadow-root-with-core-styles.js';
 import {focusChanged} from './utils/focus-changed.js';
@@ -1429,6 +1430,30 @@ export function createSlider(min, max, tabIndex) {
   element.sliderElement.step = String(1);
   element.sliderElement.tabIndex = tabIndex;
   return element;
+}
+
+/**
+ * @param {!HTMLElement} element
+ * @param {string} title
+ * @param {string | undefined} actionId
+ */
+export function setTitle(element, title, actionId = undefined) {
+  ARIAUtils.setAccessibleName(element, title);
+  Tooltip.install(element, title, actionId, {
+    anchorTooltipAtElement: true,
+  });
+}
+
+/**
+ * @param {!HTMLElement} parentElement
+ */
+export function appendSwitcherIcon(parentElement) {
+  const icon = createSVGChild(parentElement, 'svg');
+  icon.setAttribute('height', String(16));
+  icon.setAttribute('width', String(16));
+  const path = createSVGChild(icon, 'path');
+  path.setAttribute('d', 'M5,6 L11,6 L8,2 Z M5,10 L11,10 L8,14 Z');
+  return icon;
 }
 
 export class CheckboxLabel extends HTMLSpanElement {
