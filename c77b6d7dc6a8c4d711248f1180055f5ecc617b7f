@@ -16,6 +16,23 @@
       "message": "Hi Benedikt,\n\nI\u0027m renaming \u0027Inspect memory\u0027 to \u0027Reveal in Memory Inspector panel\u0027. PTAL!\n\nKim",
       "revId": "c77b6d7dc6a8c4d711248f1180055f5ecc617b7f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84feba82_63a466ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-01-20T07:24:21Z",
+      "side": 1,
+      "message": "LGTM, thanks.",
+      "revId": "c77b6d7dc6a8c4d711248f1180055f5ecc617b7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
