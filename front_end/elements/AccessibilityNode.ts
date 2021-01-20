@@ -33,20 +33,31 @@ export class AccessibilityNode extends HTMLElement {
   }
 
   private toggleChildren(): void {
-    if (!this.axNode) {
-      return;
-    }
-
-    const children = this.axNode.children();
-    if (!children) {
+    if (!this.axNode || !this.axNode.children()) {
       return;
     }
 
     this.expanded = !this.expanded;
     this.classList.toggle('expanded', this.expanded);
+
+    if (this.axNode.hasOnlyUnloadedChildren()) {
+      this.getChildAXNodes();
+    }
   }
 
-  // TODO(annabelzhou): Track whether the children should be expanded and change arrow accordingly
+  private async getChildAXNodes(): Promise<void> {
+    if (!this.axNode) {
+      return;
+    }
+
+    const children = await this.axNode.accessibilityModel().loadAXChildren(this.axNode.id());
+    if (!children) {
+      return;
+    }
+
+    this.render();
+  }
+
   private renderChildren(node: SDK.AccessibilityModel.AccessibilityNode): LitHtml.TemplateResult {
     if (!node) {
       return LitHtml.html``;
@@ -112,7 +123,10 @@ export class AccessibilityNode extends HTMLElement {
     } else {
       const nodeContent = this.renderNodeContent();
 
-      if (this.axNode.numChildren()) {
+      if (this.axNode.hasOnlyUnloadedChildren()) {
+        this.shadow.host.classList.add('parent');
+        this.expanded = false;
+      } else if (this.axNode.numChildren()) {
         this.shadow.host.classList.add('parent', 'expanded');
       } else {
         this.shadow.host.classList.add('no-children');
