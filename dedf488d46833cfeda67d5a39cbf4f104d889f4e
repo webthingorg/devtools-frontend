@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8a9f49c_45dd437d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-01-20T02:03:51Z",
+      "side": 1,
+      "message": "Another module migration to V2, but this one has some differences from the usual reviews:\n- I added some comments highlighting the issues (enumerated)\n- I linked this CL and the heap_snapshot_worker due to the nature of them being related\n  (more on the comments)\n- I added an exception on one of the localization scripts for this specific case, I don\u0027t expect\nthis to be a pattern that repeats in any other place of the code. (more on the comments)\n- I added aditional screenshots to highlight the ends product.\n- The rest of the files is the usual process.\n",
+      "revId": "dedf488d46833cfeda67d5a39cbf4f104d889f4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

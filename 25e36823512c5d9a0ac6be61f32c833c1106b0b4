@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "426525d4_a5ede96d",
+        "filename": "front_end/profiler/HeapSnapshotView.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-01-20T02:03:51Z",
+      "side": 1,
+      "message": "#3 We know that all strings coming from the heap_snapshot_worker need to be deserialized and live in the ModuleUIStrings.js file. So we register a new function that is aware of this resoruces and use it on the deserialize calls.",
+      "range": {
+        "startLine": 242,
+        "startChar": 6,
+        "endLine": 242,
+        "endChar": 19
+      },
+      "revId": "25e36823512c5d9a0ac6be61f32c833c1106b0b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "300dbb5a_ef3c608d",
+        "filename": "front_end/profiler/ModuleUIStrings.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-01-20T02:03:51Z",
+      "side": 1,
+      "message": "#2 This is the reason why these two CLs are linked. The resources declared in here come from the heap_snapshot_worker, which is a web worker with no access to the DOM or the i18n loaded resources (in a different context). So resources are declared in here so they can be localized and the matching strings coming from the worker will be used to display the localized resources.",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 26
+      },
+      "revId": "25e36823512c5d9a0ac6be61f32c833c1106b0b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bfe879e_1a590bc6",
+        "filename": "front_end/profiler/profiler-meta.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-01-20T02:03:51Z",
+      "side": 1,
+      "message": "#1 the bug contains more information, but even with:\ngetLazilyComputedLocalizedString\n\nthis code still executes before i18n has loaded. I suspect that modules imported in shell.js will suffer from the same. That being said I don\u0027t think we should block the migration on this, we can fix this issue atomically later(probably with the rest of the modules that suffer from it)",
+      "range": {
+        "startLine": 184,
+        "startChar": 3,
+        "endLine": 185,
+        "endChar": 82
+      },
+      "revId": "25e36823512c5d9a0ac6be61f32c833c1106b0b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfff8f71_b92c842d",
+        "filename": "scripts/localization/localizationV2Checks.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-01-20T02:03:51Z",
+      "side": 1,
+      "message": "This condition will make sure that strings added to profiler\\ModuleUIStrings will not be removed by the localization checks, otherwise they will be detected as unused strings.",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 6
+      },
+      "revId": "25e36823512c5d9a0ac6be61f32c833c1106b0b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
