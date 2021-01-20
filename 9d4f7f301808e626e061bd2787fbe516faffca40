@@ -69,6 +69,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3366690_9f2dc7b9",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-20T03:08:25Z",
+      "side": 1,
+      "message": "Yes! But I just realised that we don\u0027t really need this line at all since we weren\u0027t actually using `children`, so I\u0027ve removed it.",
+      "parentUuid": "a3f62383_68fe08f6",
+      "revId": "9d4f7f301808e626e061bd2787fbe516faffca40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7f69623c_ab5b16a0",
