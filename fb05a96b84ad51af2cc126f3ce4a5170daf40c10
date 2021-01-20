@@ -39,6 +39,30 @@
       },
       "revId": "fb05a96b84ad51af2cc126f3ce4a5170daf40c10",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcfa5d3e_1f639a98",
+        "filename": "front_end/integration_test_runner.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-20T12:21:27Z",
+      "side": 1,
+      "message": "They are imported in the `-meta.ts` files, when necessary to boot up the system. Also, the layout tests explicitly load the modules via the Runtime, which always load the entrypoint itself: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/root/Runtime.js;l\u003d682-696;drc\u003d5dbc16c0c6bd5d5fc95cb61a7edde11a07cda267",
+      "parentUuid": "ecd534b8_5e5ddde2",
+      "range": {
+        "startLine": 9,
+        "startChar": 43,
+        "endLine": 9,
+        "endChar": 45
+      },
+      "revId": "fb05a96b84ad51af2cc126f3ce4a5170daf40c10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
