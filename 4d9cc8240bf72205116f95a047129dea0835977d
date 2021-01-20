@@ -51,6 +51,24 @@
       "parentUuid": "25f0e389_c422796d",
       "revId": "4d9cc8240bf72205116f95a047129dea0835977d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ce825a2_63773efe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2021-01-20T12:35:44Z",
+      "side": 1,
+      "message": "\u003e We went this route and not \"locale selector\" mostly (IIRC) because there are some surfaces where devtools displayed messages coming from the browser already localized\n\nPlatform string translation mismatch was one reason we removed the language dropdown downstream. Another, less impactful, reason was users assuming a language selection change in DevTools UI was meant to affect the main browser UI as well.",
+      "parentUuid": "525dc9d0_d1f63a09",
+      "revId": "4d9cc8240bf72205116f95a047129dea0835977d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
