@@ -276,8 +276,8 @@ export class FontEditor extends UI.Widget.VBox {
     if (isPrimary) {
       // When deleting the primary font selector, we overwrite the value of the primary selector
       // with the value of the secondary selector and delete the secondary selector.
-      const secondarySelector = this._fontSelectors[1];
       let newPrimarySelectorValue = '';
+      const secondarySelector = this._fontSelectors[1];
       if (secondarySelector) {
         newPrimarySelectorValue = secondarySelector.input.value;
         fontSelectorObject = secondarySelector;
@@ -287,9 +287,12 @@ export class FontEditor extends UI.Widget.VBox {
       index = 1;
     }
     if (fontSelectorObject.input.parentNode) {
-      this._fontSelectorSection.removeChild(fontSelectorObject.input.parentNode);
-      this._fontSelectors.splice(index, 1);
-      this._updateFontSelectorList();
+      const hasSecondarySelector = this._fontSelectors.length > 1;
+      if (!isPrimary || hasSecondarySelector) {
+        this._fontSelectorSection.removeChild(fontSelectorObject.input.parentNode);
+        this._fontSelectors.splice(index, 1);
+        this._updateFontSelectorList();
+      }
       UI.ARIAUtils.alert(i18nString(UIStrings.fontSelectorDeletedAtIndexS, {PH1: index}), this.contentElement);
     }
     this._onFontSelectorChanged();
