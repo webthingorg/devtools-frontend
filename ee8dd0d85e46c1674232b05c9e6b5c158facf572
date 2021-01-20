@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "def3451d_5f8fec6a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002525
+      },
+      "writtenOn": "2021-01-20T14:44:33Z",
+      "side": 1,
+      "message": "As discussed with Finnur offline, it looks good to him as well.",
+      "revId": "ee8dd0d85e46c1674232b05c9e6b5c158facf572",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
