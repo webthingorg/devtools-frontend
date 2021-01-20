@@ -99,6 +99,26 @@ def _CheckChangesAreExclusiveToDirectory(input_api, output_api):
     return results
 
 
+def _CheckBugAssociation(input_api, output_api, is_committing):
+    results = [output_api.PresubmitNotifyResult('Bug Association Check:')]
+    bugs = input_api.change.BugsFromDescription()
+    message = (
+        "Each CL should be associated with a bug, use \'Bug:\' or \'Fixed:\' lines in the commit description.\n"
+        "If you explicitly don\'t want to set a bug, use \'Bug: none\' in your commit message."
+    )
+
+    if not bugs:
+        if is_committing:
+            results.append(output_api.PresubmitError(message))
+        else:
+            results.append(output_api.PresubmitNotifyResult(message))
+
+    for bug in bugs:
+        results.append(output_api.PresubmitNotifyResult(('%s') % bug))
+
+    return results
+
+
 def _CheckBuildGN(input_api, output_api):
     results = [output_api.PresubmitNotifyResult('Running BUILD.GN check:')]
     script_path = input_api.os_path.join(input_api.PresubmitLocalPath(), 'scripts', 'check_gn.js')
@@ -476,6 +496,7 @@ def CheckChangeOnUpload(input_api, output_api):
     results.extend(_CollectStrings(input_api, output_api))
     # Run checks that rely on output from other DevTool checks
     results.extend(_SideEffectChecks(input_api, output_api))
+    results.extend(_CheckBugAssociation(input_api, output_api, False))
     return results
 
 
@@ -488,6 +509,7 @@ def CheckChangeOnCommit(input_api, output_api):
     # Run checks that rely on output from other DevTool checks
     results.extend(_SideEffectChecks(input_api, output_api))
     results.extend(input_api.canned_checks.CheckChangeHasDescription(input_api, output_api))
+    results.extend(_CheckBugAssociation(input_api, output_api, True))
     return results
 
 
