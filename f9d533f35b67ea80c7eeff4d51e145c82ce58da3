@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5f1be62_bf0b111d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2021-01-20T12:12:06Z",
+      "side": 1,
+      "message": "This patch is ready for another review. PTAL",
+      "revId": "f9d533f35b67ea80c7eeff4d51e145c82ce58da3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
