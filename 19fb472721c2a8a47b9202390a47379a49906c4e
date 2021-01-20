@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fa29542_6c8853d2",
+        "filename": "front_end/media/media-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-20T12:12:48Z",
+      "side": 1,
+      "message": "Nit: these can use the lazily computed i18nString version now as well.",
+      "range": {
+        "startLine": 40,
+        "startChar": 9,
+        "endLine": 40,
+        "endChar": 78
+      },
+      "revId": "19fb472721c2a8a47b9202390a47379a49906c4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
