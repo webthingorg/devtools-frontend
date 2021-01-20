@@ -14,11 +14,23 @@ export interface AccessibilityNodeData {
 export class AccessibilityNode extends HTMLElement {
   private readonly shadow = this.attachShadow({mode: 'open'});
   private axNode: SDK.AccessibilityModel.AccessibilityNode|null = null;
+  private expanded: boolean = true;
+
+  constructor() {
+    super();
+    this.addEventListener('click', this.onClick.bind(this));
+  }
 
   set data(data: AccessibilityNodeData) {
     this.axNode = data.axNode;
     this.shadow.host.setAttribute('role', 'treeitem');
     this.render();
+  }
+
+  private onClick(e: MouseEvent): void {
+    e.stopPropagation();
+    this.expanded = !this.expanded;
+    this.classList.toggle('expanded', this.expanded);
   }
 
   // TODO(annabelzhou): Track whether the children should be expanded and change arrow accordingly
@@ -135,7 +147,11 @@ export class AccessibilityNode extends HTMLElement {
           }
 
           .children {
-            padding-inline-start: 16px;
+            padding-inline-start: 12px;
+          }
+
+          :host(:not(.expanded)) .children {
+            display: none;
           }
 
           :host(.no-children) {
