@@ -28,6 +28,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+import * as i18n from '../i18n/i18n.js';
 import * as RootModule from '../root/root.js';
 
 // Legacy runtime namespace definitions
@@ -47,6 +48,8 @@ Root.applicationDescriptor = Root.applicationDescriptor || undefined;
  */
 export async function startApplication(appName) {
   console.timeStamp('Root.Runtime.startApplication');
+
+  await i18n.i18n.requestAndRegisterLocaleData();
 
   /** @type {!Object<string, RootModule.Runtime.ModuleDescriptor>} */
   const allDescriptorsByName = {};
