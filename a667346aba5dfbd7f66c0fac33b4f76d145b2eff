@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4f2a7ff_b51b4a1d",
+        "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 1280,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-20T09:46:08Z",
+      "side": 1,
+      "message": "The problem I see here is that someone could change one of these strings and forget to change the HeapSnapshotView side, then the text would just not be translated, is that the case?\n\nCould this file refer directly to the strings in profiler/ModuleUIStrings.js instead? ModuleUIStrings could be shared/built in such a way that we can access it here too. Then the strings can\u0027t get out of sync. WDYT?",
+      "range": {
+        "startLine": 1280,
+        "startChar": 32,
+        "endLine": 1280,
+        "endChar": 56
+      },
+      "revId": "a667346aba5dfbd7f66c0fac33b4f76d145b2eff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
