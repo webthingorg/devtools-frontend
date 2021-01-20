@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8110c94d_2981bbfa",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-20T07:51:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b6d6a1d_90ba0731",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 5
+      },
+      "revId": "f34a867a7e264906c95bb6106256d1c1b2248cbe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "943c6b5e_2d74d73b",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-01-20T06:49:30Z",
       "side": 1,
       "message": "No need to check this.axNode here, we already checked above.",
+      "range": {
+        "startLine": 48,
+        "startChar": 8,
+        "endLine": 48,
+        "endChar": 23
+      },
+      "revId": "f34a867a7e264906c95bb6106256d1c1b2248cbe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2df0e9c3_d446cb71",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-20T07:51:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "943c6b5e_2d74d73b",
       "range": {
         "startLine": 48,
         "startChar": 8,
@@ -82,6 +130,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a451f99_5efd8178",
+        "filename": "front_end/sdk/AccessibilityModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-20T07:51:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d546515_b9649e0c",
+      "revId": "f34a867a7e264906c95bb6106256d1c1b2248cbe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "21ca48fd_95f95e8e",
@@ -113,6 +179,24 @@
       "side": 1,
       "message": "Agreed.",
       "parentUuid": "21ca48fd_95f95e8e",
+      "revId": "f34a867a7e264906c95bb6106256d1c1b2248cbe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70b46ce2_76daf036",
+        "filename": "front_end/sdk/AccessibilityModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-20T07:51:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7214cc5_14dea321",
       "revId": "f34a867a7e264906c95bb6106256d1c1b2248cbe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
