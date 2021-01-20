@@ -69,6 +69,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "81c3b3ae_c7cbdf95",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-20T03:23:07Z",
+      "side": 1,
+      "message": "Ahh my bad",
+      "parentUuid": "67ced690_025b502b",
+      "revId": "9d4f7f301808e626e061bd2787fbe516faffca40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3f62383_68fe08f6",
@@ -118,6 +136,24 @@
       "side": 1,
       "message": "Didn\u0027t we want to early-out if this node doesn\u0027t have children to toggle?",
       "parentUuid": "b3366690_9f2dc7b9",
+      "revId": "9d4f7f301808e626e061bd2787fbe516faffca40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9966fbc1_b1dd7e01",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-20T03:23:07Z",
+      "side": 1,
+      "message": "Oops I\u0027ll add it back sorry",
+      "parentUuid": "7f9c0ea2_b216e1b5",
       "revId": "9d4f7f301808e626e061bd2787fbe516faffca40",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
