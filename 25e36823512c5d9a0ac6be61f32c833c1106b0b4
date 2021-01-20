@@ -72,6 +72,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "25e139e2_5df6789e",
+        "filename": "front_end/profiler/profiler-meta.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-01-20T02:25:36Z",
+      "side": 1,
+      "message": "quick update on this specific  issue. @andoli just posted a fix for this, so when it gets checked in I\u0027ll update this line.",
+      "parentUuid": "7bfe879e_1a590bc6",
+      "range": {
+        "startLine": 184,
+        "startChar": 3,
+        "endLine": 185,
+        "endChar": 82
+      },
+      "revId": "25e36823512c5d9a0ac6be61f32c833c1106b0b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bfff8f71_b92c842d",
         "filename": "scripts/localization/localizationV2Checks.js",
         "patchSetId": 13
