@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9f50d8d_8bfc4cbf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2021-01-20T08:18:19Z",
+      "side": 1,
+      "message": "Migrate inline editor. PTAL, thanks !",
+      "revId": "614272579a0cde286b2dff2e7374bf05e6b4eca5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
