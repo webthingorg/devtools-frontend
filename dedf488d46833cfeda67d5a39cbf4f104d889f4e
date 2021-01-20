@@ -16,6 +16,115 @@
       "message": "Another module migration to V2, but this one has some differences from the usual reviews:\n- I added some comments highlighting the issues (enumerated)\n- I linked this CL and the heap_snapshot_worker due to the nature of them being related\n  (more on the comments)\n- I added an exception on one of the localization scripts for this specific case, I don\u0027t expect\nthis to be a pattern that repeats in any other place of the code. (more on the comments)\n- I added aditional screenshots to highlight the ends product.\n- The rest of the files is the usual process.\n",
       "revId": "dedf488d46833cfeda67d5a39cbf4f104d889f4e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1728fcec_6f093b45",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-20T09:02:41Z",
+      "side": 1,
+      "message": "Some notes, thanks",
+      "revId": "dedf488d46833cfeda67d5a39cbf4f104d889f4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "647db25b_6b697eff",
+        "filename": "front_end/profiler/HeapSnapshotGridNodes.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-20T09:02:41Z",
+      "side": 1,
+      "message": "This is going to be really hard to translate correctly... can you leave a TODO(l10n): Fix translation\n\nor something similar? We can fix it later",
+      "range": {
+        "startLine": 989,
+        "startChar": 11,
+        "endLine": 989,
+        "endChar": 36
+      },
+      "revId": "dedf488d46833cfeda67d5a39cbf4f104d889f4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97c01c2c_b865e315",
+        "filename": "front_end/profiler/ModuleUIStrings.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-20T09:02:41Z",
+      "side": 1,
+      "message": "1 :)",
+      "range": {
+        "startLine": 1,
+        "startChar": 16,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "dedf488d46833cfeda67d5a39cbf4f104d889f4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ee1ece2_7883ac25",
+        "filename": "front_end/profiler/profiler-meta.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-20T09:02:41Z",
+      "side": 1,
+      "message": "Can you leave a TODO(l10n)?",
+      "range": {
+        "startLine": 184,
+        "startChar": 2,
+        "endLine": 184,
+        "endChar": 60
+      },
+      "revId": "dedf488d46833cfeda67d5a39cbf4f104d889f4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ffaf992_23c44bd4",
+        "filename": "scripts/localization/localizationV2Checks.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-20T09:02:41Z",
+      "side": 1,
+      "message": "nit: sent",
+      "range": {
+        "startLine": 27,
+        "startChar": 45,
+        "endLine": 27,
+        "endChar": 46
+      },
+      "revId": "dedf488d46833cfeda67d5a39cbf4f104d889f4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

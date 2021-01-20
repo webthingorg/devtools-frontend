@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23340b3e_b86aba50",
+        "filename": "front_end/profiler/CPUProfileView.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-20T09:02:41Z",
+      "side": 0,
+      "message": "Something seems to have gone wrong here - this was merged with the string above and not moved into the UIStrings object. Can you take a look?",
+      "range": {
+        "startLine": 157,
+        "startChar": 9,
+        "endLine": 157,
+        "endChar": 100
+      },
+      "revId": "a667346aba5dfbd7f66c0fac33b4f76d145b2eff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3073573_e74571f0",
+        "filename": "front_end/profiler/ProfileSidebarTreeElement.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-20T09:02:41Z",
+      "side": 0,
+      "message": "This one with the ellipsis seems to have been merged with the string above without ellipsis - seems like the same bug as earlier?",
+      "range": {
+        "startLine": 178,
+        "startChar": 67,
+        "endLine": 178,
+        "endChar": 76
+      },
+      "revId": "a667346aba5dfbd7f66c0fac33b4f76d145b2eff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
