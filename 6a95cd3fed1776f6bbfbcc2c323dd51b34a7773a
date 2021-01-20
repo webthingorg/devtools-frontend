@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d27cc7c_ae201ad4",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-20T21:48:33Z",
+      "side": 1,
+      "message": "Seems like the children would be loaded after a call to loadAXChildren()?\n\nMaybe just call this `children`.",
+      "range": {
+        "startLine": 53,
+        "startChar": 10,
+        "endLine": 53,
+        "endChar": 26
+      },
+      "revId": "6a95cd3fed1776f6bbfbcc2c323dd51b34a7773a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
