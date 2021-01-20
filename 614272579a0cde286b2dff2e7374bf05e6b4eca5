@@ -16,6 +16,69 @@
       "message": "Migrate inline editor. PTAL, thanks !",
       "revId": "614272579a0cde286b2dff2e7374bf05e6b4eca5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0aaae178_7559f66b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-20T08:37:06Z",
+      "side": 1,
+      "message": "LGTM with notes",
+      "revId": "614272579a0cde286b2dff2e7374bf05e6b4eca5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8782c2cc_30b22aa4",
+        "filename": "front_end/inline_editor/BezierEditor.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-20T08:37:06Z",
+      "side": 1,
+      "message": "Should be BezierEditor?",
+      "range": {
+        "startLine": 12,
+        "startChar": 56,
+        "endLine": 12,
+        "endChar": 67
+      },
+      "revId": "614272579a0cde286b2dff2e7374bf05e6b4eca5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0c00e16_d1e4c3dc",
+        "filename": "front_end/inline_editor/BezierEditor.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-20T08:37:06Z",
+      "side": 1,
+      "message": "This seems like incorrect use of localization to me - this won\u0027t actually get translated because it\u0027s a dynamic string. Not your code but maybe worth removing the i18nString call here if it doesn\u0027t work?",
+      "range": {
+        "startLine": 102,
+        "startChar": 47,
+        "endLine": 102,
+        "endChar": 102
+      },
+      "revId": "614272579a0cde286b2dff2e7374bf05e6b4eca5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
