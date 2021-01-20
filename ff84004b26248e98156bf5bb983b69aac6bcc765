@@ -16,6 +16,69 @@
       "message": "There are some ModuleUIStrings files now migrated to typescript. This CL fixes an issue in the localizationV2Checks",
       "revId": "ff84004b26248e98156bf5bb983b69aac6bcc765",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39924062_384104ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-20T06:39:00Z",
+      "side": 1,
+      "message": "lgtm % nits for the regex patterns used.",
+      "revId": "ff84004b26248e98156bf5bb983b69aac6bcc765",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37c88b31_4d6189f0",
+        "filename": "scripts/localization/localizationV2Checks.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-20T06:39:00Z",
+      "side": 1,
+      "message": "nit: The regex flags seem somewhat off. The \u0027g\u0027 (global) flag does nothing in this case. Also the regex now does a case-insensitive comparison, while the old code expected the exact case. Is that intended?\n\nSince the old code checked with `endsWith` we could also add a `$` to the end of the pattern, so the pattern becomes (also below):\n\n  /ModuleUIStrings\\.(js|ts)$/\n\nWdyt?",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 54
+      },
+      "revId": "ff84004b26248e98156bf5bb983b69aac6bcc765",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9106bde6_cc85dd41",
+        "filename": "scripts/localization/localizationV2Checks.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-20T06:39:00Z",
+      "side": 1,
+      "message": "nit: Similar for the regex flags in this case. The \u0027g\u0027 would cause all occurences of the match to be replaced, while the old code only replaced one match (since its a filepath, I expect one match to be enough in this case.\n\nSame question for \u0027i\u0027 (case-insensitive) as above.",
+      "range": {
+        "startLine": 26,
+        "startChar": 43,
+        "endLine": 26,
+        "endChar": 71
+      },
+      "revId": "ff84004b26248e98156bf5bb983b69aac6bcc765",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
