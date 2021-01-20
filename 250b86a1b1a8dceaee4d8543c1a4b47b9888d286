@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "4861420e_8e0595b6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-01-20T13:53:11Z",
+      "side": 1,
+      "message": "minor nit: Chrome Standards team aims to implement the latest draft specs, so let\u0027s point to https://w3c.github.io/manifest-app-info/ instead of the TR snapshot?",
+      "revId": "250b86a1b1a8dceaee4d8543c1a4b47b9888d286",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "821d397a_70f63318",
@@ -31,6 +48,40 @@
       "writtenOn": "2021-01-20T13:46:25Z",
       "side": 1,
       "message": "Hey Mathias,\nPlease have a look at this CL ;)",
+      "revId": "250b86a1b1a8dceaee4d8543c1a4b47b9888d286",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04c8db25_530aab82",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-01-20T13:53:11Z",
+      "side": 1,
+      "message": "LGTM % minor comment",
+      "revId": "250b86a1b1a8dceaee4d8543c1a4b47b9888d286",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54cee21c_d64bddc5",
+        "filename": "front_end/resources/AppManifestView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-01-20T13:53:11Z",
+      "side": 1,
+      "message": "These strings should still be localized, no?",
       "revId": "250b86a1b1a8dceaee4d8543c1a4b47b9888d286",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
