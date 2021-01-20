@@ -33,6 +33,29 @@
       "message": "Ahh so it was Settings and not shell 😊, thanks for the quick follow up Andres. Code LGTM, I also tested it on my branch and I can see the tab title being localized correctly.",
       "revId": "6fd45bec42727b1677b35b1e0455bafcef817654",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92762a89_bab432de",
+        "filename": "front_end/common/Settings.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-20T12:14:44Z",
+      "side": 1,
+      "message": "Since we don\u0027t initialize the property in the constructor, this can still be undefined. (This is a TypeScript quirk in how it handles JSDoc property definitions in constructors) Therefore, I think we should have the following instead:\n\n```\nif (!this._titleFunction) {\n  return \u0027\u0027;\n}\nreturn this._titleFunction();\n```",
+      "range": {
+        "startLine": 823,
+        "startChar": 16,
+        "endLine": 823,
+        "endChar": 30
+      },
+      "revId": "6fd45bec42727b1677b35b1e0455bafcef817654",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
