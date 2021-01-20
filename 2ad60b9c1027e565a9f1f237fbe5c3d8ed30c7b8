@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "076efbb7_c0d78437",
+        "filename": "front_end/mobile_throttling/mobile_throttling-meta.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-20T12:12:02Z",
+      "side": 1,
+      "message": "I thought we had an enum for this as well, didn\u0027t we? If not, I don\u0027t mind keeping this as a string as well.",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 30
+      },
+      "revId": "2ad60b9c1027e565a9f1f237fbe5c3d8ed30c7b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
