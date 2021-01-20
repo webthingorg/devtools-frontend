@@ -16,6 +16,41 @@
       "message": "Hi folks,\n\nI wanted to get your opinion on adding a setting in the devtools UI to switch between languages.\n\nRight now the language is the same as the browser UI language. On Linux + Mac this can only be changed by changing the OS-level setting, not in Chrome itself.\nI think some people will want to override the setting in devtools to keep it in English or even pick a different lang. WDYT?\n\nI added a fake en-GB locale file here so you can test it out if you like.",
       "revId": "4d9cc8240bf72205116f95a047129dea0835977d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14ac7094_2b1b2406",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-01-20T02:40:10Z",
+      "side": 1,
+      "message": "left some comments 😊",
+      "revId": "4d9cc8240bf72205116f95a047129dea0835977d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "525dc9d0_d1f63a09",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-01-20T02:40:10Z",
+      "side": 1,
+      "message": "Hi Peter,\nThanks for tagging us here. My 2c:\nWe have a similar setting in Edge, it controls whether you get en-US or a localized version of the tools. We went this route and not \"locale selector\" mostly (IIRC) because there are some surfaces where devtools displayed messages coming from the browser already localized, e.g Console or Security. So the user could end up having three locales in the UI (worst case):\n- en-US for a non localized string(new)\n- {locale} selected in the devtools setting\n- messages from the host in the host locale.\n\nNot sure if this is still the case (this was around loc V1 implementation) but something to keep in mind 😊\n\nPro-Tip: you can always use en-XL.json for testing that way you dont need to add it to i18n.js (it is already there) and also you get updated strings generated at the same time en-US.json are generated.",
+      "parentUuid": "25f0e389_c422796d",
+      "revId": "4d9cc8240bf72205116f95a047129dea0835977d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
