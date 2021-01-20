@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9b6d6a1d_90ba0731",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-20T06:49:30Z",
+      "side": 1,
+      "message": "Could combine these as:\n\n if (!this.axNode || !this.axNode.children()) {\n   return;\n }",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 5
+      },
+      "revId": "f34a867a7e264906c95bb6106256d1c1b2248cbe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "943c6b5e_2d74d73b",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-20T06:49:30Z",
+      "side": 1,
+      "message": "No need to check this.axNode here, we already checked above.",
+      "range": {
+        "startLine": 48,
+        "startChar": 8,
+        "endLine": 48,
+        "endChar": 23
+      },
+      "revId": "f34a867a7e264906c95bb6106256d1c1b2248cbe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fd2b0bae_6412f656",
         "filename": "front_end/sdk/AccessibilityModel.js",
         "patchSetId": 2
@@ -20,6 +66,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8d546515_b9649e0c",
+        "filename": "front_end/sdk/AccessibilityModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-20T06:49:30Z",
+      "side": 1,
+      "message": "Yep, this is the best place. \n\nMaybe add a TODO to disable when appropriate?",
+      "parentUuid": "fd2b0bae_6412f656",
+      "revId": "f34a867a7e264906c95bb6106256d1c1b2248cbe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "21ca48fd_95f95e8e",
         "filename": "front_end/sdk/AccessibilityModel.js",
         "patchSetId": 2
@@ -31,6 +95,24 @@
       "writtenOn": "2021-01-20T05:13:55Z",
       "side": 1,
       "message": "I\u0027m wondering if this really needs to return anything at the moment. Once we\u0027ve migrated the AccessibilityTree/Node to use your AXNode interface in the utils file, we might need to. For now, we are returning the children but not doing anything with them, because we set up the parent/child relationship in this method, rather than on the web components themselves.\n\nI think maybe we can just call this loadChildrenIntoModel or loadAXChildren, and return some sort of success state.",
+      "revId": "f34a867a7e264906c95bb6106256d1c1b2248cbe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7214cc5_14dea321",
+        "filename": "front_end/sdk/AccessibilityModel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-01-20T06:49:30Z",
+      "side": 1,
+      "message": "Agreed.",
+      "parentUuid": "21ca48fd_95f95e8e",
       "revId": "f34a867a7e264906c95bb6106256d1c1b2248cbe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
