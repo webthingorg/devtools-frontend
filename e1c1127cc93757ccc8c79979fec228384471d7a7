@@ -16,6 +16,23 @@
       "message": "PTAL, thank you!",
       "revId": "e1c1127cc93757ccc8c79979fec228384471d7a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23d071eb_37cee491",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-21T04:34:29Z",
+      "side": 1,
+      "message": "Might be worth thinking about how this will look/work if we move over to using AXNode from the testing CL. https://crrev.com/c/2636102\n\nHow will an AccessibilityNode component get the accessibilityModel to load in the new children? Maybe each AccessibilityNode contains a reference to it\u0027s enclosing AccessibilityTree component, which has an API for communicating with the AccessibilityModel?",
+      "revId": "e1c1127cc93757ccc8c79979fec228384471d7a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
