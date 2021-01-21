@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "b1b5ba40ef57401713766f33ff4849927217d890",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80546ad5_d667131d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-01-21T10:13:59Z",
+      "side": 1,
+      "message": "LGTM % question about what this change does:\nAm I right to assume that by consuming in the capture phase the checkbox never received the focus? ",
+      "revId": "b1b5ba40ef57401713766f33ff4849927217d890",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
