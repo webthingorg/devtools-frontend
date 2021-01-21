@@ -85,6 +85,24 @@
       "parentUuid": "4b623bd0_ed655db4",
       "revId": "9bc802e8c549ae5ad22ed7f8a24fa29444e8eeb5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e53514aa_c045437e",
+        "filename": "front_end/network/RequestInitiatorView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2021-01-21T18:26:41Z",
+      "side": 1,
+      "message": "I have set the legacy patching to false. Thanks for the feedback!",
+      "parentUuid": "114d779c_e6568b5c",
+      "revId": "9bc802e8c549ae5ad22ed7f8a24fa29444e8eeb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
