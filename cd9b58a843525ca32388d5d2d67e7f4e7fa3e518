@@ -103,6 +103,24 @@
       "parentUuid": "0b0a16a8_9a732bf0",
       "revId": "cd9b58a843525ca32388d5d2d67e7f4e7fa3e518",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac138b9c_12796f29",
+        "filename": "test/e2e/sources/can-open-linear-memory-inspector_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-01-21T09:36:32Z",
+      "side": 1,
+      "message": "Ah right, nvm :).",
+      "parentUuid": "a30644a5_39f0c7c8",
+      "revId": "cd9b58a843525ca32388d5d2d67e7f4e7fa3e518",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
