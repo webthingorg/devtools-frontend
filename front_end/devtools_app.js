@@ -19,6 +19,7 @@ import './layers/layers-meta.js';
 import './lighthouse/lighthouse-meta.js';
 import './media/media-meta.js';
 import './mobile_throttling/mobile_throttling-meta.js';
+import './web_audio/web_audio-meta.js';
 import * as Startup from './startup/startup.js';
 
 Startup.RuntimeInstantiator.startApplication('devtools_app');
