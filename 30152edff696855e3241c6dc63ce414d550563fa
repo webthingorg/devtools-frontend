@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49a9bbcf_56767b0d",
+        "filename": "front_end/issues/issues_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-21T14:09:38Z",
+      "side": 0,
+      "message": "These don\u0027t get re-added anywhere, it looks like there\u0027s a bug in that we don\u0027t extract strings from ui/components: https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1169118\n\nWill address as a follow-up",
+      "range": {
+        "startLine": 75,
+        "startChar": 2,
+        "endLine": 77,
+        "endChar": 12
+      },
+      "revId": "30152edff696855e3241c6dc63ce414d550563fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
