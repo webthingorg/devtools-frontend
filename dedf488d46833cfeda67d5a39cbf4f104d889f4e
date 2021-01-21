@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "867cb8af_6e46b2de",
+        "filename": "front_end/profiler/HeapSnapshotGridNodes.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-01-21T07:40:06Z",
+      "side": 1,
+      "message": "I improved the description, but still added the TODO in case we want to do a follow up.",
+      "parentUuid": "647db25b_6b697eff",
+      "range": {
+        "startLine": 989,
+        "startChar": 11,
+        "endLine": 989,
+        "endChar": 36
+      },
+      "revId": "dedf488d46833cfeda67d5a39cbf4f104d889f4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "97c01c2c_b865e315",
@@ -71,6 +95,30 @@
       "writtenOn": "2021-01-20T09:02:41Z",
       "side": 1,
       "message": "1 :)",
+      "range": {
+        "startLine": 1,
+        "startChar": 16,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "dedf488d46833cfeda67d5a39cbf4f104d889f4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38e6e8fd_602258f1",
+        "filename": "front_end/profiler/ModuleUIStrings.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-01-21T07:40:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "97c01c2c_b865e315",
       "range": {
         "startLine": 1,
         "startChar": 16,
@@ -104,6 +152,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "090dc104_0f7ed84a",
+        "filename": "front_end/profiler/profiler-meta.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-01-21T07:40:06Z",
+      "side": 1,
+      "message": "this has been fixed by @andoli",
+      "parentUuid": "9ee1ece2_7883ac25",
+      "range": {
+        "startLine": 184,
+        "startChar": 2,
+        "endLine": 184,
+        "endChar": 60
+      },
+      "revId": "dedf488d46833cfeda67d5a39cbf4f104d889f4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2ffaf992_23c44bd4",
@@ -117,6 +189,30 @@
       "writtenOn": "2021-01-20T09:02:41Z",
       "side": 1,
       "message": "nit: sent",
+      "range": {
+        "startLine": 27,
+        "startChar": 45,
+        "endLine": 27,
+        "endChar": 46
+      },
+      "revId": "dedf488d46833cfeda67d5a39cbf4f104d889f4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00d7ef38_e012badd",
+        "filename": "scripts/localization/localizationV2Checks.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-01-21T07:40:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2ffaf992_23c44bd4",
       "range": {
         "startLine": 27,
         "startChar": 45,
