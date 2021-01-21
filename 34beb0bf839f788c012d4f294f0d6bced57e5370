@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1255137f_69e45be2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-21T04:36:51Z",
+      "side": 1,
+      "message": "Hi DevTools team, PTAL at these unit tests! Could you also advise whether interaction tests would be suitable to test interactions with the AccessibilityModel and if so, direct me to some relevant documentation/ examples? Thank you!",
+      "revId": "34beb0bf839f788c012d4f294f0d6bced57e5370",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
