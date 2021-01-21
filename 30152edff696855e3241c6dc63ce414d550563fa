@@ -22,6 +22,30 @@
       },
       "revId": "30152edff696855e3241c6dc63ce414d550563fa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6da89775_d84f5f14",
+        "filename": "front_end/issues/issues_strings.grdp",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-01-21T14:15:45Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "49a9bbcf_56767b0d",
+      "range": {
+        "startLine": 75,
+        "startChar": 2,
+        "endLine": 77,
+        "endChar": 12
+      },
+      "revId": "30152edff696855e3241c6dc63ce414d550563fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
