@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e96a01e_b5c98170",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-01-21T09:14:24Z",
+      "side": 1,
+      "message": "LGTM, thanks a lot for adding all those comments Philip!",
+      "revId": "86443e21f4f117a386e3f81064b70c926b91f674",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4217503b_4b04676a",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-01-21T09:14:24Z",
+      "side": 1,
+      "message": "expression",
+      "revId": "86443e21f4f117a386e3f81064b70c926b91f674",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "957a8c82_3d131f86",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-01-21T09:14:24Z",
+      "side": 1,
+      "message": "it\u0027s",
+      "revId": "86443e21f4f117a386e3f81064b70c926b91f674",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6407499a_8f4641d3",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-01-21T09:14:24Z",
+      "side": 1,
+      "message": "nit `RemoteObject`",
+      "revId": "86443e21f4f117a386e3f81064b70c926b91f674",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02242cf3_b419803b",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-01-21T09:14:24Z",
+      "side": 1,
+      "message": "much better naming! :)",
+      "revId": "86443e21f4f117a386e3f81064b70c926b91f674",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
