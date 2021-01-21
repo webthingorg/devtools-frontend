@@ -52,18 +52,6 @@ export class Spectrum extends UI.Widget.VBox {
    * @param {?ContrastInfo=} contrastInfo
    */
   constructor(contrastInfo) {
-    /**
-     * @param {!Element} parentElement
-     */
-    function appendSwitcherIcon(parentElement) {
-      const icon = UI.UIUtils.createSVGChild(parentElement, 'svg');
-      icon.setAttribute('height', String(16));
-      icon.setAttribute('width', String(16));
-      const path = UI.UIUtils.createSVGChild(icon, 'path');
-      path.setAttribute('d', 'M5,6 L11,6 L8,2 Z M5,10 L11,10 L8,14 Z');
-      return icon;
-    }
-
     super(true);
     this.registerRequiredCSS('color_picker/spectrum.css', {enableLegacyPatching: true});
 
@@ -141,13 +129,13 @@ export class Spectrum extends UI.Widget.VBox {
     UI.ARIAUtils.setAccessibleName(this._hexValue, label.textContent);
 
     const displaySwitcher = toolsContainer.createChild('div', 'spectrum-display-switcher spectrum-switcher');
-    appendSwitcherIcon(displaySwitcher);
+    UI.UIUtils.appendSwitcherIcon(displaySwitcher);
+    UI.UIUtils.setTitle(displaySwitcher, ls`Change color format`);
     displaySwitcher.tabIndex = 0;
     self.onInvokeElement(displaySwitcher, event => {
       this._formatViewSwitch();
       event.consume(true);
     });
-    UI.ARIAUtils.setAccessibleName(displaySwitcher, ls`Change color format`);
     UI.ARIAUtils.markAsButton(displaySwitcher);
 
     UI.UIUtils.installDragHandle(
@@ -186,9 +174,9 @@ export class Spectrum extends UI.Widget.VBox {
         this._paletteDragEnd.bind(this), 'default');
     const paletteSwitcher =
         this._paletteSectionContainer.createChild('div', 'spectrum-palette-switcher spectrum-switcher');
-    appendSwitcherIcon(paletteSwitcher);
+    UI.UIUtils.appendSwitcherIcon(paletteSwitcher);
+    UI.UIUtils.setTitle(paletteSwitcher, ls`Preview palettes`);
     UI.ARIAUtils.markAsButton(paletteSwitcher);
-    UI.ARIAUtils.setAccessibleName(paletteSwitcher, ls`Preview palettes`);
     paletteSwitcher.tabIndex = 0;
     self.onInvokeElement(paletteSwitcher, event => {
       this._togglePalettePanel(true);
