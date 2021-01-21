@@ -15,9 +15,6 @@
   <message name="IDS_DEVTOOLS_15c2d85f1fae22a3c3a0594510a1f611" desc="Label for the category of affected resources in issue view">
     Request
   </message>
-  <message name="IDS_DEVTOOLS_1a69884106a145da88d3caa3390ef962" desc="Indicates that a CSP error should be treated as a warning">
-    report-only
-  </message>
   <message name="IDS_DEVTOOLS_26d528c2e706eb2c3f4d4f90fc72632a" desc="Reason for a Heavy Ad being flagged in issue view">
     CPU peak limit
   </message>
