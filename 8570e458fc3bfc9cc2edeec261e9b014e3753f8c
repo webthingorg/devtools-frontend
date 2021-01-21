@@ -16,6 +16,23 @@
       "message": "Looks reasonable to me. Alex, can you take a look?",
       "revId": "8570e458fc3bfc9cc2edeec261e9b014e3753f8c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4defcf34_2ece8bda",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-01-21T07:03:28Z",
+      "side": 1,
+      "message": "LGTM! You\u0027d need to list the new setting in test/unittests/front_end/helpers/EnvironmentHelpers.ts to fix the unit tests (currently failing).",
+      "revId": "8570e458fc3bfc9cc2edeec261e9b014e3753f8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
