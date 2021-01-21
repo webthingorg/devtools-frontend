@@ -33,6 +33,23 @@
       "message": "Might be worth thinking about how this will look/work if we move over to using AXNode from the testing CL. https://crrev.com/c/2636102\n\nHow will an AccessibilityNode component get the accessibilityModel to load in the new children? Maybe each AccessibilityNode contains a reference to it\u0027s enclosing AccessibilityTree component, which has an API for communicating with the AccessibilityModel?",
       "revId": "e1c1127cc93757ccc8c79979fec228384471d7a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a132a795_8bdc16df",
+        "filename": "front_end/sdk/AccessibilityModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-01-21T06:29:12Z",
+      "side": 1,
+      "message": "Can we get this done *in some form* as part of the same CL? Even if it’s not an ideal solution (e.g. setting a timer after leaving the a11y tree view), it would be better than nothing, and we could still have a TODO to improve it.",
+      "revId": "e1c1127cc93757ccc8c79979fec228384471d7a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
