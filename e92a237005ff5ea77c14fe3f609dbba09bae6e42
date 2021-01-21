@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b56214f_c52a6851",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-21T09:20:36Z",
+      "side": 1,
+      "message": "LGTM, thanks!\n\nPlease add to the description a link to the follow-up and that we wanted to minimize the change in the follow-up, hence the rough .ts file we are adding in this CL.",
+      "revId": "e92a237005ff5ea77c14fe3f609dbba09bae6e42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
