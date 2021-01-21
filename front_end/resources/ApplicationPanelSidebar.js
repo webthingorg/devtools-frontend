@@ -49,9 +49,10 @@ import {Database as DatabaseModelDatabase, DatabaseModel, Events as DatabaseMode
 import {DatabaseQueryView, Events as DatabaseQueryViewEvents} from './DatabaseQueryView.js';
 import {DatabaseTableView} from './DatabaseTableView.js';
 import {DOMStorage, DOMStorageModel, Events as DOMStorageModelEvents} from './DOMStorageModel.js';  // eslint-disable-line no-unused-vars
-import {FrameDetailsView, OpenedWindowDetailsView, WorkerDetailsView} from './FrameDetailsView.js';
+import {FrameDetailsView} from './FrameDetailsView.js';
 import {Database as IndexedDBModelDatabase, DatabaseId, Events as IndexedDBModelEvents, Index, IndexedDBModel, ObjectStore} from './IndexedDBModel.js';  // eslint-disable-line no-unused-vars
 import {IDBDatabaseView, IDBDataView} from './IndexedDBViews.js';
+import {OpenedWindowDetailsView, WorkerDetailsView} from './OpenedWindowDetailsView.js';
 import {ResourcesPanel} from './ResourcesPanel.js';  // eslint-disable-line no-unused-vars
 import {ServiceWorkersView} from './ServiceWorkersView.js';
 
@@ -2441,6 +2442,14 @@ class FrameWindowTreeElement extends ApplicationPanelTreeElement {
     }
     this.showView(this._view);
     return false;
+  }
+
+  /**
+   * @override
+   * @return {string}
+   */
+  get itemURL() {
+    return this._targetInfo.url;
   }
 }
 
