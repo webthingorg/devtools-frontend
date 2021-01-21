@@ -42,8 +42,13 @@ export async function getDataGridData(selector: string, columns: string[]) {
 }
 
 export async function getReportValues() {
-  const fields = await $$('.report-field-value');
-  return Promise.all(fields.map(node => node.evaluate(e => e.textContent)));
+  const fields = await $$('devtools-report-value');
+  return Promise.all(fields.map(node => node.evaluate(e => {
+    return (e.textContent || '')
+        .trim()
+        .replace(/\n/gm, ' ')    // replace new line character with space
+        .replace(/\s+/gm, ' ');  // replace multiple spaces with single space
+  })));
 }
 
 export async function getStorageItemsData(columns: string[]) {

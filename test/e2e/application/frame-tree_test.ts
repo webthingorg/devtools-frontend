@@ -23,16 +23,15 @@ describe('The Application Tab', async () => {
     await waitForFunction(async () => {
       const fieldValues = await getReportValues();
       const expected = [
-        `https://localhost:${getTestServerPort()}/test/e2e/resources/application/frame-tree.html`,
-        '',
+        `button.link { padding: 4px 0 0 0; border: none; background: none; } button.link { padding: 4px 0 0 0; border: none; background: none; } https://localhost:${
+            getTestServerPort()}/test/e2e/resources/application/frame-tree.html`,
         `https://localhost:${getTestServerPort()}`,
         '<#document>',
-        '',
-        'YesLocalhost is always a secure context',
+        'Yes Localhost is always a secure context',
         'No',
         'None',
         'UnsafeNone',
-        'available, transferable⚠️ will require cross-origin isolated context in the future',
+        'available, transferable ⚠️ will require cross-origin isolated context in the future',
         'unavailable Learn more',
       ];
       return JSON.stringify(fieldValues) === JSON.stringify(expected);
@@ -117,16 +116,15 @@ describe('The Application Tab', async () => {
     await waitForFunction(async () => {
       const fieldValues = await getReportValues();
       const expected = [
-        `https://localhost:${getTestServerPort()}/test/e2e/resources/application/iframe.html`,
-        '',
+        `button.link { padding: 4px 0 0 0; border: none; background: none; } button.link { padding: 4px 0 0 0; border: none; background: none; } https://localhost:${
+            getTestServerPort()}/test/e2e/resources/application/iframe.html`,
         `https://localhost:${getTestServerPort()}`,
         '<iframe>',
-        '',
-        'YesLocalhost is always a secure context',
+        'Yes Localhost is always a secure context',
         'No',
         'None',
         'UnsafeNone',
-        'available, transferable⚠️ will require cross-origin isolated context in the future',
+        'available, transferable ⚠️ will require cross-origin isolated context in the future',
         'unavailable Learn more',
       ];
       return JSON.stringify(fieldValues) === JSON.stringify(expected);
@@ -148,16 +146,15 @@ describe('The Application Tab', async () => {
     await waitForFunction(async () => {
       const fieldValues = await getReportValues();
       const expected = [
-        `https://localhost:${getTestServerPort()}/test/e2e/resources/application/main-frame.html`,
-        '',
+        `button.link { padding: 4px 0 0 0; border: none; background: none; } https://localhost:${
+            getTestServerPort()}/test/e2e/resources/application/main-frame.html`,
         `https://localhost:${getTestServerPort()}`,
         '<iframe>',
-        '',
-        'YesLocalhost is always a secure context',
+        'Yes Localhost is always a secure context',
         'No',
         'None',
         'UnsafeNone',
-        'available, transferable⚠️ will require cross-origin isolated context in the future',
+        'available, transferable ⚠️ will require cross-origin isolated context in the future',
         'unavailable Learn more',
       ];
       return JSON.stringify(fieldValues) === JSON.stringify(expected);

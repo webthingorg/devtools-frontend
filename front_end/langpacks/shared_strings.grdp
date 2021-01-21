@@ -52,6 +52,9 @@
   <message name="IDS_DEVTOOLS_194f5394ae2e9c74dc3c441b92862d1d" desc="Text that appears on a button for the font resource type filter.">
     Font
   </message>
+  <message name="IDS_DEVTOOLS_1a69884106a145da88d3caa3390ef962" desc="Indicates that a CSP error should be treated as a warning">
+    report-only
+  </message>
   <message name="IDS_DEVTOOLS_1b1ac1c7a54457ce73ddd25a5b51c47d" desc="A title of the 'Drawer sidebar' @UI.ViewLocationResolver category">
     Drawer sidebar
   </message>
