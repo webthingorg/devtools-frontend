@@ -33,6 +33,24 @@
       "message": "LGTM % question about what this change does:\nAm I right to assume that by consuming in the capture phase the checkbox never received the focus? ",
       "revId": "b1b5ba40ef57401713766f33ff4849927217d890",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09269655_3001ebe6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-01-21T10:22:26Z",
+      "side": 1,
+      "message": "\u003e LGTM % question about what this change does:\n\u003e Am I right to assume that by consuming in the capture phase the checkbox never received the focus? \n\nNo, the capture phase is not affected by this CL — `false` is the implicit default. The changes to the JS file are just cleanup (but they\u0027re related in that it\u0027s the code that creates these checkboxes).",
+      "parentUuid": "80546ad5_d667131d",
+      "revId": "b1b5ba40ef57401713766f33ff4849927217d890",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
