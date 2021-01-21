@@ -16,6 +16,52 @@
       "message": "Migrate console_conter, PTAL, thanks!",
       "revId": "c5995820512e66a49f4f82f0cf9765c452947d44",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "681e6d6f_2335a60a",
+        "filename": "front_end/console_counters/WarningErrorCounter.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-21T12:02:42Z",
+      "side": 1,
+      "message": "seems like these have been merged which I guess is not intentional?\n\nThis is the same for a lot of the following strings in this file",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 0
+      },
+      "revId": "c5995820512e66a49f4f82f0cf9765c452947d44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d538f95e_e65863fa",
+        "filename": "front_end/console_counters/WarningErrorCounter.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-21T12:02:42Z",
+      "side": 1,
+      "message": "Seems like there is nothing to localise here? Could remove the i18n call",
+      "range": {
+        "startLine": 169,
+        "startChar": 23,
+        "endLine": 169,
+        "endChar": 96
+      },
+      "revId": "c5995820512e66a49f4f82f0cf9765c452947d44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
