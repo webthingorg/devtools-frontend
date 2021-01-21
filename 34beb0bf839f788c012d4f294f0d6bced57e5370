@@ -75,6 +75,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e354b09_00fe13b0",
+        "filename": "test/unittests/front_end/elements/AccessibilityNode_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-21T23:33:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a40582d_f2e7f7f1",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 39
+      },
+      "revId": "34beb0bf839f788c012d4f294f0d6bced57e5370",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "57ad1929_dd5bb2c7",
@@ -88,6 +112,30 @@
       "writtenOn": "2021-01-21T09:25:28Z",
       "side": 1,
       "message": "I wouldn\u0027t bother with this assertion, and therefore we can lose the `getExpanded` helper too. You\u0027re checking the DOM for the presence (or lack of) for the `expanded` class, which is a better test as it is closer to what the user sees. I don\u0027t think we gain much from testing the method call too.",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 57
+      },
+      "revId": "34beb0bf839f788c012d4f294f0d6bced57e5370",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58671b5e_45ec05f0",
+        "filename": "test/unittests/front_end/elements/AccessibilityNode_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-21T23:33:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57ad1929_dd5bb2c7",
       "range": {
         "startLine": 78,
         "startChar": 0,
@@ -121,6 +169,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "92bf6592_d8436e67",
+        "filename": "test/unittests/front_end/elements/AccessibilityNode_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-21T23:33:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78faf4ba_3ab6bcc6",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 55
+      },
+      "revId": "34beb0bf839f788c012d4f294f0d6bced57e5370",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fd61cfc6_14b90afd",
@@ -134,6 +206,30 @@
       "writtenOn": "2021-01-21T09:25:28Z",
       "side": 1,
       "message": "as above, I\u0027d remove all getExpanded() test calls.",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 125,
+        "endChar": 56
+      },
+      "revId": "34beb0bf839f788c012d4f294f0d6bced57e5370",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0603f7ab_15795326",
+        "filename": "test/unittests/front_end/elements/AccessibilityNode_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-21T23:33:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd61cfc6_14b90afd",
       "range": {
         "startLine": 125,
         "startChar": 0,
