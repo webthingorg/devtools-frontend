@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eadfab2a_0da82ced",
+        "filename": "front_end/README.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-01-21T14:50:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc481883_a51737e0",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 137
+      },
+      "revId": "d2f6c08c507503be16f76846e56036634577ff3c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "76f71623_69e1f692",
@@ -81,6 +105,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcf10a7a_32eb0963",
+        "filename": "front_end/common/README.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-01-21T14:50:52Z",
+      "side": 1,
+      "message": "Good catch! The text should indeed be common/SettingRegistration.ts. Thanks!",
+      "parentUuid": "76f71623_69e1f692",
+      "range": {
+        "startLine": 5,
+        "startChar": 91,
+        "endLine": 5,
+        "endChar": 145
+      },
+      "revId": "d2f6c08c507503be16f76846e56036634577ff3c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5889eec7_2655e2b8",
@@ -94,6 +142,30 @@
       "writtenOn": "2021-01-21T09:16:23Z",
       "side": 1,
       "message": "what does this represent?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 12
+      },
+      "revId": "d2f6c08c507503be16f76846e56036634577ff3c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20b7e68d_422258bc",
+        "filename": "front_end/common/README.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-01-21T14:50:52Z",
+      "side": 1,
+      "message": "This field is used to sort settings controllers on screen. The field is documented in its declaration.",
+      "parentUuid": "5889eec7_2655e2b8",
       "range": {
         "startLine": 13,
         "startChar": 0,
