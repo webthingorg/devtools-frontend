@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c676df3b_f34f10e3",
+        "filename": "scripts/localization/localizationV2Checks.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-01-21T02:08:12Z",
+      "side": 1,
+      "message": "thanks for the feedback :) missed flags when cleaning, the addition of \u0027$\u0027 sounds good to me.",
+      "parentUuid": "37c88b31_4d6189f0",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 54
+      },
+      "revId": "ff84004b26248e98156bf5bb983b69aac6bcc765",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9106bde6_cc85dd41",
@@ -71,6 +95,30 @@
       "writtenOn": "2021-01-20T06:39:00Z",
       "side": 1,
       "message": "nit: Similar for the regex flags in this case. The \u0027g\u0027 would cause all occurences of the match to be replaced, while the old code only replaced one match (since its a filepath, I expect one match to be enough in this case.\n\nSame question for \u0027i\u0027 (case-insensitive) as above.",
+      "range": {
+        "startLine": 26,
+        "startChar": 43,
+        "endLine": 26,
+        "endChar": 71
+      },
+      "revId": "ff84004b26248e98156bf5bb983b69aac6bcc765",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5859cac4_f4199a30",
+        "filename": "scripts/localization/localizationV2Checks.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-01-21T02:08:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9106bde6_cc85dd41",
       "range": {
         "startLine": 26,
         "startChar": 43,
