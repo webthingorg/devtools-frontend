@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f768a5f1_bb96bd51",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-21T07:34:08Z",
+      "side": 1,
+      "message": "Only took a quick look since it is still WIP, but had some questions.",
+      "revId": "31f3a4c3f7f24b3841449a72540890c199f53b6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2b4f6d4_dc5bf6bd",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-21T07:34:08Z",
+      "side": 1,
+      "message": "Why do you throw here, but return nothing in other render functions?",
+      "range": {
+        "startLine": 58,
+        "startChar": 6,
+        "endLine": 58,
+        "endChar": 88
+      },
+      "revId": "31f3a4c3f7f24b3841449a72540890c199f53b6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1147379_3974b23c",
+        "filename": "front_end/ui/components/ReportView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-21T07:34:08Z",
+      "side": 1,
+      "message": "Hmm, I would have hoped that ReportView doesn\u0027t need to change. Could you explain why this is necessary (and the changes below?). Also, will this affect other use-sites of the ReportView component?",
+      "range": {
+        "startLine": 51,
+        "startChar": 45,
+        "endLine": 51,
+        "endChar": 48
+      },
+      "revId": "31f3a4c3f7f24b3841449a72540890c199f53b6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
