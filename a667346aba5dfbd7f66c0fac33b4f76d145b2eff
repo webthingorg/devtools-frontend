@@ -46,6 +46,30 @@
       },
       "revId": "a667346aba5dfbd7f66c0fac33b4f76d145b2eff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4b7283a_4d19ff14",
+        "filename": "front_end/heap_snapshot_worker/HeapSnapshot.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 1280,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-21T09:32:52Z",
+      "side": 1,
+      "message": "Ahhh ok I didn\u0027t think about the circular dependency bit. This seems reasonable to me then, thanks",
+      "parentUuid": "d6b8561a_8c8e166a",
+      "range": {
+        "startLine": 1280,
+        "startChar": 32,
+        "endLine": 1280,
+        "endChar": 56
+      },
+      "revId": "a667346aba5dfbd7f66c0fac33b4f76d145b2eff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
