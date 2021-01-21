@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0686e16d_9ecb518e",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2021-01-21T07:23:20Z",
+      "side": 1,
+      "message": "It should still be possible for this to be a WasmMemory or an Int32Array.",
+      "parentUuid": "15e38db6_2e2a0161",
+      "revId": "cd9b58a843525ca32388d5d2d67e7f4e7fa3e518",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0b0a16a8_9a732bf0",
         "filename": "test/e2e/sources/can-open-linear-memory-inspector_test.ts",
         "patchSetId": 4
@@ -65,6 +83,24 @@
       "writtenOn": "2021-01-18T06:43:46Z",
       "side": 1,
       "message": "The e2e test is red, you might need to open the Module scope and expand the memories list, see ll. 42 - ll. 48.",
+      "revId": "cd9b58a843525ca32388d5d2d67e7f4e7fa3e518",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a30644a5_39f0c7c8",
+        "filename": "test/e2e/sources/can-open-linear-memory-inspector_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2021-01-21T07:23:20Z",
+      "side": 1,
+      "message": "I\u0027m using JavaScript. This is not where it is having trouble.",
+      "parentUuid": "0b0a16a8_9a732bf0",
       "revId": "cd9b58a843525ca32388d5d2d67e7f4e7fa3e518",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

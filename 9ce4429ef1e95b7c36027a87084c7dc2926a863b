@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed74baaa_9d08d880",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2021-01-21T07:23:20Z",
+      "side": 1,
+      "message": "I manually verified this on a Windows VM. The test passes if run in debug mode, but hangs pretty reliably if not, and it hangs in a different place on my VM than it does on the bot. So I\u0027m checking it in skipped for now. Should I create a separate bug for it or track in the same bug as the other test?",
+      "revId": "9ce4429ef1e95b7c36027a87084c7dc2926a863b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
