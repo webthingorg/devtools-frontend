@@ -16,6 +16,23 @@
       "message": "GRD compression is a serializing long pole in Chromium builds. It is particularly bad in debug builds where it can add O(50) seconds to build times (tested on Windows). This change fixes this for debug builds. PTAL.",
       "revId": "32427740f46e543659e13da8fe15ed633be6a2f8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f1cf2fa_b5cf3d99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-21T08:25:25Z",
+      "side": 1,
+      "message": "Adding Tim and Alex because they were discussing this yesterday.\nTim compared brotli vs. gzip and found brotli is 10x slower for release and saves ~3% more space.\nNot compressing in debug does seem like a reasonable solution, although if we switch back to gzip then we get the benefit for release builds too and the time for debug should only be a few seconds.\nWDYT Tim + Alex?",
+      "revId": "32427740f46e543659e13da8fe15ed633be6a2f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
