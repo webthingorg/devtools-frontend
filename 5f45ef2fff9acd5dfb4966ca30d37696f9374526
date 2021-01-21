@@ -16,6 +16,41 @@
       "message": "Thanks for the feedback, I addressed all the comments. Also, just want to double check that you took a look to the comments I left in Patchset 13, unfortunately they were buried in the rebases that came after them.",
       "revId": "5f45ef2fff9acd5dfb4966ca30d37696f9374526",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c7b4282_453f3d7b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-21T09:38:07Z",
+      "side": 1,
+      "message": "LGTM!",
+      "revId": "5f45ef2fff9acd5dfb4966ca30d37696f9374526",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1896e4e9_1540b83e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-21T09:38:07Z",
+      "side": 1,
+      "message": "I took a look, thanks for the info. This whole section is a bit tricky, your solution LGTM, thanks for looking into it 👍",
+      "parentUuid": "7e683872_60fd7143",
+      "revId": "5f45ef2fff9acd5dfb4966ca30d37696f9374526",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
