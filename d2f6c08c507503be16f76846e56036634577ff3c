@@ -16,6 +16,92 @@
       "message": "Switching to Jack for review as agreed.",
       "revId": "d2f6c08c507503be16f76846e56036634577ff3c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "010e5ea4_6af29dbc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-21T09:16:23Z",
+      "side": 1,
+      "message": "LGTM with a couple of nits 👍",
+      "revId": "d2f6c08c507503be16f76846e56036634577ff3c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc481883_a51737e0",
+        "filename": "front_end/README.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-21T09:16:23Z",
+      "side": 1,
+      "message": "nit: I\u0027d split these into a list for easier reading\n\nThere are 4 main types of extensions:\n\n* ...\n* ...",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 137
+      },
+      "revId": "d2f6c08c507503be16f76846e56036634577ff3c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76f71623_69e1f692",
+        "filename": "front_end/common/README.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-21T09:16:23Z",
+      "side": 1,
+      "message": "I\u0027m not sure this file path is right - if we\u0027re in common/README should the path be ../ui/SettingRegistration.ts ? Or is the text ui/SettingRegistration actually supposed to be common/...",
+      "range": {
+        "startLine": 5,
+        "startChar": 91,
+        "endLine": 5,
+        "endChar": 145
+      },
+      "revId": "d2f6c08c507503be16f76846e56036634577ff3c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5889eec7_2655e2b8",
+        "filename": "front_end/common/README.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-21T09:16:23Z",
+      "side": 1,
+      "message": "what does this represent?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 12
+      },
+      "revId": "d2f6c08c507503be16f76846e56036634577ff3c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
