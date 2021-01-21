@@ -30,6 +30,7 @@ devtools_module("resources") {
     "ServiceWorkerUpdateCycleHelper.ts",
     "ServiceWorkersView.js",
     "StorageItemsView.js",
+    "TrustTokensView.ts",
   ]
 
   deps = [

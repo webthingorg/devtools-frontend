@@ -23,6 +23,7 @@ import * as ServiceWorkerCacheViews from './ServiceWorkerCacheViews.js';
 import * as ServiceWorkersView from './ServiceWorkersView.js';
 import * as ServiceWorkerUpdateCycleHelper from './ServiceWorkerUpdateCycleHelper.js';
 import * as StorageItemsView from './StorageItemsView.js';
+import * as TrustTokensView from './TrustTokensView.js';
 
 export {
   ApplicationCacheItemsView,
@@ -46,4 +47,5 @@ export {
   ServiceWorkersView,
   ServiceWorkerUpdateCycleHelper,
   StorageItemsView,
+  TrustTokensView,
 };
