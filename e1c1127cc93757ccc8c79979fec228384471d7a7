@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac94d763_9e3759ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-01-21T08:54:51Z",
+      "side": 1,
+      "message": "It sounds like a good approach. AXNode might have a method called `loadChildren` that would be defined in the SDKAXNode to AXNode mapping function. Then it can make use of the AccessibilityModel without the need for the new component to know about AccessibilityModel.",
+      "parentUuid": "23d071eb_37cee491",
+      "revId": "e1c1127cc93757ccc8c79979fec228384471d7a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a132a795_8bdc16df",
