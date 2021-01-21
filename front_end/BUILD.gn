@@ -123,6 +123,7 @@ group("front_end") {
     "wasmparser_worker:worker_entrypoint",
     "web_audio:bundle",
     "webauthn:bundle",
+    "webauthn:meta",
     "worker_main:bundle",
     "worker_service:bundle",
     "workspace:bundle",
