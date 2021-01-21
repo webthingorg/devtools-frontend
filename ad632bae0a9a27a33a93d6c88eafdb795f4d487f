@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba6a1879_0d081e5c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-21T03:44:14Z",
+      "side": 1,
+      "message": "lgtm with thoughts",
+      "revId": "ad632bae0a9a27a33a93d6c88eafdb795f4d487f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7968907f_938c90a4",
+        "filename": "test/unittests/front_end/elements/AccessibilityNode_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-21T03:44:14Z",
+      "side": 1,
+      "message": "I\u0027d be checking with the devtools team if we actually need MakeAXNodeOptions. I think we can just pass in an overrides: {}. Since we aren\u0027t using the attributes map at all. I think. My TS foo is not excellent.\n\nAlso some reference for the ...overrides spread operator: https://basarat.gitbook.io/typescript/future-javascript/spread-operator",
+      "revId": "ad632bae0a9a27a33a93d6c88eafdb795f4d487f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17996bed_86e850eb",
+        "filename": "test/unittests/front_end/elements/AccessibilityNode_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-21T03:44:14Z",
+      "side": 1,
+      "message": "Some of these are mostly testing the AXNode interface, rather than behaviour of the AccessibilityNode component. Is there a way we can test the rendering of child components as well? Maybe the devtools team can advise on some more robust tests for this behaviour?",
+      "revId": "ad632bae0a9a27a33a93d6c88eafdb795f4d487f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
