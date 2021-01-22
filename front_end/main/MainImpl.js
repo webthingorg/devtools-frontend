@@ -749,32 +749,21 @@ export class MainMenuItem {
                                                                     Common.UIString.UIString('Show console drawer'));
     contextMenu.appendItemsAtLocation('mainMenu');
     const moreTools = contextMenu.defaultSection().appendSubMenuItem(Common.UIString.UIString('More tools'));
-    const unionOfViewExtensions = [
-      // TODO(crbug.com/1134103): Remove this call when all views are migrated
-      ...Root.Runtime.Runtime.instance().extensions('view').map(extension => {
-        return {
-          location: extension.descriptor().location,
-          persistence: extension.descriptor().persistence,
-          title: extension.title(),
-          id: extension.descriptor().id,
-        };
-      }),
-      ...UI.ViewManager.getRegisteredViewExtensions().map(view => {
-        return {
-          location: view.location(),
-          persistence: view.persistence(),
-          title: view.title(),
-          id: view.viewId(),
-        };
-      }),
-    ];
-    unionOfViewExtensions.sort((extension1, extension2) => {
+    const viewExtensions = UI.ViewManager.getRegisteredViewExtensions().map(view => {
+      return {
+        location: view.location(),
+        persistence: view.persistence(),
+        title: view.title(),
+        id: view.viewId(),
+      };
+    });
+    viewExtensions.sort((extension1, extension2) => {
       const title1 = extension1.title || '';
       const title2 = extension2.title || '';
       return title1.localeCompare(title2);
     });
 
-    for (const viewExtension of unionOfViewExtensions) {
+    for (const viewExtension of viewExtensions) {
       if (viewExtension.id === 'issues-pane') {
         moreTools.defaultSection().appendItem(viewExtension.title, () => {
           Host.userMetrics.issuesPanelOpenedFrom(Host.UserMetrics.IssueOpener.HamburgerMenu);

@@ -144,20 +144,17 @@ export class ViewManager {
     const preferredExtensionLocations = this._locationOverrideSetting.get();
 
     /** @type {!Array<{viewId: string, view: (!ProvidedView|!PreRegisteredView), location: (string|null)}>} */
-    const unionOfViewExtensions = [
-      // TODO(crbug.com/1134103): Remove this call when all views are migrated
-      ...getRegisteredViewExtensions().map(registeredView => {
-        return {
-          viewId: registeredView.viewId(),
-          location: registeredView.location() || null,
-          view: registeredView,
-        };
-      }),
-    ];
+    const viewExtensions = getRegisteredViewExtensions().map(registeredView => {
+      return {
+        viewId: registeredView.viewId(),
+        location: registeredView.location() || null,
+        view: registeredView,
+      };
+    });
 
     // All views define their initial ordering. When the user has not reordered, we use the
     // default ordering as defined by the views themselves.
-    unionOfViewExtensions.sort((firstView, secondView) => {
+    viewExtensions.sort((firstView, secondView) => {
       const firstViewOrder = firstView.view.order();
       const secondViewOrder = secondView.view.order();
       if (firstViewOrder && secondViewOrder) {
@@ -166,7 +163,7 @@ export class ViewManager {
       return 0;
     });
 
-    for (const {viewId, view, location} of unionOfViewExtensions) {
+    for (const {viewId, view, location} of viewExtensions) {
       if (this._views.has(viewId)) {
         throw new Error(`Duplicate view id '${viewId}'`);
       }
