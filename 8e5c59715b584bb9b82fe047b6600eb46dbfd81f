@@ -16,6 +16,40 @@
       "message": "Alex PTAL\nTim FYI for the empty localized string",
       "revId": "8e5c59715b584bb9b82fe047b6600eb46dbfd81f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a5c56ff_92664ac4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-01-22T10:58:31Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "8e5c59715b584bb9b82fe047b6600eb46dbfd81f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "108d4110_9b0766e6",
+        "filename": "front_end/component_docs/issue_survey_link/basic.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-01-22T10:58:31Z",
+      "side": 1,
+      "message": "should we rename this file?",
+      "revId": "8e5c59715b584bb9b82fe047b6600eb46dbfd81f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
