@@ -33,6 +33,24 @@
       "message": "LGTM! You\u0027d need to list the new setting in test/unittests/front_end/helpers/EnvironmentHelpers.ts to fix the unit tests (currently failing).",
       "revId": "8570e458fc3bfc9cc2edeec261e9b014e3753f8c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1eae1ed6_32c02228",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2021-01-22T22:09:56Z",
+      "side": 1,
+      "message": "Cool, thanks for the tip!",
+      "parentUuid": "4defcf34_2ece8bda",
+      "revId": "8570e458fc3bfc9cc2edeec261e9b014e3753f8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
