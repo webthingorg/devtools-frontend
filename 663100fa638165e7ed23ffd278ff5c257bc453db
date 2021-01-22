@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88e2e3a2_cd6a6b93",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2021-01-22T20:31:40Z",
+      "side": 1,
+      "message": "+ Peter as owner for localization files\n\nPTAL when you can.  Thanks!",
+      "revId": "663100fa638165e7ed23ffd278ff5c257bc453db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
