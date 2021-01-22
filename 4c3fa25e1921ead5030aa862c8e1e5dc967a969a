@@ -33,6 +33,24 @@
       "message": "Should we add specific components like this icon to UIUtils? Perhaps a better place it to put it into ui/components and/or reuse ui/components/Icon and turn this one into a proper SVG?",
       "revId": "4c3fa25e1921ead5030aa862c8e1e5dc967a969a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fedad240_71c247b9",
+        "filename": "front_end/ui/UIUtils.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 1454,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2021-01-22T20:01:24Z",
+      "side": 1,
+      "message": "Good point.  I like the idea of re-using Icon and creating proper SVGs for the switcher icons.  I\u0027m going to undo the code that centralizes the switcher code so we can just scope this change to adding tooltips.\n\nI\u0027ve created another bug to track the SVG change here: https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1169824",
+      "parentUuid": "f9a8c731_f5ef0dfd",
+      "revId": "4c3fa25e1921ead5030aa862c8e1e5dc967a969a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
