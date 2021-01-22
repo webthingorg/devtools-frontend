@@ -16,6 +16,29 @@
       "message": "Hey Mathias, Please take a look.\nIf that looks good to you, I\u0027ll add the \"No-Presubmit: true\" to the commit message.",
       "revId": "95e34404718e5e28d2da696076817382955e6403",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "822b177a_1096c905",
+        "filename": "front_end/resources/AppManifestView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1002500
+      },
+      "writtenOn": "2021-01-22T21:06:45Z",
+      "side": 1,
+      "message": "Description and error messages say 324...?",
+      "range": {
+        "startLine": 178,
+        "startChar": 85,
+        "endLine": 178,
+        "endChar": 88
+      },
+      "revId": "95e34404718e5e28d2da696076817382955e6403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
