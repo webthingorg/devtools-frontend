@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ee8f4f7_5dacab9f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-22T03:18:36Z",
+      "side": 1,
+      "message": "Thanks Alex! I\u0027ve updated the patch to do this, PTAL again",
+      "parentUuid": "ac94d763_9e3759ff",
+      "revId": "e1c1127cc93757ccc8c79979fec228384471d7a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a132a795_8bdc16df",
@@ -66,6 +84,24 @@
       "writtenOn": "2021-01-21T06:29:12Z",
       "side": 1,
       "message": "Can we get this done *in some form* as part of the same CL? Even if it’s not an ideal solution (e.g. setting a timer after leaving the a11y tree view), it would be better than nothing, and we could still have a TODO to improve it.",
+      "revId": "e1c1127cc93757ccc8c79979fec228384471d7a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63d38b51_cfa4d9b6",
+        "filename": "front_end/sdk/AccessibilityModel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-22T03:18:36Z",
+      "side": 1,
+      "message": "Done using a timer for now and added a todo.",
+      "parentUuid": "a132a795_8bdc16df",
       "revId": "e1c1127cc93757ccc8c79979fec228384471d7a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
