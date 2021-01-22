@@ -16,6 +16,40 @@
       "message": "PTAL again, thanks!",
       "revId": "678a2c31f6187639b8464fbbd2b387f7b63ed74c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3749f616_89460fc5",
+        "filename": "front_end/sdk/AccessibilityModel.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-01-22T07:07:24Z",
+      "side": 1,
+      "message": "I think it\u0027s possible to enable the domain multiple times by invoking requestRootNode twice before the _disableAccessibilityDomainTimer is set.\n\nCould we enable the agent when we start working with the model? For example, other models enable the model in the constructor and disable in suspendModel call (for example, CSSModel). Would it work for the AccessibilityModel as well? \n\nBtw, some other calls in A11yModel do not require the agent to be enabled. Why do the node retrieval operations need it be enabled?",
+      "revId": "678a2c31f6187639b8464fbbd2b387f7b63ed74c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6d53876_3b1ce71e",
+        "filename": "front_end/sdk/AccessibilityModel.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-01-22T07:07:24Z",
+      "side": 1,
+      "message": "Why do we need the timer for disabling the a11y domain? Could we do it without using a timeout?",
+      "revId": "678a2c31f6187639b8464fbbd2b387f7b63ed74c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
