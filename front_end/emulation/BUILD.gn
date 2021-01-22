@@ -17,6 +17,7 @@ devtools_module("emulation") {
     "InspectedPagePlaceholder.js",
     "LocationsSettingsTab.js",
     "MediaQueryInspector.js",
+    "playwright.built.js",
     "SensorsView.js",
     "StructuredHeaders.ts",
     "UserAgentMetadata.ts",

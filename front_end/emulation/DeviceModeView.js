@@ -10,7 +10,7 @@ import * as UI from '../ui/ui.js';
 import {DeviceModeModel, Events, MaxDeviceSize, MinDeviceSize, Type} from './DeviceModeModel.js';
 import {DeviceModeToolbar} from './DeviceModeToolbar.js';
 import {MediaQueryInspector} from './MediaQueryInspector.js';
-
+import {Playwright} from './playwright.built.js';
 
 export class DeviceModeView extends UI.Widget.VBox {
   constructor() {
@@ -27,6 +27,7 @@ export class DeviceModeView extends UI.Widget.VBox {
     this.registerRequiredCSS('emulation/deviceModeView.css', {enableLegacyPatching: true});
     UI.Tooltip.Tooltip.addNativeOverrideContainer(this.contentElement);
 
+    this._browser = null;
     this._model = DeviceModeModel.instance();
     this._model.addEventListener(Events.Updated, this._updateUI, this);
     this._mediaInspector =
@@ -459,10 +460,25 @@ export class DeviceModeView extends UI.Widget.VBox {
   }
 
   /**
+   * @return {!Promise<string|undefined>}
+   */
+  async getPlaywrightWebkitScreenShot() {
+    if (!this._browser) {
+      this._browser = await Playwright.webkit.launch();
+    }
+    if (this._page) {
+      this._page = await this._browser.newPage();
+      (await this._page).goto('www.cnn.com');
+    }
+    const screenShotBuffer = await this._page?.screenshot({type: "png"});
+    return screenShotBuffer?.toString('base64');
+  }
+
+  /**
    * @return {!Promise<void>}
    */
   async captureScreenshot() {
-    const screenshot = await this._model.captureScreenshot(false);
+    const screenshot = await this.getPlaywrightWebkitScreenShot();
     if (screenshot === null) {
       return;
     }

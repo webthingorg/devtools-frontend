@@ -1,0 +1,20 @@
+{
+  "name": "playwrightjs",
+  "version": "1.0.0",
+  "description": "playwright module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^11.1.0",
+    "@rollup/plugin-replace": "^2.3.4",
+    "playwright": "^1.8.0",
+    "rollup-plugin-cjs-es": "^1.0.1",
+    "rollup-plugin-commonjs": "^10.1.0"
+  },
+  "devDependencies": {}
+}

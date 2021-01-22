@@ -78,6 +78,11 @@ Emulation.MediaQueryInspector = EmulationModule.MediaQueryInspector.MediaQueryIn
 /**
  * @constructor
  */
+Emulation.Playwright = EmulationModule.Playwright.Playwright;
+
+/**
+ * @constructor
+ */
 Emulation.SensorsView = EmulationModule.SensorsView.SensorsView;
 
 /**
