@@ -21,6 +21,25 @@ export const TURNED_OFF_PAUSE_BUTTON_SELECTOR = 'button.toolbar-state-off';
 export const TURNED_ON_PAUSE_BUTTON_SELECTOR = 'button.toolbar-state-on';
 export const DEBUGGER_PAUSED_EVENT = 'DevTools.DebuggerPaused';
 
+export async function navigateToLine(frontend: puppeteer.Page, lineNumber: number) {
+  await frontend.keyboard.down('Control');
+  await frontend.keyboard.press('KeyG');
+  await frontend.keyboard.up('Control');
+  await frontend.keyboard.type(`${lineNumber}`);
+  await frontend.keyboard.press('Enter');
+}
+
+export async function filterLineSelector(lineNumber: number) {
+  const visibleLines = await $$(CODE_LINE_SELECTOR);
+  for (let i = 0; i < visibleLines.length; i++) {
+    const lineValue = await visibleLines[i].evaluate(node => node.textContent);
+    if (lineValue === `${lineNumber}`) {
+      return visibleLines[i];
+    }
+  }
+  return;
+}
+
 export async function doubleClickSourceTreeItem(selector: string) {
   const item = await waitFor(selector);
   await click(item, {clickOptions: {clickCount: 2}, maxPixelsFromLeft: 40});
@@ -91,6 +110,7 @@ export async function openFileInEditor(sourceFile: string) {
   await doubleClickSourceTreeItem(`[aria-label="${sourceFile}, file"]`);
 
   // Wait for the file to be formattable, this process is async after opening a file
+  await waitForSourceCodeLines(2);  // wait until at least two lines are loaded
   await waitFor(`[aria-label="Pretty print ${sourceFile}"]`);
 }
 
