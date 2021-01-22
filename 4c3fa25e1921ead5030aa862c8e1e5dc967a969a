@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8de32319_eac8dfd0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-01-22T07:30:10Z",
+      "side": 1,
+      "message": "LGTM with a question",
+      "revId": "4c3fa25e1921ead5030aa862c8e1e5dc967a969a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9a8c731_f5ef0dfd",
+        "filename": "front_end/ui/UIUtils.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 1454,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-01-22T07:30:10Z",
+      "side": 1,
+      "message": "Should we add specific components like this icon to UIUtils? Perhaps a better place it to put it into ui/components and/or reuse ui/components/Icon and turn this one into a proper SVG?",
+      "revId": "4c3fa25e1921ead5030aa862c8e1e5dc967a969a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
