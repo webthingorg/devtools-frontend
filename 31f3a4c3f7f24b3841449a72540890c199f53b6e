@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a894f40_3c63db55",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-01-22T10:10:09Z",
+      "side": 1,
+      "message": "Ideally `this.frame` would be non-nullable, but because it\u0027s set in the data setter and not in the constructor that\u0027s not possible. I am now following how this is done in our other components and not throwing an error, but instead just returning.",
+      "parentUuid": "b2b4f6d4_dc5bf6bd",
+      "range": {
+        "startLine": 58,
+        "startChar": 6,
+        "endLine": 58,
+        "endChar": 88
+      },
+      "revId": "31f3a4c3f7f24b3841449a72540890c199f53b6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e1147379_3974b23c",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-01-21T07:34:08Z",
       "side": 1,
       "message": "Hmm, I would have hoped that ReportView doesn\u0027t need to change. Could you explain why this is necessary (and the changes below?). Also, will this affect other use-sites of the ReportView component?",
+      "range": {
+        "startLine": 51,
+        "startChar": 45,
+        "endLine": 51,
+        "endChar": 48
+      },
+      "revId": "31f3a4c3f7f24b3841449a72540890c199f53b6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3aeed263_62c304f6",
+        "filename": "front_end/ui/components/ReportView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-01-22T10:10:09Z",
+      "side": 1,
+      "message": "The changes to margin re-distribute the whitespace in the ReportView more evenly. There white-space is now at the bottom of each row of the CSS grid. This means that there is no extra margin needed for the dividers between sections.\n\nSetting the width of the 2nd grid column to `1fr` instead of `auto` ensures that the column takes up the whole remaining space, whereas a width of `auto` is also somewhat influenced by the size of its content.\n\nSetting the `min-width` of ReportValues to 0 achieves that these grid cells are allowed to shrink beyond the size of their content. This means that long URLs do not cause the grid cells to grow, but that we are instead able to achieve a cutoff with ellipsis (\u0027https://blablabl...\u0027).\n\nThe only other place using the ReportView is the `RequestTrustTokensView`, for which I checked that it still looks fine.",
+      "parentUuid": "e1147379_3974b23c",
       "range": {
         "startLine": 51,
         "startChar": 45,
