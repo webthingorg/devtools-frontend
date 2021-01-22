@@ -84,7 +84,8 @@ export class DataGrid extends HTMLElement {
   private columns: readonly Column[] = [];
   private rows: readonly Row[] = [];
   private sortState: Readonly<SortState>|null = null;
-  private pendingScroll = -1;
+  private pendingScroll = 0;
+  private scheduledRenderId = 0;
   private contextMenus?: DataGridContextMenusConfiguration = undefined;
   private currentResize: {
     rightCellCol: HTMLTableColElement,
@@ -120,6 +121,9 @@ export class DataGrid extends HTMLElement {
    */
   private focusableCell: CellPosition = [0, 1];
   private hasRenderedAtLeastOnce = false;
+  private pendingScrollUpdate = false;
+  private topVisibleRow = Number.NEGATIVE_INFINITY;
+  private bottomVisibleRow = Number.POSITIVE_INFINITY;
 
   get data(): DataGridData {
     return {
@@ -174,7 +178,7 @@ export class DataGrid extends HTMLElement {
       }
     }
 
-    this.render();
+    this.scheduleRender();
   }
 
   private scrollToBottomIfRequired(): void {
@@ -225,7 +229,7 @@ export class DataGrid extends HTMLElement {
      * focus, ensure we actually focus the cell.
      */
     cellElement.focus();
-    this.render();
+    this.scheduleRender();
   }
 
   private onTableKeyDown(event: KeyboardEvent): void {
@@ -538,6 +542,51 @@ export class DataGrid extends HTMLElement {
     menu.show();
   }
 
+  private onScroll(): void {
+    this.pendingScrollUpdate = true;
+    this.scheduleRender();
+  }
+
+  private updateVisibleWindow(): void {
+    const ROW_HEIGHT = 18;
+    const ADDITIONAL_VISIBLE_ROWS = 10;
+    const SCROLL_RUNWAY_HEIGHT = ROW_HEIGHT * ADDITIONAL_VISIBLE_ROWS;
+    const wrappingContainer = this.shadow.querySelector('.wrapping-container');
+
+    // Defaults for first render.
+    let scrollTop = 0;
+    let containerHeight = window.innerHeight;
+
+    // Subsequent changes where wrapping container exists.
+    if (wrappingContainer) {
+      scrollTop = wrappingContainer.scrollTop;
+      containerHeight = wrappingContainer.clientHeight;
+    }
+
+    this.topVisibleRow = Math.floor((scrollTop - SCROLL_RUNWAY_HEIGHT) / ROW_HEIGHT);
+    this.bottomVisibleRow = Math.ceil((scrollTop + containerHeight + SCROLL_RUNWAY_HEIGHT) / ROW_HEIGHT);
+  }
+
+  private scheduleRender(): void {
+    if (this.scheduledRenderId !== 0) {
+      return;
+    }
+
+    this.scheduledRenderId = requestAnimationFrame(() => {
+      // Running this at the start of the frame means we can query the scroll
+      // position without triggering layout.
+      if (this.pendingScrollUpdate) {
+        this.updateVisibleWindow();
+        this.pendingScrollUpdate = false;
+      } else {
+        this.scrollToBottomIfRequired();
+      }
+
+      this.render();
+      this.scheduledRenderId = 0;
+    });
+  }
+
   private render(): void {
     const indexOfFirstVisibleColumn = this.columns.findIndex(col => col.visible);
     const anyColumnsSortable = this.columns.some(col => col.sortable === true);
@@ -576,6 +625,14 @@ export class DataGrid extends HTMLElement {
 
       tr {
         outline: none;
+      }
+
+      tr.out-of-view {
+        height: 18px;
+      }
+
+      tr.out-of-view td {
+        display: none;
       }
 
       tbody tr {
@@ -671,7 +728,7 @@ export class DataGrid extends HTMLElement {
         top: 0.6em;
       }
     </style>
-    <div class="wrapping-container">
+    <div class="wrapping-container" @scroll=${this.onScroll}>
       <table
         aria-rowcount=${this.rows.length}
         aria-colcount=${this.columns.length}
@@ -714,7 +771,12 @@ export class DataGrid extends HTMLElement {
           </tr>
         </thead>
         <tbody>
-          ${this.rows.map((row, rowIndex): LitHtml.TemplateResult => {
+          <tr class="scroll-filler-row" style="height: ${this.topVisibleRow * 18}px"></tr>
+          ${LitHtml.Directives.repeat(this.rows, (row, rowIndex): LitHtml.TemplateResult => {
+            if (rowIndex < this.topVisibleRow || rowIndex > this.bottomVisibleRow) {
+              return LitHtml.nothing as LitHtml.TemplateResult;
+            }
+
             const focusableCell = this.getCurrentlyFocusableCell();
             const [,focusableCellRowIndex] = this.focusableCell;
 
@@ -744,7 +806,6 @@ export class DataGrid extends HTMLElement {
                 const cellOutput = col.visible ? renderCellValue(cell) : null;
                 return LitHtml.html`<td
                   class=${cellClasses}
-                  title=${cell.title || String(cell.value)}
                   tabindex=${cellIsFocusableCell ? '0' : '-1'}
                   aria-colindex=${columnIndex + 1}
                   data-row-index=${tableRowIndex}
@@ -756,11 +817,12 @@ export class DataGrid extends HTMLElement {
                   @click=${(): void => {
                     this.focusCell([columnIndex, tableRowIndex]);
                   }}
-                >${cellOutput}${col.visible ? this.renderResizeForCell([columnIndex + 1, tableRowIndex]) : null}</span></td>`;
+                >${cellOutput}</td>`;
               })}
             `;
           })}
          ${this.renderFillerRow()}
+         <tr class="scroll-filler-row" style="height: ${(this.rows.length - this.bottomVisibleRow) * 18}px"></tr>
         </tbody>
       </table>
     </div>
@@ -768,8 +830,6 @@ export class DataGrid extends HTMLElement {
       eventContext: this,
     });
     // clang-format on
-
-    this.scrollToBottomIfRequired();
     this.hasRenderedAtLeastOnce = true;
   }
 }
