@@ -50,6 +50,24 @@
       "message": "color_picker is migrated in https://crrev.com/c/2643999. Will that be a problem or is simply rebasing enough?",
       "revId": "5ee7787eae7cd768d94c21dd62b403a8665adb81",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20ceb74d_2365e42d",
+        "filename": "front_end/color_picker/color_picker_strings.grdp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2021-01-22T09:12:31Z",
+      "side": 1,
+      "message": "Ah yes a rebase and a presubmit run should be good enough!:)",
+      "parentUuid": "7ff4b711_26a06adf",
+      "revId": "5ee7787eae7cd768d94c21dd62b403a8665adb81",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
