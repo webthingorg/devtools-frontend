@@ -69,6 +69,9 @@
   <message name="IDS_DEVTOOLS_1484c5da7e524d160aa2b2d37e754479" desc="Tooltip in Application Panel Sidebar of the Application panel">
     Cookies used by frames from <ph name="COOKIEDOMAIN">$1s<ex>https://example.com</ex></ph>
   </message>
+  <message name="IDS_DEVTOOLS_149e976cb687e00340e7ea3504f20d9c" desc="Description of content of unavailable document in Application panel">
+    The content of this document has been generated dynamically.
+  </message>
   <message name="IDS_DEVTOOLS_15fa5e18dc110ac96ef35fd19abc78b3" desc="Text in Service Worker Cache Views of the Application panel">
     Time Cached
   </message>
@@ -409,6 +412,9 @@ read the &quot;<ph name="THIS_TABLENAME">$1s<ex>database</ex></ph>&quot; table.
   </message>
   <message name="IDS_DEVTOOLS_966449681e03d7c362d19c08ee337985" desc="Warning message for image resources from the manifest">
     <ph name="RESOURCENAME">$1s<ex>Image</ex></ph> URL &apos;<ph name="IMAGERESOURCE__SRC__">$2s<ex>https://example.com/image.png</ex></ph>&apos; failed to parse
+  </message>
+  <message name="IDS_DEVTOOLS_98d5617f2d5d9a55432d93b8019c22b3" desc="Label in frame tree for unavailable document">
+    Document not available
   </message>
   <message name="IDS_DEVTOOLS_98fc9226c3fe878e39cd048fbd1c3692" desc="Text in App Manifest View of the Application panel">
     Short name
