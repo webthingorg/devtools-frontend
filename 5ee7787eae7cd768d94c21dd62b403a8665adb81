@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b406a3c9_bfb0ec74",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2021-01-22T08:29:59Z",
+      "side": 1,
+      "message": "Migrate css overview, PTAL, thanks!",
+      "revId": "5ee7787eae7cd768d94c21dd62b403a8665adb81",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
