@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c7e42edd_4d0edece",
+        "filename": "front_end/console_counters/WarningErrorCounter.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-22T07:59:08Z",
+      "side": 1,
+      "message": "Both now refer to plural errors instead of the first saying singular error.\nI think it\u0027s a similar bug to what Vidal ran into on this CL: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2632164/16/front_end/profiler/CPUProfileView.js#157",
+      "parentUuid": "ce9713a7_953dcca7",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 0
+      },
+      "revId": "c5995820512e66a49f4f82f0cf9765c452947d44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d538f95e_e65863fa",
         "filename": "front_end/console_counters/WarningErrorCounter.js",
         "patchSetId": 2
