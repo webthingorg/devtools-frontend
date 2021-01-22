@@ -22,6 +22,30 @@
       },
       "revId": "ae21c3a20841e834dec929fa8c011a8912939729",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5cec7b6_5d0e33f6",
+        "filename": "front_end/sdk/BUILD.gn",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-01-22T15:35:28Z",
+      "side": 1,
+      "message": "The types from this file were used in several places so I decided to just move this along. Let me know if you think we should split them.",
+      "parentUuid": "0b08f2c3_6b89df9b",
+      "range": {
+        "startLine": 57,
+        "startChar": 4,
+        "endLine": 57,
+        "endChar": 23
+      },
+      "revId": "ae21c3a20841e834dec929fa8c011a8912939729",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
