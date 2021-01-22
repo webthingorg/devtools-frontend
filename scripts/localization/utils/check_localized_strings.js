@@ -112,7 +112,6 @@ const migratedDirsSet = new Set([
   'components',
   'cookie_table',
   'coverage',
-  'css_overview',
   'developer_resources',
   'devices',
   'event_listeners',

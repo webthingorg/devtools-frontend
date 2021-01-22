@@ -12,20 +12,6 @@ import * as UI from '../ui/ui.js';
 import {defaultMobileScaleFactor, DeviceModeModel, Type, UA} from './DeviceModeModel.js';
 import {EmulatedDevice, EmulatedDevicesList, Events, Horizontal, HorizontalSpanned, Mode, Vertical, VerticalSpanned} from './EmulatedDevices.js';  // eslint-disable-line no-unused-vars
 
-/**
- * Even though the emulation panel uses all UI elements, the tooltips are not supported.
- * That's because the emulation elements are rendered around the page context, rather
- * than in the DevTools panel itself. Therefore, we need to fall back to using the
- * built-in tooltip by setting the title attribute on the button's element.
- *
- * @param {!UI.Toolbar.ToolbarButton} button
- * @param {string} title
- */
-function setTitleForButton(button, title) {
-  button.setTitle(title);
-  button.element.title = title;
-}
-
 export class DeviceModeToolbar {
   /**
    * @param {!DeviceModeModel} model
@@ -165,7 +151,7 @@ export class DeviceModeToolbar {
   _fillMainToolbar(toolbar) {
     const widthInput = UI.UIUtils.createInput('device-mode-size-input', 'text');
     widthInput.maxLength = 4;
-    widthInput.title = Common.UIString.UIString('Width');
+    UI.Tooltip.Tooltip.install(widthInput, Common.UIString.UIString('Width'));
     this._updateWidthInput =
         UI.UIUtils.bindInput(widthInput, this._applyWidth.bind(this), DeviceModeModel.widthValidator, true);
     this._widthInput = widthInput;
@@ -180,7 +166,7 @@ export class DeviceModeToolbar {
 
     const heightInput = UI.UIUtils.createInput('device-mode-size-input', 'text');
     heightInput.maxLength = 4;
-    heightInput.title = Common.UIString.UIString('Height (leave empty for full)');
+    UI.Tooltip.Tooltip.install(heightInput, Common.UIString.UIString('Height (leave empty for full)'));
     this._updateHeightInput = UI.UIUtils.bindInput(heightInput, this._applyHeight.bind(this), validateHeight, true);
     this._heightInput = heightInput;
     this._heightItem = this._wrapToolbarItem(heightInput);
@@ -220,7 +206,7 @@ export class DeviceModeToolbar {
   _fillRightToolbar(toolbar) {
     toolbar.appendToolbarItem(this._wrapToolbarItem(this._createEmptyToolbarElement()));
     this._scaleItem = new UI.Toolbar.ToolbarMenuButton(this._appendScaleMenuItems.bind(this));
-    setTitleForButton(this._scaleItem, Common.UIString.UIString('Zoom'));
+    this._scaleItem.setTitle(Common.UIString.UIString('Zoom'));
     this._scaleItem.setGlyph('');
     this._scaleItem.turnIntoSelect();
     this._scaleItem.setDarkText();
@@ -230,7 +216,7 @@ export class DeviceModeToolbar {
 
     this._deviceScaleItem = new UI.Toolbar.ToolbarMenuButton(this._appendDeviceScaleMenuItems.bind(this));
     this._deviceScaleItem.setVisible(this._showDeviceScaleFactorSetting.get());
-    setTitleForButton(this._deviceScaleItem, Common.UIString.UIString('Device pixel ratio'));
+    this._deviceScaleItem.setTitle(Common.UIString.UIString('Device pixel ratio'));
     this._deviceScaleItem.setGlyph('');
     this._deviceScaleItem.turnIntoSelect();
     this._deviceScaleItem.setDarkText();
@@ -239,7 +225,7 @@ export class DeviceModeToolbar {
     toolbar.appendToolbarItem(this._wrapToolbarItem(this._createEmptyToolbarElement()));
     this._uaItem = new UI.Toolbar.ToolbarMenuButton(this._appendUserAgentMenuItems.bind(this));
     this._uaItem.setVisible(this._showUserAgentTypeSetting.get());
-    setTitleForButton(this._uaItem, Common.UIString.UIString('Device type'));
+    this._uaItem.setTitle(Common.UIString.UIString('Device type'));
     this._uaItem.setGlyph('');
     this._uaItem.turnIntoSelect();
     this._uaItem.setDarkText();
@@ -296,7 +282,7 @@ export class DeviceModeToolbar {
   _fillOptionsToolbar(toolbar) {
     toolbar.appendToolbarItem(this._wrapToolbarItem(this._createEmptyToolbarElement()));
     const moreOptionsButton = new UI.Toolbar.ToolbarMenuButton(this._appendOptionsMenuItems.bind(this));
-    setTitleForButton(moreOptionsButton, Common.UIString.UIString('More options'));
+    moreOptionsButton.setTitle(Common.UIString.UIString('More options'));
     toolbar.appendToolbarItem(moreOptionsButton);
   }
 
@@ -691,7 +677,7 @@ export class DeviceModeToolbar {
 
       if (this._model.type() === Type.Responsive) {
         this._modeButton.setEnabled(true);
-        setTitleForButton(this._modeButton, ls`Rotate`);
+        this._modeButton.setTitle(ls`Rotate`);
       } else {
         this._modeButton.setEnabled(false);
       }
@@ -738,8 +724,7 @@ export class DeviceModeToolbar {
       if (device) {
         const modeCount = device ? device.modes.length : 0;
         this._modeButton.setEnabled(modeCount >= 2);
-        setTitleForButton(
-            this._modeButton,
+        this._modeButton.setTitle(
             modeCount === 2 ? Common.UIString.UIString('Rotate') :
                               Common.UIString.UIString('Screen orientation options'));
       }
@@ -755,7 +740,7 @@ export class DeviceModeToolbar {
         this._spanButton.setVisible(false);
         this._experimentalButton.setVisible(false);
       }
-      setTitleForButton(this._spanButton, Common.UIString.UIString('Toggle dual-screen mode'));
+      this._spanButton.setTitle(Common.UIString.UIString('Toggle dual-screen mode'));
     }
 
     if (this._model.type() === Type.Device) {

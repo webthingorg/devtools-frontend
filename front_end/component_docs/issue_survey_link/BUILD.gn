@@ -11,13 +11,12 @@ ts_library("ts") {
 
   deps = [
     "../../../test/unittests/front_end/helpers",
-    "../../common:bundle",
     "../../component_helpers:bundle",
-    "../../ui/components:bundle",
+    "../../issues:bundle",
   ]
 }
 
-copy_to_gen("survey_link") {
+copy_to_gen("issue_survey_link") {
   testonly = true
   sources = [ "basic.html" ]
 

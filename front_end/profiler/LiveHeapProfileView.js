@@ -13,6 +13,10 @@ import {SamplingHeapProfileNode} from './HeapProfileView.js';  // eslint-disable
 
 export const UIStrings = {
   /**
+  *@description Empty string
+  */
+  emptyString: '',
+  /**
   *@description Text for a heap profile type
   */
   jsHeap: 'JS Heap',
@@ -109,7 +113,7 @@ export class LiveHeapProfileView extends UI.Widget.VBox {
      */
     const defaultColumnConfig = {
       id: '',
-      title: Common.UIString.LocalizedEmptyString,
+      title: i18nString(UIStrings.emptyString),
       width: undefined,
       fixedWidth: true,
       sortable: true,

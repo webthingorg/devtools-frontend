@@ -84,7 +84,6 @@ export class DataGrid extends HTMLElement {
   private columns: readonly Column[] = [];
   private rows: readonly Row[] = [];
   private sortState: Readonly<SortState>|null = null;
-  private pendingScroll = -1;
   private contextMenus?: DataGridContextMenusConfiguration = undefined;
   private currentResize: {
     rightCellCol: HTMLTableColElement,
@@ -194,10 +193,7 @@ export class DataGrid extends HTMLElement {
     // of this.rows, which might be hidden.
     const lastVisibleRow = this.shadow.querySelector('tbody tr:not(.hidden):last-child');
     if (lastVisibleRow) {
-      cancelAnimationFrame(this.pendingScroll);
-      this.pendingScroll = requestAnimationFrame(() => {
-        lastVisibleRow.scrollIntoView();
-      });
+      lastVisibleRow.scrollIntoView();
     }
   }
 
@@ -741,7 +737,7 @@ export class DataGrid extends HTMLElement {
                   firstVisibleColumn: columnIndex === indexOfFirstVisibleColumn,
                 });
                 const cellIsFocusableCell = columnIndex === this.focusableCell[0] && tableRowIndex === this.focusableCell[1];
-                const cellOutput = col.visible ? renderCellValue(cell) : null;
+                const cellOutput = renderCellValue(cell);
                 return LitHtml.html`<td
                   class=${cellClasses}
                   title=${cell.title || String(cell.value)}
@@ -756,7 +752,7 @@ export class DataGrid extends HTMLElement {
                   @click=${(): void => {
                     this.focusCell([columnIndex, tableRowIndex]);
                   }}
-                >${cellOutput}${col.visible ? this.renderResizeForCell([columnIndex + 1, tableRowIndex]) : null}</span></td>`;
+                >${cellOutput}${this.renderResizeForCell([columnIndex + 1, tableRowIndex])}</span></td>`;
               })}
             `;
           })}

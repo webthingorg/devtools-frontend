@@ -308,155 +308,11 @@
   "coverage/ModuleUIStrings.ts | stopInstrumentingCoverageAndShow": {
     "message": "Stop instrumenting coverage and show results"
   },
-  "css_overview/css_overview-meta.ts | cssOverview": {
-    "message": "CSS Overview"
-  },
-  "css_overview/CSSOverviewCompletedView.js | aa": {
-    "message": "AA"
-  },
-  "css_overview/CSSOverviewCompletedView.js | aaa": {
-    "message": "AAA"
-  },
-  "css_overview/CSSOverviewCompletedView.js | apca": {
-    "message": "APCA"
-  },
-  "css_overview/CSSOverviewCompletedView.js | attributeSelectors": {
-    "message": "Attribute selectors"
-  },
-  "css_overview/CSSOverviewCompletedView.js | backgroundColorsS": {
-    "message": "Background colors: {PH1}"
-  },
-  "css_overview/CSSOverviewCompletedView.js | borderColorsS": {
-    "message": "Border colors: {PH1}"
-  },
-  "css_overview/CSSOverviewCompletedView.js | classSelectors": {
-    "message": "Class selectors"
-  },
-  "css_overview/CSSOverviewCompletedView.js | colors": {
-    "message": "Colors"
-  },
-  "css_overview/CSSOverviewCompletedView.js | contrastIssues": {
-    "message": "Contrast issues"
-  },
-  "css_overview/CSSOverviewCompletedView.js | contrastIssuesS": {
-    "message": "Contrast issues: {PH1}"
-  },
-  "css_overview/CSSOverviewCompletedView.js | contrastRatio": {
-    "message": "Contrast ratio"
-  },
-  "css_overview/CSSOverviewCompletedView.js | cssOverviewElements": {
-    "message": "CSS Overview Elements"
-  },
-  "css_overview/CSSOverviewCompletedView.js | declaration": {
-    "message": "Declaration"
-  },
-  "css_overview/CSSOverviewCompletedView.js | element": {
-    "message": "Element"
-  },
-  "css_overview/CSSOverviewCompletedView.js | elements": {
-    "message": "Elements"
-  },
-  "css_overview/CSSOverviewCompletedView.js | externalStylesheets": {
-    "message": "External stylesheets"
-  },
-  "css_overview/CSSOverviewCompletedView.js | fillColorsS": {
-    "message": "Fill colors: {PH1}"
-  },
-  "css_overview/CSSOverviewCompletedView.js | fontInfo": {
-    "message": "Font info"
-  },
-  "css_overview/CSSOverviewCompletedView.js | idSelectors": {
-    "message": "ID selectors"
-  },
-  "css_overview/CSSOverviewCompletedView.js | inlineStyleElements": {
-    "message": "Inline style elements"
-  },
-  "css_overview/CSSOverviewCompletedView.js | mediaQueries": {
-    "message": "Media queries"
-  },
-  "css_overview/CSSOverviewCompletedView.js | nonsimpleSelectors": {
-    "message": "Non-simple selectors"
-  },
-  "css_overview/CSSOverviewCompletedView.js | occurrence": {
-    "message": "occurrence"
-  },
-  "css_overview/CSSOverviewCompletedView.js | occurrences": {
-    "message": "occurrences"
-  },
-  "css_overview/CSSOverviewCompletedView.js | overviewSummary": {
-    "message": "Overview summary"
-  },
-  "css_overview/CSSOverviewCompletedView.js | showElement": {
-    "message": "Show element"
-  },
-  "css_overview/CSSOverviewCompletedView.js | source": {
-    "message": "Source"
-  },
-  "css_overview/CSSOverviewCompletedView.js | sS": {
-    "message": "{PH1} {PH2}"
-  },
-  "css_overview/CSSOverviewCompletedView.js | styleRules": {
-    "message": "Style rules"
-  },
-  "css_overview/CSSOverviewCompletedView.js | textColorSOverSBackgroundResults": {
-    "message": "Text color {PH1} over {PH2} background results in low contrast for {PH3} elements"
-  },
-  "css_overview/CSSOverviewCompletedView.js | textColorsS": {
-    "message": "Text colors: {PH1}"
-  },
-  "css_overview/CSSOverviewCompletedView.js | thereAreNoFonts": {
-    "message": "There are no fonts."
-  },
-  "css_overview/CSSOverviewCompletedView.js | thereAreNoMediaQueries": {
-    "message": "There are no media queries."
-  },
-  "css_overview/CSSOverviewCompletedView.js | thereAreNoUnusedDeclarations": {
-    "message": "There are no unused declarations."
-  },
-  "css_overview/CSSOverviewCompletedView.js | typeSelectors": {
-    "message": "Type selectors"
-  },
-  "css_overview/CSSOverviewCompletedView.js | universalSelectors": {
-    "message": "Universal selectors"
-  },
-  "css_overview/CSSOverviewCompletedView.js | unusedDeclarations": {
-    "message": "Unused declarations"
-  },
-  "css_overview/CSSOverviewProcessingView.js | cancel": {
-    "message": "Cancel"
-  },
-  "css_overview/CSSOverviewSidebarPanel.js | clearOverview": {
-    "message": "Clear overview"
-  },
-  "css_overview/CSSOverviewStartView.js | captureOverview": {
-    "message": "Capture overview"
-  },
-  "css_overview/CSSOverviewStartView.js | cssOverview": {
-    "message": "CSS Overview"
-  },
-  "css_overview/CSSOverviewUnusedDeclarations.js | bottomAppliedToAStatically": {
-    "message": "Bottom applied to a statically positioned element"
-  },
-  "css_overview/CSSOverviewUnusedDeclarations.js | heightAppliedToAnInlineElement": {
-    "message": "Height applied to an inline element"
-  },
-  "css_overview/CSSOverviewUnusedDeclarations.js | leftAppliedToAStatically": {
-    "message": "Left applied to a statically positioned element"
-  },
-  "css_overview/CSSOverviewUnusedDeclarations.js | rightAppliedToAStatically": {
-    "message": "Right applied to a statically positioned element"
-  },
-  "css_overview/CSSOverviewUnusedDeclarations.js | topAppliedToAStatically": {
-    "message": "Top applied to a statically positioned element"
-  },
-  "css_overview/CSSOverviewUnusedDeclarations.js | verticalAlignmentAppliedTo": {
-    "message": "Vertical alignment applied to element which is neither inline nor table-cell"
-  },
-  "css_overview/CSSOverviewUnusedDeclarations.js | widthAppliedToAnInlineElement": {
-    "message": "Width applied to an inline element"
-  },
   "developer_resources/developer_resources-meta.ts | developerResources": {
     "message": "Developer Resources"
+  },
+  "developer_resources/developer_resources-meta.ts | showDeveloperResources": {
+    "message": "Show Developer Resources"
   },
   "developer_resources/DeveloperResourcesListView.ts | Byte": {
     "message": "1 byte"
@@ -547,6 +403,9 @@
   },
   "event_listeners/EventListenersView.ts | toggleWhetherEventListenerIs": {
     "message": "Toggle whether event listener is passive or blocking"
+  },
+  "help/help-meta.ts | showWhatsNew": {
+    "message": "Show What's New"
   },
   "help/help-meta.ts | whatsNew": {
     "message": "What's New"
@@ -700,6 +559,9 @@
   },
   "js_profiler/js_profiler-meta.ts | profiler": {
     "message": "Profiler"
+  },
+  "js_profiler/js_profiler-meta.ts | showProfiler": {
+    "message": "Show Profiler"
   },
   "layer_viewer/LayerDetailsView.js | compositingReasons": {
     "message": "Compositing Reasons"
@@ -1019,6 +881,9 @@
   "layers/layers-meta.ts | layers": {
     "message": "Layers"
   },
+  "layers/layers-meta.ts | showLayers": {
+    "message": "Show Layers"
+  },
   "layers/LayersPanel.ts | details": {
     "message": "Details"
   },
@@ -1033,6 +898,9 @@
   },
   "lighthouse/lighthouse-meta.ts | pwa": {
     "message": "pwa"
+  },
+  "lighthouse/lighthouse-meta.ts | showLighthouse": {
+    "message": "Show Lighthouse"
   },
   "lighthouse/LighthouseController.js | accessibility": {
     "message": "Accessibility"
@@ -1280,6 +1148,9 @@
   "media/media-meta.ts | media": {
     "message": "Media"
   },
+  "media/media-meta.ts | showMedia": {
+    "message": "Show Media"
+  },
   "media/media-meta.ts | video": {
     "message": "video"
   },
@@ -1426,6 +1297,9 @@
   },
   "media/PlayerPropertiesView.ts | videoPlaybackRoughness": {
     "message": "Video playback roughness"
+  },
+  "mobile_throttling/mobile_throttling-meta.ts | showThrottling": {
+    "message": "Show Throttling"
   },
   "mobile_throttling/mobile_throttling-meta.ts | throttling": {
     "message": "Throttling"
@@ -1580,11 +1454,17 @@
   "node_debugger/node_debugger-meta.ts | node": {
     "message": "Node"
   },
+  "node_debugger/node_debugger-meta.ts | showNode": {
+    "message": "Node"
+  },
   "node_main/node_main-meta.ts | connection": {
     "message": "Connection"
   },
   "node_main/node_main-meta.ts | node": {
     "message": "node"
+  },
+  "node_main/node_main-meta.ts | showConnection": {
+    "message": "Show Connection"
   },
   "node_main/NodeConnectionsPanel.js | addConnection": {
     "message": "Add connection"
@@ -1715,6 +1595,9 @@
   "performance_monitor/performance_monitor-meta.ts | performanceMonitor": {
     "message": "Performance monitor"
   },
+  "performance_monitor/performance_monitor-meta.ts | showPerformanceMonitor": {
+    "message": "Show Performance monitor"
+  },
   "performance_monitor/performance_monitor-meta.ts | systemMonitor": {
     "message": "system monitor"
   },
@@ -1817,6 +1700,9 @@
   "persistence/ModuleUIStrings.js | rewrite": {
     "message": "rewrite"
   },
+  "persistence/persistence-meta.ts | showWorkspace": {
+    "message": "Show Workspace"
+  },
   "persistence/persistence-meta.ts | workspace": {
     "message": "Workspace"
   },
@@ -1868,6 +1754,9 @@
   "profiler/CPUProfileView.js | cpuProfilesShow": {
     "message": "CPU profiles show where the execution time is spent in your page's JavaScript functions."
   },
+  "profiler/CPUProfileView.js | empty": {
+    "message": ""
+  },
   "profiler/CPUProfileView.js | fms": {
     "message": "{PH1} ms"
   },
@@ -1906,6 +1795,9 @@
   },
   "profiler/HeapProfileView.js | allocationSampling": {
     "message": "Allocation sampling"
+  },
+  "profiler/HeapProfileView.js | emptyString": {
+    "message": ""
   },
   "profiler/HeapProfileView.js | formatPercent": {
     "message": "{PH1} %"
@@ -2228,6 +2120,9 @@
   "profiler/LiveHeapProfileView.js | anonymousScriptS": {
     "message": "(Anonymous Script {PH1})"
   },
+  "profiler/LiveHeapProfileView.js | emptyString": {
+    "message": ""
+  },
   "profiler/LiveHeapProfileView.js | heapProfile": {
     "message": "Heap Profile"
   },
@@ -2351,6 +2246,12 @@
   "profiler/profiler-meta.ts | memory": {
     "message": "Memory"
   },
+  "profiler/profiler-meta.ts | showLiveHeapProfile": {
+    "message": "Show Live Heap Profile"
+  },
+  "profiler/profiler-meta.ts | showMemory": {
+    "message": "Show Memory"
+  },
   "profiler/profiler-meta.ts | showNativeFunctions": {
     "message": "Show native functions in JS Profile"
   },
@@ -2458,6 +2359,9 @@
   },
   "protocol_monitor/protocol_monitor-meta.ts | protocolMonitor": {
     "message": "Protocol monitor"
+  },
+  "protocol_monitor/protocol_monitor-meta.ts | showProtocolMonitor": {
+    "message": "Show Protocol monitor"
   },
   "protocol_monitor/ProtocolMonitor.ts | clearAll": {
     "message": "Clear all"
@@ -3029,6 +2933,18 @@
   "settings/settings-meta.ts | shortcuts": {
     "message": "Shortcuts"
   },
+  "settings/settings-meta.ts | showExperiments": {
+    "message": "Show Experiments"
+  },
+  "settings/settings-meta.ts | showIgnoreList": {
+    "message": "Show Ignore List"
+  },
+  "settings/settings-meta.ts | showPreferences": {
+    "message": "Show Preferences"
+  },
+  "settings/settings-meta.ts | showShortcuts": {
+    "message": "Show Shortcuts"
+  },
   "settings/SettingsScreen.ts | experiments": {
     "message": "Experiments"
   },
@@ -3107,6 +3023,9 @@
   "web_audio/web_audio-meta.ts | audio": {
     "message": "audio"
   },
+  "web_audio/web_audio-meta.ts | showWebaudio": {
+    "message": "Show WebAudio"
+  },
   "web_audio/web_audio-meta.ts | webaudio": {
     "message": "WebAudio"
   },
@@ -3115,6 +3034,9 @@
   },
   "webauthn/ModuleUIStrings.ts | webauthn": {
     "message": "WebAuthn"
+  },
+  "webauthn/webauthn-meta.ts | showWebauthn": {
+    "message": "Show WebAuthn"
   },
   "webauthn/webauthn-meta.ts | webauthn": {
     "message": "WebAuthn"

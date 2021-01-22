@@ -10,7 +10,6 @@ devtools_module("elements") {
   sources = [
     "AccessibilityNode.ts",
     "AccessibilityTree.ts",
-    "AccessibilityTreeUtils.ts",
     "AccessibilityTreeView.ts",
     "Adorner.js",
     "CSSPropertyIconResolver.js",
