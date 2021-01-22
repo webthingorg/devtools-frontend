@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee86f8b9_0fae98a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-22T11:46:17Z",
+      "side": 1,
+      "message": "The design doc mentions a `DISABLE_BUG_ASSOCIATION_CHECK` overwrite mechanism, which is not implemented by this CL. I assume that rather than a custom overwrite mechanism, the `Bug: none` pattern was chosen (I agree this is nicer), so we might have to update the design doc?",
+      "revId": "715d2c5136e09893b500d2065c92aafad793651c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10003583_06c4b587",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-22T11:46:17Z",
+      "side": 1,
+      "message": "Could you add a comment as to why uploading a CL without a bug is not blocking? I can imagine a situation where the warning can be missed by the uploader and people only find out after they ran CQ+2. To reduce the turnaround cycle, if the presubmit will fail on CQ, it should fail locally as well. Therefore, I would say we should always error in this case, unless I am missing a requirement?\n\nNote that `is_committing` is True when you run on CQ, but False on upload.",
+      "range": {
+        "startLine": 115,
+        "startChar": 8,
+        "endLine": 115,
+        "endChar": 24
+      },
+      "revId": "715d2c5136e09893b500d2065c92aafad793651c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cdfbbd8_847f6925",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-22T11:46:17Z",
+      "side": 1,
+      "message": "Nit: I don\u0027t think we should print the bugs by default on every upload. I assume this was used while debugging the implementation? If so, can we remove it to avoid cluttering the output. (Granted, the output is already quite cluttered, but that\u0027s a different issue)",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 70
+      },
+      "revId": "715d2c5136e09893b500d2065c92aafad793651c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
