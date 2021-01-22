@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "166b203c_fa0ff50f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2021-01-22T09:22:33Z",
+      "side": 1,
+      "message": "Migrate browser_sdk, PTAL, thank you!",
+      "revId": "f82ea282c5f159adff372d12714b5c88e8942bd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
