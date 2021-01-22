@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d09c5554_1676a4f3",
+        "filename": "test/unittests/front_end/helpers/DOMHelpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-01-22T16:30:38Z",
+      "side": 1,
+      "message": "nit: we could just return this Promise",
+      "range": {
+        "startLine": 166,
+        "startChar": 2,
+        "endLine": 166,
+        "endChar": 19
+      },
+      "revId": "b28ab30198160293c426af8ec69569a2301673e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05b7a8a2_32cc19db",
+        "filename": "test/unittests/front_end/resources/TrustTokensView_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-01-22T16:30:38Z",
+      "side": 1,
+      "message": "nit: we should comment why we do this",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 16
+      },
+      "revId": "b28ab30198160293c426af8ec69569a2301673e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
