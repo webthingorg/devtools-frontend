@@ -16,6 +16,40 @@
       "message": "LGTM",
       "revId": "33d5d4aa880d6d47dfd3c05e84b55ea187036674",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f0a7832_786c4396",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-01-22T10:02:36Z",
+      "side": 1,
+      "message": "This should wait for the navigation to complete, for example by checking the line number that we end up at. Otherwise this is racy.",
+      "revId": "33d5d4aa880d6d47dfd3c05e84b55ea187036674",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7a51d87_7174e0fb",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-01-22T10:02:36Z",
+      "side": 1,
+      "message": "What if the file is empty or has just one line?",
+      "revId": "33d5d4aa880d6d47dfd3c05e84b55ea187036674",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
