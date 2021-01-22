@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "710cd323_0115e97b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-22T10:56:33Z",
+      "side": 1,
+      "message": "Alex PTAL\nTim FYI for the empty localized string",
+      "revId": "8e5c59715b584bb9b82fe047b6600eb46dbfd81f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
