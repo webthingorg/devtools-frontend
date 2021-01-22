@@ -50,6 +50,24 @@
       "message": "should we rename this file?",
       "revId": "8e5c59715b584bb9b82fe047b6600eb46dbfd81f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8edf728c_d448794c",
+        "filename": "front_end/component_docs/issue_survey_link/basic.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-22T11:58:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "108d4110_9b0766e6",
+      "revId": "8e5c59715b584bb9b82fe047b6600eb46dbfd81f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
