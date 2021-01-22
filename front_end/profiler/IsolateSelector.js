@@ -50,10 +50,6 @@ export const UIStrings = {
   *@example {3} PH1
   */
   heapSizeChangeTrendOverTheLastS: 'Heap size change trend over the last {PH1} minutes.',
-  /**
-  *@description Text to show an item is empty
-  */
-  empty: '(empty)',
 };
 const str_ = i18n.i18n.registerUIStrings('profiler/IsolateSelector.js', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -332,8 +328,8 @@ export class ListItem {
       const name = SDK.SDKModel.TargetManager.instance().mainTarget() !== target ? target.name() : '';
       const parsedURL = new Common.ParsedURL.ParsedURL(target.inspectedURL());
       const domain = parsedURL.isValid ? parsedURL.domain() : '';
-      const title =
-          target.decorateLabel(domain && name ? `${domain}: ${name}` : name || domain || i18nString(UIStrings.empty));
+      const title = target.decorateLabel(
+          domain && name ? `${domain}: ${name}` : name || domain || Common.UIString.LocalizedEmptyString);
       modelCountByName.set(title, (modelCountByName.get(title) || 0) + 1);
     }
     this._nameDiv.removeChildren();
