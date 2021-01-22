@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6b90e918_f3117162",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-22T06:43:20Z",
+      "side": 1,
+      "message": "Hmm this makes sense - logging the map shows that the nodes do get replaced and aren\u0027t duplicated, but calling this.render() will still re-render the node onto the screen every time it is clicked. Also having the flag will also prevent replacing on every click, so would it be ok to keep in or is there a better way to get around this?",
+      "parentUuid": "e8fc330c_a4abd578",
+      "revId": "66fdec609ecf1cc2ab34a2e13990e384719df174",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "da9b4638_831f6f71",
         "filename": "front_end/elements/AccessibilityNode.ts",
         "patchSetId": 5
@@ -48,6 +66,24 @@
       "writtenOn": "2021-01-22T03:53:15Z",
       "side": 1,
       "message": "What is this check needed for? The classlist and expanded property get toggled.",
+      "revId": "66fdec609ecf1cc2ab34a2e13990e384719df174",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "217afba7_16db04bf",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-22T06:43:20Z",
+      "side": 1,
+      "message": "Removed - this was a hacky solve to a bug where you had to click twice to toggle sometimes.. fixed by adding a check around toggling `this.expanded` in `this.render()`",
+      "parentUuid": "da9b4638_831f6f71",
       "revId": "66fdec609ecf1cc2ab34a2e13990e384719df174",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -88,6 +124,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6c4ca993_6a05e597",
+        "filename": "front_end/sdk/AccessibilityModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-22T06:43:20Z",
+      "side": 1,
+      "message": "Bit unsure about this sorry, wouldn\u0027t refreshing the accessibility tree (via button) still have the same problem once the timer timeouts again?",
+      "parentUuid": "1580ef22_fcab29b3",
+      "revId": "66fdec609ecf1cc2ab34a2e13990e384719df174",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9be80519_af6c0145",
         "filename": "front_end/sdk/AccessibilityModel.js",
         "patchSetId": 5
@@ -99,6 +153,24 @@
       "writtenOn": "2021-01-22T03:53:15Z",
       "side": 1,
       "message": "Do we need to return the children? We weren\u0027t previously. If so, rename the method back to requestAXChildren().",
+      "revId": "66fdec609ecf1cc2ab34a2e13990e384719df174",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3615b56_601193bd",
+        "filename": "front_end/sdk/AccessibilityModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-22T06:43:20Z",
+      "side": 1,
+      "message": "Renamed - I\u0027m using the returned axNodes (of type SDK.AccessibilityNode) in SDKNodeToAXNode to convert the children into AXNodes",
+      "parentUuid": "9be80519_af6c0145",
       "revId": "66fdec609ecf1cc2ab34a2e13990e384719df174",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
