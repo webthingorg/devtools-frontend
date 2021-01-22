@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be1b355a_b3c84cee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-22T03:53:15Z",
+      "side": 1,
+      "message": "Done, have some thoughts and questions. @Mathias and @Alex can you both take a second pass over this?",
+      "revId": "66fdec609ecf1cc2ab34a2e13990e384719df174",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8fc330c_a4abd578",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-22T03:53:15Z",
+      "side": 1,
+      "message": "I\u0027m reading the AccessibilityNode constructor now, and I think we might not actually need this. It looks like we create an SDK.AccessibilityNode, passing in a reference to the SDK.AccessibilityModel.\n\nThe SDK.AccessibilityNode then gets added to a mapping on SDK.AccessibilityModel for AXID -\u003e AXNode.\n\nIf we then get back some children that have already been loaded into the model, they should just be replaced, which seems fine: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/sdk/AccessibilityModel.js?q\u003dAccessibilityModel. \n\nAt some point, if there\u0027s no other reference to those SDK.AccessibilityNodes (the only existing references should be in that axIdToAXNode map, which has had it\u0027s entry replaced by something else) they\u0027ll get garbage collected.\n\nI might be misunderstanding though. You could try logging the contents of that map when new accessibility nodes are created to make sure it\u0027s performing replacements and not duplicating?\n\nThe autodisable might also have some implications here, since the map is key\u0027d to AXIDs which will be invalidated once the timer has elapsed and the domain is disabled.",
+      "revId": "66fdec609ecf1cc2ab34a2e13990e384719df174",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da9b4638_831f6f71",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-22T03:53:15Z",
+      "side": 1,
+      "message": "What is this check needed for? The classlist and expanded property get toggled.",
+      "revId": "66fdec609ecf1cc2ab34a2e13990e384719df174",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "296b6643_2ff4f018",
+        "filename": "front_end/elements/AccessibilityTreeUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-22T03:53:15Z",
+      "side": 1,
+      "message": "I think we should be able to write a test for this. \n\nIn the unittests we should be able to just set this function to be something else, that instead of calling the AccessibilityModel, just creates some new AXNodes and adds them into the current AXNode\u0027s children. You can then test that they are rendered correctly.",
+      "revId": "66fdec609ecf1cc2ab34a2e13990e384719df174",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1580ef22_fcab29b3",
+        "filename": "front_end/sdk/AccessibilityModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-22T03:53:15Z",
+      "side": 1,
+      "message": "Hmmm, this is gonna cause a problem I think. If the timer has expired, and we\u0027ve re-enabled the accessibilty domain, I think |nodeId| will potentially be out of date and we\u0027ll get undefined for the children. Not exactly sure what a good fix for that is 😕 Maybe if the timer has elapsed, another button/UI widget is shown in the panel that says \"refresh accessibility tree\"??? Keen to hear what others have to say.\n\nMaybe add a comment to that if statement above as to why we need to re-request the root node, and maybe devtools will have a helpful idea.",
+      "revId": "66fdec609ecf1cc2ab34a2e13990e384719df174",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9be80519_af6c0145",
+        "filename": "front_end/sdk/AccessibilityModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-22T03:53:15Z",
+      "side": 1,
+      "message": "Do we need to return the children? We weren\u0027t previously. If so, rename the method back to requestAXChildren().",
+      "revId": "66fdec609ecf1cc2ab34a2e13990e384719df174",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
