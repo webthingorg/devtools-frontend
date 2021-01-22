@@ -16,6 +16,40 @@
       "message": "Migrate css overview, PTAL, thanks!",
       "revId": "5ee7787eae7cd768d94c21dd62b403a8665adb81",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1afa7bc2_413f3be9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-22T08:39:41Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "5ee7787eae7cd768d94c21dd62b403a8665adb81",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ff4b711_26a06adf",
+        "filename": "front_end/color_picker/color_picker_strings.grdp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-22T08:39:41Z",
+      "side": 1,
+      "message": "color_picker is migrated in https://crrev.com/c/2643999. Will that be a problem or is simply rebasing enough?",
+      "revId": "5ee7787eae7cd768d94c21dd62b403a8665adb81",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
