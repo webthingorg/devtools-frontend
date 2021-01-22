@@ -146,13 +146,6 @@ export class ViewManager {
     /** @type {!Array<{viewId: string, view: (!ProvidedView|!PreRegisteredView), location: (string|null)}>} */
     const unionOfViewExtensions = [
       // TODO(crbug.com/1134103): Remove this call when all views are migrated
-      ...Root.Runtime.Runtime.instance().extensions('view').map(extension => {
-        return {
-          viewId: extension.descriptor().id,
-          location: extension.descriptor()['location'],
-          view: new ProvidedView(extension),
-        };
-      }),
       ...getRegisteredViewExtensions().map(registeredView => {
         return {
           viewId: registeredView.viewId(),
