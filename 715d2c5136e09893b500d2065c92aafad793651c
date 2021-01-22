@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "28061c73_616568a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-22T11:56:05Z",
+      "side": 1,
+      "message": "Seems I missed one occurrence there, thanks!",
+      "parentUuid": "ee86f8b9_0fae98a0",
+      "revId": "715d2c5136e09893b500d2065c92aafad793651c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "10003583_06c4b587",
@@ -41,6 +59,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "072e92d4_1fa35e63",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-22T11:56:05Z",
+      "side": 1,
+      "message": "We discussed this at length, and the consensus was that erroring on upload isn\u0027t a good idea, because the presubmit runs before people have a chance to type the issue description. The fallback then looks at the last commit message, which isn\u0027t helpful (it often is just \"format\").\n\nNote that the bots will turn red on the CQ already, so a +2 is not required to see the redness.\n\nWe found that this compromise gives us the least friction.",
+      "parentUuid": "10003583_06c4b587",
+      "range": {
+        "startLine": 115,
+        "startChar": 8,
+        "endLine": 115,
+        "endChar": 24
+      },
+      "revId": "715d2c5136e09893b500d2065c92aafad793651c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2cdfbbd8_847f6925",
@@ -54,6 +96,30 @@
       "writtenOn": "2021-01-22T11:46:17Z",
       "side": 1,
       "message": "Nit: I don\u0027t think we should print the bugs by default on every upload. I assume this was used while debugging the implementation? If so, can we remove it to avoid cluttering the output. (Granted, the output is already quite cluttered, but that\u0027s a different issue)",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 70
+      },
+      "revId": "715d2c5136e09893b500d2065c92aafad793651c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6064c5c_a5debc31",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-22T11:56:05Z",
+      "side": 1,
+      "message": "Given the intricacy regarding what actually is parsed as the footer of the commit message, I imagine this will be helpful to everyone when they get the empty lines wrong.",
+      "parentUuid": "2cdfbbd8_847f6925",
       "range": {
         "startLine": 120,
         "startChar": 0,
