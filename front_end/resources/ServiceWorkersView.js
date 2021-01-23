@@ -358,7 +358,6 @@ export class Section {
     this._toolbar = section.createToolbar();
     this._toolbar.renderAsLinks();
 
-    this._updateCycleElement = ServiceWorkerUpdateCycleHelper.createTimingTable(registration);
     this._networkRequests = new UI.Toolbar.ToolbarButton(
         Common.UIString.UIString('Network requests'), undefined, Common.UIString.UIString('Network requests'));
     this._networkRequests.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._networkRequestsClicked, this);
@@ -385,7 +384,10 @@ export class Section {
     this._createSyncNotificationField(
         ls`Periodic Sync`, this._periodicSyncTagNameSetting.get(), ls`Periodic Sync tag`,
         tag => this._periodicSync(tag));
-    this._createUpdateCycleField();
+    this._updateCycleForm = this._wrapWidget(this._section.appendField(ls`Update Cycle`))
+                                .createChild('form', 'service-worker-update-cycle-form');
+    this._updateCycleElement = ServiceWorkerUpdateCycleHelper.createTimingTable(this._updateCycleForm, registration);
+    this._updateCycleForm.appendChild(this._updateCycleElement);
 
     this._linkifier = new Components.Linkifier.Linkifier();
     /** @type {!Map<string, !Protocol.Target.TargetInfo>} */
@@ -609,11 +611,6 @@ export class Section {
    */
   _unregisterButtonClicked(event) {
     this._manager.deleteRegistration(this._registration.id);
-  }
-
-  _createUpdateCycleField() {
-    this._updateCycleForm = this._wrapWidget(this._section.appendField(ls`Update Cycle`)).createChild('form');
-    this._updateCycleForm.appendChild(this._updateCycleElement);
   }
 
   /**
