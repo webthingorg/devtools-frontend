@@ -395,6 +395,9 @@
   "css_overview/css_overview-meta.ts | cssOverview": {
     "message": "CSS Overview"
   },
+  "css_overview/css_overview-meta.ts | showCssOverview": {
+    "message": "Show CSS Overview"
+  },
   "css_overview/CSSOverviewCompletedView.js | aa": {
     "message": "AA"
   },
@@ -542,6 +545,9 @@
   "developer_resources/developer_resources-meta.ts | developerResources": {
     "message": "Developer Resources"
   },
+  "developer_resources/developer_resources-meta.ts | showDeveloperResources": {
+    "message": "Show Developer Resources"
+  },
   "developer_resources/DeveloperResourcesListView.ts | Byte": {
     "message": "1 byte"
   },
@@ -631,6 +637,9 @@
   },
   "event_listeners/EventListenersView.ts | toggleWhetherEventListenerIs": {
     "message": "Toggle whether event listener is passive or blocking"
+  },
+  "help/help-meta.ts | showWhatsNew": {
+    "message": "Show What's New"
   },
   "help/help-meta.ts | whatsNew": {
     "message": "What's New"
@@ -784,6 +793,9 @@
   },
   "js_profiler/js_profiler-meta.ts | profiler": {
     "message": "Profiler"
+  },
+  "js_profiler/js_profiler-meta.ts | showProfiler": {
+    "message": "Show Profiler"
   },
   "layer_viewer/LayerDetailsView.js | compositingReasons": {
     "message": "Compositing Reasons"
@@ -1103,6 +1115,9 @@
   "layers/layers-meta.ts | layers": {
     "message": "Layers"
   },
+  "layers/layers-meta.ts | showLayers": {
+    "message": "Show Layers"
+  },
   "layers/LayersPanel.ts | details": {
     "message": "Details"
   },
@@ -1117,6 +1132,9 @@
   },
   "lighthouse/lighthouse-meta.ts | pwa": {
     "message": "pwa"
+  },
+  "lighthouse/lighthouse-meta.ts | showLighthouse": {
+    "message": "Show Lighthouse"
   },
   "lighthouse/LighthouseController.ts | accessibility": {
     "message": "Accessibility"
@@ -1364,6 +1382,9 @@
   "media/media-meta.ts | media": {
     "message": "Media"
   },
+  "media/media-meta.ts | showMedia": {
+    "message": "Show Media"
+  },
   "media/media-meta.ts | video": {
     "message": "video"
   },
@@ -1510,6 +1531,9 @@
   },
   "media/PlayerPropertiesView.ts | videoPlaybackRoughness": {
     "message": "Video playback roughness"
+  },
+  "mobile_throttling/mobile_throttling-meta.ts | showThrottling": {
+    "message": "Show Throttling"
   },
   "mobile_throttling/mobile_throttling-meta.ts | throttling": {
     "message": "Throttling"
@@ -1664,11 +1688,17 @@
   "node_debugger/node_debugger-meta.ts | node": {
     "message": "Node"
   },
+  "node_debugger/node_debugger-meta.ts | showNode": {
+    "message": "Node"
+  },
   "node_main/node_main-meta.ts | connection": {
     "message": "Connection"
   },
   "node_main/node_main-meta.ts | node": {
     "message": "node"
+  },
+  "node_main/node_main-meta.ts | showConnection": {
+    "message": "Show Connection"
   },
   "node_main/NodeConnectionsPanel.js | addConnection": {
     "message": "Add connection"
@@ -1799,6 +1829,9 @@
   "performance_monitor/performance_monitor-meta.ts | performanceMonitor": {
     "message": "Performance monitor"
   },
+  "performance_monitor/performance_monitor-meta.ts | showPerformanceMonitor": {
+    "message": "Show Performance monitor"
+  },
   "performance_monitor/performance_monitor-meta.ts | systemMonitor": {
     "message": "system monitor"
   },
@@ -1900,6 +1933,9 @@
   },
   "persistence/ModuleUIStrings.js | rewrite": {
     "message": "rewrite"
+  },
+  "persistence/persistence-meta.ts | showWorkspace": {
+    "message": "Show Workspace"
   },
   "persistence/persistence-meta.ts | workspace": {
     "message": "Workspace"
@@ -2435,6 +2471,12 @@
   "profiler/profiler-meta.ts | memory": {
     "message": "Memory"
   },
+  "profiler/profiler-meta.ts | showLiveHeapProfile": {
+    "message": "Show Live Heap Profile"
+  },
+  "profiler/profiler-meta.ts | showMemory": {
+    "message": "Show Memory"
+  },
   "profiler/profiler-meta.ts | showNativeFunctions": {
     "message": "Show native functions in JS Profile"
   },
@@ -2542,6 +2584,9 @@
   },
   "protocol_monitor/protocol_monitor-meta.ts | protocolMonitor": {
     "message": "Protocol monitor"
+  },
+  "protocol_monitor/protocol_monitor-meta.ts | showProtocolMonitor": {
+    "message": "Show Protocol monitor"
   },
   "protocol_monitor/ProtocolMonitor.ts | clearAll": {
     "message": "Clear all"
@@ -3113,6 +3158,18 @@
   "settings/settings-meta.ts | shortcuts": {
     "message": "Shortcuts"
   },
+  "settings/settings-meta.ts | showExperiments": {
+    "message": "Show Experiments"
+  },
+  "settings/settings-meta.ts | showIgnoreList": {
+    "message": "Show Ignore List"
+  },
+  "settings/settings-meta.ts | showPreferences": {
+    "message": "Show Preferences"
+  },
+  "settings/settings-meta.ts | showShortcuts": {
+    "message": "Show Shortcuts"
+  },
   "settings/SettingsScreen.ts | experiments": {
     "message": "Experiments"
   },
@@ -3191,6 +3248,9 @@
   "web_audio/web_audio-meta.ts | audio": {
     "message": "audio"
   },
+  "web_audio/web_audio-meta.ts | showWebaudio": {
+    "message": "Show WebAudio"
+  },
   "web_audio/web_audio-meta.ts | webaudio": {
     "message": "WebAudio"
   },
@@ -3199,6 +3259,9 @@
   },
   "webauthn/ModuleUIStrings.ts | webauthn": {
     "message": "WebAuthn"
+  },
+  "webauthn/webauthn-meta.ts | showWebauthn": {
+    "message": "Show WebAuthn"
   },
   "webauthn/webauthn-meta.ts | webauthn": {
     "message": "WebAuthn"
