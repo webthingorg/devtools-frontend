@@ -39,6 +39,30 @@
       },
       "revId": "95e34404718e5e28d2da696076817382955e6403",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd97c7ca_09ae7345",
+        "filename": "front_end/resources/AppManifestView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1002525
+      },
+      "writtenOn": "2021-01-23T06:42:10Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "822b177a_1096c905",
+      "range": {
+        "startLine": 178,
+        "startChar": 85,
+        "endLine": 178,
+        "endChar": 88
+      },
+      "revId": "95e34404718e5e28d2da696076817382955e6403",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
