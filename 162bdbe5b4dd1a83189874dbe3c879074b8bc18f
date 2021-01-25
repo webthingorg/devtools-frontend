@@ -33,6 +33,24 @@
       "message": "1) How does the upstream implementation deal with non-ASCII characters? E.g. does \u0027𝌆\u0027 count as 1 character (Unicode code points), 2 characters (JS string length), or 4 characters (UTF-8-encoded bytes)? What about \u0027👨🏻‍🦱\u0027 (4 code points, string.length \u003d\u003d\u003d 7, 15 bytes in UTF-8)?\n\n2) Let\u0027s add a link here to the upstream implementation, since we\u0027ll want to keep this code in sync with it",
       "revId": "162bdbe5b4dd1a83189874dbe3c879074b8bc18f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4966b37d_1ab36565",
+        "filename": "front_end/resources/AppManifestView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1002525
+      },
+      "writtenOn": "2021-01-25T09:30:08Z",
+      "side": 1,
+      "message": "1) \u0027𝌆\u0027 counts as 2 characters (JS string length) while \u0027👨🏻‍🦱\u0027 counts as 7 characters.\n\n2) How about adding a comment to https://chromium-review.googlesource.com/c/chromium/src/+/2642690/8/chrome/browser/webapps/android/pwa_bottom_sheet_controller.cc#26 to keep it sync with DevTools?",
+      "parentUuid": "8c430209_45d5f2d9",
+      "revId": "162bdbe5b4dd1a83189874dbe3c879074b8bc18f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
