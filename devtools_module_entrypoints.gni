@@ -104,7 +104,6 @@ devtools_module_entrypoint_sources = [
   "lighthouse/lighthouse-legacy.js",
   "lighthouse/lighthouse-meta.js",
   "lighthouse/lighthouse.js",
-  "lighthouse_worker/LighthouseService.js",
   "lighthouse_worker/lighthouse_worker.js",
   "linear_memory_inspector/linear_memory_inspector-legacy.js",
   "linear_memory_inspector/linear_memory_inspector-meta.js",

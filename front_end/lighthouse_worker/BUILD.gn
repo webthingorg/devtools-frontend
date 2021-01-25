@@ -3,12 +3,20 @@
 # found in the LICENSE file.
 
 import("../../scripts/build/ninja/copy.gni")
+import("../../scripts/build/ninja/devtools_entrypoint.gni")
+import("../../scripts/build/ninja/devtools_module.gni")
 
-copy_sources_to_resources("bundle") {
-  sources = [
-    "LighthouseService.js",
-    "lighthouse_worker.js",
+devtools_module("lighthouse_worker") {
+  sources = [ "LighthouseService.js" ]
+
+  deps = [ "../root:bundle" ]
+}
+
+devtools_entrypoint("bundle") {
+  entrypoint = "lighthouse_worker.js"
+
+  deps = [
+    ":lighthouse_worker",
+    "../third_party/lighthouse",
   ]
-
-  deps = [ "../third_party/lighthouse" ]
 }
