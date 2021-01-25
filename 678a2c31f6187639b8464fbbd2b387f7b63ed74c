@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "888aceda_1db56a2b",
+        "filename": "front_end/sdk/AccessibilityModel.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-25T03:23:52Z",
+      "side": 1,
+      "message": "I have enabled the agent in the constructor and made a suspendModel() function. Looking at examples such as CSSModel, I can\u0027t seem to find where this function is called. Could you please elaborate on when the model should be disabled?\n\nWe need AXNode ids to be consistent between getting the full tree and the unloaded children, see https://source.chromium.org/chromium/chromium/src/+/master:third_party/blink/public/devtools_protocol/browser_protocol.pdl;l\u003d186?q\u003dbrowser_protocol.pdl. The existing getPartialAXTree protocol method throws the cache away once it\u0027s built up and returns an ancestor cache. Enabling the model ensures the AXContext and cache persist between calls to the accessibility agent.",
+      "parentUuid": "3749f616_89460fc5",
+      "revId": "678a2c31f6187639b8464fbbd2b387f7b63ed74c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f6d53876_3b1ce71e",
         "filename": "front_end/sdk/AccessibilityModel.js",
         "patchSetId": 6
@@ -48,6 +66,24 @@
       "writtenOn": "2021-01-22T07:07:24Z",
       "side": 1,
       "message": "Why do we need the timer for disabling the a11y domain? Could we do it without using a timeout?",
+      "revId": "678a2c31f6187639b8464fbbd2b387f7b63ed74c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16d9d10c_57961f87",
+        "filename": "front_end/sdk/AccessibilityModel.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-25T03:23:52Z",
+      "side": 1,
+      "message": "A suggestion from Mathias to include disabling into this CL. I had a timer and added a TODO to improve it later on, but have now replaced it with suspendModel(). Is this a better alternative to my previous attempt?",
+      "parentUuid": "f6d53876_3b1ce71e",
       "revId": "678a2c31f6187639b8464fbbd2b387f7b63ed74c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
