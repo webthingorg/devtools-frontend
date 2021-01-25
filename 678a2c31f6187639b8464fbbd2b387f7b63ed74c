@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f3d7db0e_3963bf11",
+        "filename": "front_end/sdk/AccessibilityModel.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-01-25T08:42:38Z",
+      "side": 1,
+      "message": "The model will disabled when SDKModel::suspect is called. It happens when, for example, a Lighthouse audit is started. Probably, we\u0027d need to override the resumeModel() call as well and enable the model there. I think having the model enabled in the constructor is appropriate because eventually the a11y tree has to be a live tree and caching should persist between calls.",
+      "parentUuid": "888aceda_1db56a2b",
+      "revId": "678a2c31f6187639b8464fbbd2b387f7b63ed74c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f6d53876_3b1ce71e",
         "filename": "front_end/sdk/AccessibilityModel.js",
         "patchSetId": 6
