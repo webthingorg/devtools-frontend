@@ -144,30 +144,20 @@ export class ViewManager {
     const preferredExtensionLocations = this._locationOverrideSetting.get();
 
     /** @type {!Array<!ViewRegistry>} */
-    const unionOfViewExtensions = [
-      // TODO(crbug.com/1134103): Remove this call when all views are migrated
-      ...Root.Runtime.Runtime.instance().extensions('view').map(extension => {
-        return {
-          viewId: extension.descriptor().id,
-          location: extension.descriptor()['location'],
-          view: new ProvidedView(extension),
-        };
-      }),
-      ...getRegisteredViewExtensions().map(registeredView => {
-        return {
-          viewId: registeredView.viewId(),
-          location: registeredView.location() || null,
-          view: registeredView,
-        };
-      }),
-    ];
+    const viewExtensions = getRegisteredViewExtensions().map(registeredView => {
+      return {
+        viewId: registeredView.viewId(),
+        location: registeredView.location() || null,
+        view: registeredView,
+      };
+    });
 
     // Views may define their initial ordering within a location. When the user has not reordered, we use the
     // default ordering as defined by the views themselves.
 
     /** @type {!Map<string, !Array<!ViewRegistry>>} */
     const viewsByLocation = new Map();
-    for (const view of unionOfViewExtensions) {
+    for (const view of viewExtensions) {
       const location = view.location || 'none';
       const views = viewsByLocation.get(location) || [];
       views.push(view);

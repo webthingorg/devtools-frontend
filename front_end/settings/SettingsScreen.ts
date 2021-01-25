@@ -501,21 +501,11 @@ export class Revealer implements Common.Revealer.Revealer {
     ];
     unionOfSettings.forEach(revealModuleSetting);
     Root.Runtime.Runtime.instance().extensions(UI.SettingsUI.SettingUI).forEach(revealSettingUI);
-    const unionOfViews = [
-      // TODO(crbug.com/1134103): Remove this call when all views are migrated
-      ...Root.Runtime.Runtime.instance().extensions('view').map(extension => {
-        return {
-          location: extension.descriptor().location,
-          settings: extension.descriptor().settings,
-          id: extension.descriptor().id,
-        };
-      }),
-      ...UI.ViewManager.getRegisteredViewExtensions().map(view => {
-        return {location: view.location(), settings: view.settings(), id: view.viewId()};
-      }),
-    ];
+    const views = UI.ViewManager.getRegisteredViewExtensions().map(view => {
+      return {location: view.location(), settings: view.settings(), id: view.viewId()};
+    });
 
-    unionOfViews.forEach(revealSettingsView);
+    views.forEach(revealSettingsView);
     return success ? Promise.resolve() : Promise.reject();
 
     function revealModuleSetting(settingRegistration: SettingDescriptor): void {
