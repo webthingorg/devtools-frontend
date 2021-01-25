@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "daa25d5b_a9537f76",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-25T17:31:53Z",
+      "side": 1,
+      "message": "Apparently there is still something fishy going on with the LightHouse worker. I am going to investigate the errors tomorrow.",
+      "revId": "f972cdc26e077e6aa68522f644c571ce49264850",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
