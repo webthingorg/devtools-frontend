@@ -35,8 +35,10 @@ devtools_module("inline_editor") {
     "../platform:bundle",
     "../sdk:bundle",
     "../text_utils:bundle",
+    "../theme_support:bundle",
     "../third_party/lit-html:bundle",
     "../ui:bundle",
+    "../ui/components:bundle",
   ]
 
   visibility = [ "../component_docs/*" ]

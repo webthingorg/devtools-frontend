@@ -93,6 +93,8 @@ devtools_image_files = [
   "smallIcons.svg",
   "sources_panel_icon.svg",
   "speech.png",
+  "switcherIcon.svg",
+  "switcherIconDark.svg",
   "toolbarResizerVertical.png",
   "touchCursor_2x.png",
   "touchCursor.png",
