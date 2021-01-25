@@ -33,6 +33,24 @@
       "message": "How should we handle this situation? Most callsites seem to expect the error parameter to be of type DOMError but DOMError does not have error.message....",
       "revId": "bd4f0d40845c75199037ec540174f6bdc31992fe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91855ae2_eed6a531",
+        "filename": "front_end/persistence/IsolatedFileSystem.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-25T14:11:40Z",
+      "side": 1,
+      "message": "Unfortunately, these types have always been wrong 😞 So I think we need to ignore them for now.",
+      "parentUuid": "54ddb2d1_4f7014f3",
+      "revId": "bd4f0d40845c75199037ec540174f6bdc31992fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
