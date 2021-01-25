@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b19e158_2fea903e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-01-25T13:24:11Z",
+      "side": 1,
+      "message": "PTAL, thanks!",
+      "revId": "bd4f0d40845c75199037ec540174f6bdc31992fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54ddb2d1_4f7014f3",
+        "filename": "front_end/persistence/IsolatedFileSystem.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-01-25T13:24:11Z",
+      "side": 1,
+      "message": "How should we handle this situation? Most callsites seem to expect the error parameter to be of type DOMError but DOMError does not have error.message....",
+      "revId": "bd4f0d40845c75199037ec540174f6bdc31992fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
