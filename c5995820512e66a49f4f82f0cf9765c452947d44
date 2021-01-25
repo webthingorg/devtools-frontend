@@ -91,6 +91,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "178cbf6d_286c6379",
+        "filename": "front_end/console_counters/WarningErrorCounter.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2021-01-25T06:56:18Z",
+      "side": 1,
+      "message": "The plural errors are placeholders {PH1: errors} which are the same in the original strings ${errors}\nThe two strings are actually different\nsingular error string -  UIStrings.sError: \u0027{PH1} error\u0027\nplural error string - UIStrings.sErrors:\u0027{PH1} errors\u0027\n\nDoes this sound right to you?",
+      "parentUuid": "c7e42edd_4d0edece",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 0
+      },
+      "revId": "c5995820512e66a49f4f82f0cf9765c452947d44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d538f95e_e65863fa",
         "filename": "front_end/console_counters/WarningErrorCounter.js",
         "patchSetId": 2
