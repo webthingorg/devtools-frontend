@@ -336,7 +336,8 @@ export class RecordingSession {
 
     const debuggerModel = target.model(SDK.DebuggerModel.DebuggerModel) as SDK.DebuggerModel.DebuggerModel;
 
-    const childTargetManager = target.model(SDK.ChildTargetManager.ChildTargetManager);
+    const childTargetManager =
+        target.model(SDK.ChildTargetManager.ChildTargetManager) as SDK.ChildTargetManager.ChildTargetManager;
 
     const setupEventListeners = `
   if (!window.__recorderEventListener) {
@@ -347,6 +348,7 @@ export class RecordingSession {
   window.__recorderEventListener = recorderEventListener;
   }
   `;
+
 
     // This uses the setEventListenerBreakpoint method from the debugger
     // to get notified about new events. Therefor disable the normal debugger
@@ -359,8 +361,11 @@ export class RecordingSession {
 
     await this.evaluateInAllFrames(target, setupEventListeners);
 
-    childTargetManager?.addEventListener(SDK.ChildTargetManager.Events.TargetCreated, this.handleWindowOpened, this);
-    childTargetManager?.addEventListener(SDK.ChildTargetManager.Events.TargetDestroyed, this.handleWindowClosed, this);
+    childTargetManager.addEventListener(SDK.ChildTargetManager.Events.TargetCreated, this.handleWindowOpened, this);
+    childTargetManager.addEventListener(SDK.ChildTargetManager.Events.TargetDestroyed, this.handleWindowClosed, this);
+    for (const target of childTargetManager.childTargets()) {
+      this.attachToTarget(target);
+    }
   }
 
   async detachFromTarget(target: SDK.SDKModel.Target): Promise<void> {

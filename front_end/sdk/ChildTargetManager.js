@@ -81,6 +81,13 @@ export class ChildTargetManager extends SDKModel {
   }
 
   /**
+   * @returns {!Array<!Target>}
+   */
+  childTargets() {
+    return Array.from(this._childTargets.values());
+  }
+
+  /**
    * @override
    * @param {!Protocol.Target.TargetCreatedEvent} event
    */
