@@ -28,3 +28,9 @@ devtools_entrypoint("bundle") {
 
   deps = [ ":browser_sdk" ]
 }
+
+devtools_entrypoint("meta") {
+  entrypoint = "browser_sdk-meta.ts"
+
+  deps = [ ":bundle" ]
+}
