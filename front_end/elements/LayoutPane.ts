@@ -6,7 +6,9 @@ import './NodeText.js';
 
 import * as Common from '../common/common.js';
 import * as ComponentHelpers from '../component_helpers/component_helpers.js';
+import * as Host from '../host/host.js';
 import * as LitHtml from '../third_party/lit-html/lit-html.js';
+import * as Components from '../ui/components/components.js';
 
 import {BooleanSetting, EnumSetting, LayoutElement, Setting, SettingType} from './LayoutPaneUtils.js';
 
@@ -103,6 +105,14 @@ export class LayoutPane extends HTMLElement {
           </div>
           <div class="checkbox-settings">
             ${this.getBooleanSettings().map(setting => this.renderBooleanSetting(setting))}
+          </div>
+          <div class="feedback">
+            <devtools-survey-link .data=${{
+              trigger: 'devtools-layout-panel',
+              promptText: ls`Provide feedback`,
+              canShowSurvey: Host.InspectorFrontendHost.InspectorFrontendHostInstance.canShowSurvey,
+              showSurvey: Host.InspectorFrontendHost.InspectorFrontendHostInstance.showSurvey,
+            } as Components.SurveyLink.SurveyLinkData}></devtools-survey-link>
           </div>
         </div>
         ${this.gridElements ?

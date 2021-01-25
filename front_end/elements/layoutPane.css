@@ -162,3 +162,13 @@
 .node-text-container:hover {
   background-color: var(--item-hover-color);
 }
+
+.feedback {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+devtools-survey-link {
+  --icon-color: var(--color-primary);
+}
