@@ -16,6 +16,29 @@
       "message": "PTAL :)",
       "revId": "e65728f8172ce6a195aebdd8090cdcecbd5c24a4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "baf0316d_7f0b9579",
+        "filename": "front_end/platform/keyboard-utilities.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-25T16:52:23Z",
+      "side": 1,
+      "message": "I tried to figure out how we can make sure that the `ARROW_KEYS` array always contains all possible enum values. E.g. if you were to add a new arrow key, how we can make sure they stay in sync. However, I wasn\u0027t able to figure that out sadly 😭",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 17
+      },
+      "revId": "e65728f8172ce6a195aebdd8090cdcecbd5c24a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
