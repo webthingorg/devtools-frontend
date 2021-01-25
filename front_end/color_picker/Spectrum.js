@@ -31,6 +31,8 @@ import * as Host from '../host/host.js';
 import * as i18n from '../i18n/i18n.js';
 import * as Platform from '../platform/platform.js';
 import * as SDK from '../sdk/sdk.js';
+import * as ThemeSupport from '../theme_support/theme_support.js';
+import * as WebComponents from '../ui/components/components.js';
 import * as UI from '../ui/ui.js';
 
 import {ContrastDetails, Events as ContrastDetailsEvents} from './ContrastDetails.js';
@@ -133,12 +135,13 @@ export class Spectrum extends UI.Widget.VBox {
      * @param {!Element} parentElement
      */
     function appendSwitcherIcon(parentElement) {
-      const icon = UI.UIUtils.createSVGChild(parentElement, 'svg');
-      icon.setAttribute('height', String(16));
-      icon.setAttribute('width', String(16));
-      const path = UI.UIUtils.createSVGChild(icon, 'path');
-      path.setAttribute('d', 'M5,6 L11,6 L8,2 Z M5,10 L11,10 L8,14 Z');
-      return icon;
+      const switcherIcon = new WebComponents.Icon.Icon();
+      if (ThemeSupport.ThemeSupport.instance().themeName() === 'dark') {
+        switcherIcon.data = {iconName: 'switcherIconDark', color: '', width: '16px', height: '16px'};
+      } else {
+        switcherIcon.data = {iconName: 'switcherIcon', color: '', width: '16px', height: '16px'};
+      }
+      parentElement.appendChild(switcherIcon);
     }
 
     super(true);
