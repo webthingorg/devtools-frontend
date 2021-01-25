@@ -35,6 +35,46 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79e3c17d_578af2a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-01-25T07:02:54Z",
+      "side": 1,
+      "message": "LGTM with a suggestion.",
+      "revId": "32427740f46e543659e13da8fe15ed633be6a2f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbf2490f_f2597340",
+        "filename": "scripts/build/generate_devtools_grd.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-01-25T07:02:54Z",
+      "side": 1,
+      "message": "Imo we should call this command line flag \"--compress\" to express what this script will be doing. The current decision to compress based on is_debug should be encoded in the build config. That way it will be easier to change that from the build config in the future too, without having to change the script.",
+      "range": {
+        "startLine": 84,
+        "startChar": 8,
+        "endLine": 84,
+        "endChar": 15
+      },
+      "revId": "32427740f46e543659e13da8fe15ed633be6a2f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "79bcb261_fc7ece7a",
