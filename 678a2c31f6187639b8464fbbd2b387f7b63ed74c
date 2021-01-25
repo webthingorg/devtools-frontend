@@ -86,6 +86,24 @@
       "parentUuid": "f6d53876_3b1ce71e",
       "revId": "678a2c31f6187639b8464fbbd2b387f7b63ed74c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "952daaea_5030af42",
+        "filename": "front_end/sdk/AccessibilityModel.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-01-25T06:29:48Z",
+      "side": 1,
+      "message": "\u003e A suggestion from Mathias to include disabling into this CL. I had a timer and added a TODO to improve it later on, but have now replaced it with suspendModel(). Is this a better alternative to my previous attempt?\n\nUsing suspendModel() addresses the TODO — thanks!",
+      "parentUuid": "16d9d10c_57961f87",
+      "revId": "678a2c31f6187639b8464fbbd2b387f7b63ed74c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
