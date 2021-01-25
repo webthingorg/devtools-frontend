@@ -316,6 +316,7 @@ export const ActionCategory = {
   NETWORK: ls`Network`,
   MEMORY: ls`Memory`,
   JAVASCRIPT_PROFILER: ls`JavaScript Profiler`,
+  PERFORMANCE: ls`Performance`,
 };
 
 type ActionCategory = typeof ActionCategory[keyof typeof ActionCategory];
