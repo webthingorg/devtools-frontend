@@ -51,6 +51,24 @@
       "parentUuid": "8c430209_45d5f2d9",
       "revId": "162bdbe5b4dd1a83189874dbe3c879074b8bc18f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0074d51c_0beee07e",
+        "filename": "front_end/resources/AppManifestView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-01-25T10:06:14Z",
+      "side": 1,
+      "message": "1) Thanks for clarifying.\n\n2) Sounds great!",
+      "parentUuid": "4966b37d_1ab36565",
+      "revId": "162bdbe5b4dd1a83189874dbe3c879074b8bc18f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
