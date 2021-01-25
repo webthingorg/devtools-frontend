@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05721bf1_ad431b0a",
+        "filename": "test/unittests/front_end/platform/Utilities_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-25T05:30:09Z",
+      "side": 0,
+      "message": "Could we move this test to ArrayUtilities_test.ts instead? (Assuming there isn\u0027t a dedicated test for upperBound there)",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 5
+      },
+      "revId": "28c13893f9378fea6f864da7ec99b7071c198748",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
