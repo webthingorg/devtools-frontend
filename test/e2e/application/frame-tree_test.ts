@@ -4,7 +4,7 @@
 
 import {click, getBrowserAndPages, getTestServerPort, goToResource, pressKey, waitFor, waitForFunction} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
-import {doubleClickSourceTreeItem, getReportValues, navigateToApplicationTab} from '../helpers/application-helpers.js';
+import {doubleClickSourceTreeItem, getCustomComponentReportValues, getReportValues, navigateToApplicationTab} from '../helpers/application-helpers.js';
 
 const TOP_FRAME_SELECTOR = '[aria-label="top"]';
 const WEB_WORKERS_SELECTOR = '[aria-label="Web Workers"]';
@@ -12,6 +12,11 @@ const SERVICE_WORKERS_SELECTOR = '[aria-label="top"] ~ ol [aria-label="Service W
 const OPENED_WINDOWS_SELECTOR = '[aria-label="Opened Windows"]';
 const IFRAME_SELECTOR = '[aria-label="frameId (iframe.html)"]';
 const MAIN_FRAME_SELECTOR = '[aria-label="frameId (main-frame.html)"]';
+
+const getTrailingURL = (text: string): string => {
+  const match = text.match(/http.*$/);
+  return match ? match[0] : '';
+};
 
 describe('The Application Tab', async () => {
   it('shows details for a frame when clicked on in the frame tree', async () => {
@@ -21,18 +26,19 @@ describe('The Application Tab', async () => {
     await doubleClickSourceTreeItem(TOP_FRAME_SELECTOR);
 
     await waitForFunction(async () => {
-      const fieldValues = await getReportValues();
+      const fieldValues = await getCustomComponentReportValues();
+      if (fieldValues[0]) {
+        fieldValues[0] = getTrailingURL(fieldValues[0]);
+      }
       const expected = [
         `https://localhost:${getTestServerPort()}/test/e2e/resources/application/frame-tree.html`,
-        '',
         `https://localhost:${getTestServerPort()}`,
         '<#document>',
-        '',
-        'YesLocalhost is always a secure context',
+        'Yes Localhost is always a secure context',
         'No',
         'None',
         'UnsafeNone',
-        'available, transferable⚠️ will require cross-origin isolated context in the future',
+        'available, transferable ⚠️ will require cross-origin isolated context in the future',
         'unavailable Learn more',
       ];
       return JSON.stringify(fieldValues) === JSON.stringify(expected);
@@ -115,18 +121,19 @@ describe('The Application Tab', async () => {
 
     // check iframe's URL after pageload
     await waitForFunction(async () => {
-      const fieldValues = await getReportValues();
+      const fieldValues = await getCustomComponentReportValues();
+      if (fieldValues[0]) {
+        fieldValues[0] = getTrailingURL(fieldValues[0]);
+      }
       const expected = [
         `https://localhost:${getTestServerPort()}/test/e2e/resources/application/iframe.html`,
-        '',
         `https://localhost:${getTestServerPort()}`,
         '<iframe>',
-        '',
-        'YesLocalhost is always a secure context',
+        'Yes Localhost is always a secure context',
         'No',
         'None',
         'UnsafeNone',
-        'available, transferable⚠️ will require cross-origin isolated context in the future',
+        'available, transferable ⚠️ will require cross-origin isolated context in the future',
         'unavailable Learn more',
       ];
       return JSON.stringify(fieldValues) === JSON.stringify(expected);
@@ -146,18 +153,19 @@ describe('The Application Tab', async () => {
     // check that iframe's URL has changed
     await doubleClickSourceTreeItem(MAIN_FRAME_SELECTOR);
     await waitForFunction(async () => {
-      const fieldValues = await getReportValues();
+      const fieldValues = await getCustomComponentReportValues();
+      if (fieldValues[0]) {
+        fieldValues[0] = getTrailingURL(fieldValues[0]);
+      }
       const expected = [
         `https://localhost:${getTestServerPort()}/test/e2e/resources/application/main-frame.html`,
-        '',
         `https://localhost:${getTestServerPort()}`,
         '<iframe>',
-        '',
-        'YesLocalhost is always a secure context',
+        'Yes Localhost is always a secure context',
         'No',
         'None',
         'UnsafeNone',
-        'available, transferable⚠️ will require cross-origin isolated context in the future',
+        'available, transferable ⚠️ will require cross-origin isolated context in the future',
         'unavailable Learn more',
       ];
       return JSON.stringify(fieldValues) === JSON.stringify(expected);
