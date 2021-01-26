@@ -40,7 +40,7 @@ export let reveal = function(revealable, omitFocus) {
     for (let i = 0; i < revealers.length; ++i) {
       promises.push(revealers[i].reveal(/** @type {!Object} */ (revealable), omitFocus));
     }
-    return Promise.race(promises);
+    return Promise.race(promises).catch(e => console.error(e));
   }
 };
 
