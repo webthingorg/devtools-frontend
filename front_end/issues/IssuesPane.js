@@ -733,13 +733,103 @@ class AffectedBlockedByResponseView extends AffectedResourcesView {
   }
 }
 
+class AffectedTwaIssueView extends AffectedResourcesView {
+  /**
+   * @param {!IssueView} parent
+   * @param {!SDK.Issue.Issue} issue
+   */
+  constructor(parent, issue) {
+    super(parent, {singular: ls`resource`, plural: ls`resources`});
+    /** @type {!SDK.Issue.Issue} */
+    this._issue = issue;
+  }
+
+  /**
+   * @param {string} textContent
+   * @returns {!HTMLElement}
+   */
+  _createHeaderCell(textContent) {
+    const cell = document.createElement('td');
+    cell.classList.add('affected-resource-header');
+    cell.textContent = textContent;
+    return cell;
+  }
+
+  /**
+   * @param {!Iterable<!Protocol.Audits.TrustedWebActivityIssueDetails>} details
+   */
+  _appendDetails(details) {
+    const header = document.createElement('tr');
+
+    if (this._issue.code() === SDK.TrustedWebActivityIssue.httpViolationCode) {
+      header.appendChild(this._createHeaderCell(ls`Status code`));
+      header.appendChild(this._createHeaderCell(ls`Url`));
+    } else if (this._issue.code() === SDK.TrustedWebActivityIssue.offlineViolationCode) {
+      header.appendChild(this._createHeaderCell(ls`Url`));
+    } else if (this._issue.code() === SDK.TrustedWebActivityIssue.assetlinkViolationCode) {
+      header.appendChild(this._createHeaderCell(ls`Package name`));
+      header.appendChild(this._createHeaderCell(ls`Url`));
+      header.appendChild(this._createHeaderCell(ls`Package signature`));
+    }
+
+    this.affectedResources.appendChild(header);
+
+    let count = 0;
+    for (const detail of details) {
+      this._appendDetail(detail);
+      count++;
+    }
+    this.updateAffectedResourceCount(count);
+  }
+
+  /**
+   * @param {string} textContent
+   * @returns {!HTMLElement}
+   */
+  _createContentCell(textContent) {
+    const cell = document.createElement('td');
+    cell.classList.add('affected-resource-cell');
+    cell.textContent = textContent;
+    return cell;
+  }
+
+  /**
+   * @param {!Protocol.Audits.TrustedWebActivityIssueDetails} details
+   */
+  _appendDetail(details) {
+    const element = document.createElement('tr');
+    element.classList.add('affected-resource-row');
+
+    if (this._issue.code() === SDK.TrustedWebActivityIssue.httpViolationCode && details.httpStatusCode) {
+      element.appendChild(this._createContentCell(details.httpStatusCode.toString()));
+      element.appendChild(this._createContentCell(details.url));
+    } else if (this._issue.code() === SDK.TrustedWebActivityIssue.offlineViolationCode) {
+      element.appendChild(this._createContentCell(details.url));
+    } else if (this._issue.code() === SDK.TrustedWebActivityIssue.assetlinkViolationCode) {
+      element.appendChild(this._createContentCell(details.packageName || ''));
+      element.appendChild(this._createContentCell(details.url));
+      element.appendChild(this._createContentCell(details.signature || ''));
+    }
+
+    this.affectedResources.appendChild(element);
+  }
+
+  /**
+   * @override
+   */
+  update() {
+    this.clear();
+    this._appendDetails(this._issue.trustedWebActivityIssues());
+  }
+}
+
 /** @type {!Map<!SDK.Issue.IssueCategory, string>} */
 export const IssueCategoryNames = new Map([
   [SDK.Issue.IssueCategory.CrossOriginEmbedderPolicy, ls`Cross Origin Embedder Policy`],
   [SDK.Issue.IssueCategory.MixedContent, ls`Mixed Content`],
   [SDK.Issue.IssueCategory.SameSiteCookie, ls`SameSite Cookie`], [SDK.Issue.IssueCategory.HeavyAd, ls`Heavy Ads`],
   [SDK.Issue.IssueCategory.ContentSecurityPolicy, ls`Content Security Policy`],
-  [SDK.Issue.IssueCategory.Other, ls`Other`]
+  [SDK.Issue.IssueCategory.TrustedWebActivity, ls`Trusted Web Activity`], [SDK.Issue.IssueCategory.Other, ls`Other`]
 ]);
 
 class IssueCategoryView extends UI.TreeOutline.TreeElement {
@@ -815,7 +905,7 @@ export class IssueView extends UI.TreeOutline.TreeElement {
       new AffectedRequestsView(this, this._issue), new AffectedMixedContentView(this, this._issue),
       new AffectedSourcesView(this, this._issue), new AffectedHeavyAdView(this, this._issue),
       new AffectedDirectivesView(this, this._issue), new AffectedBlockedByResponseView(this, this._issue),
-      new AffectedSharedArrayBufferTransferDetailsView(this, this._issue)
+      new AffectedSharedArrayBufferTransferDetailsView(this, this._issue), new AffectedTwaIssueView(this, this._issue)
     ];
 
     this._aggregatedIssuesCount = null;
