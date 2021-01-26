@@ -33,6 +33,24 @@
       "message": "LGTM, thank you!\n\nIs it worth adding an ESLint rule for this in TS files? I guess it depends how long we expect to still be leaning on `ls`. WDYT?",
       "revId": "b513a9c0d0453347dabf144a98e2b880d4eebc03",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7463f67_40d148d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-26T12:19:40Z",
+      "side": 1,
+      "message": "Nah these will be converted soon enough I think",
+      "parentUuid": "8b2e6d0f_115dc22c",
+      "revId": "b513a9c0d0453347dabf144a98e2b880d4eebc03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
