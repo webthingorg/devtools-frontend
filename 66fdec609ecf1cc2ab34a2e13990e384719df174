@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "deaedbbc_ddb12214",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-26T22:17:39Z",
+      "side": 1,
+      "message": "In that case it seems fine to keep 👍",
+      "parentUuid": "6b90e918_f3117162",
+      "revId": "66fdec609ecf1cc2ab34a2e13990e384719df174",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "da9b4638_831f6f71",
         "filename": "front_end/elements/AccessibilityNode.ts",
         "patchSetId": 5
@@ -136,6 +154,24 @@
       "side": 1,
       "message": "Bit unsure about this sorry, wouldn\u0027t refreshing the accessibility tree (via button) still have the same problem once the timer timeouts again?",
       "parentUuid": "1580ef22_fcab29b3",
+      "revId": "66fdec609ecf1cc2ab34a2e13990e384719df174",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb8da2ed_5a6989e7",
+        "filename": "front_end/sdk/AccessibilityModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-26T22:17:39Z",
+      "side": 1,
+      "message": "Not sure if this is a concern now since we aren\u0027t using the timer.",
+      "parentUuid": "6c4ca993_6a05e597",
       "revId": "66fdec609ecf1cc2ab34a2e13990e384719df174",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
