@@ -316,6 +316,8 @@ export const ActionCategory = {
   NETWORK: ls`Network`,
   MEMORY: ls`Memory`,
   JAVASCRIPT_PROFILER: ls`JavaScript Profiler`,
+  MOBILE: ls`Mobile`,
+  SENSORS: ls`Sensors`,
 };
 
 type ActionCategory = typeof ActionCategory[keyof typeof ActionCategory];
@@ -325,6 +327,7 @@ export const enum IconClass {
   LARGEICON_START_RECORDING = 'largeicon-start-recording',
   LARGEICON_STOP_RECORDING = 'largeicon-stop-recording',
   LARGEICON_REFRESH = 'largeicon-refresh',
+  LARGEICON_PHONE = 'largeicon-phone',
 }
 
 export const enum KeybindSet {
