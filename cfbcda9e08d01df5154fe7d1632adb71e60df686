@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d90999b3_542659d5",
+        "filename": "front_end/settings/SettingsScreen.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-01-26T13:39:25Z",
+      "side": 1,
+      "message": "That\u0027s true! Updated accordingly.",
+      "parentUuid": "c6875dd1_4888842a",
+      "range": {
+        "startLine": 504,
+        "startChar": 62,
+        "endLine": 504,
+        "endChar": 67
+      },
+      "revId": "cfbcda9e08d01df5154fe7d1632adb71e60df686",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e0d5ac1_469629ab",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-01-26T11:29:35Z",
       "side": 1,
       "message": "Same here",
+      "range": {
+        "startLine": 147,
+        "startChar": 56,
+        "endLine": 147,
+        "endChar": 61
+      },
+      "revId": "cfbcda9e08d01df5154fe7d1632adb71e60df686",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d291448d_baa0afee",
+        "filename": "front_end/ui/ViewManager.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-01-26T13:39:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e0d5ac1_469629ab",
       "range": {
         "startLine": 147,
         "startChar": 56,
