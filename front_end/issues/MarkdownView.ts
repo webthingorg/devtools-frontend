@@ -126,7 +126,7 @@ const renderText = (token: any): LitHtml.TemplateResult => {
 
 // TODO(crbug.com/1108699): Fix types when they are available.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const tokenRenderers = new Map<string,(token: any) => LitHtml.TemplateResult>([
+const tokenRenderers = new Map<string, (token: any) => LitHtml.TemplateResult>([
   ['paragraph', (token): LitHtml.TemplateResult => html`<p>${renderChildTokens(token)}</p>`],
   ['list', (token): LitHtml.TemplateResult => html`<ul>${token.items.map(renderToken)}</ul>`],
   ['list_item', (token): LitHtml.TemplateResult => html`<li>${renderChildTokens(token)}</li>`],
@@ -152,5 +152,6 @@ export const renderToken = (token: any): LitHtml.TemplateResult => {
   if (!renderFn) {
     throw new Error(`Markdown token type '${token.type}' not supported.`);
   }
+  console.log('hahaha');
   return renderFn(token);
 };
