@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "81dd3bc1_991f49a2",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-26T23:27:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "deaedbbc_ddb12214",
+      "revId": "66fdec609ecf1cc2ab34a2e13990e384719df174",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "da9b4638_831f6f71",
@@ -172,6 +190,24 @@
       "side": 1,
       "message": "Not sure if this is a concern now since we aren\u0027t using the timer.",
       "parentUuid": "6c4ca993_6a05e597",
+      "revId": "66fdec609ecf1cc2ab34a2e13990e384719df174",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b40569e4_588df4f3",
+        "filename": "front_end/sdk/AccessibilityModel.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-26T23:27:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb8da2ed_5a6989e7",
       "revId": "66fdec609ecf1cc2ab34a2e13990e384719df174",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
