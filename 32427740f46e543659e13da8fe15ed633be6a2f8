@@ -75,6 +75,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e661056_c3a4880a",
+        "filename": "scripts/build/generate_devtools_grd.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1128439
+      },
+      "writtenOn": "2021-01-26T09:00:11Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "fbf2490f_f2597340",
+      "range": {
+        "startLine": 84,
+        "startChar": 8,
+        "endLine": 84,
+        "endChar": 15
+      },
+      "revId": "32427740f46e543659e13da8fe15ed633be6a2f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "79bcb261_fc7ece7a",
@@ -88,6 +112,24 @@
       "writtenOn": "2021-01-21T08:30:50Z",
       "side": 1,
       "message": "I think by default grit uses gzip for compression (see https://source.chromium.org/chromium/chromium/src/+/master:tools/grit/grit/node/base.py;l\u003d633;drc\u003d0e8790c5fc8ab5df43ccf072bf2fdbdcb57d498c) It might be worth including compress\u003dfalse and ship uncompressed resources in debug?",
+      "revId": "32427740f46e543659e13da8fe15ed633be6a2f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf688f99_06803c5f",
+        "filename": "scripts/build/generate_devtools_grd.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1128439
+      },
+      "writtenOn": "2021-01-26T09:00:11Z",
+      "side": 1,
+      "message": "With the (\u0027compress\u0027, \u0027brotli\u0027) attribute omitted the entire build step takes only about five seconds in debug builds so if there is compression happening it is fast enough to not matter.",
+      "parentUuid": "79bcb261_fc7ece7a",
       "revId": "32427740f46e543659e13da8fe15ed633be6a2f8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
