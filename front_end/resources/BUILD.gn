@@ -53,6 +53,7 @@ devtools_module("resources") {
     "../sdk:bundle",
     "../source_frame:bundle",
     "../text_utils:bundle",
+    "../third_party/lit-html:bundle",
     "../ui:bundle",
     "../workspace:bundle",
   ]
