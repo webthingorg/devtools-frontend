@@ -16,6 +16,46 @@
       "message": "Added some tests",
       "revId": "1b57decedf2fb150fd15df397aada1c666df1500",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a3c2e0c_49e8e59f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-26T10:02:27Z",
+      "side": 1,
+      "message": "thanks for adding tests!",
+      "revId": "1b57decedf2fb150fd15df397aada1c666df1500",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cb43f3a_12328ab2",
+        "filename": "scripts/localization/utils/tests/localization_utils_test.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-26T10:02:27Z",
+      "side": 1,
+      "message": "nit: true :P",
+      "range": {
+        "startLine": 195,
+        "startChar": 33,
+        "endLine": 195,
+        "endChar": 37
+      },
+      "revId": "1b57decedf2fb150fd15df397aada1c666df1500",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
