@@ -942,6 +942,7 @@ grd_files_debug_sources = [
   "front_end/sdk/SourceMapManager.js",
   "front_end/sdk/TracingManager.js",
   "front_end/sdk/TracingModel.js",
+  "front_end/sdk/TrustedWebActivityIssue.js",
   "front_end/sdk/WebAuthnModel.js",
   "front_end/search/SearchConfig.js",
   "front_end/search/SearchResultsPane.js",
