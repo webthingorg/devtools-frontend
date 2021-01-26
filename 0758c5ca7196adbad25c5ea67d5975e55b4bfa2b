@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f30d3646_a15b516a",
+        "filename": "front_end/emulation/LocationsSettingsTab.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-01-26T20:31:27Z",
+      "side": 1,
+      "message": "The `emulation.locations` setting\u0027s `defaultValue` field is an array of elements whose `title` field is localizable. It is wrapped in an anonymous function in the meta file for this purposes and the references like this are refactored accordingly.",
+      "range": {
+        "startLine": 59,
+        "startChar": 42,
+        "endLine": 59,
+        "endChar": 67
+      },
+      "revId": "0758c5ca7196adbad25c5ea67d5975e55b4bfa2b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3653d03_96f083ec",
+        "filename": "front_end/emulation/SensorsView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-01-26T20:31:27Z",
+      "side": 1,
+      "message": "Same here",
+      "range": {
+        "startLine": 205,
+        "startChar": 37,
+        "endLine": 205,
+        "endChar": 46
+      },
+      "revId": "0758c5ca7196adbad25c5ea67d5975e55b4bfa2b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
