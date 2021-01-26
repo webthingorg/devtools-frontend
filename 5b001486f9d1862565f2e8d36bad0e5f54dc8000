@@ -16,6 +16,23 @@
       "message": "Migrate source_frame, PTAL, thanks!",
       "revId": "5b001486f9d1862565f2e8d36bad0e5f54dc8000",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a42e63bf_3f455fb3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-26T12:26:27Z",
+      "side": 1,
+      "message": "LGTM! thanks",
+      "revId": "5b001486f9d1862565f2e8d36bad0e5f54dc8000",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
