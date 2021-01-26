@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "903a0c8f_7ca250bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-26T05:38:00Z",
+      "side": 1,
+      "message": "Could you check if its feasible to add a unit test for some of these methods in `scripts/localization/utils/tests`? At least for those parts that will also be used in l10n V2.\n\nlgtm",
+      "revId": "45eb041b242474a24eac633a18f628827b4e86f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
