@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04cbd507_8a7f8e6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-01-26T15:12:27Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nHere\u0027s the fix for the initial address in the history.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "bdc9f42d9c3b60393f3e8a6401f2f8459d74ff58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
