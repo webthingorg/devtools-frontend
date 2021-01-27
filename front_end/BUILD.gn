@@ -99,6 +99,7 @@ group("front_end") {
     "protocol_monitor:meta",
     "quick_open:bundle",
     "recorder:bundle",
+    "render_coordinator:bundle",
     "resources:bundle",
     "resources:meta",
     "screencast:bundle",
