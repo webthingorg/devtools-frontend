@@ -34,6 +34,24 @@
       "parentUuid": "e815fb27_c2d328e9",
       "revId": "b97c461a47e74ae5bd3cba41bd966ff701e4f581",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "982fc0ee_12d66eeb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1440373
+      },
+      "writtenOn": "2021-01-27T15:48:56Z",
+      "side": 1,
+      "message": "I assume screencast e2e testing is hard, but do we have some tests, or at least a feature request to introduce it?\n\nLGTM though.",
+      "parentUuid": "b50e51be_f30603dd",
+      "revId": "b97c461a47e74ae5bd3cba41bd966ff701e4f581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
