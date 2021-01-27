@@ -213,6 +213,16 @@ export class LanguageExtensionEndpoint extends Bindings.DebuggerLanguagePlugins.
 
   /**
    * @override
+   * @param {string|{base: !Bindings.DebuggerLanguagePlugins.EvalBase, field: !Array<!Bindings.DebuggerLanguagePlugins.FieldInfo>}} expressionOrField
+   * @return {!Promise<!{js: string}>}
+   */
+  getInspectableAddress(expressionOrField) {
+    return /** @type {!Promise<!{js: string}>}} */ (
+        this._sendRequest(this._commands.GetInspectableAddress, {expressionOrField}));
+  }
+
+  /**
+   * @override
    * @param {string} rawModuleId
    * @param {string} sourceFileURL
    * @return {!Promise<!Array<number>|undefined>}
