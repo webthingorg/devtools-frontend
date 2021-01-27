@@ -52,6 +52,23 @@
       "parentUuid": "b50e51be_f30603dd",
       "revId": "b97c461a47e74ae5bd3cba41bd966ff701e4f581",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4e5e15b_4124f0b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-01-27T16:24:02Z",
+      "side": 1,
+      "message": "I have verified that it\u0027s fixing the issue. LGTM.",
+      "revId": "b97c461a47e74ae5bd3cba41bd966ff701e4f581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
