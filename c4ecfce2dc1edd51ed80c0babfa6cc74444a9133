@@ -16,6 +16,23 @@
       "message": "PTAL thanks!",
       "revId": "c4ecfce2dc1edd51ed80c0babfa6cc74444a9133",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa41677b_090f3c4f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-01-27T05:08:04Z",
+      "side": 1,
+      "message": "lgtm\n\nI can see that AXBreadcrumbsPane does something slightly different and uses nodeHighlightRequested. Not sure exactly what the difference is: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/sdk/OverlayModel.js;l\u003d707;bpv\u003d1;bpt\u003d0?q\u003dnodeHighlightRequested\u0026ss\u003dchromium%2Fchromium%2Fsrc\n\nDevtools to advise. Also is there a way we can test this? We can at least dispatch mouse events and check that the styles to the wrapper are applied?",
+      "revId": "c4ecfce2dc1edd51ed80c0babfa6cc74444a9133",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
