@@ -16,6 +16,23 @@
       "message": "+Alex to review\n\nThis is the follow up CL to your comment here: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2641148/5..10/front_end/ui/UIUtils.js#b1454\n\nPTAL when you get the chance!",
       "revId": "fa1695fdccd657ea03ff200f73cb092f8ab10fc6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b067b69_ea68f2a4",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-01-27T21:09:42Z",
+      "side": 1,
+      "message": "is it possible to have a single icon by providing a color value (which could be a CSS var) without using the explicit check? For example, https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/linear_memory_inspector/LinearMemoryNavigator.ts;l\u003d189;drc\u003d2a2b0e338be5aa651ec70e29c15755ee70402af6 It would use the icon as a mask so it\u0027d be possible to adjust colors.",
+      "revId": "fa1695fdccd657ea03ff200f73cb092f8ab10fc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
