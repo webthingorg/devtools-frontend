@@ -16,6 +16,23 @@
       "message": "Hey Kim,\n\nHere\u0027s the fix for the initial address in the history.\nPlease take a look.\n\nthanks,\nBenedikt",
       "revId": "bdc9f42d9c3b60393f3e8a6401f2f8459d74ff58",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d9a6788_cc008e7f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-01-27T09:23:26Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "bdc9f42d9c3b60393f3e8a6401f2f8459d74ff58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
