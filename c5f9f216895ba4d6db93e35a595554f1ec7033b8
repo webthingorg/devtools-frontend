@@ -16,6 +16,161 @@
       "message": "Uploaded the current state.",
       "revId": "c5f9f216895ba4d6db93e35a595554f1ec7033b8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "678e0e4e_9ac75709",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-27T12:49:34Z",
+      "side": 1,
+      "message": "Nice work! The progress thus far is amazing, a lot quicker than I had expected 😊",
+      "revId": "c5f9f216895ba4d6db93e35a595554f1ec7033b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d899b40_fe2f6290",
+        "filename": "third_party/typescript/ts_library.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-27T12:49:34Z",
+      "side": 1,
+      "message": "Nit: this is equivalent to `ROOT_DIRECTORY_OF_REPOSITORY`",
+      "range": {
+        "startLine": 77,
+        "startChar": 34,
+        "endLine": 77,
+        "endChar": 58
+      },
+      "revId": "c5f9f216895ba4d6db93e35a595554f1ec7033b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fe034d2_c39ea164",
+        "filename": "third_party/typescript/ts_library.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-27T12:49:34Z",
+      "side": 1,
+      "message": "If I am not mistaken, these should also include the all `.d.ts` files that are part of `GLOBAL_TYPESCRIPT_DEFINITION_FILES` and are in `TYPES_NODE_MODULES_DIRECTORY` if this particular action is test_only? I think that should fix the failures we were seeing on the `ts_library` invocations for the test targets that were relying on Mocha/Node/etc...",
+      "range": {
+        "startLine": 79,
+        "startChar": 4,
+        "endLine": 79,
+        "endChar": 18
+      },
+      "revId": "c5f9f216895ba4d6db93e35a595554f1ec7033b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15312b57_0a0d39d2",
+        "filename": "third_party/typescript/typescript.gni",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-27T12:49:34Z",
+      "side": 1,
+      "message": "Ultra-nit: s/stabalized/stabilized/",
+      "range": {
+        "startLine": 10,
+        "startChar": 60,
+        "endLine": 10,
+        "endChar": 70
+      },
+      "revId": "c5f9f216895ba4d6db93e35a595554f1ec7033b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46becfab_b6b3502f",
+        "filename": "third_party/typescript/typescript.gni",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-27T12:49:34Z",
+      "side": 1,
+      "message": "Ultra-nit: s/folde togehter/folded together/",
+      "range": {
+        "startLine": 11,
+        "startChar": 37,
+        "endLine": 11,
+        "endChar": 51
+      },
+      "revId": "c5f9f216895ba4d6db93e35a595554f1ec7033b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cae8a99_aec1c549",
+        "filename": "third_party/typescript/typescript.gni",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-27T12:49:34Z",
+      "side": 1,
+      "message": "Let\u0027s also add a TODO for crbug.com/1139220 to make sure we remove this at some point.",
+      "range": {
+        "startLine": 12,
+        "startChar": 2,
+        "endLine": 12,
+        "endChar": 26
+      },
+      "revId": "c5f9f216895ba4d6db93e35a595554f1ec7033b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7b6261c_d2992e95",
+        "filename": "third_party/typescript/typescript.gni",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-27T12:49:34Z",
+      "side": 1,
+      "message": "Do we still need this? I thought that the `devtools_entrypoint` cleanup will make sure this will keep on working. If we do need this, could you add an example usage of this particular flag in the build hierarchy?\n\nEdit: Oh right, the `devtools_entrypoint` now sets this to false. However, I would have assumed that all `devtools_entrypoint` have at least 1 deps, do they not?",
+      "range": {
+        "startLine": 138,
+        "startChar": 8,
+        "endLine": 138,
+        "endChar": 78
+      },
+      "revId": "c5f9f216895ba4d6db93e35a595554f1ec7033b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
