@@ -86,6 +86,24 @@
       "parentUuid": "e7a51d87_7174e0fb",
       "revId": "33d5d4aa880d6d47dfd3c05e84b55ea187036674",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99015384_6dcc0149",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-01-27T17:43:02Z",
+      "side": 1,
+      "message": "You can\u0027t wait for just one line because there\u0027s always an empty line there, even if no file is loaded or if there is an error.",
+      "parentUuid": "a7274d52_c9705ef5",
+      "revId": "33d5d4aa880d6d47dfd3c05e84b55ea187036674",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
