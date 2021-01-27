@@ -19,6 +19,7 @@ const makeAXNode = (overrides: Partial<ElementsModule.AccessibilityTreeUtils.AXN
     numChildren: 0,
     hasOnlyUnloadedChildren: false,
     loadChildren: async () => {},
+    highlightNode: () => {},
     ...overrides,
   };
   return axNode;
