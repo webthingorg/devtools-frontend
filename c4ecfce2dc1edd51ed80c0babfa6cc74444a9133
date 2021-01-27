@@ -86,6 +86,41 @@
       "parentUuid": "10068628_bf854d6e",
       "revId": "c4ecfce2dc1edd51ed80c0babfa6cc74444a9133",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62244df9_e4063328",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-01-27T07:19:13Z",
+      "side": 1,
+      "message": "As far as I know, nodeHighlightRequested is used to highlight an element in the Elements panel and I don\u0027t think it applies in this case.\n\nI think you can dispatch other mouse events as following:\n\n```\nconst moveEvent \u003d new MouseEvent(\u0027mousemove\u0027, options);\nelement.dispatchEvent(moveEvent);\n```\n\nIt might worth extending DOMHelpers and add an additional helper for mouse events your need. Also, we should probably consider that the element should be highlighted if the element is selected via keyboard?",
+      "parentUuid": "10068628_bf854d6e",
+      "revId": "c4ecfce2dc1edd51ed80c0babfa6cc74444a9133",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3b015c0_5bc94379",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-01-27T07:19:13Z",
+      "side": 1,
+      "message": "Should we hide the highlight on mouse leave?",
+      "revId": "c4ecfce2dc1edd51ed80c0babfa6cc74444a9133",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
