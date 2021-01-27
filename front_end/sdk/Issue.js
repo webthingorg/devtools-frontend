@@ -14,6 +14,7 @@ export const IssueCategory = {
   SameSiteCookie: Symbol('SameSiteCookie'),
   HeavyAd: Symbol('HeavyAd'),
   ContentSecurityPolicy: Symbol('ContentSecurityPolicy'),
+  TrustedWebActivity: Symbol('TrustedWebActivity'),
   Other: Symbol('Other')
 };
 
@@ -130,6 +131,13 @@ export class Issue extends Common.ObjectWrapper.ObjectWrapper {
    * @returns {!Iterable<!Protocol.Audits.MixedContentIssueDetails>}
    */
   mixedContents() {
+    return [];
+  }
+
+  /**
+   * @returns {!Iterable<!Protocol.Audits.TrustedWebActivityIssueDetails>}
+   */
+  trustedWebActivityIssues() {
     return [];
   }
 
