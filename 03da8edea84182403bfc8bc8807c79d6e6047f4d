@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b60ebbc_7b3f58c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-27T06:19:11Z",
+      "side": 1,
+      "message": "Nice cleanup!\n\nI was always wondering, is there no way to re-write DevTools build actions in a way that inputs !\u003d outputs? (So we can use the native GN copy)",
+      "revId": "03da8edea84182403bfc8bc8807c79d6e6047f4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
