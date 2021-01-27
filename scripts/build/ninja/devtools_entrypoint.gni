@@ -131,6 +131,8 @@ template("devtools_entrypoint") {
       public_deps = [ ":$_copy_target_name" ]
 
       is_web_worker = _is_web_worker
+
+      use_rbe = false
     }
 
     rollup(_rollup_target_name) {
