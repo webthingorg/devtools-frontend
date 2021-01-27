@@ -16,6 +16,23 @@
       "message": "Hey Kim,\n\nHere\u0027s some cleanup on the tests.\nPlease take a look.\n\nthanks,\nBenedikt",
       "revId": "61e1a40e1993f048b8071fa04b58ddd234f9331d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bfb4a6a_ecb6ace9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-01-27T09:24:16Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "61e1a40e1993f048b8071fa04b58ddd234f9331d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
