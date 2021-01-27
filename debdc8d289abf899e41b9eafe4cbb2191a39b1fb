@@ -33,6 +33,24 @@
       "message": "0 is a valid address",
       "revId": "debdc8d289abf899e41b9eafe4cbb2191a39b1fb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df330a54_34355016",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-01-27T14:17:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8f194f5_51210f11",
+      "revId": "debdc8d289abf899e41b9eafe4cbb2191a39b1fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
