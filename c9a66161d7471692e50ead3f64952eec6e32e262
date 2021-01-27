@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be874037_31512a02",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002500
+      },
+      "writtenOn": "2021-01-27T11:56:29Z",
+      "side": 1,
+      "message": "I already +1\u0027d patchset 3 and patchset 5 looks identical, so SLGTM.",
+      "revId": "c9a66161d7471692e50ead3f64952eec6e32e262",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
