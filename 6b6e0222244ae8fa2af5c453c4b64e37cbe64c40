@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1e4b622_803dcb90",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-01-27T13:00:13Z",
+      "side": 1,
+      "message": "Hi Philip, hi Benedikt,\n\nadding support for opening the LMI for the extension in the front-end. PTAL!",
+      "revId": "6b6e0222244ae8fa2af5c453c4b64e37cbe64c40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
