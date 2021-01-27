@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d3034f3_f8d33721",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2021-01-27T16:28:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f0a7832_786c4396",
+      "revId": "33d5d4aa880d6d47dfd3c05e84b55ea187036674",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e7a51d87_7174e0fb",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-01-22T10:02:36Z",
       "side": 1,
       "message": "What if the file is empty or has just one line?",
+      "revId": "33d5d4aa880d6d47dfd3c05e84b55ea187036674",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7274d52_c9705ef5",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2021-01-27T16:28:13Z",
+      "side": 1,
+      "message": "Originally the function had a default parameter (that defaults to 1) called \u0027lineToWaitFor\u0027 which we wait for in this line but we were afraid that this might cause confusion to the purpose of the function.\nwould you like us to do that instead?",
+      "parentUuid": "e7a51d87_7174e0fb",
       "revId": "33d5d4aa880d6d47dfd3c05e84b55ea187036674",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
