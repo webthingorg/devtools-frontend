@@ -9,7 +9,7 @@ import * as Workspace from '../workspace/workspace.js';
 
 import {LinearMemoryInspectorPaneImpl} from './LinearMemoryInspectorPane.js';
 
-const LINEAR_MEMORY_INSPECTOR_OBJECT_GROUP = 'linear-memory-inspector';
+export const LINEAR_MEMORY_INSPECTOR_OBJECT_GROUP = 'linear-memory-inspector';
 const MEMORY_TRANSFER_MIN_CHUNK_SIZE = 1000;
 export const ACCEPTED_MEMORY_TYPES = ['webassemblymemory', 'typedarray', 'dataview', 'arraybuffer'];
 
@@ -123,7 +123,7 @@ export class LinearMemoryInspectorController extends SDK.SDKModel.SDKModelObserv
     const bufferId = await getBufferId(buffer);
 
     if (this.bufferIdToRemoteObject.has(bufferId)) {
-      this.paneInstance.reveal(bufferId);
+      this.paneInstance.reveal(bufferId, address);
       UI.ViewManager.ViewManager.instance().showView('linear-memory-inspector');
       return;
     }
