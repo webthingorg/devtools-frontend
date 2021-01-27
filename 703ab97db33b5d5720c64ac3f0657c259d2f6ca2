@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ddf808d_c8707dda",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-27T15:01:09Z",
+      "side": 1,
+      "message": "Hi Alex, please take a look and help me verify that this CL reinstates the behavior from before https://crrev.com/c/2445770. Thanks!",
+      "revId": "703ab97db33b5d5720c64ac3f0657c259d2f6ca2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
