@@ -19,7 +19,10 @@ devtools_module("color_picker") {
     "../i18n:bundle",
     "../platform:bundle",
     "../sdk:bundle",
+    "../theme_support:bundle",
     "../ui:bundle",
+    "../ui:bundle",
+    "../ui/components:bundle",
   ]
 }
 
