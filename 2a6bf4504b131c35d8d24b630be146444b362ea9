@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "40f4119d_3e3ec4cc",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-27T16:10:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71b81081_23219fd1",
+      "range": {
+        "startLine": 244,
+        "startChar": 6,
+        "endLine": 244,
+        "endChar": 86
+      },
+      "revId": "2a6bf4504b131c35d8d24b630be146444b362ea9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d89966e3_66901b23",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9507e45_a31d3df9",
+        "filename": "test/e2e/helpers/datagrid-helpers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-27T16:10:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d89966e3_66901b23",
+      "range": {
+        "startLine": 11,
+        "startChar": 24,
+        "endLine": 11,
+        "endChar": 109
+      },
+      "revId": "2a6bf4504b131c35d8d24b630be146444b362ea9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de8b01f3_18755be1",
@@ -77,6 +125,30 @@
       "writtenOn": "2021-01-27T15:55:06Z",
       "side": 1,
       "message": "same here 😊",
+      "range": {
+        "startLine": 108,
+        "startChar": 10,
+        "endLine": 108,
+        "endChar": 81
+      },
+      "revId": "2a6bf4504b131c35d8d24b630be146444b362ea9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "917863d9_05f9e06a",
+        "filename": "test/unittests/front_end/ui/components/DataGrid_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-27T16:10:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de8b01f3_18755be1",
       "range": {
         "startLine": 108,
         "startChar": 10,
