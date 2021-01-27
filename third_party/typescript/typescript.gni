@@ -2,7 +2,16 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
+import("//build/toolchain/rbe.gni")
+import("../../scripts/build/ninja/node.gni")
 import("../../scripts/build/ninja/vars.gni")
+
+declare_args() {
+  # Set to true to enable remote compilation of TypeScript using RBE.
+  # This flag is temporarily until DevTools RBE support has stabalized.
+  # At that point, this flag will be folde togehter with "use_rbe".
+  devtools_use_rbe = false
+}
 
 # Defines a target that compiles .ts files using TypeScript.
 # A temporary tsconfig.json is generated which uses the
@@ -30,8 +39,8 @@ import("../../scripts/build/ninja/vars.gni")
 #   }
 #
 template("ts_library") {
-  action(target_name) {
-    script = devtools_location_prepend + "third_party/typescript/ts_library.py"
+  node_action(target_name) {
+    script = "third_party/typescript/ts_library.js"
 
     forward_variables_from(invoker,
                            [
@@ -66,7 +75,7 @@ template("ts_library") {
     }
 
     args = [
-      "--tsconfig_output_location",
+      "--tsconfig-output-location",
       rebase_path(target_gen_dir, root_build_dir) +
           "/$_typescript_config_name-tsconfig.json",
     ]
@@ -105,7 +114,7 @@ template("ts_library") {
     # as there is no way of retrieving the folder the template
     # is in with Ninja.
     args += [
-      "--front_end_directory",
+      "--front-end-directory",
       rebase_path(_rootdir, root_build_dir),
     ]
 
@@ -122,7 +131,20 @@ template("ts_library") {
     }
 
     if (defined(invoker.is_web_worker) && invoker.is_web_worker) {
-      args += [ "--is_web_worker" ]
+      args += [ "--is-web-worker" ]
+    }
+
+    if (defined(use_rbe) && use_rbe && defined(devtools_use_rbe) &&
+        devtools_use_rbe) {
+      # Allow ts_library template invocations to override user provided flags.
+      if (!defined(invoker.use_rbe) || invoker.use_rbe) {
+        args += [
+          "--use-rbe",
+          "--rewrapper-binary=${rbe_bin_dir}/rewrapper",
+          "--rewrapper-cfg=${cfg_file}",
+          "--rewrapper-exec-root=${rbe_exec_root}",
+        ]
+      }
     }
 
     output_files = [ "$target_gen_dir/$_typescript_config_name-tsconfig.json" ]

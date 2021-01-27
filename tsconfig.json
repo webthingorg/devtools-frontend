@@ -13,7 +13,8 @@
   "include": [
     "front_end/",
     "test/",
-    "inspector_overlay"
+    "inspector_overlay",
+    "third_party/"
   ],
   "exclude": [
     "front_end/externs.js",
