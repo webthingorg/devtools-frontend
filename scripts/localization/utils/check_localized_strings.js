@@ -143,6 +143,7 @@ const migratedDirsSet = new Set([
   'settings',
   'snippets',
   'text_editor',
+  'timeline_model',
   'web_audio',
   'webauthn',
   'workspace',
