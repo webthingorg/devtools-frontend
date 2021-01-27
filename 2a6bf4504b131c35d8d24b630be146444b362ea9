@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f317b28e_d9d82b28",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-01-27T15:55:06Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "2a6bf4504b131c35d8d24b630be146444b362ea9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71b81081_23219fd1",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-01-27T15:55:06Z",
+      "side": 1,
+      "message": "nit: remove this",
+      "range": {
+        "startLine": 244,
+        "startChar": 6,
+        "endLine": 244,
+        "endChar": 86
+      },
+      "revId": "2a6bf4504b131c35d8d24b630be146444b362ea9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d89966e3_66901b23",
+        "filename": "test/e2e/helpers/datagrid-helpers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-01-27T15:55:06Z",
+      "side": 1,
+      "message": "nit: can we tighten this up a bit?",
+      "range": {
+        "startLine": 11,
+        "startChar": 24,
+        "endLine": 11,
+        "endChar": 109
+      },
+      "revId": "2a6bf4504b131c35d8d24b630be146444b362ea9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de8b01f3_18755be1",
+        "filename": "test/unittests/front_end/ui/components/DataGrid_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-01-27T15:55:06Z",
+      "side": 1,
+      "message": "same here 😊",
+      "range": {
+        "startLine": 108,
+        "startChar": 10,
+        "endLine": 108,
+        "endChar": 81
+      },
+      "revId": "2a6bf4504b131c35d8d24b630be146444b362ea9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
