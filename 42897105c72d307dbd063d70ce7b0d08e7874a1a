@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e97230c4_0768225f",
+        "filename": "front_end/render_coordinator/RenderCoordinator.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-01-27T15:40:42Z",
+      "side": 1,
+      "message": "I know, right! Super handy.",
+      "parentUuid": "5acd8457_3b595f46",
+      "range": {
+        "startLine": 47,
+        "startChar": 39,
+        "endLine": 47,
+        "endChar": 50
+      },
+      "revId": "42897105c72d307dbd063d70ce7b0d08e7874a1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "34aadada_0db177b5",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-01-27T14:04:11Z",
       "side": 1,
       "message": "worth an explainer comment about why this is an alias for `this.write` ?",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 0
+      },
+      "revId": "42897105c72d307dbd063d70ce7b0d08e7874a1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74c2cfae_c72fc969",
+        "filename": "front_end/render_coordinator/RenderCoordinator.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-01-27T15:40:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34aadada_0db177b5",
       "range": {
         "startLine": 68,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e351cec_a19eeede",
+        "filename": "front_end/render_coordinator/RenderCoordinator.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-01-27T15:40:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19ad74ab_069cc307",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 42
+      },
+      "revId": "42897105c72d307dbd063d70ce7b0d08e7874a1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4adf37a1_b3bfe3b4",
@@ -100,6 +172,30 @@
       "writtenOn": "2021-01-27T14:04:11Z",
       "side": 1,
       "message": "if you made this `new Promise\u003cT\u003e` could you drop the `as Promise\u003cT\u003e` from the `return` ?",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 52
+      },
+      "revId": "42897105c72d307dbd063d70ce7b0d08e7874a1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f59cc9c_d41e28bb",
+        "filename": "front_end/render_coordinator/RenderCoordinator.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-01-27T15:40:42Z",
+      "side": 1,
+      "message": "No, if we do that it conflicts with the fact that T isn\u0027t unknown (despite the fact that T defaults to unknown in the definition). I don\u0027t fully understand why that is, though.",
+      "parentUuid": "4adf37a1_b3bfe3b4",
       "range": {
         "startLine": 98,
         "startChar": 0,
