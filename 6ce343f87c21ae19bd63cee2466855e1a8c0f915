@@ -22,6 +22,30 @@
       },
       "revId": "6ce343f87c21ae19bd63cee2466855e1a8c0f915",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31815bc1_77bf41d8",
+        "filename": "front_end/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-01-27T12:59:20Z",
+      "side": 1,
+      "message": "`layer_viewer`\u001b is declared as a module of both `devtools_app` and `worker_app` so I thought it should be declared a dep in both ts_libraries",
+      "parentUuid": "aa280b68_9da56a1a",
+      "range": {
+        "startLine": 315,
+        "startChar": 4,
+        "endLine": 315,
+        "endChar": 24
+      },
+      "revId": "6ce343f87c21ae19bd63cee2466855e1a8c0f915",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
