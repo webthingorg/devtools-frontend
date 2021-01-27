@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7037f241_c595cef4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1230425
+      },
+      "writtenOn": "2021-01-27T02:48:48Z",
+      "side": 1,
+      "message": "Hi Sigurd, PTAL. \nI still not figure out how to write test for this. Is there any example I can follow? \nThanks 😊",
+      "revId": "0dc81a78023e6b512c4102e479102754f0b021e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
