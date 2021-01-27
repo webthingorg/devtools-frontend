@@ -63,6 +63,9 @@
   <message name="IDS_DEVTOOLS_60737985de866df2b4fee4562844ce8a" desc="A message to display prompting the user to reload DevTools if the OS color scheme changes.">
     The system-preferred color scheme has changed. To apply this change to DevTools, reload.
   </message>
+  <message name="IDS_DEVTOOLS_6a26f548831e6a8c26bfbbd9f6ec61e0" desc="Text for the viewing the help options">
+    Help
+  </message>
   <message name="IDS_DEVTOOLS_7b91156d64b76a5dda815937fce9119d" desc="Text in the Shortcuts page to explain a keyboard shortcut (zoom in)">
     Zoom in
   </message>
