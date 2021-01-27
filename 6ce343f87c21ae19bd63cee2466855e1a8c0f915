@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa280b68_9da56a1a",
+        "filename": "front_end/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-27T11:33:59Z",
+      "side": 1,
+      "message": "This should be in `:devtools_app` instead",
+      "range": {
+        "startLine": 315,
+        "startChar": 4,
+        "endLine": 315,
+        "endChar": 24
+      },
+      "revId": "6ce343f87c21ae19bd63cee2466855e1a8c0f915",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
