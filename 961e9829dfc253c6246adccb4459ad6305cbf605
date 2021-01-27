@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "961e9829dfc253c6246adccb4459ad6305cbf605",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1cb902c_83561591",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-01-27T06:57:02Z",
+      "side": 1,
+      "message": "Ah, nothing quite like deleting no-longer-needed code! LGTM",
+      "revId": "961e9829dfc253c6246adccb4459ad6305cbf605",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
