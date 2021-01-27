@@ -264,6 +264,8 @@ export class ScreencastView extends UI.Widget.VBox implements SDK.OverlayModel.H
 
       if (this._highlightNode) {
         this.highlightInOverlay({node: this._highlightNode, selectorList: undefined}, this._highlightConfig);
+      } else {
+        this._repaint();
       }
     };
     this._imageElement.src = 'data:image/jpg;base64,' + base64Data;
