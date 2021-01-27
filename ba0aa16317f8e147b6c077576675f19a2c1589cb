@@ -33,6 +33,24 @@
       "message": "Perhaps this could be simplified further: `color: \u0027var(--color-text-primary)\u0027`. The variable is defined in themeColors.css and it should be #202124/#e8eaed for light/dark modes.",
       "revId": "ba0aa16317f8e147b6c077576675f19a2c1589cb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21abaedf_15c2a332",
+        "filename": "front_end/inline_editor/FontEditor.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 795,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2021-01-27T23:07:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d734e586_9ab6d74c",
+      "revId": "ba0aa16317f8e147b6c077576675f19a2c1589cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
