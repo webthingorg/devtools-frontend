@@ -33,6 +33,41 @@
       "message": "lgtm\n\nI can see that AXBreadcrumbsPane does something slightly different and uses nodeHighlightRequested. Not sure exactly what the difference is: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/sdk/OverlayModel.js;l\u003d707;bpv\u003d1;bpt\u003d0?q\u003dnodeHighlightRequested\u0026ss\u003dchromium%2Fchromium%2Fsrc\n\nDevtools to advise. Also is there a way we can test this? We can at least dispatch mouse events and check that the styles to the wrapper are applied?",
       "revId": "c4ecfce2dc1edd51ed80c0babfa6cc74444a9133",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10068628_bf854d6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-27T05:29:41Z",
+      "side": 1,
+      "message": "@DevTools, should I be using nodeHighlightRequested()? \n\nAlso is there a way to test :hover/ other mouse movement events, since DOMHelpers only seems to be able to dispatch mouse click and keydown events?",
+      "parentUuid": "fa41677b_090f3c4f",
+      "revId": "c4ecfce2dc1edd51ed80c0babfa6cc74444a9133",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "486ede1c_7deca9c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-01-27T05:29:41Z",
+      "side": 1,
+      "message": "PTAL, thanks!",
+      "revId": "c4ecfce2dc1edd51ed80c0babfa6cc74444a9133",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
