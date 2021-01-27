@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17da33e7_2c928f87",
+        "filename": "test/webtests/http/tests/devtools/lighthouse/lighthouse-emulate-run.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1347952
+      },
+      "writtenOn": "2021-01-27T17:16:44Z",
+      "side": 1,
+      "message": "`artifacts` is not used and causing issues with the tryjobs. Should we just remove it in this CL?",
+      "revId": "a7cc19767a69c54e77f86bd2fcf160a22940c8e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9b9a717_b8fe5c6c",
+        "filename": "test/webtests/http/tests/devtools/lighthouse/lighthouse-flags-run.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1347952
+      },
+      "writtenOn": "2021-01-27T17:16:44Z",
+      "side": 1,
+      "message": "Same here",
+      "revId": "a7cc19767a69c54e77f86bd2fcf160a22940c8e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
