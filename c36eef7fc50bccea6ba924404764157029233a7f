@@ -16,6 +16,23 @@
       "message": "Ok, now ready :) ",
       "revId": "c36eef7fc50bccea6ba924404764157029233a7f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22951a28_e0cda3e1",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-01-27T13:32:28Z",
+      "side": 1,
+      "message": "I think `returnByValue` must be set to `true` always to get the `result.value` below?",
+      "revId": "c36eef7fc50bccea6ba924404764157029233a7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
