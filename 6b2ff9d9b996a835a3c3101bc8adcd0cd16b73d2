@@ -16,6 +16,24 @@
       "message": "Peter, Maksim, are you familiar with this component. Adding the repaint there fixes the problem for me - but I have no idea how this could have ever worked without that, so I might be missing something.",
       "revId": "6b2ff9d9b996a835a3c3101bc8adcd0cd16b73d2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a695a48f_1649cf81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-27T14:46:35Z",
+      "side": 1,
+      "message": "I\u0027m not familiar with it but fix looks reasonable to me.\nMaybe highlighting used to work differently such that we always ended up re-doing the highlight in a short enough timeframe that the re-painting happened.",
+      "parentUuid": "c4f994f0_60a54b82",
+      "revId": "6b2ff9d9b996a835a3c3101bc8adcd0cd16b73d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
