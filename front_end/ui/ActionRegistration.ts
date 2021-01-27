@@ -320,6 +320,8 @@ export const ActionCategory = {
   PERFORMANCE: ls`Performance`,
   MOBILE: ls`Mobile`,
   SENSORS: ls`Sensors`,
+  DRAWER: ls`Drawer`,
+  GLOBAL: ls`Global`,
 };
 
 type ActionCategory = typeof ActionCategory[keyof typeof ActionCategory];
