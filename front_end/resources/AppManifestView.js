@@ -50,7 +50,6 @@ export class AppManifestView extends UI.Widget.VBox {
     this._nameField = this._identitySection.appendField(Common.UIString.UIString('Name'));
     this._shortNameField = this._identitySection.appendField(Common.UIString.UIString('Short name'));
     this._descriptionField = this._identitySection.appendField(Common.UIString.UIString('Description'));
-    this._categoriesField = this._identitySection.appendField(Common.UIString.UIString('Categories'));
 
     this._startURLField = this._presentationSection.appendField(Common.UIString.UIString('Start URL'));
 
@@ -175,12 +174,9 @@ export class AppManifestView extends UI.Widget.VBox {
 
     const description = stringProperty('description');
     this._descriptionField.textContent = description;
-    if ((description.length > 0) && (description.length < 80 || description.length > 324)) {
-      warnings.push(ls`Description is featured when its length is between 80 and 324 characters.`);
+    if (description.length > 324) {
+      warnings.push(ls`Description may be truncated.`);
     }
-
-    const categories = parsedManifest['categories'] || [];
-    this._categoriesField.textContent = categories.join(', ');
 
     this._startURLField.removeChildren();
     const startURL = stringProperty('start_url');

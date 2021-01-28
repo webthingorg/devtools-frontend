@@ -471,9 +471,6 @@ as used by <ph name="LOCKED_1">Chrome</ph>
   <message name="IDS_DEVTOOLS_a917b9ae330cd89250c7477c9018c2d2" desc="Warning message for image resources from the manifest">
     <ph name="RESOURCENAME">$1s<ex>Image</ex></ph> <ph name="IMAGEURL">$2s<ex>https://example.com/image.png</ex></ph> failed to load
   </message>
-  <message name="IDS_DEVTOOLS_7b6f27d9d70a83391a31afe1c558e4ea" desc="Text in App Manifest View of the Application panel">
-    Description is featured when its length is between 80 and 324 characters.
-  </message>
   <message name="IDS_DEVTOOLS_a9cd2046f50376846feaa11c68e56e2f" desc="Inform users that DevTools are recording/waiting for events in the Periodic Background Sync tool of the Application panel">
     <ph name="LOCKED_1">DevTools</ph> will record all <ph name="FEATURENAME">$1s<ex>Background Fetch</ex></ph> activity for up to 3 days, even when closed.
   </message>
@@ -500,9 +497,6 @@ as used by <ph name="LOCKED_1">Chrome</ph>
   </message>
   <message name="IDS_DEVTOOLS_ae262bf758227f7e319ba799a861681a" desc="Text in Clear Storage View of the Application panel">
     Local and session storage
-  </message>
-  <message name="IDS_DEVTOOLS_af1b98adf7f686b84cd0b443e022b7a0" desc="Text in App Manifest View of the Application panel">
-    Categories
   </message>
   <message name="IDS_DEVTOOLS_b0fc7aefe34679e27237645908be3214" desc="Warning message for image resources from the manifest">
     <ph name="RESOURCENAME">$1s<ex>Image</ex></ph> <ph name="IMAGEURL">$2s<ex>https://example.com/image.png</ex></ph> dimensions should be square
@@ -665,6 +659,9 @@ as used by <ph name="LOCKED_1">Chrome</ph>
   </message>
   <message name="IDS_DEVTOOLS_ddcf50c29294d4414f3f7c1bbc892cb5" desc="A title of the 'Resources' action category">
     Resources
+  </message>
+  <message name="IDS_DEVTOOLS_8ef2e5358b2e3b2af0212e3dc8668188" desc="Text in App Manifest View of the Application panel">
+    Description may be truncated.
   </message>
   <message name="IDS_DEVTOOLS_e00a7ac13697ba51e098449fd644935b" desc="Text in Background Service View of the Application panel">
     Show events from other domains
