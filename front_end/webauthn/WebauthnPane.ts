@@ -225,6 +225,8 @@ export class WebauthnPaneImpl extends UI.Widget.VBox {
   _userVerificationCheckboxLabel: UI.UIUtils.CheckboxLabel|undefined;
   _userVerificationCheckbox: HTMLInputElement|undefined;
   _addAuthenticatorButton: HTMLButtonElement|undefined;
+  _isEnabling?: boolean;
+
   constructor() {
     super(true);
     this.registerRequiredCSS('webauthn/webauthnPane.css', {enableLegacyPatching: true});
@@ -385,7 +387,11 @@ export class WebauthnPaneImpl extends UI.Widget.VBox {
   }
 
   async _setVirtualAuthEnvEnabled(enable: boolean): Promise<void> {
-    this._enableCheckbox.setEnabled(false);
+    if (this._isEnabling) {
+      return;
+    }
+    this._isEnabling = true;
+
     if (enable && !this._hasBeenEnabled) {
       // Ensures metric is only tracked once per session.
       Host.userMetrics.actionTaken(Host.UserMetrics.Action.VirtualAuthenticatorEnvironmentEnabled);
@@ -393,7 +399,7 @@ export class WebauthnPaneImpl extends UI.Widget.VBox {
     }
     this._enabled = enable;
     if (this._model) {
-      this._model.setVirtualAuthEnvEnabled(enable);
+      await this._model.setVirtualAuthEnvEnabled(enable);
     }
 
     if (enable) {
@@ -403,7 +409,7 @@ export class WebauthnPaneImpl extends UI.Widget.VBox {
     }
 
     this._updateVisibility(enable);
-    this._enableCheckbox.setEnabled(true);
+    this._isEnabling = false;
   }
 
   _updateVisibility(enabled: boolean): void {
