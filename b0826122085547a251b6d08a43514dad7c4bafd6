@@ -16,6 +16,29 @@
       "message": "LGTM",
       "revId": "b0826122085547a251b6d08a43514dad7c4bafd6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ffb2b75_05517e10",
+        "filename": "front_end/elements/layoutPane.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-01-28T14:30:31Z",
+      "side": 1,
+      "message": "Why not group these declarations within the .color-picker rule instead of creating another one here without the classname?\nAlso, I think it would be good to explain why we\u0027re hiding the color input with visibility:hidden but giving it a size, while taking it out of the flow with absolute positioning.\nAs someone reading the code now, I would be tempted to delete everything and just display:none the input.\nSo some text that explains the reason would be good.",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 157,
+        "endChar": 17
+      },
+      "revId": "b0826122085547a251b6d08a43514dad7c4bafd6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
