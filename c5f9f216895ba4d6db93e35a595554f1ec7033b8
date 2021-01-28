@@ -129,6 +129,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c60ef8b0_df7c0b97",
+        "filename": "third_party/typescript/ts_library.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-28T12:08:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "166c6041_64473916",
+      "range": {
+        "startLine": 79,
+        "startChar": 4,
+        "endLine": 79,
+        "endChar": 18
+      },
+      "revId": "c5f9f216895ba4d6db93e35a595554f1ec7033b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "15312b57_0a0d39d2",
@@ -307,6 +331,30 @@
       "side": 1,
       "message": "No, the prebundle ts_library invocation doesn\u0027t specify any DEPS, so we are triggering RBE even though we didn\u0027t specify all the files.\n\n(Forwarding invoker.deps or public_deps didn\u0027t work either, deferring to your expertise here how to resolve this).",
       "parentUuid": "b7b6261c_d2992e95",
+      "range": {
+        "startLine": 138,
+        "startChar": 8,
+        "endLine": 138,
+        "endChar": 78
+      },
+      "revId": "c5f9f216895ba4d6db93e35a595554f1ec7033b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be18d1c5_413995e9",
+        "filename": "third_party/typescript/typescript.gni",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-28T12:08:07Z",
+      "side": 1,
+      "message": "After looking into this again, I realized that there is exactly 1 entrypoint that has no deps: front_end/formatter_worker:formatter_actions.\n\nTherefore, let\u0027s keep this for now and we can clean it up after crbug.com/1170706 has been resolved.",
+      "parentUuid": "af5c1dc1_231aa83f",
       "range": {
         "startLine": 138,
         "startChar": 8,
