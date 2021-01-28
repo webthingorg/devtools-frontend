@@ -16,6 +16,23 @@
       "message": "LGTM, but please wait for merge approval.",
       "revId": "c87f26401c917a9087ce381f5d32540533e83b0d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "541b5ecb_f196add4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-28T08:40:04Z",
+      "side": 1,
+      "message": "Alex, did you built M88 locally to verify everything is working?",
+      "revId": "c87f26401c917a9087ce381f5d32540533e83b0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
