@@ -67,11 +67,13 @@ interface DevToolsTarget {
 const envChromeBinary = process.env['CHROME_BIN'];
 
 function launchChrome() {
+  console.log('launchChrome');
   // Use port 0 to request any free port.
   const launchArgs = [
     '--remote-debugging-port=0',
     '--enable-experimental-web-platform-features',
     '--ignore-certificate-errors',
+    '--host-rules=MAP oop.local 127.0.0.1',
   ];
   const opts: puppeteer.LaunchOptions = {
     headless,
@@ -89,6 +91,7 @@ function launchChrome() {
   }
 
   opts.args = launchArgs;
+  console.log(opts.args);
   return puppeteer.launch(opts);
 }
 
