@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a227e7d5_0e7422a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-28T09:41:07Z",
+      "side": 1,
+      "message": "Do you think it might be worth landing a change to migrate one small part of this view to Lit, and then incrementally migrating the rest? I find this CL quite hard to review as there\u0027s a lot changing.\n\nI don\u0027t feel super strongly, so if it\u0027s too much work to do that, then happy to leave it, but wanted to raise. Thanks!",
+      "revId": "1511289ab632b0bcab7e4121aa7669da2244bb88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2530ef35_758035ec",
