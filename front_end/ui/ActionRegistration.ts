@@ -324,6 +324,8 @@ export const ActionCategory = {
   INPUTS: ls`Inputs`,
   LAYERS: ls`Layers`,
   NAVIGATION: ls`Navigation`,
+  RESOURCES: ls`Resources`,
+  BACKGROUND_SERVICES: ls`Background Services`,
 };
 
 type ActionCategory = typeof ActionCategory[keyof typeof ActionCategory];
