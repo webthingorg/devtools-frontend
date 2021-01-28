@@ -20,6 +20,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2530ef35_758035ec",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-28T09:39:19Z",
+      "side": 1,
+      "message": "nit: I think we can lose these as this is a TS file",
+      "range": {
+        "startLine": 29,
+        "startChar": 1,
+        "endLine": 32,
+        "endChar": 5
+      },
+      "revId": "1511289ab632b0bcab7e4121aa7669da2244bb88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6bdd4d4_e8760ac8",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-28T09:39:19Z",
+      "side": 1,
+      "message": "TIL about this selector :D",
+      "range": {
+        "startLine": 71,
+        "startChar": 6,
+        "endLine": 71,
+        "endChar": 33
+      },
+      "revId": "1511289ab632b0bcab7e4121aa7669da2244bb88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "160f31d7_28fca047",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-28T09:39:19Z",
+      "side": 1,
+      "message": "I don\u0027t think we want to be using `await` directly inside a LitHTML call like this as it will block Lit rendering until this has resolved.\n\nLit provides the until directive: https://lit-html.polymer-project.org/guide/template-reference#until\n\nSo I think we want something like:\n\n```\n${until(this.renderDocumentSection()))\n```\n\nAnd then we could also provide a fallback value, if we want. That way we let Lit handle the update when that promise resolves.",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 45
+      },
+      "revId": "1511289ab632b0bcab7e4121aa7669da2244bb88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "37fb7866_9cb85d95",
         "filename": "front_end/resources/FrameDetailsView.ts",
         "patchSetId": 12
