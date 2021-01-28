@@ -16,6 +16,41 @@
       "message": "Added screenshots.\n\nI agree that this is a more general topic. Nevertheless, I believe that my small change helps with the behaviour for this specific instance.\n\nSigurd, I cranked up the minimum font size to the maximum and the fix still works for me. Curious to know under what circumstances it\u0027s still off for you.",
       "revId": "50e5a09786a1fbf5b0e29277f93a4a33ef93676a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa0b93fa_ff204595",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-28T15:05:12Z",
+      "side": 1,
+      "message": "Interesting, it seems the behavior has changed in since I originally looked at the CL. Thanks for adding the screenshots!",
+      "parentUuid": "008efd69_43581cf7",
+      "revId": "50e5a09786a1fbf5b0e29277f93a4a33ef93676a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39947091_2210f742",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-28T15:05:12Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "50e5a09786a1fbf5b0e29277f93a4a33ef93676a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
