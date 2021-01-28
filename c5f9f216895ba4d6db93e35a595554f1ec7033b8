@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffe92360_9ab65bc6",
+        "filename": "third_party/typescript/ts_library.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-28T09:26:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d899b40_fe2f6290",
+      "range": {
+        "startLine": 77,
+        "startChar": 34,
+        "endLine": 77,
+        "endChar": 58
+      },
+      "revId": "c5f9f216895ba4d6db93e35a595554f1ec7033b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4fe034d2_c39ea164",
@@ -71,6 +95,30 @@
       "writtenOn": "2021-01-27T12:49:34Z",
       "side": 1,
       "message": "If I am not mistaken, these should also include the all `.d.ts` files that are part of `GLOBAL_TYPESCRIPT_DEFINITION_FILES` and are in `TYPES_NODE_MODULES_DIRECTORY` if this particular action is test_only? I think that should fix the failures we were seeing on the `ts_library` invocations for the test targets that were relying on Mocha/Node/etc...",
+      "range": {
+        "startLine": 79,
+        "startChar": 4,
+        "endLine": 79,
+        "endChar": 18
+      },
+      "revId": "c5f9f216895ba4d6db93e35a595554f1ec7033b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "166c6041_64473916",
+        "filename": "third_party/typescript/ts_library.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-28T09:26:01Z",
+      "side": 1,
+      "message": "The GLOBAL_TYPESCRIPT_DEFINITION_FILES are part of \"all_ts\"files\". They are appended in main already.\n\nAfter forwarding the test_only flag here, and conditionally appending the @types directory, the test modules seem now to compile remotely. Thanks! (See the TODO comment for performance tradeoff we will have to measure).",
+      "parentUuid": "4fe034d2_c39ea164",
       "range": {
         "startLine": 79,
         "startChar": 4,
@@ -104,6 +152,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ef0b35a_beaad83f",
+        "filename": "third_party/typescript/typescript.gni",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-28T09:26:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15312b57_0a0d39d2",
+      "range": {
+        "startLine": 10,
+        "startChar": 60,
+        "endLine": 10,
+        "endChar": 70
+      },
+      "revId": "c5f9f216895ba4d6db93e35a595554f1ec7033b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "46becfab_b6b3502f",
@@ -117,6 +189,30 @@
       "writtenOn": "2021-01-27T12:49:34Z",
       "side": 1,
       "message": "Ultra-nit: s/folde togehter/folded together/",
+      "range": {
+        "startLine": 11,
+        "startChar": 37,
+        "endLine": 11,
+        "endChar": 51
+      },
+      "revId": "c5f9f216895ba4d6db93e35a595554f1ec7033b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "236847cc_5b8d5100",
+        "filename": "third_party/typescript/typescript.gni",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-28T09:26:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46becfab_b6b3502f",
       "range": {
         "startLine": 11,
         "startChar": 37,
@@ -150,6 +246,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8feabd35_ab19440d",
+        "filename": "third_party/typescript/typescript.gni",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-28T09:26:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6cae8a99_aec1c549",
+      "range": {
+        "startLine": 12,
+        "startChar": 2,
+        "endLine": 12,
+        "endChar": 26
+      },
+      "revId": "c5f9f216895ba4d6db93e35a595554f1ec7033b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b7b6261c_d2992e95",
@@ -163,6 +283,30 @@
       "writtenOn": "2021-01-27T12:49:34Z",
       "side": 1,
       "message": "Do we still need this? I thought that the `devtools_entrypoint` cleanup will make sure this will keep on working. If we do need this, could you add an example usage of this particular flag in the build hierarchy?\n\nEdit: Oh right, the `devtools_entrypoint` now sets this to false. However, I would have assumed that all `devtools_entrypoint` have at least 1 deps, do they not?",
+      "range": {
+        "startLine": 138,
+        "startChar": 8,
+        "endLine": 138,
+        "endChar": 78
+      },
+      "revId": "c5f9f216895ba4d6db93e35a595554f1ec7033b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af5c1dc1_231aa83f",
+        "filename": "third_party/typescript/typescript.gni",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-28T09:26:01Z",
+      "side": 1,
+      "message": "No, the prebundle ts_library invocation doesn\u0027t specify any DEPS, so we are triggering RBE even though we didn\u0027t specify all the files.\n\n(Forwarding invoker.deps or public_deps didn\u0027t work either, deferring to your expertise here how to resolve this).",
+      "parentUuid": "b7b6261c_d2992e95",
       "range": {
         "startLine": 138,
         "startChar": 8,
