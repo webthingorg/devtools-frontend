@@ -28,10 +28,10 @@ describe('SAB issues test', async () => {
       if (table) {
         assert.strictEqual(table.length, 3);
         assert.deepEqual(table[0], ['Source Location', 'Trigger', 'Status']);
-        assert.deepEqual(table[1].slice(0, 2), ['sab-issue.html:5', 'Instantiation']);
+        assert.deepEqual(table[1].slice(0, 2), ['sab-issue.html:4', 'Instantiation']);
         // Accept both values in the status column as that depends on chromium flags.
         assert.include(['warning', 'blocked'], table[1][2]);
-        assert.deepEqual(table[2].slice(0, 2), ['sab-issue.html:5', 'Transfer']);
+        assert.deepEqual(table[2].slice(0, 2), ['sab-issue.html:4', 'Transfer']);
         // Accept both values in the status column as that depends on chromium flags.
         assert.include(['warning', 'blocked'], table[2][2]);
       }
