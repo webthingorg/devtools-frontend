@@ -4631,8 +4631,8 @@ declare namespace Protocol {
      * Used to specify User Agent Cient Hints to emulate. See https://wicg.github.io/ua-client-hints
      */
     export interface UserAgentMetadata {
-      brands: UserAgentBrandVersion[];
-      fullVersion: string;
+      brands?: UserAgentBrandVersion[];
+      fullVersion?: string;
       platform: string;
       platformVersion: string;
       architecture: string;

@@ -6957,6 +6957,7 @@
                     "properties": [
                         {
                             "name": "brands",
+                            "optional": true,
                             "type": "array",
                             "items": {
                                 "$ref": "UserAgentBrandVersion"
@@ -6964,6 +6965,7 @@
                         },
                         {
                             "name": "fullVersion",
+                            "optional": true,
                             "type": "string"
                         },
                         {
