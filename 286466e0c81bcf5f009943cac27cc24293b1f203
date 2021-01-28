@@ -34,6 +34,24 @@
       "parentUuid": "93a1a6f8_a0e4f23f",
       "revId": "286466e0c81bcf5f009943cac27cc24293b1f203",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60f685ca_5ecdc675",
+        "filename": "test/e2e/application/storage_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-28T14:19:36Z",
+      "side": 0,
+      "message": "😊 SGTM",
+      "parentUuid": "bdb33b29_75c744a1",
+      "revId": "286466e0c81bcf5f009943cac27cc24293b1f203",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
