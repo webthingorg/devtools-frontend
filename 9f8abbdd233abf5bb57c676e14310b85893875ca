@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d82197d9_59bc0db2",
+        "filename": "front_end/linear_memory_inspector/LinearMemoryNavigator.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-28T13:10:10Z",
+      "side": 1,
+      "message": "Looks like this one needs to be lazy",
+      "range": {
+        "startLine": 39,
+        "startChar": 28,
+        "endLine": 39,
+        "endChar": 63
+      },
+      "revId": "9f8abbdd233abf5bb57c676e14310b85893875ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
