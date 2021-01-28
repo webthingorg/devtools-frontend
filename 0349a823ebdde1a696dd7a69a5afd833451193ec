@@ -16,6 +16,46 @@
       "message": "Hi Christian, I finally got around to implement the `IsDomainMatch` function in DevTools - PTAL",
       "revId": "0349a823ebdde1a696dd7a69a5afd833451193ec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7ad05f2_8762a6ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183839
+      },
+      "writtenOn": "2021-01-28T14:35:07Z",
+      "side": 1,
+      "message": "lgtm, thanks for fixing!",
+      "revId": "0349a823ebdde1a696dd7a69a5afd833451193ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ca5ee13_d17bc593",
+        "filename": "front_end/sdk/Cookie.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1183839
+      },
+      "writtenOn": "2021-01-28T14:35:07Z",
+      "side": 1,
+      "message": "This line reference will break as soon as someone changes the file. Maybe say net::cookie_util::IsDomainMatch() ?",
+      "range": {
+        "startLine": 238,
+        "startChar": 35,
+        "endLine": 238,
+        "endChar": 127
+      },
+      "revId": "0349a823ebdde1a696dd7a69a5afd833451193ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
