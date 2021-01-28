@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14f7677b_7b507278",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2021-01-28T21:30:53Z",
+      "side": 1,
+      "message": "I am not sure this is actually the right thing --- like if person using, say, Edge selects Pixel 2, do they expect Chrome on Pixel 2 or Edge on Pixel 2? Previously we did the former, now it will probably do the latter.  I am not sure which is preferred, and can probably make cases for both.\n\nOTOH removing duplication of GREASE is a pretty good idea, since there have been some changes to it on Chrome side...",
+      "revId": "f7a60f46417b66da9d285d8fdc28d91c5bc7ded1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
