@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ca1bb7d_55f7320f",
+        "filename": ".eslintrc.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-28T13:56:14Z",
+      "side": 1,
+      "message": "Rather than turning this off for all JavaScript files, I recommend turning it off only for TypeScript files. As an example, see the `semi` rule as defined in the `overrides` section below.",
+      "range": {
+        "startLine": 51,
+        "startChar": 4,
+        "endLine": 51,
+        "endChar": 31
+      },
+      "revId": "9d4bd1a5b2a6d782cae99f8ad42e0701b320955e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "672dec74_ae0e21c8",
