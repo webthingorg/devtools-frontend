@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "467da307_32fe013e",
+        "filename": ".eslintrc.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-01-28T14:28:58Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4ca1bb7d_55f7320f",
+      "range": {
+        "startLine": 51,
+        "startChar": 4,
+        "endLine": 51,
+        "endChar": 31
+      },
+      "revId": "9d4bd1a5b2a6d782cae99f8ad42e0701b320955e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "672dec74_ae0e21c8",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
