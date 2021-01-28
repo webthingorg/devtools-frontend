@@ -16,6 +16,23 @@
       "message": "PTAL, thanks!",
       "revId": "beccc5af2a23c5c8cf477b5d80ae929261aa42ee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45d3e1bb_616fd4c8",
+        "filename": "front_end/webauthn/WebauthnPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-01-28T11:52:08Z",
+      "side": 1,
+      "message": "Why is this timeout needed?",
+      "revId": "beccc5af2a23c5c8cf477b5d80ae929261aa42ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
