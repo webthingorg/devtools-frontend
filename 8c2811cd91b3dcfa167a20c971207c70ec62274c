@@ -16,6 +16,74 @@
       "message": "Thanks for reviewing Benedikt!",
       "revId": "8c2811cd91b3dcfa167a20c971207c70ec62274c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d82e2dc8_d49f9629",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-01-28T10:00:41Z",
+      "side": 1,
+      "message": "Generally LGTM, few comments/questions.",
+      "revId": "8c2811cd91b3dcfa167a20c971207c70ec62274c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47bc880e_99fbe515",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-01-28T10:00:41Z",
+      "side": 1,
+      "message": "This already happens in the base class, doesn\u0027t it?",
+      "revId": "8c2811cd91b3dcfa167a20c971207c70ec62274c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c62ef93b_965d0f88",
+        "filename": "front_end/bindings/DebuggerLanguagePlugins.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-01-28T10:00:41Z",
+      "side": 1,
+      "message": "Could we compute this address also from this Node\u0027s inspectable address and the field offset?",
+      "revId": "8c2811cd91b3dcfa167a20c971207c70ec62274c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "376b4a5a_cfa599c8",
+        "filename": "front_end/sources/ScopeChainSidebarPane.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-01-28T10:00:41Z",
+      "side": 1,
+      "message": "What behavior is the user going to see in this case? The console.error logs to the devtools-on-devtools console, so the user won\u0027t see the error. Is there any other effect the user can observe?",
+      "revId": "8c2811cd91b3dcfa167a20c971207c70ec62274c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
