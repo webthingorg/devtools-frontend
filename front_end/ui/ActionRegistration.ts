@@ -324,6 +324,7 @@ export const ActionCategory = {
   INPUTS: ls`Inputs`,
   LAYERS: ls`Layers`,
   NAVIGATION: ls`Navigation`,
+  GLOBAL: ls`Global`,
 };
 
 type ActionCategory = typeof ActionCategory[keyof typeof ActionCategory];
