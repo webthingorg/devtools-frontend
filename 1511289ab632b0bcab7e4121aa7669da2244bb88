@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "df2d70b0_e10cde92",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-28T16:22:41Z",
+      "side": 1,
+      "message": "It could get messy, but I\u0027d try exactly as you described: start from within and try to get a small bit rendered via Lit, then expand out. This is known as the \"Strangler Pattern\": https://martinfowler.com/bliki/StranglerFigApplication.html\n\nIf it ends up being impossible or introducing a lot of overhead, I wouldn\u0027t bother and happy to leave this CL as is 👍",
+      "parentUuid": "da96c757_b8033ea3",
+      "revId": "1511289ab632b0bcab7e4121aa7669da2244bb88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2530ef35_758035ec",
