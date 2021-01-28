@@ -138,6 +138,24 @@
       "parentUuid": "376b4a5a_cfa599c8",
       "revId": "8c2811cd91b3dcfa167a20c971207c70ec62274c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b843af38_bcfb11d5",
+        "filename": "front_end/sources/ScopeChainSidebarPane.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-01-28T10:46:50Z",
+      "side": 1,
+      "message": "Is anyone catching this error or do we crash the frontend now when there\u0027s no memory?",
+      "parentUuid": "b5b0d55d_8c5a94d8",
+      "revId": "8c2811cd91b3dcfa167a20c971207c70ec62274c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
