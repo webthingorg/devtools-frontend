@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18c9e7fe_2b7c908e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-28T09:25:06Z",
+      "side": 1,
+      "message": "Overall looks OK to me. Adding Jack for LitHTML specifics and question about how to handle styles best.",
+      "revId": "1511289ab632b0bcab7e4121aa7669da2244bb88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37fb7866_9cb85d95",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-28T09:25:06Z",
+      "side": 1,
+      "message": "Won\u0027t this potentially affect other button\u0027s styles in this component?",
+      "range": {
+        "startLine": 176,
+        "startChar": 6,
+        "endLine": 182,
+        "endChar": 14
+      },
+      "revId": "1511289ab632b0bcab7e4121aa7669da2244bb88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17faf9a7_6a59a0f4",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-28T09:25:06Z",
+      "side": 1,
+      "message": "Do we want to translate this? In the past we have not translated things that are literals from a configuration option (as it seems to be the case here).",
+      "range": {
+        "startLine": 402,
+        "startChar": 68,
+        "endLine": 402,
+        "endChar": 84
+      },
+      "revId": "1511289ab632b0bcab7e4121aa7669da2244bb88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24e7d6e6_8d73d256",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-28T09:25:06Z",
+      "side": 1,
+      "message": "Didn\u0027t we have a policy to not use \u003ca\u003e tags?",
+      "range": {
+        "startLine": 424,
+        "startChar": 8,
+        "endLine": 424,
+        "endChar": 77
+      },
+      "revId": "1511289ab632b0bcab7e4121aa7669da2244bb88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "643a9f94_c66c7c43",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-28T09:25:06Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 479,
+        "startChar": 11,
+        "endLine": 479,
+        "endChar": 97
+      },
+      "revId": "1511289ab632b0bcab7e4121aa7669da2244bb88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
