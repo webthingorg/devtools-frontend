@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43bdfbce_0edd082d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002525
+      },
+      "writtenOn": "2021-01-28T06:27:44Z",
+      "side": 1,
+      "message": "I\u0027ve updated CL based on https://chromium-review.googlesource.com/c/chromium/src/+/2652687\nLet me know if that still looks good to you.",
+      "revId": "2aee63a3d6ed5f5e73ee6fc5b184a744e32c94c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
