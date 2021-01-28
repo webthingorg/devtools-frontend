@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec23a234_5fedaf33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-28T14:54:04Z",
+      "side": 1,
+      "message": "LGTM % teeeeeeeny nits",
+      "revId": "2fc8525ea94d9aef37f0cb6709f16641e9594f5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d28bc25_e31a79af",
+        "filename": "test/unittests/front_end/ui/components/DataGridController_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-28T14:54:04Z",
+      "side": 1,
+      "message": "I don\u0027t think we need this one (sorry, I know this is my mistake) but don\u0027t think doing this before rendering the controller is gonna do anything useful",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 31
+      },
+      "revId": "2fc8525ea94d9aef37f0cb6709f16641e9594f5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28b689b5_a965c9bf",
+        "filename": "test/unittests/front_end/ui/components/DataGrid_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-28T14:54:04Z",
+      "side": 1,
+      "message": "nit: we can lose this comment",
+      "range": {
+        "startLine": 630,
+        "startChar": 0,
+        "endLine": 630,
+        "endChar": 94
+      },
+      "revId": "2fc8525ea94d9aef37f0cb6709f16641e9594f5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4db10148_f551ff47",
+        "filename": "test/unittests/front_end/ui/components/DataGrid_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-01-28T14:54:04Z",
+      "side": 1,
+      "message": "nit: we can lose this comment",
+      "range": {
+        "startLine": 676,
+        "startChar": 0,
+        "endLine": 676,
+        "endChar": 94
+      },
+      "revId": "2fc8525ea94d9aef37f0cb6709f16641e9594f5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
