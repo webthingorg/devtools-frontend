@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "95521e6252b5ad46d881c4cb0aa57c8e126bfbb7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "889c04d3_41a7e8e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-01-28T10:19:15Z",
+      "side": 1,
+      "message": "I see, so it\u0027s not some bots displaying different behaviour than others, thanks! LGTM",
+      "revId": "95521e6252b5ad46d881c4cb0aa57c8e126bfbb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
