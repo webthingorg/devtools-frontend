@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "aef5170412c8b3be91b958eac19928fda09d75f3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7c8c2cd_306b222e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-28T15:09:35Z",
+      "side": 1,
+      "message": "LGTM with one question.",
+      "revId": "aef5170412c8b3be91b958eac19928fda09d75f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c828429_00de5248",
+        "filename": "front_end/sdk/ResourceTreeModel.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-28T15:09:35Z",
+      "side": 1,
+      "message": "Could you quickly give an example for the circumstances under which this is true and false (2 examples)?",
+      "range": {
+        "startLine": 255,
+        "startChar": 18,
+        "endLine": 255,
+        "endChar": 59
+      },
+      "revId": "aef5170412c8b3be91b958eac19928fda09d75f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
