@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1060785c_51e11315",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2021-01-28T16:46:45Z",
+      "side": 1,
+      "message": "+Mathias to review Build.gn changes.\n\nPTAL when you can. Thanks!",
+      "revId": "b61b7b19b7ae8460a6f50b974b8987b3b368d51b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
