@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ce1d720_7bbe8b71",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-01-28T14:10:45Z",
+      "side": 1,
+      "message": "Before clicking, could you check that there is in fact a breakpoint on this line? Otherwise you might accidentally set a break point.",
+      "revId": "d3bdb3b5a7bc32b802d573bd6a34a926db1dba4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
