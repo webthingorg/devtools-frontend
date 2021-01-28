@@ -16,6 +16,24 @@
       "message": "Code LGTM but I am not sure why it fixes the focus issue? ",
       "revId": "fd8156eb52ad9d1a862110a99745719008775f5b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30f563c7_5b422455",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-01-28T12:02:00Z",
+      "side": 1,
+      "message": "Updated the commit message to explain!",
+      "parentUuid": "3a357286_7bc93078",
+      "revId": "fd8156eb52ad9d1a862110a99745719008775f5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
