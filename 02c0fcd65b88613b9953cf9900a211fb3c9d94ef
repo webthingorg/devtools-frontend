@@ -33,6 +33,46 @@
       "message": "LGTM thanks!",
       "revId": "02c0fcd65b88613b9953cf9900a211fb3c9d94ef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f6232e2_be78d77c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-01-28T08:21:24Z",
+      "side": 1,
+      "message": "LGTM % super minor nit",
+      "revId": "02c0fcd65b88613b9953cf9900a211fb3c9d94ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65d9555f_735e14df",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-01-28T08:21:24Z",
+      "side": 1,
+      "message": "nit: `false` is the implicit default, so there’s no need to explicitly specify it. Let\u0027s drop it so it matches the click listener above\n\nhttps://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#parameters:~:text\u003dbrowser.-,useCapture",
+      "range": {
+        "startLine": 24,
+        "startChar": 68,
+        "endLine": 24,
+        "endChar": 73
+      },
+      "revId": "02c0fcd65b88613b9953cf9900a211fb3c9d94ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
