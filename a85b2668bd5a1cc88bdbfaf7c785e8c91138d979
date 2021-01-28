@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ee6f57c_b9f3f350",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-28T08:29:03Z",
+      "side": 1,
+      "message": "Thanks for doing this! Alfonso used the data grid component in the CSP Violations tab, a test of which is now breaking.",
+      "revId": "a85b2668bd5a1cc88bdbfaf7c785e8c91138d979",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
