@@ -48,7 +48,7 @@ module.exports = {
     'accessor-pairs': [2, {'getWithoutSet': false, 'setWithoutGet': false}],
     'curly': 2,
     'new-parens': 2,
-    'func-call-spacing': 2,
+    'func-call-spacing': 'off',
     'arrow-parens': [2, 'as-needed'],
     'eol-last': 2,
 
@@ -132,6 +132,7 @@ module.exports = {
     '@typescript-eslint/naming-convention':
         [2, {'selector': 'interface', 'format': ['PascalCase'], 'custom': {'regex': '^I[A-Z]', 'match': false}}],
     '@typescript-eslint/explicit-member-accessibility': [0],
+    '@typescript-eslint/func-call-spacing': 2,
     '@typescript-eslint/no-explicit-any': 2,
 
     // Closure does not properly typecheck default exports
