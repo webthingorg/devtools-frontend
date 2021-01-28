@@ -7,7 +7,7 @@
 # file, run "gn help dotfile" at the command line.
 
 # The location of the build configuration file.
-buildconfig = "//build_overrides/BUILDCONFIG.gn"
+buildconfig = "//build/config/BUILDCONFIG.gn"
 
 # These are the targets to check headers for by default. The files in targets
 # matching these patterns (see "gn help label_pattern" for format) will have

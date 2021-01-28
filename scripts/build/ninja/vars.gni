@@ -2,6 +2,13 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
+declare_args() {
+  # Needed to properly resolve the locations for the TypeScript build system
+  # when we are building for DevTools only. This arg will not be defined in
+  # Chromium itself.
+  use_devtools_typescript = true
+}
+
 if (!defined(devtools_location)) {
   if (defined(use_devtools_typescript) && use_devtools_typescript) {
     devtools_location = ""
