@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4db448cb_0e633d5e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-01-29T12:06:48Z",
+      "side": 1,
+      "message": "Love it! LGTM 😊",
+      "revId": "29bb308e1637e0380616a16b633c3dba0ba5234f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7ebd3f70_b549070c",
@@ -31,6 +48,30 @@
       "writtenOn": "2021-01-29T10:41:47Z",
       "side": 1,
       "message": "Really dislike the auto-formatting here, any way this could be improved?",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 39
+      },
+      "revId": "29bb308e1637e0380616a16b633c3dba0ba5234f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "337ea647_c6b09266",
+        "filename": "scripts/check_external_links.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-01-29T12:06:48Z",
+      "side": 1,
+      "message": "Only by adding a block and returning the Promise explicitly. You can probably tell clang to not format, which we do in some of the Web Components.",
+      "parentUuid": "7ebd3f70_b549070c",
       "range": {
         "startLine": 76,
         "startChar": 0,
