@@ -39,9 +39,6 @@
   <message name="IDS_DEVTOOLS_0ace6faf288026c1adc56a2a1e7bb6be" desc="Default tag for a periodicsync event in Service Workers View of the Application panel">
     Periodic Sync tag
   </message>
-  <message name="IDS_DEVTOOLS_0c9214cc81e8bf74858214c637c6bb0d" desc="Table heading for Service Workers update information. Update is a noun.">
-    Update Activity
-  </message>
   <message name="IDS_DEVTOOLS_0d6fa553290eb4bf9eabe203a43b01d9" desc="Text in Clear Storage View of the Application panel">
     Application cache
   </message>
@@ -234,6 +231,9 @@ table is empty.
   </message>
   <message name="IDS_DEVTOOLS_5d0d3256a9b63b8093b6842a8e4a089b" desc="Title for unreachable URL field">
     Unreachable URL
+  </message>
+  <message name="IDS_DEVTOOLS_5e35d7fff7b903516cba242ff68fc6d3" desc="Table heading for Service Workers update information">
+    Phase
   </message>
   <message name="IDS_DEVTOOLS_5e76cbfe956a74b7dda68e1e2e0dd716" desc="Title for ad frame type field">
     Ad Status
