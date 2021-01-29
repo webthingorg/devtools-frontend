@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e07b3ce2_42e34d8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2021-01-29T01:54:19Z",
+      "side": 1,
+      "message": "I think you can revert roll CL and stop autoroller temporarily instead.",
+      "revId": "235212461dadac8f0bbbb76d144815f14ee3fb19",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
