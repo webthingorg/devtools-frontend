@@ -16,6 +16,24 @@
       "message": "I think you can revert roll CL and stop autoroller temporarily instead.",
       "revId": "235212461dadac8f0bbbb76d144815f14ee3fb19",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "284b4a4b_5537ba88",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1375000
+      },
+      "writtenOn": "2021-01-29T02:21:25Z",
+      "side": 1,
+      "message": "I don\u0027t think this is about autoroller -- It\u0027s the chromium source code causing the problem. Or shall we temporarily disable the notifier?",
+      "parentUuid": "e07b3ce2_42e34d8a",
+      "revId": "235212461dadac8f0bbbb76d144815f14ee3fb19",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
