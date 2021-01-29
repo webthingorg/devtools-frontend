@@ -46,6 +46,30 @@
       },
       "revId": "8c4d6591e05e059903cc45d789db075c6f921b1d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84040adc_77901daf",
+        "filename": "third_party/typescript/typescript.gni",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1375000
+      },
+      "writtenOn": "2021-01-29T07:58:23Z",
+      "side": 0,
+      "message": "I see, sorry I wasn\u0027t very familiar with gn. So use_rbe in https://source.chromium.org/chromium/_/chromium/devtools/devtools-frontend/+/159d86d3fb4b29884f036bd6d08f8003e8cb106f:scripts/build/ninja/devtools_entrypoint.gni;l\u003d132 will become the invoker.use_rbe here?",
+      "parentUuid": "afdf6022_bd3a4285",
+      "range": {
+        "startLine": 137,
+        "startChar": 4,
+        "endLine": 137,
+        "endChar": 36
+      },
+      "revId": "8c4d6591e05e059903cc45d789db075c6f921b1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
