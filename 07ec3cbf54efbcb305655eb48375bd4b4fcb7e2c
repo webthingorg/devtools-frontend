@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8f1a9fa_c35afb0b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-01-29T15:19:42Z",
+      "side": 1,
+      "message": "Worth pointing out that we still allow system colors such as `HighlightText`? (These are arguably also “named”.)",
+      "revId": "07ec3cbf54efbcb305655eb48375bd4b4fcb7e2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33623428_a58efa40",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-01-29T15:19:42Z",
+      "side": 1,
+      "message": "Please add\n\n    Bug: chromium:1104187",
+      "revId": "07ec3cbf54efbcb305655eb48375bd4b4fcb7e2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
