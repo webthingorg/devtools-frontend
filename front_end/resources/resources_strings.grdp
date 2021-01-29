@@ -15,6 +15,9 @@
   <message name="IDS_DEVTOOLS_03ea25886ec5efba7a20fbeb6c7070fa" desc="Manifest installability error in the Application panel">
     The specified application platform is not supported on <ph name="LOCKED_1">Android</ph>
   </message>
+  <message name="IDS_DEVTOOLS_04288adc8ed806c546be44120fa96ea9" desc="Warning message for image resources from the manifest">
+      <ph name="RESOURCENAME">$1s<ex>Image</ex></ph> <ph name="IMAGEURL">$2s<ex>https://example.com/image.png</ex></ph> height should be less than twice the width
+  </message>
   <message name="IDS_DEVTOOLS_05b2812ab435addb8ae4853ead93f1b3" desc="Text in Service Workers View of the Application panel">
     Received <ph name="NEW_DATE_VERSION_SCRIPTRESPONSETIME_________TOLOCALESTRING__">$1s<ex>7/3/2019, 3:38:37 PM</ex></ph>
   </message>
@@ -548,6 +551,9 @@ as used by <ph name="LOCKED_1">Chrome</ph>
   </message>
   <message name="IDS_DEVTOOLS_bbed5775ecfc6157ab497ab72716ccaf" desc="Tooltip for the SharedArrayBuffer availability status">
     SharedArrayBuffer constructor is available but SABs cannot be transferred via postMessage
+  </message>
+  <message name="IDS_DEVTOOLS_bc0a1c6d08cccd8722383fdaa26cc9e7" desc="Warning message for image resources from the manifest">
+    <ph name="RESOURCENAME">$1s<ex>Image</ex></ph> <ph name="IMAGEURL">$2s<ex>https://example.com/image.png</ex></ph> width should be less than twice the height
   </message>
   <message name="IDS_DEVTOOLS_bd0c1dbb1b437cd840dbc57852fb8ec6" desc="Link text for more information on maskable icons in App Manifest view of the Application panel">
     documentation on maskable icons
