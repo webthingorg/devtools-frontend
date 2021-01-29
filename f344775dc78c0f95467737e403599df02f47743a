@@ -50,6 +50,24 @@
       "message": "Are you changing this because issue aggregation cannot handle the concatenated `issueDetails.reason`? Removing `issueDetails.reason` here would break UMA tracking I believe (see https://crrev.com/c/2567967).\nCould you look into this please?",
       "revId": "f344775dc78c0f95467737e403599df02f47743a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5eb68e71_9be1a123",
+        "filename": "front_end/sdk/HeavyAdIssue.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-29T09:23:46Z",
+      "side": 1,
+      "message": "Great catch, thanks! Separated the bugfix to https://crrev.com/c/2659018.",
+      "parentUuid": "304e7183_01a40644",
+      "revId": "f344775dc78c0f95467737e403599df02f47743a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
