@@ -32,7 +32,7 @@
 import * as StringUtilities from './string-utilities.js';
 
 class LocalizedStringTag {
-  private localizationTag: (string|undefined);
+  public localizationTag: (string|undefined);
 }
 export type LocalizedString = string&LocalizedStringTag;
 
