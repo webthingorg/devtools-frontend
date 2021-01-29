@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04f18fd2_d638c023",
+        "filename": "front_end/profiler/HeapSnapshotView.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1876,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-01-29T10:57:49Z",
+      "side": 0,
+      "message": "This was wrong as far as I can tell, and values is just a JSON-roundtrip of the input to serializeUIString, which we call with the {PH1: \u0027\u0027} pattern, so I made all these types the same",
+      "range": {
+        "startLine": 1876,
+        "startChar": 21,
+        "endLine": 1876,
+        "endChar": 33
+      },
+      "revId": "d0934a0ae9617755f893f82f4dd0b271bdeb2f16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
