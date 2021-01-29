@@ -6,6 +6,7 @@ import {ContentSecurityPolicyIssue} from './ContentSecurityPolicyIssue.js';
 import {CrossOriginEmbedderPolicyIssue, isCrossOriginEmbedderPolicyIssue} from './CrossOriginEmbedderPolicyIssue.js';
 import {HeavyAdIssue} from './HeavyAdIssue.js';
 import {Issue} from './Issue.js';  // eslint-disable-line no-unused-vars
+import {LowTextContrastIssue} from './LowTextContrastIssue.js';
 import {MixedContentIssue} from './MixedContentIssue.js';
 import {SameSiteCookieIssue} from './SameSiteCookieIssue.js';
 import {Capability, SDKModel, Target} from './SDKModel.js';  // eslint-disable-line no-unused-vars
@@ -187,6 +188,20 @@ function createIssuesForSharedArrayBufferIssue(issuesModel, inspectorDetails) {
 }
 
 /**
+ * @param {!IssuesModel} issuesModel
+ * @param {!Protocol.Audits.InspectorIssueDetails} inspectorDetails
+ * @return {!Array<!Issue>}
+ */
+function createIssuesForLowTextContrastIssue(issuesModel, inspectorDetails) {
+  const lowTextContrastIssueDetails = inspectorDetails.lowTextContrastIssueDetails;
+  if (!lowTextContrastIssueDetails) {
+    console.warn('LowTextContrast issue without details received.');
+    return [];
+  }
+  return [new LowTextContrastIssue(lowTextContrastIssueDetails)];
+}
+
+/**
  * @type {!Map<!Protocol.Audits.InspectorIssueCode, function(!IssuesModel, !Protocol.Audits.InspectorIssueDetails):!Array<!Issue>>}
  */
 const issueCodeHandlers = new Map([
@@ -196,6 +211,7 @@ const issueCodeHandlers = new Map([
   [Protocol.Audits.InspectorIssueCode.ContentSecurityPolicyIssue, createIssuesForContentSecurityPolicyIssue],
   [Protocol.Audits.InspectorIssueCode.BlockedByResponseIssue, createIssuesForBlockedByResponseIssue],
   [Protocol.Audits.InspectorIssueCode.SharedArrayBufferIssue, createIssuesForSharedArrayBufferIssue],
+  [Protocol.Audits.InspectorIssueCode.LowTextContrastIssue, createIssuesForLowTextContrastIssue],
 ]);
 
 /** @enum {symbol} */

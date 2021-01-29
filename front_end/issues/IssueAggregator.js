@@ -29,6 +29,8 @@ export class AggregatedIssue extends SDK.Issue.Issue {
     this._heavyAdIssueDetails = new Map();
     /** @type {!Set<!SDK.ContentSecurityPolicyIssue.ContentSecurityPolicyIssue>} */
     this._cspIssues = new Set();
+    /** @type {!Set<!SDK.Issue.AffectedElement>} */
+    this._elements = new Set();
     /** @type {!Map<string, !Protocol.Audits.BlockedByResponseIssueDetails>} */
     this._blockedByResponseDetails = new Map();
     this._aggregatedIssuesCount = 0;
@@ -88,6 +90,13 @@ export class AggregatedIssue extends SDK.Issue.Issue {
    */
   cspIssues() {
     return this._cspIssues;
+  }
+
+  /**
+   * @returns {!Iterable<!SDK.Issue.AffectedElement>}
+   */
+  elements() {
+    return this._elements;
   }
 
   /**
@@ -181,6 +190,9 @@ export class AggregatedIssue extends SDK.Issue.Issue {
     }
     if (issue instanceof SDK.SharedArrayBufferIssue.SharedArrayBufferIssue) {
       this._sharedArrayBufferIssues.add(issue);
+    }
+    for (const element of issue.elements()) {
+      this._elements.add(element);
     }
   }
 }

@@ -1042,6 +1042,7 @@ export class PageDispatcher {
    * @param {!Protocol.Page.LoadEventFiredEvent} event
    */
   loadEventFired({timestamp}) {
+    this._resourceTreeModel.target().auditsAgent().invoke_checkContrast();
     this._resourceTreeModel.dispatchEventToListeners(
         Events.Load, {resourceTreeModel: this._resourceTreeModel, loadTime: timestamp});
   }
