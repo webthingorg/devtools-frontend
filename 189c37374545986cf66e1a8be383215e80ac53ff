@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa87a66e_2bc74a8e",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-01-29T11:32:35Z",
+      "side": 1,
+      "message": "Is this TODO still relevant?",
+      "revId": "189c37374545986cf66e1a8be383215e80ac53ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1f2461b_03f7a577",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-01-29T11:32:35Z",
+      "side": 1,
+      "message": "FWIW, this check here is also racy just as below, because you can\u0027t really wait for something to _not_ happen in the future. We can leave it in for now. Maybe this could be removed in a separate change.",
+      "revId": "189c37374545986cf66e1a8be383215e80ac53ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
