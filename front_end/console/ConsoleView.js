@@ -36,6 +36,7 @@ import * as Platform from '../platform/platform.js';
 import {ls} from '../platform/platform.js';
 import * as SDK from '../sdk/sdk.js';
 import * as TextUtils from '../text_utils/text_utils.js';
+import * as UIComponents from '../ui/components/components.js';
 import * as UI from '../ui/ui.js';
 
 import {ConsoleContextSelector} from './ConsoleContextSelector.js';
@@ -209,6 +210,20 @@ export class ConsoleView extends UI.Widget.VBox {
     toolbar.appendToolbarItem(this._filter._textFilterUI);
     toolbar.appendToolbarItem(this._filter._levelMenuButton);
     toolbar.appendToolbarItem(this._progressToolbarItem);
+    toolbar.appendSeparator();
+    const countersWrapper = document.createElement('div');
+    this._issuesToolbarItem = new UI.Toolbar.ToolbarItem(countersWrapper);
+    this._issuesToolbarItem.setVisible(false);
+    this._issuesCounter = new UIComponents.CounterButton.CounterButton();
+    countersWrapper.appendChild(this._issuesCounter);
+    this._issuesCounter.data = {
+      clickHandler: () => {
+        Host.userMetrics.issuesPanelOpenedFrom(Host.UserMetrics.IssueOpener.StatusBarIssuesCounter);
+        UI.ViewManager.ViewManager.instance().showView('issues-pane');
+      },
+      counters: [{iconName: 'issue-text-icon', iconColor: '#1a73e8'}],
+    };
+    toolbar.appendToolbarItem(this._issuesToolbarItem);
     rightToolbar.appendSeparator();
     rightToolbar.appendToolbarItem(this._filterStatusText);
     rightToolbar.appendToolbarItem(this._showSettingsPaneButton);
@@ -364,12 +379,6 @@ export class ConsoleView extends UI.Widget.VBox {
 
     /** @type {!IssueMessage|undefined} */
     this._issueMessage = undefined;
-    const issuesManager = BrowserSDK.IssuesManager.IssuesManager.instance();
-    issuesManager.addEventListener(
-        BrowserSDK.IssuesManager.Events.IssuesCountUpdated, this._onIssuesCountChanged.bind(this));
-    if (issuesManager.numberOfIssues()) {
-      this._onIssuesCountChanged();
-    }
   }
 
   _onIssuesCountChanged() {
@@ -605,6 +614,7 @@ export class ConsoleView extends UI.Widget.VBox {
    * @return {!Promise.<void>}
    */
   async _invalidateViewport() {
+    this._updateIssuesToolbarItem();
     if (this._muteViewportUpdates) {
       this._maybeDirtyWhileMuted = true;
       return;
@@ -616,6 +626,24 @@ export class ConsoleView extends UI.Widget.VBox {
       this._viewport.invalidate();
     }
     return;
+  }
+
+  _updateIssuesToolbarItem() {
+    const issues = BrowserSDK.IssuesManager.IssuesManager.instance().numberOfIssues();
+    this._issuesCounter.setCounts([issues]);
+    let issuesSummary = '';
+    if (issues === 1) {
+      issuesSummary = ls`1 Issue`;
+    } else {
+      issuesSummary = ls`${issues} Issues`;
+    }
+
+    const issuesTitle =
+        ls`Some problems no longer generate console messages, but are surfaced in the issues tab. Click to view ${
+            issuesSummary}.`;
+    UI.Tooltip.Tooltip.install(this._issuesCounter, issuesTitle);
+    UI.ARIAUtils.setAccessibleName(this._issuesCounter, issuesTitle);
+    this._issuesToolbarItem.setVisible(issues > 0);
   }
 
   _scheduleViewportRefresh() {

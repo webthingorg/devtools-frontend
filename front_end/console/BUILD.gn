@@ -31,6 +31,7 @@ devtools_module("console") {
     "../text_utils:bundle",
     "../theme_support:bundle",
     "../ui:bundle",
+    "../ui/components:bundle",
   ]
 }
 
