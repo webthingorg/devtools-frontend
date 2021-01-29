@@ -1,0 +1,205 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07ba4cd1_3295510a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-29T12:55:40Z",
+      "side": 1,
+      "message": "Looks great, thanks! Some comments. For testing, please do something akin to what we do for heavy ad issues in test/e2e/issues/heavy-ad-issues_test.ts: In that test, we trigger the issue from the test, so we don\u0027t need to actually load a TWA.",
+      "revId": "1be97eddeed67aaac41efddd5b0682d09b6ab9c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60394a96_256fe61a",
+        "filename": "front_end/issues/IssueAggregator.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-29T12:55:40Z",
+      "side": 1,
+      "message": "Let\u0027s do this as we do it for ContentSecurityPolicyIssue (below). The IssueManager is already handling deduplication based on a deep equal of the issue.",
+      "range": {
+        "startLine": 190,
+        "startChar": 3,
+        "endLine": 193,
+        "endChar": 5
+      },
+      "revId": "1be97eddeed67aaac41efddd5b0682d09b6ab9c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fd3368e_87afacf6",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-29T12:55:40Z",
+      "side": 1,
+      "message": "nit: Let\u0027s call this AffectedTwaIssueDetailsView (to make sure it isn\u0027t confused with the IssueView class). Let\u0027s also move it to a separate file and use typescript right away. Take a look at front_end/issues/AffectedSharedArrayBufferIssueDetailsView.ts for inspiration.",
+      "range": {
+        "startLine": 736,
+        "startChar": 6,
+        "endLine": 736,
+        "endChar": 26
+      },
+      "revId": "1be97eddeed67aaac41efddd5b0682d09b6ab9c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fe80874_62c0abd6",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 739,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-29T12:55:40Z",
+      "side": 1,
+      "message": "Once you\u0027ve moved things, this can take an AggregatedIssue",
+      "range": {
+        "startLine": 739,
+        "startChar": 24,
+        "endLine": 739,
+        "endChar": 29
+      },
+      "revId": "1be97eddeed67aaac41efddd5b0682d09b6ab9c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5474957_d8e4d9fd",
+        "filename": "front_end/issues/descriptions/TwaDigitalAssetLinksFailed.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-29T12:55:40Z",
+      "side": 1,
+      "message": "nit: use ` (back-ticks) here to get monospace font.",
+      "range": {
+        "startLine": 7,
+        "startChar": 72,
+        "endLine": 7,
+        "endChar": 101
+      },
+      "revId": "1be97eddeed67aaac41efddd5b0682d09b6ab9c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fc03ee4_66957f20",
+        "filename": "front_end/issues/descriptions/TwaHttpError.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-29T12:55:40Z",
+      "side": 1,
+      "message": "nit: Dead link (404 or 5xx status code) encountered",
+      "range": {
+        "startLine": 3,
+        "startChar": 10,
+        "endLine": 3,
+        "endChar": 34
+      },
+      "revId": "1be97eddeed67aaac41efddd5b0682d09b6ab9c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8de1f7c6_303e95c0",
+        "filename": "front_end/sdk/Issue.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-29T12:55:40Z",
+      "side": 1,
+      "message": "We don\u0027t need this in the interface. Consider adding a details() getter on TrustedWebActivityIssue similar to what we did in SharedArrayBufferIssue.",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 3
+      },
+      "revId": "1be97eddeed67aaac41efddd5b0682d09b6ab9c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53028e27_b95aaae5",
+        "filename": "front_end/sdk/TrustedWebActivityIssue.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-29T12:55:40Z",
+      "side": 1,
+      "message": "nit: 2021",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 18
+      },
+      "revId": "1be97eddeed67aaac41efddd5b0682d09b6ab9c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0da6097_8cee076c",
+        "filename": "front_end/sdk/TrustedWebActivityIssue.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-29T12:55:40Z",
+      "side": 1,
+      "message": "Let\u0027s convert this whole file to .ts. All you need to do is to\n - Rename this file to .ts (but keep all the build file entries you added)\n - Add the .ts file to the BUILD.gn in this directory.\n\nSee front_end/sdk/SharedArrayBufferIssue.ts for an example.",
+      "range": {
+        "startLine": 9,
+        "startChar": 13,
+        "endLine": 9,
+        "endChar": 37
+      },
+      "revId": "1be97eddeed67aaac41efddd5b0682d09b6ab9c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
