@@ -56,7 +56,7 @@ export function registerLocale(locale) {
  * meta files used to register module extensions.
  * @param {function(string, ?Object):string} str_
  * @param {string} id
- * @param {!Object} values
+ * @param {!Object<string, ?Object>} values
  * @return {function(): !Platform.UIString.LocalizedString} the localized version of the
  */
 export function getLazilyComputedLocalizedString(str_, id, values = {}) {
@@ -67,7 +67,7 @@ export function getLazilyComputedLocalizedString(str_, id, values = {}) {
  * Retrieve the localized string.
  * @param {function(string, ?Object):string} str_
  * @param {string} id
- * @param {!Object} values
+ * @param {!Object<string, ?Object>} values
  * @return {!Platform.UIString.LocalizedString} the localized version of the
  */
 export function getLocalizedString(str_, id, values = {}) {
