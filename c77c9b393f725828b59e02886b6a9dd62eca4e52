@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a51513b_2f222e59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-01-29T04:39:11Z",
+      "side": 1,
+      "message": "Migrating accessibility to loc V2 PTAL. (left a minor comment)",
+      "revId": "c77c9b393f725828b59e02886b6a9dd62eca4e52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52f83433_7afb9fc7",
+        "filename": "front_end/accessibility/AccessibilityNodeView.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-01-29T04:39:11Z",
+      "side": 1,
+      "message": "This is the only change that differs from the usual commits, as we are using lazy loading on AccesibilityStrings we need to invoke the function here.",
+      "range": {
+        "startLine": 295,
+        "startChar": 41,
+        "endLine": 296,
+        "endChar": 71
+      },
+      "revId": "c77c9b393f725828b59e02886b6a9dd62eca4e52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
