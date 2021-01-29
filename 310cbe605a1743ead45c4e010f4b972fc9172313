@@ -16,6 +16,29 @@
       "message": "Tim PTAL",
       "revId": "310cbe605a1743ead45c4e010f4b972fc9172313",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97e09394_ff939ef9",
+        "filename": "front_end/i18n/i18nImpl.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-01-29T14:57:04Z",
+      "side": 1,
+      "message": "Could you please double-check that the output from rollup in a release build correctly includes this bundle file? I am assuming it is, but it would be good to double-check.\n\nThe reason this is relevant, is because typically Rollup will not include files if they have the same name as their folder name (in this case `i18n`). However, we do special-casing for our third_party projects in `rollup.config.js` which might be affected by this rename.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 60
+      },
+      "revId": "310cbe605a1743ead45c4e010f4b972fc9172313",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
