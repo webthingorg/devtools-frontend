@@ -34,6 +34,41 @@
       "parentUuid": "e07b3ce2_42e34d8a",
       "revId": "235212461dadac8f0bbbb76d144815f14ee3fb19",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51f29269_8c917a6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002224
+      },
+      "writtenOn": "2021-01-29T02:40:15Z",
+      "side": 1,
+      "message": "Reverting https://chromium.googlesource.com/chromium/src.git/+/e63169b871bb9e0b96745ea8682f3400bf12a135 might be what Takuto is saying?\nHowever, it looks too far away and we need to revert 4 other devtools roll to revert the CL.  Considering the effects for that, reverting this might make more sense.",
+      "parentUuid": "284b4a4b_5537ba88",
+      "revId": "235212461dadac8f0bbbb76d144815f14ee3fb19",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ba6a920_07ceba9a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002224
+      },
+      "writtenOn": "2021-01-29T02:40:15Z",
+      "side": 1,
+      "message": "I think we can casually revert CLs if they break other builds.",
+      "revId": "235212461dadac8f0bbbb76d144815f14ee3fb19",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
