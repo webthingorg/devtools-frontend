@@ -301,6 +301,7 @@ export class TabbedEditorContainer extends Common.ObjectWrapper.ObjectWrapper {
     const tabId = this._tabIds.get(uiSourceCode) || this._appendFileTab(uiSourceCode, userGesture);
 
     this._tabbedPane.selectTab(tabId, userGesture);
+    Common.EventTarget.fireEvent('source-file-loaded', uiSourceCode.displayName());
     if (userGesture) {
       this._editorSelectedByUserAction();
     }
