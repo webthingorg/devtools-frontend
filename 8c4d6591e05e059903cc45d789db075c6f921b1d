@@ -94,6 +94,30 @@
       },
       "revId": "8c4d6591e05e059903cc45d789db075c6f921b1d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecbe0a3c_fff22f76",
+        "filename": "third_party/typescript/typescript.gni",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-29T08:02:58Z",
+      "side": 0,
+      "message": "To add on this, this is hopefully temporary code. We plan to refactor ts_library in the immediate future and the \"devtools_use_rbe\" flag will be folded into the global chromium \"use_rbe\" GN arg once we are somewhat confident that it everything works as we want it to :)",
+      "parentUuid": "d72aca2a_a6754ec9",
+      "range": {
+        "startLine": 137,
+        "startChar": 4,
+        "endLine": 137,
+        "endChar": 36
+      },
+      "revId": "8c4d6591e05e059903cc45d789db075c6f921b1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
