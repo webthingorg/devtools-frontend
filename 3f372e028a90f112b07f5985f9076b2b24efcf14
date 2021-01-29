@@ -56,6 +56,30 @@
       },
       "revId": "3f372e028a90f112b07f5985f9076b2b24efcf14",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "487eef2d_2ce23f30",
+        "filename": "front_end/resources/ResourcesPanel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-01-29T11:09:42Z",
+      "side": 1,
+      "message": "Oh, you\u0027re right, thanks!\n\nMost `view`s are no instance of `UI.View.SimpleView`, therefore the toolbar\u0027s `hidden` class is never toggled for them.",
+      "parentUuid": "00506cc9_d7708fef",
+      "range": {
+        "startLine": 137,
+        "startChar": 26,
+        "endLine": 137,
+        "endChar": 30
+      },
+      "revId": "3f372e028a90f112b07f5985f9076b2b24efcf14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
