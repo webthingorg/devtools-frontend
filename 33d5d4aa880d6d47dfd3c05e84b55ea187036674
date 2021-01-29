@@ -104,6 +104,24 @@
       "parentUuid": "a7274d52_c9705ef5",
       "revId": "33d5d4aa880d6d47dfd3c05e84b55ea187036674",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84cb9b60_7c2c04aa",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2021-01-29T12:00:31Z",
+      "side": 1,
+      "message": "Done, we added an event that signals the file was loaded with an event listener in the test",
+      "parentUuid": "99015384_6dcc0149",
+      "revId": "33d5d4aa880d6d47dfd3c05e84b55ea187036674",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
