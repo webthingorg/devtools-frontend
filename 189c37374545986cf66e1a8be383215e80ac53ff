@@ -54,6 +54,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "53df4045_959fc72a",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2021-01-29T13:25:39Z",
+      "side": 1,
+      "message": "alright I will move that check to before the click and leave the TODO since I think we might need it in the future for lines that don\u0027t set a breakpoint.",
+      "parentUuid": "fb7fadf3_6dd7b03c",
+      "revId": "189c37374545986cf66e1a8be383215e80ac53ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e1f2461b_03f7a577",
