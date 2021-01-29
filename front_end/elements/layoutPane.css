@@ -145,6 +145,14 @@
   height: 10px;
   margin: 0 0 0 8px;
   width: 10px;
+  position: relative;
+}
+
+/* We set dimensions for the invisible input to support quick highlight a11y feature that uses the dimensiosn to draw an outline */
+.color-picker-label input[type=color] {
+  width: 100%;
+  height: 100%;
+  position: absolute;
 }
 
 .color-picker-label:hover,
