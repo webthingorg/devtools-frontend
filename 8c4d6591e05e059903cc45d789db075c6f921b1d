@@ -70,6 +70,30 @@
       },
       "revId": "8c4d6591e05e059903cc45d789db075c6f921b1d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d72aca2a_a6754ec9",
+        "filename": "third_party/typescript/typescript.gni",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-29T08:01:01Z",
+      "side": 0,
+      "message": "Exactly :) (and no worries)\n\nI already prepared the reland here: https://crrev.com/c/2659015. The fix is in the diff between PS1 and PS2.",
+      "parentUuid": "84040adc_77901daf",
+      "range": {
+        "startLine": 137,
+        "startChar": 4,
+        "endLine": 137,
+        "endChar": 36
+      },
+      "revId": "8c4d6591e05e059903cc45d789db075c6f921b1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
