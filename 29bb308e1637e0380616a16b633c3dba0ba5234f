@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1c2e2f5_0b908728",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-29T10:41:47Z",
+      "side": 1,
+      "message": "PTAL\n\nI don\u0027t write a lot of Node.js, so feel free to leave tons of comments/nits :)\n\nI am also aware that this CL requires us to run this check manually from time to time, but\nas long as we can\u0027t make external requests on bots, there seems no way around this (unless\nwe put the script somewhere on GCE).",
+      "revId": "29bb308e1637e0380616a16b633c3dba0ba5234f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ebd3f70_b549070c",
+        "filename": "scripts/check_external_links.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-29T10:41:47Z",
+      "side": 1,
+      "message": "Really dislike the auto-formatting here, any way this could be improved?",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 39
+      },
+      "revId": "29bb308e1637e0380616a16b633c3dba0ba5234f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
