@@ -22,6 +22,30 @@
       },
       "revId": "8c4d6591e05e059903cc45d789db075c6f921b1d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afdf6022_bd3a4285",
+        "filename": "third_party/typescript/typescript.gni",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-29T07:45:10Z",
+      "side": 0,
+      "message": "I don\u0027t think so. See the comment below on line #139. The \"invoker.use_rbe\" flag is just a workaround for a single use-site of ts_library to manually disable RBE due to some unresolved DEPS shenanigans.\n\nThe \"use_rbe\" here should be the global Chromium GN args. That is, we want to enable RBE only if \"use_rbe\" and \"devtools_use_rbe\" GN args are true.\n\nThe actual fix is to duplicate the check:\n\n if (defined(use_rbe) \u0026\u0026 use_rbe \u0026\u0026 defined(devtools_use_rbe) \u0026\u0026 devtools_use_rbe)\n\nin \"devtools_entrypoint.gni\", so the flag doesn\u0027t go unused.\n\nThanks for investigating :)",
+      "parentUuid": "4a8084ab_851f09d1",
+      "range": {
+        "startLine": 137,
+        "startChar": 4,
+        "endLine": 137,
+        "endChar": 36
+      },
+      "revId": "8c4d6591e05e059903cc45d789db075c6f921b1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
