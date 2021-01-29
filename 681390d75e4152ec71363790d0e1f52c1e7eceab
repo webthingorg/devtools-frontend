@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "328845b3_de095633",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-29T13:10:49Z",
+      "side": 1,
+      "message": "Awesome, only nits.",
+      "revId": "681390d75e4152ec71363790d0e1f52c1e7eceab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c096442e_f9e0712b",
+        "filename": "scripts/check_external_links.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-29T13:10:49Z",
+      "side": 1,
+      "message": "nit: let\u0027s also check developer.chrome.com",
+      "range": {
+        "startLine": 17,
+        "startChar": 2,
+        "endLine": 17,
+        "endChar": 32
+      },
+      "revId": "681390d75e4152ec71363790d0e1f52c1e7eceab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51a81acb_ba5db3c0",
+        "filename": "scripts/check_external_links.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-29T13:10:49Z",
+      "side": 1,
+      "message": "Is this fine? I would have expected that only 200 is OK, but I might be wrong.",
+      "range": {
+        "startLine": 108,
+        "startChar": 68,
+        "endLine": 108,
+        "endChar": 99
+      },
+      "revId": "681390d75e4152ec71363790d0e1f52c1e7eceab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
