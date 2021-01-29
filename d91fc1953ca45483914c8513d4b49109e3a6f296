@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b25d6039_3e68227f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-01-29T13:39:02Z",
+      "side": 1,
+      "message": "Found a bug while working on contrast issues. PTAL.",
+      "revId": "d91fc1953ca45483914c8513d4b49109e3a6f296",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
