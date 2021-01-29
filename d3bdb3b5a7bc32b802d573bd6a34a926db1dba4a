@@ -34,6 +34,24 @@
       "parentUuid": "4ce1d720_7bbe8b71",
       "revId": "d3bdb3b5a7bc32b802d573bd6a34a926db1dba4a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a27e718c_139a9178",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-01-29T09:07:17Z",
+      "side": 1,
+      "message": "Yes, without that check the second assertion is racy. If you create a breakpoint above you can still pass the assertion below if it just takes long enough for the breakpoint marker to appear.",
+      "parentUuid": "eb587b15_83f84fb0",
+      "revId": "d3bdb3b5a7bc32b802d573bd6a34a926db1dba4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
