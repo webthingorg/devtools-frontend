@@ -80,6 +80,30 @@
       },
       "revId": "29bb308e1637e0380616a16b633c3dba0ba5234f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3465cde0_bafe6f6d",
+        "filename": "scripts/check_external_links.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-01-29T12:16:07Z",
+      "side": 1,
+      "message": "Thanks, disabled with clang-format off.",
+      "parentUuid": "337ea647_c6b09266",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 39
+      },
+      "revId": "29bb308e1637e0380616a16b633c3dba0ba5234f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
