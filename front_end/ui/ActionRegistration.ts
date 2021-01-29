@@ -334,6 +334,7 @@ export const ActionCategory = {
   INPUTS: ls`Inputs`,
   LAYERS: ls`Layers`,
   NAVIGATION: ls`Navigation`,
+  SETTINGS: ls`Settings`,
 };
 
 type ActionCategory = typeof ActionCategory[keyof typeof ActionCategory];
@@ -349,6 +350,7 @@ export const enum IconClass {
   LARGEICON_PLAY = 'largeicon-play',
   LARGEICON_PAUSE = 'largeicon-pause',
   LARGEICON_RESUME = 'largeicon-resume',
+  LARGEICON_SETTINGS_GEAR = 'largeicon-settings-gear',
 }
 
 export const enum KeybindSet {
