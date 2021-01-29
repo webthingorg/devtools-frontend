@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "bd6a7bb93b19635f654dd7a43e60d51f9fc013e4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10218c76_88a9c716",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-01-29T08:17:49Z",
+      "side": 1,
+      "message": "Peter, could you please take a look as the owner for the file? ",
+      "revId": "bd6a7bb93b19635f654dd7a43e60d51f9fc013e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
