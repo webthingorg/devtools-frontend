@@ -50,6 +50,24 @@
       "message": "The potential `undefined` value is caused by the optional chaining, it\u0027s not really a TS issue imo. Optional chaining returns either right hand value or undefined. What you could do is\n`const maybeTarget \u003d cspIssue.model()?.getTargetIfNotDisposed() || null;` catching the `undefined` case at its creation.",
       "revId": "060e102e24d74f4464e5e56a5e34faad88f4cc3b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02a27af1_c2f6a7fd",
+        "filename": "front_end/issues/AffectedResourcesView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-01-29T08:32:50Z",
+      "side": 1,
+      "message": "Noted, thanks. I think it doesn\u0027t make a big difference, and currently it isn\u0027t clear whether we\u0027d want to ideally have `SDK.SDKModel.Target|null` or `SDK.SDKModel.Target|undefined` here.",
+      "parentUuid": "a730566b_0506b106",
+      "revId": "060e102e24d74f4464e5e56a5e34faad88f4cc3b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
