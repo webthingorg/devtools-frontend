@@ -16,6 +16,24 @@
       "message": "Before clicking, could you check that there is in fact a breakpoint on this line? Otherwise you might accidentally set a break point.",
       "revId": "d3bdb3b5a7bc32b802d573bd6a34a926db1dba4a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb587b15_83f84fb0",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2021-01-29T08:59:48Z",
+      "side": 1,
+      "message": "is this necessary when the assertion right after this one checks that the breakpoint is gone?",
+      "parentUuid": "4ce1d720_7bbe8b71",
+      "revId": "d3bdb3b5a7bc32b802d573bd6a34a926db1dba4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
