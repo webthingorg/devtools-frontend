@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb7fadf3_6dd7b03c",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-01-29T12:50:18Z",
+      "side": 1,
+      "message": "This check introduces another race. I don\u0027t think `expectedFail` can work correctly. You can\u0027t wait for the breakpoint to _not_ appear. It might appear at any time later.\n\nYou could add that check before the click though, that would avoid the race I\u0027m talking about below.",
+      "parentUuid": "8405bd7b_200d91e8",
+      "revId": "189c37374545986cf66e1a8be383215e80ac53ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e1f2461b_03f7a577",
@@ -49,6 +67,24 @@
       "writtenOn": "2021-01-29T11:32:35Z",
       "side": 1,
       "message": "FWIW, this check here is also racy just as below, because you can\u0027t really wait for something to _not_ happen in the future. We can leave it in for now. Maybe this could be removed in a separate change.",
+      "revId": "189c37374545986cf66e1a8be383215e80ac53ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1e56b23_20d89815",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-01-29T12:50:18Z",
+      "side": 1,
+      "message": "Sorry, my comment above made little sense. This change causes two calls to addBreakpointForLine to race for the same line. The second call would remove the breakpoint, but it might go through successfully if the breakpoint marker set from the first call is not removed quickly enough.",
+      "parentUuid": "e1f2461b_03f7a577",
       "revId": "189c37374545986cf66e1a8be383215e80ac53ff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
