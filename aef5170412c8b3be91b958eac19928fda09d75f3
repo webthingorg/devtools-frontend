@@ -56,6 +56,30 @@
       },
       "revId": "aef5170412c8b3be91b958eac19928fda09d75f3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f283575b_0232ddde",
+        "filename": "front_end/sdk/ResourceTreeModel.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-01-29T10:48:16Z",
+      "side": 1,
+      "message": "If frame A `document.write`s to frame B, the `resourcesMap` for frame B does not contain `framePayload.url`. The `if`-statement is `true` and the resource is added. The frame tree will show a \"document not available\"\n\nIf frame A `document.write`s to itself, the `resourcesMap` already contains a resource with `framePayload.url`. The `if`-statement is `false` and the frame tree will show the `resourcesMap`\u0027s resource. This case in also encountered in blink_tests, which use `TestRunner.js`\u0027s `loadHTML()` which performs a `document.write()`.",
+      "parentUuid": "9c828429_00de5248",
+      "range": {
+        "startLine": 255,
+        "startChar": 18,
+        "endLine": 255,
+        "endChar": 59
+      },
+      "revId": "aef5170412c8b3be91b958eac19928fda09d75f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
