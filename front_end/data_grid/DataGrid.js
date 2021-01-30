@@ -2659,7 +2659,7 @@ export let Parameters;
 /**
  * @typedef {{
  *   id: string,
- *   title: (!Platform.UIString.LocalizedString|undefined),
+ *   title: (Platform.UIString.LocalizedString|undefined),
  *   titleDOMFragment: (?DocumentFragment|undefined),
  *   sortable: boolean,
  *   sort: (?Order|undefined),
