@@ -19,7 +19,7 @@ devtools_module("platform") {
     "utilities.js",
   ]
 
-  deps = []
+  deps = [ "../i18n:bundle" ]
 }
 
 devtools_entrypoint("bundle") {
