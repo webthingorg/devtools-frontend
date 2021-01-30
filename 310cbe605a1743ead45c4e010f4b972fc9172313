@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "157e35ef_f7cc55a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-01-30T03:22:09Z",
+      "side": 1,
+      "message": "Lefts some comments 😊",
+      "revId": "310cbe605a1743ead45c4e010f4b972fc9172313",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "97e09394_ff939ef9",
@@ -31,6 +48,30 @@
       "writtenOn": "2021-01-29T14:57:04Z",
       "side": 1,
       "message": "Could you please double-check that the output from rollup in a release build correctly includes this bundle file? I am assuming it is, but it would be good to double-check.\n\nThe reason this is relevant, is because typically Rollup will not include files if they have the same name as their folder name (in this case `i18n`). However, we do special-casing for our third_party projects in `rollup.config.js` which might be affected by this rename.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 60
+      },
+      "revId": "310cbe605a1743ead45c4e010f4b972fc9172313",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a43bb044_8e3d0a94",
+        "filename": "front_end/i18n/i18nImpl.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-01-30T03:22:09Z",
+      "side": 1,
+      "message": "Hi Tim,\nOverall I like the change and I was able to build en-XL from scratch with it, so no blockers on the dev side. \n\nMy 2c, the last couple of changes have exposed the  need for a basic test on a localized environment, as some bugs are raised only when ran with en-XL e.g \n\n- 2659459: [Loc] Fixing lookupClosestLocales in i18n.js | https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2659459 \n\nWe could introduce this test at the end of migration (we want to prioritize not overlapping with parallel work) but at this moment my recommendation would be to:\n a) hold this change until migration ends and we can introduce the test OR\n b) introduce a basic test to verify E2E in a localized env (en-XL) as part of this change.\n\nThis would guarantee that Devtools are able to build/load/run locales. Thoughts?",
+      "parentUuid": "97e09394_ff939ef9",
       "range": {
         "startLine": 7,
         "startChar": 0,
