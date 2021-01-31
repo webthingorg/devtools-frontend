@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "89aba1f8_fb4cdc00",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1230425
+      },
+      "writtenOn": "2021-01-31T21:23:08Z",
+      "side": 1,
+      "message": "Thank you so much for helping me with the test.\nFront-end test added. I\u0027ll add the backend test soon",
+      "parentUuid": "07ba4cd1_3295510a",
+      "revId": "1be97eddeed67aaac41efddd5b0682d09b6ab9c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "60394a96_256fe61a",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-01-29T12:55:40Z",
       "side": 1,
       "message": "Let\u0027s do this as we do it for ContentSecurityPolicyIssue (below). The IssueManager is already handling deduplication based on a deep equal of the issue.",
+      "range": {
+        "startLine": 190,
+        "startChar": 3,
+        "endLine": 193,
+        "endChar": 5
+      },
+      "revId": "1be97eddeed67aaac41efddd5b0682d09b6ab9c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9b11a4b_cb2ccdfb",
+        "filename": "front_end/issues/IssueAggregator.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1230425
+      },
+      "writtenOn": "2021-01-31T21:23:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60394a96_256fe61a",
       "range": {
         "startLine": 190,
         "startChar": 3,
@@ -64,6 +106,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "92c1bd24_cf404e19",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1230425
+      },
+      "writtenOn": "2021-01-31T21:23:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fd3368e_87afacf6",
+      "range": {
+        "startLine": 736,
+        "startChar": 6,
+        "endLine": 736,
+        "endChar": 26
+      },
+      "revId": "1be97eddeed67aaac41efddd5b0682d09b6ab9c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8fe80874_62c0abd6",
@@ -77,6 +143,30 @@
       "writtenOn": "2021-01-29T12:55:40Z",
       "side": 1,
       "message": "Once you\u0027ve moved things, this can take an AggregatedIssue",
+      "range": {
+        "startLine": 739,
+        "startChar": 24,
+        "endLine": 739,
+        "endChar": 29
+      },
+      "revId": "1be97eddeed67aaac41efddd5b0682d09b6ab9c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "769dcbad_28dfc3c2",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 739,
+      "author": {
+        "id": 1230425
+      },
+      "writtenOn": "2021-01-31T21:23:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fe80874_62c0abd6",
       "range": {
         "startLine": 739,
         "startChar": 24,
@@ -110,6 +200,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7dd22d2e_a6bcc76b",
+        "filename": "front_end/issues/descriptions/TwaDigitalAssetLinksFailed.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1230425
+      },
+      "writtenOn": "2021-01-31T21:23:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5474957_d8e4d9fd",
+      "range": {
+        "startLine": 7,
+        "startChar": 72,
+        "endLine": 7,
+        "endChar": 101
+      },
+      "revId": "1be97eddeed67aaac41efddd5b0682d09b6ab9c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2fc03ee4_66957f20",
@@ -123,6 +237,30 @@
       "writtenOn": "2021-01-29T12:55:40Z",
       "side": 1,
       "message": "nit: Dead link (404 or 5xx status code) encountered",
+      "range": {
+        "startLine": 3,
+        "startChar": 10,
+        "endLine": 3,
+        "endChar": 34
+      },
+      "revId": "1be97eddeed67aaac41efddd5b0682d09b6ab9c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "407712c1_ecd9016d",
+        "filename": "front_end/issues/descriptions/TwaHttpError.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1230425
+      },
+      "writtenOn": "2021-01-31T21:23:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2fc03ee4_66957f20",
       "range": {
         "startLine": 3,
         "startChar": 10,
@@ -156,6 +294,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb91eeb4_9cb1139a",
+        "filename": "front_end/sdk/Issue.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1230425
+      },
+      "writtenOn": "2021-01-31T21:23:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8de1f7c6_303e95c0",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 3
+      },
+      "revId": "1be97eddeed67aaac41efddd5b0682d09b6ab9c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "53028e27_b95aaae5",
@@ -179,6 +341,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d69a36eb_1703e0c6",
+        "filename": "front_end/sdk/TrustedWebActivityIssue.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1230425
+      },
+      "writtenOn": "2021-01-31T21:23:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53028e27_b95aaae5",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 18
+      },
+      "revId": "1be97eddeed67aaac41efddd5b0682d09b6ab9c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c0da6097_8cee076c",
@@ -192,6 +378,30 @@
       "writtenOn": "2021-01-29T12:55:40Z",
       "side": 1,
       "message": "Let\u0027s convert this whole file to .ts. All you need to do is to\n - Rename this file to .ts (but keep all the build file entries you added)\n - Add the .ts file to the BUILD.gn in this directory.\n\nSee front_end/sdk/SharedArrayBufferIssue.ts for an example.",
+      "range": {
+        "startLine": 9,
+        "startChar": 13,
+        "endLine": 9,
+        "endChar": 37
+      },
+      "revId": "1be97eddeed67aaac41efddd5b0682d09b6ab9c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "850611e1_ce2929e9",
+        "filename": "front_end/sdk/TrustedWebActivityIssue.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1230425
+      },
+      "writtenOn": "2021-01-31T21:23:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0da6097_8cee076c",
       "range": {
         "startLine": 9,
         "startChar": 13,
