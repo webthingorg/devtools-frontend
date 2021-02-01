@@ -16,6 +16,29 @@
       "message": "ptal :)",
       "revId": "e5bc9d40af041538e32dfec89da72906f131ed35",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d48ed16_681d7a21",
+        "filename": "scripts/dark_mode/check_darkmode_css_up_to_date.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-01T15:10:08Z",
+      "side": 1,
+      "message": "Recursively searching for these files can potentially be expensive. Instead, can we use `_getAffectedFiles` in the PRESUBMIT.py to search for all files? Preferably those stylesheets that have a darkmode equivalent, but even then filtering for `*.css` would be sufficient. Then you can pass in all of these `*.css` files into this script as an argument and do the check if a corresponding `.darkmode.css` exists. Note that you have to do this also for `*.css` files that are deleted, since their counterpart would have to be deleted as well.",
+      "range": {
+        "startLine": 19,
+        "startChar": 6,
+        "endLine": 19,
+        "endChar": 29
+      },
+      "revId": "e5bc9d40af041538e32dfec89da72906f131ed35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
