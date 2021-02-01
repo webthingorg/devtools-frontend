@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6030d12b_a704fa25",
+        "filename": "scripts/check_external_links.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-01T08:01:26Z",
+      "side": 1,
+      "message": "Did you check whether we should add developer[s]?.chrome.com ?",
+      "parentUuid": "c096442e_f9e0712b",
+      "range": {
+        "startLine": 17,
+        "startChar": 2,
+        "endLine": 17,
+        "endChar": 32
+      },
+      "revId": "681390d75e4152ec71363790d0e1f52c1e7eceab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "51a81acb_ba5db3c0",
         "filename": "scripts/check_external_links.js",
         "patchSetId": 2
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "Good point. I added a few redirect codes I\u0027d consider an error (as discussed offline) PTAL",
       "parentUuid": "636ae826_27f44129",
+      "range": {
+        "startLine": 108,
+        "startChar": 68,
+        "endLine": 108,
+        "endChar": 99
+      },
+      "revId": "681390d75e4152ec71363790d0e1f52c1e7eceab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de12d39f_26a1277b",
+        "filename": "scripts/check_external_links.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-01T08:01:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b4f22f1_3722ab57",
       "range": {
         "startLine": 108,
         "startChar": 68,
@@ -245,6 +293,30 @@
       "side": 1,
       "message": "The current version of the CL prints status code + url for all Urls where status code is !\u003d 200. The codes we consider erroneous are printed on console.error and cause the process to fail, the ones that are not erronous are printed on console.log and don\u0027t cause the process to fail, serving more as an FYI.",
       "parentUuid": "913ca593_e7af787f",
+      "range": {
+        "startLine": 114,
+        "startChar": 13,
+        "endLine": 114,
+        "endChar": 26
+      },
+      "revId": "681390d75e4152ec71363790d0e1f52c1e7eceab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "499f5954_90580db5",
+        "filename": "scripts/check_external_links.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-01T08:01:26Z",
+      "side": 1,
+      "message": "SGTM!",
+      "parentUuid": "a998a05b_f6bb0ed9",
       "range": {
         "startLine": 114,
         "startChar": 13,
