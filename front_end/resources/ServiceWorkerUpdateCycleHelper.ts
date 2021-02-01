@@ -144,10 +144,12 @@ export class ServiceWorkerUpdateCycleHelper {
       UI.UIUtils.createTextChild(timingBarVersionElement, '#' + range.id);
       timingBarVersionElement.classList.add('service-worker-update-timing-bar-clickable');
       timingBarVersionElement.setAttribute('tabindex', '0');
+      timingBarVersionElement.setAttribute('role', 'switch');
+      UI.ARIAUtils.setChecked(timingBarVersionElement, false);
+
       const timingBarTitleElement = tr.createChild('td');
       UI.UIUtils.createTextChild(timingBarTitleElement, phaseName);
-      timingBarTitleElement.setAttribute('role', 'switch');
-      UI.ARIAUtils.setChecked(timingBarTitleElement, false);
+
       this.constructUpdateDetails(tableElement, tr, range);
       const barContainer = tr.createChild('td').createChild('div', 'service-worker-update-timing-row');
       const bar = <HTMLElement>(
@@ -163,38 +165,34 @@ export class ServiceWorkerUpdateCycleHelper {
    * Detailed information about an update phase. Currently starting and ending time.
    */
   private static constructUpdateDetails(tableElement: Element, tr: Element, range: ServiceWorkerUpdateRange): void {
-    const detailsElement = tableElement.createChild('tr', 'service-worker-update-timing-bar-details');
-    detailsElement.classList.add('service-worker-update-timing-bar-details-collapsed');
+    const startRow = tableElement.createChild('tr', 'service-worker-update-timing-bar-details');
+    startRow.classList.add('service-worker-update-timing-bar-details-collapsed');
 
-    self.onInvokeElement(tr, event => this.onToggleUpdateDetails(detailsElement, event));
-
-    const detailsView = new UI.TreeOutline.TreeOutlineInShadow();
-    detailsElement.appendChild(detailsView.element);
-
-    const startTimeItem = document.createElementWithClass('div', 'service-worker-update-details-treeitem');
+    const startTimeItem = <HTMLTableCellElement>startRow.createChild('td');
+    startTimeItem.colSpan = 3;
     const startTime = (new Date(range.start)).toISOString();
     startTimeItem.textContent = ls`Start time: ${startTime}`;
 
-    const startTimeTreeElement = new UI.TreeOutline.TreeElement(startTimeItem);
-    detailsView.appendChild(startTimeTreeElement);
-
-    const endTimeItem = document.createElementWithClass('div', 'service-worker-update-details-treeitem');
+    const endRow = tableElement.createChild('tr', 'service-worker-update-timing-bar-details');
+    endRow.classList.add('service-worker-update-timing-bar-details-collapsed');
+    const endTimeItem = <HTMLTableCellElement>endRow.createChild('td');
+    endTimeItem.colSpan = 3;
     const endTime = (new Date(range.end)).toISOString();
     endTimeItem.textContent = ls`End time: ${endTime}`;
 
-    const endTimeTreeElement = new UI.TreeOutline.TreeElement(endTimeItem);
-    detailsView.appendChild(endTimeTreeElement);
+    self.onInvokeElement(tr, event => this.onToggleUpdateDetails({startRow, endRow}, event));
   }
 
-  private static onToggleUpdateDetails(detailsRow: Element, event: Event): void {
+  private static onToggleUpdateDetails(rows: {startRow: Element, endRow: Element}, event: Event): void {
     if (!event.target) {
       return;
     }
     const target: Element = <Element>(event.target);
     if (target.classList.contains('service-worker-update-timing-bar-clickable')) {
-      detailsRow.classList.toggle('service-worker-update-timing-bar-details-collapsed');
-      detailsRow.classList.toggle('service-worker-update-timing-bar-details-expanded');
-
+      rows.startRow.classList.toggle('service-worker-update-timing-bar-details-collapsed');
+      rows.startRow.classList.toggle('service-worker-update-timing-bar-details-expanded');
+      rows.endRow.classList.toggle('service-worker-update-timing-bar-details-collapsed');
+      rows.endRow.classList.toggle('service-worker-update-timing-bar-details-expanded');
       const expanded = target.getAttribute('aria-checked') === 'true';
       UI.ARIAUtils.setChecked(target, !expanded);
     }
