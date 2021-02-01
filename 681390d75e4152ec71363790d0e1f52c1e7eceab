@@ -181,6 +181,30 @@
       },
       "revId": "681390d75e4152ec71363790d0e1f52c1e7eceab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db524f90_712822ab",
+        "filename": "scripts/check_external_links.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-01T07:49:54Z",
+      "side": 1,
+      "message": "Oh, just to clarify, if `error` is set on the result, then something with the request went bad and we don\u0027t have a response in the first place (so no statusCode). Thats why we are not printing it in the first if clause.",
+      "parentUuid": "6439c3ab_78928e24",
+      "range": {
+        "startLine": 114,
+        "startChar": 13,
+        "endLine": 114,
+        "endChar": 26
+      },
+      "revId": "681390d75e4152ec71363790d0e1f52c1e7eceab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
