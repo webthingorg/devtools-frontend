@@ -150,7 +150,8 @@ describe('data grid', () => {
     assertNumberBetween(columnWidths[2], 297, 304);  // 33% of 900 = 300
   });
 
-  it('lets the user resize columns when there is a middle hidden column inbetween', async () => {
+  // Flaky test
+  it.skip('[crbug.com/1172902]lets the user resize columns when there is a middle hidden column inbetween', async () => {
     /** Imagine we have a data grid with 3 columns:
      * A | B | C And then we hide B, so the user sees:
      * A | C
