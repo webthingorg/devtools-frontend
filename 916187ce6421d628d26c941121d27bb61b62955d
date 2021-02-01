@@ -16,6 +16,23 @@
       "message": "Good suggestion to use the affected files helper, thanks. PTAL.",
       "revId": "916187ce6421d628d26c941121d27bb61b62955d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d7231b9_d889637c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-01T15:56:04Z",
+      "side": 1,
+      "message": "Nice!",
+      "revId": "916187ce6421d628d26c941121d27bb61b62955d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
