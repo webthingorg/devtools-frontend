@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9af5b4b_f7b9f040",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-01T08:04:33Z",
+      "side": 1,
+      "message": "For the issues/ part, please take a look at Ella\u0027s recent CL here: https://crrev.com/c/2650237 and use TS from the start. Please also add tests (both for aggregation and for triggering the issue, in this case please don\u0027t use window.addIssueForTest as it should be easy to trigger these issues.",
+      "revId": "7d95e0b99f1eff3f3d5532c583742ad01cf03c59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
