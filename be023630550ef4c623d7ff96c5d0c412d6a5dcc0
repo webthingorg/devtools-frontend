@@ -16,6 +16,23 @@
       "message": "PTAL, this is the back-merge.",
       "revId": "be023630550ef4c623d7ff96c5d0c412d6a5dcc0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69a948bc_83eb77d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-01T08:46:11Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "be023630550ef4c623d7ff96c5d0c412d6a5dcc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
