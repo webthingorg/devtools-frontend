@@ -94,6 +94,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c0672d4_e1d04af9",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-01T14:47:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2530ef35_758035ec",
+      "range": {
+        "startLine": 29,
+        "startChar": 1,
+        "endLine": 32,
+        "endChar": 5
+      },
+      "revId": "1511289ab632b0bcab7e4121aa7669da2244bb88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6bdd4d4_e8760ac8",
@@ -140,6 +164,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4b5aa43_56f653df",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-01T14:47:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "160f31d7_28fca047",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 45
+      },
+      "revId": "1511289ab632b0bcab7e4121aa7669da2244bb88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "37fb7866_9cb85d95",
@@ -153,6 +201,30 @@
       "writtenOn": "2021-01-28T09:25:06Z",
       "side": 1,
       "message": "Won\u0027t this potentially affect other button\u0027s styles in this component?",
+      "range": {
+        "startLine": 176,
+        "startChar": 6,
+        "endLine": 182,
+        "endChar": 14
+      },
+      "revId": "1511289ab632b0bcab7e4121aa7669da2244bb88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18ee376d_7e9ad5e8",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-01T14:47:06Z",
+      "side": 1,
+      "message": "Yes, but I\u0027m not sure I understand what you would like me to change as a consequence of this fact. Do you think a more specific class name would be better? Or do you think that these CSS styles should be defined at the top of the component? Or something else?",
+      "parentUuid": "37fb7866_9cb85d95",
       "range": {
         "startLine": 176,
         "startChar": 6,
@@ -186,6 +258,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e39c0f1_5e8c7ef2",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-01T14:47:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17faf9a7_6a59a0f4",
+      "range": {
+        "startLine": 402,
+        "startChar": 68,
+        "endLine": 402,
+        "endChar": 84
+      },
+      "revId": "1511289ab632b0bcab7e4121aa7669da2244bb88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "24e7d6e6_8d73d256",
@@ -209,6 +305,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd6fb11d_9c960706",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-01T14:47:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24e7d6e6_8d73d256",
+      "range": {
+        "startLine": 424,
+        "startChar": 8,
+        "endLine": 424,
+        "endChar": 77
+      },
+      "revId": "1511289ab632b0bcab7e4121aa7669da2244bb88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "643a9f94_c66c7c43",
@@ -222,6 +342,30 @@
       "writtenOn": "2021-01-28T09:25:06Z",
       "side": 1,
       "message": "Same here.",
+      "range": {
+        "startLine": 479,
+        "startChar": 11,
+        "endLine": 479,
+        "endChar": 97
+      },
+      "revId": "1511289ab632b0bcab7e4121aa7669da2244bb88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27a1a679_5ca7c5bb",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-01T14:47:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "643a9f94_c66c7c43",
       "range": {
         "startLine": 479,
         "startChar": 11,
