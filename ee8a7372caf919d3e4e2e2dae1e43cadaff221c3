@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57cf4921_ce8a8ca7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-01T12:09:40Z",
+      "side": 1,
+      "message": "@Tim PTAL.\n\nI\u0027m not sure if this is the right solution; but basically for a PRESUBMIT check I need to run the hosted server (for CSS dark mode things).\n\nIf I run ./out/Default/gen/scripts/... it works, but if I do `npm run server` it does not work because of how the path remapping works.\n\nIt\u0027d be preferable in the PRESUBMIT to be able to run `npm run server` (or `node scripts/hosted/server.js`) to not have to worry about if to run ./out/Default/... or ./out/Release/..., which is why I went down this path of a flag.\n\nWDYT?",
+      "revId": "ee8a7372caf919d3e4e2e2dae1e43cadaff221c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
