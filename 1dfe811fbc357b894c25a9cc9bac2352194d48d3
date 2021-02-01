@@ -68,6 +68,23 @@
       "parentUuid": "3535e647_904443e6",
       "revId": "1dfe811fbc357b894c25a9cc9bac2352194d48d3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07a3e59c_27de5062",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-02-01T09:45:45Z",
+      "side": 1,
+      "message": "Did we conclude that this function doesn\u0027t work as advertised? In that case, should we remove it?",
+      "revId": "1dfe811fbc357b894c25a9cc9bac2352194d48d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
