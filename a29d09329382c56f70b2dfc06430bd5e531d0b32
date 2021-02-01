@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4dde938c_38313853",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-02-01T10:43:50Z",
+      "side": 1,
+      "message": "Hi Chait,\n\nI\u0027m disabling a flaky network test, ptal!",
+      "revId": "a29d09329382c56f70b2dfc06430bd5e531d0b32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
