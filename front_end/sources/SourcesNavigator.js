@@ -279,7 +279,7 @@ export class ContentScriptsNavigatorView extends NavigatorView {
     this.setPlaceholder(placeholder);
     placeholder.appendParagraph().appendChild(UI.Fragment.html`
       <div>${ls`Content scripts served by extensions appear here`}</div><br />
-      ${UI.XLink.XLink.create('https://developer.chrome.com/extensions/content_scripts', ls`Learn more`)}
+      ${UI.XLink.XLink.create('https://developer.chrome.com/docs/extensions/mv2/content_scripts/', ls`Learn more`)}
     `);
   }
 
