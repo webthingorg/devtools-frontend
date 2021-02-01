@@ -22,6 +22,30 @@
       },
       "revId": "3e146e838fa9e5fb7a281d943af84bee8f0bf7a8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe278b3d_f77888d5",
+        "filename": "front_end/resources/AppManifestView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-01T07:46:42Z",
+      "side": 0,
+      "message": "This is already appended by XLink.create (which `appendLink` does indeed call). So all web.dev and developers.google.com links going through XLink.create automatically have this appended.",
+      "parentUuid": "97be776a_ed101c49",
+      "range": {
+        "startLine": 27,
+        "startChar": 91,
+        "endLine": 27,
+        "endChar": 111
+      },
+      "revId": "3e146e838fa9e5fb7a281d943af84bee8f0bf7a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
