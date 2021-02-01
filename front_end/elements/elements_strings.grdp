@@ -21,6 +21,9 @@
   <message name="IDS_DEVTOOLS_084cd932d6dd317197a20945c76603e2" desc="Text of a DOM element in Styles Sidebar Pane of the Elements panel">
     Inherited from<ph name="___">$1s<ex>''' '''</ex></ph>
   </message>
+  <message name="IDS_DEVTOOLS_bea4c2c8eb82d05891ddd71584881b56" desc="Text of a link to a HaTS survey in the Layout panel">
+    Feedback
+  </message>
   <message name="IDS_DEVTOOLS_220e24dec914bdfff417ebca7eff61d3" desc="Title of the switch to DOM tree button in the Elements panel">
     Switch to DOM Tree view
   </message>
