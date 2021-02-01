@@ -16,6 +16,24 @@
       "message": "This looks like a bug on chrome.com; I think the intention is to have the URL we currently use as canonical, and keep it updated to the article of the currently most pervasive manifest version. Let\u0027s keep this as-is.",
       "revId": "6ef338afa45acf9fba2fef063deafd6a6fa827d6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f0665d4_13201aad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-01T09:07:45Z",
+      "side": 1,
+      "message": "Not sure about that, then shoudln\u0027t the above url point to https://developer.chrome.com/docs/extensions/mv3/content_scripts/ now?",
+      "parentUuid": "83a30b6a_7ff02eb3",
+      "revId": "6ef338afa45acf9fba2fef063deafd6a6fa827d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
