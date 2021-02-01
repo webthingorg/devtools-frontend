@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb9b04ea_e01a70b5",
+        "filename": "front_end/sdk/TrustedWebActivityIssue.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1230425
+      },
+      "writtenOn": "2021-02-01T14:42:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "faabc12f_27cb999c",
+      "revId": "8de5a8df4002cec6de0063cc99cb02d576160b37",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3e650043_8709652e",
@@ -65,6 +83,30 @@
       "writtenOn": "2021-02-01T07:49:27Z",
       "side": 1,
       "message": "Please also add a test where multiple issues are reported to make sure the aggregation is working correctly. I you prefer, you can also add that test as a unittest (see last test in test/unittests/front_end/issues/IssueAggregator_test.ts).",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 8
+      },
+      "revId": "8de5a8df4002cec6de0063cc99cb02d576160b37",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8db5f178_31f48a61",
+        "filename": "test/e2e/issues/twa-issues_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1230425
+      },
+      "writtenOn": "2021-02-01T14:42:21Z",
+      "side": 1,
+      "message": "added a unittest",
+      "parentUuid": "3e650043_8709652e",
       "range": {
         "startLine": 11,
         "startChar": 0,
