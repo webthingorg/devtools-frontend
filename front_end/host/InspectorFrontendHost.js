@@ -124,7 +124,7 @@ export class InspectorFrontendHostStub {
    * @param {function(!CanShowSurveyResult): void} callback
    */
   canShowSurvey(trigger, callback) {
-    setTimeout(() => callback({canShowSurvey: false}), 0);
+    setTimeout(() => callback({canShowSurvey: false, error: 'Hosted mode has no surveys'}), 0);
   }
 
   /**

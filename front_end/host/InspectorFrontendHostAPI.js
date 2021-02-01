@@ -424,7 +424,8 @@ export let ShowSurveyResult;
 
 /** @typedef
 {{
-  canShowSurvey: boolean
+  canShowSurvey: boolean,
+  error: string
 }} */
 // @ts-ignore typedef
 export let CanShowSurveyResult;

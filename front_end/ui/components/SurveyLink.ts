@@ -51,9 +51,10 @@ export class SurveyLink extends HTMLElement {
 
   private checkSurvey(): void {
     this.state = State.Checking;
-    this.canShowSurvey(this.trigger, ({canShowSurvey}) => {
+    this.canShowSurvey(this.trigger, ({canShowSurvey, error}) => {
       if (!canShowSurvey) {
         this.state = State.DontShowLink;
+        console.warn(`Did not show survey with trigger '${this.trigger}': ${error}`);
       } else {
         this.state = State.ShowLink;
       }

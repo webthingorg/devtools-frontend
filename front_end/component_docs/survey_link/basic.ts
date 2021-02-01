@@ -20,9 +20,9 @@ link.data = {
   trigger: 'test trigger',
   promptText: Common.UIString.LocalizedEmptyString,
   canShowSurvey: (trigger, callback): void => {
-    setTimeout(callback.bind(undefined, {canShowSurvey: true}), 500);
+    setTimeout(callback.bind(undefined, {canShowSurvey: true, error: ''}), 500);
   },
   showSurvey: (trigger, callback): void => {
-    setTimeout(callback.bind(undefined, {surveyShown: true}), 1500);
+    setTimeout(callback.bind(undefined, {surveyShown: true, error: ''}), 1500);
   },
 };

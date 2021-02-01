@@ -11,13 +11,13 @@ import {assertNotNull} from '../../../../../front_end/platform/platform.js';
 import {assertShadowRoot, renderElementIntoDOM} from '../../helpers/DOMHelpers.js';
 
 function canShowSuccessfulCallback(trigger: string, callback: UIComponents.SurveyLink.CanShowSurveyCallback) {
-  callback({canShowSurvey: true});
+  callback({canShowSurvey: true, error: ''});
 }
 function showSuccessfulCallback(trigger: string, callback: UIComponents.SurveyLink.ShowSurveyCallback) {
   callback({surveyShown: true});
 }
 function canShowFailureCallback(trigger: string, callback: UIComponents.SurveyLink.CanShowSurveyCallback) {
-  callback({canShowSurvey: false});
+  callback({canShowSurvey: false, error: 'Test failure'});
 }
 function showFailureCallback(trigger: string, callback: UIComponents.SurveyLink.ShowSurveyCallback) {
   callback({surveyShown: false});
