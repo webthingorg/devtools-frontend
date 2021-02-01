@@ -56,6 +56,30 @@
       },
       "revId": "498893beb3ff5d315e9c3f95cb6e5006b09379d6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a283291f_39300e7a",
+        "filename": "front_end/ui/XLink.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-01T13:38:48Z",
+      "side": 1,
+      "message": "Yes, it does. I\u0027ve tested it both with `XLink.create()` and with `\u003cx-link href\u003d\"foo.com\"\u003e.",
+      "parentUuid": "01926dfc_d4b18303",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 61
+      },
+      "revId": "498893beb3ff5d315e9c3f95cb6e5006b09379d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
