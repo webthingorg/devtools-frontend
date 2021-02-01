@@ -33,6 +33,29 @@
       "message": "lgtm from my side, please wait for Jack.",
       "revId": "498893beb3ff5d315e9c3f95cb6e5006b09379d6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01926dfc_d4b18303",
+        "filename": "front_end/ui/XLink.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-01T11:01:23Z",
+      "side": 1,
+      "message": "does this also run the very first time the custom element is mounted?",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 61
+      },
+      "revId": "498893beb3ff5d315e9c3f95cb6e5006b09379d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
