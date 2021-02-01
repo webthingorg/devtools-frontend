@@ -50,6 +50,24 @@
       "message": "You\u0027re doing this check four times now. Is it worth adding a helper function?\n\n`isBreakpointSetOnLine(lineElement: puppeteer.ElementHandle\u003cElement\u003e)`",
       "revId": "1dfe811fbc357b894c25a9cc9bac2352194d48d3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2f70068_5480155c",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-02-01T09:41:44Z",
+      "side": 1,
+      "message": "+1.\n\nWe already have a function that is called `checkBreakpointIsActive` is sources-helpers.ts and I think we should replace it with this one. Then we can reuse it (and even rename it to the suggested name).",
+      "parentUuid": "3535e647_904443e6",
+      "revId": "1dfe811fbc357b894c25a9cc9bac2352194d48d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
