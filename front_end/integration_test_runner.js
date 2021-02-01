@@ -17,6 +17,12 @@ import './formatter/formatter-legacy.js';
 import './har_importer/har_importer-legacy.js';
 import './host/host-legacy.js';
 import './inline_editor/inline_editor-legacy.js';
+import './components/components-legacy.js';
+import './cookie_table/cookie_table-legacy.js';
+import './input/input-legacy.js';
+import './root/root-legacy.js';
+import './text_utils/text_utils-legacy.js';
+import './ui/ui-legacy.js';
 import * as Startup from './startup/startup.js';
 
 if (self.testRunner) {

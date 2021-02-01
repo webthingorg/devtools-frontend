@@ -1,11 +1,5 @@
 {
-  "modules": [
-    "browser_sdk.js",
-    "LogManager.js",
-    "IssuesManager.js",
-    "RelatedIssue.js",
-    "SourceFrameIssuesManager.js"
-  ],
+  "modules": [],
   "dependencies": [
     "i18n",
     "common",
