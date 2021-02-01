@@ -6,14 +6,20 @@ import * as Platform from '../platform/platform.js';
 import {ls} from '../platform/platform.js';
 import * as LitHtml from '../third_party/lit-html/lit-html.js';
 import {AXNode} from './AccessibilityTreeUtils.js';
+import { AccessibilityTree } from './AccessibilityTree.js';
 
 export interface AccessibilityNodeData {
   axNode: AXNode,
+  axTree: AccessibilityTree,
 }
 
 export class AccessibilityNode extends HTMLElement {
-  private readonly shadow = this.attachShadow({mode: 'open'});
+  private readonly shadow = this.attachShadow({
+    mode: 'open', 
+    delegatesFocus: true
+  });
   private axNode: AXNode|null = null;
+  private axTree: AccessibilityTree|null = null;
   private expanded: boolean = true;
   private loadedChildren: boolean = false;
   private hovered: boolean = false;
@@ -27,6 +33,7 @@ export class AccessibilityNode extends HTMLElement {
 
   set data(data: AccessibilityNodeData) {
     this.axNode = data.axNode;
+    this.axTree = data.axTree;
     this.shadow.host.setAttribute('role', 'treeitem');
     this.render();
   }
@@ -90,10 +97,12 @@ export class AccessibilityNode extends HTMLElement {
       const childTemplate = LitHtml.html`
         <devtools-accessibility-node .data=${{
         axNode: child,
+        axTree: this.axTree,
       } as AccessibilityNodeData}>
         </devtools-accessibility-node>
       `;
       children.push(childTemplate);
+      
     }
 
     return LitHtml.html`<div role='group' class='children'>${children}</div>`;
@@ -154,8 +163,16 @@ export class AccessibilityNode extends HTMLElement {
       } else {
         this.shadow.host.classList.add('no-children');
       }
-      parts.push(LitHtml.html`<div class='wrapper'>${nodeContent}</div>`);
+
+      parts.push(LitHtml.html`<div class='wrapper' tabindex='0'>${nodeContent}</div>`);
     }
+    
+    if (!this.axTree) {
+      return;
+    }
+    
+    this.axTree.appendToNodeList(this);
+    this.axTree.appendToNodeMap(this.axNode.id, this);
 
     const children = this.renderChildren(this.axNode);
     parts.push(children);
@@ -227,13 +244,21 @@ export class AccessibilityNode extends HTMLElement {
 
           .wrapper {
             display: inline-block;
+            width: 96%;
           }
 
           .wrapper:hover {
             background: var(--color-background-elevation-2);
-            width: 96%;
           }
 
+          .wrapper:focus {
+            outline: none;
+            background: var(--selection-bg-color);
+          }
+
+          :focus {
+            outline: none;
+          }
       </style>
       ${parts}
       `;
