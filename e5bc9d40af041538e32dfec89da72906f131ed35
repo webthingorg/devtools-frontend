@@ -39,6 +39,30 @@
       },
       "revId": "e5bc9d40af041538e32dfec89da72906f131ed35",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d732d3f_6b9998a9",
+        "filename": "scripts/dark_mode/check_darkmode_css_up_to_date.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-01T15:52:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d48ed16_681d7a21",
+      "range": {
+        "startLine": 19,
+        "startChar": 6,
+        "endLine": 19,
+        "endChar": 29
+      },
+      "revId": "e5bc9d40af041538e32dfec89da72906f131ed35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

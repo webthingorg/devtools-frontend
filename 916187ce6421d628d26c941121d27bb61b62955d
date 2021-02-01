@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a83375b0_ff1d0b3f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-01T15:52:44Z",
+      "side": 1,
+      "message": "Good suggestion to use the affected files helper, thanks. PTAL.",
+      "revId": "916187ce6421d628d26c941121d27bb61b62955d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
