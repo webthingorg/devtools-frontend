@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d01fb3ae_11de0c0c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2021-02-01T13:18:22Z",
+      "side": 1,
+      "message": "Migrate Network panel (big one 😮), PTAL, thank you !",
+      "revId": "fe65f5999e5e7e8d0dd2dc4c64b4476b3f3552c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
