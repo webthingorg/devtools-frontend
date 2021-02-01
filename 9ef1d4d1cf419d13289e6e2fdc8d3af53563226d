@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7becbde3_7fc6213b",
+        "filename": "front_end/render_coordinator/RenderCoordinator.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-01T09:02:08Z",
+      "side": 1,
+      "message": "nit: I think I\u0027d have called this `maxRecordCount` or `recordStorageLimit` - to me `size` suggests the size of an individual record, not the limit of the total number.",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 22
+      },
+      "revId": "9ef1d4d1cf419d13289e6e2fdc8d3af53563226d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3da9086_196e2ea0",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 642,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-01T09:02:08Z",
+      "side": 1,
+      "message": "did you consider having the name be the first argument?\n\nWith this write, you have to scroll many many lines down to read what the name of the action is, whereas if it were:\n\n```\ncoordinator.write(\u0027Data grid render\u0027, () \u003d\u003e ...)\n```\n\nYou can see it right there. WDYT?",
+      "range": {
+        "startLine": 642,
+        "startChar": 0,
+        "endLine": 642,
+        "endChar": 35
+      },
+      "revId": "9ef1d4d1cf419d13289e6e2fdc8d3af53563226d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
