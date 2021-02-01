@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83a30b6a_7ff02eb3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-01T08:59:57Z",
+      "side": 1,
+      "message": "This looks like a bug on chrome.com; I think the intention is to have the URL we currently use as canonical, and keep it updated to the article of the currently most pervasive manifest version. Let\u0027s keep this as-is.",
+      "revId": "6ef338afa45acf9fba2fef063deafd6a6fa827d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
