@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "23c23ec2_7904ff13",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-01T14:35:44Z",
+      "side": 1,
+      "message": "LGTM, thank you!",
+      "revId": "498893beb3ff5d315e9c3f95cb6e5006b09379d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "01926dfc_d4b18303",
@@ -72,6 +89,30 @@
       "side": 1,
       "message": "Yes, it does. I\u0027ve tested it both with `XLink.create()` and with `\u003cx-link href\u003d\"foo.com\"\u003e.",
       "parentUuid": "01926dfc_d4b18303",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 61
+      },
+      "revId": "498893beb3ff5d315e9c3f95cb6e5006b09379d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26a2e768_fe9e9864",
+        "filename": "front_end/ui/XLink.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-01T14:35:44Z",
+      "side": 1,
+      "message": "👍",
+      "parentUuid": "a283291f_39300e7a",
       "range": {
         "startLine": 97,
         "startChar": 0,
