@@ -49,7 +49,17 @@ class AffectedElementsView extends AffectedResourcesView {
   /**
    * @param {!SDK.Issue.AffectedElement} element
    */
-  async _appendAffectedElement({backendNodeId, nodeName}) {
+  async _appendAffectedElement(element) {
+    const cellElement = await this._renderElementCell(element);
+    const rowElement = document.createElement('tr');
+    rowElement.appendChild(cellElement);
+    this.affectedResources.appendChild(rowElement);
+  }
+
+  /**
+   * @param {!SDK.Issue.AffectedElement} element
+   */
+  async _renderElementCell({backendNodeId, nodeName}) {
     const mainTarget = /** @type {!SDK.SDKModel.Target} */ (SDK.SDKModel.TargetManager.instance().mainTarget());
     const deferredDOMNode = new SDK.DOMModel.DeferredDOMNode(mainTarget, backendNodeId);
     const anchorElement = /** @type {!HTMLElement} */ (await Common.Linkifier.Linkifier.linkify(deferredDOMNode));
@@ -63,9 +73,7 @@ class AffectedElementsView extends AffectedResourcesView {
     const cellElement = document.createElement('td');
     cellElement.classList.add('affected-resource-element', 'devtools-link');
     cellElement.appendChild(anchorElement);
-    const rowElement = document.createElement('tr');
-    rowElement.appendChild(cellElement);
-    this.affectedResources.appendChild(rowElement);
+    return cellElement;
   }
 
   /**
@@ -74,6 +82,77 @@ class AffectedElementsView extends AffectedResourcesView {
   update() {
     this.clear();
     this._appendAffectedElements(this._issue.elements());
+  }
+}
+
+class AffectedElementsWithLowContrastView extends AffectedElementsView {
+  /**
+   * @param {!IssueView} parent
+   * @param {!AggregatedIssue} issue
+   */
+  constructor(parent, issue) {
+    super(parent, issue);
+    /** @type {!AggregatedIssue} */
+    this._issue = issue;
+  }
+
+  /**
+   * @override
+   */
+  update() {
+    this.clear();
+    this._appendLowContrastElements(this._issue.lowContrastIssues());
+  }
+
+  /**
+   * @param {!Element} row
+   * @param {string} value
+   */
+  _appendColumn(row, value) {
+    const cell = document.createElement('td');
+    cell.textContent = value;
+    row.appendChild(cell);
+  }
+
+  /**
+   * @param {!SDK.LowTextContrastIssue.LowTextContrastIssue} issue
+   */
+  async _appendLowContrastElement(issue) {
+    const row = document.createElement('tr');
+    row.classList.add('affected-resource-low-contrast');
+
+    const details = issue.details();
+    const elements = Array.from(issue.elements());
+
+    row.appendChild(await this._renderElementCell(elements[0]));
+    this._appendColumn(row, String(Platform.NumberUtilities.floor(details.contrastRatio)));
+    this._appendColumn(row, String(details.thresholdAA));
+    this._appendColumn(row, String(details.thresholdAAA));
+    this._appendColumn(row, details.fontSize);
+    this._appendColumn(row, details.fontWeight);
+
+    this.affectedResources.appendChild(row);
+  }
+
+  /**
+   * @param {Iterable<!SDK.LowTextContrastIssue.LowTextContrastIssue>} issues
+   */
+  _appendLowContrastElements(issues) {
+    const header = document.createElement('tr');
+    this.appendColumnTitle(header, ls`Element`);
+    this.appendColumnTitle(header, ls`Contrast ratio`);
+    this.appendColumnTitle(header, ls`Minimum AA ratio`);
+    this.appendColumnTitle(header, ls`Minimum AAA ratio`);
+    this.appendColumnTitle(header, ls`Text size`);
+    this.appendColumnTitle(header, ls`Text weight`);
+
+    this.affectedResources.appendChild(header);
+    let count = 0;
+    for (const lowContrastIssue of issues) {
+      count++;
+      this._appendLowContrastElement(lowContrastIssue);
+    }
+    this.updateAffectedResourceCount(count);
   }
 }
 
@@ -816,7 +895,8 @@ export class IssueView extends UI.TreeOutline.TreeElement {
       new AffectedRequestsView(this, this._issue), new AffectedMixedContentView(this, this._issue),
       new AffectedSourcesView(this, this._issue), new AffectedHeavyAdView(this, this._issue),
       new AffectedDirectivesView(this, this._issue), new AffectedBlockedByResponseView(this, this._issue),
-      new AffectedSharedArrayBufferIssueDetailsView(this, this._issue)
+      new AffectedSharedArrayBufferIssueDetailsView(this, this._issue),
+      new AffectedElementsWithLowContrastView(this, this._issue)
     ];
 
     this._aggregatedIssuesCount = null;

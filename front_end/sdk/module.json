@@ -669,6 +669,7 @@
     "HeavyAdIssue.js",
     "LayerTreeBase.js",
     "LogModel.js",
+    "LowTextContrastIssue.js",
     "ServiceWorkerManager.js",
     "TracingManager.js",
     "TracingModel.js",
