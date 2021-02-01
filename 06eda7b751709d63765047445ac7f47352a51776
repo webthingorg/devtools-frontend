@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "06eda7b751709d63765047445ac7f47352a51776",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffcfbd17_7fb5be7f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-02-01T10:05:39Z",
+      "side": 1,
+      "message": "LGTM % nit",
+      "revId": "06eda7b751709d63765047445ac7f47352a51776",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddf11811_f69eb6e9",
+        "filename": "front_end/resources/AppManifestView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-02-01T10:05:39Z",
+      "side": 1,
+      "message": "x -\u003e ×",
+      "range": {
+        "startLine": 512,
+        "startChar": 93,
+        "endLine": 512,
+        "endChar": 94
+      },
+      "revId": "06eda7b751709d63765047445ac7f47352a51776",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
