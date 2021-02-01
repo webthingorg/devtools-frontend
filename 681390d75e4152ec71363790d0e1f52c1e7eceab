@@ -90,6 +90,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9b4f22f1_3722ab57",
+        "filename": "scripts/check_external_links.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-01T06:41:39Z",
+      "side": 1,
+      "message": "Good point. I added a few redirect codes I\u0027d consider an error (as discussed offline) PTAL",
+      "parentUuid": "636ae826_27f44129",
+      "range": {
+        "startLine": 108,
+        "startChar": 68,
+        "endLine": 108,
+        "endChar": 99
+      },
+      "revId": "681390d75e4152ec71363790d0e1f52c1e7eceab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4345f418_c743f7bc",
         "filename": "scripts/check_external_links.js",
         "patchSetId": 2
@@ -101,6 +125,30 @@
       "writtenOn": "2021-01-29T13:12:16Z",
       "side": 1,
       "message": "can we print the statusCode in all cases?",
+      "range": {
+        "startLine": 114,
+        "startChar": 13,
+        "endLine": 114,
+        "endChar": 26
+      },
+      "revId": "681390d75e4152ec71363790d0e1f52c1e7eceab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c05596b9_70d43bee",
+        "filename": "scripts/check_external_links.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-01T06:41:39Z",
+      "side": 1,
+      "message": "I opted against that, as it spams the console with 250 urls with status code 200. What if we print every status code !\u003d 200?",
+      "parentUuid": "4345f418_c743f7bc",
       "range": {
         "startLine": 114,
         "startChar": 13,
