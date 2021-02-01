@@ -12,8 +12,14 @@
   <message name="IDS_DEVTOOLS_10573b873d2fa5a365d558a45e328e47" desc="A tag of Enable Local Overrides setting that can be searched in the command menu">
     request
   </message>
+  <message name="IDS_DEVTOOLS_131fcdab2d7c483408d512627af9b2df" desc="Column title for affected elements table for low contrast text issues">
+    Text weight
+  </message>
   <message name="IDS_DEVTOOLS_15c2d85f1fae22a3c3a0594510a1f611" desc="Label for the category of affected resources in issue view">
     Request
+  </message>
+  <message name="IDS_DEVTOOLS_185d266213d67ce43791f4364cb845bc" desc="Column title for affected elements table for low contrast text issues">
+    Text size
   </message>
   <message name="IDS_DEVTOOLS_1a69884106a145da88d3caa3390ef962" desc="Indicates that a CSP error should be treated as a warning">
     report-only
@@ -80,6 +86,12 @@
   </message>
   <message name="IDS_DEVTOOLS_7232b2cfdea953afe7f0087a11712c9b" desc="Category title for a group of content security policy (CSP) issues">
     Content Security Policy
+  </message>
+  <message name="IDS_DEVTOOLS_74421a69b1bc40c166be4de5caf0b036" desc="Column title for affected elements table for low contrast text issues">
+    Contrast ratio
+  </message>
+  <message name="IDS_DEVTOOLS_796fbbb5ca27458d5c07ba108b4db906" desc="Column title for affected elements table for low contrast text issues">
+    Minimum AA ratio
   </message>
   <message name="IDS_DEVTOOLS_7b5d976547762b53d6829e5f7dba7a80" desc="Header for the source location column">
     Source Location
@@ -161,6 +173,9 @@
   </message>
   <message name="IDS_DEVTOOLS_e21335099ca6f3a347cc7b0237cccca7" desc="Command for showing the 'Issues' tool">
     Show Issues
+  </message>
+  <message name="IDS_DEVTOOLS_e4bcb0e56c2902958c9ccea79a68208b" desc="Column title for affected elements table for low contrast text issues">
+    Minimum AAA ratio
   </message>
   <message name="IDS_DEVTOOLS_ee02b74d0caebce3dabaf3b3e79b6a65" desc="The UI destination when right clicking an item that can be revealed">
     Issues view
