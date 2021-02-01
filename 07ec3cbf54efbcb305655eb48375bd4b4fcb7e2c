@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d1eac7f_31c2b04e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-01T09:13:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8f1a9fa_c35afb0b",
+      "revId": "07ec3cbf54efbcb305655eb48375bd4b4fcb7e2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "33623428_a58efa40",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-01-29T15:19:42Z",
       "side": 1,
       "message": "Please add\n\n    Bug: chromium:1104187",
+      "revId": "07ec3cbf54efbcb305655eb48375bd4b4fcb7e2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02822049_01f05f95",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-01T09:13:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33623428_a58efa40",
       "revId": "07ec3cbf54efbcb305655eb48375bd4b4fcb7e2c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
