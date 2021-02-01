@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97be776a_ed101c49",
+        "filename": "front_end/resources/AppManifestView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-01T07:33:45Z",
+      "side": 0,
+      "message": "Do we want to keep this?",
+      "range": {
+        "startLine": 27,
+        "startChar": 91,
+        "endLine": 27,
+        "endChar": 111
+      },
+      "revId": "3e146e838fa9e5fb7a281d943af84bee8f0bf7a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
