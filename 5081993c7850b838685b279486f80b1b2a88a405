@@ -33,6 +33,24 @@
       "message": "This CL doesn\u0027t include the removal of the Python script itself. Is that intentional?",
       "revId": "5081993c7850b838685b279486f80b1b2a88a405",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ab3c7a5_0ac468d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-01T14:06:13Z",
+      "side": 1,
+      "message": "No - good catch!",
+      "parentUuid": "5db71b5f_404d3123",
+      "revId": "5081993c7850b838685b279486f80b1b2a88a405",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
