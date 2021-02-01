@@ -11,6 +11,14 @@ const port = parseInt(process.env.PORT, 10);
 const requestedPort = port || port === 0 ? port : 8090;
 const devtoolsFolder = path.resolve(path.join(__dirname, '..', '..'));
 
+// By default the server will map a request to the front_end directory into a
+// request to ../resources/inspector/X. This works within the context of
+// Chromium but if you have the repo checked out standalone this remapping may
+// not work. If you want to run this server within devtools-frontend without any
+// remapping, pass this flag as an argument:
+// npm run server -- --disable-resources-inspector-mapping
+const resourcesInspectorMappingDisabled = process.argv[2] === '--disable-resources-inspector-mapping';
+
 // The certificate is taken from
 // https://source.chromium.org/chromium/chromium/src/+/master:third_party/blink/tools/apache_config/webkit-httpd.pem
 const options = {
@@ -46,7 +54,8 @@ function requestHandler(request, response) {
     return;
   }
 
-  const replacedName = filePath.replace('front_end', '../resources/inspector');
+  const replacedName =
+      resourcesInspectorMappingDisabled ? filePath : filePath.replace('front_end', '../resources/inspector');
 
   const absoluteFilePath = path.join(devtoolsFolder, replacedName);
   if (!path.resolve(absoluteFilePath).startsWith(path.join(devtoolsFolder, '..'))) {
