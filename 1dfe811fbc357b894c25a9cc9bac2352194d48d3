@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c857196_3109dffa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-02-01T09:24:28Z",
+      "side": 1,
+      "message": "Looks good now, thanks! Two more comments/suggestions.",
+      "revId": "1dfe811fbc357b894c25a9cc9bac2352194d48d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81bc8ef2_ed38cf5f",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-02-01T09:24:28Z",
+      "side": 1,
+      "message": "We should handle the error condition here directly, when breakpointLine \u003d\u003d\u003d null. Otherwise we run into the timeout at the end of the function if the line doesn\u0027t exist.",
+      "revId": "1dfe811fbc357b894c25a9cc9bac2352194d48d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3535e647_904443e6",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-02-01T09:24:28Z",
+      "side": 1,
+      "message": "You\u0027re doing this check four times now. Is it worth adding a helper function?\n\n`isBreakpointSetOnLine(lineElement: puppeteer.ElementHandle\u003cElement\u003e)`",
+      "revId": "1dfe811fbc357b894c25a9cc9bac2352194d48d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
