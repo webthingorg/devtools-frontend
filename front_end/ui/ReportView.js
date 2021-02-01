@@ -24,8 +24,6 @@ export class ReportView extends VBox {
     this._titleElement = this._headerElement.createChild('div', 'report-title');
     if (title) {
       this._titleElement.textContent = title;
-    } else {
-      this._headerElement.classList.add('hidden');
     }
     ARIAUtils.markAsHeading(this._titleElement, 1);
 
@@ -40,7 +38,6 @@ export class ReportView extends VBox {
       return;
     }
     this._titleElement.textContent = title;
-    this._headerElement.classList.toggle('hidden', Boolean(title));
   }
 
   /**
