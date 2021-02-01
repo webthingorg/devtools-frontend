@@ -56,6 +56,30 @@
       },
       "revId": "559caef5802172566f7c0972f8620384c5fcfaf2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ebb277f_07576ed6",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-01T15:39:47Z",
+      "side": 1,
+      "message": "Good point, but since I\u0027ve already prepared the next CLs, I\u0027d prefer to keep it this way. The end result should live in a file with the same name again anyway.",
+      "parentUuid": "842165ad_206064c2",
+      "range": {
+        "startLine": 350,
+        "startChar": 0,
+        "endLine": 350,
+        "endChar": 1
+      },
+      "revId": "559caef5802172566f7c0972f8620384c5fcfaf2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
