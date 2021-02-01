@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01b3a443_2ccedfdb",
+        "filename": "front_end/sources/sources-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-01T11:13:04Z",
+      "side": 1,
+      "message": "Since this directory is `sources/` and not `sdk/`, I would have assumed we wouldn\u0027t import sdk here. Now, it is okay to import sdk, as it is a core module. That said, it is surprising to have context types that are in 1 folder, but you want to load from a different folder.\n\nAs an alternative, we could add an additional method for importing `sdk/`, but I am not sure if that will actually work. So let\u0027s keep this for now, but if this happens with non-core modules, we might have to reconsider our approach.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 37
+      },
+      "revId": "3800a7606abc28b057758d54226dd36068f15c12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
