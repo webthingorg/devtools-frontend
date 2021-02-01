@@ -34,6 +34,29 @@
       "parentUuid": "3d696252_0fde3076",
       "revId": "c1b0b09513973ef1ab3cbb6e30d5883243d5ef49",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0882719c_7f015539",
+        "filename": "scripts/check_external_links.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-01T07:53:35Z",
+      "side": 1,
+      "message": "nit: unmatched bracket?",
+      "range": {
+        "startLine": 126,
+        "startChar": 32,
+        "endLine": 126,
+        "endChar": 33
+      },
+      "revId": "c1b0b09513973ef1ab3cbb6e30d5883243d5ef49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
