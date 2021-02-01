@@ -229,6 +229,30 @@
       },
       "revId": "681390d75e4152ec71363790d0e1f52c1e7eceab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a998a05b_f6bb0ed9",
+        "filename": "scripts/check_external_links.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-01T07:59:20Z",
+      "side": 1,
+      "message": "The current version of the CL prints status code + url for all Urls where status code is !\u003d 200. The codes we consider erroneous are printed on console.error and cause the process to fail, the ones that are not erronous are printed on console.log and don\u0027t cause the process to fail, serving more as an FYI.",
+      "parentUuid": "913ca593_e7af787f",
+      "range": {
+        "startLine": 114,
+        "startChar": 13,
+        "endLine": 114,
+        "endChar": 26
+      },
+      "revId": "681390d75e4152ec71363790d0e1f52c1e7eceab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
