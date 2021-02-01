@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "5081993c7850b838685b279486f80b1b2a88a405",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5db71b5f_404d3123",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-01T13:35:32Z",
+      "side": 1,
+      "message": "This CL doesn\u0027t include the removal of the Python script itself. Is that intentional?",
+      "revId": "5081993c7850b838685b279486f80b1b2a88a405",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
