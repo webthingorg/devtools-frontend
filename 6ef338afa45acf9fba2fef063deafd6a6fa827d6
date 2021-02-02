@@ -68,6 +68,24 @@
       "message": "Hi Simon,\n\nWill this URL (https://developer.chrome.com/extensions/content_scripts) always redirect to the latest manifest script reference?\n\nManifest v3 script seems like the latest one (stated launching soon), the mentioned URL currently redirects to v2.\n\nOr, will the URL be updated if v3 is launched officially?\n\n",
       "revId": "6ef338afa45acf9fba2fef063deafd6a6fa827d6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "132d3439_f77299cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2021-02-02T03:16:15Z",
+      "side": 1,
+      "message": "\u003e Hi Simeon,\n\u003e \n\u003e Will this URL (https://developer.chrome.com/extensions/content_scripts) always redirect to the latest manifest script reference?\n\u003e \n\u003e Manifest v3 script seems like the latest one (stated launching soon), the mentioned URL currently redirects to v2.\n\u003e \n\u003e Or, will the URL be updated if v3 is launched officially?\n\u003e \n\u003e \n\nTypo, this question is for Simeon, not Simon! 🙈",
+      "parentUuid": "7c6e36a5_0010109c",
+      "revId": "6ef338afa45acf9fba2fef063deafd6a6fa827d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
