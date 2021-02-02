@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f616c36_9fdda334",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-02T10:18:26Z",
+      "side": 1,
+      "message": "PTAL! Note that the final text content is being reviewed in this doc https://docs.google.com/document/d/1a8ArU1jOKmPPedvoTPBSBWc9OZv0SJKB9e0M2EKGI9A",
+      "revId": "023172387061d55fe3a44eee21a49b933ab7fba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
