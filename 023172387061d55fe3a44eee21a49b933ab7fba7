@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "851ed398_0c4faafb",
+        "filename": "front_end/issues/IssueAggregator.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-02T13:31:11Z",
+      "side": 1,
+      "message": "Thanks! Found that part. So in this case I don\u0027t need the LowContrastIssuesAggregation_test.ts or do you also update the IssuesManager tests when a new issue type is added?",
+      "parentUuid": "4129200d_85af074e",
+      "range": {
+        "startLine": 209,
+        "startChar": 6,
+        "endLine": 209,
+        "endChar": 61
+      },
+      "revId": "023172387061d55fe3a44eee21a49b933ab7fba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "34b18fd7_1ecc1cda",
@@ -71,6 +95,30 @@
       "writtenOn": "2021-02-02T12:55:49Z",
       "side": 1,
       "message": "I don\u0027t think you should override this here, this should give you another affected resource list which repeats the elements (I guess you don\u0027t want that?)",
+      "range": {
+        "startLine": 25,
+        "startChar": 1,
+        "endLine": 30,
+        "endChar": 3
+      },
+      "revId": "023172387061d55fe3a44eee21a49b933ab7fba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e341a363_d7192ef5",
+        "filename": "front_end/sdk/LowTextContrastIssue.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-02T13:31:11Z",
+      "side": 1,
+      "message": "Removed, thanks!",
+      "parentUuid": "34b18fd7_1ecc1cda",
       "range": {
         "startLine": 25,
         "startChar": 1,
