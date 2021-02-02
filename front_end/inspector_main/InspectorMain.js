@@ -24,7 +24,7 @@ export class InspectorMainImpl extends Common.ObjectWrapper.ObjectWrapper {
       const waitForDebuggerInPage =
           type === SDK.SDKModel.Type.Frame && Root.Runtime.Runtime.queryParam('panel') === 'sources';
       const target = SDK.SDKModel.TargetManager.instance().createTarget(
-          'main', Common.UIString.UIString('Main'), type, null, undefined, waitForDebuggerInPage);
+          'main', Common.UIString.UIString('Main'), type, null, undefined, undefined, waitForDebuggerInPage);
 
       // Only resume target during the first connection,
       // subsequent connections are due to connection hand-over,
