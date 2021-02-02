@@ -16,6 +16,23 @@
       "message": "Tim, could you review the change to Target?\nI added functionality to keep track of the original targetInfo because Target.type() does not always return it properly. For a target that has been created by window.open, the targets type will be frame instead of the expected page. But the targetInfo will show the correct one.",
       "revId": "118a80cc1a08c5916e58f5d1909317f3c56d2098",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73fe5266_246e1ed9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-02T15:39:03Z",
+      "side": 1,
+      "message": "sdk/ LGTM\n\nI am not intimately familiar with that part of the SDK implementation, but the changes seem fine to me.",
+      "revId": "118a80cc1a08c5916e58f5d1909317f3c56d2098",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
