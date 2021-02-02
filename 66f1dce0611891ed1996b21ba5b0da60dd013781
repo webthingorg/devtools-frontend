@@ -56,6 +56,30 @@
       },
       "revId": "66f1dce0611891ed1996b21ba5b0da60dd013781",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed4ce4df_20d1c59a",
+        "filename": "test/e2e/application/frame-tree_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-02T14:44:49Z",
+      "side": 1,
+      "message": "Absolutely, should have been commented in the first place.",
+      "parentUuid": "389f43d0_40825c2d",
+      "range": {
+        "startLine": 42,
+        "startChar": 3,
+        "endLine": 44,
+        "endChar": 7
+      },
+      "revId": "66f1dce0611891ed1996b21ba5b0da60dd013781",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
