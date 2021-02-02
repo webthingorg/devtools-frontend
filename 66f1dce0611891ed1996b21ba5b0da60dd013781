@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "66f1dce0611891ed1996b21ba5b0da60dd013781",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68424dc5_b9a8bf1c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-02T11:33:48Z",
+      "side": 1,
+      "message": "LGTM % nit",
+      "revId": "66f1dce0611891ed1996b21ba5b0da60dd013781",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "389f43d0_40825c2d",
+        "filename": "test/e2e/application/frame-tree_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-02T11:33:48Z",
+      "side": 1,
+      "message": "nit: could we have a comment or something for this? I\u0027m struggling to understand what it\u0027s doing.",
+      "range": {
+        "startLine": 42,
+        "startChar": 3,
+        "endLine": 44,
+        "endChar": 7
+      },
+      "revId": "66f1dce0611891ed1996b21ba5b0da60dd013781",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
