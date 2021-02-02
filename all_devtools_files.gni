@@ -487,7 +487,10 @@ foreach(locale, lighthouse_locale_files) {
       [ "$resources_out_dir/third_party/lighthouse/$locale" ]
 }
 
-devtools_locale_files = [ "locales/en-US.json" ]
+devtools_locale_files = [
+  "locales/en-US.json",
+  "locales/en-XL.json",
+]
 
 foreach(locale, devtools_locale_files) {
   generated_devtools_locale_files += [ "$resources_out_dir/i18n/$locale" ]
