@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "efd91319_4020bc07",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-02T11:27:37Z",
+      "side": 1,
+      "message": "Yes please :) Happy with them to be follow-up CLs.",
+      "parentUuid": "52904561_f01b7993",
+      "revId": "16d98f093b19fa6261583b70f8a82c5227c3ba1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9958aca6_cc3c79c4",
         "filename": "front_end/resources/FrameDetailsView.ts",
         "patchSetId": 5
@@ -90,6 +108,30 @@
       "side": 1,
       "message": "I am following how it\u0027s done elsewhere in our codebase (e.g. https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/common/SettingRegistration.ts;l\u003d6?q\u003dfile:%5Ethird_party%2Fdevtools-frontend%2Fsrc%2F%20settingregistration). Does this cause an unnecessary duplication somewhere?",
       "parentUuid": "9958aca6_cc3c79c4",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 43
+      },
+      "revId": "16d98f093b19fa6261583b70f8a82c5227c3ba1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d112b04_abf3a79f",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-02T11:27:37Z",
+      "side": 1,
+      "message": "We\u0027re fairly inconsistent here unfortunately :( \n\nI don\u0027t think it will cause any duplication or any side-effects.",
+      "parentUuid": "2a447d71_3468c011",
       "range": {
         "startLine": 18,
         "startChar": 0,
