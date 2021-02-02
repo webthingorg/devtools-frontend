@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf7d4903_c2624271",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-02-02T14:50:20Z",
+      "side": 1,
+      "message": "LGTM with nits",
+      "revId": "7db47eb868bd6c7d8f1ce74b5da83d2b3cb55b6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c859600d_4c835a0c",
+        "filename": "scripts/stylelint_rules/lib/use_theme_colors.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-02-02T14:50:20Z",
+      "side": 1,
+      "message": "Remove?",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 22
+      },
+      "revId": "7db47eb868bd6c7d8f1ce74b5da83d2b3cb55b6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36b9745d_89ba1eaa",
+        "filename": "scripts/stylelint_rules/lib/use_theme_colors.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-02-02T14:50:20Z",
+      "side": 1,
+      "message": "nit: RULE_NAME for a const variable like this, I think",
+      "range": {
+        "startLine": 11,
+        "startChar": 6,
+        "endLine": 11,
+        "endChar": 14
+      },
+      "revId": "7db47eb868bd6c7d8f1ce74b5da83d2b3cb55b6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1168afc0_b2755ead",
+        "filename": "scripts/stylelint_rules/lib/use_theme_colors.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-02-02T14:50:20Z",
+      "side": 1,
+      "message": "Maybe make the function async and use the Promise form of these functions",
+      "range": {
+        "startLine": 19,
+        "startChar": 26,
+        "endLine": 19,
+        "endChar": 38
+      },
+      "revId": "7db47eb868bd6c7d8f1ce74b5da83d2b3cb55b6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d560f8bb_65d58652",
+        "filename": "scripts/stylelint_rules/lib/use_theme_colors.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-02-02T14:50:20Z",
+      "side": 1,
+      "message": "nit: maybe hoist these to the top?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 3
+      },
+      "revId": "7db47eb868bd6c7d8f1ce74b5da83d2b3cb55b6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5983601_03579087",
+        "filename": "scripts/stylelint_rules/lib/use_theme_colors.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-02-02T14:50:20Z",
+      "side": 1,
+      "message": "In general I\u0027d prefer guard clauses here:\n\nif (!rulesThatUseColors.has(node.prop)) {\n  continue;\n}",
+      "range": {
+        "startLine": 51,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 5
+      },
+      "revId": "7db47eb868bd6c7d8f1ce74b5da83d2b3cb55b6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efea5b80_b8f3b599",
+        "filename": "scripts/stylelint_rules/lib/use_theme_colors.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-02-02T14:50:20Z",
+      "side": 1,
+      "message": "Again, maybe hoist?",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 0
+      },
+      "revId": "7db47eb868bd6c7d8f1ce74b5da83d2b3cb55b6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "070ebaad_47f7a5a5",
+        "filename": "scripts/stylelint_rules/test/use_theme_colors_test.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-02-02T14:50:20Z",
+      "side": 1,
+      "message": "Remove?",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 16
+      },
+      "revId": "7db47eb868bd6c7d8f1ce74b5da83d2b3cb55b6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
