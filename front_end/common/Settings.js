@@ -992,6 +992,12 @@ export class PreRegisteredSetting extends Setting {
     Console.instance().error(errorMessage);
     this._storage._dumpSizes();
   }
+  /**
+   * @return {V}
+   */
+  defaultValue() {
+    return this._defaultValue;
+  }
 }
 
 /**

@@ -201,8 +201,10 @@ export class SensorsView extends UI.Widget.VBox {
       }
       this._customLocationsGroup.removeChildren();
       for (const [i, customLocation] of customLocations.get().entries()) {
-        this._customLocationsGroup.appendChild(
-            new Option(customLocation.title(), JSON.stringify({...customLocation, title: customLocation.title()})));
+        // Each of the default values are declared as functions, due to localizability purposes. So, we need to check
+        // if the property has to be invoked.
+        const title = customLocation.title instanceof Function ? customLocation.title() : customLocation.title;
+        this._customLocationsGroup.appendChild(new Option(title, JSON.stringify({...customLocation, title})));
         if (location.latitude === customLocation.lat && location.longitude === customLocation.long) {
           // If the location coming from settings matches the custom location, use its index to select the option
           selectedIndex = i + 1;
