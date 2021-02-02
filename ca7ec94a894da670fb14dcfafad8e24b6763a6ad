@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61120b58_bedbcfe0",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-02T10:21:26Z",
+      "side": 0,
+      "message": "I have moved it to a separate file because there was a circular dependency between AffectedElementsView and AffectedElementsWithLowContrastView.",
+      "revId": "ca7ec94a894da670fb14dcfafad8e24b6763a6ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ecebcfa_112b1298",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-02T10:21:26Z",
+      "side": 0,
+      "message": "I think because _appendAffectedElements is async there could be a race condition in rendering resulting in duplicate rows. I have fixed the problem for the subclass but probably it needs fixing here as well (not sure for what issues this view is used).",
+      "revId": "ca7ec94a894da670fb14dcfafad8e24b6763a6ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
