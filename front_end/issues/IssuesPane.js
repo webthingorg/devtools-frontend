@@ -14,69 +14,14 @@ import * as SDK from '../sdk/sdk.js';
 import * as WebComponents from '../ui/components/components.js';
 import * as UI from '../ui/ui.js';
 
+import {AffectedElementsView} from './AffectedElementsView.js';
+import {AffectedElementsWithLowContrastView} from './AffectedElementsWithLowContrastView.js';
 import {AffectedItem, AffectedResourcesView, extractShortPath} from './AffectedResourcesView.js';
 import {AffectedSharedArrayBufferIssueDetailsView} from './AffectedSharedArrayBufferIssueDetailsView.js';
 import {AffectedTrustedWebActivityIssueDetailsView} from './AffectedTrustedWebActivityIssueDetailsView.js';
 import {AggregatedIssue, Events as IssueAggregatorEvents, IssueAggregator} from './IssueAggregator.js';  // eslint-disable-line no-unused-vars
 import {createIssueDescriptionFromMarkdown, IssueDescription} from './MarkdownIssueDescription.js';  // eslint-disable-line no-unused-vars
 
-class AffectedElementsView extends AffectedResourcesView {
-  /**
-   * @param {!IssueView} parent
-   * @param {!SDK.Issue.Issue} issue
-   */
-  constructor(parent, issue) {
-    super(parent, {singular: ls`element`, plural: ls`elements`});
-    /** @type {!SDK.Issue.Issue} */
-    this._issue = issue;
-  }
-
-  _sendTelemetry() {
-    Host.userMetrics.issuesPanelResourceOpened(this._issue.getCategory(), AffectedItem.Element);
-  }
-
-  /**
-   * @param {!Iterable<!SDK.Issue.AffectedElement>} affectedElements
-   */
-  async _appendAffectedElements(affectedElements) {
-    let count = 0;
-    for (const element of affectedElements) {
-      await this._appendAffectedElement(element);
-      count++;
-    }
-    this.updateAffectedResourceCount(count);
-  }
-
-  /**
-   * @param {!SDK.Issue.AffectedElement} element
-   */
-  async _appendAffectedElement({backendNodeId, nodeName}) {
-    const mainTarget = /** @type {!SDK.SDKModel.Target} */ (SDK.SDKModel.TargetManager.instance().mainTarget());
-    const deferredDOMNode = new SDK.DOMModel.DeferredDOMNode(mainTarget, backendNodeId);
-    const anchorElement = /** @type {!HTMLElement} */ (await Common.Linkifier.Linkifier.linkify(deferredDOMNode));
-    anchorElement.textContent = nodeName;
-    anchorElement.addEventListener('click', () => this._sendTelemetry());
-    anchorElement.addEventListener('keydown', /** @param {!KeyboardEvent} event */ event => {
-      if (event.key === 'Enter') {
-        this._sendTelemetry();
-      }
-    });
-    const cellElement = document.createElement('td');
-    cellElement.classList.add('affected-resource-element', 'devtools-link');
-    cellElement.appendChild(anchorElement);
-    const rowElement = document.createElement('tr');
-    rowElement.appendChild(cellElement);
-    this.affectedResources.appendChild(rowElement);
-  }
-
-  /**
-   * @override
-   */
-  update() {
-    this.clear();
-    this._appendAffectedElements(this._issue.elements());
-  }
-}
 
 class AffectedDirectivesView extends AffectedResourcesView {
   /**
@@ -813,12 +758,17 @@ export class IssueView extends UI.TreeOutline.TreeElement {
     this.affectedResources = this._createAffectedResources();
     /** @type {!Array<!AffectedResourcesView>} */
     this._affectedResourceViews = [
-      new AffectedCookiesView(this, this._issue), new AffectedElementsView(this, this._issue),
-      new AffectedRequestsView(this, this._issue), new AffectedMixedContentView(this, this._issue),
-      new AffectedSourcesView(this, this._issue), new AffectedHeavyAdView(this, this._issue),
-      new AffectedDirectivesView(this, this._issue), new AffectedBlockedByResponseView(this, this._issue),
+      new AffectedCookiesView(this, this._issue),
+      new AffectedElementsView(this, this._issue),
+      new AffectedRequestsView(this, this._issue),
+      new AffectedMixedContentView(this, this._issue),
+      new AffectedSourcesView(this, this._issue),
+      new AffectedHeavyAdView(this, this._issue),
+      new AffectedDirectivesView(this, this._issue),
+      new AffectedBlockedByResponseView(this, this._issue),
       new AffectedSharedArrayBufferIssueDetailsView(this, this._issue),
-      new AffectedTrustedWebActivityIssueDetailsView(this, this._issue)
+      new AffectedElementsWithLowContrastView(this, this._issue),
+      new AffectedTrustedWebActivityIssueDetailsView(this, this._issue),
     ];
 
     this._aggregatedIssuesCount = null;
