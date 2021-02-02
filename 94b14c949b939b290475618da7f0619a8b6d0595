@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4aacaed3_b83e4c2d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-02-02T16:08:48Z",
+      "side": 1,
+      "message": "Hey Philip,\n\nThis re-enables all features that need conditional breakpoints under the hood, except for language plugins.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "94b14c949b939b290475618da7f0619a8b6d0595",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
