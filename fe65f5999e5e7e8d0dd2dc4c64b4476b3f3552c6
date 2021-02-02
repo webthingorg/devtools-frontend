@@ -16,6 +16,161 @@
       "message": "Migrate Network panel (big one 😮), PTAL, thank you !",
       "revId": "fe65f5999e5e7e8d0dd2dc4c64b4476b3f3552c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cecf782_16f01a14",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-02T07:37:11Z",
+      "side": 1,
+      "message": "Some comments/questions",
+      "revId": "fe65f5999e5e7e8d0dd2dc4c64b4476b3f3552c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30f7aa5e_20141f7f",
+        "filename": "front_end/network/NetworkConfigView.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-02T07:37:11Z",
+      "side": 1,
+      "message": "q: Whats with the double escaping here? The original version didn\u0027t include the backticks or am I missing something?",
+      "range": {
+        "startLine": 47,
+        "startChar": 11,
+        "endLine": 47,
+        "endChar": 22
+      },
+      "revId": "fe65f5999e5e7e8d0dd2dc4c64b4476b3f3552c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "589d92d3_7208b4c0",
+        "filename": "front_end/network/NetworkConfigView.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-02T07:37:11Z",
+      "side": 1,
+      "message": "q: Is it intended that the hyphen is \"inlined\"? I checked and it has the right unicode, I just want to make sure that this is known and not just a byproduct of automation :)",
+      "range": {
+        "startLine": 51,
+        "startChar": 55,
+        "endLine": 51,
+        "endChar": 56
+      },
+      "revId": "fe65f5999e5e7e8d0dd2dc4c64b4476b3f3552c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "330e92bb_df772556",
+        "filename": "front_end/network/NetworkLogView.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 1179,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-02T07:37:11Z",
+      "side": 1,
+      "message": "resourceSize?",
+      "range": {
+        "startLine": 1179,
+        "startChar": 56,
+        "endLine": 1179,
+        "endChar": 68
+      },
+      "revId": "fe65f5999e5e7e8d0dd2dc4c64b4476b3f3552c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "114163b6_00ae7855",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-02T07:37:11Z",
+      "side": 1,
+      "message": "I think we should spell out the non-breakable space here. This could easily get lost. Also, why do we have to translate this in the first place? I think we could do the number formatting without going through the translation pipeline.",
+      "range": {
+        "startLine": 86,
+        "startChar": 6,
+        "endLine": 86,
+        "endChar": 7
+      },
+      "revId": "fe65f5999e5e7e8d0dd2dc4c64b4476b3f3552c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8011aed4_994cfff6",
+        "filename": "front_end/network/RequestTimingView.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-02T07:37:11Z",
+      "side": 1,
+      "message": "Double escaping again.",
+      "range": {
+        "startLine": 138,
+        "startChar": 17,
+        "endLine": 138,
+        "endChar": 35
+      },
+      "revId": "fe65f5999e5e7e8d0dd2dc4c64b4476b3f3552c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbccdb08_8bd3857f",
+        "filename": "front_end/network/module.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-02T07:37:11Z",
+      "side": 1,
+      "message": "nit: alpha sorting",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 11
+      },
+      "revId": "fe65f5999e5e7e8d0dd2dc4c64b4476b3f3552c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

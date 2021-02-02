@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f98066ad_e6b26c25",
+        "filename": "front_end/network/NetworkDataGridNode.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 1456,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-02T07:37:11Z",
+      "side": 0,
+      "message": "Does this really need to go through translation? The example text indicates some number formatting, but IIUC we can just use `${primaryColumn.title}` directly?",
+      "range": {
+        "startLine": 1456,
+        "startChar": 27,
+        "endLine": 1456,
+        "endChar": 54
+      },
+      "revId": "1e05c4365f216b32c5eb378e46564646127e0848",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e1d2222_21e57d84",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-02T07:37:11Z",
+      "side": 0,
+      "message": "same argument as above.",
+      "range": {
+        "startLine": 736,
+        "startChar": 48,
+        "endLine": 736,
+        "endChar": 59
+      },
+      "revId": "1e05c4365f216b32c5eb378e46564646127e0848",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
