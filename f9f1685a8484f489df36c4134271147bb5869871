@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d652385a_d083dc6c",
+        "filename": "front_end/recorder/RecordingEventHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-02T12:39:30Z",
+      "side": 1,
+      "message": "Could the navigation history be of any help? https://chromedevtools.github.io/devtools-protocol/tot/Page/#type-ClientNavigationReason https://chromedevtools.github.io/devtools-protocol/tot/Page/#method-getNavigationHistory\n\nAnd perhaps timestamp matching instead of a timeout to associate navigation with steps?\n\nBut the current solution LGTM if it works as expected.",
+      "parentUuid": "ef4575c2_ffbe33e8",
+      "revId": "f9f1685a8484f489df36c4134271147bb5869871",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fa01e259_cf6134f6",
