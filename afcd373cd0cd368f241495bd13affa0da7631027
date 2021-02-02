@@ -129,6 +129,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "26a73c54_a6b3763b",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-02T14:47:06Z",
+      "side": 1,
+      "message": "TIL! Thanks :)",
+      "parentUuid": "846f0adc_9dde5eb7",
+      "range": {
+        "startLine": 406,
+        "startChar": 0,
+        "endLine": 406,
+        "endChar": 57
+      },
+      "revId": "afcd373cd0cd368f241495bd13affa0da7631027",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5af21813_c7a02e1f",
