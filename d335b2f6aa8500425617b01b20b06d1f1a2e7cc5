@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0d4bc0b_d874165b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-02T04:12:18Z",
+      "side": 1,
+      "message": "Moving i18n to TS. I found that this was the best approach to tackle a circular dependency that I found when migrating platform module to i18n (as currently i18n depends on platform 😄). It is pretty much the same code my guess is not detecting one rename based on the fixes I had to do for the Typescript migration. Tried to keep the shape and bug you were using, let me know if you have comments.",
+      "revId": "d335b2f6aa8500425617b01b20b06d1f1a2e7cc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
