@@ -130,6 +130,7 @@ const migratedDirsSet = new Set([
   'layer_viewer',
   'lighthouse',
   'media',
+  'network',
   'node_main',
   'mobile_throttling',
   'node_debugger',
