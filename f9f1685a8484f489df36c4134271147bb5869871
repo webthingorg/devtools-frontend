@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ef4575c2_ffbe33e8",
+        "filename": "front_end/recorder/RecordingEventHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-02-02T12:34:32Z",
+      "side": 1,
+      "message": "Yes, that\u0027s the current idea behind it. Unfortunately, I didn\u0027t see any other way to tie a navigation to a specific action. But I\u0027m more than happy to change this if you have a better idea 😊",
+      "parentUuid": "24cc2762_92e0c541",
+      "revId": "f9f1685a8484f489df36c4134271147bb5869871",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fa01e259_cf6134f6",
         "filename": "front_end/recorder/RecordingSession.ts",
         "patchSetId": 1
@@ -48,6 +66,24 @@
       "writtenOn": "2021-02-02T12:28:26Z",
       "side": 1,
       "message": "would it be possible to make it a param of the RecordingSession instead of reaching out to common settings directly?",
+      "revId": "f9f1685a8484f489df36c4134271147bb5869871",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b152178_b7441fa2",
+        "filename": "front_end/recorder/RecordingSession.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-02-02T12:34:32Z",
+      "side": 1,
+      "message": "Sure!",
+      "parentUuid": "fa01e259_cf6134f6",
       "revId": "f9f1685a8484f489df36c4134271147bb5869871",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -65,6 +101,24 @@
       "writtenOn": "2021-02-02T11:41:06Z",
       "side": 1,
       "message": "would it make sense to extract the indentation code and test it separately?",
+      "revId": "f9f1685a8484f489df36c4134271147bb5869871",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d36f80d3_bb6c0d6e",
+        "filename": "front_end/recorder/RecordingSession.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-02-02T12:34:32Z",
+      "side": 1,
+      "message": "Yes, this sounds like a good idea! I\u0027ll update the cl.",
+      "parentUuid": "0129847c_2138abee",
       "revId": "f9f1685a8484f489df36c4134271147bb5869871",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
