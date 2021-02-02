@@ -16,6 +16,23 @@
       "message": "Hey Kim,\n\nHere\u0027s a trivial fix for the confusing {} preview on memories, buffers and data views.\nPlease take a look.\n\nthanks,\nBenedikt",
       "revId": "54629f7adf35f2712eb63c94d541267156305b1d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8bae3da_321fcef3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-02-02T11:52:08Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "54629f7adf35f2712eb63c94d541267156305b1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
