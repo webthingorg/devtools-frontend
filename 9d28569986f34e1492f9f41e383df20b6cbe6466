@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef2e5840_5c6f1bd7",
+        "filename": "front_end/i18n/stringUtilities.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-02T04:17:31Z",
+      "side": 1,
+      "message": "I copied the required formatting functions to make i18n not depend on any other package. As it should be consider a root package.\n\nI also copied the type definition in here which basically creates the V2 version of the type. Kept the name and shape for compatibility reasons with V1",
+      "range": {
+        "startLine": 5,
+        "startChar": 6,
+        "endLine": 5,
+        "endChar": 25
+      },
+      "revId": "9d28569986f34e1492f9f41e383df20b6cbe6466",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d35829d9_d260c4da",
+        "filename": "front_end/platform/UIString.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-02T04:17:31Z",
+      "side": 1,
+      "message": "I had to take out the access modifiers to allow casting between this LocalizedStringTag(V1)\nand the one in i18n (V2). This could potentially go away when migration ends but I think it could also stay for any legacy purposes.",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 17
+      },
+      "revId": "9d28569986f34e1492f9f41e383df20b6cbe6466",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d05f0d12_d2061089",
+        "filename": "front_end/toolbox.json",
+        "patchSetId": 11
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-02T04:17:31Z",
+      "side": 1,
+      "message": "i18 is required here as the dependency between it and platform does not exists anymore.",
+      "range": {
+        "startLine": 4,
+        "startChar": 15,
+        "endLine": 4,
+        "endChar": 19
+      },
+      "revId": "9d28569986f34e1492f9f41e383df20b6cbe6466",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

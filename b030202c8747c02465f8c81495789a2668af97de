@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "476ec901_852fe4f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-02T04:17:31Z",
+      "side": 1,
+      "message": "Platform is another special case as currently i18n depends on it (but it still has V1 strings), so any direct migration results in a circular dependency. To break this dependency I had to:\n- Migrate i18n to TS (linked CL).\n- Copy the format code that i18n was using from Platform, so that i18n is now a self contain module\n  with no dependencies.\n\nPTAL.",
+      "revId": "b030202c8747c02465f8c81495789a2668af97de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
