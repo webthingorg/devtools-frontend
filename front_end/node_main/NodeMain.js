@@ -126,7 +126,8 @@ export class NodeChildTargetManager extends SDK.SDKModel.SDKModel {
     const connection = new NodeConnection(this._targetAgent, sessionId);
     this._childConnections.set(sessionId, connection);
     const target = this._targetManager.createTarget(
-        targetInfo.targetId, name, SDK.SDKModel.Type.Node, this._parentTarget, undefined, undefined, connection);
+        targetInfo.targetId, name, SDK.SDKModel.Type.Node, this._parentTarget, undefined, undefined, undefined,
+        connection);
     this._childTargets.set(sessionId, target);
     target.runtimeAgent().invoke_runIfWaitingForDebugger();
   }
