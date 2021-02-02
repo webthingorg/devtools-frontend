@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f7e0727_3de9b3ef",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-02T14:41:35Z",
+      "side": 1,
+      "message": "I would prefer not to copy these files, as that introduces quite a bit of technical debt. Instead, can we determine what the proper dependency hierarchy is and make sure that the circular dependency is not present?\n\nAs I understand it, there are some parts of `platform` that are required for the localization pipeline. Both `platform` and `i18n` are core modules, which means that we can relatively easy move functions between them.\n\nBased on this change, I am assuming the smallest fix would be to move `bytesToString` into `i18n`. Based on https://source.chromium.org/search?q\u003dbytesToString%20-f:gen%2F%20f:devtools-frontend%2F%20-f:front_end%2Fthird_party\u0026sq\u003d\u0026ss\u003dchromium I think there should be no issues moving this function into `i18n` and updating the references.\n\nAfter that, we can maintain the `i18n -\u003e platform` relationship and avoid the dependency edge back from `platform` to `i18n`. As I understand it, then all other changes are no longer required and we can avoid the copying, the changes the GRD files and don\u0027t need to update the entrypoint json files.",
+      "range": {
+        "startLine": 11,
+        "startChar": 8,
+        "endLine": 11,
+        "endChar": 41
+      },
+      "revId": "b030202c8747c02465f8c81495789a2668af97de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "476ec901_852fe4f8",
