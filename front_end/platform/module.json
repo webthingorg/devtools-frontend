@@ -1,5 +1,5 @@
 {
-  "dependencies": [],
+  "dependencies": [ "i18n" ],
   "modules": [
     "platform.js",
     "utilities.js",

@@ -1,7 +1,6 @@
 {
-  "dependencies": [
-    "platform"
-  ],  "modules":[
+  "dependencies": [ ],
+  "modules":[
     "../third_party/i18n/i18n.js"
   ]
 }
