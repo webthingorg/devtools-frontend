@@ -33,6 +33,40 @@
       "message": "LGTM with 1 question",
       "revId": "3b19e4fc1135da00380b019a7f50046db673fba3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01b09313_74e1251b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-02T15:55:29Z",
+      "side": 1,
+      "message": "or rather 2 questions",
+      "revId": "3b19e4fc1135da00380b019a7f50046db673fba3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dba134ba_585953ec",
+        "filename": "front_end/issues/AffectedResourcesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-02T15:55:29Z",
+      "side": 1,
+      "message": "Can `append()` and `appendChild()` be used interchangeably?",
+      "revId": "3b19e4fc1135da00380b019a7f50046db673fba3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
