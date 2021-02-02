@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12b1ba45_1018476f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-02T14:24:24Z",
+      "side": 1,
+      "message": "LGTM % comments, thanks!",
+      "revId": "9acbfda803cf0b8e009ba1818b311251aaad6f85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5dbd99d_01a8f569",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-02T14:24:24Z",
+      "side": 1,
+      "message": "maybe?",
+      "range": {
+        "startLine": 410,
+        "startChar": 10,
+        "endLine": 410,
+        "endChar": 40
+      },
+      "revId": "9acbfda803cf0b8e009ba1818b311251aaad6f85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9a66208_ece459b0",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-02T14:24:24Z",
+      "side": 1,
+      "message": "maybeRenderCrossOriginStatus and accept undefined for info as well (which results in nothing), then the ternary-if at the 2 call sites can be eliminated.",
+      "range": {
+        "startLine": 454,
+        "startChar": 10,
+        "endLine": 454,
+        "endChar": 33
+      },
+      "revId": "9acbfda803cf0b8e009ba1818b311251aaad6f85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
