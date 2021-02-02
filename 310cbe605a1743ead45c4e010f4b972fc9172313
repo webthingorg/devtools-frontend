@@ -80,6 +80,30 @@
       },
       "revId": "310cbe605a1743ead45c4e010f4b972fc9172313",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8015ed08_443a1f6b",
+        "filename": "front_end/i18n/i18nImpl.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-02T10:27:50Z",
+      "side": 1,
+      "message": "Sounds good, I will take a look at adding an E2E test\nThanks!",
+      "parentUuid": "a43bb044_8e3d0a94",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 60
+      },
+      "revId": "310cbe605a1743ead45c4e010f4b972fc9172313",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
