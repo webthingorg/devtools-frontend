@@ -336,6 +336,9 @@ export const ActionCategory = {
   NAVIGATION: ls`Navigation`,
   DRAWER: ls`Drawer`,
   GLOBAL: ls`Global`,
+  DEBUGGER: ls`Debugger`,
+  RECORDER: ls`Recorder`,
+  SOURCES: ls`Sources`,
 };
 
 type ActionCategory = typeof ActionCategory[keyof typeof ActionCategory];
@@ -352,6 +355,11 @@ export const enum IconClass {
   LARGEICON_PAUSE = 'largeicon-pause',
   LARGEICON_RESUME = 'largeicon-resume',
   LARGEICON_TRASH_BIN = 'largeicon-trash-bin',
+  LARGEICON_STEP_OVER = 'largeicon-step-over',
+  LARGE_ICON_STEP_INTO = 'largeicon-step-into',
+  LARGE_ICON_STEP = 'largeicon-step',
+  LARGE_ICON_STEP_OUT = 'largeicon-step-out',
+  LARGE_ICON_DEACTIVATE_BREAKPOINTS = 'largeicon-deactivate-breakpoints',
 }
 
 export const enum KeybindSet {
