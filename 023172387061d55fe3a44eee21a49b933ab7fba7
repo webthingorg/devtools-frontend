@@ -16,6 +16,69 @@
       "message": "PTAL! Note that the final text content is being reviewed in this doc https://docs.google.com/document/d/1a8ArU1jOKmPPedvoTPBSBWc9OZv0SJKB9e0M2EKGI9A",
       "revId": "023172387061d55fe3a44eee21a49b933ab7fba7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e5d54ab_6b5b4868",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-02T12:55:49Z",
+      "side": 1,
+      "message": "Looks awesome, thanks! Some comments.",
+      "revId": "023172387061d55fe3a44eee21a49b933ab7fba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4129200d_85af074e",
+        "filename": "front_end/issues/IssueAggregator.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-02T12:55:49Z",
+      "side": 1,
+      "message": "Deduplication based on the primary key is already done in the IssuesManager, so you may just use a Set like the other issues here.",
+      "range": {
+        "startLine": 209,
+        "startChar": 6,
+        "endLine": 209,
+        "endChar": 61
+      },
+      "revId": "023172387061d55fe3a44eee21a49b933ab7fba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34b18fd7_1ecc1cda",
+        "filename": "front_end/sdk/LowTextContrastIssue.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-02T12:55:49Z",
+      "side": 1,
+      "message": "I don\u0027t think you should override this here, this should give you another affected resource list which repeats the elements (I guess you don\u0027t want that?)",
+      "range": {
+        "startLine": 25,
+        "startChar": 1,
+        "endLine": 30,
+        "endChar": 3
+      },
+      "revId": "023172387061d55fe3a44eee21a49b933ab7fba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
