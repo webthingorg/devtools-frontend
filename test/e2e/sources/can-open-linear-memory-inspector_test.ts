@@ -7,7 +7,7 @@ import {assert} from 'chai';
 import {$, $$, click, enableExperiment, getBrowserAndPages, goToResource, step, waitFor} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {checkIfTabExistsInDrawer, DRAWER_PANEL_SELECTOR} from '../helpers/cross-tool-helper.js';
-import {addBreakpointForLine, inspectMemory, openSourceCodeEditorForFile, PAUSE_BUTTON, RESUME_BUTTON, waitForSourceCodeLines} from '../helpers/sources-helpers.js';
+import {addBreakpointForLine, inspectMemory, listenForSourceFilesLoaded, openSourceCodeEditorForFile, PAUSE_BUTTON, RESUME_BUTTON, waitForSourceLoadedEvent} from '../helpers/sources-helpers.js';
 
 const LINEAR_MEMORY_INSPECTOR_TAB_SELECTOR = '#tab-linear-memory-inspector';
 const LINEAR_MEMORY_INSPECTOR_TABBED_PANE_SELECTOR = DRAWER_PANEL_SELECTOR + ' .tabbed-pane';
@@ -36,7 +36,8 @@ describe('Scope View', async () => {
     });
 
     await step('wait for all the source code to appear', async () => {
-      await waitForSourceCodeLines(numberOfLines);
+      await listenForSourceFilesLoaded(frontend);
+      await waitForSourceLoadedEvent(frontend, 'memory.wasm');
     });
 
     await step('expand the module scope', async () => {

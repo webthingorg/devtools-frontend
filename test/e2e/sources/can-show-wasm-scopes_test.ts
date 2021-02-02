@@ -6,12 +6,12 @@ import {assert} from 'chai';
 
 import {click, getBrowserAndPages, step, timeout, waitFor, waitForFunction} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
-import {addBreakpointForLine, getScopeNames, getValuesForScope, openSourceCodeEditorForFile, PAUSE_INDICATOR_SELECTOR, RESUME_BUTTON, waitForSourceCodeLines} from '../helpers/sources-helpers.js';
+import {addBreakpointForLine, getScopeNames, getValuesForScope, listenForSourceFilesLoaded, openSourceCodeEditorForFile, PAUSE_INDICATOR_SELECTOR, RESUME_BUTTON, waitForSourceLoadedEvent} from '../helpers/sources-helpers.js';
 
 describe('Source Tab', async () => {
   it('shows and updates the module, local, and stack scope while pausing', async () => {
     const {frontend, target} = getBrowserAndPages();
-    const breakpointLine = 12;
+    const breakpointLine = '0x05f';
     const numberOfLines = 16;
     let moduleScopeValues: string[];
     let localScopeValues: string[];
@@ -31,7 +31,8 @@ describe('Source Tab', async () => {
     });
 
     await step('wait for all the source code to appear', async () => {
-      await waitForSourceCodeLines(numberOfLines);
+      await listenForSourceFilesLoaded(frontend);
+      await waitForSourceLoadedEvent(frontend, 'scopes.wasm');
     });
 
     await step('check that the module, local, and stack scope appear', async () => {

@@ -6,7 +6,7 @@ import {assert} from 'chai';
 
 import {getBrowserAndPages, step, timeout} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
-import {addBreakpointForLine, checkBreakpointDidNotActivate, checkBreakpointIsActive, checkBreakpointIsNotActive, openFileInEditor, openSourceCodeEditorForFile, retrieveTopCallFrameScriptLocation, retrieveTopCallFrameWithoutResuming, sourceLineNumberSelector, waitForSourceCodeLines} from '../helpers/sources-helpers.js';
+import {addBreakpointForLine, checkBreakpoint, checkBreakpointDidNotActivate, listenForSourceFilesLoaded, openFileInEditor, openSourceCodeEditorForFile, retrieveTopCallFrameScriptLocation, retrieveTopCallFrameWithoutResuming, sourceLineNumberSelector, waitForSourceLoadedEvent} from '../helpers/sources-helpers.js';
 
 describe('The Sources Tab', async () => {
   it('can add breakpoint for a sourcemapped wasm module', async () => {
@@ -27,10 +27,6 @@ describe('The Sources Tab', async () => {
     });
     const numberOfLines = 11;
 
-    await step('wait for all the source code to appear', async () => {
-      await waitForSourceCodeLines(numberOfLines);
-    });
-
     await step('add a breakpoint to line No.5', async () => {
       await addBreakpointForLine(frontend, 5);
     });
@@ -43,10 +39,11 @@ describe('The Sources Tab', async () => {
     await timeout(100);
 
     await step('wait for all the source code to appear', async () => {
-      await waitForSourceCodeLines(numberOfLines);
+      await listenForSourceFilesLoaded(frontend);
+      await waitForSourceLoadedEvent(frontend, 'with-sourcemap.ll');
     });
 
-    await checkBreakpointIsActive(5);
+    await checkBreakpoint(5, true);
 
     await step('check that the code has paused on the breakpoint at the correct script location', async () => {
       const scriptLocation = await retrieveTopCallFrameWithoutResuming();
@@ -68,11 +65,7 @@ describe('The Sources Tab', async () => {
       await openFileInEditor('with-sourcemap.ll');
     });
 
-    await step('wait for all the source code to appear', async () => {
-      await waitForSourceCodeLines(numberOfLines);
-    });
-
-    await checkBreakpointIsNotActive(5);
+    await checkBreakpoint(5, false);
     await checkBreakpointDidNotActivate();
 
     await step('add a breakpoint to line No.6', async () => {
@@ -87,10 +80,11 @@ describe('The Sources Tab', async () => {
     await timeout(100);
 
     await step('wait for all the source code to appear', async () => {
-      await waitForSourceCodeLines(numberOfLines);
+      await listenForSourceFilesLoaded(frontend);
+      await waitForSourceLoadedEvent(frontend, 'with-sourcemap.ll');
     });
 
-    await checkBreakpointIsActive(6);
+    await checkBreakpoint(6, true);
 
     await step('check that the code has paused on the breakpoint at the correct script location', async () => {
       const scriptLocation = await retrieveTopCallFrameWithoutResuming();
