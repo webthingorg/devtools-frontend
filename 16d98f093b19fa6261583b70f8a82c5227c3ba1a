@@ -191,6 +191,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "47901be2_a9ff6a08",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-02T12:59:02Z",
+      "side": 1,
+      "message": "I slightly prefer renaming, but that\u0027s up to you (as we can\u0027t see from the type whether it should always yield a component, or whether it is allowed to return nothing even if the frame is set).",
+      "parentUuid": "97980910_6af5445f",
+      "range": {
+        "startLine": 254,
+        "startChar": 10,
+        "endLine": 254,
+        "endChar": 31
+      },
+      "revId": "16d98f093b19fa6261583b70f8a82c5227c3ba1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3cfbe137_a8904dda",
         "filename": "front_end/resources/FrameDetailsView.ts",
         "patchSetId": 5
