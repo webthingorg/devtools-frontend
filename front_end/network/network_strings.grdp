@@ -300,6 +300,9 @@
   <message name="IDS_DEVTOOLS_4c3880bb027f159e801041b1021e88e8" desc="Text for one or a group of functions">
     Method
   </message>
+  <message name="IDS_DEVTOOLS_4cafcd8bd18c79335c2484f1750ce3dd" desc="Name of a network initiator type">
+    Preflight
+  </message>
   <message name="IDS_DEVTOOLS_4d91e4c2c626448a31f9b88b9952d3ca" desc="Title for a link element in the network log view">
     Select the request that triggered this preflight
   </message>
