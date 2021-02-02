@@ -2,10 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as Platform from '../platform/platform.js';
 
 // eslint-disable-line @typescript-eslint/
 import i18nBundle from '../third_party/i18n/i18n.js';
+import * as StringUtilities from './stringUtilities.js';
 
 /**
  * The locale that DevTools displays
@@ -55,38 +55,38 @@ export function registerLocale(locale: string): void {
  * @return {function(): LocalizedString} the localized version of the
  */
 export function getLazilyComputedLocalizedString(
-    str_: (id: string, values: Object) => Platform.UIString.LocalizedString, id: string, values: Object = {}): () =>
-    Platform.UIString.LocalizedString {
-  return (): Platform.UIString.LocalizedString => getLocalizedString(str_, id, values);
+    str_: (id: string, values: Object) => StringUtilities.LocalizedString, id: string, values: Object = {}): () =>
+    StringUtilities.LocalizedString {
+  return (): StringUtilities.LocalizedString => getLocalizedString(str_, id, values);
 }
 
 /**
  * Retrieve the localized string.
  */
 export function getLocalizedString(
-    str_: (id: string, values: Object) => Platform.UIString.LocalizedString, id: string,
-    values: Object = {}): Platform.UIString.LocalizedString {
+    str_: (id: string, values: Object) => StringUtilities.LocalizedString, id: string,
+    values: Object = {}): StringUtilities.LocalizedString {
   if (!registeredLocale) {
     throw new Error(`Unsupported locale '${registeredLocale}'`);
   }
 
   const icuMessage = str_(id, values);
-  return i18nBundle.getFormatted(icuMessage, registeredLocale) as Platform.UIString.LocalizedString;
+  return i18nBundle.getFormatted(icuMessage, registeredLocale) as StringUtilities.LocalizedString;
 }
 
 /**
  * Register a file's UIStrings with i18n, return function to generate the string ids.
  */
 export function registerUIStrings(path: string, stringStructure: Object): (id: string, values: Object) =>
-    Platform.UIString.LocalizedString {
+    StringUtilities.LocalizedString {
   /**
    * Convert a message string & replacement values into an
    * indexed id value in the form '{messageid} | # {index}'.
    * */
-  const str: (id: string, value: Object) => Platform.UIString.LocalizedString = (id: string, value: Object) => {
+  const str: (id: string, value: Object) => StringUtilities.LocalizedString = (id: string, value: Object) => {
     try {
       const i18nInstance = i18nBundle.createMessageInstanceIdFn(path, stringStructure) as (
-                               id: string, values: Object) => Platform.UIString.LocalizedString;
+                               id: string, values: Object) => StringUtilities.LocalizedString;
       return i18nInstance(id, value);
     } catch (e) {
       // ID was not in the main file search for module.json strings
@@ -94,11 +94,11 @@ export function registerUIStrings(path: string, stringStructure: Object): (id: s
         const stringMappingArray = Object.getOwnPropertyNames(getOrSetModuleJSONStrings());
         const index = stringMappingArray.indexOf(id);
         if (index >= 0) {
-          return stringMappingArray[index] as Platform.UIString.LocalizedString;
+          return stringMappingArray[index] as StringUtilities.LocalizedString;
         }
       }
 
-      return id as Platform.UIString.LocalizedString;
+      return id as StringUtilities.LocalizedString;
     }
   };
 
@@ -109,7 +109,7 @@ export function registerUIStrings(path: string, stringStructure: Object): (id: s
  * Returns a span element that may contains other DOM element as placeholders
  */
 export function getFormatLocalizedString(
-    str_: (id: string, values: Object) => Platform.UIString.LocalizedString, stringId: string,
+    str_: (id: string, values: Object) => StringUtilities.LocalizedString, stringId: string,
     placeholders: any): Element {  // eslint-disable-line @typescript-eslint/no-explicit-any
   if (!registeredLocale) {
     throw new Error(`Unsupported locale '${registeredLocale}'`);
@@ -126,7 +126,7 @@ export function getFormatLocalizedString(
       const placeholderValue = placeholders[element.id];
       if (placeholderValue) {
         args.push(placeholderValue);
-        element.value = '%s';  // convert the {PH} back to %s to use Platform.UIString
+        element.value = '%s';  // convert the {PH} back to %s to use StringUtilities
       }
     }
     formattedString += element.value;
@@ -149,7 +149,7 @@ export function formatLocalized(formattedString: string, args: Object[]): Elemen
   }
 
   const formatters: Record<string, any> = {s: substitution};
-  return Platform.StringUtilities.format(formattedString, args, formatters, document.createElement('span'), append)
+  return Platform.UIString.format(formattedString, args, formatters, document.createElement('span'), append)
       .formattedResult;
 }
 
