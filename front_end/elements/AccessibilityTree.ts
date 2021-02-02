@@ -5,8 +5,8 @@
 import * as SDK from '../sdk/sdk.js';
 import * as LitHtml from '../third_party/lit-html/lit-html.js';
 
-import {SDKNodeToAXNode} from './AccessibilityTreeUtils.js';
-import type {AccessibilityNodeData} from './AccessibilityNode.js';
+import {AXNode, SDKNodeToAXNode} from './AccessibilityTreeUtils.js';
+import type {AccessibilityNode, AccessibilityNodeData} from './AccessibilityNode.js';
 
 export interface AccessibilityTreeData {
   node: SDK.DOMModel.DOMNode|null;
@@ -15,11 +15,63 @@ export interface AccessibilityTreeData {
 export class AccessibilityTree extends HTMLElement {
   private readonly shadow = this.attachShadow({mode: 'open'});
   private node: SDK.DOMModel.DOMNode|null = null;
+  private nodeMap: Map<string, HTMLElement> = new Map();
+  private selectedNode: AccessibilityNode|null = null;
+  private rootNode: AXNode|null = null;
+
+  constructor() {
+    super();
+    this.addEventListener('keydown', this.onKeyDown.bind(this));
+  }
 
   set data(data: AccessibilityTreeData) {
     this.node = data.node;
     this.shadow.host.setAttribute('role', 'tree');
     this.render();
+  }
+
+  wasShown(): void {
+    if (this.rootNode) {
+      const rootNode = this.nodeMap.get(this.rootNode.id);
+      if (rootNode) {
+        rootNode.focus();
+      }
+    }
+  }
+
+  set selectedAXNode(node: AccessibilityNode) {
+    this.selectedNode = node;
+  }
+
+  get nodesMap(): Map<string, HTMLElement> {
+    return this.nodeMap;
+  }
+
+  appendToNodeMap(id: string, node: AccessibilityNode): void {
+    this.nodeMap.set(id, node);
+  }
+
+  private onKeyDown(e: KeyboardEvent): void {
+    switch (e.key) {
+      case 'ArrowUp':
+        break;
+      case 'ArrowDown':
+        break;
+      case 'ArrowLeft':
+        this.selectedNode?.leftArrowPress();
+        break;
+      case 'ArrowRight':
+        this.selectedNode?.rightArrowPress();
+        break;
+      case 'Home':
+        break;
+      case 'End':
+        break;
+      case 'Enter':
+        break;
+      default:
+        return;
+    }
   }
 
   async refreshAccessibilityTree(): Promise<SDK.AccessibilityModel.AccessibilityNode|null> {
@@ -42,13 +94,17 @@ export class AccessibilityTree extends HTMLElement {
         return;
       }
 
+      this.rootNode = SDKNodeToAXNode(null, rootNode);
+
       // clang-format off
       const output = LitHtml.html`
         <devtools-accessibility-node .data=${{
-          axNode: SDKNodeToAXNode(null, rootNode),
+          axNode: this.rootNode,
+          axTree: this,
+          isSelected: true,
           } as AccessibilityNodeData}>
         </devtools-accessibility-node>
-      `;
+        `;
       // clang-format on
       LitHtml.render(output, this.shadow);
     });
