@@ -20,6 +20,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "24cc2762_92e0c541",
+        "filename": "front_end/recorder/RecordingEventHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-02T12:28:26Z",
+      "side": 1,
+      "message": "what\u0027s the logic behind these timeouts? why 1000ms?\n\nP.S. do I get it right that if within 1000ms there is target info change event (i.e., a navigation) the condition to wait for navigation will be appended to the last step?",
+      "revId": "f9f1685a8484f489df36c4134271147bb5869871",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa01e259_cf6134f6",
+        "filename": "front_end/recorder/RecordingSession.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-02T12:28:26Z",
+      "side": 1,
+      "message": "would it be possible to make it a param of the RecordingSession instead of reaching out to common settings directly?",
+      "revId": "f9f1685a8484f489df36c4134271147bb5869871",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0129847c_2138abee",
         "filename": "front_end/recorder/RecordingSession.ts",
         "patchSetId": 1
