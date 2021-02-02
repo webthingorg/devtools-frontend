@@ -1,6 +1,7 @@
 // Copyright 2020 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
+
 import * as Platform from '../platform/platform.js';
 
 // eslint-disable-next-line
@@ -8,29 +9,24 @@ import i18nBundle from '../third_party/i18n/i18n.js';
 
 /**
  * The locale that DevTools displays
- * @param {string} locale
- * @param {*} lhlMessages
  */
 export const registerLocaleData = i18nBundle.registerLocaleData;
 
 /**
  * The locale that DevTools displays
- * @type {string|undefined}
  */
-export let registeredLocale;
+export let registeredLocale: string|undefined;
 
 /**
  * The strings from the module.json file
- * @type {!Object|undefined}
  */
-let moduleJSONStrings;
+let moduleJSONStrings: Object|undefined;
 
 /**
  * Returns an instance of an object of formatted strings based on locale. If the instance is not
  * set at the time of calling, it is created.
- * @return {!Object}
  */
-function getOrSetModuleJSONStrings() {
+function getOrSetModuleJSONStrings(): Object {
   if (!registeredLocale) {
     throw new Error(`Unsupported locale '${registeredLocale}'`);
   }
@@ -42,9 +38,8 @@ function getOrSetModuleJSONStrings() {
 /**
  * Take the locale passed in from the browser(host), run through the fallback logic (example: es-419 -> es)
  * to find the DevTools supported locale and register it.
- * @param {string} locale
  */
-export function registerLocale(locale) {
+export function registerLocale(locale: string): void {
   registeredLocale = i18nBundle.lookupLocale(locale);
 }
 
@@ -56,46 +51,42 @@ export function registerLocale(locale) {
  * meta files used to register module extensions.
  * @param {function(string, ?Object):string} str_
  * @param {string} id
- * @param {!Object<string, ?Object|undefined>} values
- * @return {function(): !Platform.UIString.LocalizedString} the localized version of the
+ * @param {!Object} values
+ * @return {function(): LocalizedString} the localized version of the
  */
-export function getLazilyComputedLocalizedString(str_, id, values = {}) {
-  return () => getLocalizedString(str_, id, values);
+export function getLazilyComputedLocalizedString(
+    str_: (id: string, values: Object) => Platform.UIString.LocalizedString, id: string, values: Object = {}): () =>
+    Platform.UIString.LocalizedString {
+  return (): Platform.UIString.LocalizedString => getLocalizedString(str_, id, values);
 }
 
 /**
  * Retrieve the localized string.
- * @param {function(string, ?Object):string} str_
- * @param {string} id
- * @param {!Object<string, ?Object|undefined>} values
- * @return {!Platform.UIString.LocalizedString} the localized version of the
  */
-export function getLocalizedString(str_, id, values = {}) {
+export function getLocalizedString(
+    str_: (id: string, values: Object) => Platform.UIString.LocalizedString, id: string,
+    values: Object = {}): Platform.UIString.LocalizedString {
   if (!registeredLocale) {
     throw new Error(`Unsupported locale '${registeredLocale}'`);
   }
 
   const icuMessage = str_(id, values);
-  return /** @type {!Platform.UIString.LocalizedString} */ (i18nBundle.getFormatted(icuMessage, registeredLocale));
+  return i18nBundle.getFormatted(icuMessage, registeredLocale) as Platform.UIString.LocalizedString;
 }
 
 /**
  * Register a file's UIStrings with i18n, return function to generate the string ids.
- * @param {string} path
- * @param {!Object} stringStructure
- * @return {function(string, ?Object):string} return function to generate the string ids.
  */
-export function registerUIStrings(path, stringStructure) {
+export function registerUIStrings(path: string, stringStructure: Object): (id: string, values: Object) =>
+    Platform.UIString.LocalizedString {
   /**
    * Convert a message string & replacement values into an
    * indexed id value in the form '{messageid} | # {index}'.
-   *
-   * @param {string} id
-   * @param {?Object} value
    * */
-  const str = (id, value) => {
+  const str: (id: string, value: Object) => Platform.UIString.LocalizedString = (id: string, value: Object) => {
     try {
-      const i18nInstance = i18nBundle.createMessageInstanceIdFn(path, stringStructure);
+      const i18nInstance = i18nBundle.createMessageInstanceIdFn(path, stringStructure) as (
+                               id: string, values: Object) => Platform.UIString.LocalizedString;
       return i18nInstance(id, value);
     } catch (e) {
       // ID was not in the main file search for module.json strings
@@ -103,11 +94,11 @@ export function registerUIStrings(path, stringStructure) {
         const stringMappingArray = Object.getOwnPropertyNames(getOrSetModuleJSONStrings());
         const index = stringMappingArray.indexOf(id);
         if (index >= 0) {
-          return stringMappingArray[index];
+          return stringMappingArray[index] as Platform.UIString.LocalizedString;
         }
       }
 
-      return id;
+      return id as Platform.UIString.LocalizedString;
     }
   };
 
@@ -116,12 +107,10 @@ export function registerUIStrings(path, stringStructure) {
 
 /**
  * Returns a span element that may contains other DOM element as placeholders
- * @param {function(string, ?Object):string} str_
- * @param {string} stringId
- * @param {!Object<string, *>} placeholders
- * @return {!Element} the localized result
  */
-export function getFormatLocalizedString(str_, stringId, placeholders) {
+export function getFormatLocalizedString(
+    str_: (id: string, values: Object) => Platform.UIString.LocalizedString, stringId: string,
+    placeholders: any): Element {  // eslint-disable-line @typescript-eslint/no-explicit-any
   if (!registeredLocale) {
     throw new Error(`Unsupported locale '${registeredLocale}'`);
   }
@@ -130,14 +119,14 @@ export function getFormatLocalizedString(str_, stringId, placeholders) {
   const formatter = i18nBundle.getFormatter(icuMessage, registeredLocale);
 
   const icuElements = formatter.getAst().elements;
-  const args = [];
+  const args: Object[] = [];
   let formattedString = '';
   for (const element of icuElements) {
     if (element.type === 'argumentElement') {
       const placeholderValue = placeholders[element.id];
       if (placeholderValue) {
         args.push(placeholderValue);
-        element.value = '%s';  // convert the {PH} back to %s to use StringUtilities
+        element.value = '%s';  // convert the {PH} back to %s to use Platform.UIString
       }
     }
     formattedString += element.value;
@@ -145,49 +134,36 @@ export function getFormatLocalizedString(str_, stringId, placeholders) {
   return formatLocalized(formattedString, args);
 }
 
-/**
- * @param {string} formattedString
- * @param {?ArrayLike<?>} args
- * @return {!Element} the formatted result.
- */
-export function formatLocalized(formattedString, args) {
-  /** @type {function(string):string} */
-  const substitution = substitution => {
+export function formatLocalized(formattedString: string, args: Object[]): Element {
+  const substitution: (substitution: string) => string = substitution => {
     return substitution;
   };
 
-  /**
-   * @param {!Element} a
-   * @param {?} b
-   * @return {!Element}
-   */
-  function append(a, b) {
-    a.appendChild(typeof b === 'string' ? document.createTextNode(b) : b);
+
+  function append(a: Element, b: undefined|string|Node): Element {
+    if (b) {
+      a.appendChild(typeof b === 'string' ? document.createTextNode(b) : b);
+    }
+
     return a;
   }
 
-  const formatters = {s: substitution};
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const formatters: Record<string, any> = {s: substitution};
   return Platform.StringUtilities.format(formattedString, args, formatters, document.createElement('span'), append)
       .formattedResult;
 }
 
-/**
- * @param {string} string
- * @param {!Object<string, ?Object|undefined>} values
- * @return {string} the serialized string.
- */
-export function serializeUIString(string, values = {}) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function serializeUIString(string: string, values: any = []): string {
   const serializedMessage = {string, values};
   return JSON.stringify(serializedMessage);
 }
 
-/**
- * @param {string} serializedMessage
- * @return {!{string: string, values: !Object<string, ?Object|undefined>}}
- */
-export function deserializeUIString(serializedMessage) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function deserializeUIString(serializedMessage: string): any {
   if (!serializedMessage) {
-    return {string: '', values: {}};
+    return {};
   }
 
   return JSON.parse(serializedMessage);
