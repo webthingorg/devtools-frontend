@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5756580a_80260239",
+        "filename": "front_end/issues/IssuesPane.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-02T14:09:00Z",
+      "side": 0,
+      "message": "Extracted to crrev.com/c/2667201",
+      "parentUuid": "54115fbd_016b27f1",
+      "revId": "ca7ec94a894da670fb14dcfafad8e24b6763a6ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ecebcfa_112b1298",
