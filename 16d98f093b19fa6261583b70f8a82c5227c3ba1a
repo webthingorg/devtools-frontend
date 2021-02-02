@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "52904561_f01b7993",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-02T10:45:11Z",
+      "side": 1,
+      "message": "I am updating and reactivating the e2e test in the last CL of this cascade, but I assume you want unit tests as well?",
+      "parentUuid": "115eb2b1_7d7775dc",
+      "revId": "16d98f093b19fa6261583b70f8a82c5227c3ba1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9958aca6_cc3c79c4",
         "filename": "front_end/resources/FrameDetailsView.ts",
         "patchSetId": 5
@@ -48,6 +66,30 @@
       "writtenOn": "2021-02-02T08:01:28Z",
       "side": 1,
       "message": "const ls \u003d Platform.ls; \n\n?",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 43
+      },
+      "revId": "16d98f093b19fa6261583b70f8a82c5227c3ba1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a447d71_3468c011",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-02T10:45:11Z",
+      "side": 1,
+      "message": "I am following how it\u0027s done elsewhere in our codebase (e.g. https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/common/SettingRegistration.ts;l\u003d6?q\u003dfile:%5Ethird_party%2Fdevtools-frontend%2Fsrc%2F%20settingregistration). Does this cause an unnecessary duplication somewhere?",
+      "parentUuid": "9958aca6_cc3c79c4",
       "range": {
         "startLine": 18,
         "startChar": 0,
@@ -83,6 +125,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "97980910_6af5445f",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-02T10:45:11Z",
+      "side": 1,
+      "message": "I feel that there are actually 2 different cases:\n1) `renderDocumentSection()` should not end up rendering nothing. Ideally `this.frame` should not be allowed to be `undefined`, but since it\u0027s being set in the data setter and not in the constructor I haven\u0027t found a way to achieve that. Therefore the early returns if `!this.frame` in the various render functions.\n\n2) There are other render functions like `renderUnreachableURL()` for which rendering nothing is an expected result. I\u0027m open to renaming those, but personally I prefer it without the \u0027maybe\u0027-prefix. I see it as `renderSomeItem()` where `someItem` happens to be nothing.",
+      "parentUuid": "09a1b4d9_f5433395",
+      "range": {
+        "startLine": 254,
+        "startChar": 10,
+        "endLine": 254,
+        "endChar": 31
+      },
+      "revId": "16d98f093b19fa6261583b70f8a82c5227c3ba1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3cfbe137_a8904dda",
         "filename": "front_end/resources/FrameDetailsView.ts",
         "patchSetId": 5
@@ -94,6 +160,30 @@
       "writtenOn": "2021-02-02T08:01:28Z",
       "side": 1,
       "message": "Given the discussion in the team chat, let\u0027s use a span here. Let\u0027s use a span, as we did before, or a button here. You can use aria labels to designate the function.",
+      "range": {
+        "startLine": 419,
+        "startChar": 15,
+        "endLine": 419,
+        "endChar": 16
+      },
+      "revId": "16d98f093b19fa6261583b70f8a82c5227c3ba1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c4e3e1e_cc39f8e5",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-02T10:45:11Z",
+      "side": 1,
+      "message": "Done, moved it to a button.",
+      "parentUuid": "3cfbe137_a8904dda",
       "range": {
         "startLine": 419,
         "startChar": 15,
@@ -117,6 +207,30 @@
       "writtenOn": "2021-02-02T08:01:28Z",
       "side": 1,
       "message": "ultra-nit: is a custom component",
+      "range": {
+        "startLine": 29,
+        "startChar": 55,
+        "endLine": 29,
+        "endChar": 74
+      },
+      "revId": "16d98f093b19fa6261583b70f8a82c5227c3ba1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42fff906_8e19fd4b",
+        "filename": "test/e2e/application/frame-tree_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-02T10:45:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0da6ad63_f8b61a6c",
       "range": {
         "startLine": 29,
         "startChar": 55,
