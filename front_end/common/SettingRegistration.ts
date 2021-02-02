@@ -2,12 +2,72 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as i18n from '../i18n/i18n.js';
 import * as Platform from '../platform/platform.js';
-import {ls} from '../platform/platform.js';
 import * as Root from '../root/root.js';
 
 import {SettingStorageType} from './Settings.js';
 
+export const UIStrings = {
+  /**
+  *@description Title of the Elements Panel
+  */
+  elements: 'Elements',
+  /**
+  *@description Text for DevTools appearance
+  */
+  appearance: 'Appearance',
+  /**
+  *@description Name of the Sources panel
+  */
+  sources: 'Sources',
+  /**
+  *@description Title of the Network tool
+  */
+  network: 'Network',
+  /**
+  *@description Text for the performance of something
+  */
+  performance: 'Performance',
+  /**
+  *@description Title of the Console tool
+  */
+  console: 'Console',
+  /**
+  *@description A title of the 'Persistence' setting category
+  */
+  persistence: 'Persistence',
+  /**
+  *@description Text that refers to the debugger
+  */
+  debugger: 'Debugger',
+  /**
+  *@description Text describing global shortcuts and settings that are available throughout the DevTools
+  */
+  global: 'Global',
+  /**
+  *@description Title of the Rendering tool
+  */
+  rendering: 'Rendering',
+  /**
+  *@description Title of a section on CSS Grid tooling
+  */
+  grid: 'Grid',
+  /**
+  *@description Text for the mobile platform, as opposed to desktop
+  */
+  mobile: 'Mobile',
+  /**
+  *@description Name of a settings category.
+  */
+  emulation: 'Emulation',
+  /**
+  *@description Text for the memory of the page
+  */
+  memory: 'Memory',
+};
+const str_ = i18n.i18n.registerUIStrings('common/SettingRegistration.js', UIStrings);
+const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 const registeredSettings: Array<SettingRegistration> = [];
 const settingNameSet = new Set<string>();
 
@@ -28,20 +88,20 @@ export function getRegisteredSettings(): Array<SettingRegistration> {
 }
 
 export const SettingCategoryObject = {
-  ELEMENTS: ls`Elements`,
-  APPEARANCE: ls`Appearance`,
-  SOURCES: ls`Sources`,
-  NETWORK: ls`Network`,
-  PERFORMANCE: ls`Performance`,
-  CONSOLE: ls`Console`,
-  PERSISTENCE: ls`Persistence`,
-  DEBUGGER: ls`Debugger`,
-  GLOBAL: ls`Global`,
-  RENDERING: ls`Rendering`,
-  GRID: ls`Grid`,
-  MOBILE: ls`Mobile`,
-  EMULATION: ls`Emulation`,
-  MEMORY: ls`Memory`,
+  ELEMENTS: i18nString(UIStrings.elements),
+  APPEARANCE: i18nString(UIStrings.appearance),
+  SOURCES: i18nString(UIStrings.sources),
+  NETWORK: i18nString(UIStrings.network),
+  PERFORMANCE: i18nString(UIStrings.performance),
+  CONSOLE: i18nString(UIStrings.console),
+  PERSISTENCE: i18nString(UIStrings.persistence),
+  DEBUGGER: i18nString(UIStrings.debugger),
+  GLOBAL: i18nString(UIStrings.global),
+  RENDERING: i18nString(UIStrings.rendering),
+  GRID: i18nString(UIStrings.grid),
+  MOBILE: i18nString(UIStrings.mobile),
+  EMULATION: i18nString(UIStrings.emulation),
+  MEMORY: i18nString(UIStrings.memory),
 };
 
 export type SettingCategory = typeof SettingCategoryObject[keyof typeof SettingCategoryObject];
