@@ -2558,6 +2558,15 @@
   "persistence/WorkspaceSettingsTab.js | workspace": {
     "message": "Workspace"
   },
+  "platform/number-utilities.js | fb": {
+    "message": "{PH1} B"
+  },
+  "platform/number-utilities.js | fkb": {
+    "message": "{PH1} kB"
+  },
+  "platform/number-utilities.js | fmb": {
+    "message": "{PH1} MB"
+  },
   "profiler/CPUProfileView.js | aggregatedSelfTime": {
     "message": "Aggregated self time"
   },

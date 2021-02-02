@@ -2,8 +2,26 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {UIString} from './UIString.js';
-
+import * as i18n from '../i18n/i18n.js';
+export const UIStrings = {
+  /**
+  *@description Text to show how many bytes the data size is.
+  *@example {2} PH1
+  */
+  fb: '{PH1} B',
+  /**
+  *@description Text to show how many kilobytes the data size is.
+  *@example {5.1} PH1
+  */
+  fkb: '{PH1} kB',
+  /**
+  *@description Text to show how many megabytes the data size is.
+  *@example {2.1} PH1
+  */
+  fmb: '{PH1} MB',
+};
+const str_ = i18n.i18n.registerUIStrings('platform/number-utilities.js', UIStrings);
+const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 /**
  * @param {number} num
  * @param {number} min
@@ -35,22 +53,22 @@ export const mod = (m, n) => {
  */
 export const bytesToString = bytes => {
   if (bytes < 1000) {
-    return UIString('%.0f\xA0B', bytes);
+    return i18nString(UIStrings.fb, {PH1: bytes.toFixed(0)});
   }
 
   const kilobytes = bytes / 1000;
   if (kilobytes < 100) {
-    return UIString('%.1f\xA0kB', kilobytes);
+    return i18nString(UIStrings.fkb, {PH1: kilobytes.toFixed(1)});
   }
   if (kilobytes < 1000) {
-    return UIString('%.0f\xA0kB', kilobytes);
+    return i18nString(UIStrings.fkb, {PH1: kilobytes.toFixed(0)});
   }
 
   const megabytes = kilobytes / 1000;
   if (megabytes < 100) {
-    return UIString('%.1f\xA0MB', megabytes);
+    return i18nString(UIStrings.fmb, {PH1: megabytes.toFixed(1)});
   }
-  return UIString('%.0f\xA0MB', megabytes);
+  return i18nString(UIStrings.fmb, {PH1: megabytes.toFixed(0)});
 };
 
 /**
