@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b0997f0_63efb812",
+        "filename": "scripts/stylelint_rules/lib/use_theme_colors.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-02T14:59:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c859600d_4c835a0c",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 22
+      },
+      "revId": "7db47eb868bd6c7d8f1ce74b5da83d2b3cb55b6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "36b9745d_89ba1eaa",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-02-02T14:50:20Z",
       "side": 1,
       "message": "nit: RULE_NAME for a const variable like this, I think",
+      "range": {
+        "startLine": 11,
+        "startChar": 6,
+        "endLine": 11,
+        "endChar": 14
+      },
+      "revId": "7db47eb868bd6c7d8f1ce74b5da83d2b3cb55b6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba97771d_2bef33d1",
+        "filename": "scripts/stylelint_rules/lib/use_theme_colors.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-02T14:59:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36b9745d_89ba1eaa",
       "range": {
         "startLine": 11,
         "startChar": 6,
@@ -89,6 +137,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d79e39e1_8a392b43",
+        "filename": "scripts/stylelint_rules/lib/use_theme_colors.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-02T14:59:11Z",
+      "side": 1,
+      "message": "I don\u0027t think it\u0027s worth it to be honest; because I want to use this function to define top level constants. If I did I\u0027d have to wrap it all in an async block and I\u0027m not sure that stylelint would cope with that - so it\u0027s easier to keep it sync. Shout if you disagree!",
+      "parentUuid": "1168afc0_b2755ead",
+      "range": {
+        "startLine": 19,
+        "startChar": 26,
+        "endLine": 19,
+        "endChar": 38
+      },
+      "revId": "7db47eb868bd6c7d8f1ce74b5da83d2b3cb55b6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d560f8bb_65d58652",
         "filename": "scripts/stylelint_rules/lib/use_theme_colors.js",
         "patchSetId": 2
@@ -100,6 +172,30 @@
       "writtenOn": "2021-02-02T14:50:20Z",
       "side": 1,
       "message": "nit: maybe hoist these to the top?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 3
+      },
+      "revId": "7db47eb868bd6c7d8f1ce74b5da83d2b3cb55b6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "755df634_24895a3f",
+        "filename": "scripts/stylelint_rules/lib/use_theme_colors.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-02T14:59:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d560f8bb_65d58652",
       "range": {
         "startLine": 32,
         "startChar": 0,
@@ -133,6 +229,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb95ec9c_3564eb29",
+        "filename": "scripts/stylelint_rules/lib/use_theme_colors.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-02T14:59:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5983601_03579087",
+      "range": {
+        "startLine": 51,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 5
+      },
+      "revId": "7db47eb868bd6c7d8f1ce74b5da83d2b3cb55b6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "efea5b80_b8f3b599",
@@ -156,6 +276,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a2fc1e3_fdd7f92d",
+        "filename": "scripts/stylelint_rules/lib/use_theme_colors.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-02T14:59:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "efea5b80_b8f3b599",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 0
+      },
+      "revId": "7db47eb868bd6c7d8f1ce74b5da83d2b3cb55b6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "070ebaad_47f7a5a5",
@@ -169,6 +313,30 @@
       "writtenOn": "2021-02-02T14:50:20Z",
       "side": 1,
       "message": "Remove?",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 16
+      },
+      "revId": "7db47eb868bd6c7d8f1ce74b5da83d2b3cb55b6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c365532b_df53eab0",
+        "filename": "scripts/stylelint_rules/test/use_theme_colors_test.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-02T14:59:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "070ebaad_47f7a5a5",
       "range": {
         "startLine": 5,
         "startChar": 0,
