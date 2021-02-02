@@ -16,6 +16,46 @@
       "message": "Migrate browser_debugger, PTAL, thank you!",
       "revId": "c82be0e684bd1d533115dd97132e91ba7b797eb1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20c09ec3_c15a6925",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-02T10:09:40Z",
+      "side": 1,
+      "message": "LGTM with nit. Thanks!",
+      "revId": "c82be0e684bd1d533115dd97132e91ba7b797eb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83498bc6_bcd95312",
+        "filename": "front_end/browser_debugger/ModuleUIStrings.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-02T10:09:40Z",
+      "side": 1,
+      "message": "nit: 1",
+      "range": {
+        "startLine": 1,
+        "startChar": 16,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "c82be0e684bd1d533115dd97132e91ba7b797eb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
