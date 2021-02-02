@@ -16,6 +16,46 @@
       "message": "PTAL!\n\nI think we have some more work to do around making our focus more robust, but this is a good step to fix the bug.",
       "revId": "40b1b6fd2d0a57308526d71b909da82195b87cf9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9411b917_3cbae7bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-02-02T10:39:58Z",
+      "side": 1,
+      "message": "LGTM with nit",
+      "revId": "40b1b6fd2d0a57308526d71b909da82195b87cf9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b755180_3000ac1b",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-02-02T10:39:58Z",
+      "side": 1,
+      "message": "nit: I feel like this should be bounced out to a variable, e.g., currentlyFocusedCell",
+      "range": {
+        "startLine": 902,
+        "startChar": 33,
+        "endLine": 902,
+        "endChar": 54
+      },
+      "revId": "40b1b6fd2d0a57308526d71b909da82195b87cf9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
