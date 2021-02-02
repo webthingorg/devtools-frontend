@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f6e22449_6db52f3a",
+        "filename": "front_end/network/NetworkConfigView.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2021-02-02T14:25:33Z",
+      "side": 1,
+      "message": "This is because the \u003clocked\u003e tag from grdp, meaning this should not be translated, and in ctc.json this will get converted to placeholder.\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2662325/6/front_end/network/network_strings.grdp#b1096\nBut then since the whole term is locked... maybe it should just be a regular string without going through the translation pipeline, WDYT?",
+      "parentUuid": "30f7aa5e_20141f7f",
+      "range": {
+        "startLine": 47,
+        "startChar": 11,
+        "endLine": 47,
+        "endChar": 22
+      },
+      "revId": "fe65f5999e5e7e8d0dd2dc4c64b4476b3f3552c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "589d92d3_7208b4c0",
         "filename": "front_end/network/NetworkConfigView.js",
         "patchSetId": 6
@@ -71,6 +95,30 @@
       "writtenOn": "2021-02-02T07:37:11Z",
       "side": 1,
       "message": "q: Is it intended that the hyphen is \"inlined\"? I checked and it has the right unicode, I just want to make sure that this is known and not just a byproduct of automation :)",
+      "range": {
+        "startLine": 51,
+        "startChar": 55,
+        "endLine": 51,
+        "endChar": 56
+      },
+      "revId": "fe65f5999e5e7e8d0dd2dc4c64b4476b3f3552c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4056c868_4210ae0a",
+        "filename": "front_end/network/NetworkConfigView.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2021-02-02T14:25:33Z",
+      "side": 1,
+      "message": "The version of the string is taken from grdp, is it better if we use \u0027\\u2014\u0027 instead?\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2662325/6/front_end/network/network_strings.grdp#b42",
+      "parentUuid": "589d92d3_7208b4c0",
       "range": {
         "startLine": 51,
         "startChar": 55,
@@ -104,6 +152,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "74c85fe8_eb8d8cd9",
+        "filename": "front_end/network/NetworkLogView.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 1179,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2021-02-02T14:25:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "330e92bb_df772556",
+      "range": {
+        "startLine": 1179,
+        "startChar": 56,
+        "endLine": 1179,
+        "endChar": 68
+      },
+      "revId": "fe65f5999e5e7e8d0dd2dc4c64b4476b3f3552c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "114163b6_00ae7855",
@@ -117,6 +189,30 @@
       "writtenOn": "2021-02-02T07:37:11Z",
       "side": 1,
       "message": "I think we should spell out the non-breakable space here. This could easily get lost. Also, why do we have to translate this in the first place? I think we could do the number formatting without going through the translation pipeline.",
+      "range": {
+        "startLine": 86,
+        "startChar": 6,
+        "endLine": 86,
+        "endChar": 7
+      },
+      "revId": "fe65f5999e5e7e8d0dd2dc4c64b4476b3f3552c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84c86683_e7dd4375",
+        "filename": "front_end/network/RequestHeadersView.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2021-02-02T14:25:33Z",
+      "side": 1,
+      "message": "Agreed that these don\u0027t need to go through the translation pipeline.",
+      "parentUuid": "114163b6_00ae7855",
       "range": {
         "startLine": 86,
         "startChar": 6,
@@ -163,6 +259,30 @@
       "writtenOn": "2021-02-02T07:37:11Z",
       "side": 1,
       "message": "nit: alpha sorting",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 11
+      },
+      "revId": "fe65f5999e5e7e8d0dd2dc4c64b4476b3f3552c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "153bd928_7597aef4",
+        "filename": "front_end/network/module.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2021-02-02T14:25:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbccdb08_8bd3857f",
       "range": {
         "startLine": 35,
         "startChar": 4,
