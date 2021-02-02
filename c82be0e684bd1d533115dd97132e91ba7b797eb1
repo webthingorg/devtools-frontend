@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef06813e_a98b48f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2021-02-02T09:55:22Z",
+      "side": 1,
+      "message": "Migrate browser_debugger, PTAL, thank you!",
+      "revId": "c82be0e684bd1d533115dd97132e91ba7b797eb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
