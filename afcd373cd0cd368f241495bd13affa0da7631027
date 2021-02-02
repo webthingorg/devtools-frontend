@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf50111d_66c026dd",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-02T14:31:10Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "97ee9a58_d14bea0e",
+      "range": {
+        "startLine": 405,
+        "startChar": 0,
+        "endLine": 405,
+        "endChar": 79
+      },
+      "revId": "afcd373cd0cd368f241495bd13affa0da7631027",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "33bbcb15_a087f48f",
@@ -83,6 +107,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "846f0adc_9dde5eb7",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-02T14:31:10Z",
+      "side": 1,
+      "message": "I believe that this would work but wouldn\u0027t be valid HTML https://github.com/WICG/webcomponents/issues/624#issuecomment-370310607",
+      "parentUuid": "33bbcb15_a087f48f",
+      "range": {
+        "startLine": 406,
+        "startChar": 0,
+        "endLine": 406,
+        "endChar": 57
+      },
+      "revId": "afcd373cd0cd368f241495bd13affa0da7631027",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5af21813_c7a02e1f",
         "filename": "front_end/resources/FrameDetailsView.ts",
         "patchSetId": 6
@@ -94,6 +142,30 @@
       "writtenOn": "2021-02-02T11:30:16Z",
       "side": 1,
       "message": "I\u0027d probably swap this for LitHtml.nothing just to be consistent.",
+      "range": {
+        "startLine": 467,
+        "startChar": 101,
+        "endLine": 467,
+        "endChar": 103
+      },
+      "revId": "afcd373cd0cd368f241495bd13affa0da7631027",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74e3f7c9_6d5d6438",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-02T14:31:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5af21813_c7a02e1f",
       "range": {
         "startLine": 467,
         "startChar": 101,
