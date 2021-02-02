@@ -12,8 +12,8 @@
   const parent = UI.panels.resources._sidebar._applicationTreeElement;
   const clearStorageElement = parent.children().find(child => child.title === ls`Storage`);
   clearStorageElement.select();
-  const clearStorageView = UI.panels.resources.visibleView;
-  TestRunner.addResult('Clear storage view is visible: ' + (clearStorageView instanceof Resources.ClearStorageView));
+  const storageView = UI.panels.resources.visibleView;
+  TestRunner.addResult('Clear storage view is visible: ' + (storageView instanceof Resources.StorageView));
 
   async function writeArray() {
     const array = Array(1).fill(0);
@@ -27,6 +27,6 @@
   }
 
   await writeArray();
-  await AxeCoreTestRunner.runValidation(clearStorageView.contentElement);
+  await AxeCoreTestRunner.runValidation(storageView.contentElement);
   TestRunner.completeTest();
 })();
