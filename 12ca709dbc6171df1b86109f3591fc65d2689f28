@@ -16,6 +16,23 @@
       "message": "ptal",
       "revId": "12ca709dbc6171df1b86109f3591fc65d2689f28",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44cf477a_fa540d32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-02T13:22:23Z",
+      "side": 1,
+      "message": "Now it looks like the icon is a bit too far up? Rubber-stamping to unblock you as this CL makes it better.",
+      "revId": "12ca709dbc6171df1b86109f3591fc65d2689f28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
