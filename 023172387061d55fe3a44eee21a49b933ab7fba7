@@ -82,6 +82,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea024812_b32a362f",
+        "filename": "front_end/issues/IssueAggregator.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-02T13:57:53Z",
+      "side": 1,
+      "message": "We don\u0027t update the IssuesManager tests.\n\nLet\u0027s keep your test, is makes sure the IssueAggregator does what it should.",
+      "parentUuid": "851ed398_0c4faafb",
+      "range": {
+        "startLine": 209,
+        "startChar": 6,
+        "endLine": 209,
+        "endChar": 61
+      },
+      "revId": "023172387061d55fe3a44eee21a49b933ab7fba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "34b18fd7_1ecc1cda",
