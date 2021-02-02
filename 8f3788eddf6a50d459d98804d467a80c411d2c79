@@ -33,6 +33,24 @@
       "message": "Is it necessary to check for err? Does it matter for screenshots, or could we just always take one?",
       "revId": "8f3788eddf6a50d459d98804d467a80c411d2c79",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4add040f_22db9d52",
+        "filename": "test/shared/mocha-extensions.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-02T17:15:56Z",
+      "side": 1,
+      "message": "I was not sure if timeoutHook is only invoked on timeouts or after every test? from the code it looked like it\u0027s always invoked?",
+      "parentUuid": "3092b3a9_61c03c19",
+      "revId": "8f3788eddf6a50d459d98804d467a80c411d2c79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
