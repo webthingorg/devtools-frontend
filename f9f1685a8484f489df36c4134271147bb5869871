@@ -16,6 +16,23 @@
       "message": "PTAL, thanks!",
       "revId": "f9f1685a8484f489df36c4134271147bb5869871",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0129847c_2138abee",
+        "filename": "front_end/recorder/RecordingSession.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-02T11:41:06Z",
+      "side": 1,
+      "message": "would it make sense to extract the indentation code and test it separately?",
+      "revId": "f9f1685a8484f489df36c4134271147bb5869871",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
