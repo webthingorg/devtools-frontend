@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14d11f82_64c4da4b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-02T16:00:39Z",
+      "side": 1,
+      "message": "Tim PTAL. I think this will result in us shipping en-XL which is a bit unfortunate - is there a way to make it available to tests/the hosted mode server but not shipped?",
+      "revId": "e2215a27408a0808b56bebeaa9605bfbcfe6b0fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
