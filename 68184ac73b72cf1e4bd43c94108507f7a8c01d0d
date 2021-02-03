@@ -91,6 +91,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b9896344_be289f83",
+        "filename": "front_end/browser_sdk/browser_sdk.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-03T14:01:29Z",
+      "side": 1,
+      "message": "The tests fail because the evaluate call for the document readiness runs on a provisional frame (https://source.chromium.org/chromium/chromium/src/+/master:third_party/blink/renderer/core/frame/local_frame.h;l\u003d499;drc\u003dc0a9115bc2eac671d3fa00ddebd8911144905b1c). And the evaluate call is executed when a new resource tree model is added. I am not sure yet if the provisional frame is  the main frame or one of the iframes but I think it could happen even if we trigger the check from the Elements UI because frames are loaded async. I can reproduce the issue locally so I will check what exactly is causing this.",
+      "parentUuid": "0e7fe755_d9bacabc",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 53
+      },
+      "revId": "68184ac73b72cf1e4bd43c94108507f7a8c01d0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bda8b1ba_60da27cb",
         "filename": "front_end/issues/AffectedElementsWithLowContrastView.ts",
         "patchSetId": 12
