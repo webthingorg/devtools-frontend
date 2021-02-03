@@ -33,6 +33,29 @@
       "message": "+Christy",
       "revId": "e2215a27408a0808b56bebeaa9605bfbcfe6b0fc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f7ba22b_e8064104",
+        "filename": "all_devtools_files.gni",
+        "patchSetId": 2
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-03T16:17:12Z",
+      "side": 1,
+      "message": "Rather than including this file here (which is then included as one of the sources in `i18n`), we can manually copy this file for the test infrastructure. So your `test/e2e/i18n/BUILD.gn` would then depend on a separate test-only `i18n_test_locales` action that contains solely the `en-XL.json`.\n\nAs such, when you build the e2e test, the dependency will copy the `en-XL.json` into `gen/front_end/i18n/locales/` so that you can fetch it in the test and it should be passing.",
+      "range": {
+        "startLine": 492,
+        "startChar": 2,
+        "endLine": 492,
+        "endChar": 23
+      },
+      "revId": "e2215a27408a0808b56bebeaa9605bfbcfe6b0fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
