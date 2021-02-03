@@ -33,6 +33,23 @@
       "message": "Now it looks like the icon is a bit too far up? Rubber-stamping to unblock you as this CL makes it better.",
       "revId": "12ca709dbc6171df1b86109f3591fc65d2689f28",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28db805c_ba8816dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-03T06:04:09Z",
+      "side": 1,
+      "message": "Landing as-is for now as it is a strict improvement. Will look into improving it further.",
+      "revId": "12ca709dbc6171df1b86109f3591fc65d2689f28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
