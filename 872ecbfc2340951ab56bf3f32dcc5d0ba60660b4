@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93c045ba_a41825e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-03T07:18:03Z",
+      "side": 1,
+      "message": "PTAL, diff of PS1 to PS2 contains the change of the reland. See the CLs description for an explanation.",
+      "revId": "872ecbfc2340951ab56bf3f32dcc5d0ba60660b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
