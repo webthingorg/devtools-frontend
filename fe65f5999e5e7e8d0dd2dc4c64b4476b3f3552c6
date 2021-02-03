@@ -84,6 +84,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "79358633_6110a61e",
+        "filename": "front_end/network/NetworkConfigView.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-03T06:25:28Z",
+      "side": 1,
+      "message": "Ah that makes sense, thanks for the explanation. I forgot that V2 implements \u003clocked\u003e terms this way.\n\nI don\u0027t think we get any value translating terms where the whole term is locked. I\u0027d prefer if we turn these into plain old strings. This can also happen in a follow-up, should the types not match and the code expect a localized string (in which case we should update the types and not translate locked-only terms).",
+      "parentUuid": "f6e22449_6db52f3a",
+      "range": {
+        "startLine": 47,
+        "startChar": 11,
+        "endLine": 47,
+        "endChar": 22
+      },
+      "revId": "fe65f5999e5e7e8d0dd2dc4c64b4476b3f3552c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "589d92d3_7208b4c0",
         "filename": "front_end/network/NetworkConfigView.js",
         "patchSetId": 6
@@ -119,6 +143,30 @@
       "side": 1,
       "message": "The version of the string is taken from grdp, is it better if we use \u0027\\u2014\u0027 instead?\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2662325/6/front_end/network/network_strings.grdp#b42",
       "parentUuid": "589d92d3_7208b4c0",
+      "range": {
+        "startLine": 51,
+        "startChar": 55,
+        "endLine": 51,
+        "endChar": 56
+      },
+      "revId": "fe65f5999e5e7e8d0dd2dc4c64b4476b3f3552c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e920a7e_60409fe4",
+        "filename": "front_end/network/NetworkConfigView.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-03T06:25:28Z",
+      "side": 1,
+      "message": "Personally, I\u0027d prefer to use \u0027\\u2014\u0027. If someone refactors code here (or adds new entries), it will be easily missed that its not a standard hyphen. Wdyt?\n\nNot a strong opinion on this one though.",
+      "parentUuid": "4056c868_4210ae0a",
       "range": {
         "startLine": 51,
         "startChar": 55,
