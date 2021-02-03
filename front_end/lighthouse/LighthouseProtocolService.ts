@@ -118,7 +118,7 @@ export class ProtocolService extends Common.ObjectWrapper.ObjectWrapper {
     }
   }
 
-  async _send(method: string, params?: {[x: string]: string|string[]|Object;}): Promise<ReportRenderer.RunnerResult> {
+  async _send(method: string, params?: {[x: string]: string|string[]|Object}): Promise<ReportRenderer.RunnerResult> {
     let backendPromise = this._backendPromise;
     if (!backendPromise) {
       backendPromise = this._initWorker();

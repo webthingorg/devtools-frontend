@@ -270,7 +270,7 @@ export class PlayerMessagesView extends UI.Widget.VBox {
 
   _createFilterInput(): UI.Toolbar.ToolbarInput {
     const filterInput = new UI.Toolbar.ToolbarInput(i18nString(UIStrings.filterLogMessages));
-    filterInput.addEventListener(UI.Toolbar.ToolbarInput.Event.TextChanged, (data: {data: string;}) => {
+    filterInput.addEventListener(UI.Toolbar.ToolbarInput.Event.TextChanged, (data: {data: string}) => {
       this._filterByString(data as {
         data: string;
       });
@@ -298,7 +298,7 @@ export class PlayerMessagesView extends UI.Widget.VBox {
     return false;
   }
 
-  _filterByString(userStringData: {data: string;}): void {
+  _filterByString(userStringData: {data: string}): void {
     const userString = userStringData.data;
     const messages = this._bodyPanel.getElementsByClassName('media-messages-message-container');
 

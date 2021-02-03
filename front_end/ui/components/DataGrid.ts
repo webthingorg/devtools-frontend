@@ -31,10 +31,7 @@ export interface DataGridData {
 }
 
 export class ColumnHeaderClickEvent extends Event {
-  data: {
-    column: Column,
-    columnIndex: number,
-  };
+  data: {column: Column, columnIndex: number};
 
   constructor(column: Column, columnIndex: number) {
     super('column-header-click');
@@ -67,10 +64,7 @@ export class BodyCellFocusedEvent extends Event {
    * row is active, so on the cell focused event we also send the row that the
    * cell is part of.
    */
-  data: {
-    cell: Cell,
-    row: Row,
-  };
+  data: {cell: Cell, row: Row};
 
   constructor(cell: Cell, row: Row) {
     super('cell-focused', {
@@ -96,15 +90,13 @@ export class DataGrid extends HTMLElement {
   private scheduledRender = false;
   private contextMenus?: DataGridContextMenusConfiguration = undefined;
   private currentResize: {
-    rightCellCol: HTMLTableColElement,
-    leftCellCol: HTMLTableColElement,
-    leftCellColInitialPercentageWidth: number,
-    rightCellColInitialPercentageWidth: number,
-    initialLeftCellWidth: number,
-    initialRightCellWidth: number,
-    initialMouseX: number,
-    documentForCursorChange: Document,
-    cursorToRestore: string,
+    rightCellCol: HTMLTableColElement; leftCellCol: HTMLTableColElement; leftCellColInitialPercentageWidth: number;
+    rightCellColInitialPercentageWidth: number;
+    initialLeftCellWidth: number;
+    initialRightCellWidth: number;
+    initialMouseX: number;
+    documentForCursorChange: Document;
+    cursorToRestore: string;
   }|null = null;
   // Because we only render a subset of rows, we need a way to look up the
   // actual row index from the original dataset. We could use this.rows[index]

@@ -15,7 +15,7 @@ export const TEXT_NODE = 'TEXT_NODE';
 interface ExpectedMutation {
   max?: number;
   target: keyof HTMLElementTagNameMap|typeof TEXT_NODE;
-  type?: MutationType
+  type?: MutationType;
 }
 
 const nodeShouldBeIgnored = (node: Node): boolean => {
@@ -57,7 +57,9 @@ const observedMutationsThatMatchExpected =
     };
 
 interface MutationCount {
-  ADD: number, REMOVE: number, TEXT_UPDATE: number,
+  ADD: number;
+  REMOVE: number;
+  TEXT_UPDATE: number;
 }
 
 const getMutationsForTagName = (trackedMutations: Map<string, MutationCount>, tagName: string): MutationCount => {
@@ -90,8 +92,7 @@ const getAllMutationCounts = (observedMutations: ObservedMutation[]): Map<string
 };
 
 type ObservedMutation = {
-  target: keyof HTMLElementTagNameMap,
-  type: MutationType
+  target: keyof HTMLElementTagNameMap; type: MutationType;
 }|{target: typeof TEXT_NODE, type: MutationType.TEXT_UPDATE};
 
 const storeRelevantMutationEntries = (entries: MutationRecord[], storageArray: ObservedMutation[]) => {

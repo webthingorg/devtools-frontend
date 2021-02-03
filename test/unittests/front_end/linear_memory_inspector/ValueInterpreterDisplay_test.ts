@@ -17,9 +17,8 @@ describe('ValueInterpreterDisplay', () => {
 
   function testNumberFormatCombinations(
       baseData: {
-        buffer: ArrayBuffer,
-        type: LinearMemoryInspector.ValueInterpreterDisplayUtils.ValueType,
-        mode: LinearMemoryInspector.ValueInterpreterDisplayUtils.ValueTypeMode
+        buffer: ArrayBuffer; type: LinearMemoryInspector.ValueInterpreterDisplayUtils.ValueType;
+        mode: LinearMemoryInspector.ValueInterpreterDisplayUtils.ValueTypeMode;
       },
       combinations:
           Array<{endianness: LinearMemoryInspector.ValueInterpreterDisplayUtils.Endianness, signed: boolean}>) {

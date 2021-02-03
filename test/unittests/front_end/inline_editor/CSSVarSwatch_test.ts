@@ -8,13 +8,10 @@ import {assertShadowRoot, renderElementIntoDOM} from '../helpers/DOMHelpers.js';
 
 const {assert} = chai;
 
-function assertSwatch(swatch: InlineEditor.CSSVarSwatchImpl.CSSVarSwatch, expected: {
-  valueTooltip: string|null,
-  linkTooltip: string,
-  isDefined: boolean,
-  varText: string,
-  parsedColor?: string
-}) {
+function assertSwatch(
+    swatch: InlineEditor.CSSVarSwatchImpl.CSSVarSwatch,
+    expected:
+        {valueTooltip: string|null, linkTooltip: string, isDefined: boolean, varText: string, parsedColor?: string}) {
   assertShadowRoot(swatch.shadowRoot);
   const container = swatch.shadowRoot.querySelector('span');
   assertNotNull(container);

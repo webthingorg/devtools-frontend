@@ -59,7 +59,7 @@ declare global {
     Host: {
       UserMetrics: UserMetrics; userMetrics: {
         actionTaken(name: number): void; colorFixed(threshold: string): void; cssEditorOpened(editorName: string): void;
-      }
+      };
     };
   }
 }

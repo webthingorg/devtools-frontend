@@ -62,7 +62,7 @@ let performanceMonitorImplInstance: PerformanceMonitorImpl;
 
 export class PerformanceMonitorImpl extends UI.Widget.HBox implements
     SDK.SDKModel.SDKModelObserver<SDK.PerformanceMetricsModel.PerformanceMetricsModel> {
-  _metricsBuffer: {timestamp: number; metrics: Map<string, number>;}[];
+  _metricsBuffer: {timestamp: number, metrics: Map<string, number>}[];
   _pixelsPerMs: number;
   _pollIntervalMs: number;
   _scaleHeight: number;
@@ -629,7 +629,7 @@ export interface MetricInfo {
 }
 export interface ChartInfo {
   title: string;
-  metrics: {name: string; color: string;}[];
+  metrics: {name: string, color: string}[];
   max?: number;
   currentMax?: number;
   format?: Format;

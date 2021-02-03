@@ -312,10 +312,7 @@ export function retrieveSourceFilesAdded(frontend: puppeteer.Page) {
 
 // Helpers for navigating the file tree.
 export type NestedFileSelector = {
-  rootSelector: string,
-  domainSelector: string,
-  folderSelector: string,
-  fileSelector: string,
+  rootSelector: string; domainSelector: string; folderSelector: string; fileSelector: string;
 };
 
 export function createSelectorsForWorkerFile(

@@ -140,7 +140,7 @@ export function emptyBounds(): PathBounds {
   return bounds;
 }
 
-export function applyMatrixToPoint(point: {x: number; y: number;}, matrix: DOMMatrix): {x: number; y: number;} {
+export function applyMatrixToPoint(point: {x: number, y: number}, matrix: DOMMatrix): {x: number, y: number} {
   let domPoint = new DOMPoint(point.x, point.y);
   domPoint = domPoint.matrixTransform(matrix);
   return {x: domPoint.x, y: domPoint.y};

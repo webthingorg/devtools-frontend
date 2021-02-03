@@ -206,7 +206,7 @@ export class WorkspaceImpl extends Common.ObjectWrapper.ObjectWrapper {
     this._hasResourceContentTrackingExtensions = false;
   }
 
-  static instance(opts: {forceNew: boolean|null;} = {forceNew: null}): WorkspaceImpl {
+  static instance(opts: {forceNew: boolean|null} = {forceNew: null}): WorkspaceImpl {
     const {forceNew} = opts;
     if (!workspaceInstance || forceNew) {
       workspaceInstance = new WorkspaceImpl();

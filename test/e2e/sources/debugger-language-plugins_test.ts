@@ -22,52 +22,40 @@ declare global {
 }
 
 type RawModule = {
-  url: string,
-  code?: ArrayBuffer
+  url: string;
+  code?: ArrayBuffer;
 };
 
 type RawLocationRange = {
-  rawModuleId: string,
-  startOffset: number,
-  endOffset: number
+  rawModuleId: string; startOffset: number; endOffset: number;
 };
 
 type RawLocation = {
-  rawModuleId: string,
-  codeOffset: number,
-  inlineFrameIndex?: number
+  rawModuleId: string; codeOffset: number;
+  inlineFrameIndex?: number;
 };
 
 type SourceLocation = {
-  rawModuleId: string,
-  sourceFileURL: string,
-  lineNumber: number,
-  columnNumber: number
+  rawModuleId: string; sourceFileURL: string; lineNumber: number; columnNumber: number;
 };
 
 type Variable = {
-  scope: string,
-  name: string,
-  type: string,
-  nestedName?: Array<string>
+  scope: string; name: string; type: string;
+  nestedName?: Array<string>;
 };
 
 type VariableValue = {
-  value: string|Array<VariableValue>,
-  js_type: string,
-  type: string,
-  name: string
+  value: string|Array<VariableValue>; js_type: string; type: string; name: string;
 };
 
 type EvaluatorModule = {
-  code?: ArrayBuffer,
-  constantValue?: VariableValue
+  code?: ArrayBuffer;
+  constantValue?: VariableValue;
 };
 
 type ScopeInfo = {
-  type: string,
-  typeName: string,
-  icon?: string
+  type: string; typeName: string;
+  icon?: string;
 };
 
 interface EvalBase {
@@ -92,7 +80,7 @@ interface TypeInfo {
   hasValue: boolean;
 }
 type FunctionInfo = {
-  name?: string
+  name?: string;
 };
 
 interface TestPluginImpl {

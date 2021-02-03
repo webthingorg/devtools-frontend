@@ -119,8 +119,10 @@ export function calculateColumnWidthPercentageFromWeighting(allColumns: readonly
 }
 
 export interface HandleArrowKeyOptions {
-  key: Platform.KeyboardUtilities.ArrowKey, currentFocusedCell: readonly[number, number], columns: readonly Column[],
-      rows: readonly Row[],
+  key: Platform.KeyboardUtilities.ArrowKey;
+  currentFocusedCell: readonly[number, number];
+  columns: readonly Column[];
+  rows: readonly Row[];
 }
 
 export function handleArrowKeyNavigation(options: HandleArrowKeyOptions): CellPosition {
@@ -238,9 +240,7 @@ export const calculateFirstFocusableCell =
 
 
 export class ContextMenuColumnSortClickEvent extends Event {
-  data: {
-    column: Column,
-  };
+  data: {column: Column};
 
   constructor(column: Column) {
     super('context-menu-column-sort-click');

@@ -345,7 +345,7 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
   }
 
   _messageSent(
-      message: {domain: string; method: string; params: Object; id: number;},
+      message: {domain: string, method: string, params: Object, id: number},
       target: ProtocolClient.InspectorBackend.TargetBase|null): void {
     const sdkTarget = target as SDK.SDKModel.Target | null;
     const newRow: Components.DataGridUtils.Row = {

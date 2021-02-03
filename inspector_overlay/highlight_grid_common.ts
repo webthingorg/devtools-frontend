@@ -218,7 +218,8 @@ export interface GridHighlight {
   gridBorder: Array<string|number>;
   writingMode: string;
   rowGaps: Array<string|number>;
-  rotationAngle: number, columnGaps: Array<string|number>;
+  rotationAngle: number;
+  columnGaps: Array<string|number>;
   rows: Array<string|number>;
   columns: Array<string|number>;
   areaNames: {[key: string]: Array<string|number>};
@@ -236,7 +237,7 @@ export interface GridHighlight {
     rowHatchColor: string;
     columnHatchColor: string;
     showLineNames: boolean;
-  }
+  };
 }
 
 export function drawLayoutGridHighlight(

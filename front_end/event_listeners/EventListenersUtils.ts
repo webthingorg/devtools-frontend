@@ -212,7 +212,7 @@ export function frameworkEventListeners(object: SDK.RemoteObject.RemoteObject): 
           ]
         }
     */
-  function frameworkEventListenersImpl(this: Object): {eventListeners: Array<EventListenerObjectInInspectedPage>;} {
+  function frameworkEventListenersImpl(this: Object): {eventListeners: Array<EventListenerObjectInInspectedPage>} {
     const errorLines = [];
     let eventListeners: EventListenerObjectInInspectedPage[] = [];
     let internalHandlers: (() => void)[] = [];
@@ -373,7 +373,7 @@ export function frameworkEventListeners(object: SDK.RemoteObject.RemoteObject): 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     function jQueryFetcher(node: any): {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      eventListeners: {handler: any; useCapture: boolean; passive: boolean; once: boolean; type: string;}[];
+      eventListeners: {handler: any, useCapture: boolean, passive: boolean, once: boolean, type: string}[];
       internalHandlers?: (() => void)[];
     } {
       if (!node || !(node instanceof Node)) {
