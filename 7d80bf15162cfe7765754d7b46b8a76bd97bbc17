@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82e5b3aa_bda2de54",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-03T13:46:13Z",
+      "side": 1,
+      "message": "I think there is some wiggle room, we could decide to enforce a different rule (e.g. also require Semicolon in single line situations). What do you think?",
+      "revId": "7d80bf15162cfe7765754d7b46b8a76bd97bbc17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
