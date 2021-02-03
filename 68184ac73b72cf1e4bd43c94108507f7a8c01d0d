@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0e7fe755_d9bacabc",
+        "filename": "front_end/browser_sdk/browser_sdk.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-03T13:52:13Z",
+      "side": 1,
+      "message": "I think the tests are telling us that we can\u0027t do it this way. Can we hook up the ContrastCheckTrigger in the elements panel in the meantime?",
+      "parentUuid": "4ad6393b_d8f0b001",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 53
+      },
+      "revId": "68184ac73b72cf1e4bd43c94108507f7a8c01d0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bda8b1ba_60da27cb",
         "filename": "front_end/issues/AffectedElementsWithLowContrastView.ts",
         "patchSetId": 12
