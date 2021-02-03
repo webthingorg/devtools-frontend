@@ -56,6 +56,30 @@
       },
       "revId": "b15def4cb48aff3b7948565dcef20964c57599ff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "239d9bf5_620cc456",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-03T03:19:15Z",
+      "side": 1,
+      "message": "nice catch, not in this specific case (i\u0027ll take it out), but some strings require this pattern to match the strong typing (LocalizedString)",
+      "parentUuid": "5bb39d05_1902b022",
+      "range": {
+        "startLine": 96,
+        "startChar": 2,
+        "endLine": 96,
+        "endChar": 28
+      },
+      "revId": "b15def4cb48aff3b7948565dcef20964c57599ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
