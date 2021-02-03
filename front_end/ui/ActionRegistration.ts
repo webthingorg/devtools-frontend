@@ -45,7 +45,7 @@ export interface Action extends Common.EventTarget.EventTarget {
 
   toggled(): boolean;
 
-  setToggled(_toggled: boolean): void
+  setToggled(_toggled: boolean): void;
 }
 
 export class LegacyActionRegistration extends Common.ObjectWrapper.ObjectWrapper implements Action {
