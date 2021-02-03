@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18e91391_b12bc94f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-02-03T14:14:59Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nHere\u0027s the addition of the memory icon to open the LMI from different places more easily. I intentionally didn\u0027t even consider cementing this with tests, since I expect this to change.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "71cc8b76d7d57b2d5f276c7b54243605dd176c97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
