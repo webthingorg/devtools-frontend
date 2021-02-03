@@ -78,18 +78,8 @@ export class RequestTrustTokensReport extends HTMLElement {
           margin: 0;
         }
 
-        .status-row {
-          display: flex;
-          align-items: baseline;
-        }
-
         .status-icon {
-          margin-right: 6px;
-        }
-
-        .status-text {
-          display: flex;
-          flex-direction: column;
+          margin: 0px 2px -2px 0px;
         }
       </style>
       <devtools-report>
@@ -158,15 +148,13 @@ export class RequestTrustTokensReport extends HTMLElement {
       <devtools-report-section-header>${ls`Result`}</devtools-report-section-header>
       <devtools-report-key>${ls`Status`}</devtools-report-key>
       <devtools-report-value>
-        <div class="status-row">
-          <devtools-icon class="status-icon"
-            .data=${getIconForStatusCode(this.trustTokenData.result.status) as Components.Icon.IconData}>
-          </devtools-icon>
-          <div class="status-text">
-            <span><strong>${getSimplifiedStatusTextForStatusCode(this.trustTokenData.result.status)}</strong></span>
-            <span>${getDetailedTextForStatusCode(this.trustTokenData.result.status)}</span>
-          </div>
-        </div>
+        <devtools-icon class="status-icon"
+          .data=${getIconForStatusCode(this.trustTokenData.result.status) as Components.Icon.IconData}>
+        </devtools-icon>
+        <span>
+          <strong>${getSimplifiedStatusTextForStatusCode(this.trustTokenData.result.status)}</strong>
+          ${getDetailedTextForStatusCode(this.trustTokenData.result.status)}
+        </span>
       </devtools-report-value>
       ${this.renderIssuedTokenCount(this.trustTokenData.result)}
       <devtools-report-divider></devtools-report-divider>
