@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "64c72936_069ed346",
+        "filename": "front_end/network/RequestTrustTokensView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-03T14:36:33Z",
+      "side": 1,
+      "message": "Done, although using vertical-align: middle; as sub cut off the icon for me.",
+      "parentUuid": "5f691a85_12a1f01d",
+      "range": {
+        "startLine": 82,
+        "startChar": 10,
+        "endLine": 82,
+        "endChar": 35
+      },
+      "revId": "7f297fb789ae1bc01ca814393e17c9f44e088d32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a1b261df_b83bf3d7",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-02-03T10:58:33Z",
       "side": 1,
       "message": "Move this span before the devtools-icon.",
+      "range": {
+        "startLine": 154,
+        "startChar": 8,
+        "endLine": 154,
+        "endChar": 14
+      },
+      "revId": "7f297fb789ae1bc01ca814393e17c9f44e088d32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5b2c8c9_ed0ad2e8",
+        "filename": "front_end/network/RequestTrustTokensView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-03T14:36:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1b261df_b83bf3d7",
       "range": {
         "startLine": 154,
         "startChar": 8,
