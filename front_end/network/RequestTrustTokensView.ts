@@ -79,12 +79,18 @@ export class RequestTrustTokensReport extends HTMLElement {
         }
 
         .status-row {
-          display: flex;
-          align-items: baseline;
+          display: grid;
+          grid-template-columns: 20px auto;
         }
 
         .status-icon {
-          margin-right: 6px;
+          margin: 0px 6px 1px 0px;
+          justify-self: left;
+          align-self: center;
+        }
+
+        .detailed-status {
+          grid-column-start: 2;
         }
 
         .status-text {
@@ -162,10 +168,8 @@ export class RequestTrustTokensReport extends HTMLElement {
           <devtools-icon class="status-icon"
             .data=${getIconForStatusCode(this.trustTokenData.result.status) as Components.Icon.IconData}>
           </devtools-icon>
-          <div class="status-text">
-            <span><strong>${getSimplifiedStatusTextForStatusCode(this.trustTokenData.result.status)}</strong></span>
-            <span>${getDetailedTextForStatusCode(this.trustTokenData.result.status)}</span>
-          </div>
+          <span><strong>${getSimplifiedStatusTextForStatusCode(this.trustTokenData.result.status)}</strong></span>
+          <span class="detailed-status">${getDetailedTextForStatusCode(this.trustTokenData.result.status)}</span>
         </div>
       </devtools-report-value>
       ${this.renderIssuedTokenCount(this.trustTokenData.result)}
