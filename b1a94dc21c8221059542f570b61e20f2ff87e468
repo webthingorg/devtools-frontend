@@ -16,6 +16,23 @@
       "message": "Hi Jan, \n\nI\u0027m disabling the recorder test since it\u0027s flaking on the windows bot. \n\nPTAL!",
       "revId": "b1a94dc21c8221059542f570b61e20f2ff87e468",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a64761f8_ef05ef6f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-02-03T10:35:45Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "b1a94dc21c8221059542f570b61e20f2ff87e468",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
