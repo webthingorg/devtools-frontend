@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e0ee600_e213bf58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-03T14:55:55Z",
+      "side": 1,
+      "message": "PTAL.\n\nI\u0027d like to remove the ability to load from file:// from DevTools entirely, but we still have one use-site in the front-end that needs to be migrated first.\n\nDo you think this is effective in the meantime?",
+      "revId": "3e5db25b52b85516bb65b75d9e3663ed41b20618",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
