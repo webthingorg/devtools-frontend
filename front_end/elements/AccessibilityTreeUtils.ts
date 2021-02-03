@@ -13,6 +13,7 @@ export interface AXNode {
   children: AXNode[];
   numChildren: number;
   hasOnlyUnloadedChildren: boolean;
+  siblings: AXNode[];
   loadChildren: () => Promise<void>;
   highlightNode: () => void;
   clearHighlight: () => void;
@@ -20,6 +21,7 @@ export interface AXNode {
 
 export function SDKNodeToAXNode(parent: AXNode|null, sdkNode: SDK.AccessibilityModel.AccessibilityNode): AXNode {
   const axChildren: AXNode[] = [];
+  const axSiblings: AXNode[] = [];
   const axNode = {
     id: sdkNode.id(),
     role: sdkNode.role()?.value,
@@ -29,6 +31,7 @@ export function SDKNodeToAXNode(parent: AXNode|null, sdkNode: SDK.AccessibilityM
     children: axChildren,
     numChildren: sdkNode.numChildren(),
     hasOnlyUnloadedChildren: sdkNode.hasOnlyUnloadedChildren(),
+    siblings: axSiblings,
     loadChildren: async(): Promise<void> => {
       const loadedChildren = await sdkNode.accessibilityModel().requestAXChildren(sdkNode.id());
       if (loadedChildren) {

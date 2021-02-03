@@ -5,21 +5,94 @@
 import * as SDK from '../sdk/sdk.js';
 import * as LitHtml from '../third_party/lit-html/lit-html.js';
 
-import {SDKNodeToAXNode} from './AccessibilityTreeUtils.js';
-import type {AccessibilityNodeData} from './AccessibilityNode.js';
+import {AXNode, SDKNodeToAXNode} from './AccessibilityTreeUtils.js';
+import type {AccessibilityNode, AccessibilityNodeData} from './AccessibilityNode.js';
 
 export interface AccessibilityTreeData {
   node: SDK.DOMModel.DOMNode|null;
 }
 
 export class AccessibilityTree extends HTMLElement {
-  private readonly shadow = this.attachShadow({mode: 'open'});
+  private readonly shadow = this.attachShadow({mode: 'open', delegatesFocus: false});
   private node: SDK.DOMModel.DOMNode|null = null;
+  private nodeMap: Map<string, AccessibilityNode> = new Map();
+  private selectedNode: AccessibilityNode|null = null;
+  private rootNode: AXNode|null = null;
+
+  constructor() {
+    super();
+    this.addEventListener('keydown', this.onKeyDown.bind(this));
+  }
 
   set data(data: AccessibilityTreeData) {
     this.node = data.node;
     this.shadow.host.setAttribute('role', 'tree');
     this.render();
+  }
+
+  set selectedAXNode(node: AccessibilityNode) {
+    // deselect previous node
+    if (this.selectedNode && this.selectedNode !== node) {
+      this.selectedNode.selected = false;
+    }
+
+    // select and focus new node
+    this.selectedNode = node;
+    this.selectedNode.selected = true;
+  }
+
+  get nodesMap(): Map<string, AccessibilityNode> {
+    return this.nodeMap;
+  }
+
+  wasShown(): void {
+    if (this.rootNode) {
+      const rootNode = this.nodeMap.get(this.rootNode.id);
+      if (rootNode) {
+        this.selectedNode = rootNode;
+        this.selectedNode.selected = true;
+      }
+    }
+  }
+
+  appendToNodeMap(id: string, node: AccessibilityNode): void {
+    this.nodeMap.set(id, node);
+  }
+
+  private onKeyDown(e: KeyboardEvent): void {
+    if (!this.selectedNode) {
+      return;
+    }
+
+    switch (e.key) {
+      case 'ArrowUp':
+        this.selectedNode.upArrowPress();
+        break;
+      case 'ArrowDown':
+        this.selectedNode.downArrowPress();
+        break;
+      case 'ArrowLeft':
+        this.selectedNode.leftArrowPress();
+        break;
+      case 'ArrowRight':
+        this.selectedNode.rightArrowPress();
+        break;
+      case 'Home':
+        if (this.rootNode) {
+          const rootNode = this.nodeMap.get(this.rootNode.id);
+          if (rootNode) {
+            this.selectedNode = rootNode;
+            this.selectedNode.selected = true;
+          }
+        }
+        break;
+      case 'End':
+        break;
+      case 'Enter':
+        break;
+      default:
+        return;
+    }
   }
 
   async refreshAccessibilityTree(): Promise<SDK.AccessibilityModel.AccessibilityNode|null> {
@@ -42,13 +115,17 @@ export class AccessibilityTree extends HTMLElement {
         return;
       }
 
+      this.rootNode = SDKNodeToAXNode(null, rootNode);
+
       // clang-format off
       const output = LitHtml.html`
         <devtools-accessibility-node .data=${{
-          axNode: SDKNodeToAXNode(null, rootNode),
+          axNode: this.rootNode,
+          axTree: this,
+          isSelected: true,
           } as AccessibilityNodeData}>
         </devtools-accessibility-node>
-      `;
+        `;
       // clang-format on
       LitHtml.render(output, this.shadow);
     });
