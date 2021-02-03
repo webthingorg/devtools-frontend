@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce9a1f94_3ccc01d4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-03T13:08:09Z",
+      "side": 1,
+      "message": "s/camlCase/camelCase/",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 16
+      },
+      "revId": "e5342cbb75d9a91a7851f2cd185f7c6af40fb9d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e97d45f_5eaa53c3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-03T13:08:09Z",
+      "side": 1,
+      "message": "Nit: double for",
+      "range": {
+        "startLine": 7,
+        "startChar": 17,
+        "endLine": 7,
+        "endChar": 24
+      },
+      "revId": "e5342cbb75d9a91a7851f2cd185f7c6af40fb9d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c6b78d2_74640ffa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-03T13:08:09Z",
+      "side": 1,
+      "message": "I wonder if we should soften the wording a bit here. What do you think about the following?\n\n\u003e This encodes the TypeScript style guide about identifiers (https://google.github.io/styleguide/tsguide.html#identifiers) and automating the enforcement will save time and frustration during code reviews.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 69
+      },
+      "revId": "e5342cbb75d9a91a7851f2cd185f7c6af40fb9d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9e25453_62d7cf83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-03T13:08:09Z",
+      "side": 1,
+      "message": "Glad to see no pre-existing violations have to be cleaned up 🎉",
+      "revId": "e5342cbb75d9a91a7851f2cd185f7c6af40fb9d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
