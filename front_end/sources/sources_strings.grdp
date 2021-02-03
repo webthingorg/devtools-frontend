@@ -543,6 +543,9 @@
   <message name="IDS_DEVTOOLS_b918846bd0a77b2051d8c4019201315f" desc="Text in Java Script Breakpoints Sidebar Pane of the Sources panel">
     Remove other breakpoints
   </message>
+  <message name="IDS_DEVTOOLS_b94d8a074eddd267702810179875737f" desc="Text that refers to the debugger">
+    Debugger
+  </message>
   <message name="IDS_DEVTOOLS_bb594a43177a0e4a04e735223ccddb6a" desc="Text in Debugger Plugin of the Sources panel">
     This script is on the debugger&apos;s ignore list
   </message>
