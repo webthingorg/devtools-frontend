@@ -600,7 +600,12 @@ export class ConsoleViewMessage {
     titleElement.classList.add('console-object');
     if (includePreview && obj.preview) {
       titleElement.classList.add('console-object-preview');
-      this._previewFormatter.appendObjectPreview(titleElement, obj.preview, false /* isEntry */);
+      const valueElement = document.createElement('span');
+      valueElement.classList.add('value');
+      valueElement.classList.add('object-value-' + (obj.subtype || obj.type));
+      this._previewFormatter.appendObjectPreview(valueElement, obj.preview, false /* isEntry */);
+      ObjectUI.ObjectPropertiesSection.ObjectPropertiesSection.appendMemoryIcon(valueElement, obj);
+      titleElement.appendChild(valueElement);
     } else if (obj.type === 'function') {
       const functionElement = titleElement.createChild('span');
       ObjectUI.ObjectPropertiesSection.ObjectPropertiesSection.formatObjectAsFunction(obj, functionElement, false);
@@ -609,6 +614,7 @@ export class ConsoleViewMessage {
       titleElement.appendChild(this._formatParameterAsTrustedType(obj));
     } else {
       UI.UIUtils.createTextChild(titleElement, obj.description || '');
+      ObjectUI.ObjectPropertiesSection.ObjectPropertiesSection.appendMemoryIcon(titleElement, obj);
     }
 
     if (!obj.hasChildren || obj.customPreview()) {
