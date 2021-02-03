@@ -46,9 +46,6 @@
   <message name="IDS_DEVTOOLS_17145319aba079a26c6d3bb2b1d58894" desc="Text in Request Timing View of the Network panel">
     <ph name="LOCKED_TERM">Service Worker</ph>
   </message>
-  <message name="IDS_DEVTOOLS_1b1ac1c7a54457ce73ddd25a5b51c47d" desc="A title of the 'Drawer sidebar' @UI.ViewLocationResolver category">
-    Drawer sidebar
-  </message>
   <message name="IDS_DEVTOOLS_1c481aa99d081c32182011a758f73d33" desc="Text that only contain a placeholder">
     <ph name="DURATIONTEXT">$1s<ex>100ms (at 200ms)</ex></ph>
   </message>
@@ -218,9 +215,6 @@
   <message name="IDS_DEVTOOLS_96e9bc575b5d3ed541113a249da8bd24" desc="Text to take screenshots">
     Capture screenshots
   </message>
-  <message name="IDS_DEVTOOLS_9b1ed2cbe56f7a315f0a365d2b97cb59" desc="A title of the 'Drawer' @UI.ViewLocationResolver category">
-    Drawer
-  </message>
   <message name="IDS_DEVTOOLS_9d8c209e49e328528c39c273798e98c9" desc="Text to save content as a specific file type">
     Save as...
   </message>
@@ -271,9 +265,6 @@
   </message>
   <message name="IDS_DEVTOOLS_b6434258c743f8673997b5aeb3721c27" desc="Text that refers to the network request method">
     Request Method
-  </message>
-  <message name="IDS_DEVTOOLS_b8da6df14bf06283cbf588df6998722e" desc="A title of the 'Panel' @UI.ViewLocationResolver category">
-    Panel
   </message>
   <message name="IDS_DEVTOOLS_b94d8a074eddd267702810179875737f" desc="Text that refers to the debugger">
     Debugger
