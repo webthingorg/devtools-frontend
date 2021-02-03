@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "657be0c3_d41be748",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2021-02-03T17:47:33Z",
+      "side": 1,
+      "message": "Done, let me know if you want the assertion inside getLineNumberElement.",
+      "parentUuid": "81bc8ef2_ed38cf5f",
+      "revId": "1dfe811fbc357b894c25a9cc9bac2352194d48d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3535e647_904443e6",
@@ -70,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "09a68d6e_381e4271",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2021-02-03T17:47:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2f70068_5480155c",
+      "revId": "1dfe811fbc357b894c25a9cc9bac2352194d48d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "07a3e59c_27de5062",
@@ -83,6 +119,24 @@
       "writtenOn": "2021-02-01T09:45:45Z",
       "side": 1,
       "message": "Did we conclude that this function doesn\u0027t work as advertised? In that case, should we remove it?",
+      "revId": "1dfe811fbc357b894c25a9cc9bac2352194d48d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b852a41_3ebe0f54",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2021-02-03T17:47:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07a3e59c_27de5062",
       "revId": "1dfe811fbc357b894c25a9cc9bac2352194d48d3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
