@@ -16,6 +16,23 @@
       "message": "ptal",
       "revId": "685299c913794d4b3743114bff761b6807c33840",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecc5f97e_4c9be6bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-03T07:32:33Z",
+      "side": 1,
+      "message": "Please note that using the Throttler class would not simplify things and is not strictly necessary, as there are no other events that could trigger additional updates (so there is no need to rate limit the updates).",
+      "revId": "685299c913794d4b3743114bff761b6807c33840",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
