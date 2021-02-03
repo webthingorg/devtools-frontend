@@ -88,6 +88,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4780cd53_6f05814e",
+        "filename": "front_end/elements/AdornerManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-02-03T22:46:51Z",
+      "side": 1,
+      "message": "Let me change that. Thanks for noticing. Not sure why it gets 2020 though.",
+      "parentUuid": "c4ab6759_ae165000",
+      "revId": "40d0adebf260b4009f52ef66185f7c1db6aa4fcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "22bd1907_116964a4",
         "filename": "test/unittests/front_end/elements/Adorner_test.ts",
         "patchSetId": 2
@@ -99,6 +117,24 @@
       "writtenOn": "2021-02-03T12:31:19Z",
       "side": 1,
       "message": "Why do adorners need to have a category?",
+      "revId": "40d0adebf260b4009f52ef66185f7c1db6aa4fcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c7aad73_265ed3c2",
+        "filename": "test/unittests/front_end/elements/Adorner_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-02-03T22:46:51Z",
+      "side": 1,
+      "message": "This is due to our sorting behavior when multiple adorners exist for a DOM node. We want to prioritize certain categories (e.g. security, warnings) over others (e.g. style, layout, informative).",
+      "parentUuid": "22bd1907_116964a4",
       "revId": "40d0adebf260b4009f52ef66185f7c1db6aa4fcf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
