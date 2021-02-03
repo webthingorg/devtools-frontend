@@ -10,9 +10,6 @@
   <message name="IDS_DEVTOOLS_0511551e6cf7d61acd9b62f9304efa93" desc="Tooltip text that appears on the setting to preserve log when hovering over the item">
     Do not clear log on page reload / navigation
   </message>
-  <message name="IDS_DEVTOOLS_0945359809dad1fbf3dea1c95a0da951" desc="Name of a network resource type">
-    Document
-  </message>
   <message name="IDS_DEVTOOLS_0b484cfcf50c8fabff48c0aad426f544" desc="Text to dock the DevTools to the left of the browser tab">
     Dock to left
   </message>
@@ -76,9 +73,6 @@
   <message name="IDS_DEVTOOLS_3afbd9828e011526955ca93b48b57524" desc="Text for one or a group of screenshots">
     Screenshot
   </message>
-  <message name="IDS_DEVTOOLS_3b563524fdb17b4a86590470d40bef74" desc="Text that appears on a button for the media resource type filter.">
-    Media
-  </message>
   <message name="IDS_DEVTOOLS_3bb3e8c8a24891ba0f7608bcc96f8b0a" desc="Text for a rendering frame">
     Frame
   </message>
@@ -92,9 +86,6 @@
   <message name="IDS_DEVTOOLS_4bd7c2ff07dcc66801a9368957d4bff8" desc="Text for the initiator of something">
     Initiator
   </message>
-  <message name="IDS_DEVTOOLS_4cafcd8bd18c79335c2484f1750ce3dd" desc="Name of a network initiator type">
-    Preflight
-  </message>
   <message name="IDS_DEVTOOLS_4cc6684df7b4a92b1dec6fce3264fac8" desc="Text describing global shortcuts and settings that are available throughout the DevTools">
     Global
   </message>
@@ -106,9 +97,6 @@
   </message>
   <message name="IDS_DEVTOOLS_51360304ea03557e79bdf5ff9cd2e234" desc="Text for the issuer of an item">
     Issuer
-  </message>
-  <message name="IDS_DEVTOOLS_5174d1309f275ba6f275db3af9eb3e18" desc="Title of a section on CSS Grid tooling">
-    Grid
   </message>
   <message name="IDS_DEVTOOLS_539dddc574d3cd85ba73df93df7a76d0" desc="Text for the execution stack trace">
     Stack Trace
@@ -163,9 +151,6 @@
   </message>
   <message name="IDS_DEVTOOLS_74540c79e377bea903e1023a46df5574" desc="Text to open a file">
     Open file
-  </message>
-  <message name="IDS_DEVTOOLS_76c3e002d3c052bd6a909366a8dc3845" desc="Text that appears on a button for the manifest resource type filter.">
-    Manifest
   </message>
   <message name="IDS_DEVTOOLS_8166a4b3fb4979da3a24ed21ced7fdf7" desc="Text for an option to learn more about something">
     Learn more
@@ -266,9 +251,6 @@
   <message name="IDS_DEVTOOLS_b8da6df14bf06283cbf588df6998722e" desc="A title of the 'Panel' @UI.ViewLocationResolver category">
     Panel
   </message>
-  <message name="IDS_DEVTOOLS_b94d8a074eddd267702810179875737f" desc="Text that refers to the debugger">
-    Debugger
-  </message>
   <message name="IDS_DEVTOOLS_b9dee6bade160c89fb7f0e539d453513" desc="Text to dock the DevTools to the bottom of the browser tab">
     Dock to bottom
   </message>
@@ -332,9 +314,6 @@
   <message name="IDS_DEVTOOLS_e3de97b1a66edbe3fceddb1d5db2df2d" desc="A context menu item in the Watch Expressions Sidebar Pane of the Sources panel and Network pane request.">
     Copy value
   </message>
-  <message name="IDS_DEVTOOLS_e402c138065e7eece783dc30c6079192" desc="Text that appears on a button for the xhr resource type filter.">
-    XHR
-  </message>
   <message name="IDS_DEVTOOLS_e55f75a29310d7b60f7ac1d390c8ae42" desc="Text for a module, the programming concept">
     Module
   </message>
@@ -376,9 +355,6 @@
   </message>
   <message name="IDS_DEVTOOLS_f0f31c9700c6b10d8a20dc487b2ae6a8" desc="Text for the touch type to simulate on a device">
     Touch
-  </message>
-  <message name="IDS_DEVTOOLS_f28128b38efbc6134dc40751ee21fd29" desc="Text for documents, a type of resources">
-    Documents
   </message>
   <message name="IDS_DEVTOOLS_f2a6c498fb90ee345d997f888fce3b18" desc="Text to delete something">
     Delete

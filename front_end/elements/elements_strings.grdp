@@ -24,6 +24,9 @@
   <message name="IDS_DEVTOOLS_19c8cfef89a0b0409f4502b3bcc4860e" desc="Command for showing the 'Layout' tool">
     Show Layout
   </message>
+  <message name="IDS_DEVTOOLS_5174d1309f275ba6f275db3af9eb3e18" desc="Title of a section on CSS Grid tooling">
+    Grid
+  </message>
   <message name="IDS_DEVTOOLS_bea4c2c8eb82d05891ddd71584881b56" desc="Text of a link to a HaTS survey in the Layout panel">
     Feedback
   </message>
