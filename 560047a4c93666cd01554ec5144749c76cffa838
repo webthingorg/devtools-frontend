@@ -57,6 +57,30 @@
       },
       "revId": "560047a4c93666cd01554ec5144749c76cffa838",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "297e7877_1d6e65b2",
+        "filename": "front_end/common/Settings.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-02-03T17:26:19Z",
+      "side": 1,
+      "message": "Thanks for the catch!",
+      "parentUuid": "6d7a3d35_46327353",
+      "range": {
+        "startLine": 167,
+        "startChar": 4,
+        "endLine": 167,
+        "endChar": 133
+      },
+      "revId": "560047a4c93666cd01554ec5144749c76cffa838",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
