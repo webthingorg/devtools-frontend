@@ -16,6 +16,24 @@
       "message": "Is the class left out on purpose?",
       "revId": "d6276ae69a6470c5146b5b6d3239055c597c863c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d12fdb31_5cdfabc4",
+        "filename": "front_end/issues/AffectedTrustedWebActivityIssueDetailsView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-03T08:27:59Z",
+      "side": 0,
+      "message": "Yes, this was left out on purpose. This style is used to color the contents of the cell in gray, decreasing contrast. We\u0027re only using it on request and frame cells to highlight the fact that in those to cases, we really expect the user to click the colored icon instead of working with the text.\n\nThis refactoring effectively removes the affected-resource-cell class for TrustedWebActivityIssues, increasing readability of the contents.",
+      "parentUuid": "70022350_a6057229",
+      "revId": "d6276ae69a6470c5146b5b6d3239055c597c863c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
