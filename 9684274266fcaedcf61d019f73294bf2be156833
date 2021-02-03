@@ -16,6 +16,23 @@
       "message": "ptal!",
       "revId": "9684274266fcaedcf61d019f73294bf2be156833",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87fd7fb9_cce52621",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-02-03T09:53:03Z",
+      "side": 1,
+      "message": "LGTM as a rubber stamp. Thorough as I like to be, I don\u0027t think I can reasonably assess 1,500+ occurrences in a single CL 😊",
+      "revId": "9684274266fcaedcf61d019f73294bf2be156833",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
