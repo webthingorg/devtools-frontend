@@ -193,6 +193,9 @@ export class PageResourceLoader extends Common.ObjectWrapper.ObjectWrapper {
     if (this._loadOverride) {
       return this._loadOverride(url);
     }
+    if (url.startsWith('file://')) {
+      throw new Error('Refusing to load source map from file:// URL');
+    }
     const parsedURL = Common.ParsedURL.ParsedURL.fromString(url);
     const eligibleForLoadFromTarget = getLoadThroughTargetSetting().get() && parsedURL && parsedURL.isHttpOrHttps();
     Host.userMetrics.developerResourceScheme(this._getDeveloperResourceScheme(parsedURL));
