@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "95aa9d7c_069de762",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-03T07:17:44Z",
+      "side": 1,
+      "message": "Thanks for the feedback Tim, but after Peter comments I\u0027ll probably pursuit a different solution, I\u0027ll set up a new CL and CC you there.",
+      "parentUuid": "3f7e0727_3de9b3ef",
+      "range": {
+        "startLine": 11,
+        "startChar": 8,
+        "endLine": 11,
+        "endChar": 41
+      },
+      "revId": "b030202c8747c02465f8c81495789a2668af97de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "476ec901_852fe4f8",
@@ -58,6 +82,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1108a2fa_bbd00148",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-03T07:17:44Z",
+      "side": 1,
+      "message": "After reading the feedback, I\u0027ll abandon this CL as I\u0027m going to implement it in a different way. 😊",
+      "revId": "b030202c8747c02465f8c81495789a2668af97de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c436107d_f69663cc",
@@ -71,6 +112,30 @@
       "writtenOn": "2021-02-02T08:48:57Z",
       "side": 1,
       "message": "Meta point here. Maybe it would be worth moving these functions outside platform, and leaving platform with no deps? Then we don\u0027t need to do break the circular dep. Reminds me a bit of this doc: https://docs.google.com/document/d/163PqhHaO4XSYs5sZGSEzrb3WqsqaS6zXzy-xPa97m8s",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 2
+      },
+      "revId": "b030202c8747c02465f8c81495789a2668af97de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcdee416_ccca36a6",
+        "filename": "front_end/platform/number-utilities.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-03T07:17:44Z",
+      "side": 1,
+      "message": "That is a really good point 😊. After a closer inspection I don\u0027t think these code is or should be localized, I\u0027ll set up a different CL where I remove the usage of the localization APIs.",
+      "parentUuid": "c436107d_f69663cc",
       "range": {
         "startLine": 54,
         "startChar": 0,
