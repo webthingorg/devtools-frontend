@@ -1,6 +1,52 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "03102272_5697aa89",
+        "filename": ".eslintrc.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-03T13:58:22Z",
+      "side": 1,
+      "message": "Based on https://google.github.io/styleguide/tsguide.html#member-property-declarations I think the configuration should be the following:\n\n```\n{\n    \"overrides\": {\n        \"interface\": {\n            \"singleline\": {\n                \"delimiter\": \"semi\",\n                \"requireLast\": false\n            },\n            \"multiline\": {\n                \"delimiter\": \"semi\",\n                \"requireLast\": true\n            }\n        },\n        \"typeLiteral\": {\n            \"singleline\": {\n                \"delimiter\": \"comma\",\n                \"requireLast\": false\n            },\n            \"multiline\": {\n                \"delimiter\": \"comma\",\n                \"requireLast\": true\n            }\n        }\n    }\n}\n```",
+      "range": {
+        "startLine": 157,
+        "startChar": 6,
+        "endLine": 157,
+        "endChar": 52
+      },
+      "revId": "7d80bf15162cfe7765754d7b46b8a76bd97bbc17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82089271_5e94c612",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-03T13:58:22Z",
+      "side": 1,
+      "message": "s/Enfoce/Enforce",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 6
+      },
+      "revId": "7d80bf15162cfe7765754d7b46b8a76bd97bbc17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "82e5b3aa_bda2de54",
