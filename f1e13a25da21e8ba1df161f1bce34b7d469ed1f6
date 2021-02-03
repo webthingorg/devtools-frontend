@@ -33,6 +33,23 @@
       "message": "Removing usage of localization APIs in platform. PTAL",
       "revId": "f1e13a25da21e8ba1df161f1bce34b7d469ed1f6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bebe681_ac0b9931",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-03T08:35:54Z",
+      "side": 1,
+      "message": "I don\u0027t know if these would have been changed in any translation, but this LGTM for now, if we need to revisit it later we can",
+      "revId": "f1e13a25da21e8ba1df161f1bce34b7d469ed1f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
