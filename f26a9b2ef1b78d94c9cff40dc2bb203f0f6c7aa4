@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "f26a9b2ef1b78d94c9cff40dc2bb203f0f6c7aa4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ea7c22c_43077acc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-03T13:24:26Z",
+      "side": 1,
+      "message": "Alex for inspector_overlay/\n\nINFRA LGTM",
+      "revId": "f26a9b2ef1b78d94c9cff40dc2bb203f0f6c7aa4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
