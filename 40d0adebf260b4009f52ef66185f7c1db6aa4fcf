@@ -50,6 +50,57 @@
       "message": "LGTM but please wait for Jan and Alex",
       "revId": "40d0adebf260b4009f52ef66185f7c1db6aa4fcf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b717cfdc_0890823d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-03T12:31:19Z",
+      "side": 1,
+      "message": "LGTM % questions",
+      "revId": "40d0adebf260b4009f52ef66185f7c1db6aa4fcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4ab6759_ae165000",
+        "filename": "front_end/elements/AdornerManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-03T12:31:19Z",
+      "side": 1,
+      "message": "2021?",
+      "revId": "40d0adebf260b4009f52ef66185f7c1db6aa4fcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22bd1907_116964a4",
+        "filename": "test/unittests/front_end/elements/Adorner_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-03T12:31:19Z",
+      "side": 1,
+      "message": "Why do adorners need to have a category?",
+      "revId": "40d0adebf260b4009f52ef66185f7c1db6aa4fcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
