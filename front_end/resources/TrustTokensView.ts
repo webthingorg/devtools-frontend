@@ -13,6 +13,9 @@ import type {ResourcesPanel} from './ResourcesPanel.js';
 
 import {ApplicationPanelTreeElement} from './ApplicationPanelTreeElement.js';
 
+/** Fetch the Trust Token data regularly from the backend while the panel is open */
+const REFRESH_INTERVAL_MS = 1000;
+
 export class TrustTokensTreeElement extends ApplicationPanelTreeElement {
   private view?: TrustTokensViewWidgetWrapper;
 
@@ -38,20 +41,37 @@ export class TrustTokensTreeElement extends ApplicationPanelTreeElement {
 
 class TrustTokensViewWidgetWrapper extends UI.Widget.VBox {
   private readonly trustTokensView = new TrustTokensView();
+  private isActive: boolean = false;
 
   constructor() {
     super();
     this.contentElement.appendChild(this.trustTokensView);
   }
 
-  async wasShown(): Promise<void> {
+  wasShown(): void {
+    this.isActive = true;
+    this.loadTrustTokenData();
+  }
+
+  willHide(): void {
+    this.isActive = false;
+  }
+
+  private async loadTrustTokenData(): Promise<void> {
+    if (!this.isActive) {
+      // While the data polling was scheduled, the user navigated away from
+      // the Trust Tokens View. Cancel the update and stop scheduling more polls.
+      return;
+    }
+
     const mainTarget = SDK.SDKModel.TargetManager.instance().mainTarget();
     if (!mainTarget) {
       return;
     }
-
     const {tokens} = await mainTarget.storageAgent().invoke_getTrustTokens();
     this.trustTokensView.data = {tokens};
+
+    window.setTimeout(() => this.loadTrustTokenData(), REFRESH_INTERVAL_MS);
   }
 }
 
