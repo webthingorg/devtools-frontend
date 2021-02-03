@@ -16,6 +16,23 @@
       "message": "PTAL.\n\nI\u0027d like to remove the ability to load from file:// from DevTools entirely, but we still have one use-site in the front-end that needs to be migrated first.\n\nDo you think this is effective in the meantime?",
       "revId": "3e5db25b52b85516bb65b75d9e3663ed41b20618",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "159f75e0_56331997",
+        "filename": "front_end/sdk/PageResourceLoader.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2021-02-03T18:05:42Z",
+      "side": 1,
+      "message": "How about file:/etc/passwd? Avoid dealing with URL as a string, this brings a bunch of surprises. You\u0027ve got a parsed URL on the next line.\nShould we have a check in the back-end?",
+      "revId": "3e5db25b52b85516bb65b75d9e3663ed41b20618",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
