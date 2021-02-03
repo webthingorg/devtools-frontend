@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6864ce47_37fb7939",
+        "filename": ".eslintrc.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-03T14:14:38Z",
+      "side": 1,
+      "message": "Yes, the result of autofixing with this config seems to confuse clang format much less.",
+      "parentUuid": "03102272_5697aa89",
+      "range": {
+        "startLine": 157,
+        "startChar": 6,
+        "endLine": 157,
+        "endChar": 52
+      },
+      "revId": "7d80bf15162cfe7765754d7b46b8a76bd97bbc17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "82089271_5e94c612",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-02-03T13:58:22Z",
       "side": 1,
       "message": "s/Enfoce/Enforce",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 6
+      },
+      "revId": "7d80bf15162cfe7765754d7b46b8a76bd97bbc17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92377479_52323080",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-03T14:14:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82089271_5e94c612",
       "range": {
         "startLine": 7,
         "startChar": 0,
