@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f118873_64dec3ed",
+        "filename": ".stylelintrc.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-03T09:56:45Z",
+      "side": 1,
+      "message": "I changed this because else the comments for the dark mode bug end up adding loads of empty space in the CSS which looks odd.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 41
+      },
+      "revId": "9684274266fcaedcf61d019f73294bf2be156833",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e114e0ac_a77ef775",
