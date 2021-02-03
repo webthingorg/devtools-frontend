@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4ad6393b_d8f0b001",
+        "filename": "front_end/browser_sdk/browser_sdk.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-03T09:26:26Z",
+      "side": 1,
+      "message": "Yes, it should be independent from the Elements panel or any UI, in my opinion, so that it\u0027s triggered as early as possible and does not depend on the UI.",
+      "parentUuid": "677ef02d_82ac3e51",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 53
+      },
+      "revId": "68184ac73b72cf1e4bd43c94108507f7a8c01d0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bda8b1ba_60da27cb",
         "filename": "front_end/issues/AffectedElementsWithLowContrastView.ts",
         "patchSetId": 12
@@ -54,6 +78,30 @@
       "writtenOn": "2021-02-02T15:37:34Z",
       "side": 1,
       "message": "Please use appendIssueDetailCell which is moved to AffectedElementsView in https://crrev.com/c/2666694 (should be landing soon).",
+      "range": {
+        "startLine": 31,
+        "startChar": 10,
+        "endLine": 31,
+        "endChar": 22
+      },
+      "revId": "68184ac73b72cf1e4bd43c94108507f7a8c01d0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccd56f2f_55540b86",
+        "filename": "front_end/issues/AffectedElementsWithLowContrastView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-03T09:26:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bda8b1ba_60da27cb",
       "range": {
         "startLine": 31,
         "startChar": 10,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbaedd03_1a5e44bb",
+        "filename": "front_end/sdk/LowTextContrastIssue.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-03T09:26:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e45b1200_72677e1d",
+      "range": {
+        "startLine": 18,
+        "startChar": 11,
+        "endLine": 18,
+        "endChar": 62
+      },
+      "revId": "68184ac73b72cf1e4bd43c94108507f7a8c01d0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d7e5646d_f71800a6",
@@ -100,6 +172,30 @@
       "writtenOn": "2021-02-02T15:37:34Z",
       "side": 1,
       "message": "Very nice, please move this to a shared place so it can be used in other places.",
+      "range": {
+        "startLine": 11,
+        "startChar": 9,
+        "endLine": 11,
+        "endChar": 22
+      },
+      "revId": "68184ac73b72cf1e4bd43c94108507f7a8c01d0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6954da8e_66429604",
+        "filename": "test/e2e/issues/low-text-contrast-issues_test.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-03T09:26:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7e5646d_f71800a6",
       "range": {
         "startLine": 11,
         "startChar": 9,
