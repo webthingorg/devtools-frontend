@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "84c88ff0_538ad706",
+        "filename": "front_end/i18n/i18nImpl.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-03T07:21:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ee349da_a281b8a6",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 69
+      },
+      "revId": "d335b2f6aa8500425617b01b20b06d1f1a2e7cc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b0305ff1_84e87fb2",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-02-02T14:33:04Z",
       "side": 1,
       "message": "Please don\u0027t disable these kind of linter errors unless you absolutely have to. (My current understanding is that these `any`s are not explicitly required, but I might be missing some context) Instead, please use `unknown`, as it ensures any usages of the variable have be checked. With `any`, the usage will be silently accepted, leading to errors down the line.\n\nIf these errors do need to be suppressed, please add an explanation as to why that is the case and a potential resolution option on how we can remove these.",
+      "range": {
+        "startLine": 151,
+        "startChar": 2,
+        "endLine": 151,
+        "endChar": 64
+      },
+      "revId": "d335b2f6aa8500425617b01b20b06d1f1a2e7cc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17e4688e_2f65513f",
+        "filename": "front_end/i18n/i18nImpl.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-03T07:21:15Z",
+      "side": 1,
+      "message": "addressed the feedback 😊, the only left was the import (as in the original file). iirc we decided to leave it in there as it was giving issues when importing the i8n library from third_party.",
+      "parentUuid": "b0305ff1_84e87fb2",
       "range": {
         "startLine": 151,
         "startChar": 2,
