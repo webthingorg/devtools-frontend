@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "7e74205437d44b9221b1cd759812da2542d9ca15",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ea6b816_f7cb3f12",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-03T09:04:17Z",
+      "side": 1,
+      "message": "I think this is getting complicated. What about doing it like this: https://screenshot.googleplex.com/AbZzvDgntGYM7iT\n\nKey points: \n  - Everything in one span, including the icon\n  - Only needs a margin-right on the icon for spacing",
+      "revId": "7e74205437d44b9221b1cd759812da2542d9ca15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
