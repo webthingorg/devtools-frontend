@@ -8,12 +8,8 @@ import("../../../scripts/build/ninja/devtools_module.gni")
 devtools_module("components") {
   sources = [
     "CounterButton.ts",
-    "DataGrid.ts",
-    "DataGridContextMenuUtils.ts",
     "DataGridController.ts",
     "DataGridControllerIntegrator.ts",
-    "DataGridRenderers.ts",
-    "DataGridUtils.ts",
     "Icon.ts",
     "Linkifier.ts",
     "LinkifierUtils.ts",
@@ -30,6 +26,7 @@ devtools_module("components") {
     "../../text_utils:bundle",
     "../../third_party/lit-html:bundle",
     "../../ui:bundle",
+    "data_grid",
   ]
 
   visibility = [ "../../../test/unittests/front_end/ui/components" ]

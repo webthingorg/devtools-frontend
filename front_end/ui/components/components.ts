@@ -3,11 +3,11 @@
 // found in the LICENSE file.
 
 import * as CounterButton from './CounterButton.js';
-import * as DataGrid from './DataGrid.js';
+import * as DataGrid from './data_grid/DataGrid.js';
+import * as DataGridRenderers from './data_grid/DataGridRenderers.js';
+import * as DataGridUtils from './data_grid/DataGridUtils.js';
 import * as DataGridController from './DataGridController.js';
 import * as DataGridControllerIntegrator from './DataGridControllerIntegrator.js';
-import * as DataGridRenderers from './DataGridRenderers.js';
-import * as DataGridUtils from './DataGridUtils.js';
 import * as Icon from './Icon.js';
 import * as Linkifier from './Linkifier.js';
 import * as ReportView from './ReportView.js';

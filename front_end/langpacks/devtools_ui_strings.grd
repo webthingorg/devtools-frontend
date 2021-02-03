@@ -28,6 +28,7 @@
       <part file="../sources/sources_strings.grdp" />
       <part file="../timeline/timeline_strings.grdp" />
       <part file="../ui/components/components_strings.grdp" />
+      <part file="../ui/components/data_grid/data_grid_strings.grdp" />
       <part file="../ui/ui_strings.grdp" />
       <part file="shared_strings.grdp" />
     </messages>

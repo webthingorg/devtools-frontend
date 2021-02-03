@@ -2,12 +2,12 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import './DataGrid.js';
+import './data_grid/DataGrid.js';
 
 import * as LitHtml from '../../third_party/lit-html/lit-html.js';
 import type * as TextUtils from '../../text_utils/text_utils.js';
-import {SortDirection, SortState, Column, Row, getRowEntryForColumnId, ContextMenuColumnSortClickEvent} from './DataGridUtils.js';
-import type {DataGridData, ColumnHeaderClickEvent, DataGridContextMenusConfiguration} from './DataGrid.js';
+import {SortDirection, SortState, Column, Row, getRowEntryForColumnId, ContextMenuColumnSortClickEvent} from './data_grid/DataGridUtils.js';
+import type {DataGridData, ColumnHeaderClickEvent, DataGridContextMenusConfiguration} from './data_grid/DataGrid.js';
 
 
 export interface DataGridControllerData {
