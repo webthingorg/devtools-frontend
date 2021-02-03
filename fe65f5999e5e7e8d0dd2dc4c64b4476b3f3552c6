@@ -177,6 +177,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f048e57_441fb932",
+        "filename": "front_end/network/NetworkConfigView.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-03T08:32:28Z",
+      "side": 1,
+      "message": "DevTools guidance seems to be to use the raw character directly and only use the codes (\u0027\\u\u0027) for non-printable or otherwise weird whitespace characters. So we can leave it as-is :)",
+      "parentUuid": "3e920a7e_60409fe4",
+      "range": {
+        "startLine": 51,
+        "startChar": 55,
+        "endLine": 51,
+        "endChar": 56
+      },
+      "revId": "fe65f5999e5e7e8d0dd2dc4c64b4476b3f3552c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "330e92bb_df772556",
