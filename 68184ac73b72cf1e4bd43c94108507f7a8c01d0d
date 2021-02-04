@@ -115,6 +115,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c9139963_b6c42fb7",
+        "filename": "front_end/browser_sdk/browser_sdk.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-04T06:52:29Z",
+      "side": 1,
+      "message": "So it was caused by iframe navigations: when DevTools creates a new model for a target it does not mean that the target is ready to be queries because the frame might be provisional. The solution is to wait for the frameAdded event at which point a frame is ready. At this point, the test failures are not crashes anymore but a mismatch between the expected number of sources (a new source is created by the evaluate call): https://test-results.appspot.com/data/layout_results/devtools_frontend_linux_blink_light_rel/11858/blink_web_tests%20%28with%20patch%29/layout-test-results/results.html\n\nBut I realised that the querying should not happen when the experiment is disabled (which is the default state) so I have updated my CL accordingly. If the feature goes out of the experimentation phase, we\u0027d need to update test expectations.",
+      "parentUuid": "b9896344_be289f83",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 53
+      },
+      "revId": "68184ac73b72cf1e4bd43c94108507f7a8c01d0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bda8b1ba_60da27cb",
         "filename": "front_end/issues/AffectedElementsWithLowContrastView.ts",
         "patchSetId": 12
