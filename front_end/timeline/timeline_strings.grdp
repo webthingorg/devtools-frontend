@@ -1110,6 +1110,9 @@ Then, zoom and pan the timeline with the mousewheel or <ph name="NAVIGATENODE">$
   <message name="IDS_DEVTOOLS_f1fef3f490158560a580633887faf5d3" desc="Data grid name for Timeline Stack data grids">
     Timeline Stack
   </message>
+  <message name="IDS_DEVTOOLS_f28128b38efbc6134dc40751ee21fd29" desc="Text for documents, a type of resources">
+    Documents
+  </message>
   <message name="IDS_DEVTOOLS_f2f08200f7e8df8715e4a4fc148d11f9" desc="Text in Timeline UIUtils of the Performance panel">
     Compilation cache size
   </message>

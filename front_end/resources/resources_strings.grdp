@@ -33,6 +33,9 @@
   <message name="IDS_DEVTOOLS_09428a9282bbb3ffcf3caa7826f0bf83" desc="Message in Database Model of the Application panel">
     An unexpected error <ph name="SQLERROR_CODE">$1s<ex>-197</ex></ph> occurred.
   </message>
+  <message name="IDS_DEVTOOLS_0945359809dad1fbf3dea1c95a0da951" desc="Name of a network resource type">
+    Document
+  </message>
   <message name="IDS_DEVTOOLS_09be1d4901102d41454e75e42b5160f9" desc="Tooltip for the Measure Memory availability status">
     The performance.measureUserAgentSpecificMemory() API is available
   </message>
@@ -321,6 +324,9 @@ table is empty.
   </message>
   <message name="IDS_DEVTOOLS_76c18f2b1e4155961e10434e3d83317f" desc="Text in Indexed DBViews of the Application panel">
     Key generator value: <ph name="STRING_METADATA_KEYGENERATORVALUE_">$1s<ex>2</ex></ph>
+  </message>
+  <message name="IDS_DEVTOOLS_76c3e002d3c052bd6a909366a8dc3845" desc="Text that appears on a button for the manifest resource type filter.">
+    Manifest
   </message>
   <message name="IDS_DEVTOOLS_76e61346e5a08a1f2f40b184c7bce03b" desc="Warning message for image resources from the manifest">
     <ph name="RESOURCENAME">$1s<ex>Image</ex></ph> <ph name="IMAGEURL">$2s<ex>https://example.com/image.png</ex></ph> size should be at least 320×320
