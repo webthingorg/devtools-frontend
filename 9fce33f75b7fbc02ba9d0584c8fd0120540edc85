@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cebf506_4a2520c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-04T03:17:55Z",
+      "side": 1,
+      "message": "Fixing a couple of loc bugs in some migrated modules.PTAL",
+      "revId": "9fce33f75b7fbc02ba9d0584c8fd0120540edc85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
