@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1e77dcc_c5cf6117",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-02-04T07:16:11Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nHere\u0027s the uncontroversial part of the other CL, which we can land straight away.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "8ab81abb66cac3a3c255fa3db88523e290abb05e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
