@@ -63,6 +63,30 @@
       },
       "revId": "d94e6328661b25a92e2e3f0f20efdee23ac8a289",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fb0578c_5c8c2e25",
+        "filename": "front_end/browser_sdk/ContrastCheckTrigger.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-04T07:16:23Z",
+      "side": 1,
+      "message": "Unfortunately no. Ideally we get some kind of \"singleton registry\" for each module. Where you can declare classes like this, and they are guaranteed to be loaded very early but after settings etc. are booted up.\n\nUntil then, I think we have to leave this CL as-is.",
+      "parentUuid": "c50a253f_a73e15a5",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 5
+      },
+      "revId": "d94e6328661b25a92e2e3f0f20efdee23ac8a289",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
