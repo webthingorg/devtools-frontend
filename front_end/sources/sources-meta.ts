@@ -5,9 +5,12 @@
 import * as Common from '../common/common.js';
 import type * as Platform from '../platform/platform.js';
 import {ls} from '../platform/platform.js';
+import * as ObjectUI from '../object_ui/object_ui.js';
 import * as Root from '../root/root.js';
-import * as UI from '../ui/ui.js';
 import * as SDK from '../sdk/sdk.js';
+import * as TextEditor from '../text_editor/text_editor.js';
+import * as UI from '../ui/ui.js';
+import * as Workspace from '../workspace/workspace.js';
 
 // eslint-disable-next-line rulesdir/es_modules_import
 import type * as Sources from './sources.js';
@@ -1142,4 +1145,73 @@ Common.Settings.registerSettingExtension({
       title: (): Platform.UIString.LocalizedString => ls`Disallow scrolling past end of file`,
     },
   ],
+});
+UI.ContextMenu.registerProvider({
+  async contextTypes() {
+    const Sources = await loadSourcesModule();
+    return [
+      Workspace.UISourceCode.UISourceCode,
+      Workspace.UISourceCode.UILocation,
+      SDK.RemoteObject.RemoteObject,
+      SDK.NetworkRequest.NetworkRequest,
+      Sources.UISourceCodeFrame.UISourceCodeFrame,
+    ];
+  },
+  async loadProvider() {
+    const Sources = await loadSourcesModule();
+    return Sources.SourcesPanel.SourcesPanel.instance();
+  },
+  experiment: undefined,
+});
+
+UI.ContextMenu.registerProvider({
+  async loadProvider() {
+    const Sources = await loadSourcesModule();
+    return Sources.WatchExpressionsSidebarPane.WatchExpressionsSidebarPane.instance();
+  },
+  async contextTypes() {
+    return [
+      ObjectUI.ObjectPropertiesSection.ObjectPropertyTreeElement,
+    ];
+  },
+  experiment: undefined,
+});
+
+UI.ContextMenu.registerProvider({
+  async contextTypes() {
+    return [
+      TextEditor.CodeMirrorTextEditor.CodeMirrorTextEditor,
+    ];
+  },
+  async loadProvider() {
+    const Sources = await loadSourcesModule();
+    return Sources.WatchExpressionsSidebarPane.WatchExpressionsSidebarPane.instance();
+  },
+  experiment: undefined,
+});
+
+UI.ContextMenu.registerProvider({
+  async contextTypes() {
+    return [
+      Workspace.UISourceCode.UISourceCode,
+    ];
+  },
+  async loadProvider() {
+    const Sources = await loadSourcesModule();
+    return Sources.GutterDiffPlugin.ContextMenuProvider.instance();
+  },
+  experiment: undefined,
+});
+
+UI.ContextMenu.registerProvider({
+  async loadProvider() {
+    const Sources = await loadSourcesModule();
+    return Sources.ScopeChainSidebarPane.OpenLinearMemoryInspector.instance();
+  },
+  experiment: Root.Runtime.ExperimentName.WASM_DWARF_DEBUGGING,
+  async contextTypes() {
+    return [
+      ObjectUI.ObjectPropertiesSection.ObjectPropertyTreeElement,
+    ];
+  },
 });

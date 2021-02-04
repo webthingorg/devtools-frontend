@@ -4,7 +4,9 @@
 
 import * as Common from '../common/common.js';
 import * as Root from '../root/root.js';
+import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
+import * as Workspace from '../workspace/workspace.js';
 
 // eslint-disable-next-line rulesdir/es_modules_import
 import type * as Network from './network.js';
@@ -325,4 +327,19 @@ Common.Settings.registerSettingExtension({
       title: i18nString(UIStrings.dontGroupNetworkLogItemsByFrame),
     },
   ],
+});
+
+UI.ContextMenu.registerProvider({
+  async contextTypes() {
+    return [
+      SDK.NetworkRequest.NetworkRequest,
+      SDK.Resource.Resource,
+      Workspace.UISourceCode.UISourceCode,
+    ];
+  },
+  async loadProvider() {
+    const Network = await loadNetworkModule();
+    return Network.NetworkPanel.ContextMenuProvider.instance();
+  },
+  experiment: undefined,
 });

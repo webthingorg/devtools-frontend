@@ -684,14 +684,16 @@ async function loadApplicableRegisteredProviders(target) {
         return true;
       }
     }
-    return false;
+    return Root.Runtime.Runtime.isDescriptorEnabled(
+        {experiment: providerRegistration.experiment, condition: undefined});
   }
 }
 
 /**
  * @typedef {{
- *  contextTypes: function(): !Promise<!Array<?>>
- *  loadProvider: function(): !Promise<!Provider>
+ *  contextTypes: function(): !Promise<!Array<?>>,
+ *  loadProvider: function(): !Promise<!Provider>,
+ *  experiment: (undefined|Root.Runtime.ExperimentName)
  * }} */
 // @ts-ignore typedef
 export let ProviderRegistration;
