@@ -80,6 +80,30 @@
       },
       "revId": "e2215a27408a0808b56bebeaa9605bfbcfe6b0fc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c30332be_8428a998",
+        "filename": "all_devtools_files.gni",
+        "patchSetId": 2
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-04T10:53:26Z",
+      "side": 1,
+      "message": "If `en-XL.json` is required on the bots, it needs to be checked in. I don\u0027t think putting it in the build is ideal, as the files themselves don\u0027t really change and are dependent on many other files. That could potentially create a monolithic action in our build hierarchy, which can quickly become a bottleneck.\n\nAre the presubmits written in such a way that we can do 1 single pass over the changed files, rather than two? Feel free to ping me for a pair programming session if you would like to try out ideas.",
+      "parentUuid": "cd7ff141_e8d3f0b4",
+      "range": {
+        "startLine": 492,
+        "startChar": 2,
+        "endLine": 492,
+        "endChar": 23
+      },
+      "revId": "e2215a27408a0808b56bebeaa9605bfbcfe6b0fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
