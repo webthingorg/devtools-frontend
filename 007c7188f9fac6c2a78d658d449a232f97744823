@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b30d644c_44144ec6",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-04T15:19:21Z",
+      "side": 1,
+      "message": "In this function there is a second `if` clause which requires a `return LitHtml.nothing` too. Therefore a single early return at the beginning would not be enough.\n\nI see 2 ways to somewhat achieve consistency:\n1) Never return early, always have the `if (this.frame) { ... } return LitHtml.nothing` span the whole function.\n2) If possible (no 2nd `if` anywhere) return early, otherwise span the whole function.\n\nI slightly prefer 1. WDYT?",
+      "parentUuid": "869b159c_03f5858c",
+      "range": {
+        "startLine": 445,
+        "startChar": 4,
+        "endLine": 445,
+        "endChar": 21
+      },
+      "revId": "007c7188f9fac6c2a78d658d449a232f97744823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "478d2d5d_d4bc9e46",
         "filename": "front_end/resources/FrameDetailsView.ts",
         "patchSetId": 7
