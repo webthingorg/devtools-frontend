@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1475bfc8_a4a923c8",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-04T15:32:55Z",
+      "side": 1,
+      "message": "Ah, I missed that, you can keep it like it is.",
+      "parentUuid": "b30d644c_44144ec6",
+      "range": {
+        "startLine": 445,
+        "startChar": 4,
+        "endLine": 445,
+        "endChar": 21
+      },
+      "revId": "007c7188f9fac6c2a78d658d449a232f97744823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "478d2d5d_d4bc9e46",
@@ -78,6 +102,30 @@
       "writtenOn": "2021-02-04T13:35:54Z",
       "side": 1,
       "message": "see above.",
+      "range": {
+        "startLine": 481,
+        "startChar": 4,
+        "endLine": 481,
+        "endChar": 21
+      },
+      "revId": "007c7188f9fac6c2a78d658d449a232f97744823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e8bc343_42bdbcd3",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-04T15:32:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "478d2d5d_d4bc9e46",
       "range": {
         "startLine": 481,
         "startChar": 4,
