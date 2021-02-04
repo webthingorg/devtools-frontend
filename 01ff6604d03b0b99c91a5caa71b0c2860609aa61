@@ -22,6 +22,30 @@
       },
       "revId": "01ff6604d03b0b99c91a5caa71b0c2860609aa61",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d21e4da8_bbf1183d",
+        "filename": "front_end/common/SettingRegistration.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-02-04T14:11:49Z",
+      "side": 1,
+      "message": "Because this method is called by the enviroment helpers, it is expected that several calls will be made with those conditions (having settings registered and not forcing a reset) when running unit tests. I think it would be better if we treated this as a default behaviour (instead of an exception), in which the settings are not reset unless requested explicitly by the tests, just like the environment helpers are currently implemented by reusing a Runtime singleton unless a new instance is requested explicitly.",
+      "parentUuid": "de749844_adeed22d",
+      "range": {
+        "startLine": 32,
+        "startChar": 6,
+        "endLine": 32,
+        "endChar": 51
+      },
+      "revId": "01ff6604d03b0b99c91a5caa71b0c2860609aa61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
