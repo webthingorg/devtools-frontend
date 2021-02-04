@@ -16,6 +16,24 @@
       "message": "LGTM, thanks. Did you update the screenshots?",
       "revId": "d3ccba35a146ec603127b2cfb0d7ec641ec4a706",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ab01ad0_fe3205ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-04T07:24:46Z",
+      "side": 1,
+      "message": "Yes :)",
+      "parentUuid": "42be9f91_cae0b96c",
+      "revId": "d3ccba35a146ec603127b2cfb0d7ec641ec4a706",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
