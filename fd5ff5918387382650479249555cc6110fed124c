@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fd2892c_7b835fb9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 17
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-02-04T08:41:55Z",
+      "side": 1,
+      "message": "Also affects chromium:1112692 since you\u0027re removing timeouts.",
+      "revId": "fd5ff5918387382650479249555cc6110fed124c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "4b6cb257_8afcb449",
@@ -14,6 +31,108 @@
       "writtenOn": "2021-02-04T08:16:25Z",
       "side": 1,
       "message": "Thanks a lot for all the effort Almothana! LGTM.",
+      "revId": "fd5ff5918387382650479249555cc6110fed124c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e55dcce7_bdad66f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-02-04T08:41:55Z",
+      "side": 1,
+      "message": "Thanks, this looks great. I particularly love that we can set breakpoints by bytecode offset in wasm now. I have some leftover concerns about the API regarding installing the listeners. It might simplest to just leave the listener setup to the test. That also increases readability of the test, since I don\u0027t have to remember which function waits for what kind of effect. Alternatively we could make the APIs smarter in the event handling, but I\u0027m not convinced that\u0027s worth the effort.",
+      "revId": "fd5ff5918387382650479249555cc6110fed124c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56dbb2d6_554e486a",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-02-04T08:41:55Z",
+      "side": 1,
+      "message": "As below, this will cause event listeners to pile up if you call this function multiple times. Can we leave this setup to the test?",
+      "revId": "fd5ff5918387382650479249555cc6110fed124c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f449ff9_c5809b26",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-02-04T08:41:55Z",
+      "side": 1,
+      "message": "What exactly is the purpose of this `waitFor`? It seems to me it\u0027s for the same thing as the wait for the event above. Can this now be removed?",
+      "revId": "fd5ff5918387382650479249555cc6110fed124c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0009f840_e925f119",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-02-04T08:41:55Z",
+      "side": 1,
+      "message": "You could call the helper function now.",
+      "revId": "fd5ff5918387382650479249555cc6110fed124c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "590ef1fb_3e409ee8",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-02-04T08:41:55Z",
+      "side": 1,
+      "message": "Would be nicer to rename the function to `isBreakpointSet` or something along that line and discarding the `active` argument, I think. That would make it clearer at the callsite what this function is doing.",
+      "revId": "fd5ff5918387382650479249555cc6110fed124c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33e05274_48a4ed89",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-02-04T08:41:55Z",
+      "side": 1,
+      "message": "I think this function is pretty dangerous. `listenForSourceFilesLoaded` adds a new listerner to the event, so everytime you call this function you pile on another listener. So files will appear double in the events list, even though they were opened only once. At the same time you can\u0027t really leave the listen call out because then someone might forget they have to listen first before calling the function. WDYT about just leaving this to the tests and not offering an API for it?",
       "revId": "fd5ff5918387382650479249555cc6110fed124c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
