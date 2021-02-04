@@ -16,6 +16,23 @@
       "message": "Hey Kim,\n\nI noticed that the visual clutter for typed arrays is quite heavy. So being a bit more defensive initially and only showing the icon for ArrayBuffer and WebAssembly.Memory now.\nPlease take a look.\n\ncheers,\nBenedikt",
       "revId": "22bb70d11adb9ae10fc2e859ce04e2225edaadb1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a06ce550_c0cd430c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-02-04T12:02:51Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "22bb70d11adb9ae10fc2e859ce04e2225edaadb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
