@@ -16,6 +16,23 @@
       "message": "PTAL.",
       "revId": "4f233a1ec37969680fe59f8b41afa451b4df14b8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49623994_d8797a59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-04T08:45:15Z",
+      "side": 1,
+      "message": "LGTM, 1 question and looks like this change requires blink_tests updates.",
+      "revId": "4f233a1ec37969680fe59f8b41afa451b4df14b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
