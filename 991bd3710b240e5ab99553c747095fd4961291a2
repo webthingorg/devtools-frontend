@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebc36a7f_c99bed8b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-04T15:58:05Z",
+      "side": 1,
+      "message": "Apart from making the process async to accommodate for lazy-loading contextTypes, this LGTM.",
+      "revId": "991bd3710b240e5ab99553c747095fd4961291a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcfe194e_f3eb259a",
+        "filename": "front_end/ui/ContextMenu.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 692,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-04T15:58:05Z",
+      "side": 1,
+      "message": "While in this specific case all values are loaded, sometimes we will need to lazy-load them. Therefore, I think this should be `!Promise\u003c!Array\u003c?\u003e\u003e`",
+      "range": {
+        "startLine": 692,
+        "startChar": 31,
+        "endLine": 692,
+        "endChar": 36
+      },
+      "revId": "991bd3710b240e5ab99553c747095fd4961291a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
