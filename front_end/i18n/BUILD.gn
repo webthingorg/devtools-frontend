@@ -28,3 +28,9 @@ devtools_pre_built("i18n_locales") {
   sources = [ "i18n_locales-tsconfig.json" ]
   sources += devtools_locale_files
 }
+
+# For locales that are only used by tests, and not in releases.
+devtools_pre_built("i18n_test_locales") {
+  sources = [ "i18n_test_locales-tsconfig.json" ]
+  sources += [ "locales/en-XL.json" ]
+}
