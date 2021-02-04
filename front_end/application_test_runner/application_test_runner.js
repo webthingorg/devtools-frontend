@@ -8,3 +8,4 @@ import './IndexedDBTestRunner.js';
 import './ResourceTreeTestRunner.js';
 import './ResourcesTestRunner.js';
 import './ServiceWorkersTestRunner.js';
+import './StorageTestRunner.js';
