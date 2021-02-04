@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de749844_adeed22d",
+        "filename": "front_end/common/SettingRegistration.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-04T10:50:54Z",
+      "side": 1,
+      "message": "Should we consider throwing an explicit error if settings are already registered and we are not forcing a reset?",
+      "range": {
+        "startLine": 32,
+        "startChar": 6,
+        "endLine": 32,
+        "endChar": 51
+      },
+      "revId": "01ff6604d03b0b99c91a5caa71b0c2860609aa61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
