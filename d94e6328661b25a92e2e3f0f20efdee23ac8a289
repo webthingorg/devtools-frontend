@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f22637e_5c4c9035",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-04T11:43:32Z",
+      "side": 1,
+      "message": "Rebasing might not be a problem. But if we don\u0027t audit the CL for any newly added ls`` (\u003d\u003d old) translations, then we mix old 10n world with new l10n world which can blow up. There is a presubmit that checks that we don\u0027t use old APIs in already migrated modules but it doesn\u0027t seem to work that great.\n\nThere is a readme that describes how l10n works now. (or checkout out the issues migration CL: https://crrev.com/c/2675006)",
+      "parentUuid": "1b3f2e7e_cda44b38",
+      "revId": "d94e6328661b25a92e2e3f0f20efdee23ac8a289",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e41aeb95_95084f95",
