@@ -89,6 +89,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "233defa5_fd81e3b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-04T12:53:23Z",
+      "side": 1,
+      "message": "Presubmit should have caught this, filed a bug here: https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1174505",
+      "parentUuid": "9f22637e_5c4c9035",
+      "revId": "d94e6328661b25a92e2e3f0f20efdee23ac8a289",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e41aeb95_95084f95",
