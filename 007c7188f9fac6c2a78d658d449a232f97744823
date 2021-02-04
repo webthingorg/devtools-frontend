@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d42ca8c_69ac9609",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-04T13:35:54Z",
+      "side": 1,
+      "message": "LGTM % nits",
+      "revId": "007c7188f9fac6c2a78d658d449a232f97744823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "869b159c_03f5858c",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-04T13:35:54Z",
+      "side": 1,
+      "message": "You\u0027re early returning in the other function, slightly prefer that, but consistency is a good in any case.",
+      "range": {
+        "startLine": 445,
+        "startChar": 4,
+        "endLine": 445,
+        "endChar": 21
+      },
+      "revId": "007c7188f9fac6c2a78d658d449a232f97744823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "478d2d5d_d4bc9e46",
+        "filename": "front_end/resources/FrameDetailsView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-04T13:35:54Z",
+      "side": 1,
+      "message": "see above.",
+      "range": {
+        "startLine": 481,
+        "startChar": 4,
+        "endLine": 481,
+        "endChar": 21
+      },
+      "revId": "007c7188f9fac6c2a78d658d449a232f97744823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
