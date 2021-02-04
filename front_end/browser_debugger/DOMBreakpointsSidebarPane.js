@@ -402,10 +402,24 @@ export const BreakpointTypeLabels = new Map([
   [Protocol.DOMDebugger.DOMBreakpointType.NodeRemoved, i18nString(UIStrings.nodeRemoved)],
 ]);
 
+/** @type {ContextMenuProvider} */
+let contextMenuProviderInstance;
 /**
  * @implements {UI.ContextMenu.Provider}
  */
 export class ContextMenuProvider {
+  /**
+   * @param {{forceNew: ?boolean}} opts
+   */
+  static instance(opts = {forceNew: null}) {
+    const {forceNew} = opts;
+    if (!contextMenuProviderInstance || forceNew) {
+      contextMenuProviderInstance = new ContextMenuProvider();
+    }
+
+    return contextMenuProviderInstance;
+  }
+
   /**
    * @override
    * @param {!Event} event

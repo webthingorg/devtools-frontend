@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Root from '../root/root.js';
+import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
 // eslint-disable-next-line rulesdir/es_modules_import
@@ -222,5 +223,17 @@ UI.ViewManager.registerViewExtension({
   async loadView() {
     const Sources = await loadSourcesModule();
     return Sources.SourcesNavigator.ContentScriptsNavigatorView.instance();
+  },
+});
+
+UI.ContextMenu.registerProvider({
+  async contextTypes() {
+    return [
+      SDK.DOMModel.DOMNode,
+    ];
+  },
+  async loadProvider() {
+    const BrowserDebugger = await loadBrowserDebuggerModule();
+    return BrowserDebugger.DOMBreakpointsSidebarPane.ContextMenuProvider.instance();
   },
 });
