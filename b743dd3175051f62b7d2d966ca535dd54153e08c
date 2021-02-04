@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e253cdc_c95c3c06",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-02-04T12:48:31Z",
+      "side": 1,
+      "message": "LGTM % nits",
+      "revId": "b743dd3175051f62b7d2d966ca535dd54153e08c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6650c8bc_3bc42d4c",
+        "filename": "front_end/elements/AdornerManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-02-04T12:48:31Z",
+      "side": 1,
+      "message": "WDYT about changing this to Readonly\u003cAdornerSettingsMap\u003e?",
+      "range": {
+        "startLine": 51,
+        "startChar": 17,
+        "endLine": 51,
+        "endChar": 45
+      },
+      "revId": "b743dd3175051f62b7d2d966ca535dd54153e08c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5108844_b1c458fd",
+        "filename": "test/unittests/front_end/elements/AdornerManager_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-02-04T12:48:31Z",
+      "side": 1,
+      "message": "This seems useful in many different places. WDYT about moving this to the helpers?",
+      "range": {
+        "startLine": 11,
+        "startChar": 6,
+        "endLine": 11,
+        "endChar": 22
+      },
+      "revId": "b743dd3175051f62b7d2d966ca535dd54153e08c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
