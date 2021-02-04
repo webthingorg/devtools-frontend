@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "782e4c59_f1552e2c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-04T13:32:02Z",
+      "side": 1,
+      "message": "Tim did you ever run into this? Patch failure due to trying to add a previously ignored file\n\nerror: The following untracked working tree files would be overwritten by merge:\n\tfront_end/i18n/locales/en-XL.json\nPlease move or remove them before you merge.\nAborting\nfatal: cherry-pick failed",
+      "revId": "94ff29d170fef3b4a7d69b523114cccd583116b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
