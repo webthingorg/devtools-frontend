@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "68f45a77_a03b71f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-04T11:02:42Z",
+      "side": 1,
+      "message": "Unfortunately, the `issues` module was just ported to localization V2, so the whole CL has to be rebased to use the new API instead of ls where appropriate :(",
+      "revId": "d94e6328661b25a92e2e3f0f20efdee23ac8a289",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e41aeb95_95084f95",
