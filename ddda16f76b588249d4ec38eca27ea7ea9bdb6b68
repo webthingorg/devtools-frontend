@@ -46,6 +46,30 @@
       },
       "revId": "ddda16f76b588249d4ec38eca27ea7ea9bdb6b68",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5dae284a_64ff77e8",
+        "filename": "front_end/ui/ReportView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-05T09:41:11Z",
+      "side": 0,
+      "message": "After quick online discussion: will leave it in, because these lines make sense and only concern the old deprecated ReportView.js anyway.",
+      "parentUuid": "3dbcfec0_abf811db",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 50
+      },
+      "revId": "ddda16f76b588249d4ec38eca27ea7ea9bdb6b68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
