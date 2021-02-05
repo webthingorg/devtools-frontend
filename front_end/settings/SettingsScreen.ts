@@ -268,29 +268,38 @@ export class GenericSettingsTab extends SettingsTab {
       this._createSectionElement(sectionName);
     }
 
+    const unionOfSettings: SettingDescriptor[] = [
+      // TODO(crbug.com/1134103): Remove this call when all settings are migrated
+      ...Root.Runtime.Runtime.instance().extensions('setting').map(extension => {
+        const category = extension.descriptor().category;
+        return {
+          category: category ? i18nString(category) : undefined,
+          settingName: extension.descriptor().settingName,
+          title: extension.title(),
+          order: extension.descriptor().order,
+          settingType: extension.descriptor().settingType || '',
+          defaultValue: extension.descriptor().defaultValue,
+        };
+      }),
+      ...Common.Settings.getRegisteredSettings().map(setting => {
+        const titleMac = setting.titleMac && setting.titleMac();
+        const title = setting.title && setting.title();
+        const {category, settingName, order, settingType, defaultValue} = setting;
+        return {
+          category: category || undefined,
+          settingName: settingName,
+          title: titleMac || title,
+          order: order || undefined,
+          settingType: settingType,
+          defaultValue,
+        };
+      }),
+    ];
     // Some settings define their initial ordering.
-    const preRegisteredSettings = Common.Settings.getRegisteredSettings().sort(
+    unionOfSettings.sort(
         (firstSetting, secondSetting) =>
             firstSetting.order && secondSetting.order ? (firstSetting.order - secondSetting.order) : 0);
-
-    for (const settingRegistration of preRegisteredSettings) {
-      if (!GenericSettingsTab.isSettingVisible(settingRegistration)) {
-        continue;
-      }
-      const extensionCategory = settingRegistration.category;
-      if (!extensionCategory) {
-        continue;
-      }
-      const sectionElement = this._sectionElement(extensionCategory);
-      if (!sectionElement) {
-        continue;
-      }
-      const setting = Common.Settings.Settings.instance().moduleSetting(settingRegistration.settingName);
-      const settingControl = UI.SettingsUI.createControlForSetting(setting);
-      if (settingControl) {
-        sectionElement.appendChild(settingControl);
-      }
-    }
+    unionOfSettings.forEach(this._addSetting.bind(this));
     Root.Runtime.Runtime.instance().extensions(UI.SettingsUI.SettingUI).forEach(this._addSettingUI.bind(this));
 
     this._appendSection().appendChild(
@@ -311,11 +320,27 @@ export class GenericSettingsTab extends SettingsTab {
     return genericSettingsTabInstance;
   }
 
-  static isSettingVisible(setting: Common.Settings.SettingRegistration): boolean {
-    const titleMac = setting.titleMac && setting.titleMac();
-    const defaultTitle = setting.title && setting.title();
-    const title = titleMac || defaultTitle;
-    return Boolean(title && setting.category);
+  static isSettingVisible(setting: SettingDescriptor): boolean {
+    return Boolean(setting.title && setting.category);
+  }
+
+  _addSetting(settingRegistration: SettingDescriptor): void {
+    if (!GenericSettingsTab.isSettingVisible(settingRegistration)) {
+      return;
+    }
+    const extensionCategory = settingRegistration.category;
+    if (!extensionCategory) {
+      return;
+    }
+    const sectionElement = this._sectionElement(extensionCategory);
+    if (!sectionElement) {
+      return;
+    }
+    const setting = Common.Settings.Settings.instance().moduleSetting(settingRegistration.settingName);
+    const settingControl = UI.SettingsUI.createControlForSetting(setting);
+    if (settingControl) {
+      sectionElement.appendChild(settingControl);
+    }
   }
 
   _addSettingUI(extension: Root.Runtime.Extension): void {
@@ -456,16 +481,34 @@ export class Revealer implements Common.Revealer.Revealer {
     const setting = object as Common.Settings.Setting<string>;
     let success = false;
 
-    for (const settingRegistration of Common.Settings.getRegisteredSettings()) {
-      if (!GenericSettingsTab.isSettingVisible(settingRegistration)) {
-        continue;
-      }
-      if (settingRegistration.settingName === setting.name) {
-        Host.InspectorFrontendHost.InspectorFrontendHostInstance.bringToFront();
-        SettingsScreen._showSettingsScreen();
-        success = true;
-      }
-    }
+    const unionOfSettings: SettingDescriptor[] = [
+      // TODO(crbug.com/1134103): Remove this call when all settings are migrated
+      ...Root.Runtime.Runtime.instance().extensions('setting').map(extension => {
+        const category = extension.descriptor().category;
+        return {
+          category: category ? i18nString(category) : undefined,
+          settingName: extension.descriptor().settingName,
+          title: extension.title(),
+          order: extension.descriptor().order,
+          settingType: extension.descriptor().settingType || '',
+          defaultValue: extension.descriptor().defaultValue,
+        };
+      }),
+      ...Common.Settings.getRegisteredSettings().map(setting => {
+        const titleMac = setting.titleMac && setting.titleMac();
+        const title = setting.title && setting.title();
+        const {category, settingName, order, settingType, defaultValue} = setting;
+        return {
+          category: category || undefined,
+          settingName: settingName,
+          title: titleMac || title,
+          order: order || undefined,
+          settingType: settingType,
+          defaultValue,
+        };
+      }),
+    ];
+    unionOfSettings.forEach(revealModuleSetting);
     Root.Runtime.Runtime.instance().extensions(UI.SettingsUI.SettingUI).forEach(revealSettingUI);
 
     // Reveal settings views
@@ -485,6 +528,17 @@ export class Revealer implements Common.Revealer.Revealer {
 
     return success ? Promise.resolve() : Promise.reject();
 
+    function revealModuleSetting(settingRegistration: SettingDescriptor): void {
+      if (!GenericSettingsTab.isSettingVisible(settingRegistration)) {
+        return;
+      }
+      if (settingRegistration.settingName === setting.name) {
+        Host.InspectorFrontendHost.InspectorFrontendHostInstance.bringToFront();
+        SettingsScreen._showSettingsScreen();
+        success = true;
+      }
+    }
+
     function revealSettingUI(extension: Root.Runtime.Extension): void {
       const settings = extension.descriptor()['settings'];
       if (settings && settings.indexOf(setting.name) !== -1) {
@@ -498,4 +552,12 @@ export class Revealer implements Common.Revealer.Revealer {
 export interface ShowSettingsScreenOptions {
   name?: string;
   focusTabHeader?: boolean;
+}
+export interface SettingDescriptor {
+  category?: string;
+  settingName: string;
+  title?: string;
+  order?: number;
+  settingType: string;
+  defaultValue: unknown;
 }

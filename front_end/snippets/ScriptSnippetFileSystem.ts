@@ -37,8 +37,8 @@ function unescapeSnippetName(name: string): string {
 }
 
 export class SnippetFileSystem extends Persistence.PlatformFileSystem.PlatformFileSystem {
-  _lastSnippetIdentifierSetting: Common.Settings.Setting<number>;
-  _snippetsSetting: Common.Settings.Setting<Snippet[]>;
+  _lastSnippetIdentifierSetting: Common.Settings.LegacySetting<number>;
+  _snippetsSetting: Common.Settings.LegacySetting<Snippet[]>;
   constructor() {
     super('snippet://', 'snippets');
     this._lastSnippetIdentifierSetting =

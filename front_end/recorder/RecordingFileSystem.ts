@@ -35,8 +35,8 @@ function unescapeRecordingName(name: string): string {
 }
 
 export class RecordingFileSystem extends Persistence.PlatformFileSystem.PlatformFileSystem {
-  _lastRecordingIdentifierSetting: Common.Settings.Setting<number>;
-  _recordingsSetting: Common.Settings.Setting<Recording[]>;
+  _lastRecordingIdentifierSetting: Common.Settings.LegacySetting<number>;
+  _recordingsSetting: Common.Settings.LegacySetting<Recording[]>;
 
   constructor() {
     super('recording://', 'recordings');

@@ -29,6 +29,7 @@
  */
 
 import * as Platform from '../platform/platform.js';  // eslint-disable-line no-unused-vars
+import {ls} from '../platform/platform.js';
 import * as Root from '../root/root.js';
 
 import {Color, Format} from './Color.js';  // eslint-disable-line no-unused-vars
@@ -65,26 +66,59 @@ export class Settings {
     /** @type {!Map<string, !Setting<*>>} */
     this._moduleSettings = new Map();
 
-    for (const registration of getRegisteredSettings()) {
-      const {settingName, defaultValue, storageType} = registration;
-      const isRegex = registration.settingType === SettingTypeObject.REGEX;
+    const unionOfSettings = [
+      // This lookup is done for the legacy settings.
+      // TODO(crbug.com/1134103): remove this call once all settings have been migrated.
+      ...Root.Runtime.Runtime.instance().extensions('setting').map(extension => {
+        const descriptor = extension.descriptor();
+        let storageType;
+        switch (descriptor.storageType) {
+          case 'local':
+            storageType = SettingStorageType.Local;
+            break;
+          case 'session':
+            storageType = SettingStorageType.Session;
+            break;
+          case 'global':
+            storageType = SettingStorageType.Global;
+            break;
+          default:
+            storageType = SettingStorageType.Global;
+        }
+        const {settingName, defaultValue, userActionCondition} = descriptor;
 
-      const setting = isRegex && typeof defaultValue === 'string' ?
-          this.createRegExpSetting(settingName, defaultValue, undefined, storageType) :
-          this.createSetting(settingName, defaultValue, storageType);
+        const setting = this.createSetting(settingName, defaultValue, storageType);
 
-      if (registration.titleMac) {
-        setting.setTitleFunction(registration.titleMac);
-      } else {
-        setting.setTitleFunction(registration.title);
-      }
-      if (registration.userActionCondition) {
-        setting.setRequiresUserAction(Boolean(Root.Runtime.Runtime.queryParam(registration.userActionCondition)));
-      }
-      setting.setRegistration(registration);
+        if (extension.title()) {
+          setting.setTitle(extension.title());
+        }
+        if (userActionCondition) {
+          setting.setRequiresUserAction(Boolean(Root.Runtime.Runtime.queryParam(userActionCondition)));
+        }
+        setting._extension = extension;
+        return setting;
+      }),
+      ...getRegisteredSettings().map(registration => {
+        const {settingName, defaultValue, storageType} = registration;
+        const isRegex = registration.settingType === SettingTypeObject.REGEX;
 
-      this._registerModuleSetting(setting);
-    }
+        const setting = isRegex && typeof defaultValue === 'string' ?
+            this.createRegExpSetting(settingName, defaultValue, undefined, storageType) :
+            this.createPreRegisteredSetting(settingName, defaultValue, storageType);
+
+        if (registration.titleMac) {
+          setting.setTitleFunction(registration.titleMac);
+        } else {
+          setting.setTitleFunction(registration.title);
+        }
+        if (registration.userActionCondition) {
+          setting.setRequiresUserAction(Boolean(Root.Runtime.Runtime.queryParam(registration.userActionCondition)));
+        }
+        setting.setRegistration(registration);
+        return setting;
+      })
+    ];
+    unionOfSettings.forEach(this._registerModuleSetting.bind(this));
   }
 
   static hasInstance() {
@@ -161,13 +195,31 @@ export class Settings {
    * @param {string} key
    * @param {*} defaultValue
    * @param {!SettingStorageType=} storageType
-   * @return {!Setting<*>}
+   * @return {!LegacySetting<*>}
    */
   createSetting(key, defaultValue, storageType) {
     const storage = this._storageFromType(storageType);
-    let setting = /** @type {!Setting<*>} */ (this._registry.get(key));
+    let setting = /** @type {!LegacySetting<*>} */ (this._registry.get(key));
     if (!setting) {
-      setting = new Setting(this, key, defaultValue, this._eventSupport, storage);
+      // TODO(crbug.com/1134103): This has to instatiate a PreRegisteredSetting instead once all settings are migrated
+      setting = new LegacySetting(this, key, defaultValue, this._eventSupport, storage);
+      this._registry.set(key, setting);
+    }
+    return setting;
+  }
+
+  /**
+   * @param {string} key
+   * @param {*} defaultValue
+   * @param {!SettingStorageType=} storageType
+   * @return {!PreRegisteredSetting<*>}
+   */
+  createPreRegisteredSetting(key, defaultValue, storageType) {
+    // TODO(crbug.com/1134103): This function has to be removed when all settings are migrated createSetting() instantiates a PreRegisteredSetting
+    const storage = this._storageFromType(storageType);
+    let setting = /** @type {!PreRegisteredSetting<*>} */ (this._registry.get(key));
+    if (!setting) {
+      setting = new PreRegisteredSetting(this, key, defaultValue, this._eventSupport, storage);
       this._registry.set(key, setting);
     }
     return setting;
@@ -308,11 +360,129 @@ export class SettingsStorage {
   }
 }
 
-
 /**
  * @template V
  */
 export class Setting {
+  /**
+   * @param {function(!EventTargetEvent):void} listener
+   * @param {!Object=} thisObject
+   * @return {!EventDescriptor}
+   */
+  addChangeListener(listener, thisObject) {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @param {function(!EventTargetEvent):void} listener
+   * @param {!Object=} thisObject
+   */
+  removeChangeListener(listener, thisObject) {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @return {string}
+   */
+  get name() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @return {string}
+   */
+  title() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @param {string=} title
+   */
+  setTitle(title) {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @param {boolean} requiresUserAction
+   */
+  setRequiresUserAction(requiresUserAction) {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @return {V}
+   */
+  get() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @param {V} value
+   */
+  set(value) {
+    throw new Error('not implemented');
+  }
+
+  remove() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @return {?SettingType}
+   */
+  type() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @return {!Array<!SimpleSettingOption>}
+   */
+  options() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @return {?boolean}
+   */
+  reloadRequired() {
+    throw new Error('not implemented');
+  }
+  /**
+   * @return {?SettingCategory}
+   */
+  category() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @return {?string}
+   */
+  tags() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @return {?number}
+   */
+  order() {
+    throw new Error('not implemented');
+  }
+
+  /**
+   * @param {string} message
+   * @param {string} name
+   * @param {string} value
+   */
+  _printSettingsSavingError(message, name, value) {
+    throw new Error('not implemented');
+  }
+}
+
+/**
+ * @extends {Setting<V>}
+ * @template V
+ */
+export class LegacySetting extends Setting {
   /**
    * @param {!Settings} settings
    * @param {string} name
@@ -321,20 +491,20 @@ export class Setting {
    * @param {!SettingsStorage} storage
    */
   constructor(settings, name, defaultValue, eventSupport, storage) {
+    super();
     this._settings = settings;
     this._name = name;
     this._defaultValue = defaultValue;
     this._eventSupport = eventSupport;
     this._storage = storage;
-    /** @type {function():Platform.UIString.LocalizedString} */
-    this._titleFunction;
     /** @type {string} */
-    this._title;
-    /** @type {?SettingRegistration} */
-    this._registration = null;
+    this._title = '';
+    /** @type {?Root.Runtime.Extension} */
+    this._extension = null;
   }
 
   /**
+   * @override
    * @param {function(!EventTargetEvent):void} listener
    * @param {!Object=} thisObject
    * @return {!EventDescriptor}
@@ -344,47 +514,40 @@ export class Setting {
   }
 
   /**
+   * @override
    * @param {function(!EventTargetEvent):void} listener
    * @param {!Object=} thisObject
    */
   removeChangeListener(listener, thisObject) {
     this._eventSupport.removeEventListener(this._name, listener, thisObject);
   }
-
+  /**
+   * @override
+   */
   get name() {
     return this._name;
   }
 
   /**
+   * @override
    * @return {string}
    */
   title() {
-    if (this._title) {
-      return this._title;
-    }
-    if (this._titleFunction) {
-      return this._titleFunction();
-    }
-    return '';
+    return ls(this._title);
   }
 
   /**
-   * @param {undefined|function():Platform.UIString.LocalizedString} titleFunction
+   * @override
+   * @param {string=} title
    */
-  setTitleFunction(titleFunction) {
-    if (titleFunction) {
-      this._titleFunction = titleFunction;
+  setTitle(title) {
+    if (title) {
+      this._title = title;
     }
   }
 
   /**
-  * @param {string} title
-  */
-  setTitle(title) {
-    this._title = title;
-  }
-
-  /**
+   * @override
    * @param {boolean} requiresUserAction
    */
   setRequiresUserAction(requiresUserAction) {
@@ -392,6 +555,7 @@ export class Setting {
   }
 
   /**
+   * @override
    * @return {V}
    */
   get() {
@@ -415,6 +579,7 @@ export class Setting {
   }
 
   /**
+   * @override
    * @param {V} value
    */
   set(value) {
@@ -433,6 +598,297 @@ export class Setting {
     this._eventSupport.dispatchEventToListeners(this._name, value);
   }
 
+  /**
+   * @override
+   */
+  remove() {
+    this._settings._registry.delete(this._name);
+    this._settings._moduleSettings.delete(this._name);
+    this._storage.remove(this._name);
+  }
+
+
+  /**
+   * @override
+   * @return {?SettingType}
+   */
+  type() {
+    if (this._extension) {
+      const type = this._extension.descriptor().settingType;
+      switch (type) {
+        case 'boolean':
+          return SettingTypeObject.BOOLEAN;
+        case 'enum':
+          return SettingTypeObject.ENUM;
+        case 'regex':
+          return SettingTypeObject.REGEX;
+        case 'array':
+          return SettingTypeObject.ARRAY;
+        default:
+          throw new Error('Invalid setting type');
+      }
+    }
+    return null;
+  }
+
+  /**
+   * @override
+   * @return {!Array<!SimpleSettingOption>}
+   */
+  options() {
+    if (this._extension) {
+      const options = this._extension.descriptor().options;
+      if (!options) {
+        return [];
+      }
+
+      return options.map(opt => {
+        let text;
+        if (opt.text) {
+          // The "raw" flag indicates text is non-i18n-izable.
+          text = opt.raw ? opt.text : ls(opt.text);
+        }
+        return {
+          ...opt,
+          text,
+          title: ls(opt.title),
+        };
+      });
+    }
+    return [];
+  }
+
+  /**
+   * @override
+   * @return {?boolean}
+   */
+  reloadRequired() {
+    if (this._extension) {
+      return this._extension.descriptor().reloadRequired || null;
+    }
+    return null;
+  }
+
+  /**
+   * @override
+   * @return {?SettingCategory}
+   */
+  category() {
+    if (this._extension) {
+      const category = this._extension.descriptor().category;
+      if (!category) {
+        return null;
+      }
+
+      switch (category) {
+        case 'Elements':
+          return SettingCategoryObject.ELEMENTS;
+        case 'Appearance':
+          return SettingCategoryObject.APPEARANCE;
+        case 'Sources':
+          return SettingCategoryObject.SOURCES;
+        case 'Network':
+          return SettingCategoryObject.NETWORK;
+        case 'Performance':
+          return SettingCategoryObject.PERFORMANCE;
+        case 'Console':
+          return SettingCategoryObject.CONSOLE;
+        case 'Persistence':
+          return SettingCategoryObject.PERSISTENCE;
+        case 'Debugger':
+          return SettingCategoryObject.DEBUGGER;
+        case 'Global':
+          return SettingCategoryObject.GLOBAL;
+        case 'Rendering':
+          return SettingCategoryObject.RENDERING;
+        case 'Grid':
+          return SettingCategoryObject.GRID;
+        case 'Mobile':
+          return SettingCategoryObject.MOBILE;
+        case 'Emulation':
+          return SettingCategoryObject.EMULATION;
+        case 'Memory':
+          return SettingCategoryObject.MEMORY;
+        default:
+          throw new Error(`Invalid setting category ${category}`);
+      }
+    }
+    return null;
+  }
+
+  /**
+   * @override
+   * @return {?string}
+   */
+  tags() {
+    if (this._extension) {
+      const tags = this._extension.descriptor().tags;
+      if (!tags) {
+        return null;
+      }
+      // Get localized keys and separate by null character to prevent fuzzy matching from matching across them.
+      const keyList = tags.split(',');
+      let keys = '';
+      keyList.forEach(k => {
+        keys += (ls(k.trim()) + '\0');
+      });
+      return keys;
+    }
+    return null;
+  }
+
+  /**
+   * @override
+   * @return {?number}
+   */
+  order() {
+    if (this._extension) {
+      return this._extension.descriptor().order || null;
+    }
+    return null;
+  }
+
+  /**
+   * @override
+   * @param {string} message
+   * @param {string} name
+   * @param {string} value
+   */
+  _printSettingsSavingError(message, name, value) {
+    const errorMessage =
+        'Error saving setting with name: ' + this._name + ', value length: ' + value.length + '. Error: ' + message;
+    console.error(errorMessage);
+    Console.instance().error(errorMessage);
+    this._storage._dumpSizes();
+  }
+}
+
+/**
+ * @extends {Setting<V>}
+ * @template V
+ */
+export class PreRegisteredSetting extends Setting {
+  /**
+   * @param {!Settings} settings
+   * @param {string} name
+   * @param {V} defaultValue
+   * @param {!ObjectWrapper} eventSupport
+   * @param {!SettingsStorage} storage
+   */
+  constructor(settings, name, defaultValue, eventSupport, storage) {
+    super();
+    this._settings = settings;
+    this._name = name;
+    this._defaultValue = defaultValue;
+    this._eventSupport = eventSupport;
+    this._storage = storage;
+    /** @type {function():Platform.UIString.LocalizedString} */
+    this._titleFunction;
+    /** @type {?SettingRegistration} */
+    this._registration = null;
+  }
+
+  /**
+   * @override
+   * @param {function(!EventTargetEvent):void} listener
+   * @param {!Object=} thisObject
+   * @return {!EventDescriptor}
+   */
+  addChangeListener(listener, thisObject) {
+    return this._eventSupport.addEventListener(this._name, listener, thisObject);
+  }
+
+  /**
+   * @override
+   * @param {function(!EventTargetEvent):void} listener
+   * @param {!Object=} thisObject
+   */
+  removeChangeListener(listener, thisObject) {
+    this._eventSupport.removeEventListener(this._name, listener, thisObject);
+  }
+  /**
+   * @override
+   */
+  get name() {
+    return this._name;
+  }
+
+  /**
+   * @override
+   * @return {Platform.UIString.LocalizedString}
+   */
+  title() {
+    if (!this._titleFunction) {
+      return /** @type {Platform.UIString.LocalizedString} */ ('');
+    }
+    return this._titleFunction();
+  }
+
+  /**
+   * @override
+   * @param {undefined|function():Platform.UIString.LocalizedString} titleFunction
+   */
+  setTitleFunction(titleFunction) {
+    if (titleFunction) {
+      this._titleFunction = titleFunction;
+    }
+  }
+
+  /**
+   * @override
+   * @param {boolean} requiresUserAction
+   */
+  setRequiresUserAction(requiresUserAction) {
+    this._requiresUserAction = requiresUserAction;
+  }
+
+  /**
+   * @override
+   * @return {V}
+   */
+  get() {
+    if (this._requiresUserAction && !this._hadUserAction) {
+      return this._defaultValue;
+    }
+
+    if (typeof this._value !== 'undefined') {
+      return this._value;
+    }
+
+    this._value = this._defaultValue;
+    if (this._storage.has(this._name)) {
+      try {
+        this._value = JSON.parse(this._storage.get(this._name));
+      } catch (e) {
+        this._storage.remove(this._name);
+      }
+    }
+    return this._value;
+  }
+
+  /**
+   * @override
+   * @param {V} value
+   */
+  set(value) {
+    this._hadUserAction = true;
+    this._value = value;
+    try {
+      const settingString = JSON.stringify(value);
+      try {
+        this._storage.set(this._name, settingString);
+      } catch (e) {
+        this._printSettingsSavingError(e.message, this._name, settingString);
+      }
+    } catch (e) {
+      Console.instance().error('Cannot stringify setting with name: ' + this._name + ', error: ' + e.message);
+    }
+    this._eventSupport.dispatchEventToListeners(this._name, value);
+  }
+
+  /**
+   * @override
+   */
   remove() {
     this._settings._registry.delete(this._name);
     this._settings._moduleSettings.delete(this._name);
@@ -447,6 +903,7 @@ export class Setting {
   }
 
   /**
+   * @override
    * @return {?SettingType}
    */
   type() {
@@ -457,6 +914,7 @@ export class Setting {
   }
 
   /**
+   * @override
    * @return {!Array<!SimpleSettingOption>}
    */
   options() {
@@ -475,6 +933,7 @@ export class Setting {
   }
 
   /**
+   * @override
    * @return {?boolean}
    */
   reloadRequired() {
@@ -485,6 +944,7 @@ export class Setting {
   }
 
   /**
+   * @override
    * @return {?SettingCategory}
    */
   category() {
@@ -495,6 +955,7 @@ export class Setting {
   }
 
   /**
+   * @override
    * @return {?string}
    */
   tags() {
@@ -506,6 +967,7 @@ export class Setting {
   }
 
   /**
+   * @override
    * @return {?number}
    */
   order() {
@@ -516,6 +978,7 @@ export class Setting {
   }
 
   /**
+   * @override
    * @param {string} message
    * @param {string} name
    * @param {string} value
@@ -536,9 +999,9 @@ export class Setting {
 }
 
 /**
- * @extends Setting<*>
+ * @extends PreRegisteredSetting<*>
  */
-export class RegExpSetting extends Setting {
+export class RegExpSetting extends PreRegisteredSetting {
   /**
    * @param {!Settings} settings
    * @param {string} name
