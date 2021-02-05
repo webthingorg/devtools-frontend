@@ -14,28 +14,26 @@ const settingCategory = Common.Settings.SettingCategoryObject.CONSOLE;
 const enableTitle = 'Enable mock setting';
 const disableTitle = 'Disable mock setting';
 
-describe('Setting registration', () => {
+describe('Action registration', () => {
   before(async () => {
-    Common.Settings.registerSettingExtengionsForTest(
-        [{
-          category: settingCategory,
-          title: (): Platform.UIString.LocalizedString => settingTitle as Platform.UIString.LocalizedString,
-          settingType: 'boolean',
-          settingName,
-          defaultValue: false,
-          options: [
-            {
-              value: true,
-              title: (): Platform.UIString.LocalizedString => enableTitle as Platform.UIString.LocalizedString,
-            },
-            {
-              value: false,
-              title: (): Platform.UIString.LocalizedString => disableTitle as Platform.UIString.LocalizedString,
-            },
-          ],
-        }],
-        true);
-    await initializeGlobalVars({reset: false});
+    Common.Settings.registerSettingExtension({
+      category: settingCategory,
+      title: (): Platform.UIString.LocalizedString => settingTitle as Platform.UIString.LocalizedString,
+      settingType: 'boolean',
+      settingName,
+      defaultValue: false,
+      options: [
+        {
+          value: true,
+          title: (): Platform.UIString.LocalizedString => enableTitle as Platform.UIString.LocalizedString,
+        },
+        {
+          value: false,
+          title: (): Platform.UIString.LocalizedString => disableTitle as Platform.UIString.LocalizedString,
+        },
+      ],
+    });
+    await initializeGlobalVars();
   });
 
   after(async () => {
@@ -44,8 +42,8 @@ describe('Setting registration', () => {
 
   it('retrieves a registered setting', () => {
     try {
-      const preRegisteredSetting =
-          Common.Settings.Settings.instance().moduleSetting(settingName) as Common.Settings.Setting<boolean>;
+      const preRegisteredSetting = Common.Settings.Settings.instance().moduleSetting(settingName) as
+          Common.Settings.PreRegisteredSetting<boolean>;
       assert.strictEqual(preRegisteredSetting.title(), settingTitle, 'Setting title is not returned correctly');
       assert.strictEqual(
           preRegisteredSetting.category(), settingCategory, 'Setting category is not returned correctly');
