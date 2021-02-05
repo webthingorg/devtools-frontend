@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e7f02e0_4881b3e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-05T17:46:44Z",
+      "side": 1,
+      "message": "PTAL, I am confused as to why presubmit and \u0027npm run lint-check\u0027 seem to not agree with each other.",
+      "revId": "42e53cc564bbe474a4bd16f37e427c2ea2f5a881",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
