@@ -37,7 +37,7 @@
   "resources": [
     "appManifestView.css",
     "backgroundServiceView.css",
-    "clearStorageView.css",
+    "storageView.css",
     "indexedDBViews.css",
     "resourcesPanel.css",
     "resourcesSidebar.css",
