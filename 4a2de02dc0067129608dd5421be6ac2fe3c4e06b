@@ -16,6 +16,24 @@
       "message": "Why was this line removed?",
       "revId": "4a2de02dc0067129608dd5421be6ac2fe3c4e06b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4312268_ce77fbc6",
+        "filename": "front_end/resources/ClearStorageView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-05T11:29:46Z",
+      "side": 0,
+      "message": "Thanks, this is an actual bug!",
+      "parentUuid": "366ccfbd_f47729a3",
+      "revId": "4a2de02dc0067129608dd5421be6ac2fe3c4e06b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
