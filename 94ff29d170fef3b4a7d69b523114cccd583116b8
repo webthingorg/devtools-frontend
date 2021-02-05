@@ -52,6 +52,24 @@
       "parentUuid": "6de79682_2d4f35c3",
       "revId": "94ff29d170fef3b4a7d69b523114cccd583116b8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2957330a_3b522ddf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-05T13:05:23Z",
+      "side": 1,
+      "message": "The only way I can see that this will work is to do the gitignore change and delete en-XL.json, and prevent the scripts from generating it. Wait a day on the bots, then check it in and turn on generation again. Is that what you\u0027re thinking of?",
+      "parentUuid": "62fb8022_19762f81",
+      "revId": "94ff29d170fef3b4a7d69b523114cccd583116b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
