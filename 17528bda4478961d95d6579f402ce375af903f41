@@ -16,6 +16,24 @@
       "message": "Previously, we used throttled widget for this. Do we have a component version of that?",
       "revId": "17528bda4478961d95d6579f402ce375af903f41",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a1778da_20c15dfc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-05T13:34:43Z",
+      "side": 1,
+      "message": "No component version, but we can use the ThrottlerWidget for the wrapper vbox.",
+      "parentUuid": "133fe7c4_fb3e1e19",
+      "revId": "17528bda4478961d95d6579f402ce375af903f41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
