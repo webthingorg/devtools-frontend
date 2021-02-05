@@ -34,6 +34,24 @@
       "parentUuid": "782e4c59_f1552e2c",
       "revId": "94ff29d170fef3b4a7d69b523114cccd583116b8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62fb8022_19762f81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2021-02-05T11:53:35Z",
+      "side": 1,
+      "message": "I might have a way to delete the cache on the bots but the problem might still remain if between deleting the cache and running this presubmit another build writes again the file in the new cache. Maybe it is better to split the CL and land the the ignore update at least one day before the addition of the file (to get bots with clean caches).",
+      "parentUuid": "6de79682_2d4f35c3",
+      "revId": "94ff29d170fef3b4a7d69b523114cccd583116b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
