@@ -147,6 +147,9 @@
   <message name="IDS_DEVTOOLS_6775864ce3df150aabbf2d60eb12f513" desc="Text in Console Pin Pane of the Console panel">
     Live expression editor
   </message>
+  <message name="IDS_DEVTOOLS_689202409e48743b914713f96d93947c" desc="Text for the value of something">
+    Value
+  </message>
   <message name="IDS_DEVTOOLS_6cdd8769d46bb96331ac4a96d3ea84b8" desc="Message element title in Console View Message of the Console panel">
     Clear all messages with <ph name="UI_SHORTCUTREGISTRY_SHORTCUTTITLEFORACTION__CONSOLE_CLEAR__">$1s<ex>Ctrl+L</ex></ph>
   </message>
