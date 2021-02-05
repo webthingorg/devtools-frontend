@@ -313,6 +313,7 @@ UI.ContextMenu.registerProvider({
     const Elements = await loadElementsModule();
     return Elements.ElementsPanel.ContextMenuProvider.instance();
   },
+  experiment: undefined,
 });
 
 UI.ViewManager.registerLocationResolver({

@@ -676,6 +676,10 @@ async function loadApplicableRegisteredProviders(target) {
    * @return {Promise<boolean>}
    */
   async function isProviderApplicableToContextTypes(providerRegistration) {
+    if (!Root.Runtime.Runtime.isDescriptorEnabled(
+            {experiment: providerRegistration.experiment, condition: undefined})) {
+      return false;
+    }
     if (!providerRegistration.contextTypes) {
       return true;
     }
@@ -690,8 +694,9 @@ async function loadApplicableRegisteredProviders(target) {
 
 /**
  * @typedef {{
- *  contextTypes: function(): !Promise<!Array<?>>
- *  loadProvider: function(): !Promise<!Provider>
+ *  contextTypes: function(): !Promise<!Array<?>>,
+ *  loadProvider: function(): !Promise<!Provider>,
+ *  experiment: (undefined|Root.Runtime.ExperimentName)
  * }} */
 // @ts-ignore typedef
 export let ProviderRegistration;
