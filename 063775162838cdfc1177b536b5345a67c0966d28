@@ -16,6 +16,69 @@
       "message": "PTAL",
       "revId": "063775162838cdfc1177b536b5345a67c0966d28",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43e5b5cf_ae5d8d02",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-05T14:12:36Z",
+      "side": 1,
+      "message": "LGTM but have a question about coordinator.done() that I\u0027d like to resolve before landing 👍",
+      "revId": "063775162838cdfc1177b536b5345a67c0966d28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ab2dbfe_5e64d12f",
+        "filename": "test/unittests/front_end/resources/FrameDetailsView_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-05T14:12:36Z",
+      "side": 1,
+      "message": "why do we need to cast it? I think if we give it all the right properties TS would be happy. Or is it because this isn\u0027t a true instance of the class?",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 58
+      },
+      "revId": "063775162838cdfc1177b536b5345a67c0966d28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2403ff7c_153aaf6b",
+        "filename": "test/unittests/front_end/resources/FrameDetailsView_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-05T14:12:36Z",
+      "side": 1,
+      "message": "I don\u0027t quite follow why you need two of these - if the coordinator is doing its stuff properly it should only emit the event when it is done and therefore one should be enough. Did that not work?",
+      "range": {
+        "startLine": 85,
+        "startChar": 2,
+        "endLine": 86,
+        "endChar": 62
+      },
+      "revId": "063775162838cdfc1177b536b5345a67c0966d28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
