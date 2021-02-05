@@ -1,7 +1,11 @@
 // Copyright (c) 2020 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
+
 import * as LitHtml from '../third_party/lit-html/lit-html.js';
+// Imports XLink.js providing <x-link> tag as a side effect.
+import * as UI from '../ui/ui.js';  // eslint-disable-line @typescript-eslint/no-unused-vars
+
 import {getMarkdownLink} from './MarkdownLinksMap.js';
 
 export interface MarkdownLinkData {
@@ -40,7 +44,7 @@ export class MarkdownLink extends HTMLElement {
           text-decoration: underline;
         }
       </style>
-      <a class="devtools-link" href=${this.linkUrl} target="_blank">${this.linkText}</a>
+      <x-link class="devtools-link" href=${this.linkUrl}>${this.linkText}</x-link>
     `;
     LitHtml.render(output, this.shadow);
     // clang-format on
