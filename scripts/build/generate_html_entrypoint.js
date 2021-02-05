@@ -12,7 +12,6 @@ const ENTRYPOINTS = [
   'js_app',
   'ndb_app',
   'node_app',
-  'toolbox',
   'worker_app',
 ];
 
