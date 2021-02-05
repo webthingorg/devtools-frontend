@@ -22,6 +22,30 @@
       },
       "revId": "ddda16f76b588249d4ec38eca27ea7ea9bdb6b68",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3dbcfec0_abf811db",
+        "filename": "front_end/ui/ReportView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-05T09:36:36Z",
+      "side": 0,
+      "message": "This was added in the first CL of this migration (https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2662984/6/front_end/ui/ReportView.js) to make the intermediate states work. It\u0027s not needed anymore now that the whole FrameDetailsView is a custom component.",
+      "parentUuid": "1ca01c29_40c90139",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 50
+      },
+      "revId": "ddda16f76b588249d4ec38eca27ea7ea9bdb6b68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
