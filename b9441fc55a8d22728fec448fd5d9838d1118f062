@@ -16,6 +16,46 @@
       "message": "Preventing multiline strings locV2 via collect-strings.js ",
       "revId": "b9441fc55a8d22728fec448fd5d9838d1118f062",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b38458b_aca86307",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-05T10:43:14Z",
+      "side": 1,
+      "message": "Peter FYI",
+      "revId": "b9441fc55a8d22728fec448fd5d9838d1118f062",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54255be8_ba7fc607",
+        "filename": "third_party/i18n/collect-strings.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-05T10:43:14Z",
+      "side": 1,
+      "message": "FYI since `malformedStringsEx` is a template string, it will adhere to formatting and you could thus put a newline here (e.g. an \"enter\", not the escaped character).",
+      "range": {
+        "startLine": 592,
+        "startChar": 24,
+        "endLine": 592,
+        "endChar": 26
+      },
+      "revId": "b9441fc55a8d22728fec448fd5d9838d1118f062",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
