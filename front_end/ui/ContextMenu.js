@@ -616,18 +616,6 @@ export class ContextMenu extends SubMenu {
    * @param {!Object} target
    */
   appendApplicableItems(target) {
-    const allInstances =
-        /** @type {!Promise<!Array<!Provider>>}*/ (Root.Runtime.Runtime.instance().allInstances(Provider, target));
-    this._pendingPromises.push(allInstances);
-    this._pendingTargets.push(target);
-    // We need to duplicate the registered providers into the pending promises,
-    // since an array of providers is related to a particular target. Since both
-    // `allInstances` and `loadRegisteredProviders` return a Promise of an array,
-    // we can't unroll these promises at this point. Thus, we can't concatenate
-    // both arrays right now and we have to do that *after* resolving their
-    // promises. Since the `_pendingTargets` array requires each of its indices
-    // to have a matching array of providers, we need to duplicate the target
-    // in that array as well.
     this._pendingPromises.push(loadApplicableRegisteredProviders(target));
     this._pendingTargets.push(target);
   }
@@ -676,6 +664,10 @@ async function loadApplicableRegisteredProviders(target) {
    * @return {Promise<boolean>}
    */
   async function isProviderApplicableToContextTypes(providerRegistration) {
+    if (!Root.Runtime.Runtime.isDescriptorEnabled(
+            {experiment: providerRegistration.experiment, condition: undefined})) {
+      return false;
+    }
     if (!providerRegistration.contextTypes) {
       return true;
     }
@@ -690,8 +682,9 @@ async function loadApplicableRegisteredProviders(target) {
 
 /**
  * @typedef {{
- *  contextTypes: function(): !Promise<!Array<?>>
- *  loadProvider: function(): !Promise<!Provider>
+ *  contextTypes: function(): !Promise<!Array<?>>,
+ *  loadProvider: function(): !Promise<!Provider>,
+ *  experiment: (undefined|Root.Runtime.ExperimentName)
  * }} */
 // @ts-ignore typedef
 export let ProviderRegistration;
