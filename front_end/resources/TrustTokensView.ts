@@ -13,6 +13,9 @@ import type {ResourcesPanel} from './ResourcesPanel.js';
 
 import {ApplicationPanelTreeElement} from './ApplicationPanelTreeElement.js';
 
+/** Fetch the Trust Token data regularly from the backend while the panel is open */
+const REFRESH_INTERVAL_MS = 1000;
+
 export class TrustTokensTreeElement extends ApplicationPanelTreeElement {
   private view?: TrustTokensViewWidgetWrapper;
 
@@ -36,22 +39,24 @@ export class TrustTokensTreeElement extends ApplicationPanelTreeElement {
   }
 }
 
-class TrustTokensViewWidgetWrapper extends UI.Widget.VBox {
+class TrustTokensViewWidgetWrapper extends UI.ThrottledWidget.ThrottledWidget {
   private readonly trustTokensView = new TrustTokensView();
 
   constructor() {
-    super();
+    super(/* isWebComponent */ false, REFRESH_INTERVAL_MS);
     this.contentElement.appendChild(this.trustTokensView);
+    this.update();
   }
 
-  async wasShown(): Promise<void> {
+  protected async doUpdate(): Promise<void> {
     const mainTarget = SDK.SDKModel.TargetManager.instance().mainTarget();
     if (!mainTarget) {
       return;
     }
-
     const {tokens} = await mainTarget.storageAgent().invoke_getTrustTokens();
     this.trustTokensView.data = {tokens};
+
+    this.update();
   }
 }
 
