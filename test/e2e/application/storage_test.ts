@@ -6,7 +6,7 @@ import {assert} from 'chai';
 import {describe, it} from 'mocha';
 
 import {click, getBrowserAndPages, getTestServerPort, waitForFunction} from '../../shared/helper.js';
-import {doubleClickSourceTreeItem, getStorageItemsData, navigateToApplicationTab} from '../helpers/application-helpers.js';
+import {doubleClickSourceTreeItem, getPieChartLegendRows, getStorageItemsData, navigateToApplicationTab, waitForQuotaUsage} from '../helpers/application-helpers.js';
 
 const COOKIES_SELECTOR = '[aria-label="Cookies"]';
 const STORAGE_SELECTOR = '[aria-label="Storage"]';
@@ -107,6 +107,70 @@ describe('The Application Tab', async () => {
     await waitForFunction(async () => {
       const data = await getStorageItemsData(['name', 'value']);
       return data.length === 0;
+    });
+  });
+
+  describe('the Storage pane', async () => {
+    beforeEach(async () => {
+      const {target} = getBrowserAndPages();
+      await navigateToApplicationTab(target, 'storage-quota');
+
+      await doubleClickSourceTreeItem(STORAGE_SELECTOR);
+      await click(CLEAR_SITE_DATA_BUTTON_SELECTOR, {clickOptions: {delay: 50}});
+    });
+
+    it('is initially empty, and reports the pie chart accordingly', async () => {
+      await waitForQuotaUsage(quota => quota === 0);
+
+      const rows = await getPieChartLegendRows();
+      // Only assert that the legend entries are correct.
+      assert.strictEqual(rows.length, 1);
+      assert.strictEqual(rows[0][2], 'Total');
+    });
+
+    it('reports storage correctly, including the pie chart legend', async () => {
+      const {target} = getBrowserAndPages();
+
+      await target.evaluate(async () => {
+        const array: number[] = [];
+        for (let i = 0; i < 20000; i++) {
+          array.push(i % 10);
+        }
+        // @ts-ignore
+        await new Promise(resolve => createDatabase(resolve, 'Database1'));
+        // @ts-ignore
+        await new Promise(resolve => createObjectStore(resolve, 'Database1', 'Store1', 'id', true));
+        // @ts-ignore
+        await new Promise(resolve => addIDBValue(resolve, 'Database1', 'Store1', {key: 1, value: array}, ''));
+      });
+
+      await waitForQuotaUsage(quota => quota > 20000);
+
+      const rows = await getPieChartLegendRows();
+      // Only assert that the legend entries are correct.
+      assert.strictEqual(rows.length, 2);
+      assert.strictEqual(rows[0][2], 'IndexedDB');
+      assert.strictEqual(rows[1][2], 'Total');
+    });
+
+    it('clear button clears storage correctly', async () => {
+      const {target} = getBrowserAndPages();
+      await target.evaluate(async () => {
+        const array: number[] = [];
+        for (let i = 0; i < 20000; i++) {
+          array.push(i % 10);
+        }
+        // @ts-ignore
+        await new Promise(resolve => createDatabase(resolve, 'Database1'));
+        // @ts-ignore
+        await new Promise(resolve => createObjectStore(resolve, 'Database1', 'Store1', 'id', true));
+        // @ts-ignore
+        await new Promise(resolve => addIDBValue(resolve, 'Database1', 'Store1', {key: 1, value: array}, ''));
+      });
+
+      await waitForQuotaUsage(quota => quota > 20000);
+      await click(CLEAR_SITE_DATA_BUTTON_SELECTOR, {clickOptions: {delay: 50}});
+      await waitForQuotaUsage(quota => quota === 0);
     });
   });
 });
