@@ -70,6 +70,24 @@
       "parentUuid": "62fb8022_19762f81",
       "revId": "94ff29d170fef3b4a7d69b523114cccd583116b8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c358e5a2_0c81922a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-05T14:04:50Z",
+      "side": 1,
+      "message": "I think the biggest challenge is figuring out what the state of that file is. We could potentially do a dummy run in the PRESUBMIT.py where we read out the file so that we can reconstruct it. Then we check in that version by removing the gitignore entry and then as a follow-up we do this CL. WDYT?",
+      "parentUuid": "2957330a_3b522ddf",
+      "revId": "94ff29d170fef3b4a7d69b523114cccd583116b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
