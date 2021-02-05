@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7978578b_8f707417",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-05T07:41:44Z",
+      "side": 1,
+      "message": "Please split off the CSS changes. Otherwise LGTM.",
+      "revId": "ae8f3caf909ae2bdf481f04b82a665b39729a066",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
