@@ -520,7 +520,7 @@ describe('Sources Tab', async function() {
 
 describe('Raw-Wasm', async () => {
   // Failing on Windows-only
-  it.skip('[crbug.com/1098707]: displays correct location in Wasm source', async () => {
+  it('displays correct location in Wasm source', async () => {
     const {frontend} = getBrowserAndPages();
 
     // Have the target load the page.
