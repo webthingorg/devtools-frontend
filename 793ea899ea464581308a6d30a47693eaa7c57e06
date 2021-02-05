@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "793ea899ea464581308a6d30a47693eaa7c57e06",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b53b300_8aa632bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-05T08:57:16Z",
+      "side": 1,
+      "message": "Could you create a component_doc for this similar to front_end/component_docs/markdown_image/basic.ts so I can easily inspect the renderer version?\n\nA functional test would be great as well.",
+      "revId": "793ea899ea464581308a6d30a47693eaa7c57e06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bfea49a_f16e298d",
+        "filename": "front_end/issues/MarkdownLink.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-05T08:57:16Z",
+      "side": 1,
+      "message": "I suggest\nimport * as UI from \u0027../ui/ui.js\u0027;  // eslint-disable-line @typescript-eslint/no-unused-vars\n\nfor uniformity.",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 55
+      },
+      "revId": "793ea899ea464581308a6d30a47693eaa7c57e06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
