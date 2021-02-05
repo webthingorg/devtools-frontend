@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "162f1f10e3d835e2242c0aff74575dd63de8b4b3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75f38530_709005a2",
+        "filename": "inspector_overlay/tool_highlight.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-02-05T16:59:10Z",
+      "side": 1,
+      "message": "Let\u0027s maybe point to a crbug with NextAction\u003d set to the proper date so we don\u0027t forget?",
+      "revId": "162f1f10e3d835e2242c0aff74575dd63de8b4b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
