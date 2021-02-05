@@ -1,0 +1,251 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43b677e6_c582020c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-02-05T10:31:20Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "4e68fa64b65bd9e248cd8b6aa8a6b26060b94c4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a390945_dd5ff836",
+        "filename": "front_end/ui/components/TreeOutline.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-02-05T10:31:20Z",
+      "side": 1,
+      "message": "nit: don\u0027t need this to be declared as a bool",
+      "range": {
+        "startLine": 22,
+        "startChar": 34,
+        "endLine": 22,
+        "endChar": 41
+      },
+      "revId": "4e68fa64b65bd9e248cd8b6aa8a6b26060b94c4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b142b376_51ff1014",
+        "filename": "front_end/ui/components/TreeOutline.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-02-05T10:31:20Z",
+      "side": 1,
+      "message": "Maybe add an explanation here of what we expect the behaviour to be, i.e., up to and including maxDepth?",
+      "range": {
+        "startLine": 40,
+        "startChar": 5,
+        "endLine": 40,
+        "endChar": 16
+      },
+      "revId": "4e68fa64b65bd9e248cd8b6aa8a6b26060b94c4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "550dc0fc_78ae517b",
+        "filename": "front_end/ui/components/TreeOutline.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-02-05T10:31:20Z",
+      "side": 1,
+      "message": "nit: you can get rid of this one, too",
+      "range": {
+        "startLine": 43,
+        "startChar": 28,
+        "endLine": 43,
+        "endChar": 36
+      },
+      "revId": "4e68fa64b65bd9e248cd8b6aa8a6b26060b94c4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "befe84eb_d47b963e",
+        "filename": "front_end/ui/components/TreeOutline.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-02-05T10:31:20Z",
+      "side": 1,
+      "message": "Maybe remove this or switch to a full description",
+      "range": {
+        "startLine": 50,
+        "startChar": 2,
+        "endLine": 54,
+        "endChar": 5
+      },
+      "revId": "4e68fa64b65bd9e248cd8b6aa8a6b26060b94c4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35631476_9c4dba7c",
+        "filename": "front_end/ui/components/TreeOutline.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-02-05T10:31:20Z",
+      "side": 1,
+      "message": "We might need to rethink this a bit for the case where we don\u0027t know the whole tree structure up front. For now, this is fine, but for something like Elements where the onpopulate call is async we only know that there are children, but not how many etc so we have to wait for the fetch process to complete before we can expand recursively.",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 3
+      },
+      "revId": "4e68fa64b65bd9e248cd8b6aa8a6b26060b94c4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f3f8350_e6680f7b",
+        "filename": "front_end/ui/components/TreeOutline.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-02-05T10:31:20Z",
+      "side": 1,
+      "message": "Returning functions from functions can get confusing. Is there a way we can simplify this?",
+      "range": {
+        "startLine": 102,
+        "startChar": 10,
+        "endLine": 102,
+        "endChar": 22
+      },
+      "revId": "4e68fa64b65bd9e248cd8b6aa8a6b26060b94c4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6843b142_86ee614b",
+        "filename": "front_end/ui/components/TreeOutline.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-02-05T10:31:20Z",
+      "side": 1,
+      "message": "It feels like you might want to render first?",
+      "range": {
+        "startLine": 126,
+        "startChar": 6,
+        "endLine": 126,
+        "endChar": 20
+      },
+      "revId": "4e68fa64b65bd9e248cd8b6aa8a6b26060b94c4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10e8ba7b_48898665",
+        "filename": "front_end/ui/components/TreeOutline.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-02-05T10:31:20Z",
+      "side": 1,
+      "message": "Unless this function is reading styles / layout we don\u0027t need the reader.",
+      "range": {
+        "startLine": 161,
+        "startChar": 38,
+        "endLine": 161,
+        "endChar": 42
+      },
+      "revId": "4e68fa64b65bd9e248cd8b6aa8a6b26060b94c4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b881dc31_08a06e89",
+        "filename": "front_end/ui/components/TreeOutline.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-02-05T10:31:20Z",
+      "side": 1,
+      "message": "We should take a similar approach to the data grid",
+      "range": {
+        "startLine": 249,
+        "startChar": 12,
+        "endLine": 249,
+        "endChar": 18
+      },
+      "revId": "4e68fa64b65bd9e248cd8b6aa8a6b26060b94c4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26269072_70482e65",
+        "filename": "front_end/ui/components/TreeOutlineUtils.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-02-05T10:31:20Z",
+      "side": 1,
+      "message": "Can we remove the optional chaining here? If we don\u0027t find the parentElement we should probably throw.",
+      "range": {
+        "startLine": 54,
+        "startChar": 67,
+        "endLine": 54,
+        "endChar": 68
+      },
+      "revId": "4e68fa64b65bd9e248cd8b6aa8a6b26060b94c4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
