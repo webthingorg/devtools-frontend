@@ -3,6 +3,12 @@
   <message name="IDS_DEVTOOLS_0203e27fe44545283879b18e7084391b" desc="Error message when failing to load a script source text">
     Unable to fetch script source.
   </message>
+  <message name="IDS_DEVTOOLS_05954c549f55216f04c1abf7a99396e9" desc="Tooltip to explain why a cookie was blocked due to SameParty">
+    This cookie was blocked because it had the &quot;SameParty&quot; attribute but the request was cross-party. The request was considered cross-party because the domain of the resource&apos;s URL and the domains of the resource&apos;s enclosing frames/documents are not owners or members in the same First-Party Set.
+  </message>
+  <message name="IDS_DEVTOOLS_0f9675f14f9a107fb0d245963367478f" desc="Tooltip to explain why a cookie was blocked due to SameParty">
+    This Set-Cookie was blocked because it had the &quot;SameParty&quot; attribute but came from a cross-party response. The response was considered cross-party because the domain of the resource&apos;s URL and the domains of the resource&apos;s enclosing frames/documents are not owners or members in the same First-Party Set.
+  </message>
   <message name="IDS_DEVTOOLS_46334eeb893715e9aefe809c08ce92b9" desc="Label for the link for Trusted Web Activity issue">
     Changes to quality criteria for PWAs using Trusted Web Activity
   </message>
@@ -188,6 +194,9 @@
   </message>
   <message name="IDS_DEVTOOLS_7aca5a3302ffbed606fd7701315b1c45" desc="Title of a setting that turns on grid extension lines">
     Extend grid lines
+  </message>
+  <message name="IDS_DEVTOOLS_7bace55728da29f49e67cbd92ae19df8" desc="Tooltip to explain why a cookie was blocked due to SameParty">
+    This cookie was blocked because it had the &quot;SameParty&quot; attribute but the request was cross-party.
   </message>
   <message name="IDS_DEVTOOLS_80785d28c7bc76ba8fb8fa9087774a3f" desc="Title for a checkbox that turns on breakpoints on Trusted Type sink violations">
     Sink Violations

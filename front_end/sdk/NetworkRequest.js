@@ -1752,6 +1752,8 @@ export const cookieBlockedReasonToUiString = function(blockedReason) {
       return ls`This cookie was blocked because it had the "SameSite=Lax" attribute but the request was cross-site and was not initiated by a top-level navigation. This request is considered cross-site because the URL has a different scheme than the current site.`;
     case Protocol.Network.CookieBlockedReason.SchemefulSameSiteUnspecifiedTreatedAsLax:
       return ls`This cookie didn't specify a "SameSite" attribute when it was stored, was defaulted to "SameSite=Lax", and was blocked because the request was cross-site and was not initiated by a top-level navigation. This request is considered cross-site because the URL has a different scheme than the current site.`;
+    case Protocol.Network.CookieBlockedReason.SamePartyFromCrossPartyContext:
+      return ls`This cookie was blocked because it had the "SameParty" attribute but the request was cross-party.`;
   }
   return '';
 };
@@ -1800,6 +1802,10 @@ export const setCookieBlockedReasonToUiString = function(blockedReason) {
       return ls`This Set-Cookie was blocked because it had the "SameSite=Lax" attribute but came from a cross-site response which was not the response to a top-level navigation. This response is considered cross-site because the URL has a different scheme than the current site.`;
     case Protocol.Network.SetCookieBlockedReason.SchemefulSameSiteUnspecifiedTreatedAsLax:
       return ls`This Set-Cookie didn't specify a "SameSite" attribute, was defaulted to "SameSite=Lax", and was blocked because it came from a cross-site response which was not the response to a top-level navigation. This response is considered cross-site because the URL has a different scheme than the current site.`;
+    case Protocol.Network.SetCookieBlockedReason.SamePartyFromCrossPartyContext:
+      return ls`This cookie was blocked because it had the "SameParty" attribute but the request was cross-party. The request was considered cross-party because the domain of the resource's URL and the domains of the resource's enclosing frames/documents are not owners or members in the same First-Party Set.`;
+    case Protocol.Network.SetCookieBlockedReason.SamePartyConflictsWithOtherAttributes:
+      return ls`This Set-Cookie was blocked because it had the "SameParty" attribute but came from a cross-party response. The response was considered cross-party because the domain of the resource's URL and the domains of the resource's enclosing frames/documents are not owners or members in the same First-Party Set.`;
   }
   return '';
 };
