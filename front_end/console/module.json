@@ -12,6 +12,7 @@
     "components",
     "data_grid",
     "host",
+    "i18n",
     "object_ui",
     "sdk",
     "formatter",
