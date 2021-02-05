@@ -15,6 +15,7 @@ const debugCheck = require('./debug-check.js');
 const DEBUG_ENABLED = !!process.env['DEBUG'];
 const REPEAT_ENABLED = !!process.env['REPEAT'];
 const COVERAGE_ENABLED = !!process.env['COVERAGE'];
+const EXPANDED_REPORTING = !!process.env['EXPANDED_REPORTING'];
 
 // true by default
 const TEXT_COVERAGE_ENABLED = COVERAGE_ENABLED && !process.env['NO_TEXT_COVERAGE'];
@@ -130,7 +131,7 @@ module.exports = function(config) {
     ],
 
     reporters: [
-      'dots',
+      EXPANDED_REPORTING ? 'spec' : 'dots',
       ...coverageReporters,
     ],
 
@@ -153,6 +154,7 @@ module.exports = function(config) {
       require('karma-chai'),
       require('karma-sinon'),
       require('karma-sourcemap-loader'),
+      require('karma-spec-reporter'),
       require('karma-coverage'),
     ],
 
