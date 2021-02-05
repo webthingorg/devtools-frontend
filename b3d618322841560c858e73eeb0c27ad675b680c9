@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "527e0329_52fc6e0e",
+        "filename": "front_end/ui/ContextMenu.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-02-05T17:11:48Z",
+      "side": 1,
+      "message": "This is changed back to an array as we rely on static imports and on the `maybeRetrieveContextTypes` pattern for loading needed modules. This is still subject to change if the static imports added to the meta files in the CL chain are reconsidered.",
+      "range": {
+        "startLine": 696,
+        "startChar": 30,
+        "endLine": 696,
+        "endChar": 40
+      },
+      "revId": "b3d618322841560c858e73eeb0c27ad675b680c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
