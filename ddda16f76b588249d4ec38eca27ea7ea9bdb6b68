@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ca01c29_40c90139",
+        "filename": "front_end/ui/ReportView.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-05T07:42:40Z",
+      "side": 0,
+      "message": "Why are these going away?",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 50
+      },
+      "revId": "ddda16f76b588249d4ec38eca27ea7ea9bdb6b68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
