@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "472f6d8f_6b8443d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-05T06:05:57Z",
+      "side": 1,
+      "message": "Preventing multiline strings locV2 via collect-strings.js ",
+      "revId": "b9441fc55a8d22728fec448fd5d9838d1118f062",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
