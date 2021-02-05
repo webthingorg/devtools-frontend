@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6e7652c_d779be83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2021-02-05T08:14:08Z",
+      "side": 1,
+      "message": "Migrate console, PTAL, thank you!",
+      "revId": "5e0be61d9d60e94d46997b31494c551afae51cb9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "651495c7_612b8a58",
+        "filename": "front_end/console/ConsoleContextSelector.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2021-02-05T08:14:08Z",
+      "side": 1,
+      "message": "The whole term was locked. Removed the localization call.",
+      "revId": "5e0be61d9d60e94d46997b31494c551afae51cb9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
