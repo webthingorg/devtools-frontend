@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "18cb555f_1e48734b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-05T11:34:55Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "5e0be61d9d60e94d46997b31494c551afae51cb9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "651495c7_612b8a58",
@@ -31,6 +48,24 @@
       "writtenOn": "2021-02-05T08:14:08Z",
       "side": 1,
       "message": "The whole term was locked. Removed the localization call.",
+      "revId": "5e0be61d9d60e94d46997b31494c551afae51cb9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2c087da_22cc2174",
+        "filename": "front_end/console/ConsoleContextSelector.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-05T11:34:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "651495c7_612b8a58",
       "revId": "5e0be61d9d60e94d46997b31494c551afae51cb9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
