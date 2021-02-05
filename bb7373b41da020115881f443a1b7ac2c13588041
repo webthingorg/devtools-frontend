@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96ed9fe2_45cd8612",
+        "filename": "front_end/issues/MarkdownLink.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-05T10:06:28Z",
+      "side": 1,
+      "message": "Nit: comment is on the wrong line after auto-sorting of imports. Please start comment sentences with a capital letter.",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 33
+      },
+      "revId": "bb7373b41da020115881f443a1b7ac2c13588041",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
