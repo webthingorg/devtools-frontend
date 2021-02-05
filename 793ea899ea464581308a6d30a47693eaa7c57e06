@@ -56,6 +56,30 @@
       },
       "revId": "793ea899ea464581308a6d30a47693eaa7c57e06",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24077e13_24fc16a9",
+        "filename": "front_end/issues/MarkdownLink.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-05T09:45:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bfea49a_f16e298d",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 55
+      },
+      "revId": "793ea899ea464581308a6d30a47693eaa7c57e06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
