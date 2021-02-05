@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cc64b5f_ed206f04",
+        "filename": "front_end/ui/components/TreeOutline.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-05T11:36:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a390945_dd5ff836",
+      "range": {
+        "startLine": 22,
+        "startChar": 34,
+        "endLine": 22,
+        "endChar": 41
+      },
+      "revId": "4e68fa64b65bd9e248cd8b6aa8a6b26060b94c4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b142b376_51ff1014",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-02-05T10:31:20Z",
       "side": 1,
       "message": "Maybe add an explanation here of what we expect the behaviour to be, i.e., up to and including maxDepth?",
+      "range": {
+        "startLine": 40,
+        "startChar": 5,
+        "endLine": 40,
+        "endChar": 16
+      },
+      "revId": "4e68fa64b65bd9e248cd8b6aa8a6b26060b94c4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35dca88f_160f49a0",
+        "filename": "front_end/ui/components/TreeOutline.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-05T11:36:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b142b376_51ff1014",
       "range": {
         "startLine": 40,
         "startChar": 5,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "209f29f6_2e820615",
+        "filename": "front_end/ui/components/TreeOutline.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-05T11:36:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "550dc0fc_78ae517b",
+      "range": {
+        "startLine": 43,
+        "startChar": 28,
+        "endLine": 43,
+        "endChar": 36
+      },
+      "revId": "4e68fa64b65bd9e248cd8b6aa8a6b26060b94c4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "befe84eb_d47b963e",
@@ -100,6 +172,30 @@
       "writtenOn": "2021-02-05T10:31:20Z",
       "side": 1,
       "message": "Maybe remove this or switch to a full description",
+      "range": {
+        "startLine": 50,
+        "startChar": 2,
+        "endLine": 54,
+        "endChar": 5
+      },
+      "revId": "4e68fa64b65bd9e248cd8b6aa8a6b26060b94c4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b607902_ad3ac109",
+        "filename": "front_end/ui/components/TreeOutline.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-05T11:36:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "befe84eb_d47b963e",
       "range": {
         "startLine": 50,
         "startChar": 2,
@@ -133,6 +229,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c4da018_6a99b90b",
+        "filename": "front_end/ui/components/TreeOutline.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-05T11:36:37Z",
+      "side": 1,
+      "message": "Agreed - will work on that in a follow up CL to avoid this one getting even larger. Don\u0027t think it will need too many additions.",
+      "parentUuid": "35631476_9c4dba7c",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 3
+      },
+      "revId": "4e68fa64b65bd9e248cd8b6aa8a6b26060b94c4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4f3f8350_e6680f7b",
@@ -146,6 +266,30 @@
       "writtenOn": "2021-02-05T10:31:20Z",
       "side": 1,
       "message": "Returning functions from functions can get confusing. Is there a way we can simplify this?",
+      "range": {
+        "startLine": 102,
+        "startChar": 10,
+        "endLine": 102,
+        "endChar": 22
+      },
+      "revId": "4e68fa64b65bd9e248cd8b6aa8a6b26060b94c4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd881bf1_3f6475a7",
+        "filename": "front_end/ui/components/TreeOutline.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-05T11:36:37Z",
+      "side": 1,
+      "message": "Looked at this and decided not - we\u0027d otherwise have to take the target and walk up the DOM and it gets a bit messy. I think this is clearer than the alternatives.",
+      "parentUuid": "4f3f8350_e6680f7b",
       "range": {
         "startLine": 102,
         "startChar": 10,
@@ -179,6 +323,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "749536be_bd1b0dbd",
+        "filename": "front_end/ui/components/TreeOutline.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-05T11:36:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6843b142_86ee614b",
+      "range": {
+        "startLine": 126,
+        "startChar": 6,
+        "endLine": 126,
+        "endChar": 20
+      },
+      "revId": "4e68fa64b65bd9e248cd8b6aa8a6b26060b94c4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "10e8ba7b_48898665",
@@ -192,6 +360,30 @@
       "writtenOn": "2021-02-05T10:31:20Z",
       "side": 1,
       "message": "Unless this function is reading styles / layout we don\u0027t need the reader.",
+      "range": {
+        "startLine": 161,
+        "startChar": 38,
+        "endLine": 161,
+        "endChar": 42
+      },
+      "revId": "4e68fa64b65bd9e248cd8b6aa8a6b26060b94c4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff09d569_bced62a7",
+        "filename": "front_end/ui/components/TreeOutline.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-05T11:36:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10e8ba7b_48898665",
       "range": {
         "startLine": 161,
         "startChar": 38,
@@ -227,6 +419,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "68f20295_adaf742d",
+        "filename": "front_end/ui/components/TreeOutline.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-05T11:36:37Z",
+      "side": 1,
+      "message": "Will follow up CL with the renderer \u0026 scheduling 👍",
+      "parentUuid": "b881dc31_08a06e89",
+      "range": {
+        "startLine": 249,
+        "startChar": 12,
+        "endLine": 249,
+        "endChar": 18
+      },
+      "revId": "4e68fa64b65bd9e248cd8b6aa8a6b26060b94c4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "26269072_70482e65",
         "filename": "front_end/ui/components/TreeOutlineUtils.ts",
         "patchSetId": 7
@@ -238,6 +454,30 @@
       "writtenOn": "2021-02-05T10:31:20Z",
       "side": 1,
       "message": "Can we remove the optional chaining here? If we don\u0027t find the parentElement we should probably throw.",
+      "range": {
+        "startLine": 54,
+        "startChar": 67,
+        "endLine": 54,
+        "endChar": 68
+      },
+      "revId": "4e68fa64b65bd9e248cd8b6aa8a6b26060b94c4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91671bd0_7ff0c442",
+        "filename": "front_end/ui/components/TreeOutlineUtils.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-05T11:36:37Z",
+      "side": 1,
+      "message": "We shouldn\u0027t throw - but I\u0027ve left a comment explaining why 👍",
+      "parentUuid": "26269072_70482e65",
       "range": {
         "startLine": 54,
         "startChar": 67,
