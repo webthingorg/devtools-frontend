@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "321027030a6267b4b98df3fa37aa13ba42b4a4d4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6acf946_3b92a421",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-02-05T13:01:09Z",
+      "side": 1,
+      "message": "LGTM, although I\u0027m not gonna pretend to have reviewed and cross-referenced all the changes to the constants with the upstream spec. Consider this rubberstamped!",
+      "revId": "321027030a6267b4b98df3fa37aa13ba42b4a4d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
