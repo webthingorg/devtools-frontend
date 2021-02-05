@@ -16,6 +16,29 @@
       "message": "LGTM, adding Jack for components.",
       "revId": "364eb1e6dad1bb89eca68e9d06d76cb40d505cee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43617c3b_3194b839",
+        "filename": "front_end/issues/MarkdownLink.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-05T11:39:46Z",
+      "side": 1,
+      "message": "when TS compiles this file does this import make it into the output? I think it might drop it as it sees it as unused.\n\nIf so, you should just do `import \u0027../ui/ui.js\u0027` and TS will leave it be.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 92
+      },
+      "revId": "364eb1e6dad1bb89eca68e9d06d76cb40d505cee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
