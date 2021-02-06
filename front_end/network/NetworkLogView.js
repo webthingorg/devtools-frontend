@@ -210,6 +210,10 @@ export const UIStrings = {
   /**
   *@description Text in Network Log View of the Network panel
   */
+  copyAsPythonRequests: 'Copy as Python (requests)',
+  /**
+  *@description Text in Network Log View of the Network panel
+  */
   copyAsCurlCmd: 'Copy as cURL (cmd)',
   /**
   *@description Text in Network Log View of the Network panel
@@ -227,6 +231,10 @@ export const UIStrings = {
   *@description Text in Network Log View of the Network panel
   */
   copyAllAsNodejsFetch: 'Copy all as Node.js fetch',
+  /**
+  *@description Text in Network Log View of the Network panel
+  */
+  copyAllAsPythonRequests: 'Copy all as Python (requests)',
   /**
   *@description Text in Network Log View of the Network panel
   */
@@ -1705,12 +1713,17 @@ export class NetworkLogView extends UI.Widget.VBox {
         footerSection.appendItem(
             i18nString(UIStrings.copyAsNodejsFetch), this._copyFetchCall.bind(this, request, true), disableIfBlob);
         footerSection.appendItem(
+            i18nString(UIStrings.copyAsPythonRequests), this._copyPythonRequestsScript.bind(this, request),
+            disableIfBlob);
+        footerSection.appendItem(
             i18nString(UIStrings.copyAsCurlCmd), this._copyCurlCommand.bind(this, request, 'win'), disableIfBlob);
         footerSection.appendItem(
             i18nString(UIStrings.copyAsCurlBash), this._copyCurlCommand.bind(this, request, 'unix'), disableIfBlob);
         footerSection.appendItem(i18nString(UIStrings.copyAllAsPowershell), this._copyAllPowerShellCommand.bind(this));
         footerSection.appendItem(i18nString(UIStrings.copyAllAsFetch), this._copyAllFetchCall.bind(this, false));
         footerSection.appendItem(i18nString(UIStrings.copyAllAsNodejsFetch), this._copyAllFetchCall.bind(this, true));
+        footerSection.appendItem(
+            i18nString(UIStrings.copyAllAsPythonRequests), this._copyAllPythonRequestsScript.bind(this));
         footerSection.appendItem(i18nString(UIStrings.copyAllAsCurlCmd), this._copyAllCurlCommand.bind(this, 'win'));
         footerSection.appendItem(i18nString(UIStrings.copyAllAsCurlBash), this._copyAllCurlCommand.bind(this, 'unix'));
       } else {
@@ -1719,9 +1732,14 @@ export class NetworkLogView extends UI.Widget.VBox {
         footerSection.appendItem(
             i18nString(UIStrings.copyAsNodejsFetch), this._copyFetchCall.bind(this, request, true), disableIfBlob);
         footerSection.appendItem(
+            i18nString(UIStrings.copyAsPythonRequests), this._copyPythonRequestsScript.bind(this, request),
+            disableIfBlob);
+        footerSection.appendItem(
             i18nString(UIStrings.copyAsCurl), this._copyCurlCommand.bind(this, request, 'unix'), disableIfBlob);
         footerSection.appendItem(i18nString(UIStrings.copyAllAsFetch), this._copyAllFetchCall.bind(this, false));
         footerSection.appendItem(i18nString(UIStrings.copyAllAsNodejsFetch), this._copyAllFetchCall.bind(this, true));
+        footerSection.appendItem(
+            i18nString(UIStrings.copyAllAsPythonRequests), this._copyAllPythonRequestsScript.bind(this));
         footerSection.appendItem(i18nString(UIStrings.copyAllAsCurl), this._copyAllCurlCommand.bind(this, 'unix'));
       }
     } else {
@@ -1829,6 +1847,19 @@ export class NetworkLogView extends UI.Widget.VBox {
    */
   async _copyAllFetchCall(includeCookies) {
     const commands = await this._generateAllFetchCall(SDK.NetworkLog.NetworkLog.instance().requests(), includeCookies);
+    Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(commands);
+  }
+
+  /**
+   * @param {!SDK.NetworkRequest.NetworkRequest} request
+   */
+  async _copyPythonRequestsScript(request) {
+    const command = await this._generatePythonRequestsScript(request);
+    Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(command);
+  }
+
+  async _copyAllPythonRequestsScript() {
+    const commands = await this._generateAllPythonRequestsScript(SDK.NetworkLog.NetworkLog.instance().requests());
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(commands);
   }
 
@@ -2238,6 +2269,129 @@ export class NetworkLogView extends UI.Widget.VBox {
     return commands.join(' ;\n');
   }
 
+  // TODO: use windows newlines on windows? Or does InspectorFrontendHostInstance.copyText
+  // handle that?
+  /**
+   * @param {!SDK.NetworkRequest.NetworkRequest} request
+   * @return {!Promise<string>}
+   */
+  async _generatePythonRequestsScript(request) {
+    let command = [];
+    // TODO: do headers need to be ingnored? requests treats data as JSON if it's a dict.
+    // Most of these headers are derived from the URL and are automatically added by cURL.
+    // The |Accept-Encoding| header is ignored to prevent decompression errors. crbug.com/1015321
+    const ignoredHeaders = new Set(['accept-encoding', 'host', 'method', 'path', 'scheme', 'version']);
+
+    // TODO: this function could be smarter
+    /**
+     * @param {string} str
+     * @return {string}
+     */
+    function asPythonString(str) {
+      return JSON.stringify(str);
+      /**
+       * @param {string} x
+       * @return {string}
+       */
+      // function escapeCharacter(x) {
+      //   const code = x.charCodeAt(0);
+      //   let hexString = code.toString(16);
+      //   // Zero pad to four digits
+      //   while (hexString.length < 4) {
+      //     hexString = '0' + hexString;
+      //   }
+
+      //   return '\\u' + hexString;
+      // }
+
+      // return '\'' +
+      //     str.replace(/\\/g, '\\\\')
+      //         .replace(/\'/g, '\\\'')
+      //         .replace(/\n/g, '\\n')
+      //         .replace(/\r/g, '\\r')
+      //         .replace(/[\0-\x1F\x7F-\x9F!]/g, escapeCharacter) +
+      //     '\'';
+    }
+
+    command.push('import requests\n');
+
+    const data = [];
+    const requestContentType = request.requestContentType();
+    const formData = await request.requestFormData();
+    if (requestContentType && requestContentType.startsWith('application/x-www-form-urlencoded') && formData) {
+      // Note that formData is not necessarily urlencoded because it might for example
+      // come from a fetch request made with an explicitly unencoded body.
+      // TODO: render this into dict/list of tuples/string
+      // dict if there are no duplicate keys, string if there's a param without a "=" i.e. ?key vs ?key=
+      data.push('data = [');
+      // TODO: check error
+      for (const [key, value] of new URLSearchParams(formData)) {
+        data.push('    (' + asPythonString(key) + ', ' + asPythonString(value) + '),');
+      }
+      data.push(']\n');  // TODO: don't use 2 lines if there's no form data
+      ignoredHeaders.add('content-length');
+    } else if (formData) {
+      data.push('data = ' + asPythonString(formData) + '\n');
+      ignoredHeaders.add('content-length');
+    }
+
+    const headers = [];
+    const requestHeaders = request.requestHeaders();
+    if (requestHeaders.length) {  // TODO: .length probably unnecessary
+      // TODO: output a list of tuples if there's duplicated headers.
+      headers.push('headers = {');
+      for (let i = 0; i < requestHeaders.length; i++) {
+        const header = requestHeaders[i];
+        const name = header.name.replace(/^:/, '');  // Translate SPDY v3 headers to HTTP headers.
+        if (ignoredHeaders.has(name.toLowerCase())) {
+          continue;
+        }
+        headers.push('    ' + asPythonString(name) + ': ' + asPythonString(header.value) + ',');
+      }
+      headers.push('}\n');
+    }
+    command = command.concat(headers);
+    command = command.concat(data);
+
+    const requestsCall = [];
+    // https://github.com/psf/requests/blob/8c211a96cdbe9fe320d63d9e1ae15c5c07e179f8/requests/__init__.py#L121
+    // TODO: make sure all of these support the arguments used (data=, headers=, verify=)
+    if (['GET', 'HEAD', 'POST', 'PATCH', 'PUT', 'DELETE', 'OPTIONS'].includes(request.requestMethod)) {
+      requestsCall.push('requests.' + request.requestMethod.toLowerCase() + '(');
+    } else {
+      requestsCall.push('requests.request(' + asPythonString(request.requestMethod) + ', ');
+    }
+    // TODO: what is this .replace for?
+    requestsCall.push(asPythonString(request.url()).replace(/[[{}\]]/g, '\\$&'));
+
+    if (headers.length) {
+      requestsCall.push(', headers=headers');
+    }
+    if (data.length) {
+      requestsCall.push(', data=data');
+    }
+
+    if (request.securityState() === Protocol.Security.SecurityState.Insecure) {
+      requestsCall.push(', verify=False');
+    }
+    requestsCall.push(')\n');
+    command = command.push(requestsCall.join(''));
+
+    return command.join('\n');
+  }
+
+  /**
+   * @param {!Array<!SDK.NetworkRequest.NetworkRequest>} requests
+   * @return {!Promise<string>}
+   */
+  async _generateAllPythonRequestsScript(requests) {
+    // TODO: don't import requests more than once.
+    // TODO: reuse headers?
+    const nonBlobRequests = this._filterOutBlobRequests(requests);
+    const commands = await Promise.all(nonBlobRequests.map(request => this._generatePythonRequestsScript(request)));
+    return commands.join('\n');
+  }
+
   /**
    * @param {!SDK.NetworkRequest.NetworkRequest} request
    * @param {string} platform
@@ -2251,6 +2405,7 @@ export class NetworkLogView extends UI.Widget.VBox {
 
     /**
      * @param {string} str
+     * @return {string}
      */
     function escapeStringWin(str) {
       /* If there are no new line characters do not escape the " characters
@@ -2295,6 +2450,7 @@ export class NetworkLogView extends UI.Widget.VBox {
      * @return {string}
      */
     function escapeStringPosix(str) {
+      // TODO: UTF8 vs Javascript's encoding?
       /**
        * @param {string} x
        * @return {string}
