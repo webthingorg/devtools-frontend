@@ -3092,6 +3092,9 @@
   "network/NetworkLogView.js | copyAllAsPowershell": {
     "message": "Copy all as PowerShell"
   },
+  "network/NetworkLogView.js | copyAllAsPythonRequests": {
+    "message": "Copy all as Python (requests)"
+  },
   "network/NetworkLogView.js | copyAsCurl": {
     "message": "Copy as cURL"
   },
@@ -3109,6 +3112,9 @@
   },
   "network/NetworkLogView.js | copyAsPowershell": {
     "message": "Copy as PowerShell"
+  },
+  "network/NetworkLogView.js | copyAsPythonRequests": {
+    "message": "Copy as Python (requests)"
   },
   "network/NetworkLogView.js | copyRequestHeaders": {
     "message": "Copy request headers"
