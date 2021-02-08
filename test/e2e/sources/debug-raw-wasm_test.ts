@@ -520,7 +520,7 @@ describe('Sources Tab', async function() {
 
 describe('Raw-Wasm', async () => {
   // Failing on Windows-only
-  it.skip('[crbug.com/1098707]: displays correct location in Wasm source', async () => {
+  it('displays correct location in Wasm source', async () => {
     const {frontend} = getBrowserAndPages();
 
     // Have the target load the page.
@@ -568,10 +568,10 @@ describe('Raw-Wasm', async () => {
 
     // Select next call frame.
     await callFrame.press('ArrowDown');
-    await callFrame.press('Space');
+    await callFrame.press('Enter');
 
     // Wasm code for function call should be highlighted
-    const codeLine = await frontend.waitForSelector('.cm-execution-line pre');
+    const codeLine = await waitFor('.cm-execution-line pre');
     const codeText = await codeLine.evaluate(n => n.textContent);
 
     assert.strictEqual(codeText, '    call $bar');
