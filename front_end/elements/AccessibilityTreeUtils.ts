@@ -33,7 +33,7 @@ export function SDKNodeToAXNode(parent: AXNode|null, sdkNode: SDK.AccessibilityM
       const loadedChildren = await sdkNode.accessibilityModel().requestAXChildren(sdkNode.id());
       if (loadedChildren) {
         for (const child of loadedChildren) {
-          axChildren.push(SDKNodeToAXNode(parent, child));
+          axChildren.push(SDKNodeToAXNode(axNode, child));
         }
       }
     },
