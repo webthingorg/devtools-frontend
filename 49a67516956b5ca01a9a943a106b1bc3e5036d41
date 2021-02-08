@@ -33,6 +33,24 @@
       "message": "Duplicate entry?",
       "revId": "49a67516956b5ca01a9a943a106b1bc3e5036d41",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db850f23_38f099ed",
+        "filename": "front_end/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-08T15:20:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4473d86f_fe260235",
+      "revId": "49a67516956b5ca01a9a943a106b1bc3e5036d41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
