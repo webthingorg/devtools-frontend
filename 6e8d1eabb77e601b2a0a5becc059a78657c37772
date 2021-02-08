@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ec20f26_b7969f2d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-02-08T05:45:53Z",
+      "side": 1,
+      "message": "Add in some more detail about the changes you\u0027ve made (mention WAI-ARIA guidance, note any major changes like the a11y tree handling keyboard nav, each node stores a reference etc etc)",
+      "revId": "6e8d1eabb77e601b2a0a5becc059a78657c37772",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

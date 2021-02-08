@@ -16,6 +16,244 @@
       "message": "PTAL thanks!",
       "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "207ea005_114be06d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-02-08T05:45:53Z",
+      "side": 1,
+      "message": "First pass. Mostly to do with early returns. Will take another look!",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9776f2e_633b82b3",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-02-08T05:45:53Z",
+      "side": 1,
+      "message": "Maybe this should return AccessibilityNode | null? \n\nRather than relying on returning this, we can return null when appropriate (no next child) and null check at the calling site?",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f878dd6_37a29103",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-02-08T05:45:53Z",
+      "side": 1,
+      "message": "can we restructure this for early returns to remove the else branch?\n\nInstead something like:\n\n```\n// Search parent for next child\nif (index is greater than number of children):\n  parent \u003d getParent()\n  if (!parent)\n    return this;\n  return parent.getNext(this.index)\n\n// Find next child\nnextChild \u003d this.axTree.nodeMap(...)\nreturn nextChild\n```\n\nCan return in same line as the get call to nodeMap as well, rather than storing in the nextChild function.",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf606935_85a38ff4",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-02-08T05:45:53Z",
+      "side": 1,
+      "message": "Same comment as for getNext.",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8a13a86_b169019d",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-02-08T05:45:53Z",
+      "side": 1,
+      "message": "Does the expanded property get set if the node has no children? Why is the second check needed?",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a02622b_dc48e970",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-02-08T05:45:53Z",
+      "side": 1,
+      "message": "Early return here: if (!parent) return.",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76d20a68_282adea0",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-02-08T05:45:53Z",
+      "side": 1,
+      "message": "Is it possible to move up the if (!this.axTree) check to here as well? Or will that break testing?",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a66bef13_e04cf84d",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-02-08T05:45:53Z",
+      "side": 1,
+      "message": "mega nit (feel free to ignore): make this 0, and index++ after assigning it to the first node. Easier to understand imo.\n\nAlso you can do indexInParent: index++ to increment and assign the index in the same line. Note that index++ is post fix - it will return the value of index *before* it\u0027s been incremented (meaning if you initialize it to 0 it will set the index as 0 for the first node, and then increment to 1...)",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac015a9a_ff4daf1b",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-02-08T05:45:53Z",
+      "side": 1,
+      "message": "Can this check be added to the first one on line 305?",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "944d3d7e_8d735788",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-02-08T05:45:53Z",
+      "side": 1,
+      "message": "Instead of exposing nodesMap directly (where we could modify it and cause chaos), we can write a simple getter for retrieving a node by ID for it.\n\ngetNodeByAXID(axid: number) : AccessibilityNode {...}\n\nSame way as we do for appendToNodeMap.",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e38d7fbd_b08640cf",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-02-08T05:45:53Z",
+      "side": 1,
+      "message": "I\u0027d call this getRootNode(), since we aren\u0027t actually searching to find it.",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ffd6a76_7bca5b90",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-02-08T05:45:53Z",
+      "side": 1,
+      "message": "early return here\n\nif (!this.rootNode)\n  return null",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2ca0461_a600d483",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-02-08T05:45:53Z",
+      "side": 1,
+      "message": "Early return.",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b78f733_9b574ecc",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-02-08T05:45:53Z",
+      "side": 1,
+      "message": "Early return.",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
