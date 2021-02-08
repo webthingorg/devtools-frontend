@@ -33,6 +33,24 @@
       "message": "Can we do this in CSS instead of indirectly via JS?",
       "revId": "06a728f17b4e76ff8f863479886a4ba92e2d57d3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c15352a9_362ba601",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-08T08:07:48Z",
+      "side": 1,
+      "message": "This is a back-mergable fix and I wanted to keep the change-set small and local.",
+      "parentUuid": "b90f0f07_cee34b4f",
+      "revId": "06a728f17b4e76ff8f863479886a4ba92e2d57d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
