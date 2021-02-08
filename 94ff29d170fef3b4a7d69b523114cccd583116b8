@@ -106,6 +106,24 @@
       "parentUuid": "c358e5a2_0c81922a",
       "revId": "94ff29d170fef3b4a7d69b523114cccd583116b8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78648426_1d2c6f59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-08T08:43:30Z",
+      "side": 1,
+      "message": "I can\u0027t land the .gitignore update separately because then it will want me to check in the en-XL.json straight away. Even if I don\u0027t, the next person to submit something will have to either check in en-XL.json or delete it manually, because it\u0027s generated.\n\nOr am I missing something?",
+      "parentUuid": "81673064_306351db",
+      "revId": "94ff29d170fef3b4a7d69b523114cccd583116b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
