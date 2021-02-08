@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ae71fdd_e940c74d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-08T10:28:19Z",
+      "side": 1,
+      "message": "PTAL.\n\nAdded an interaction test while I\u0027m here too.",
+      "revId": "4b1b863794b290deb4d99a8010d22f587304597c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
