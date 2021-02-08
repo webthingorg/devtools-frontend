@@ -87,6 +87,30 @@
       },
       "revId": "1d9936a574488c80831eba500725373061ca6373",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "811f19c4_7c98fb17",
+        "filename": "front_end/third_party/i18n/lib/i18n.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-08T12:41:08Z",
+      "side": 1,
+      "message": "Cool, will do",
+      "parentUuid": "8f5b73ce_dd220383",
+      "range": {
+        "startLine": 117,
+        "startChar": 8,
+        "endLine": 117,
+        "endChar": 25
+      },
+      "revId": "1d9936a574488c80831eba500725373061ca6373",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
