@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e503f3da_73abe6dd",
+        "filename": "test/e2e/i18n/i18n-debug-locale_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-08T12:37:49Z",
+      "side": 1,
+      "message": "I have a feeling this is not working as intended, since the e2e test failures on the bots indicate that the `en-XL` locale is still used for tests that run after this one. Can you confirm that after running this test, the locale is properly reset? If it does locally, we need to figure out why the bots produce a different output.",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 7
+      },
+      "revId": "c11f2b5ff3401d0d6e926090860f861c665aba68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
