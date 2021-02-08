@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2203cca_54ef0ffa",
+        "filename": "test/e2e/helpers/cross-tool-helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-02-08T22:26:57Z",
+      "side": 0,
+      "message": "These methods are finnicky and they are not being used anywhere, so removing them.",
+      "revId": "32df74a3e3dd84bb01d437782c4160e6f6a3a8e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

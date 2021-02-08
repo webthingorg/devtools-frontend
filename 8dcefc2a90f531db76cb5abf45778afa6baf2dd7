@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb913255_ca8e4136",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-02-08T22:26:57Z",
+      "side": 1,
+      "message": "This should fix the flaky test for service worker network button.",
+      "revId": "8dcefc2a90f531db76cb5abf45778afa6baf2dd7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3244bea9_32e68e26",
+        "filename": "test/e2e/application/service-worker-network_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-02-08T22:26:57Z",
+      "side": 1,
+      "message": "This method is used in multiple places, and it should be more stable.",
+      "revId": "8dcefc2a90f531db76cb5abf45778afa6baf2dd7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
