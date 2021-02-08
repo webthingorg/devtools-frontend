@@ -11,7 +11,7 @@ import {RecordingEventHandler} from './RecordingEventHandler.js';
 import {RecordingScriptWriter} from './RecordingScriptWriter.js';
 import {EmulateNetworkConditions, NavigationStep, Step} from './Steps.js';
 
-const DOM_BREAKPOINTS = new Set<string>(['Mouse:click', 'Control:change', 'Control:submit']);
+const DOM_BREAKPOINTS = new Set<string>(['Mouse:click', 'Control:change', 'Control:submit', 'Keyboard:keydown']);
 
 export class RecordingSession {
   _target: SDK.SDKModel.Target;
@@ -191,6 +191,7 @@ export class RecordingSession {
         window.addEventListener('click', recorderEventListener, true);
         window.addEventListener('submit', recorderEventListener, true);
         window.addEventListener('change', recorderEventListener, true);
+        window.addEventListener('keydown', recorderEventListener, true);
         window.__recorderEventListener = recorderEventListener;
       }
     `;

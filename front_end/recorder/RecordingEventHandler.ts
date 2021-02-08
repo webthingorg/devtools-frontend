@@ -6,9 +6,9 @@ import * as Elements from '../elements/elements.js';
 import * as SDK from '../sdk/sdk.js';
 import {Condition, WaitForNavigationCondition} from './Conditions.js';
 import {RecordingSession} from './RecordingSession.js';
-import {ChangeStep, ClickStep, CloseStep, Step, StepFrameContext, SubmitStep} from './Steps.js';
+import {ChangeStep, ClickStep, CloseStep, KeydownStep, Step, StepFrameContext, SubmitStep} from './Steps.js';
 
-const RELEVANT_ROLES_FOR_ARIA_SELECTORS = new Set<string>(['button', 'link', 'textbox', 'checkbox']);
+const RELEVANT_ROLES_FOR_ARIA_SELECTORS = new Set<string>(['button', 'link', 'textbox', 'checkbox', 'combobox']);
 
 export class RecordingEventHandler implements ProtocolProxyApi.DebuggerDispatcher {
   private target: SDK.SDKModel.Target;
@@ -137,6 +137,35 @@ export class RecordingEventHandler implements ProtocolProxyApi.DebuggerDispatche
     await this.resume();
   }
 
+  async handleKeydownEvent(
+      context: StepFrameContext, localFrame: Protocol.Runtime.PropertyDescriptor[], key: string|null): Promise<void> {
+    const targetId = await this.findTargetId(localFrame, [
+      'KeyboardEvent',
+    ]);
+
+    if (!targetId) {
+      this.skip();
+      return;
+    }
+
+    const node = await this.domModel.pushNodeToFrontend(targetId);
+    if (!node) {
+      throw new Error('Node should not be null.');
+    }
+
+    const selector = await this.getSelector(node);
+    if (!selector) {
+      throw new Error('Could not find selector');
+    }
+
+    if (!key) {
+      return this.resume();
+    }
+
+    this.appendStep(new KeydownStep(context, selector, key));
+    await this.resume();
+  }
+
   async handleSubmitEvent(context: StepFrameContext, localFrame: Protocol.Runtime.PropertyDescriptor[]): Promise<void> {
     const targetId = await this.findTargetId(localFrame, [
       'SubmitEvent',
@@ -226,7 +255,7 @@ export class RecordingEventHandler implements ProtocolProxyApi.DebuggerDispatche
     await this.debuggerAgent.invoke_resume({terminateOnResume: false});
   }
 
-  paused(params: Protocol.Debugger.PausedEvent): void {
+  async paused(params: Protocol.Debugger.PausedEvent): Promise<void> {
     if (params.reason !== 'EventListener') {
       this.skip();
       return;
@@ -254,6 +283,7 @@ export class RecordingEventHandler implements ProtocolProxyApi.DebuggerDispatche
     if (!localFrame.object.objectId) {
       return;
     }
+
     this.runtimeAgent.invoke_getProperties({objectId: localFrame.object.objectId}).then(async ({result}) => {
       switch (eventName) {
         case 'listener:click':
@@ -262,6 +292,15 @@ export class RecordingEventHandler implements ProtocolProxyApi.DebuggerDispatche
           return this.handleSubmitEvent(context, result);
         case 'listener:change':
           return this.handleChangeEvent(context, result);
+        case 'listener:keydown': {
+          const obj = this.runtimeModel.createRemoteObject(localFrame.object);
+          const {properties} = await obj.getAllProperties(false, true);
+          const key = properties && properties.length ?
+              (properties[0].value?.preview?.properties.find(p => p.name === 'key')?.value || null) :
+              null;
+
+          return this.handleKeydownEvent(context, result, key);
+        }
         default:
           this.skip();
       }

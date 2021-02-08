@@ -154,6 +154,29 @@ export class CloseStep extends Step {
   }
 }
 
+export class KeydownStep extends Step {
+  context: StepFrameContext;
+  selector: string;
+  key: string;
+
+  constructor(context: StepFrameContext, selector: string, key: string) {
+    super('keydown');
+    this.context = context;
+    this.selector = selector;
+    this.key = key;
+  }
+
+  toScript(): Script {
+    return [
+      ...this.context.toScript(),
+      this.condition ? this.condition.toString() : null,
+      `const element = await frame.waitForSelector(${JSON.stringify(this.selector)});`,
+      `await element.keyboard.press(${JSON.stringify(this.key)});`,
+      this.condition ? 'await promise;' : null,
+    ];
+  }
+}
+
 export class EmulateNetworkConditions extends Step {
   conditions: SDK.NetworkManager.Conditions;
   constructor(conditions: SDK.NetworkManager.Conditions) {
