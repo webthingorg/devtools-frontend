@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "862f38ff_3a3e4a8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-02-08T16:04:16Z",
+      "side": 1,
+      "message": "PTAL. Verified locally that `npm run unittest` and `npm run auto-unittest` run as expected.",
+      "revId": "06c5437cfd30524ff2f86ced4ebbfc6515f3c16f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
