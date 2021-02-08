@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "705a78cb_6adb1695",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-08T08:25:00Z",
+      "side": 1,
+      "message": "LGTM with a question",
+      "revId": "abf3f5aa1d711d81eb29f3b4b14a6665fa72721e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb22f5f3_db973934",
+        "filename": "front_end/issues/IssuesPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-08T08:25:00Z",
+      "side": 1,
+      "message": "IssuesPane?",
+      "revId": "abf3f5aa1d711d81eb29f3b4b14a6665fa72721e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
