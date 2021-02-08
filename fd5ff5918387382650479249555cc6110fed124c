@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "99e2ce68_2f842cfd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 17
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2021-02-08T14:45:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fd2892c_7b835fb9",
+      "revId": "fd5ff5918387382650479249555cc6110fed124c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "4b6cb257_8afcb449",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 17
@@ -69,6 +87,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b749db40_50c80b7e",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2021-02-08T14:45:17Z",
+      "side": 1,
+      "message": "Done, I don\u0027t think it is good practice to expect it to be set up in the test because there is nothing in the function that tells us we expect that so instead I have done this by adding a global variable that checks if the listener is already added.",
+      "parentUuid": "56dbb2d6_554e486a",
+      "revId": "fd5ff5918387382650479249555cc6110fed124c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f449ff9_c5809b26",
@@ -82,6 +118,24 @@
       "writtenOn": "2021-02-04T08:41:55Z",
       "side": 1,
       "message": "What exactly is the purpose of this `waitFor`? It seems to me it\u0027s for the same thing as the wait for the event above. Can this now be removed?",
+      "revId": "fd5ff5918387382650479249555cc6110fed124c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4459667f_831c636f",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2021-02-08T14:45:17Z",
+      "side": 1,
+      "message": "Done, yes it can be removed.",
+      "parentUuid": "9f449ff9_c5809b26",
       "revId": "fd5ff5918387382650479249555cc6110fed124c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -103,6 +157,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6cd9510_bb1f015b",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2021-02-08T14:45:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0009f840_e925f119",
+      "revId": "fd5ff5918387382650479249555cc6110fed124c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "590ef1fb_3e409ee8",
@@ -120,6 +192,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a993095_8f47806c",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2021-02-08T14:45:17Z",
+      "side": 1,
+      "message": "Done, split it to two functions.",
+      "parentUuid": "590ef1fb_3e409ee8",
+      "revId": "fd5ff5918387382650479249555cc6110fed124c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "33e05274_48a4ed89",
@@ -133,6 +223,24 @@
       "writtenOn": "2021-02-04T08:41:55Z",
       "side": 1,
       "message": "I think this function is pretty dangerous. `listenForSourceFilesLoaded` adds a new listerner to the event, so everytime you call this function you pile on another listener. So files will appear double in the events list, even though they were opened only once. At the same time you can\u0027t really leave the listen call out because then someone might forget they have to listen first before calling the function. WDYT about just leaving this to the tests and not offering an API for it?",
+      "revId": "fd5ff5918387382650479249555cc6110fed124c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1076a52_d2c4b10c",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2021-02-08T14:45:17Z",
+      "side": 1,
+      "message": "Done in the above comment.",
+      "parentUuid": "33e05274_48a4ed89",
       "revId": "fd5ff5918387382650479249555cc6110fed124c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
