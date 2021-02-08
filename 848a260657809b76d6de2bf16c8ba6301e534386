@@ -39,6 +39,30 @@
       },
       "revId": "848a260657809b76d6de2bf16c8ba6301e534386",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4f67f5e_75f7735a",
+        "filename": "test/shared/mocha-extensions.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-02-08T15:36:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a994994e_138da08e",
+      "range": {
+        "startLine": 51,
+        "startChar": 13,
+        "endLine": 51,
+        "endChar": 79
+      },
+      "revId": "848a260657809b76d6de2bf16c8ba6301e534386",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
