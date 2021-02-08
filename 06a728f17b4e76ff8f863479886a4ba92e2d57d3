@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "06a728f17b4e76ff8f863479886a4ba92e2d57d3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b90f0f07_cee34b4f",
+        "filename": "front_end/resources/ApplicationPanelSidebar.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-02-08T08:02:38Z",
+      "side": 1,
+      "message": "Can we do this in CSS instead of indirectly via JS?",
+      "revId": "06a728f17b4e76ff8f863479886a4ba92e2d57d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
