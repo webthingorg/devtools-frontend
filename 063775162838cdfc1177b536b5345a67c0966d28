@@ -175,6 +175,30 @@
       },
       "revId": "063775162838cdfc1177b536b5345a67c0966d28",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c7e288f_6998c974",
+        "filename": "test/unittests/front_end/resources/FrameDetailsView_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-08T10:34:16Z",
+      "side": 1,
+      "message": "I would assume so, yes.",
+      "parentUuid": "39526311_d451dcd1",
+      "range": {
+        "startLine": 85,
+        "startChar": 2,
+        "endLine": 86,
+        "endChar": 62
+      },
+      "revId": "063775162838cdfc1177b536b5345a67c0966d28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
