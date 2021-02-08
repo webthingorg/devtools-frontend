@@ -37,7 +37,7 @@
     "debug-e2etest": "DEBUG=1 scripts/test/run_test_suite.py --test-suite=e2e",
     "debug-test": "third_party/node/node.py --output scripts/npm_test.js --debug-devtools",
     "debug-unittest": "DEBUG=1 npm run unittest",
-    "e2etest": "scripts/test/run_test_suite.py --test-suite=e2e",
+    "e2etest": "scripts\\test\\run_test_suite.py --test-suite=e2e",
     "eslint-test": "mocha \"./scripts/eslint_rules/tests/*_test.js\"",
     "stylelint-test": "mocha \"./scripts/stylelint_rules/tests/*_test.js\"",
     "generate-dark-mode-styles": "third_party/node/node.py --output scripts/dark_mode/generate_dark_theme_sheet.js",
