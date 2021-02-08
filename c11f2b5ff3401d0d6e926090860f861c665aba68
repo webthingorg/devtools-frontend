@@ -46,6 +46,30 @@
       },
       "revId": "c11f2b5ff3401d0d6e926090860f861c665aba68",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "baed8260_dc8978dc",
+        "filename": "test/e2e/i18n/i18n-debug-locale_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-08T14:36:25Z",
+      "side": 1,
+      "message": "Fixed it with explicitly setting en-US",
+      "parentUuid": "d2b7f011_64e4d4ac",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 7
+      },
+      "revId": "c11f2b5ff3401d0d6e926090860f861c665aba68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
