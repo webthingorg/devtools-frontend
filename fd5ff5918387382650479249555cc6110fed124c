@@ -105,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7335d476_ccb2a43a",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-02-08T15:46:36Z",
+      "side": 1,
+      "message": "I meant leaving all of the event handling to the test, not just adding the listener. Making sure the listener is installed only once also makes a lot of sense!",
+      "parentUuid": "b749db40_50c80b7e",
+      "revId": "fd5ff5918387382650479249555cc6110fed124c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f449ff9_c5809b26",
