@@ -46,6 +46,9 @@ describeWithEnvironment('AccessibilityTree', () => {
       renderElementIntoDOM(component);
       component.data = {
         axNode: node,
+        axTree: null,
+        isSelected: false,
+        indexInParent: -1,
       };
       assertAXNodeContent(component, 'WebArea');
     });
@@ -56,6 +59,9 @@ describeWithEnvironment('AccessibilityTree', () => {
       renderElementIntoDOM(component);
       component.data = {
         axNode: node,
+        axTree: null,
+        isSelected: false,
+        indexInParent: -1,
       };
       assertAXNodeContent(component, 'button\xA0"Click Me"');
     });
@@ -66,6 +72,9 @@ describeWithEnvironment('AccessibilityTree', () => {
       renderElementIntoDOM(component);
       component.data = {
         axNode: node,
+        axTree: null,
+        isSelected: false,
+        indexInParent: -1,
       };
       assertAXNodeContent(component, 'Ignored');
     });
@@ -78,6 +87,9 @@ describeWithEnvironment('AccessibilityTree', () => {
       renderElementIntoDOM(component);
       component.data = {
         axNode: node,
+        axTree: null,
+        isSelected: false,
+        indexInParent: -1,
       };
       assert.isFalse(component.classList.contains('expanded'));
     });
@@ -88,6 +100,9 @@ describeWithEnvironment('AccessibilityTree', () => {
       renderElementIntoDOM(component);
       component.data = {
         axNode: node,
+        axTree: null,
+        isSelected: false,
+        indexInParent: -1,
       };
       assert.strictEqual(node.numChildren, 0);
       assert.lengthOf(component.children, 0);
@@ -109,6 +124,9 @@ describeWithEnvironment('AccessibilityTree', () => {
       renderElementIntoDOM(component);
       component.data = {
         axNode: parentNode,
+        axTree: null,
+        isSelected: false,
+        indexInParent: -1,
       };
 
       assert.strictEqual(parentNode.children.length, 1);
@@ -123,6 +141,9 @@ describeWithEnvironment('AccessibilityTree', () => {
       renderElementIntoDOM(component);
       component.data = {
         axNode: node,
+        axTree: null,
+        isSelected: false,
+        indexInParent: -1,
       };
 
       assert.isTrue(component.classList.contains('expanded'));
@@ -142,6 +163,9 @@ describeWithEnvironment('AccessibilityTree', () => {
       renderElementIntoDOM(component);
       component.data = {
         axNode: node,
+        axTree: null,
+        isSelected: false,
+        indexInParent: -1,
       };
 
       assertShadowRoot(component.shadowRoot);
