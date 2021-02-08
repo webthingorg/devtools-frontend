@@ -82,6 +82,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0f81031_8780661d",
+        "filename": "test/unittests/front_end/resources/FrameDetailsView_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-08T09:17:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "41648130_12d0b276",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 58
+      },
+      "revId": "063775162838cdfc1177b536b5345a67c0966d28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2403ff7c_153aaf6b",
@@ -119,6 +143,30 @@
       "side": 1,
       "message": "I just double-checked again, without the 2nd one the part which is rendered async isn\u0027t there.",
       "parentUuid": "2403ff7c_153aaf6b",
+      "range": {
+        "startLine": 85,
+        "startChar": 2,
+        "endLine": 86,
+        "endChar": 62
+      },
+      "revId": "063775162838cdfc1177b536b5345a67c0966d28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39526311_d451dcd1",
+        "filename": "test/unittests/front_end/resources/FrameDetailsView_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-08T09:17:26Z",
+      "side": 1,
+      "message": "Ahhh, is this because you have an `until` in your Lit render call?",
+      "parentUuid": "425f0ce7_97357310",
       "range": {
         "startLine": 85,
         "startChar": 2,
