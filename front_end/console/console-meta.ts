@@ -251,3 +251,16 @@ Common.Settings.registerSettingExtension({
     },
   ],
 });
+
+Common.Revealer.registerRevealer({
+  contextTypes() {
+    return [
+      Common.Console.Console,
+    ];
+  },
+  async loadRevealer() {
+    const Console = await loadConsoleModule();
+    return Console.ConsolePanel.ConsoleRevealer.instance();
+  },
+  destination: undefined,
+});
