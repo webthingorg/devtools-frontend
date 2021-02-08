@@ -22,6 +22,30 @@
       },
       "revId": "b3d618322841560c858e73eeb0c27ad675b680c9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb245823_efb21494",
+        "filename": "front_end/ui/ContextMenu.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-08T12:24:39Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "527e0329_52fc6e0e",
+      "range": {
+        "startLine": 696,
+        "startChar": 30,
+        "endLine": 696,
+        "endChar": 40
+      },
+      "revId": "b3d618322841560c858e73eeb0c27ad675b680c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
