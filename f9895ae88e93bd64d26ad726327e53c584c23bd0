@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "44980b4c_5d9d096e",
+        "filename": "front_end/ui/components/TreeOutline.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-08T15:03:26Z",
+      "side": 1,
+      "message": "Ah good catch, you\u0027re right 👍",
+      "parentUuid": "73a9aa02_e8a3b617",
+      "range": {
+        "startLine": 130,
+        "startChar": 4,
+        "endLine": 130,
+        "endChar": 20
+      },
+      "revId": "f9895ae88e93bd64d26ad726327e53c584c23bd0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3e70d71d_0bf32392",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-02-08T14:49:11Z",
       "side": 1,
       "message": "nit: Maybe leave a note as to what this does?",
+      "range": {
+        "startLine": 317,
+        "startChar": 4,
+        "endLine": 317,
+        "endChar": 30
+      },
+      "revId": "f9895ae88e93bd64d26ad726327e53c584c23bd0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15cfe5d6_97e7223d",
+        "filename": "front_end/ui/components/TreeOutline.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-08T15:03:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e70d71d_0bf32392",
       "range": {
         "startLine": 317,
         "startChar": 4,
