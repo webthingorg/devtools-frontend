@@ -39,6 +39,30 @@
       },
       "revId": "1d9936a574488c80831eba500725373061ca6373",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "901cba12_35d6d341",
+        "filename": "front_end/third_party/i18n/lib/i18n.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-08T12:38:30Z",
+      "side": 1,
+      "message": "Yeah I think we are discarding it somewhere. I was looking at the chromium output - I can\u0027t remember seeing JS stacks there for devtools errors so maybe that is the culprit.\nI could leave this part out and we fix the root cause actually, maybe that\u0027s better",
+      "parentUuid": "9640e7b3_5adffa05",
+      "range": {
+        "startLine": 117,
+        "startChar": 8,
+        "endLine": 117,
+        "endChar": 25
+      },
+      "revId": "1d9936a574488c80831eba500725373061ca6373",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
