@@ -22,6 +22,30 @@
       },
       "revId": "c11f2b5ff3401d0d6e926090860f861c665aba68",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2b7f011_64e4d4ac",
+        "filename": "test/e2e/i18n/i18n-debug-locale_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-08T12:40:04Z",
+      "side": 1,
+      "message": "Yeah I am just trying to figure this out, it should reset the locale back to default/en-US. I\u0027ll debug further",
+      "parentUuid": "e503f3da_73abe6dd",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 7
+      },
+      "revId": "c11f2b5ff3401d0d6e926090860f861c665aba68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
