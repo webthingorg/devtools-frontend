@@ -124,6 +124,24 @@
       "parentUuid": "81673064_306351db",
       "revId": "94ff29d170fef3b4a7d69b523114cccd583116b8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "920d1143_1171819b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2021-02-08T09:14:13Z",
+      "side": 1,
+      "message": "The \u0027devtools-frontend\u0027 recipe can handle this kind of change. It\u0027s the \u0027run_presubmit\u0027 recipe that cannot handle it. Maybe just land with \u0027No-Presubmit: true\u0027.",
+      "parentUuid": "78648426_1d2c6f59",
+      "revId": "94ff29d170fef3b4a7d69b523114cccd583116b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
