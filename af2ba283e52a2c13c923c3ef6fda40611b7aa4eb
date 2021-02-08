@@ -35,6 +35,108 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e933c72_7398ad26",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-08T06:13:53Z",
+      "side": 1,
+      "message": "Really happy to see this working!\n\nOnce again, a lot of comments, but they\u0027re just code cleanup/simplification. Happy to talk through them tomorrow :) ",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71e6449f_3babc19b",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-08T06:13:53Z",
+      "side": 1,
+      "message": "Could we instead store the AccessibilityTree as a property on the AXNode?",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9ece319_1ee31c3b",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-08T06:13:53Z",
+      "side": 1,
+      "message": "Since this always starts as false, do we need to pass it in?",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cf601a5_061a62d6",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-08T06:13:53Z",
+      "side": 1,
+      "message": "I don\u0027t think we need to track this; we can compute it on the fly from the data.",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9db407ca_97983c4f",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-08T06:13:53Z",
+      "side": 1,
+      "message": "This should also handle updating the AXTree\u0027s selectedAXNode property, so you don\u0027t need to remember to keep them in sync.",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a8e6e23_9115816e",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-08T06:13:53Z",
+      "side": 1,
+      "message": "Should we call this.focus() after this.render(), just in case render() causes focus to be lost?",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f9776f2e_633b82b3",
@@ -48,6 +150,23 @@
       "writtenOn": "2021-02-08T05:45:53Z",
       "side": 1,
       "message": "Maybe this should return AccessibilityNode | null? \n\nRather than relying on returning this, we can return null when appropriate (no next child) and null check at the calling site?",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af92d138_3a187c51",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-08T06:13:53Z",
+      "side": 1,
+      "message": "I would have expected this to return the accessibility node which follows this one, not the one which follows the node with the given index. More like \"getNextSibling\", I guess.\n\nYou could implement that with something like:\n\n if (this.expanded) {\n   return this.getFirstChild(); // need to add these convenience methods\n }\n\n const parent \u003d this.getParentNode();\n if (!parent) {\n   return null;\n }\n const indexInParent \u003d parent.indexOf(this);  // convenience method\n if (indexInParent \u003c parent.children.length) {\n   return parent.getChild(indexInParent + 1); // convenience method\n } else {\n   return parent.getNextSibling();\n }\n\nThen have the callsite handle null by not moving the selection, as Meredith suggested.",
       "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -82,6 +201,86 @@
       "writtenOn": "2021-02-08T05:45:53Z",
       "side": 1,
       "message": "Same comment as for getNext.",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72e31ec2_77e9f976",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-08T06:13:53Z",
+      "side": 1,
+      "message": "Similarly, I would expect this to work relative to this node, although obviously this is a little trickier given you have to determine whether you need to go to the end of an expanded node above.\n\nSomething like:\n\n const parent \u003d this.getParentNode();\n if (!parent) {\n   return null;\n }\n const indexInParent \u003d parent.indexOf(this);\n if (indexInParent \u003d\u003d\u003d 0) {\n   return parent;\n } else {\n   let previousSibling \u003d parent.getChild(indexInParent - 1);\n   while (previousSibling.expanded) {\n     // lastChild() should only look at direct children\n     previousSibling \u003d previousSibling.lastChild();  \n   }\n   return previousSibling;\n }",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "652e6663_e42faec5",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-08T06:13:53Z",
+      "side": 1,
+      "message": "Why is this setting the selectedAXNode?",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cd9abe1_6d2e3d5a",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-08T06:13:53Z",
+      "side": 1,
+      "message": "Most of this logic should be in getPrevious(), rather than here. This should just look like:\n\n const previousNode \u003d this.getPrevious();\n if (previousNode) {\n   axTree.selectedAXNode \u003d previousNode;\n }",
+      "range": {
+        "startLine": 118,
+        "startChar": 1,
+        "endLine": 132,
+        "endChar": 0
+      },
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e393a895_fe41fc99",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-08T06:13:53Z",
+      "side": 1,
+      "message": "When does this check fail? Why is it different to the check on line 114?",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 5
+      },
       "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -156,6 +355,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7e08e0f7_68c228dd",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-08T06:13:53Z",
+      "side": 1,
+      "message": "I don\u0027t think we even need to pass this in; you can calculate it on the fly.",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ac015a9a_ff4daf1b",
         "filename": "front_end/elements/AccessibilityNode.ts",
         "patchSetId": 8
@@ -184,6 +400,40 @@
       "writtenOn": "2021-02-08T05:45:53Z",
       "side": 1,
       "message": "Instead of exposing nodesMap directly (where we could modify it and cause chaos), we can write a simple getter for retrieving a node by ID for it.\n\ngetNodeByAXID(axid: number) : AccessibilityNode {...}\n\nSame way as we do for appendToNodeMap.",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f208cd4_f9f4c342",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-08T06:13:53Z",
+      "side": 1,
+      "message": "This should just call \n\n this.selectedAXNode \u003d rootNode;\n\nand have the setter handle the rest of the logic.",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43a9546b_63a39682",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-08T06:13:53Z",
+      "side": 1,
+      "message": "Each of these cases needs a stopPropagation() and/or preventDefault() (I can\u0027t remember exactly which is the critical one, sorry) to avoid the default behaviour of scrolling.",
       "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -224,6 +474,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "35e8b88b_3afd64fb",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-08T06:13:53Z",
+      "side": 1,
+      "message": "selectRootNode()?",
+      "range": {
+        "startLine": 120,
+        "startChar": 10,
+        "endLine": 120,
+        "endChar": 23
+      },
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f2ca0461_a600d483",
         "filename": "front_end/elements/AccessibilityTree.ts",
         "patchSetId": 8
@@ -241,6 +514,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "66a963a5_f28e0222",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-08T06:13:53Z",
+      "side": 1,
+      "message": "this.selectedAXNode \u003d rootNode;",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 40
+      },
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0dcd5dce_e6a575b4",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-08T06:13:53Z",
+      "side": 1,
+      "message": "selectLastNode()?",
+      "range": {
+        "startLine": 128,
+        "startChar": 10,
+        "endLine": 128,
+        "endChar": 22
+      },
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2b78f733_9b574ecc",
         "filename": "front_end/elements/AccessibilityTree.ts",
         "patchSetId": 8
@@ -252,6 +571,63 @@
       "writtenOn": "2021-02-08T05:45:53Z",
       "side": 1,
       "message": "Early return.",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdd5400f_3dbf471e",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-08T06:13:53Z",
+      "side": 1,
+      "message": "I think getLastChild() should straightforwardly get the last direct child of a node, so this might need a little while loop to get the deepest last child. (Or you could write a separate helper method to get the deepest last child.)",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab2a0a70_14128d2b",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-08T06:13:53Z",
+      "side": 1,
+      "message": "this.selectedAXNode \u003d lastNode;",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 42
+      },
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4effd13c_8c5c1b30",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-08T06:13:53Z",
+      "side": 1,
+      "message": "We need a \u003cstyle\u003e block in here to put overflow: auto on the :host element.",
       "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
