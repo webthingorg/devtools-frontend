@@ -11,6 +11,7 @@
   "dependencies": [
     "components",
     "data_grid",
+    "i18n",
     "object_ui",
     "sdk",
     "formatter",
