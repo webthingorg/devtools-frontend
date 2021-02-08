@@ -1252,3 +1252,13 @@ UI.ContextMenu.registerProvider({
     ];
   },
 });
+
+UI.Toolbar.registerToolbarItem({
+  actionId: 'sources.add-folder-to-workspace',
+  location: UI.Toolbar.ToolbarItemLocation.FILES_NAVIGATION_TOOLBAR,
+  showLabel: true,
+  condition: Root.Runtime.ConditionName.NOT_SOURCES_HIDE_ADD_FOLDER,
+  loadItem: undefined,
+  order: undefined,
+  separator: undefined,
+});
