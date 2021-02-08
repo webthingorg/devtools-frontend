@@ -63,6 +63,30 @@
       },
       "revId": "1d9936a574488c80831eba500725373061ca6373",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f5b73ce_dd220383",
+        "filename": "front_end/third_party/i18n/lib/i18n.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-08T12:40:16Z",
+      "side": 1,
+      "message": "The inclusion of the messageId still seems worthwhile to me. I am fine with shipping this as-is, to improve the status quo. We can always tidy up later.",
+      "parentUuid": "901cba12_35d6d341",
+      "range": {
+        "startLine": 117,
+        "startChar": 8,
+        "endLine": 117,
+        "endChar": 25
+      },
+      "revId": "1d9936a574488c80831eba500725373061ca6373",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
