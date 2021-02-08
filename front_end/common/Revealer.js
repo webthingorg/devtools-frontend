@@ -117,4 +117,5 @@ export const RevealerDestination = {
   ISSUES_VIEW: ls`Issues view`,
   NETWORK_PANEL: ls`Network panel`,
   APPLICATION_PANEL: ls`Application panel`,
+  SOURCES_PANEL: ls`Sources panel`,
 };
