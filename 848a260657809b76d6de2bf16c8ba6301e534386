@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b93c3d7_f7c4d294",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-08T14:30:21Z",
+      "side": 1,
+      "message": "LGTM with suggestion",
+      "revId": "848a260657809b76d6de2bf16c8ba6301e534386",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a994994e_138da08e",
+        "filename": "test/shared/mocha-extensions.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-08T14:30:21Z",
+      "side": 1,
+      "message": "I think\n\n    path.join(...directories.slice(index + 1), parsedPath.name)\n\nWould be more idiomatic if that works",
+      "range": {
+        "startLine": 51,
+        "startChar": 13,
+        "endLine": 51,
+        "endChar": 79
+      },
+      "revId": "848a260657809b76d6de2bf16c8ba6301e534386",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
