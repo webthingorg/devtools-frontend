@@ -1252,3 +1252,43 @@ UI.ContextMenu.registerProvider({
     ];
   },
 });
+
+UI.Context.registerListener({
+  contextTypes() {
+    return [SDK.DebuggerModel.DebuggerPausedDetails];
+  },
+  async loadListener() {
+    const Sources = await loadSourcesModule();
+    return Sources.JavaScriptBreakpointsSidebarPane.JavaScriptBreakpointsSidebarPane.instance();
+  },
+});
+
+UI.Context.registerListener({
+  contextTypes() {
+    return [SDK.DebuggerModel.DebuggerPausedDetails];
+  },
+  async loadListener() {
+    const Sources = await loadSourcesModule();
+    return Sources.JavaScriptBreakpointsSidebarPane.JavaScriptBreakpointsSidebarPane.instance();
+  },
+});
+
+UI.Context.registerListener({
+  contextTypes() {
+    return [SDK.DebuggerModel.DebuggerPausedDetails];
+  },
+  async loadListener() {
+    const Sources = await loadSourcesModule();
+    return Sources.CallStackSidebarPane.CallStackSidebarPane.instance();
+  },
+});
+
+UI.Context.registerListener({
+  contextTypes() {
+    return [SDK.DebuggerModel.CallFrame];
+  },
+  async loadListener() {
+    const Sources = await loadSourcesModule();
+    return Sources.ScopeChainSidebarPane.ScopeChainSidebarPane.instance();
+  },
+});
