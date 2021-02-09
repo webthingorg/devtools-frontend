@@ -20,6 +20,26 @@ const UIStrings = {
 message = i18nString(UIStrings.addAnotherString, {PH1: 'a placeholder', PH2: 'another placeholder'});
 ```
 
+## i18nLazyString
+Defers the execution of the localization function. Useful in cases where a string is loaded on a critical path.
+Usage is similar to `i18nString`:
+  - Verify or add next to your UIStrings structure:
+    - `const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);`
+  - Use `i18nLazyString` to localize your critical path string.
+```javascript
+const UIStrings = {
+    /**
+      * @description A sample string
+      */
+    sampleString: 'Sample string',
+  };
+  const str_ = i18n.i18n.registerUIStrings('example.js', UIStrings);
+  const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+  const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
+
+  const message = i18nLazyString(UIStrings.sampleString)();
+```
+
 ## i18n.i18n.getFormatLocalizedString
 This call returns a **span element**, not a string. It is used when you want to construct a DOM element with a localizable string, or localizable content that contains some other DOM element.
 
