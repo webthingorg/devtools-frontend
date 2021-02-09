@@ -16,6 +16,24 @@
       "message": "I would have imagined that this is a matter of setting overflow: hidden in the right place. Could you quickly explain what the advantage of your change is?",
       "revId": "e1a36bf382b9e84224115d6a06225575a708c771",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6b4b3f1_e4320d38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-02-09T05:53:32Z",
+      "side": 1,
+      "message": "An issue with the previous ui is the timeline table entries, including the timing bar, unnecessarily \"stick out\". We follow the style of sibling elements. So the key fix here is for the timeline rows to have a similar max-width to the sibling elements in the service workers view (e.g., service-worker-notification-editor). This way, the timeline alone wouldn\u0027t overflow. \n\nA second change is to make the details of a time-bar to span over the columns.",
+      "parentUuid": "ebe57d24_f9000667",
+      "revId": "e1a36bf382b9e84224115d6a06225575a708c771",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
