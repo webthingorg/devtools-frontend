@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ee126ff_0f37c9e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-09T13:04:00Z",
+      "side": 1,
+      "message": "LGTM - so nice to lose some of that Ninja path wrangling!",
+      "revId": "09f212ac9c707b1ebf0b0245f4e566951d605ecb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1dcc80b7_6ba54e79",
+        "filename": "scripts/build/ninja/devtools_entrypoint.gni",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-09T13:04:00Z",
+      "side": 1,
+      "message": "out of interest, why the addition of the *.js filter here?",
+      "range": {
+        "startLine": 190,
+        "startChar": 1,
+        "endLine": 192,
+        "endChar": 21
+      },
+      "revId": "09f212ac9c707b1ebf0b0245f4e566951d605ecb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
