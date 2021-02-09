@@ -16,6 +16,24 @@
       "message": "Following your comment above, `rawLocation` should not be falsish at this point?",
       "revId": "aeda7a52041412ff6ac58c00ffe859cb0a3e1ca3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce4a660c_2e192320",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-02-09T12:48:59Z",
+      "side": 1,
+      "message": "It could be null, if we do not have a \u0027scriptId\u0027. But we can replace this by the .? notation now, so changed that!",
+      "parentUuid": "3aad9e54_8d7ae82c",
+      "revId": "aeda7a52041412ff6ac58c00ffe859cb0a3e1ca3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
