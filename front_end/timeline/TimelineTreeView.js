@@ -120,7 +120,7 @@ export class TimelineTreeView extends UI.Widget.VBox {
     this.populateToolbar(toolbar);
 
     this.dataGrid = new DataGrid.SortableDataGrid.SortableDataGrid({
-      displayName: ls`Performance`,
+      displayName: () => ls`Performance`,
       columns,
       refreshCallback: undefined,
       editCallback: undefined,
@@ -341,7 +341,7 @@ export class TimelineTreeView extends UI.Widget.VBox {
     columns.push(
         /** @type {!DataGrid.DataGrid.ColumnDescriptor} */ ({
           id: 'self',
-          title: Common.UIString.UIString('Self Time'),
+          title: () => Common.UIString.UIString('Self Time'),
           width: '120px',
           fixedWidth: true,
           sortable: true
@@ -349,13 +349,13 @@ export class TimelineTreeView extends UI.Widget.VBox {
     columns.push(
         /** @type {!DataGrid.DataGrid.ColumnDescriptor} */ ({
           id: 'total',
-          title: Common.UIString.UIString('Total Time'),
+          title: () => Common.UIString.UIString('Total Time'),
           width: '120px',
           fixedWidth: true,
           sortable: true
         }));
     columns.push(/** @type {!DataGrid.DataGrid.ColumnDescriptor} */ (
-        {id: 'activity', title: Common.UIString.UIString('Activity'), disclosure: true, sortable: true}));
+        {id: 'activity', title: () => Common.UIString.UIString('Activity'), disclosure: true, sortable: true}));
   }
 
   _sortingChanged() {
@@ -1096,11 +1096,11 @@ export class TimelineStackView extends UI.Widget.VBox {
     header.textContent = Common.UIString.UIString('Heaviest stack');
     this._treeView = treeView;
     const columns = /** @type {!Array<!DataGrid.DataGrid.ColumnDescriptor>} */ ([
-      {id: 'total', title: Common.UIString.UIString('Total Time'), fixedWidth: true, width: '110px'},
-      {id: 'activity', title: Common.UIString.UIString('Activity')}
+      {id: 'total', title: () => Common.UIString.UIString('Total Time'), fixedWidth: true, width: '110px'},
+      {id: 'activity', title: () => Common.UIString.UIString('Activity')}
     ]);
     this._dataGrid = new DataGrid.ViewportDataGrid.ViewportDataGrid({
-      displayName: ls`Timeline Stack`,
+      displayName: () => ls`Timeline Stack`,
       columns,
       deleteCallback: undefined,
       editCallback: undefined,

@@ -58,6 +58,7 @@ export const UIStrings = {
 };
 const str_ = i18n.i18n.registerUIStrings('resources/DOMStorageItemsView.js', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 export class DOMStorageItemsView extends StorageItemsView {
   /**
    * @param {!DOMStorage} domStorage
@@ -70,11 +71,11 @@ export class DOMStorageItemsView extends StorageItemsView {
     this.element.classList.add('storage-view', 'table');
 
     const columns = /** @type {!Array<!DataGrid.DataGrid.ColumnDescriptor>} */ ([
-      {id: 'key', title: i18nString(UIStrings.key), sortable: false, editable: true, longText: true, weight: 50},
-      {id: 'value', title: i18nString(UIStrings.value), sortable: false, editable: true, longText: true, weight: 50}
+      {id: 'key', title: i18nLazyString(UIStrings.key), sortable: false, editable: true, longText: true, weight: 50},
+      {id: 'value', title: i18nLazyString(UIStrings.value), sortable: false, editable: true, longText: true, weight: 50}
     ]);
     this._dataGrid = new DataGrid.DataGrid.DataGridImpl({
-      displayName: i18nString(UIStrings.domStorageItems),
+      displayName: i18nLazyString(UIStrings.domStorageItems),
       columns,
       editCallback: this._editingCallback.bind(this),
       deleteCallback: this._deleteCallback.bind(this),
