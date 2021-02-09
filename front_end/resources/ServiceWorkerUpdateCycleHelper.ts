@@ -166,7 +166,13 @@ export class ServiceWorkerUpdateCycleHelper {
     const detailsElement = tableElement.createChild('tr', 'service-worker-update-timing-bar-details');
     detailsElement.classList.add('service-worker-update-timing-bar-details-collapsed');
 
-    self.onInvokeElement(tr, event => this.onToggleUpdateDetails(detailsElement, event));
+    // self.onInvokeElement(tr, event => this.onToggleUpdateDetails(detailsElement, event));
+    tr.addEventListener('keydown', (event: Event) => {
+      this.onKeydown(event, detailsElement);
+    });
+    tr.addEventListener('click', (event: Event) => {
+      this.onClick(event, detailsElement);
+    });
 
     const detailsView = new UI.TreeOutline.TreeOutlineInShadow();
     detailsElement.appendChild(detailsView.element);
@@ -186,18 +192,36 @@ export class ServiceWorkerUpdateCycleHelper {
     detailsView.appendChild(endTimeTreeElement);
   }
 
-  private static onToggleUpdateDetails(detailsRow: Element, event: Event): void {
+  private static toggle(detailsRow: Element, target: Element, expanded: boolean): void {
+    if (target.classList.contains('service-worker-update-timing-bar-clickable')) {
+      detailsRow.classList.toggle('service-worker-update-timing-bar-details-collapsed');
+      detailsRow.classList.toggle('service-worker-update-timing-bar-details-expanded');
+      UI.ARIAUtils.setChecked(target, !expanded);
+    }
+  }
+
+  private static onKeydown(event: Event, detailsRow: Element): void {
     if (!event.target) {
       return;
     }
     const target: Element = <Element>(event.target);
-    if (target.classList.contains('service-worker-update-timing-bar-clickable')) {
-      detailsRow.classList.toggle('service-worker-update-timing-bar-details-collapsed');
-      detailsRow.classList.toggle('service-worker-update-timing-bar-details-expanded');
+    const keyboardEvent = event as KeyboardEvent;
+    const expanded = target.getAttribute('aria-checked') === 'true';
 
-      const expanded = target.getAttribute('aria-checked') === 'true';
-      UI.ARIAUtils.setChecked(target, !expanded);
+    if (keyboardEvent.key === 'Enter' || keyboardEvent.key === ' ') {
+      this.toggle(detailsRow, target, expanded);
+      return;
     }
+    if ((!expanded && keyboardEvent.key === 'ArrowRight') || (expanded && keyboardEvent.key === 'ArrowLeft')) {
+      this.toggle(detailsRow, target, expanded);
+      return;
+    }
+  }
+
+  private static onClick(event: Event, detailsRow: Element): void {
+    const target: Element = <Element>(event.target);
+    const expanded = target.getAttribute('aria-checked') === 'true';
+    this.toggle(detailsRow, target, expanded);
   }
 
   static refresh(tableElement: Element, registration: SDK.ServiceWorkerManager.ServiceWorkerRegistration): void {
