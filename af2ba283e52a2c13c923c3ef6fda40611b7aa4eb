@@ -69,6 +69,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "52f73784_256d4b56",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T03:36:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71e6449f_3babc19b",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f9ece319_1ee31c3b",
@@ -86,6 +104,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "44164afc_caa5210c",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T03:36:43Z",
+      "side": 1,
+      "message": "Good point, it doesn\u0027t - removed",
+      "parentUuid": "f9ece319_1ee31c3b",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7cf601a5_061a62d6",
@@ -99,6 +135,24 @@
       "writtenOn": "2021-02-08T06:13:53Z",
       "side": 1,
       "message": "I don\u0027t think we need to track this; we can compute it on the fly from the data.",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05ace4bf_bb1f814e",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T03:36:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7cf601a5_061a62d6",
       "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -122,6 +176,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d4e9f75f_8749ccbb",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T03:36:43Z",
+      "side": 1,
+      "message": "Could you please clarify, I\u0027m a little unsure if you mean that this function should also be calling selectedAXNode? Since selectedAXNode handles setting selected in line 44 of AccessibilityTree.ts would they not already be in sync?",
+      "parentUuid": "9db407ca_97983c4f",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8a8e6e23_9115816e",
         "filename": "front_end/elements/AccessibilityNode.ts",
         "patchSetId": 8
@@ -133,6 +205,24 @@
       "writtenOn": "2021-02-08T06:13:53Z",
       "side": 1,
       "message": "Should we call this.focus() after this.render(), just in case render() causes focus to be lost?",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "468c5b1d_cbc3bd1c",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T03:36:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a8e6e23_9115816e",
       "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -171,6 +261,42 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd786bd1_7af2cccc",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T03:36:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af92d138_3a187c51",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "527c059e_e29c02a9",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T03:36:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9776f2e_633b82b3",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8f878dd6_37a29103",
@@ -184,6 +310,24 @@
       "writtenOn": "2021-02-08T05:45:53Z",
       "side": 1,
       "message": "can we restructure this for early returns to remove the else branch?\n\nInstead something like:\n\n```\n// Search parent for next child\nif (index is greater than number of children):\n  parent \u003d getParent()\n  if (!parent)\n    return this;\n  return parent.getNext(this.index)\n\n// Find next child\nnextChild \u003d this.axTree.nodeMap(...)\nreturn nextChild\n```\n\nCan return in same line as the get call to nodeMap as well, rather than storing in the nextChild function.",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "383b26fc_f627dacd",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T03:36:43Z",
+      "side": 1,
+      "message": "Removed the else block, and restructured the function using Alice\u0027s suggestion above. PTAL!",
+      "parentUuid": "8f878dd6_37a29103",
       "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -222,6 +366,42 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9a4d36b_29674c4c",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T03:36:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf606935_85a38ff4",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "043652b3_fb35fdb5",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T03:36:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72e31ec2_77e9f976",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "652e6663_e42faec5",
@@ -239,6 +419,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7c425ae_1dbacb47",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T03:36:43Z",
+      "side": 1,
+      "message": "Removed - it doesn\u0027t need to be",
+      "parentUuid": "652e6663_e42faec5",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9cd9abe1_6d2e3d5a",
@@ -252,6 +450,30 @@
       "writtenOn": "2021-02-08T06:13:53Z",
       "side": 1,
       "message": "Most of this logic should be in getPrevious(), rather than here. This should just look like:\n\n const previousNode \u003d this.getPrevious();\n if (previousNode) {\n   axTree.selectedAXNode \u003d previousNode;\n }",
+      "range": {
+        "startLine": 118,
+        "startChar": 1,
+        "endLine": 132,
+        "endChar": 0
+      },
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21f73a2f_10b20e68",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T03:36:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9cd9abe1_6d2e3d5a",
       "range": {
         "startLine": 118,
         "startChar": 1,
@@ -285,6 +507,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3e0a72c_fabbc47f",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T03:36:43Z",
+      "side": 1,
+      "message": "Good point it isn\u0027t necessary, updated this to be the same as line 114",
+      "parentUuid": "e393a895_fe41fc99",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 5
+      },
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d8a13a86_b169019d",
@@ -302,6 +548,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aadac20b_4c20c357",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T03:36:43Z",
+      "side": 1,
+      "message": "It accidentally was being set! (I missed a case in the render function) Now fixed so this extra check is no longer needed",
+      "parentUuid": "d8a13a86_b169019d",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4a02622b_dc48e970",
@@ -315,6 +579,24 @@
       "writtenOn": "2021-02-08T05:45:53Z",
       "side": 1,
       "message": "Early return here: if (!parent) return.",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e50a6577_3bf6b939",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T03:36:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a02622b_dc48e970",
       "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -338,6 +620,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "436f82d5_75d775aa",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T03:36:43Z",
+      "side": 1,
+      "message": "Moved up - testing will need a fix, more coming soon",
+      "parentUuid": "76d20a68_282adea0",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a66bef13_e04cf84d",
         "filename": "front_end/elements/AccessibilityNode.ts",
         "patchSetId": 8
@@ -349,6 +649,24 @@
       "writtenOn": "2021-02-08T05:45:53Z",
       "side": 1,
       "message": "mega nit (feel free to ignore): make this 0, and index++ after assigning it to the first node. Easier to understand imo.\n\nAlso you can do indexInParent: index++ to increment and assign the index in the same line. Note that index++ is post fix - it will return the value of index *before* it\u0027s been incremented (meaning if you initialize it to 0 it will set the index as 0 for the first node, and then increment to 1...)",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe701547_1a2eaa21",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T03:36:43Z",
+      "side": 1,
+      "message": "Updated this based on Alice\u0027s suggestion to create a helper and calculate indices on the fly instead of storing it",
+      "parentUuid": "a66bef13_e04cf84d",
       "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -370,6 +688,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cc13e38_c06fbc02",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T03:36:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e08e0f7_68c228dd",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ac015a9a_ff4daf1b",
@@ -383,6 +719,24 @@
       "writtenOn": "2021-02-08T05:45:53Z",
       "side": 1,
       "message": "Can this check be added to the first one on line 305?",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "049ada95_42cf6421",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T03:36:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac015a9a_ff4daf1b",
       "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -404,6 +758,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "89735562_3092a8b4",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T03:36:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "944d3d7e_8d735788",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f208cd4_f9f4c342",
@@ -417,6 +789,24 @@
       "writtenOn": "2021-02-08T06:13:53Z",
       "side": 1,
       "message": "This should just call \n\n this.selectedAXNode \u003d rootNode;\n\nand have the setter handle the rest of the logic.",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a589a216_b80d19c6",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T03:36:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f208cd4_f9f4c342",
       "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -440,6 +830,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "954d313d_0967bd67",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T03:36:43Z",
+      "side": 1,
+      "message": "Added preventDefault() before the switch case statements. Is this alright or should it go after the keypress function call in each case?",
+      "parentUuid": "43a9546b_63a39682",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e38d7fbd_b08640cf",
         "filename": "front_end/elements/AccessibilityTree.ts",
         "patchSetId": 8
@@ -457,6 +865,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dc6f78f8_39050820",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T03:36:43Z",
+      "side": 1,
+      "message": "Renamed to getRoot() since getRootNode already exists in HTMLElement and doesn\u0027t want to be overwritten",
+      "parentUuid": "e38d7fbd_b08640cf",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8ffd6a76_7bca5b90",
         "filename": "front_end/elements/AccessibilityTree.ts",
         "patchSetId": 8
@@ -468,6 +894,24 @@
       "writtenOn": "2021-02-08T05:45:53Z",
       "side": 1,
       "message": "early return here\n\nif (!this.rootNode)\n  return null",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3228fdb6_95d7ff9c",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T03:36:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ffd6a76_7bca5b90",
       "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -495,6 +939,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "92522178_4b98ecdc",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T03:36:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35e8b88b_3afd64fb",
+      "range": {
+        "startLine": 120,
+        "startChar": 10,
+        "endLine": 120,
+        "endChar": 23
+      },
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f2ca0461_a600d483",
@@ -512,6 +980,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "394cb161_764584df",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T03:36:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2ca0461_a600d483",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "66a963a5_f28e0222",
@@ -525,6 +1011,30 @@
       "writtenOn": "2021-02-08T06:13:53Z",
       "side": 1,
       "message": "this.selectedAXNode \u003d rootNode;",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 40
+      },
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5dbe82c5_b8078008",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T03:36:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66a963a5_f28e0222",
       "range": {
         "startLine": 123,
         "startChar": 0,
@@ -558,6 +1068,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63a4b0a1_c65b7c04",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T03:36:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0dcd5dce_e6a575b4",
+      "range": {
+        "startLine": 128,
+        "startChar": 10,
+        "endLine": 128,
+        "endChar": 22
+      },
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b78f733_9b574ecc",
@@ -575,6 +1109,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7579cd17_3724bcaf",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T03:36:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b78f733_9b574ecc",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fdd5400f_3dbf471e",
@@ -588,6 +1140,24 @@
       "writtenOn": "2021-02-08T06:13:53Z",
       "side": 1,
       "message": "I think getLastChild() should straightforwardly get the last direct child of a node, so this might need a little while loop to get the deepest last child. (Or you could write a separate helper method to get the deepest last child.)",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd7cb749_f886d60a",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T03:36:43Z",
+      "side": 1,
+      "message": "Had to add a getter to check for the expanded state in the while loop. Just wanted to check if this is ok or if there is a better alternative?",
+      "parentUuid": "fdd5400f_3dbf471e",
       "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -615,6 +1185,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "10b947b7_c0e5c553",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T03:36:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab2a0a70_14128d2b",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 42
+      },
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4effd13c_8c5c1b30",
@@ -628,6 +1222,24 @@
       "writtenOn": "2021-02-08T06:13:53Z",
       "side": 1,
       "message": "We need a \u003cstyle\u003e block in here to put overflow: auto on the :host element.",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "623e9a5f_bebad55b",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T03:36:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4effd13c_8c5c1b30",
       "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
