@@ -54,6 +54,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c18be26b_a475b7d3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-09T15:49:04Z",
+      "side": 1,
+      "message": "I want the right column to have a min-width. Otherwise, if resizing that area to very narrow, it degenerates into putting only a single word per line.\n\nI tried setting the min-width via `grid-template-columns`, but then the grid does not expand beyond the visible width of its container, which means grid cells with wide content simply overflow and do not expand the grid.\n\nThat\u0027s how I came up with this CL which feels hacky - but I couldn\u0027t get it to work in another way.",
+      "parentUuid": "a7c947e2_bc52cbef",
+      "revId": "abb7c69eb792e1dfd6bce96fac2b6da38f812cda",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1fca96bd_4fcf1936",
