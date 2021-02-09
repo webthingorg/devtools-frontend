@@ -128,6 +128,30 @@
       },
       "revId": "310cbe605a1743ead45c4e010f4b972fc9172313",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d6490b2_68258da2",
+        "filename": "front_end/i18n/i18nImpl.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-09T11:32:39Z",
+      "side": 1,
+      "message": "I mostly meant that the existing content of `resources/inspector/i18n/i18n.js` should match the content after this CL is submitted. If that\u0027s the case, then all is good 😊",
+      "parentUuid": "12cbfe7f_360fa8ac",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 60
+      },
+      "revId": "310cbe605a1743ead45c4e010f4b972fc9172313",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
