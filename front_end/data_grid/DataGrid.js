@@ -405,7 +405,7 @@ export class DataGridImpl extends Common.ObjectWrapper.ObjectWrapper {
     if (column.titleDOMFragment) {
       div.appendChild(column.titleDOMFragment);
     } else {
-      div.textContent = column.title || null;
+      div.textContent = column.title() || null;
     }
     cell.appendChild(div);
 
@@ -483,7 +483,7 @@ export class DataGridImpl extends Common.ObjectWrapper.ObjectWrapper {
       this._headerRow.appendChild(this._headerTableHeaders[columnId]);
       const topFillerRowCell =
           /** @type {!HTMLTableCellElement} */ (this._topFillerRow.createChild('th', 'top-filler-td'));
-      topFillerRowCell.textContent = column.title || null;
+      topFillerRowCell.textContent = column.title() || null;
       topFillerRowCell.scope = 'col';
       const bottomFillerRowChild = this._bottomFillerRow.createChild('td', 'bottom-filler-td');
       nodeToColumnIdMap.set(bottomFillerRowChild, columnId);
@@ -584,7 +584,7 @@ export class DataGridImpl extends Common.ObjectWrapper.ObjectWrapper {
     const column = this.visibleColumnsArray[cellIndex];
     if (column.dataType === DataType.Boolean) {
       const checkboxLabel = UI.UIUtils.CheckboxLabel.create(undefined, /** @type {boolean} */ (node.data[column.id]));
-      UI.ARIAUtils.setAccessibleName(checkboxLabel, column.title || '');
+      UI.ARIAUtils.setAccessibleName(checkboxLabel, column.title() || '');
 
       let hasChanged = false;
       checkboxLabel.style.height = '100%';
@@ -1455,7 +1455,7 @@ export class DataGridImpl extends Common.ObjectWrapper.ObjectWrapper {
     const target = /** @type {!Node} */ (event.target);
 
     const sortableVisibleColumns = this.visibleColumnsArray.filter(column => {
-      return (column.sortable && column.title);
+      return (column.sortable && column.title());
     });
 
     const sortableHiddenColumns = this._columnsArray.filter(
@@ -1467,7 +1467,8 @@ export class DataGridImpl extends Common.ObjectWrapper.ObjectWrapper {
       for (const column of sortableColumns) {
         const headerCell = this._headerTableHeaders[column.id];
         sortMenu.defaultSection().appendItem(
-            /** @type {string} */ (column.title), this._sortByColumnHeaderCell.bind(this, headerCell));
+            /** @type {Common.UIString.LocalizedString} */ (column.title()),
+            this._sortByColumnHeaderCell.bind(this, headerCell));
       }
     }
 
@@ -1887,7 +1888,7 @@ export class DataGridNode extends Common.ObjectWrapper.ObjectWrapper {
         this.setCellAccessibleName(i18nString(UIStrings.checked), cell, column.id);
       }
 
-      accessibleTextArray.push(`${column.title}: ${this.cellAccessibleTextMap.get(column.id) || cell.textContent}`);
+      accessibleTextArray.push(`${column.title()}: ${this.cellAccessibleTextMap.get(column.id) || cell.textContent}`);
     }
     this.nodeAccessibleText = accessibleTextArray.join(', ');
     element.appendChild(this.createTDWithClass('corner'));
@@ -2710,7 +2711,7 @@ export class DataGridWidget extends UI.Widget.VBox {
 
 /**
  * @typedef {{
- *   displayName: string,
+ *   displayName: (()=>Platform.UIString.LocalizedString),
  *   columns: !Array.<!ColumnDescriptor>,
  *   editCallback: (undefined|function(*, string, *, *):*),
  *   deleteCallback: (undefined|function(*):*),
@@ -2723,7 +2724,7 @@ export let Parameters;
 /**
  * @typedef {{
  *   id: string,
- *   title: (!Platform.UIString.LocalizedString|undefined),
+ *   title: (()=>(Platform.UIString.LocalizedString|undefined)),
  *   titleDOMFragment: (?DocumentFragment|undefined),
  *   sortable: boolean,
  *   sort: (?Order|undefined),

@@ -177,6 +177,7 @@ export const UIStrings = {
 };
 const str_ = i18n.i18n.registerUIStrings('network/NetworkLogViewColumns.js', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
 export class NetworkLogViewColumns {
   /**
@@ -260,7 +261,7 @@ export class NetworkLogViewColumns {
   static _convertToDataGridDescriptor(columnConfig) {
     return /** @type {!DataGrid.DataGrid.ColumnDescriptor} */ ({
       id: columnConfig.id,
-      title: columnConfig.title,
+      title: i18nLazyString(columnConfig.title),
       sortable: columnConfig.sortable,
       align: columnConfig.align,
       nonSelectable: columnConfig.nonSelectable,
@@ -308,7 +309,7 @@ export class NetworkLogViewColumns {
     this._popoverHelper.setTimeout(300, 300);
 
     this._dataGrid = new DataGrid.SortableDataGrid.SortableDataGrid(/** @type {!DataGrid.DataGrid.Parameters} */ ({
-      displayName: /** @type {string} */ (i18nString(UIStrings.networkLog)),
+      displayName: /** @type {()=>Common.UIString.LocalizedString} */ (i18nLazyString(UIStrings.networkLog)),
       columns: this._columns.map(NetworkLogViewColumns._convertToDataGridDescriptor)
     }));
     this._dataGrid.element.addEventListener('mousedown', event => {
