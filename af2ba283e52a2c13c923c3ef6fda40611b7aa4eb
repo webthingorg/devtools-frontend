@@ -882,6 +882,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c278ee47_cd236fed",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T06:21:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9116b8dd_ea1b7a9b",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e38d7fbd_b08640cf",
@@ -913,6 +931,24 @@
       "side": 1,
       "message": "Renamed to getRoot() since getRootNode already exists in HTMLElement and doesn\u0027t want to be overwritten",
       "parentUuid": "e38d7fbd_b08640cf",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "479c69af_012aea35",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T06:21:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc6f78f8_39050820",
       "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -1212,6 +1248,24 @@
       "side": 1,
       "message": "I think that\u0027s good :)",
       "parentUuid": "cd7cb749_f886d60a",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df53bd5f_b90262f7",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T06:21:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "548dcdfb_b7170a4c",
       "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },

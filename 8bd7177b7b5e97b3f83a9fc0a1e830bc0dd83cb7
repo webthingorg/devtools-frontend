@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66f12c5f_0caf288d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T06:21:19Z",
+      "side": 1,
+      "message": "Thank you for all the super helpful comments and suggestions! Greatly appreciated 😊",
+      "parentUuid": "d6848cd7_f60d46c4",
+      "revId": "8bd7177b7b5e97b3f83a9fc0a1e830bc0dd83cb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7c02d261_dc16b263",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-02-09T04:02:09Z",
       "side": 1,
       "message": "Can we name these with less dependence on the specific interaction which triggered them? e.g. this could be something like \"selectPreviousNode()\"",
+      "revId": "8bd7177b7b5e97b3f83a9fc0a1e830bc0dd83cb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "740c834b_b67c68fd",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T06:21:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c02d261_dc16b263",
       "revId": "8bd7177b7b5e97b3f83a9fc0a1e830bc0dd83cb7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -77,6 +113,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5f74425a_f67be859",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T06:21:19Z",
+      "side": 1,
+      "message": "In practice this should never occur but because this variable is a nullable type, TypeScript requires us to do these extra checks. @DevTools team, could you please advise if there is a way to get around this or this is OK as is?",
+      "parentUuid": "85bf7286_d10eca1d",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 5
+      },
+      "revId": "8bd7177b7b5e97b3f83a9fc0a1e830bc0dd83cb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "45a71f1c_93b818f2",
         "filename": "front_end/elements/AccessibilityNode.ts",
         "patchSetId": 10
@@ -88,6 +148,24 @@
       "writtenOn": "2021-02-09T04:02:09Z",
       "side": 1,
       "message": "This could be \"selectNextNode()\"",
+      "revId": "8bd7177b7b5e97b3f83a9fc0a1e830bc0dd83cb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4985669_c3412223",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T06:21:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45a71f1c_93b818f2",
       "revId": "8bd7177b7b5e97b3f83a9fc0a1e830bc0dd83cb7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -109,6 +187,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f24c9c7_ef9c7ac0",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T06:21:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be6ebe10_96c05371",
+      "revId": "8bd7177b7b5e97b3f83a9fc0a1e830bc0dd83cb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "07cff953_0c414766",
@@ -122,6 +218,30 @@
       "writtenOn": "2021-02-09T04:02:09Z",
       "side": 1,
       "message": "This could be \"selectParent()\"",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 5
+      },
+      "revId": "8bd7177b7b5e97b3f83a9fc0a1e830bc0dd83cb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "439d0224_50e78b56",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T06:21:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07cff953_0c414766",
       "range": {
         "startLine": 93,
         "startChar": 0,
@@ -155,6 +275,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f94bd966_537e014a",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T06:21:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fcc8f6f3_8adb2c29",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 5
+      },
+      "revId": "8bd7177b7b5e97b3f83a9fc0a1e830bc0dd83cb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "65b826f0_524c305d",
@@ -168,6 +312,24 @@
       "writtenOn": "2021-02-09T04:02:09Z",
       "side": 1,
       "message": "This should return null if there is no last child to return, and have the call site handle a null value.",
+      "revId": "8bd7177b7b5e97b3f83a9fc0a1e830bc0dd83cb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcd6b059_fa9677aa",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T06:21:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65b826f0_524c305d",
       "revId": "8bd7177b7b5e97b3f83a9fc0a1e830bc0dd83cb7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -191,6 +353,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5d4fa6e7_480796b7",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T06:21:19Z",
+      "side": 1,
+      "message": "Neither of these situations should ever occur, but unfortunately TypeScript enforces these extra null checks. Can @DevTools team please advise?",
+      "parentUuid": "fdd4d7a2_91a6f62c",
+      "revId": "8bd7177b7b5e97b3f83a9fc0a1e830bc0dd83cb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0e02240e_96b75d66",
         "filename": "front_end/elements/AccessibilityNode.ts",
         "patchSetId": 10
@@ -202,6 +382,24 @@
       "writtenOn": "2021-02-09T04:02:09Z",
       "side": 1,
       "message": "I don\u0027t think this needs to be a loop, does it? Wouldn\u0027t something like this work?\n\n let childAXNode \u003d child.axNode;\n return this.axNode.children.indexOf(childAxNode);",
+      "revId": "8bd7177b7b5e97b3f83a9fc0a1e830bc0dd83cb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e00f0388_f34a42a6",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T06:21:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e02240e_96b75d66",
       "revId": "8bd7177b7b5e97b3f83a9fc0a1e830bc0dd83cb7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -225,6 +423,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cd4043da_8535bda5",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T06:21:19Z",
+      "side": 1,
+      "message": "This was a bit of a hacky solution to get the highlight to display across the whole bar. Since the \u003cdiv\u003e is only around the text, without a width it will only highlight the text. At width: 100%, the highlight will not show at all since the text overflows and becomes \u0027...\u0027 \n\nDo you have any suggestions around this?",
+      "parentUuid": "cc0a207d_60f7b852",
+      "revId": "8bd7177b7b5e97b3f83a9fc0a1e830bc0dd83cb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ae4b6181_84a77945",
         "filename": "front_end/elements/AccessibilityTree.ts",
         "patchSetId": 10
@@ -236,6 +452,24 @@
       "writtenOn": "2021-02-09T04:02:09Z",
       "side": 1,
       "message": "I think this could have a little more logic in it rather than in the rightArrowPress() method, e.g.\n\n if (this.selectedNode.isExpanded) {\n   this.selectedNode.selectFirstChild();   \n } else {\n   this.selectedNode.toggleChildren();\n }\n\nAnd similarly for ArrowLeft above:\n\n if (this.selectedNode.isExpanded) {\n   this.selectedNode.toggleChildren();\n } else {\n   this.selectedNode.selectParent();\n }",
+      "revId": "8bd7177b7b5e97b3f83a9fc0a1e830bc0dd83cb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a168b82_df997442",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-09T06:21:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae4b6181_84a77945",
       "revId": "8bd7177b7b5e97b3f83a9fc0a1e830bc0dd83cb7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
