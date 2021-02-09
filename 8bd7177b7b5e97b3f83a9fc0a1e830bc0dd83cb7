@@ -137,6 +137,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0f450548_94c165c4",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-09T09:12:38Z",
+      "side": 1,
+      "message": "You can define axTree as `axTree!: AccessibilityTree;` and TS would not require it to be created at construction time. I don\u0027t recommend this approach though. Instead, you could use https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/platform/typescript-utilities.ts;l\u003d10;drc\u003d28a79aace95424050f2dadcc2d0d287520f77373 to assert that axTree exists when it is always expected to exist. \n\nSo something like:\n\n```\nassertNotNull(axTree) \n```\n\ninstead of the if check. After this call TS will assume that axTree exists. In case, if it happens to be a null, an error will be thrown.",
+      "parentUuid": "5f74425a_f67be859",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 5
+      },
+      "revId": "8bd7177b7b5e97b3f83a9fc0a1e830bc0dd83cb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "45a71f1c_93b818f2",
         "filename": "front_end/elements/AccessibilityNode.ts",
         "patchSetId": 10
