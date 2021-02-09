@@ -37,6 +37,7 @@ export const UIStrings = {
 };
 const str_ = i18n.i18n.registerUIStrings('network/EventSourceMessagesView.js', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 export class EventSourceMessagesView extends UI.Widget.VBox {
   /**
    * @param {!SDK.NetworkRequest.NetworkRequest} request
@@ -48,14 +49,14 @@ export class EventSourceMessagesView extends UI.Widget.VBox {
     this._request = request;
 
     const columns = /** @type {!Array<!DataGrid.DataGrid.ColumnDescriptor>} */ ([
-      {id: 'id', title: i18nString(UIStrings.id), sortable: true, weight: 8},
-      {id: 'type', title: i18nString(UIStrings.type), sortable: true, weight: 8},
-      {id: 'data', title: i18nString(UIStrings.data), sortable: false, weight: 88},
-      {id: 'time', title: i18nString(UIStrings.time), sortable: true, weight: 8}
+      {id: 'id', title: i18nLazyString(UIStrings.id), sortable: true, weight: 8},
+      {id: 'type', title: i18nLazyString(UIStrings.type), sortable: true, weight: 8},
+      {id: 'data', title: i18nLazyString(UIStrings.data), sortable: false, weight: 88},
+      {id: 'time', title: i18nLazyString(UIStrings.time), sortable: true, weight: 8}
     ]);
 
     this._dataGrid = new DataGrid.SortableDataGrid.SortableDataGrid({
-      displayName: i18nString(UIStrings.eventSource),
+      displayName: i18nLazyString(UIStrings.eventSource),
       columns,
       editCallback: undefined,
       deleteCallback: undefined,

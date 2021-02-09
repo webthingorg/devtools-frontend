@@ -200,7 +200,7 @@ export class IDBDataView extends UI.View.SimpleView {
 
     // Create column defaults so that we avoid repetition below.
     const columnDefaults = {
-      title: undefined,
+      title: () => undefined,
       titleDOMFragment: undefined,
       sortable: false,
       sort: undefined,
@@ -218,7 +218,7 @@ export class IDBDataView extends UI.View.SimpleView {
     };
 
     columns.push(/** @type {!DataGrid.DataGrid.ColumnDescriptor} */ (
-        {...columnDefaults, id: 'number', title: ls`#`, sortable: false, width: '50px'}));
+        {...columnDefaults, id: 'number', title: () => ls`#`, sortable: false, width: '50px'}));
     columns.push(/** @type {!DataGrid.DataGrid.ColumnDescriptor} */ ({
       ...columnDefaults,
       id: 'key',
@@ -233,12 +233,12 @@ export class IDBDataView extends UI.View.SimpleView {
         sortable: false
       }));
     }
-    const title = ls`Value`;
+    const title = () => ls`Value`;
     columns.push(
         /** @type {!DataGrid.DataGrid.ColumnDescriptor} */ ({...columnDefaults, id: 'value', title, sortable: false}));
 
     const dataGrid = new DataGrid.DataGrid.DataGridImpl({
-      displayName: ls`Indexed DB`,
+      displayName: () => ls`Indexed DB`,
       columns,
       deleteCallback: this._deleteButtonClicked.bind(this),
       refreshCallback: this._updateData.bind(this, true),

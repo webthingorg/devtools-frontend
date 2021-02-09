@@ -121,6 +121,7 @@ export const UIStrings = {
 };
 const str_ = i18n.i18n.registerUIStrings('coverage/CoverageListView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
 export function coverageTypeToString(type: CoverageType): string {
   const types = [];
@@ -148,11 +149,11 @@ export class CoverageListView extends UI.Widget.VBox {
     this._highlightRegExp = null;
     this.registerRequiredCSS('coverage/coverageListView.css', {enableLegacyPatching: true});
     const columns: DataGrid.DataGrid.ColumnDescriptor[] = [
-      {id: 'url', title: i18nString(UIStrings.url), width: '250px', fixedWidth: false, sortable: true},
-      {id: 'type', title: i18nString(UIStrings.type), width: '45px', fixedWidth: true, sortable: true},
+      {id: 'url', title: i18nLazyString(UIStrings.url), width: '250px', fixedWidth: false, sortable: true},
+      {id: 'type', title: i18nLazyString(UIStrings.type), width: '45px', fixedWidth: true, sortable: true},
       {
         id: 'size',
-        title: i18nString(UIStrings.totalBytes),
+        title: i18nLazyString(UIStrings.totalBytes),
         width: '60px',
         fixedWidth: true,
         sortable: true,
@@ -160,17 +161,23 @@ export class CoverageListView extends UI.Widget.VBox {
       },
       {
         id: 'unusedSize',
-        title: i18nString(UIStrings.unusedBytes),
+        title: i18nLazyString(UIStrings.unusedBytes),
         width: '100px',
         fixedWidth: true,
         sortable: true,
         align: DataGrid.DataGrid.Align.Right,
         sort: DataGrid.DataGrid.Order.Descending,
       },
-      {id: 'bars', title: i18nString(UIStrings.usageVisualization), width: '250px', fixedWidth: false, sortable: true},
+      {
+        id: 'bars',
+        title: i18nLazyString(UIStrings.usageVisualization),
+        width: '250px',
+        fixedWidth: false,
+        sortable: true,
+      },
     ] as DataGrid.DataGrid.ColumnDescriptor[];
     this._dataGrid = new DataGrid.SortableDataGrid.SortableDataGrid<GridNode>({
-      displayName: i18nString(UIStrings.codeCoverage),
+      displayName: i18nLazyString(UIStrings.codeCoverage),
       columns,
       editCallback: undefined,
       refreshCallback: undefined,
