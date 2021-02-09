@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "722aa3e0_42195b92",
+        "filename": "main.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2021-02-09T10:04:01Z",
+      "side": 0,
+      "message": "Can you submit this separately? Note also that the tree didn\u0027t close on one instance tonight. Will file a separate bug about this.",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 46
+      },
+      "revId": "bd6639dc906353b9b16c21280776159fc784dd63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

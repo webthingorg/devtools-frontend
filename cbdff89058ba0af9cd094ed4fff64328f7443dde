@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e3248f1_260bdb4f",
+        "filename": "buckets/ci.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2021-02-09T10:04:01Z",
+      "side": 1,
+      "message": "Maybe work on renaming this build-side first. Otherwise you require another 3-way CL.",
+      "range": {
+        "startLine": 124,
+        "startChar": 12,
+        "endLine": 124,
+        "endChar": 28
+      },
+      "revId": "cbdff89058ba0af9cd094ed4fff64328f7443dde",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
