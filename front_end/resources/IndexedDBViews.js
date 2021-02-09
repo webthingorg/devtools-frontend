@@ -39,6 +39,10 @@ import {Database, DatabaseId, Entry, Index, IndexedDBModel, ObjectStore, ObjectS
 
 export const UIStrings = {
   /**
+  *@description Sharp sign in Indexed DBViews of the Application panel
+  */
+  sharpSign: '#',
+  /**
   *@description Text when something is loading
   */
   loading: 'Loading…',
@@ -144,6 +148,7 @@ export const UIStrings = {
 };
 const str_ = i18n.i18n.registerUIStrings('resources/IndexedDBViews.js', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 export class IDBDatabaseView extends UI.Widget.VBox {
   /**
    * @param {!IndexedDBModel} model
@@ -306,7 +311,7 @@ export class IDBDataView extends UI.View.SimpleView {
 
     // Create column defaults so that we avoid repetition below.
     const columnDefaults = {
-      title: undefined,
+      title: () => undefined,
       titleDOMFragment: undefined,
       sortable: false,
       sort: undefined,
@@ -324,7 +329,7 @@ export class IDBDataView extends UI.View.SimpleView {
     };
 
     columns.push(/** @type {!DataGrid.DataGrid.ColumnDescriptor} */ (
-        {...columnDefaults, id: 'number', title: '#', sortable: false, width: '50px'}));
+        {...columnDefaults, id: 'number', title: i18nLazyString(UIStrings.sharpSign), sortable: false, width: '50px'}));
     columns.push(/** @type {!DataGrid.DataGrid.ColumnDescriptor} */ ({
       ...columnDefaults,
       id: 'key',
@@ -339,12 +344,12 @@ export class IDBDataView extends UI.View.SimpleView {
         sortable: false
       }));
     }
-    const title = i18nString(UIStrings.valueString);
+    const title = i18nLazyString(UIStrings.valueString);
     columns.push(
         /** @type {!DataGrid.DataGrid.ColumnDescriptor} */ ({...columnDefaults, id: 'value', title, sortable: false}));
 
     const dataGrid = new DataGrid.DataGrid.DataGridImpl({
-      displayName: i18nString(UIStrings.indexedDb),
+      displayName: i18nLazyString(UIStrings.indexedDb),
       columns,
       deleteCallback: this._deleteButtonClicked.bind(this),
       refreshCallback: this._updateData.bind(this, true),

@@ -5636,6 +5636,9 @@
   "resources/BackgroundServiceView.js | selectAnEntryToViewMetadata": {
     "message": "Select an entry to view metadata"
   },
+  "resources/BackgroundServiceView.js | sharpSign": {
+    "message": "#"
+  },
   "resources/BackgroundServiceView.js | showEventsFromOtherDomains": {
     "message": "Show events from other domains"
   },
@@ -5900,6 +5903,9 @@
   "resources/IndexedDBViews.js | securityOrigin": {
     "message": "Security origin"
   },
+  "resources/IndexedDBViews.js | sharpSign": {
+    "message": "#"
+  },
   "resources/IndexedDBViews.js | showNextPage": {
     "message": "Show next page"
   },
@@ -6040,6 +6046,9 @@
   },
   "resources/ServiceWorkerCacheViews.js | serviceWorkerCache": {
     "message": "Service Worker Cache"
+  },
+  "resources/ServiceWorkerCacheViews.js | sharpSign": {
+    "message": "#"
   },
   "resources/ServiceWorkerCacheViews.js | timeCached": {
     "message": "Time Cached"

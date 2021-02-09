@@ -14,6 +14,10 @@ import {BackgroundServiceModel, Events} from './BackgroundServiceModel.js';  // 
 
 export const UIStrings = {
   /**
+  *@description Sharp sign in Background Service View of the Application panel
+  */
+  sharpSign: '#',
+  /**
   *@description Text in Background Service View of the Application panel
   */
   backgroundFetch: 'Background Fetch',
@@ -116,6 +120,7 @@ export const UIStrings = {
 };
 const str_ = i18n.i18n.registerUIStrings('resources/BackgroundServiceView.js', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 export class BackgroundServiceView extends UI.Widget.VBox {
   /**
    * @param {string} serviceName The name of the background service.
@@ -350,15 +355,15 @@ export class BackgroundServiceView extends UI.Widget.VBox {
    */
   _createDataGrid() {
     const columns = /** @type {!Array<!DataGrid.DataGrid.ColumnDescriptor>} */ ([
-      {id: 'id', title: '#', weight: 1},
-      {id: 'timestamp', title: i18nString(UIStrings.timestamp), weight: 8},
-      {id: 'eventName', title: i18nString(UIStrings.event), weight: 10},
-      {id: 'origin', title: i18nString(UIStrings.origin), weight: 10},
-      {id: 'swScope', title: i18nString(UIStrings.swScope), weight: 2},
-      {id: 'instanceId', title: i18nString(UIStrings.instanceId), weight: 10},
+      {id: 'id', title: i18nLazyString(UIStrings.sharpSign), weight: 1},
+      {id: 'timestamp', title: i18nLazyString(UIStrings.timestamp), weight: 8},
+      {id: 'eventName', title: i18nLazyString(UIStrings.event), weight: 10},
+      {id: 'origin', title: i18nLazyString(UIStrings.origin), weight: 10},
+      {id: 'swScope', title: i18nLazyString(UIStrings.swScope), weight: 2},
+      {id: 'instanceId', title: i18nLazyString(UIStrings.instanceId), weight: 10},
     ]);
     const dataGrid = new DataGrid.DataGrid.DataGridImpl({
-      displayName: i18nString(UIStrings.backgroundServices),
+      displayName: i18nLazyString(UIStrings.backgroundServices),
       columns,
       editCallback: undefined,
       refreshCallback: undefined,

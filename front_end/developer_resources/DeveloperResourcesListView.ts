@@ -68,6 +68,7 @@ export const UIStrings = {
 };
 const str_ = i18n.i18n.registerUIStrings('developer_resources/DeveloperResourcesListView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
 export class DeveloperResourcesListView extends UI.Widget.VBox {
   _nodeForItem: Map<SDK.PageResourceLoader.PageResource, GridNode>;
@@ -82,12 +83,12 @@ export class DeveloperResourcesListView extends UI.Widget.VBox {
     this.registerRequiredCSS('developer_resources/developerResourcesListView.css', {enableLegacyPatching: false});
 
     const columns = [
-      {id: 'status', title: i18nString(UIStrings.status), width: '60px', fixedWidth: true, sortable: true},
-      {id: 'url', title: i18nString(UIStrings.url), width: '250px', fixedWidth: false, sortable: true},
-      {id: 'initiator', title: i18nString(UIStrings.initiator), width: '80px', fixedWidth: false, sortable: true},
+      {id: 'status', title: i18nLazyString(UIStrings.status), width: '60px', fixedWidth: true, sortable: true},
+      {id: 'url', title: i18nLazyString(UIStrings.url), width: '250px', fixedWidth: false, sortable: true},
+      {id: 'initiator', title: i18nLazyString(UIStrings.initiator), width: '80px', fixedWidth: false, sortable: true},
       {
         id: 'size',
-        title: i18nString(UIStrings.totalBytes),
+        title: i18nLazyString(UIStrings.totalBytes),
         width: '80px',
         fixedWidth: true,
         sortable: true,
@@ -95,14 +96,14 @@ export class DeveloperResourcesListView extends UI.Widget.VBox {
       },
       {
         id: 'errorMessage',
-        title: i18nString(UIStrings.error),
+        title: i18nLazyString(UIStrings.error),
         width: '200px',
         fixedWidth: false,
         sortable: true,
       },
     ] as DataGrid.DataGrid.ColumnDescriptor[];
     this._dataGrid = new DataGrid.SortableDataGrid.SortableDataGrid({
-      displayName: i18nString(UIStrings.developerResources),
+      displayName: i18nLazyString(UIStrings.developerResources),
       columns,
       editCallback: undefined,
       refreshCallback: undefined,
