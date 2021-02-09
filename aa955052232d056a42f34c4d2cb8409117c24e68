@@ -33,6 +33,23 @@
       "message": "Perhaps we could simplify it a bit more? It looks like right now the AccessibilityNode uses both AXNodes and AccessibilityNodes to traverse the tree. How about the following?\n\n1) We move the extended attribute to the AXNode so that AXNode contains the complete data for traversing.\n2) We extract tree traversal into a separate class/module so that we can test the traversing independently.\n3) We add two events NodeSelected and NodeAdded to notify the tree component about the nodes so that we don\u0027t need to send the axTree down to the nodes.\n\nI think in this case it\u0027d be a bit simpler and easier to test. WDYT?\n\nP.S. I have a local branch where I tried this ideas out. For some reason I cannot upload it at the moment. But let me know if you want to have a look and discuss it.",
       "revId": "aa955052232d056a42f34c4d2cb8409117c24e68",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d704ccda_85785ec8",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-09T09:17:30Z",
+      "side": 1,
+      "message": "instead of wasShown I believe it\u0027s possible to use adoptedCallback. See https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements#using_the_lifecycle_callbacks",
+      "revId": "aa955052232d056a42f34c4d2cb8409117c24e68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
