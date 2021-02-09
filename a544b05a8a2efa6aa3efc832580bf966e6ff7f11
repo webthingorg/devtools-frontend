@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb605a10_770a6fc3",
+        "filename": "test/e2e/sources/debug-raw-wasm_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2021-02-09T11:00:16Z",
+      "side": 1,
+      "message": "Optional: My preference is to save the promise and await it later in the test when we can expect in has completed (after clicking resume) rather than leave unawaited promises.",
+      "range": {
+        "startLine": 529,
+        "startChar": 4,
+        "endLine": 529,
+        "endChar": 31
+      },
+      "revId": "a544b05a8a2efa6aa3efc832580bf966e6ff7f11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
