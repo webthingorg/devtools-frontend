@@ -140,7 +140,6 @@ export class ButtonProvider {
     this._button.element.classList.add('monospace');
     this._view = new ElementStatePaneWidget();
   }
-
   /**
    * @param {{forceNew: ?boolean}} opts
    */
