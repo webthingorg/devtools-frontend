@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "249d3fae_bd4c0273",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-09T09:35:35Z",
+      "side": 1,
+      "message": "Uploaded the CL https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2678693\n\nPerhaps it can be simplified even more and it looks like we might not need to keep track of the rendered nodes if the selectedAXNode would be an instance of AXNode",
+      "parentUuid": "15631dac_08c79ad3",
+      "revId": "aa955052232d056a42f34c4d2cb8409117c24e68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d704ccda_85785ec8",
