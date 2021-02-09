@@ -262,8 +262,8 @@ export class Linkifier {
     if (scriptId) {
       rawLocation = debuggerModel.createRawLocationByScriptId(scriptId, lineNumber || 0, columnNumber);
     }
-    if (!rawLocation) {
-      rawLocation = debuggerModel.createRawLocationByURL(sourceURL, lineNumber || 0, columnNumber);
+    if (!rawLocation || !rawLocation.script()) {
+      rawLocation = debuggerModel.createRawLocationByURL(sourceURL, lineNumber || 0, columnNumber) || rawLocation;
     }
 
     if (!rawLocation) {
