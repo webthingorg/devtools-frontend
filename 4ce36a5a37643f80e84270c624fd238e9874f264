@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29c7ad3e_33fee34b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2021-02-09T22:52:52Z",
+      "side": 1,
+      "message": "Hey Andres, we are running into an error due to this change. Please see the comment on the settings file",
+      "revId": "4ce36a5a37643f80e84270c624fd238e9874f264",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd5a0b68_5bc53b64",
+        "filename": "front_end/common/Settings.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2021-02-09T22:52:52Z",
+      "side": 1,
+      "message": "Title needs to have the same ternary check as text, or this function throws an error when retrieving settings that have text titles",
+      "range": {
+        "startLine": 924,
+        "startChar": 10,
+        "endLine": 924,
+        "endChar": 25
+      },
+      "revId": "4ce36a5a37643f80e84270c624fd238e9874f264",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
