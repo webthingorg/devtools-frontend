@@ -198,7 +198,7 @@ export class ApplicationCacheItemsView extends UI.View.SimpleView {
     const columns = /** @type {!Array<!DataGrid.DataGrid.ColumnDescriptor>} */ ([
       {
         id: 'resource',
-        title: Common.UIString.UIString('Resource'),
+        title: () => Common.UIString.UIString('Resource'),
         sort: DataGrid.DataGrid.Order.Ascending,
         sortable: true
       },
@@ -207,7 +207,7 @@ export class ApplicationCacheItemsView extends UI.View.SimpleView {
     ]);
     /** @type {!DataGrid.DataGrid.Parameters} */
     const parameters = {
-      displayName: ls`Application Cache`,
+      displayName: () => ls`Application Cache`,
       columns,
       editCallback: undefined,
       deleteCallback: undefined,
