@@ -126,7 +126,7 @@ export class EventsTimelineTreeView extends TimelineTreeView {
   populateColumns(columns) {
     columns.push(/** @type {!DataGrid.DataGrid.ColumnDescriptor} */ ({
       id: 'startTime',
-      title: Common.UIString.UIString('Start Time'),
+      title: () => Common.UIString.UIString('Start Time'),
       width: '80px',
       fixedWidth: true,
       sortable: true,

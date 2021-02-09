@@ -178,6 +178,7 @@ export const UIStrings = {
 };
 const str_ = i18n.i18n.registerUIStrings('css_overview/CSSOverviewCompletedView.js', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
 /**
  * @typedef {!Map<string,!Set<number>>}
@@ -949,7 +950,7 @@ export class ElementDetailsView extends UI.Widget.Widget {
     this._elementGridColumns = [
       {
         id: 'nodeId',
-        title: i18nString(UIStrings.element),
+        title: i18nLazyString(UIStrings.element),
         sortable: true,
         weight: 50,
         titleDOMFragment: undefined,
@@ -967,7 +968,7 @@ export class ElementDetailsView extends UI.Widget.Widget {
       },
       {
         id: 'declaration',
-        title: i18nString(UIStrings.declaration),
+        title: i18nLazyString(UIStrings.declaration),
         sortable: true,
         weight: 50,
         titleDOMFragment: undefined,
@@ -985,7 +986,7 @@ export class ElementDetailsView extends UI.Widget.Widget {
       },
       {
         id: 'sourceURL',
-        title: i18nString(UIStrings.source),
+        title: i18nLazyString(UIStrings.source),
         sortable: false,
         weight: 100,
         titleDOMFragment: undefined,
@@ -1003,7 +1004,7 @@ export class ElementDetailsView extends UI.Widget.Widget {
       },
       {
         id: 'contrastRatio',
-        title: i18nString(UIStrings.contrastRatio),
+        title: i18nLazyString(UIStrings.contrastRatio),
         sortable: true,
         weight: 25,
         titleDOMFragment: undefined,
@@ -1022,7 +1023,7 @@ export class ElementDetailsView extends UI.Widget.Widget {
     ];
 
     this._elementGrid = new DataGrid.SortableDataGrid.SortableDataGrid({
-      displayName: i18nString(UIStrings.cssOverviewElements),
+      displayName: i18nLazyString(UIStrings.cssOverviewElements),
       columns: this._elementGridColumns,
       editCallback: undefined,
       deleteCallback: undefined,
