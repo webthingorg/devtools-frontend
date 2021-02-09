@@ -5630,6 +5630,9 @@
   "resources/BackgroundServiceView.js | selectAnEntryToViewMetadata": {
     "message": "Ŝél̂éĉt́ âń êńt̂ŕŷ t́ô v́îéŵ ḿêt́âd́ât́â"
   },
+  "resources/BackgroundServiceView.js | sharpSign": {
+    "message": "#"
+  },
   "resources/BackgroundServiceView.js | showEventsFromOtherDomains": {
     "message": "Ŝh́ôẃ êv́êńt̂ś f̂ŕôḿ ôt́ĥér̂ d́ôḿâín̂ś"
   },
@@ -5894,6 +5897,9 @@
   "resources/IndexedDBViews.js | securityOrigin": {
     "message": "Ŝéĉúr̂ít̂ý ôŕîǵîń"
   },
+  "resources/IndexedDBViews.js | sharpSign": {
+    "message": "#"
+  },
   "resources/IndexedDBViews.js | showNextPage": {
     "message": "Ŝh́ôẃ n̂éx̂t́ p̂áĝé"
   },
@@ -6031,6 +6037,9 @@
   },
   "resources/ServiceWorkerCacheViews.js | serviceWorkerCache": {
     "message": "Service Worker Ĉáĉh́ê"
+  },
+  "resources/ServiceWorkerCacheViews.js | sharpSign": {
+    "message": "#"
   },
   "resources/ServiceWorkerCacheViews.js | timeCached": {
     "message": "T̂ím̂é Ĉáĉh́êd́"

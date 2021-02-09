@@ -39,6 +39,10 @@ import {Database, DatabaseId, Entry, Index, IndexedDBModel, ObjectStore, ObjectS
 
 export const UIStrings = {
   /**
+  *@description Sharp sign in Indexed DBViews of the Application panel
+  */
+  sharpSign: '#',
+  /**
   *@description Text when something is loading
   */
   loading: 'Loading…',

@@ -103,7 +103,7 @@ export class DeveloperResourcesListView extends UI.Widget.VBox {
       },
     ] as DataGrid.DataGrid.ColumnDescriptor[];
     this._dataGrid = new DataGrid.SortableDataGrid.SortableDataGrid({
-      displayName: i18nString(UIStrings.developerResources),
+      displayName: i18nLazyString(UIStrings.developerResources),
       columns,
       editCallback: undefined,
       refreshCallback: undefined,

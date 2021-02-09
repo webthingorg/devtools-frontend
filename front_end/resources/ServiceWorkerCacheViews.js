@@ -73,6 +73,10 @@ export const UIStrings = {
   *@description Text for previewing items
   */
   preview: 'Preview',
+  /**
+  *@description Sharp sign in Service Worker Cache Views of the Application panel
+  */
+  sharpSign: '#'
 };
 const str_ = i18n.i18n.registerUIStrings('resources/ServiceWorkerCacheViews.js', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -187,7 +191,7 @@ export class ServiceWorkerCacheView extends UI.View.SimpleView {
    */
   _createDataGrid() {
     const columns = /** @type {!Array<!DataGrid.DataGrid.ColumnDescriptor>} */ ([
-      {id: 'number', title: () => '#', sortable: false, width: '3px'},
+      {id: 'number', title: i18nLazyString(UIStrings.sharpSign), sortable: false, width: '3px'},
       {id: 'name', title: i18nLazyString(UIStrings.name), weight: 4, sortable: true}, {
         id: 'responseType',
         title: i18nLazyString(UIStrings.responsetype),
@@ -218,6 +222,7 @@ export class ServiceWorkerCacheView extends UI.View.SimpleView {
       refreshCallback: this._updateData.bind(this, true),
       editCallback: undefined,
     });
+
 
     dataGrid.addEventListener(DataGrid.DataGrid.Events.SortingChanged, this._sortingChanged, this);
 

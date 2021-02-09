@@ -14,6 +14,10 @@ import {BackgroundServiceModel, Events} from './BackgroundServiceModel.js';  // 
 
 export const UIStrings = {
   /**
+  *@description Sharp sign in Background Service View of the Application panel
+  */
+  sharpSign: '#',
+  /**
   *@description Text in Background Service View of the Application panel
   */
   backgroundFetch: 'Background Fetch',

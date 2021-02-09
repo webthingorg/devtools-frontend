@@ -332,7 +332,7 @@ export class WebauthnPaneImpl extends UI.Widget.VBox {
     ] as DataGrid.DataGrid.ColumnDescriptor[]);
 
     const dataGridConfig = {
-      displayName: i18nString(UIStrings.credentials),
+      displayName: i18nLazyString(UIStrings.credentials),
       columns,
       editCallback: undefined,
       deleteCallback: undefined,
