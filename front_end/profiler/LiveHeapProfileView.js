@@ -52,6 +52,8 @@ export const UIStrings = {
 };
 const str_ = i18n.i18n.registerUIStrings('profiler/LiveHeapProfileView.js', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
+
 /** @type {LiveHeapProfileView} */
 let liveHeapProfileViewInstance;
 /**
@@ -109,7 +111,7 @@ export class LiveHeapProfileView extends UI.Widget.VBox {
      */
     const defaultColumnConfig = {
       id: '',
-      title: Common.UIString.LocalizedEmptyString,
+      title: () => Common.UIString.LocalizedEmptyString,
       width: undefined,
       fixedWidth: true,
       sortable: true,
@@ -129,7 +131,7 @@ export class LiveHeapProfileView extends UI.Widget.VBox {
       {
         ...defaultColumnConfig,
         id: 'size',
-        title: i18nString(UIStrings.jsHeap),
+        title: i18nLazyString(UIStrings.jsHeap),
         width: '72px',
         fixedWidth: true,
         sortable: true,
@@ -140,7 +142,7 @@ export class LiveHeapProfileView extends UI.Widget.VBox {
       {
         ...defaultColumnConfig,
         id: 'isolates',
-        title: i18nString(UIStrings.vms),
+        title: i18nLazyString(UIStrings.vms),
         width: '40px',
         fixedWidth: true,
         align: DataGrid.DataGrid.Align.Right,
@@ -149,14 +151,14 @@ export class LiveHeapProfileView extends UI.Widget.VBox {
       {
         ...defaultColumnConfig,
         id: 'url',
-        title: i18nString(UIStrings.scriptUrl),
+        title: i18nLazyString(UIStrings.scriptUrl),
         fixedWidth: false,
         sortable: true,
         tooltip: i18nString(UIStrings.urlOfTheScriptSource)
       },
     ];
     const dataGrid = new DataGrid.SortableDataGrid.SortableDataGrid({
-      displayName: i18nString(UIStrings.heapProfile),
+      displayName: i18nLazyString(UIStrings.heapProfile),
       columns,
       editCallback: undefined,
       deleteCallback: undefined,

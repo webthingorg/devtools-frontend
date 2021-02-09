@@ -31,6 +31,8 @@ export const UIStrings = {
 };
 const str_ = i18n.i18n.registerUIStrings('media/EventDisplayTable.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
+
 export interface EventDisplayColumnConfig {
   id: string;
   title: string;
@@ -111,7 +113,7 @@ export class PlayerEventsView extends UI.Widget.VBox {
     // renderers, since they can change size, and this breaks the visible
     // element computation in ViewportDataGrid.
     const datagrid = new DataGrid.DataGrid.DataGridImpl({
-      displayName: i18nString(UIStrings.eventDisplay),
+      displayName: i18nLazyString(UIStrings.eventDisplay),
       columns: gridColumnDescs,
       deleteCallback: undefined,
       editCallback: undefined,
@@ -156,7 +158,7 @@ export class PlayerEventsView extends UI.Widget.VBox {
   static _convertToGridDescriptor(columnConfig: EventDisplayColumnConfig): DataGrid.DataGrid.ColumnDescriptor {
     return {
       id: columnConfig.id,
-      title: columnConfig.title,
+      title: i18nLazyString(columnConfig.title),
       sortable: columnConfig.sortable,
       weight: columnConfig.weight || 0,
       sort: DataGrid.DataGrid.Order.Ascending,

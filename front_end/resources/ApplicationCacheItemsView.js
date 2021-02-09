@@ -71,6 +71,8 @@ export const UIStrings = {
 };
 const str_ = i18n.i18n.registerUIStrings('resources/ApplicationCacheItemsView.js', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
+
 export class ApplicationCacheItemsView extends UI.View.SimpleView {
   /**
    * @param {!ApplicationCacheModel} model
@@ -235,13 +237,18 @@ export class ApplicationCacheItemsView extends UI.View.SimpleView {
 
   _createDataGrid() {
     const columns = /** @type {!Array<!DataGrid.DataGrid.ColumnDescriptor>} */ ([
-      {id: 'resource', title: i18nString(UIStrings.resource), sort: DataGrid.DataGrid.Order.Ascending, sortable: true},
-      {id: 'type', title: i18nString(UIStrings.typeString), sortable: true},
-      {id: 'size', title: i18nString(UIStrings.sizeString), align: DataGrid.DataGrid.Align.Right, sortable: true}
+      {
+        id: 'resource',
+        title: i18nLazyString(UIStrings.resource),
+        sort: DataGrid.DataGrid.Order.Ascending,
+        sortable: true
+      },
+      {id: 'type', title: i18nLazyString(UIStrings.typeString), sortable: true},
+      {id: 'size', title: i18nLazyString(UIStrings.sizeString), align: DataGrid.DataGrid.Align.Right, sortable: true}
     ]);
     /** @type {!DataGrid.DataGrid.Parameters} */
     const parameters = {
-      displayName: i18nString(UIStrings.applicationCache),
+      displayName: i18nLazyString(UIStrings.applicationCache),
       columns,
       editCallback: undefined,
       deleteCallback: undefined,
