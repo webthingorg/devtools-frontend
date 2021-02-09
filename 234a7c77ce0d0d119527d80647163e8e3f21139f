@@ -16,6 +16,144 @@
       "message": "I finally had a some time to work on this one. It is a large but repetitive patch, which basically standardize i18nLazyString pattern on the -meta.ts files and some V1 modules. This also tackles a couple of bugs that are caused by not deferring some localization calls when initializing a Datagrid instance.",
       "revId": "234a7c77ce0d0d119527d80647163e8e3f21139f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5ef7028_4fc045db",
+        "filename": "docs/localization/localization_apis_V2.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-09T10:13:15Z",
+      "side": 1,
+      "message": "can you add: such as during module instantiation",
+      "range": {
+        "startLine": 24,
+        "startChar": 110,
+        "endLine": 24,
+        "endChar": 111
+      },
+      "revId": "234a7c77ce0d0d119527d80647163e8e3f21139f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba5ee3f9_f4788965",
+        "filename": "front_end/cookie_table/CookiesTable.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-09T10:13:15Z",
+      "side": 1,
+      "message": "Not sure I understand why these calls need to be lazy - they are in the constructor and so should only be called at CookiesTable instantiation time, and not module-instantiation time, which means localized strings should be available?",
+      "range": {
+        "startLine": 116,
+        "startChar": 15,
+        "endLine": 116,
+        "endChar": 29
+      },
+      "revId": "234a7c77ce0d0d119527d80647163e8e3f21139f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bd4ed66_e00a784a",
+        "filename": "front_end/cookie_table/CookiesTable.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-09T10:13:15Z",
+      "side": 1,
+      "message": "I think inlining `i18nString(UIStrings.session)` at all of these call sites would be better, and removing getExpiresSessionValue entirely. I guess it made more sense when we were still using ls``, but now we aren\u0027t saving many characters and it adds a layer of indirection without much payoff IMO",
+      "range": {
+        "startLine": 489,
+        "startChar": 46,
+        "endLine": 489,
+        "endChar": 70
+      },
+      "revId": "234a7c77ce0d0d119527d80647163e8e3f21139f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9baacce2_35d2d222",
+        "filename": "front_end/coverage/CoverageListView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-09T10:13:15Z",
+      "side": 1,
+      "message": "Same with these - this is not module-time, so translations should be available?",
+      "range": {
+        "startLine": 152,
+        "startChar": 25,
+        "endLine": 152,
+        "endChar": 39
+      },
+      "revId": "234a7c77ce0d0d119527d80647163e8e3f21139f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ebf6c49_ee1df4b7",
+        "filename": "front_end/data_grid/DataGrid.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 1470,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-09T10:13:15Z",
+      "side": 1,
+      "message": "If we make the title() function return just LocalizedString and not undefined, this cast won\u0027t be necessary. title() could still return an empty string which would be fine.",
+      "range": {
+        "startLine": 1470,
+        "startChar": 12,
+        "endLine": 1470,
+        "endChar": 75
+      },
+      "revId": "234a7c77ce0d0d119527d80647163e8e3f21139f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55cad56a_3f0577f2",
+        "filename": "front_end/resources/IndexedDBViews.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-09T10:13:15Z",
+      "side": 1,
+      "message": "Could return LocalizedEmptyString",
+      "range": {
+        "startLine": 314,
+        "startChar": 19,
+        "endLine": 314,
+        "endChar": 28
+      },
+      "revId": "234a7c77ce0d0d119527d80647163e8e3f21139f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
