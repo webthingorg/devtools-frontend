@@ -30,6 +30,7 @@ Code example:
   };
   const str_ = i18n.i18n.registerUIStrings('example.js', UIStrings);
   const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+  const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
   ```
 
   ```javascript
@@ -40,6 +41,9 @@ Code example:
 
   const message2 = i18nString(UIStrings.addAnotherString, {PH1: 'a placeholder'});
   console.log(message2); // Another new string I want to add, with a placeholder
+
+  const message3 = i18nLazyString(UIStrings.addAnotherString, {PH1: 'a placeholder'})();
+  console.log(message3);
   ```
 1. If there is already `UIStrings = {}` declared in the file, add your string to it.
   If there isn't `UIStrings = {}` in the file, create one and add your string, also register the new UIStrings into the `en-US.json` by adding:
@@ -101,6 +105,9 @@ Code example:
       - Words and sentences
       - Punctuation
       - Units of measurement: kb/s, mph, etc.
+   5. If your string is loaded on a critical path (e.g parsing or loading) you need to defer the execution of the localization function:
+     - Verify or add next to your UIStrings structure: `const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);`
+     - Use `i18nLazyString` to localize your critical path string.
 4. The following commands would add the new strings to `en-US.json`:
   - `git cl presubmit --upload`, or
   - `node third_party/i18n/collect-strings.js` under the DevTools src folder

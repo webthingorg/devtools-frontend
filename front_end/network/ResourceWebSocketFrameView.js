@@ -128,6 +128,8 @@ export const UIStrings = {
 };
 const str_ = i18n.i18n.registerUIStrings('network/ResourceWebSocketFrameView.js', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
+
 export class ResourceWebSocketFrameView extends UI.Widget.VBox {
   /**
    * @param {!SDK.NetworkRequest.NetworkRequest} request
@@ -142,18 +144,18 @@ export class ResourceWebSocketFrameView extends UI.Widget.VBox {
     this._splitWidget.show(this.element);
 
     const columns = /** @type {!Array<!DataGrid.DataGrid.ColumnDescriptor>} */ ([
-      {id: 'data', title: i18nString(UIStrings.data), sortable: false, weight: 88}, {
+      {id: 'data', title: i18nLazyString(UIStrings.data), sortable: false, weight: 88}, {
         id: 'length',
-        title: i18nString(UIStrings.length),
+        title: i18nLazyString(UIStrings.length),
         sortable: false,
         align: DataGrid.DataGrid.Align.Right,
         weight: 5
       },
-      {id: 'time', title: i18nString(UIStrings.time), sortable: true, weight: 7}
+      {id: 'time', title: i18nLazyString(UIStrings.time), sortable: true, weight: 7}
     ]);
 
     this._dataGrid = new DataGrid.SortableDataGrid.SortableDataGrid({
-      displayName: i18nString(UIStrings.webSocketFrame),
+      displayName: i18nLazyString(UIStrings.webSocketFrame),
       columns,
       editCallback: undefined,
       deleteCallback: undefined,

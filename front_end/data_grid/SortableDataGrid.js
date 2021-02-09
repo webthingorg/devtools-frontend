@@ -92,7 +92,7 @@ export class SortableDataGrid extends ViewportDataGrid {
     const columns = /** @type {!Array<!ColumnDescriptor>} */ ([]);
     for (let i = 0; i < columnNames.length; ++i) {
       const id = String(i);
-      columns.push(/** @type {!ColumnDescriptor} */ ({id, title: columnNames[i], sortable: true}));
+      columns.push(/** @type {!ColumnDescriptor} */ ({id, title: () => columnNames[i], sortable: true}));
     }
 
     const nodes = [];
@@ -108,7 +108,8 @@ export class SortableDataGrid extends ViewportDataGrid {
       nodes.push(node);
     }
 
-    const dataGrid = new SortableDataGrid(/** @type {!Parameters} */ ({displayName, columns}));
+    const lazyDisplay = () => displayName;
+    const dataGrid = new SortableDataGrid(/** @type {!Parameters} */ ({displayName: lazyDisplay, columns}));
     const length = nodes.length;
     const rootNode = dataGrid.rootNode();
     for (let i = 0; i < length; ++i) {
