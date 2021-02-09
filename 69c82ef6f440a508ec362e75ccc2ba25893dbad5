@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a95571c6_58cfc2f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2021-02-09T13:15:19Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "69c82ef6f440a508ec362e75ccc2ba25893dbad5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b5b0a292_850e9d54",
@@ -48,6 +65,24 @@
       "writtenOn": "2021-02-08T15:45:35Z",
       "side": 1,
       "message": "What do you think about pulling the waitForFunction out of the helper and have the caller use it?\n\nawait waitForFunction(() \u003d\u003e isBreakpointSet(index));\n\nI think that has got great readability, plus it makes the isBreakpointNotSet somewhat superfluous, which means less code! One could also argue that we don\u0027t need to wait here at all, since we\u0027re just checking that the breakpoint is there, but IMO it\u0027s safer if we do (less racy).",
+      "revId": "69c82ef6f440a508ec362e75ccc2ba25893dbad5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2dd63e5b_3e2af9a4",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2021-02-09T13:15:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5b0a292_850e9d54",
       "revId": "69c82ef6f440a508ec362e75ccc2ba25893dbad5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +104,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb5da507_b0375479",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2021-02-09T13:15:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b74d127_131bb64d",
+      "revId": "69c82ef6f440a508ec362e75ccc2ba25893dbad5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "50f962c5_5794b1f1",
@@ -82,6 +135,24 @@
       "writtenOn": "2021-02-08T15:45:35Z",
       "side": 1,
       "message": "I\u0027d slightly prefer using the generic waitForFunction and frontend.evaluate here, since it produces better timeout errors.\n\nThe same is true for the function the copied this from, but happy to fix that in a followup.",
+      "revId": "69c82ef6f440a508ec362e75ccc2ba25893dbad5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7883448c_2d6896c9",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2021-02-09T13:15:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50f962c5_5794b1f1",
       "revId": "69c82ef6f440a508ec362e75ccc2ba25893dbad5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
