@@ -1053,12 +1053,25 @@ export class NetworkDispatcher {
     // downloaded(blue) given typical WebTransport is kept for a while.
     // TODO(yoichio): Add appropreate events to fix these dummy datas.
     // TODO(yoichio): Add appropreate events to address abort cases.
-    networkRequest.responseReceivedTime = time + 0.001;
-    networkRequest.endTime = time + 0.002;
+    // networkRequest.responseReceivedTime = time + 0.001;
+    // networkRequest.endTime = time + 0.002;
     this._startNetworkRequest(networkRequest, null);
   }
 
-  webTransportConnectionEstablished() {
+  /**
+   * @override
+   * @param {!Protocol.Network.WebTransportConnectionEstablishedEvent} request
+   */
+  webTransportConnectionEstablished({transportId, timestamp: time}) {
+    const networkRequest = this._inflightRequestsById.get(transportId);
+    if (!networkRequest) {
+      return;
+    }
+
+    networkRequest.responseReceivedTime = time;
+    // this._updateNetworkRequestWithResponse(networkRequest, response);
+    this._updateNetworkRequest(networkRequest);
+    // this._finishNetworkRequest(networkRequest, time, 0);*/
   }
 
   /**
