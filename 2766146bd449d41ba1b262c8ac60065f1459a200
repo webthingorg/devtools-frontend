@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cbe9642_001b4d1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-02-09T11:41:14Z",
+      "side": 1,
+      "message": "Hi Benedikt,\n\nthe live location change in the Linkifier led to a regression where one couldn\u0027t navigate to the source position.\n\nWhat happened is that:\n* we create a raw location (that is used in a live location) based on a scriptId for which we don\u0027t get a script parsed event\n* previously, if we didn\u0027t have a script, we used the url to find a script that is *close* to the actual script we are searching for\n* so now I added a fall back option:\n\n1. create raw location based on scriptId\n2. if the raw location is not bound to a script, try to get a raw location from the url, otherwise take the raw location from the scriptId.\n\nPTAL!",
+      "revId": "2766146bd449d41ba1b262c8ac60065f1459a200",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
