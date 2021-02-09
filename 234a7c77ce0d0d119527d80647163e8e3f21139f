@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0110d6e_1764197b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-09T11:37:16Z",
+      "side": 1,
+      "message": "This CL is quite large and I am having difficulty reviewing it and understanding all the context. Can we split this up into 3 different CLs:\n\n- Standardization of the lazyString usage\n- A CL solely to update datagrid titles\n- Updates to documentation/scripts",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 59
+      },
+      "revId": "234a7c77ce0d0d119527d80647163e8e3f21139f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9324528d_0087bb99",
