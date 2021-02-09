@@ -13,6 +13,7 @@ export interface AXNode {
   children: AXNode[];
   numChildren: number;
   hasOnlyUnloadedChildren: boolean;
+  expanded: boolean;
   loadChildren: () => Promise<void>;
   highlightNode: () => void;
   clearHighlight: () => void;
@@ -29,11 +30,12 @@ export function SDKNodeToAXNode(parent: AXNode|null, sdkNode: SDK.AccessibilityM
     children: axChildren,
     numChildren: sdkNode.numChildren(),
     hasOnlyUnloadedChildren: sdkNode.hasOnlyUnloadedChildren(),
+    expanded: false,
     loadChildren: async(): Promise<void> => {
       const loadedChildren = await sdkNode.accessibilityModel().requestAXChildren(sdkNode.id());
       if (loadedChildren) {
         for (const child of loadedChildren) {
-          axChildren.push(SDKNodeToAXNode(parent, child));
+          axChildren.push(SDKNodeToAXNode(axNode, child));
         }
       }
     },
