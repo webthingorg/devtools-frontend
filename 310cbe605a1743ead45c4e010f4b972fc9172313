@@ -104,6 +104,30 @@
       },
       "revId": "310cbe605a1743ead45c4e010f4b972fc9172313",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12cbfe7f_360fa8ac",
+        "filename": "front_end/i18n/i18nImpl.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-09T08:58:27Z",
+      "side": 1,
+      "message": "Rebased, added E2E test in another CL (https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2666695).\n\nAlso updated the README for the last 2 changes I made as I realised I forgot that.\n\nTim - I checked out/Release/resources/inspector/i18n/i18n.js and it contains the definitions for functions in front_end/i18n/i18nImpl.js - is that what you meant?",
+      "parentUuid": "8015ed08_443a1f6b",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 60
+      },
+      "revId": "310cbe605a1743ead45c4e010f4b972fc9172313",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
