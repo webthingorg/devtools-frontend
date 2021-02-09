@@ -33,6 +33,24 @@
       "message": "Seems like there are some additional compilation errors that would need to be resolved.",
       "revId": "a7b9ed60e35c6c6c1cab35ac93ea4d97442a66c7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02c0189c_88d46537",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-09T15:45:16Z",
+      "side": 1,
+      "message": "Ah, I tested `npm run auto-interactionstest` and that was OK but I guess that didn\u0027t do a full build of everything. I\u0027ll take a look.",
+      "parentUuid": "d8cf2388_4cdfc880",
+      "revId": "a7b9ed60e35c6c6c1cab35ac93ea4d97442a66c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
