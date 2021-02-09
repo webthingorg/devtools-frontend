@@ -15,6 +15,7 @@ const makeAXNode = (overrides: Partial<ElementsModule.AccessibilityTreeUtils.AXN
     role: '',
     name: '',
     ignored: false,
+    expanded: true,
     parent: null,
     children: [],
     numChildren: 0,

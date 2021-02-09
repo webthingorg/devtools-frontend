@@ -5,33 +5,208 @@
 import * as Platform from '../platform/platform.js';
 import {ls} from '../platform/platform.js';
 import * as LitHtml from '../third_party/lit-html/lit-html.js';
+
 import {AXNode} from './AccessibilityTreeUtils.js';
 
 export interface AccessibilityNodeData {
   axNode: AXNode;
 }
 
+export class NodeSelectedEvent extends Event {
+  data: {id: string};
+
+  constructor(id: string) {
+    super('node-selected', {
+      bubbles: true,
+      composed: true,
+    });
+    this.data = {id};
+  }
+}
+
+export class NodeAddedEvent extends Event {
+  data: {id: string, element: AccessibilityNode};
+
+  constructor(id: string, element: AccessibilityNode) {
+    super('node-added', {
+      bubbles: true,
+      composed: true,
+    });
+    this.data = {id, element};
+  }
+}
+
+export class TreeTraversal {
+  static previousSiblingOf(node: AXNode): AXNode|null {
+    const parent = TreeTraversal.parentOf(node);
+    if (!parent) {
+      return null;
+    }
+
+    const indexInParent = TreeTraversal.indexInParentOf(node);
+    if (indexInParent === 0) {
+      return parent;
+    }
+
+    let previousSibling = TreeTraversal.childOf(parent, indexInParent - 1);
+    while (previousSibling && previousSibling.expanded) {
+      previousSibling = TreeTraversal.lastChildOf(previousSibling);
+    }
+
+    return previousSibling;
+  }
+
+  static nextSiblingOf(node: AXNode): AXNode|null {
+    const parent = TreeTraversal.parentOf(node);
+    if (!parent) {
+      return null;
+    }
+
+    const indexInParent = TreeTraversal.indexInParentOf(node);
+    if (indexInParent + 1 < parent.numChildren) {
+      return TreeTraversal.childOf(parent, indexInParent + 1);
+    }
+
+    return TreeTraversal.nextSiblingOf(parent);
+  }
+
+  static parentOf(node: AXNode): AXNode|null {
+    return node.parent;
+  }
+
+  static indexInParentOf(node: AXNode): number {
+    const parent = TreeTraversal.parentOf(node);
+    if (!parent) {
+      return -1;
+    }
+    return parent.children.indexOf(node);
+  }
+
+  static childOf(parent: AXNode, index: number): AXNode|null {
+    return parent.children[index];
+  }
+
+  static lastChildOf(parent: AXNode): AXNode|null {
+    if (parent.numChildren) {
+      const lastChildIndex = parent.numChildren - 1;
+      const lastChild = parent.children[lastChildIndex];
+      if (lastChild) {
+        return lastChild;
+      }
+    }
+    return null;
+  }
+
+  static firstChildOf(parent: AXNode): AXNode|null {
+    return parent.children[0];
+  }
+}
+
 export class AccessibilityNode extends HTMLElement {
-  private readonly shadow = this.attachShadow({mode: 'open'});
+  private readonly shadow = this.attachShadow({
+    mode: 'open',
+    delegatesFocus: false,
+  });
   private axNode: AXNode|null = null;
-  private expanded: boolean = true;
   private loadedChildren: boolean = false;
   private hovered: boolean = false;
+  private isSelected: boolean = false;
 
   constructor() {
     super();
     this.addEventListener('click', this.onClick.bind(this));
     this.addEventListener('mousemove', this.onMouseMove.bind(this));
     this.addEventListener('mouseleave', this.onMouseLeave.bind(this));
+    this.tabIndex = -1;
   }
 
   set data(data: AccessibilityNodeData) {
     this.axNode = data.axNode;
+    this.dispatchEvent(new NodeAddedEvent(this.axNode.id, this));
     this.shadow.host.setAttribute('role', 'treeitem');
     this.render();
   }
 
+  set selected(selected: boolean) {
+    this.isSelected = selected;
+    this.render();
+
+    if (this.isSelected) {
+      this.focus();
+    }
+  }
+
+  get isExpanded(): boolean {
+    return Boolean(this.axNode) && this.axNode.expanded;
+  }
+
+  set isExpanded(value: boolean) {
+    if (this.axNode) {
+      this.axNode.expanded = value;
+    }
+  }
+
+  selectPreviousNode(): void {
+    if (!this.axNode) {
+      return;
+    }
+
+    const previousNode = TreeTraversal.previousSiblingOf(this.axNode);
+    if (!previousNode) {
+      return;
+    }
+    this.dispatchEvent(new NodeSelectedEvent(previousNode.id));
+  }
+
+  selectNextNode(): void {
+    if (!this.axNode) {
+      return;
+    }
+
+    if (this.isExpanded) {
+      this.selectFirstChild();
+      return;
+    }
+
+    const nextNode = TreeTraversal.nextSiblingOf(this.axNode);
+    if (!nextNode) {
+      return;
+    }
+    this.dispatchEvent(new NodeSelectedEvent(nextNode.id));
+  }
+
+  selectParent(): void {
+    if (!this.axNode) {
+      return;
+    }
+
+    const parent = TreeTraversal.parentOf(this.axNode);
+    if (!parent) {
+      return;
+    }
+    this.dispatchEvent(new NodeSelectedEvent(parent.id));
+  }
+
+  selectFirstChild(): void {
+    if (!this.axNode) {
+      return;
+    }
+    const firstChild = TreeTraversal.firstChildOf(this.axNode);
+    if (!firstChild) {
+      return;
+    }
+    this.dispatchEvent(new NodeSelectedEvent(firstChild.id));
+  }
+
+  defaultAction(): void {
+    this.toggleChildren();
+  }
+
   private onClick(e: MouseEvent): void {
+    if (this.axNode) {
+      this.dispatchEvent(new NodeSelectedEvent(this.axNode.id));
+    }
+
     e.stopPropagation();
     this.toggleChildren();
   }
@@ -58,12 +233,12 @@ export class AccessibilityNode extends HTMLElement {
   }
 
   private toggleChildren(): void {
-    if (!this.axNode || !this.axNode.children) {
+    if (!this.axNode || !this.axNode.numChildren) {
       return;
     }
 
-    this.expanded = !this.expanded;
-    this.classList.toggle('expanded', this.expanded);
+    this.isExpanded = !this.isExpanded;
+    this.classList.toggle('expanded', this.isExpanded);
 
     if (this.axNode.hasOnlyUnloadedChildren && !this.loadedChildren) {
       this.getChildAXNodes();
@@ -147,14 +322,20 @@ export class AccessibilityNode extends HTMLElement {
       if (this.axNode.hasOnlyUnloadedChildren) {
         this.shadow.host.classList.add('parent');
         if (!this.loadedChildren) {
-          this.expanded = false;
+          this.isExpanded = false;
         }
       } else if (this.axNode.numChildren) {
         this.shadow.host.classList.add('parent', 'expanded');
       } else {
         this.shadow.host.classList.add('no-children');
+        this.isExpanded = false;
       }
-      parts.push(LitHtml.html`<div class='wrapper'>${nodeContent}</div>`);
+
+      const classes = LitHtml.Directives.classMap({
+        'wrapper': true,
+        'selected': this.isSelected,
+      });
+      parts.push(LitHtml.html`<div class=${classes}>${nodeContent}</div>`);
     }
 
     const children = this.renderChildren(this.axNode);
@@ -227,13 +408,21 @@ export class AccessibilityNode extends HTMLElement {
 
           .wrapper {
             display: inline-block;
+            width: 96%;
           }
 
           .wrapper:hover {
             background: var(--color-background-elevation-2);
-            width: 96%;
           }
 
+          .wrapper.selected {
+            outline: none;
+            background: var(--selection-bg-color);
+          }
+
+          :focus {
+            outline: none;
+          }
       </style>
       ${parts}
       `;

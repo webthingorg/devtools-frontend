@@ -5,21 +5,64 @@
 import * as SDK from '../sdk/sdk.js';
 import * as LitHtml from '../third_party/lit-html/lit-html.js';
 
-import {SDKNodeToAXNode} from './AccessibilityTreeUtils.js';
-import type {AccessibilityNodeData} from './AccessibilityNode.js';
+import {NodeAddedEvent, TreeTraversal} from './AccessibilityNode.js';
+import {AXNode, SDKNodeToAXNode} from './AccessibilityTreeUtils.js';
+
+import type {AccessibilityNode, AccessibilityNodeData, NodeSelectedEvent} from './AccessibilityNode.js';
 
 export interface AccessibilityTreeData {
   node: SDK.DOMModel.DOMNode|null;
 }
 
 export class AccessibilityTree extends HTMLElement {
-  private readonly shadow = this.attachShadow({mode: 'open'});
+  private readonly shadow = this.attachShadow({
+    mode: 'open',
+    delegatesFocus: false,
+  });
   private node: SDK.DOMModel.DOMNode|null = null;
+  private nodeMap: Map<string, AccessibilityNode> = new Map();
+  private rootNode: AXNode|null = null;
+  private selectedNode: AccessibilityNode|null = null;
+
+  constructor() {
+    super();
+    this.addEventListener('keydown', this.onKeyDown.bind(this));
+  }
 
   set data(data: AccessibilityTreeData) {
     this.node = data.node;
     this.shadow.host.setAttribute('role', 'tree');
     this.render();
+  }
+
+  set selectedAXNode(node: AccessibilityNode) {
+    // Deselect previous node
+    if (this.selectedNode && this.selectedNode !== node) {
+      this.selectedNode.selected = false;
+    }
+
+    // Select and focus new node
+    this.selectedNode = node;
+    this.selectedNode.selected = true;
+  }
+
+  wasShown(): void {
+    if (!this.rootNode) {
+      return;
+    }
+    const root = this.getNodeByAXID(this.rootNode.id);
+    if (!root) {
+      return;
+    }
+    this.selectedAXNode = root;
+  }
+
+  getNodeByAXID(id: string): AccessibilityNode|null {
+    return this.nodeMap.get(id) || null;
+  }
+
+  appendToNodeMap(id: string, node: AccessibilityNode): void {
+    this.nodeMap.set(id, node);
   }
 
   async refreshAccessibilityTree(): Promise<SDK.AccessibilityModel.AccessibilityNode|null> {
@@ -36,19 +79,119 @@ export class AccessibilityTree extends HTMLElement {
     return result || null;
   }
 
+  private onKeyDown(e: KeyboardEvent): void {
+    if (!this.selectedNode) {
+      return;
+    }
+
+    switch (e.key) {
+      case 'ArrowUp':
+        this.selectedNode.selectPreviousNode();
+        e.preventDefault();
+        break;
+      case 'ArrowDown':
+        this.selectedNode.selectNextNode();
+        e.preventDefault();
+        break;
+      case 'ArrowLeft':
+        if (this.selectedNode.isExpanded) {
+          this.selectedNode.defaultAction();
+        } else {
+          this.selectedNode.selectParent();
+        }
+        e.preventDefault();
+        break;
+      case 'ArrowRight':
+        if (this.selectedNode.isExpanded) {
+          this.selectedNode.selectFirstChild();
+        } else {
+          this.selectedNode.defaultAction();
+        }
+        e.preventDefault();
+        break;
+      case 'Home':
+        this.selectRootNode();
+        e.preventDefault();
+        break;
+      case 'End':
+        this.selectLastNode();
+        e.preventDefault();
+        break;
+      case 'Enter':
+        this.selectedNode.defaultAction();
+        e.preventDefault();
+        break;
+      default:
+        return;
+    }
+  }
+
+  private selectRootNode(): void {
+    if (!this.rootNode) {
+      return;
+    }
+
+    const root = this.getNodeByAXID(this.rootNode.id);
+    if (!root) {
+      return;
+    }
+    this.selectedAXNode = root;
+  }
+
+  private selectLastNode(): void {
+    if (!this.rootNode) {
+      return;
+    }
+
+    let lastChild = TreeTraversal.lastChildOf(this.rootNode);
+    while (lastChild && lastChild.expanded) {
+      lastChild = TreeTraversal.lastChildOf(lastChild);
+    }
+
+    if (lastChild) {
+      const node = this.getNodeByAXID(lastChild.id);
+      if (node) {
+        this.selectedAXNode = node;
+      }
+    }
+  }
+
+  private onNodeSelected(event: NodeSelectedEvent): void {
+    const id = event.data.id;
+    const node = this.getNodeByAXID(id);
+    if (node) {
+      this.selectedAXNode = node;
+    }
+  }
+
+  private onNodeAdded(event: NodeAddedEvent): void {
+    this.appendToNodeMap(event.data.id, event.data.element);
+  }
+
   private render(): void {
     this.refreshAccessibilityTree().then(rootNode => {
       if (!rootNode) {
         return;
       }
 
+      this.rootNode = SDKNodeToAXNode(null, rootNode);
+
       // clang-format off
       const output = LitHtml.html`
-        <devtools-accessibility-node .data=${{
-          axNode: SDKNodeToAXNode(null, rootNode),
+        <style>
+          :host {
+            overflow: auto;
+          }
+
+          :focus {
+            outline: none;
+          }
+        </style>
+        <devtools-accessibility-node @node-added=${this.onNodeAdded.bind(this)} @node-selected=${this.onNodeSelected.bind(this)} .data=${{
+            axNode: this.rootNode,
           } as AccessibilityNodeData}>
         </devtools-accessibility-node>
-      `;
+        `;
       // clang-format on
       LitHtml.render(output, this.shadow);
     });
