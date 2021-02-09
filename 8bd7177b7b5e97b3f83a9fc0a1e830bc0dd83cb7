@@ -16,6 +16,228 @@
       "message": "PTAL! 😊",
       "revId": "8bd7177b7b5e97b3f83a9fc0a1e830bc0dd83cb7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6848cd7_f60d46c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-09T04:02:09Z",
+      "side": 1,
+      "message": "This is looking muuuuch simpler now, thank you for the cleanup!\n\nAnswered your questions and left a few more suggestions below.\n\nLGTM overall.",
+      "revId": "8bd7177b7b5e97b3f83a9fc0a1e830bc0dd83cb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c02d261_dc16b263",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-09T04:02:09Z",
+      "side": 1,
+      "message": "Can we name these with less dependence on the specific interaction which triggered them? e.g. this could be something like \"selectPreviousNode()\"",
+      "revId": "8bd7177b7b5e97b3f83a9fc0a1e830bc0dd83cb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85bf7286_d10eca1d",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-09T04:02:09Z",
+      "side": 1,
+      "message": "Is this a situation which can actually occur?",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 5
+      },
+      "revId": "8bd7177b7b5e97b3f83a9fc0a1e830bc0dd83cb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45a71f1c_93b818f2",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-09T04:02:09Z",
+      "side": 1,
+      "message": "This could be \"selectNextNode()\"",
+      "revId": "8bd7177b7b5e97b3f83a9fc0a1e830bc0dd83cb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be6ebe10_96c05371",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-09T04:02:09Z",
+      "side": 1,
+      "message": "This could call into \"selectFirstChild()\"",
+      "revId": "8bd7177b7b5e97b3f83a9fc0a1e830bc0dd83cb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07cff953_0c414766",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-09T04:02:09Z",
+      "side": 1,
+      "message": "This could be \"selectParent()\"",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 5
+      },
+      "revId": "8bd7177b7b5e97b3f83a9fc0a1e830bc0dd83cb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcc8f6f3_8adb2c29",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-09T04:02:09Z",
+      "side": 1,
+      "message": "This could be selectFirstChild()",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 5
+      },
+      "revId": "8bd7177b7b5e97b3f83a9fc0a1e830bc0dd83cb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65b826f0_524c305d",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-09T04:02:09Z",
+      "side": 1,
+      "message": "This should return null if there is no last child to return, and have the call site handle a null value.",
+      "revId": "8bd7177b7b5e97b3f83a9fc0a1e830bc0dd83cb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdd4d7a2_91a6f62c",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-09T04:02:09Z",
+      "side": 1,
+      "message": "Is this check necessary? Are these situations which can happen?",
+      "revId": "8bd7177b7b5e97b3f83a9fc0a1e830bc0dd83cb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e02240e_96b75d66",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-09T04:02:09Z",
+      "side": 1,
+      "message": "I don\u0027t think this needs to be a loop, does it? Wouldn\u0027t something like this work?\n\n let childAXNode \u003d child.axNode;\n return this.axNode.children.indexOf(childAxNode);",
+      "revId": "8bd7177b7b5e97b3f83a9fc0a1e830bc0dd83cb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc0a207d_60f7b852",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-09T04:02:09Z",
+      "side": 1,
+      "message": "What is this doing?",
+      "revId": "8bd7177b7b5e97b3f83a9fc0a1e830bc0dd83cb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae4b6181_84a77945",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-09T04:02:09Z",
+      "side": 1,
+      "message": "I think this could have a little more logic in it rather than in the rightArrowPress() method, e.g.\n\n if (this.selectedNode.isExpanded) {\n   this.selectedNode.selectFirstChild();   \n } else {\n   this.selectedNode.toggleChildren();\n }\n\nAnd similarly for ArrowLeft above:\n\n if (this.selectedNode.isExpanded) {\n   this.selectedNode.toggleChildren();\n } else {\n   this.selectedNode.selectParent();\n }",
+      "revId": "8bd7177b7b5e97b3f83a9fc0a1e830bc0dd83cb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

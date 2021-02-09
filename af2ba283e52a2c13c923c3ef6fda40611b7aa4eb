@@ -192,6 +192,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9724cae_a5acbafd",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-09T04:02:09Z",
+      "side": 1,
+      "message": "Oops, that was my mistake, sorry! You\u0027re right, AccessibilityTree is handling this.",
+      "parentUuid": "d4e9f75f_8749ccbb",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8a8e6e23_9115816e",
@@ -848,6 +866,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9116b8dd_ea1b7a9b",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-09T04:02:09Z",
+      "side": 1,
+      "message": "I think we don\u0027t want to call preventDefault() if we hit the \"default\" case (ugh, too many different meanings of \"default\"). That would mean that if you press something like escape, we\u0027re still calling preventDefault(), which might break other behaviour. \n\nSo yeah, I think either calling it after the xxPress() function, or just moving it into the function itself in each case, is best.",
+      "parentUuid": "954d313d_0967bd67",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e38d7fbd_b08640cf",
         "filename": "front_end/elements/AccessibilityTree.ts",
         "patchSetId": 8
@@ -1158,6 +1194,24 @@
       "side": 1,
       "message": "Had to add a getter to check for the expanded state in the while loop. Just wanted to check if this is ok or if there is a better alternative?",
       "parentUuid": "fdd5400f_3dbf471e",
+      "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "548dcdfb_b7170a4c",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-09T04:02:09Z",
+      "side": 1,
+      "message": "I think that\u0027s good :)",
+      "parentUuid": "cd7cb749_f886d60a",
       "revId": "af2ba283e52a2c13c923c3ef6fda40611b7aa4eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
