@@ -63,6 +63,30 @@
       },
       "revId": "cbdff89058ba0af9cd094ed4fff64328f7443dde",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eacceee7_242ae252",
+        "filename": "buckets/ci.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2021-02-09T14:24:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34dc385e_fede3ff3",
+      "range": {
+        "startLine": 124,
+        "startChar": 12,
+        "endLine": 124,
+        "endChar": 28
+      },
+      "revId": "cbdff89058ba0af9cd094ed4fff64328f7443dde",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
