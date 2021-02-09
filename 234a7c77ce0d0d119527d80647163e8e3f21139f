@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9324528d_0087bb99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-09T08:36:38Z",
+      "side": 1,
+      "message": "I finally had a some time to work on this one. It is a large but repetitive patch, which basically standardize i18nLazyString pattern on the -meta.ts files and some V1 modules. This also tackles a couple of bugs that are caused by not deferring some localization calls when initializing a Datagrid instance.",
+      "revId": "234a7c77ce0d0d119527d80647163e8e3f21139f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
