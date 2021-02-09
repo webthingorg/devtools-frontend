@@ -152,6 +152,30 @@
       },
       "revId": "310cbe605a1743ead45c4e010f4b972fc9172313",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d353e5c4_ccdc7590",
+        "filename": "front_end/i18n/i18nImpl.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-09T11:34:01Z",
+      "side": 1,
+      "message": "Looks good 👍",
+      "parentUuid": "7d6490b2_68258da2",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 60
+      },
+      "revId": "310cbe605a1743ead45c4e010f4b972fc9172313",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
