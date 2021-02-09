@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import {AccessibilityTree} from '../../../../front_end/elements/AccessibilityTree.js';
 import type * as ElementsModule from '../../../../front_end/elements/elements.js';
 import {assertShadowRoot, dispatchClickEvent, dispatchMouseMoveEvent, dispatchMouseLeaveEvent, renderElementIntoDOM, assertElement} from '../helpers/DOMHelpers.js';
 import {describeWithEnvironment} from '../helpers/EnvironmentHelpers.js';
@@ -10,6 +11,7 @@ import {withNoMutations} from '../helpers/MutationHelpers.js';
 const {assert} = chai;
 
 const makeAXNode = (overrides: Partial<ElementsModule.AccessibilityTreeUtils.AXNode> = {}) => {
+  const tree = new AccessibilityTree();
   const axNode: ElementsModule.AccessibilityTreeUtils.AXNode = {
     id: '',
     role: '',
@@ -19,6 +21,7 @@ const makeAXNode = (overrides: Partial<ElementsModule.AccessibilityTreeUtils.AXN
     children: [],
     numChildren: 0,
     hasOnlyUnloadedChildren: false,
+    axTree: tree,
     loadChildren: async () => {},
     highlightNode: () => {},
     clearHighlight: () => {},
