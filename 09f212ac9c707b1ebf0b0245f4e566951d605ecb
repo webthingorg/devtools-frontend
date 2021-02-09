@@ -39,6 +39,30 @@
       },
       "revId": "09f212ac9c707b1ebf0b0245f4e566951d605ecb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4a1e251_316d3c1a",
+        "filename": "scripts/build/ninja/devtools_entrypoint.gni",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-09T13:28:20Z",
+      "side": 1,
+      "message": "The `copy_gen_to_resources` was only copying the `entrypoint.js` file. Now that we use the `ts_library` action to compute the generated outputs, we have to make sure we only use the `*.js` file of that. Because the `*.js` file in the outputs will be the generated entrypoint file.",
+      "parentUuid": "1dcc80b7_6ba54e79",
+      "range": {
+        "startLine": 190,
+        "startChar": 1,
+        "endLine": 192,
+        "endChar": 21
+      },
+      "revId": "09f212ac9c707b1ebf0b0245f4e566951d605ecb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
