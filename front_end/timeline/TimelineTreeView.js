@@ -1100,7 +1100,7 @@ export class TimelineStackView extends UI.Widget.VBox {
       {id: 'activity', title: () => Common.UIString.UIString('Activity')}
     ]);
     this._dataGrid = new DataGrid.ViewportDataGrid.ViewportDataGrid({
-      displayName: ls`Timeline Stack`,
+      displayName: () => ls`Timeline Stack`,
       columns,
       deleteCallback: undefined,
       editCallback: undefined,
