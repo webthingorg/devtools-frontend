@@ -133,6 +133,8 @@ export const UIStrings = {
 };
 const str_ = i18n.i18n.registerUIStrings('webauthn/WebauthnPane.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
+
 const TIMEOUT = 1000;
 
 const enum Events {
@@ -304,33 +306,33 @@ export class WebauthnPaneImpl extends UI.Widget.VBox {
     const columns = ([
       {
         id: 'credentialId',
-        title: i18nString(UIStrings.id),
+        title: i18nLazyString(UIStrings.id),
         longText: true,
         weight: 24,
       },
       {
         id: 'isResidentCredential',
-        title: i18nString(UIStrings.isResident),
+        title: i18nLazyString(UIStrings.isResident),
         dataType: DataGrid.DataGrid.DataType.Boolean,
         weight: 10,
       },
       {
         id: 'rpId',
-        title: i18nString(UIStrings.rpId),
+        title: i18nLazyString(UIStrings.rpId),
       },
       {
         id: 'userHandle',
-        title: i18nString(UIStrings.userHandle),
+        title: i18nLazyString(UIStrings.userHandle),
       },
       {
         id: 'signCount',
-        title: i18nString(UIStrings.signCount),
+        title: i18nLazyString(UIStrings.signCount),
       },
-      {id: 'actions', title: i18nString(UIStrings.actions)},
+      {id: 'actions', title: i18nLazyString(UIStrings.actions)},
     ] as DataGrid.DataGrid.ColumnDescriptor[]);
 
     const dataGridConfig = {
-      displayName: i18nString(UIStrings.credentials),
+      displayName: i18nLazyString(UIStrings.credentials),
       columns,
       editCallback: undefined,
       deleteCallback: undefined,

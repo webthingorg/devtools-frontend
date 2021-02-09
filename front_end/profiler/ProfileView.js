@@ -100,6 +100,8 @@ export const UIStrings = {
 };
 const str_ = i18n.i18n.registerUIStrings('profiler/ProfileView.js', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
+
 /**
  * @implements {UI.SearchableView.Searchable}
  */
@@ -116,7 +118,7 @@ export class ProfileView extends UI.View.SimpleView {
     const columns = /** @type {!Array<!DataGrid.DataGrid.ColumnDescriptor>} */ ([]);
     columns.push({
       id: 'self',
-      title: this.columnHeader('self'),
+      title: i18nLazyString(this.columnHeader('self')),
       width: '120px',
       fixedWidth: true,
       sortable: true,
@@ -134,7 +136,7 @@ export class ProfileView extends UI.View.SimpleView {
     });
     columns.push({
       id: 'total',
-      title: this.columnHeader('total'),
+      title: i18nLazyString(this.columnHeader('total')),
       width: '120px',
       fixedWidth: true,
       sortable: true,
@@ -152,7 +154,7 @@ export class ProfileView extends UI.View.SimpleView {
     });
     columns.push({
       id: 'function',
-      title: i18nString(UIStrings.function),
+      title: i18nLazyString(UIStrings.function),
       disclosure: true,
       sortable: true,
       sort: undefined,
@@ -170,7 +172,7 @@ export class ProfileView extends UI.View.SimpleView {
     });
 
     this.dataGrid = new DataGrid.DataGrid.DataGridImpl({
-      displayName: i18nString(UIStrings.profiler),
+      displayName: i18nLazyString(UIStrings.profiler),
       columns,
       editCallback: undefined,
       deleteCallback: undefined,

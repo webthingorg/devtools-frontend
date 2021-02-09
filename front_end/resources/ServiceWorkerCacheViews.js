@@ -120,19 +120,24 @@ export class ServiceWorkerCacheView extends UI.View.SimpleView {
    */
   _createDataGrid() {
     const columns = /** @type {!Array<!DataGrid.DataGrid.ColumnDescriptor>} */ ([
-      {id: 'number', title: '#', sortable: false, width: '3px'},
-      {id: 'name', title: Common.UIString.UIString('Name'), weight: 4, sortable: true},
-      {id: 'responseType', title: ls`Response-Type`, weight: 1, align: DataGrid.DataGrid.Align.Right, sortable: true},
-      {id: 'contentType', title: Common.UIString.UIString('Content-Type'), weight: 1, sortable: true}, {
+      {id: 'number', title: () => '#', sortable: false, width: '3px'},
+      {id: 'name', title: () => Common.UIString.UIString('Name'), weight: 4, sortable: true}, {
+        id: 'responseType',
+        title: () => ls`Response-Type`,
+        weight: 1,
+        align: DataGrid.DataGrid.Align.Right,
+        sortable: true
+      },
+      {id: 'contentType', title: () => Common.UIString.UIString('Content-Type'), weight: 1, sortable: true}, {
         id: 'contentLength',
-        title: Common.UIString.UIString('Content-Length'),
+        title: () => Common.UIString.UIString('Content-Length'),
         weight: 1,
         align: DataGrid.DataGrid.Align.Right,
         sortable: true
       },
       {
         id: 'responseTime',
-        title: Common.UIString.UIString('Time Cached'),
+        title: () => Common.UIString.UIString('Time Cached'),
         width: '12em',
         weight: 1,
         align: DataGrid.DataGrid.Align.Right,
@@ -140,7 +145,7 @@ export class ServiceWorkerCacheView extends UI.View.SimpleView {
       }
     ]);
     const dataGrid = new DataGrid.DataGrid.DataGridImpl({
-      displayName: ls`Service Worker Cache`,
+      displayName: () => ls`Service Worker Cache`,
       columns,
       deleteCallback: this._deleteButtonClicked.bind(this),
       refreshCallback: this._updateData.bind(this, true),

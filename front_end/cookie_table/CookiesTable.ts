@@ -82,8 +82,8 @@ export const UIStrings = {
 };
 const str_ = i18n.i18n.registerUIStrings('cookie_table/CookiesTable.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
-
-const expiresSessionValue = i18nString(UIStrings.session);
+const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
+const getExpiresSessionValue = i18nLazyString(UIStrings.session);
 
 export class CookiesTable extends UI.Widget.VBox {
   _saveCallback?: ((arg0: SDK.Cookie.Cookie, arg1: SDK.Cookie.Cookie|null) => Promise<boolean>);
@@ -113,7 +113,7 @@ export class CookiesTable extends UI.Widget.VBox {
     const columns = [
       {
         id: SDK.Cookie.Attributes.Name,
-        title: i18nString(UIStrings.name),
+        title: i18nLazyString(UIStrings.name),
         sortable: true,
         disclosure: editable,
         sort: DataGrid.DataGrid.Order.Ascending,
@@ -123,7 +123,7 @@ export class CookiesTable extends UI.Widget.VBox {
       },
       {
         id: SDK.Cookie.Attributes.Value,
-        title: i18nString(UIStrings.value),
+        title: i18nLazyString(UIStrings.value),
         sortable: true,
         longText: true,
         weight: 34,
@@ -131,35 +131,35 @@ export class CookiesTable extends UI.Widget.VBox {
       },
       {
         id: SDK.Cookie.Attributes.Domain,
-        title: 'Domain',
+        title: (): Common.UIString.LocalizedString => 'Domain' as Common.UIString.LocalizedString,
         sortable: true,
         weight: 7,
         editable: editable,
       },
       {
         id: SDK.Cookie.Attributes.Path,
-        title: 'Path',
+        title: (): Common.UIString.LocalizedString => 'Path' as Common.UIString.LocalizedString,
         sortable: true,
         weight: 7,
         editable: editable,
       },
       {
         id: SDK.Cookie.Attributes.Expires,
-        title: 'Expires / Max-Age',
+        title: (): Common.UIString.LocalizedString => 'Expires / Max-Age' as Common.UIString.LocalizedString,
         sortable: true,
         weight: 7,
         editable: editable,
       },
       {
         id: SDK.Cookie.Attributes.Size,
-        title: i18nString(UIStrings.size),
+        title: i18nLazyString(UIStrings.size),
         sortable: true,
         align: DataGrid.DataGrid.Align.Right,
         weight: 7,
       },
       {
         id: SDK.Cookie.Attributes.HttpOnly,
-        title: 'HttpOnly',
+        title: (): Common.UIString.LocalizedString => 'HttpOnly' as Common.UIString.LocalizedString,
         sortable: true,
         align: DataGrid.DataGrid.Align.Center,
         weight: 7,
@@ -168,7 +168,7 @@ export class CookiesTable extends UI.Widget.VBox {
       },
       {
         id: SDK.Cookie.Attributes.Secure,
-        title: 'Secure',
+        title: (): Common.UIString.LocalizedString => 'Secure' as Common.UIString.LocalizedString,
         sortable: true,
         align: DataGrid.DataGrid.Align.Center,
         weight: 7,
@@ -177,14 +177,14 @@ export class CookiesTable extends UI.Widget.VBox {
       },
       {
         id: SDK.Cookie.Attributes.SameSite,
-        title: 'SameSite',
+        title: (): Common.UIString.LocalizedString => 'SameSite' as Common.UIString.LocalizedString,
         sortable: true,
         weight: 7,
         editable: editable,
       },
       {
         id: SDK.Cookie.Attributes.SameParty,
-        title: 'SameParty',
+        title: (): Common.UIString.LocalizedString => 'SameParty' as Common.UIString.LocalizedString,
         sortable: true,
         align: DataGrid.DataGrid.Align.Center,
         weight: 7,
@@ -193,7 +193,7 @@ export class CookiesTable extends UI.Widget.VBox {
       },
       {
         id: SDK.Cookie.Attributes.Priority,
-        title: 'Priority',
+        title: (): Common.UIString.LocalizedString => 'Priority' as Common.UIString.LocalizedString,
         sortable: true,
         sort: DataGrid.DataGrid.Order.Descending,
         weight: 7,
@@ -203,7 +203,7 @@ export class CookiesTable extends UI.Widget.VBox {
 
     if (editable) {
       this._dataGrid = new DataGrid.DataGrid.DataGridImpl({
-        displayName: i18nString(UIStrings.editableCookies),
+        displayName: i18nLazyString(UIStrings.editableCookies),
         columns,
         editCallback: this._onUpdateCookie.bind(this),
         deleteCallback: this._onDeleteCookie.bind(this),
@@ -211,7 +211,7 @@ export class CookiesTable extends UI.Widget.VBox {
       });
     } else {
       this._dataGrid = new DataGrid.DataGrid.DataGridImpl({
-        displayName: i18nString(UIStrings.cookies),
+        displayName: i18nLazyString(UIStrings.cookies),
         columns,
         editCallback: undefined,
         deleteCallback: undefined,
@@ -486,13 +486,13 @@ export class CookiesTable extends UI.Widget.VBox {
       data[SDK.Cookie.Attributes.Expires] = Number.secondsToString(Math.floor(cookie.maxAge()));
     } else if (cookie.expires()) {
       if (cookie.expires() < 0) {
-        data[SDK.Cookie.Attributes.Expires] = expiresSessionValue;
+        data[SDK.Cookie.Attributes.Expires] = getExpiresSessionValue();
       } else {
         data[SDK.Cookie.Attributes.Expires] = new Date(cookie.expires()).toISOString();
       }
     } else {
       data[SDK.Cookie.Attributes.Expires] =
-          cookie.type() === SDK.Cookie.Type.Request ? i18nString(UIStrings.na) : expiresSessionValue;
+          cookie.type() === SDK.Cookie.Type.Request ? i18nString(UIStrings.na) : getExpiresSessionValue();
     }
 
     data[SDK.Cookie.Attributes.Size] = cookie.size();
@@ -538,7 +538,7 @@ export class CookiesTable extends UI.Widget.VBox {
       node.data[SDK.Cookie.Attributes.Path] = '/';
     }
     if (node.data[SDK.Cookie.Attributes.Expires] === null) {
-      node.data[SDK.Cookie.Attributes.Expires] = expiresSessionValue;
+      node.data[SDK.Cookie.Attributes.Expires] = getExpiresSessionValue();
     }
   }
 
@@ -565,7 +565,7 @@ export class CookiesTable extends UI.Widget.VBox {
 
     cookie.addAttribute(SDK.Cookie.Attributes.Domain, data[SDK.Cookie.Attributes.Domain]);
     cookie.addAttribute(SDK.Cookie.Attributes.Path, data[SDK.Cookie.Attributes.Path]);
-    if (data.expires && data.expires !== expiresSessionValue) {
+    if (data.expires && data.expires !== getExpiresSessionValue()) {
       cookie.addAttribute(SDK.Cookie.Attributes.Expires, (new Date(data[SDK.Cookie.Attributes.Expires])).toUTCString());
     }
     if (data[SDK.Cookie.Attributes.HttpOnly]) {
@@ -603,7 +603,7 @@ export class CookiesTable extends UI.Widget.VBox {
   }
 
   _isValidDate(date: string): boolean {
-    return date === '' || date === expiresSessionValue || !isNaN(Date.parse(date));
+    return date === '' || date === getExpiresSessionValue() || !isNaN(Date.parse(date));
   }
 
   _refresh(): void {
