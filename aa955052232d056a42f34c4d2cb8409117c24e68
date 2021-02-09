@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b74e0e4f_191a76e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-09T23:54:33Z",
+      "side": 1,
+      "message": "It\u0027s a bit hard to see what you\u0027re suggesting, since there are so many changes.\n\nI uploaded a version to allow comparing against Annabel\u0027s current patch: https://crrev.com/c/2684029/1..2 - however, it\u0027s still a lot to take in.\n\nIt looks like this is actually three or more separate changes:\n\n1) some code structure nits e.g. adding early returns\n2) pulling the tree traversal logic out into its own class, and pulling `expanded` into AXNode\n3) adding `NodeSelectedEvent` and `NodeAddedEvent` and wiring up the user interactions using those events.\n\nCould Annabel land this change more or less as-is (perhaps using assertNotNull()), and then you could land your suggested changes as a series of follow-up changes, which Annabel would review?\n\nI think that would be less effort for everyone over-all than Annabel trying to understand make these changes herself before this CL is landed. \n\nThat would mean Annabel can more quickly move on to writing tests based on your changes, as well.",
+      "parentUuid": "249d3fae_bd4c0273",
+      "revId": "aa955052232d056a42f34c4d2cb8409117c24e68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d704ccda_85785ec8",
@@ -66,6 +84,24 @@
       "writtenOn": "2021-02-09T09:17:30Z",
       "side": 1,
       "message": "instead of wasShown I believe it\u0027s possible to use adoptedCallback. See https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements#using_the_lifecycle_callbacks",
+      "revId": "aa955052232d056a42f34c4d2cb8409117c24e68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5dbf2859_a9a6a50f",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1002537
+      },
+      "writtenOn": "2021-02-09T23:54:33Z",
+      "side": 1,
+      "message": "We want to do this whenever the user switches to the accessibility tree, not just when it\u0027s instantiated, since setting the selected node also causes it to be focused.",
+      "parentUuid": "d704ccda_85785ec8",
       "revId": "aa955052232d056a42f34c4d2cb8409117c24e68",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
