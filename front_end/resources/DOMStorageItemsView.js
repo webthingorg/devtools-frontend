@@ -46,7 +46,14 @@ export class DOMStorageItemsView extends StorageItemsView {
     this.element.classList.add('storage-view', 'table');
 
     const columns = /** @type {!Array<!DataGrid.DataGrid.ColumnDescriptor>} */ ([
-      {id: 'key', title: Common.UIString.UIString('Key'), sortable: false, editable: true, longText: true, weight: 50},
+      {
+        id: 'key',
+        title: () => Common.UIString.UIString('Key'),
+        sortable: false,
+        editable: true,
+        longText: true,
+        weight: 50
+      },
       {
         id: 'value',
         title: Common.UIString.UIString('Value'),
@@ -57,7 +64,7 @@ export class DOMStorageItemsView extends StorageItemsView {
       }
     ]);
     this._dataGrid = new DataGrid.DataGrid.DataGridImpl({
-      displayName: ls`DOM Storage Items`,
+      displayName: () => ls`DOM Storage Items`,
       columns,
       editCallback: this._editingCallback.bind(this),
       deleteCallback: this._deleteCallback.bind(this),
