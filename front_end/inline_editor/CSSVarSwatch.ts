@@ -7,10 +7,6 @@ import * as LitHtml from '../third_party/lit-html/lit-html.js';
 
 export const UIStrings = {
   /**
-  *@description Text in CSS Variable Switch
-  */
-  jumpToDefinition: 'Jump to definition',
-  /**
   *@description Text displayed in a tooltip shown when hovering over a var() CSS function in the Styles pane when the custom property in this function does not exist. The parameter is the name of the property.
   *@example {--my-custom-property-name} PH1
   */
@@ -82,8 +78,7 @@ export class CSSVarSwatch extends HTMLElement {
       'css-var-link': true,
       'undefined': !isDefined,
     });
-    const title =
-        isDefined ? i18nString(UIStrings.jumpToDefinition) : i18nString(UIStrings.sIsNotDefined, {PH1: variableName});
+    const title = isDefined ? this.computedValue : i18nString(UIStrings.sIsNotDefined, {PH1: variableName});
     // The this.variableName's space must be removed, otherwise it cannot be triggered when clicked.
     const onClick = isDefined ? this.onLinkClick.bind(this, this.variableName.trim()) : null;
 
@@ -106,6 +101,7 @@ export class CSSVarSwatch extends HTMLElement {
       html`<style>
       .css-var-link:not(.undefined) {
         cursor: pointer;
+<<<<<<< HEAD
         text-underline-position: under;
         color: var(--link-color);
       }
@@ -116,6 +112,14 @@ export class CSSVarSwatch extends HTMLElement {
 
       .css-var-link:focus:not(:focus-visible) {
         outline: none;
+=======
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+
+      .css-var-link.undefined {
+        color: hsl(0deg 0% 46%);
+>>>>>>> a3cc2a573... New: Undefined CSS var() is set to gray
       }
       </style><span title="${this.computedValue || ''}">${functionParts.pre}${link}${functionParts.post}</span>`,
       this.shadow, { eventContext: this });
