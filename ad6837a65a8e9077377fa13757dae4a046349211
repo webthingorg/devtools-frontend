@@ -16,6 +16,23 @@
       "message": "I\u0027m deferring to Patrick on the code review and to Peter on the UX review.",
       "revId": "ad6837a65a8e9077377fa13757dae4a046349211",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "636b7758_ab34f69d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-02-09T09:16:01Z",
+      "side": 1,
+      "message": "@yiorsi could you rebase this CL and I\u0027ll dry run it for you? Thanks!",
+      "revId": "ad6837a65a8e9077377fa13757dae4a046349211",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
