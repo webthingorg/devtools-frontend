@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';
 import * as i18n from '../i18n/i18n.js';
 import * as Platform from '../platform/platform.js';
@@ -55,25 +57,24 @@ export const UIStrings = {
   */
   empty: '(empty)',
 };
-const str_ = i18n.i18n.registerUIStrings('profiler/IsolateSelector.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('profiler/IsolateSelector.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
-/**
- * @implements {UI.ListControl.ListDelegate<!ListItem>}
- * @implements {SDK.IsolateManager.Observer}
- */
-export class IsolateSelector extends UI.Widget.VBox {
+export class IsolateSelector extends UI.Widget.VBox implements UI.ListControl.ListDelegate, SDK.IsolateManager.Observer {
+  _items: UI.ListModel.ListModel<ListItem>;
+  _list: UI.ListControl.ListControl<ListItem>;
+  _itemByIsolate: Map<SDK.IsolateManager.Isolate, ListItem>;
+  _totalElement: HTMLDivElement;
+  _totalValueDiv: HTMLElement;
+  _totalTrendDiv: HTMLElement;
   constructor() {
     super(false);
 
-    /** @type {!UI.ListModel.ListModel<!ListItem>} */
     this._items = new UI.ListModel.ListModel();
-    /** @type {!UI.ListControl.ListControl<!ListItem>} */
     this._list = new UI.ListControl.ListControl(this._items, this, UI.ListControl.ListMode.NonViewport);
     this._list.element.classList.add('javascript-vm-instances-list');
     UI.ARIAUtils.setAccessibleName(this._list.element, i18nString(UIStrings.javascriptVmInstances));
     this.contentElement.appendChild(this._list.element);
 
-    /** @type {!Map<!SDK.IsolateManager.Isolate, !ListItem>} */
     this._itemByIsolate = new Map();
 
     this._totalElement = document.createElement('div');
@@ -83,43 +84,29 @@ export class IsolateSelector extends UI.Widget.VBox {
     this._totalTrendDiv = this._totalElement.createChild('div', 'profile-memory-usage-item-trend');
     this._totalElement.createChild('div').textContent = i18nString(UIStrings.totalJsHeapSize);
     const trendIntervalMinutes = Math.round(SDK.IsolateManager.MemoryTrendWindowMs / 60e3);
-    UI.Tooltip.Tooltip.install(
-        this._totalTrendDiv, i18nString(UIStrings.totalPageJsHeapSizeChangeTrend, {PH1: trendIntervalMinutes}));
+    UI.Tooltip.Tooltip.install(this._totalTrendDiv, i18nString(UIStrings.totalPageJsHeapSizeChangeTrend, { PH1: trendIntervalMinutes }));
     UI.Tooltip.Tooltip.install(this._totalValueDiv, i18nString(UIStrings.totalPageJsHeapSizeAcrossAllVm));
 
     SDK.IsolateManager.IsolateManager.instance().observeIsolates(this);
     SDK.SDKModel.TargetManager.instance().addEventListener(SDK.SDKModel.Events.NameChanged, this._targetChanged, this);
-    SDK.SDKModel.TargetManager.instance().addEventListener(
-        SDK.SDKModel.Events.InspectedURLChanged, this._targetChanged, this);
+    SDK.SDKModel.TargetManager.instance().addEventListener(SDK.SDKModel.Events.InspectedURLChanged, this._targetChanged, this);
   }
 
-  /**
-   * @override
-   */
-  wasShown() {
-    SDK.IsolateManager.IsolateManager.instance().addEventListener(
-        SDK.IsolateManager.Events.MemoryChanged, this._heapStatsChanged, this);
+  wasShown(): void {
+    SDK.IsolateManager.IsolateManager.instance().addEventListener(SDK.IsolateManager.Events.MemoryChanged, this._heapStatsChanged, this);
   }
 
-  /**
-   * @override
-   */
-  willHide() {
-    SDK.IsolateManager.IsolateManager.instance().removeEventListener(
-        SDK.IsolateManager.Events.MemoryChanged, this._heapStatsChanged, this);
+  willHide(): void {
+    SDK.IsolateManager.IsolateManager.instance().removeEventListener(SDK.IsolateManager.Events.MemoryChanged, this._heapStatsChanged, this);
   }
 
-  /**
-   * @override
-   * @param {!SDK.IsolateManager.Isolate} isolate
-   */
-  isolateAdded(isolate) {
+  isolateAdded(isolate: SDK.IsolateManager.Isolate): void {
     this._list.element.tabIndex = 0;
     const item = new ListItem(isolate);
-    const index = /** @type {!SDK.RuntimeModel.RuntimeModel} */ (item.model()).target() ===
-            SDK.SDKModel.TargetManager.instance().mainTarget() ?
-        0 :
-        this._items.length;
+    const index = /** @type {!SDK.RuntimeModel.RuntimeModel} */ (item.model() as SDK.RuntimeModel.RuntimeModel).target() ===
+      SDK.SDKModel.TargetManager.instance().mainTarget() ?
+      0 :
+      this._items.length;
     this._items.insert(index, item);
     this._itemByIsolate.set(isolate, item);
     if (this._items.length === 1 || isolate.isMainThread()) {
@@ -128,11 +115,7 @@ export class IsolateSelector extends UI.Widget.VBox {
     this._update();
   }
 
-  /**
-   * @override
-   * @param {!SDK.IsolateManager.Isolate} isolate
-   */
-  isolateChanged(isolate) {
+  isolateChanged(isolate: SDK.IsolateManager.Isolate): void {
     const item = this._itemByIsolate.get(isolate);
     if (item) {
       item.updateTitle();
@@ -140,11 +123,7 @@ export class IsolateSelector extends UI.Widget.VBox {
     this._update();
   }
 
-  /**
-   * @override
-   * @param {!SDK.IsolateManager.Isolate} isolate
-   */
-  isolateRemoved(isolate) {
+  isolateRemoved(isolate: SDK.IsolateManager.Isolate): void {
     const item = this._itemByIsolate.get(isolate);
     if (item) {
       this._items.remove(this._items.indexOf(item));
@@ -156,11 +135,8 @@ export class IsolateSelector extends UI.Widget.VBox {
     this._update();
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _targetChanged(event) {
-    const target = /** @type {!SDK.SDKModel.Target} */ (event.data);
+  _targetChanged(event: Common.EventTarget.EventTargetEvent): void {
+    const target = (event.data as SDK.SDKModel.Target);
     const model = target.model(SDK.RuntimeModel.RuntimeModel);
     if (!model) {
       return;
@@ -172,11 +148,8 @@ export class IsolateSelector extends UI.Widget.VBox {
     }
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _heapStatsChanged(event) {
-    const isolate = /** @type {!SDK.IsolateManager.Isolate} */ (event.data);
+  _heapStatsChanged(event: Common.EventTarget.EventTargetEvent): void {
+    const isolate = (event.data as SDK.IsolateManager.Isolate);
     const listItem = this._itemByIsolate.get(isolate);
     if (listItem) {
       listItem.updateStats();
@@ -184,7 +157,7 @@ export class IsolateSelector extends UI.Widget.VBox {
     this._updateTotal();
   }
 
-  _updateTotal() {
+  _updateTotal(): void {
     let total = 0;
     let trend = 0;
     for (const isolate of SDK.IsolateManager.IsolateManager.instance().isolates()) {
@@ -195,11 +168,7 @@ export class IsolateSelector extends UI.Widget.VBox {
     IsolateSelector._formatTrendElement(trend, this._totalTrendDiv);
   }
 
-  /**
-   * @param {number} trendValueMs
-   * @param {!Element} element
-   */
-  static _formatTrendElement(trendValueMs, element) {
+  static _formatTrendElement(trendValueMs: number, element: Element): void {
     const changeRateBytesPerSecond = trendValueMs * 1e3;
     const changeRateThresholdBytesPerSecond = 1000;
     if (Math.abs(changeRateBytesPerSecond) < changeRateThresholdBytesPerSecond) {
@@ -208,71 +177,41 @@ export class IsolateSelector extends UI.Widget.VBox {
     const changeRateText = Platform.NumberUtilities.bytesToString(Math.abs(changeRateBytesPerSecond));
     let changeText, changeLabel;
     if (changeRateBytesPerSecond > 0) {
-      changeText = '\u2B06' + i18nString(UIStrings.changeRate, {PH1: changeRateText});
+      changeText = '\u2B06' + i18nString(UIStrings.changeRate, { PH1: changeRateText });
       element.classList.toggle('increasing', true);
-      changeLabel = i18nString(UIStrings.increasingBySPerSecond, {PH1: changeRateText});
-    } else {
-      changeText = '\u2B07' + i18nString(UIStrings.changeRate, {PH1: changeRateText});
+      changeLabel = i18nString(UIStrings.increasingBySPerSecond, { PH1: changeRateText });
+    }
+    else {
+      changeText = '\u2B07' + i18nString(UIStrings.changeRate, { PH1: changeRateText });
       element.classList.toggle('increasing', false);
-      changeLabel = i18nString(UIStrings.decreasingBySPerSecond, {PH1: changeRateText});
+      changeLabel = i18nString(UIStrings.decreasingBySPerSecond, { PH1: changeRateText });
     }
     element.textContent = changeText;
     UI.ARIAUtils.setAccessibleName(element, changeLabel);
   }
 
-  /**
-   * @return {!Element}
-   */
-  totalMemoryElement() {
+  totalMemoryElement(): Element {
     return this._totalElement;
   }
 
-  /**
-   * @override
-   * @param {!ListItem} item
-   * @return {!Element}
-   */
-  createElementForItem(item) {
+  createElementForItem(item: ListItem): Element {
     return item.element;
   }
 
-  /**
-   * @override
-   * @param {!ListItem} item
-   * @return {number}
-   */
-  heightForItem(item) {
+  heightForItem(item: ListItem): number {
     console.assert(false, 'should not be called');
     return 0;
   }
 
-  /**
-   * @override
-   * @param {?Element} fromElement
-   * @param {?Element} toElement
-   * @return {boolean}
-   */
-  updateSelectedItemARIA(fromElement, toElement) {
+  updateSelectedItemARIA(fromElement: Element | null, toElement: Element | null): boolean {
     return false;
   }
 
-  /**
-   * @override
-   * @param {!ListItem} item
-   * @return {boolean}
-   */
-  isItemSelectable(item) {
+  isItemSelectable(item: ListItem): boolean {
     return true;
   }
 
-  /**
-   * @override
-   * @param {?ListItem} from
-   * @param {?ListItem} to
-   * @param {?Element} fromElement
-   * @param {?Element} toElement
-   */
-  selectedItemChanged(from, to, fromElement, toElement) {
+  selectedItemChanged(from: ListItem | null, to: ListItem | null, fromElement: Element | null, toElement: Element | null): void {
     if (fromElement) {
       fromElement.classList.remove('selected');
     }
@@ -280,23 +219,23 @@ export class IsolateSelector extends UI.Widget.VBox {
       toElement.classList.add('selected');
     }
     const model = to && to.model();
-    UI.Context.Context.instance().setFlavor(
-        SDK.HeapProfilerModel.HeapProfilerModel, model && model.heapProfilerModel());
-    UI.Context.Context.instance().setFlavor(
-        SDK.CPUProfilerModel.CPUProfilerModel, model && model.target().model(SDK.CPUProfilerModel.CPUProfilerModel));
+    UI.Context.Context.instance().setFlavor(SDK.HeapProfilerModel.HeapProfilerModel, model && model.heapProfilerModel());
+    UI.Context.Context.instance().setFlavor(SDK.CPUProfilerModel.CPUProfilerModel, model && model.target().model(SDK.CPUProfilerModel.CPUProfilerModel));
   }
 
-  _update() {
+  _update(): void {
     this._updateTotal();
     this._list.invalidateRange(0, this._items.length);
   }
 }
 
 export class ListItem {
-  /**
-   * @param {!SDK.IsolateManager.Isolate} isolate
-   */
-  constructor(isolate) {
+  _isolate: SDK.IsolateManager.Isolate;
+  element: HTMLDivElement;
+  _heapDiv: HTMLElement;
+  _trendDiv: HTMLElement;
+  _nameDiv: HTMLElement;
+  constructor(isolate: SDK.IsolateManager.Isolate) {
     this._isolate = isolate;
     const trendIntervalMinutes = Math.round(SDK.IsolateManager.MemoryTrendWindowMs / 60e3);
     this.element = document.createElement('div');
@@ -306,34 +245,28 @@ export class ListItem {
     this._heapDiv = this.element.createChild('div', 'profile-memory-usage-item-size');
     UI.Tooltip.Tooltip.install(this._heapDiv, i18nString(UIStrings.heapSizeInUseByLiveJsObjects));
     this._trendDiv = this.element.createChild('div', 'profile-memory-usage-item-trend');
-    UI.Tooltip.Tooltip.install(
-        this._trendDiv, i18nString(UIStrings.heapSizeChangeTrendOverTheLastS, {PH1: trendIntervalMinutes}));
+    UI.Tooltip.Tooltip.install(this._trendDiv, i18nString(UIStrings.heapSizeChangeTrendOverTheLastS, { PH1: trendIntervalMinutes }));
     this._nameDiv = this.element.createChild('div', 'profile-memory-usage-item-name');
     this.updateTitle();
   }
 
-  /**
-   * @return {?SDK.RuntimeModel.RuntimeModel}
-   */
-  model() {
+  model(): SDK.RuntimeModel.RuntimeModel | null {
     return this._isolate.runtimeModel();
   }
 
-  updateStats() {
+  updateStats(): void {
     this._heapDiv.textContent = Platform.NumberUtilities.bytesToString(this._isolate.usedHeapSize());
     IsolateSelector._formatTrendElement(this._isolate.usedHeapSizeGrowRate(), this._trendDiv);
   }
 
-  updateTitle() {
-    /** @type {!Map<string, number>} */
-    const modelCountByName = new Map();
+  updateTitle(): void {
+    const modelCountByName = new Map<string, number>();
     for (const model of this._isolate.models()) {
       const target = model.target();
       const name = SDK.SDKModel.TargetManager.instance().mainTarget() !== target ? target.name() : '';
       const parsedURL = new Common.ParsedURL.ParsedURL(target.inspectedURL());
       const domain = parsedURL.isValid ? parsedURL.domain() : '';
-      const title =
-          target.decorateLabel(domain && name ? `${domain}: ${name}` : name || domain || i18nString(UIStrings.empty));
+      const title = target.decorateLabel(domain && name ? `${domain}: ${name}` : name || domain || i18nString(UIStrings.empty));
       modelCountByName.set(title, (modelCountByName.get(title) || 0) + 1);
     }
     this._nameDiv.removeChildren();
