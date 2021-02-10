@@ -56,6 +56,30 @@
       },
       "revId": "49d1ecf307fb47304ef01b9aa9efb57595ecd50d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f89b172_e2cdd1c8",
+        "filename": "test/unittests/front_end/resources/TrustTokensView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-10T08:49:04Z",
+      "side": 1,
+      "message": "Didn\u0027t find any specific guidance on this in the components doc.\n\nI think the guidance is more for e2e tests, where we wanna select based on what the user sees, and less how its implemented. In this case I\u0027d prefer not to match/compare the exact string, as that would make the test even more brittle.",
+      "parentUuid": "a4ee37b2_e105bcd1",
+      "range": {
+        "startLine": 83,
+        "startChar": 73,
+        "endLine": 83,
+        "endChar": 86
+      },
+      "revId": "49d1ecf307fb47304ef01b9aa9efb57595ecd50d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
