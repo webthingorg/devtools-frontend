@@ -40,6 +40,7 @@ template("copy_sources_to_resources") {
                              "sources",
                              "deps",
                              "public_deps",
+                             "data_deps",
                              "testonly",
                            ])
 
@@ -87,6 +88,7 @@ template("copy_gen_to_resources") {
                              "sources",
                              "deps",
                              "public_deps",
+                             "data_deps",
                              "testonly",
                            ])
 
