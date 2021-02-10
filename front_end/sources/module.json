@@ -98,7 +98,6 @@
     "color_picker",
     "event_listeners",
     "object_ui",
-    "formatter",
     "coverage",
     "linear_memory_inspector"
   ],
