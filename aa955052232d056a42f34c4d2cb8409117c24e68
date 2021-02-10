@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebb69943_f089b57f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-02-10T02:06:33Z",
+      "side": 1,
+      "message": "+1. I think it\u0027s better for velocity and for internship outcomes to have Annabel land this patch, or a version of it before she finishes. Alex, Is there a version of this patch that would be acceptable to the devtools team without the changes you\u0027ve suggested in https://crrev.com/c/2678693? I mostly want to avoid overburdening Annabel in this week, effectively her last full time week.\n\nIf this CL lands, either myself or Alex can then land the follow up to extract traversal logic to it\u0027s own class/util library, and implement the events (I\u0027m more than happy to do it, for the record, although recognise that you\u0027ve basically already done the hard work, heh). \n\nIn terms of using AXNode for traversal, I was thinking of it more as AXNode is just meant to represent the SDK.AccessibilityNode. It contains all of the attributes of an accessibility node in the tree (name, role, children etc). The AccessibilityNode component is all of the logic required to present that node, so the expanded/selected state lives as a member of that class. These states aren\u0027t related to the actual data representing a node in the tree, it\u0027s just presentational. WDYT?",
+      "parentUuid": "b74e0e4f_191a76e5",
+      "revId": "aa955052232d056a42f34c4d2cb8409117c24e68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d704ccda_85785ec8",
