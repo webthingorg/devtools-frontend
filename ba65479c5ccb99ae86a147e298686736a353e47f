@@ -16,6 +16,24 @@
       "message": "LGTM on the fix. It\u0027d be great to have an e2e test here :-)",
       "revId": "ba65479c5ccb99ae86a147e298686736a353e47f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4fa0063_8bf00ea0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-02-10T22:53:15Z",
+      "side": 1,
+      "message": "Since during this migration we have uncovered several actions with no associated e2e tests, https://crbug.com/1177004 has been filed to track the effort to add test coverage.",
+      "parentUuid": "b4ca4bc8_7a8277f5",
+      "revId": "ba65479c5ccb99ae86a147e298686736a353e47f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
