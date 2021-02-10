@@ -2,14 +2,16 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Host from '../host/host.js';
 import * as i18n from '../i18n/i18n.js';
 import * as SDK from '../sdk/sdk.js';
-import * as UI from '../ui/ui.js';  // eslint-disable-line no-unused-vars
+import * as UI from '../ui/ui.js'; // eslint-disable-line no-unused-vars
 
-import {HeapSnapshotView} from './HeapSnapshotView.js';  // eslint-disable-line no-unused-vars
-import {ProfilesPanel} from './ProfilesPanel.js';
-import {instance} from './ProfileTypeRegistry.js';
+import { HeapSnapshotView } from './HeapSnapshotView.js'; // eslint-disable-line no-unused-vars
+import { ProfilesPanel } from './ProfilesPanel.js';
+import { instance } from './ProfileTypeRegistry.js';
 
 export const UIStrings = {
   /**
@@ -17,36 +19,24 @@ export const UIStrings = {
   */
   revealInSummaryView: 'Reveal in Summary view',
 };
-const str_ = i18n.i18n.registerUIStrings('profiler/HeapProfilerPanel.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('profiler/HeapProfilerPanel.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
-/** @type {HeapProfilerPanel} */
-let heapProfilerPanelInstance;
-/**
- * @implements {UI.ContextMenu.Provider}
- * @implements {UI.ActionRegistration.ActionDelegate}
- */
-export class HeapProfilerPanel extends ProfilesPanel {
+let heapProfilerPanelInstance: HeapProfilerPanel;
+export class HeapProfilerPanel extends ProfilesPanel implements UI.ContextMenu.Provider, UI.ActionRegistration.ActionDelegate {
   constructor() {
     const registry = instance;
-    const profileTypes =
-        [registry.heapSnapshotProfileType, registry.trackingHeapSnapshotProfileType, registry.samplingHeapProfileType];
+    const profileTypes = [registry.heapSnapshotProfileType, registry.trackingHeapSnapshotProfileType, registry.samplingHeapProfileType];
     super('heap_profiler', profileTypes, 'profiler.heap-toggle-recording');
   }
 
-  static instance() {
+  static instance(): HeapProfilerPanel {
     if (!heapProfilerPanelInstance) {
       heapProfilerPanelInstance = new HeapProfilerPanel();
     }
     return heapProfilerPanelInstance;
   }
 
-  /**
-   * @override
-   * @param {!Event} event
-   * @param {!UI.ContextMenu.ContextMenu} contextMenu
-   * @param {!Object} target
-   */
-  appendApplicableItems(event, contextMenu, target) {
+  appendApplicableItems(event: Event, contextMenu: UI.ContextMenu.ContextMenu, target: Object): void {
     if (!(target instanceof SDK.RemoteObject.RemoteObject)) {
       return;
     }
@@ -55,11 +45,11 @@ export class HeapProfilerPanel extends ProfilesPanel {
       return;
     }
 
-    const object = /** @type {!SDK.RemoteObject.RemoteObject} */ (target);
+    const object = (target as SDK.RemoteObject.RemoteObject);
     if (!object.objectId) {
       return;
     }
-    const objectId = /** @type {string} */ (object.objectId);
+    const objectId = (object.objectId as string);
 
     const heapProfiles = instance.heapSnapshotProfileType.getProfiles();
     if (!heapProfiles.length) {
@@ -71,11 +61,7 @@ export class HeapProfilerPanel extends ProfilesPanel {
       return;
     }
 
-    /**
-     * @param {string} viewName
-     * @this {ProfilesPanel}
-     */
-    function revealInView(viewName) {
+    function revealInView(this: ProfilesPanel, viewName: string): void {
       heapProfilerModel.snapshotObjectIdForObjectId(objectId).then(result => {
         if (this.isShowing() && result) {
           this.showObject(result, viewName);
@@ -83,17 +69,10 @@ export class HeapProfilerPanel extends ProfilesPanel {
       });
     }
 
-    contextMenu.revealSection().appendItem(
-        i18nString(UIStrings.revealInSummaryView), revealInView.bind(this, 'Summary'));
+    contextMenu.revealSection().appendItem(i18nString(UIStrings.revealInSummaryView), revealInView.bind(this, 'Summary'));
   }
 
-  /**
-   * @override
-   * @param {!UI.Context.Context} context
-   * @param {string} actionId
-   * @return {boolean}
-   */
-  handleAction(context, actionId) {
+  handleAction(context: UI.Context.Context, actionId: string): boolean {
     const panel = UI.Context.Context.instance().flavor(HeapProfilerPanel);
     console.assert(Boolean(panel) && panel instanceof HeapProfilerPanel);
     if (panel) {
@@ -102,28 +81,17 @@ export class HeapProfilerPanel extends ProfilesPanel {
     return true;
   }
 
-  /**
-   * @override
-   */
-  wasShown() {
+  wasShown(): void {
     UI.Context.Context.instance().setFlavor(HeapProfilerPanel, this);
     // Record the memory tool load time.
     Host.userMetrics.panelLoaded('heap_profiler', 'DevTools.Launch.HeapProfiler');
   }
 
-  /**
-   * @override
-   */
-  willHide() {
+  willHide(): void {
     UI.Context.Context.instance().setFlavor(HeapProfilerPanel, null);
   }
 
-  /**
-   * @override
-   * @param {!Protocol.HeapProfiler.HeapSnapshotObjectId} snapshotObjectId
-   * @param {string} perspectiveName
-   */
-  showObject(snapshotObjectId, perspectiveName) {
+  showObject(snapshotObjectId: string, perspectiveName: string): void {
     const registry = instance;
     const heapProfiles = registry.heapSnapshotProfileType.getProfiles();
     for (let i = 0; i < heapProfiles.length; i++) {
@@ -131,7 +99,7 @@ export class HeapProfilerPanel extends ProfilesPanel {
       // FIXME: allow to choose snapshot if there are several options.
       if (profile.maxJSObjectId >= parseInt(snapshotObjectId, 10)) {
         this.showProfile(profile);
-        const view = /** @type {!HeapSnapshotView} */ (this.viewForProfile(profile));
+        const view = (this.viewForProfile(profile) as HeapSnapshotView);
         view.selectLiveObject(perspectiveName, snapshotObjectId);
         break;
       }
