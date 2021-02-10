@@ -8,6 +8,318 @@ import * as InlineEditor from '../inline_editor/inline_editor.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
+<<<<<<< HEAD   (2e29d8 Fix media queries not rendering)
+=======
+export const UIStrings = {
+  /**
+  *@description Text in App Manifest View of the Application panel
+  */
+  noManifestDetected: 'No manifest detected',
+  /**
+  *@description Text in App Manifest View of the Application panel
+  */
+  appManifest: 'App Manifest',
+  /**
+  *@description Text in App Manifest View of the Application panel
+  */
+  errorsAndWarnings: 'Errors and warnings',
+  /**
+  *@description Text in App Manifest View of the Application panel
+  */
+  installability: 'Installability',
+  /**
+  *@description Text in App Manifest View of the Application panel
+  */
+  identity: 'Identity',
+  /**
+  *@description Text in App Manifest View of the Application panel
+  */
+  presentation: 'Presentation',
+  /**
+  *@description Text in App Manifest View of the Application panel
+  */
+  icons: 'Icons',
+  /**
+  *@description Text for the name of something
+  */
+  name: 'Name',
+  /**
+  *@description Text in App Manifest View of the Application panel
+  */
+  shortName: 'Short name',
+  /**
+  *@description Text for the description of something
+  */
+  description: 'Description',
+  /**
+  *@description Text in App Manifest View of the Application panel
+  */
+  startUrl: 'Start URL',
+  /**
+  *@description Text in App Manifest View of the Application panel
+  */
+  themeColor: 'Theme color',
+  /**
+  *@description Text in App Manifest View of the Application panel
+  */
+  backgroundColor: 'Background color',
+  /**
+  *@description Text for the orientation of something
+  */
+  orientation: 'Orientation',
+  /**
+  *@description Text in App Manifest View of the Application panel
+  */
+  display: 'Display',
+  /**
+  *@description Text in App Manifest View of the Application panel
+  */
+  descriptionMayBeTruncated: 'Description may be truncated.',
+  /**
+  *@description Text in App Manifest View of the Application panel
+  */
+  showOnlyTheMinimumSafeAreaFor: 'Show only the minimum safe area for maskable icons',
+  /**
+  *@description Link text for more information on maskable icons in App Manifest view of the Application panel
+  */
+  documentationOnMaskableIcons: 'documentation on maskable icons',
+  /**
+  *@description Text wrapping a link pointing to more information on maskable icons in App Manifest view of the Application panel
+  *@example {https://example.com/} PH1
+  */
+  needHelpReadOurS: 'Need help? Read our {PH1}.',
+  /**
+  *@description Label for the primary icon loaded from the manifest
+  *@example {https://example.com/} PH1
+  */
+  primaryManifestIconFromS: 'Primary manifest icon from {PH1}',
+  /**
+  *@description Label for the primary icon loaded from the manifest
+  */
+  primaryIconasUsedByChrome: 'Primary icon as used by `Chrome`',
+  /**
+  *@description Text in App Manifest View of the Application panel
+  *@example {1} PH1
+  */
+  shortcutS: 'Shortcut #{PH1}',
+  /**
+  *@description Text in App Manifest View of the Application panel
+  *@example {1} PH1
+  */
+  shortcutSShouldIncludeAXPixel: 'Shortcut #{PH1} should include a 96x96 pixel icon',
+  /**
+  *@description Text in App Manifest View of the Application panel
+  *@example {1} PH1
+  */
+  screenshotS: 'Screenshot #{PH1}',
+  /**
+  *@description Manifest installability error in the Application panel
+  */
+  pageIsNotLoadedInTheMainFrame: 'Page is not loaded in the main frame',
+  /**
+  *@description Manifest installability error in the Application panel
+  */
+  pageIsNotServedFromASecureOrigin: 'Page is not served from a secure origin',
+  /**
+  *@description Manifest installability error in the Application panel
+  */
+  pageHasNoManifestLinkUrl: 'Page has no manifest <link> `URL`',
+  /**
+  *@description Manifest installability error in the Application panel
+  */
+  manifestCouldNotBeFetchedIsEmpty: 'Manifest could not be fetched, is empty, or could not be parsed',
+  /**
+  *@description Manifest installability error in the Application panel
+  */
+  manifestStartUrlIsNotValid: 'Manifest start `URL` is not valid',
+  /**
+  *@description Manifest installability error in the Application panel
+  */
+  manifestDoesNotContainANameOr: 'Manifest does not contain a \'`name`\' or \'`short_name`\' field',
+  /**
+  *@description Manifest installability error in the Application panel
+  */
+  manifestDisplayPropertyMustBeOne:
+      'Manifest \'`display`\' property must be one of \'`standalone`\', \'`fullscreen`\', or \'`minimal-ui`\'',
+  /**
+  *@description Manifest installability error in the Application panel
+  *@example {100} PH1
+  */
+  manifestDoesNotContainASuitable:
+      'Manifest does not contain a suitable icon - PNG, SVG or WebP format of at least {PH1}px is required, the sizes attribute must be set, and the purpose attribute, if set, must include "any" and should not include "maskable".',
+  /**
+  *@description Manifest installability error in the Application panel
+  */
+  noMatchingServiceWorkerDetected:
+      'No matching `service worker` detected. You may need to reload the page, or check that the scope of the `service worker` for the current page encloses the scope and start URL from the manifest.',
+  /**
+  *@description Manifest installability error in the Application panel
+  *@example {100} PH1
+  */
+  noSuppliedIconIsAtLeastSpxSquare:
+      'No supplied icon is at least {PH1}px square in PNG, SVG or WebP format, with the purpose attribute unset or set to "any".',
+  /**
+  *@description Manifest installability error in the Application panel
+  */
+  couldNotDownloadARequiredIcon: 'Could not download a required icon from the manifest',
+  /**
+  *@description Manifest installability error in the Application panel
+  */
+  downloadedIconWasEmptyOr: 'Downloaded icon was empty or corrupted',
+  /**
+  *@description Manifest installability error in the Application panel
+  */
+  theSpecifiedApplicationPlatform: 'The specified application platform is not supported on `Android`',
+  /**
+  *@description Manifest installability error in the Application panel
+  */
+  noPlayStoreIdProvided: 'No Play store ID provided',
+  /**
+  *@description Manifest installability error in the Application panel
+  */
+  thePlayStoreAppUrlAndPlayStoreId: 'The Play Store app URL and Play Store ID do not match',
+  /**
+  *@description Manifest installability error in the Application panel
+  */
+  theAppIsAlreadyInstalled: 'The app is already installed',
+  /**
+  *@description Manifest installability error in the Application panel
+  */
+  aUrlInTheManifestContainsA: 'A URL in the manifest contains a username, password, or port',
+  /**
+  *@description Manifest installability error in the Application panel
+  */
+  pageIsLoadedInAnIncognitoWindow: 'Page is loaded in an incognito window',
+  /**
+  *@description Manifest installability error in the Application panel
+  */
+  pageDoesNotWorkOffline: 'Page does not work offline',
+  /**
+  *@description Manifest installability error in the Application panel
+  */
+  couldNotCheckServiceWorker: 'Could not check `service worker` without a \'`start_url`\' field in the manifest',
+  /**
+  *@description Manifest installability error in the Application panel
+  */
+  manifestSpecifies: 'Manifest specifies `prefer_related_applications`: true',
+  /**
+  *@description Manifest installability error in the Application panel
+  */
+  preferrelatedapplicationsIsOnly:
+      '`prefer_related_applications` is only supported on `Chrome` Beta and Stable channels on `Android`.',
+  /**
+  *@description Manifest installability error in the Application panel
+  */
+  manifestContainsDisplayoverride:
+      'Manifest contains \'`display_override`\' field, and the first supported display mode must be one of \'`standalone`\', \'`fullscreen`\', or \'`minimal-ui`\'',
+  /**
+  *@description Warning message for offline capability check
+  */
+  pageDoesNotWorkOfflineThePage:
+      'Page does not work offline. Starting in Chrome 93, the installability criteria is changing, and this site will not be installable. https://goo.gle/improved-pwa-offline-detection for more information.',
+  /**
+  *@description Text to indicate the source of an image
+  *@example {example.com} PH1
+  */
+  imageFromS: 'Image from {PH1}',
+  /**
+  *@description Text for one or a group of screenshots
+  */
+  screenshot: 'Screenshot',
+  /**
+  *@description Text in App Manifest View of the Application panel
+  */
+  icon: 'Icon',
+  /**
+  *@description Warning message for image resources from the manifest
+  *@example {Image} PH1
+  */
+  sSrcIsNotSet: '{PH1} src is not set',
+  /**
+  *@description Warning message for image resources from the manifest
+  *@example {Image} PH1
+  *@example {https://example.com/image.png} PH2
+  */
+  sUrlSFailedToParse: '{PH1} URL \'{PH2}\' failed to parse',
+  /**
+  *@description Warning message for image resources from the manifest
+  *@example {Image} PH1
+  *@example {https://example.com/image.png} PH2
+  */
+  sSFailedToLoad: '{PH1} {PH2} failed to load',
+  /**
+  *@description Warning message for image resources from the manifest
+  *@example {Image} PH1
+  *@example {https://example.com/image.png} PH2
+  */
+  sSDoesNotSpecifyItsSizeInThe: '{PH1} {PH2} does not specify its size in the manifest',
+  /**
+  *@description Warning message for image resources from the manifest
+  *@example {Image} PH1
+  *@example {https://example.com/image.png} PH2
+  */
+  sSShouldSpecifyItsSizeAs: '{PH1} {PH2} should specify its size as `{width}x{height}`',
+  /**
+  *@description Warning message for image resources from the manifest
+  *@example {Image} PH1
+  *@example {https://example.com/image.png} PH2
+  */
+  sSDimensionsShouldBeSquare: '{PH1} {PH2} dimensions should be square',
+  /**
+  *@description Warning message for image resources from the manifest
+  *@example {100} PH1
+  *@example {100} PH2
+  *@example {Image} PH3
+  *@example {https://example.com/image.png} PH4
+  *@example {200} PH5
+  *@example {200} PH6
+  */
+  actualSizeSspxOfSSDoesNotMatch:
+      'Actual size ({PH1}×{PH2})px of {PH3} {PH4} does not match specified size ({PH5}×{PH6}px)',
+  /**
+  *@description Warning message for image resources from the manifest
+  *@example {100} PH1
+  *@example {Image} PH2
+  *@example {https://example.com/image.png} PH3
+  *@example {200} PH4
+  */
+  actualWidthSpxOfSSDoesNotMatch: 'Actual width ({PH1}px) of {PH2} {PH3} does not match specified width ({PH4}px)',
+  /**
+  *@description Warning message for image resources from the manifest
+  *@example {100} PH1
+  *@example {Image} PH2
+  *@example {https://example.com/image.png} PH3
+  *@example {100} PH4
+  */
+  actualHeightSpxOfSSDoesNotMatch: 'Actual height ({PH1}px) of {PH2} {PH3} does not match specified height ({PH4}px)',
+  /**
+  *@description Warning message for image resources from the manifest
+  *@example {Image} PH1
+  *@example {https://example.com/image.png} PH2
+  */
+  sSSizeShouldBeAtLeast320: '{PH1} {PH2} size should be at least 320×320',
+  /**
+  *@description Warning message for image resources from the manifest
+  *@example {Image} PH1
+  *@example {https://example.com/image.png} PH2
+  */
+  sSSizeShouldBeAtLeast3840: '{PH1} {PH2} size should be at least 3840×3840',
+  /**
+  *@description Warning message for image resources from the manifest
+  *@example {Image} PH1
+  *@example {https://example.com/image.png} PH2
+  */
+  sSWidthShouldBeLessThanTwiceTheHeight: '{PH1} {PH2} width should be less than twice the height',
+  /**
+  *@description Warning message for image resources from the manifest
+  *@example {Image} PH1
+  *@example {https://example.com/image.png} PH2
+  */
+  sSHeightShouldBeLessThanTwiceTheWidth: '{PH1} {PH2} height should be less than twice the width',
+};
+const str_ = i18n.i18n.registerUIStrings('resources/AppManifestView.js', UIStrings);
+const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+>>>>>>> CHANGE (842009 Improve PWA installability warning message for devtools fron)
 /**
  * @implements {SDK.SDKModel.Observer}
  */
