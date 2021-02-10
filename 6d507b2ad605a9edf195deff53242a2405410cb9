@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae79e909_abd8f728",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-10T12:56:20Z",
+      "side": 1,
+      "message": "Could you double-check that creating a CL with a deleted file will correctly pass `git cl presubmit --upload` (with the expected removals of lines from `en-US.json`)?",
+      "revId": "6d507b2ad605a9edf195deff53242a2405410cb9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
