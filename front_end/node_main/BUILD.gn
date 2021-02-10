@@ -7,9 +7,9 @@ import("../../scripts/build/ninja/devtools_module.gni")
 
 devtools_module("node_main") {
   sources = [
-    "ModuleUIStrings.js",
-    "NodeConnectionsPanel.js",
-    "NodeMain.js",
+    "ModuleUIStrings.ts",
+    "NodeConnectionsPanel.ts",
+    "NodeMain.ts",
   ]
 
   deps = [
@@ -30,7 +30,7 @@ devtools_entrypoint("bundle") {
 }
 
 devtools_entrypoint("legacy") {
-  entrypoint = "node_main-legacy.js"
+  entrypoint = "node_main-legacy.ts"
 
   deps = [ ":bundle" ]
 }
