@@ -5750,6 +5750,9 @@
   "resources/FrameDetailsView.ts | clickToRevealInSourcesPanel": {
     "message": "Click to reveal in Sources panel"
   },
+  "resources/FrameDetailsView.ts | creationStackTrace": {
+    "message": "Creation Stack Trace"
+  },
   "resources/FrameDetailsView.ts | crossoriginEmbedderPolicy": {
     "message": "Cross-Origin Embedder Policy"
   },

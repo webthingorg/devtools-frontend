@@ -5750,6 +5750,9 @@
   "resources/FrameDetailsView.ts | clickToRevealInSourcesPanel": {
     "message": "Ĉĺîćk̂ t́ô ŕêv́êál̂ ín̂ Śôúr̂ćêś p̂án̂él̂"
   },
+  "resources/FrameDetailsView.ts | creationStackTrace": {
+    "message": "Ĉŕêát̂íôń Ŝt́âćk̂ T́r̂áĉé"
+  },
   "resources/FrameDetailsView.ts | crossoriginEmbedderPolicy": {
     "message": "Ĉŕôśŝ-Ór̂íĝín̂ Ém̂b́êd́d̂ér̂ Ṕôĺîćŷ"
   },

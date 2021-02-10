@@ -2,10 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import type * as Components from '../ui/components/components.js';
+import type * as WebComponents from '../ui/components/components.js';
 
 import * as Bindings from '../bindings/bindings.js';
 import * as Common from '../common/common.js';
+import * as Components from '../components/components.js';
 import * as LitHtml from '../third_party/lit-html/lit-html.js';
 import * as Network from '../network/network.js';
 import * as Platform from '../platform/platform.js';
@@ -191,6 +192,10 @@ export const UIStrings = {
   *@description Text that is usually a hyperlink to more documentation
   */
   learnMore: 'Learn more',
+  /**
+  *@description Entry in the document section of the frame details view
+  */
+  creationStackTrace: 'Creation Stack Trace',
 };
 const str_ = i18n.i18n.registerUIStrings('resources/FrameDetailsView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -219,6 +224,7 @@ export class FrameDetailsReportView extends HTMLElement {
   private readonly shadow = this.attachShadow({mode: 'open'});
   private frame?: SDK.ResourceTreeModel.ResourceTreeFrame;
   private protocolMonitorExperimentEnabled = false;
+  private readonly linkifier = new Components.Linkifier.Linkifier();
 
   connectedCallback(): void {
     this.protocolMonitorExperimentEnabled = Root.Runtime.experiments.isEnabled('protocolMonitor');
@@ -248,7 +254,7 @@ export class FrameDetailsReportView extends HTMLElement {
           padding-left: 2px;
         }
 
-        .link {
+        .link, .devtools-link {
           color: var(--color-link);
           text-decoration: underline;
           cursor: pointer;
@@ -290,7 +296,7 @@ export class FrameDetailsReportView extends HTMLElement {
           display: flex;
         }
       </style>
-      <devtools-report .data=${{reportTitle: this.frame.displayName()} as Components.ReportView.ReportData}>
+      <devtools-report .data=${{reportTitle: this.frame.displayName()} as WebComponents.ReportView.ReportData}>
         ${this.renderDocumentSection()}
         ${this.renderIsolationSection()}
         ${this.renderApiAvailabilitySection()}
@@ -318,6 +324,7 @@ export class FrameDetailsReportView extends HTMLElement {
       ${this.maybeRenderUnreachableURL()}
       ${this.maybeRenderOrigin()}
       ${LitHtml.Directives.until(this.renderOwnerElement(), LitHtml.nothing)}
+      ${this.maybeRenderCreationStacktrace()}
       ${this.maybeRenderAdStatus()}
       <devtools-report-divider></devtools-report-divider>
     `;
@@ -363,7 +370,7 @@ export class FrameDetailsReportView extends HTMLElement {
           color: 'var(--color-primary)',
           width: '16px',
           height: '16px',
-        } as Components.Icon.IconData}>
+        } as WebComponents.Icon.IconData}>
       </button>
     `;
     // clang-format on
@@ -464,13 +471,35 @@ export class FrameDetailsReportView extends HTMLElement {
                 color: 'var(--color-primary)',
                 width: '16px',
                 height: '16px',
-              } as Components.Icon.IconData}></devtools-icon>
+              } as WebComponents.Icon.IconData}></devtools-icon>
               <${linkTargetDOMNode.nodeName().toLocaleLowerCase()}>
             </button>
           </devtools-report-value>
         `;
         // clang-format on
       }
+    }
+    return LitHtml.nothing;
+  }
+
+  private maybeRenderCreationStacktrace(): LitHtml.TemplateResult|{} {
+    if (this.frame && this.frame._creationStackTrace) {
+      const stackTracePreview = Components.JSPresentationUtils.buildStackTracePreviewContents(
+          null, this.linkifier,
+          {stackTrace: this.frame._creationStackTrace, contentUpdated: undefined, tabStops: undefined});
+      return LitHtml.html`
+        <style>
+          .stack-trace-container {
+            margin: 3px 0 0 -6px;
+          }
+        </style>
+        <devtools-report-key>${i18nString(UIStrings.creationStackTrace)}</devtools-report-key>
+        <devtools-report-value>
+          <div class="stack-trace-container">
+            ${stackTracePreview.element}
+          </div>
+        </devtools-report-value>
+      `;
     }
     return LitHtml.nothing;
   }
