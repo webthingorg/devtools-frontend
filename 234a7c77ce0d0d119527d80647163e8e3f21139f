@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "77f18929_5f345f4c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-10T05:31:03Z",
+      "side": 1,
+      "message": "I think this is on me, as I\u0027m unable to repro the issue I was observing on master after building my branch, so it looks like there is something wrong with my environment. I\u0027ll abandon this while I investigate more and reactivate if needed with more information (and following the format you mentioned). Sorry for the invonience. 😓",
+      "parentUuid": "f0110d6e_1764197b",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 59
+      },
+      "revId": "234a7c77ce0d0d119527d80647163e8e3f21139f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "9324528d_0087bb99",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 8
@@ -37,6 +61,23 @@
       "writtenOn": "2021-02-09T08:36:38Z",
       "side": 1,
       "message": "I finally had a some time to work on this one. It is a large but repetitive patch, which basically standardize i18nLazyString pattern on the -meta.ts files and some V1 modules. This also tackles a couple of bugs that are caused by not deferring some localization calls when initializing a Datagrid instance.",
+      "revId": "234a7c77ce0d0d119527d80647163e8e3f21139f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b3fb51f_62c65057",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-10T05:31:03Z",
+      "side": 1,
+      "message": "I think this is on me, as I\u0027m unable to repro the issue I was observing on master after building my branch, so it looks like there is something wrong with my environment. I\u0027ll abandon this while I investigate more and reactivate if needed with more information (and following the format you mentioned). Sorry for the inconvenience. 😓",
       "revId": "234a7c77ce0d0d119527d80647163e8e3f21139f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -77,6 +118,30 @@
       "writtenOn": "2021-02-09T10:13:15Z",
       "side": 1,
       "message": "Not sure I understand why these calls need to be lazy - they are in the constructor and so should only be called at CookiesTable instantiation time, and not module-instantiation time, which means localized strings should be available?",
+      "range": {
+        "startLine": 116,
+        "startChar": 15,
+        "endLine": 116,
+        "endChar": 29
+      },
+      "revId": "234a7c77ce0d0d119527d80647163e8e3f21139f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ee56e1e_088bd978",
+        "filename": "front_end/cookie_table/CookiesTable.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-10T05:31:03Z",
+      "side": 1,
+      "message": "I think this is on me, as I\u0027m unable to repro the issue I was observing on master after building my branch, so it looks like there is something wrong with my environment. I\u0027ll abandon this while I investigate more and reactivate if needed with more information (and following the format you mentioned). Sorry for the invonience. 😓",
+      "parentUuid": "ba5ee3f9_f4788965",
       "range": {
         "startLine": 116,
         "startChar": 15,
