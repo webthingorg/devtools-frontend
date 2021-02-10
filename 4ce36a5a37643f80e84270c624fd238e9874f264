@@ -39,6 +39,30 @@
       },
       "revId": "4ce36a5a37643f80e84270c624fd238e9874f264",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25684f58_a3f0ad8f",
+        "filename": "front_end/common/Settings.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-02-10T12:46:19Z",
+      "side": 1,
+      "message": "Hi Brandon, could you please attach a log of the error you are getting so that I can help debug? I am not sure why a ternary check is needed for this field since it is defined as a function in the type system: \nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/common/SettingRegistration.ts;drc\u003d88bd2884d889140f60ff34c840dcd6b28508cfa0;l\u003d149",
+      "parentUuid": "fd5a0b68_5bc53b64",
+      "range": {
+        "startLine": 924,
+        "startChar": 10,
+        "endLine": 924,
+        "endChar": 25
+      },
+      "revId": "4ce36a5a37643f80e84270c624fd238e9874f264",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
