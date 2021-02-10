@@ -16,6 +16,24 @@
       "message": "Hey Peter, please take a look. Who would be a good reviewer to discuss the placement of UIStrings within the file? ",
       "revId": "1b0528fde2c22c65d05aa74ae87665cdddc34ab1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b19748d7_1973aefa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-10T12:58:40Z",
+      "side": 1,
+      "message": "Let\u0027s discuss on the bug. If no one objects I\u0027m happy to go with this",
+      "parentUuid": "31c2c320_d2cfb4ed",
+      "revId": "1b0528fde2c22c65d05aa74ae87665cdddc34ab1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
