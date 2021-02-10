@@ -185,6 +185,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "41b397e3_4e1e5af6",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-10T06:52:08Z",
+      "side": 1,
+      "message": "Yes, it would require replacing all of the if checks with assertNotNull whenever the axTree or axNode are used. I think using assertNotNull would result in a safer code but we could also try the `axTree!: AccessibilityTree;` for now. Alternatively, you can try creating an instance of axTree or axNode in the constructor which would make TS happy. The instances will be discarded as soon as the data setter is called, of course.",
+      "parentUuid": "23f92ac8_65dcc58b",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 5
+      },
+      "revId": "8bd7177b7b5e97b3f83a9fc0a1e830bc0dd83cb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "45a71f1c_93b818f2",
         "filename": "front_end/elements/AccessibilityNode.ts",
         "patchSetId": 10

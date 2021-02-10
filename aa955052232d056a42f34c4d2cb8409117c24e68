@@ -89,6 +89,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f73a012_481eba13",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-10T06:52:08Z",
+      "side": 1,
+      "message": "I think we can land this CL (maybe not even solving the if checks/assertNotNull right now). We\u0027d need some tests for the keyboard navigation but I think we can address it later.",
+      "parentUuid": "ebb69943_f089b57f",
+      "revId": "aa955052232d056a42f34c4d2cb8409117c24e68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d704ccda_85785ec8",
@@ -120,6 +138,24 @@
       "side": 1,
       "message": "We want to do this whenever the user switches to the accessibility tree, not just when it\u0027s instantiated, since setting the selected node also causes it to be focused.",
       "parentUuid": "d704ccda_85785ec8",
+      "revId": "aa955052232d056a42f34c4d2cb8409117c24e68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3135c2a3_b0ab2548",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-10T06:52:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5dbf2859_a9a6a50f",
       "revId": "aa955052232d056a42f34c4d2cb8409117c24e68",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
