@@ -1213,12 +1213,15 @@ function onBlankSection(selector, callback) {
   ElementsTestRunner.waitForSelectorCommitted(callback.bind(null, section));
 }
 
-ElementsTestRunner.dumpInspectorHighlightJSON = function(idValue, callback) {
+ElementsTestRunner.dumpInspectorHighlightJSON = function(idValue, replacerOrCallback, maybeCallback) {
+  // The function accepts 2 or 3 arguments. Callback is the last one and the second argument is optional.
+  const callback = arguments.length === 3 ? maybeCallback : replacerOrCallback;
+  const replacer = arguments.length === 3 ? replacerOrCallback : null;
   ElementsTestRunner.nodeWithId(idValue, nodeResolved);
 
   async function nodeResolved(node) {
     const result = await TestRunner.OverlayAgent.getHighlightObjectForTest(node.id);
-    TestRunner.addResult(idValue + JSON.stringify(result, null, 2));
+    TestRunner.addResult(idValue + JSON.stringify(result, replacer, 2));
     callback();
   }
 };
