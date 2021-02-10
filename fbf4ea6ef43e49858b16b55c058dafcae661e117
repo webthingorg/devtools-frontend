@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5a82f30_73121dc6",
+        "filename": "front_end/input/ModuleUIStrings.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-10T12:52:49Z",
+      "side": 0,
+      "message": "Not used in module.json anymore and -meta file is present",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 2
+      },
+      "revId": "fbf4ea6ef43e49858b16b55c058dafcae661e117",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae59bfc8_8ade1135",
+        "filename": "front_end/webauthn/ModuleUIStrings.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-10T12:52:49Z",
+      "side": 0,
+      "message": "Not used in the module.json and a -meta file is present already",
+      "range": {
+        "startLine": 10,
+        "startChar": 3,
+        "endLine": 10,
+        "endChar": 23
+      },
+      "revId": "fbf4ea6ef43e49858b16b55c058dafcae661e117",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
