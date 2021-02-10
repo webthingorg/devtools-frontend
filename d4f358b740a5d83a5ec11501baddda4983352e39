@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fad951c8_f4126e69",
+        "filename": "front_end/component_docs/flexbox_editor/basic.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-10T12:02:16Z",
+      "side": 1,
+      "message": "The updates would go via the backend and that operation can potentially fail. Not having the state in the component gives us more flexibility: we can pre-render the update and roll it back if the update fails easily. It also helps to keep the state in sync or we would have to solve the conflicts between what the caller thinks should be selected and what the component thinks should be selected.",
+      "parentUuid": "2a5e5b95_8140e4c4",
+      "range": {
+        "startLine": 39,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 4
+      },
+      "revId": "d4f358b740a5d83a5ec11501baddda4983352e39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2226f392_bec31cf0",
         "filename": "front_end/elements/FlexboxEditor.ts",
         "patchSetId": 7
@@ -54,6 +78,30 @@
       "writtenOn": "2021-02-10T11:24:07Z",
       "side": 1,
       "message": "How come we need to redefine the font-size here? Aren\u0027t we inheriting the default size from the rest of devtools?",
+      "range": {
+        "startLine": 68,
+        "startChar": 10,
+        "endLine": 68,
+        "endChar": 26
+      },
+      "revId": "d4f358b740a5d83a5ec11501baddda4983352e39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "405705b3_e10b7624",
+        "filename": "front_end/elements/FlexboxEditor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-10T12:02:16Z",
+      "side": 1,
+      "message": "Yes, but I think I have added it to make sure it has the right font-size in component docs. I will move it there.",
+      "parentUuid": "2226f392_bec31cf0",
       "range": {
         "startLine": 68,
         "startChar": 10,
@@ -110,6 +158,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2a38f15_1adf6c9a",
+        "filename": "front_end/elements/FlexboxEditor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-10T12:02:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7af868dc_fc0c28b8",
+      "range": {
+        "startLine": 114,
+        "startChar": 8,
+        "endLine": 114,
+        "endChar": 21
+      },
+      "revId": "d4f358b740a5d83a5ec11501baddda4983352e39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bcdfe23e_48abbb62",
@@ -123,6 +195,30 @@
       "writtenOn": "2021-02-10T11:24:07Z",
       "side": 1,
       "message": "I think calling this disabled sends the wrong message. The property isn\u0027t disabled, it just doesn\u0027t have an authored value in the current rule. But a value could be coming from another rule, or a default value. So perhaps we could call this \u0027isDefault\u0027 or something like this.",
+      "range": {
+        "startLine": 142,
+        "startChar": 7,
+        "endLine": 142,
+        "endChar": 15
+      },
+      "revId": "d4f358b740a5d83a5ec11501baddda4983352e39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3fa1ade_950c3eca",
+        "filename": "front_end/elements/FlexboxEditor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-10T12:02:16Z",
+      "side": 1,
+      "message": "Renamed to `computed` because that would a value from the computed properties in this case.",
+      "parentUuid": "bcdfe23e_48abbb62",
       "range": {
         "startLine": 142,
         "startChar": 7,
@@ -158,6 +254,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "12472b58_70c4b071",
+        "filename": "front_end/elements/FlexboxEditor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-10T12:02:16Z",
+      "side": 1,
+      "message": "What kind of aria attributes do you think will be required? Currently, the titles of the buttons are set to reflect what the button does at any given moment and I thought that it might be enough.",
+      "parentUuid": "ccb95980_f9978596",
+      "range": {
+        "startLine": 148,
+        "startChar": 6,
+        "endLine": 150,
+        "endChar": 12
+      },
+      "revId": "d4f358b740a5d83a5ec11501baddda4983352e39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cb761617_6a02d3a3",
         "filename": "front_end/elements/FlexboxEditor.ts",
         "patchSetId": 7
@@ -169,6 +289,30 @@
       "writtenOn": "2021-02-10T11:24:07Z",
       "side": 1,
       "message": "I don\u0027t really know if this is something that can technically cause problems, but the loc v2 guidance says that the UIStrings object and the 2 following lines should appear at the top of a module.\n\nhttps://github.com/ChromeDevTools/devtools-frontend/blob/master/docs/localization/adding_strings_V2.md#adding-a-string\n(in the code sample, there\u0027s a comment that says \"at the top of example.js file, after import statements\").",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 265,
+        "endChar": 70
+      },
+      "revId": "d4f358b740a5d83a5ec11501baddda4983352e39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91ac71b5_aca0cec8",
+        "filename": "front_end/elements/FlexboxEditor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-10T12:02:16Z",
+      "side": 1,
+      "message": "I didn\u0027t see it, thanks! I dislike putting the strings at the top because they are quite long and you need to scroll to get to the main content. I will make a suggestion to change the guidance.",
+      "parentUuid": "cb761617_6a02d3a3",
       "range": {
         "startLine": 250,
         "startChar": 0,

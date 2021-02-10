@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "33163cea_904323ce",
+        "filename": "front_end/component_docs/flexbox_editor/basic.html",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-10T12:02:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d568bba0_41a46cb6",
+      "revId": "5438831241b778911931c6ddcb003bc57d15658b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c166c065_e6e00927",
@@ -94,6 +112,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b6b37fa_fcdfb51a",
+        "filename": "front_end/component_docs/flexbox_editor/basic.html",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-10T12:02:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c166c065_e6e00927",
+      "range": {
+        "startLine": 9,
+        "startChar": 26,
+        "endLine": 9,
+        "endChar": 27
+      },
+      "revId": "5438831241b778911931c6ddcb003bc57d15658b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "87a80fcf_7d767cca",
@@ -107,6 +149,24 @@
       "writtenOn": "2021-02-10T09:52:51Z",
       "side": 1,
       "message": "Do we need `,initial-scale\u003d1` as well?",
+      "revId": "5438831241b778911931c6ddcb003bc57d15658b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b34ff0d6_02e0605b",
+        "filename": "front_end/component_docs/flexbox_editor/basic.html",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-10T12:02:16Z",
+      "side": 1,
+      "message": "Not sure, the other files didn\u0027t have it and to be honest I didn\u0027t pay too much attention to this file as I took another one as an example. I have added it.",
+      "parentUuid": "87a80fcf_7d767cca",
       "revId": "5438831241b778911931c6ddcb003bc57d15658b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
