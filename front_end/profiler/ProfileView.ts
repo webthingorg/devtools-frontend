@@ -2,23 +2,25 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Bindings from '../bindings/bindings.js';
 import * as Common from '../common/common.js';
 import * as Components from '../components/components.js';
-import * as DataGrid from '../data_grid/data_grid.js';  // eslint-disable-line no-unused-vars
+import * as DataGrid from '../data_grid/data_grid.js'; // eslint-disable-line no-unused-vars
 import * as Host from '../host/host.js';
 import * as i18n from '../i18n/i18n.js';
 import * as PerfUI from '../perf_ui/perf_ui.js';
 import * as Platform from '../platform/platform.js';
-import * as SDK from '../sdk/sdk.js';  // eslint-disable-line no-unused-vars
+import * as SDK from '../sdk/sdk.js'; // eslint-disable-line no-unused-vars
 import * as UI from '../ui/ui.js';
 
-import {BottomUpProfileDataGridTree} from './BottomUpProfileDataGrid.js';
-import {CPUProfileFlameChart, ProfileFlameChartDataProvider} from './CPUProfileFlameChart.js';  // eslint-disable-line no-unused-vars
-import {Formatter, ProfileDataGridNode, ProfileDataGridTree} from './ProfileDataGrid.js';  // eslint-disable-line no-unused-vars
-import {DataDisplayDelegate, Events, ProfileHeader, ProfileType} from './ProfileHeader.js';  // eslint-disable-line no-unused-vars
-import {ProfileSidebarTreeElement} from './ProfileSidebarTreeElement.js';
-import {TopDownProfileDataGridTree} from './TopDownProfileDataGrid.js';
+import { BottomUpProfileDataGridTree } from './BottomUpProfileDataGrid.js';
+import { CPUProfileFlameChart, ProfileFlameChartDataProvider } from './CPUProfileFlameChart.js'; // eslint-disable-line no-unused-vars
+import { Formatter, ProfileDataGridNode, ProfileDataGridTree } from './ProfileDataGrid.js'; // eslint-disable-line no-unused-vars
+import { DataDisplayDelegate, Events, ProfileHeader, ProfileType } from './ProfileHeader.js'; // eslint-disable-line no-unused-vars
+import { ProfileSidebarTreeElement } from './ProfileSidebarTreeElement.js';
+import { TopDownProfileDataGridTree } from './TopDownProfileDataGrid.js';
 
 export const UIStrings = {
   /**
@@ -98,12 +100,32 @@ export const UIStrings = {
   */
   loaded: 'Loaded',
 };
-const str_ = i18n.i18n.registerUIStrings('profiler/ProfileView.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('profiler/ProfileView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
-/**
- * @implements {UI.SearchableView.Searchable}
- */
-export class ProfileView extends UI.View.SimpleView {
+// Transformation: updatePropertyDeclarations
+// Transformation: updateInterfacesImplementations
+export class ProfileView extends UI.View.SimpleView implements UI.SearchableView.Searchable {
+  _profile: SDK.ProfileTreeModel.ProfileTreeModel | null;
+  _searchableView: UI.SearchableView.SearchableView;
+  dataGrid: DataGrid.DataGrid.DataGridImpl<any>;
+  viewSelectComboBox: UI.Toolbar.ToolbarComboBox;
+  focusButton: UI.Toolbar.ToolbarButton;
+  excludeButton: UI.Toolbar.ToolbarButton;
+  resetButton: UI.Toolbar.ToolbarButton;
+  _linkifier: Components.Linkifier.Linkifier;
+  _nodeFormatter!: Formatter;
+  _viewType!: Common.Settings.Setting<string>;
+  adjustedTotal!: number;
+  profileHeader!: WritableProfileHeader;
+  _bottomUpProfileDataGridTree?: BottomUpProfileDataGridTree | null;
+  _topDownProfileDataGridTree?: TopDownProfileDataGridTree | null;
+  _currentSearchResultIndex?: number;
+  _dataProvider?: ProfileFlameChartDataProvider;
+  _flameChart?: CPUProfileFlameChart;
+  _visibleView?: CPUProfileFlameChart | DataGrid.DataGrid.DataGridWidget<any>;
+  _searchableElement?: ProfileDataGridTree | CPUProfileFlameChart;
+  profileDataGridTree?: ProfileDataGridTree;
+  // Transformation: updateParameters
   constructor() {
     super(i18nString(UIStrings.profile));
 
@@ -113,7 +135,7 @@ export class ProfileView extends UI.View.SimpleView {
     this._searchableView.setPlaceholder(i18nString(UIStrings.findByCostMsNameOrFile));
     this._searchableView.show(this.element);
 
-    const columns = /** @type {!Array<!DataGrid.DataGrid.ColumnDescriptor>} */ ([]);
+    const columns = ([] as DataGrid.DataGrid.ColumnDescriptor[]);
     columns.push({
       id: 'self',
       title: this.columnHeader('self'),
@@ -182,15 +204,15 @@ export class ProfileView extends UI.View.SimpleView {
     this.dataGrid.setRowContextMenuCallback(this._populateContextMenu.bind(this));
 
     this.viewSelectComboBox =
-        new UI.Toolbar.ToolbarComboBox(this._changeView.bind(this), i18nString(UIStrings.profileViewMode));
+      new UI.Toolbar.ToolbarComboBox(this._changeView.bind(this), i18nString(UIStrings.profileViewMode));
 
     this.focusButton =
-        new UI.Toolbar.ToolbarButton(i18nString(UIStrings.focusSelectedFunction), 'largeicon-visibility');
+      new UI.Toolbar.ToolbarButton(i18nString(UIStrings.focusSelectedFunction), 'largeicon-visibility');
     this.focusButton.setEnabled(false);
     this.focusButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._focusClicked, this);
 
     this.excludeButton =
-        new UI.Toolbar.ToolbarButton(i18nString(UIStrings.excludeSelectedFunction), 'largeicon-delete');
+      new UI.Toolbar.ToolbarButton(i18nString(UIStrings.excludeSelectedFunction), 'largeicon-delete');
     this.excludeButton.setEnabled(false);
     this.excludeButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._excludeClicked, this);
 
@@ -199,29 +221,14 @@ export class ProfileView extends UI.View.SimpleView {
     this.resetButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._resetClicked, this);
 
     this._linkifier = new Components.Linkifier.Linkifier(maxLinkLength);
-
-    // Properties set in `initialize` and guaranteed to be non-null.
-
-    /** @type {!Formatter} */
-    this._nodeFormatter;
-
-    /** @type {!Common.Settings.Setting<string>} */
-    this._viewType;
-
-    // Properties set in subclasses.
-
-    /** @type {number} */
-    this.adjustedTotal;
-
-    /** @type {!WritableProfileHeader} */
-    this.profileHeader;
   }
 
-  /**
-   * @param {!Array<!{title: string, value: string}>} entryInfo
-   * @return {!Element}
-   */
-  static buildPopoverTable(entryInfo) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  static buildPopoverTable(entryInfo: {
+    title: string;
+    value: string;
+  }[]): Element {
     const table = document.createElement('table');
     for (const entry of entryInfo) {
       const row = table.createChild('tr');
@@ -231,10 +238,9 @@ export class ProfileView extends UI.View.SimpleView {
     return table;
   }
 
-  /**
-   * @param {!SDK.ProfileTreeModel.ProfileTreeModel} profile
-   */
-  setProfile(profile) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  setProfile(profile: SDK.ProfileTreeModel.ProfileTreeModel): void {
     this._profile = profile;
     this._bottomUpProfileDataGridTree = null;
     this._topDownProfileDataGridTree = null;
@@ -242,18 +248,15 @@ export class ProfileView extends UI.View.SimpleView {
     this.refresh();
   }
 
-  /**
-   * @return {?SDK.ProfileTreeModel.ProfileTreeModel}
-   */
-  profile() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  profile(): SDK.ProfileTreeModel.ProfileTreeModel | null {
     return this._profile;
   }
 
-  /**
-   * @param {!Formatter} nodeFormatter
-   * @protected
-   */
-  initialize(nodeFormatter) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  initialize(nodeFormatter: Formatter): void {
     this._nodeFormatter = nodeFormatter;
 
     this._viewType = Common.Settings.Settings.instance().createSetting('profileView', ViewTypes.Heavy);
@@ -266,10 +269,11 @@ export class ProfileView extends UI.View.SimpleView {
     ]);
 
     const options = new Map(viewTypes.map(
-        type => [type, this.viewSelectComboBox.createOption(/** @type {string} */ (optionNames.get(type)), type)]));
+    // Transformation: updateParameters
+    type => [type, this.viewSelectComboBox.createOption((optionNames.get(type) as string), type)]));
     const optionName = this._viewType.get() || viewTypes[0];
     const option = options.get(optionName) || options.get(viewTypes[0]);
-    this.viewSelectComboBox.select(/** @type {!Element} */ (option));
+    this.viewSelectComboBox.select((option as Element));
 
     this._changeView();
     if (this._flameChart) {
@@ -277,93 +281,80 @@ export class ProfileView extends UI.View.SimpleView {
     }
   }
 
-  /**
-   * @override
-   */
-  focus() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  focus(): void {
     if (this._flameChart) {
       this._flameChart.focus();
-    } else {
+    }
+    else {
       super.focus();
     }
   }
 
-  /**
-   * @param {string} columnId
-   * @return {!Platform.UIString.LocalizedString}
-   */
-  columnHeader(columnId) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  columnHeader(columnId: string): Common.UIString.LocalizedString {
     throw 'Not implemented';
   }
 
-  /**
-   * @param {number} timeLeft
-   * @param {number} timeRight
-   */
-  selectRange(timeLeft, timeRight) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  selectRange(timeLeft: number, timeRight: number): void {
     if (!this._flameChart) {
       return;
     }
     this._flameChart.selectRange(timeLeft, timeRight);
   }
 
-  /**
-   * @override
-   * @return {!Promise<!Array<!UI.Toolbar.ToolbarItem>>}
-   */
-  async toolbarItems() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  async toolbarItems(): Promise<UI.Toolbar.ToolbarItem[]> {
     return [this.viewSelectComboBox, this.focusButton, this.excludeButton, this.resetButton];
   }
 
-  /**
-   * @return {!ProfileDataGridTree}
-   */
-  _getBottomUpProfileDataGridTree() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _getBottomUpProfileDataGridTree(): ProfileDataGridTree {
     if (!this._bottomUpProfileDataGridTree) {
-      this._bottomUpProfileDataGridTree = new BottomUpProfileDataGridTree(
-          this._nodeFormatter, this._searchableView,
-          /** @type {!SDK.ProfileTreeModel.ProfileTreeModel} */ (this._profile).root, this.adjustedTotal);
+      this._bottomUpProfileDataGridTree = new BottomUpProfileDataGridTree(this._nodeFormatter, this._searchableView, (this._profile as SDK.ProfileTreeModel.ProfileTreeModel).root, this.adjustedTotal);
     }
     return this._bottomUpProfileDataGridTree;
   }
 
-  /**
-   * @return {!ProfileDataGridTree}
-   */
-  _getTopDownProfileDataGridTree() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _getTopDownProfileDataGridTree(): ProfileDataGridTree {
     if (!this._topDownProfileDataGridTree) {
-      this._topDownProfileDataGridTree = new TopDownProfileDataGridTree(
-          this._nodeFormatter, this._searchableView,
-          /** @type {!SDK.ProfileTreeModel.ProfileTreeModel} */ (this._profile).root, this.adjustedTotal);
+      this._topDownProfileDataGridTree = new TopDownProfileDataGridTree(this._nodeFormatter, this._searchableView, (this._profile as SDK.ProfileTreeModel.ProfileTreeModel).root, this.adjustedTotal);
     }
     return this._topDownProfileDataGridTree;
   }
 
-  /**
-   * @param {!UI.ContextMenu.ContextMenu} contextMenu
-   * @param {!DataGrid.DataGrid.DataGridNode<?>} gridNode
-   */
-  _populateContextMenu(contextMenu, gridNode) {
-    const node = /** @type {!ProfileDataGridNode} */ (gridNode);
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _populateContextMenu(contextMenu: UI.ContextMenu.ContextMenu, gridNode: DataGrid.DataGrid.DataGridNode<any>): void {
+    const node = (gridNode as ProfileDataGridNode);
     if (node.linkElement && !contextMenu.containsTarget(node.linkElement)) {
       contextMenu.appendApplicableItems(node.linkElement);
     }
   }
 
-  /**
-   * @override
-   */
-  willHide() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  willHide(): void {
     this._currentSearchResultIndex = -1;
   }
 
-  refresh() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  refresh(): void {
     if (!this.profileDataGridTree) {
       return;
     }
     const selectedProfileNode = this.dataGrid.selectedNode ?
-        /** @type {!ProfileDataGridNode} */ (this.dataGrid.selectedNode).profileNode :
-        null;
+      (this.dataGrid.selectedNode as ProfileDataGridNode).profileNode :
+      null;
 
     this.dataGrid.rootNode().removeChildren();
 
@@ -381,106 +372,99 @@ export class ProfileView extends UI.View.SimpleView {
     }
   }
 
-  refreshVisibleData() {
-    /** @type {?DataGrid.DataGrid.DataGridNode<?>} */
-    let child = this.dataGrid.rootNode().children[0];
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  refreshVisibleData(): void {
+    let 
+    // Transformation: updateVariableDeclarations
+    // Transformation: updateTypeDefinitionsForLocalTypes
+    child: (DataGrid.DataGrid.DataGridNode<any> | null) = this.dataGrid.rootNode().children[0];
     while (child) {
       child.refresh();
       child = child.traverseNextNode(false, null, true);
     }
   }
 
-  /**
-   * @return {!UI.SearchableView.SearchableView}
-   */
-  searchableView() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  searchableView(): UI.SearchableView.SearchableView {
     return this._searchableView;
   }
 
-  /**
-   * @override
-   * @return {boolean}
-   */
-  supportsCaseSensitiveSearch() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  supportsCaseSensitiveSearch(): boolean {
     return true;
   }
 
-  /**
-   * @override
-   * @return {boolean}
-   */
-  supportsRegexSearch() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  supportsRegexSearch(): boolean {
     return false;
   }
 
-  /**
-   * @override
-   */
-  searchCanceled() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  searchCanceled(): void {
     if (this._searchableElement) {
       this._searchableElement.searchCanceled();
     }
   }
 
-  /**
-   * @override
-   * @param {!UI.SearchableView.SearchConfig} searchConfig
-   * @param {boolean} shouldJump
-   * @param {boolean=} jumpBackwards
-   */
-  performSearch(searchConfig, shouldJump, jumpBackwards) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  performSearch(searchConfig: UI.SearchableView.SearchConfig, shouldJump: boolean, jumpBackwards?: boolean): void {
     if (this._searchableElement) {
       this._searchableElement.performSearch(searchConfig, shouldJump, jumpBackwards);
     }
   }
 
-  /**
-   * @override
-   */
-  jumpToNextSearchResult() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  jumpToNextSearchResult(): void {
     if (this._searchableElement) {
       this._searchableElement.jumpToNextSearchResult();
     }
   }
 
-  /**
-   * @override
-   */
-  jumpToPreviousSearchResult() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  jumpToPreviousSearchResult(): void {
     if (this._searchableElement) {
       this._searchableElement.jumpToPreviousSearchResult();
     }
   }
 
-  /**
-   * @return {!Components.Linkifier.Linkifier}
-   */
-  linkifier() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  linkifier(): Components.Linkifier.Linkifier {
     return this._linkifier;
   }
 
-  /**
-   * @return {!ProfileFlameChartDataProvider}
-   */
-  createFlameChartDataProvider() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  createFlameChartDataProvider(): ProfileFlameChartDataProvider {
     throw 'Not implemented';
   }
 
-  _ensureFlameChartCreated() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _ensureFlameChartCreated(): void {
     if (this._flameChart) {
       return;
     }
     this._dataProvider = this.createFlameChartDataProvider();
     this._flameChart = new CPUProfileFlameChart(this._searchableView, this._dataProvider);
-    this._flameChart.addEventListener(PerfUI.FlameChart.Events.EntryInvoked, event => {
+    this._flameChart.addEventListener(PerfUI.FlameChart.Events.EntryInvoked, 
+    // Transformation: updateParameters
+    event => {
       this._onEntryInvoked(event);
     });
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  async _onEntryInvoked(event) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  async _onEntryInvoked(event: Common.EventTarget.EventTargetEvent): Promise<void> {
     if (!this._dataProvider) {
       return;
     }
@@ -497,14 +481,14 @@ export class ProfileView extends UI.View.SimpleView {
     if (!script) {
       return;
     }
-    const location = /** @type {!SDK.DebuggerModel.Location} */ (
-        debuggerModel.createRawLocation(script, node.lineNumber, node.columnNumber));
-    const uiLocation =
-        await Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().rawLocationToUILocation(location);
+    const location = (debuggerModel.createRawLocation(script, node.lineNumber, node.columnNumber) as SDK.DebuggerModel.Location);
+    const uiLocation = await Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().rawLocationToUILocation(location);
     Common.Revealer.reveal(uiLocation);
   }
 
-  _changeView() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _changeView(): void {
     if (!this._profile) {
       return;
     }
@@ -514,8 +498,7 @@ export class ProfileView extends UI.View.SimpleView {
     if (this._visibleView) {
       this._visibleView.detach();
     }
-
-    this._viewType.set(/** @type {!HTMLOptionElement} */ (this.viewSelectComboBox.selectedOption()).value);
+    this._viewType.set((this.viewSelectComboBox.selectedOption() as HTMLOptionElement).value);
     switch (this._viewType.get()) {
       case ViewTypes.Flame:
         this._ensureFlameChartCreated();
@@ -546,36 +529,33 @@ export class ProfileView extends UI.View.SimpleView {
     }
   }
 
-  /**
-   * @param {boolean} selected
-   */
-  _nodeSelected(selected) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _nodeSelected(selected: boolean): void {
     this.focusButton.setEnabled(selected);
     this.excludeButton.setEnabled(selected);
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _focusClicked(event) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _focusClicked(event: Common.EventTarget.EventTargetEvent): void {
     if (!this.dataGrid.selectedNode) {
       return;
     }
 
     this.resetButton.setEnabled(true);
-    /** @type {!HTMLElement} */ (this.resetButton.element).focus();
+    (this.resetButton.element as HTMLElement).focus();
     if (this.profileDataGridTree) {
-      this.profileDataGridTree.focus(/** @type {!ProfileDataGridNode} */ (this.dataGrid.selectedNode));
+      this.profileDataGridTree.focus((this.dataGrid.selectedNode as ProfileDataGridNode));
     }
     this.refresh();
     this.refreshVisibleData();
     Host.userMetrics.actionTaken(Host.UserMetrics.Action.CpuProfileNodeFocused);
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _excludeClicked(event) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _excludeClicked(event: Common.EventTarget.EventTargetEvent): void {
     const selectedNode = this.dataGrid.selectedNode;
 
     if (!selectedNode) {
@@ -583,22 +563,21 @@ export class ProfileView extends UI.View.SimpleView {
     }
 
     this.resetButton.setEnabled(true);
-    /** @type {!HTMLElement} */ (this.resetButton.element).focus();
+    (this.resetButton.element as HTMLElement).focus();
 
     selectedNode.deselect();
 
     if (this.profileDataGridTree) {
-      this.profileDataGridTree.exclude(/** @type {!ProfileDataGridNode} */ (selectedNode));
+      this.profileDataGridTree.exclude((selectedNode as ProfileDataGridNode));
     }
     this.refresh();
     this.refreshVisibleData();
     Host.userMetrics.actionTaken(Host.UserMetrics.Action.CpuProfileNodeExcluded);
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _resetClicked(event) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _resetClicked(event: Common.EventTarget.EventTargetEvent): void {
     this.viewSelectComboBox.selectElement().focus();
     this.resetButton.setEnabled(false);
     if (this.profileDataGridTree) {
@@ -609,7 +588,9 @@ export class ProfileView extends UI.View.SimpleView {
     this.refreshVisibleData();
   }
 
-  _sortProfile() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _sortProfile(): void {
     if (!this.profileDataGridTree) {
       return;
     }
@@ -624,96 +605,82 @@ export class ProfileView extends UI.View.SimpleView {
 
 export const maxLinkLength = 30;
 
-/** @enum {string} */
-export const ViewTypes = {
-  Flame: 'Flame',
-  Tree: 'Tree',
-  Heavy: 'Heavy',
-};
+export const enum ViewTypes {
+  Flame = 'Flame',
+  Tree = 'Tree',
+  Heavy = 'Heavy'
+}
+;
 
-/**
- * @implements {Common.StringOutputStream.OutputStream}
- */
-export class WritableProfileHeader extends ProfileHeader {
-  /**
-   * @param {?SDK.DebuggerModel.DebuggerModel} debuggerModel
-   * @param {!ProfileType} type
-   * @param {string=} title
-   */
-  constructor(debuggerModel, type, title) {
-    super(type, title || i18nString(UIStrings.profileD, {PH1: type.nextProfileUid()}));
+// Transformation: updatePropertyDeclarations
+// Transformation: updateInterfacesImplementations
+export class WritableProfileHeader extends ProfileHeader implements Common.StringOutputStream.OutputStream {
+  _debuggerModel: SDK.DebuggerModel.DebuggerModel | null;
+  _fileName?: string;
+  _jsonifiedProfile?: string | null;
+  _profile?: Protocol.Profiler.Profile;
+  _protocolProfile?: Protocol.Profiler.Profile;
+  tempFile?: Bindings.TempFile.TempFile | null;
+  // Transformation: updateParameters
+  constructor(debuggerModel: SDK.DebuggerModel.DebuggerModel | null, type: ProfileType, title?: string) {
+    super(type, title || i18nString(UIStrings.profileD, { PH1: type.nextProfileUid() }));
     this._debuggerModel = debuggerModel;
   }
 
-  /**
-   * @param {!Bindings.FileUtils.ChunkedReader} reader
-   */
-  _onChunkTransferred(reader) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _onChunkTransferred(reader: Bindings.FileUtils.ChunkedReader): void {
     if (this._jsonifiedProfile) {
-      this.updateStatus(
-          i18nString(UIStrings.loadingD, {PH1: Platform.NumberUtilities.bytesToString(this._jsonifiedProfile.length)}));
+      this.updateStatus(i18nString(UIStrings.loadingD, { PH1: Platform.NumberUtilities.bytesToString(this._jsonifiedProfile.length) }));
     }
   }
 
-  /**
-   * @param {!Bindings.FileUtils.ChunkedReader} reader
-   */
-  _onError(reader) {
-    const error = /** @type {*} */ (reader.error());
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _onError(reader: Bindings.FileUtils.ChunkedReader): void {
+    const error = (reader.error() as any);
     if (error) {
-      this.updateStatus(i18nString(UIStrings.fileSReadErrorS, {PH1: reader.fileName(), PH2: error.message}));
+      this.updateStatus(i18nString(UIStrings.fileSReadErrorS, { PH1: reader.fileName(), PH2: error.message }));
     }
   }
 
-  /**
-   * @override
-   * @param {string} text
-   * @return {!Promise<void>}
-   */
-  async write(text) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  async write(text: string): Promise<void> {
     this._jsonifiedProfile += text;
   }
 
-  /**
-   * @override
-   */
-  async close() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  async close(): Promise<void> {
   }
 
-  /**
-   * @override
-   */
-  dispose() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  dispose(): void {
     this.removeTempFile();
   }
 
-  /**
-   * @override
-   * @param {!DataDisplayDelegate} panel
-   * @return {!ProfileSidebarTreeElement}
-   */
-  createSidebarTreeElement(panel) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  createSidebarTreeElement(panel: DataDisplayDelegate): ProfileSidebarTreeElement {
     return new ProfileSidebarTreeElement(panel, this, 'profile-sidebar-tree-item');
   }
 
-  /**
-   * @override
-   * @return {boolean}
-   */
-  canSaveToFile() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  canSaveToFile(): boolean {
     return !this.fromFile() && Boolean(this._protocolProfile);
   }
 
-  /**
-   * @override
-   */
-  async saveToFile() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  async saveToFile(): Promise<void> {
     const fileOutputStream = new Bindings.FileUtils.FileOutputStream();
     if (!this._fileName) {
       const now = Platform.DateUtilities.toISO8601Compact(new Date());
       const fileExtension = this.profileType().fileExtension();
 
-      /** @type {string} */
       this._fileName = `${this.profileType().typeName()}-${now}${fileExtension}`;
     }
 
@@ -728,12 +695,9 @@ export class WritableProfileHeader extends ProfileHeader {
     fileOutputStream.close();
   }
 
-  /**
-   * @override
-   * @param {!File} file
-   * @return {!Promise<?Error>}
-   */
-  async loadFromFile(file) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  async loadFromFile(file: File): Promise<Error | null> {
     this.updateStatus(i18nString(UIStrings.loading), true);
     const fileReader = new Bindings.FileUtils.ChunkedFileReader(file, 10000000, this._onChunkTransferred.bind(this));
     this._jsonifiedProfile = '';
@@ -745,12 +709,15 @@ export class WritableProfileHeader extends ProfileHeader {
     }
 
     this.updateStatus(i18nString(UIStrings.parsing), true);
-    let error = null;
+    let 
+    // Transformation: updateTypeDefinitionsForLocalTypes
+    error: null = null;
     try {
-      this._profile = /** @type {!Protocol.Profiler.Profile} */ (JSON.parse(this._jsonifiedProfile));
-      this.setProfile(/** @type {!Protocol.Profiler.Profile} */ (this._profile));
+      this._profile = (JSON.parse(this._jsonifiedProfile) as Protocol.Profiler.Profile);
+      this.setProfile((this._profile as Protocol.Profiler.Profile));
       this.updateStatus(i18nString(UIStrings.loaded), false);
-    } catch (e) {
+    }
+    catch (e) {
       error = e;
       this.profileType().removeProfile(this);
     }
@@ -762,10 +729,9 @@ export class WritableProfileHeader extends ProfileHeader {
     return error;
   }
 
-  /**
-   * @param {!Protocol.Profiler.Profile} profile
-   */
-  setProtocolProfile(profile) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  setProtocolProfile(profile: Protocol.Profiler.Profile): void {
     this.setProfile(profile);
     this._protocolProfile = profile;
     this.tempFile = new Bindings.TempFile.TempFile();

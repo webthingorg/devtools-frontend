@@ -28,6 +28,8 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';
 import * as DataGrid from '../data_grid/data_grid.js';
 import * as HeapSnapshotModel from '../heap_snapshot_model/heap_snapshot_model.js';
@@ -36,10 +38,10 @@ import * as Platform from '../platform/platform.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
-import {ChildrenProvider} from './ChildrenProvider.js';  // eslint-disable-line no-unused-vars
-import {AllocationDataGrid, HeapSnapshotConstructorsDataGrid, HeapSnapshotDiffDataGrid, HeapSnapshotRetainmentDataGrid, HeapSnapshotRetainmentDataGridEvents, HeapSnapshotSortableDataGrid,} from './HeapSnapshotDataGrids.js';  // eslint-disable-line no-unused-vars
-import {HeapSnapshotProviderProxy, HeapSnapshotProxy} from './HeapSnapshotProxy.js';  // eslint-disable-line no-unused-vars
-import {DataDisplayDelegate} from './ProfileHeader.js';  // eslint-disable-line no-unused-vars
+import { ChildrenProvider } from './ChildrenProvider.js'; // eslint-disable-line no-unused-vars
+import { AllocationDataGrid, HeapSnapshotConstructorsDataGrid, HeapSnapshotDiffDataGrid, HeapSnapshotRetainmentDataGrid, HeapSnapshotRetainmentDataGridEvents, HeapSnapshotSortableDataGrid, } from './HeapSnapshotDataGrids.js'; // eslint-disable-line no-unused-vars
+import { HeapSnapshotProviderProxy, HeapSnapshotProxy } from './HeapSnapshotProxy.js'; // eslint-disable-line no-unused-vars
+import { DataDisplayDelegate } from './ProfileHeader.js'; // eslint-disable-line no-unused-vars
 
 export const UIStrings = {
   /**
@@ -93,35 +95,38 @@ export const UIStrings = {
   */
   inElement: 'in',
 };
-const str_ = i18n.i18n.registerUIStrings('profiler/HeapSnapshotGridNodes.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('profiler/HeapSnapshotGridNodes.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 /**
  * @abstract
- * @extends {DataGrid.DataGrid.DataGridNode<!HeapSnapshotGridNode>}
  */
-export class HeapSnapshotGridNode extends DataGrid.DataGrid.DataGridNode {
-  /**
-   * @param {!HeapSnapshotSortableDataGrid} tree
-   * @param {boolean} hasChildren
-   */
-  constructor(tree, hasChildren) {
+// Transformation: updatePropertyDeclarations
+// Transformation: updateGenericsInSuperClass
+export class HeapSnapshotGridNode extends DataGrid.DataGrid.DataGridNode<HeapSnapshotGridNode> {
+  _dataGrid: HeapSnapshotSortableDataGrid;
+  _instanceCount: number;
+  _savedChildren: Map<number, HeapSnapshotGridNode>;
+  _retrievedChildrenRanges: {
+    from: number;
+    to: number;
+  }[];
+  _providerObject: ChildrenProvider | null;
+  _reachableFromWindow: boolean;
+  _populated?: boolean;
+  // Transformation: updateParameters
+  constructor(tree: HeapSnapshotSortableDataGrid, hasChildren: boolean) {
     super(null, hasChildren);
     this._dataGrid = tree;
     this._instanceCount = 0;
 
-    /** @type {!Map<number, !HeapSnapshotGridNode>} */
     this._savedChildren = new Map();
 
     /**
      * List of position ranges for all visible nodes: [startPos1, endPos1),...,[startPosN, endPosN)
      * Position is an item position in the provider.
-     * @type {!Array<!{from: number, to: number}>}
      */
     this._retrievedChildrenRanges = [];
 
-    /**
-     * @type {?ChildrenProvider}
-     */
     this._providerObject = null;
     this._reachableFromWindow = false;
   }
@@ -133,157 +138,134 @@ export class HeapSnapshotGridNode extends DataGrid.DataGrid.DataGridNode {
     return undefined;
   }
 
-  /**
-   * @return {!HeapSnapshotSortableDataGrid}
-   */
-  heapSnapshotDataGrid() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  heapSnapshotDataGrid(): HeapSnapshotSortableDataGrid {
     return this._dataGrid;
   }
 
-  /**
-   * @return {!ChildrenProvider}
-   */
-  createProvider() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  createProvider(): ChildrenProvider {
     throw new Error('Not implemented.');
   }
 
-  /**
-   * @return {!HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig}
-   */
-  comparator() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  comparator(): HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig {
     throw new Error('Not implemented.');
   }
 
-  /**
-   * @return {number}
-   */
-  _getHash() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _getHash(): number {
     throw new Error('Not implemented.');
   }
-  /**
-   * @param {!HeapSnapshotModel.HeapSnapshotModel.Node|!HeapSnapshotModel.HeapSnapshotModel.Edge} item
-   * @return {!HeapSnapshotGridNode}
-   */
-  _createChildNode(item) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _createChildNode(item: HeapSnapshotModel.HeapSnapshotModel.Node | HeapSnapshotModel.HeapSnapshotModel.Edge): HeapSnapshotGridNode {
     throw new Error('Not implemented.');
   }
 
-
-  /**
-   * @return {?{snapshot:!HeapSnapshotProxy, snapshotNodeIndex:number}}
-   */
-  retainersDataSource() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  retainersDataSource(): {
+    snapshot: HeapSnapshotProxy;
+    snapshotNodeIndex: number;
+  } | null {
     return null;
   }
 
-  /**
-   * @return {!ChildrenProvider}
-   */
-  _provider() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _provider(): ChildrenProvider {
     if (!this._providerObject) {
       this._providerObject = this.createProvider();
     }
     return this._providerObject;
   }
 
-  /**
-   * @override
-   * @param {string} columnId
-   * @return {!HTMLElement}
-   */
-  createCell(columnId) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  createCell(columnId: string): HTMLElement {
     return super.createCell(columnId);
   }
 
-  /**
-   * @override
-   */
-  collapse() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  collapse(): void {
     super.collapse();
     this._dataGrid.updateVisibleNodes(true);
   }
 
-  /**
-   * @override
-   */
-  expand() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  expand(): void {
     super.expand();
     this._dataGrid.updateVisibleNodes(true);
   }
 
-  dispose() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  dispose(): void {
     if (this._providerObject) {
       this._providerObject.dispose();
     }
-    for (let node = /** @type {?HeapSnapshotGridNode} */ (this.children[0]); node;
-         node = /** @type {?HeapSnapshotGridNode} */ (node.traverseNextNode(true, this, true))) {
+    for (let 
+    // Transformation: updateTypeDefinitionsForLocalTypes
+    node: (HeapSnapshotGridNode | null) = (this.children[0] as HeapSnapshotGridNode | null); node; node = (node.traverseNextNode(true, this, true) as HeapSnapshotGridNode | null)) {
       node.dispose();
     }
   }
 
-  /**
-   * @param {!SDK.HeapProfilerModel.HeapProfilerModel} heapProfilerModel
-   * @param {string} objectGroupName
-   * @return {!Promise<!SDK.RemoteObject.RemoteObject>}
-   */
-  queryObjectContent(heapProfilerModel, objectGroupName) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  queryObjectContent(heapProfilerModel: SDK.HeapProfilerModel.HeapProfilerModel, objectGroupName: string): Promise<SDK.RemoteObject.RemoteObject> {
     throw new Error('Not implemented');
   }
 
-  /**
-   * @param {!SDK.HeapProfilerModel.HeapProfilerModel} heapProfilerModel
-   * @param {string} objectGroupName
-   * @return {!Promise<?SDK.RemoteObject.RemoteObject>}
-   */
-  tryQueryObjectContent(heapProfilerModel, objectGroupName) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  tryQueryObjectContent(heapProfilerModel: SDK.HeapProfilerModel.HeapProfilerModel, objectGroupName: string): Promise<SDK.RemoteObject.RemoteObject | null> {
     throw new Error('Not implemented');
   }
 
-  /**
-   * @param {!UI.ContextMenu.ContextMenu} contextMenu
-   * @param {!DataDisplayDelegate} dataDisplayDelegate
-   * @param {?SDK.HeapProfilerModel.HeapProfilerModel} heapProfilerModel
-   */
-  populateContextMenu(contextMenu, dataDisplayDelegate, heapProfilerModel) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  populateContextMenu(contextMenu: UI.ContextMenu.ContextMenu, dataDisplayDelegate: DataDisplayDelegate, heapProfilerModel: SDK.HeapProfilerModel.HeapProfilerModel | null): void {
   }
 
-  /**
-   * @param {number} num
-   * @return {string}
-   */
-  _toPercentString(num) {
-    return num.toFixed(0) + '\xa0%';  // \xa0 is a non-breaking space.
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _toPercentString(num: number): string {
+    return num.toFixed(0) + '\xa0%'; // \xa0 is a non-breaking space.
   }
 
-  /**
-   * @param {number} distance
-   * @return {string}
-   */
-  _toUIDistance(distance) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _toUIDistance(distance: number): string {
     const baseSystemDistance = HeapSnapshotModel.HeapSnapshotModel.baseSystemDistance;
-    return distance >= 0 && distance < baseSystemDistance ? i18nString(UIStrings.emptyPlaceholder, {PH1: distance}) :
-                                                            '\u2212';
+    return distance >= 0 && distance < baseSystemDistance ? i18nString(UIStrings.emptyPlaceholder, { PH1: distance }) :
+      '\u2212';
   }
 
-  /**
-   * @return {!Array.<!HeapSnapshotGridNode>}
-   */
-  allChildren() {
-    return /** @type {!Array.<!HeapSnapshotGridNode>} */ (this._dataGrid.allChildren(this));
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  allChildren(): HeapSnapshotGridNode[] {
+    return; /** @type {!Array.<!HeapSnapshotGridNode>} */
+    // Transformation: updateCast
+    this._dataGrid.allChildren(this) as HeapSnapshotGridNode[];
   }
 
-  /**
-   * @param {number} index
-   */
-  removeChildByIndex(index) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  removeChildByIndex(index: number): void {
     this._dataGrid.removeChildByIndex(this, index);
   }
 
-  /**
-   * @param {number} nodePosition
-   * @return {?HeapSnapshotGridNode}
-   */
-  childForPosition(nodePosition) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  childForPosition(nodePosition: number): HeapSnapshotGridNode | null {
     let indexOfFirstChildInRange = 0;
     for (let i = 0; i < this._retrievedChildrenRanges.length; i++) {
       const range = this._retrievedChildrenRanges[i];
@@ -296,99 +278,92 @@ export class HeapSnapshotGridNode extends DataGrid.DataGrid.DataGridNode {
     return null;
   }
 
-  /**
-   * @param {string} columnId
-   * @return {!HTMLElement}
-   */
-  _createValueCell(columnId) {
-    const cell = /** @type {!HTMLElement} */ (UI.Fragment.html`<td class="numeric-column" />`);
-    const dataGrid = /** @type {!HeapSnapshotSortableDataGrid} */ (this.dataGrid);
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _createValueCell(columnId: string): HTMLElement {
+    const cell = (UI.Fragment.html `<td class="numeric-column" />` as HTMLElement);
+    const dataGrid = (this.dataGrid as HeapSnapshotSortableDataGrid);
     if (dataGrid.snapshot && dataGrid.snapshot.totalSize !== 0) {
       const div = document.createElement('div');
-      const valueSpan = UI.Fragment.html`<span>${this.data[columnId]}</span>`;
+      const valueSpan = UI.Fragment.html `<span>${this.data[columnId]}</span>`;
       div.appendChild(valueSpan);
       const percentColumn = columnId + '-percent';
       if (percentColumn in this.data) {
-        const percentSpan = UI.Fragment.html`<span class="percent-column">${this.data[percentColumn]}</span>`;
+        const percentSpan = UI.Fragment.html `<span class="percent-column">${this.data[percentColumn]}</span>`;
         div.appendChild(percentSpan);
         div.classList.add('profile-multiple-values');
         UI.ARIAUtils.markAsHidden(valueSpan);
         UI.ARIAUtils.markAsHidden(percentSpan);
-        this.setCellAccessibleName(
-            i18nString(
-                UIStrings.genericStringsTwoPlaceholders, {PH1: this.data[columnId], PH2: this.data[percentColumn]}),
-            cell, columnId);
+        this.setCellAccessibleName(i18nString(UIStrings.genericStringsTwoPlaceholders, { PH1: this.data[columnId], PH2: this.data[percentColumn] }), cell, columnId);
       }
       cell.appendChild(div);
     }
     return cell;
   }
 
-  /**
-   * @override
-   */
-  populate() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  populate(): void {
     if (this._populated) {
       return;
     }
     this._populated = true;
-    this._provider().sortAndRewind(this.comparator()).then(() => this._populateChildren());
+    this._provider().sortAndRewind(this.comparator()).then(
+    // Transformation: updateParameters
+    () => this._populateChildren());
   }
 
-  /**
-   * @return {!Promise<?>}
-   */
-  expandWithoutPopulate() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  expandWithoutPopulate(): Promise<any> {
     // Make sure default populate won't take action.
     this._populated = true;
     this.expand();
     return this._provider().sortAndRewind(this.comparator());
   }
 
-  /**
-   * @param {!HeapSnapshotModel.HeapSnapshotModel.Node|!HeapSnapshotModel.HeapSnapshotModel.Edge} entity
-   * @return {number}
-   */
-  _childHashForEntity(entity) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _childHashForEntity(entity: HeapSnapshotModel.HeapSnapshotModel.Node | HeapSnapshotModel.HeapSnapshotModel.Edge): number {
     if ('edgeIndex' in entity) {
       return entity.edgeIndex;
     }
     return entity.id;
   }
 
-  /**
-   * @param {?number=} fromPosition
-   * @param {?number=} toPosition
-   * @return {!Promise<void>}
-   */
-  _populateChildren(fromPosition, toPosition) {
-    return new Promise(resolve => {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _populateChildren(fromPosition?: number | null, toPosition?: number | null): Promise<void> {
+    return new Promise(
+    // Transformation: updateParameters
+    resolve => {
       fromPosition = fromPosition || 0;
       toPosition = toPosition || fromPosition + this._dataGrid.defaultPopulateCount();
-      let firstNotSerializedPosition = fromPosition;
+      let 
+      // Transformation: updateTypeDefinitionsForLocalTypes
+      firstNotSerializedPosition: number = fromPosition;
       serializeNextChunk.call(this, toPosition);
 
-      /**
-       * @this {HeapSnapshotGridNode}
-       * @param {number} toPosition
-       */
-      function serializeNextChunk(toPosition) {
+      // Transformation: updateReturnType
+      // Transformation: updateParameters
+      // Transformation: updateThisDeclaration
+      function serializeNextChunk(this: HeapSnapshotGridNode, toPosition: number): void {
         if (firstNotSerializedPosition >= toPosition) {
           return;
         }
         const end = Math.min(firstNotSerializedPosition + this._dataGrid.defaultPopulateCount(), toPosition);
         this._provider()
-            .serializeItemsRange(firstNotSerializedPosition, end)
-            .then(itemsRange => childrenRetrieved.call(this, itemsRange, toPosition));
+          .serializeItemsRange(firstNotSerializedPosition, end)
+          .then(
+        // Transformation: updateParameters
+        itemsRange => childrenRetrieved.call(this, itemsRange, toPosition));
         firstNotSerializedPosition = end;
       }
 
-      /**
-       * @this {HeapSnapshotGridNode}
-       * @param {!HeapSnapshotModel.HeapSnapshotModel.Node|!HeapSnapshotModel.HeapSnapshotModel.Edge} item
-       * @param {number} insertionIndex
-       */
-      function insertRetrievedChild(item, insertionIndex) {
+      // Transformation: updateReturnType
+      // Transformation: updateParameters
+      // Transformation: updateThisDeclaration
+      function insertRetrievedChild(this: HeapSnapshotGridNode, item: HeapSnapshotModel.HeapSnapshotModel.Node | HeapSnapshotModel.HeapSnapshotModel.Edge, insertionIndex: number): void {
         if (this._savedChildren) {
           const hash = this._childHashForEntity(item);
           const child = this._savedChildren.get(hash);
@@ -400,45 +375,53 @@ export class HeapSnapshotGridNode extends DataGrid.DataGrid.DataGridNode {
         this._dataGrid.insertChild(this, this._createChildNode(item), insertionIndex);
       }
 
-      /**
-     * @this {HeapSnapshotGridNode}
-     * @param {number} from
-     * @param {number} to
-     * @param {number} insertionIndex
-     */
-      function insertShowMoreButton(from, to, insertionIndex) {
-        const button = /** @type {*} */ (new DataGrid.ShowMoreDataGridNode.ShowMoreDataGridNode(
-            this._populateChildren.bind(this), from, to, this._dataGrid.defaultPopulateCount()));
-        this._dataGrid.insertChild(this, /** @type {!HeapSnapshotGridNode} */ (button), insertionIndex);
+      // Transformation: updateReturnType
+      // Transformation: updateParameters
+      // Transformation: updateThisDeclaration
+      function insertShowMoreButton(this: HeapSnapshotGridNode, from: number, to: number, insertionIndex: number): void {
+        const button = (new DataGrid.ShowMoreDataGridNode.ShowMoreDataGridNode(this._populateChildren.bind(this), from, to, this._dataGrid.defaultPopulateCount()) as any);
+        this._dataGrid.insertChild(this, (button as HeapSnapshotGridNode), insertionIndex);
       }
 
-      /**
-     * @param {!HeapSnapshotModel.HeapSnapshotModel.ItemsRange} itemsRange
-     * @param {number} toPosition
-     * @this {HeapSnapshotGridNode}
-     */
-      function childrenRetrieved(itemsRange, toPosition) {
+      // Transformation: updateReturnType
+      // Transformation: updateParameters
+      // Transformation: updateThisDeclaration
+      function childrenRetrieved(this: HeapSnapshotGridNode, itemsRange: HeapSnapshotModel.HeapSnapshotModel.ItemsRange, toPosition: number): void {
         let itemIndex = 0;
-        let itemPosition = itemsRange.startPosition;
+        let 
+        // Transformation: updateTypeDefinitionsForLocalTypes
+        itemPosition: number = itemsRange.startPosition;
         const items = itemsRange.items;
         let insertionIndex = 0;
 
         if (!this._retrievedChildrenRanges.length) {
           if (itemsRange.startPosition > 0) {
-            this._retrievedChildrenRanges.push({from: 0, to: 0});
+            this._retrievedChildrenRanges.push({ from: 0, to: 0 });
             insertShowMoreButton.call(this, 0, itemsRange.startPosition, insertionIndex++);
           }
-          this._retrievedChildrenRanges.push({from: itemsRange.startPosition, to: itemsRange.endPosition});
+          this._retrievedChildrenRanges.push({ from: itemsRange.startPosition, to: itemsRange.endPosition });
           for (let i = 0, l = items.length; i < l; ++i) {
             insertRetrievedChild.call(this, items[i], insertionIndex++);
           }
           if (itemsRange.endPosition < itemsRange.totalLength) {
             insertShowMoreButton.call(this, itemsRange.endPosition, itemsRange.totalLength, insertionIndex++);
           }
-        } else {
+        }
+        else {
           let rangeIndex = 0;
           let found = false;
-          let range = {from: 0, to: 0};
+          let 
+          // Transformation: updateTypeDefinitionsForLocalTypes
+          range: {
+            from: number;
+            to: number;
+          } | {
+            from: number;
+            to: number;
+          } | {
+            from: number;
+            to: number;
+          } = { from: 0, to: 0 };
           while (rangeIndex < this._retrievedChildrenRanges.length) {
             range = this._retrievedChildrenRanges[rangeIndex];
             if (range.to >= itemPosition) {
@@ -455,16 +438,16 @@ export class HeapSnapshotGridNode extends DataGrid.DataGrid.DataGridNode {
 
           if (!found || itemsRange.startPosition < range.from) {
             // Update previous button.
-            const button = /** @type {*} */ (this.allChildren()[insertionIndex - 1]);
+            const button = (this.allChildren()[insertionIndex - 1] as any);
             button.setEndPosition(itemsRange.startPosition);
-            insertShowMoreButton.call(
-                this, itemsRange.startPosition, found ? range.from : itemsRange.totalLength, insertionIndex);
-            range = {from: itemsRange.startPosition, to: itemsRange.startPosition};
+            insertShowMoreButton.call(this, itemsRange.startPosition, found ? range.from : itemsRange.totalLength, insertionIndex);
+            range = { from: itemsRange.startPosition, to: itemsRange.startPosition };
             if (!found) {
               rangeIndex = this._retrievedChildrenRanges.length;
             }
             this._retrievedChildrenRanges.splice(rangeIndex, 0, range);
-          } else {
+          }
+          else {
             insertionIndex += itemPosition - range.from;
           }
           // At this point insertionIndex is always an index before button or between nodes.
@@ -480,7 +463,9 @@ export class HeapSnapshotGridNode extends DataGrid.DataGrid.DataGridNode {
 
             // We're at the position before button: ...<?node>x<button>
             const nextRange = this._retrievedChildrenRanges[rangeIndex + 1];
-            let newEndOfRange = nextRange ? nextRange.from : itemsRange.totalLength;
+            let 
+            // Transformation: updateTypeDefinitionsForLocalTypes
+            newEndOfRange: number = nextRange ? nextRange.from : itemsRange.totalLength;
             if (newEndOfRange > itemsRange.endPosition) {
               newEndOfRange = itemsRange.endPosition;
             }
@@ -495,13 +480,15 @@ export class HeapSnapshotGridNode extends DataGrid.DataGrid.DataGridNode {
               // Remove "show next" button if there is one.
               this.removeChildByIndex(insertionIndex);
               this._retrievedChildrenRanges.splice(rangeIndex + 1, 1);
-            } else {
+            }
+            else {
               range.to = newEndOfRange;
               // Remove or update next button.
               if (newEndOfRange === itemsRange.totalLength) {
                 this.removeChildByIndex(insertionIndex);
-              } else {
-                /** @type {*} */ (this.allChildren()[insertionIndex]).setStartPosition(itemsRange.endPosition);
+              }
+              else {
+                (this.allChildren()[insertionIndex] as any).setStartPosition(itemsRange.endPosition);
               }
             }
           }
@@ -523,7 +510,9 @@ export class HeapSnapshotGridNode extends DataGrid.DataGrid.DataGridNode {
     });
   }
 
-  _saveChildren() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _saveChildren(): void {
     this._savedChildren.clear();
     const children = this.allChildren();
     for (let i = 0, l = children.length; i < l; ++i) {
@@ -535,7 +524,9 @@ export class HeapSnapshotGridNode extends DataGrid.DataGrid.DataGridNode {
     }
   }
 
-  async sort() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  async sort(): Promise<void> {
     this._dataGrid.recursiveSortingEnter();
 
     await this._provider().sortAndRewind(this.comparator());
@@ -562,18 +553,29 @@ HeapSnapshotGridNode.Events = {
   PopulateComplete: Symbol('PopulateComplete')
 };
 
+// Transformation: updatePropertyDeclarations
 export class HeapSnapshotGenericObjectNode extends HeapSnapshotGridNode {
-  /**
-   * @param {!HeapSnapshotSortableDataGrid} dataGrid
-   * @param {!HeapSnapshotModel.HeapSnapshotModel.Node} node
-   */
-  constructor(dataGrid, node) {
+  _referenceName: string | null;
+  _name: string | undefined;
+  _type: string | undefined;
+  _distance: number | undefined;
+  _shallowSize: number | undefined;
+  _retainedSize: number | undefined;
+  snapshotNodeId: number | undefined;
+  snapshotNodeIndex: number | undefined;
+  _reachableFromWindow: boolean;
+  detachedDOMTreeNode: boolean | undefined;
+  data: {
+    [x: string]: any;
+  };
+  linkElement?: Element;
+  // Transformation: updateParameters
+  constructor(dataGrid: HeapSnapshotSortableDataGrid, node: HeapSnapshotModel.HeapSnapshotModel.Node) {
     super(dataGrid, false);
     // node is null for DataGrid root nodes.
     if (!node) {
       return;
     }
-    /** @type {string|null} */
     this._referenceName = null;
     this._name = node.name;
     this._type = node.type;
@@ -584,17 +586,19 @@ export class HeapSnapshotGenericObjectNode extends HeapSnapshotGridNode {
     this.snapshotNodeIndex = node.nodeIndex;
     if (this._type === 'string') {
       this._reachableFromWindow = true;
-    } else if (this._type === 'object' && this._name.startsWith('Window')) {
+    }
+    else if (this._type === 'object' && this._name.startsWith('Window')) {
       this._name = this.shortenWindowURL(this._name, false);
       this._reachableFromWindow = true;
-    } else if (node.canBeQueried) {
+    }
+    else if (node.canBeQueried) {
       this._reachableFromWindow = true;
     }
     if (node.detachedDOMTreeNode) {
       this.detachedDOMTreeNode = true;
     }
 
-    const snapshot = /** @type {!HeapSnapshotProxy} */ (dataGrid.snapshot);
+    const snapshot = (dataGrid.snapshot as HeapSnapshotProxy);
     const shallowSizePercent = this._shallowSize / snapshot.totalSize * 100.0;
     const retainedSizePercent = this._retainedSize / snapshot.totalSize * 100.0;
     this.data = {
@@ -606,39 +610,37 @@ export class HeapSnapshotGenericObjectNode extends HeapSnapshotGridNode {
     };
   }
 
-  /**
-   * @override
-   */
   get name() {
     return this._name;
   }
 
-  /**
-   * @override
-   * @return {?{snapshot:!HeapSnapshotProxy, snapshotNodeIndex:number}}
-   */
-  retainersDataSource() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  retainersDataSource(): {
+    snapshot: HeapSnapshotProxy;
+    snapshotNodeIndex: number;
+  } | null {
     return this.snapshotNodeIndex === undefined ? null : {
-      snapshot: /** @type {!HeapSnapshotProxy} */ (this._dataGrid.snapshot),
+      snapshot: (
+      // Transformation: updateCast
+      this._dataGrid.snapshot as HeapSnapshotProxy),
       snapshotNodeIndex: this.snapshotNodeIndex
     };
   }
 
-  /**
-   * @override
-   * @param {string} columnId
-   * @return {!HTMLElement}
-   */
-  createCell(columnId) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  createCell(columnId: string): HTMLElement {
     const cell = columnId !== 'object' ? this._createValueCell(columnId) : this._createObjectCell();
     return cell;
   }
 
-  /**
-   * @return {!HTMLElement}
-   */
-  _createObjectCell() {
-    let value = this._name;
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _createObjectCell(): HTMLElement {
+    let 
+    // Transformation: updateTypeDefinitionsForLocalTypes
+    value: string | (string | undefined) = this._name;
     let valueStyle = 'object';
     switch (this._type) {
       case 'concatenated string':
@@ -670,98 +672,79 @@ export class HeapSnapshotGenericObjectNode extends HeapSnapshotGridNode {
     return this._createObjectCellWithValue(valueStyle, value || '');
   }
 
-  /**
-   * @param {string} valueStyle
-   * @param {string} value
-   * @return {!HTMLElement}
-   */
-  _createObjectCellWithValue(valueStyle, value) {
-    const fragment = UI.Fragment.Fragment.build`
-        <td class="object-column disclosure">
-          <div class="source-code event-properties" style="overflow: visible" $="container">
-            <span class="value object-value-${valueStyle}">${value}</span>
-            <span class="object-value-id">@${this.snapshotNodeId}</span>
-          </div>
-        </td>`;
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _createObjectCellWithValue(valueStyle: string, value: string): HTMLElement {
+    const fragment = UI.Fragment.Fragment.build `
+  <td class="object-column disclosure">
+  <div class="source-code event-properties" style="overflow: visible" $="container">
+  <span class="value object-value-${valueStyle}">${value}</span>
+  <span class="object-value-id">@${this.snapshotNodeId}</span>
+  </div>
+  </td>`;
     const div = fragment.$('container');
     this._prefixObjectCell(div);
     if (this._reachableFromWindow) {
-      div.appendChild(UI.Fragment.html
-                      `<span class="heap-object-tag" title="${i18nString(UIStrings.userObjectReachableFromWindow)}">🗖</span>`);
+      div.appendChild(UI.Fragment.html `<span class="heap-object-tag" title="${i18nString(UIStrings.userObjectReachableFromWindow)}">🗖</span>`);
     }
     if (this.detachedDOMTreeNode) {
-      div.appendChild(UI.Fragment.html`<span class="heap-object-tag" title="${
-          i18nString(UIStrings.detachedFromDomTree)}">✀</span>`);
+      div.appendChild(UI.Fragment.html `<span class="heap-object-tag" title="${i18nString(UIStrings.detachedFromDomTree)}">✀</span>`);
     }
     this._appendSourceLocation(div);
-    const cell = /** @type {!HTMLElement} */ (fragment.element());
+    const cell = (fragment.element() as HTMLElement);
     if (this.depth) {
-      cell.style.setProperty(
-          'padding-left',
-          (this.depth * /** @type {!HeapSnapshotSortableDataGrid} */ (this.dataGrid).indentWidth) + 'px');
+      cell.style.setProperty('padding-left', (this.depth * (this.dataGrid as HeapSnapshotSortableDataGrid).indentWidth) + 'px');
     }
     return cell;
   }
 
-  /**
-   * @param {!Element} div
-   */
-  _prefixObjectCell(div) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _prefixObjectCell(div: Element): void {
   }
 
-  /**
-   * @param {!Element} div
-   */
-  async _appendSourceLocation(div) {
-    const linkContainer = UI.Fragment.html`<span class="heap-object-source-link" />`;
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  async _appendSourceLocation(div: Element): Promise<void> {
+    const linkContainer = UI.Fragment.html `<span class="heap-object-source-link" />`;
     div.appendChild(linkContainer);
-    const link =
-        await this._dataGrid.dataDisplayDelegate().linkifyObject(/** @type {number} */ (this.snapshotNodeIndex));
+    const link = await this._dataGrid.dataDisplayDelegate().linkifyObject((this.snapshotNodeIndex as number));
     if (link) {
       linkContainer.appendChild(link);
       this.linkElement = link;
-    } else {
+    }
+    else {
       linkContainer.remove();
     }
   }
 
-  /**
-   * @override
-   * @param {!SDK.HeapProfilerModel.HeapProfilerModel} heapProfilerModel
-   * @param {string} objectGroupName
-   * @return {!Promise<!SDK.RemoteObject.RemoteObject>}
-   */
-  async queryObjectContent(heapProfilerModel, objectGroupName) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  async queryObjectContent(heapProfilerModel: SDK.HeapProfilerModel.HeapProfilerModel, objectGroupName: string): Promise<SDK.RemoteObject.RemoteObject> {
     const remoteObject = await this.tryQueryObjectContent(heapProfilerModel, objectGroupName);
     return remoteObject ||
-        heapProfilerModel.runtimeModel().createRemoteObjectFromPrimitiveValue(
-            i18nString(UIStrings.previewIsNotAvailable));
+      heapProfilerModel.runtimeModel().createRemoteObjectFromPrimitiveValue(i18nString(UIStrings.previewIsNotAvailable));
   }
 
-  /**
-   * @override
-   * @param {!SDK.HeapProfilerModel.HeapProfilerModel} heapProfilerModel
-   * @param {string} objectGroupName
-   * @return {!Promise<?SDK.RemoteObject.RemoteObject>}
-   */
-  async tryQueryObjectContent(heapProfilerModel, objectGroupName) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  async tryQueryObjectContent(heapProfilerModel: SDK.HeapProfilerModel.HeapProfilerModel, objectGroupName: string): Promise<SDK.RemoteObject.RemoteObject | null> {
     if (this._type === 'string') {
       return heapProfilerModel.runtimeModel().createRemoteObjectFromPrimitiveValue(this._name);
     }
     return await heapProfilerModel.objectForSnapshotObjectId(String(this.snapshotNodeId), objectGroupName);
   }
 
-  async updateHasChildren() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  async updateHasChildren(): Promise<void> {
     const isEmpty = await this._provider().isEmpty();
     this.setHasChildren(!isEmpty);
   }
 
-  /**
-   * @param {string} fullName
-   * @param {boolean} hasObjectId
-   * @return {string}
-   */
-  shortenWindowURL(fullName, hasObjectId) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  shortenWindowURL(fullName: string, hasObjectId: boolean): string {
     const startPos = fullName.indexOf('/');
     const endPos = hasObjectId ? fullName.indexOf('@') : fullName.length;
     if (startPos === -1 || endPos === -1) {
@@ -775,50 +758,55 @@ export class HeapSnapshotGenericObjectNode extends HeapSnapshotGridNode {
     return fullName.substr(0, startPos + 2) + url + fullName.substr(endPos);
   }
 
-  /**
-   * @override
-   * @param {!UI.ContextMenu.ContextMenu} contextMenu
-   * @param {!DataDisplayDelegate} dataDisplayDelegate
-   * @param {?SDK.HeapProfilerModel.HeapProfilerModel} heapProfilerModel
-   */
-  populateContextMenu(contextMenu, dataDisplayDelegate, heapProfilerModel) {
-    contextMenu.revealSection().appendItem(i18nString(UIStrings.revealInSummaryView), () => {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  populateContextMenu(contextMenu: UI.ContextMenu.ContextMenu, dataDisplayDelegate: DataDisplayDelegate, heapProfilerModel: SDK.HeapProfilerModel.HeapProfilerModel | null): void {
+    contextMenu.revealSection().appendItem(i18nString(UIStrings.revealInSummaryView), 
+    // Transformation: updateParameters
+    () => {
       dataDisplayDelegate.showObject(String(this.snapshotNodeId), i18nString(UIStrings.summary));
     });
 
     if (this._referenceName) {
       for (const match of this._referenceName.matchAll(/\((?<objectName>[^@)]*) @(?<snapshotNodeId>\d+)\)/g)) {
-        const {objectName, snapshotNodeId} = /** @type {!{objectName:string, snapshotNodeId:string}} */ (match.groups);
-        contextMenu.revealSection().appendItem(
-            i18nString(UIStrings.revealObjectSWithIdSInSummary, {PH1: objectName, PH2: snapshotNodeId}), () => {
-              dataDisplayDelegate.showObject(snapshotNodeId, i18nString(UIStrings.summary));
-            });
+        const { objectName, snapshotNodeId } = (match.groups as {
+          objectName: string;
+          snapshotNodeId: string;
+        });
+        contextMenu.revealSection().appendItem(i18nString(UIStrings.revealObjectSWithIdSInSummary, { PH1: objectName, PH2: snapshotNodeId }), 
+        // Transformation: updateParameters
+        () => {
+          dataDisplayDelegate.showObject(snapshotNodeId, i18nString(UIStrings.summary));
+        });
       }
     }
 
     if (heapProfilerModel) {
-      contextMenu.revealSection().appendItem(i18nString(UIStrings.storeAsGlobalVariable), async () => {
-        const remoteObject = await this.tryQueryObjectContent(
-            /** @type {!SDK.HeapProfilerModel.HeapProfilerModel} */ (heapProfilerModel), '');
+      contextMenu.revealSection().appendItem(i18nString(UIStrings.storeAsGlobalVariable), 
+      // Transformation: updateParameters
+      async () => {
+        const remoteObject = await this.tryQueryObjectContent((heapProfilerModel as SDK.HeapProfilerModel.HeapProfilerModel), '');
         if (!remoteObject) {
           Common.Console.Console.instance().error(i18nString(UIStrings.previewIsNotAvailable));
-        } else {
-          await SDK.ConsoleModel.ConsoleModel.instance().saveToTempVariable(
-              UI.Context.Context.instance().flavor(SDK.RuntimeModel.ExecutionContext), remoteObject);
+        }
+        else {
+          await SDK.ConsoleModel.ConsoleModel.instance().saveToTempVariable(UI.Context.Context.instance().flavor(SDK.RuntimeModel.ExecutionContext), remoteObject);
         }
       });
     }
   }
 }
 
+// Transformation: updatePropertyDeclarations
 export class HeapSnapshotObjectNode extends HeapSnapshotGenericObjectNode {
-  /**
-   * @param {!HeapSnapshotSortableDataGrid} dataGrid
-   * @param {!HeapSnapshotProxy} snapshot
-   * @param {!HeapSnapshotModel.HeapSnapshotModel.Edge} edge
-   * @param {?HeapSnapshotObjectNode} parentObjectNode
-   */
-  constructor(dataGrid, snapshot, edge, parentObjectNode) {
+  _referenceName: string;
+  _referenceType: string;
+  _edgeIndex: number;
+  _snapshot: HeapSnapshotProxy;
+  _parentObjectNode: HeapSnapshotObjectNode | null;
+  _cycledWithAncestorGridNode: HeapSnapshotObjectNode | null;
+  // Transformation: updateParameters
+  constructor(dataGrid: HeapSnapshotSortableDataGrid, snapshot: HeapSnapshotProxy, edge: HeapSnapshotModel.HeapSnapshotModel.Edge, parentObjectNode: HeapSnapshotObjectNode | null) {
     super(dataGrid, edge.node);
     this._referenceName = edge.name;
     this._referenceType = edge.type;
@@ -841,28 +829,31 @@ export class HeapSnapshotObjectNode extends HeapSnapshotGenericObjectNode {
     data['sizeDelta'] = '';
   }
 
-  /**
-   * @override
-   * @return {?{snapshot:!HeapSnapshotProxy, snapshotNodeIndex:number}}
-   */
-  retainersDataSource() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  retainersDataSource(): {
+    snapshot: HeapSnapshotProxy;
+    snapshotNodeIndex: number;
+  } | null {
     return this.snapshotNodeIndex === undefined ? null :
-                                                  {snapshot: this._snapshot, snapshotNodeIndex: this.snapshotNodeIndex};
+      { snapshot: this._snapshot, snapshotNodeIndex: this.snapshotNodeIndex };
   }
 
-  /**
-   * @override
-   * @return {!HeapSnapshotProviderProxy}
-   */
-  createProvider() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  createProvider(): HeapSnapshotProviderProxy {
     if (this.snapshotNodeIndex === undefined) {
       throw new Error('Cannot create a provider on a root node');
     }
     return this._snapshot.createEdgesProvider(this.snapshotNodeIndex);
   }
 
-  _findAncestorWithSameSnapshotNodeId() {
-    let ancestor = this._parentObjectNode;
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _findAncestorWithSameSnapshotNodeId(): HeapSnapshotObjectNode | null {
+    let 
+    // Transformation: updateTypeDefinitionsForLocalTypes
+    ancestor: (HeapSnapshotObjectNode | null) = this._parentObjectNode;
     while (ancestor) {
       if (ancestor.snapshotNodeId === this.snapshotNodeId) {
         return ancestor;
@@ -872,42 +863,34 @@ export class HeapSnapshotObjectNode extends HeapSnapshotGenericObjectNode {
     return null;
   }
 
-  /**
-   * @override
-   * @param {!HeapSnapshotModel.HeapSnapshotModel.Node|!HeapSnapshotModel.HeapSnapshotModel.Edge} item
-   * @return {!HeapSnapshotObjectNode}
-   */
-  _createChildNode(item) {
-    return new HeapSnapshotObjectNode(
-        this._dataGrid, this._snapshot, /** @type {!HeapSnapshotModel.HeapSnapshotModel.Edge} */ (item), this);
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _createChildNode(item: HeapSnapshotModel.HeapSnapshotModel.Node | HeapSnapshotModel.HeapSnapshotModel.Edge): HeapSnapshotObjectNode {
+    return new HeapSnapshotObjectNode(this._dataGrid, this._snapshot, (
+    // Transformation: updateCast
+    item as HeapSnapshotModel.HeapSnapshotModel.Edge), this);
   }
 
-  /**
-   * @override
-   * @return {number}
-   */
-  _getHash() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _getHash(): number {
     return this._edgeIndex;
   }
 
-  /**
-   * @override
-   * @return {!HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig}
-   */
-  comparator() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  comparator(): HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig {
     const sortAscending = this._dataGrid.isSortOrderAscending();
     const sortColumnId = this._dataGrid.sortColumnId();
     switch (sortColumnId) {
       case 'object':
-        return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig(
-            '!edgeName', sortAscending, 'retainedSize', false);
+        return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('!edgeName', sortAscending, 'retainedSize', false);
       case 'count':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('!edgeName', true, 'retainedSize', false);
       case 'shallowSize':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('selfSize', sortAscending, '!edgeName', true);
       case 'retainedSize':
-        return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig(
-            'retainedSize', sortAscending, '!edgeName', true);
+        return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('retainedSize', sortAscending, '!edgeName', true);
       case 'distance':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('distance', sortAscending, '_name', true);
       default:
@@ -915,12 +898,12 @@ export class HeapSnapshotObjectNode extends HeapSnapshotGenericObjectNode {
     }
   }
 
-  /**
-   * @override
-   * @param {!Element} div
-   */
-  _prefixObjectCell(div) {
-    let name = this._referenceName || '(empty)';
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _prefixObjectCell(div: Element): void {
+    let 
+    // Transformation: updateTypeDefinitionsForLocalTypes
+    name: string = this._referenceName || '(empty)';
     let nameClass = 'name';
     switch (this._referenceType) {
       case 'context':
@@ -938,78 +921,67 @@ export class HeapSnapshotObjectNode extends HeapSnapshotGenericObjectNode {
     if (this._cycledWithAncestorGridNode) {
       div.classList.add('cycled-ancessor-node');
     }
-    div.prepend(UI.Fragment.html`<span class="property-name ${nameClass}">${name}</span>
-                        <span class="grayed">${this._edgeNodeSeparator()}</span>`);
+    div.prepend(UI.Fragment.html `<span class="property-name ${nameClass}">${name}</span>
+  <span class="grayed">${this._edgeNodeSeparator()}</span>`);
   }
 
-  /**
-   * @return {string}
-   */
-  _edgeNodeSeparator() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _edgeNodeSeparator(): string {
     return '::';
   }
 }
 
+// Transformation: updatePropertyDeclarations
 export class HeapSnapshotRetainingObjectNode extends HeapSnapshotObjectNode {
-  /**
-   * @param {!HeapSnapshotSortableDataGrid} dataGrid
-   * @param {!HeapSnapshotProxy} snapshot
-   * @param {!HeapSnapshotModel.HeapSnapshotModel.Edge} edge
-   * @param {?HeapSnapshotRetainingObjectNode} parentRetainingObjectNode
-   */
-  constructor(dataGrid, snapshot, edge, parentRetainingObjectNode) {
+  // Transformation: updateParameters
+  constructor(dataGrid: HeapSnapshotSortableDataGrid, snapshot: HeapSnapshotProxy, edge: HeapSnapshotModel.HeapSnapshotModel.Edge, parentRetainingObjectNode: HeapSnapshotRetainingObjectNode | null) {
     super(dataGrid, snapshot, edge, parentRetainingObjectNode);
   }
 
-  /**
-   * @override
-   * @return {!HeapSnapshotProviderProxy}
-   */
-  createProvider() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  createProvider(): HeapSnapshotProviderProxy {
     if (this.snapshotNodeIndex === undefined) {
       throw new Error('Cannot create providers on root nodes');
     }
     return this._snapshot.createRetainingEdgesProvider(this.snapshotNodeIndex);
   }
 
-  /**
-   * @override
-   * @param {!HeapSnapshotModel.HeapSnapshotModel.Node|!HeapSnapshotModel.HeapSnapshotModel.Edge} item
-   * @return {!HeapSnapshotRetainingObjectNode}
-   */
-  _createChildNode(item) {
-    return new HeapSnapshotRetainingObjectNode(
-        this._dataGrid, this._snapshot, /** @type {!HeapSnapshotModel.HeapSnapshotModel.Edge}*/ (item), this);
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _createChildNode(item: HeapSnapshotModel.HeapSnapshotModel.Node | HeapSnapshotModel.HeapSnapshotModel.Edge): HeapSnapshotRetainingObjectNode {
+    return new HeapSnapshotRetainingObjectNode(this._dataGrid, this._snapshot, (
+    // Transformation: updateCast
+    item as HeapSnapshotModel.HeapSnapshotModel.Edge), this);
   }
 
-  /**
-   * @override
-   * @return {string}
-   */
-  _edgeNodeSeparator() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _edgeNodeSeparator(): string {
     // TODO(l10n): improve description or clarify intention.
     return i18nString(UIStrings.inElement);
   }
 
-  /**
-   * @override
-   */
-  expand() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  expand(): void {
     this._expandRetainersChain(20);
   }
 
-  /**
-   * @param {number} maxExpandLevels
-   */
-  _expandRetainersChain(maxExpandLevels) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _expandRetainersChain(maxExpandLevels: number): void {
     if (!this._populated) {
-      this.once(HeapSnapshotGridNode.Events.PopulateComplete).then(() => this._expandRetainersChain(maxExpandLevels));
+      this.once(HeapSnapshotGridNode.Events.PopulateComplete).then(
+      // Transformation: updateParameters
+      () => this._expandRetainersChain(maxExpandLevels));
       this.populate();
       return;
     }
     super.expand();
     if (--maxExpandLevels > 0 && this.children.length > 0) {
-      const retainer = /** @type {!HeapSnapshotRetainingObjectNode} */ (this.children[0]);
+      const retainer = (this.children[0] as HeapSnapshotRetainingObjectNode);
       if ((retainer._distance || 0) > 1) {
         retainer._expandRetainersChain(maxExpandLevels);
         return;
@@ -1019,14 +991,12 @@ export class HeapSnapshotRetainingObjectNode extends HeapSnapshotObjectNode {
   }
 }
 
+// Transformation: updatePropertyDeclarations
 export class HeapSnapshotInstanceNode extends HeapSnapshotGenericObjectNode {
-  /**
-   * @param {!HeapSnapshotSortableDataGrid} dataGrid
-   * @param {!HeapSnapshotProxy} snapshot
-   * @param {!HeapSnapshotModel.HeapSnapshotModel.Node} node
-   * @param {boolean} isDeletedNode
-   */
-  constructor(dataGrid, snapshot, node, isDeletedNode) {
+  _baseSnapshotOrSnapshot: HeapSnapshotProxy;
+  _isDeletedNode: boolean;
+  // Transformation: updateParameters
+  constructor(dataGrid: HeapSnapshotSortableDataGrid, snapshot: HeapSnapshotProxy, node: HeapSnapshotModel.HeapSnapshotModel.Node, isDeletedNode: boolean) {
     super(dataGrid, node);
     this._baseSnapshotOrSnapshot = snapshot;
     this._isDeletedNode = isDeletedNode;
@@ -1041,7 +1011,8 @@ export class HeapSnapshotInstanceNode extends HeapSnapshotGenericObjectNode {
       data['addedSize'] = '';
       data['removedCount'] = '\u2022';
       data['removedSize'] = Number.withThousandsSeparator(this._shallowSize || 0);
-    } else {
+    }
+    else {
       data['addedCount'] = '\u2022';
       data['addedSize'] = Number.withThousandsSeparator(this._shallowSize || 0);
       data['removedCount'] = '';
@@ -1049,63 +1020,53 @@ export class HeapSnapshotInstanceNode extends HeapSnapshotGenericObjectNode {
     }
   }
 
-  /**
-   * @override
-   * @return {?{snapshot:!HeapSnapshotProxy, snapshotNodeIndex:number}}
-   */
-  retainersDataSource() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  retainersDataSource(): {
+    snapshot: HeapSnapshotProxy;
+    snapshotNodeIndex: number;
+  } | null {
     return this.snapshotNodeIndex === undefined ?
-        null :
-        {snapshot: this._baseSnapshotOrSnapshot, snapshotNodeIndex: this.snapshotNodeIndex};
+      null :
+      { snapshot: this._baseSnapshotOrSnapshot, snapshotNodeIndex: this.snapshotNodeIndex };
   }
 
-  /**
-   * @override
-   * @return {!HeapSnapshotProviderProxy}
-   */
-  createProvider() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  createProvider(): HeapSnapshotProviderProxy {
     if (this.snapshotNodeIndex === undefined) {
       throw new Error('Cannot create providers on root nodes');
     }
     return this._baseSnapshotOrSnapshot.createEdgesProvider(this.snapshotNodeIndex);
   }
 
-  /**
-   * @override
-   * @param {!HeapSnapshotModel.HeapSnapshotModel.Node|!HeapSnapshotModel.HeapSnapshotModel.Edge} item
-   * @return {!HeapSnapshotObjectNode}
-   */
-  _createChildNode(item) {
-    return new HeapSnapshotObjectNode(
-        this._dataGrid, this._baseSnapshotOrSnapshot, /** @type {!HeapSnapshotModel.HeapSnapshotModel.Edge} */ (item),
-        null);
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _createChildNode(item: HeapSnapshotModel.HeapSnapshotModel.Node | HeapSnapshotModel.HeapSnapshotModel.Edge): HeapSnapshotObjectNode {
+    return new HeapSnapshotObjectNode(this._dataGrid, this._baseSnapshotOrSnapshot, (
+    // Transformation: updateCast
+    item as HeapSnapshotModel.HeapSnapshotModel.Edge), null);
   }
 
-  /**
-   * @override
-   * @return {number}
-   */
-  _getHash() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _getHash(): number {
     if (this.snapshotNodeId === undefined) {
       throw new Error('Cannot hash root nodes');
     }
     return this.snapshotNodeId;
   }
 
-  /**
-   * @override
-   * @return {!HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig}
-   */
-  comparator() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  comparator(): HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig {
     const sortAscending = this._dataGrid.isSortOrderAscending();
     const sortColumnId = this._dataGrid.sortColumnId();
     switch (sortColumnId) {
       case 'object':
-        return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig(
-            '!edgeName', sortAscending, 'retainedSize', false);
+        return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('!edgeName', sortAscending, 'retainedSize', false);
       case 'distance':
-        return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig(
-            'distance', sortAscending, 'retainedSize', false);
+        return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('distance', sortAscending, 'retainedSize', false);
       case 'count':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('!edgeName', true, 'retainedSize', false);
       case 'addedSize':
@@ -1115,22 +1076,32 @@ export class HeapSnapshotInstanceNode extends HeapSnapshotGenericObjectNode {
       case 'shallowSize':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('selfSize', sortAscending, '!edgeName', true);
       case 'retainedSize':
-        return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig(
-            'retainedSize', sortAscending, '!edgeName', true);
+        return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('retainedSize', sortAscending, '!edgeName', true);
       default:
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('!edgeName', true, 'retainedSize', false);
     }
   }
 }
 
+// Transformation: updatePropertyDeclarations
 export class HeapSnapshotConstructorNode extends HeapSnapshotGridNode {
-  /**
-   * @param {!HeapSnapshotConstructorsDataGrid} dataGrid
-   * @param {string} className
-   * @param {!HeapSnapshotModel.HeapSnapshotModel.Aggregate} aggregate
-   * @param {!HeapSnapshotModel.HeapSnapshotModel.NodeFilter} nodeFilter
-   */
-  constructor(dataGrid, className, aggregate, nodeFilter) {
+  _name: string;
+  _nodeFilter: HeapSnapshotModel.HeapSnapshotModel.NodeFilter;
+  _distance: number;
+  _count: number;
+  _shallowSize: number;
+  _retainedSize: number;
+  data: {
+    object: string;
+    count: string;
+    distance: string;
+    shallowSize: string;
+    retainedSize: string;
+    'shallowSize-percent': string;
+    'retainedSize-percent': string;
+  };
+  // Transformation: updateParameters
+  constructor(dataGrid: HeapSnapshotConstructorsDataGrid, className: string, aggregate: HeapSnapshotModel.HeapSnapshotModel.Aggregate, nodeFilter: HeapSnapshotModel.HeapSnapshotModel.NodeFilter) {
     super(dataGrid, aggregate.count > 0);
     this._name = className;
     this._nodeFilter = nodeFilter;
@@ -1139,7 +1110,7 @@ export class HeapSnapshotConstructorNode extends HeapSnapshotGridNode {
     this._shallowSize = aggregate.self;
     this._retainedSize = aggregate.maxRet;
 
-    const snapshot = /** @type {!HeapSnapshotProxy} */ (dataGrid.snapshot);
+    const snapshot = (dataGrid.snapshot as HeapSnapshotProxy);
     const retainedSizePercent = this._retainedSize / snapshot.totalSize * 100.0;
     const shallowSizePercent = this._shallowSize / snapshot.totalSize * 100.0;
     this.data = {
@@ -1153,28 +1124,19 @@ export class HeapSnapshotConstructorNode extends HeapSnapshotGridNode {
     };
   }
 
-  /**
-   * @override
-   */
   get name() {
     return this._name;
   }
 
-  /**
-   * @override
-   * @return {!HeapSnapshotProviderProxy}
-   */
-  createProvider() {
-    return /** @type {!HeapSnapshotProviderProxy} */ (
-        /** @type {!HeapSnapshotProxy} */
-        (this._dataGrid.snapshot).createNodesProviderForClass(this._name, this._nodeFilter));
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  createProvider(): HeapSnapshotProviderProxy {
+    return /** @type {!HeapSnapshotProviderProxy} */ ((this._dataGrid.snapshot as HeapSnapshotProxy).createNodesProviderForClass(this._name, this._nodeFilter));
   }
 
-  /**
-   * @param {number} snapshotObjectId
-   * @return {!Promise<!Array<!HeapSnapshotGridNode>>}
-   */
-  async populateNodeBySnapshotObjectId(snapshotObjectId) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  async populateNodeBySnapshotObjectId(snapshotObjectId: number): Promise<HeapSnapshotGridNode[]> {
     this._dataGrid.resetNameFilter();
     await this.expandWithoutPopulate();
 
@@ -1186,55 +1148,46 @@ export class HeapSnapshotConstructorNode extends HeapSnapshotGridNode {
 
     await this._populateChildren(nodePosition, null);
 
-    const node = /** @type {?HeapSnapshotGridNode} */ (this.childForPosition(nodePosition));
+    const node = (this.childForPosition(nodePosition) as HeapSnapshotGridNode | null);
     return node ? [this, node] : [];
   }
 
-  /**
-   * @param {string} filterValue
-   * @return {boolean}
-   */
-  filteredOut(filterValue) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  filteredOut(filterValue: string): boolean {
     return this._name.toLowerCase().indexOf(filterValue) === -1;
   }
 
-  /**
-   * @override
-   * @param {string} columnId
-   * @return {!HTMLElement}
-   */
-  createCell(columnId) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  createCell(columnId: string): HTMLElement {
     const cell = columnId === 'object' ? super.createCell(columnId) : this._createValueCell(columnId);
     if (columnId === 'object' && this._count > 1) {
-      cell.appendChild(UI.Fragment.html`<span class="objects-count">×${this._count}</span>`);
+      cell.appendChild(UI.Fragment.html `<span class="objects-count">×${this._count}</span>`);
     }
     return cell;
   }
 
-  /**
-   * @override
-   * @param {!HeapSnapshotModel.HeapSnapshotModel.Node|!HeapSnapshotModel.HeapSnapshotModel.Edge} item
-   * @return {!HeapSnapshotInstanceNode}
-   */
-  _createChildNode(item) {
-    return new HeapSnapshotInstanceNode(
-        this._dataGrid, /** @type {!HeapSnapshotProxy} */ (this._dataGrid.snapshot),
-        /** @type {!HeapSnapshotModel.HeapSnapshotModel.Node} */ (item), false);
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _createChildNode(item: HeapSnapshotModel.HeapSnapshotModel.Node | HeapSnapshotModel.HeapSnapshotModel.Edge): HeapSnapshotInstanceNode {
+    return new HeapSnapshotInstanceNode(this._dataGrid, (
+    // Transformation: updateCast
+    this._dataGrid.snapshot as HeapSnapshotProxy), (
+    // Transformation: updateCast
+    item as HeapSnapshotModel.HeapSnapshotModel.Node), false);
   }
 
-  /**
-   * @override
-   * @return {!HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig}
-   */
-  comparator() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  comparator(): HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig {
     const sortAscending = this._dataGrid.isSortOrderAscending();
     const sortColumnId = this._dataGrid.sortColumnId();
     switch (sortColumnId) {
       case 'object':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('name', sortAscending, 'id', true);
       case 'distance':
-        return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig(
-            'distance', sortAscending, 'retainedSize', false);
+        return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('distance', sortAscending, 'retainedSize', false);
       case 'shallowSize':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('selfSize', sortAscending, 'id', true);
       case 'retainedSize':
@@ -1245,55 +1198,43 @@ export class HeapSnapshotConstructorNode extends HeapSnapshotGridNode {
   }
 }
 
-/**
- * @implements {ChildrenProvider}
- */
-export class HeapSnapshotDiffNodesProvider {
-  /**
-   * @param {!HeapSnapshotProviderProxy} addedNodesProvider
-   * @param {!HeapSnapshotProviderProxy} deletedNodesProvider
-   * @param {number} addedCount
-   * @param {number} removedCount
-   */
-  constructor(addedNodesProvider, deletedNodesProvider, addedCount, removedCount) {
+// Transformation: updatePropertyDeclarations
+// Transformation: updateInterfacesImplementations
+export class HeapSnapshotDiffNodesProvider implements ChildrenProvider {
+  _addedNodesProvider: HeapSnapshotProviderProxy;
+  _deletedNodesProvider: HeapSnapshotProviderProxy;
+  _addedCount: number;
+  _removedCount: number;
+  // Transformation: updateParameters
+  constructor(addedNodesProvider: HeapSnapshotProviderProxy, deletedNodesProvider: HeapSnapshotProviderProxy, addedCount: number, removedCount: number) {
     this._addedNodesProvider = addedNodesProvider;
     this._deletedNodesProvider = deletedNodesProvider;
     this._addedCount = addedCount;
     this._removedCount = removedCount;
   }
 
-  /**
-   * @override
-   */
-  dispose() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  dispose(): void {
     this._addedNodesProvider.dispose();
     this._deletedNodesProvider.dispose();
   }
 
-  /**
-   * @override
-   * @param {number} snapshotObjectId
-   * @return {!Promise<number>}
-   */
-  nodePosition(snapshotObjectId) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  nodePosition(snapshotObjectId: number): Promise<number> {
     throw new Error('Unreachable');
   }
 
-  /**
-   * @override
-   * @return {!Promise<boolean>}
-   */
-  isEmpty() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  isEmpty(): Promise<boolean> {
     return Promise.resolve(false);
   }
 
-  /**
-   * @override
-   * @param {number} beginPosition
-   * @param {number} endPosition
-   * @return {!Promise<!HeapSnapshotModel.HeapSnapshotModel.ItemsRange>}
-   */
-  async serializeItemsRange(beginPosition, endPosition) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  async serializeItemsRange(beginPosition: number, endPosition: number): Promise<HeapSnapshotModel.HeapSnapshotModel.ItemsRange> {
     let itemsRange;
     let addedItems;
     if (beginPosition < this._addedCount) {
@@ -1310,10 +1251,10 @@ export class HeapSnapshotDiffNodesProvider {
 
       addedItems = itemsRange;
       itemsRange = await this._deletedNodesProvider.serializeItemsRange(0, endPosition - itemsRange.endPosition);
-    } else {
+    }
+    else {
       addedItems = new HeapSnapshotModel.HeapSnapshotModel.ItemsRange(0, 0, 0, []);
-      itemsRange = await this._deletedNodesProvider.serializeItemsRange(
-          beginPosition - this._addedCount, endPosition - this._addedCount);
+      itemsRange = await this._deletedNodesProvider.serializeItemsRange(beginPosition - this._addedCount, endPosition - this._addedCount);
     }
 
     if (!addedItems.items.length) {
@@ -1328,24 +1269,35 @@ export class HeapSnapshotDiffNodesProvider {
     return addedItems;
   }
 
-  /**
-   * @override
-   * @param {!HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig} comparator
-   * @return {!Promise<void>}
-   */
-  async sortAndRewind(comparator) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  async sortAndRewind(comparator: HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig): Promise<void> {
     await this._addedNodesProvider.sortAndRewind(comparator);
     await this._deletedNodesProvider.sortAndRewind(comparator);
   }
 }
 
+// Transformation: updatePropertyDeclarations
 export class HeapSnapshotDiffNode extends HeapSnapshotGridNode {
-  /**
-   * @param {!HeapSnapshotDiffDataGrid} dataGrid
-   * @param {string} className
-   * @param {!HeapSnapshotModel.HeapSnapshotModel.DiffForClass} diffForClass
-   */
-  constructor(dataGrid, className, diffForClass) {
+  _name: string;
+  _addedCount: number;
+  _removedCount: number;
+  _countDelta: number;
+  _addedSize: number;
+  _removedSize: number;
+  _sizeDelta: number;
+  _deletedIndexes: number[];
+  data: {
+    object: string;
+    addedCount: string;
+    removedCount: string;
+    countDelta: string;
+    addedSize: string;
+    removedSize: string;
+    sizeDelta: string;
+  };
+  // Transformation: updateParameters
+  constructor(dataGrid: HeapSnapshotDiffDataGrid, className: string, diffForClass: HeapSnapshotModel.HeapSnapshotModel.DiffForClass) {
     super(dataGrid, true);
     this._name = className;
     this._addedCount = diffForClass.addedCount;
@@ -1366,19 +1318,14 @@ export class HeapSnapshotDiffNode extends HeapSnapshotGridNode {
     };
   }
 
-  /**
-   * @override
-   */
   get name() {
     return this._name;
   }
 
-  /**
-   * @override
-   * @return {!HeapSnapshotDiffNodesProvider}
-   */
-  createProvider() {
-    const tree = /** @type {!HeapSnapshotDiffDataGrid} */ (this._dataGrid);
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  createProvider(): HeapSnapshotDiffNodesProvider {
+    const tree = (this._dataGrid as HeapSnapshotDiffDataGrid);
     if (tree.snapshot === null || tree.baseSnapshot === undefined || tree.baseSnapshot.uid === undefined) {
       throw new Error('Data sources have not been set correctly');
     }
@@ -1387,16 +1334,12 @@ export class HeapSnapshotDiffNode extends HeapSnapshotGridNode {
     if (!addedNodesProvider || !deletedNodesProvider) {
       throw new Error('Failed to create node providers');
     }
-    return new HeapSnapshotDiffNodesProvider(
-        addedNodesProvider, deletedNodesProvider, this._addedCount, this._removedCount);
+    return new HeapSnapshotDiffNodesProvider(addedNodesProvider, deletedNodesProvider, this._addedCount, this._removedCount);
   }
 
-  /**
-   * @override
-   * @param {string} columnId
-   * @return {!HTMLElement}
-   */
-  createCell(columnId) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  createCell(columnId: string): HTMLElement {
     const cell = super.createCell(columnId);
     if (columnId !== 'object') {
       cell.classList.add('numeric-column');
@@ -1404,32 +1347,29 @@ export class HeapSnapshotDiffNode extends HeapSnapshotGridNode {
     return cell;
   }
 
-  /**
-   * @override
-   * @param {!HeapSnapshotModel.HeapSnapshotModel.Node|!HeapSnapshotModel.HeapSnapshotModel.Edge} item
-   * @return {!HeapSnapshotInstanceNode}
-   */
-  _createChildNode(item) {
-    const dataGrid = /** @type {!HeapSnapshotDiffDataGrid} */ (this._dataGrid);
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _createChildNode(item: HeapSnapshotModel.HeapSnapshotModel.Node | HeapSnapshotModel.HeapSnapshotModel.Edge): HeapSnapshotInstanceNode {
+    const dataGrid = (this._dataGrid as HeapSnapshotDiffDataGrid);
     if (item.isAddedNotRemoved) {
       if (dataGrid.snapshot === null) {
         throw new Error('Data sources have not been set correctly');
       }
-      return new HeapSnapshotInstanceNode(
-          this._dataGrid, dataGrid.snapshot, /** @type {!HeapSnapshotModel.HeapSnapshotModel.Node} */ (item), false);
+      return new HeapSnapshotInstanceNode(this._dataGrid, dataGrid.snapshot, (
+      // Transformation: updateCast
+      item as HeapSnapshotModel.HeapSnapshotModel.Node), false);
     }
     if (dataGrid.baseSnapshot === undefined) {
       throw new Error('Data sources have not been set correctly');
     }
-    return new HeapSnapshotInstanceNode(
-        this._dataGrid, dataGrid.baseSnapshot, /** @type {!HeapSnapshotModel.HeapSnapshotModel.Node} */ (item), true);
+    return new HeapSnapshotInstanceNode(this._dataGrid, dataGrid.baseSnapshot, (
+    // Transformation: updateCast
+    item as HeapSnapshotModel.HeapSnapshotModel.Node), true);
   }
 
-  /**
-   * @override
-   * @return {!HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig}
-   */
-  comparator() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  comparator(): HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig {
     const sortAscending = this._dataGrid.isSortOrderAscending();
     const sortColumnId = this._dataGrid.sortColumnId();
     switch (sortColumnId) {
@@ -1452,34 +1392,38 @@ export class HeapSnapshotDiffNode extends HeapSnapshotGridNode {
     }
   }
 
-  /**
-   * @param {string} filterValue
-   * @return {boolean}
-   */
-  filteredOut(filterValue) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  filteredOut(filterValue: string): boolean {
     return this._name.toLowerCase().indexOf(filterValue) === -1;
   }
 
-  /**
-   * @param {number} delta
-   */
-  _signForDelta(delta) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _signForDelta(delta: number): "" | "+" | "−" {
     if (delta === 0) {
       return '';
     }
     if (delta > 0) {
       return '+';
     }
-    return '\u2212';  // Math minus sign, same width as plus.
+    return '\u2212'; // Math minus sign, same width as plus.
   }
 }
 
+// Transformation: updatePropertyDeclarations
 export class AllocationGridNode extends HeapSnapshotGridNode {
-  /**
-   * @param {!AllocationDataGrid} dataGrid
-   * @param {!HeapSnapshotModel.HeapSnapshotModel.SerializedAllocationNode} data
-   */
-  constructor(dataGrid, data) {
+  _populated: boolean;
+  _allocationNode: HeapSnapshotModel.HeapSnapshotModel.SerializedAllocationNode;
+  data: {
+    liveCount: string;
+    count: string;
+    liveSize: string;
+    size: string;
+    name: string;
+  };
+  // Transformation: updateParameters
+  constructor(dataGrid: AllocationDataGrid, data: HeapSnapshotModel.HeapSnapshotModel.SerializedAllocationNode) {
     super(dataGrid, data.hasChildren);
     this._populated = false;
     this._allocationNode = data;
@@ -1492,25 +1436,27 @@ export class AllocationGridNode extends HeapSnapshotGridNode {
     };
   }
 
-  /**
-   * @override
-   */
-  populate() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  populate(): void {
     if (this._populated) {
       return;
     }
     this._doPopulate();
   }
 
-  async _doPopulate() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  async _doPopulate(): Promise<void> {
     this._populated = true;
 
-    const callers = await /** @type {!HeapSnapshotProxy} */ (this._dataGrid.snapshot)
-                        .allocationNodeCallers(this._allocationNode.id);
+    const callers = await (this._dataGrid.snapshot as HeapSnapshotProxy).allocationNodeCallers(this._allocationNode.id);
 
     const callersChain = callers.nodesWithSingleCaller;
-    let parentNode = /** @type {!AllocationGridNode}*/ (this);
-    const dataGrid = /** @type {!AllocationDataGrid} */ (this._dataGrid);
+    let 
+    // Transformation: updateTypeDefinitionsForLocalTypes
+    parentNode: AllocationGridNode = (this as AllocationGridNode);
+    const dataGrid = (this._dataGrid as AllocationDataGrid);
     for (const caller of callersChain) {
       const child = new AllocationGridNode(dataGrid, caller);
       dataGrid.appendNode(parentNode, child);
@@ -1522,29 +1468,25 @@ export class AllocationGridNode extends HeapSnapshotGridNode {
     }
 
     const callersBranch = callers.branchingCallers;
-    callersBranch.sort(/** @type {!AllocationDataGrid}*/ (this._dataGrid).createComparator());
+    callersBranch.sort((this._dataGrid as AllocationDataGrid).createComparator());
     for (const caller of callersBranch) {
       dataGrid.appendNode(parentNode, new AllocationGridNode(dataGrid, caller));
     }
     dataGrid.updateVisibleNodes(true);
   }
 
-  /**
-   * @override
-   */
-  expand() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  expand(): void {
     super.expand();
     if (this.children.length === 1) {
       this.children[0].expand();
     }
   }
 
-  /**
-   * @override
-   * @param {string} columnId
-   * @return {!HTMLElement}
-   */
-  createCell(columnId) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  createCell(columnId: string): HTMLElement {
     if (columnId !== 'name') {
       return this._createValueCell(columnId);
     }
@@ -1553,21 +1495,17 @@ export class AllocationGridNode extends HeapSnapshotGridNode {
     const allocationNode = this._allocationNode;
     const heapProfilerModel = this._dataGrid.heapProfilerModel();
     if (allocationNode.scriptId) {
-      const linkifier = /** @type {!AllocationDataGrid}*/ (this._dataGrid).linkifier;
-      const urlElement = linkifier.linkifyScriptLocation(
-          heapProfilerModel ? heapProfilerModel.target() : null, String(allocationNode.scriptId),
-          allocationNode.scriptName, allocationNode.line - 1,
-          {columnNumber: allocationNode.column - 1, className: 'profile-node-file', tabStop: undefined});
+      const linkifier = (this._dataGrid as AllocationDataGrid).linkifier;
+      const urlElement = linkifier.linkifyScriptLocation(heapProfilerModel ? heapProfilerModel.target() : null, String(allocationNode.scriptId), allocationNode.scriptName, allocationNode.line - 1, { columnNumber: allocationNode.column - 1, className: 'profile-node-file', tabStop: undefined });
       urlElement.style.maxWidth = '75%';
       cell.insertBefore(urlElement, cell.firstChild);
     }
     return cell;
   }
 
-  /**
-   * @return {number}
-   */
-  allocationNodeId() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  allocationNodeId(): number {
     return this._allocationNode.id;
   }
 }

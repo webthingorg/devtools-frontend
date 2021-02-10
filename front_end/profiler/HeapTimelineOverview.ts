@@ -2,11 +2,29 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as PerfUI from '../perf_ui/perf_ui.js';
 import * as Platform from '../platform/platform.js';
 import * as UI from '../ui/ui.js';
 
+// Transformation: updatePropertyDeclarations
 export class HeapTimelineOverview extends UI.Widget.VBox {
+  _overviewCalculator: OverviewCalculator;
+  _overviewContainer: HTMLElement;
+  _overviewGrid: PerfUI.OverviewGrid.OverviewGrid;
+  _overviewCanvas: HTMLCanvasElement;
+  _windowLeft: number;
+  _windowRight: number;
+  _yScale: SmoothScale;
+  _xScale: SmoothScale;
+  _profileSamples: Samples;
+  _running?: boolean;
+  _updateOverviewCanvas?: boolean;
+  _updateGridTimerId?: number;
+  _updateTimerId?: number | null;
+  _windowWidth?: number;
+  // Transformation: updateParameters
   constructor() {
     super();
     this.element.id = 'heap-recording-view';
@@ -16,10 +34,7 @@ export class HeapTimelineOverview extends UI.Widget.VBox {
     this._overviewContainer = this.element.createChild('div', 'heap-overview-container');
     this._overviewGrid = new PerfUI.OverviewGrid.OverviewGrid('heap-recording', this._overviewCalculator);
     this._overviewGrid.element.classList.add('fill');
-
-    /** @type {!HTMLCanvasElement} */
-    this._overviewCanvas = /** @type {!HTMLCanvasElement} */ (
-        this._overviewContainer.createChild('canvas', 'heap-recording-overview-canvas'));
+    this._overviewCanvas = (this._overviewContainer.createChild('canvas', 'heap-recording-overview-canvas') as HTMLCanvasElement);
     this._overviewContainer.appendChild(this._overviewGrid.element);
     this._overviewGrid.addEventListener(PerfUI.OverviewGrid.Events.WindowChanged, this._onWindowChanged, this);
 
@@ -32,9 +47,14 @@ export class HeapTimelineOverview extends UI.Widget.VBox {
     this._profileSamples = new Samples();
   }
 
-  start() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  start(): void {
     this._running = true;
-    const drawFrame = () => {
+    const drawFrame = 
+    // Transformation: updateReturnType
+    // Transformation: updateParameters
+    (): void => {
       this.update();
       if (this._running) {
         this.element.window().requestAnimationFrame(drawFrame);
@@ -43,25 +63,24 @@ export class HeapTimelineOverview extends UI.Widget.VBox {
     drawFrame();
   }
 
-  stop() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  stop(): void {
     this._running = false;
   }
 
-  /**
-   * @param {!Samples} samples
-   */
-  setSamples(samples) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  setSamples(samples: Samples): void {
     this._profileSamples = samples;
     if (!this._running) {
       this.update();
     }
   }
 
-  /**
-   * @param {number} width
-   * @param {number} height
-   */
-  _drawOverviewCanvas(width, height) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _drawOverviewCanvas(width: number, height: number): void {
     if (!this._profileSamples) {
       return;
     }
@@ -73,11 +92,9 @@ export class HeapTimelineOverview extends UI.Widget.VBox {
 
     const scaleFactor = this._xScale.nextScale(width / profileSamples.totalTime);
     let maxSize = 0;
-    /**
-     * @param {!Array.<number>} sizes
-     * @param {function(number, number):void} callback
-     */
-    function aggregateAndCall(sizes, callback) {
+    // Transformation: updateReturnType
+    // Transformation: updateParameters
+    function aggregateAndCall(sizes: number[], callback: (arg0: number, arg1: number) => void): void {
       let size = 0;
       let currentX = 0;
       for (let i = 1; i < timestamps.length; ++i) {
@@ -94,11 +111,9 @@ export class HeapTimelineOverview extends UI.Widget.VBox {
       callback(currentX, size);
     }
 
-    /**
-     * @param {number} x
-     * @param {number} size
-     */
-    function maxSizeCallback(x, size) {
+    // Transformation: updateReturnType
+    // Transformation: updateParameters
+    function maxSizeCallback(x: number, size: number): void {
       maxSize = Math.max(maxSize, size);
     }
 
@@ -152,11 +167,9 @@ export class HeapTimelineOverview extends UI.Widget.VBox {
       context.closePath();
     }
 
-    /**
-     * @param {number} x
-     * @param {number} size
-     */
-    function drawBarCallback(x, size) {
+    // Transformation: updateReturnType
+    // Transformation: updateParameters
+    function drawBarCallback(x: number, size: number): void {
       context.moveTo(x, height - 1);
       context.lineTo(x, Math.round(height - size * yScaleFactor - 1));
     }
@@ -193,34 +206,41 @@ export class HeapTimelineOverview extends UI.Widget.VBox {
     }
   }
 
-  /**
-   * @override
-   */
-  onResize() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  onResize(): void {
     this._updateOverviewCanvas = true;
     this._scheduleUpdate();
   }
 
-  _onWindowChanged() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _onWindowChanged(): void {
     if (!this._updateGridTimerId) {
       this._updateGridTimerId = setTimeout(this.updateGrid.bind(this), 10);
     }
   }
 
-  _scheduleUpdate() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _scheduleUpdate(): void {
     if (this._updateTimerId) {
       return;
     }
     this._updateTimerId = setTimeout(this.update.bind(this), 10);
   }
 
-  _updateBoundaries() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _updateBoundaries(): void {
     this._windowLeft = this._overviewGrid.windowLeft();
     this._windowRight = this._overviewGrid.windowRight();
     this._windowWidth = this._windowRight - this._windowLeft;
   }
 
-  update() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  update(): void {
     this._updateTimerId = null;
     if (!this.isShowing()) {
       return;
@@ -231,7 +251,9 @@ export class HeapTimelineOverview extends UI.Widget.VBox {
     this._drawOverviewCanvas(this._overviewContainer.clientWidth, this._overviewContainer.clientHeight - 20);
   }
 
-  updateGrid() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  updateGrid(): void {
     this._updateGridTimerId = 0;
     this._updateBoundaries();
     const ids = this._profileSamples.ids;
@@ -244,10 +266,8 @@ export class HeapTimelineOverview extends UI.Widget.VBox {
     const totalTime = this._profileSamples.totalTime;
     const timeLeft = startTime + totalTime * this._windowLeft;
     const timeRight = startTime + totalTime * this._windowRight;
-    const minIndex =
-        Platform.ArrayUtilities.lowerBound(timestamps, timeLeft, Platform.ArrayUtilities.DEFAULT_COMPARATOR);
-    const maxIndex =
-        Platform.ArrayUtilities.upperBound(timestamps, timeRight, Platform.ArrayUtilities.DEFAULT_COMPARATOR);
+    const minIndex = Platform.ArrayUtilities.lowerBound(timestamps, timeLeft, Platform.ArrayUtilities.DEFAULT_COMPARATOR);
+    const maxIndex = Platform.ArrayUtilities.upperBound(timestamps, timeRight, Platform.ArrayUtilities.DEFAULT_COMPARATOR);
     let size = 0;
     for (let i = minIndex; i <= maxIndex; ++i) {
       size += sizes[i];
@@ -255,23 +275,25 @@ export class HeapTimelineOverview extends UI.Widget.VBox {
     const minId = minIndex > 0 ? ids[minIndex - 1] : 0;
     const maxId = maxIndex < ids.length ? ids[maxIndex] : Infinity;
 
-    this.dispatchEventToListeners(IdsRangeChanged, {minId, maxId, size});
+    this.dispatchEventToListeners(IdsRangeChanged, { minId, maxId, size });
   }
 }
 
 export const IdsRangeChanged = Symbol('IdsRangeChanged');
 
+// Transformation: updatePropertyDeclarations
 export class SmoothScale {
+  _lastUpdate: number;
+  _currentScale: number;
+  // Transformation: updateParameters
   constructor() {
     this._lastUpdate = 0;
     this._currentScale = 0.0;
   }
 
-  /**
-   * @param {number} target
-   * @return {number}
-   */
-  nextScale(target) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  nextScale(target: number): number {
     target = target || this._currentScale;
     if (this._currentScale) {
       const now = Date.now();
@@ -281,95 +303,85 @@ export class SmoothScale {
       const maxChangePerDelta = Math.pow(maxChangePerSec, timeDeltaMs / 1000);
       const scaleChange = target / this._currentScale;
       this._currentScale *= Platform.NumberUtilities.clamp(scaleChange, 1 / maxChangePerDelta, maxChangePerDelta);
-    } else {
+    }
+    else {
       this._currentScale = target;
     }
     return this._currentScale;
   }
 }
 
+// Transformation: updatePropertyDeclarations
 export class Samples {
+  sizes: number[];
+  ids: number[];
+  timestamps: number[];
+  max: number[];
+  totalTime: number;
+  // Transformation: updateParameters
   constructor() {
-    /** @type {!Array<number>} */
     this.sizes = [];
-    /** @type {!Array<number>} */
     this.ids = [];
-    /** @type {!Array<number>} */
     this.timestamps = [];
-    /** @type {!Array<number>} */
     this.max = [];
-    /** @type {number} */
     this.totalTime = 30000;
   }
 }
 
-/**
- * @implements {PerfUI.TimelineGrid.Calculator}
- */
-export class OverviewCalculator {
+// Transformation: updatePropertyDeclarations
+// Transformation: updateInterfacesImplementations
+export class OverviewCalculator implements PerfUI.TimelineGrid.Calculator {
+  _maximumBoundaries: number;
+  _minimumBoundaries: number;
+  _xScaleFactor: number;
+  // Transformation: updateParameters
   constructor() {
     this._maximumBoundaries = 0;
     this._minimumBoundaries = 0;
     this._xScaleFactor = 0;
   }
 
-  /**
-   * @param {!HeapTimelineOverview} chart
-   */
-  _updateBoundaries(chart) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  _updateBoundaries(chart: HeapTimelineOverview): void {
     this._minimumBoundaries = 0;
     this._maximumBoundaries = chart._profileSamples.totalTime;
     this._xScaleFactor = chart._overviewContainer.clientWidth / this._maximumBoundaries;
   }
 
-  /**
-   * @override
-   * @param {number} time
-   * @return {number}
-   */
-  computePosition(time) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  computePosition(time: number): number {
     return (time - this._minimumBoundaries) * this._xScaleFactor;
   }
 
-  /**
-   * @override
-   * @param {number} value
-   * @param {number=} precision
-   * @return {string}
-   */
-  formatValue(value, precision) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  formatValue(value: number, precision?: number): string {
     return Number.secondsToString(value / 1000, Boolean(precision));
   }
 
-  /**
-   * @override
-   * @return {number}
-   */
-  maximumBoundary() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  maximumBoundary(): number {
     return this._maximumBoundaries;
   }
 
-  /**
-   * @override
-   * @return {number}
-   */
-  minimumBoundary() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  minimumBoundary(): number {
     return this._minimumBoundaries;
   }
 
-  /**
-   * @override
-   * @return {number}
-   */
-  zeroTime() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  zeroTime(): number {
     return this._minimumBoundaries;
   }
 
-  /**
-   * @override
-   * @return {number}
-   */
-  boundarySpan() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  boundarySpan(): number {
     return this._maximumBoundaries - this._minimumBoundaries;
   }
 }

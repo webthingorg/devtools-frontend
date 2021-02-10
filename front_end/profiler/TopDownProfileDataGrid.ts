@@ -23,17 +23,18 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import * as SDK from '../sdk/sdk.js';  // eslint-disable-line no-unused-vars
-import * as UI from '../ui/ui.js';     // eslint-disable-line no-unused-vars
+/* eslint-disable rulesdir/no_underscored_properties */
 
-import {Formatter, ProfileDataGridNode, ProfileDataGridTree} from './ProfileDataGrid.js';  // eslint-disable-line no-unused-vars
+import * as SDK from '../sdk/sdk.js'; // eslint-disable-line no-unused-vars
+import * as UI from '../ui/ui.js'; // eslint-disable-line no-unused-vars
 
+import { Formatter, ProfileDataGridNode, ProfileDataGridTree } from './ProfileDataGrid.js'; // eslint-disable-line no-unused-vars
+
+// Transformation: updatePropertyDeclarations
 export class TopDownProfileDataGridNode extends ProfileDataGridNode {
-  /**
-   * @param {!SDK.ProfileTreeModel.ProfileNode} profileNode
-   * @param {!TopDownProfileDataGridTree} owningTree
-   */
-  constructor(profileNode, owningTree) {
+  _remainingChildren: SDK.ProfileTreeModel.ProfileNode[];
+  // Transformation: updateParameters
+  constructor(profileNode: SDK.ProfileTreeModel.ProfileNode, owningTree: TopDownProfileDataGridTree) {
     const hasChildren = Boolean(profileNode.children && profileNode.children.length);
 
     super(profileNode, owningTree, hasChildren);
@@ -41,28 +42,24 @@ export class TopDownProfileDataGridNode extends ProfileDataGridNode {
     this._remainingChildren = profileNode.children;
   }
 
-  /**
-   * @param {!TopDownProfileDataGridNode|!TopDownProfileDataGridTree} container
-   */
-  static _sharedPopulate(container) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  static _sharedPopulate(container: TopDownProfileDataGridTree | TopDownProfileDataGridNode): void {
     const children = container._remainingChildren;
     const childrenLength = children.length;
 
     for (let i = 0; i < childrenLength; ++i) {
-      container.appendChild(
-          new TopDownProfileDataGridNode(children[i], /** @type {!TopDownProfileDataGridTree} */ (container.tree)));
+      container.appendChild(new TopDownProfileDataGridNode(children[i], (container.tree as TopDownProfileDataGridTree)));
     }
 
     container._remainingChildren = [];
   }
 
-  /**
-   * @param {!TopDownProfileDataGridNode|!TopDownProfileDataGridTree} container
-   * @param {string} aCallUID
-   */
-  static _excludeRecursively(container, aCallUID) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  static _excludeRecursively(container: TopDownProfileDataGridTree | TopDownProfileDataGridNode, aCallUID: string): void {
     if (container._remainingChildren.length > 0) {
-      /** @type {!TopDownProfileDataGridNode} */ (container).populate();
+      (container as TopDownProfileDataGridNode).populate();
     }
 
     container.save();
@@ -71,8 +68,7 @@ export class TopDownProfileDataGridNode extends ProfileDataGridNode {
     let index = container.children.length;
 
     while (index--) {
-      TopDownProfileDataGridNode._excludeRecursively(
-          /** @type {!TopDownProfileDataGridNode} */ (children[index]), aCallUID);
+      TopDownProfileDataGridNode._excludeRecursively((children[index] as TopDownProfileDataGridNode), aCallUID);
     }
 
     const child = container.childrenByCallUID.get(aCallUID);
@@ -82,32 +78,28 @@ export class TopDownProfileDataGridNode extends ProfileDataGridNode {
     }
   }
 
-  /**
-   * @override
-   */
-  populateChildren() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  populateChildren(): void {
     TopDownProfileDataGridNode._sharedPopulate(this);
   }
 }
 
+// Transformation: updatePropertyDeclarations
 export class TopDownProfileDataGridTree extends ProfileDataGridTree {
-  /**
-   * @param {!Formatter} formatter
-   * @param {!UI.SearchableView.SearchableView} searchableView
-   * @param {!SDK.ProfileTreeModel.ProfileNode} rootProfileNode
-   * @param {number} total
-   */
-  constructor(formatter, searchableView, rootProfileNode, total) {
+  _remainingChildren: SDK.ProfileTreeModel.ProfileNode[];
+  children?: ProfileDataGridNode[];
+  total?: number;
+  // Transformation: updateParameters
+  constructor(formatter: Formatter, searchableView: UI.SearchableView.SearchableView, rootProfileNode: SDK.ProfileTreeModel.ProfileNode, total: number) {
     super(formatter, searchableView, total);
     this._remainingChildren = rootProfileNode.children;
     ProfileDataGridNode.populate(this);
   }
 
-  /**
-   * @override
-   * @param {!ProfileDataGridNode} profileDataGridNode
-   */
-  focus(profileDataGridNode) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  focus(profileDataGridNode: ProfileDataGridNode): void {
     if (!profileDataGridNode) {
       return;
     }
@@ -119,11 +111,9 @@ export class TopDownProfileDataGridTree extends ProfileDataGridTree {
     this.total = profileDataGridNode.total;
   }
 
-  /**
-   * @override
-   * @param {!ProfileDataGridNode} profileDataGridNode
-   */
-  exclude(profileDataGridNode) {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  exclude(profileDataGridNode: ProfileDataGridNode): void {
     if (!profileDataGridNode) {
       return;
     }
@@ -137,10 +127,9 @@ export class TopDownProfileDataGridTree extends ProfileDataGridTree {
     }
   }
 
-  /**
-   * @override
-   */
-  restore() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  restore(): void {
     if (!this._savedChildren) {
       return;
     }
@@ -150,10 +139,9 @@ export class TopDownProfileDataGridTree extends ProfileDataGridTree {
     super.restore();
   }
 
-  /**
-   * @override
-   */
-  populateChildren() {
+  // Transformation: updateReturnType
+  // Transformation: updateParameters
+  populateChildren(): void {
     TopDownProfileDataGridNode._sharedPopulate(this);
   }
 }
