@@ -33,6 +33,23 @@
       "message": "LGTM, thanks for catching and fixing the bug!",
       "revId": "272fed3803addb218b29409466c3108cf7625155",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb7782ad_852310cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-10T20:13:37Z",
+      "side": 1,
+      "message": "+@tvanderlippe",
+      "revId": "272fed3803addb218b29409466c3108cf7625155",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
