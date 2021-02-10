@@ -217,8 +217,8 @@ export async function waitForConsoleMessageAndClickOnLink() {
 
 export async function navigateToIssuesPanelViaInfoBar() {
   // Navigate to Issues panel
-  await waitFor('.infobar');
-  await click('.infobar .infobar-button');
+  await waitFor('#console-issues-counter');
+  await click('#console-issues-counter');
   await waitFor('.issues-pane');
 }
 
