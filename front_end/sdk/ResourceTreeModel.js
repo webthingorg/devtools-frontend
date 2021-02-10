@@ -218,8 +218,11 @@ export class ResourceTreeModel extends SDKModel {
     }
     let frame = this._frames.get(framePayload.id) || null;
     if (!frame) {
+      // Get stack trace from before the OOPIF transfer to be copied to the new frame
+      const stackTrace =
+          this._target.parentTarget()?.model(ResourceTreeModel)?.frameForId(framePayload.id)?._creationStackTrace;
       // Simulate missed "frameAttached" for a main frame navigation to the new backend process.
-      frame = this._frameAttached(framePayload.id, framePayload.parentId || '');
+      frame = this._frameAttached(framePayload.id, framePayload.parentId || '', stackTrace || undefined);
       console.assert(Boolean(frame));
       if (!frame) {
         return;
