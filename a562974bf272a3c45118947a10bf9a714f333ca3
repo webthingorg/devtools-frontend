@@ -33,6 +33,24 @@
       "message": "Thanks for fixing, this one slipped past my review :(\n\nSigurd already fixed this in https://crrev.com/c/2686649 today though :)\n\n",
       "revId": "a562974bf272a3c45118947a10bf9a714f333ca3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dec8ee78_43d7a153",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-10T21:25:28Z",
+      "side": 1,
+      "message": "ahh nice, thanks for taking care of it 😊",
+      "parentUuid": "f06ed856_62d05dcd",
+      "revId": "a562974bf272a3c45118947a10bf9a714f333ca3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
