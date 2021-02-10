@@ -87,6 +87,30 @@
       },
       "revId": "4ce36a5a37643f80e84270c624fd238e9874f264",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3cb2261_c0355e99",
+        "filename": "front_end/common/Settings.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-02-10T21:58:14Z",
+      "side": 1,
+      "message": "Hmm interesting. So settings values are indeed cached when they are set but in this case we are iterating through the options array of the `_registration` object which, as far as I know, is not cached. In this case the `_registration` object comes directly from a *-meta.ts file and there all options\u0027 titles should be declared as functions. Is there any possibility that your fork has a discrepancy in any of the meta files?",
+      "parentUuid": "9727509a_66e846d9",
+      "range": {
+        "startLine": 924,
+        "startChar": 10,
+        "endLine": 924,
+        "endChar": 25
+      },
+      "revId": "4ce36a5a37643f80e84270c624fd238e9874f264",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
