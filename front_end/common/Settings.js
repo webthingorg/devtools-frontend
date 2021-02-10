@@ -28,6 +28,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+import * as Host from '../host/host.js';
 import * as Platform from '../platform/platform.js';  // eslint-disable-line no-unused-vars
 import * as Root from '../root/root.js';
 
@@ -73,7 +74,7 @@ export class Settings {
           this.createRegExpSetting(settingName, defaultValue, undefined, storageType) :
           this.createSetting(settingName, defaultValue, storageType);
 
-      if (registration.titleMac) {
+      if (Host.Platform.isMac() && registration.titleMac) {
         setting.setTitleFunction(registration.titleMac);
       } else {
         setting.setTitleFunction(registration.title);
