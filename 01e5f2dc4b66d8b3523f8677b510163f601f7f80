@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "632ad999_c2005706",
+        "filename": "front_end/sdk/OverlayModel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-02-10T11:26:34Z",
+      "side": 1,
+      "message": "Temporary colors and styles. Will need to change these once I have a final mockup ready.",
+      "range": {
+        "startLine": 586,
+        "startChar": 0,
+        "endLine": 598,
+        "endChar": 10
+      },
+      "revId": "01e5f2dc4b66d8b3523f8677b510163f601f7f80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
