@@ -16,6 +16,23 @@
       "message": "PTAL\n\nAsami: Sorry for the confusion, I missed these details when approving your CL in the morning.",
       "revId": "83fa1b8468bc0fd299d1a8d241409ba18870b5eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69591ea6_21f28176",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-10T12:32:01Z",
+      "side": 1,
+      "message": "LGTM, thanks Simon!",
+      "revId": "83fa1b8468bc0fd299d1a8d241409ba18870b5eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
