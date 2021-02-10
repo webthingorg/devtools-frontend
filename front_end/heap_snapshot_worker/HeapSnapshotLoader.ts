@@ -28,68 +28,59 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import * as TextUtils from '../text_utils/text_utils.js';
-import {HeapSnapshotHeader, HeapSnapshotProgress, JSHeapSnapshot, Profile} from './HeapSnapshot.js';  // eslint-disable-line no-unused-vars
-import {HeapSnapshotWorkerDispatcher} from './HeapSnapshotWorkerDispatcher.js';  // eslint-disable-line no-unused-vars
+/* eslint-disable rulesdir/no_underscored_properties */
 
+import * as TextUtils from '../text_utils/text_utils.js';
+import { HeapSnapshotHeader, HeapSnapshotProgress, JSHeapSnapshot, Profile } from './HeapSnapshot.js'; // eslint-disable-line no-unused-vars
+import { HeapSnapshotWorkerDispatcher } from './HeapSnapshotWorkerDispatcher.js'; // eslint-disable-line no-unused-vars
 
 export class HeapSnapshotLoader {
-  /**
-   * @param {!HeapSnapshotWorkerDispatcher} dispatcher
-   */
-  constructor(dispatcher) {
+  _progress: HeapSnapshotProgress;
+  _buffer: string;
+  _dataCallback: ((value: string | PromiseLike<string>) => void) | null;
+  _done: boolean;
+  _snapshot!: {
+    [x: string]: any;
+  } | undefined;
+  _array!: number[] | Uint32Array | null;
+  _arrayIndex!: number;
+  _json?: any;
+  _jsonTokenizer?: any;
+  constructor(dispatcher: HeapSnapshotWorkerDispatcher) {
     this._reset();
     this._progress = new HeapSnapshotProgress(dispatcher);
     this._buffer = '';
     this._dataCallback = null;
     this._done = false;
     this._parseInput();
-
-    /**
-     * @type {!Object.<string, *>|undefined}
-     */
-    this._snapshot;
-
-    /**
-     * @type {!Uint32Array|!Array<number>|null}
-     */
-    this._array;
-
-    /**
-     * @type {number}
-     */
-    this._arrayIndex;
   }
 
-  dispose() {
+  dispose(): void {
     this._reset();
   }
 
-  _reset() {
+  _reset(): void {
     this._json = '';
     this._snapshot = undefined;
   }
 
-  close() {
+  close(): void {
     this._done = true;
     if (this._dataCallback) {
       this._dataCallback('');
     }
   }
 
-  /**
-   * @return {!JSHeapSnapshot}
-   */
-  buildSnapshot() {
+  buildSnapshot(): JSHeapSnapshot {
     this._snapshot = this._snapshot || {};
 
     this._progress.updateStatus('Processing snapshot…');
-    const result = new JSHeapSnapshot(/** @type {!Profile} */ (this._snapshot), this._progress);
+    const result = new JSHeapSnapshot((this._snapshot as Profile), this._progress);
     this._reset();
     return result;
   }
 
-  _parseUintArray() {
+  _parseUintArray(): boolean {
     let index = 0;
     const char0 = '0'.charCodeAt(0);
     const char9 = '9'.charCodeAt(0);
@@ -100,7 +91,8 @@ export class HeapSnapshotLoader {
         const code = this._json.charCodeAt(index);
         if (char0 <= code && code <= char9) {
           break;
-        } else if (code === closingBracket) {
+        }
+        else if (code === closingBracket) {
           this._json = this._json.slice(index + 1);
           return false;
         }
@@ -132,7 +124,7 @@ export class HeapSnapshotLoader {
     }
   }
 
-  _parseStringsArray() {
+  _parseStringsArray(): void {
     this._progress.updateStatus('Parsing strings…');
     const closingBracketIndex = this._json.lastIndexOf(']');
     if (closingBracketIndex === -1) {
@@ -146,10 +138,7 @@ export class HeapSnapshotLoader {
     this._snapshot.strings = JSON.parse(this._json);
   }
 
-  /**
-   * @param {string} chunk
-   */
-  write(chunk) {
+  write(chunk: string): void {
     this._buffer += chunk;
     if (!this._dataCallback) {
       return;
@@ -159,21 +148,13 @@ export class HeapSnapshotLoader {
     this._buffer = '';
   }
 
-  /**
-   * @return {!Promise<string>}
-   */
-  _fetchChunk() {
+  _fetchChunk(): Promise<string> {
     return this._done ? Promise.resolve(this._buffer) : new Promise(r => {
       this._dataCallback = r;
     });
   }
 
-  /**
-   * @param {string} token
-   * @param {number=} startIndex
-   * @return {!Promise<number>}
-   */
-  async _findToken(token, startIndex) {
+  async _findToken(token: string, startIndex?: number): Promise<number> {
     while (true) {
       const pos = this._json.indexOf(token, startIndex || 0);
       if (pos !== -1) {
@@ -184,13 +165,7 @@ export class HeapSnapshotLoader {
     }
   }
 
-  /**
-   * @param {string} name
-   * @param {string} title
-   * @param {number=} length
-   * @return {!Promise<!Uint32Array|!Array<number>>}
-   */
-  async _parseArray(name, title, length) {
+  async _parseArray(name: string, title: string, length?: number): Promise<number[] | Uint32Array> {
     const nameIndex = await this._findToken(name);
     const bracketIndex = await this._findToken('[', nameIndex);
     this._json = this._json.slice(bracketIndex + 1);
@@ -205,7 +180,7 @@ export class HeapSnapshotLoader {
     return result;
   }
 
-  async _parseInput() {
+  async _parseInput(): Promise<void> {
     const snapshotToken = '"snapshot"';
     const snapshotTokenIndex = await this._findToken(snapshotToken);
     if (snapshotTokenIndex === -1) {
@@ -219,7 +194,7 @@ export class HeapSnapshotLoader {
       this._jsonTokenizer = null;
 
       this._snapshot = this._snapshot || {};
-      this._snapshot.snapshot = /** @type {!HeapSnapshotHeader} */ (JSON.parse(metaJSON));
+      this._snapshot.snapshot = (JSON.parse(metaJSON) as HeapSnapshotHeader);
     });
     this._jsonTokenizer.write(json);
     while (this._jsonTokenizer) {
@@ -227,25 +202,16 @@ export class HeapSnapshotLoader {
     }
 
     this._snapshot = this._snapshot || {};
-    const nodes = await this._parseArray(
-        '"nodes"', 'Loading nodes… {PH1}%',
-        this._snapshot.snapshot.meta.node_fields.length * this._snapshot.snapshot.node_count);
+    const nodes = await this._parseArray('"nodes"', 'Loading nodes… {PH1}%', this._snapshot.snapshot.meta.node_fields.length * this._snapshot.snapshot.node_count);
+    this._snapshot.nodes = (nodes as Uint32Array);
 
-    this._snapshot.nodes = /** @type {!Uint32Array} */ (nodes);
-
-    const edges = await this._parseArray(
-        '"edges"', 'Loading edges… {PH1}%',
-        this._snapshot.snapshot.meta.edge_fields.length * this._snapshot.snapshot.edge_count);
-
-    this._snapshot.edges = /** @type {!Uint32Array} */ (edges);
+    const edges = await this._parseArray('"edges"', 'Loading edges… {PH1}%', this._snapshot.snapshot.meta.edge_fields.length * this._snapshot.snapshot.edge_count);
+    this._snapshot.edges = (edges as Uint32Array);
 
     if (this._snapshot.snapshot.trace_function_count) {
-      const trace_function_infos = await this._parseArray(
-          '"trace_function_infos"', 'Loading allocation traces… {PH1}%',
-          this._snapshot.snapshot.meta.trace_function_info_fields.length *
-              this._snapshot.snapshot.trace_function_count);
-
-      this._snapshot.trace_function_infos = /** @type {!Uint32Array} */ (trace_function_infos);
+      const trace_function_infos = await this._parseArray('"trace_function_infos"', 'Loading allocation traces… {PH1}%', this._snapshot.snapshot.meta.trace_function_info_fields.length *
+        this._snapshot.snapshot.trace_function_count);
+      this._snapshot.trace_function_infos = (trace_function_infos as Uint32Array);
 
       const thisTokenEndIndex = await this._findToken(':');
       const nextTokenIndex = await this._findToken('"', thisTokenEndIndex);
@@ -257,13 +223,14 @@ export class HeapSnapshotLoader {
 
     if (this._snapshot.snapshot.meta.sample_fields) {
       const samples = await this._parseArray('"samples"', 'Loading samples…');
-      this._snapshot.samples = /** @type {!Array<number>} */ (samples);
+      this._snapshot.samples = (samples as number[]);
     }
 
     if (this._snapshot.snapshot.meta['location_fields']) {
       const locations = await this._parseArray('"locations"', 'Loading locations…');
-      this._snapshot.locations = /** @type {!Array<number>} */ (locations);
-    } else {
+      this._snapshot.locations = (locations as number[]);
+    }
+    else {
       this._snapshot.locations = [];
     }
 

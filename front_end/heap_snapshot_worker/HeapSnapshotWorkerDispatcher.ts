@@ -28,63 +28,45 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import * as HeapSnapshotModel from '../heap_snapshot_model/heap_snapshot_model.js';  // eslint-disable-line no-unused-vars
+/* eslint-disable rulesdir/no_underscored_properties */
 
-/**
- * @typedef {{
- *   callId: (number|undefined),
- *   result: *,
- *   error: (string|undefined),
- *   errorCallStack: (!Object|undefined),
- *   errorMethodName: (string|undefined),
- * }}
- */
-let DispatcherResponse;  // eslint-disable-line no-unused-vars
+import * as HeapSnapshotModel from '../heap_snapshot_model/heap_snapshot_model.js'; // eslint-disable-line no-unused-vars
+interface DispatcherResponse {
+  callId?: number;
+  result: any;
+  error?: string;
+  errorCallStack?: Object;
+  errorMethodName?: string;
+}
 export class HeapSnapshotWorkerDispatcher {
-  /**
-   *
-   * @param {!Worker} globalObject
-   * @param {!Function} postMessage
-   */
-  constructor(globalObject, postMessage) {
-    /**
-     * @type {!Array<*>};
+  _objects: any[];
+  _global: Worker;
+  _postMessage: Function;
+  constructor(globalObject: Worker, postMessage: Function) {
+    /**;
      */
     this._objects = [];
     this._global = globalObject;
     this._postMessage = postMessage;
   }
 
-  /**
-   * @param {string} name
-   * @return {!Function}
-   */
-  _findFunction(name) {
+  _findFunction(name: string): Function {
     const path = name.split('.');
-    let result = /** @type {*} */ (this._global);
+    let result = (this._global as any);
     for (let i = 0; i < path.length; ++i) {
       result = result[path[i]];
     }
-    return /** @type {!Function} */ (result);
+    return /** @type {!Function} */ result as Function;
   }
 
-  /**
-   * @param {string} name
-   * @param {*} data
-   */
-  sendEvent(name, data) {
-    this._postMessage({eventName: name, data: data});
+  sendEvent(name: string, data: any): void {
+    this._postMessage({ eventName: name, data: data });
   }
 
-  /**
-   * @param {{data: !HeapSnapshotModel.HeapSnapshotModel.WorkerCommand}} event
-   */
-  dispatchMessage({data}) {
-    /**
-     * @type {!DispatcherResponse}
-     */
-    const response =
-        {callId: data.callId, result: null, error: undefined, errorCallStack: undefined, errorMethodName: undefined};
+  dispatchMessage({ data }: {
+    data: HeapSnapshotModel.HeapSnapshotModel.WorkerCommand;
+  }): void {
+    const response: DispatcherResponse = { callId: data.callId, result: null, error: undefined, errorCallStack: undefined, errorMethodName: undefined };
     try {
       switch (data.disposition) {
         case 'create': {
@@ -120,13 +102,15 @@ export class HeapSnapshotWorkerDispatcher {
         case 'evaluateForTest': {
           try {
             response.result = self.eval(data.source);
-          } catch (error) {
+          }
+          catch (error) {
             response.result = error.toString();
           }
           break;
         }
       }
-    } catch (error) {
+    }
+    catch (error) {
       response.error = error.toString();
       response.errorCallStack = error.stack;
       if (data.methodName) {
