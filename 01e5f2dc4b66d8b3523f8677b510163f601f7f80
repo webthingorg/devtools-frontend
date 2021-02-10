@@ -56,6 +56,23 @@
       },
       "revId": "01e5f2dc4b66d8b3523f8677b510163f601f7f80",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89605a4a_db8cc784",
+        "filename": "inspector_overlay/tool_highlight.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-10T12:35:03Z",
+      "side": 1,
+      "message": "maybe `const isFlexContainer \u003d highlight.flexInfo?.length`?",
+      "revId": "01e5f2dc4b66d8b3523f8677b510163f601f7f80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
