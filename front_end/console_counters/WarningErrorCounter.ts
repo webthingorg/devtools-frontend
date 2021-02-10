@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as BrowserSDK from '../browser_sdk/browser_sdk.js';
 import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
@@ -68,12 +70,15 @@ export const UIStrings = {
   */
   openIssuesToViewS: 'Open Issues to view {PH1}',
 };
-const str_ = i18n.i18n.registerUIStrings('console_counters/WarningErrorCounter.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('console_counters/WarningErrorCounter.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
-/**
- * @implements {UI.Toolbar.Provider}
- */
-export class WarningErrorCounter {
+export class WarningErrorCounter implements UI.Toolbar.Provider {
+  _toolbarItem: UI.Toolbar.ToolbarItem;
+  _consoleCounter: Components.IconButton.IconButton;
+  _violationCounter: Components.IconButton.IconButton | null;
+  _issuesCounter: Components.IconButton.IconButton;
+  _throttler: Common.Throttler.Throttler;
+  _updatingForTest?: boolean;
   constructor() {
     WarningErrorCounter._instanceForTest = this;
 
@@ -85,7 +90,7 @@ export class WarningErrorCounter {
     countersWrapper.appendChild(this._consoleCounter);
     this._consoleCounter.data = {
       clickHandler: Common.Console.Console.instance().show.bind(Common.Console.Console.instance()),
-      groups: [{iconName: 'error_icon'}, {iconName: 'warning_icon'}],
+      groups: [{ iconName: 'error_icon' }, { iconName: 'warning_icon' }],
     };
 
     this._violationCounter = null;
@@ -93,40 +98,37 @@ export class WarningErrorCounter {
       this._violationCounter = new Components.IconButton.IconButton();
       countersWrapper.appendChild(this._violationCounter);
       this._violationCounter.data = {
-        clickHandler: () => UI.ViewManager.ViewManager.instance().showView('lighthouse'),
-        groups: [{iconName: 'ic_info_black_18dp', iconColor: '#2a53cd'}],
+        clickHandler: (): Promise<void> => UI.ViewManager.ViewManager.instance().showView('lighthouse'),
+        groups: [{ iconName: 'ic_info_black_18dp', iconColor: '#2a53cd' }],
       };
     }
 
     this._issuesCounter = new Components.IconButton.IconButton();
     countersWrapper.appendChild(this._issuesCounter);
     this._issuesCounter.data = {
-      clickHandler: () => {
+      clickHandler: (): void => {
         Host.userMetrics.issuesPanelOpenedFrom(Host.UserMetrics.IssueOpener.StatusBarIssuesCounter);
         UI.ViewManager.ViewManager.instance().showView('issues-pane');
       },
-      groups: [{iconName: 'issue-text-icon', iconColor: '#1a73e8'}],
+      groups: [{ iconName: 'issue-text-icon', iconColor: '#1a73e8' }],
     };
 
     this._throttler = new Common.Throttler.Throttler(100);
 
-    SDK.ConsoleModel.ConsoleModel.instance().addEventListener(
-        SDK.ConsoleModel.Events.ConsoleCleared, this._update, this);
+    SDK.ConsoleModel.ConsoleModel.instance().addEventListener(SDK.ConsoleModel.Events.ConsoleCleared, this._update, this);
     SDK.ConsoleModel.ConsoleModel.instance().addEventListener(SDK.ConsoleModel.Events.MessageAdded, this._update, this);
-    SDK.ConsoleModel.ConsoleModel.instance().addEventListener(
-        SDK.ConsoleModel.Events.MessageUpdated, this._update, this);
+    SDK.ConsoleModel.ConsoleModel.instance().addEventListener(SDK.ConsoleModel.Events.MessageUpdated, this._update, this);
 
-    BrowserSDK.IssuesManager.IssuesManager.instance().addEventListener(
-        BrowserSDK.IssuesManager.Events.IssuesCountUpdated, this._update, this);
+    BrowserSDK.IssuesManager.IssuesManager.instance().addEventListener(BrowserSDK.IssuesManager.Events.IssuesCountUpdated, this._update, this);
 
     this._update();
   }
 
-  _updatedForTest() {
+  _updatedForTest(): void {
     // Sniffed in tests.
   }
 
-  _update() {
+  _update(): void {
     this._updatingForTest = true;
     this._throttler.schedule(this._updateThrottled.bind(this));
   }
@@ -135,41 +137,41 @@ export class WarningErrorCounter {
     return this._consoleCounter.getAttribute('aria-label');
   }
 
-  /**
-   * @return {!Promise<void>}
-   */
-  async _updateThrottled() {
+  async _updateThrottled(): Promise<void> {
     const errors = SDK.ConsoleModel.ConsoleModel.instance().errors();
     const warnings = SDK.ConsoleModel.ConsoleModel.instance().warnings();
     const violations = this._violationCounter ? SDK.ConsoleModel.ConsoleModel.instance().violations() : 0;
     const issues = BrowserSDK.IssuesManager.IssuesManager.instance().numberOfIssues();
 
-    /** @param {number} c */
-    const countToText = c => c === 0 ? undefined : `${c}`;
+    const countToText = (c: number): string | undefined => c === 0 ? undefined : `${c}`;
 
     /* Update consoleCounter items. */
     let errorCountTitle = '';
     if (errors === 1) {
-      errorCountTitle = i18nString(UIStrings.sError, {PH1: errors});
-    } else {
-      errorCountTitle = i18nString(UIStrings.sErrors, {PH1: errors});
+      errorCountTitle = i18nString(UIStrings.sError, { PH1: errors });
+    }
+    else {
+      errorCountTitle = i18nString(UIStrings.sErrors, { PH1: errors });
     }
     let warningCountTitle = '';
     if (warnings === 1) {
-      warningCountTitle = i18nString(UIStrings.sWarning, {PH1: warnings});
-    } else {
-      warningCountTitle = i18nString(UIStrings.sWarnings, {PH1: warnings});
+      warningCountTitle = i18nString(UIStrings.sWarning, { PH1: warnings });
+    }
+    else {
+      warningCountTitle = i18nString(UIStrings.sWarnings, { PH1: warnings });
     }
     this._consoleCounter.setTexts([countToText(errors), countToText(warnings)]);
     let consoleSummary = '';
     if (errors && warnings) {
       consoleSummary = `${errorCountTitle}, ${warningCountTitle}`;
-    } else if (errors) {
+    }
+    else if (errors) {
       consoleSummary = errorCountTitle;
-    } else if (warnings) {
+    }
+    else if (warnings) {
       consoleSummary = warningCountTitle;
     }
-    const consoleTitle = i18nString(UIStrings.openConsoleToViewS, {PH1: consoleSummary});
+    const consoleTitle = i18nString(UIStrings.openConsoleToViewS, { PH1: consoleSummary });
     // TODO(chromium:1167711): Let the component handle the title and ARIA label.
     UI.Tooltip.Tooltip.install(this._consoleCounter, consoleTitle);
     UI.ARIAUtils.setAccessibleName(this._consoleCounter, consoleTitle);
@@ -180,11 +182,12 @@ export class WarningErrorCounter {
       this._violationCounter.setTexts([countToText(violations)]);
       let violationSummary = '';
       if (violations === 1) {
-        violationSummary = i18nString(UIStrings.sViolation, {PH1: violations});
-      } else {
-        violationSummary = i18nString(UIStrings.sViolations, {PH1: violations});
+        violationSummary = i18nString(UIStrings.sViolation, { PH1: violations });
       }
-      const violationTitle = i18nString(UIStrings.openLighthouseToViewS, {PH1: violationSummary});
+      else {
+        violationSummary = i18nString(UIStrings.sViolations, { PH1: violations });
+      }
+      const violationTitle = i18nString(UIStrings.openLighthouseToViewS, { PH1: violationSummary });
       // TODO(chromium:1167711): Let the component handle the title and ARIA label.
       UI.Tooltip.Tooltip.install(this._violationCounter, violationTitle);
       UI.ARIAUtils.setAccessibleName(this._violationCounter, violationTitle);
@@ -195,11 +198,12 @@ export class WarningErrorCounter {
     this._issuesCounter.setTexts([countToText(issues)]);
     let issuesSummary = '';
     if (issues === 1) {
-      issuesSummary = i18nString(UIStrings.sIssue, {PH1: issues});
-    } else {
-      issuesSummary = i18nString(UIStrings.sIssues, {PH1: issues});
+      issuesSummary = i18nString(UIStrings.sIssue, { PH1: issues });
     }
-    const issuesTitle = i18nString(UIStrings.openIssuesToViewS, {PH1: issuesSummary});
+    else {
+      issuesSummary = i18nString(UIStrings.sIssues, { PH1: issues });
+    }
+    const issuesTitle = i18nString(UIStrings.openIssuesToViewS, { PH1: issuesSummary });
     // TODO(chromium:1167711): Let the component handle the title and ARIA label.
     UI.Tooltip.Tooltip.install(this._issuesCounter, issuesTitle);
     UI.ARIAUtils.setAccessibleName(this._issuesCounter, issuesTitle);
@@ -213,11 +217,7 @@ export class WarningErrorCounter {
     return;
   }
 
-  /**
-   * @override
-   * @return {?UI.Toolbar.ToolbarItem}
-   */
-  item() {
+  item(): UI.Toolbar.ToolbarItem | null {
     return this._toolbarItem;
   }
 }
