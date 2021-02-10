@@ -16,6 +16,167 @@
       "message": "LGTM % some non-blocking nits as FYI",
       "revId": "d4f358b740a5d83a5ec11501baddda4983352e39",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a5e5b95_8140e4c4",
+        "filename": "front_end/component_docs/flexbox_editor/basic.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-02-10T11:24:07Z",
+      "side": 1,
+      "message": "You\u0027re suggesting here that this new component does not hold any kind of state at all, and requires its embedder to re-render it after a button was clicked.\nCould you elaborate on why you chose to do it this way? It seems to me like having the component show the button as selected right away might be the right thing to do.",
+      "range": {
+        "startLine": 39,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 4
+      },
+      "revId": "d4f358b740a5d83a5ec11501baddda4983352e39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2226f392_bec31cf0",
+        "filename": "front_end/elements/FlexboxEditor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-02-10T11:24:07Z",
+      "side": 1,
+      "message": "How come we need to redefine the font-size here? Aren\u0027t we inheriting the default size from the rest of devtools?",
+      "range": {
+        "startLine": 68,
+        "startChar": 10,
+        "endLine": 68,
+        "endChar": 26
+      },
+      "revId": "d4f358b740a5d83a5ec11501baddda4983352e39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd45dd33_fc6d9559",
+        "filename": "front_end/elements/FlexboxEditor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-02-10T11:24:07Z",
+      "side": 1,
+      "message": "Nice, using flex for the flex editor!",
+      "range": {
+        "startLine": 91,
+        "startChar": 10,
+        "endLine": 91,
+        "endChar": 24
+      },
+      "revId": "d4f358b740a5d83a5ec11501baddda4983352e39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7af868dc_fc0c28b8",
+        "filename": "front_end/elements/FlexboxEditor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-02-10T11:24:07Z",
+      "side": 1,
+      "message": "I think most of the rest of the code has switched to :focus-visible instead of :focus.",
+      "range": {
+        "startLine": 114,
+        "startChar": 8,
+        "endLine": 114,
+        "endChar": 21
+      },
+      "revId": "d4f358b740a5d83a5ec11501baddda4983352e39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcdfe23e_48abbb62",
+        "filename": "front_end/elements/FlexboxEditor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-02-10T11:24:07Z",
+      "side": 1,
+      "message": "I think calling this disabled sends the wrong message. The property isn\u0027t disabled, it just doesn\u0027t have an authored value in the current rule. But a value could be coming from another rule, or a default value. So perhaps we could call this \u0027isDefault\u0027 or something like this.",
+      "range": {
+        "startLine": 142,
+        "startChar": 7,
+        "endLine": 142,
+        "endChar": 15
+      },
+      "revId": "d4f358b740a5d83a5ec11501baddda4983352e39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccb95980_f9978596",
+        "filename": "front_end/elements/FlexboxEditor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-02-10T11:24:07Z",
+      "side": 1,
+      "message": "Could be a follow-up, but for multiple options like this, it\u0027s good to have the right aria attributes to guide assistive technology like screen readers. It would be hard for a non-sighted user to understand how to use these controls otherwise.",
+      "range": {
+        "startLine": 148,
+        "startChar": 6,
+        "endLine": 150,
+        "endChar": 12
+      },
+      "revId": "d4f358b740a5d83a5ec11501baddda4983352e39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb761617_6a02d3a3",
+        "filename": "front_end/elements/FlexboxEditor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-02-10T11:24:07Z",
+      "side": 1,
+      "message": "I don\u0027t really know if this is something that can technically cause problems, but the loc v2 guidance says that the UIStrings object and the 2 following lines should appear at the top of a module.\n\nhttps://github.com/ChromeDevTools/devtools-frontend/blob/master/docs/localization/adding_strings_V2.md#adding-a-string\n(in the code sample, there\u0027s a comment that says \"at the top of example.js file, after import statements\").",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 265,
+        "endChar": 70
+      },
+      "revId": "d4f358b740a5d83a5ec11501baddda4983352e39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
