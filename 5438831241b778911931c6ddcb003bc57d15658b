@@ -16,6 +16,24 @@
       "message": "That would be the wrong link since it leads to the v1 doc.",
       "revId": "5438831241b778911931c6ddcb003bc57d15658b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a351b874_9843385b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-10T09:52:40Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "a2f05990_bb5b097c",
+      "revId": "5438831241b778911931c6ddcb003bc57d15658b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
