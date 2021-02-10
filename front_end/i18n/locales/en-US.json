@@ -560,9 +560,6 @@
   "browser_debugger/DOMBreakpointsSidebarPane.js | unchecked": {
     "message": "unchecked"
   },
-  "browser_debugger/ModuleUIStrings.js | domBreakpoint": {
-    "message": "DOM Breakpoint"
-  },
   "browser_debugger/ObjectEventListenersSidebarPane.js | refreshGlobalListeners": {
     "message": "Refresh global listeners"
   },

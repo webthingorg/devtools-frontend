@@ -35,18 +35,6 @@
       "location": "styles-sidebarpane-toolbar"
     },
     {
-      "type": "@Elements.MarkerDecorator",
-      "className": "Elements.ElementsPanel.PseudoStateMarkerDecorator",
-      "marker": "pseudo-state-marker"
-    },
-    {
-      "type": "@Elements.MarkerDecorator",
-      "factoryName": "Elements.GenericDecorator",
-      "marker": "hidden-marker",
-      "title": "Element is hidden",
-      "color": "#555"
-    },
-    {
       "type": "@UI.ToolbarItem.Provider",
       "actionId": "elements.toggle-element-search",
       "location": "main-toolbar-left",

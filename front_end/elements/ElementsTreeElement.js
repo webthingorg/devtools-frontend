@@ -46,7 +46,7 @@ import {AdornerCategories} from './AdornerManager.js';
 import {canGetJSPath, cssPath, jsPath, xPath} from './DOMPath.js';
 import {ElementsTreeOutline, MappedCharToEntity, UpdateRecord} from './ElementsTreeOutline.js';  // eslint-disable-line no-unused-vars
 import {ImagePreviewPopover} from './ImagePreviewPopover.js';
-import {MarkerDecorator} from './MarkerDecorator.js';
+import {getRegisteredDecorators, MarkerDecorator} from './MarkerDecorator.js';  // eslint-disable-line no-unused-vars
 
 export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   /**
@@ -1398,15 +1398,12 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     const node = this._node;
 
     if (!this.treeOutline.decoratorExtensions) {
-      this.treeOutline.decoratorExtensions = Root.Runtime.Runtime.instance().extensions(MarkerDecorator);
+      this.treeOutline.decoratorExtensions = getRegisteredDecorators();
     }
 
     const markerToExtension = new Map();
     for (const decoratorExtension of this.treeOutline.decoratorExtensions) {
-      const descriptor = decoratorExtension.descriptor();
-      if ('marker' in descriptor) {
-        markerToExtension.set(descriptor['marker'], decoratorExtension);
-      }
+      markerToExtension.set(decoratorExtension.marker, decoratorExtension);
     }
 
     /** @type {!Array<!Promise<void>>} */
