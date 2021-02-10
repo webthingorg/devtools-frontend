@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69961b34_dc93c0b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-10T09:53:24Z",
+      "side": 1,
+      "message": "I\u0027ve split off the drive-by change into a separate CL, which I hope makes this easier to review. ",
+      "revId": "ec07c9136bab4a272d5f0c2492bc86cbfca0e1fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
