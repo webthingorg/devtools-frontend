@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1767e219_e898c8bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-10T17:54:52Z",
+      "side": 1,
+      "message": "I have an in-flight CL that would go through a rebase-nightmare, while this CL can probably be updated by just applying the script. Can we please hold-off landing until https://crrev.com/c/2687501 is in?",
+      "revId": "2190f63db0c2a4b1fd3e88deffb3fcc6ce9d19ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "adb1b536_e0799f35",
