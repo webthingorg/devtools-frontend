@@ -2,7 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
+/* eslint-disable rulesdir/no_underscored_properties */
+
+import * as Common from '../common/common.js'; // eslint-disable-line no-unused-vars
 import * as Components from '../components/components.js';
 import * as Elements from '../elements/elements.js';
 import * as Host from '../host/host.js';
@@ -13,13 +15,13 @@ import * as SDK from '../sdk/sdk.js';
 import * as WebComponents from '../ui/components/components.js';
 import * as UI from '../ui/ui.js';
 
-import {AffectedElementsView} from './AffectedElementsView.js';
-import {AffectedElementsWithLowContrastView} from './AffectedElementsWithLowContrastView.js';
-import {AffectedItem, AffectedResourcesView, extractShortPath} from './AffectedResourcesView.js';
-import {AffectedSharedArrayBufferIssueDetailsView} from './AffectedSharedArrayBufferIssueDetailsView.js';
-import {AffectedTrustedWebActivityIssueDetailsView} from './AffectedTrustedWebActivityIssueDetailsView.js';
-import {AggregatedIssue} from './IssueAggregator.js';            // eslint-disable-line no-unused-vars
-import {IssueDescription} from './MarkdownIssueDescription.js';  // eslint-disable-line no-unused-vars
+import { AffectedElementsView } from './AffectedElementsView.js';
+import { AffectedElementsWithLowContrastView } from './AffectedElementsWithLowContrastView.js';
+import { AffectedItem, AffectedResourcesView, extractShortPath } from './AffectedResourcesView.js';
+import { AffectedSharedArrayBufferIssueDetailsView } from './AffectedSharedArrayBufferIssueDetailsView.js';
+import { AffectedTrustedWebActivityIssueDetailsView } from './AffectedTrustedWebActivityIssueDetailsView.js';
+import { AggregatedIssue } from './IssueAggregator.js'; // eslint-disable-line no-unused-vars
+import { IssueDescription } from './MarkdownIssueDescription.js'; // eslint-disable-line no-unused-vars
 
 export const UIStrings = {
   /**
@@ -168,70 +170,49 @@ export const UIStrings = {
   */
   isThisIssueMessageHelpfulToYou: 'Is this issue message helpful to you?',
 };
-const str_ = i18n.i18n.registerUIStrings('issues/IssueView.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('issues/IssueView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 class AffectedDirectivesView extends AffectedResourcesView {
-  /**
-   * @param {!IssueView} parent
-   * @param {!AggregatedIssue} issue
-   */
-  constructor(parent, issue) {
-    super(parent, {singular: i18nString(UIStrings.directive), plural: i18nString(UIStrings.directives)});
-    /** @type {!AggregatedIssue} */
+  _issue: AggregatedIssue;
+  constructor(parent: IssueView, issue: AggregatedIssue) {
+    super(parent, { singular: i18nString(UIStrings.directive), plural: i18nString(UIStrings.directives) });
     this._issue = issue;
   }
 
-  /**
-   * @param {!Element} element
-   * @param {boolean} isReportOnly
-   */
-  _appendStatus(element, isReportOnly) {
+  _appendStatus(element: Element, isReportOnly: boolean): void {
     const status = document.createElement('td');
     if (isReportOnly) {
       status.classList.add('affected-resource-report-only-status');
       status.textContent = i18nString(UIStrings.reportonly);
-    } else {
+    }
+    else {
       status.classList.add('affected-resource-blocked-status');
       status.textContent = i18nString(UIStrings.blocked);
     }
     element.appendChild(status);
   }
 
-  /**
-   * @param {!Element} element
-   * @param {string} directive
-   */
-  _appendViolatedDirective(element, directive) {
+  _appendViolatedDirective(element: Element, directive: string): void {
     const violatedDirective = document.createElement('td');
     violatedDirective.textContent = directive;
     element.appendChild(violatedDirective);
   }
 
-  /**
-   * @param {!Element} element
-   * @param {string} url
-   */
-  _appendBlockedURL(element, url) {
+  _appendBlockedURL(element: Element, url: string): void {
     const info = document.createElement('td');
     info.classList.add('affected-resource-directive-info');
     info.textContent = url;
     element.appendChild(info);
   }
 
-  /**
-   * @param {!Element} element
-   * @param {number | undefined} nodeId
-   * @param {!SDK.IssuesModel.IssuesModel} model
-   */
-  _appendBlockedElement(element, nodeId, model) {
+  _appendBlockedElement(element: Element, nodeId: number | undefined, model: SDK.IssuesModel.IssuesModel): void {
     const elementsPanelLinkComponent = new Elements.ElementsPanelLink.ElementsPanelLink();
     if (nodeId) {
       const violatingNodeId = nodeId;
       UI.Tooltip.Tooltip.install(elementsPanelLinkComponent, i18nString(UIStrings.clickToRevealTheViolatingDomNode));
 
-      /** @type {function(!Event=):void} */
-      const onElementRevealIconClick = () => {
+      const onElementRevealIconClick: (arg0?: Event | undefined) => void = (): void => {
         const target = model.getTargetIfNotDisposed();
         if (target) {
           Host.userMetrics.issuesPanelResourceOpened(this._issue.getCategory(), AffectedItem.Element);
@@ -240,8 +221,7 @@ class AffectedDirectivesView extends AffectedResourcesView {
         }
       };
 
-      /** @type {function(!Event=):void} */
-      const onElementRevealIconMouseEnter = () => {
+      const onElementRevealIconMouseEnter: (arg0?: Event | undefined) => void = (): void => {
         const target = model.getTargetIfNotDisposed();
         if (target) {
           const deferredDOMNode = new SDK.DOMModel.DeferredDOMNode(target, violatingNodeId);
@@ -251,13 +231,12 @@ class AffectedDirectivesView extends AffectedResourcesView {
         }
       };
 
-      /** @type {function(!Event=):void} */
-      const onElementRevealIconMouseLeave = () => {
+      const onElementRevealIconMouseLeave: (arg0?: Event | undefined) => void = (): void => {
         SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight();
       };
 
       elementsPanelLinkComponent
-          .data = {onElementRevealIconClick, onElementRevealIconMouseEnter, onElementRevealIconMouseLeave};
+        .data = { onElementRevealIconClick, onElementRevealIconMouseEnter, onElementRevealIconMouseLeave };
     }
 
     const violatingNode = document.createElement('td');
@@ -266,33 +245,35 @@ class AffectedDirectivesView extends AffectedResourcesView {
     element.appendChild(violatingNode);
   }
 
-  /**
-   * @param {!Iterable<!SDK.ContentSecurityPolicyIssue.ContentSecurityPolicyIssue>} cspIssues
-   */
-  _appendAffectedContentSecurityPolicyDetails(cspIssues) {
+  _appendAffectedContentSecurityPolicyDetails(cspIssues: Iterable<SDK.ContentSecurityPolicyIssue.ContentSecurityPolicyIssue>): void {
     const header = document.createElement('tr');
     if (this._issue.code() === SDK.ContentSecurityPolicyIssue.inlineViolationCode) {
       this.appendColumnTitle(header, i18nString(UIStrings.directiveC));
       this.appendColumnTitle(header, i18nString(UIStrings.element));
       this.appendColumnTitle(header, i18nString(UIStrings.sourceLocation));
       this.appendColumnTitle(header, i18nString(UIStrings.status));
-    } else if (this._issue.code() === SDK.ContentSecurityPolicyIssue.urlViolationCode) {
+    }
+    else if (this._issue.code() === SDK.ContentSecurityPolicyIssue.urlViolationCode) {
       this.appendColumnTitle(header, i18nString(UIStrings.resourceC), 'affected-resource-directive-info-header');
       this.appendColumnTitle(header, i18nString(UIStrings.status));
       this.appendColumnTitle(header, i18nString(UIStrings.directiveC));
       this.appendColumnTitle(header, i18nString(UIStrings.sourceLocation));
-    } else if (this._issue.code() === SDK.ContentSecurityPolicyIssue.evalViolationCode) {
+    }
+    else if (this._issue.code() === SDK.ContentSecurityPolicyIssue.evalViolationCode) {
       this.appendColumnTitle(header, i18nString(UIStrings.sourceLocation));
       this.appendColumnTitle(header, i18nString(UIStrings.directiveC));
       this.appendColumnTitle(header, i18nString(UIStrings.status));
-    } else if (this._issue.code() === SDK.ContentSecurityPolicyIssue.trustedTypesSinkViolationCode) {
+    }
+    else if (this._issue.code() === SDK.ContentSecurityPolicyIssue.trustedTypesSinkViolationCode) {
       this.appendColumnTitle(header, i18nString(UIStrings.sourceLocation));
       this.appendColumnTitle(header, i18nString(UIStrings.status));
-    } else if (this._issue.code() === SDK.ContentSecurityPolicyIssue.trustedTypesPolicyViolationCode) {
+    }
+    else if (this._issue.code() === SDK.ContentSecurityPolicyIssue.trustedTypesPolicyViolationCode) {
       this.appendColumnTitle(header, i18nString(UIStrings.sourceLocation));
       this.appendColumnTitle(header, i18nString(UIStrings.directiveC));
       this.appendColumnTitle(header, i18nString(UIStrings.status));
-    } else {
+    }
+    else {
       this.updateAffectedResourceCount(0);
       return;
     }
@@ -305,10 +286,7 @@ class AffectedDirectivesView extends AffectedResourcesView {
     this.updateAffectedResourceCount(count);
   }
 
-  /**
-   * @param {!SDK.ContentSecurityPolicyIssue.ContentSecurityPolicyIssue} cspIssue
-   */
-  _appendAffectedContentSecurityPolicyDetail(cspIssue) {
+  _appendAffectedContentSecurityPolicyDetail(cspIssue: SDK.ContentSecurityPolicyIssue.ContentSecurityPolicyIssue): void {
     const element = document.createElement('tr');
     element.classList.add('affected-resource-directive');
 
@@ -320,59 +298,55 @@ class AffectedDirectivesView extends AffectedResourcesView {
       this._appendBlockedElement(element, cspIssueDetails.violatingNodeId, model);
       this.appendSourceLocation(element, cspIssueDetails.sourceCodeLocation, maybeTarget);
       this._appendStatus(element, cspIssueDetails.isReportOnly);
-    } else if (this._issue.code() === SDK.ContentSecurityPolicyIssue.urlViolationCode) {
+    }
+    else if (this._issue.code() === SDK.ContentSecurityPolicyIssue.urlViolationCode) {
       const url = cspIssueDetails.blockedURL ? cspIssueDetails.blockedURL : '';
       this._appendBlockedURL(element, url);
       this._appendStatus(element, cspIssueDetails.isReportOnly);
       this._appendViolatedDirective(element, cspIssueDetails.violatedDirective);
       this.appendSourceLocation(element, cspIssueDetails.sourceCodeLocation, maybeTarget);
-    } else if (this._issue.code() === SDK.ContentSecurityPolicyIssue.evalViolationCode) {
+    }
+    else if (this._issue.code() === SDK.ContentSecurityPolicyIssue.evalViolationCode) {
       this.appendSourceLocation(element, cspIssueDetails.sourceCodeLocation, maybeTarget);
       this._appendViolatedDirective(element, cspIssueDetails.violatedDirective);
       this._appendStatus(element, cspIssueDetails.isReportOnly);
-    } else if (this._issue.code() === SDK.ContentSecurityPolicyIssue.trustedTypesSinkViolationCode) {
+    }
+    else if (this._issue.code() === SDK.ContentSecurityPolicyIssue.trustedTypesSinkViolationCode) {
       this.appendSourceLocation(element, cspIssueDetails.sourceCodeLocation, maybeTarget);
       this._appendStatus(element, cspIssueDetails.isReportOnly);
-    } else if (this._issue.code() === SDK.ContentSecurityPolicyIssue.trustedTypesPolicyViolationCode) {
+    }
+    else if (this._issue.code() === SDK.ContentSecurityPolicyIssue.trustedTypesPolicyViolationCode) {
       this.appendSourceLocation(element, cspIssueDetails.sourceCodeLocation, maybeTarget);
       this._appendViolatedDirective(element, cspIssueDetails.violatedDirective);
       this._appendStatus(element, cspIssueDetails.isReportOnly);
-    } else {
+    }
+    else {
       return;
     }
 
     this.affectedResources.appendChild(element);
   }
 
-  /**
-   * @override
-   */
-  update() {
+  update(): void {
     this.clear();
     this._appendAffectedContentSecurityPolicyDetails(this._issue.cspIssues());
   }
 }
 
 class AffectedCookiesView extends AffectedResourcesView {
-  /**
-   * @param {!IssueView} parent
-   * @param {!AggregatedIssue} issue
-   */
-  constructor(parent, issue) {
-    super(parent, {singular: i18nString(UIStrings.cookie), plural: i18nString(UIStrings.cookies)});
-    /** @type {!AggregatedIssue} */
+  _issue: AggregatedIssue;
+  constructor(parent: IssueView, issue: AggregatedIssue) {
+    super(parent, { singular: i18nString(UIStrings.cookie), plural: i18nString(UIStrings.cookies) });
     this._issue = issue;
   }
 
-  /**
-   * @param {!Iterable<!{cookie: !Protocol.Audits.AffectedCookie, hasRequest: boolean}>} cookies
-   */
-  _appendAffectedCookies(cookies) {
+  _appendAffectedCookies(cookies: Iterable<{
+    cookie: Protocol.Audits.AffectedCookie;
+    hasRequest: boolean;
+  }>): void {
     const header = document.createElement('tr');
     this.appendColumnTitle(header, i18nString(UIStrings.name));
-    this.appendColumnTitle(
-        header, i18nString(UIStrings.domain) + ' & ' + i18nString(UIStrings.path),
-        'affected-resource-cookie-info-header');
+    this.appendColumnTitle(header, i18nString(UIStrings.domain) + ' & ' + i18nString(UIStrings.path), 'affected-resource-cookie-info-header');
 
     this.affectedResources.appendChild(header);
 
@@ -384,11 +358,7 @@ class AffectedCookiesView extends AffectedResourcesView {
     this.updateAffectedResourceCount(count);
   }
 
-  /**
-   * @param {!Protocol.Audits.AffectedCookie} cookie
-   * @param {boolean} hasAssociatedRequest
-   */
-  appendAffectedCookie(cookie, hasAssociatedRequest) {
+  appendAffectedCookie(cookie: Protocol.Audits.AffectedCookie, hasAssociatedRequest: boolean): void {
     const element = document.createElement('tr');
     element.classList.add('affected-resource-cookie');
     const name = document.createElement('td');
@@ -410,7 +380,8 @@ class AffectedCookiesView extends AffectedResourcesView {
           }
         ]);
       }, 'link-style devtools-link'));
-    } else {
+    }
+    else {
       name.textContent = cookie.name;
     }
     const info = document.createElement('td');
@@ -422,30 +393,20 @@ class AffectedCookiesView extends AffectedResourcesView {
     this.affectedResources.appendChild(element);
   }
 
-  /**
-   * @override
-   */
-  update() {
+  update(): void {
     this.clear();
     this._appendAffectedCookies(this._issue.cookiesWithRequestIndicator());
   }
 }
 
 class AffectedRequestsView extends AffectedResourcesView {
-  /**
-   * @param {!IssueView} parent
-   * @param {!SDK.Issue.Issue} issue
-   */
-  constructor(parent, issue) {
-    super(parent, {singular: i18nString(UIStrings.request), plural: i18nString(UIStrings.requests)});
-    /** @type {!SDK.Issue.Issue} */
+  _issue: SDK.Issue.Issue;
+  constructor(parent: IssueView, issue: SDK.Issue.Issue) {
+    super(parent, { singular: i18nString(UIStrings.request), plural: i18nString(UIStrings.requests) });
     this._issue = issue;
   }
 
-  /**
-   * @param {!Iterable<!Protocol.Audits.AffectedRequest>} affectedRequests
-   */
-  _appendAffectedRequests(affectedRequests) {
+  _appendAffectedRequests(affectedRequests: Iterable<Protocol.Audits.AffectedRequest>): void {
     let count = 0;
     for (const affectedRequest of affectedRequests) {
       for (const request of this.resolveRequestId(affectedRequest.requestId)) {
@@ -456,11 +417,7 @@ class AffectedRequestsView extends AffectedResourcesView {
     this.updateAffectedResourceCount(count);
   }
 
-  /**
-   *
-   * @param {!SDK.NetworkRequest.NetworkRequest} request
-   */
-  _appendNetworkRequest(request) {
+  _appendNetworkRequest(request: SDK.NetworkRequest.NetworkRequest): void {
     const nameText = Platform.StringUtilities.trimMiddle(request.name(), 100);
     const nameElement = document.createElement('td');
     const tab = issueTypeToNetworkHeaderMap.get(this._issue.getCategory()) || Network.NetworkItemView.Tabs.Headers;
@@ -474,10 +431,7 @@ class AffectedRequestsView extends AffectedResourcesView {
     this.affectedResources.appendChild(element);
   }
 
-  /**
-   * @override
-   */
-  update() {
+  update(): void {
     this.clear();
     // eslint-disable-next-line no-unused-vars
     for (const _ of this._issue.blockedByResponseDetails()) {
@@ -491,20 +445,13 @@ class AffectedRequestsView extends AffectedResourcesView {
 }
 
 class AffectedSourcesView extends AffectedResourcesView {
-  /**
-   * @param {!IssueView} parent
-   * @param {!SDK.Issue.Issue} issue
-   */
-  constructor(parent, issue) {
-    super(parent, {singular: i18nString(UIStrings.source), plural: i18nString(UIStrings.sources)});
-    /** @type {!SDK.Issue.Issue} */
+  _issue: SDK.Issue.Issue;
+  constructor(parent: IssueView, issue: SDK.Issue.Issue) {
+    super(parent, { singular: i18nString(UIStrings.source), plural: i18nString(UIStrings.sources) });
     this._issue = issue;
   }
 
-  /**
-   * @param {!Iterable<!SDK.Issue.AffectedSource>} affectedSources
-   */
-  _appendAffectedSources(affectedSources) {
+  _appendAffectedSources(affectedSources: Iterable<SDK.Issue.AffectedSource>): void {
     let count = 0;
     for (const source of affectedSources) {
       this._appendAffectedSource(source);
@@ -513,15 +460,11 @@ class AffectedSourcesView extends AffectedResourcesView {
     this.updateAffectedResourceCount(count);
   }
 
-  /**
-   * @param {!SDK.Issue.AffectedSource} source
-   */
-  _appendAffectedSource({url, lineNumber, columnNumber}) {
+  _appendAffectedSource({ url, lineNumber, columnNumber }: SDK.Issue.AffectedSource): void {
     const cellElement = document.createElement('td');
     // TODO(chromium:1072331): Check feasibility of plumping through scriptId for `linkifyScriptLocation`
     //                         to support source maps and formatted scripts.
-    const linkifierURLOptions =
-        /** @type {!Components.Linkifier.LinkifyURLOptions} */ ({columnNumber, lineNumber, tabStop: true});
+    const linkifierURLOptions = ({ columnNumber, lineNumber, tabStop: true } as Components.Linkifier.LinkifyURLOptions);
     // An element created with linkifyURL can subscribe to the events
     // 'click' neither 'keydown' if that key is the 'Enter' key.
     // Also, this element has a context menu, so we should be able to
@@ -535,37 +478,26 @@ class AffectedSourcesView extends AffectedResourcesView {
     this.affectedResources.appendChild(rowElement);
   }
 
-  /**
-   * @override
-   */
-  update() {
+  update(): void {
     this.clear();
     this._appendAffectedSources(this._issue.sources());
   }
 }
 
-/** @type {!Map<!SDK.Issue.IssueCategory, !Network.NetworkItemView.Tabs>} */
-const issueTypeToNetworkHeaderMap = new Map([
+const issueTypeToNetworkHeaderMap = new Map<symbol, string>([
   [SDK.Issue.IssueCategory.SameSiteCookie, Network.NetworkItemView.Tabs.Cookies],
   [SDK.Issue.IssueCategory.CrossOriginEmbedderPolicy, Network.NetworkItemView.Tabs.Headers],
   [SDK.Issue.IssueCategory.MixedContent, Network.NetworkItemView.Tabs.Headers]
 ]);
 
 class AffectedMixedContentView extends AffectedResourcesView {
-  /**
-   * @param {!IssueView} parent
-   * @param {!SDK.Issue.Issue} issue
-   */
-  constructor(parent, issue) {
-    super(parent, {singular: i18nString(UIStrings.resource), plural: i18nString(UIStrings.resources)});
-    /** @type {!SDK.Issue.Issue} */
+  _issue: SDK.Issue.Issue;
+  constructor(parent: IssueView, issue: SDK.Issue.Issue) {
+    super(parent, { singular: i18nString(UIStrings.resource), plural: i18nString(UIStrings.resources) });
     this._issue = issue;
   }
 
-  /**
-   * @param {!Iterable<!Protocol.Audits.MixedContentIssueDetails>} mixedContents
-   */
-  _appendAffectedMixedContents(mixedContents) {
+  _appendAffectedMixedContents(mixedContents: Iterable<Protocol.Audits.MixedContentIssueDetails>): void {
     const header = document.createElement('tr');
     this.appendColumnTitle(header, i18nString(UIStrings.name));
     this.appendColumnTitle(header, i18nString(UIStrings.restrictionStatus));
@@ -579,7 +511,8 @@ class AffectedMixedContentView extends AffectedResourcesView {
           this.appendAffectedMixedContent(mixedContent, networkRequest);
           count++;
         });
-      } else {
+      }
+      else {
         this.appendAffectedMixedContent(mixedContent);
         count++;
       }
@@ -587,24 +520,21 @@ class AffectedMixedContentView extends AffectedResourcesView {
     this.updateAffectedResourceCount(count);
   }
 
-  /**
-   * @param {!Protocol.Audits.MixedContentIssueDetails} mixedContent
-   * @param {?SDK.NetworkRequest.NetworkRequest} maybeRequest
-   */
-  appendAffectedMixedContent(mixedContent, maybeRequest = null) {
+  appendAffectedMixedContent(mixedContent: Protocol.Audits.MixedContentIssueDetails, maybeRequest: SDK.NetworkRequest.NetworkRequest | null = null): void {
     const element = document.createElement('tr');
     element.classList.add('affected-resource-mixed-content');
     const filename = extractShortPath(mixedContent.insecureURL);
 
     const name = document.createElement('td');
     if (maybeRequest) {
-      const request = maybeRequest;  // re-assignment to make type checker happy
+      const request = maybeRequest; // re-assignment to make type checker happy
       const tab = issueTypeToNetworkHeaderMap.get(this._issue.getCategory()) || Network.NetworkItemView.Tabs.Headers;
       name.appendChild(UI.UIUtils.createTextButton(filename, () => {
         Host.userMetrics.issuesPanelResourceOpened(this._issue.getCategory(), AffectedItem.Request);
         Network.NetworkPanel.NetworkPanel.selectAndShowRequest(request, tab);
       }, 'link-style devtools-link'));
-    } else {
+    }
+    else {
       name.classList.add('affected-resource-mixed-content-info');
       name.textContent = filename;
     }
@@ -619,30 +549,20 @@ class AffectedMixedContentView extends AffectedResourcesView {
     this.affectedResources.appendChild(element);
   }
 
-  /**
-   * @override
-   */
-  update() {
+  update(): void {
     this.clear();
     this._appendAffectedMixedContents(this._issue.mixedContents());
   }
 }
 
 class AffectedHeavyAdView extends AffectedResourcesView {
-  /**
-   * @param {!IssueView} parent
-   * @param {!SDK.Issue.Issue} issue
-   */
-  constructor(parent, issue) {
-    super(parent, {singular: i18nString(UIStrings.resource), plural: i18nString(UIStrings.resources)});
-    /** @type {!SDK.Issue.Issue} */
+  _issue: SDK.Issue.Issue;
+  constructor(parent: IssueView, issue: SDK.Issue.Issue) {
+    super(parent, { singular: i18nString(UIStrings.resource), plural: i18nString(UIStrings.resources) });
     this._issue = issue;
   }
 
-  /**
-   * @param {!Iterable<!Protocol.Audits.HeavyAdIssueDetails>} heavyAds
-   */
-  _appendAffectedHeavyAds(heavyAds) {
+  _appendAffectedHeavyAds(heavyAds: Iterable<Protocol.Audits.HeavyAdIssueDetails>): void {
     const header = document.createElement('tr');
     this.appendColumnTitle(header, i18nString(UIStrings.limitExceeded));
     this.appendColumnTitle(header, i18nString(UIStrings.resolutionStatus));
@@ -658,11 +578,7 @@ class AffectedHeavyAdView extends AffectedResourcesView {
     this.updateAffectedResourceCount(count);
   }
 
-  /**
-   * @param {!Protocol.Audits.HeavyAdResolutionStatus} status
-   * @return {string}
-   */
-  _statusToString(status) {
+  _statusToString(status: Protocol.Audits.HeavyAdResolutionStatus): string {
     switch (status) {
       case Protocol.Audits.HeavyAdResolutionStatus.HeavyAdBlocked:
         return i18nString(UIStrings.removed);
@@ -672,11 +588,7 @@ class AffectedHeavyAdView extends AffectedResourcesView {
     return '';
   }
 
-  /**
-   * @param {!Protocol.Audits.HeavyAdReason} status
-   * @return {string}
-   */
-  _limitToString(status) {
+  _limitToString(status: Protocol.Audits.HeavyAdReason): string {
     switch (status) {
       case Protocol.Audits.HeavyAdReason.CpuPeakLimit:
         return i18nString(UIStrings.cpuPeakLimit);
@@ -688,10 +600,7 @@ class AffectedHeavyAdView extends AffectedResourcesView {
     return '';
   }
 
-  /**
-   * @param {!Protocol.Audits.HeavyAdIssueDetails} heavyAd
-   */
-  _appendAffectedHeavyAd(heavyAd) {
+  _appendAffectedHeavyAd(heavyAd: Protocol.Audits.HeavyAdIssueDetails): void {
     const element = document.createElement('tr');
     element.classList.add('affected-resource-heavy-ad');
 
@@ -712,30 +621,20 @@ class AffectedHeavyAdView extends AffectedResourcesView {
     this.affectedResources.appendChild(element);
   }
 
-  /**
-   * @override
-   */
-  update() {
+  update(): void {
     this.clear();
     this._appendAffectedHeavyAds(this._issue.heavyAds());
   }
 }
 
 class AffectedBlockedByResponseView extends AffectedResourcesView {
-  /**
-   * @param {!IssueView} parent
-   * @param {!SDK.Issue.Issue} issue
-   */
-  constructor(parent, issue) {
-    super(parent, {singular: i18nString(UIStrings.request), plural: i18nString(UIStrings.requests)});
-    /** @type {!SDK.Issue.Issue} */
+  _issue: SDK.Issue.Issue;
+  constructor(parent: IssueView, issue: SDK.Issue.Issue) {
+    super(parent, { singular: i18nString(UIStrings.request), plural: i18nString(UIStrings.requests) });
     this._issue = issue;
   }
 
-  /**
-   * @param {!Iterable<!Protocol.Audits.BlockedByResponseIssueDetails>} details
-   */
-  _appendDetails(details) {
+  _appendDetails(details: Iterable<Protocol.Audits.BlockedByResponseIssueDetails>): void {
     const header = document.createElement('tr');
     this.appendColumnTitle(header, i18nString(UIStrings.requestC));
     this.appendColumnTitle(header, i18nString(UIStrings.parentFrame));
@@ -751,10 +650,7 @@ class AffectedBlockedByResponseView extends AffectedResourcesView {
     this.updateAffectedResourceCount(count);
   }
 
-  /**
-   * @param {!Protocol.Audits.BlockedByResponseIssueDetails} details
-   */
-  _appendDetail(details) {
+  _appendDetail(details: Protocol.Audits.BlockedByResponseIssueDetails): void {
     const element = document.createElement('tr');
     element.classList.add('affected-resource-row');
 
@@ -764,32 +660,30 @@ class AffectedBlockedByResponseView extends AffectedResourcesView {
     if (details.parentFrame) {
       const frameUrl = this.createFrameCell(details.parentFrame.frameId, this._issue);
       element.appendChild(frameUrl);
-    } else {
+    }
+    else {
       element.appendChild(document.createElement('td'));
     }
 
     if (details.blockedFrame) {
       const frameUrl = this.createFrameCell(details.blockedFrame.frameId, this._issue);
       element.appendChild(frameUrl);
-    } else {
+    }
+    else {
       element.appendChild(document.createElement('td'));
     }
 
     this.affectedResources.appendChild(element);
   }
 
-  /**
-   * @override
-   */
-  update() {
+  update(): void {
     this.clear();
     this._appendDetails(this._issue.blockedByResponseDetails());
   }
 }
 
 // These come from chrome/browser/ui/hats/hats_service.cc.
-/** @type {!Map<!SDK.Issue.IssueCategory, string|null>} */
-const issueSurveyTriggers = new Map([
+const issueSurveyTriggers = new Map<symbol, string | null>([
   [SDK.Issue.IssueCategory.CrossOriginEmbedderPolicy, 'devtools-issues-coep'],
   [SDK.Issue.IssueCategory.MixedContent, 'devtools-issues-mixed-content'],
   [SDK.Issue.IssueCategory.SameSiteCookie, 'devtools-issues-cookies-samesite'],
@@ -798,17 +692,18 @@ const issueSurveyTriggers = new Map([
 ]);
 
 export class IssueView extends UI.TreeOutline.TreeElement {
-  /**
-   *
-   * @param {!UI.Widget.VBox} parent
-   * @param {!AggregatedIssue} issue
-   * @param {!IssueDescription} description
-   */
-  constructor(parent, issue, description) {
+  _parent: UI.Widget.VBox;
+  _issue: AggregatedIssue;
+  _description: IssueDescription;
+  toggleOnClick: boolean;
+  affectedResources: UI.TreeOutline.TreeElement;
+  _affectedResourceViews: AffectedResourcesView[];
+  _aggregatedIssuesCount: HTMLElement | null;
+  _hasBeenExpandedBefore: boolean;
+  constructor(parent: UI.Widget.VBox, issue: AggregatedIssue, description: IssueDescription) {
     super();
     this._parent = parent;
     this._issue = issue;
-    /** @type {!IssueDescription} */
     this._description = description;
 
     this.toggleOnClick = true;
@@ -816,7 +711,6 @@ export class IssueView extends UI.TreeOutline.TreeElement {
     this.childrenListElement.classList.add('body');
 
     this.affectedResources = this._createAffectedResources();
-    /** @type {!Array<!AffectedResourcesView>} */
     this._affectedResourceViews = [
       new AffectedCookiesView(this, this._issue),
       new AffectedElementsView(this, this._issue),
@@ -835,17 +729,11 @@ export class IssueView extends UI.TreeOutline.TreeElement {
     this._hasBeenExpandedBefore = false;
   }
 
-  /**
-   * @returns {string}
-   */
-  getIssueTitle() {
+  getIssueTitle(): string {
     return this._description.title;
   }
 
-  /**
-   * @override
-   */
-  onattach() {
+  onattach(): void {
     this._appendHeader();
     this._createBody();
     this.appendChild(this.affectedResources);
@@ -858,20 +746,17 @@ export class IssueView extends UI.TreeOutline.TreeElement {
     this.updateAffectedResourceVisibility();
   }
 
-  /**
-   * @param {!UI.TreeOutline.TreeElement} resource
-   */
-  appendAffectedResource(resource) {
+  appendAffectedResource(resource: UI.TreeOutline.TreeElement): void {
     this.affectedResources.appendChild(resource);
   }
 
-  _appendHeader() {
+  _appendHeader(): void {
     const header = document.createElement('div');
     header.classList.add('header');
     const icon = new WebComponents.Icon.Icon();
-    icon.data = {iconName: 'breaking_change_icon', color: '', width: '16px', height: '16px'};
+    icon.data = { iconName: 'breaking_change_icon', color: '', width: '16px', height: '16px' };
     icon.classList.add('breaking-change');
-    this._aggregatedIssuesCount = /** @type {!HTMLElement} */ (document.createElement('span'));
+    this._aggregatedIssuesCount = (document.createElement('span') as HTMLElement);
     const countAdorner = Elements.Adorner.Adorner.create(this._aggregatedIssuesCount, 'countWrapper');
     countAdorner.classList.add('aggregated-issues-count');
     this._aggregatedIssuesCount.textContent = `${this._issue.getAggregatedIssuesCount()}`;
@@ -886,10 +771,7 @@ export class IssueView extends UI.TreeOutline.TreeElement {
     this.listItemElement.appendChild(header);
   }
 
-  /**
-   * @override
-   */
-  onexpand() {
+  onexpand(): void {
     const issueCategory = this._issue.getCategory().description;
 
     Host.userMetrics.issuesPanelIssueExpanded(issueCategory);
@@ -902,22 +784,18 @@ export class IssueView extends UI.TreeOutline.TreeElement {
     }
   }
 
-  _updateAggregatedIssuesCount() {
+  _updateAggregatedIssuesCount(): void {
     if (this._aggregatedIssuesCount) {
       this._aggregatedIssuesCount.textContent = `${this._issue.getAggregatedIssuesCount()}`;
     }
   }
 
-  updateAffectedResourceVisibility() {
+  updateAffectedResourceVisibility(): void {
     const noResources = this._affectedResourceViews.every(view => view.isEmpty());
     this.affectedResources.hidden = noResources;
   }
 
-  /**
-   *
-   * @returns {!UI.TreeOutline.TreeElement}
-   */
-  _createAffectedResources() {
+  _createAffectedResources(): UI.TreeOutline.TreeElement {
     const wrapper = new UI.TreeOutline.TreeElement();
     wrapper.setCollapsible(false);
     wrapper.setExpandable(true);
@@ -929,7 +807,7 @@ export class IssueView extends UI.TreeOutline.TreeElement {
     return wrapper;
   }
 
-  _createBody() {
+  _createBody(): void {
     const messageElement = new UI.TreeOutline.TreeElement();
     messageElement.setCollapsible(false);
     messageElement.selectable = false;
@@ -937,25 +815,23 @@ export class IssueView extends UI.TreeOutline.TreeElement {
     this.appendChild(messageElement);
   }
 
-  _createReadMoreLinks() {
+  _createReadMoreLinks(): void {
     const linkWrapper = new UI.TreeOutline.TreeElement();
     linkWrapper.setCollapsible(false);
     linkWrapper.listItemElement.classList.add('link-wrapper');
 
     const linkList = linkWrapper.listItemElement.createChild('ul', 'link-list');
     for (const description of this._description.links) {
-      const link = UI.Fragment.html
-      `<a class="link devtools-link" role="link" tabindex="0" href=${description.link}>${
-          i18nString(UIStrings.learnMoreS, {PH1: description.linkTitle})}</a>`;
+      const link = UI.Fragment.html `<a class="link devtools-link" role="link" tabindex="0" href=${description.link}>${i18nString(UIStrings.learnMoreS, { PH1: description.linkTitle })}</a>`;
       const linkIcon = new WebComponents.Icon.Icon();
-      linkIcon.data = {iconName: 'link_icon', color: 'var(--issue-link)', width: '16px', height: '16px'};
+      linkIcon.data = { iconName: 'link_icon', color: 'var(--issue-link)', width: '16px', height: '16px' };
       linkIcon.classList.add('link-icon');
       link.prepend(linkIcon);
       self.onInvokeElement(link, event => {
         Host.userMetrics.issuesPanelResourceOpened(this._issue.getCategory(), AffectedItem.LearnMore);
         const mainTarget = SDK.SDKModel.TargetManager.instance().mainTarget();
         if (mainTarget) {
-          mainTarget.targetAgent().invoke_createTarget({url: description.link});
+          mainTarget.targetAgent().invoke_createTarget({ url: description.link });
         }
         event.consume(true);
       });
@@ -979,19 +855,17 @@ export class IssueView extends UI.TreeOutline.TreeElement {
     }
   }
 
-  update() {
+  update(): void {
     this._affectedResourceViews.forEach(view => view.update());
     this.updateAffectedResourceVisibility();
     this._updateAggregatedIssuesCount();
   }
 
-  /**
-   * @param {(boolean|undefined)=} expand - Expands the issue if `true`, collapses if `false`, toggles collapse if undefined
-   */
-  toggle(expand) {
+  toggle(expand?: boolean): void {
     if (expand || (expand === undefined && !this.expanded)) {
       this.expand();
-    } else {
+    }
+    else {
       this.collapse();
     }
   }
