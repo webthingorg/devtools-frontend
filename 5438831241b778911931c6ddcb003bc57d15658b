@@ -34,6 +34,81 @@
       "parentUuid": "a2f05990_bb5b097c",
       "revId": "5438831241b778911931c6ddcb003bc57d15658b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e958b7de_b039647c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-02-10T09:52:51Z",
+      "side": 1,
+      "message": "The v2 doc says that\u0027s the canonical link 😄\n\nI’ve made https://goo.gle/devtools-flex-v2 for the v2 doc now and have updated the doc accordingly.",
+      "parentUuid": "a2f05990_bb5b097c",
+      "revId": "5438831241b778911931c6ddcb003bc57d15658b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d568bba0_41a46cb6",
+        "filename": "front_end/component_docs/flexbox_editor/basic.html",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-02-10T09:52:51Z",
+      "side": 1,
+      "message": "style guide nit: omit starting and closing tags for \u003chtml\u003e, \u003chead\u003e, \u003cbody\u003e if there’s no attributes on them anyway https://google.github.io/styleguide/htmlcssguide.html#Optional_Tags",
+      "revId": "5438831241b778911931c6ddcb003bc57d15658b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c166c065_e6e00927",
+        "filename": "front_end/component_docs/flexbox_editor/basic.html",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-02-10T09:52:51Z",
+      "side": 1,
+      "message": "nit: don’t use `/\u003e` https://google.github.io/styleguide/htmlcssguide.html#Document_Type",
+      "range": {
+        "startLine": 9,
+        "startChar": 26,
+        "endLine": 9,
+        "endChar": 27
+      },
+      "revId": "5438831241b778911931c6ddcb003bc57d15658b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87a80fcf_7d767cca",
+        "filename": "front_end/component_docs/flexbox_editor/basic.html",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-02-10T09:52:51Z",
+      "side": 1,
+      "message": "Do we need `,initial-scale\u003d1` as well?",
+      "revId": "5438831241b778911931c6ddcb003bc57d15658b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
