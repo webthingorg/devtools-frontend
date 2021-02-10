@@ -302,6 +302,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "df8a91cd_8f6ffee5",
+        "filename": "front_end/elements/FlexboxEditor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-02-10T13:22:51Z",
+      "side": 1,
+      "message": "Yes, I was thinking about doing something like this indeed. Just giving the right roles to the wrapper and the buttons should go a long way. There\u0027s also the aria-pressed attribute that can help indicate that those buttons have 2 states.",
+      "parentUuid": "f83259fe_32607cee",
+      "range": {
+        "startLine": 148,
+        "startChar": 6,
+        "endLine": 150,
+        "endChar": 12
+      },
+      "revId": "d4f358b740a5d83a5ec11501baddda4983352e39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cb761617_6a02d3a3",
         "filename": "front_end/elements/FlexboxEditor.ts",
         "patchSetId": 7
