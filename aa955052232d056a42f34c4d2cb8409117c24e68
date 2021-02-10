@@ -107,6 +107,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c81a2493_5ae20921",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-02-10T23:25:52Z",
+      "side": 1,
+      "message": "lgtm once test failures are fixed up.\n\nJust need to create an instance of the AccessibilityTree in the tests new using Elements.AccessibilityTree.AccessibilityTree, and passing that through to each makeAXNode to ensure the tree isn\u0027t null and doesn\u0027t early exit on any null checks.",
+      "revId": "aa955052232d056a42f34c4d2cb8409117c24e68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d704ccda_85785ec8",

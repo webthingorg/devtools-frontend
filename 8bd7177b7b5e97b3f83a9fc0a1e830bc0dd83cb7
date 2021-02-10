@@ -209,6 +209,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dfde0736_9a9c5588",
+        "filename": "front_end/elements/AccessibilityNode.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-02-10T23:25:52Z",
+      "side": 1,
+      "message": "I\u0027m not sure how we\u0027d create a single instance of the AccessibilityTree in the AccessibilityNode constructor, unless there was some sort of a static factory method implemented somewhere (ElementsPanel?... AccessibilityTreeView?) that returned a singleton. I think it makes more sense (for now) to pass through the axTree reference in the data setter, and just include the null checks.\n\nIf assertNotNull is safer and less verbose, it might be a good idea to use that, but I have no real opinion.",
+      "parentUuid": "41b397e3_4e1e5af6",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 5
+      },
+      "revId": "8bd7177b7b5e97b3f83a9fc0a1e830bc0dd83cb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "45a71f1c_93b818f2",
         "filename": "front_end/elements/AccessibilityNode.ts",
         "patchSetId": 10
