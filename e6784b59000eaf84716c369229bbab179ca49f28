@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fb77672_cd33a847",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2021-02-10T18:31:03Z",
+      "side": 1,
+      "message": "Thanks for addressing this so quickly! Validated that this change appears to fix the issue for me: https://imgur.com/SLPMIyH",
+      "revId": "e6784b59000eaf84716c369229bbab179ca49f28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
