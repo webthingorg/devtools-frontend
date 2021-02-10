@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as BrowserSDK from '../browser_sdk/browser_sdk.js';
 import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
@@ -68,12 +70,15 @@ export const UIStrings = {
   */
   openIssuesToViewS: 'Open Issues to view {PH1}',
 };
-const str_ = i18n.i18n.registerUIStrings('console_counters/WarningErrorCounter.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('console_counters/WarningErrorCounter.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
-/**
- * @implements {UI.Toolbar.Provider}
- */
-export class WarningErrorCounter {
+export class WarningErrorCounter implements UI.Toolbar.Provider {
+  _toolbarItem: UI.Toolbar.ToolbarItem;
+  _consoleCounter: Components.IconButton.IconButton;
+  _violationCounter: Components.IconButton.IconButton|null;
+  _issuesCounter: Components.IconButton.IconButton;
+  _throttler: Common.Throttler.Throttler;
+  _updatingForTest?: boolean;
   constructor() {
     WarningErrorCounter._instanceForTest = this;
 
@@ -93,7 +98,7 @@ export class WarningErrorCounter {
       this._violationCounter = new Components.IconButton.IconButton();
       countersWrapper.appendChild(this._violationCounter);
       this._violationCounter.data = {
-        clickHandler: () => UI.ViewManager.ViewManager.instance().showView('lighthouse'),
+        clickHandler: (): Promise<void> => UI.ViewManager.ViewManager.instance().showView('lighthouse'),
         groups: [{iconName: 'ic_info_black_18dp', iconColor: '#2a53cd'}],
       };
     }
@@ -101,7 +106,7 @@ export class WarningErrorCounter {
     this._issuesCounter = new Components.IconButton.IconButton();
     countersWrapper.appendChild(this._issuesCounter);
     this._issuesCounter.data = {
-      clickHandler: () => {
+      clickHandler: (): void => {
         Host.userMetrics.issuesPanelOpenedFrom(Host.UserMetrics.IssueOpener.StatusBarIssuesCounter);
         UI.ViewManager.ViewManager.instance().showView('issues-pane');
       },
@@ -122,30 +127,26 @@ export class WarningErrorCounter {
     this._update();
   }
 
-  _updatedForTest() {
+  _updatedForTest(): void {
     // Sniffed in tests.
   }
 
-  _update() {
+  _update(): void {
     this._updatingForTest = true;
     this._throttler.schedule(this._updateThrottled.bind(this));
   }
 
-  get titlesForTesting() {
+  get titlesForTesting(): string|null {
     return this._consoleCounter.getAttribute('aria-label');
   }
 
-  /**
-   * @return {!Promise<void>}
-   */
-  async _updateThrottled() {
+  async _updateThrottled(): Promise<void> {
     const errors = SDK.ConsoleModel.ConsoleModel.instance().errors();
     const warnings = SDK.ConsoleModel.ConsoleModel.instance().warnings();
     const violations = this._violationCounter ? SDK.ConsoleModel.ConsoleModel.instance().violations() : 0;
     const issues = BrowserSDK.IssuesManager.IssuesManager.instance().numberOfIssues();
 
-    /** @param {number} c */
-    const countToText = c => c === 0 ? undefined : `${c}`;
+    const countToText = (c: number): string|undefined => c === 0 ? undefined : `${c}`;
 
     /* Update consoleCounter items. */
     let errorCountTitle = '';
@@ -213,14 +214,9 @@ export class WarningErrorCounter {
     return;
   }
 
-  /**
-   * @override
-   * @return {?UI.Toolbar.ToolbarItem}
-   */
-  item() {
+  item(): UI.Toolbar.ToolbarItem|null {
     return this._toolbarItem;
   }
-}
 
-/** @type {?WarningErrorCounter} */
-WarningErrorCounter._instanceForTest = null;
+  static _instanceForTest: WarningErrorCounter|null = null;
+}
