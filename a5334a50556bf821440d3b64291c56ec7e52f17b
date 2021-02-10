@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91abc5e7_8d4fda52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1467227
+      },
+      "writtenOn": "2021-02-10T16:55:31Z",
+      "side": 1,
+      "message": "This cl assumes approval of https://docs.google.com/document/d/1iiydn8JMtVlR38NZFKWr_Jt-_Ns4njRfJCrUX23h08Q/edit.",
+      "revId": "a5334a50556bf821440d3b64291c56ec7e52f17b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
