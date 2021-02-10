@@ -528,6 +528,9 @@ describe('Raw-Wasm', async () => {
 
     // This page automatically enters debugging.
     const messageElement = await frontend.waitForSelector('.paused-message');
+    if (!messageElement) {
+      assert.fail('Could not find .paused-message');
+    }
     const statusMain = await $('.status-main', messageElement);
 
     if (!statusMain) {
@@ -572,6 +575,9 @@ describe('Raw-Wasm', async () => {
 
     // Wasm code for function call should be highlighted
     const codeLine = await frontend.waitForSelector('.cm-execution-line pre');
+    if (!codeLine) {
+      assert.fail('Could not find codeLine element.');
+    }
     const codeText = await codeLine.evaluate(n => n.textContent);
 
     assert.strictEqual(codeText, '    call $bar');

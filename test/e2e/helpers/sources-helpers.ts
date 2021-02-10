@@ -119,7 +119,7 @@ export async function waitForHighlightedLineWhichIncludesText(expectedTextConten
 // line number element in CodeMirror.
 export async function addBreakpointForLine(frontend: puppeteer.Page, index: number, expectedFail: boolean = false) {
   const asyncScope = new AsyncScope();
-  await asyncScope.exec(() => frontend.waitForFunction((index, CODE_LINE_SELECTOR) => {
+  await asyncScope.exec(() => frontend.waitForFunction((index: number, CODE_LINE_SELECTOR: string) => {
     return document.querySelectorAll(CODE_LINE_SELECTOR).length >= (index - 1);
   }, {timeout: 0}, index, CODE_LINE_SELECTOR));
   const breakpointLineNumber = await frontend.evaluate((index, CODE_LINE_SELECTOR) => {
@@ -140,7 +140,7 @@ export async function addBreakpointForLine(frontend: puppeteer.Page, index: numb
     return;
   }
 
-  await asyncScope.exec(() => frontend.waitForFunction(bpCount => {
+  await asyncScope.exec(() => frontend.waitForFunction((bpCount: number) => {
     return document.querySelectorAll('.cm-breakpoint').length > bpCount &&
         document.querySelectorAll('.cm-breakpoint-unbound').length === 0;
   }, {timeout: 0}, currentBreakpointCount));
@@ -294,7 +294,7 @@ export function listenForSourceFilesAdded(frontend: puppeteer.Page) {
 }
 
 export function waitForAdditionalSourceFiles(frontend: puppeteer.Page, count = 1) {
-  return frontend.waitForFunction(count => {
+  return frontend.waitForFunction((count: number) => {
     return window.__sourceFilesAddedEvents.length >= count;
   }, undefined, count);
 }
@@ -422,6 +422,9 @@ export async function getValuesForScope(scope: string, expandCount: number, wait
 export async function getPausedMessages() {
   const {frontend} = getBrowserAndPages();
   const messageElement = await frontend.waitForSelector('.paused-message');
+  if (!messageElement) {
+    assert.fail('getPausedMessages: did not find .paused-message element.');
+  }
   const statusMain = await waitFor('.status-main', messageElement);
   const statusSub = await waitFor('.status-sub', messageElement);
   return {
