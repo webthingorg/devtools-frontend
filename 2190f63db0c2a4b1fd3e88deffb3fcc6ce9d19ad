@@ -33,6 +33,52 @@
       "message": "Adding Sigurd as owner",
       "revId": "2190f63db0c2a4b1fd3e88deffb3fcc6ce9d19ad",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adb1b536_e0799f35",
+        "filename": "front_end/issues/BUILD.gn",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-10T17:16:38Z",
+      "side": 1,
+      "message": "We should remove this per the other comment.",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 25
+      },
+      "revId": "2190f63db0c2a4b1fd3e88deffb3fcc6ce9d19ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1130e85_0ce2087a",
+        "filename": "front_end/issues/ModuleUIStrings.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-10T17:16:38Z",
+      "side": 1,
+      "message": "This file was removed from `master`, so we should remove it here as well.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 68
+      },
+      "revId": "2190f63db0c2a4b1fd3e88deffb3fcc6ce9d19ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
