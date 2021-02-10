@@ -73,6 +73,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d4bc4ff4_1034572f",
+        "filename": "front_end/js_profiler/BUILD.gn",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-10T12:58:30Z",
+      "side": 0,
+      "message": "Since this was the only file in the `devtools_module`, yes this should be safe to remove. `js_profiler` is a bit special anyways, so only having an `entrypoint` and `meta` is okay for this folder.",
+      "parentUuid": "f4bdc2f5_36578e4e",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 1
+      },
+      "revId": "fbf4ea6ef43e49858b16b55c058dafcae661e117",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ae59bfc8_8ade1135",
         "filename": "front_end/webauthn/ModuleUIStrings.ts",
         "patchSetId": 3
