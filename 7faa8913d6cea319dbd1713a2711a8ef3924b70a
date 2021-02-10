@@ -16,6 +16,46 @@
       "message": "Not sure what to think of this change. Let me know what your thoughts are!",
       "revId": "7faa8913d6cea319dbd1713a2711a8ef3924b70a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe9f0738_3d8d99ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-10T18:06:14Z",
+      "side": 1,
+      "message": "Personally, I\u0027d vote against this kind of CL. Even though I love me some type magic but this seems hard to read and even harder to understand for arguably little gain.\n\nI\u0027d advocate to manage our singletons on a different layer:\n\nLets allow each module to declare a list of classes it wants to instantiate only once (in the respective `*-meta.ts` file. Then the module loading code owns instantiation and lifetime. True, constructors wouldn\u0027t probably be private, so TS wouldn\u0027t save against direct instantiation.\nBut (!), the added benefit would be finally proper life-cycle for our singletons, meaning they would be instantiated deterministically in a pre-determined order. E.g. guaranteed settings, experiments and loaded i18n module.\n\nJust my 2 cents. I won\u0027t block though, if the majority feels that the benefits of this approach outweigh the costs.",
+      "revId": "7faa8913d6cea319dbd1713a2711a8ef3924b70a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "325e3c83_47e0f3cd",
+        "filename": "front_end/platform/typescript-utilities.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-10T18:06:14Z",
+      "side": 1,
+      "message": "Just for my understanding: Why does the instance live here and not shifted a line below into the anonymous class that we return (and make it static)? Wouldn\u0027t we needlessly keep the closure alive this way?",
+      "range": {
+        "startLine": 24,
+        "startChar": 2,
+        "endLine": 24,
+        "endChar": 36
+      },
+      "revId": "7faa8913d6cea319dbd1713a2711a8ef3924b70a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
