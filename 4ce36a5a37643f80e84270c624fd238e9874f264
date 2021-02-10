@@ -63,6 +63,30 @@
       },
       "revId": "4ce36a5a37643f80e84270c624fd238e9874f264",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9727509a_66e846d9",
+        "filename": "front_end/common/Settings.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2021-02-10T16:32:48Z",
+      "side": 1,
+      "message": "Sure, the error I\u0027m getting is:\nSettings.js:418 Uncaught (in promise) TypeError: title is not a function\n    at Settings.js:418\n    at Array.map (\u003canonymous\u003e)\n    at Setting.options (Settings.js:414)\n    at createControlForSetting (SettingsUI.js:175)\n    at new GenericSettingsTab (SettingsScreen.js:256)\n    at Function.instance (SettingsScreen.js:271)\n    at Object.loadView (settings-meta.js:67)\n\nNow this is happening on a new call to the options() function defined in Settings.js, which is just grabbing the settings for Theme. the returned setting is: \n{value: \"systemPreferred\", title: \"Switch to system preferred color theme\", text: \"System preference\"}\n\nYou are correct that the typing is defined for a function. However, I believe you are migrating existing settings that could have been registered before the new system. Since settings are preserved in either local storage or the userDataDir (I can\u0027t remember which), what I believe is happening is that when retrieving a setting that I have locally registered before the migration, the title is a type string and not a function, so it errors out?",
+      "parentUuid": "25684f58_a3f0ad8f",
+      "range": {
+        "startLine": 924,
+        "startChar": 10,
+        "endLine": 924,
+        "endChar": 25
+      },
+      "revId": "4ce36a5a37643f80e84270c624fd238e9874f264",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
