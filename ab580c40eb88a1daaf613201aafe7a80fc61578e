@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "af15f583_e971821c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-10T08:59:48Z",
+      "side": 1,
+      "message": "That was a discussion on another CL. I think it does not hurt to put the bug for that CL here too.",
+      "parentUuid": "365eeba4_67811e25",
+      "revId": "ab580c40eb88a1daaf613201aafe7a80fc61578e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5dacdf1e_1645077e",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
