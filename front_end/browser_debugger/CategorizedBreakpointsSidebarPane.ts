@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as i18n from '../i18n/i18n.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
@@ -12,29 +14,27 @@ export const UIStrings = {
   */
   breakpointHit: 'breakpoint hit',
 };
-const str_ = i18n.i18n.registerUIStrings('browser_debugger/CategorizedBreakpointsSidebarPane.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('browser_debugger/CategorizedBreakpointsSidebarPane.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 /**
  * @abstract
  */
 export class CategorizedBreakpointsSidebarPane extends UI.Widget.VBox {
-  /**
-   * @param {string[]} categories
-   * @param {!Array<!SDK.DOMDebuggerModel.CategorizedBreakpoint>} breakpoints
-   * @param {string} viewId
-   * @param {!!Protocol.Debugger.PausedEventReason} detailsPausedReason
-   */
-  constructor(categories, breakpoints, viewId, detailsPausedReason) {
+  _categoriesTreeOutline: UI.TreeOutline.TreeOutlineInShadow;
+  _viewId: string;
+  _detailsPausedReason: Protocol.Debugger.PausedEventReason;
+  _categories: Map<string, Item>;
+  _breakpoints: Map<SDK.DOMDebuggerModel.CategorizedBreakpoint, Item>;
+  _highlightedElement?: HTMLLIElement;
+  constructor(categories: string[], breakpoints: SDK.DOMDebuggerModel.CategorizedBreakpoint[], viewId: string, detailsPausedReason: Protocol.Debugger.PausedEventReason) {
     super(true);
     this._categoriesTreeOutline = new UI.TreeOutline.TreeOutlineInShadow();
-    this._categoriesTreeOutline.registerRequiredCSS(
-        'browser_debugger/categorizedBreakpointsSidebarPane.css', {enableLegacyPatching: true});
+    this._categoriesTreeOutline.registerRequiredCSS('browser_debugger/categorizedBreakpointsSidebarPane.css', { enableLegacyPatching: true });
     this._categoriesTreeOutline.setShowSelectionOnKeyboardFocus(/* show */ true);
     this.contentElement.appendChild(this._categoriesTreeOutline.element);
     this._viewId = viewId;
     this._detailsPausedReason = detailsPausedReason;
 
-    /** @type {!Map<string, !Item>} */
     this._categories = new Map();
     for (const category of categories) {
       if (!this._categories.has(category)) {
@@ -48,30 +48,21 @@ export class CategorizedBreakpointsSidebarPane extends UI.Widget.VBox {
       }
     }
 
-    /** @type {!Map<!SDK.DOMDebuggerModel.CategorizedBreakpoint, !Item>} */
     this._breakpoints = new Map();
     for (const breakpoint of breakpoints) {
       this._createBreakpoint(breakpoint);
     }
 
-    SDK.SDKModel.TargetManager.instance().addModelListener(
-        SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.DebuggerPaused, this._update, this);
-    SDK.SDKModel.TargetManager.instance().addModelListener(
-        SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.DebuggerResumed, this._update, this);
+    SDK.SDKModel.TargetManager.instance().addModelListener(SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.DebuggerPaused, this._update, this);
+    SDK.SDKModel.TargetManager.instance().addModelListener(SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.DebuggerResumed, this._update, this);
     UI.Context.Context.instance().addFlavorChangeListener(SDK.SDKModel.Target, this._update, this);
   }
 
-  /**
-   * @override
-   */
-  focus() {
+  focus(): void {
     this._categoriesTreeOutline.forceSelect();
   }
 
-  /**
-   * @param {string} name
-   */
-  _createCategory(name) {
+  _createCategory(name: string): void {
     const labelNode = UI.UIUtils.CheckboxLabel.create(name);
     labelNode.checkboxElement.addEventListener('click', this._categoryCheckboxClicked.bind(this, name), true);
     labelNode.checkboxElement.tabIndex = -1;
@@ -90,13 +81,10 @@ export class CategorizedBreakpointsSidebarPane extends UI.Widget.VBox {
     UI.ARIAUtils.setChecked(treeElement.listItemElement, false);
     this._categoriesTreeOutline.appendChild(treeElement);
 
-    this._categories.set(name, {element: treeElement, checkbox: labelNode.checkboxElement});
+    this._categories.set(name, { element: treeElement, checkbox: labelNode.checkboxElement });
   }
 
-  /**
-   * @param {!SDK.DOMDebuggerModel.CategorizedBreakpoint} breakpoint
-   */
-  _createBreakpoint(breakpoint) {
+  _createBreakpoint(breakpoint: SDK.DOMDebuggerModel.CategorizedBreakpoint): void {
     const labelNode = UI.UIUtils.CheckboxLabel.create(breakpoint.title());
     labelNode.classList.add('source-code');
     labelNode.checkboxElement.addEventListener('click', this._breakpointCheckboxClicked.bind(this, breakpoint), true);
@@ -120,18 +108,14 @@ export class CategorizedBreakpointsSidebarPane extends UI.Widget.VBox {
       category.element.appendChild(treeElement);
     }
     // Better to return that to produce a side-effect
-    this._breakpoints.set(breakpoint, {element: treeElement, checkbox: labelNode.checkboxElement});
+    this._breakpoints.set(breakpoint, { element: treeElement, checkbox: labelNode.checkboxElement });
   }
 
-  /**
-   * @param {!SDK.DebuggerModel.DebuggerPausedDetails} details
-   * @returns {?SDK.DOMDebuggerModel.CategorizedBreakpoint}
-   */
-  _getBreakpointFromPausedDetails(details) {
+  _getBreakpointFromPausedDetails(details: SDK.DebuggerModel.DebuggerPausedDetails): SDK.DOMDebuggerModel.CategorizedBreakpoint | null {
     return null;
   }
 
-  _update() {
+  _update(): void {
     const target = UI.Context.Context.instance().flavor(SDK.SDKModel.Target);
     const debuggerModel = target ? target.model(SDK.DebuggerModel.DebuggerModel) : null;
     const details = debuggerModel ? debuggerModel.debuggerPausedDetails() : null;
@@ -163,10 +147,7 @@ export class CategorizedBreakpointsSidebarPane extends UI.Widget.VBox {
   }
 
   // Probably can be kept although eventListener does not call this._breakpointCheckboxClicke
-  /**
-   * @param {string} category
-   */
-  _categoryCheckboxClicked(category) {
+  _categoryCheckboxClicked(category: string): void {
     const item = this._categories.get(category);
     if (!item) {
       return;
@@ -186,18 +167,11 @@ export class CategorizedBreakpointsSidebarPane extends UI.Widget.VBox {
     }
   }
 
-  /**
-   * @param {!SDK.DOMDebuggerModel.CategorizedBreakpoint} breakpoint
-   * @param {boolean} enabled
-   */
-  _toggleBreakpoint(breakpoint, enabled) {
+  _toggleBreakpoint(breakpoint: SDK.DOMDebuggerModel.CategorizedBreakpoint, enabled: boolean): void {
     breakpoint.setEnabled(enabled);
   }
 
-  /**
-   * @param {!SDK.DOMDebuggerModel.CategorizedBreakpoint} breakpoint
-   */
-  _breakpointCheckboxClicked(breakpoint) {
+  _breakpointCheckboxClicked(breakpoint: SDK.DOMDebuggerModel.CategorizedBreakpoint): void {
     const item = this._breakpoints.get(breakpoint);
     if (!item) {
       return;
@@ -213,7 +187,8 @@ export class CategorizedBreakpointsSidebarPane extends UI.Widget.VBox {
       if (other.category() === breakpoint.category()) {
         if (other.enabled()) {
           hasEnabled = true;
-        } else {
+        }
+        else {
           hasDisabled = true;
         }
       }
@@ -227,12 +202,13 @@ export class CategorizedBreakpointsSidebarPane extends UI.Widget.VBox {
     category.checkbox.indeterminate = hasEnabled && hasDisabled;
     if (category.checkbox.indeterminate) {
       UI.ARIAUtils.setCheckboxAsIndeterminate(category.element.listItemElement);
-    } else {
+    }
+    else {
       UI.ARIAUtils.setChecked(category.element.listItemElement, hasEnabled);
     }
   }
 }
-
-/** @typedef {!{element: !UI.TreeOutline.TreeElement, checkbox: !HTMLInputElement}} */
-// @ts-ignore typedef
-export let Item;
+export interface Item {
+  element: UI.TreeOutline.TreeElement;
+  checkbox: HTMLInputElement;
+}
