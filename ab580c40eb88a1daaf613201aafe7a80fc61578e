@@ -38,6 +38,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "1e9b011c_a114e8b6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-02-10T09:41:37Z",
+      "side": 1,
+      "message": "Sounds good. Also totally fine to leave `Bug: none` and just add a link to the CL discussion in the commit message. But you did both now, so that\u0027s even better :) Thanks! The important thing is there’s context.",
+      "parentUuid": "af15f583_e971821c",
+      "revId": "ab580c40eb88a1daaf613201aafe7a80fc61578e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5dacdf1e_1645077e",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
