@@ -33,6 +33,24 @@
       "message": "lgtm, please note that we are currently in the process of migrating our l10n pipeline. The front_end/resources directory has been migrated while this CL was in-flight.\n\nThere is documentation in docs/ (look for localization V2), but it essentially boils down to adding a new property to the `UIStrings` object at the top of `AppManifestView.js`.\n\nSorry for the slow response, I was OOO the last few days.",
       "revId": "6837e92094544d4d928df3b0632d6385339b2438",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53413a6c_629cef17",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1411314
+      },
+      "writtenOn": "2021-02-10T08:10:30Z",
+      "side": 1,
+      "message": "Thank you for your comment! I updated en-US.json/en-XL.json instead of resources_strings.grdp.",
+      "parentUuid": "99037df5_3689dca0",
+      "revId": "6837e92094544d4d928df3b0632d6385339b2438",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
