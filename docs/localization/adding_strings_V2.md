@@ -12,7 +12,7 @@ Code example:
   ```javascript
   import * as i18n from '../i18n/i18n.js';
 
-  // at the top of example.js file, after import statements
+  // at the end of example.js file
   const UIStrings = {
     /**
       * @description A string that is already added
