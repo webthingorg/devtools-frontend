@@ -5,6 +5,7 @@
 /* eslint-disable rulesdir/no_underscored_properties */
 
 import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
+import * as Platform from '../platform/platform.js';
 import * as Root from '../root/root.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
@@ -14,9 +15,7 @@ import {ARIAAttributesPane} from './ARIAAttributesView.js';
 import {AXBreadcrumbsPane} from './AXBreadcrumbsPane.js';
 import {SourceOrderPane} from './SourceOrderView.js';
 
-let accessibilitySidebarViewInstance: AccessibilitySidebarView;
-
-export class AccessibilitySidebarView extends UI.ThrottledWidget.ThrottledWidget {
+class AccessibilitySidebarViewBase extends UI.ThrottledWidget.ThrottledWidget {
   _sourceOrderViewerExperimentEnabled: boolean;
   _node: SDK.DOMModel.DOMNode|null;
   _axNode: SDK.AccessibilityModel.AccessibilityNode|null;
@@ -26,7 +25,7 @@ export class AccessibilitySidebarView extends UI.ThrottledWidget.ThrottledWidget
   _ariaSubPane: ARIAAttributesPane;
   _axNodeSubPane: AXNodeSubPane;
   _sourceOrderSubPane: SourceOrderPane|undefined;
-  private constructor() {
+  constructor() {
     super();
     this._sourceOrderViewerExperimentEnabled = Root.Runtime.experiments.isEnabled('sourceOrderViewer');
     this._node = null;
@@ -46,13 +45,6 @@ export class AccessibilitySidebarView extends UI.ThrottledWidget.ThrottledWidget
     this._sidebarPaneStack.widget().show(this.element);
     UI.Context.Context.instance().addFlavorChangeListener(SDK.DOMModel.DOMNode, this._pullNode, this);
     this._pullNode();
-  }
-
-  static instance(): AccessibilitySidebarView {
-    if (!accessibilitySidebarViewInstance) {
-      accessibilitySidebarViewInstance = new AccessibilitySidebarView();
-    }
-    return accessibilitySidebarViewInstance;
   }
 
   node(): SDK.DOMModel.DOMNode|null {
@@ -167,3 +159,8 @@ export class AccessibilitySidebarView extends UI.ThrottledWidget.ThrottledWidget
     this.update();
   }
 }
+
+// clang-format off
+export class AccessibilitySidebarView extends Platform.TypeScriptUtilities.singleton(AccessibilitySidebarViewBase) {
+}
+// clang-format on

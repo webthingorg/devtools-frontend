@@ -6,6 +6,7 @@
 import * as Common from '../common/common.js';
 import * as Diff from '../diff/diff.js';
 import * as i18n from '../i18n/i18n.js';
+import * as Platform from '../platform/platform.js';
 import * as UI from '../ui/ui.js';
 import * as Workspace from '../workspace/workspace.js';  // eslint-disable-line no-unused-vars
 import * as WorkspaceDiff from '../workspace_diff/workspace_diff.js';
@@ -59,9 +60,7 @@ export const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('changes/ChangesView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
-let changesViewInstance: ChangesView;
-
-export class ChangesView extends UI.Widget.VBox {
+class ChangesViewBase extends UI.Widget.VBox {
   _emptyWidget: UI.EmptyWidget.EmptyWidget;
   _workspaceDiff: WorkspaceDiff.WorkspaceDiff.WorkspaceDiffImpl;
   _changesSidebar: ChangesSidebar;
@@ -72,7 +71,7 @@ export class ChangesView extends UI.Widget.VBox {
   _toolbar: UI.Toolbar.Toolbar;
   _diffStats: UI.Toolbar.ToolbarText;
 
-  private constructor() {
+  constructor() {
     super(true);
     this.registerRequiredCSS('changes/changesView.css', {enableLegacyPatching: true});
     const splitWidget = new UI.SplitWidget.SplitWidget(true /* vertical */, false /* sidebar on left */);
@@ -126,15 +125,6 @@ export class ChangesView extends UI.Widget.VBox {
 
     this._hideDiff(i18nString(UIStrings.noChanges));
     this._selectedUISourceCodeChanged();
-  }
-
-  static instance(opts: {forceNew: boolean|null} = {forceNew: null}): ChangesView {
-    const {forceNew} = opts;
-    if (!changesViewInstance || forceNew) {
-      changesViewInstance = new ChangesView();
-    }
-
-    return changesViewInstance;
   }
 
   _selectedUISourceCodeChanged(): void {
@@ -392,6 +382,11 @@ export class ChangesView extends UI.Widget.VBox {
   }
 }
 
+// clang-format off
+export class ChangesView extends Platform.TypeScriptUtilities.singleton(ChangesViewBase) {
+}
+// clang-format on
+
 export const enum RowType {
   Deletion = 'deletion',
   Addition = 'addition',
@@ -399,17 +394,9 @@ export const enum RowType {
   Spacer = 'spacer',
 }
 
-let diffUILocationRevealerInstance: DiffUILocationRevealer;
-export class DiffUILocationRevealer implements Common.Revealer.Revealer {
-  static instance(opts: {forceNew: boolean} = {forceNew: false}): DiffUILocationRevealer {
-    const {forceNew} = opts;
-    if (!diffUILocationRevealerInstance || forceNew) {
-      diffUILocationRevealerInstance = new DiffUILocationRevealer();
-    }
-
-    return diffUILocationRevealerInstance;
-  }
-
+// clang-format off
+export class DiffUILocationRevealer extends Platform.TypeScriptUtilities.singleton(class implements Common.Revealer.Revealer {
+  // clang-format on
   async reveal(diffUILocation: Object, omitFocus?: boolean|undefined): Promise<void> {
     if (!(diffUILocation instanceof WorkspaceDiff.WorkspaceDiff.DiffUILocation)) {
       throw new Error('Internal error: not a diff ui location');
@@ -417,6 +404,7 @@ export class DiffUILocationRevealer implements Common.Revealer.Revealer {
     await UI.ViewManager.ViewManager.instance().showView('changes.changes');
     ChangesView.instance()._changesSidebar.selectUISourceCode(diffUILocation.uiSourceCode, omitFocus);
   }
+}) {
 }
 
 export interface Token {

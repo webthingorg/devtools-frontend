@@ -83,9 +83,7 @@ const nodeUIsByNode = new WeakMap<SDK.DOMModel.DOMNode, NodeUI>();
 
 const playbackRates = new WeakMap<HTMLElement, number>();
 
-let animationTimelineInstance: AnimationTimeline;
-
-export class AnimationTimeline extends UI.Widget.VBox implements SDK.SDKModel.SDKModelObserver<AnimationModel> {
+class AnimationTimelineBase extends UI.Widget.VBox implements SDK.SDKModel.SDKModelObserver<AnimationModel> {
   _gridWrapper: HTMLElement;
   _grid: Element;
   _playbackRate: number;
@@ -120,7 +118,7 @@ export class AnimationTimeline extends UI.Widget.VBox implements SDK.SDKModel.SD
   _originalScrubberTime?: number|null;
   _originalMousePosition?: number;
 
-  private constructor() {
+  constructor() {
     super(true);
     this.registerRequiredCSS('animation/animationTimeline.css', {enableLegacyPatching: false});
     this.element.classList.add('animations-timeline');
@@ -148,13 +146,6 @@ export class AnimationTimeline extends UI.Widget.VBox implements SDK.SDKModel.SD
         SDK.DOMModel.DOMModel, SDK.DOMModel.Events.NodeRemoved, this._nodeRemoved, this);
     SDK.SDKModel.TargetManager.instance().observeModels(AnimationModel, this);
     UI.Context.Context.instance().addFlavorChangeListener(SDK.DOMModel.DOMNode, this._nodeChanged, this);
-  }
-
-  static instance(): AnimationTimeline {
-    if (!animationTimelineInstance) {
-      animationTimelineInstance = new AnimationTimeline();
-    }
-    return animationTimelineInstance;
   }
 
   wasShown(): void {
@@ -856,6 +847,11 @@ export class AnimationTimeline extends UI.Widget.VBox implements SDK.SDKModel.SD
     this._currentTime.window().requestAnimationFrame(this._updateScrubber.bind(this));
   }
 }
+
+// clang-format off
+export class AnimationTimeline extends Platform.TypeScriptUtilities.singleton(AnimationTimelineBase) {
+}
+// clang-format on
 
 export const GlobalPlaybackRates = [1, 0.25, 0.1];
 

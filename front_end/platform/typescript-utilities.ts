@@ -12,3 +12,24 @@ export function assertNotNull<T>(val: T): asserts val is NonNullable<T> {
     throw new Error(`Expected given value to not be null but it was: ${val}`);
   }
 }
+
+// A constructor type can only be specified with `any`
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type Constructor<T = {}> = new (...args: any[]) => T;
+
+// We need to use the type inference of TypeScript to deduce what the return
+// type of this function is. Therefore, we can't specify the type ourselves.
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+export function singleton<TBase extends Constructor>(baseClass: TBase) {
+  let instance: InstanceType<TBase>;
+  return class extends baseClass {
+    static instance(opts: {forceNew?: boolean} = {forceNew: undefined}): InstanceType<TBase> {
+      const {forceNew} = opts;
+      if (!instance || forceNew) {
+        instance = new this() as InstanceType<TBase>;
+      }
+
+      return instance;
+    }
+  };
+}
