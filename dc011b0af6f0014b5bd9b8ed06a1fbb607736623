@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d701856_04c8cac2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-10T11:47:45Z",
+      "side": 1,
+      "message": "Type changes LGTM. It seems like the `node_modules` changes were removed, which probably should be added back?",
+      "revId": "dc011b0af6f0014b5bd9b8ed06a1fbb607736623",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
