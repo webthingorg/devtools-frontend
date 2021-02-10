@@ -6929,7 +6929,7 @@
   "source_frame/XMLView.js | find": {
     "message": "F̂ín̂d́"
   },
-  "text_editor/CodeMirrorTextEditor.js | codeEditor": {
+  "text_editor/CodeMirrorTextEditor.ts | codeEditor": {
     "message": "Ĉód̂é êd́ît́ôŕ"
   },
   "timeline_model/TimelineIRModel.js | twoFlingsAtTheSameTimeSVsS": {
