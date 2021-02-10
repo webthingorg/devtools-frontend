@@ -52,6 +52,24 @@
       "parentUuid": "e6b4b3f1_e4320d38",
       "revId": "e1a36bf382b9e84224115d6a06225575a708c771",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "426f6616_498e6a1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-10T08:49:39Z",
+      "side": 1,
+      "message": "Your new approach isn\u0027t keyboard accessible anymore: I can\u0027t select the timings, and this is most probably impairing screen reader usability.",
+      "parentUuid": "c3a5c9d5_b77911bc",
+      "revId": "e1a36bf382b9e84224115d6a06225575a708c771",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
