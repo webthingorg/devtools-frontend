@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';
 import * as Formatter from '../formatter/formatter.js';
 import * as i18n from '../i18n/i18n.js';
@@ -25,57 +27,47 @@ export const UIStrings = {
   */
   keywords: 'keywords',
 };
-const str_ = i18n.i18n.registerUIStrings('object_ui/JavaScriptAutocomplete.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('object_ui/JavaScriptAutocomplete.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 const DEFAULT_TIMEOUT = 500;
 
-/** @type {!JavaScriptAutocomplete} */
-let javaScriptAutocompleteInstance;
+let javaScriptAutocompleteInstance: JavaScriptAutocomplete;
 
 export class JavaScriptAutocomplete {
-  /** @private */
-  constructor() {
-    /** @type {!Map<string, {date: number, value: !Promise<!Array<!CompletionGroup>>}>} */
+  _expressionCache: Map<string, {
+    date: number;
+    value: Promise<Array<CompletionGroup>>;
+  }>;
+  private constructor() {
     this._expressionCache = new Map();
-    SDK.ConsoleModel.ConsoleModel.instance().addEventListener(
-        SDK.ConsoleModel.Events.CommandEvaluated, this._clearCache, this);
+    SDK.ConsoleModel.ConsoleModel.instance().addEventListener(SDK.ConsoleModel.Events.CommandEvaluated, this._clearCache, this);
     UI.Context.Context.instance().addFlavorChangeListener(SDK.RuntimeModel.ExecutionContext, this._clearCache, this);
-    SDK.SDKModel.TargetManager.instance().addModelListener(
-        SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.DebuggerResumed, this._clearCache, this);
-    SDK.SDKModel.TargetManager.instance().addModelListener(
-        SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.DebuggerPaused, this._clearCache, this);
+    SDK.SDKModel.TargetManager.instance().addModelListener(SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.DebuggerResumed, this._clearCache, this);
+    SDK.SDKModel.TargetManager.instance().addModelListener(SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.DebuggerPaused, this._clearCache, this);
   }
 
-  static instance() {
+  static instance(): JavaScriptAutocomplete {
     if (!javaScriptAutocompleteInstance) {
       javaScriptAutocompleteInstance = new JavaScriptAutocomplete();
     }
     return javaScriptAutocompleteInstance;
   }
 
-  _clearCache() {
+  _clearCache(): void {
     this._expressionCache.clear();
   }
 
-  /**
-   * @param {string} fullText
-   * @param {string} query
-   * @param {boolean=} force
-   * @return {!Promise<!UI.SuggestBox.Suggestions>}
-   */
-  async completionsForTextInCurrentContext(fullText, query, force) {
+  async completionsForTextInCurrentContext(fullText: string, query: string, force?: boolean): Promise<UI.SuggestBox.Suggestions> {
     const trimmedText = fullText.trim();
 
-    const [mapCompletions, expressionCompletions] = await Promise.all(
-        [this._mapCompletions(trimmedText, query), this._completionsForExpression(trimmedText, query, force)]);
+    const [mapCompletions, expressionCompletions] = await Promise.all([this._mapCompletions(trimmedText, query), this._completionsForExpression(trimmedText, query, force)]);
     return mapCompletions.concat(expressionCompletions);
   }
 
-  /**
-   * @param {string} fullText
-   * @return {!Promise<?{args: !Array<!Array<string>>, argumentIndex: number}|undefined>}
-   */
-  async argumentsHint(fullText) {
+  async argumentsHint(fullText: string): Promise<{
+    args: Array<Array<string>>;
+    argumentIndex: number;
+  } | null | undefined> {
     const functionCall = await Formatter.FormatterWorkerPool.formatterWorkerPool().findLastFunctionCall(fullText);
     if (!functionCall) {
       return null;
@@ -84,59 +76,51 @@ export class JavaScriptAutocomplete {
     if (!executionContext) {
       return null;
     }
-    const result = await executionContext.evaluate(
-        {
-          expression: functionCall.baseExpression,
-          objectGroup: 'argumentsHint',
-          includeCommandLineAPI: true,
-          silent: true,
-          returnByValue: false,
-          generatePreview: false,
-          throwOnSideEffect: true,
-          timeout: DEFAULT_TIMEOUT,
-          allowUnsafeEvalBlockedByCSP: undefined,
-          disableBreaks: undefined,
-          replMode: undefined,
-        },
-        /* userGesture */ false, /* awaitPromise */ false);
+    const result = await executionContext.evaluate({
+      expression: functionCall.baseExpression,
+      objectGroup: 'argumentsHint',
+      includeCommandLineAPI: true,
+      silent: true,
+      returnByValue: false,
+      generatePreview: false,
+      throwOnSideEffect: true,
+      timeout: DEFAULT_TIMEOUT,
+      allowUnsafeEvalBlockedByCSP: undefined,
+      disableBreaks: undefined,
+      replMode: undefined,
+    }, 
+    /* userGesture */ false, /* awaitPromise */ false);
     if (!result || 'error' in result || result.exceptionDetails ||
-        ('object' in result && (!result.object || result.object.type !== 'function'))) {
+      ('object' in result && (!result.object || result.object.type !== 'function'))) {
       executionContext.runtimeModel.releaseObjectGroup('argumentsHint');
       return null;
     }
 
     const args = await this._argumentsForFunction(result.object, async () => {
-      const result = await executionContext.evaluate(
-          {
-            expression: functionCall.receiver,
-            objectGroup: 'argumentsHint',
-            includeCommandLineAPI: true,
-            silent: true,
-            returnByValue: false,
-            generatePreview: false,
-            throwOnSideEffect: true,
-            timeout: DEFAULT_TIMEOUT,
-            allowUnsafeEvalBlockedByCSP: undefined,
-            disableBreaks: undefined,
-            replMode: undefined,
-          },
-          /* userGesture */ false, /* awaitPromise */ false);
+      const result = await executionContext.evaluate({
+        expression: functionCall.receiver,
+        objectGroup: 'argumentsHint',
+        includeCommandLineAPI: true,
+        silent: true,
+        returnByValue: false,
+        generatePreview: false,
+        throwOnSideEffect: true,
+        timeout: DEFAULT_TIMEOUT,
+        allowUnsafeEvalBlockedByCSP: undefined,
+        disableBreaks: undefined,
+        replMode: undefined,
+      }, 
+      /* userGesture */ false, /* awaitPromise */ false);
       return (result && !('error' in result) && !result.exceptionDetails && result.object) ? result.object : null;
     }, functionCall.functionName);
     executionContext.runtimeModel.releaseObjectGroup('argumentsHint');
     if (!args.length || (args.length === 1 && (!args[0] || !args[0].length))) {
       return null;
     }
-    return {args, argumentIndex: functionCall.argumentIndex};
+    return { args, argumentIndex: functionCall.argumentIndex };
   }
 
-  /**
-   * @param {!SDK.RemoteObject.RemoteObject} functionObject
-   * @param {function():!Promise<?SDK.RemoteObject.RemoteObject>} receiverObjGetter
-   * @param {string=} parsedFunctionName
-   * @return {!Promise<!Array<!Array<string>>>}
-   */
-  async _argumentsForFunction(functionObject, receiverObjGetter, parsedFunctionName) {
+  async _argumentsForFunction(functionObject: SDK.RemoteObject.RemoteObject, receiverObjGetter: () => Promise<SDK.RemoteObject.RemoteObject | null>, parsedFunctionName?: string): Promise<string[][]> {
     const description = functionObject.description;
     if (!description) {
       return [];
@@ -153,28 +137,24 @@ export class JavaScriptAutocomplete {
       const argsProperty = internalProperties.find(property => property.name === '[[BoundArgs]]');
       const thisProperty = internalProperties.find(property => property.name === '[[BoundThis]]');
       if (thisProperty && targetProperty && argsProperty && targetProperty.value && thisProperty.value &&
-          argsProperty.value) {
+        argsProperty.value) {
         const thisValue = thisProperty.value;
-        const originalSignatures =
-            await this._argumentsForFunction(targetProperty.value, () => Promise.resolve(thisValue));
+        const originalSignatures = await this._argumentsForFunction(targetProperty.value, () => Promise.resolve(thisValue));
         const boundArgsLength = SDK.RemoteObject.RemoteObject.arrayLength(argsProperty.value);
         const clippedArgs = [];
         for (const signature of originalSignatures) {
           const restIndex = signature.slice(0, boundArgsLength).findIndex(arg => arg.startsWith('...'));
           if (restIndex !== -1) {
             clippedArgs.push(signature.slice(restIndex));
-          } else {
+          }
+          else {
             clippedArgs.push(signature.slice(boundArgsLength));
           }
         }
         return clippedArgs;
       }
     }
-    const javaScriptMetadata =
-        /** @type {!Common.JavaScriptMetaData.JavaScriptMetaData} */ (
-            await /** @type {!Root.Runtime.Extension} */ (
-                Root.Runtime.Runtime.instance().extension(Common.JavaScriptMetaData.JavaScriptMetaData))
-                .instance());
+    const javaScriptMetadata = (await (Root.Runtime.Runtime.instance().extension(Common.JavaScriptMetaData.JavaScriptMetaData) as Root.Runtime.Extension).instance());
 
     const descriptionRegexResult = /^function ([^(]*)\(/.exec(description);
     const name = descriptionRegexResult && descriptionRegexResult[1] || parsedFunctionName;
@@ -199,7 +179,7 @@ export class JavaScriptAutocomplete {
 
     // Check for static methods on a constructor.
     if (receiverObj.description && receiverObj.type === 'function' &&
-        receiverObj.description.endsWith('{ [native code] }')) {
+      receiverObj.description.endsWith('{ [native code] }')) {
       const receiverDescriptionRegexResult = /^function ([^(]*)\(/.exec(receiverObj.description);
       if (receiverDescriptionRegexResult) {
         const receiverName = receiverDescriptionRegexResult[1];
@@ -210,24 +190,29 @@ export class JavaScriptAutocomplete {
       }
     }
 
-    /** @type {!Array<string>} */
-    let protoNames;
+    let protoNames: string[];
     if (receiverObj.type === 'number') {
       protoNames = ['Number', 'Object'];
-    } else if (receiverObj.type === 'string') {
+    }
+    else if (receiverObj.type === 'string') {
       protoNames = ['String', 'Object'];
-    } else if (receiverObj.type === 'symbol') {
+    }
+    else if (receiverObj.type === 'symbol') {
       protoNames = ['Symbol', 'Object'];
-    } else if (receiverObj.type === 'bigint') {
+    }
+    else if (receiverObj.type === 'bigint') {
       protoNames = ['BigInt', 'Object'];
-    } else if (receiverObj.type === 'boolean') {
+    }
+    else if (receiverObj.type === 'boolean') {
       protoNames = ['Boolean', 'Object'];
-    } else if (receiverObj.type === 'undefined' || receiverObj.subtype === 'null') {
+    }
+    else if (receiverObj.type === 'undefined' || receiverObj.subtype === 'null') {
       protoNames = [];
-    } else {
-      protoNames = await receiverObj.callFunctionJSON(function() {
+    }
+    else {
+      protoNames = await receiverObj.callFunctionJSON(function () {
         const result = [];
-        for (let object = this; object; object = Object.getPrototypeOf(object)) {
+        for (let object: Object = this; object; object = Object.getPrototypeOf(object)) {
           if (typeof object === 'object' && object.constructor && object.constructor.name) {
             result[result.length] = object.constructor.name;
           }
@@ -249,39 +234,32 @@ export class JavaScriptAutocomplete {
     return [];
   }
 
-  /**
-   * @param {string} text
-   * @param {string} query
-   * @return {!Promise<!UI.SuggestBox.Suggestions>}
-   */
-  async _mapCompletions(text, query) {
+  async _mapCompletions(text: string, query: string): Promise<UI.SuggestBox.Suggestions> {
     const mapMatch = text.match(/\.\s*(get|set|delete)\s*\(\s*$/);
     const executionContext = UI.Context.Context.instance().flavor(SDK.RuntimeModel.ExecutionContext);
     if (!executionContext || !mapMatch) {
       return [];
     }
 
-    const expression =
-        await Formatter.FormatterWorkerPool.formatterWorkerPool().findLastExpression(text.substring(0, mapMatch.index));
+    const expression = await Formatter.FormatterWorkerPool.formatterWorkerPool().findLastExpression(text.substring(0, mapMatch.index));
     if (!expression) {
       return [];
     }
 
-    const result = await executionContext.evaluate(
-        {
-          expression,
-          objectGroup: 'mapCompletion',
-          includeCommandLineAPI: true,
-          silent: true,
-          returnByValue: false,
-          generatePreview: false,
-          throwOnSideEffect: true,
-          timeout: DEFAULT_TIMEOUT,
-          allowUnsafeEvalBlockedByCSP: undefined,
-          disableBreaks: undefined,
-          replMode: undefined,
-        },
-        /* userGesture */ false, /* awaitPromise */ false);
+    const result = await executionContext.evaluate({
+      expression,
+      objectGroup: 'mapCompletion',
+      includeCommandLineAPI: true,
+      silent: true,
+      returnByValue: false,
+      generatePreview: false,
+      throwOnSideEffect: true,
+      timeout: DEFAULT_TIMEOUT,
+      allowUnsafeEvalBlockedByCSP: undefined,
+      disableBreaks: undefined,
+      replMode: undefined,
+    }, 
+    /* userGesture */ false, /* awaitPromise */ false);
     if ('error' in result || Boolean(result.exceptionDetails) || result.object.subtype !== 'map') {
       return [];
     }
@@ -291,10 +269,13 @@ export class JavaScriptAutocomplete {
     if (!entriesProperty || !entriesProperty.value) {
       return [];
     }
-    const keysObj = await entriesProperty.value.callFunctionJSON(function() {
-      const actualThis = /** @type {!Array<{key: ?}>} */ (this);
-      /** @type {!Object<string, ?boolean>} */
-      const result = {__proto__: null};
+    const keysObj = await entriesProperty.value.callFunctionJSON(function () {
+      const actualThis = (this as {
+        key: unknown;
+      }[]);
+      const result: {
+        [x: string]: boolean | null;
+      } = { __proto__: null };
       for (let i = 0; i < actualThis.length; i++) {
         if (typeof actualThis[i].key === 'string') {
           result[actualThis[i].key] = true;
@@ -305,14 +286,10 @@ export class JavaScriptAutocomplete {
     executionContext.runtimeModel.releaseObjectGroup('mapCompletion');
     const rawKeys = Object.keys(keysObj);
 
-    /** @type {!UI.SuggestBox.Suggestions} */
-    const caseSensitivePrefix = [];
-    /** @type {!UI.SuggestBox.Suggestions} */
-    const caseInsensitivePrefix = [];
-    /** @type {!UI.SuggestBox.Suggestions} */
-    const caseSensitiveAnywhere = [];
-    /** @type {!UI.SuggestBox.Suggestions} */
-    const caseInsensitiveAnywhere = [];
+    const caseSensitivePrefix: UI.SuggestBox.Suggestions = [];
+    const caseInsensitivePrefix: UI.SuggestBox.Suggestions = [];
+    const caseSensitiveAnywhere: UI.SuggestBox.Suggestions = [];
+    const caseInsensitiveAnywhere: UI.SuggestBox.Suggestions = [];
     let quoteChar = '"';
     if (query.startsWith('\'')) {
       quoteChar = '\'';
@@ -337,42 +314,36 @@ export class JavaScriptAutocomplete {
       const text = title + endChar;
 
       if (key.startsWith(query)) {
-        caseSensitivePrefix.push(/** @type {!UI.SuggestBox.Suggestion} */ ({text: text, title: title, priority: 4}));
-      } else if (key.toLowerCase().startsWith(query.toLowerCase())) {
-        caseInsensitivePrefix.push(/** @type {!UI.SuggestBox.Suggestion} */ ({text: text, title: title, priority: 3}));
-      } else if (key.indexOf(query) !== -1) {
-        caseSensitiveAnywhere.push(/** @type {!UI.SuggestBox.Suggestion} */ ({text: text, title: title, priority: 2}));
-      } else {
-        caseInsensitiveAnywhere.push(
-            /** @type {!UI.SuggestBox.Suggestion} */ ({text: text, title: title, priority: 1}));
+        caseSensitivePrefix.push(({ text: text, title: title, priority: 4 } as UI.SuggestBox.Suggestion));
+      }
+      else if (key.toLowerCase().startsWith(query.toLowerCase())) {
+        caseInsensitivePrefix.push(({ text: text, title: title, priority: 3 } as UI.SuggestBox.Suggestion));
+      }
+      else if (key.indexOf(query) !== -1) {
+        caseSensitiveAnywhere.push(({ text: text, title: title, priority: 2 } as UI.SuggestBox.Suggestion));
+      }
+      else {
+        caseInsensitiveAnywhere.push(({ text: text, title: title, priority: 1 } as UI.SuggestBox.Suggestion));
       }
     }
-    const suggestions =
-        caseSensitivePrefix.concat(caseInsensitivePrefix, caseSensitiveAnywhere, caseInsensitiveAnywhere);
+    const suggestions = caseSensitivePrefix.concat(caseInsensitivePrefix, caseSensitiveAnywhere, caseInsensitiveAnywhere);
     if (suggestions.length) {
       suggestions[0].subtitle = i18nString(UIStrings.keys);
     }
     return suggestions;
   }
 
-  /**
-   * @param {string} fullText
-   * @param {string} query
-   * @param {boolean=} force
-   * @return {!Promise<!UI.SuggestBox.Suggestions>}
-   */
-  async _completionsForExpression(fullText, query, force) {
+  async _completionsForExpression(fullText: string, query: string, force?: boolean): Promise<UI.SuggestBox.Suggestions> {
     const executionContext = UI.Context.Context.instance().flavor(SDK.RuntimeModel.ExecutionContext);
     if (!executionContext) {
       return [];
     }
     let expression;
     if (fullText.endsWith('?.')) {
-      expression = await Formatter.FormatterWorkerPool.formatterWorkerPool().findLastExpression(
-          fullText.substring(0, fullText.length - 2));
-    } else if (fullText.endsWith('.') || fullText.endsWith('[')) {
-      expression = await Formatter.FormatterWorkerPool.formatterWorkerPool().findLastExpression(
-          fullText.substring(0, fullText.length - 1));
+      expression = await Formatter.FormatterWorkerPool.formatterWorkerPool().findLastExpression(fullText.substring(0, fullText.length - 2));
+    }
+    else if (fullText.endsWith('.') || fullText.endsWith('[')) {
+      expression = await Formatter.FormatterWorkerPool.formatterWorkerPool().findLastExpression(fullText.substring(0, fullText.length - 1));
     }
     if (!expression) {
       if (fullText.endsWith('.')) {
@@ -387,73 +358,65 @@ export class JavaScriptAutocomplete {
 
     // User is entering float value, do not suggest anything.
     if ((expressionString && !isNaN(Number(expressionString))) ||
-        (!expressionString && query && !isNaN(Number(query)))) {
+      (!expressionString && query && !isNaN(Number(query)))) {
       return [];
     }
-
 
     if (!query && !expressionString && !force) {
       return [];
     }
     const selectedFrame = executionContext.debuggerModel.selectedCallFrame();
-    /** @type {?Array<!CompletionGroup>} */
-    let completionGroups;
+    let completionGroups: CompletionGroup[] | null;
     const TEN_SECONDS = 10000;
     let cache = this._expressionCache.get(expressionString);
     if (cache && cache.date + TEN_SECONDS > Date.now()) {
       completionGroups = await cache.value;
-    } else if (!expressionString && selectedFrame) {
-      /** @type {!Array<!CompletionGroup>} */
-      const value = [{
-        items: ['this'],
-        title: undefined,
-      }];
+    }
+    else if (!expressionString && selectedFrame) {
+      const value: CompletionGroup[] = [{
+          items: ['this'],
+          title: undefined,
+        }];
       const scopeChain = selectedFrame.scopeChain();
       const groupPromises = [];
       for (const scope of scopeChain) {
         groupPromises.push(scope.object()
-                               .getAllProperties(false /* accessorPropertiesOnly */, false /* generatePreview */)
-                               .then(result => ({properties: result.properties, name: scope.name()})));
+          .getAllProperties(false /* accessorPropertiesOnly */, false /* generatePreview */)
+          .then(result => ({ properties: result.properties, name: scope.name() })));
       }
       const fullScopes = await Promise.all(groupPromises);
       executionContext.runtimeModel.releaseObjectGroup('completion');
       for (const scope of fullScopes) {
         if (scope.properties) {
-          value.push({title: scope.name, items: scope.properties.map(property => property.name).sort()});
+          value.push({ title: scope.name, items: scope.properties.map(property => property.name).sort() });
         }
       }
-      cache = {date: Date.now(), value: Promise.resolve(value)};
-      this._expressionCache.set(expressionString, cache);
-      completionGroups = await cache.value;
-    } else {
-      const resultPromise = executionContext.evaluate(
-          {
-            expression: expressionString,
-            objectGroup: 'completion',
-            includeCommandLineAPI: true,
-            silent: true,
-            returnByValue: false,
-            generatePreview: false,
-            throwOnSideEffect: true,
-            timeout: DEFAULT_TIMEOUT,
-            allowUnsafeEvalBlockedByCSP: undefined,
-            disableBreaks: undefined,
-            replMode: undefined,
-          },
-          /* userGesture */ false, /* awaitPromise */ false);
-      cache = {date: Date.now(), value: resultPromise.then(result => completionsOnGlobal.call(this, result))};
+      cache = { date: Date.now(), value: Promise.resolve(value) };
       this._expressionCache.set(expressionString, cache);
       completionGroups = await cache.value;
     }
-    return this._receivedPropertyNames(
-        completionGroups.slice(0), dotNotation, bracketNotation, expressionString, query);
+    else {
+      const resultPromise = executionContext.evaluate({
+        expression: expressionString,
+        objectGroup: 'completion',
+        includeCommandLineAPI: true,
+        silent: true,
+        returnByValue: false,
+        generatePreview: false,
+        throwOnSideEffect: true,
+        timeout: DEFAULT_TIMEOUT,
+        allowUnsafeEvalBlockedByCSP: undefined,
+        disableBreaks: undefined,
+        replMode: undefined,
+      }, 
+      /* userGesture */ false, /* awaitPromise */ false);
+      cache = { date: Date.now(), value: resultPromise.then(result => completionsOnGlobal.call(this, result)) };
+      this._expressionCache.set(expressionString, cache);
+      completionGroups = await cache.value;
+    }
+    return this._receivedPropertyNames(completionGroups.slice(0), dotNotation, bracketNotation, expressionString, query);
 
-    /**
-     * @this {JavaScriptAutocomplete}
-     * @param {!SDK.RuntimeModel.EvaluationResult} result
-     * @return {!Promise<!Array<!CompletionGroup>>}
-     */
-    async function completionsOnGlobal(result) {
+    async function completionsOnGlobal(this: JavaScriptAutocomplete, result: SDK.RuntimeModel.EvaluationResult): Promise<CompletionGroup[]> {
       if ('error' in result || Boolean(result.exceptionDetails) || !result.object) {
         return [];
       }
@@ -462,50 +425,45 @@ export class JavaScriptAutocomplete {
         return [];
       }
 
-      /** @type {?SDK.RemoteObject.RemoteObject} */
-      let object = result.object;
+      let object: SDK.RemoteObject.RemoteObject = result.object;
       while (object && object.type === 'object' && object.subtype === 'proxy') {
-        /** @type {!SDK.RemoteObject.GetPropertiesResult} */
-        const propertiesObject = await object.getOwnProperties(false /* generatePreview */);
+        const propertiesObject: SDK.RemoteObject.GetPropertiesResult = await object.getOwnProperties(false /* generatePreview */);
         const internalProperties = propertiesObject.internalProperties || [];
         const target = internalProperties.find(property => property.name === '[[Target]]');
         if (target && target.value) {
           object = target.value;
-        } else {
+        }
+        else {
           break;
         }
       }
       if (!object) {
         return [];
       }
-      /** @type {!Array<!CompletionGroup>} */
-      let completions = [];
+      let completions: CompletionGroup[] = [];
       if (object.type === 'object' || object.type === 'function') {
-        completions = /** @type {!Array<!CompletionGroup>} */ (await object.callFunctionJSON(
-                          /** @type {function(this:Object, ...*):!Object} */ (getCompletions),
-                          [SDK.RemoteObject.RemoteObject.toCallArgument(object.subtype)])) ||
-            [];
-      } else if (
-          object.type === 'string' || object.type === 'number' || object.type === 'boolean' ||
-          object.type === 'bigint') {
-        const evaluateResult = await executionContext.evaluate(
-            {
-              expression: '(' + getCompletions + ')("' + object.type + '")',
-              objectGroup: 'completion',
-              includeCommandLineAPI: false,
-              silent: true,
-              returnByValue: true,
-              generatePreview: false,
-              allowUnsafeEvalBlockedByCSP: undefined,
-              disableBreaks: undefined,
-              replMode: undefined,
-              throwOnSideEffect: undefined,
-              timeout: undefined,
-            },
-            /* userGesture */ false,
-            /* awaitPromise */ false);
+        completions = /** @type {!Array<!CompletionGroup>} */ (await object.callFunctionJSON((getCompletions as (this: Object, ...arg1: any[]) => Object), [SDK.RemoteObject.RemoteObject.toCallArgument(object.subtype)])) ||
+          [];
+      }
+      else if (object.type === 'string' || object.type === 'number' || object.type === 'boolean' ||
+        object.type === 'bigint') {
+        const evaluateResult = await executionContext.evaluate({
+          expression: '(' + getCompletions + ')("' + object.type + '")',
+          objectGroup: 'completion',
+          includeCommandLineAPI: false,
+          silent: true,
+          returnByValue: true,
+          generatePreview: false,
+          allowUnsafeEvalBlockedByCSP: undefined,
+          disableBreaks: undefined,
+          replMode: undefined,
+          throwOnSideEffect: undefined,
+          timeout: undefined,
+        }, 
+        /* userGesture */ false, 
+        /* awaitPromise */ false);
         if (!('error' in evaluateResult) && evaluateResult.object && !evaluateResult.exceptionDetails) {
-          completions = /** @type {!Array<!CompletionGroup>} */ (evaluateResult.object.value) || [];
+          completions = (evaluateResult.object.value as CompletionGroup[]) || [];
         }
       }
       executionContext.runtimeModel.releaseObjectGroup('completion');
@@ -516,8 +474,9 @@ export class JavaScriptAutocomplete {
           // Merge lexical scope names with first completion group on global object: let a and let b should be in the same group.
           if (completions.length) {
             completions[0].items = completions[0].items.concat(globalNames);
-          } else {
-            completions.push({items: globalNames.sort(), title: i18nString(UIStrings.lexicalScopeVariables)});
+          }
+          else {
+            completions.push({ items: globalNames.sort(), title: i18nString(UIStrings.lexicalScopeVariables) });
           }
         }
       }
@@ -532,43 +491,40 @@ export class JavaScriptAutocomplete {
 
       return completions;
 
-      /**
-       * @param {string=} type
-       * @return {!Object}
-       * @this {Object}
-       */
-      function getCompletions(type) {
+      function getCompletions(this: Object, type?: string): Object {
         let object;
         if (type === 'string') {
           object = new String('');
-        } else if (type === 'number') {
+        }
+        else if (type === 'number') {
           object = new Number(0);
         }
         // Object-wrapped BigInts cannot be constructed via `new BigInt`.
         else if (type === 'bigint') {
           object = Object(BigInt(0));
-        } else if (type === 'boolean') {
+        }
+        else if (type === 'boolean') {
           object = new Boolean(false);
-        } else {
+        }
+        else {
           object = this;
         }
 
-        /** @type {!Array<!CompletionGroup>} */
-        const result = [];
+        const result: CompletionGroup[] = [];
         try {
           for (let o = object; o; o = Object.getPrototypeOf(o)) {
             if ((type === 'array' || type === 'typedarray') && o === object && o.length > 9999) {
               continue;
             }
 
-            /** @type {!CompletionGroup} */
-            const group = /** @type {!CompletionGroup} */ ({items: [], title: undefined, __proto__: null});
+            const group = ({ items: [], title: undefined, __proto__: null } as CompletionGroup);
             try {
               if (typeof o === 'object' && Object.prototype.hasOwnProperty.call(o, 'constructor') && o.constructor &&
-                  o.constructor.name) {
+                o.constructor.name) {
                 group.title = o.constructor.name;
               }
-            } catch (ee) {
+            }
+            catch (ee) {
               // we could break upon cross origin check.
             }
             result[result.length] = group;
@@ -582,22 +538,15 @@ export class JavaScriptAutocomplete {
               group.items[group.items.length] = names[i];
             }
           }
-        } catch (e) {
+        }
+        catch (e) {
         }
         return result;
       }
     }
   }
 
-  /**
-   * @param {?Array<!CompletionGroup>} propertyGroups
-   * @param {boolean} dotNotation
-   * @param {boolean} bracketNotation
-   * @param {string} expressionString
-   * @param {string} query
-   * @return {!UI.SuggestBox.Suggestions}
-   */
-  _receivedPropertyNames(propertyGroups, dotNotation, bracketNotation, expressionString, query) {
+  _receivedPropertyNames(propertyGroups: CompletionGroup[] | null, dotNotation: boolean, bracketNotation: boolean, expressionString: string, query: string): UI.SuggestBox.Suggestions {
     if (!propertyGroups) {
       return [];
     }
@@ -636,15 +585,7 @@ export class JavaScriptAutocomplete {
     return this._completionsForQuery(dotNotation, bracketNotation, expressionString, query, propertyGroups);
   }
 
-  /**
-     * @param {boolean} dotNotation
-     * @param {boolean} bracketNotation
-     * @param {string} expressionString
-     * @param {string} query
-     * @param {!Array<!CompletionGroup>} propertyGroups
-     * @return {!UI.SuggestBox.Suggestions}
-     */
-  _completionsForQuery(dotNotation, bracketNotation, expressionString, query, propertyGroups) {
+  _completionsForQuery(dotNotation: boolean, bracketNotation: boolean, expressionString: string, query: string, propertyGroups: CompletionGroup[]): UI.SuggestBox.Suggestions {
     const quoteUsed = (bracketNotation && query.startsWith('\'')) ? '\'' : '"';
 
     if (!expressionString) {
@@ -661,28 +602,22 @@ export class JavaScriptAutocomplete {
         // Other keywords not explicitly reserved by spec.
         'async', 'of'
       ];
-      propertyGroups.push({title: i18nString(UIStrings.keywords), items: keywords.sort()});
+      propertyGroups.push({ title: i18nString(UIStrings.keywords), items: keywords.sort() });
     }
 
-    /** @type {!Set<string>} */
-    const allProperties = new Set();
-    /** @type {!UI.SuggestBox.Suggestions} */
-    let result = [];
+    const allProperties = new Set<string>();
+    let result: UI.SuggestBox.Suggestion[] = [];
     let lastGroupTitle;
     const regex = /^[a-zA-Z_$\u008F-\uFFFF][a-zA-Z0-9_$\u008F-\uFFFF]*$/;
     const lowerCaseQuery = query.toLowerCase();
     for (const group of propertyGroups) {
-      /** @type {!UI.SuggestBox.Suggestions} */
-      const caseSensitivePrefix = [];
-      /** @type {!UI.SuggestBox.Suggestions} */
-      const caseInsensitivePrefix = [];
-      /** @type {!UI.SuggestBox.Suggestions} */
-      const caseSensitiveAnywhere = [];
-      /** @type {!UI.SuggestBox.Suggestions} */
-      const caseInsensitiveAnywhere = [];
+      const caseSensitivePrefix: UI.SuggestBox.Suggestions = [];
+      const caseInsensitivePrefix: UI.SuggestBox.Suggestions = [];
+      const caseSensitiveAnywhere: UI.SuggestBox.Suggestions = [];
+      const caseInsensitiveAnywhere: UI.SuggestBox.Suggestions = [];
 
       for (let i = 0; i < group.items.length; i++) {
-        let property = group.items[i];
+        let property: string = group.items[i];
         // Assume that all non-ASCII characters are letters and thus can be used as part of identifier.
         if (!bracketNotation && !regex.test(property)) {
           continue;
@@ -708,18 +643,19 @@ export class JavaScriptAutocomplete {
 
         allProperties.add(property);
         if (property.startsWith(query)) {
-          caseSensitivePrefix.push(
-              /** @type {!UI.SuggestBox.Suggestion} */ ({text: property, priority: property === query ? 5 : 4}));
-        } else if (lowerCaseProperty.startsWith(lowerCaseQuery)) {
-          caseInsensitivePrefix.push(/** @type {!UI.SuggestBox.Suggestion} */ ({text: property, priority: 3}));
-        } else if (property.indexOf(query) !== -1) {
-          caseSensitiveAnywhere.push(/** @type {!UI.SuggestBox.Suggestion} */ ({text: property, priority: 2}));
-        } else {
-          caseInsensitiveAnywhere.push(/** @type {!UI.SuggestBox.Suggestion} */ ({text: property, priority: 1}));
+          caseSensitivePrefix.push(({ text: property, priority: property === query ? 5 : 4 } as UI.SuggestBox.Suggestion));
+        }
+        else if (lowerCaseProperty.startsWith(lowerCaseQuery)) {
+          caseInsensitivePrefix.push(({ text: property, priority: 3 } as UI.SuggestBox.Suggestion));
+        }
+        else if (property.indexOf(query) !== -1) {
+          caseSensitiveAnywhere.push(({ text: property, priority: 2 } as UI.SuggestBox.Suggestion));
+        }
+        else {
+          caseInsensitiveAnywhere.push(({ text: property, priority: 1 } as UI.SuggestBox.Suggestion));
         }
       }
-      const structuredGroup =
-          caseSensitivePrefix.concat(caseInsensitivePrefix, caseSensitiveAnywhere, caseInsensitiveAnywhere);
+      const structuredGroup = caseSensitivePrefix.concat(caseInsensitivePrefix, caseSensitiveAnywhere, caseInsensitiveAnywhere);
       if (structuredGroup.length && group.title !== lastGroupTitle) {
         structuredGroup[0].subtitle = group.title;
         lastGroupTitle = group.title;
@@ -734,12 +670,7 @@ export class JavaScriptAutocomplete {
     return result;
   }
 
-  /**
-   * @param {string} a
-   * @param {string} b
-   * @return {number}
-   */
-  _itemComparator(a, b) {
+  _itemComparator(a: string, b: string): number {
     const aStartsWithUnderscore = a.startsWith('_');
     const bStartsWithUnderscore = b.startsWith('_');
     if (aStartsWithUnderscore && !bStartsWithUnderscore) {
@@ -751,42 +682,31 @@ export class JavaScriptAutocomplete {
     return Platform.StringUtilities.naturalOrderComparator(a, b);
   }
 
-  /**
-   * @param {string} expression
-   * @return {!Promise<boolean>}
-   */
-  static async isExpressionComplete(expression) {
+  static async isExpressionComplete(expression: string): Promise<boolean> {
     const currentExecutionContext = UI.Context.Context.instance().flavor(SDK.RuntimeModel.ExecutionContext);
     if (!currentExecutionContext) {
       return true;
     }
-    const result =
-        await currentExecutionContext.runtimeModel.compileScript(expression, '', false, currentExecutionContext.id);
+    const result = await currentExecutionContext.runtimeModel.compileScript(expression, '', false, currentExecutionContext.id);
     if (!result || !result.exceptionDetails || !result.exceptionDetails.exception) {
       return true;
     }
     const description = result.exceptionDetails.exception.description;
     if (description) {
       return !description.startsWith('SyntaxError: Unexpected end of input') &&
-          !description.startsWith('SyntaxError: Unterminated template literal');
+        !description.startsWith('SyntaxError: Unterminated template literal');
     }
     return false;
   }
 }
 
 export class JavaScriptAutocompleteConfig {
-  /**
-   * @param {!UI.TextEditor.TextEditor} editor
-   */
-  constructor(editor) {
+  _editor: UI.TextEditor.TextEditor;
+  constructor(editor: UI.TextEditor.TextEditor) {
     this._editor = editor;
   }
 
-  /**
-   * @param {!UI.TextEditor.TextEditor} editor
-   * @return {!UI.SuggestBox.AutocompleteConfig}
-   */
-  static createConfigForEditor(editor) {
+  static createConfigForEditor(editor: UI.TextEditor.TextEditor): UI.SuggestBox.AutocompleteConfig {
     const autocomplete = new JavaScriptAutocompleteConfig(editor);
     return {
       substituteRangeCallback: autocomplete._substituteRange.bind(autocomplete),
@@ -797,12 +717,7 @@ export class JavaScriptAutocompleteConfig {
     };
   }
 
-  /**
-   * @param {number} lineNumber
-   * @param {number} columnNumber
-   * @return {?TextUtils.TextRange.TextRange}
-   */
-  _substituteRange(lineNumber, columnNumber) {
+  _substituteRange(lineNumber: number, columnNumber: number): TextUtils.TextRange.TextRange | null {
     const token = this._editor.tokenAtTextPosition(lineNumber, columnNumber);
     if (token && token.type === 'js-string') {
       return new TextUtils.TextRange.TextRange(lineNumber, token.startColumn, lineNumber, columnNumber);
@@ -818,19 +733,12 @@ export class JavaScriptAutocompleteConfig {
     return new TextUtils.TextRange.TextRange(lineNumber, index + 1, lineNumber, columnNumber);
   }
 
-  /**
-   * @param {!TextUtils.TextRange.TextRange} queryRange
-   * @param {!TextUtils.TextRange.TextRange} substituteRange
-   * @param {boolean=} force
-   * @return {!Promise<!UI.SuggestBox.Suggestions>}
-   */
-  async _suggestionsCallback(queryRange, substituteRange, force) {
+  async _suggestionsCallback(queryRange: TextUtils.TextRange.TextRange, substituteRange: TextUtils.TextRange.TextRange, force?: boolean): Promise<UI.SuggestBox.Suggestions> {
     const query = this._editor.text(queryRange);
-    const before =
-        this._editor.text(new TextUtils.TextRange.TextRange(0, 0, queryRange.startLine, queryRange.startColumn));
+    const before = this._editor.text(new TextUtils.TextRange.TextRange(0, 0, queryRange.startLine, queryRange.startColumn));
     const token = this._editor.tokenAtTextPosition(substituteRange.startLine, substituteRange.startColumn);
     if (token) {
-      const excludedTokens = new Set(['js-comment', 'js-string-2', 'js-def']);
+      const excludedTokens = new Set<'js-string'>(['js-comment', 'js-string-2', 'js-def']);
       const trimmedBefore = before.trim();
       if (!trimmedBefore.endsWith('[') && !trimmedBefore.match(/\.\s*(get|set|delete)\s*\(\s*$/)) {
         excludedTokens.add('js-string');
@@ -846,18 +754,13 @@ export class JavaScriptAutocompleteConfig {
 
     const words = await JavaScriptAutocomplete.instance().completionsForTextInCurrentContext(before, query, force);
     if (!force && queryAndAfter && queryAndAfter !== query &&
-        words.some(word => queryAndAfter.startsWith(word.text) && query.length !== word.text.length)) {
+      words.some(word => queryAndAfter.startsWith(word.text) && query.length !== word.text.length)) {
       return [];
     }
     return words;
   }
 
-  /**
-   * @param {number} lineNumber
-   * @param {number} columnNumber
-   * @return {!Promise<?Element>}
-   */
-  async _tooltipCallback(lineNumber, columnNumber) {
+  async _tooltipCallback(lineNumber: number, columnNumber: number): Promise<Element | null> {
     const before = this._editor.text(new TextUtils.TextRange.TextRange(0, 0, lineNumber, columnNumber));
     const result = await JavaScriptAutocomplete.instance().argumentsHint(before);
     if (!result) {
@@ -869,20 +772,21 @@ export class JavaScriptAutocompleteConfig {
       const argumentsElement = document.createElement('span');
       for (let i = 0; i < args.length; i++) {
         if (i === argumentIndex || (i < argumentIndex && args[i].startsWith('...'))) {
-          argumentsElement.appendChild(UI.Fragment.html`<b>${args[i]}</b>`);
-        } else {
+          argumentsElement.appendChild(UI.Fragment.html `<b>${args[i]}</b>`);
+        }
+        else {
           UI.UIUtils.createTextChild(argumentsElement, args[i]);
         }
         if (i < args.length - 1) {
           UI.UIUtils.createTextChild(argumentsElement, ', ');
         }
       }
-      tooltip.appendChild(UI.Fragment.html`<div class='source-code'>\u0192(${argumentsElement})</div>`);
+      tooltip.appendChild(UI.Fragment.html `<div class='source-code'>\u0192(${argumentsElement})</div>`);
     }
     return tooltip;
   }
 }
-
-/** @typedef {{title:(string|undefined), items:Array<string>}} */
-// @ts-ignore typedef
-export let CompletionGroup;
+export interface CompletionGroup {
+  title?: string;
+  items: string[];
+}

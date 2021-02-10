@@ -2,12 +2,14 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';
 import * as i18n from '../i18n/i18n.js';
-import * as SDK from '../sdk/sdk.js';  // eslint-disable-line no-unused-vars
+import * as SDK from '../sdk/sdk.js'; // eslint-disable-line no-unused-vars
 import * as UI from '../ui/ui.js';
 
-import {ObjectPropertiesSection} from './ObjectPropertiesSection.js';
+import { ObjectPropertiesSection } from './ObjectPropertiesSection.js';
 
 export const UIStrings = {
   /**
@@ -15,20 +17,20 @@ export const UIStrings = {
   */
   showAsJavascriptObject: 'Show as JavaScript object',
 };
-const str_ = i18n.i18n.registerUIStrings('object_ui/CustomPreviewComponent.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('object_ui/CustomPreviewComponent.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class CustomPreviewSection {
-  /**
-   * @param {!SDK.RemoteObject.RemoteObject} object
-   */
-  constructor(object) {
+  _sectionElement: HTMLSpanElement;
+  _object: SDK.RemoteObject.RemoteObject;
+  _expanded: boolean;
+  _cachedContent: Node | null;
+  _header: Node | undefined;
+  _expandIcon: UI.Icon.Icon | undefined;
+  constructor(object: SDK.RemoteObject.RemoteObject) {
     this._sectionElement = document.createElement('span');
     this._sectionElement.classList.add('custom-expandable-section');
     this._object = object;
     this._expanded = false;
-    /**
-     * @type {?Node}
-     */
     this._cachedContent = null;
     const customPreview = object.customPreview();
 
@@ -39,7 +41,8 @@ export class CustomPreviewSection {
     let headerJSON;
     try {
       headerJSON = JSON.parse(customPreview.header);
-    } catch (e) {
+    }
+    catch (e) {
       Common.Console.Console.instance().error('Broken formatter: header is invalid json ' + e);
       return;
     }
@@ -61,38 +64,26 @@ export class CustomPreviewSection {
     this._sectionElement.appendChild(this._header);
   }
 
-  /**
-   * @return {!Element}
-   */
-  element() {
+  element(): Element {
     return this._sectionElement;
   }
 
-  /**
-   * @param {*} jsonML
-   * @return {!Node}
-   */
-  _renderJSONMLTag(jsonML) {
+  _renderJSONMLTag(jsonML: any): Node {
     if (!Array.isArray(jsonML)) {
       return document.createTextNode(String(jsonML));
     }
 
-    const array = /** @type {!Array.<*>} */ (jsonML);
+    const array = (jsonML as any[]);
     return array[0] === 'object' ? this._layoutObjectTag(array) : this._renderElement(array);
   }
 
-  /**
-   *
-   * @param {!Array.<*>} object
-   * @return {!Node}
-   */
-  _renderElement(object) {
+  _renderElement(object: any[]): Node {
     const tagName = object.shift();
     if (!CustomPreviewSection._allowedTags.has(tagName)) {
       Common.Console.Console.instance().error('Broken formatter: element ' + tagName + ' is not allowed!');
       return document.createElement('span');
     }
-    const element = document.createElement(/** @type {string} */ (tagName));
+    const element = document.createElement((tagName as string));
     if ((typeof object[0] === 'object') && !Array.isArray(object[0])) {
       const attributes = object.shift();
       for (const key in attributes) {
@@ -109,15 +100,10 @@ export class CustomPreviewSection {
     return element;
   }
 
-  /**
-   * @param {!Array.<*>} objectTag
-   * @return {!Node}
-   */
-  _layoutObjectTag(objectTag) {
+  _layoutObjectTag(objectTag: any[]): Node {
     objectTag.shift();
     const attributes = objectTag.shift();
-    const remoteObject = this._object.runtimeModel().createRemoteObject(
-        /** @type {!Protocol.Runtime.RemoteObject} */ (attributes));
+    const remoteObject = this._object.runtimeModel().createRemoteObject((attributes as Protocol.Runtime.RemoteObject));
     if (remoteObject.customPreview()) {
       return (new CustomPreviewSection(remoteObject)).element();
     }
@@ -127,29 +113,23 @@ export class CustomPreviewSection {
     return sectionElement;
   }
 
-  /**
-   * @param {!Node} parentElement
-   * @param {!Array.<*>} jsonMLTags
-   */
-  _appendJsonMLTags(parentElement, jsonMLTags) {
+  _appendJsonMLTags(parentElement: Node, jsonMLTags: any[]): void {
     for (let i = 0; i < jsonMLTags.length; ++i) {
       parentElement.appendChild(this._renderJSONMLTag(jsonMLTags[i]));
     }
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _onClick(event) {
+  _onClick(event: Event): void {
     event.consume(true);
     if (this._cachedContent) {
       this._toggleExpand();
-    } else {
+    }
+    else {
       this._loadBody();
     }
   }
 
-  _toggleExpand() {
+  _toggleExpand(): void {
     this._expanded = !this._expanded;
     if (this._header instanceof Element) {
       this._header.classList.toggle('expanded', this._expanded);
@@ -160,13 +140,14 @@ export class CustomPreviewSection {
     if (this._expandIcon) {
       if (this._expanded) {
         this._expandIcon.setIconType('smallicon-triangle-down');
-      } else {
+      }
+      else {
         this._expandIcon.setIconType('smallicon-triangle-right');
       }
     }
   }
 
-  async _loadBody() {
+  async _loadBody(): Promise<void> {
     const customPreview = this._object.customPreview();
 
     if (!customPreview) {
@@ -174,8 +155,7 @@ export class CustomPreviewSection {
     }
 
     if (customPreview.bodyGetterId) {
-      const bodyJsonML = await this._object.callFunctionJSON(
-          bodyGetter => /** @type {function():*} */ (bodyGetter)(), [{objectId: customPreview.bodyGetterId}]);
+      const bodyJsonML = await this._object.callFunctionJSON(bodyGetter => (bodyGetter as () => any)(), [{ objectId: customPreview.bodyGetterId }]);
       if (!bodyJsonML) {
         return;
       }
@@ -188,43 +168,36 @@ export class CustomPreviewSection {
 }
 
 export class CustomPreviewComponent {
-  /**
-   * @param {!SDK.RemoteObject.RemoteObject} object
-   */
-  constructor(object) {
+  _object: SDK.RemoteObject.RemoteObject;
+  _customPreviewSection: CustomPreviewSection | null;
+  element: HTMLSpanElement;
+  constructor(object: SDK.RemoteObject.RemoteObject) {
     this._object = object;
-    /** @type {?CustomPreviewSection} */
     this._customPreviewSection = new CustomPreviewSection(object);
     this.element = document.createElement('span');
     this.element.classList.add('source-code');
-    const shadowRoot = UI.Utils.createShadowRootWithCoreStyles(
-        this.element,
-        {cssFile: 'object_ui/customPreviewComponent.css', enableLegacyPatching: false, delegatesFocus: undefined});
+    const shadowRoot = UI.Utils.createShadowRootWithCoreStyles(this.element, { cssFile: 'object_ui/customPreviewComponent.css', enableLegacyPatching: false, delegatesFocus: undefined });
     this.element.addEventListener('contextmenu', this._contextMenuEventFired.bind(this), false);
     shadowRoot.appendChild(this._customPreviewSection.element());
   }
 
-  expandIfPossible() {
+  expandIfPossible(): void {
     const customPreview = this._object.customPreview();
     if (customPreview && customPreview.bodyGetterId && this._customPreviewSection) {
       this._customPreviewSection._loadBody();
     }
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _contextMenuEventFired(event) {
+  _contextMenuEventFired(event: Event): void {
     const contextMenu = new UI.ContextMenu.ContextMenu(event);
     if (this._customPreviewSection) {
-      contextMenu.revealSection().appendItem(
-          i18nString(UIStrings.showAsJavascriptObject), this._disassemble.bind(this));
+      contextMenu.revealSection().appendItem(i18nString(UIStrings.showAsJavascriptObject), this._disassemble.bind(this));
     }
     contextMenu.appendApplicableItems(this._object);
     contextMenu.show();
   }
 
-  _disassemble() {
+  _disassemble(): void {
     if (this.element.shadowRoot) {
       this.element.shadowRoot.textContent = '';
       this._customPreviewSection = null;
