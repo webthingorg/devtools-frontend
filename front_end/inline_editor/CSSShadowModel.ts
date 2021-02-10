@@ -2,48 +2,42 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';
 import * as TextUtils from '../text_utils/text_utils.js';
 
 export class CSSShadowModel {
-  /**
-   * @param {boolean} isBoxShadow
-   */
-  constructor(isBoxShadow) {
+  _isBoxShadow: boolean;
+  _inset: boolean;
+  _offsetX: CSSLength;
+  _offsetY: CSSLength;
+  _blurRadius: CSSLength;
+  _spreadRadius: CSSLength;
+  _color: Common.Color.Color;
+  _format: _Part[];
+  _important: boolean;
+  constructor(isBoxShadow: boolean) {
     this._isBoxShadow = isBoxShadow;
     this._inset = false;
     this._offsetX = CSSLength.zero();
     this._offsetY = CSSLength.zero();
     this._blurRadius = CSSLength.zero();
     this._spreadRadius = CSSLength.zero();
-    /** @type {!Common.Color.Color} */
-    this._color = /** @type {!Common.Color.Color} */ (Common.Color.Color.parse('black'));
+    this._color = (Common.Color.Color.parse('black') as Common.Color.Color);
     this._format = [_Part.OffsetX, _Part.OffsetY];
     this._important = false;
   }
 
-  /**
-   * @param {string} text
-   * @return {!Array<!CSSShadowModel>}
-   */
-  static parseTextShadow(text) {
+  static parseTextShadow(text: string): CSSShadowModel[] {
     return CSSShadowModel._parseShadow(text, false);
   }
 
-  /**
-   * @param {string} text
-   * @return {!Array<!CSSShadowModel>}
-   */
-  static parseBoxShadow(text) {
+  static parseBoxShadow(text: string): CSSShadowModel[] {
     return CSSShadowModel._parseShadow(text, true);
   }
 
-  /**
-   * @param {string} text
-   * @param {boolean} isBoxShadow
-   * @return {!Array<!CSSShadowModel>}
-   */
-  static _parseShadow(text, isBoxShadow) {
+  static _parseShadow(text: string, isBoxShadow: boolean): CSSShadowModel[] {
     const shadowTexts = [];
     // Split by commas that aren't inside of color values to get the individual shadow values.
     const splits = TextUtils.TextUtils.Utils.splitStringByRegexes(text, [Common.Color.Regex, /,/g]);
@@ -73,7 +67,8 @@ export class CSSShadowModel {
           }
           // All parts must be separated by whitespace.
           nextPartAllowed = true;
-        } else {
+        }
+        else {
           if (!nextPartAllowed) {
             return [];
           }
@@ -81,17 +76,20 @@ export class CSSShadowModel {
           if (result.regexIndex === 0) {
             shadow._important = true;
             shadow._format.push(_Part.Important);
-          } else if (result.regexIndex === 1) {
+          }
+          else if (result.regexIndex === 1) {
             shadow._inset = true;
             shadow._format.push(_Part.Inset);
-          } else if (result.regexIndex === 2) {
+          }
+          else if (result.regexIndex === 2) {
             const color = Common.Color.Color.parse(result.value);
             if (!color) {
               return [];
             }
             shadow._color = color;
             shadow._format.push(_Part.Color);
-          } else if (result.regexIndex === 3) {
+          }
+          else if (result.regexIndex === 3) {
             const length = CSSLength.parse(result.value);
             if (!length) {
               return [];
@@ -100,13 +98,16 @@ export class CSSShadowModel {
             if (previousPart === _Part.OffsetX) {
               shadow._offsetY = length;
               shadow._format.push(_Part.OffsetY);
-            } else if (previousPart === _Part.OffsetY) {
+            }
+            else if (previousPart === _Part.OffsetY) {
               shadow._blurRadius = length;
               shadow._format.push(_Part.BlurRadius);
-            } else if (previousPart === _Part.BlurRadius) {
+            }
+            else if (previousPart === _Part.BlurRadius) {
               shadow._spreadRadius = length;
               shadow._format.push(_Part.SpreadRadius);
-            } else {
+            }
+            else {
               shadow._offsetX = length;
               shadow._format.push(_Part.OffsetX);
             }
@@ -114,24 +115,17 @@ export class CSSShadowModel {
         }
       }
       if (invalidCount(shadow, _Part.OffsetX, 1, 1) || invalidCount(shadow, _Part.OffsetY, 1, 1) ||
-          invalidCount(shadow, _Part.Color, 0, 1) || invalidCount(shadow, _Part.BlurRadius, 0, 1) ||
-          invalidCount(shadow, _Part.Inset, 0, isBoxShadow ? 1 : 0) ||
-          invalidCount(shadow, _Part.SpreadRadius, 0, isBoxShadow ? 1 : 0) ||
-          invalidCount(shadow, _Part.Important, 0, 1)) {
+        invalidCount(shadow, _Part.Color, 0, 1) || invalidCount(shadow, _Part.BlurRadius, 0, 1) ||
+        invalidCount(shadow, _Part.Inset, 0, isBoxShadow ? 1 : 0) ||
+        invalidCount(shadow, _Part.SpreadRadius, 0, isBoxShadow ? 1 : 0) ||
+        invalidCount(shadow, _Part.Important, 0, 1)) {
         return [];
       }
       shadows.push(shadow);
     }
     return shadows;
 
-    /**
-     * @param {!CSSShadowModel} shadow
-     * @param {string} part
-     * @param {number} min
-     * @param {number} max
-     * @return {boolean}
-     */
-    function invalidCount(shadow, part, min, max) {
+    function invalidCount(shadow: CSSShadowModel, part: string, min: number, max: number): boolean {
       let count = 0;
       for (let i = 0; i < shadow._format.length; i++) {
         if (shadow._format[i] === part) {
@@ -142,34 +136,22 @@ export class CSSShadowModel {
     }
   }
 
-  /**
-   * @param {boolean} inset
-   */
-  setInset(inset) {
+  setInset(inset: boolean): void {
     this._inset = inset;
     if (this._format.indexOf(_Part.Inset) === -1) {
       this._format.unshift(_Part.Inset);
     }
   }
 
-  /**
-   * @param {!CSSLength} offsetX
-   */
-  setOffsetX(offsetX) {
+  setOffsetX(offsetX: CSSLength): void {
     this._offsetX = offsetX;
   }
 
-  /**
-   * @param {!CSSLength} offsetY
-   */
-  setOffsetY(offsetY) {
+  setOffsetY(offsetY: CSSLength): void {
     this._offsetY = offsetY;
   }
 
-  /**
-   * @param {!CSSLength} blurRadius
-   */
-  setBlurRadius(blurRadius) {
+  setBlurRadius(blurRadius: CSSLength): void {
     this._blurRadius = blurRadius;
     if (this._format.indexOf(_Part.BlurRadius) === -1) {
       const yIndex = this._format.indexOf(_Part.OffsetY);
@@ -177,10 +159,7 @@ export class CSSShadowModel {
     }
   }
 
-  /**
-   * @param {!CSSLength} spreadRadius
-   */
-  setSpreadRadius(spreadRadius) {
+  setSpreadRadius(spreadRadius: CSSLength): void {
     this._spreadRadius = spreadRadius;
     if (this._format.indexOf(_Part.SpreadRadius) === -1) {
       this.setBlurRadius(this._blurRadius);
@@ -189,85 +168,64 @@ export class CSSShadowModel {
     }
   }
 
-  /**
-   * @param {!Common.Color.Color} color
-   */
-  setColor(color) {
+  setColor(color: Common.Color.Color): void {
     this._color = color;
     if (this._format.indexOf(_Part.Color) === -1) {
       this._format.push(_Part.Color);
     }
   }
 
-  /**
-   * @return {boolean}
-   */
-  isBoxShadow() {
+  isBoxShadow(): boolean {
     return this._isBoxShadow;
   }
 
-  /**
-   * @return {boolean}
-   */
-  inset() {
+  inset(): boolean {
     return this._inset;
   }
 
-  /**
-   * @return {!CSSLength}
-   */
-  offsetX() {
+  offsetX(): CSSLength {
     return this._offsetX;
   }
 
-  /**
-   * @return {!CSSLength}
-   */
-  offsetY() {
+  offsetY(): CSSLength {
     return this._offsetY;
   }
 
-  /**
-   * @return {!CSSLength}
-   */
-  blurRadius() {
+  blurRadius(): CSSLength {
     return this._blurRadius;
   }
 
-  /**
-   * @return {!CSSLength}
-   */
-  spreadRadius() {
+  spreadRadius(): CSSLength {
     return this._spreadRadius;
   }
 
-  /**
-   * @return {!Common.Color.Color}
-   */
-  color() {
+  color(): Common.Color.Color {
     return this._color;
   }
 
-  /**
-   * @return {string}
-   */
-  asCSSText() {
+  asCSSText(): string {
     const parts = [];
     for (let i = 0; i < this._format.length; i++) {
       const part = this._format[i];
       if (part === _Part.Inset && this._inset) {
         parts.push('inset');
-      } else if (part === _Part.OffsetX) {
+      }
+      else if (part === _Part.OffsetX) {
         parts.push(this._offsetX.asCSSText());
-      } else if (part === _Part.OffsetY) {
+      }
+      else if (part === _Part.OffsetY) {
         parts.push(this._offsetY.asCSSText());
-      } else if (part === _Part.BlurRadius) {
+      }
+      else if (part === _Part.BlurRadius) {
         parts.push(this._blurRadius.asCSSText());
-      } else if (part === _Part.SpreadRadius) {
+      }
+      else if (part === _Part.SpreadRadius) {
         parts.push(this._spreadRadius.asCSSText());
-      } else if (part === _Part.Color) {
+      }
+      else if (part === _Part.Color) {
         parts.push(this._color.asString(this._color.format()));
-      } else if (part === _Part.Important && this._important) {
+      }
+      else if (part === _Part.Important && this._important) {
         parts.push('!important');
       }
     }
@@ -275,35 +233,26 @@ export class CSSShadowModel {
   }
 }
 
-/**
- * @enum {string}
- */
-export const _Part = {
-  Inset: 'I',
-  OffsetX: 'X',
-  OffsetY: 'Y',
-  BlurRadius: 'B',
-  SpreadRadius: 'S',
-  Color: 'C',
-  Important: 'M'
-};
-
+export const enum _Part {
+  Inset = 'I',
+  OffsetX = 'X',
+  OffsetY = 'Y',
+  BlurRadius = 'B',
+  SpreadRadius = 'S',
+  Color = 'C',
+  Important = 'M'
+}
+;
 
 export class CSSLength {
-  /**
-   * @param {number} amount
-   * @param {string} unit
-   */
-  constructor(amount, unit) {
+  amount: number;
+  unit: string;
+  constructor(amount: number, unit: string) {
     this.amount = amount;
     this.unit = unit;
   }
 
-  /**
-   * @param {string} text
-   * @return {?CSSLength}
-   */
-  static parse(text) {
+  static parse(text: string): CSSLength | null {
     const lengthRegex = new RegExp('^(?:' + CSSLength.Regex.source + ')$', 'i');
     const match = text.match(lengthRegex);
     if (!match) {
@@ -315,23 +264,17 @@ export class CSSLength {
     return CSSLength.zero();
   }
 
-  /**
-   * @return {!CSSLength}
-   */
-  static zero() {
+  static zero(): CSSLength {
     return new CSSLength(0, '');
   }
 
-  /**
-   * @return {string}
-   */
-  asCSSText() {
+  asCSSText(): string {
     return this.amount + this.unit;
   }
 }
 
 /** @type {!RegExp} */
-CSSLength.Regex = (function() {
+CSSLength.Regex = (function (): RegExp {
   const number = '([+-]?(?:[0-9]*[.])?[0-9]+(?:[eE][+-]?[0-9]+)?)';
   const unit = '(ch|cm|em|ex|in|mm|pc|pt|px|rem|vh|vmax|vmin|vw)';
   const zero = '[+-]?(?:0*[.])?0+(?:[eE][+-]?[0-9]+)?';

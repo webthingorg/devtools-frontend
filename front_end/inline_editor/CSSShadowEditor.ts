@@ -2,11 +2,13 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as i18n from '../i18n/i18n.js';
 import * as Platform from '../platform/platform.js';
 import * as UI from '../ui/ui.js';
 
-import {CSSLength, CSSShadowModel} from './CSSShadowModel.js';  // eslint-disable-line no-unused-vars
+import { CSSLength, CSSShadowModel } from './CSSShadowModel.js'; // eslint-disable-line no-unused-vars
 
 export const UIStrings = {
   /**
@@ -38,22 +40,34 @@ export const UIStrings = {
   */
   spread: 'Spread',
 };
-const str_ = i18n.i18n.registerUIStrings('inline_editor/CSSShadowEditor.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('inline_editor/CSSShadowEditor.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
-/** @type {number} */
-const maxRange = 20;
-/** @type {string} */
-const defaultUnit = 'px';
-/** @type {number} */
-const sliderThumbRadius = 6;
-/** @type {number} */
-const canvasSize = 88;
+const maxRange: number = 20;
+const defaultUnit: string = 'px';
+const sliderThumbRadius: number = 6;
+const canvasSize: number = 88;
 
 export class CSSShadowEditor extends UI.Widget.VBox {
+  _typeField: HTMLElement;
+  _outsetButton: HTMLElement;
+  _insetButton: HTMLElement;
+  _xInput: HTMLInputElement;
+  _yInput: HTMLInputElement;
+  _xySlider: HTMLCanvasElement;
+  _halfCanvasSize: number;
+  _innerCanvasSize: number;
+  _blurInput: HTMLInputElement;
+  _blurSlider: HTMLInputElement;
+  _spreadField: HTMLElement;
+  _spreadInput: HTMLInputElement;
+  _spreadSlider: HTMLInputElement;
+  _model!: CSSShadowModel;
+  _canvasOrigin!: UI.Geometry.Point;
+  _changedElement?: HTMLInputElement | null;
   constructor() {
     super(true);
-    this.registerRequiredCSS('inline_editor/cssShadowEditor.css', {enableLegacyPatching: true});
+    this.registerRequiredCSS('inline_editor/cssShadowEditor.css', { enableLegacyPatching: true });
     this.contentElement.tabIndex = 0;
     this.setDefaultFocusedElement(this.contentElement);
 
@@ -70,41 +84,26 @@ export class CSSShadowEditor extends UI.Widget.VBox {
     this._xInput = this._createTextInput(xField, i18nString(UIStrings.xOffset));
     const yField = this.contentElement.createChild('div', 'shadow-editor-field');
     this._yInput = this._createTextInput(yField, i18nString(UIStrings.yOffset));
-
-    /** @type {!HTMLCanvasElement} */
-    this._xySlider = /** @type {!HTMLCanvasElement} */ (xField.createChild('canvas', 'shadow-editor-2D-slider'));
+    this._xySlider = (xField.createChild('canvas', 'shadow-editor-2D-slider') as HTMLCanvasElement);
     this._xySlider.width = canvasSize;
     this._xySlider.height = canvasSize;
     this._xySlider.tabIndex = -1;
     this._halfCanvasSize = canvasSize / 2;
     this._innerCanvasSize = this._halfCanvasSize - sliderThumbRadius;
-    UI.UIUtils.installDragHandle(
-        this._xySlider, this._dragStart.bind(this), this._dragMove.bind(this), null, 'default');
+    UI.UIUtils.installDragHandle(this._xySlider, this._dragStart.bind(this), this._dragMove.bind(this), null, 'default');
     this._xySlider.addEventListener('keydown', this._onCanvasArrowKey.bind(this), false);
     this._xySlider.addEventListener('blur', this._onCanvasBlur.bind(this), false);
 
-    const blurField =
-        this.contentElement.createChild('div', 'shadow-editor-field shadow-editor-flex-field shadow-editor-blur-field');
+    const blurField = this.contentElement.createChild('div', 'shadow-editor-field shadow-editor-flex-field shadow-editor-blur-field');
     this._blurInput = this._createTextInput(blurField, i18nString(UIStrings.blur));
     this._blurSlider = this._createSlider(blurField);
 
     this._spreadField = this.contentElement.createChild('div', 'shadow-editor-field shadow-editor-flex-field');
     this._spreadInput = this._createTextInput(this._spreadField, i18nString(UIStrings.spread));
     this._spreadSlider = this._createSlider(this._spreadField);
-
-    /** @type {!CSSShadowModel} */
-    this._model;
-
-    /** @type {!UI.Geometry.Point} */
-    this._canvasOrigin;
   }
 
-  /**
-   * @param {!Element} field
-   * @param {string} propertyName
-   * @return {!HTMLInputElement}
-   */
-  _createTextInput(field, propertyName) {
+  _createTextInput(field: Element, propertyName: string): HTMLInputElement {
     const label = field.createChild('label', 'shadow-editor-label');
     label.textContent = propertyName;
     label.setAttribute('for', propertyName);
@@ -118,35 +117,25 @@ export class CSSShadowEditor extends UI.Widget.VBox {
     return textInput;
   }
 
-  /**
-   * @param {!Element} field
-   * @return {!HTMLInputElement}
-   */
-  _createSlider(field) {
+  _createSlider(field: Element): HTMLInputElement {
     const slider = UI.UIUtils.createSlider(0, maxRange, -1);
     slider.addEventListener('input', this._onSliderInput.bind(this), false);
     field.appendChild(slider);
-    return /** @type {!HTMLInputElement} */ (slider);
+    return /** @type {!HTMLInputElement} */ slider as HTMLInputElement;
   }
 
-  /**
-   * @override
-   */
-  wasShown() {
+  wasShown(): void {
     this._updateUI();
   }
 
-  /**
-   * @param {!CSSShadowModel} model
-   */
-  setModel(model) {
+  setModel(model: CSSShadowModel): void {
     this._model = model;
     this._typeField.classList.toggle('hidden', !model.isBoxShadow());
     this._spreadField.classList.toggle('hidden', !model.isBoxShadow());
     this._updateUI();
   }
 
-  _updateUI() {
+  _updateUI(): void {
     this._updateButtons();
     this._xInput.value = this._model.offsetX().asCSSText();
     this._yInput.value = this._model.offsetY().asCSSText();
@@ -157,15 +146,12 @@ export class CSSShadowEditor extends UI.Widget.VBox {
     this._updateCanvas(false);
   }
 
-  _updateButtons() {
+  _updateButtons(): void {
     this._insetButton.classList.toggle('enabled', this._model.inset());
     this._outsetButton.classList.toggle('enabled', !this._model.inset());
   }
 
-  /**
-   * @param {boolean} drawFocus
-   */
-  _updateCanvas(drawFocus) {
+  _updateCanvas(drawFocus: boolean): void {
     const context = this._xySlider.getContext('2d');
     if (!context) {
       throw new Error('Unable to obtain canvas context');
@@ -208,10 +194,7 @@ export class CSSShadowEditor extends UI.Widget.VBox {
     context.restore();
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _onButtonClick(event) {
+  _onButtonClick(event: Event): void {
     const insetClicked = (event.currentTarget === this._insetButton);
     if (insetClicked && this._model.inset() || !insetClicked && !this._model.inset()) {
       return;
@@ -221,11 +204,8 @@ export class CSSShadowEditor extends UI.Widget.VBox {
     this.dispatchEventToListeners(Events.ShadowChanged, this._model);
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _handleValueModification(event) {
-    const target = /** @type {!HTMLInputElement} */ (event.currentTarget);
+  _handleValueModification(event: Event): void {
+    const target = (event.currentTarget as HTMLInputElement);
     const modifiedValue = UI.UIUtils.createReplacementString(target.value, event, customNumberHandler);
     if (!modifiedValue) {
       return;
@@ -243,13 +223,7 @@ export class CSSShadowEditor extends UI.Widget.VBox {
     this._onTextInput(event);
     event.consume(true);
 
-    /**
-     * @param {string} prefix
-     * @param {number} number
-     * @param {string} suffix
-     * @return {string}
-     */
-    function customNumberHandler(prefix, number, suffix) {
+    function customNumberHandler(prefix: string, number: number, suffix: string): string {
       if (!suffix.length) {
         suffix = defaultUnit;
       }
@@ -257,11 +231,8 @@ export class CSSShadowEditor extends UI.Widget.VBox {
     }
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _onTextInput(event) {
-    const currentTarget = /** @type {!HTMLInputElement} */ (event.currentTarget);
+  _onTextInput(event: Event): void {
+    const currentTarget = (event.currentTarget as HTMLInputElement);
     this._changedElement = currentTarget;
     this._changedElement.classList.remove('invalid');
     const length = CSSLength.parse(currentTarget.value);
@@ -271,24 +242,27 @@ export class CSSShadowEditor extends UI.Widget.VBox {
     if (currentTarget === this._xInput) {
       this._model.setOffsetX(length);
       this._updateCanvas(false);
-    } else if (currentTarget === this._yInput) {
+    }
+    else if (currentTarget === this._yInput) {
       this._model.setOffsetY(length);
       this._updateCanvas(false);
-    } else if (currentTarget === this._blurInput) {
+    }
+    else if (currentTarget === this._blurInput) {
       this._model.setBlurRadius(length);
       this._blurSlider.value = length.amount.toString();
-    } else if (currentTarget === this._spreadInput) {
+    }
+    else if (currentTarget === this._spreadInput) {
       this._model.setSpreadRadius(length);
       this._spreadSlider.value = length.amount.toString();
     }
     this.dispatchEventToListeners(Events.ShadowChanged, this._model);
   }
 
-  _onTextBlur() {
+  _onTextBlur(): void {
     if (!this._changedElement) {
       return;
     }
-    let length = !this._changedElement.value.trim() ? CSSLength.zero() : CSSLength.parse(this._changedElement.value);
+    let length: (CSSLength | null) | CSSLength = !this._changedElement.value.trim() ? CSSLength.zero() : CSSLength.parse(this._changedElement.value);
     if (!length) {
       length = CSSLength.parse(this._changedElement.value + defaultUnit);
     }
@@ -301,18 +275,21 @@ export class CSSShadowEditor extends UI.Widget.VBox {
       this._model.setOffsetX(length);
       this._xInput.value = length.asCSSText();
       this._updateCanvas(false);
-    } else if (this._changedElement === this._yInput) {
+    }
+    else if (this._changedElement === this._yInput) {
       this._model.setOffsetY(length);
       this._yInput.value = length.asCSSText();
       this._updateCanvas(false);
-    } else if (this._changedElement === this._blurInput) {
+    }
+    else if (this._changedElement === this._blurInput) {
       if (length.amount < 0) {
         length = CSSLength.zero();
       }
       this._model.setBlurRadius(length);
       this._blurInput.value = length.asCSSText();
       this._blurSlider.value = length.amount.toString();
-    } else if (this._changedElement === this._spreadInput) {
+    }
+    else if (this._changedElement === this._spreadInput) {
       this._model.setSpreadRadius(length);
       this._spreadInput.value = length.asCSSText();
       this._spreadSlider.value = length.amount.toString();
@@ -321,34 +298,24 @@ export class CSSShadowEditor extends UI.Widget.VBox {
     this.dispatchEventToListeners(Events.ShadowChanged, this._model);
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _onSliderInput(event) {
+  _onSliderInput(event: Event): void {
     if (event.currentTarget === this._blurSlider) {
-      this._model.setBlurRadius(
-          new CSSLength(Number(this._blurSlider.value), this._model.blurRadius().unit || defaultUnit));
+      this._model.setBlurRadius(new CSSLength(Number(this._blurSlider.value), this._model.blurRadius().unit || defaultUnit));
       this._blurInput.value = this._model.blurRadius().asCSSText();
       this._blurInput.classList.remove('invalid');
-    } else if (event.currentTarget === this._spreadSlider) {
-      this._model.setSpreadRadius(
-          new CSSLength(Number(this._spreadSlider.value), this._model.spreadRadius().unit || defaultUnit));
+    }
+    else if (event.currentTarget === this._spreadSlider) {
+      this._model.setSpreadRadius(new CSSLength(Number(this._spreadSlider.value), this._model.spreadRadius().unit || defaultUnit));
       this._spreadInput.value = this._model.spreadRadius().asCSSText();
       this._spreadInput.classList.remove('invalid');
     }
     this.dispatchEventToListeners(Events.ShadowChanged, this._model);
   }
 
-  /**
-   * @param {!MouseEvent} event
-   * @return {boolean}
-   */
-  _dragStart(event) {
+  _dragStart(event: MouseEvent): boolean {
     this._xySlider.focus();
     this._updateCanvas(true);
-    this._canvasOrigin = new UI.Geometry.Point(
-        this._xySlider.totalOffsetLeft() + this._halfCanvasSize,
-        this._xySlider.totalOffsetTop() + this._halfCanvasSize);
+    this._canvasOrigin = new UI.Geometry.Point(this._xySlider.totalOffsetLeft() + this._halfCanvasSize, this._xySlider.totalOffsetTop() + this._halfCanvasSize);
     const clickedPoint = new UI.Geometry.Point(event.x - this._canvasOrigin.x, event.y - this._canvasOrigin.y);
     const thumbPoint = this._sliderThumbPosition();
     if (clickedPoint.distanceTo(thumbPoint) >= sliderThumbRadius) {
@@ -357,11 +324,8 @@ export class CSSShadowEditor extends UI.Widget.VBox {
     return true;
   }
 
-  /**
-   * @param {!MouseEvent} event
-   */
-  _dragMove(event) {
-    let point = new UI.Geometry.Point(event.x - this._canvasOrigin.x, event.y - this._canvasOrigin.y);
+  _dragMove(event: MouseEvent): void {
+    let point: UI.Geometry.Point = new UI.Geometry.Point(event.x - this._canvasOrigin.x, event.y - this._canvasOrigin.y);
     if (event.shiftKey) {
       point = this._snapToClosestDirection(point);
     }
@@ -372,7 +336,8 @@ export class CSSShadowEditor extends UI.Widget.VBox {
     if (event.shiftKey) {
       this._model.setOffsetX(new CSSLength(newX, this._model.offsetX().unit || defaultUnit));
       this._model.setOffsetY(new CSSLength(newY, this._model.offsetY().unit || defaultUnit));
-    } else {
+    }
+    else {
       if (!event.altKey) {
         this._model.setOffsetX(new CSSLength(newX, this._model.offsetX().unit || defaultUnit));
       }
@@ -388,24 +353,24 @@ export class CSSShadowEditor extends UI.Widget.VBox {
     this.dispatchEventToListeners(Events.ShadowChanged, this._model);
   }
 
-  _onCanvasBlur() {
+  _onCanvasBlur(): void {
     this._updateCanvas(false);
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _onCanvasArrowKey(event) {
-    const keyboardEvent = /** @type {!KeyboardEvent} */ (event);
+  _onCanvasArrowKey(event: Event): void {
+    const keyboardEvent = (event as KeyboardEvent);
     let shiftX = 0;
     let shiftY = 0;
     if (keyboardEvent.key === 'ArrowRight') {
       shiftX = 1;
-    } else if (keyboardEvent.key === 'ArrowLeft') {
+    }
+    else if (keyboardEvent.key === 'ArrowLeft') {
       shiftX = -1;
-    } else if (keyboardEvent.key === 'ArrowUp') {
+    }
+    else if (keyboardEvent.key === 'ArrowUp') {
       shiftY = -1;
-    } else if (keyboardEvent.key === 'ArrowDown') {
+    }
+    else if (keyboardEvent.key === 'ArrowDown') {
       shiftY = 1;
     }
 
@@ -438,31 +403,22 @@ export class CSSShadowEditor extends UI.Widget.VBox {
     this.dispatchEventToListeners(Events.ShadowChanged, this._model);
   }
 
-  /**
-   * @param {!UI.Geometry.Point} point
-   * @param {number} max
-   * @return {!UI.Geometry.Point}
-   */
-  _constrainPoint(point, max) {
+  _constrainPoint(point: UI.Geometry.Point, max: number): UI.Geometry.Point {
     if (Math.abs(point.x) <= max && Math.abs(point.y) <= max) {
       return new UI.Geometry.Point(point.x, point.y);
     }
     return point.scale(max / Math.max(Math.abs(point.x), Math.abs(point.y)));
   }
 
-  /**
-   * @param {!UI.Geometry.Point} point
-   * @return {!UI.Geometry.Point}
-   */
-  _snapToClosestDirection(point) {
-    let minDistance = Number.MAX_VALUE;
-    let closestPoint = point;
+  _snapToClosestDirection(point: UI.Geometry.Point): UI.Geometry.Point {
+    let minDistance: number = Number.MAX_VALUE;
+    let closestPoint: UI.Geometry.Point = point;
 
     const directions = [
-      new UI.Geometry.Point(0, -1),  // North
-      new UI.Geometry.Point(1, -1),  // Northeast
-      new UI.Geometry.Point(1, 0),   // East
-      new UI.Geometry.Point(1, 1)    // Southeast
+      new UI.Geometry.Point(0, -1),
+      new UI.Geometry.Point(1, -1),
+      new UI.Geometry.Point(1, 0),
+      new UI.Geometry.Point(1, 1) // Southeast
     ];
 
     for (const direction of directions) {
@@ -477,17 +433,14 @@ export class CSSShadowEditor extends UI.Widget.VBox {
     return closestPoint;
   }
 
-  /**
-   * @return {!UI.Geometry.Point}
-   */
-  _sliderThumbPosition() {
+  _sliderThumbPosition(): UI.Geometry.Point {
     const x = (this._model.offsetX().amount / maxRange) * this._innerCanvasSize;
     const y = (this._model.offsetY().amount / maxRange) * this._innerCanvasSize;
     return this._constrainPoint(new UI.Geometry.Point(x, y), this._innerCanvasSize);
   }
 }
 
-/** @enum {symbol} */
-export const Events = {
-  ShadowChanged: Symbol('ShadowChanged')
-};
+export const enum Events {
+  ShadowChanged = 'ShadowChanged'
+}
+;
