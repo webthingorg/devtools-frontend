@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b128914_356259ec",
+        "filename": "front_end/elements_test_runner/ElementsTestRunner.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1216,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-02-10T08:32:53Z",
+      "side": 1,
+      "message": "It would be good to add a short jsdoc comment here that explains how one might want to use the replacer argument to filter some things out.",
+      "range": {
+        "startLine": 1216,
+        "startChar": 0,
+        "endLine": 1216,
+        "endChar": 102
+      },
+      "revId": "ca1250b33707edd9b22a99e14949b659cd73b862",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
