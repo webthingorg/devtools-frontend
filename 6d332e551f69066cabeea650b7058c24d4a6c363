@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33b7d3cb_e405f0a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-11T10:25:47Z",
+      "side": 1,
+      "message": "Paul, PTAL!\n\n@Alex @Wolfi thanks for the bug reports 👍",
+      "revId": "6d332e551f69066cabeea650b7058c24d4a6c363",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
