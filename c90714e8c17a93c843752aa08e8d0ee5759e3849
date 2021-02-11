@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "02f49348_c9396acf",
+        "filename": "front_end/issues/CorsIssueDetailsView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-11T12:33:39Z",
+      "side": 1,
+      "message": "I can remove this one, but I\u0027d rather wait for a presubmit check to do that.",
+      "parentUuid": "520945af_8d654443",
+      "revId": "c90714e8c17a93c843752aa08e8d0ee5759e3849",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df6f59e9_53f36edc",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-02-11T10:36:54Z",
       "side": 1,
       "message": "rename var?",
+      "revId": "c90714e8c17a93c843752aa08e8d0ee5759e3849",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1ed1ed3_fceaee53",
+        "filename": "front_end/issues/CorsIssueDetailsView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-11T12:33:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df6f59e9_53f36edc",
       "revId": "c90714e8c17a93c843752aa08e8d0ee5759e3849",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
