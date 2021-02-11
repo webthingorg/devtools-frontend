@@ -16,6 +16,29 @@
       "message": "Do you know why this compile error happens - I\u0027m not sure what I changed to break this :/",
       "revId": "9457cf2380c294f7512adb1dd7a7c16b6344c263",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cb67b67_48019d72",
+        "filename": "front_end/text_editor/CodeMirrorTextEditor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1180,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-11T11:28:26Z",
+      "side": 1,
+      "message": "Oh I love this.",
+      "range": {
+        "startLine": 1180,
+        "startChar": 2,
+        "endLine": 1180,
+        "endChar": 17
+      },
+      "revId": "9457cf2380c294f7512adb1dd7a7c16b6344c263",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
