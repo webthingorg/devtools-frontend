@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12f81d06_7247a93a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-11T09:11:22Z",
+      "side": 1,
+      "message": "Paul, PTAL.\n\nI\u0027m not sure what to think of this one; because this didn\u0027t happen before and I\u0027m not sure why we now need those styles, as I would have noticed I think that clicking to focus had broken.\n\nI can only think that something in Chromium around styling :focus-visible vs :focus had changed, but I\u0027m guessing and I could be way off.",
+      "revId": "d97a2b2fdde40778e1f81941a53d066f0c3a73d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
