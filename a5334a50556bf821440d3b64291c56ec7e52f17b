@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fedd9612_388077b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-11T08:40:43Z",
+      "side": 1,
+      "message": "Seems that we can enable features by setting CHROME_FEATURES environment variable, that our test runner supports. Not sure when/how to do that so the test runs in a binary with the feature enabled.\n\nFor the origins, I am not sure that the cross-origin trick of using localhost vs 127.0.0.1 would work with same party. As members of a 1P set must be origins and not IP addresses (also localhost is special so unsure whether this actually tests what we want it to test).",
+      "parentUuid": "85202f08_abb732bb",
+      "revId": "a5334a50556bf821440d3b64291c56ec7e52f17b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ac89a22a_de81d67c",
         "filename": "front_end/sdk/NetworkRequest.js",
         "patchSetId": 2
