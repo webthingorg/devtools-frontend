@@ -2,8 +2,40 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {ls} from '../platform/platform.js';
+import * as i18n from '../i18n/i18n.js';
 
+export const UIStrings = {
+  /**
+  *@description The UI destination when right clicking an item that can be revealed
+  */
+  elementsPanel: 'Elements panel',
+  /**
+  *@description The UI destination when right clicking an item that can be revealed
+  */
+  stylesSidebar: 'styles sidebar',
+  /**
+  *@description The UI destination when right clicking an item that can be revealed
+  */
+  changesDrawer: 'Changes drawer',
+  /**
+  *@description The UI destination when right clicking an item that can be revealed
+  */
+  issuesView: 'Issues view',
+  /**
+  *@description The UI destination when right clicking an item that can be revealed
+  */
+  networkPanel: 'Network panel',
+  /**
+  *@description The UI destination when right clicking an item that can be revealed
+  */
+  applicationPanel: 'Application panel',
+  /**
+  *@description The UI destination when right clicking an item that can be revealed
+  */
+  sourcesPanel: 'Sources panel',
+};
+const str_ = i18n.i18n.registerUIStrings('common/Revealer.js', UIStrings);
+const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 /**
  * @interface
  */
@@ -108,11 +140,11 @@ export let RevealerRegistration;
 
 /** @enum {string} */
 export const RevealerDestination = {
-  ELEMENTS_PANEL: ls`Elements panel`,
-  STYLES_SIDEBAR: ls`styles sidebar`,
-  CHANGES_DRAWER: ls`Changes drawer`,
-  ISSUES_VIEW: ls`Issues view`,
-  NETWORK_PANEL: ls`Network panel`,
-  APPLICATION_PANEL: ls`Application panel`,
-  SOURCES_PANEL: ls`Sources panel`,
+  ELEMENTS_PANEL: i18nString(UIStrings.elementsPanel),
+  STYLES_SIDEBAR: i18nString(UIStrings.stylesSidebar),
+  CHANGES_DRAWER: i18nString(UIStrings.changesDrawer),
+  ISSUES_VIEW: i18nString(UIStrings.issuesView),
+  NETWORK_PANEL: i18nString(UIStrings.networkPanel),
+  APPLICATION_PANEL: i18nString(UIStrings.applicationPanel),
+  SOURCES_PANEL: i18nString(UIStrings.sourcesPanel),
 };
