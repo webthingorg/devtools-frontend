@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5de70930_7138049f",
+        "filename": "front_end/timeline/TimelineUIUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1156,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-11T07:23:11Z",
+      "side": 0,
+      "message": "Reason for the layout test failure here. The original was \"URL\", the migration CL will use \"Url\". I wonder if URL is a locked term anyway and we should use it directly? wdyt?",
+      "range": {
+        "startLine": 1156,
+        "startChar": 38,
+        "endLine": 1156,
+        "endChar": 45
+      },
+      "revId": "40d4900b936d744c3498ced99575513cc91e9f87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba00835f_240804b2",
+        "filename": "front_end/timeline/TimelineUIUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1477,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-11T07:23:11Z",
+      "side": 0,
+      "message": "Same as above",
+      "range": {
+        "startLine": 1477,
+        "startChar": 37,
+        "endLine": 1477,
+        "endChar": 45
+      },
+      "revId": "40d4900b936d744c3498ced99575513cc91e9f87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58ef2e4c_78a36844",
+        "filename": "front_end/timeline/TimelineUIUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 2136,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-11T07:23:11Z",
+      "side": 0,
+      "message": "As said above, not sure if translating abbreviations for english terms makes sense at all.",
+      "range": {
+        "startLine": 2128,
+        "startChar": 0,
+        "endLine": 2136,
+        "endChar": 23
+      },
+      "revId": "40d4900b936d744c3498ced99575513cc91e9f87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

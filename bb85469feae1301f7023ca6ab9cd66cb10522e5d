@@ -18,6 +18,46 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e973441_61269f09",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-11T07:23:11Z",
+      "side": 1,
+      "message": "Left some comments.",
+      "revId": "bb85469feae1301f7023ca6ab9cd66cb10522e5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e5c63c9_d6f87b87",
+        "filename": "front_end/timeline/CountersGraph.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-11T07:23:11Z",
+      "side": 1,
+      "message": "Not sure that we need to translate this, as l10n was just used for number formatting.",
+      "range": {
+        "startLine": 469,
+        "startChar": 30,
+        "endLine": 469,
+        "endChar": 77
+      },
+      "revId": "bb85469feae1301f7023ca6ab9cd66cb10522e5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8e960090_ece8d7e8",
@@ -36,6 +76,237 @@
         "startChar": 30,
         "endLine": 497,
         "endChar": 68
+      },
+      "revId": "bb85469feae1301f7023ca6ab9cd66cb10522e5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21ebb69c_22b68087",
+        "filename": "front_end/timeline/CountersGraph.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-11T07:23:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8e960090_ece8d7e8",
+      "range": {
+        "startLine": 497,
+        "startChar": 30,
+        "endLine": 497,
+        "endChar": 68
+      },
+      "revId": "bb85469feae1301f7023ca6ab9cd66cb10522e5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f10b117_2d86320c",
+        "filename": "front_end/timeline/EventsTimelineTreeView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-11T07:23:11Z",
+      "side": 1,
+      "message": "Does this need to go through translation?",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 20
+      },
+      "revId": "bb85469feae1301f7023ca6ab9cd66cb10522e5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90d1538e_fa6efa5e",
+        "filename": "front_end/timeline/TimelineDetailsView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-11T07:23:11Z",
+      "side": 1,
+      "message": "Can we use `clsLink` directly here?",
+      "range": {
+        "startLine": 155,
+        "startChar": 26,
+        "endLine": 155,
+        "endChar": 112
+      },
+      "revId": "bb85469feae1301f7023ca6ab9cd66cb10522e5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a597e67b_e5b1a1b0",
+        "filename": "front_end/timeline/TimelineEventOverview.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-11T07:23:11Z",
+      "side": 1,
+      "message": "Lets not use l10n for this if possible.",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 26
+      },
+      "revId": "bb85469feae1301f7023ca6ab9cd66cb10522e5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fadc8a9d_d7a7ecd2",
+        "filename": "front_end/timeline/TimelineHistoryManager.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-11T07:23:11Z",
+      "side": 1,
+      "message": "While the above show hours/minutes, I think we can inline this string.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 21
+      },
+      "revId": "bb85469feae1301f7023ca6ab9cd66cb10522e5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b4d711b_04e9c0ef",
+        "filename": "front_end/timeline/TimelineUIUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-11T07:23:11Z",
+      "side": 1,
+      "message": "Does translating these make sense? Are the placeholders reordered in some languages?",
+      "range": {
+        "startLine": 545,
+        "startChar": 0,
+        "endLine": 557,
+        "endChar": 37
+      },
+      "revId": "bb85469feae1301f7023ca6ab9cd66cb10522e5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4fe8fa8_7550c518",
+        "filename": "front_end/timeline/TimelineUIUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1050,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-11T07:23:11Z",
+      "side": 1,
+      "message": "A bit unsure whether translating the abbreviations for \"first contentful paint\" etc. makes sense.",
+      "range": {
+        "startLine": 1041,
+        "startChar": 0,
+        "endLine": 1050,
+        "endChar": 5
+      },
+      "revId": "bb85469feae1301f7023ca6ab9cd66cb10522e5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63634dd8_74962627",
+        "filename": "front_end/timeline/TimelineUIUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1166,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-11T07:23:11Z",
+      "side": 1,
+      "message": "Lets inline this one.",
+      "range": {
+        "startLine": 1162,
+        "startChar": 1,
+        "endLine": 1166,
+        "endChar": 38
+      },
+      "revId": "bb85469feae1301f7023ca6ab9cd66cb10522e5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30b26b01_e3e49d8c",
+        "filename": "front_end/timeline/TimelineUIUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 3253,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-11T07:23:11Z",
+      "side": 1,
+      "message": "Can we remove the usage of UIStrings.emptyPlaceholder here? Maybe have a i18n helper that does the same thing as `getFormatLocalizedString`, but without going through translation? Something like a \"getFormatLockedString\".",
+      "range": {
+        "startLine": 3253,
+        "startChar": 5,
+        "endLine": 3253,
+        "endChar": 100
+      },
+      "revId": "bb85469feae1301f7023ca6ab9cd66cb10522e5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04bb92f2_d0afe121",
+        "filename": "front_end/timeline/TimelineUIUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 3492,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-11T07:23:11Z",
+      "side": 1,
+      "message": "Would `: ${eventData[\u0027deoptReason\u0027]}` work here?",
+      "range": {
+        "startLine": 3492,
+        "startChar": 41,
+        "endLine": 3492,
+        "endChar": 117
       },
       "revId": "bb85469feae1301f7023ca6ab9cd66cb10522e5d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
