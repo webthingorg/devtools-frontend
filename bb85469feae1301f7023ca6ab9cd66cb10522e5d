@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c53b081_41fd0ccc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-11T05:40:18Z",
+      "side": 1,
+      "message": "Migrating Timeline(Performance) to loc V2. One minor change from the usual migration was required (left a comment to pinpoint it).PTAL",
+      "revId": "bb85469feae1301f7023ca6ab9cd66cb10522e5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e960090_ece8d7e8",
+        "filename": "front_end/timeline/CountersGraph.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-11T05:40:18Z",
+      "side": 1,
+      "message": "The previous pattern was using localization to format the string in a specific way, which is not allowed anymore. So I had to make a simple change which also makes intention more clear. This is the reason for the changes on line:\n419, 452, 191. \nThis change is also shown working (highlighted) on the provided screenshot (in the description)",
+      "range": {
+        "startLine": 497,
+        "startChar": 30,
+        "endLine": 497,
+        "endChar": 68
+      },
+      "revId": "bb85469feae1301f7023ca6ab9cd66cb10522e5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
