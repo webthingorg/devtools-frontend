@@ -36,12 +36,12 @@ export class AccessibilityTree extends HTMLElement {
   set selectedAXNode(node: AccessibilityNode) {
     // Deselect previous node
     if (this.selectedNode && this.selectedNode !== node) {
-      this.selectedNode.selected = false;
+      this.selectedNode.deselect();
     }
 
     // Select and focus new node
     this.selectedNode = node;
-    this.selectedNode.selected = true;
+    this.selectedNode.select();
   }
 
   wasShown(): void {

@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import type * as ElementsModule from '../../../../front_end/elements/elements.js';
-import {assertShadowRoot, dispatchClickEvent, dispatchMouseMoveEvent, dispatchMouseLeaveEvent, renderElementIntoDOM, assertElement} from '../helpers/DOMHelpers.js';
+import {assertShadowRoot, dispatchClickEvent, dispatchMouseOverEvent, dispatchMouseLeaveEvent, renderElementIntoDOM, assertElement} from '../helpers/DOMHelpers.js';
 import {describeWithEnvironment} from '../helpers/EnvironmentHelpers.js';
 import {withNoMutations} from '../helpers/MutationHelpers.js';
 
@@ -172,7 +172,7 @@ describeWithEnvironment('AccessibilityTree', () => {
 
         assert.isUndefined(window.getComputedStyle(nodeWrapper, ':hover'));
 
-        dispatchMouseMoveEvent(component);
+        dispatchMouseOverEvent(component);
         assert.isDefined(window.getComputedStyle(nodeWrapper, ':hover'));
 
         dispatchMouseLeaveEvent(component);
