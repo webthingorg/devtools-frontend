@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {ls} from '../platform/platform.js';
-
 /**
  * @interface
  */
@@ -108,11 +106,11 @@ export let RevealerRegistration;
 
 /** @enum {string} */
 export const RevealerDestination = {
-  ELEMENTS_PANEL: ls`Elements panel`,
-  STYLES_SIDEBAR: ls`styles sidebar`,
-  CHANGES_DRAWER: ls`Changes drawer`,
-  ISSUES_VIEW: ls`Issues view`,
-  NETWORK_PANEL: ls`Network panel`,
-  APPLICATION_PANEL: ls`Application panel`,
-  SOURCES_PANEL: ls`Sources panel`,
+  ELEMENTS_PANEL: 'Elements panel',
+  STYLES_SIDEBAR: 'styles sidebar',
+  CHANGES_DRAWER: 'Changes drawer',
+  ISSUES_VIEW: 'Issues view',
+  NETWORK_PANEL: 'Network panel',
+  APPLICATION_PANEL: 'Application panel',
+  SOURCES_PANEL: 'Sources panel',
 };

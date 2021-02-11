@@ -69,7 +69,7 @@ export function createTarget({id = 'test', name = 'test', type = SDK.SDKModel.Ty
 function createSettingValue(category: string, settingName: string, defaultValue: unknown, settingType = 'boolean'):
     Common.Settings.SettingRegistration {
   const settingCategory = category as Platform.UIString.LocalizedString;
-  return {category: settingCategory, settingName, defaultValue, settingType};
+  return {category: () => settingCategory, settingName, defaultValue, settingType};
 }
 
 export async function initializeGlobalVars({reset = true} = {}) {
