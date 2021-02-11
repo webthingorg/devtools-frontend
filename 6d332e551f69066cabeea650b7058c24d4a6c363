@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d42b1957_033197f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-11T10:49:51Z",
+      "side": 1,
+      "message": "I think the data-grid controller tests that have now broken are sufficient for now, but I am going to look into adding an interaction test or two in a follow-up. Just want to hold off and chat through the approach with aerotwist@ :)",
+      "parentUuid": "54632cb8_d6379ab8",
+      "revId": "6d332e551f69066cabeea650b7058c24d4a6c363",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5b97e810_36e078ef",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-02-11T10:30:25Z",
       "side": 1,
       "message": "does it have to be Math.min? Is the negative height expected here?",
+      "revId": "6d332e551f69066cabeea650b7058c24d4a6c363",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edbc8e18_b48e630b",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 895,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-11T10:49:51Z",
+      "side": 1,
+      "message": "It could be - say we calculate that we could render 50 rows, but only have 20, then this would be `20 - 50`. Giving a div a minus height would be OK, the browser would just default to 0 I think, but it feels nicer to do it explicitly here.",
+      "parentUuid": "5b97e810_36e078ef",
       "revId": "6d332e551f69066cabeea650b7058c24d4a6c363",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
