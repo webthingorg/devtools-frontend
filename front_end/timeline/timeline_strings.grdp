@@ -514,6 +514,9 @@ Click the reload button <ph name="RELOADBUTTON">$3s<ex>reload</ex></ph> or hit <
   <message name="IDS_DEVTOOLS_61b67ca7c1d8eea5b55d23bbb615d944" desc="Text in Timeline UIUtils of the Performance panel">
     Recalculate Style
   </message>
+  <message name="IDS_DEVTOOLS_6311ae17c1ee52b36e68aaf4ad066387" desc="Text for other types of items">
+    Other
+  </message>
   <message name="IDS_DEVTOOLS_6347d5359bdee6d82717b4ad73aee504" desc="Text in Timeline UIUtils of the Performance panel">
     Frame Started Loading
   </message>
@@ -1160,6 +1163,9 @@ Then, zoom and pan the timeline with the mousewheel or <ph name="NAVIGATENODE">$
   </message>
   <message name="IDS_DEVTOOLS_f1fef3f490158560a580633887faf5d3" desc="Data grid name for Timeline Stack data grids">
     Timeline Stack
+  </message>
+  <message name="IDS_DEVTOOLS_f28128b38efbc6134dc40751ee21fd29" desc="Text for documents, a type of resources">
+    Documents
   </message>
   <message name="IDS_DEVTOOLS_f2f08200f7e8df8715e4a4fc148d11f9" desc="Text in Timeline UIUtils of the Performance panel">
     Compilation cache size
