@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa75c133_cb14a638",
+        "filename": "front_end/component_docs/flexbox_editor/basic.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-11T09:20:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fad951c8_f4126e69",
+      "range": {
+        "startLine": 39,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 4
+      },
+      "revId": "d4f358b740a5d83a5ec11501baddda4983352e39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2226f392_bec31cf0",
@@ -125,6 +149,30 @@
       "writtenOn": "2021-02-10T11:24:07Z",
       "side": 1,
       "message": "Nice, using flex for the flex editor!",
+      "range": {
+        "startLine": 91,
+        "startChar": 10,
+        "endLine": 91,
+        "endChar": 24
+      },
+      "revId": "d4f358b740a5d83a5ec11501baddda4983352e39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85e67dba_d7414722",
+        "filename": "front_end/elements/FlexboxEditor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-11T09:20:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd45dd33_fc6d9559",
       "range": {
         "startLine": 91,
         "startChar": 10,
@@ -219,6 +267,30 @@
       "side": 1,
       "message": "Renamed to `computed` because that would a value from the computed properties in this case.",
       "parentUuid": "bcdfe23e_48abbb62",
+      "range": {
+        "startLine": 142,
+        "startChar": 7,
+        "endLine": 142,
+        "endChar": 15
+      },
+      "revId": "d4f358b740a5d83a5ec11501baddda4983352e39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90843d67_9c9b789e",
+        "filename": "front_end/elements/FlexboxEditor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-11T09:20:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3fa1ade_950c3eca",
       "range": {
         "startLine": 142,
         "startChar": 7,
@@ -324,6 +396,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f019da2_ab626959",
+        "filename": "front_end/elements/FlexboxEditor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-11T09:20:40Z",
+      "side": 1,
+      "message": "I will do it in a follow up.",
+      "parentUuid": "df8a91cd_8f6ffee5",
+      "range": {
+        "startLine": 148,
+        "startChar": 6,
+        "endLine": 150,
+        "endChar": 12
+      },
+      "revId": "d4f358b740a5d83a5ec11501baddda4983352e39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cb761617_6a02d3a3",
@@ -361,6 +457,30 @@
       "side": 1,
       "message": "I didn\u0027t see it, thanks! I dislike putting the strings at the top because they are quite long and you need to scroll to get to the main content. I will make a suggestion to change the guidance.",
       "parentUuid": "cb761617_6a02d3a3",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 265,
+        "endChar": 70
+      },
+      "revId": "d4f358b740a5d83a5ec11501baddda4983352e39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54fd6d3d_b9f82407",
+        "filename": "front_end/elements/FlexboxEditor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-11T09:20:40Z",
+      "side": 1,
+      "message": "Moved to the top for now",
+      "parentUuid": "91ac71b5_aca0cec8",
       "range": {
         "startLine": 250,
         "startChar": 0,
