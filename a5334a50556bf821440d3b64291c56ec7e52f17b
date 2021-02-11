@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "85202f08_abb732bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-11T08:32:44Z",
+      "side": 1,
+      "message": "You might able to use a trick similar to test/e2e/resources/application/cross-origin-cookies.html to get a cross-origin cookie.\n\nWould there be any harm in enabling the same party flag for our whole test suite? If not, let\u0027s do it. Is it part of the experimental web platform features flag? Maybe we should enable that as well? \n\nIn any case, this requires some discussion with testing folks on our end, and I don\u0027t want to block this CL on the test, but it would be great if you could look into adding one as a follow-up.\n\nI\u0027ll lgtm once my other concerns are addressed.",
+      "parentUuid": "60abbcfb_7a42ecdd",
+      "revId": "a5334a50556bf821440d3b64291c56ec7e52f17b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ac89a22a_de81d67c",
         "filename": "front_end/sdk/NetworkRequest.js",
         "patchSetId": 2
