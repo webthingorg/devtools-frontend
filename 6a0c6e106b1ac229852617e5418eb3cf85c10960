@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fdab892_ccf2a8e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2021-02-11T13:03:03Z",
+      "side": 1,
+      "message": "Please always hit dry-run first before sending for review. Like that the bots can catch problems before humans.",
+      "revId": "6a0c6e106b1ac229852617e5418eb3cf85c10960",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
