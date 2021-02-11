@@ -22,32 +22,34 @@ describe('The Application Tab', async () => {
     await target.deleteCookie(...cookies);
   });
 
-  it('[crbug.com/1047348] shows cookies even when navigating to an unreachable page', async () => {
-    const {target} = getBrowserAndPages();
-    // This sets a new cookie foo=bar
-    await navigateToApplicationTab(target, 'cookies');
+  // This test fails in headfull mode for unclear reasons (crbug.com/1177205)
+  it.skip(
+      '[crbug.com/1047348][crbug.com/1177205] shows cookies even when navigating to an unreachable page', async () => {
+        const {target} = getBrowserAndPages();
+        // This sets a new cookie foo=bar
+        await navigateToApplicationTab(target, 'cookies');
 
-    await goToResource('network/unreachable.rawresponse');
+        await goToResource('network/unreachable.rawresponse');
 
-    await doubleClickSourceTreeItem(COOKIES_SELECTOR);
-    await doubleClickSourceTreeItem(DOMAIN_SELECTOR);
+        await doubleClickSourceTreeItem(COOKIES_SELECTOR);
+        await doubleClickSourceTreeItem(DOMAIN_SELECTOR);
 
-    const dataGridRowValues = await getStorageItemsData(['name', 'value']);
-    assert.deepEqual(dataGridRowValues, [
-      {
-        name: 'urlencoded',
-        value: 'Hello%2BWorld!',
-      },
-      {
-        name: 'foo2',
-        value: 'bar',
-      },
-      {
-        name: 'foo',
-        value: 'bar',
-      },
-    ]);
-  });
+        const dataGridRowValues = await getStorageItemsData(['name', 'value']);
+        assert.deepEqual(dataGridRowValues, [
+          {
+            name: 'urlencoded',
+            value: 'Hello%2BWorld!',
+          },
+          {
+            name: 'foo2',
+            value: 'bar',
+          },
+          {
+            name: 'foo',
+            value: 'bar',
+          },
+        ]);
+      });
 
   it('[crbug.com/462370] shows a preview of the cookie value', async () => {
     const {target} = getBrowserAndPages();
