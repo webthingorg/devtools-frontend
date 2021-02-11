@@ -54,6 +54,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6b30853e_ad1cc072",
+        "filename": "front_end/elements/StylePropertyTreeElement.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-02-11T14:14:57Z",
+      "side": 1,
+      "message": "I think instead of adding the FlexboxEditorWidget construction code further below in this file as you did, it might be more consistent to do it like we did these other property renderers. What do you think?\nYou can probably look at the processShadow for an example of how a similar button was added.",
+      "range": {
+        "startLine": 606,
+        "startChar": 6,
+        "endLine": 606,
+        "endChar": 68
+      },
+      "revId": "3b1f7c0cc88df019bab504d9bbb7fd126b0229b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02d50bab_db7c0459",
+        "filename": "front_end/elements/stylesSectionTree.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-02-11T14:14:57Z",
+      "side": 1,
+      "message": "Can you explain why we need all of these properties for the icon? If I look at the box-shadow editor icon, it doesn\u0027t seem like that much is needed (see rule shadow-swatch-icon).\n\nUpdate: I see now that those are needed because you wrapped the icon into a button element, while in other places of the Styles pane, the icon element is just inline. It seems like just having the icon inline is simpler. But I\u0027m guessing you did this for a11y reasons. Is that correct?\n\nIf you want to keep using the button element, it would be good to give it a more generic classname like .styles-pane-button so that it can be reused more easily by the other swatches.",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 21
+      },
+      "revId": "3b1f7c0cc88df019bab504d9bbb7fd126b0229b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3b13e8fe_3857fd26",
         "filename": "front_end/elements/stylesSectionTree.css",
         "patchSetId": 1
@@ -65,6 +111,75 @@
       "writtenOn": "2021-02-11T11:42:45Z",
       "side": 1,
       "message": "Q: Why do we need both min-{height,width} and {height,width}?",
+      "revId": "3b1f7c0cc88df019bab504d9bbb7fd126b0229b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb2f0bbd_acbda269",
+        "filename": "front_end/elements/stylesSectionTree.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-02-11T14:14:57Z",
+      "side": 1,
+      "message": "Should this be relative instead?",
+      "range": {
+        "startLine": 196,
+        "startChar": 2,
+        "endLine": 196,
+        "endChar": 21
+      },
+      "revId": "3b1f7c0cc88df019bab504d9bbb7fd126b0229b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdfb46c0_a46ccfd5",
+        "filename": "test/e2e/elements/flexbox-editor_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-02-11T14:14:57Z",
+      "side": 1,
+      "message": "Should you also enable the experiment in this beforeEach function?",
+      "range": {
+        "startLine": 12,
+        "startChar": 2,
+        "endLine": 12,
+        "endChar": 12
+      },
+      "revId": "3b1f7c0cc88df019bab504d9bbb7fd126b0229b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77f75a65_12861436",
+        "filename": "test/e2e/elements/flexbox-editor_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-02-11T14:14:57Z",
+      "side": 1,
+      "message": "It would be good to move some of these behind helper functions, in order to make the test logic super easy to read.\nSomething like:\n\n  it(\u0027can be opened and flexbox styles can be edited\u0027 async () \u003d\u003e {\n    await clickFlexboxEditorButton();\n\n    // Clicking once sets the value.\n    await clickFlexboxDirectionButton(\u0027column\u0027);\n    await waitForCSSPropertyValue(\u0027#target\u0027, \u0027flex-direction\u0027, \u0027column\u0027);\n\n    // Clicking again removes the value.\n    await clickFlexboxDirectionButton(\u0027column\u0027);\n    const property \u003d await getCSSPropertyInRule(\u0027#target\u0027, \u0027flex-direction\u0027);\n    assert.isUndefined(property);\n  });\n\nIt may be too early to create a separate helper file just for this, these helper functions can stay in this file, at the bottom.\nIt makes it easier to write other test cases, and makes the test easy to read.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 33
+      },
       "revId": "3b1f7c0cc88df019bab504d9bbb7fd126b0229b0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
