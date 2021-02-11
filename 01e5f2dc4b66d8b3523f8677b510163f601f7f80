@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e17298df_c98feb04",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-02-11T14:34:14Z",
+      "side": 1,
+      "message": "Thanks for reminding me. Some of the logic I introduced can\u0027t easily be tested because it\u0027s just canvas draw code. But some of it is Math, so I\u0027ll add tests for that. I also realized that a few other functions don\u0027t have tests, I\u0027ll try to add some for them too.",
+      "parentUuid": "d5ca34fb_2a1bd339",
+      "revId": "01e5f2dc4b66d8b3523f8677b510163f601f7f80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "632ad999_c2005706",
@@ -71,6 +89,24 @@
       "writtenOn": "2021-02-10T12:35:03Z",
       "side": 1,
       "message": "maybe `const isFlexContainer \u003d highlight.flexInfo?.length`?",
+      "revId": "01e5f2dc4b66d8b3523f8677b510163f601f7f80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba89df70_0db591fd",
+        "filename": "inspector_overlay/tool_highlight.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-02-11T14:34:14Z",
+      "side": 1,
+      "message": "Good idea. Done.",
+      "parentUuid": "89605a4a_db8cc784",
       "revId": "01e5f2dc4b66d8b3523f8677b510163f601f7f80",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
