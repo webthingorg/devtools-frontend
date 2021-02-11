@@ -88,6 +88,24 @@
       "parentUuid": "426f6616_498e6a1e",
       "revId": "e1a36bf382b9e84224115d6a06225575a708c771",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b625f27_b25ff0ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-11T08:17:56Z",
+      "side": 1,
+      "message": "I\u0027m not aware of the other PR, could you give me a link?",
+      "parentUuid": "8001a05e_dccb62e5",
+      "revId": "e1a36bf382b9e84224115d6a06225575a708c771",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
