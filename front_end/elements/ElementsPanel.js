@@ -43,7 +43,7 @@ import {DOMNode, ElementsBreadcrumbs} from './ElementsBreadcrumbs.js';  // eslin
 import {ElementsTreeElement} from './ElementsTreeElement.js';           // eslint-disable-line no-unused-vars
 import {ElementsTreeElementHighlighter} from './ElementsTreeElementHighlighter.js';
 import {ElementsTreeOutline} from './ElementsTreeOutline.js';
-import {MarkerDecorator} from './MarkerDecorator.js';  // eslint-disable-line no-unused-vars
+import {GenericDecorator, MarkerDecorator, registerDecorators} from './MarkerDecorator.js';  // eslint-disable-line no-unused-vars
 import {MetricsSidebarPane} from './MetricsSidebarPane.js';
 import {Events as StylesSidebarPaneEvents, StylesSidebarPane} from './StylesSidebarPane.js';
 
@@ -1401,10 +1401,23 @@ export class ElementsActionDelegate {
   }
 }
 
+/** @type {!PseudoStateMarkerDecorator} */
+let pseudoStateMarkerDecoratorInstance;
 /**
  * @implements {MarkerDecorator}
  */
 export class PseudoStateMarkerDecorator {
+  /**
+   * @param {{forceNew: ?boolean}} opts
+   */
+  static instance(opts = {forceNew: null}) {
+    const {forceNew} = opts;
+    if (!pseudoStateMarkerDecoratorInstance || forceNew) {
+      pseudoStateMarkerDecoratorInstance = new PseudoStateMarkerDecorator();
+    }
+
+    return pseudoStateMarkerDecoratorInstance;
+  }
   /**
    * @override
    * @param {!SDK.DOMModel.DOMNode} node
@@ -1419,3 +1432,24 @@ export class PseudoStateMarkerDecorator {
     return {color: 'orange', title: Common.UIString.UIString('Element state: %s', ':' + pseudoState.join(', :'))};
   }
 }
+
+registerDecorators([
+  new (function() {
+    this.marker = 'breakpoint-marker';
+    this.title = ls`DOM Breakpoint`;
+    this.color = 'rgb(105, 140, 254)';
+    this.decorator = new GenericDecorator(this);
+  })(),
+  new (function() {
+    this.marker = 'hidden-marker';
+    this.title = ls`Element is hidden`;
+    this.color = '#555';
+    this.decorator = new GenericDecorator(this);
+  })(),
+  {
+    decorator: PseudoStateMarkerDecorator.instance(),
+    marker: 'pseudo-state-marker',
+    title: undefined,
+    color: undefined,
+  },
+]);
