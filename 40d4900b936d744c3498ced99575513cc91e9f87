@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebde9c91_6f055e70",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-11T05:38:07Z",
+      "side": 1,
+      "message": "Hi Peter and Tim, thanks for the feedback on the other CL. I ported the changes for the presubmit scripts as I started using the lazy pattern in the linked CL. PTAL.",
+      "revId": "40d4900b936d744c3498ced99575513cc91e9f87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
