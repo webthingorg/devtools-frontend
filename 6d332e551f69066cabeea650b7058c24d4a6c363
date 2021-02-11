@@ -86,6 +86,24 @@
       "parentUuid": "5b97e810_36e078ef",
       "revId": "6d332e551f69066cabeea650b7058c24d4a6c363",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "804e0037_53bad788",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 895,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-11T10:55:30Z",
+      "side": 1,
+      "message": "so if it\u0027s `20 - 50`, the height would be -30 (effectively 0). And if it could render 10 rows but there are 20, it\u0027d be `20 - 10 \u003d 10` but Math.min would return 0 too. So is it in all cases 0 or negative or do I make a mistake somewhere?",
+      "parentUuid": "edbc8e18_b48e630b",
+      "revId": "6d332e551f69066cabeea650b7058c24d4a6c363",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
