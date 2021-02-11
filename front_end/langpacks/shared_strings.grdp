@@ -19,9 +19,6 @@
   <message name="IDS_DEVTOOLS_3793ea52a7be2d7deafd858fda50775c" desc="Text exposed to screen readers on checked items.">
     checked
   </message>
-  <message name="IDS_DEVTOOLS_3b563524fdb17b4a86590470d40bef74" desc="Text that appears on a button for the media resource type filter.">
-    Media
-  </message>
   <message name="IDS_DEVTOOLS_3bb3e8c8a24891ba0f7608bcc96f8b0a" desc="Text for a rendering frame">
     Frame
   </message>
@@ -35,17 +32,11 @@
   <message name="IDS_DEVTOOLS_4dab36ac83853282fc0d7bae20c19e90" desc="Text to show more options">
     More options
   </message>
-  <message name="IDS_DEVTOOLS_5174d1309f275ba6f275db3af9eb3e18" desc="Title of a section on CSS Grid tooling">
-    Grid
-  </message>
   <message name="IDS_DEVTOOLS_539dddc574d3cd85ba73df93df7a76d0" desc="Text for the execution stack trace">
     Stack Trace
   </message>
   <message name="IDS_DEVTOOLS_5de39fa1bce4bbf9232597a2120bc4d4" desc="Text to open the cubic bezier editor">
     Open cubic bezier editor.
-  </message>
-  <message name="IDS_DEVTOOLS_6311ae17c1ee52b36e68aaf4ad066387" desc="Text for other types of items">
-    Other
   </message>
   <message name="IDS_DEVTOOLS_6a0d9eaee314c567fd72fb97ee707a36" desc="Text to record a series of actions for analysis">
     Record
@@ -104,9 +95,6 @@
   <message name="IDS_DEVTOOLS_b1c94ca2fbc3e78fc30069c8d0f01680" desc="Text for everything">
     All
   </message>
-  <message name="IDS_DEVTOOLS_b94d8a074eddd267702810179875737f" desc="Text that refers to the debugger">
-    Debugger
-  </message>
   <message name="IDS_DEVTOOLS_b9dee6bade160c89fb7f0e539d453513" desc="Text to dock the DevTools to the bottom of the browser tab">
     Dock to bottom
   </message>
@@ -152,9 +140,6 @@
   <message name="IDS_DEVTOOLS_e3de97b1a66edbe3fceddb1d5db2df2d" desc="A context menu item in the Watch Expressions Sidebar Pane of the Sources panel and Network pane request.">
     Copy value
   </message>
-  <message name="IDS_DEVTOOLS_e402c138065e7eece783dc30c6079192" desc="Text that appears on a button for the xhr resource type filter.">
-    XHR
-  </message>
   <message name="IDS_DEVTOOLS_e55f75a29310d7b60f7ac1d390c8ae42" desc="Text for a module, the programming concept">
     Module
   </message>
@@ -178,9 +163,6 @@
   </message>
   <message name="IDS_DEVTOOLS_f0f31c9700c6b10d8a20dc487b2ae6a8" desc="Text for the touch type to simulate on a device">
     Touch
-  </message>
-  <message name="IDS_DEVTOOLS_f28128b38efbc6134dc40751ee21fd29" desc="Text for documents, a type of resources">
-    Documents
   </message>
   <message name="IDS_DEVTOOLS_f53944c3a55bdb5ad65c6226e358a626" desc="Text to undock the DevTools">
     Undock into separate window
