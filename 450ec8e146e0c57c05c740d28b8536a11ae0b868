@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abe7eb41_8069d7a2",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-11T09:58:49Z",
+      "side": 1,
+      "message": "Would a local variable be enough?",
+      "revId": "450ec8e146e0c57c05c740d28b8536a11ae0b868",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b575dcbd_9cf859d9",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 799,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-11T09:58:49Z",
+      "side": 1,
+      "message": "I\u0027m not sure I fully understand the viewport update logic. What would happen if this was instead at line 808 next to `this._viewport.invalidate`?",
+      "revId": "450ec8e146e0c57c05c740d28b8536a11ae0b868",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92de3aaa_d114bea3",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-11T09:58:49Z",
+      "side": 1,
+      "message": "nit: Could be called \u0027issueCount\u0027",
+      "revId": "450ec8e146e0c57c05c740d28b8536a11ae0b868",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75958e2c_c3068f7c",
+        "filename": "test/e2e/console/issues-toolbar_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-11T09:58:49Z",
+      "side": 1,
+      "message": "copy-paste leftover?",
+      "revId": "450ec8e146e0c57c05c740d28b8536a11ae0b868",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

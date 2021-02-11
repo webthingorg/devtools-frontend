@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ea08e8a_983022b5",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-11T09:58:49Z",
+      "side": 0,
+      "message": "I assume you want to remove the `IssueMessage`-related stuff in a separate CL?",
+      "revId": "3d4b67d7f6f5a2c5b36a7e6806eb2da3f32415b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
