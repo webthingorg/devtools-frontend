@@ -37,6 +37,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2f539fc6_5cd740db",
+        "filename": "front_end/accessibility/AccessibilitySidebarView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-02-11T14:47:14Z",
+      "side": 1,
+      "message": "Could we do \n\n`export const AccessibilitySidebarView \u003d Platform.TypeScriptUtilities.singleton(AccessibilitySidebarViewBase);`\n\nhere instead?\n\nThis way we wouldn\u0027t have to turn clang off and it would look simpler IMO, but not sure if that\u0027s possible.",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 1
+      },
+      "revId": "7faa8913d6cea319dbd1713a2711a8ef3924b70a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "325e3c83_47e0f3cd",
         "filename": "front_end/platform/typescript-utilities.ts",
         "patchSetId": 1
