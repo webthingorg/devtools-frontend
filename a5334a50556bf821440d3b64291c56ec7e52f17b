@@ -16,6 +16,23 @@
       "message": "This cl assumes approval of https://docs.google.com/document/d/1iiydn8JMtVlR38NZFKWr_Jt-_Ns4njRfJCrUX23h08Q/edit.",
       "revId": "a5334a50556bf821440d3b64291c56ec7e52f17b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e7ffe36_7ce64ae8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-11T06:01:58Z",
+      "side": 1,
+      "message": "lgtm from my side, but please wait for Sigurd",
+      "revId": "a5334a50556bf821440d3b64291c56ec7e52f17b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
