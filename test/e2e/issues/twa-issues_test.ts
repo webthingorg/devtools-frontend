@@ -10,7 +10,7 @@ import {expandIssue, extractTableFromResourceSection, getIssueByTitle, getResour
 
 describe('Trusted Web Activity issue', async () => {
   beforeEach(async () => {
-    await goToResource('issues/sab-issue.html');
+    await goToResource('issues/empty.html');
   });
 
   it('should display correct information for type kHttpError', async () => {
@@ -31,8 +31,8 @@ describe('Trusted Web Activity issue', async () => {
       window.addIssueForTest(issue);
     });
     await expandIssue();
-    const issueElement =
-        await getIssueByTitle('Ensure navigation within Trusted Web Activity doesn’t lead to a missing page');
+    const issueElement = await getIssueByTitle(
+        'Trusted Web Activity navigations must succeed or be handled by the ServiceWorker, your app will crash');
     assert.isNotNull(issueElement);
     if (issueElement) {
       const section = await getResourcesElement('1 resource', issueElement);
@@ -63,7 +63,7 @@ describe('Trusted Web Activity issue', async () => {
       window.addIssueForTest(issue);
     });
     await expandIssue();
-    const issueElement = await getIssueByTitle('Ensure Trusted Web Activity provides an offline experience');
+    const issueElement = await getIssueByTitle('Trusted Web Activity does not work offline, your app will crash');
     assert.isNotNull(issueElement);
     if (issueElement) {
       const section = await getResourcesElement('1 resource', issueElement);
@@ -96,8 +96,8 @@ describe('Trusted Web Activity issue', async () => {
       window.addIssueForTest(issue);
     });
     await expandIssue();
-    const issueElement =
-        await getIssueByTitle('Ensure Digital asset links of the Trusted Web Activity pass verification');
+    const issueElement = await getIssueByTitle(
+        'Digital asset links of the Trusted Web Activity failed verification, your app will crash');
     assert.isNotNull(issueElement);
     if (issueElement) {
       const section = await getResourcesElement('1 resource', issueElement);
