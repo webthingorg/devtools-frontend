@@ -35,3 +35,45 @@ export class Linkifier {
 /** @typedef {{tooltip: (string|undefined), preventKeyboardFocus: (boolean|undefined)}} */
 // @ts-ignore typedef.
 export let Options;
+
+/** @type {!Array<!LinkifierRegistration>} */
+const registeredLinkifiers = [];
+
+/**
+ * @param {!LinkifierRegistration} registration
+ */
+export function registerLinkifier(registration) {
+  registeredLinkifiers.push(registration);
+}
+/**
+ * @param {!Object} object
+ * @return {!Array<!LinkifierRegistration>}
+ */
+export function getApplicableRegisteredlinkifier(object) {
+  return registeredLinkifiers.filter(isLinkifierApplicableToContextTypes);
+
+  /**
+   * @param {!LinkifierRegistration} linkifierRegistration
+   * @return {boolean}
+   */
+  function isLinkifierApplicableToContextTypes(linkifierRegistration) {
+    if (!linkifierRegistration.contextTypes) {
+      return true;
+    }
+    for (const contextType of linkifierRegistration.contextTypes()) {
+      if (object instanceof contextType) {
+        return true;
+      }
+    }
+    return false;
+  }
+}
+
+/**
+  * @typedef {{
+    *  loadLinkifier: function(): !Promise<!Linkifier>,
+    *  contextTypes: undefined|function(): !Array<?>,
+    * }}
+    */
+// @ts-ignore typedef
+export let LinkifierRegistration;
