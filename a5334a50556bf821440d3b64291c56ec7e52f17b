@@ -33,6 +33,69 @@
       "message": "lgtm from my side, but please wait for Sigurd",
       "revId": "a5334a50556bf821440d3b64291c56ec7e52f17b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65e57dc5_af91ded4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-11T08:16:54Z",
+      "side": 1,
+      "message": "Simon, could you advise Chris on how to write an e2e test for this? We don\u0027t have any yet and this seems a good opportunity.",
+      "revId": "a5334a50556bf821440d3b64291c56ec7e52f17b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac89a22a_de81d67c",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1826,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-11T08:16:54Z",
+      "side": 1,
+      "message": "Please add a case here as well and return the proper attribute (SameParty should already exist).",
+      "range": {
+        "startLine": 1826,
+        "startChar": 13,
+        "endLine": 1826,
+        "endChar": 44
+      },
+      "revId": "a5334a50556bf821440d3b64291c56ec7e52f17b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1051f5b2_bc881404",
+        "filename": "front_end/sdk/NetworkRequest.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1853,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-11T08:16:54Z",
+      "side": 1,
+      "message": "Please add a case here as well and return the proper attribute (SameParty should already exist).",
+      "range": {
+        "startLine": 1853,
+        "startChar": 13,
+        "endLine": 1853,
+        "endChar": 47
+      },
+      "revId": "a5334a50556bf821440d3b64291c56ec7e52f17b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
