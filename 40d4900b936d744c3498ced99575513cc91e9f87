@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fde301a9_f4bd24c8",
+        "filename": "front_end/timeline/TimelineUIUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1156,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-11T22:32:20Z",
+      "side": 0,
+      "message": "Good catch! it is desirable to have any user facing string localizable as it also helps with a11y (even if not translated), but I agree that this should be locked 😊",
+      "parentUuid": "5de70930_7138049f",
+      "range": {
+        "startLine": 1156,
+        "startChar": 38,
+        "endLine": 1156,
+        "endChar": 45
+      },
+      "revId": "40d4900b936d744c3498ced99575513cc91e9f87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba00835f_240804b2",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d9036fe_5520f21e",
+        "filename": "front_end/timeline/TimelineUIUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1477,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-11T22:32:20Z",
+      "side": 0,
+      "message": "thanks!",
+      "parentUuid": "ba00835f_240804b2",
+      "range": {
+        "startLine": 1477,
+        "startChar": 37,
+        "endLine": 1477,
+        "endChar": 45
+      },
+      "revId": "40d4900b936d744c3498ced99575513cc91e9f87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "58ef2e4c_78a36844",
@@ -60,6 +108,30 @@
       "writtenOn": "2021-02-11T07:23:11Z",
       "side": 0,
       "message": "As said above, not sure if translating abbreviations for english terms makes sense at all.",
+      "range": {
+        "startLine": 2128,
+        "startChar": 0,
+        "endLine": 2136,
+        "endChar": 23
+      },
+      "revId": "40d4900b936d744c3498ced99575513cc91e9f87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a944a6fd_7ec3efe0",
+        "filename": "front_end/timeline/TimelineUIUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 2136,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-11T22:32:20Z",
+      "side": 0,
+      "message": "left a comment there 😊",
+      "parentUuid": "58ef2e4c_78a36844",
       "range": {
         "startLine": 2128,
         "startChar": 0,
