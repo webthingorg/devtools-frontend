@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "60abbcfb_7a42ecdd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-11T08:26:52Z",
+      "side": 1,
+      "message": "I am not sure how to test this with e2e tbh:\n\n1) We\u0027d need multiple origins on localhost\n2) We\u0027d need first party sets enabled and some of the origins marked as the same first party.\n\n2) could be probably solved by specifying the command line arguments needed for the test. Not sure we already have support for that\n\n1) could be solved similar to how we test cross-origin iframes, if we can do that in e2e tests.",
+      "parentUuid": "65e57dc5_af91ded4",
+      "revId": "a5334a50556bf821440d3b64291c56ec7e52f17b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ac89a22a_de81d67c",
         "filename": "front_end/sdk/NetworkRequest.js",
         "patchSetId": 2
