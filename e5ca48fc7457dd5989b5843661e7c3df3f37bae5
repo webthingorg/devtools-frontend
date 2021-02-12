@@ -50,6 +50,24 @@
       "message": "LGTM",
       "revId": "e5ca48fc7457dd5989b5843661e7c3df3f37bae5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "462d67ab_5bd9ba27",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-12T12:52:52Z",
+      "side": 1,
+      "message": "Done. page-with-oopif ensures that the iframe it creates is truly OOP by checking its own location.",
+      "parentUuid": "fefd5a4a_842329d3",
+      "revId": "e5ca48fc7457dd5989b5843661e7c3df3f37bae5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
