@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf6953ea_39295807",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-12T10:05:38Z",
+      "side": 1,
+      "message": "PTAL\n\ncc Wolfgang: This might unlock FrameTree e2e tests for you.",
+      "revId": "e5ca48fc7457dd5989b5843661e7c3df3f37bae5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
