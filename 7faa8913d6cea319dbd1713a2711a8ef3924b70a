@@ -52,6 +52,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "43bceae9_9b5e2a31",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-02-12T14:26:30Z",
+      "side": 1,
+      "message": "As per our offline conversation, I share Simon and Jack\u0027s concerns; the indirection does feel like cognitive overhead that\u0027s most keenly felt when migrating all singletons. That said, I realise that we can and have hit the situation where migrating each of these instance methods causes issues. In summary, I think we should hold off to see if this comes up again, and if so then we revisit this.",
+      "revId": "7faa8913d6cea319dbd1713a2711a8ef3924b70a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f539fc6_5cd740db",
