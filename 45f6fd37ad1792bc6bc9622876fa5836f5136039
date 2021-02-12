@@ -16,6 +16,23 @@
       "message": "I had a look into the AccessibilityNode and saw an opportunity to refactor a few things a bit. PTAL.",
       "revId": "45f6fd37ad1792bc6bc9622876fa5836f5136039",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8909cbf0_658d2627",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-02-12T02:42:04Z",
+      "side": 1,
+      "message": "lgtm! thanks!",
+      "revId": "45f6fd37ad1792bc6bc9622876fa5836f5136039",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
