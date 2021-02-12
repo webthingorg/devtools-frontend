@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76160465_3b837190",
+        "filename": "front_end/elements/MarkerDecorator.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-12T11:40:17Z",
+      "side": 1,
+      "message": "Whoa, this is some syntax I haven\u0027t seen in a long while. I am surprised it works, but it is not immediately obvious as to why. (It\u0027s because we don\u0027t want to duplicate the other configuration objects in the call to GenericDecorator, right?)\n\nInstead, I would prefer a more direct approach:\n\n```\nconst domBreakpointData \u003d {\n  marker: \u0027breakpoint-marker\u0027,\n  title: ls`DOM Breakpoint`,\n  color: \u0027rgb(105, 140, 254)\u0027,\n};\n\nreturn [\n  {\n    ...domBreakpointData,\n    decorator: new GenericDecorator(domBreakpointData),\n  }\n]\n```\n\nI think this is a bit easier to follow and prevents the duplicate data as well.",
+      "range": {
+        "startLine": 54,
+        "startChar": 4,
+        "endLine": 54,
+        "endChar": 21
+      },
+      "revId": "0960c1a47333e452fd5b65d27e142957ba2518ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
