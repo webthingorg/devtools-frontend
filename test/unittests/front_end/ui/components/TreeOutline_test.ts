@@ -54,30 +54,34 @@ The structure represented by basicTreeData is:
 const basicTreeData: UIComponents.TreeOutlineUtils.TreeNode[] = [
   {
     key: 'Offices',
-    children: [
+    children: (): Promise<UIComponents.TreeOutlineUtils.TreeNode[]> => Promise.resolve([
       {
         key: 'Europe',
-        children: [
+        children: (): Promise<UIComponents.TreeOutlineUtils.TreeNode[]> => Promise.resolve([
           {
             key: 'UK',
-            children: [
-              {key: 'LON', children: [{key: '6PS'}, {key: 'CSG'}, {key: 'BEL'}]},
-            ],
+            children: (): Promise<UIComponents.TreeOutlineUtils.TreeNode[]> => Promise.resolve([
+              {
+                key: 'LON',
+                children: (): Promise<UIComponents.TreeOutlineUtils.TreeNode[]> =>
+                    Promise.resolve([{key: '6PS'}, {key: 'CSG'}, {key: 'BEL'}]),
+              },
+            ]),
           },
           {
             key: 'Germany',
-            children: [
+            children: (): Promise<UIComponents.TreeOutlineUtils.TreeNode[]> => Promise.resolve([
               {key: 'MUC'},
               {key: 'BER'},
-            ],
+            ]),
           },
-        ],
+        ]),
       },
-    ],
+    ]),
   },
   {
     key: 'Products',
-    children: [
+    children: (): Promise<UIComponents.TreeOutlineUtils.TreeNode[]> => Promise.resolve([
       {
         key: 'Chrome',
       },
@@ -90,8 +94,7 @@ const basicTreeData: UIComponents.TreeOutlineUtils.TreeNode[] = [
       {
         key: 'Calendar',
       },
-    ],
-
+    ]),
   },
 ];
 
@@ -181,7 +184,7 @@ describe('TreeOutline', () => {
     const {component, shadowRoot} = await renderTreeOutline({
       tree: basicTreeData,
     });
-    component.expandRecursively();
+    await component.expandRecursively();
     await coordinator.done();
     const visibleTree = visibleNodesToTree(shadowRoot);
     assert.deepEqual(visibleTree, [
@@ -219,10 +222,10 @@ describe('TreeOutline', () => {
     const {component, shadowRoot} = await renderTreeOutline({
       tree: basicTreeData,
     });
-    component.expandRecursively(Number.POSITIVE_INFINITY);
+    await component.expandRecursively(Number.POSITIVE_INFINITY);
     await coordinator.done();
     const europeNode = getVisibleTreeNodeByText(shadowRoot, 'Europe');
-    component.collapseChildrenOfNode(europeNode);
+    await component.collapseChildrenOfNode(europeNode);
     await coordinator.done();
     const visibleTree = visibleNodesToTree(shadowRoot);
     assert.deepEqual(visibleTree, [
@@ -308,7 +311,7 @@ describe('TreeOutline', () => {
         const {component, shadowRoot} = await renderTreeOutline({
           tree: basicTreeData,
         });
-        component.expandRecursively();
+        await component.expandRecursively();
         const officeNode = getVisibleTreeNodeByText(shadowRoot, 'Offices');
         dispatchClickEvent(officeNode);
         await coordinator.done();
@@ -323,7 +326,7 @@ describe('TreeOutline', () => {
         const {component, shadowRoot} = await renderTreeOutline({
           tree: basicTreeData,
         });
-        component.expandRecursively(Number.POSITIVE_INFINITY);
+        await component.expandRecursively(Number.POSITIVE_INFINITY);
         await coordinator.done();
         const berlinNode = getVisibleTreeNodeByText(shadowRoot, 'BER');
         dispatchClickEvent(berlinNode);
@@ -342,7 +345,7 @@ describe('TreeOutline', () => {
         const {component, shadowRoot} = await renderTreeOutline({
           tree: basicTreeData,
         });
-        component.expandRecursively(Number.POSITIVE_INFINITY);
+        await component.expandRecursively(Number.POSITIVE_INFINITY);
         await coordinator.done();
         const officeNode = getVisibleTreeNodeByText(shadowRoot, 'Offices');
         dispatchClickEvent(officeNode);
@@ -399,7 +402,7 @@ describe('TreeOutline', () => {
         const {component, shadowRoot} = await renderTreeOutline({
           tree: basicTreeData,
         });
-        component.expandRecursively();
+        await component.expandRecursively();
         await coordinator.done();
         const berlinNode = getVisibleTreeNodeByText(shadowRoot, 'BER');
         dispatchClickEvent(berlinNode);
@@ -415,7 +418,7 @@ describe('TreeOutline', () => {
         const {component, shadowRoot} = await renderTreeOutline({
           tree: basicTreeData,
         });
-        component.expandRecursively();
+        await component.expandRecursively();
         await coordinator.done();
         const ukNode = getVisibleTreeNodeByText(shadowRoot, 'UK');
         dispatchClickEvent(ukNode);
@@ -432,7 +435,7 @@ describe('TreeOutline', () => {
            const {component, shadowRoot} = await renderTreeOutline({
              tree: basicTreeData,
            });
-           component.expandRecursively();
+           await component.expandRecursively();
            await coordinator.done();
            const germanyNode = getVisibleTreeNodeByText(shadowRoot, 'Germany');
            dispatchClickEvent(germanyNode);
@@ -449,7 +452,7 @@ describe('TreeOutline', () => {
            const {component, shadowRoot} = await renderTreeOutline({
              tree: basicTreeData,
            });
-           component.expandRecursively(Number.POSITIVE_INFINITY);
+           await component.expandRecursively(Number.POSITIVE_INFINITY);
            await coordinator.done();
            const germanyNode = getVisibleTreeNodeByText(shadowRoot, 'Germany');
            dispatchClickEvent(germanyNode);
@@ -467,7 +470,7 @@ describe('TreeOutline', () => {
         const {component, shadowRoot} = await renderTreeOutline({
           tree: basicTreeData,
         });
-        component.expandRecursively(Number.POSITIVE_INFINITY);
+        await component.expandRecursively(Number.POSITIVE_INFINITY);
         await coordinator.done();
         const chromeNode = getVisibleTreeNodeByText(shadowRoot, 'Chrome');
         dispatchClickEvent(chromeNode);
@@ -517,7 +520,7 @@ describe('TreeOutline', () => {
         const {component, shadowRoot} = await renderTreeOutline({
           tree: basicTreeData,
         });
-        component.expandRecursively(Number.POSITIVE_INFINITY);
+        await component.expandRecursively(Number.POSITIVE_INFINITY);
         await coordinator.done();
         const europeNode = getVisibleTreeNodeByText(shadowRoot, 'Europe');
         dispatchClickEvent(europeNode);
@@ -560,7 +563,7 @@ describe('TreeOutline', () => {
         const {component, shadowRoot} = await renderTreeOutline({
           tree: basicTreeData,
         });
-        component.expandRecursively(Number.POSITIVE_INFINITY);
+        await component.expandRecursively(Number.POSITIVE_INFINITY);
         await coordinator.done();
         const berlinNode = getVisibleTreeNodeByText(shadowRoot, 'BER');
         dispatchClickEvent(berlinNode);
@@ -618,7 +621,7 @@ describe('TreeOutline', () => {
         const {component, shadowRoot} = await renderTreeOutline({
           tree: basicTreeData,
         });
-        component.expandRecursively();
+        await component.expandRecursively();
         await coordinator.done();
         const officeNode = getVisibleTreeNodeByText(shadowRoot, 'Offices');
         dispatchClickEvent(officeNode);
@@ -634,7 +637,7 @@ describe('TreeOutline', () => {
         const {component, shadowRoot} = await renderTreeOutline({
           tree: basicTreeData,
         });
-        component.expandRecursively();
+        await component.expandRecursively();
         await coordinator.done();
         const lonNode = getVisibleTreeNodeByText(shadowRoot, 'LON');
         dispatchClickEvent(lonNode);
@@ -650,7 +653,7 @@ describe('TreeOutline', () => {
         const {component, shadowRoot} = await renderTreeOutline({
           tree: basicTreeData,
         });
-        component.expandRecursively(Number.POSITIVE_INFINITY);
+        await component.expandRecursively(Number.POSITIVE_INFINITY);
         await coordinator.done();
         const berNode = getVisibleTreeNodeByText(shadowRoot, 'BER');
         dispatchClickEvent(berNode);
@@ -670,7 +673,7 @@ describe('TreeOutline', () => {
       const {component, shadowRoot} = await renderTreeOutline({
         tree: basicTreeData,
       });
-      component.expandRecursively(Infinity);
+      await component.expandRecursively(Infinity);
       await coordinator.done();
       const rootNode = getVisibleTreeNodeByText(shadowRoot, 'Offices');
       assert.strictEqual(rootNode.getAttribute('aria-level'), '1');
@@ -697,7 +700,7 @@ describe('TreeOutline', () => {
       const {component, shadowRoot} = await renderTreeOutline({
         tree: basicTreeData,
       });
-      component.expandRecursively(Infinity);
+      await component.expandRecursively(Infinity);
       await coordinator.done();
       const europeKey = getVisibleTreeNodeByText(shadowRoot, 'Europe');
       assert.strictEqual(europeKey.getAttribute('aria-setsize'), '1');
@@ -710,7 +713,7 @@ describe('TreeOutline', () => {
       const {component, shadowRoot} = await renderTreeOutline({
         tree: basicTreeData,
       });
-      component.expandRecursively(Infinity);
+      await component.expandRecursively(Infinity);
       await coordinator.done();
       const europeKey = getVisibleTreeNodeByText(shadowRoot, 'Europe');
       assert.strictEqual(europeKey.getAttribute('aria-posinset'), '1');
@@ -743,7 +746,7 @@ describe('TreeOutline', () => {
       const {component, shadowRoot} = await renderTreeOutline({
         tree: basicTreeData,
       });
-      component.expandRecursively(Infinity);
+      await component.expandRecursively(Infinity);
       await coordinator.done();
       const leafNodeCSGOffice = getVisibleTreeNodeByText(shadowRoot, 'CSG');
       assert.strictEqual(leafNodeCSGOffice.getAttribute('aria-expanded'), null);
