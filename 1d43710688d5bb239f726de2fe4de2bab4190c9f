@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdc80f5f_5dfcd737",
+        "filename": "front_end/common/Linkifier.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-12T11:41:10Z",
+      "side": 1,
+      "message": "Let\u0027s add an `.length` check here as well, just in case there are no registered linkifiers.",
+      "range": {
+        "startLine": 27,
+        "startChar": 49,
+        "endLine": 27,
+        "endChar": 90
+      },
+      "revId": "1d43710688d5bb239f726de2fe4de2bab4190c9f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
