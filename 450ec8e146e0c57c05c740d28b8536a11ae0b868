@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "27d42094_95997542",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 799,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-12T10:54:26Z",
+      "side": 1,
+      "message": "Makes sense, thanks!",
+      "parentUuid": "87754d81_1c974eea",
+      "revId": "450ec8e146e0c57c05c740d28b8536a11ae0b868",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "92de3aaa_d114bea3",
