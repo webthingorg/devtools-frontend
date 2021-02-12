@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as Root from '../root/root.js';
-
 /**
  * @interface
  */
@@ -26,8 +24,8 @@ export class Linkifier {
     if (!object) {
       return Promise.reject(new Error('Can\'t linkify ' + object));
     }
-    return /** @type {!Root.Runtime.Extension} */ (Root.Runtime.Runtime.instance().extension(Linkifier, object))
-        .instance()
+    return /** @type {LinkifierRegistration} */ (getApplicableRegisteredlinkifiers(object)[0])
+        .loadLinkifier()
         .then(linkifier => /** @type {!Linkifier} */ (linkifier).linkify(/** @type {!Object} */ (object), options));
   }
 }
@@ -35,3 +33,45 @@ export class Linkifier {
 /** @typedef {{tooltip: (string|undefined), preventKeyboardFocus: (boolean|undefined)}} */
 // @ts-ignore typedef.
 export let Options;
+
+/** @type {!Array<!LinkifierRegistration>} */
+const registeredLinkifiers = [];
+
+/**
+ * @param {!LinkifierRegistration} registration
+ */
+export function registerLinkifier(registration) {
+  registeredLinkifiers.push(registration);
+}
+/**
+ * @param {!Object} object
+ * @return {!Array<!LinkifierRegistration>}
+ */
+export function getApplicableRegisteredlinkifiers(object) {
+  return registeredLinkifiers.filter(isLinkifierApplicableToContextTypes);
+
+  /**
+   * @param {!LinkifierRegistration} linkifierRegistration
+   * @return {boolean}
+   */
+  function isLinkifierApplicableToContextTypes(linkifierRegistration) {
+    if (!linkifierRegistration.contextTypes) {
+      return true;
+    }
+    for (const contextType of linkifierRegistration.contextTypes()) {
+      if (object instanceof contextType) {
+        return true;
+      }
+    }
+    return false;
+  }
+}
+
+/**
+  * @typedef {{
+    *  loadLinkifier: function(): !Promise<!Linkifier>,
+    *  contextTypes: undefined|function(): !Array<?>,
+    * }}
+    */
+// @ts-ignore typedef
+export let LinkifierRegistration;

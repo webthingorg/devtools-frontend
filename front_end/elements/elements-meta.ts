@@ -401,3 +401,16 @@ UI.Toolbar.registerToolbarItem({
   separator: undefined,
   loadItem: undefined,
 });
+
+Common.Linkifier.registerLinkifier({
+  contextTypes() {
+    return [
+      SDK.DOMModel.DOMNode,
+      SDK.DOMModel.DeferredDOMNode,
+    ];
+  },
+  async loadLinkifier() {
+    const Elements = await loadElementsModule();
+    return Elements.DOMLinkifier.Linkifier.instance();
+  },
+});
