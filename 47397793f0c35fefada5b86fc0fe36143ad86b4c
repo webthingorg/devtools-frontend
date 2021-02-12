@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c878d6c_2b9c3ff4",
+        "filename": "front_end/sources/SourcesPanel.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1487,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-02-12T00:11:24Z",
+      "side": 1,
+      "message": "Declared as a function because navigator views have to be lazily instanced to prevent an early call to ThemeSupport.instance().",
+      "range": {
+        "startLine": 1487,
+        "startChar": 0,
+        "endLine": 1487,
+        "endChar": 46
+      },
+      "revId": "47397793f0c35fefada5b86fc0fe36143ad86b4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
