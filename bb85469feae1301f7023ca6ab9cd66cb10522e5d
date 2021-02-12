@@ -82,6 +82,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17927380_34ca7b89",
+        "filename": "front_end/timeline/CountersGraph.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-12T06:20:27Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "fb9a4030_bdfffb66",
+      "range": {
+        "startLine": 469,
+        "startChar": 30,
+        "endLine": 469,
+        "endChar": 77
+      },
+      "revId": "bb85469feae1301f7023ca6ab9cd66cb10522e5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8e960090_ece8d7e8",
@@ -166,6 +190,30 @@
       "side": 1,
       "message": "the ms needs to be localized, the less-than symbol could be taken out as I think it does not require localization as a Math symbol.",
       "parentUuid": "0f10b117_2d86320c",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 20
+      },
+      "revId": "bb85469feae1301f7023ca6ab9cd66cb10522e5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1235816_5e008d1e",
+        "filename": "front_end/timeline/EventsTimelineTreeView.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-12T06:20:27Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "860cc0a2_b501b32a",
       "range": {
         "startLine": 34,
         "startChar": 2,
@@ -317,6 +365,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4adc641_64d42418",
+        "filename": "front_end/timeline/TimelineHistoryManager.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-12T06:20:27Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "ce4f64ac_65beeecf",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 21
+      },
+      "revId": "bb85469feae1301f7023ca6ab9cd66cb10522e5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b4d711b_04e9c0ef",
@@ -364,6 +436,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "45e88ef4_a9843a6b",
+        "filename": "front_end/timeline/TimelineUIUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-12T06:20:27Z",
+      "side": 1,
+      "message": "Thanks for clarifying. I was under the impression that localized terms are the least problem when it comes to RTL support in DevTools :) I\u0027m fine with leaving them in thoug.",
+      "parentUuid": "c63089ea_93166c2a",
+      "range": {
+        "startLine": 545,
+        "startChar": 0,
+        "endLine": 557,
+        "endChar": 37
+      },
+      "revId": "bb85469feae1301f7023ca6ab9cd66cb10522e5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4fe8fa8_7550c518",
@@ -401,6 +497,30 @@
       "side": 1,
       "message": "my 2c here. It might not make a lot sense on the current shape but I think is better to leave the resource in here as it will make the code localizable (even if the term is not translatable). e.g if at some point this reflects the full title \"First Contentful Paint\" or FCP ever change to something else. That being said I think it makes sense to lock this to avoid translation.",
       "parentUuid": "e4fe8fa8_7550c518",
+      "range": {
+        "startLine": 1041,
+        "startChar": 0,
+        "endLine": 1050,
+        "endChar": 5
+      },
+      "revId": "bb85469feae1301f7023ca6ab9cd66cb10522e5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44bc3534_366a856c",
+        "filename": "front_end/timeline/TimelineUIUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1050,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-12T06:20:27Z",
+      "side": 1,
+      "message": "Not sure if this would help though, as the resource could potentially still be spread over multiple files. So even if we update a locked FCP to \"First contentful paint\", we would have to do a full text search to find all occurrences in the code base.\n\nNo strong opinion though, so I am fine with doing as you suggested :)",
+      "parentUuid": "d33fd88a_20680b78",
       "range": {
         "startLine": 1041,
         "startChar": 0,
@@ -505,6 +625,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "db79cfe0_a0b75acd",
+        "filename": "front_end/timeline/TimelineUIUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 3253,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-12T06:20:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "48ff2d8a_4eb3730e",
+      "range": {
+        "startLine": 3253,
+        "startChar": 5,
+        "endLine": 3253,
+        "endChar": 100
+      },
+      "revId": "bb85469feae1301f7023ca6ab9cd66cb10522e5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "04bb92f2_d0afe121",
@@ -542,6 +686,30 @@
       "side": 1,
       "message": "similar to the \"placeholder reorder\" comment. This could help bidirectional support in the future, but as this is explicitly not supported on Loc v2 I could take it out (?)",
       "parentUuid": "04bb92f2_d0afe121",
+      "range": {
+        "startLine": 3492,
+        "startChar": 41,
+        "endLine": 3492,
+        "endChar": 117
+      },
+      "revId": "bb85469feae1301f7023ca6ab9cd66cb10522e5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "410d8099_9bdd46ab",
+        "filename": "front_end/timeline/TimelineUIUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 3492,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-12T06:20:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9cf6ddfb_ac104648",
       "range": {
         "startLine": 3492,
         "startChar": 41,
