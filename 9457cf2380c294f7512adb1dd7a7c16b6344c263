@@ -39,6 +39,30 @@
       },
       "revId": "9457cf2380c294f7512adb1dd7a7c16b6344c263",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28746d38_5b2d6cdf",
+        "filename": "front_end/text_editor/CodeMirrorTextEditor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1180,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-02-12T09:16:26Z",
+      "side": 1,
+      "message": "Do you know why this cl now has type problems that manifest in the compilation of source?",
+      "parentUuid": "9cb67b67_48019d72",
+      "range": {
+        "startLine": 1180,
+        "startChar": 2,
+        "endLine": 1180,
+        "endChar": 17
+      },
+      "revId": "9457cf2380c294f7512adb1dd7a7c16b6344c263",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
