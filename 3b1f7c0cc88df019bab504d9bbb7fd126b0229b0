@@ -101,6 +101,53 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b1a7c909_958c91ca",
+        "filename": "front_end/elements/StylePropertyTreeElement.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-02-12T11:03:24Z",
+      "side": 1,
+      "message": "I\u0027m not sure, the showHandler doesn\u0027t really modify the value, it prints it out, but also parses it in order to be able to hook the shadow editor to it, with a button: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/elements/StylePropertyTreeElement.js;l\u003d276?q\u003d_processShadow",
+      "parentUuid": "9d96419b_ec27b719",
+      "range": {
+        "startLine": 606,
+        "startChar": 6,
+        "endLine": 606,
+        "endChar": 68
+      },
+      "revId": "3b1f7c0cc88df019bab504d9bbb7fd126b0229b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c024995b_0ca27aae",
+        "filename": "front_end/elements/StylePropertyTreeElement.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-02-12T11:03:24Z",
+      "side": 1,
+      "message": "The other thing we should check for is if the property is editable or not (this._isEditable()) to avoid showing the button in UA rules for example.",
+      "range": {
+        "startLine": 644,
+        "startChar": 0,
+        "endLine": 645,
+        "endChar": 120
+      },
+      "revId": "3b1f7c0cc88df019bab504d9bbb7fd126b0229b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "02d50bab_db7c0459",
         "filename": "front_end/elements/stylesSectionTree.css",
         "patchSetId": 1
