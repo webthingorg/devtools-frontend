@@ -388,7 +388,7 @@ export class NetworkLogView extends UI.Widget.VBox {
 
     const filterItems =
         Object.values(Common.ResourceType.resourceCategories)
-            .map(category => ({name: category.title, label: category.shortTitle, title: category.title}));
+            .map(category => ({name: category.title(), label: category.shortTitle(), title: category.title()}));
     this._resourceCategoryFilterUI =
         new UI.FilterBar.NamedBitSetFilterUI(filterItems, this._networkResourceTypeFiltersSetting);
     UI.ARIAUtils.setAccessibleName(
@@ -1899,7 +1899,7 @@ export class NetworkLogView extends UI.Widget.VBox {
     if (this._timeFilter && !this._timeFilter(request)) {
       return false;
     }
-    const categoryName = request.resourceType().category().title;
+    const categoryName = request.resourceType().category().title();
     if (!this._resourceCategoryFilterUI.accept(categoryName)) {
       return false;
     }

@@ -45,6 +45,9 @@
   <message name="IDS_DEVTOOLS_3b41735478b3a3fd8bcc06f6c7a6b56c" desc="label to copy link address">
     Copy link address
   </message>
+  <message name="IDS_DEVTOOLS_4789f23283b3a61f858b641a1bef19a3" desc="Text for the memory of the page">
+    Memory
+  </message>
   <message name="IDS_DEVTOOLS_4cfa6c981549e990fe2344e4c805405e" desc="Text to find an item">
     Find
   </message>
@@ -120,6 +123,9 @@
   <message name="IDS_DEVTOOLS_925f3a6eef3896d617fc0ab413f9c123" desc="Text to indicate search result for the ctrl+F search bar">
     <ph name="MATCHES">$1d<ex>2</ex></ph> matches
   </message>
+  <message name="IDS_DEVTOOLS_9446a98ad14416153cc4d45ab8b531bf" desc="Text for the performance of something">
+    Performance
+  </message>
   <message name="IDS_DEVTOOLS_96fb9e0d650af5b1fc4ec6c7bc11b49b" desc="Title of more tabs button in inspector view">
     More Tools
   </message>
@@ -149,6 +155,12 @@
   </message>
   <message name="IDS_DEVTOOLS_b94d1b250ba62f06dadf0edc4a947f5c" desc="Text in UIUtils">
     Promise resolved (async)
+  </message>
+  <message name="IDS_DEVTOOLS_b94d8a074eddd267702810179875737f" desc="Text that refers to the debugger">
+    Debugger
+  </message>
+  <message name="IDS_DEVTOOLS_bccaa4aa80831b76c11240a16447975f" desc="Title of the Console tool">
+    Console
   </message>
   <message name="IDS_DEVTOOLS_c1ea3facd2946b59df718d8dd2737cfa" desc="Text in Application Panel Sidebar of the Application panel">
     Background Services
@@ -191,6 +203,9 @@
   </message>
   <message name="IDS_DEVTOOLS_ee611c8b9dfbbc792a9318c9837b2bcd" desc="A title of the 'Inputs' action category">
     Inputs
+  </message>
+  <message name="IDS_DEVTOOLS_eec89088ee408b80387155272b113256" desc="Title of the Network tool">
+    Network
   </message>
   <message name="IDS_DEVTOOLS_f4f70727dc34561dfde1a3c529b6205c" desc="A title of the 'Settings' @UI.ViewLocationResolver category">
     Settings
