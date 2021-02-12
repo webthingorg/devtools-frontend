@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';
 import * as i18n from '../i18n/i18n.js';
 import * as Platform from '../platform/platform.js';
@@ -23,65 +25,39 @@ export const UIStrings = {
   */
   javascriptContextS: 'JavaScript context: {PH1}',
 };
-const str_ = i18n.i18n.registerUIStrings('console/ConsoleContextSelector.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('console/ConsoleContextSelector.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
-/**
- * @implements {SDK.SDKModel.SDKModelObserver<!SDK.RuntimeModel.RuntimeModel>}
- * @implements {UI.SoftDropDown.Delegate<!SDK.RuntimeModel.ExecutionContext>}
- */
-export class ConsoleContextSelector {
+export class ConsoleContextSelector implements SDK.SDKModel.SDKModelObserver, UI.SoftDropDown.Delegate {
+  _items: UI.ListModel.ListModel<SDK.RuntimeModel.ExecutionContext>;
+  _dropDown: UI.SoftDropDown.SoftDropDown<SDK.RuntimeModel.ExecutionContext>;
+  _toolbarItem: UI.Toolbar.ToolbarItem;
   constructor() {
-    /** @type {!UI.ListModel.ListModel<!SDK.RuntimeModel.ExecutionContext>} */
     this._items = new UI.ListModel.ListModel();
-    /** @type {!UI.SoftDropDown.SoftDropDown<!SDK.RuntimeModel.ExecutionContext>} */
     this._dropDown = new UI.SoftDropDown.SoftDropDown(this._items, this);
     this._dropDown.setRowHeight(36);
     this._toolbarItem = new UI.Toolbar.ToolbarItem(this._dropDown.element);
     this._toolbarItem.setEnabled(false);
     this._toolbarItem.setTitle(i18nString(UIStrings.javascriptContextNotSelected));
-    this._items.addEventListener(
-        UI.ListModel.Events.ItemsReplaced, () => this._toolbarItem.setEnabled(Boolean(this._items.length)));
+    this._items.addEventListener(UI.ListModel.Events.ItemsReplaced, () => this._toolbarItem.setEnabled(Boolean(this._items.length)));
 
     this._toolbarItem.element.classList.add('toolbar-has-dropdown');
 
-    SDK.SDKModel.TargetManager.instance().addModelListener(
-        SDK.RuntimeModel.RuntimeModel, SDK.RuntimeModel.Events.ExecutionContextCreated, this._onExecutionContextCreated,
-        this);
-    SDK.SDKModel.TargetManager.instance().addModelListener(
-        SDK.RuntimeModel.RuntimeModel, SDK.RuntimeModel.Events.ExecutionContextChanged, this._onExecutionContextChanged,
-        this);
-    SDK.SDKModel.TargetManager.instance().addModelListener(
-        SDK.RuntimeModel.RuntimeModel, SDK.RuntimeModel.Events.ExecutionContextDestroyed,
-        this._onExecutionContextDestroyed, this);
-    SDK.SDKModel.TargetManager.instance().addModelListener(
-        SDK.ResourceTreeModel.ResourceTreeModel, SDK.ResourceTreeModel.Events.FrameNavigated, this._frameNavigated,
-        this);
+    SDK.SDKModel.TargetManager.instance().addModelListener(SDK.RuntimeModel.RuntimeModel, SDK.RuntimeModel.Events.ExecutionContextCreated, this._onExecutionContextCreated, this);
+    SDK.SDKModel.TargetManager.instance().addModelListener(SDK.RuntimeModel.RuntimeModel, SDK.RuntimeModel.Events.ExecutionContextChanged, this._onExecutionContextChanged, this);
+    SDK.SDKModel.TargetManager.instance().addModelListener(SDK.RuntimeModel.RuntimeModel, SDK.RuntimeModel.Events.ExecutionContextDestroyed, this._onExecutionContextDestroyed, this);
+    SDK.SDKModel.TargetManager.instance().addModelListener(SDK.ResourceTreeModel.ResourceTreeModel, SDK.ResourceTreeModel.Events.FrameNavigated, this._frameNavigated, this);
 
-    UI.Context.Context.instance().addFlavorChangeListener(
-        SDK.RuntimeModel.ExecutionContext, this._executionContextChangedExternally, this);
-    UI.Context.Context.instance().addFlavorChangeListener(
-        SDK.DebuggerModel.CallFrame, this._callFrameSelectedInUI, this);
+    UI.Context.Context.instance().addFlavorChangeListener(SDK.RuntimeModel.ExecutionContext, this._executionContextChangedExternally, this);
+    UI.Context.Context.instance().addFlavorChangeListener(SDK.DebuggerModel.CallFrame, this._callFrameSelectedInUI, this);
     SDK.SDKModel.TargetManager.instance().observeModels(SDK.RuntimeModel.RuntimeModel, this);
-    SDK.SDKModel.TargetManager.instance().addModelListener(
-        SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.CallFrameSelected, this._callFrameSelectedInModel,
-        this);
+    SDK.SDKModel.TargetManager.instance().addModelListener(SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.CallFrameSelected, this._callFrameSelectedInModel, this);
   }
 
-  /**
-   * @return {!UI.Toolbar.ToolbarItem}
-   */
-  toolbarItem() {
+  toolbarItem(): UI.Toolbar.ToolbarItem {
     return this._toolbarItem;
   }
 
-  /**
-   * @override
-   * @param {?SDK.RuntimeModel.ExecutionContext} from
-   * @param {?SDK.RuntimeModel.ExecutionContext} to
-   * @param {?Element} fromElement
-   * @param {?Element} toElement
-   */
-  highlightedItemChanged(from, to, fromElement, toElement) {
+  highlightedItemChanged(from: SDK.RuntimeModel.ExecutionContext | null, to: SDK.RuntimeModel.ExecutionContext | null, fromElement: Element | null, toElement: Element | null): void {
     SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight();
     if (to && to.frameId) {
       const frame = SDK.FrameManager.FrameManager.instance().getFrame(to.frameId);
@@ -97,15 +73,10 @@ export class ConsoleContextSelector {
     }
   }
 
-  /**
-   * @override
-   * @param {!SDK.RuntimeModel.ExecutionContext} executionContext
-   * @return {string}
-   */
-  titleFor(executionContext) {
+  titleFor(executionContext: SDK.RuntimeModel.ExecutionContext): string {
     const target = executionContext.target();
     const maybeLabel = executionContext.label();
-    let label = maybeLabel ? target.decorateLabel(maybeLabel) : '';
+    let label: string = maybeLabel ? target.decorateLabel(maybeLabel) : '';
     if (executionContext.frameId) {
       const resourceTreeModel = target.model(SDK.ResourceTreeModel.ResourceTreeModel);
       const frame = resourceTreeModel && resourceTreeModel.frameForId(executionContext.frameId);
@@ -118,11 +89,7 @@ export class ConsoleContextSelector {
     return label;
   }
 
-  /**
-   * @param {!SDK.RuntimeModel.ExecutionContext} executionContext
-   * @return {number}
-   */
-  _depthFor(executionContext) {
+  _depthFor(executionContext: SDK.RuntimeModel.ExecutionContext): number {
     let target = executionContext.target();
     let depth = 0;
     if (!executionContext.isDefault) {
@@ -150,10 +117,7 @@ export class ConsoleContextSelector {
     return depth;
   }
 
-  /**
-   * @param {!SDK.RuntimeModel.ExecutionContext} executionContext
-   */
-  _executionContextCreated(executionContext) {
+  _executionContextCreated(executionContext: SDK.RuntimeModel.ExecutionContext): void {
     this._items.insertWithComparator(executionContext, executionContext.runtimeModel.executionContextComparator());
 
     if (executionContext === UI.Context.Context.instance().flavor(SDK.RuntimeModel.ExecutionContext)) {
@@ -161,19 +125,13 @@ export class ConsoleContextSelector {
     }
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _onExecutionContextCreated(event) {
-    const executionContext = /** @type {!SDK.RuntimeModel.ExecutionContext} */ (event.data);
+  _onExecutionContextCreated(event: Common.EventTarget.EventTargetEvent): void {
+    const executionContext = (event.data as SDK.RuntimeModel.ExecutionContext);
     this._executionContextCreated(executionContext);
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _onExecutionContextChanged(event) {
-    const executionContext = /** @type {!SDK.RuntimeModel.ExecutionContext} */ (event.data);
+  _onExecutionContextChanged(event: Common.EventTarget.EventTargetEvent): void {
+    const executionContext = (event.data as SDK.RuntimeModel.ExecutionContext);
     if (this._items.indexOf(executionContext) === -1) {
       return;
     }
@@ -181,10 +139,7 @@ export class ConsoleContextSelector {
     this._executionContextCreated(executionContext);
   }
 
-  /**
-   * @param {!SDK.RuntimeModel.ExecutionContext} executionContext
-   */
-  _executionContextDestroyed(executionContext) {
+  _executionContextDestroyed(executionContext: SDK.RuntimeModel.ExecutionContext): void {
     const index = this._items.indexOf(executionContext);
     if (index === -1) {
       return;
@@ -192,59 +147,37 @@ export class ConsoleContextSelector {
     this._items.remove(index);
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _onExecutionContextDestroyed(event) {
-    const executionContext = /** @type {!SDK.RuntimeModel.ExecutionContext} */ (event.data);
+  _onExecutionContextDestroyed(event: Common.EventTarget.EventTargetEvent): void {
+    const executionContext = (event.data as SDK.RuntimeModel.ExecutionContext);
     this._executionContextDestroyed(executionContext);
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _executionContextChangedExternally(event) {
-    const executionContext = /** @type {?SDK.RuntimeModel.ExecutionContext} */ (event.data);
+  _executionContextChangedExternally(event: Common.EventTarget.EventTargetEvent): void {
+    const executionContext = (event.data as SDK.RuntimeModel.ExecutionContext | null);
     this._dropDown.selectItem(executionContext);
   }
 
-  /**
-   * @param {?SDK.RuntimeModel.ExecutionContext} executionContext
-   * @return {boolean}
-   */
-  _isTopContext(executionContext) {
+  _isTopContext(executionContext: SDK.RuntimeModel.ExecutionContext | null): boolean {
     if (!executionContext || !executionContext.isDefault) {
       return false;
     }
     const resourceTreeModel = executionContext.target().model(SDK.ResourceTreeModel.ResourceTreeModel);
-    const frame =
-        executionContext.frameId && resourceTreeModel && resourceTreeModel.frameForId(executionContext.frameId);
+    const frame = executionContext.frameId && resourceTreeModel && resourceTreeModel.frameForId(executionContext.frameId);
     if (!frame) {
       return false;
     }
     return frame.isTopFrame();
   }
 
-  /**
-   * @return {boolean}
-   */
-  _hasTopContext() {
+  _hasTopContext(): boolean {
     return this._items.some(executionContext => this._isTopContext(executionContext));
   }
 
-  /**
-   * @override
-   * @param {!SDK.RuntimeModel.RuntimeModel} runtimeModel
-   */
-  modelAdded(runtimeModel) {
+  modelAdded(runtimeModel: SDK.RuntimeModel.RuntimeModel): void {
     runtimeModel.executionContexts().forEach(this._executionContextCreated, this);
   }
 
-  /**
-   * @override
-   * @param {!SDK.RuntimeModel.RuntimeModel} runtimeModel
-   */
-  modelRemoved(runtimeModel) {
+  modelRemoved(runtimeModel: SDK.RuntimeModel.RuntimeModel): void {
     for (let i = this._items.length - 1; i >= 0; i--) {
       if (this._items.at(i).runtimeModel === runtimeModel) {
         this._executionContextDestroyed(this._items.at(i));
@@ -252,16 +185,9 @@ export class ConsoleContextSelector {
     }
   }
 
-  /**
-   * @override
-   * @param {!SDK.RuntimeModel.ExecutionContext} item
-   * @return {!Element}
-   */
-  createElementForItem(item) {
+  createElementForItem(item: SDK.RuntimeModel.ExecutionContext): Element {
     const element = document.createElement('div');
-    const shadowRoot = UI.Utils.createShadowRootWithCoreStyles(
-        element,
-        {cssFile: 'console/consoleContextSelector.css', enableLegacyPatching: true, delegatesFocus: undefined});
+    const shadowRoot = UI.Utils.createShadowRootWithCoreStyles(element, { cssFile: 'console/consoleContextSelector.css', enableLegacyPatching: true, delegatesFocus: undefined });
     const title = shadowRoot.createChild('div', 'title');
     UI.UIUtils.createTextChild(title, Platform.StringUtilities.trimEndWithMaxLength(this.titleFor(item), 100));
     const subTitle = shadowRoot.createChild('div', 'subtitle');
@@ -270,14 +196,9 @@ export class ConsoleContextSelector {
     return element;
   }
 
-  /**
-   * @param {!SDK.RuntimeModel.ExecutionContext} executionContext
-   * @return {string}
-   */
-  _subtitleFor(executionContext) {
+  _subtitleFor(executionContext: SDK.RuntimeModel.ExecutionContext): string {
     const target = executionContext.target();
-    /** @type {?SDK.ResourceTreeModel.ResourceTreeFrame} */
-    let frame = null;
+    let frame: (SDK.ResourceTreeModel.ResourceTreeFrame | null) | null = null;
     if (executionContext.frameId) {
       const resourceTreeModel = target.model(SDK.ResourceTreeModel.ResourceTreeModel);
       frame = resourceTreeModel && resourceTreeModel.frameForId(executionContext.frameId);
@@ -303,30 +224,21 @@ export class ConsoleContextSelector {
     return 'IFrame';
   }
 
-  /**
-   * @override
-   * @param {!SDK.RuntimeModel.ExecutionContext} item
-   * @return {boolean}
-   */
-  isItemSelectable(item) {
+  isItemSelectable(item: SDK.RuntimeModel.ExecutionContext): boolean {
     const callFrame = item.debuggerModel.selectedCallFrame();
     const callFrameContext = callFrame && callFrame.script.executionContext();
     return !callFrameContext || item === callFrameContext;
   }
 
-  /**
-   * @override
-   * @param {?SDK.RuntimeModel.ExecutionContext} item
-   */
-  itemSelected(item) {
+  itemSelected(item: SDK.RuntimeModel.ExecutionContext | null): void {
     this._toolbarItem.element.classList.toggle('warning', !this._isTopContext(item) && this._hasTopContext());
-    const title = item ? i18nString(UIStrings.javascriptContextS, {PH1: this.titleFor(item)}) :
-                         i18nString(UIStrings.javascriptContextNotSelected);
+    const title = item ? i18nString(UIStrings.javascriptContextS, { PH1: this.titleFor(item) }) :
+      i18nString(UIStrings.javascriptContextNotSelected);
     this._toolbarItem.setTitle(title);
     UI.Context.Context.instance().setFlavor(SDK.RuntimeModel.ExecutionContext, item);
   }
 
-  _callFrameSelectedInUI() {
+  _callFrameSelectedInUI(): void {
     const callFrame = UI.Context.Context.instance().flavor(SDK.DebuggerModel.CallFrame);
     const callFrameContext = callFrame && callFrame.script.executionContext();
     if (callFrameContext) {
@@ -334,11 +246,8 @@ export class ConsoleContextSelector {
     }
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _callFrameSelectedInModel(event) {
-    const debuggerModel = /** @type {!SDK.DebuggerModel.DebuggerModel} */ (event.data);
+  _callFrameSelectedInModel(event: Common.EventTarget.EventTargetEvent): void {
+    const debuggerModel = (event.data as SDK.DebuggerModel.DebuggerModel);
     for (const executionContext of this._items) {
       if (executionContext.debuggerModel === debuggerModel) {
         this._dropDown.refreshItem(executionContext);
@@ -346,11 +255,8 @@ export class ConsoleContextSelector {
     }
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _frameNavigated(event) {
-    const frame = /** @type {!SDK.ResourceTreeModel.ResourceTreeFrame} */ (event.data);
+  _frameNavigated(event: Common.EventTarget.EventTargetEvent): void {
+    const frame = (event.data as SDK.ResourceTreeModel.ResourceTreeFrame);
     const runtimeModel = frame.resourceTreeModel().target().model(SDK.RuntimeModel.RuntimeModel);
     if (!runtimeModel) {
       return;

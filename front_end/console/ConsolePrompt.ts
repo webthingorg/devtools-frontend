@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
 import * as i18n from '../i18n/i18n.js';
@@ -11,7 +13,7 @@ import * as SDK from '../sdk/sdk.js';
 import * as TextUtils from '../text_utils/text_utils.js';
 import * as UI from '../ui/ui.js';
 
-import {ConsolePanel} from './ConsolePanel.js';
+import { ConsolePanel } from './ConsolePanel.js';
 
 export const UIStrings = {
   /**
@@ -19,18 +21,31 @@ export const UIStrings = {
   */
   consolePrompt: 'Console prompt',
 };
-const str_ = i18n.i18n.registerUIStrings('console/ConsolePrompt.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('console/ConsolePrompt.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class ConsolePrompt extends UI.Widget.Widget {
+  _addCompletionsFromHistory: boolean;
+  _history: ConsoleHistoryManager;
+  _initialText: string;
+  _editor: UI.TextEditor.TextEditor | null;
+  _eagerPreviewElement: HTMLDivElement;
+  _textChangeThrottler: Common.Throttler.Throttler;
+  _formatter: ObjectUI.RemoteObjectPreviewFormatter.RemoteObjectPreviewFormatter;
+  _requestPreviewBound: () => Promise<void>;
+  _innerPreviewElement: HTMLElement;
+  _promptIcon: UI.Icon.Icon;
+  _iconThrottler: Common.Throttler.Throttler;
+  _eagerEvalSetting: Common.Settings.Setting<any>;
+  _previewRequestForTest: Promise<void> | null;
+  _defaultAutocompleteConfig: UI.TextEditor.AutocompleteConfig | null;
+  _highlightingNode: boolean;
   constructor() {
     super();
-    this.registerRequiredCSS('console/consolePrompt.css', {enableLegacyPatching: false});
+    this.registerRequiredCSS('console/consolePrompt.css', { enableLegacyPatching: false });
     this._addCompletionsFromHistory = true;
     this._history = new ConsoleHistoryManager();
 
-    /** @type {string} */
     this._initialText = '';
-    /** @type {?UI.TextEditor.TextEditor} */
     this._editor = null;
     this._eagerPreviewElement = document.createElement('div');
     this._eagerPreviewElement.classList.add('console-eager-preview');
@@ -52,36 +67,29 @@ export class ConsolePrompt extends UI.Widget.Widget {
     this._eagerPreviewElement.classList.toggle('hidden', !this._eagerEvalSetting.get());
 
     this.element.tabIndex = 0;
-    /** @type {?Promise<void>} */
     this._previewRequestForTest = null;
 
-    /** @type {?UI.TextEditor.AutocompleteConfig} */
     this._defaultAutocompleteConfig = null;
 
     this._highlightingNode = false;
 
-    const extension = /** @type {!Root.Runtime.Extension} */ (
-        Root.Runtime.Runtime.instance().extension(UI.TextEditor.TextEditorFactory));
+    const extension = (Root.Runtime.Runtime.instance().extension(UI.TextEditor.TextEditorFactory) as Root.Runtime.Extension);
     extension.instance().then(factory => {
-      gotFactory.call(this, /** @type {!UI.TextEditor.TextEditorFactory} */ (factory));
+      gotFactory.call(this, (factory as UI.TextEditor.TextEditorFactory));
     });
 
-    /**
-     * @param {!UI.TextEditor.TextEditorFactory} factory
-     * @this {ConsolePrompt}
-     */
-    function gotFactory(factory) {
+    function gotFactory(this: ConsolePrompt, factory: UI.TextEditor.TextEditorFactory): void {
       const options = {
-        devtoolsAccessibleName: /** @type {string} */ (i18nString(UIStrings.consolePrompt)),
+        devtoolsAccessibleName: (i18nString(UIStrings.consolePrompt) as string),
         lineNumbers: false,
         lineWrapping: true,
         mimeType: 'javascript',
         autoHeight: true
       };
-      this._editor = factory.createEditor(/** @type {!UI.TextEditor.Options} */ (options));
+      this._editor = factory.createEditor((options as UI.TextEditor.Options));
 
       this._defaultAutocompleteConfig =
-          ObjectUI.JavaScriptAutocomplete.JavaScriptAutocompleteConfig.createConfigForEditor(this._editor);
+        ObjectUI.JavaScriptAutocomplete.JavaScriptAutocompleteConfig.createConfigForEditor(this._editor);
       this._editor.configureAutocomplete(Object.assign({}, this._defaultAutocompleteConfig, {
         suggestionsCallback: this._wordsWithQuery.bind(this),
         anchorBehavior: UI.GlassPane.AnchorBehavior.PreferTop
@@ -107,7 +115,7 @@ export class ConsolePrompt extends UI.Widget.Widget {
     }
   }
 
-  _eagerSettingChanged() {
+  _eagerSettingChanged(): void {
     const enabled = this._eagerEvalSetting.get();
     this._eagerPreviewElement.classList.toggle('hidden', !enabled);
     if (enabled) {
@@ -115,14 +123,11 @@ export class ConsolePrompt extends UI.Widget.Widget {
     }
   }
 
-  /**
-   * @return {!Element}
-   */
-  belowEditorElement() {
+  belowEditorElement(): Element {
     return this._eagerPreviewElement;
   }
 
-  _onTextChanged() {
+  _onTextChanged(): void {
     // ConsoleView and prompt both use a throttler, so we clear the preview
     // ASAP to avoid inconsistency between a fresh viewport and stale preview.
     if (this._eagerEvalSetting.get()) {
@@ -133,17 +138,13 @@ export class ConsolePrompt extends UI.Widget.Widget {
     this.dispatchEventToListeners(Events.TextChanged);
   }
 
-  /**
-   * @return {!Promise<void>}
-   */
-  async _requestPreview() {
+  async _requestPreview(): Promise<void> {
     if (!this._editor) {
       return;
     }
     const text = this._editor.textWithCurrentSuggestion().trim();
     const executionContext = UI.Context.Context.instance().flavor(SDK.RuntimeModel.ExecutionContext);
-    const {preview, result} =
-        await ObjectUI.JavaScriptREPL.JavaScriptREPL.evaluateAndBuildPreview(text, true /* throwOnSideEffect */, 500);
+    const { preview, result } = await ObjectUI.JavaScriptREPL.JavaScriptREPL.evaluateAndBuildPreview(text, true /* throwOnSideEffect */, 500);
     this._innerPreviewElement.removeChildren();
     if (preview.deepTextContent() !== this._editor.textWithCurrentSuggestion().trim()) {
       this._innerPreviewElement.appendChild(preview);
@@ -151,7 +152,8 @@ export class ConsolePrompt extends UI.Widget.Widget {
     if (result && 'object' in result && result.object && result.object.subtype === 'node') {
       this._highlightingNode = true;
       SDK.OverlayModel.OverlayModel.highlightObjectAsDOMNode(result.object);
-    } else if (this._highlightingNode) {
+    }
+    else if (this._highlightingNode) {
       this._highlightingNode = false;
       SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight();
     }
@@ -160,77 +162,57 @@ export class ConsolePrompt extends UI.Widget.Widget {
     }
   }
 
-  /**
-   * @override
-   */
-  willHide() {
+  willHide(): void {
     if (this._highlightingNode) {
       this._highlightingNode = false;
       SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight();
     }
   }
 
-  /**
-   * @return {!ConsoleHistoryManager}
-   */
-  history() {
+  history(): ConsoleHistoryManager {
     return this._history;
   }
 
-  clearAutocomplete() {
+  clearAutocomplete(): void {
     if (this._editor) {
       this._editor.clearAutocomplete();
     }
   }
 
-  /**
-   * @return {boolean}
-   */
-  _isCaretAtEndOfPrompt() {
+  _isCaretAtEndOfPrompt(): boolean {
     return this._editor !== null &&
-        this._editor.selection().collapseToEnd().equal(this._editor.fullRange().collapseToEnd());
+      this._editor.selection().collapseToEnd().equal(this._editor.fullRange().collapseToEnd());
   }
 
-  moveCaretToEndOfPrompt() {
+  moveCaretToEndOfPrompt(): void {
     if (this._editor) {
       this._editor.setSelection(TextUtils.TextRange.TextRange.createFromLocation(Infinity, Infinity));
     }
   }
 
-  /**
-   * @param {string} text
-   */
-  setText(text) {
+  setText(text: string): void {
     if (this._editor) {
       this._editor.setText(text);
-    } else {
+    }
+    else {
       this._initialText = text;
     }
     this.dispatchEventToListeners(Events.TextChanged);
   }
 
-  /**
-   * @return {string}
-   */
-  text() {
+  text(): string {
     return this._editor ? this._editor.text() : this._initialText;
   }
 
-  /**
-   * @param {boolean} value
-   */
-  setAddCompletionsFromHistory(value) {
+  setAddCompletionsFromHistory(value: boolean): void {
     this._addCompletionsFromHistory = value;
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _editorKeyDown(event) {
+  _editorKeyDown(event: Event): void {
     if (!this._editor) {
       return;
     }
-    const keyboardEvent = /** @type {!KeyboardEvent} */ (event);
+    const keyboardEvent = (event as KeyboardEvent);
     let newText;
     let isPrevious;
     // Check against visual coordinates in case lines wrap.
@@ -256,17 +238,17 @@ export class ConsolePrompt extends UI.Widget.Widget {
         newText = this._history.next();
         break;
       }
-      case UI.KeyboardShortcut.Keys.P.code: {  // Ctrl+P = Previous
+      case UI.KeyboardShortcut.Keys.P.code: { // Ctrl+P = Previous
         if (Host.Platform.isMac() && keyboardEvent.ctrlKey && !keyboardEvent.metaKey && !keyboardEvent.altKey &&
-            !keyboardEvent.shiftKey) {
+          !keyboardEvent.shiftKey) {
           newText = this._history.previous(this.text());
           isPrevious = true;
         }
         break;
       }
-      case UI.KeyboardShortcut.Keys.N.code: {  // Ctrl+N = Next
+      case UI.KeyboardShortcut.Keys.N.code: { // Ctrl+N = Next
         if (Host.Platform.isMac() && keyboardEvent.ctrlKey && !keyboardEvent.metaKey && !keyboardEvent.altKey &&
-            !keyboardEvent.shiftKey) {
+          !keyboardEvent.shiftKey) {
           newText = this._history.next();
         }
         break;
@@ -291,32 +273,27 @@ export class ConsolePrompt extends UI.Widget.Widget {
 
     if (isPrevious) {
       this._editor.setSelection(TextUtils.TextRange.TextRange.createFromLocation(0, Infinity));
-    } else {
+    }
+    else {
       this.moveCaretToEndOfPrompt();
     }
   }
 
-  /**
-   * @return {!Promise<boolean>}
-   */
-  async _enterWillEvaluate() {
+  async _enterWillEvaluate(): Promise<boolean> {
     if (!this._isCaretAtEndOfPrompt()) {
       return true;
     }
     return await ObjectUI.JavaScriptAutocomplete.JavaScriptAutocomplete.isExpressionComplete(this.text());
   }
 
-  _updatePromptIcon() {
+  _updatePromptIcon(): void {
     this._iconThrottler.schedule(async () => {
       const canComplete = await this._enterWillEvaluate();
       this._promptIcon.classList.toggle('console-prompt-incomplete', !canComplete);
     });
   }
 
-  /**
-   * @param {!KeyboardEvent} event
-   */
-  async _enterKeyPressed(event) {
+  async _enterKeyPressed(event: KeyboardEvent): Promise<void> {
     if (event.altKey || event.ctrlKey || event.shiftKey) {
       return;
     }
@@ -334,46 +311,37 @@ export class ConsolePrompt extends UI.Widget.Widget {
 
     if (await this._enterWillEvaluate()) {
       await this._appendCommand(str, true);
-    } else if (this._editor) {
+    }
+    else if (this._editor) {
       this._editor.newlineAndIndent();
     }
     this._enterProcessedForTest();
   }
 
-  /**
-   * @param {string} text
-   * @param {boolean} useCommandLineAPI
-   */
-  async _appendCommand(text, useCommandLineAPI) {
+  async _appendCommand(text: string, useCommandLineAPI: boolean): Promise<void> {
     this.setText('');
     const currentExecutionContext = UI.Context.Context.instance().flavor(SDK.RuntimeModel.ExecutionContext);
     if (currentExecutionContext) {
       const executionContext = currentExecutionContext;
       const message = SDK.ConsoleModel.ConsoleModel.instance().addCommandMessage(executionContext, text);
       const expression = ObjectUI.JavaScriptREPL.JavaScriptREPL.preprocessExpression(text);
-      SDK.ConsoleModel.ConsoleModel.instance().evaluateCommandInConsole(
-          executionContext, message, expression, useCommandLineAPI);
+      SDK.ConsoleModel.ConsoleModel.instance().evaluateCommandInConsole(executionContext, message, expression, useCommandLineAPI);
       if (ConsolePanel.instance().isShowing()) {
         Host.userMetrics.actionTaken(Host.UserMetrics.Action.CommandEvaluatedInConsolePanel);
       }
     }
   }
 
-  _enterProcessedForTest() {
+  _enterProcessedForTest(): void {
   }
 
-  /**
-   * @param {string} prefix
-   * @param {boolean=} force
-   * @return {!UI.SuggestBox.Suggestions}
-   */
-  _historyCompletions(prefix, force) {
+  _historyCompletions(prefix: string, force?: boolean): UI.SuggestBox.Suggestions {
     const text = this.text();
     if (!this._addCompletionsFromHistory || !this._isCaretAtEndOfPrompt() || (!text && !force)) {
       return [];
     }
     const result = [];
-    const set = new Set();
+    const set = new Set<string>();
     const data = this._history.historyData();
     for (let i = data.length - 1; i >= 0 && result.length < 50; --i) {
       const item = data[i];
@@ -384,30 +352,21 @@ export class ConsolePrompt extends UI.Widget.Widget {
         continue;
       }
       set.add(item);
-      result.push(
-          {text: item.substring(text.length - prefix.length), iconType: 'smallicon-text-prompt', isSecondary: true});
+      result.push({ text: item.substring(text.length - prefix.length), iconType: 'smallicon-text-prompt', isSecondary: true });
     }
-    return /** @type {!UI.SuggestBox.Suggestions} */ (result);
+    return /** @type {!UI.SuggestBox.Suggestions} */ result as UI.SuggestBox.Suggestions;
   }
 
-  /**
-   * @override
-   */
-  focus() {
+  focus(): void {
     if (this._editor) {
       this._editor.widget().focus();
-    } else {
+    }
+    else {
       this.element.focus();
     }
   }
 
-  /**
-   * @param {!TextUtils.TextRange.TextRange} queryRange
-   * @param {!TextUtils.TextRange.TextRange} substituteRange
-   * @param {boolean=} force
-   * @return {!Promise<!UI.SuggestBox.Suggestions>}
-   */
-  async _wordsWithQuery(queryRange, substituteRange, force) {
+  async _wordsWithQuery(queryRange: TextUtils.TextRange.TextRange, substituteRange: TextUtils.TextRange.TextRange, force?: boolean): Promise<UI.SuggestBox.Suggestions> {
     if (!this._editor || !this._defaultAutocompleteConfig || !this._defaultAutocompleteConfig.suggestionsCallback) {
       return [];
     }
@@ -417,44 +376,36 @@ export class ConsolePrompt extends UI.Widget.Widget {
     return words ? words.concat(historyWords) : historyWords;
   }
 
-  _editorSetForTest() {
+  _editorSetForTest(): void {
   }
 }
 
 export class ConsoleHistoryManager {
+  _data: string[];
+  _historyOffset: number;
+  _uncommittedIsTop?: boolean;
   constructor() {
-    /**
-     * @type {!Array.<string>}
-     */
     this._data = [];
 
     /**
      * 1-based entry in the history stack.
-     * @type {number}
      */
     this._historyOffset = 1;
   }
 
-  /**
-   * @return {!Array.<string>}
-   */
-  historyData() {
+  historyData(): string[] {
     return this._data;
   }
 
-  /**
-   * @param {!Array.<string>} data
-   */
-  setHistoryData(data) {
+  setHistoryData(data: string[]): void {
     this._data = data.slice();
     this._historyOffset = 1;
   }
 
   /**
    * Pushes a committed text into the history.
-   * @param {string} text
    */
-  pushHistoryItem(text) {
+  pushHistoryItem(text: string): void {
     if (this._uncommittedIsTop) {
       this._data.pop();
       delete this._uncommittedIsTop;
@@ -469,21 +420,16 @@ export class ConsoleHistoryManager {
 
   /**
    * Pushes the current (uncommitted) text into the history.
-   * @param {string} currentText
    */
-  _pushCurrentText(currentText) {
+  _pushCurrentText(currentText: string): void {
     if (this._uncommittedIsTop) {
       this._data.pop();
-    }  // Throw away obsolete uncommitted text.
+    } // Throw away obsolete uncommitted text.
     this._uncommittedIsTop = true;
     this._data.push(currentText);
   }
 
-  /**
-   * @param {string} currentText
-   * @return {string|undefined}
-   */
-  previous(currentText) {
+  previous(currentText: string): string | undefined {
     if (this._historyOffset > this._data.length) {
       return undefined;
     }
@@ -494,10 +440,7 @@ export class ConsoleHistoryManager {
     return this._currentHistoryItem();
   }
 
-  /**
-   * @return {string|undefined}
-   */
-  next() {
+  next(): string | undefined {
     if (this._historyOffset === 1) {
       return undefined;
     }
@@ -505,10 +448,7 @@ export class ConsoleHistoryManager {
     return this._currentHistoryItem();
   }
 
-  /**
-   * @return {string|undefined}
-   */
-  _currentHistoryItem() {
+  _currentHistoryItem(): string | undefined {
     return this._data[this._data.length - this._historyOffset];
   }
 }

@@ -2,14 +2,16 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';
 import * as i18n from '../i18n/i18n.js';
 import * as SDK from '../sdk/sdk.js';
-import * as TextUtils from '../text_utils/text_utils.js';  // eslint-disable-line no-unused-vars
+import * as TextUtils from '../text_utils/text_utils.js'; // eslint-disable-line no-unused-vars
 import * as UI from '../ui/ui.js';
 
-import {ConsoleFilter, FilterType} from './ConsoleFilter.js';
-import {ConsoleViewMessage} from './ConsoleViewMessage.js';  // eslint-disable-line no-unused-vars
+import { ConsoleFilter, FilterType } from './ConsoleFilter.js';
+import { ConsoleViewMessage } from './ConsoleViewMessage.js'; // eslint-disable-line no-unused-vars
 
 export const UIStrings = {
   /**
@@ -95,126 +97,92 @@ export const UIStrings = {
   */
   noVerbose: 'No verbose',
 };
-const str_ = i18n.i18n.registerUIStrings('console/ConsoleSidebar.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('console/ConsoleSidebar.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class ConsoleSidebar extends UI.Widget.VBox {
+  _tree: UI.TreeOutline.TreeOutlineInShadow;
+  _selectedTreeElement: UI.TreeOutline.TreeElement | null;
+  _treeElements: FilterTreeElement[];
   constructor() {
     super(true);
     this.setMinimumSize(125, 0);
 
     this._tree = new UI.TreeOutline.TreeOutlineInShadow();
-    this._tree.registerRequiredCSS('console/consoleSidebar.css', {enableLegacyPatching: true});
+    this._tree.registerRequiredCSS('console/consoleSidebar.css', { enableLegacyPatching: true });
     this._tree.addEventListener(UI.TreeOutline.Events.ElementSelected, this._selectionChanged.bind(this));
     this.contentElement.appendChild(this._tree.element);
-    /** @type {?UI.TreeOutline.TreeElement} */
     this._selectedTreeElement = null;
-    /** @type {!Array<!FilterTreeElement>} */
     this._treeElements = [];
-    /** @type {!Common.Settings.Setting<string>} */
-    const selectedFilterSetting =
-        Common.Settings.Settings.instance().createSetting('console.sidebarSelectedFilter', null);
+    const selectedFilterSetting: Common.Settings.Setting<string> = Common.Settings.Settings.instance().createSetting('console.sidebarSelectedFilter', null);
 
     const Levels = SDK.ConsoleModel.MessageLevel;
-    const consoleAPIParsedFilters =
-        [{key: FilterType.Source, text: SDK.ConsoleModel.MessageSource.ConsoleAPI, negative: false, regex: undefined}];
-    this._appendGroup(
-        _groupName.All, [], ConsoleFilter.allLevelsFilterValue(), UI.Icon.Icon.create('mediumicon-list'),
-        selectedFilterSetting);
-    this._appendGroup(
-        _groupName.ConsoleAPI, consoleAPIParsedFilters, ConsoleFilter.allLevelsFilterValue(),
-        UI.Icon.Icon.create('mediumicon-account-circle'), selectedFilterSetting);
-    this._appendGroup(
-        _groupName.Error, [], ConsoleFilter.singleLevelMask(Levels.Error),
-        UI.Icon.Icon.create('mediumicon-error-circle'), selectedFilterSetting);
-    this._appendGroup(
-        _groupName.Warning, [], ConsoleFilter.singleLevelMask(Levels.Warning),
-        UI.Icon.Icon.create('mediumicon-warning-triangle'), selectedFilterSetting);
-    this._appendGroup(
-        _groupName.Info, [], ConsoleFilter.singleLevelMask(Levels.Info), UI.Icon.Icon.create('mediumicon-info-circle'),
-        selectedFilterSetting);
-    this._appendGroup(
-        _groupName.Verbose, [], ConsoleFilter.singleLevelMask(Levels.Verbose), UI.Icon.Icon.create('mediumicon-bug'),
-        selectedFilterSetting);
+    const consoleAPIParsedFilters = [{ key: FilterType.Source, text: SDK.ConsoleModel.MessageSource.ConsoleAPI, negative: false, regex: undefined }];
+    this._appendGroup(_groupName.All, [], ConsoleFilter.allLevelsFilterValue(), UI.Icon.Icon.create('mediumicon-list'), selectedFilterSetting);
+    this._appendGroup(_groupName.ConsoleAPI, consoleAPIParsedFilters, ConsoleFilter.allLevelsFilterValue(), UI.Icon.Icon.create('mediumicon-account-circle'), selectedFilterSetting);
+    this._appendGroup(_groupName.Error, [], ConsoleFilter.singleLevelMask(Levels.Error), UI.Icon.Icon.create('mediumicon-error-circle'), selectedFilterSetting);
+    this._appendGroup(_groupName.Warning, [], ConsoleFilter.singleLevelMask(Levels.Warning), UI.Icon.Icon.create('mediumicon-warning-triangle'), selectedFilterSetting);
+    this._appendGroup(_groupName.Info, [], ConsoleFilter.singleLevelMask(Levels.Info), UI.Icon.Icon.create('mediumicon-info-circle'), selectedFilterSetting);
+    this._appendGroup(_groupName.Verbose, [], ConsoleFilter.singleLevelMask(Levels.Verbose), UI.Icon.Icon.create('mediumicon-bug'), selectedFilterSetting);
     const selectedTreeElementName = selectedFilterSetting.get();
-    const defaultTreeElement =
-        this._treeElements.find(x => x.name() === selectedTreeElementName) || this._treeElements[0];
+    const defaultTreeElement = this._treeElements.find(x => x.name() === selectedTreeElementName) || this._treeElements[0];
     defaultTreeElement.select();
   }
 
-  /**
-   * @param {string} name
-   * @param {!Array<!TextUtils.TextUtils.ParsedFilter>} parsedFilters
-   * @param {!Object<string, boolean>} levelsMask
-   * @param {!UI.Icon.Icon} icon
-   * @param {!Common.Settings.Setting<string>} selectedFilterSetting
-   */
-  _appendGroup(name, parsedFilters, levelsMask, icon, selectedFilterSetting) {
+  _appendGroup(name: string, parsedFilters: TextUtils.TextUtils.ParsedFilter[], levelsMask: {
+    [x: string]: boolean;
+  }, icon: UI.Icon.Icon, selectedFilterSetting: Common.Settings.Setting<string>): void {
     const filter = new ConsoleFilter(name, parsedFilters, null, levelsMask);
     const treeElement = new FilterTreeElement(filter, icon, selectedFilterSetting);
     this._tree.appendChild(treeElement);
     this._treeElements.push(treeElement);
   }
 
-  clear() {
+  clear(): void {
     for (const treeElement of this._treeElements) {
       treeElement.clear();
     }
   }
 
-  /**
-   * @param {!ConsoleViewMessage} viewMessage
-   */
-  onMessageAdded(viewMessage) {
+  onMessageAdded(viewMessage: ConsoleViewMessage): void {
     for (const treeElement of this._treeElements) {
       treeElement.onMessageAdded(viewMessage);
     }
   }
 
-  /**
-   * @param {!ConsoleViewMessage} viewMessage
-   * @return {boolean}
-   */
-  shouldBeVisible(viewMessage) {
+  shouldBeVisible(viewMessage: ConsoleViewMessage): boolean {
     if (this._selectedTreeElement instanceof ConsoleSidebarTreeElement) {
       return this._selectedTreeElement.filter().shouldBeVisible(viewMessage);
     }
     return true;
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _selectionChanged(event) {
-    this._selectedTreeElement = /** @type {!UI.TreeOutline.TreeElement} */ (event.data);
+  _selectionChanged(event: Common.EventTarget.EventTargetEvent): void {
+    this._selectedTreeElement = (event.data as UI.TreeOutline.TreeElement);
     this.dispatchEventToListeners(Events.FilterSelected);
   }
 }
 
-/** @enum {symbol} */
-export const Events = {
-  FilterSelected: Symbol('FilterSelected')
-};
+export enum Events {
+  FilterSelected = 'FilterSelected'
+}
+;
 
 class ConsoleSidebarTreeElement extends UI.TreeOutline.TreeElement {
-  /**
-   * @param {string|!Node} title
-   * @param {!ConsoleFilter} filter
-   */
-  constructor(title, filter) {
+  _filter: ConsoleFilter;
+  constructor(title: string | Node, filter: ConsoleFilter) {
     super(title);
     this._filter = filter;
   }
 
-  filter() {
+  filter(): ConsoleFilter {
     return this._filter;
   }
 }
 
 export class URLGroupTreeElement extends ConsoleSidebarTreeElement {
-  /**
-   * @param {!ConsoleFilter} filter
-   */
-  constructor(filter) {
+  _countElement: HTMLElement;
+  _messageCount: number;
+  constructor(filter: ConsoleFilter) {
     super(filter.name, filter);
     this._countElement = this.listItemElement.createChild('span', 'count');
     const leadingIcons = [UI.Icon.Icon.create('largeicon-navigator-file')];
@@ -222,87 +190,71 @@ export class URLGroupTreeElement extends ConsoleSidebarTreeElement {
     this._messageCount = 0;
   }
 
-  incrementAndUpdateCounter() {
+  incrementAndUpdateCounter(): void {
     this._messageCount++;
     this._countElement.textContent = `${this._messageCount}`;
   }
 }
 
 export class FilterTreeElement extends ConsoleSidebarTreeElement {
-  /**
-   * @param {!ConsoleFilter} filter
-   * @param {!UI.Icon.Icon} icon
-   * @param {!Common.Settings.Setting<string>} selectedFilterSetting
-   */
-  constructor(filter, icon, selectedFilterSetting) {
+  _selectedFilterSetting: Common.Settings.Setting<string>;
+  _urlTreeElements: Map<string | null, URLGroupTreeElement>;
+  _messageCount: number;
+  title?: string | Node;
+  constructor(filter: ConsoleFilter, icon: UI.Icon.Icon, selectedFilterSetting: Common.Settings.Setting<string>) {
     super(filter.name, filter);
     this._selectedFilterSetting = selectedFilterSetting;
-    /** @type {!Map<?string, !URLGroupTreeElement>} */
     this._urlTreeElements = new Map();
     this.setLeadingIcons([icon]);
     this._messageCount = 0;
     this._updateCounter();
   }
 
-  clear() {
+  clear(): void {
     this._urlTreeElements.clear();
     this.removeChildren();
     this._messageCount = 0;
     this._updateCounter();
   }
 
-  /**
-   * @return {string}
-   */
-  name() {
+  name(): string {
     return this._filter.name;
   }
 
-  /**
-   * @param {boolean=} selectedByUser
-   * @return {boolean}
-   * @override
-   */
-  onselect(selectedByUser) {
+  onselect(selectedByUser?: boolean): boolean {
     this._selectedFilterSetting.set(this._filter.name);
     return super.onselect(selectedByUser);
   }
 
-  _updateCounter() {
+  _updateCounter(): void {
     if (!this._messageCount) {
       this.title = _groupNoMessageTitleMap.get(this._filter.name) || '';
-    } else if (this._messageCount === 1) {
+    }
+    else if (this._messageCount === 1) {
       this.title = _groupSingularTitleMap.get(this._filter.name) || '';
-    } else {
+    }
+    else {
       this.title = this._updatePluralTitle(this._filter.name, this._messageCount);
     }
 
     this.setExpandable(Boolean(this.childCount()));
   }
 
-  /**
-   * @param {string} filterName
-   * @param {number} messageCount
-   * @return {string}
-   */
-  _updatePluralTitle(filterName, messageCount) {
+  _updatePluralTitle(filterName: string, messageCount: number): string {
     const _groupPluralTitleMap = new Map([
-      [_groupName.ConsoleAPI, i18nString(UIStrings.dUserMessages, {PH1: messageCount})],
-      [_groupName.All, i18nString(UIStrings.dMessages, {PH1: messageCount})],
-      [_groupName.Error, i18nString(UIStrings.dErrors, {PH1: messageCount})],
-      [_groupName.Warning, i18nString(UIStrings.dWarnings, {PH1: messageCount})],
-      [_groupName.Info, i18nString(UIStrings.dInfo, {PH1: messageCount})],
-      [_groupName.Verbose, i18nString(UIStrings.dVerbose, {PH1: messageCount})]
+      [_groupName.ConsoleAPI, i18nString(UIStrings.dUserMessages, { PH1: messageCount })],
+      [_groupName.All, i18nString(UIStrings.dMessages, { PH1: messageCount })],
+      [_groupName.Error, i18nString(UIStrings.dErrors, { PH1: messageCount })],
+      [_groupName.Warning, i18nString(UIStrings.dWarnings, { PH1: messageCount })],
+      [_groupName.Info, i18nString(UIStrings.dInfo, { PH1: messageCount })],
+      [_groupName.Verbose, i18nString(UIStrings.dVerbose, { PH1: messageCount })]
     ]);
     return _groupPluralTitleMap.get(filterName) || '';
   }
-  /**
-   * @param {!ConsoleViewMessage} viewMessage
-   */
-  onMessageAdded(viewMessage) {
+  onMessageAdded(viewMessage: ConsoleViewMessage): void {
     const message = viewMessage.consoleMessage();
     const shouldIncrementCounter = message.type !== SDK.ConsoleModel.MessageType.Command &&
-        message.type !== SDK.ConsoleModel.MessageType.Result && !message.isGroupMessage();
+      message.type !== SDK.ConsoleModel.MessageType.Result && !message.isGroupMessage();
     if (!this._filter.shouldBeVisible(viewMessage) || !shouldIncrementCounter) {
       return;
     }
@@ -312,11 +264,7 @@ export class FilterTreeElement extends ConsoleSidebarTreeElement {
     this._updateCounter();
   }
 
-  /**
-   * @param {string=} url
-   * @return {!URLGroupTreeElement}
-   */
-  _childElement(url) {
+  _childElement(url?: string): URLGroupTreeElement {
     const urlValue = url || null;
     let child = this._urlTreeElements.get(urlValue);
     if (child) {
@@ -327,10 +275,11 @@ export class FilterTreeElement extends ConsoleSidebarTreeElement {
     const parsedURL = urlValue ? Common.ParsedURL.ParsedURL.fromString(urlValue) : null;
     if (urlValue) {
       filter.name = parsedURL ? parsedURL.displayName : urlValue;
-    } else {
+    }
+    else {
       filter.name = i18nString(UIStrings.other);
     }
-    filter.parsedFilters.push({key: FilterType.Url, text: urlValue, negative: false, regex: undefined});
+    filter.parsedFilters.push({ key: FilterType.Url, text: urlValue, negative: false, regex: undefined });
     child = new URLGroupTreeElement(filter);
     if (urlValue) {
       child.tooltip = urlValue;
@@ -341,15 +290,15 @@ export class FilterTreeElement extends ConsoleSidebarTreeElement {
   }
 }
 
-/** @enum {string} */
-const _groupName = {
-  ConsoleAPI: 'user message',
-  All: 'message',
-  Error: 'error',
-  Warning: 'warning',
-  Info: 'info',
-  Verbose: 'verbose'
-};
+enum _groupName {
+  ConsoleAPI = 'user message',
+  All = 'message',
+  Error = 'error',
+  Warning = 'warning',
+  Info = 'info',
+  Verbose = 'verbose'
+}
+;
 
 /** @const {!Map<string, string>} */
 const _groupSingularTitleMap = new Map([
