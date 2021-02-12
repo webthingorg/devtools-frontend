@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7afb5089_7e7acc4f",
+        "filename": "inspector_overlay/debug/tool_highlight_flex_item_base_size.html",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-12T08:34:43Z",
+      "side": 1,
+      "message": "2021 :-)",
+      "revId": "185c4310a0294f25b414ef37920262198f7e7ee3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
