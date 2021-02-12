@@ -77,6 +77,11 @@ export const UIStrings = {
   *@description Message to display if a setting change requires a reload of DevTools
   */
   oneOrMoreSettingsHaveChanged: 'One or more settings have changed which requires a reload to take effect.',
+  /**
+  *@description A title of the 'Extensions' UI.SettingUI category
+  */
+  extensions: 'Extensions',
+
 };
 const str_ = i18n.i18n.registerUIStrings('settings/SettingsScreen.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -302,7 +307,7 @@ export class GenericSettingsTab extends SettingsTab {
         sectionElement.appendChild(settingControl);
       }
     }
-    Root.Runtime.Runtime.instance().extensions(UI.SettingsUI.SettingUI).forEach(this._addSettingUI.bind(this));
+    this._addSettingUI();
 
     this._appendSection().appendChild(
         UI.UIUtils.createTextButton(i18nString(UIStrings.restoreDefaultsAndReload), restoreAndReload));
@@ -329,21 +334,16 @@ export class GenericSettingsTab extends SettingsTab {
     return Boolean(title && setting.category);
   }
 
-  _addSettingUI(extension: Root.Runtime.Extension): void {
-    const descriptor = extension.descriptor();
-    const sectionName = descriptor['category'] || '';
-    extension.instance().then(appendCustomSetting.bind(this));
-
-    function appendCustomSetting(this: GenericSettingsTab, object: Object): void {
-      const settingUI = object as UI.SettingsUI.SettingUI;
-      const element = settingUI.settingElement();
-      if (element) {
-        let sectionElement = this._sectionElement(sectionName);
-        if (!sectionElement) {
-          sectionElement = this._createSectionElement(sectionName);
-        }
-        sectionElement.appendChild(element);
+  _addSettingUI(): void {
+    const sectionName = i18nString(UIStrings.extensions);
+    const settingUI = Components.Linkifier.LinkHandlerSettingUI.instance() as UI.SettingsUI.SettingUI;
+    const element = settingUI.settingElement();
+    if (element) {
+      let sectionElement = this._sectionElement(sectionName);
+      if (!sectionElement) {
+        sectionElement = this._createSectionElement(sectionName);
       }
+      sectionElement.appendChild(element);
     }
   }
 

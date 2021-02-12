@@ -990,13 +990,8 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     // Append editor.
     this.listItemElement.appendChild(this._htmlEditElement);
 
-    const textEditorExtension = Root.Runtime.Runtime.instance().extension(UI.TextEditor.TextEditorFactory);
-    if (textEditorExtension) {
-      textEditorExtension.instance().then(factory => {
-        gotFactory.call(this, /** @type {!UI.TextEditor.TextEditorFactory} */ (factory));
-      });
-    }
-
+    const codeMirrorTextEditorFactory = TextEditor.CodeMirrorTextEditor.CodeMirrorTextEditorFactory.instance();
+    gotFactory.call(this, codeMirrorTextEditorFactory);
 
     /**
      * @param {!UI.TextEditor.TextEditorFactory} factory

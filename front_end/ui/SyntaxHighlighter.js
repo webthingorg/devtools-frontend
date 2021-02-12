@@ -34,6 +34,9 @@ import * as TextUtils from '../text_utils/text_utils.js';
 import {createTextChild} from './UIUtils.js';
 
 export class SyntaxHighlighter {
+  /** @type {!TextUtils.TextUtils.TokenizerFactory} */
+  static codeMirrorTokenizerFactory;
+
   /**
    * @param {string} mimeType
    * @param {boolean} stripExtraWhitespace
@@ -41,6 +44,13 @@ export class SyntaxHighlighter {
   constructor(mimeType, stripExtraWhitespace) {
     this._mimeType = mimeType;
     this._stripExtraWhitespace = stripExtraWhitespace;
+  }
+
+  /**
+   * @param {!TextUtils.TextUtils.TokenizerFactory} tokenizerFactory
+   */
+  static setCodeMirrorTokenizerFactory(tokenizerFactory) {
+    SyntaxHighlighter.codeMirrorTokenizerFactory = tokenizerFactory;
   }
 
   /**
