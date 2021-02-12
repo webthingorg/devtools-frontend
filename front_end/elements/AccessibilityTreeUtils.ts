@@ -11,11 +11,9 @@ export interface AXNode {
   name: string|null;
   ignored: boolean;
   parent: AXNode|null;
-  children: AXNode[];
-  numChildren: number;
-  hasOnlyUnloadedChildren: boolean;
+  hasChildren: () => boolean;
+  children: () => Promise<AXNode[]>;
   axTree: AccessibilityTree|null;
-  loadChildren: () => Promise<void>;
   highlightNode: () => void;
   clearHighlight: () => void;
 }
@@ -29,26 +27,25 @@ export function SDKNodeToAXNode(
     name: sdkNode.name()?.value,
     ignored: sdkNode.ignored(),
     parent: parent,
-    children: axChildren,
-    numChildren: sdkNode.numChildren(),
-    hasOnlyUnloadedChildren: sdkNode.hasOnlyUnloadedChildren(),
     axTree: tree,
+    hasChildren: (): boolean => Boolean(sdkNode.numChildren()),
     // TODO: Remove next line once crbug.com/1177242 is solved.
     // eslint-disable-next-line @typescript-eslint/space-before-function-paren
-    loadChildren: async(): Promise<void> => {
-      const loadedChildren = await sdkNode.accessibilityModel().requestAXChildren(sdkNode.id());
-      if (loadedChildren) {
-        for (const child of loadedChildren) {
+    children: async(): Promise<AXNode[]> => {
+      if (sdkNode.numChildren() !== axChildren.length) {
+        const children = await sdkNode.accessibilityModel().requestAXChildren(sdkNode.id());
+        for (const child of children || []) {
           axChildren.push(SDKNodeToAXNode(axNode, child, tree));
         }
       }
+      return axChildren;
     },
     highlightNode: (): void => sdkNode.highlightDOMNode(),
     clearHighlight: (): void => SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight(),
   };
 
   for (const child of sdkNode.children()) {
-    axNode.children.push(SDKNodeToAXNode(axNode, child, tree));
+    axChildren.push(SDKNodeToAXNode(axNode, child, tree));
   }
 
   return axNode;
