@@ -29,6 +29,7 @@
  */
 
 import * as TextUtils from '../text_utils/text_utils.js';
+import * as UI from '../ui/ui.js';
 
 /**
  * @param {!TextUtils.TextRange.TextRange} range
@@ -91,10 +92,24 @@ export function pullLines(codeMirror, linesCount) {
   }
 }
 
+/** @type {!TokenizerFactory} */
+let tokenizerFactoryInstance;
+
 /**
  * @implements {TextUtils.TextUtils.TokenizerFactory}
  */
 export class TokenizerFactory {
+  /**
+   * @param {{forceNew: ?boolean}} opts
+   */
+  static instance(opts = {forceNew: null}) {
+    const {forceNew} = opts;
+    if (!tokenizerFactoryInstance || forceNew) {
+      tokenizerFactoryInstance = new TokenizerFactory();
+    }
+
+    return tokenizerFactoryInstance;
+  }
   /**
    * @override
    * @param {string} mimeType
@@ -120,3 +135,5 @@ export class TokenizerFactory {
     return tokenize;
   }
 }
+
+UI.SyntaxHighlighter.SyntaxHighlighter.setCodeMirrorTokenizerFactory(TokenizerFactory.instance());

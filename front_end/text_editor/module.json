@@ -1,14 +1,4 @@
 {
-  "extensions": [
-    {
-      "type": "@TextUtils.TokenizerFactory",
-      "className": "TextEditor.CodeMirrorUtils.TokenizerFactory"
-    },
-    {
-      "type": "@UI.TextEditorFactory",
-      "className": "TextEditor.CodeMirrorTextEditorFactory"
-    }
-  ],
   "dependencies": [
     "cm",
     "ui"
