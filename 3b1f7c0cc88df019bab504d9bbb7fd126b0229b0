@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d07dba0_6b12804b",
+        "filename": "front_end/elements/FlexboxEditorWidget.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-12T13:53:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee805675_988c0175",
+      "revId": "3b1f7c0cc88df019bab504d9bbb7fd126b0229b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6b30853e_ad1cc072",
@@ -123,6 +141,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9ff2351_9a7a95b3",
+        "filename": "front_end/elements/StylePropertyTreeElement.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-12T13:53:48Z",
+      "side": 1,
+      "message": "I think these handlers allow producing the value before ; only. And we need the button after the ; in property row. So I\u0027d keep it as is.",
+      "parentUuid": "b1a7c909_958c91ca",
+      "range": {
+        "startLine": 606,
+        "startChar": 6,
+        "endLine": 606,
+        "endChar": 68
+      },
+      "revId": "3b1f7c0cc88df019bab504d9bbb7fd126b0229b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c024995b_0ca27aae",
@@ -136,6 +178,30 @@
       "writtenOn": "2021-02-12T11:03:24Z",
       "side": 1,
       "message": "The other thing we should check for is if the property is editable or not (this._isEditable()) to avoid showing the button in UA rules for example.",
+      "range": {
+        "startLine": 644,
+        "startChar": 0,
+        "endLine": 645,
+        "endChar": 120
+      },
+      "revId": "3b1f7c0cc88df019bab504d9bbb7fd126b0229b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e030df1e_3aa7a104",
+        "filename": "front_end/elements/StylePropertyTreeElement.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-12T13:53:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c024995b_0ca27aae",
       "range": {
         "startLine": 644,
         "startChar": 0,
@@ -193,6 +259,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9a5adb3_b2fc497c",
+        "filename": "front_end/elements/stylesSectionTree.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-12T13:53:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "995de16f_8c6bda0f",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 21
+      },
+      "revId": "3b1f7c0cc88df019bab504d9bbb7fd126b0229b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3b13e8fe_3857fd26",
@@ -206,6 +296,24 @@
       "writtenOn": "2021-02-11T11:42:45Z",
       "side": 1,
       "message": "Q: Why do we need both min-{height,width} and {height,width}?",
+      "revId": "3b1f7c0cc88df019bab504d9bbb7fd126b0229b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bd71657_8959508a",
+        "filename": "front_end/elements/stylesSectionTree.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-12T13:53:48Z",
+      "side": 1,
+      "message": "Without the min-width/height it might shrink for some reason (I think it was in a flexbox layout)? I think I can remove it now given it\u0027s an absolute layout.",
+      "parentUuid": "3b13e8fe_3857fd26",
       "revId": "3b1f7c0cc88df019bab504d9bbb7fd126b0229b0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -233,6 +341,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "87771da6_594c9f34",
+        "filename": "front_end/elements/stylesSectionTree.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-12T13:53:48Z",
+      "side": 1,
+      "message": "If I use position: relative, the element is not taken out of the normal flow and since its height is bigger than the height of the parent, it distorts the usual layout of the style section.",
+      "parentUuid": "cb2f0bbd_acbda269",
+      "range": {
+        "startLine": 196,
+        "startChar": 2,
+        "endLine": 196,
+        "endChar": 21
+      },
+      "revId": "3b1f7c0cc88df019bab504d9bbb7fd126b0229b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fdfb46c0_a46ccfd5",
@@ -246,6 +378,30 @@
       "writtenOn": "2021-02-11T14:14:57Z",
       "side": 1,
       "message": "Should you also enable the experiment in this beforeEach function?",
+      "range": {
+        "startLine": 12,
+        "startChar": 2,
+        "endLine": 12,
+        "endChar": 12
+      },
+      "revId": "3b1f7c0cc88df019bab504d9bbb7fd126b0229b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0da6eb7_013e25fd",
+        "filename": "test/e2e/elements/flexbox-editor_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-12T13:53:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdfb46c0_a46ccfd5",
       "range": {
         "startLine": 12,
         "startChar": 2,
