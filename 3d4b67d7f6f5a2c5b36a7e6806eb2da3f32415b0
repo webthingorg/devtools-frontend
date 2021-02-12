@@ -16,6 +16,24 @@
       "message": "I assume you want to remove the `IssueMessage`-related stuff in a separate CL?",
       "revId": "3d4b67d7f6f5a2c5b36a7e6806eb2da3f32415b0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7da7df0d_3fe423d4",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-12T08:33:34Z",
+      "side": 0,
+      "message": "Yes. I wanted to keep this small, with just enough changes to remove the old message.",
+      "parentUuid": "7ea08e8a_983022b5",
+      "revId": "3d4b67d7f6f5a2c5b36a7e6806eb2da3f32415b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

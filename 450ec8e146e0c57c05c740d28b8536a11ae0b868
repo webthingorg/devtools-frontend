@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38392634_e2f2aba1",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-12T08:33:34Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "abe7eb41_8069d7a2",
+      "revId": "450ec8e146e0c57c05c740d28b8536a11ae0b868",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b575dcbd_9cf859d9",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "87754d81_1c974eea",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 799,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-12T08:33:34Z",
+      "side": 1,
+      "message": "I think then we wouldn\u0027t update the issues toolbar item when a full update is required, and it wouldn\u0027t trigger while the user is selecting messages (_muteViewportUpdates).\n\nI\u0027m fairly certain that updating the toolbar doesn\u0027t interfere with selection, so we can unconditionally update the  button on every viewport refresh. Moving it behind the _muteViewportUpdates check is also kind of moot, because if the issue manager informs the ConsoleView about an update while the user is selecting, we\u0027d do it anyway.",
+      "parentUuid": "b575dcbd_9cf859d9",
+      "revId": "450ec8e146e0c57c05c740d28b8536a11ae0b868",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "92de3aaa_d114bea3",
@@ -48,6 +84,24 @@
       "writtenOn": "2021-02-11T09:58:49Z",
       "side": 1,
       "message": "nit: Could be called \u0027issueCount\u0027",
+      "revId": "450ec8e146e0c57c05c740d28b8536a11ae0b868",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25cf2f1f_1eee19b8",
+        "filename": "front_end/console/ConsoleView.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-12T08:33:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92de3aaa_d114bea3",
       "revId": "450ec8e146e0c57c05c740d28b8536a11ae0b868",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
