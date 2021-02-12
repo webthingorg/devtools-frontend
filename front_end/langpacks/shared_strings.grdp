@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Strings in this file are shared, i.e. they appear multiple times. -->
 <grit-part>
-  <message name="IDS_DEVTOOLS_0b484cfcf50c8fabff48c0aad426f544" desc="Text to dock the DevTools to the left of the browser tab">
-    Dock to left
-  </message>
   <message name="IDS_DEVTOOLS_1063e38cb53d94d386f21227fcd84717" desc="Label for an item to remove something">
     Remove
   </message>
@@ -50,17 +47,11 @@
   <message name="IDS_DEVTOOLS_6a0d9eaee314c567fd72fb97ee707a36" desc="Text to record a series of actions for analysis">
     Record
   </message>
-  <message name="IDS_DEVTOOLS_6a26f548831e6a8c26bfbbd9f6ec61e0" desc="Text for the viewing the help options">
-    Help
-  </message>
   <message name="IDS_DEVTOOLS_6adf97f83acf6453d4a6a4b1070f3754" desc="Text to show there is nothing">
     None
   </message>
   <message name="IDS_DEVTOOLS_6feab1a8f70b4209f82a628b7395ede3" desc="Message to display if a setting change requires a reload of DevTools">
     One or more settings have changed which requires a reload to take effect.
-  </message>
-  <message name="IDS_DEVTOOLS_72507d307327a430052f9fcd914dfaee" desc="Title of an action that reloads the DevTools">
-    Reload DevTools
   </message>
   <message name="IDS_DEVTOOLS_74540c79e377bea903e1023a46df5574" desc="Text to open a file">
     Open file
@@ -106,9 +97,6 @@
   </message>
   <message name="IDS_DEVTOOLS_b94d8a074eddd267702810179875737f" desc="Text that refers to the debugger">
     Debugger
-  </message>
-  <message name="IDS_DEVTOOLS_b9dee6bade160c89fb7f0e539d453513" desc="Text to dock the DevTools to the bottom of the browser tab">
-    Dock to bottom
   </message>
   <message name="IDS_DEVTOOLS_ba5b676ccf658f863ef2e3df082ee262" desc="Text for the event that an animation frame is fired">
     Animation Frame Fired
@@ -182,16 +170,10 @@
   <message name="IDS_DEVTOOLS_f28128b38efbc6134dc40751ee21fd29" desc="Text for documents, a type of resources">
     Documents
   </message>
-  <message name="IDS_DEVTOOLS_f53944c3a55bdb5ad65c6226e358a626" desc="Text to undock the DevTools">
-    Undock into separate window
-  </message>
   <message name="IDS_DEVTOOLS_f907e651164789346ae0a1e257c462d8" desc="Label for a group of JavaScript files">
     Script
   </message>
   <message name="IDS_DEVTOOLS_fb61758d0f0fda4ba867c3d5a46c16a7" desc="Name of the Sources panel">
     Sources
-  </message>
-  <message name="IDS_DEVTOOLS_fe7fb037b290768d6a6be30b237e183d" desc="Text to dock the DevTools to the right of the browser tab">
-    Dock to right
   </message>
 </grit-part>

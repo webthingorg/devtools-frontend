@@ -294,6 +294,7 @@ all_typescript_module_sources = [
   "linear_memory_inspector/ValueInterpreterSettings.js",
   "main/ExecutionContextSelector.js",
   "main/MainImpl.js",
+  "main/ModuleUIStrings.js",
   "main/SimpleApp.js",
   "media/EventDisplayTable.js",
   "media/EventTimelineView.js",

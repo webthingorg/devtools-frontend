@@ -43,6 +43,7 @@
   ],
   "dependencies": [
     "extensions",
+    "i18n",
     "persistence"
   ],
   "modules": [
