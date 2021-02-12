@@ -2,18 +2,22 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as ColorPicker from '../color_picker/color_picker.js';
 import * as Common from '../common/common.js';
 import * as Root from '../root/root.js';
 import * as SDK from '../sdk/sdk.js';
 
-import {CSSOverviewUnusedDeclarations} from './CSSOverviewUnusedDeclarations.js';
+import { CSSOverviewUnusedDeclarations } from './CSSOverviewUnusedDeclarations.js';
 
 export class CSSOverviewModel extends SDK.SDKModel.SDKModel {
-  /**
-   * @param {!SDK.SDKModel.Target} target
-   */
-  constructor(target) {
+  _runtimeAgent: ProtocolProxyApi.RuntimeApi;
+  _cssAgent: ProtocolProxyApi.CSSApi;
+  _domAgent: ProtocolProxyApi.DOMApi;
+  _domSnapshotAgent: ProtocolProxyApi.DOMSnapshotApi;
+  _overlayAgent: ProtocolProxyApi.OverlayApi;
+  constructor(target: SDK.SDKModel.Target) {
     super(target);
 
     this._runtimeAgent = target.runtimeAgent();
@@ -23,30 +27,40 @@ export class CSSOverviewModel extends SDK.SDKModel.SDKModel {
     this._overlayAgent = target.overlayAgent();
   }
 
-  /**
-   * @param {number} node
-   */
-  highlightNode(node) {
+  highlightNode(node: number): void {
     const highlightConfig = {
       contentColor: Common.Color.PageHighlight.Content.toProtocolRGBA(),
       showInfo: true,
       contrastAlgorithm: Root.Runtime.experiments.isEnabled('APCA') ? Protocol.Overlay.ContrastAlgorithm.Apca :
-                                                                      Protocol.Overlay.ContrastAlgorithm.Aa,
+        Protocol.Overlay.ContrastAlgorithm.Aa,
     };
 
     this._overlayAgent.invoke_hideHighlight();
-    this._overlayAgent.invoke_highlightNode({backendNodeId: node, highlightConfig});
+    this._overlayAgent.invoke_highlightNode({ backendNodeId: node, highlightConfig });
   }
 
-  async getNodeStyleStats() {
-    const backgroundColors = new Map();
-    const textColors = new Map();
-    const textColorContrastIssues = new Map();
-    const fillColors = new Map();
-    const borderColors = new Map();
-    const fontInfo = new Map();
-    const unusedDeclarations = new Map();
-    const snapshotConfig = {
+  async getNodeStyleStats(): Promise<{
+    backgroundColors: Map<any, any>;
+    textColors: Map<any, any>;
+    textColorContrastIssues: Map<any, any>;
+    fillColors: Map<any, any>;
+    borderColors: Map<any, any>;
+    fontInfo: Map;
+  }> { }
+}
+  > ;
+unusedDeclarations: Map < ;
+  > ;
+elementCount: number;
+  > {
+    const: backgroundColors = new Map(),
+    const: textColors = new Map(),
+    const: textColorContrastIssues = new Map(),
+    const: fillColors = new Map(),
+    const: borderColors = new Map(),
+    const: fontInfo = new Map(),
+    const: unusedDeclarations = new Map(),
+    const: snapshotConfig = {
       computedStyles: [
         'background-color',
         'color',
@@ -73,22 +87,13 @@ export class CSSOverviewModel extends SDK.SDKModel.SDKModel {
         'height',
         'vertical-align'
       ]
-    };
+    },
 
-    /**
-     * @param {!Common.Color.Color} color
-     */
-    const formatColor = color => {
+    const: formatColor = (color: Common.Color.Color): string | null => {
       return color.hasAlpha() ? color.asString(Common.Color.Format.HEXA) : color.asString(Common.Color.Format.HEX);
-    };
+    },
 
-    /**
-     * @param {number} id
-     * @param {number} nodeId
-     * @param {!Map<string, !Set<number>>} target
-     * @return {!Common.Color.Color|undefined}
-     */
-    const storeColor = (id, nodeId, target) => {
+    const: storeColor = (id: number, nodeId: number, target: Map<string, Set<number>>): Common.Color.Color | undefined => {
       if (id === -1) {
         return;
       }
@@ -118,40 +123,33 @@ export class CSSOverviewModel extends SDK.SDKModel.SDKModel {
       target.set(colorFormatted, colorValues);
 
       return color;
-    };
+    },
 
-    /**
-     * @param {string} nodeName
-     */
-    const isSVGNode = nodeName => {
-      const validNodes = new Set([
+    const: isSVGNode = (nodeName: string): boolean => {
+      const validNodes = new Set<string>([
         'altglyph', 'circle', 'ellipse', 'path', 'polygon', 'polyline', 'rect', 'svg', 'text', 'textpath', 'tref',
         'tspan'
       ]);
       return validNodes.has(nodeName.toLowerCase());
-    };
+    },
 
-    /**
-     * @param {string} nodeName
-     */
-    const isReplacedContent = nodeName => {
-      const validNodes = new Set(['iframe', 'video', 'embed', 'img']);
+    const: isReplacedContent = (nodeName: string): boolean => {
+      const validNodes = new Set<string>(['iframe', 'video', 'embed', 'img']);
       return validNodes.has(nodeName.toLowerCase());
-    };
+    },
 
-    /**
-     * @param {string} nodeName
-     * @param {string} display
-     */
-    const isTableElementWithDefaultStyles = (nodeName, display) => {
-      const validNodes = new Set(['tr', 'td', 'thead', 'tbody']);
+    const: isTableElementWithDefaultStyles = (nodeName: string, display: string): boolean => {
+      const validNodes = new Set<string>(['tr', 'td', 'thead', 'tbody']);
       return validNodes.has(nodeName.toLowerCase()) && display.startsWith('table');
-    };
+    },
 
-    let elementCount = 0;
+    let, elementCount = 0,
 
-    const {documents, strings} = await this._domSnapshotAgent.invoke_captureSnapshot(snapshotConfig);
-    for (const {nodes, layout} of documents) {
+    const: { documents, strings } = await this._domSnapshotAgent.invoke_captureSnapshot(snapshotConfig),
+    for(any, { nodes, layout }: {
+      nodes: any;
+      layout: any;
+    }, of: any, documents: any) {
       // Track the number of elements in the documents.
       elementCount += layout.nodeIndex.length;
 
@@ -164,8 +162,7 @@ export class CSSOverviewModel extends SDK.SDKModel.SDKModel {
         const nodeId = nodes.backendNodeId[nodeIdx];
         const nodeName = nodes.nodeName[nodeIdx];
 
-        const [backgroundColorIdx, textColorIdx, fillIdx, borderTopWidthIdx, borderTopColorIdx, borderBottomWidthIdx, borderBottomColorIdx, borderLeftWidthIdx, borderLeftColorIdx, borderRightWidthIdx, borderRightColorIdx, fontFamilyIdx, fontSizeIdx, fontWeightIdx, lineHeightIdx, positionIdx, topIdx, rightIdx, bottomIdx, leftIdx, displayIdx, widthIdx, heightIdx, verticalAlignIdx] =
-            styles;
+        const [backgroundColorIdx, textColorIdx, fillIdx, borderTopWidthIdx, borderTopColorIdx, borderBottomWidthIdx, borderBottomColorIdx, borderLeftWidthIdx, borderLeftColorIdx, borderRightWidthIdx, borderRightColorIdx, fontFamilyIdx, fontSizeIdx, fontWeightIdx, lineHeightIdx, positionIdx, topIdx, rightIdx, bottomIdx, leftIdx, displayIdx, widthIdx, heightIdx, verticalAlignIdx] = styles;
 
         const backgroundColor = storeColor(backgroundColorIdx, nodeId, backgroundColors);
         const textColor = storeColor(textColorIdx, nodeId, textColors);
@@ -241,7 +238,7 @@ export class CSSOverviewModel extends SDK.SDKModel.SDKModel {
 
         if (backgroundColor && textColor && strings[nodeName] === '#text') {
           const contrastInfo = new ColorPicker.ContrastInfo.ContrastInfo({
-            backgroundColors: [/** @type {string} */ (backgroundColor.asString(Common.Color.Format.HEXA))],
+            backgroundColors: [(backgroundColor.asString(Common.Color.Format.HEXA) as string)],
             computedFontSize: fontSizeIdx !== -1 ? strings[fontSizeIdx] : '',
             computedFontWeight: fontWeightIdx !== -1 ? strings[fontWeightIdx] : '',
           });
@@ -267,11 +264,13 @@ export class CSSOverviewModel extends SDK.SDKModel.SDKModel {
               };
               if (textColorContrastIssues.has(key)) {
                 textColorContrastIssues.get(key).push(issue);
-              } else {
+              }
+              else {
                 textColorContrastIssues.set(key, [issue]);
               }
             }
-          } else {
+          }
+          else {
             const aaThreshold = contrastInfo.contrastRatioThreshold('aa') || 0;
             const aaaThreshold = contrastInfo.contrastRatioThreshold('aaa') || 0;
             const contrastRatio = contrastInfo.contrastRatio() || 0;
@@ -289,31 +288,31 @@ export class CSSOverviewModel extends SDK.SDKModel.SDKModel {
               };
               if (textColorContrastIssues.has(key)) {
                 textColorContrastIssues.get(key).push(issue);
-              } else {
+              }
+              else {
                 textColorContrastIssues.set(key, [issue]);
               }
             }
           }
         }
 
-        CSSOverviewUnusedDeclarations.checkForUnusedPositionValues(
-            unusedDeclarations, nodeId, strings, positionIdx, topIdx, leftIdx, rightIdx, bottomIdx);
+        CSSOverviewUnusedDeclarations.checkForUnusedPositionValues(unusedDeclarations, nodeId, strings, positionIdx, topIdx, leftIdx, rightIdx, bottomIdx);
 
         // Ignore SVG elements as, despite being inline by default, they can have width & height specified.
         // Also ignore replaced content, for similar reasons.
         if (!isSVGNode(strings[nodeName]) && !isReplacedContent(strings[nodeName])) {
-          CSSOverviewUnusedDeclarations.checkForUnusedWidthAndHeightValues(
-              unusedDeclarations, nodeId, strings, displayIdx, widthIdx, heightIdx);
+          CSSOverviewUnusedDeclarations.checkForUnusedWidthAndHeightValues(unusedDeclarations, nodeId, strings, displayIdx, widthIdx, heightIdx);
         }
 
         if (verticalAlignIdx !== -1 && !isTableElementWithDefaultStyles(strings[nodeName], strings[displayIdx])) {
-          CSSOverviewUnusedDeclarations.checkForInvalidVerticalAlignment(
-              unusedDeclarations, nodeId, strings, displayIdx, verticalAlignIdx);
+          CSSOverviewUnusedDeclarations.checkForInvalidVerticalAlignment(unusedDeclarations, nodeId, strings, displayIdx, verticalAlignIdx);
         }
       }
     }
 
-    return {
+    ,
+
+    return: {
       backgroundColors,
       textColors,
       textColorContrastIssues,
@@ -322,134 +321,144 @@ export class CSSOverviewModel extends SDK.SDKModel.SDKModel {
       fontInfo,
       unusedDeclarations,
       elementCount
-    };
-  }
-
-  /**
-   * @param {!Protocol.DOM.NodeId} nodeId
-   */
-  getComputedStyleForNode(nodeId) {
-    return this._cssAgent.invoke_getComputedStyleForNode({nodeId});
-  }
-
-  async getMediaQueries() {
-    const queries = await this._cssAgent.invoke_getMediaQueries();
-    const queryMap = new Map();
-
-    if (!queries) {
-      return queryMap;
     }
+  };
 
-    for (const query of queries.medias) {
-      // Ignore media queries applied to stylesheets; instead only use declared media rules.
-      if (query.source === 'linkedSheet') {
-        continue;
-      }
+/**
+ * @param {!Protocol.DOM.NodeId} nodeId
+ */
+getComputedStyleForNode(nodeId);
+Promise < Protocol.CSS.GetComputedStyleForNodeResponse > {
+  return: this._cssAgent.invoke_getComputedStyleForNode({ nodeId })
+};
 
-      const entries = queryMap.get(query.text) || [];
-      entries.push(query);
-      queryMap.set(query.text, entries);
-    }
+async;
+getMediaQueries();
+Promise < Map < any, any >> {
+  const: queries = await this._cssAgent.invoke_getMediaQueries(),
+  const: queryMap = new Map(),
 
+  if(any, queries: any) {
     return queryMap;
   }
 
-  async getGlobalStylesheetStats() {
-    // There are no ways to pull CSSOM values directly today, due to its unserializable format,
-    // so instead we execute some JS within the page that extracts the relevant data and send that instead.
-    const expression = `(function() {
-      let styleRules = 0;
-      let inlineStyles = 0;
-      let externalSheets = 0;
-      const stats = {
-        // Simple.
-        type: new Set(),
-        class: new Set(),
-        id: new Set(),
-        universal: new Set(),
-        attribute: new Set(),
+  ,
 
-        // Non-simple.
-        nonSimple: new Set()
-      };
-
-      for (const styleSheet of document.styleSheets) {
-        if (styleSheet.href) {
-          externalSheets++;
-        } else {
-          inlineStyles++;
-        }
-
-        // Attempting to grab rules can trigger a DOMException.
-        // Try it and if it fails skip to the next stylesheet.
-        let rules;
-        try {
-          rules = styleSheet.rules;
-        } catch (err) {
-          continue;
-        }
-
-        for (const rule of rules) {
-          if ('selectorText' in rule) {
-            styleRules++;
-
-            // Each group that was used.
-            for (const selectorGroup of rule.selectorText.split(',')) {
-              // Each selector in the group.
-              for (const selector of selectorGroup.split(\/[\\t\\n\\f\\r ]+\/g)) {
-                if (selector.startsWith('.')) {
-                  // Class.
-                  stats.class.add(selector);
-                } else if (selector.startsWith('#')) {
-                  // Id.
-                  stats.id.add(selector);
-                } else if (selector.startsWith('*')) {
-                  // Universal.
-                  stats.universal.add(selector);
-                } else if (selector.startsWith('[')) {
-                  // Attribute.
-                  stats.attribute.add(selector);
-                } else {
-                  // Type or non-simple selector.
-                  const specialChars = \/[#\.:\\[\\]|\\+>~]\/;
-                  if (specialChars.test(selector)) {
-                    stats.nonSimple.add(selector);
-                  } else {
-                    stats.type.add(selector);
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-
-      return {
-        styleRules,
-        inlineStyles,
-        externalSheets,
-        stats: {
-          // Simple.
-          type: stats.type.size,
-          class: stats.class.size,
-          id: stats.id.size,
-          universal: stats.universal.size,
-          attribute: stats.attribute.size,
-
-          // Non-simple.
-          nonSimple: stats.nonSimple.size
-        }
-      }
-    })()`;
-    const {result} = await this._runtimeAgent.invoke_evaluate({expression, returnByValue: true});
-
-    // TODO(paullewis): Handle errors properly.
-    if (result.type !== 'object') {
-      return;
-    }
-
-    return result.value;
+  for(any, query: any, of: any, queries: any) { },
+  : .medias
+};
+{
+  // Ignore media queries applied to stylesheets; instead only use declared media rules.
+  if (query.source === 'linkedSheet') {
+    continue;
   }
+
+  const entries = queryMap.get(query.text) || [];
+  entries.push(query);
+  queryMap.set(query.text, entries);
 }
+
+return queryMap;
+
+async;
+getGlobalStylesheetStats();
+Promise < any > {
+  // There are no ways to pull CSSOM values directly today, due to its unserializable format,
+  // so instead we execute some JS within the page that extracts the relevant data and send that instead.
+  const: expression = `(function() {
+  let styleRules = 0;
+  let inlineStyles = 0;
+  let externalSheets = 0;
+  const stats = {
+  // Simple.
+  type: new Set(),
+  class: new Set(),
+  id: new Set(),
+  universal: new Set(),
+  attribute: new Set(),
+
+  // Non-simple.
+  nonSimple: new Set()
+  };
+
+  for (const styleSheet of document.styleSheets) {
+  if (styleSheet.href) {
+  externalSheets++;
+  } else {
+  inlineStyles++;
+  }
+
+  // Attempting to grab rules can trigger a DOMException.
+  // Try it and if it fails skip to the next stylesheet.
+  let rules;
+  try {
+  rules = styleSheet.rules;
+  } catch (err) {
+  continue;
+  }
+
+  for (const rule of rules) {
+  if ('selectorText' in rule) {
+  styleRules++;
+
+  // Each group that was used.
+  for (const selectorGroup of rule.selectorText.split(',')) {
+  // Each selector in the group.
+  for (const selector of selectorGroup.split(\/[\\t\\n\\f\\r ]+\/g)) {
+  if (selector.startsWith('.')) {
+  // Class.
+  stats.class.add(selector);
+  } else if (selector.startsWith('#')) {
+  // Id.
+  stats.id.add(selector);
+  } else if (selector.startsWith('*')) {
+  // Universal.
+  stats.universal.add(selector);
+  } else if (selector.startsWith('[')) {
+  // Attribute.
+  stats.attribute.add(selector);
+  } else {
+  // Type or non-simple selector.
+  const specialChars = \/[#\.:\\[\\]|\\+>~]\/;
+  if (specialChars.test(selector)) {
+  stats.nonSimple.add(selector);
+  } else {
+  stats.type.add(selector);
+  }
+  }
+  }
+  }
+  }
+  }
+  }
+
+  return {
+  styleRules,
+  inlineStyles,
+  externalSheets,
+  stats: {
+  // Simple.
+  type: stats.type.size,
+  class: stats.class.size,
+  id: stats.id.size,
+  universal: stats.universal.size,
+  attribute: stats.attribute.size,
+
+  // Non-simple.
+  nonSimple: stats.nonSimple.size
+  }
+  }
+  })()`,
+  const: { result } = await this._runtimeAgent.invoke_evaluate({ expression, returnByValue: true }),
+
+  // TODO(paullewis): Handle errors properly.
+  if(result: any) { },
+  : .type !== 'object'
+};
+{
+  return;
+}
+
+return result.value;
 
 SDK.SDKModel.SDKModel.register(CSSOverviewModel, SDK.SDKModel.Capability.DOM, false);

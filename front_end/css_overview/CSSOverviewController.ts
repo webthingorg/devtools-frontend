@@ -2,19 +2,21 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';
 import * as SDK from '../sdk/sdk.js';
 
 export class OverviewController extends Common.ObjectWrapper.ObjectWrapper {
+  currentUrl: string;
   constructor() {
     super();
 
     this.currentUrl = SDK.SDKModel.TargetManager.instance().inspectedURL();
-    SDK.SDKModel.TargetManager.instance().addEventListener(
-        SDK.SDKModel.Events.InspectedURLChanged, this._checkUrlAndResetIfChanged, this);
+    SDK.SDKModel.TargetManager.instance().addEventListener(SDK.SDKModel.Events.InspectedURLChanged, this._checkUrlAndResetIfChanged, this);
   }
 
-  _checkUrlAndResetIfChanged() {
+  _checkUrlAndResetIfChanged(): void {
     if (this.currentUrl === SDK.SDKModel.TargetManager.instance().inspectedURL()) {
       return;
     }

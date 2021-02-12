@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as i18n from '../i18n/i18n.js';
 import * as UI from '../ui/ui.js';
 
@@ -11,7 +13,7 @@ export const UIStrings = {
   */
   clearOverview: 'Clear overview',
 };
-const str_ = i18n.i18n.registerUIStrings('css_overview/CSSOverviewSidebarPanel.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('css_overview/CSSOverviewSidebarPanel.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class CSSOverviewSidebarPanel extends UI.Widget.VBox {
   static get ITEM_CLASS_NAME() {
@@ -25,7 +27,7 @@ export class CSSOverviewSidebarPanel extends UI.Widget.VBox {
   constructor() {
     super(true);
 
-    this.registerRequiredCSS('css_overview/cssOverviewSidebarPanel.css', {enableLegacyPatching: false});
+    this.registerRequiredCSS('css_overview/cssOverviewSidebarPanel.css', { enableLegacyPatching: false });
     this.contentElement.classList.add('overview-sidebar-panel');
     this.contentElement.addEventListener('click', this._onItemClick.bind(this));
 
@@ -39,36 +41,30 @@ export class CSSOverviewSidebarPanel extends UI.Widget.VBox {
     toolbar.appendToolbarItem(clearResultsButton);
   }
 
-
-  /**
-   * @param {string} name
-   * @param {string} id
-   */
-  addItem(name, id) {
+  addItem(name: string, id: string): void {
     const item = this.contentElement.createChild('div', CSSOverviewSidebarPanel.ITEM_CLASS_NAME);
     item.textContent = name;
     item.dataset.id = id;
   }
 
-  _reset() {
+  _reset(): void {
     this.dispatchEventToListeners(SidebarEvents.Reset);
   }
 
-  _deselectAllItems() {
+  _deselectAllItems(): void {
     const items = this.contentElement.querySelectorAll(`.${CSSOverviewSidebarPanel.ITEM_CLASS_NAME}`);
     items.forEach(item => {
       item.classList.remove(CSSOverviewSidebarPanel.SELECTED);
     });
   }
 
-  /** @param {!Event} event */
-  _onItemClick(event) {
-    const target = /** @type {!HTMLElement} */ (event.composedPath()[0]);
+  _onItemClick(event: Event): void {
+    const target = (event.composedPath()[0] as HTMLElement);
     if (!target.classList.contains(CSSOverviewSidebarPanel.ITEM_CLASS_NAME)) {
       return;
     }
 
-    const {id} = target.dataset;
+    const { id } = target.dataset;
     if (!id) {
       return;
     }
@@ -76,10 +72,7 @@ export class CSSOverviewSidebarPanel extends UI.Widget.VBox {
     this.dispatchEventToListeners(SidebarEvents.ItemSelected, id);
   }
 
-  /**
-   * @param {string} id
-   */
-  select(id) {
+  select(id: string): void {
     const target = this.contentElement.querySelector(`[data-id=${CSS.escape(id)}]`);
     if (!target) {
       return;
