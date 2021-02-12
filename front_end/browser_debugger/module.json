@@ -6,16 +6,6 @@
       "marker": "breakpoint-marker",
       "title": "DOM Breakpoint",
       "color": "rgb(105, 140, 254)"
-    },
-    {
-      "type": "@Sources.NavigatorView",
-      "viewId": "navigator-overrides",
-      "className": "Sources.OverridesNavigatorView"
-    },
-    {
-      "type": "@Sources.NavigatorView",
-      "viewId": "navigator-contentScripts",
-      "className": "Sources.ContentScriptsNavigatorView"
     }
   ],
   "dependencies": [
