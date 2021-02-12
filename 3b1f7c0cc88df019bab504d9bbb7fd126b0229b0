@@ -433,6 +433,30 @@
       },
       "revId": "3b1f7c0cc88df019bab504d9bbb7fd126b0229b0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d55681fd_a9794498",
+        "filename": "test/e2e/elements/flexbox-editor_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-12T13:54:16Z",
+      "side": 1,
+      "message": "Thanks! Updated the test according to your suggestions!",
+      "parentUuid": "77f75a65_12861436",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 33
+      },
+      "revId": "3b1f7c0cc88df019bab504d9bbb7fd126b0229b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
