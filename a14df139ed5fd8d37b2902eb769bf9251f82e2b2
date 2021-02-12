@@ -16,6 +16,46 @@
       "message": "Hi Sigurd, PTAL Thanks",
       "revId": "a14df139ed5fd8d37b2902eb769bf9251f82e2b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "008b685d_f393ec7e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-12T07:23:11Z",
+      "side": 1,
+      "message": "Overall looks great, but the linked doc is still missing LGTMs. Could you ping the reviewers there, so we can land this CL with the final LGTM\u0027d descriptions?",
+      "revId": "a14df139ed5fd8d37b2902eb769bf9251f82e2b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68167d43_b47975c7",
+        "filename": "test/e2e/issues/twa-issues_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-12T07:23:11Z",
+      "side": 1,
+      "message": "In the meantime, we got a new helper assertNotNull in shared/helper.js, which is typed such that TypeScript knows the checked variable cannot be null afterwards. Could you please modernize this test file as well?",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 23
+      },
+      "revId": "a14df139ed5fd8d37b2902eb769bf9251f82e2b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
