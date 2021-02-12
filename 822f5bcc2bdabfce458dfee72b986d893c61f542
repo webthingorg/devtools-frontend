@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e867bde3_86588821",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-12T02:42:14Z",
+      "side": 0,
+      "message": "nit: for consistency with AccessibilityNode maybe this line can also be moved to the constructor",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 50
+      },
+      "revId": "822f5bcc2bdabfce458dfee72b986d893c61f542",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
