@@ -293,10 +293,10 @@ def _CheckDevToolsStyleCSS(input_api, output_api):
         ['.css'], results)
 
     if not css_should_bail_out:
-        script_args = ["--syntax", "html", "--files"] + ts_files_to_lint
+        script_args = ["--files"] + css_files_to_lint
         results.extend(
             _checkWithNodeScript(input_api, output_api, lint_path,
-                                 css_files_to_lint))
+                                 script_args))
 
     ts_should_bail_out, ts_files_to_lint = _getFilesToLint(
         input_api, output_api, lint_config_files, default_linted_directories,
