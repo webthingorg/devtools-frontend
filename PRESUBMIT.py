@@ -281,7 +281,7 @@ def _CheckDevToolsStyleCSS(input_api, output_api):
         input_api.os_path.join(input_api.PresubmitLocalPath(),
                                '.stylelintignore'),
         input_api.os_path.join(scripts_directory, 'test',
-                               'run_lint_check_css.py'),
+                               'run_lint_check_css.js'),
     ]
 
     lint_config_files = _getAffectedFiles(input_api, stylelint_related_files,
@@ -293,10 +293,10 @@ def _CheckDevToolsStyleCSS(input_api, output_api):
         ['.css'], results)
 
     if not css_should_bail_out:
-        script_args = ["--syntax", "html", "--files"] + ts_files_to_lint
+        script_args = ["--files"] + css_files_to_lint
         results.extend(
             _checkWithNodeScript(input_api, output_api, lint_path,
-                                 css_files_to_lint))
+                                 script_args))
 
     ts_should_bail_out, ts_files_to_lint = _getFilesToLint(
         input_api, output_api, lint_config_files, default_linted_directories,
