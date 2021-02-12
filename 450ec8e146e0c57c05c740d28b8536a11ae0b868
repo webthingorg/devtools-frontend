@@ -121,6 +121,24 @@
       "message": "copy-paste leftover?",
       "revId": "450ec8e146e0c57c05c740d28b8536a11ae0b868",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5240b9a8_4516785c",
+        "filename": "test/e2e/console/issues-toolbar_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-12T08:48:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75958e2c_c3068f7c",
+      "revId": "450ec8e146e0c57c05c740d28b8536a11ae0b868",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
