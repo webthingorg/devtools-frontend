@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c55f5ae3_ebc08706",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-12T08:56:36Z",
+      "side": 1,
+      "message": "I\u0027m 50/50 on this change; I think I lead more towards Simon\u0027s view that the overhead and complexity isn\u0027t worth the saving in duplication. It\u0027s unfortunate because were Clang able to deal with it and we didn\u0027t have the TS bug in outputting d.ts files it might become clearer, but for me I\u0027d lean towards not landing this as the complexity outweighs the benefits.\n\nThat said I don\u0027t feel so strongly to block it.",
+      "revId": "7faa8913d6cea319dbd1713a2711a8ef3924b70a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f539fc6_5cd740db",
