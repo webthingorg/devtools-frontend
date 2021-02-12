@@ -32,6 +32,7 @@ LICENSES = [
     "CC-BY-4.0",
     "ISC",
     "MPL-2.0",
+    "Python-2.0",
 ]
 
 # List all DEPS here.
@@ -63,7 +64,7 @@ DEPS = {
     "karma-sourcemap-loader": "0.3.8",
     "karma-spec-reporter": "0.0.32",
     "license-checker": "25.0.1",
-    "mocha": "8.2.1",
+    "mocha": "8.3.0",
     "puppeteer": "7.1.0",
     "recast": "0.20.4",
     "rimraf": "3.0.2",
