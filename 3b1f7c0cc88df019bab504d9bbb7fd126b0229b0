@@ -77,6 +77,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9d96419b_ec27b719",
+        "filename": "front_end/elements/StylePropertyTreeElement.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-12T10:17:51Z",
+      "side": 1,
+      "message": "It looks like this way is used to modify the value of a property, right? In this case, I wanted to add a button next to the value, on the property level, and it does not look like property renderer allows that?",
+      "parentUuid": "6b30853e_ad1cc072",
+      "range": {
+        "startLine": 606,
+        "startChar": 6,
+        "endLine": 606,
+        "endChar": 68
+      },
+      "revId": "3b1f7c0cc88df019bab504d9bbb7fd126b0229b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "02d50bab_db7c0459",
         "filename": "front_end/elements/stylesSectionTree.css",
         "patchSetId": 1
@@ -88,6 +112,30 @@
       "writtenOn": "2021-02-11T14:14:57Z",
       "side": 1,
       "message": "Can you explain why we need all of these properties for the icon? If I look at the box-shadow editor icon, it doesn\u0027t seem like that much is needed (see rule shadow-swatch-icon).\n\nUpdate: I see now that those are needed because you wrapped the icon into a button element, while in other places of the Styles pane, the icon element is just inline. It seems like just having the icon inline is simpler. But I\u0027m guessing you did this for a11y reasons. Is that correct?\n\nIf you want to keep using the button element, it would be good to give it a more generic classname like .styles-pane-button so that it can be reused more easily by the other swatches.",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 21
+      },
+      "revId": "3b1f7c0cc88df019bab504d9bbb7fd126b0229b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "995de16f_8c6bda0f",
+        "filename": "front_end/elements/stylesSectionTree.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-12T10:17:51Z",
+      "side": 1,
+      "message": "Yes, it was mostly to make it accessible without extra code. It appears that current inline buttons don\u0027t have proper ARIA attributes and are not really accessible? \n\nI will rename it and use a more generic class.",
+      "parentUuid": "02d50bab_db7c0459",
       "range": {
         "startLine": 188,
         "startChar": 0,
