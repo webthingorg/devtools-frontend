@@ -104,6 +104,24 @@
       "parentUuid": "edbc8e18_b48e630b",
       "revId": "6d332e551f69066cabeea650b7058c24d4a6c363",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3fd60d8_6b3297b9",
+        "filename": "front_end/ui/components/DataGrid.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 895,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-12T08:54:06Z",
+      "side": 1,
+      "message": "Oh you\u0027re so right and I\u0027m an idiot, it should be `Math.max`. Fixed!",
+      "parentUuid": "804e0037_53bad788",
+      "revId": "6d332e551f69066cabeea650b7058c24d4a6c363",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
