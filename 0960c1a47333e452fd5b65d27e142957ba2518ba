@@ -22,6 +22,30 @@
       },
       "revId": "0960c1a47333e452fd5b65d27e142957ba2518ba",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c36bdad_daa1410b",
+        "filename": "front_end/elements/MarkerDecorator.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-02-12T16:22:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76160465_3b837190",
+      "range": {
+        "startLine": 54,
+        "startChar": 4,
+        "endLine": 54,
+        "endChar": 21
+      },
+      "revId": "0960c1a47333e452fd5b65d27e142957ba2518ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
