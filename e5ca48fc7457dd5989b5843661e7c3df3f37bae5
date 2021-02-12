@@ -33,6 +33,23 @@
       "message": "Awesome! Would it be possible to write a test that tests a site loaded from a.test iframing b.test really creates an OOPIF?",
       "revId": "e5ca48fc7457dd5989b5843661e7c3df3f37bae5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "088e0c58_10ae32fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-02-12T11:02:20Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "e5ca48fc7457dd5989b5843661e7c3df3f37bae5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
