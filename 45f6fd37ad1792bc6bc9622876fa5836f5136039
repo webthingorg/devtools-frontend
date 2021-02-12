@@ -50,6 +50,29 @@
       "message": "LGTM, thanks!",
       "revId": "45f6fd37ad1792bc6bc9622876fa5836f5136039",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "727a6cc4_8d65eb5b",
+        "filename": "test/unittests/front_end/elements/AccessibilityNode_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-12T04:30:50Z",
+      "side": 1,
+      "message": "A question about this test- it seems withNoMutations is only used with async/await, so is it still appropriate to use here? It seems like this block may not actually be running due to the lack of await and anything inside it will pass.\n\nAlso it feels like this test is not really testing the actual web component. Would you have any suggestions about how to improve this test, or if we could maybe remove it?",
+      "range": {
+        "startLine": 169,
+        "startChar": 6,
+        "endLine": 169,
+        "endChar": 21
+      },
+      "revId": "45f6fd37ad1792bc6bc9622876fa5836f5136039",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
