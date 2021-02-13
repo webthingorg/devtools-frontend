@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3977d30c_40837f65",
+        "filename": "front_end/common/Revealer.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2021-02-13T03:11:34Z",
+      "side": 1,
+      "message": "I think the revealer destination should not be localized ( in old module.json they were not localized)",
+      "revId": "dcab16bc2401fd7dc36a046164d5f71cedeb36fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
