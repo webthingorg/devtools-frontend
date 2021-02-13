@@ -67,7 +67,7 @@ export class CommandMenu {
    * @template V
    */
   static createSettingCommand(setting, title, value) {
-    const category = setting.category() || '';
+    const category = setting.category()?.() || '';
     const tags = setting.tags() || '';
     const reloadRequired = Boolean(setting.reloadRequired());
     return CommandMenu.createCommand({
