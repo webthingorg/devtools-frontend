@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "550cc0e8_e6b52578",
+        "filename": "front_end/ui/components/TreeOutline.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-15T12:47:47Z",
+      "side": 0,
+      "message": "There\u0027s a world where I understand generator functions and we can retain the `for-of` syntax, but sadly I don\u0027t really know how to do that. Do you think it would be possible to make `fetchNodeChildren` do that or is it infeasible altogether?",
+      "range": {
+        "startLine": 73,
+        "startChar": 4,
+        "endLine": 73,
+        "endChar": 44
+      },
+      "revId": "6c774cae0eb62699ce9cb399d88f017914a4cff1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

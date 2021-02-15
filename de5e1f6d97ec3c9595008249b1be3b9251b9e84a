@@ -16,6 +16,75 @@
       "message": "Tim, PTAL. This is the first pass at adding lazy children support to the treeoutline.",
       "revId": "de5e1f6d97ec3c9595008249b1be3b9251b9e84a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "031ffe10_53552d4e",
+        "filename": "front_end/component_docs/tree_outline/basic.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-15T12:47:47Z",
+      "side": 1,
+      "message": "Maybe we should consider turning of this linter rule for component docs. This seems excessive to me and doesn\u0027t aid in readability 😭 WDYT?",
+      "range": {
+        "startLine": 16,
+        "startChar": 16,
+        "endLine": 16,
+        "endChar": 67
+      },
+      "revId": "de5e1f6d97ec3c9595008249b1be3b9251b9e84a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6992ab0b_b126787e",
+        "filename": "front_end/ui/components/TreeOutline.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-15T12:47:47Z",
+      "side": 1,
+      "message": "Iirc, this means that we are not showing any information until the promise resolves. Does that mean that there could potentially be FUOC when we initially render the tree? In that case, do we also observe impact on CLS? Not sure if that\u0027s the case and if there is something we can do to mitigate these effects, are there?",
+      "range": {
+        "startLine": 316,
+        "startChar": 17,
+        "endLine": 316,
+        "endChar": 41
+      },
+      "revId": "de5e1f6d97ec3c9595008249b1be3b9251b9e84a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0aa7f420_ad08e495",
+        "filename": "front_end/ui/components/TreeOutlineUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-15T12:47:47Z",
+      "side": 1,
+      "message": "Ah nice!",
+      "range": {
+        "startLine": 15,
+        "startChar": 2,
+        "endLine": 15,
+        "endChar": 19
+      },
+      "revId": "de5e1f6d97ec3c9595008249b1be3b9251b9e84a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
