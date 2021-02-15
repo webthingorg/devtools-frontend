@@ -11,7 +11,21 @@ import * as Workspace from '../workspace/workspace.js';  // eslint-disable-line 
 import {SourcesView} from './SourcesView.js';
 import {UISourceCodeFrame} from './UISourceCodeFrame.js';  // eslint-disable-line no-unused-vars
 
+/** @type {!GoToLineQuickOpen} */
+let goToLineQuickOpenInstance;
 export class GoToLineQuickOpen extends QuickOpen.FilteredListWidget.Provider {
+  /**
+   * @param {{forceNew: ?boolean}} opts
+   */
+  static instance(opts = {forceNew: null}) {
+    const {forceNew} = opts;
+    if (!goToLineQuickOpenInstance || forceNew) {
+      goToLineQuickOpenInstance = new GoToLineQuickOpen();
+    }
+
+    return goToLineQuickOpenInstance;
+  }
+
   /**
    * @override
    * @param {?number} itemIndex
@@ -119,3 +133,9 @@ export class GoToLineQuickOpen extends QuickOpen.FilteredListWidget.Provider {
     return sourcesView.currentSourceFrame();
   }
 }
+
+QuickOpen.FilteredListWidget.registerProvider({
+  prefix: ':',
+  title: ls`Go to line`,
+  provider: async () => GoToLineQuickOpen.instance(),
+});

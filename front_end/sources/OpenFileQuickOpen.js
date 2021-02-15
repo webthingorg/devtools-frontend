@@ -4,12 +4,29 @@
 
 import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
+import {ls} from '../platform/platform.js';
+import * as QuickOpen from '../quick_open/quick_open.js';
 import * as Workspace from '../workspace/workspace.js';  // eslint-disable-line no-unused-vars
 
 import {FilteredUISourceCodeListProvider} from './FilteredUISourceCodeListProvider.js';
 import {SourcesView} from './SourcesView.js';
 
+/** @type {!OpenFileQuickOpen} */
+let openFileQuickOpenInstance;
+
 export class OpenFileQuickOpen extends FilteredUISourceCodeListProvider {
+  /**
+   * @param {{forceNew: ?boolean}} opts
+   */
+  static instance(opts = {forceNew: null}) {
+    const {forceNew} = opts;
+    if (!openFileQuickOpenInstance || forceNew) {
+      openFileQuickOpenInstance = new OpenFileQuickOpen();
+    }
+
+    return openFileQuickOpenInstance;
+  }
+
   /**
    * @override
    */
@@ -54,3 +71,9 @@ export class OpenFileQuickOpen extends FilteredUISourceCodeListProvider {
     return true;
   }
 }
+
+QuickOpen.FilteredListWidget.registerProvider({
+  prefix: '',
+  title: ls`Open file`,
+  provider: async () => OpenFileQuickOpen.instance(),
+});
