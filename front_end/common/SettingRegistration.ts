@@ -42,24 +42,61 @@ export function registerSettingExtengionsForTest(
   }
 }
 
-export const SettingCategoryObject = {
-  ELEMENTS: ls`Elements`,
-  APPEARANCE: ls`Appearance`,
-  SOURCES: ls`Sources`,
-  NETWORK: ls`Network`,
-  PERFORMANCE: ls`Performance`,
-  CONSOLE: ls`Console`,
-  PERSISTENCE: ls`Persistence`,
-  DEBUGGER: ls`Debugger`,
-  GLOBAL: ls`Global`,
-  RENDERING: ls`Rendering`,
-  GRID: ls`Grid`,
-  MOBILE: ls`Mobile`,
-  EMULATION: ls`Emulation`,
-  MEMORY: ls`Memory`,
-};
+// SettingCategory is not a const enum as it requires a reverse
+// lookup mapping to `string` for actions.
+/* eslint-disable-next-line rulesdir/const_enum */
+export enum SettingCategory {
+  NONE = '',  // Do not assign any falsy values to 'real' categories. The category is used in if-checks in legacy code.
+  ELEMENTS = 'ELEMENTS',
+  APPEARANCE = 'APPEARANCE',
+  SOURCES = 'SOURCES',
+  NETWORK = 'NETWORK',
+  PERFORMANCE = 'PERFORMANCE',
+  CONSOLE = 'CONSOLE',
+  PERSISTENCE = 'PERSISTENCE',
+  DEBUGGER = 'DEBUGGER',
+  GLOBAL = 'GLOBAL',
+  RENDERING = 'RENDERING',
+  GRID = 'GRID',
+  MOBILE = 'MOBILE',
+  EMULATION = 'EMULATION',
+  MEMORY = 'MEMORY',
+}
 
-export type SettingCategory = typeof SettingCategoryObject[keyof typeof SettingCategoryObject];
+export function getLocalizedSettingsCategory(category: SettingCategory): string|Platform.UIString.LocalizedString {
+  switch (category) {
+    case SettingCategory.ELEMENTS:
+      return ls`Elements`;
+    case SettingCategory.APPEARANCE:
+      return ls`Appearance`;
+    case SettingCategory.SOURCES:
+      return ls`Sources`;
+    case SettingCategory.NETWORK:
+      return ls`Network`;
+    case SettingCategory.PERFORMANCE:
+      return ls`Performance`;
+    case SettingCategory.CONSOLE:
+      return ls`Console`;
+    case SettingCategory.PERSISTENCE:
+      return ls`Persistence`;
+    case SettingCategory.DEBUGGER:
+      return ls`Debugger`;
+    case SettingCategory.GLOBAL:
+      return ls`Global`;
+    case SettingCategory.RENDERING:
+      return ls`Rendering`;
+    case SettingCategory.GRID:
+      return ls`Grid`;
+    case SettingCategory.MOBILE:
+      return ls`Mobile`;
+    case SettingCategory.EMULATION:
+      return ls`Emulation`;
+    case SettingCategory.MEMORY:
+      return ls`Memory`;
+    case SettingCategory.NONE:
+      return '';
+  }
+}
 
 export const SettingTypeObject = {
   ARRAY: 'array',
