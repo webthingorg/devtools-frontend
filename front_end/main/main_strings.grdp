@@ -54,9 +54,6 @@
   <message name="IDS_DEVTOOLS_586740a88e6502850bc64f9f2d04d380" desc="Title element title in Main">
     Placement of <ph name="LOCKED_1">DevTools</ph> relative to the page. (<ph name="TOGGLEDOCKSIDESHORCUTS____NAME">$1s<ex>Ctrl+Shift+D</ex></ph> to restore last position)
   </message>
-  <message name="IDS_DEVTOOLS_5e2f5f3c24ae8c6ab3eca618826b0e23" desc="A title of the 'Extensions' @UI.SettingUI category">
-    Extensions
-  </message>
   <message name="IDS_DEVTOOLS_60737985de866df2b4fee4562844ce8a" desc="A message to display prompting the user to reload DevTools if the OS color scheme changes.">
     The system-preferred color scheme has changed. To apply this change to DevTools, reload.
   </message>
