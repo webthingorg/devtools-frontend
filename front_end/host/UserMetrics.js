@@ -686,7 +686,13 @@ export const IssueCreated = {
   'SameSiteCookieIssue::WarnSameSiteUnspecifiedLaxAllowUnsafe::ReadCookie': 32,
   'SameSiteCookieIssue::WarnSameSiteUnspecifiedLaxAllowUnsafe::SetCookie': 33,
   'SameSiteCookieIssue::WarnSameSiteUnspecifiedCrossSiteContext::ReadCookie': 34,
-  'SameSiteCookieIssue::WarnSameSiteUnspecifiedCrossSiteContext::SetCookie': 35
+  'SameSiteCookieIssue::WarnSameSiteUnspecifiedCrossSiteContext::SetCookie': 35,
+  SharedArrayBufferIssue: 36,
+  'TrustedWebActivityIssue::kHttpError': 37,
+  'TrustedWebActivityIssue::kUnavailableOffline': 38,
+  'TrustedWebActivityIssue::kDigitalAssetLinks': 39,
+  LowTextContrastIssue: 40,
+  CorsIssue: 41
 };
 
 /** @enum {number} */
