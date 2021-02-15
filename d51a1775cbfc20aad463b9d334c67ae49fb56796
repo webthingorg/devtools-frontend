@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82c54ff5_f2de2d08",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-15T05:12:24Z",
+      "side": 1,
+      "message": "Some comments. Will also talk to Tim, who introduced the code in question during the module.json migration.",
+      "revId": "d51a1775cbfc20aad463b9d334c67ae49fb56796",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

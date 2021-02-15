@@ -16,6 +16,47 @@
       "message": "I think the revealer destination should not be localized ( in old module.json they were not localized)",
       "revId": "dcab16bc2401fd7dc36a046164d5f71cedeb36fe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59cca502_40dc30c1",
+        "filename": "front_end/common/Revealer.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-15T05:12:24Z",
+      "side": 1,
+      "message": "Do these show up somewhere in the UI? If so, we need to duplicate these, have a l10n version of these strings for the UI, but a straight enum for revealing.\n\nBut yes, I agree that these should definitely not be localized, otherwise the enum might have different values based on what module it loads and when it does so.",
+      "parentUuid": "3977d30c_40837f65",
+      "revId": "dcab16bc2401fd7dc36a046164d5f71cedeb36fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33f78a7d_82732427",
+        "filename": "front_end/common/SettingRegistration.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-15T05:12:24Z",
+      "side": 1,
+      "message": "Similar argument for these as before. If the category is shown in the UI, we need to split these into two. Have UIStrings separate from the enum for the code.\n\nIdeally we do that before we land this l10n CL.",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 2
+      },
+      "revId": "dcab16bc2401fd7dc36a046164d5f71cedeb36fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
