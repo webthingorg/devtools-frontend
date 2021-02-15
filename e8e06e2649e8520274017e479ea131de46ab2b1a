@@ -69,6 +69,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc39f3bf_e4d1ba05",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-15T06:35:13Z",
+      "side": 1,
+      "message": "LGTM thanks!",
+      "revId": "e8e06e2649e8520274017e479ea131de46ab2b1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c28ccfa_eb482bcc",
@@ -82,6 +99,29 @@
       "writtenOn": "2021-02-15T04:48:42Z",
       "side": 1,
       "message": "nit: Should we make childAXNodes a non private variable?",
+      "revId": "e8e06e2649e8520274017e479ea131de46ab2b1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f292df25_12ddafc4",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1475325
+      },
+      "writtenOn": "2021-02-15T06:35:13Z",
+      "side": 1,
+      "message": "Just to clarify my own understanding, why does this function also need to be async? Is it because refreshAccessibilityTree() is?",
+      "range": {
+        "startLine": 156,
+        "startChar": 10,
+        "endLine": 156,
+        "endChar": 15
+      },
       "revId": "e8e06e2649e8520274017e479ea131de46ab2b1a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
