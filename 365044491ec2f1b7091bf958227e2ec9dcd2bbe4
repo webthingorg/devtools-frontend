@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "365044491ec2f1b7091bf958227e2ec9dcd2bbe4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12ba6b62_6574b6d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-15T12:52:56Z",
+      "side": 1,
+      "message": "I personally don\u0027t prefer duplicating such enums, which is why we combined them into one. However, I understand that the requirements of the localization system mandate this solution. Therefore, let\u0027s go for this, thanks for addressing the issue!",
+      "revId": "365044491ec2f1b7091bf958227e2ec9dcd2bbe4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f75f37fa_f7fa1711",
+        "filename": "front_end/common/SettingRegistration.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-15T12:52:56Z",
+      "side": 1,
+      "message": "Nit: let\u0027s add `assertNever` here to make sure we don\u0027t miss any:\n\n```\ndefault:\n  return Platform.assertNever(category, `Unknown settings category: ${category}`);\n```",
+      "range": {
+        "startLine": 94,
+        "startChar": 4,
+        "endLine": 94,
+        "endChar": 16
+      },
+      "revId": "365044491ec2f1b7091bf958227e2ec9dcd2bbe4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
