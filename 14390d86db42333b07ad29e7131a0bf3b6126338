@@ -39,6 +39,30 @@
       },
       "revId": "14390d86db42333b07ad29e7131a0bf3b6126338",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab035dff_fdc346e0",
+        "filename": "front_end/issues/IssueView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-15T14:41:06Z",
+      "side": 1,
+      "message": "❤️",
+      "parentUuid": "ff3b91d2_d8603919",
+      "range": {
+        "startLine": 139,
+        "startChar": 35,
+        "endLine": 139,
+        "endChar": 45
+      },
+      "revId": "14390d86db42333b07ad29e7131a0bf3b6126338",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
