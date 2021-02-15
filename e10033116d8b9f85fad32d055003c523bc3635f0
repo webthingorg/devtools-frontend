@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11771522_4d3bcc36",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-15T09:24:23Z",
+      "side": 1,
+      "message": "Bug: 1163928",
+      "revId": "e10033116d8b9f85fad32d055003c523bc3635f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
