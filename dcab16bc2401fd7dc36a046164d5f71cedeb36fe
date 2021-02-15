@@ -57,6 +57,30 @@
       },
       "revId": "dcab16bc2401fd7dc36a046164d5f71cedeb36fe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3676529b_3f4810b4",
+        "filename": "front_end/common/SettingRegistration.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-15T06:44:12Z",
+      "side": 1,
+      "message": "Proposed a fix here: https://crrev.com/c/2692910. We might have to do something similar for revealer.",
+      "parentUuid": "33f78a7d_82732427",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 2
+      },
+      "revId": "dcab16bc2401fd7dc36a046164d5f71cedeb36fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
