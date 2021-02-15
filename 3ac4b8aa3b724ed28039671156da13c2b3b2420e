@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc362045_d40da664",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-15T09:55:56Z",
+      "side": 1,
+      "message": "@Peter PTAL. To update this file to dark mode I needed the background color variable with 50% opacity. I have defined the new variable as --color-background-50pc but I\u0027m not sure on the naming or if this is the best way to do it. I defer to you here - WDYT?",
+      "revId": "3ac4b8aa3b724ed28039671156da13c2b3b2420e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
