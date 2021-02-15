@@ -1679,23 +1679,23 @@ ElementsTreeOutline.Events = {
  */
 export const MappedCharToEntity = {
   '\xA0': 'nbsp',
-  '\x93': '#147',  // <control>
   '\xAD': 'shy',
   '\u2002': 'ensp',
   '\u2003': 'emsp',
   '\u2009': 'thinsp',
-  '\u200a': '#8202',  // Hairspace
-  '\u200b': '#8203',  // ZWSP
+  '\u200a': 'hairsp',
+  '\u200b': 'ZeroWidthSpace',
   '\u200c': 'zwnj',
   '\u200d': 'zwj',
   '\u200e': 'lrm',
   '\u200f': 'rlm',
-  '\u202a': '#8234',  // LRE
-  '\u202b': '#8235',  // RLE
-  '\u202c': '#8236',  // PDF
-  '\u202d': '#8237',  // LRO
-  '\u202e': '#8238',  // RLO
-  '\ufeff': '#65279'  // BOM
+  '\u202a': '#x202A',  // LRE
+  '\u202b': '#x202B',  // RLE
+  '\u202c': '#x202C',  // PDF
+  '\u202d': '#x202D',  // LRO
+  '\u202e': '#x202E',  // RLO
+  '\u2060': 'NoBreak',
+  '\ufeff': '#xFEFF',  // BOM
 };
 
 export class UpdateRecord {
