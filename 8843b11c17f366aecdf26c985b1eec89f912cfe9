@@ -56,6 +56,30 @@
       },
       "revId": "8843b11c17f366aecdf26c985b1eec89f912cfe9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46538463_36d676f3",
+        "filename": "front_end/issues/IssueAggregator.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-15T11:44:53Z",
+      "side": 1,
+      "message": "It turned the primaryKey for mixed content issues was already the stringified mixed content issue details so this clearly wasn\u0027t necessary.\n\nIn principle, we could move to this style for heavy ads and COEP issues as well, but that would require a couple of other changes that I didn\u0027t want to cram in this CL.",
+      "parentUuid": "11ea2fcc_5d7f1341",
+      "range": {
+        "startLine": 146,
+        "startChar": 6,
+        "endLine": 146,
+        "endChar": 41
+      },
+      "revId": "8843b11c17f366aecdf26c985b1eec89f912cfe9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
