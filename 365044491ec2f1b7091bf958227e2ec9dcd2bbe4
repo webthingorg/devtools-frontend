@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50660ad9_493b4943",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-15T12:57:32Z",
+      "side": 1,
+      "message": "IMHO we are not really duplicating though. We have an enum, and we have localized values for each enum value :)",
+      "parentUuid": "12ba6b62_6574b6d8",
+      "revId": "365044491ec2f1b7091bf958227e2ec9dcd2bbe4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f75f37fa_f7fa1711",
@@ -48,6 +66,30 @@
       "writtenOn": "2021-02-15T12:52:56Z",
       "side": 1,
       "message": "Nit: let\u0027s add `assertNever` here to make sure we don\u0027t miss any:\n\n```\ndefault:\n  return Platform.assertNever(category, `Unknown settings category: ${category}`);\n```",
+      "range": {
+        "startLine": 94,
+        "startChar": 4,
+        "endLine": 94,
+        "endChar": 16
+      },
+      "revId": "365044491ec2f1b7091bf958227e2ec9dcd2bbe4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "474c59db_3000baa3",
+        "filename": "front_end/common/SettingRegistration.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-15T12:57:32Z",
+      "side": 1,
+      "message": "Do you mean if we force cast something to `SettingCategory`? For all other cases TS will complain as the function doesn\u0027t have a return statement so the switch MUST be exhaustive.",
+      "parentUuid": "f75f37fa_f7fa1711",
       "range": {
         "startLine": 94,
         "startChar": 4,
