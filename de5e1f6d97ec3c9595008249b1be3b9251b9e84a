@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "836989b9_a0d7dc7c",
+        "filename": "front_end/component_docs/tree_outline/basic.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-15T14:47:11Z",
+      "side": 1,
+      "message": "Yeah, I felt this was quite overkill! Will do in a follow up CL.",
+      "parentUuid": "031ffe10_53552d4e",
+      "range": {
+        "startLine": 16,
+        "startChar": 16,
+        "endLine": 16,
+        "endChar": 67
+      },
+      "revId": "de5e1f6d97ec3c9595008249b1be3b9251b9e84a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6992ab0b_b126787e",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "86c93a6f_332c219e",
+        "filename": "front_end/ui/components/TreeOutline.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-15T14:47:11Z",
+      "side": 1,
+      "message": "Yeah, I\u0027m not 100% sure on the best approach here. Given that the top level nodes though are always defined, even if their children are lazy, this should mean that this approach leads to the top level nodes immediately being rendered (`this.renderNode` also uses `until` so it renders the key immediately and defers the children) and then the children only fetched when required. So I\u0027m not sure how much better we can get than that to be honest.\n\nAs far as I can tell the old tree outline uses this approach too; although I\u0027d like to (and will) revisit this further when it comes to stress testing the new component.",
+      "parentUuid": "6992ab0b_b126787e",
+      "range": {
+        "startLine": 316,
+        "startChar": 17,
+        "endLine": 316,
+        "endChar": 41
+      },
+      "revId": "de5e1f6d97ec3c9595008249b1be3b9251b9e84a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0aa7f420_ad08e495",
@@ -77,6 +125,30 @@
       "writtenOn": "2021-02-15T12:47:47Z",
       "side": 1,
       "message": "Ah nice!",
+      "range": {
+        "startLine": 15,
+        "startChar": 2,
+        "endLine": 15,
+        "endChar": 19
+      },
+      "revId": "de5e1f6d97ec3c9595008249b1be3b9251b9e84a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f945b775_92ff6d30",
+        "filename": "front_end/ui/components/TreeOutlineUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-15T14:47:11Z",
+      "side": 1,
+      "message": ":D First time I\u0027ve used `never` and it works perfectly!",
+      "parentUuid": "0aa7f420_ad08e495",
       "range": {
         "startLine": 15,
         "startChar": 2,

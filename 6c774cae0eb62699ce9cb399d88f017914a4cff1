@@ -22,6 +22,30 @@
       },
       "revId": "6c774cae0eb62699ce9cb399d88f017914a4cff1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c13f090_c2ac7476",
+        "filename": "front_end/ui/components/TreeOutline.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-15T14:47:11Z",
+      "side": 0,
+      "message": "Yeah, it\u0027s a bit of a shame that it makes \"processing\" the children slightly more involved. I wonder if we could at least built some helper utils around this - but I\u0027m not sure. Will have a look and follow up in another CL if I can figure something nicer out.",
+      "parentUuid": "550cc0e8_e6b52578",
+      "range": {
+        "startLine": 73,
+        "startChar": 4,
+        "endLine": 73,
+        "endChar": 44
+      },
+      "revId": "6c774cae0eb62699ce9cb399d88f017914a4cff1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
