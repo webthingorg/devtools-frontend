@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "a681a4041e5559457e66ba9ea0f7f256c33acb79",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ca774bc_6a698f95",
+        "filename": "inspector_overlay/.eslintrc.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-02-15T13:29:31Z",
+      "side": 1,
+      "message": "non-blocking suggestion for a potential follow-up: should we extract these shared configurations to a separate file, and then import/require it wherever they\u0027re needed?",
+      "revId": "a681a4041e5559457e66ba9ea0f7f256c33acb79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
