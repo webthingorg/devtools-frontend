@@ -52,6 +52,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e9f1379_f7b0e306",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-02-15T05:30:37Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "e8e06e2649e8520274017e479ea131de46ab2b1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c28ccfa_eb482bcc",
@@ -65,6 +82,40 @@
       "writtenOn": "2021-02-15T04:48:42Z",
       "side": 1,
       "message": "nit: Should we make childAXNodes a non private variable?",
+      "revId": "e8e06e2649e8520274017e479ea131de46ab2b1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a5737da_6be3b057",
+        "filename": "front_end/elements/AccessibilityTreeUtils.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-02-15T05:30:37Z",
+      "side": 1,
+      "message": "nit: can you add a comment here explaining the difference between these two? i.e some children aren\u0027t loaded in the model but exist and need to be fetched, I find it difficult to follow when there are multiple things called children. Something like:\n\n```\nsdkNode.numChildren() contains the true count of children for an accessibility node stored in the backend, whereas axChildren only contains children that have been loaded into the model. In the case where these differ, the children need to be fetched and loaded into the model in order to be displayed on screen.\n```\n\n\nSomething less verbose than that would be good, too.",
+      "revId": "e8e06e2649e8520274017e479ea131de46ab2b1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "312e27f2_aa7dd48c",
+        "filename": "test/unittests/front_end/elements/AccessibilityNode_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1323906
+      },
+      "writtenOn": "2021-02-15T05:30:37Z",
+      "side": 1,
+      "message": "Is it worth having a test for click behaviour of nodes with no children? Not sure if we typically test the sad path.",
       "revId": "e8e06e2649e8520274017e479ea131de46ab2b1a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
