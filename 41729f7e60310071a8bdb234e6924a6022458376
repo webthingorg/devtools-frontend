@@ -16,6 +16,69 @@
       "message": "PTAL",
       "revId": "41729f7e60310071a8bdb234e6924a6022458376",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc5fd0ce_dbf41338",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-15T08:52:04Z",
+      "side": 1,
+      "message": "Thanks, some comments.",
+      "revId": "41729f7e60310071a8bdb234e6924a6022458376",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48504f37_d1b58ab5",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 690,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-15T08:52:04Z",
+      "side": 1,
+      "message": "Could we distinguish Transfer and Creation issues?",
+      "range": {
+        "startLine": 690,
+        "startChar": 2,
+        "endLine": 690,
+        "endChar": 24
+      },
+      "revId": "41729f7e60310071a8bdb234e6924a6022458376",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cecb336d_6e858625",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-15T08:52:04Z",
+      "side": 1,
+      "message": "Can we use CorsIssue::InsecurePrivateNetwork here, just to be prepared if we want to add more cors issues in the future.",
+      "range": {
+        "startLine": 695,
+        "startChar": 2,
+        "endLine": 695,
+        "endChar": 11
+      },
+      "revId": "41729f7e60310071a8bdb234e6924a6022458376",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
