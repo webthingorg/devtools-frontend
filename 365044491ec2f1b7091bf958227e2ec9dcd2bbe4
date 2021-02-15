@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4ad0f61_913d1273",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-15T13:12:16Z",
+      "side": 1,
+      "message": "That\u0027s true, but as I understand it there is no real usage of the enum itself, apart from obtaining the localized values. So the two combined in one enum makes sure the enum can\u0027t live \"on its own\". Still, I think this is a reasonable compromise given the localization requirements, so this is not a blocker.",
+      "parentUuid": "50660ad9_493b4943",
+      "revId": "365044491ec2f1b7091bf958227e2ec9dcd2bbe4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f75f37fa_f7fa1711",
@@ -90,6 +108,30 @@
       "side": 1,
       "message": "Do you mean if we force cast something to `SettingCategory`? For all other cases TS will complain as the function doesn\u0027t have a return statement so the switch MUST be exhaustive.",
       "parentUuid": "f75f37fa_f7fa1711",
+      "range": {
+        "startLine": 94,
+        "startChar": 4,
+        "endLine": 94,
+        "endChar": 16
+      },
+      "revId": "365044491ec2f1b7091bf958227e2ec9dcd2bbe4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c488dd7_5cb686f3",
+        "filename": "front_end/common/SettingRegistration.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-15T13:12:16Z",
+      "side": 1,
+      "message": "If TS already complains about missing values, then that\u0027s perfect. The `assertNever` tool is mostly a safeguard and a tool used to document exhaustiveness.",
+      "parentUuid": "474c59db_3000baa3",
       "range": {
         "startLine": 94,
         "startChar": 4,
