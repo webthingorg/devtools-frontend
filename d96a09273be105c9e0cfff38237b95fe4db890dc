@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "d96a09273be105c9e0cfff38237b95fe4db890dc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52612302_c0988efa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-16T15:23:53Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "d96a09273be105c9e0cfff38237b95fe4db890dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
