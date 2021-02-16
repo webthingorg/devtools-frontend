@@ -16,6 +16,24 @@
       "message": "lgtm",
       "revId": "df7f6a417f7f49878cea61dfb85f16a5bb346c7c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41b15abc_c4c33bd7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-02-16T10:34:03Z",
+      "side": 1,
+      "message": "Thanks for fixing the commit message :D",
+      "parentUuid": "36e217e7_75242b30",
+      "revId": "df7f6a417f7f49878cea61dfb85f16a5bb346c7c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
