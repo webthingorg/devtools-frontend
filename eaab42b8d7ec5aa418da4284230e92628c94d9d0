@@ -39,6 +39,30 @@
       },
       "revId": "eaab42b8d7ec5aa418da4284230e92628c94d9d0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdb0e086_b3c9f626",
+        "filename": "front_end/ui/components/TreeOutlineUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-16T14:50:15Z",
+      "side": 1,
+      "message": "No, this renderer only applies to the key of this node. Its children are not impacted.\n\nI wonder if we could make a node take:\n\n* keyRenderer: render this node\u0027s key (I\u0027m also not sure on the word \"key\" here)\n* childRenderer: a renderer that gets called for each of its children\n\nBut equally you could just define that via:\n\n```ts\nconst myChildCustomRenderer \u003d () \u003d\u003e /* do stuff here */\n\nconst nodes \u003d [\n  key: \u0027Offices\u0027,\n  children: () \u003d\u003e Promise.resolve([{key: \u0027LON\u0027, renderer:myChildCustomRenderer}, ...])\n]\n```\n\nWDYT?",
+      "parentUuid": "e2bcac1d_eafc8d08",
+      "range": {
+        "startLine": 9,
+        "startChar": 2,
+        "endLine": 9,
+        "endChar": 53
+      },
+      "revId": "eaab42b8d7ec5aa418da4284230e92628c94d9d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
