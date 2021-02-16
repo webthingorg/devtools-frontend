@@ -16,6 +16,29 @@
       "message": "PTAL - also did a drive by of moving the sample data into its own file so I don\u0027t have to duplicate it for each subsequent treeoutline example.",
       "revId": "46875e7a67e159fbd868d5bd4803e5a6dbea8fb4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67e7ea5b_9a6e7b45",
+        "filename": "front_end/component_docs/.eslintrc.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-16T10:48:39Z",
+      "side": 1,
+      "message": "We will need to add `front_end/component_docs/.eslintrc.js` to the `eslint_related_files` array in the PRESUBMIT.py file. That way, when we change the configuration here, ESLint will properly rerun.",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 14
+      },
+      "revId": "46875e7a67e159fbd868d5bd4803e5a6dbea8fb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
