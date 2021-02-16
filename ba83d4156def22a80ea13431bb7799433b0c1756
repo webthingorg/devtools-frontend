@@ -16,6 +16,24 @@
       "message": "PTAL\n\nWhile we don\u0027t have any switches currently that go through this list explicitly, the Layout panel does its own settings rendering, where the values are currently implicitly converted between the two types here:\n\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/elements/LayoutSidebarPane.js;l\u003d193;drc\u003df572da65b85867a676208f4a76ac0d9ae153b846\n\nUsing an enum we could either converge the two types or have an explicit conversion function that makes the code more robust. Wdyt?",
       "revId": "ba83d4156def22a80ea13431bb7799433b0c1756",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b310d0c4_dc49bac7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-16T10:22:03Z",
+      "side": 1,
+      "message": "Mirrored type: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/elements/LayoutPaneUtils.ts;l\u003d5-8;drc\u003d9c07567fdd366e841906c5c90cb1037b352c1452",
+      "parentUuid": "1e27b935_688c72d3",
+      "revId": "ba83d4156def22a80ea13431bb7799433b0c1756",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
