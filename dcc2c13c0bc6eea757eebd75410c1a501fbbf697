@@ -80,6 +80,30 @@
       },
       "revId": "dcc2c13c0bc6eea757eebd75410c1a501fbbf697",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc2d07da_0530035c",
+        "filename": "front_end/elements/LayoutSidebarPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-16T12:30:15Z",
+      "side": 1,
+      "message": "Ahhhh, I was reading too fast and didn\u0027t see that the CL narrows down the allowed enum variants. Then the check is absolutely in the right place :) Sorry for the confusion.",
+      "parentUuid": "e12d3436_1854dc96",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 201,
+        "endChar": 26
+      },
+      "revId": "dcc2c13c0bc6eea757eebd75410c1a501fbbf697",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
