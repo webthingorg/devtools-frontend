@@ -16,6 +16,69 @@
       "message": "PTAL",
       "revId": "03d90fa2ab1fd0ead4b06cffd79ffb43c212c263",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d341b3b_fc44cc47",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-16T11:04:05Z",
+      "side": 1,
+      "message": "lgtm % potential cleanup around l10n",
+      "revId": "03d90fa2ab1fd0ead4b06cffd79ffb43c212c263",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6163512_9bc1fc04",
+        "filename": "front_end/issues/AffectedCookiesView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-16T11:04:05Z",
+      "side": 1,
+      "message": "Do some of these properties need to be removed from `UIStrings` in `IssueView.ts` now? UIString is an exported object so we don\u0027t get warned about unused public properties.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 22
+      },
+      "revId": "03d90fa2ab1fd0ead4b06cffd79ffb43c212c263",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e4f4aeb_65d3770e",
+        "filename": "front_end/issues/AffectedCookiesView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-16T11:04:05Z",
+      "side": 1,
+      "message": "Can we update the descriptions if we are already working on this view?\n\nE.g. in this case:\n\n @description Noun, singular. A cookie is a small piece of data that a server sends to the user\u0027s web browser. See https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies.\n\nSimilar for the other descriptions.",
+      "range": {
+        "startLine": 16,
+        "startChar": 16,
+        "endLine": 16,
+        "endChar": 79
+      },
+      "revId": "03d90fa2ab1fd0ead4b06cffd79ffb43c212c263",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
