@@ -44,6 +44,12 @@ export class Cookie {
     if (protocolCookie.sameParty) {
       cookie.addAttribute('sameParty');
     }
+    if (protocolCookie.sourcePort) {
+      cookie.addAttribute('sourcePort', protocolCookie.sourcePort);
+    }
+    if (protocolCookie.sourceScheme) {
+      cookie.addAttribute('sourceScheme', protocolCookie.sourceScheme);
+    }
     cookie.setSize(protocolCookie['size']);
     return cookie;
   }
@@ -151,6 +157,20 @@ export class Cookie {
   }
 
   /**
+   * @return {number}
+   */
+  sourcePort() {
+    return /** @type {number} */ (this._attributes['sourceport']);
+  }
+
+  /**
+   * @return {Protocol.Network.CookieSourceScheme}
+   */
+  sourceScheme() {
+    return /** @type {Protocol.Network.CookieSourceScheme} */ (this._attributes['sourcescheme']);
+  }
+
+  /**
      * @return {number}
      */
   size() {
@@ -158,13 +178,20 @@ export class Cookie {
   }
 
   /**
-     * @return {string|null}
-     */
+   * @deprecated
+   * @return {string|null}
+   */
   url() {
     if (!this.domain() || !this.path()) {
       return null;
     }
-    return (this.secure() ? 'https://' : 'http://') + this.domain() + this.path();
+    let port = '';
+    if (this.sourcePort()) {
+      port = `:${this.sourcePort()}`;
+    }
+    // We must not consider the this.sourceScheme() here, otherwise it will be impossible to set a cookie without
+    // the Secure attribute from a secure origin.
+    return (this.secure() ? 'https://' : 'http://') + this.domain() + port + this.path();
   }
 
   /**
@@ -193,7 +220,7 @@ export class Cookie {
 
   /**
    * @param {string} key
-   * @param {string|number=} value
+   * @param {string|number|boolean=} value
    */
   addAttribute(key, value) {
     const normalizedKey = key.toLowerCase();
@@ -294,6 +321,8 @@ export const Attributes = {
   Secure: 'secure',
   SameSite: 'sameSite',
   SameParty: 'sameParty',
+  SourceScheme: 'sourceScheme',
+  SourcePort: 'sourcePort',
   Priority: 'priority',
 };
 
