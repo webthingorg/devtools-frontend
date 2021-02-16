@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "96c2cfdd_1da43747",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-16T10:04:21Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "28de756c616e0e9aa74dc40a73cbb40849a5ba7b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35f95aa7_457d186c",
@@ -48,6 +65,30 @@
       "writtenOn": "2021-02-16T10:00:33Z",
       "side": 1,
       "message": "While we are here, do you think:\n\n static instance(opts: {forceNew?: boolean} \u003d {}): IssueRevealer\n\nto be more readable?",
+      "range": {
+        "startLine": 13,
+        "startChar": 2,
+        "endLine": 13,
+        "endChar": 69
+      },
+      "revId": "28de756c616e0e9aa74dc40a73cbb40849a5ba7b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "effcfbee_668adbbe",
+        "filename": "front_end/issues/IssueRevealer.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-16T10:04:21Z",
+      "side": 1,
+      "message": "Agreed, but all other revealers have the explicit null, so let\u0027s save this cleanup for an orchestrated CL that fixes it in all revealers at once.",
+      "parentUuid": "35f95aa7_457d186c",
       "range": {
         "startLine": 13,
         "startChar": 2,
