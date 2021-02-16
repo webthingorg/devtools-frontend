@@ -13,17 +13,16 @@ async function loadInSomeNodes(): Promise<Components.TreeOutlineUtils.TreeNode[]
   const europeanOffices: Components.TreeOutlineUtils.TreeNode[] = [
     {
       key: 'UK',
-      children: (): Promise<Components.TreeOutlineUtils.TreeNode[]> => Promise.resolve([
+      children: () => Promise.resolve([
         {
           key: 'LON',
-          children: (): Promise<Components.TreeOutlineUtils.TreeNode[]> =>
-              Promise.resolve([{key: '6PS'}, {key: 'CSG'}, {key: 'BEL'}]),
+          children: () => Promise.resolve([{key: '6PS'}, {key: 'CSG'}, {key: 'BEL'}]),
         },
       ]),
     },
     {
       key: 'Germany',
-      children: (): Promise<Components.TreeOutlineUtils.TreeNode[]> => Promise.resolve([
+      children: () => Promise.resolve([
         {key: 'MUC'},
         {key: 'BER'},
       ]),
@@ -39,10 +38,10 @@ const data: Components.TreeOutline.TreeOutlineData = {
   tree: [
     {
       key: 'Offices',
-      children: (): Promise<Components.TreeOutlineUtils.TreeNode[]> => Promise.resolve([
+      children: () => Promise.resolve([
         {
           key: 'Europe',
-          chldren: async(): Promise<Components.TreeOutlineUtils.TreeNode[]> => {
+          chldren: async () => {
             const children = await loadInSomeNodes();
             return children;
           },
@@ -51,7 +50,7 @@ const data: Components.TreeOutline.TreeOutlineData = {
     },
     {
       key: 'Products',
-      children: (): Promise<Components.TreeOutlineUtils.TreeNode[]> => Promise.resolve([
+      children: () => Promise.resolve([
         {
           key: 'Chrome',
         },
