@@ -27,12 +27,37 @@
  */
 
 import * as Common from '../common/common.js';
+import * as i18n from '../i18n/i18n.js';
 import * as Platform from '../platform/platform.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
 import {ElementsSidebarPane} from './ElementsSidebarPane.js';
 
+export const UIStrings = {
+  /**
+  *@description Text in Metrics Sidebar Pane of the Elements panel
+  */
+  content: 'content',
+  /**
+  *@description Label of the padding property on the styles diagram, represent the property name.
+  */
+  padding: '`padding`',
+  /**
+  *@description Label of the border property on the styles box diagram, represent the property name.
+  */
+  border: '`border`',
+  /**
+  *@description Label of the margin property on the styles box diagram, represent the property name.
+  */
+  margin: '`margin`',
+  /**
+  *@description Label of the position property on the styles box diagram, represent the property name.
+  */
+  position: '`position`',
+};
+const str_ = i18n.i18n.registerUIStrings('elements/MetricsSidebarPane.js', UIStrings);
+const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class MetricsSidebarPane extends ElementsSidebarPane {
   constructor() {
     super();
@@ -280,8 +305,8 @@ export class MetricsSidebarPane extends ElementsSidebarPane {
       Common.Color.PageHighlight.Margin, Common.Color.Color.fromRGBA([0, 0, 0, 0])
     ];
     const boxLabels = [
-      Common.UIString.UIString('content'), Common.UIString.UIString('padding'), Common.UIString.UIString('border'),
-      Common.UIString.UIString('margin'), Common.UIString.UIString('position')
+      i18nString(UIStrings.content), i18nString(UIStrings.padding), i18nString(UIStrings.border),
+      i18nString(UIStrings.margin), i18nString(UIStrings.position)
     ];
     let previousBox = null;
     this._boxElements = [];
