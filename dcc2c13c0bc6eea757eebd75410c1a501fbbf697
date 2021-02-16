@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e899a0ef_3d75dabe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-16T11:35:17Z",
+      "side": 1,
+      "message": "PTAL. After looking more closely, I think it makes sense to use the common types here",
+      "revId": "dcc2c13c0bc6eea757eebd75410c1a501fbbf697",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
