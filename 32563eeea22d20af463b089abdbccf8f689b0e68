@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "18b79158_bd79fb46",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-16T09:37:08Z",
+      "side": 1,
+      "message": "For clarification: Currently when a user clicks \u0027Clear\u0027 with the \u0027Preserve log\u0027 checkbox enabled, then nothing happens and this CL fixes that?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 64
+      },
+      "revId": "32563eeea22d20af463b089abdbccf8f689b0e68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "47f69eeb_03fb5bae",
@@ -14,6 +37,23 @@
       "writtenOn": "2021-02-16T09:29:40Z",
       "side": 1,
       "message": "PTAL",
+      "revId": "32563eeea22d20af463b089abdbccf8f689b0e68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d63bf579_04d64775",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-16T09:37:08Z",
+      "side": 1,
+      "message": "lgtm",
       "revId": "32563eeea22d20af463b089abdbccf8f689b0e68",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
