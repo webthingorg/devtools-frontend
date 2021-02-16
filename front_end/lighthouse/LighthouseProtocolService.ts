@@ -7,21 +7,20 @@
 import * as Common from '../common/common.js';
 import * as ProtocolClient from '../protocol_client/protocol_client.js';  // eslint-disable-line no-unused-vars
 import * as SDK from '../sdk/sdk.js';
-import * as Services from '../services/services.js';  // eslint-disable-line no-unused-vars
 
 import * as ReportRenderer from './LighthouseReporterTypes.js';  // eslint-disable-line no-unused-vars
 
+let lastId = 1;
+
 export class ProtocolService extends Common.ObjectWrapper.ObjectWrapper {
   _rawConnection: ProtocolClient.InspectorBackend.Connection|null;
-  _backend: Services.ServiceManager.Service|null;
-  _backendPromise: Promise<void>|null;
+  _backend: Promise<Worker>|null;
   _status: ((arg0: string) => void)|null;
 
   constructor() {
     super();
     this._rawConnection = null;
     this._backend = null;
-    this._backendPromise = null;
     this._status = null;
   }
 
@@ -53,15 +52,11 @@ export class ProtocolService extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   async detach(): Promise<void> {
-    await this._send('stop');
-    if (this._backend) {
-      await this._backend.dispose();
-      this._backend = null;
-    }
-    this._backendPromise = null;
     if (this._rawConnection) {
       await this._rawConnection.disconnect();
+      this._rawConnection = null;
     }
+    console.log('connection disconnected');
     await SDK.SDKModel.TargetManager.instance().resumeAllTargets();
   }
 
@@ -88,28 +83,30 @@ export class ProtocolService extends Common.ObjectWrapper.ObjectWrapper {
     }
   }
 
-  _initWorker(): Promise<void> {
-    const backendPromise =
-        Services.serviceManager.createAppService('lighthouse_worker', 'LighthouseService').then(backend => {
-          if (this._backend) {
-            return;
+  _initWorker(): Promise<Worker> {
+    this._backend = new Promise<Worker>(resolve => {
+      const worker = new Worker(new URL('../lighthouse_worker.js', import.meta.url), {type: 'module'});
+
+      worker.onmessage = event => {
+        if (event.data === 'workerReady') {
+          resolve(worker);
+          return;
+        }
+
+        const lighthouseMessage = JSON.parse(event.data);
+
+        if (lighthouseMessage.method === 'statusUpdate') {
+          if (this._status && lighthouseMessage.params && 'message' in lighthouseMessage.params) {
+            this._status(lighthouseMessage.params.message as string);
           }
-          this._backend = backend;
-          if (backend) {
-            backend.on('statusUpdate', (result?: {message?: string}) => {
-              if (this._status && result && 'message' in result) {
-                this._status(result.message as string);
-              }
-            });
-            backend.on('sendProtocolMessage', (result?: {message?: string}) => {
-              if (result && 'message' in result) {
-                this._sendProtocolMessage(result.message as string);
-              }
-            });
+        } else if (lighthouseMessage.method === 'sendProtocolMessage') {
+          if (lighthouseMessage.params && 'message' in lighthouseMessage.params) {
+            this._sendProtocolMessage(lighthouseMessage.params.message as string);
           }
-        });
-    this._backendPromise = backendPromise;
-    return backendPromise;
+        }
+      };
+    });
+    return this._backend;
   }
 
   _sendProtocolMessage(message: string): void {
@@ -118,16 +115,30 @@ export class ProtocolService extends Common.ObjectWrapper.ObjectWrapper {
     }
   }
 
-  async _send(method: string, params?: {[x: string]: string|string[]|Object}): Promise<ReportRenderer.RunnerResult> {
-    let backendPromise = this._backendPromise;
-    if (!backendPromise) {
-      backendPromise = this._initWorker();
-    }
-
-    await backendPromise;
+  async _send(method: string, params: {[x: string]: string|string[]|Object} = {}):
+      Promise<ReportRenderer.RunnerResult> {
+    let worker: Worker;
     if (!this._backend) {
-      throw new Error('Backend is missing to send LightHouse message to');
+      worker = await this._initWorker();
+    } else {
+      worker = await this._backend;
     }
-    return this._backend.send(method, params) as Promise<ReportRenderer.RunnerResult>;
+    console.log('Sending from frontend to worker', method, params);
+    const messageId = lastId++;
+    const messageResult = new Promise<ReportRenderer.RunnerResult>(resolve => {
+      const workerListener = (event: MessageEvent) => {
+        const lighthouseMessage = JSON.parse(event.data);
+
+        if (lighthouseMessage.id === messageId) {
+          worker.removeEventListener('message', workerListener);
+          console.log(lighthouseMessage.result);
+          resolve(lighthouseMessage.result);
+        }
+      };
+      worker.addEventListener('message', workerListener);
+    });
+    worker.postMessage(JSON.stringify({id: messageId, method, params: {...params, id: messageId}}));
+
+    return messageResult;
   }
 }

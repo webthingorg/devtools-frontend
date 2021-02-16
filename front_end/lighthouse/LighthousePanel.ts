@@ -434,7 +434,9 @@ export class LighthousePanel extends UI.Panel.Panel {
     }
 
     this._isLHAttached = false;
+    console.log('before detaching');
     await this._protocolService.detach();
+    console.log('after detaching');
 
     if (this._stateBefore) {
       const emulationModel = Emulation.DeviceModeModel.DeviceModeModel.instance();
