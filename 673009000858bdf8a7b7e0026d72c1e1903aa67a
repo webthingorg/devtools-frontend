@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9725e252_bc8d767d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-16T16:13:19Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nDo you maybe know why the e2e-tests would be failing for this change? I would have assumed that the linear-memory-inspector didn\u0027t have any resources to load and that we can remove the module.json file. However, it appears that it has a silent dependency on the `-legacy.js` file and I can\u0027t really figure out where that dependency is coming from. Do you know how we might be inadvetently relying on the `-legacy.js` file?",
+      "revId": "673009000858bdf8a7b7e0026d72c1e1903aa67a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
