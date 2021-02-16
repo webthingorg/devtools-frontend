@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "69fe3cec_57d9b1d8",
+        "filename": "front_end/lighthouse/LighthouseController.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-16T13:59:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "699fd4f7_82941978",
+      "range": {
+        "startLine": 15,
+        "startChar": 42,
+        "endLine": 15,
+        "endChar": 52
+      },
+      "revId": "5bb67ac48337f7fbb30746b3766c8a9f62b0c2da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eba4dc8a_100bc1b3",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-02-16T11:16:56Z",
       "side": 1,
       "message": "I\u0027d specify that it\u0027s a checkbox, and below where appropriate",
+      "range": {
+        "startLine": 53,
+        "startChar": 24,
+        "endLine": 53,
+        "endChar": 30
+      },
+      "revId": "5bb67ac48337f7fbb30746b3766c8a9f62b0c2da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79c2696f_de67ea41",
+        "filename": "front_end/lighthouse/LighthouseController.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-16T13:59:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eba4dc8a_100bc1b3",
       "range": {
         "startLine": 53,
         "startChar": 24,
