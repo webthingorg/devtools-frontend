@@ -12,7 +12,7 @@ import {ProtocolService} from './LighthouseProtocolService.js';  // eslint-disab
 
 export const UIStrings = {
   /**
-  *@description Text in Lighthouse Controller
+  *@description Explanation for user that LigthHouse can only audit HTTP/HTTPS pages
   */
   canOnlyAuditHttphttpsPagesAnd:
       'Can only audit HTTP/HTTPS pages and `Chrome` extensions. Navigate to a different page to start an audit.',
@@ -50,59 +50,59 @@ export const UIStrings = {
   */
   webSql: 'Web SQL',
   /**
-  *@description Text for the performance of something
+  *@description Text of button to include running the performance audits in LightHouse
   */
   performance: 'Performance',
   /**
-  *@description Text in Lighthouse Controller
+  *@description Tooltip text of button to include running the performance audits in LightHouse
   */
   howLongDoesThisAppTakeToShow: 'How long does this app take to show content and become usable',
   /**
-  *@description Text in Lighthouse Controller
+  *@description Text of button to include running the Progressive Web App audits in LightHouse
   */
   progressiveWebApp: 'Progressive Web App',
   /**
-  *@description Text in Lighthouse Controller
+  *@description Tooltip text of button to include running the Progressive Web App audits in LightHouse
   */
   doesThisPageMeetTheStandardOfA: 'Does this page meet the standard of a Progressive Web App',
   /**
-  *@description Text in Lighthouse Controller
+  *@description Text of button to include running the Best Practices audits in LightHouse
   */
   bestPractices: 'Best practices',
   /**
-  *@description Text in Lighthouse Controller
+  *@description Tooltip text of button to include running the Best Practices audits in LightHouse
   */
   doesThisPageFollowBestPractices: 'Does this page follow best practices for modern web development',
   /**
-  *@description Text for accessibility of the web page
+  *@description Text of button to include running the Accessibility audits in LightHouse
   */
   accessibility: 'Accessibility',
   /**
-  *@description Text in Lighthouse Controller
+  *@description Tooltip text of button to include running the Accessibility audits in LightHouse
   */
   isThisPageUsableByPeopleWith: 'Is this page usable by people with disabilities or impairments',
   /**
-  *@description Text in Lighthouse Controller
+  *@description Text of button to include running the Search Engine Optimization audits in LightHouse
   */
   seo: 'SEO',
   /**
-  *@description Text in Lighthouse Controller
+  *@description Tooltip text of button to include running the Search Engine Optimization audits in LightHouse
   */
   isThisPageOptimizedForSearch: 'Is this page optimized for search engine results ranking',
   /**
-  *@description Text in Lighthouse Controller
+  *@description Text of button to include running the Ad speed and quality audits in LightHouse
   */
   publisherAds: 'Publisher Ads',
   /**
-  *@description Help text in Lighthouse Controller
+  *@description Tooltip text of button to include running the Ad speed and quality audits in LightHouse
   */
   isThisPageOptimizedForAdSpeedAnd: 'Is this page optimized for ad speed and quality',
   /**
-  *@description Text in Lighthouse Controller
+  *@description Text of button to emulate mobile device behavior when running audits in LightHouse
   */
   applyMobileEmulation: 'Apply mobile emulation',
   /**
-  *@description Text in Lighthouse Controller
+  *@description Tooltip text of button to emulate mobile device behavior when running audits in LightHouse
   */
   applyMobileEmulationDuring: 'Apply mobile emulation during auditing',
   /**
@@ -123,11 +123,11 @@ export const UIStrings = {
   simulateASlowerPageLoadBasedOn:
       'Simulate a slower page load, based on data from an initial unthrottled load. If disabled, the page is actually slowed with applied throttling.',
   /**
-  *@description Text to clear storage of the web page
+  *@description Text of button to reset storage features prior to running audits in LightHouse
   */
   clearStorage: 'Clear storage',
   /**
-  *@description Text in Lighthouse Controller
+  *@description Tooltip text of button to reset storage features prior to running audits in LightHouse
   */
   resetStorageLocalstorage:
       'Reset storage (localStorage, IndexedDB, etc) before auditing. (Good for performance & PWA testing)',
