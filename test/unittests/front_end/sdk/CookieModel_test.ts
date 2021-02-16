@@ -30,6 +30,8 @@ describeWithMockConnection('CookieModel', () => {
           session: true,
           sameParty: false,
           priority: Protocol.Network.CookiePriority.Medium,
+          sourcePort: 0,
+          sourceScheme: Protocol.Network.CookieSourceScheme.Unset,
         }],
       };
     });

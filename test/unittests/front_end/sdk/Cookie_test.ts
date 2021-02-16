@@ -51,6 +51,8 @@ describeWithEnvironment('Cookie', () => {
       size: 23,
       value: 'value',
       priority: Protocol.Network.CookiePriority.High,
+      sourcePort: 0,
+      sourceScheme: Protocol.Network.CookieSourceScheme.Unset,
     });
 
     assert.strictEqual(cookie.key(), '.example.com name /test');
@@ -85,6 +87,8 @@ describeWithEnvironment('Cookie', () => {
       secure: false,
       session: true,
       priority: Protocol.Network.CookiePriority.Medium,
+      sourcePort: 0,
+      sourceScheme: Protocol.Network.CookieSourceScheme.Unset,
     });
 
     assert.strictEqual(cookie.key(), '.example.com name /test');
