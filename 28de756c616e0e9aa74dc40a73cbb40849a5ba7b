@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "28de756c616e0e9aa74dc40a73cbb40849a5ba7b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbc94d60_85dd801b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-16T10:00:33Z",
+      "side": 1,
+      "message": "lgtm % drive-by comment",
+      "revId": "28de756c616e0e9aa74dc40a73cbb40849a5ba7b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35f95aa7_457d186c",
+        "filename": "front_end/issues/IssueRevealer.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-16T10:00:33Z",
+      "side": 1,
+      "message": "While we are here, do you think:\n\n static instance(opts: {forceNew?: boolean} \u003d {}): IssueRevealer\n\nto be more readable?",
+      "range": {
+        "startLine": 13,
+        "startChar": 2,
+        "endLine": 13,
+        "endChar": 69
+      },
+      "revId": "28de756c616e0e9aa74dc40a73cbb40849a5ba7b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
