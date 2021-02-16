@@ -50,6 +50,24 @@
       "message": "Can you please also add a test?",
       "revId": "961bfdc54f781c4a7739465d02b9236a4230d9df",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea47a008_6616b456",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-16T08:17:09Z",
+      "side": 1,
+      "message": "I added tests for the `LowTextContrastIssue` and `SharedArrayBufferIssue` cases. For `CorsIssue` and `TrustedWebActivityIssue` we rely on `window.addIssueForTest()` in other tests, which will not trigger sending the UMA event. I am fine with not testing UMA event creation for every type of issue separately, as long as this functionality is covered with tests for some kind of issue types. WDYT?",
+      "parentUuid": "da0988e5_33af4be3",
+      "revId": "961bfdc54f781c4a7739465d02b9236a4230d9df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
