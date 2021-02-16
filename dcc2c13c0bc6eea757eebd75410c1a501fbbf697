@@ -56,6 +56,30 @@
       },
       "revId": "dcc2c13c0bc6eea757eebd75410c1a501fbbf697",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e12d3436_1854dc96",
+        "filename": "front_end/elements/LayoutSidebarPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-16T12:28:19Z",
+      "side": 1,
+      "message": "So the LayoutPane component only accepts Common.Settings.SettingType.BOOLEAN|Common.Settings.SettingType.ENUM so if the callers are type-safe they should not be ably to provide something else. Therefore, it looks to me that this is an appropriate place to do the type check, i.e., where the common settings are mapped to the settings accepted by the LayoutPane interface.",
+      "parentUuid": "596e2801_73450afb",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 201,
+        "endChar": 26
+      },
+      "revId": "dcc2c13c0bc6eea757eebd75410c1a501fbbf697",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
