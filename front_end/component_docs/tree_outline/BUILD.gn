@@ -9,12 +9,14 @@ ts_library("ts") {
   testonly = true
   sources = [
     "basic.ts",
+    "custom-renderers.ts",
     "lazy-children.ts",
   ]
 
   deps = [
     "../../../test/unittests/front_end/helpers",
     "../../component_helpers:bundle",
+    "../../third_party/lit-html:bundle",
     "../../ui/components:bundle",
   ]
 }
@@ -23,6 +25,7 @@ copy_to_gen("tree_outline") {
   testonly = true
   sources = [
     "basic.html",
+    "custom-renderers.html",
     "lazy-children.html",
   ]
 
