@@ -246,6 +246,9 @@
   <message name="IDS_DEVTOOLS_5d113f2038d289f391614c39043629e8" desc="Title of the sources scopeChain">
     Scope
   </message>
+  <message name="IDS_DEVTOOLS_5de39fa1bce4bbf9232597a2120bc4d4" desc="Text to open the cubic bezier editor">
+    Open cubic bezier editor.
+  </message>
   <message name="IDS_DEVTOOLS_5e4d28f3a2277fcc37e95ce3fcd08418" desc="Text to be shown in the status bar if no coverage data is available">
     Coverage: n/a
   </message>
@@ -653,6 +656,9 @@
   </message>
   <message name="IDS_DEVTOOLS_e00091b180f1cf683d5271820cd71b4f" desc="Text in Debugger Plugin of the Sources panel">
     The debugger will skip stepping through this script, and will not stop on exceptions.
+  </message>
+  <message name="IDS_DEVTOOLS_e3de97b1a66edbe3fceddb1d5db2df2d" desc="A context menu item in the Watch Expressions Sidebar Pane of the Sources panel and Network pane request.">
+    Copy value
   </message>
   <message name="IDS_DEVTOOLS_e64479370fed877b3ff0b51ee73c95ac" desc="A context menu item in the Sources Panel of the Sources panel">
     Reveal in sidebar

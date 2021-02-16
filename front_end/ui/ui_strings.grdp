@@ -165,6 +165,9 @@
   <message name="IDS_DEVTOOLS_d3d2e617335f08df83599665eef8a418" desc="Text to close something">
     Close
   </message>
+  <message name="IDS_DEVTOOLS_d7778d0c64b6ba21494c97f77a66885a" desc="Text to filter result items">
+    Filter
+  </message>
   <message name="IDS_DEVTOOLS_d916eea6390ddc39ee5fbc5c984e940c" desc="Seconds format in UIUtils">
     <ph name="PH1">$1.2f<ex>2.14</ex></ph> s
   </message>
