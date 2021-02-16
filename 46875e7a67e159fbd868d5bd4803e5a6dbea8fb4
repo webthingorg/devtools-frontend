@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "810af7b8_3006ad07",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-16T10:06:14Z",
+      "side": 1,
+      "message": "PTAL - also did a drive by of moving the sample data into its own file so I don\u0027t have to duplicate it for each subsequent treeoutline example.",
+      "revId": "46875e7a67e159fbd868d5bd4803e5a6dbea8fb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
