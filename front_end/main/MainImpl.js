@@ -408,15 +408,9 @@ export class MainImpl {
     UI.InspectorView.InspectorView.instance().createToolbars();
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.loadCompleted();
 
-    const extensions = Root.Runtime.Runtime.instance().extensions(Common.QueryParamHandler.QueryParamHandler);
-    for (const extension of extensions) {
-      const value = Root.Runtime.Runtime.queryParam(/** @type {string} */ (extension.descriptor()['name']));
-      if (value !== null) {
-        extension.instance().then(handler => {
-          /** @type {!Common.QueryParamHandler.QueryParamHandler} */ (handler).handleQueryParam(
-              /** @type {string} */ (value));
-        });
-      }
+    const value = Root.Runtime.Runtime.queryParam('loadTimelineFromURL');
+    if (value !== null) {
+      Common.QueryParamHandler.QueryParamHandler.queryParamHandler().handleQueryParam(value);
     }
 
     // Allow UI cycles to repaint prior to creating connection.

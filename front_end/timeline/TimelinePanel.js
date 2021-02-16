@@ -1574,11 +1574,25 @@ export class StatusPane extends UI.Widget.VBox {
   }
 }
 
+/** @type {!LoadTimelineHandler} */
+let loadTimelineHandlerInstance;
 
 /**
  * @implements {Common.QueryParamHandler.QueryParamHandler}
  */
 export class LoadTimelineHandler {
+  /**
+   * @param {{forceNew: ?boolean}} opts
+   */
+  static instance(opts = {forceNew: null}) {
+    const {forceNew} = opts;
+    if (!loadTimelineHandlerInstance || forceNew) {
+      loadTimelineHandlerInstance = new LoadTimelineHandler();
+    }
+
+    return loadTimelineHandlerInstance;
+  }
+
   /**
    * @override
    * @param {string} value
@@ -1589,6 +1603,8 @@ export class LoadTimelineHandler {
     });
   }
 }
+
+Common.QueryParamHandler.QueryParamHandler.queryParamHandler = LoadTimelineHandler.instance;
 
 /** @type {!ActionDelegate} */
 let actionDelegateInstance;

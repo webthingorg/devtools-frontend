@@ -7,6 +7,11 @@
  */
 export class QueryParamHandler {
   /**
+   * @type {function(): !QueryParamHandler}
+   */
+  static queryParamHandler;
+
+  /**
    * @param {string} value
    */
   handleQueryParam(value) {
