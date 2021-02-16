@@ -63,6 +63,30 @@
       },
       "revId": "eaab42b8d7ec5aa418da4284230e92628c94d9d0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24adf948_7db07eb4",
+        "filename": "front_end/ui/components/TreeOutlineUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-16T14:56:36Z",
+      "side": 1,
+      "message": "In the latter case, do you need to specify the `renderer` for every single child in `children`? In that case, I prefer the solution of splitting up the `keyRenderer` and `childRenderer`. 1 thing we have to keep in mind is what if a parent node specifies a `childRenderer` and a child defines a `keyRenderer`?\n\nIn any case, this is already a good first step, so I am fine if we submit as-is.",
+      "parentUuid": "fdb0e086_b3c9f626",
+      "range": {
+        "startLine": 9,
+        "startChar": 2,
+        "endLine": 9,
+        "endChar": 53
+      },
+      "revId": "eaab42b8d7ec5aa418da4284230e92628c94d9d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
