@@ -186,6 +186,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2c71d44_1a4c1c80",
+        "filename": "front_end/elements/AccessibilityTree.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-16T13:56:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5cae63a_c3dff6de",
+      "range": {
+        "startLine": 156,
+        "startChar": 10,
+        "endLine": 156,
+        "endChar": 15
+      },
+      "revId": "e8e06e2649e8520274017e479ea131de46ab2b1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a5737da_6be3b057",
@@ -203,6 +227,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "412ea48d_728e02c7",
+        "filename": "front_end/elements/AccessibilityTreeUtils.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-16T13:56:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a5737da_6be3b057",
+      "revId": "e8e06e2649e8520274017e479ea131de46ab2b1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "312e27f2_aa7dd48c",
@@ -216,6 +258,24 @@
       "writtenOn": "2021-02-15T05:30:37Z",
       "side": 1,
       "message": "Is it worth having a test for click behaviour of nodes with no children? Not sure if we typically test the sad path.",
+      "revId": "e8e06e2649e8520274017e479ea131de46ab2b1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c55501b_e5318ea2",
+        "filename": "test/unittests/front_end/elements/AccessibilityNode_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-16T13:56:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "312e27f2_aa7dd48c",
       "revId": "e8e06e2649e8520274017e479ea131de46ab2b1a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
