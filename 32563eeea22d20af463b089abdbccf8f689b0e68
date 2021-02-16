@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "57c2f6c0_482946a4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-16T09:39:11Z",
+      "side": 1,
+      "message": "The details are in the bug. If a user clicks clear with preserve-log enabled, timing overview is not cleared, but the requests are. This CL also clears the timing overview.",
+      "parentUuid": "18b79158_bd79fb46",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 64
+      },
+      "revId": "32563eeea22d20af463b089abdbccf8f689b0e68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "47f69eeb_03fb5bae",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -54,6 +78,23 @@
       "writtenOn": "2021-02-16T09:37:08Z",
       "side": 1,
       "message": "lgtm",
+      "revId": "32563eeea22d20af463b089abdbccf8f689b0e68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcdf9c39_30db91d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-16T09:39:11Z",
+      "side": 1,
+      "message": "Thanks!",
       "revId": "32563eeea22d20af463b089abdbccf8f689b0e68",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
