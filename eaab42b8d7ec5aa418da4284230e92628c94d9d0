@@ -16,6 +16,29 @@
       "message": "PTAL :)",
       "revId": "eaab42b8d7ec5aa418da4284230e92628c94d9d0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2bcac1d_eafc8d08",
+        "filename": "front_end/ui/components/TreeOutlineUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-16T10:52:46Z",
+      "side": 1,
+      "message": "Does this renderer apply to all children below this node as well? I remember we had discussed the usage of a single renderer in the data_grid, to save duplication work. Is there a way to mimic that behavior in the treeoutline as well?",
+      "range": {
+        "startLine": 9,
+        "startChar": 2,
+        "endLine": 9,
+        "endChar": 53
+      },
+      "revId": "eaab42b8d7ec5aa418da4284230e92628c94d9d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
