@@ -1781,6 +1781,21 @@
   "input/InputTimeline.ts | saveProfile": {
     "message": "Save profile…"
   },
+  "issues/AffectedCookiesView.ts | cookie": {
+    "message": "cookie"
+  },
+  "issues/AffectedCookiesView.ts | cookies": {
+    "message": "cookies"
+  },
+  "issues/AffectedCookiesView.ts | domain": {
+    "message": "Domain"
+  },
+  "issues/AffectedCookiesView.ts | name": {
+    "message": "Name"
+  },
+  "issues/AffectedCookiesView.ts | path": {
+    "message": "Path"
+  },
   "issues/AffectedElementsView.ts | element": {
     "message": "element"
   },

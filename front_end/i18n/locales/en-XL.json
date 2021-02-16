@@ -1781,6 +1781,21 @@
   "input/InputTimeline.ts | saveProfile": {
     "message": "Ŝáv̂é p̂ŕôf́îĺê…"
   },
+  "issues/AffectedCookiesView.ts | cookie": {
+    "message": "ĉóôḱîé"
+  },
+  "issues/AffectedCookiesView.ts | cookies": {
+    "message": "ĉóôḱîéŝ"
+  },
+  "issues/AffectedCookiesView.ts | domain": {
+    "message": "D̂óm̂áîń"
+  },
+  "issues/AffectedCookiesView.ts | name": {
+    "message": "N̂ám̂é"
+  },
+  "issues/AffectedCookiesView.ts | path": {
+    "message": "P̂át̂h́"
+  },
   "issues/AffectedElementsView.ts | element": {
     "message": "êĺêḿêńt̂"
   },
