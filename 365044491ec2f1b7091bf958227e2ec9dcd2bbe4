@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3239d4e_d4032ac3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-16T06:52:13Z",
+      "side": 1,
+      "message": "Uhhh, so I think we still have a bug, just found this: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/settings/SettingsScreen.ts;l\u003d252-269;drc\u003d3be612f745d15ae0600cff4b668840f88d31c730\n\nWe are hardcoding the English section names to a pre-defined order. The current and the existing CL only work because the english translation matches this hardcoded list. I\u0027ll redo the CL, feel free to remove your +1 vote for now.\n\n(I think this `explicitSectionOrder` just made the argument for the enum for us xD)",
+      "parentUuid": "b4ad0f61_913d1273",
+      "revId": "365044491ec2f1b7091bf958227e2ec9dcd2bbe4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f75f37fa_f7fa1711",
@@ -132,6 +150,30 @@
       "side": 1,
       "message": "If TS already complains about missing values, then that\u0027s perfect. The `assertNever` tool is mostly a safeguard and a tool used to document exhaustiveness.",
       "parentUuid": "474c59db_3000baa3",
+      "range": {
+        "startLine": 94,
+        "startChar": 4,
+        "endLine": 94,
+        "endChar": 16
+      },
+      "revId": "365044491ec2f1b7091bf958227e2ec9dcd2bbe4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e639509b_9eaff242",
+        "filename": "front_end/common/SettingRegistration.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-16T06:52:13Z",
+      "side": 1,
+      "message": "I hope I interpreted your comment right, that its fine to leave this as-is. Otherwise there are 2 more arguments xD\n\nAdding in a `default` case will allow to statically miss cases again, and push the check to runtime.\n\nWe also can\u0027t move the check out of the default case and at the end of the function, because TS will complain about dead code.",
+      "parentUuid": "8c488dd7_5cb686f3",
       "range": {
         "startLine": 94,
         "startChar": 4,
