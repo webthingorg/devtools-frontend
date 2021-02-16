@@ -4,18 +4,35 @@
 
 import * as Common from '../common/common.js';
 import * as Formatter from '../formatter/formatter.js';
+import {ls} from '../platform/platform.js';
 import * as QuickOpen from '../quick_open/quick_open.js';
 import * as UI from '../ui/ui.js';
 import * as Workspace from '../workspace/workspace.js';  // eslint-disable-line no-unused-vars
 
 import {SourcesView} from './SourcesView.js';
 
+/** @type {!OutlineQuickOpen} */
+let outlineQuickOpenInstance;
+
 export class OutlineQuickOpen extends QuickOpen.FilteredListWidget.Provider {
+  /** @private */
   constructor() {
     super();
     /** @type {!Array<!Formatter.FormatterWorkerPool.OutlineItem>} */
     this._items = [];
     this._active = false;
+  }
+
+  /**
+   * @param {{forceNew: ?boolean}} opts
+   */
+  static instance(opts = {forceNew: null}) {
+    const {forceNew} = opts;
+    if (!outlineQuickOpenInstance || forceNew) {
+      outlineQuickOpenInstance = new OutlineQuickOpen();
+    }
+
+    return outlineQuickOpenInstance;
   }
 
   /**
@@ -134,3 +151,9 @@ export class OutlineQuickOpen extends QuickOpen.FilteredListWidget.Provider {
     return Common.UIString.UIString('No results found');
   }
 }
+
+QuickOpen.FilteredListWidget.registerProvider({
+  prefix: '@',
+  title: ls`Go to symbol`,
+  provider: async () => OutlineQuickOpen.instance(),
+});
