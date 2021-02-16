@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23e0e4ba_9b12efcc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-16T16:02:30Z",
+      "side": 1,
+      "message": "Jack, PTAL",
+      "revId": "f4d948de995681c138b0451225dd7dd12c44e0b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "217a863b_64910fad",
+        "filename": "node_modules/mocha/node_modules/supports-color/package.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-16T16:02:30Z",
+      "side": 1,
+      "message": "This basically was the trick. We had to keep `node` before `default`, otherwise loading `supports-color` would break when you would load it in a Node environment.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 4
+      },
+      "revId": "f4d948de995681c138b0451225dd7dd12c44e0b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
