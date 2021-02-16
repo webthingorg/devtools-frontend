@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc2e46dd_3a24aa87",
+        "filename": "front_end/component_docs/tree_outline/lazy-children.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-16T10:09:27Z",
+      "side": 1,
+      "message": "nit: wrong year?",
+      "range": {
+        "startLine": 2,
+        "startChar": 12,
+        "endLine": 2,
+        "endChar": 17
+      },
+      "revId": "c810f7b9f905cc8c1ff1defdc4f8b951c158967d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
