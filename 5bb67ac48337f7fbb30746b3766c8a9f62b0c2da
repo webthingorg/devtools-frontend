@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99f7ab83_4011ffcb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-16T11:16:56Z",
+      "side": 1,
+      "message": "LGTM with some suggstions",
+      "revId": "5bb67ac48337f7fbb30746b3766c8a9f62b0c2da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "699fd4f7_82941978",
+        "filename": "front_end/lighthouse/LighthouseController.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-16T11:16:56Z",
+      "side": 1,
+      "message": "Lighthouse",
+      "range": {
+        "startLine": 15,
+        "startChar": 42,
+        "endLine": 15,
+        "endChar": 52
+      },
+      "revId": "5bb67ac48337f7fbb30746b3766c8a9f62b0c2da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eba4dc8a_100bc1b3",
+        "filename": "front_end/lighthouse/LighthouseController.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-16T11:16:56Z",
+      "side": 1,
+      "message": "I\u0027d specify that it\u0027s a checkbox, and below where appropriate",
+      "range": {
+        "startLine": 53,
+        "startChar": 24,
+        "endLine": 53,
+        "endChar": 30
+      },
+      "revId": "5bb67ac48337f7fbb30746b3766c8a9f62b0c2da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
