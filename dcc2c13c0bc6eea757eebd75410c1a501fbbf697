@@ -16,6 +16,46 @@
       "message": "PTAL. After looking more closely, I think it makes sense to use the common types here",
       "revId": "dcc2c13c0bc6eea757eebd75410c1a501fbbf697",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06266061_4b448c19",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-16T12:18:40Z",
+      "side": 1,
+      "message": "lgtm % suggestion to move the settingsType validation.",
+      "revId": "dcc2c13c0bc6eea757eebd75410c1a501fbbf697",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "596e2801_73450afb",
+        "filename": "front_end/elements/LayoutSidebarPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-16T12:18:40Z",
+      "side": 1,
+      "message": "A side-effect of this change is, that Common.Settings.SettingType is now part of the interface for the LayoutPane component. That means that currently the validation happens somewhat on the wrong level, as clients of the component can still pass unsupported settings type to the component.\n\nWdyt about pushing this check into the component. Maybe into a helper (validateSettings or similar) and then have a unit test that passes e.g. an array setting and expecting an exception?",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 201,
+        "endChar": 26
+      },
+      "revId": "dcc2c13c0bc6eea757eebd75410c1a501fbbf697",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
