@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4107dd64_7f07f1ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-16T06:59:03Z",
+      "side": 1,
+      "message": "Change of plans, since both old, and new code rely on the translation to match a hardcoded array in SettingsScreen.ts, I\u0027ll land this CL as is, as a preparation step to introduce the enum, and follow up with a CL that fixes the SettingsScreen to prepare it for l10n.",
+      "revId": "e931888b016aecf9194b8400c03b6b5204110bf8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
