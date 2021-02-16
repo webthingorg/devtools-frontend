@@ -14,10 +14,11 @@ const {render, html} = LitHtml;
 import {Mode, AddressInputChangedEvent, HistoryNavigationEvent, LinearMemoryNavigatorData, Navigation, PageNavigationEvent} from './LinearMemoryNavigator.js';
 import type {EndiannessChangedEvent, LinearMemoryValueInterpreterData, ValueTypeToggledEvent} from './LinearMemoryValueInterpreter.js';
 import type {ByteSelectedEvent, LinearMemoryViewerData, ResizeEvent} from './LinearMemoryViewer.js';
-import {VALUE_INTEPRETER_MAX_NUM_BYTES, ValueType, Endianness} from './ValueInterpreterDisplayUtils.js';
+import {VALUE_INTEPRETER_MAX_NUM_BYTES, ValueType, Endianness, DEFAULT_MODE_MAPPING} from './ValueInterpreterDisplayUtils.js';
 import {formatAddress, parseAddress} from './LinearMemoryInspectorUtils.js';
 
 import * as i18n from '../i18n/i18n.js';
+import {ValueTypeModeChangedEvent} from './ValueInterpreterDisplay.js';
 export const UIStrings = {
   /**
   *@description Tooltip text that appears when hovering over an invalid address in the address line in the Linear Memory Inspector
@@ -93,8 +94,9 @@ export class LinearMemoryInspector extends HTMLElement {
 
   private numBytesPerPage = 4;
 
-  private valueTypes: Set<ValueType> = new Set([ValueType.Int8, ValueType.Float32]);
-  private endianness: Endianness = Endianness.Little;
+  private valueTypes = new Set([ValueType.Int8, ValueType.Float32]);
+  private valueTypeModes = DEFAULT_MODE_MAPPING;
+  private endianness = Endianness.Little;
 
   set data(data: LinearMemoryInspectorData) {
     if (data.address < data.memoryOffset || data.address > data.memoryOffset + data.memory.length || data.address < 0) {
@@ -168,8 +170,10 @@ export class LinearMemoryInspector extends HTMLElement {
           .data=${{
             value: this.memory.slice(this.address - this.memoryOffset, this.address + VALUE_INTEPRETER_MAX_NUM_BYTES).buffer,
             valueTypes: this.valueTypes,
+            valueTypeModes: this.valueTypeModes,
             endianness: this.endianness } as LinearMemoryValueInterpreterData}
           @value-type-toggled=${this.onValueTypeToggled}
+          @value-type-mode-changed=${this.onValueTypeModeChanged}
           @endianness-changed=${this.onEndiannessChanged}>
         </devtools-linear-memory-inspector-interpreter/>
       </div>
@@ -230,6 +234,14 @@ export class LinearMemoryInspector extends HTMLElement {
     }
     this.render();
   }
+
+  private onValueTypeModeChanged(e: ValueTypeModeChangedEvent): void {
+    e.stopImmediatePropagation();
+    const {type, mode} = e.data;
+    this.valueTypeModes.set(type, mode);
+    this.render();
+  }
+
 
   private navigateHistory(e: HistoryNavigationEvent): boolean {
     return e.data === Navigation.Forward ? this.history.rollover() : this.history.rollback();
