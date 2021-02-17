@@ -39,6 +39,30 @@
       },
       "revId": "586c937b82ce7f0be6243234a3f456ec279430f3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8e618dd_98099bee",
+        "filename": "front_end/sdk/CorsIssue.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-17T09:05:36Z",
+      "side": 1,
+      "message": "I was promised that the new guide will appear before M90 gets released (at which point this won\u0027t be a redirect anymore, but the correct article).",
+      "parentUuid": "cb225fa9_acd73c4a",
+      "range": {
+        "startLine": 33,
+        "startChar": 15,
+        "endLine": 33,
+        "endChar": 49
+      },
+      "revId": "586c937b82ce7f0be6243234a3f456ec279430f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
