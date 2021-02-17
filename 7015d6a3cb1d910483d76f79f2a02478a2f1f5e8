@@ -16,6 +16,24 @@
       "message": "Thanks Ella, I trust that you copied the texts correctly from the doc. \n\nLGTM (rubber-stamp)",
       "revId": "7015d6a3cb1d910483d76f79f2a02478a2f1f5e8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9afe6dda_3e21b04f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1230425
+      },
+      "writtenOn": "2021-02-17T14:30:26Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "a3bedce9_637bce78",
+      "revId": "7015d6a3cb1d910483d76f79f2a02478a2f1f5e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
