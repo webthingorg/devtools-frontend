@@ -34,6 +34,24 @@
       "parentUuid": "9725e252_bc8d767d",
       "revId": "673009000858bdf8a7b7e0026d72c1e1903aa67a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83d886f6_03acedee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-17T12:03:30Z",
+      "side": 1,
+      "message": "Thanks Kim for these hints! I initially was confused, as to why all of these calls were included, since linear-memory-inspector no longer uses anything related to Runtime. When I opened the meta file, I realized we still had the side-effect `loadModulePromise`, which is now also unnecessary. I removed that call, which should fix the view. Glad we have the e2e-tests 😊",
+      "parentUuid": "9ce11d33_d264dc5a",
+      "revId": "673009000858bdf8a7b7e0026d72c1e1903aa67a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
