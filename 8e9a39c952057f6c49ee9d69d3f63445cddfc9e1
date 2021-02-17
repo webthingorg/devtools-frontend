@@ -16,6 +16,24 @@
       "message": "PTAL (waiting for the roll of course).",
       "revId": "8e9a39c952057f6c49ee9d69d3f63445cddfc9e1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c63f4f56_1ddaa400",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-17T19:58:00Z",
+      "side": 1,
+      "message": "The roll has happened I believe. Don\u0027t we need to update the tests?",
+      "parentUuid": "7a6ca97d_52381b9f",
+      "revId": "8e9a39c952057f6c49ee9d69d3f63445cddfc9e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
