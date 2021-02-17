@@ -67,6 +67,24 @@
       "message": "Hi Sigurd,\n\nMy main concern is the maintenance of PermissionsPolicyFeature enum. If the enum is modified in the back-end, does the change automatically rolls out to the front-end project?",
       "revId": "f7b96ef6e1b3ce3fa22ec449d24a8a93a92e48b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "482cb5d4_b5a54add",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-17T15:17:32Z",
+      "side": 1,
+      "message": "We periodically roll the changes into the front-end, it is a manual process that we plan to automate, here is a list of recent updates: https://chromium-review.googlesource.com/q/project:devtools/devtools-frontend+file:browser_protocol.pdl\n\nI wouldn\u0027t be worried that we are missing updates, because usually there is about 1 roll a week happening.",
+      "parentUuid": "43a2e50b_f76ba629",
+      "revId": "f7b96ef6e1b3ce3fa22ec449d24a8a93a92e48b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
