@@ -165,9 +165,6 @@ UI.SplitWidget = UIModule.SplitWidget.SplitWidget;
 UI.SuggestBox = UIModule.SuggestBox.SuggestBox;
 
 /** @constructor */
-UI.SyntaxHighlighter = UIModule.SyntaxHighlighter.SyntaxHighlighter;
-
-/** @constructor */
 UI.TabbedPane = UIModule.TabbedPane.TabbedPane;
 
 /** @enum {symbol} */
@@ -249,7 +246,6 @@ UI.XLink.ContextMenuProvider = UIModule.XLink.ContextMenuProvider;
 
 /** @type {!UIModule.Context.Context} */
 self.UI.context = UIModule.Context.Context.instance();
-
 
 /**
  * @type {!UI.DockController}
