@@ -85,6 +85,24 @@
       "parentUuid": "43a2e50b_f76ba629",
       "revId": "f7b96ef6e1b3ce3fa22ec449d24a8a93a92e48b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9ab80ca_86326115",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1359223
+      },
+      "writtenOn": "2021-02-17T15:54:03Z",
+      "side": 1,
+      "message": "OK, I am fine with that as long as feature owners do not need to reach out to devtools in order to get front-end updated.\n\nThe CL looks good, but I do not have the permission to +1.",
+      "parentUuid": "482cb5d4_b5a54add",
+      "revId": "f7b96ef6e1b3ce3fa22ec449d24a8a93a92e48b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
