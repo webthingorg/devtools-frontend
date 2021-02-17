@@ -247,7 +247,6 @@ UI.XLink.ContextMenuProvider = UIModule.XLink.ContextMenuProvider;
 /** @type {!UIModule.Context.Context} */
 self.UI.context = UIModule.Context.Context.instance();
 
-
 /**
  * @type {!UI.DockController}
  */
