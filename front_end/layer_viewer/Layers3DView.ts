@@ -93,6 +93,7 @@ export const UIStrings = {
 };
 const str_ = i18n.i18n.registerUIStrings('layer_viewer/Layers3DView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
 const vertexPositionAttributes = new Map<WebGLProgram, number>();
 
@@ -907,9 +908,9 @@ export const enum ChromeTexture {
 }
 
 export const ScrollRectTitles = {
-  RepaintsOnScroll: i18nString(UIStrings.repaintsOnScroll),
-  TouchEventHandler: i18nString(UIStrings.touchEventListener),
-  WheelEventHandler: i18nString(UIStrings.mousewheelEventListener),
+  RepaintsOnScroll: i18nLazyString(UIStrings.repaintsOnScroll),
+  TouchEventHandler: i18nLazyString(UIStrings.touchEventListener),
+  WheelEventHandler: i18nLazyString(UIStrings.mousewheelEventListener),
 };
 
 export const FragmentShader = '' +
