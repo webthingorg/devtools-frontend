@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c30ec44f_cec509de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2021-02-17T21:26:07Z",
+      "side": 1,
+      "message": "Tested and LGTM.\n\nIn reference to the Font Editor, I found that the Font Editor, along with all the other SwatchPopovers, do not handle this scenario correctly.  \n\nTake a look at this GIF with the box shadow editor: https://imgur.com/72z2TT8\nThe inline changes are not registered in the inline style section which causes a de-sync of the DOM and the styles pane.\n\nI\u0027ve created a bug for it here: https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1179418",
+      "revId": "fabea0e3862a8a80afae96d6ad8757d53f9b7488",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
