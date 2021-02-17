@@ -16,6 +16,23 @@
       "message": "PTAL\n\nThis is simplistic, but I think it is a good start because it doesn\u0027t require the collapsible view. Wee will iterate on it once Wolfgang has the collapsible list component ready. ",
       "revId": "f7b96ef6e1b3ce3fa22ec449d24a8a93a92e48b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba2d4196_a3fc34b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-17T12:40:17Z",
+      "side": 1,
+      "message": "Note that e2e tests are failing until the back-end change rolled into our testing binary.",
+      "revId": "f7b96ef6e1b3ce3fa22ec449d24a8a93a92e48b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
