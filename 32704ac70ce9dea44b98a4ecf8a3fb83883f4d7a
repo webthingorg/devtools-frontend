@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3312ad08_3b405eb0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-02-17T03:22:08Z",
+      "side": 1,
+      "message": "The failing layout test gets the migrated extension with the old runtime infra. Currently working on porting it to a unit test.",
+      "revId": "32704ac70ce9dea44b98a4ecf8a3fb83883f4d7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
