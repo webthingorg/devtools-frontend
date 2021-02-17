@@ -33,6 +33,23 @@
       "message": "Note that e2e tests are failing until the back-end change rolled into our testing binary.",
       "revId": "f7b96ef6e1b3ce3fa22ec449d24a8a93a92e48b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31e1b87c_819370bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-17T14:47:54Z",
+      "side": 1,
+      "message": "LGTM\n",
+      "revId": "f7b96ef6e1b3ce3fa22ec449d24a8a93a92e48b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
