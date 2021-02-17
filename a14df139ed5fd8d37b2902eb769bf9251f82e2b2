@@ -56,6 +56,30 @@
       },
       "revId": "a14df139ed5fd8d37b2902eb769bf9251f82e2b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee85beaa_dcd9675b",
+        "filename": "test/e2e/issues/twa-issues_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1230425
+      },
+      "writtenOn": "2021-02-17T08:00:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68167d43_b47975c7",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 23
+      },
+      "revId": "a14df139ed5fd8d37b2902eb769bf9251f82e2b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
