@@ -70,6 +70,30 @@
       },
       "revId": "afedbf6c1dd1f08c2cb693f38a6466b6f1b5e1be",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9377f99e_9eda34cc",
+        "filename": "front_end/main/MainImpl.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-02-17T22:21:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9308d26_2d57d6db",
+      "range": {
+        "startLine": 413,
+        "startChar": 6,
+        "endLine": 413,
+        "endChar": 68
+      },
+      "revId": "afedbf6c1dd1f08c2cb693f38a6466b6f1b5e1be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
