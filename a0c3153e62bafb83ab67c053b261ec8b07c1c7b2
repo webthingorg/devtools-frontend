@@ -33,6 +33,46 @@
       "message": "Peter, PTAL",
       "revId": "a0c3153e62bafb83ab67c053b261ec8b07c1c7b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff514ba8_3841297d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-17T10:47:16Z",
+      "side": 1,
+      "message": "LGTM with a suggestion",
+      "revId": "a0c3153e62bafb83ab67c053b261ec8b07c1c7b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33645616_f3563d8a",
+        "filename": "front_end/cookie_table/CookiesTable.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-17T10:47:16Z",
+      "side": 1,
+      "message": "You can lock these terms by using backticks if you want them to not get translated, e.g.\n\n    (`Secure`, `NonSecure`)\n\nGiven they are part of the API/appear in code, I\u0027d suggest that",
+      "range": {
+        "startLine": 91,
+        "startChar": 32,
+        "endLine": 91,
+        "endChar": 49
+      },
+      "revId": "a0c3153e62bafb83ab67c053b261ec8b07c1c7b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
