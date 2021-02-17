@@ -16,6 +16,23 @@
       "message": "PTAL - not bundling this one with other l10n changes as I think I found an actual bug :)",
       "revId": "cde59e72a24f0474b17a3aa8e0a26d7f7fe3daf9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e372e96c_d0d6ce2e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-17T09:55:02Z",
+      "side": 1,
+      "message": "Very nice! thanks",
+      "revId": "cde59e72a24f0474b17a3aa8e0a26d7f7fe3daf9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
