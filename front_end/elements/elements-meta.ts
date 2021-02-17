@@ -3,6 +3,8 @@
 // found in the LICENSE file.
 
 import * as Common from '../common/common.js';
+import type * as Platform from '../platform/platform.js';
+import {ls} from '../platform/platform.js';
 import * as Root from '../root/root.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
@@ -10,111 +12,6 @@ import * as UI from '../ui/ui.js';
 // eslint-disable-next-line rulesdir/es_modules_import
 import type * as Elements from './elements.js';
 
-import * as i18n from '../i18n/i18n.js';
-export const UIStrings = {
-  /**
-  *@description Command for showing the 'Elements' tool
-  */
-  showElements: 'Show Elements',
-  /**
-  *@description Title of the Elements Panel
-  */
-  elements: 'Elements',
-  /**
-  *@description Command for showing the 'Event Listeners' tool
-  */
-  showEventListeners: 'Show Event Listeners',
-  /**
-  *@description Title of the 'Event Listeners' tool in the sidebar of the elements tool
-  */
-  eventListeners: 'Event Listeners',
-  /**
-  *@description Command for showing the 'Properties' tool
-  */
-  showProperties: 'Show Properties',
-  /**
-  *@description Title of the 'Properties' tool in the sidebar of the elements tool
-  */
-  properties: 'Properties',
-  /**
-  *@description Command for showing the 'Stack Trace' tool
-  */
-  showStackTrace: 'Show Stack Trace',
-  /**
-  *@description Text for the execution stack trace
-  */
-  stackTrace: 'Stack Trace',
-  /**
-  *@description Command for showing the 'Layout' tool
-  */
-  showLayout: 'Show Layout',
-  /**
-  *@description Text in Timeline UIUtils of the Performance panel
-  */
-  layout: 'Layout',
-  /**
-  *@description Text to hide an element
-  */
-  hideElement: 'Hide element',
-  /**
-  *@description A context menu item in the Elements Tree Element of the Elements panel
-  */
-  editAsHtml: 'Edit as HTML',
-  /**
-  *@description A context menu item in the Elements Tree Element of the Elements panel
-  */
-  duplicateElement: 'Duplicate element',
-  /**
-  *@description Title of an Elements panel action to undo changes.
-  */
-  undo: 'Undo',
-  /**
-  *@description Title of an Elements panel action to redo changes.
-  */
-  redo: 'Redo',
-  /**
-  *@description Title of an action in the elements tool to capture area screenshot
-  */
-  captureAreaScreenshot: 'Capture area screenshot',
-  /**
-  *@description Title of an action in the elements tool to toggle element search
-  */
-  selectAnElementInThePageTo: 'Select an element in the page to inspect it',
-  /**
-  *@description Title of a setting under the Elements category in Settings
-  */
-  showUserAgentShadowDom: 'Show `user agent shadow DOM`',
-  /**
-  *@description Title of a setting under the Elements category in Settings
-  */
-  wordWrap: 'Word wrap',
-  /**
-  *@description Title of a setting under the Elements category that can be invoked through the Command Menu
-  */
-  enableDomWordWrap: 'Enable DOM word wrap',
-  /**
-  *@description Title of a setting under the Elements category that can be invoked through the Command Menu
-  */
-  disableDomWordWrap: 'Disable DOM word wrap',
-  /**
-  *@description Title of a setting under the Elements category that can be invoked through the Command Menu
-  */
-  showHtmlComments: 'Show HTML comments',
-  /**
-  *@description Title of a setting under the Elements category that can be invoked through the Command Menu
-  */
-  hideHtmlComments: 'Hide HTML comments',
-  /**
-  *@description Title of a setting under the Elements category in Settings
-  */
-  revealDomNodeOnHover: 'Reveal DOM node on hover',
-  /**
-  *@description Title of a setting under the Elements category in Settings
-  */
-  showDetailedInspectTooltip: 'Show detailed inspect tooltip',
-};
-const str_ = i18n.i18n.registerUIStrings('elements/elements-meta.ts', UIStrings);
-const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 let loadedElementsModule: (typeof Elements|undefined);
 
 async function loadElementsModule(): Promise<typeof Elements> {
@@ -135,8 +32,8 @@ function maybeRetrieveContextTypes<T = unknown>(getClassCallBack: (elementsModul
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.PANEL,
   id: 'elements',
-  commandPrompt: i18nLazyString(UIStrings.showElements),
-  title: i18nLazyString(UIStrings.elements),
+  commandPrompt: (): Platform.UIString.LocalizedString => ls`Show Elements`,
+  title: (): Platform.UIString.LocalizedString => ls`Elements`,
   order: 10,
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
   hasToolbar: false,
@@ -149,8 +46,8 @@ UI.ViewManager.registerViewExtension({
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.ELEMENTS_SIDEBAR,
   id: 'elements.eventListeners',
-  commandPrompt: i18nLazyString(UIStrings.showEventListeners),
-  title: i18nLazyString(UIStrings.eventListeners),
+  commandPrompt: (): Platform.UIString.LocalizedString => ls`Show Event Listeners`,
+  title: (): Platform.UIString.LocalizedString => ls`Event Listeners`,
   order: 5,
   hasToolbar: true,
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
@@ -163,8 +60,8 @@ UI.ViewManager.registerViewExtension({
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.ELEMENTS_SIDEBAR,
   id: 'elements.domProperties',
-  commandPrompt: i18nLazyString(UIStrings.showProperties),
-  title: i18nLazyString(UIStrings.properties),
+  commandPrompt: (): Platform.UIString.LocalizedString => ls`Show Properties`,
+  title: (): Platform.UIString.LocalizedString => ls`Properties`,
   order: 7,
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
   async loadView() {
@@ -177,8 +74,8 @@ UI.ViewManager.registerViewExtension({
   experiment: Root.Runtime.ExperimentName.CAPTURE_NODE_CREATION_STACKS,
   location: UI.ViewManager.ViewLocationValues.ELEMENTS_SIDEBAR,
   id: 'elements.domCreation',
-  commandPrompt: i18nLazyString(UIStrings.showStackTrace),
-  title: i18nLazyString(UIStrings.stackTrace),
+  commandPrompt: (): Platform.UIString.LocalizedString => ls`Show Stack Trace`,
+  title: (): Platform.UIString.LocalizedString => ls`Stack Trace`,
   order: 10,
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
   async loadView() {
@@ -190,8 +87,8 @@ UI.ViewManager.registerViewExtension({
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.ELEMENTS_SIDEBAR,
   id: 'elements.layout',
-  commandPrompt: i18nLazyString(UIStrings.showLayout),
-  title: i18nLazyString(UIStrings.layout),
+  commandPrompt: (): Platform.UIString.LocalizedString => ls`Show Layout`,
+  title: (): Platform.UIString.LocalizedString => ls`Layout`,
   order: 4,
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
   async loadView() {
@@ -203,7 +100,7 @@ UI.ViewManager.registerViewExtension({
 UI.ActionRegistration.registerActionExtension({
   actionId: 'elements.hide-element',
   category: UI.ActionRegistration.ActionCategory.ELEMENTS,
-  title: i18nLazyString(UIStrings.hideElement),
+  title: (): Platform.UIString.LocalizedString => ls`Hide element`,
   async loadActionDelegate() {
     const Elements = await loadElementsModule();
     return Elements.ElementsPanel.ElementsActionDelegate.instance();
@@ -221,7 +118,7 @@ UI.ActionRegistration.registerActionExtension({
 UI.ActionRegistration.registerActionExtension({
   actionId: 'elements.edit-as-html',
   category: UI.ActionRegistration.ActionCategory.ELEMENTS,
-  title: i18nLazyString(UIStrings.editAsHtml),
+  title: (): Platform.UIString.LocalizedString => ls`Edit as HTML`,
   async loadActionDelegate() {
     const Elements = await loadElementsModule();
     return Elements.ElementsPanel.ElementsActionDelegate.instance();
@@ -239,7 +136,7 @@ UI.ActionRegistration.registerActionExtension({
 UI.ActionRegistration.registerActionExtension({
   actionId: 'elements.duplicate-element',
   category: UI.ActionRegistration.ActionCategory.ELEMENTS,
-  title: i18nLazyString(UIStrings.duplicateElement),
+  title: (): Platform.UIString.LocalizedString => ls`Duplicate element`,
   async loadActionDelegate() {
     const Elements = await loadElementsModule();
     return Elements.ElementsPanel.ElementsActionDelegate.instance();
@@ -257,7 +154,7 @@ UI.ActionRegistration.registerActionExtension({
 UI.ActionRegistration.registerActionExtension({
   actionId: 'elements.undo',
   category: UI.ActionRegistration.ActionCategory.ELEMENTS,
-  title: i18nLazyString(UIStrings.undo),
+  title: (): Platform.UIString.LocalizedString => ls`Undo`,
   async loadActionDelegate() {
     const Elements = await loadElementsModule();
     return Elements.ElementsPanel.ElementsActionDelegate.instance();
@@ -280,7 +177,7 @@ UI.ActionRegistration.registerActionExtension({
 UI.ActionRegistration.registerActionExtension({
   actionId: 'elements.redo',
   category: UI.ActionRegistration.ActionCategory.ELEMENTS,
-  title: i18nLazyString(UIStrings.redo),
+  title: (): Platform.UIString.LocalizedString => ls`Redo`,
   async loadActionDelegate() {
     const Elements = await loadElementsModule();
     return Elements.ElementsPanel.ElementsActionDelegate.instance();
@@ -307,7 +204,7 @@ UI.ActionRegistration.registerActionExtension({
     return Elements.InspectElementModeController.ToggleSearchActionDelegate.instance();
   },
   condition: Root.Runtime.ConditionName.CAN_DOCK,
-  title: i18nLazyString(UIStrings.captureAreaScreenshot),
+  title: (): Platform.UIString.LocalizedString => ls`Capture area screenshot`,
   category: UI.ActionRegistration.ActionCategory.SCREENSHOT,
 });
 
@@ -319,7 +216,7 @@ UI.ActionRegistration.registerActionExtension({
     const Elements = await loadElementsModule();
     return Elements.InspectElementModeController.ToggleSearchActionDelegate.instance();
   },
-  title: i18nLazyString(UIStrings.selectAnElementInThePageTo),
+  title: (): Platform.UIString.LocalizedString => ls`Select an element in the page to inspect it`,
   iconClass: UI.ActionRegistration.IconClass.LARGEICON_NODE_SEARCH,
   bindings: [
     {
@@ -336,7 +233,7 @@ UI.ActionRegistration.registerActionExtension({
 Common.Settings.registerSettingExtension({
   category: Common.Settings.SettingCategory.ELEMENTS,
   order: 1,
-  title: i18nLazyString('Show user agent shadow DOM'),
+  title: (): Platform.UIString.LocalizedString => ls`Show user agent shadow DOM`,
   settingName: 'showUAShadowDOM',
   settingType: Common.Settings.SettingType.BOOLEAN,
   defaultValue: false,
@@ -345,17 +242,17 @@ Common.Settings.registerSettingExtension({
 Common.Settings.registerSettingExtension({
   category: Common.Settings.SettingCategory.ELEMENTS,
   order: 2,
-  title: i18nLazyString(UIStrings.wordWrap),
+  title: (): Platform.UIString.LocalizedString => ls`Word wrap`,
   settingName: 'domWordWrap',
   settingType: Common.Settings.SettingType.BOOLEAN,
   options: [
     {
       value: true,
-      title: i18nLazyString(UIStrings.enableDomWordWrap),
+      title: (): Platform.UIString.LocalizedString => ls`Enable DOM word wrap`,
     },
     {
       value: false,
-      title: i18nLazyString(UIStrings.disableDomWordWrap),
+      title: (): Platform.UIString.LocalizedString => ls`Disable DOM word wrap`,
     },
   ],
   defaultValue: true,
@@ -364,18 +261,18 @@ Common.Settings.registerSettingExtension({
 Common.Settings.registerSettingExtension({
   category: Common.Settings.SettingCategory.ELEMENTS,
   order: 3,
-  title: i18nLazyString(UIStrings.showHtmlComments),
+  title: (): Platform.UIString.LocalizedString => ls`Show HTML comments`,
   settingName: 'showHTMLComments',
   settingType: Common.Settings.SettingType.BOOLEAN,
   defaultValue: true,
   options: [
     {
       value: true,
-      title: i18nLazyString(UIStrings.showHtmlComments),
+      title: (): Platform.UIString.LocalizedString => ls`Show HTML comments`,
     },
     {
       value: false,
-      title: i18nLazyString(UIStrings.hideHtmlComments),
+      title: (): Platform.UIString.LocalizedString => ls`Hide HTML comments`,
     },
   ],
 });
@@ -383,7 +280,7 @@ Common.Settings.registerSettingExtension({
 Common.Settings.registerSettingExtension({
   category: Common.Settings.SettingCategory.ELEMENTS,
   order: 4,
-  title: i18nLazyString(UIStrings.revealDomNodeOnHover),
+  title: (): Platform.UIString.LocalizedString => ls`Reveal DOM node on hover`,
   settingName: 'highlightNodeOnHoverInOverlay',
   settingType: Common.Settings.SettingType.BOOLEAN,
   defaultValue: true,
@@ -392,7 +289,7 @@ Common.Settings.registerSettingExtension({
 Common.Settings.registerSettingExtension({
   category: Common.Settings.SettingCategory.ELEMENTS,
   order: 5,
-  title: i18nLazyString(UIStrings.showDetailedInspectTooltip),
+  title: (): Platform.UIString.LocalizedString => ls`Show detailed inspect tooltip`,
   settingName: 'showDetailedInspectTooltip',
   settingType: Common.Settings.SettingType.BOOLEAN,
   defaultValue: true,

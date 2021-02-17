@@ -49,7 +49,7 @@ export const UIStrings = {
   */
   redirect: 'Redirect',
   /**
-  *@description Content of the request method column in the network log view. Some requests require an additional request to check permissions, and this additional request is called 'Preflight Request', see https://developer.mozilla.org/en-US/docs/Glossary/Preflight_request. In the request method column we use, for example, 'POST + Preflight' to indicate that the request method was 'POST' and the request was accompanied by a preflight request. Since the column is short, the translation for Preflight in this context should ideally also be short.
+  *@description Content of the request method column in the network log view
   *@example {GET} PH1
   */
   sPreflight: '{PH1} + Preflight',
@@ -98,9 +98,9 @@ export const UIStrings = {
   */
   subresourcefilter: 'subresource-filter',
   /**
-  *@description Reason in Network Data Grid Node of the Network panel. Locked term. Don't translate.
+  *@description Reason in Network Data Grid Node of the Network panel
   */
-  contenttype: '`content-type`',
+  contenttype: 'content-type',
   /**
   *@description Reason in Network Data Grid Node of the Network panel
   */

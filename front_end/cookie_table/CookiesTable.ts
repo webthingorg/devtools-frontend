@@ -79,22 +79,11 @@ export const UIStrings = {
   *@description Text for Context Menu entry
   */
   showIssueAssociatedWithThis: 'Show issue associated with this cookie',
-  /**
-  *@description Tooltip for the cell that shows the sourcePort property of a cookie in the cookie table. The source port is numberic attribute of a cookie.
-  */
-  sourcePortTooltip:
-      'Shows the source port (range 1-65535) the cookie was set on. If the port is unknown, this shows -1.',
-  /**
-  *@description Tooltip for the cell that shows the sourceScheme property of a cookie in the cookie table. The source scheme is a trinary attribute of a cookie.
-  */
-  sourceSchemeTooltip:
-      'Shows the source scheme (`Secure`, `NonSecure`) the cookie was set on. If the scheme is unknown, this shows `Unset`.',
 };
 const str_ = i18n.i18n.registerUIStrings('cookie_table/CookiesTable.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
-const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
-const expiresSessionValue = i18nLazyString(UIStrings.session);
+const expiresSessionValue = i18nString(UIStrings.session);
 
 export class CookiesTable extends UI.Widget.VBox {
   _saveCallback?: ((arg0: SDK.Cookie.Cookie, arg1: SDK.Cookie.Cookie|null) => Promise<boolean>);
@@ -200,23 +189,7 @@ export class CookiesTable extends UI.Widget.VBox {
         align: DataGrid.DataGrid.Align.Center,
         weight: 7,
         dataType: DataGrid.DataGrid.DataType.Boolean,
-        editable: editable,
-      },
-      {
-        id: SDK.Cookie.Attributes.SourceScheme,
-        title: 'SourceScheme',
-        sortable: true,
-        align: DataGrid.DataGrid.Align.Center,
-        weight: 7,
-        editable: editable,
-      },
-      {
-        id: SDK.Cookie.Attributes.SourcePort,
-        title: 'SourcePort',
-        sortable: true,
-        align: DataGrid.DataGrid.Align.Center,
-        weight: 7,
-        editable: editable,
+        editable: false,
       },
       {
         id: SDK.Cookie.Attributes.Priority,
@@ -355,8 +328,6 @@ export class CookiesTable extends UI.Widget.VBox {
         groupData[SDK.Cookie.Attributes.Secure] = '';
         groupData[SDK.Cookie.Attributes.SameSite] = '';
         groupData[SDK.Cookie.Attributes.SameParty] = '';
-        groupData[SDK.Cookie.Attributes.SourcePort] = '';
-        groupData[SDK.Cookie.Attributes.SourceScheme] = '';
         groupData[SDK.Cookie.Attributes.Priority] = '';
 
         const groupNode = new DataGrid.DataGrid.DataGridNode(groupData) as DataGrid.DataGrid.DataGridNode<DataGridNode>;
@@ -439,8 +410,6 @@ export class CookiesTable extends UI.Widget.VBox {
           return String(cookie.sameSite());
         case SDK.Cookie.Attributes.SameParty:
           return String(cookie.sameParty());
-        case SDK.Cookie.Attributes.SourceScheme:
-          return String(cookie.sourceScheme());
         default:
           return String(cookie.name());
       }
@@ -450,9 +419,8 @@ export class CookiesTable extends UI.Widget.VBox {
       return sortDirection * Platform.StringUtilities.compare(getValue(cookie1, property), getValue(cookie2, property));
     }
 
-    function numberCompare(
-        p: (cookie: SDK.Cookie.Cookie) => number, cookie1: SDK.Cookie.Cookie, cookie2: SDK.Cookie.Cookie): number {
-      return sortDirection * (p(cookie1) - p(cookie2));
+    function numberCompare(cookie1: SDK.Cookie.Cookie, cookie2: SDK.Cookie.Cookie): number {
+      return sortDirection * (cookie1.size() - cookie2.size());
     }
 
     function priorityCompare(cookie1: SDK.Cookie.Cookie, cookie2: SDK.Cookie.Cookie): number {
@@ -490,9 +458,7 @@ export class CookiesTable extends UI.Widget.VBox {
     if (columnId === SDK.Cookie.Attributes.Expires) {
       comparator = expiresCompare;
     } else if (columnId === SDK.Cookie.Attributes.Size) {
-      comparator = numberCompare.bind(null, c => c.size());
-    } else if (columnId === SDK.Cookie.Attributes.SourcePort) {
-      comparator = numberCompare.bind(null, c => c.sourcePort());
+      comparator = numberCompare;
     } else if (columnId === SDK.Cookie.Attributes.Priority) {
       comparator = priorityCompare;
     } else {
@@ -520,13 +486,13 @@ export class CookiesTable extends UI.Widget.VBox {
       data[SDK.Cookie.Attributes.Expires] = Number.secondsToString(Math.floor(cookie.maxAge()));
     } else if (cookie.expires()) {
       if (cookie.expires() < 0) {
-        data[SDK.Cookie.Attributes.Expires] = expiresSessionValue();
+        data[SDK.Cookie.Attributes.Expires] = expiresSessionValue;
       } else {
         data[SDK.Cookie.Attributes.Expires] = new Date(cookie.expires()).toISOString();
       }
     } else {
       data[SDK.Cookie.Attributes.Expires] =
-          cookie.type() === SDK.Cookie.Type.Request ? i18nString(UIStrings.na) : expiresSessionValue();
+          cookie.type() === SDK.Cookie.Type.Request ? i18nString(UIStrings.na) : expiresSessionValue;
     }
 
     data[SDK.Cookie.Attributes.Size] = cookie.size();
@@ -534,8 +500,6 @@ export class CookiesTable extends UI.Widget.VBox {
     data[SDK.Cookie.Attributes.Secure] = cookie.secure();
     data[SDK.Cookie.Attributes.SameSite] = cookie.sameSite() || '';
     data[SDK.Cookie.Attributes.SameParty] = cookie.sameParty();
-    data[SDK.Cookie.Attributes.SourcePort] = cookie.sourcePort();
-    data[SDK.Cookie.Attributes.SourceScheme] = cookie.sourceScheme();
     data[SDK.Cookie.Attributes.Priority] = cookie.priority() || '';
 
     const blockedReasons = this._cookieToBlockedReasons ? this._cookieToBlockedReasons.get(cookie) : null;
@@ -574,7 +538,7 @@ export class CookiesTable extends UI.Widget.VBox {
       node.data[SDK.Cookie.Attributes.Path] = '/';
     }
     if (node.data[SDK.Cookie.Attributes.Expires] === null) {
-      node.data[SDK.Cookie.Attributes.Expires] = expiresSessionValue();
+      node.data[SDK.Cookie.Attributes.Expires] = expiresSessionValue;
     }
   }
 
@@ -601,7 +565,7 @@ export class CookiesTable extends UI.Widget.VBox {
 
     cookie.addAttribute(SDK.Cookie.Attributes.Domain, data[SDK.Cookie.Attributes.Domain]);
     cookie.addAttribute(SDK.Cookie.Attributes.Path, data[SDK.Cookie.Attributes.Path]);
-    if (data.expires && data.expires !== expiresSessionValue()) {
+    if (data.expires && data.expires !== expiresSessionValue) {
       cookie.addAttribute(SDK.Cookie.Attributes.Expires, (new Date(data[SDK.Cookie.Attributes.Expires])).toUTCString());
     }
     if (data[SDK.Cookie.Attributes.HttpOnly]) {
@@ -615,13 +579,6 @@ export class CookiesTable extends UI.Widget.VBox {
     }
     if (data[SDK.Cookie.Attributes.SameParty]) {
       cookie.addAttribute(SDK.Cookie.Attributes.SameParty);
-    }
-    if (SDK.Cookie.Attributes.SourceScheme in data) {
-      cookie.addAttribute(SDK.Cookie.Attributes.SourceScheme, data[SDK.Cookie.Attributes.SourceScheme]);
-    }
-    if (SDK.Cookie.Attributes.SourcePort in data) {
-      cookie.addAttribute(
-          SDK.Cookie.Attributes.SourcePort, Number.parseInt(data[SDK.Cookie.Attributes.SourcePort], 10) || undefined);
     }
     cookie.setSize(data[SDK.Cookie.Attributes.Name].length + data[SDK.Cookie.Attributes.Value].length);
     return cookie;
@@ -646,7 +603,7 @@ export class CookiesTable extends UI.Widget.VBox {
   }
 
   _isValidDate(date: string): boolean {
-    return date === '' || date === expiresSessionValue() || !isNaN(Date.parse(date));
+    return date === '' || date === expiresSessionValue || !isNaN(Date.parse(date));
   }
 
   _refresh(): void {
@@ -710,13 +667,7 @@ export class DataGridNode extends DataGrid.DataGrid.DataGridNode<DataGridNode> {
 
   createCell(columnId: string): HTMLElement {
     const cell = super.createCell(columnId);
-    if (columnId === SDK.Cookie.Attributes.SourcePort) {
-      UI.Tooltip.Tooltip.install(cell, i18nString(UIStrings.sourcePortTooltip));
-    } else if (columnId === SDK.Cookie.Attributes.SourceScheme) {
-      UI.Tooltip.Tooltip.install(cell, i18nString(UIStrings.sourceSchemeTooltip));
-    } else {
-      UI.Tooltip.Tooltip.install(cell, cell.textContent || '');
-    }
+    UI.Tooltip.Tooltip.install(cell, cell.textContent || '');
 
     let blockedReasonString = '';
     if (this._blockedReasons) {

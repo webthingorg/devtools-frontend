@@ -94,8 +94,7 @@ export const UIStrings = {
   */
   requestInitiatorCallStack: 'Request initiator call stack',
   /**
-  *@description Title of a tab in Network Item View of the Network panel.
-  *The tab displays the duration breakdown of a network request.
+  *@description Text in Network Item View of the Network panel
   */
   timing: 'Timing',
   /**

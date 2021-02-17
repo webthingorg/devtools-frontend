@@ -41,7 +41,6 @@ import * as i18n from '../i18n/i18n.js';
 import * as ObjectUI from '../object_ui/object_ui.js';
 import * as Platform from '../platform/platform.js';
 import * as SDK from '../sdk/sdk.js';
-import * as TextEditor from '../text_editor/text_editor.js';
 import * as TextUtils from '../text_utils/text_utils.js';
 import * as ThemeSupport from '../theme_support/theme_support.js';
 import * as UI from '../ui/ui.js';
@@ -106,7 +105,7 @@ export const UIStrings = {
   */
   error: 'Error',
   /**
-  *@description Tooltip text for how often this particular console message was reported
+  *@description Text in Console View Message of the Console panel
   *@example {3} PH1
   */
   repeatS: 'Repeat {PH1}',
@@ -121,23 +120,23 @@ export const UIStrings = {
   */
   errorS: 'Error {PH1}',
   /**
-  *@description Text appended to grouped console messages that are related to URL requests
+  *@description Text in Console View Message of the Console panel
   */
   url: '<URL>',
   /**
-  *@description Text appended to grouped console messages about tasks that took longer than N ms
+  *@description Text in Console View Message of the Console panel
   */
   tookNms: 'took <N>ms',
   /**
-  *@description Text appended to grouped console messages about tasks that are related to some DOM event
+  *@description Text in Console View Message of the Console panel
   */
   someEvent: '<some> event',
   /**
-  *@description Text appended to grouped console messages about tasks that are related to a particular milestone
+  *@description Text in Console View Message of the Console panel
   */
   Mxx: ' M<XX>',
   /**
-  *@description Text appended to grouped console messages about tasks that are related to autofill completions
+  *@description Text in Console View Message of the Console panel
   */
   attribute: '<attribute>',
   /**
@@ -745,7 +744,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
 
   _formatParameterAsString(output: SDK.RemoteObject.RemoteObject): HTMLElement {
     const span = (document.createElement('span') as HTMLElement);
-    span.appendChild(this._linkifyStringAsFragment(output.description || ''));
+    span.appendChild(this._linkifyStringAsFragment((output.description ?? '').replace(/"/g, '\\"')));
 
     const result = (document.createElement('span') as HTMLElement);
     result.createChild('span', 'object-value-string-quote').textContent = '"';
@@ -1739,7 +1738,7 @@ export class ConsoleCommand extends ConsoleViewMessage {
     newContentElement.appendChild(this._formattedCommand);
 
     if (this._formattedCommand.textContent.length < MaxLengthToIgnoreHighlighter) {
-      const javascriptSyntaxHighlighter = new TextEditor.SyntaxHighlighter.SyntaxHighlighter('text/javascript', true);
+      const javascriptSyntaxHighlighter = new UI.SyntaxHighlighter.SyntaxHighlighter('text/javascript', true);
       javascriptSyntaxHighlighter.syntaxHighlightNode(this._formattedCommand).then(this._updateSearch.bind(this));
     } else {
       this._updateSearch();

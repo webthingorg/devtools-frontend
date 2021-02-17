@@ -29,6 +29,7 @@ devtools_entrypoint("bundle") {
     "../protocol_client:legacy",
     "../root:legacy",
     "../sdk:legacy",
+    "../services:legacy",
     "../text_utils:legacy",
     "../ui:legacy",
     "../workspace:legacy",

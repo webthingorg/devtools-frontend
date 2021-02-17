@@ -8,7 +8,6 @@ import * as Bindings from '../bindings/bindings.js';
 import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
 import * as Platform from '../platform/platform.js';
 import * as ProtocolClientModule from '../protocol_client/protocol_client.js';
-import * as TextEditor from '../text_editor/text_editor.js';
 import * as UI from '../ui/ui.js';
 import * as Workspace from '../workspace/workspace.js';
 
@@ -1365,7 +1364,7 @@ export function url(url = '') {
 export function dumpSyntaxHighlight(str, mimeType) {
   const node = document.createElement('span');
   node.textContent = str;
-  const javascriptSyntaxHighlighter = new TextEditor.SyntaxHighlighter.SyntaxHighlighter(mimeType, false);
+  const javascriptSyntaxHighlighter = new UI.SyntaxHighlighter.SyntaxHighlighter(mimeType, false);
   return javascriptSyntaxHighlighter.syntaxHighlightNode(node).then(dumpSyntax);
 
   function dumpSyntax() {

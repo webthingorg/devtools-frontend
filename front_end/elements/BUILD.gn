@@ -62,7 +62,6 @@ devtools_module("elements") {
     "../extensions:bundle",
     "../formatter:bundle",
     "../generated",
-    "../i18n:bundle",
     "../inline_editor:bundle",
     "../mobile_throttling:bundle",
     "../object_ui:bundle",

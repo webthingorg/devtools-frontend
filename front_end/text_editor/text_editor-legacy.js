@@ -38,10 +38,6 @@ TextEditor.CodeMirrorUtils.pullLines = TextEditorModule.CodeMirrorUtils.pullLine
 /** @constructor */
 TextEditor.CodeMirrorUtils.TokenizerFactory = TextEditorModule.CodeMirrorUtils.TokenizerFactory;
 
-
-/** @constructor */
-TextEditor.SyntaxHighlighter = TextEditorModule.SyntaxHighlighter.SyntaxHighlighter;
-
 /** @constructor */
 TextEditor.TextEditorAutocompleteController =
     TextEditorModule.TextEditorAutocompleteController.TextEditorAutocompleteController;

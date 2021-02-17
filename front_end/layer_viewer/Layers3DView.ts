@@ -81,6 +81,10 @@ export const UIStrings = {
   /**
   *@description Text in DView of the Layers panel
   */
+  repaintsOnScroll: 'repaints on scroll',
+  /**
+  *@description Text in DView of the Layers panel
+  */
   touchEventListener: 'touch event listener',
   /**
   *@description Text in DView of the Layers panel
@@ -901,6 +905,12 @@ export const enum ChromeTexture {
   Middle = 1,
   Right = 2,
 }
+
+export const ScrollRectTitles = {
+  RepaintsOnScroll: i18nString(UIStrings.repaintsOnScroll),
+  TouchEventHandler: i18nString(UIStrings.touchEventListener),
+  WheelEventHandler: i18nString(UIStrings.mousewheelEventListener),
+};
 
 export const FragmentShader = '' +
     'precision mediump float;\n' +

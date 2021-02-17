@@ -30,7 +30,7 @@ export class CorsIssue extends Issue {
       substitutions: undefined,
       issueKind: IssueKind.BreakingChange,
       links: [{
-        link: 'https://web.dev/cors-rfc1918-guide',
+        link: 'https://web.dev/cors-rfc1918-feedback/',
         linkTitle: ls`CORS for private networks (RFC1918)`,
       }],
     };

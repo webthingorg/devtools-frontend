@@ -48,7 +48,6 @@ export class Report extends HTMLElement {
           background-color: var(--color-background);
           display: grid;
           grid-template-columns: min-content 1fr;
-          user-select: text;
         }
 
         .report-title {

@@ -53,9 +53,8 @@ export const UIStrings = {
   */
   loading: 'Loading…',
   /**
-  * @description Shown at the bottom of the Sources panel when the user has made multiple
-  * simultaneous text selections in the text editor.
-  * @example {2} PH1
+  *@description Text in Source Frame of the Sources panel
+  *@example {2} PH1
   */
   dSelectionRegions: '{PH1} selection regions',
   /**
@@ -977,7 +976,6 @@ export class SourceFrameImpl extends UI.View.SimpleView {
         this._sourcePosition.setText(i18nString(
             UIStrings.bytecodePositionXs, {PH1: bytecodeOffset.toString(16).padStart(bytecodeOffsetDigits, '0')}));
       } else {
-        this._textEditor.revealPosition(location[0], location[1], !this.canEditSource());
         this._sourcePosition.setText(i18nString(UIStrings.lineSColumnS, {PH1: location[0] + 1, PH2: location[1] + 1}));
       }
       return;

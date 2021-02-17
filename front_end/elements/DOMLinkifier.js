@@ -3,18 +3,9 @@
 // found in the LICENSE file.
 
 import * as Common from '../common/common.js';
-import * as i18n from '../i18n/i18n.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
-export const UIStrings = {
-  /**
-  *@description Text in DOMLinkifier of the Elements panel
-  */
-  node: '<node>',
-};
-const str_ = i18n.i18n.registerUIStrings('elements/DOMLinkifier.js', UIStrings);
-const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 /**
  * @param {!SDK.DOMModel.DOMNode} node
  * @param {!HTMLElement} parentElement
@@ -80,7 +71,7 @@ export const linkifyNodeReference = function(node, options = {
   preventKeyboardFocus: undefined,
 }) {
   if (!node) {
-    return document.createTextNode(i18nString(UIStrings.node));
+    return document.createTextNode(Common.UIString.UIString('<node>'));
   }
 
   const root = document.createElement('span');

@@ -29,6 +29,7 @@
  */
 
 import * as TextUtils from '../text_utils/text_utils.js';
+import * as UI from '../ui/ui.js';
 
 /**
  * @param {!TextUtils.TextRange.TextRange} range
@@ -134,3 +135,5 @@ export class TokenizerFactory {
     return tokenize;
   }
 }
+
+UI.SyntaxHighlighter.SyntaxHighlighter.setCodeMirrorTokenizerFactoryInstance(TokenizerFactory.instance);

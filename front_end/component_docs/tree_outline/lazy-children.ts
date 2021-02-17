@@ -13,16 +13,17 @@ async function loadInSomeNodes(): Promise<Components.TreeOutlineUtils.TreeNode[]
   const europeanOffices: Components.TreeOutlineUtils.TreeNode[] = [
     {
       key: 'UK',
-      children: () => Promise.resolve([
+      children: (): Promise<Components.TreeOutlineUtils.TreeNode[]> => Promise.resolve([
         {
           key: 'LON',
-          children: () => Promise.resolve([{key: '6PS'}, {key: 'CSG'}, {key: 'BEL'}]),
+          children: (): Promise<Components.TreeOutlineUtils.TreeNode[]> =>
+              Promise.resolve([{key: '6PS'}, {key: 'CSG'}, {key: 'BEL'}]),
         },
       ]),
     },
     {
       key: 'Germany',
-      children: () => Promise.resolve([
+      children: (): Promise<Components.TreeOutlineUtils.TreeNode[]> => Promise.resolve([
         {key: 'MUC'},
         {key: 'BER'},
       ]),
@@ -38,7 +39,7 @@ const data: Components.TreeOutline.TreeOutlineData = {
   tree: [
     {
       key: 'Offices',
-      children: () => Promise.resolve([
+      children: (): Promise<Components.TreeOutlineUtils.TreeNode[]> => Promise.resolve([
         {
           key: 'Europe',
           // TODO: Remove next line once crbug.com/1177242 is solved.
@@ -52,7 +53,7 @@ const data: Components.TreeOutline.TreeOutlineData = {
     },
     {
       key: 'Products',
-      children: () => Promise.resolve([
+      children: (): Promise<Components.TreeOutlineUtils.TreeNode[]> => Promise.resolve([
         {
           key: 'Chrome',
         },

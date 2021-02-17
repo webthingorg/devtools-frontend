@@ -279,7 +279,10 @@ export class MetricsSidebarPane extends ElementsSidebarPane {
       Common.Color.PageHighlight.Content, Common.Color.PageHighlight.Padding, Common.Color.PageHighlight.Border,
       Common.Color.PageHighlight.Margin, Common.Color.Color.fromRGBA([0, 0, 0, 0])
     ];
-    const boxLabels = ['content', 'padding', 'border', 'margin', 'position'];
+    const boxLabels = [
+      Common.UIString.UIString('content'), Common.UIString.UIString('padding'), Common.UIString.UIString('border'),
+      Common.UIString.UIString('margin'), Common.UIString.UIString('position')
+    ];
     let previousBox = null;
     this._boxElements = [];
     for (let i = 0; i < boxes.length; ++i) {

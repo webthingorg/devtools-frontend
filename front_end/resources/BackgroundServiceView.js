@@ -70,9 +70,7 @@ export const UIStrings = {
   */
   origin: 'Origin',
   /**
-  *@description Text in Background Service View of the Application panel. SW stands for Service
-  * Worker. The Scope is a URL associated with the Service Worker, which limits which pages/sites
-  * the Service Worker operates on.
+  *@description Text in Background Service View of the Application panel
   */
   swScope: 'SW Scope',
   /**

@@ -396,8 +396,7 @@ export const UIStrings = {
   */
   source: 'Source',
   /**
-  * @description Label for a date/time string in the Security panel. It indicates the time at which
-  * a security certificate was issued (created by an authority and distributed).
+  *@description Text in Security Panel of the Security panel
   */
   issuedAt: 'Issued at',
   /**

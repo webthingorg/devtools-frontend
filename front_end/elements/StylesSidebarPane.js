@@ -31,9 +31,9 @@ import * as Bindings from '../bindings/bindings.js';
 import * as Common from '../common/common.js';
 import * as Components from '../components/components.js';
 import * as Host from '../host/host.js';
-import * as i18n from '../i18n/i18n.js';
 import * as InlineEditor from '../inline_editor/inline_editor.js';
 import * as Platform from '../platform/platform.js';
+import {ls} from '../platform/platform.js';
 import * as Root from '../root/root.js';
 import * as SDK from '../sdk/sdk.js';
 import * as TextUtils from '../text_utils/text_utils.js';
@@ -49,101 +49,6 @@ import {ImagePreviewPopover} from './ImagePreviewPopover.js';
 import {StylePropertyHighlighter} from './StylePropertyHighlighter.js';
 import {Context, StylePropertyTreeElement} from './StylePropertyTreeElement.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
-  /**
-  *@description No matches element text content in Styles Sidebar Pane of the Elements panel
-  */
-  noMatchingSelectorOrStyle: 'No matching selector or style',
-  /**
-  *@description Text in Styles Sidebar Pane of the Elements panel
-  */
-  invalidPropertyValue: 'Invalid property value',
-  /**
-  *@description Text in Styles Sidebar Pane of the Elements panel
-  */
-  unknownPropertyName: 'Unknown property name',
-  /**
-  *@description Text to filter result items
-  */
-  filter: 'Filter',
-  /**
-  *@description ARIA accessible name in Styles Sidebar Pane of the Elements panel
-  */
-  filterStyles: 'Filter Styles',
-  /**
-  *@description Separator element text content in Styles Sidebar Pane of the Elements panel
-  *@example {scrollbar-corner} PH1
-  */
-  pseudoSElement: 'Pseudo ::{PH1} element',
-  /**
-  *@description Text of a DOM element in Styles Sidebar Pane of the Elements panel
-  */
-  inheritedFroms: 'Inherited from ',
-  /**
-  *@description Tooltip text that appears when hovering over the largeicon add button in the Styles Sidebar Pane of the Elements panel
-  */
-  insertStyleRuleBelow: 'Insert Style Rule Below',
-  /**
-  *@description Text in Styles Sidebar Pane of the Elements panel
-  */
-  constructedStylesheet: 'constructed stylesheet',
-  /**
-  *@description Text in Styles Sidebar Pane of the Elements panel
-  */
-  userAgentStylesheet: 'user agent stylesheet',
-  /**
-  *@description Text in Styles Sidebar Pane of the Elements panel
-  */
-  injectedStylesheet: 'injected stylesheet',
-  /**
-  *@description Text in Styles Sidebar Pane of the Elements panel
-  */
-  viaInspector: 'via inspector',
-  /**
-  *@description Text in Styles Sidebar Pane of the Elements panel
-  */
-  styleAttribute: 'Style Attribute',
-  /**
-  *@description Text in Styles Sidebar Pane of the Elements panel
-  *@example {html} PH1
-  */
-  sattributesStyle: '{PH1}[Attributes Style]',
-  /**
-  *@description Show all button text content in Styles Sidebar Pane of the Elements panel
-  *@example {3} PH1
-  */
-  showAllPropertiesSMore: 'Show All Properties ({PH1} more)',
-  /**
-  *@description Text in Elements Tree Element of the Elements panel, copy should be used as a verb
-  */
-  copySelector: 'Copy `selector`',
-  /**
-  *@description A context menu item in Styles panel to copy CSS rule
-  */
-  copyRule: 'Copy rule',
-  /**
-  *@description A context menu item in Styles panel to copy all CSS declarations
-  */
-  copyAllDeclarations: 'Copy all declarations',
-  /**
-  *@description Title of  in styles sidebar pane of the elements panel
-  *@example {Ctrl} PH1
-  */
-  incrementdecrementWithMousewheelOne:
-      'Increment/decrement with mousewheel or up/down keys. {PH1}: R ±1, Shift: G ±1, Alt: B ±1',
-  /**
-  *@description Title of  in styles sidebar pane of the elements panel
-  *@example {Ctrl} PH1
-  */
-  incrementdecrementWithMousewheelHundred:
-      'Increment/decrement with mousewheel or up/down keys. {PH1}: ±100, Shift: ±10, Alt: ±0.1',
-  /**
-  *@description Tooltip text that appears when hovering over the largeicon add button in the Styles Sidebar Pane of the Elements panel
-  */
-  newStyleRule: 'New Style Rule',
-};
-const str_ = i18n.i18n.registerUIStrings('elements/StylesSidebarPane.js', UIStrings);
-const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 // Highlightable properties are those that can be hovered in the sidebar to trigger a specific
 // highlighting mode on the current element.
 const HIGHLIGHTABLE_PROPERTIES = [
@@ -200,7 +105,7 @@ export class StylesSidebarPane extends ElementsSidebarPane {
     this._computedStyleModel = new ComputedStyleModel();
 
     this._noMatchesElement = this.contentElement.createChild('div', 'gray-info-message hidden');
-    this._noMatchesElement.textContent = i18nString(UIStrings.noMatchingSelectorOrStyle);
+    this._noMatchesElement.textContent = ls`No matching selector or style`;
 
     this._sectionsContainer = this.contentElement.createChild('div');
     UI.ARIAUtils.markAsTree(this._sectionsContainer);
@@ -281,8 +186,9 @@ export class StylesSidebarPane extends ElementsSidebarPane {
     } else {
       UI.Tooltip.Tooltip.install(
           exclamationElement,
-          SDK.CSSMetadata.cssMetadata().isCSSPropertyName(property.name) ? i18nString(UIStrings.invalidPropertyValue) :
-                                                                           i18nString(UIStrings.unknownPropertyName));
+          SDK.CSSMetadata.cssMetadata().isCSSPropertyName(property.name) ?
+              Common.UIString.UIString('Invalid property value') :
+              Common.UIString.UIString('Unknown property name'));
     }
     return exclamationElement;
   }
@@ -1024,9 +930,9 @@ export class StylesSidebarPane extends ElementsSidebarPane {
     const container = this.contentElement.createChild('div', 'styles-sidebar-pane-toolbar-container');
     const hbox = container.createChild('div', 'hbox styles-sidebar-pane-toolbar');
     const filterContainerElement = hbox.createChild('div', 'styles-sidebar-pane-filter-box');
-    const filterInput = StylesSidebarPane.createPropertyFilterElement(
-        i18nString(UIStrings.filter), hbox, this._onFilterChanged.bind(this));
-    UI.ARIAUtils.setAccessibleName(filterInput, i18nString(UIStrings.filterStyles));
+    const filterInput =
+        StylesSidebarPane.createPropertyFilterElement(ls`Filter`, hbox, this._onFilterChanged.bind(this));
+    UI.ARIAUtils.setAccessibleName(filterInput, Common.UIString.UIString('Filter Styles'));
     filterContainerElement.appendChild(filterInput);
     const toolbar = new UI.Toolbar.Toolbar('styles-pane-toolbar', hbox);
     toolbar.makeToggledGray();
@@ -1150,7 +1056,7 @@ export class SectionBlock {
   static createPseudoTypeBlock(pseudoType) {
     const separatorElement = document.createElement('div');
     separatorElement.className = 'sidebar-separator';
-    separatorElement.textContent = i18nString(UIStrings.pseudoSElement, {PH1: pseudoType});
+    separatorElement.textContent = Common.UIString.UIString('Pseudo ::%s element', pseudoType);
     return new SectionBlock(separatorElement);
   }
 
@@ -1172,7 +1078,7 @@ export class SectionBlock {
   static async _createInheritedNodeBlock(node) {
     const separatorElement = document.createElement('div');
     separatorElement.className = 'sidebar-separator';
-    UI.UIUtils.createTextChild(separatorElement, i18nString(UIStrings.inheritedFroms));
+    UI.UIUtils.createTextChild(separatorElement, ls`Inherited from${' '}`);
     const link = await Common.Linkifier.Linkifier.linkify(node, {
       preventKeyboardFocus: true,
       tooltip: undefined,
@@ -1305,7 +1211,8 @@ export class StylePropertiesSection {
     closeBrace.textContent = '}';
 
     if (this._style.parentRule) {
-      const newRuleButton = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.insertStyleRuleBelow), 'largeicon-add');
+      const newRuleButton =
+          new UI.Toolbar.ToolbarButton(Common.UIString.UIString('Insert Style Rule Below'), 'largeicon-add');
       newRuleButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._onNewRuleClick, this);
       newRuleButton.element.tabIndex = -1;
       if (!this._newStyleRuleToolbar) {
@@ -1430,7 +1337,7 @@ export class StylePropertiesSection {
     const header = rule.styleSheetId ? matchedStyles.cssModel().styleSheetHeaderForId(rule.styleSheetId) : null;
 
     if (header && header.isMutable && !header.isViaInspector()) {
-      const label = header.isConstructed ? i18nString(UIStrings.constructedStylesheet) : '<style>';
+      const label = header.isConstructed ? Common.UIString.UIString('constructed stylesheet') : '<style>';
       if (header.ownerNode) {
         const link = linkifyDeferredNodeReference(header.ownerNode);
         link.textContent = label;
@@ -1445,13 +1352,13 @@ export class StylePropertiesSection {
     }
 
     if (rule.isUserAgent()) {
-      return document.createTextNode(i18nString(UIStrings.userAgentStylesheet));
+      return document.createTextNode(Common.UIString.UIString('user agent stylesheet'));
     }
     if (rule.isInjected()) {
-      return document.createTextNode(i18nString(UIStrings.injectedStylesheet));
+      return document.createTextNode(Common.UIString.UIString('injected stylesheet'));
     }
     if (rule.isViaInspector()) {
-      return document.createTextNode(i18nString(UIStrings.viaInspector));
+      return document.createTextNode(Common.UIString.UIString('via inspector'));
     }
 
     if (header && header.ownerNode) {
@@ -1608,10 +1515,11 @@ export class StylePropertiesSection {
   _headerText() {
     const node = this._matchedStyles.nodeForStyle(this._style);
     if (this._style.type === SDK.CSSStyleDeclaration.Type.Inline) {
-      return this._matchedStyles.isInherited(this._style) ? i18nString(UIStrings.styleAttribute) : 'element.style';
+      return this._matchedStyles.isInherited(this._style) ? Common.UIString.UIString('Style Attribute') :
+                                                            'element.style';
     }
     if (node && this._style.type === SDK.CSSStyleDeclaration.Type.Attributes) {
-      return i18nString(UIStrings.sattributesStyle, {PH1: node.nodeNameInCorrectCase()});
+      return ls`${node.nodeNameInCorrectCase()}[Attributes Style]`;
     }
     if (this._style.parentRule instanceof SDK.CSSRule.CSSStyleRule) {
       return this._style.parentRule.selectorText();
@@ -1928,7 +1836,7 @@ export class StylePropertiesSection {
 
     if (count < properties.length) {
       this._showAllButton.classList.remove('hidden');
-      this._showAllButton.textContent = i18nString(UIStrings.showAllPropertiesSMore, {PH1: properties.length - count});
+      this._showAllButton.textContent = ls`Show All Properties (${properties.length - count} more)`;
     } else {
       this._showAllButton.classList.add('hidden');
     }
@@ -2270,17 +2178,17 @@ export class StylePropertiesSection {
 
 
     const contextMenu = new UI.ContextMenu.ContextMenu(event);
-    contextMenu.clipboardSection().appendItem(i18nString(UIStrings.copySelector), () => {
+    contextMenu.clipboardSection().appendItem(ls`Copy selector`, () => {
       const selectorText = this._headerText();
       Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(selectorText);
     });
 
-    contextMenu.clipboardSection().appendItem(i18nString(UIStrings.copyRule), () => {
+    contextMenu.clipboardSection().appendItem(ls`Copy rule`, () => {
       const ruleText = StylesSidebarPane.formatLeadingProperties(this).ruleText;
       Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(ruleText);
     });
 
-    contextMenu.clipboardSection().appendItem(i18nString(UIStrings.copyAllDeclarations), () => {
+    contextMenu.clipboardSection().appendItem(ls`Copy all declarations`, () => {
       const allDeclarationText = StylesSidebarPane.formatLeadingProperties(this).allDeclarationText;
       Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(allDeclarationText);
     });
@@ -2808,9 +2716,11 @@ export class CSSPropertyPrompt extends UI.TextPrompt.TextPrompt {
         const cmdOrCtrl = Host.Platform.isMac() ? 'Cmd' : 'Ctrl';
         if (cssValueText !== null) {
           if (cssValueText.match(/#[\da-f]{3,6}$/i)) {
-            this.setTitle(i18nString(UIStrings.incrementdecrementWithMousewheelOne, {PH1: cmdOrCtrl}));
+            this.setTitle(ls
+                `Increment/decrement with mousewheel or up/down keys. ${cmdOrCtrl}: R ±1, Shift: G ±1, Alt: B ±1`);
           } else if (cssValueText.match(/\d+/)) {
-            this.setTitle(i18nString(UIStrings.incrementdecrementWithMousewheelHundred, {PH1: cmdOrCtrl}));
+            this.setTitle(ls
+                `Increment/decrement with mousewheel or up/down keys. ${cmdOrCtrl}: ±100, Shift: ±10, Alt: ±0.1`);
           }
         }
       }
@@ -3330,7 +3240,7 @@ let buttonProviderInstance;
 export class ButtonProvider {
   /** @private */
   constructor() {
-    this._button = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.newStyleRule), 'largeicon-add');
+    this._button = new UI.Toolbar.ToolbarButton(Common.UIString.UIString('New Style Rule'), 'largeicon-add');
     this._button.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._clicked, this);
     const longclickTriangle = UI.Icon.Icon.create('largeicon-longclick-triangle', 'long-click-glyph');
     this._button.element.appendChild(longclickTriangle);

@@ -3,35 +3,13 @@
 // found in the LICENSE file.
 
 import * as Common from '../common/common.js';
-import * as i18n from '../i18n/i18n.js';
 import * as Platform from '../platform/platform.js';
+import {ls} from '../platform/platform.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
 import {ElementsPanel} from './ElementsPanel.js';
 
-export const UIStrings = {
-  /**
-  *@description Text in Classes Pane Widget of the Elements panel
-  */
-  addNewClass: 'Add new class',
-  /**
-  *@description Screen reader announcement string when adding a class via the Classes Pane Widget.
-  *@example {vbox flex-auto} PH1
-  */
-  classesSAdded: 'Classes {PH1} added.',
-  /**
-  *@description Screen reader announcement string when adding a class via the Classes Pane Widget.
-  *@example {title-container} PH1
-  */
-  classSAdded: 'Class {PH1} added.',
-  /**
-  *@description Text in Classes Pane Widget of the Elements panel
-  */
-  elementClasses: 'Element Classes',
-};
-const str_ = i18n.i18n.registerUIStrings('elements/ClassesPaneWidget.js', UIStrings);
-const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class ClassesPaneWidget extends UI.Widget.Widget {
   constructor() {
     super(true);
@@ -47,7 +25,7 @@ export class ClassesPaneWidget extends UI.Widget.Widget {
     this._prompt.renderAsBlock();
 
     const proxyElement = /** @type {!HTMLElement} */ (this._prompt.attach(this._input));
-    this._prompt.setPlaceholder(i18nString(UIStrings.addNewClass));
+    this._prompt.setPlaceholder(Common.UIString.UIString('Add new class'));
     this._prompt.addEventListener(UI.TextPrompt.Events.TextChanged, this._onTextChanged, this);
     proxyElement.addEventListener('keydown', this._onKeyDown.bind(this), false);
 
@@ -115,8 +93,8 @@ export class ClassesPaneWidget extends UI.Widget.Widget {
 
     // annoucementString is used for screen reader to announce that the class(es) has been added successfully.
     const joinClassString = classNames.join(' ');
-    const announcementString = classNames.length > 1 ? i18nString(UIStrings.classesSAdded, {PH1: joinClassString}) :
-                                                       i18nString(UIStrings.classSAdded, {PH1: joinClassString});
+    const announcementString =
+        classNames.length > 1 ? ls`Classes ${joinClassString} added.` : ls`Class ${joinClassString} added.`;
     UI.ARIAUtils.alert(announcementString, this.contentElement);
 
     this._installNodeClasses(node);
@@ -296,7 +274,7 @@ let buttonProviderInstance;
 export class ButtonProvider {
   /** @private */
   constructor() {
-    this._button = new UI.Toolbar.ToolbarToggle(i18nString(UIStrings.elementClasses), '');
+    this._button = new UI.Toolbar.ToolbarToggle(Common.UIString.UIString('Element Classes'), '');
     this._button.setText('.cls');
     this._button.element.classList.add('monospace');
     this._button.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._clicked, this);

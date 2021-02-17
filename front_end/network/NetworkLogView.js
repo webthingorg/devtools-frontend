@@ -68,9 +68,7 @@ export const UIStrings = {
   */
   hasBlockedCookies: 'Has blocked cookies',
   /**
-  *@description Tooltip for a checkbox in the Network panel. The response to a network request may include a
-  *             cookie (https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies). Such response cookies can
-  *             be malformed or otherwise invalid and the browser may choose to ignore or not accept invalid cookies.
+  *@description Tooltip for a filter in the Network panel
   */
   onlyShowRequestsWithBlocked: 'Only show requests with blocked response cookies',
   /**
@@ -95,9 +93,7 @@ export const UIStrings = {
   */
   performARequestOrHitSToRecordThe: 'Perform a request or hit {PH1} to record the reload.',
   /**
-  *@description Shown in the Network Log View of the Network panel when the user has not yet
-  * recorded any network activity. This is an instruction to the user to start recording in order to
-  * show network activity in the current UI.
+  *@description Text in Network Log View of the Network panel
   *@example {Ctrl + E} PH1
   */
   recordSToDisplayNetworkActivity: 'Record ({PH1}) to display network activity.',
@@ -411,7 +407,7 @@ export class NetworkLogView extends UI.Widget.VBox {
 
     const filterItems =
         Object.values(Common.ResourceType.resourceCategories)
-            .map(category => ({name: category.title, label: () => category.shortTitle, title: category.title}));
+            .map(category => ({name: category.title, label: category.shortTitle, title: category.title}));
     this._resourceCategoryFilterUI =
         new UI.FilterBar.NamedBitSetFilterUI(filterItems, this._networkResourceTypeFiltersSetting);
     UI.ARIAUtils.setAccessibleName(

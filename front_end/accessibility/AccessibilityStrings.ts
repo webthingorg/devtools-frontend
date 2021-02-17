@@ -58,9 +58,7 @@ export const UIStrings = {
   */
   whetherTheValueOfThisElementCan: 'Whether the value of this element can be set.',
   /**
-  * @description Accessibility attribute name that appears under the Computed Properties section in
-  * the Accessibility pane of the Elements panel. A live region is an area of the webpage which is
-  * dynamic and changes frequently.
+  *@description Accessibility attribute name that appears under the Computed Properties section in the Accessibility pane of the Elements pane
   */
   liveRegion: 'Live region',
   /**
@@ -68,21 +66,16 @@ export const UIStrings = {
   */
   whetherAndWhatPriorityOfLive: 'Whether and what priority of live updates may be expected for this element.',
   /**
-  * @description Accessibility attribute name that appears under the Computed Properties section in
-  * the Accessibility pane of the Elements panel when inspecting an element with aria-relevant set.
+  *@description Accessibility attribute name that appears under the Computed Properties section in the Accessibility pane of the Elements pane
   */
   atomicLiveRegions: 'Atomic (live regions)',
   /**
-  * @description Tooltip text that appears when hovering over the 'Atomic (live regions)' attribute
-  * name under the Computed Properties section in the Accessibility pane of the Elements panel. When
-  * a node within a live region changes, the entire live region can be presented to the user, or
-  * just the nodes within the region that actually changed.
+  *@description Tooltip text that appears when hovering over the 'Atomic (live regions)' attribute name under the Computed Properties section in the Accessibility pane of the Elements pane
   */
   ifThisElementMayReceiveLive:
       'If this element may receive live updates, whether the entire live region should be presented to the user on changes, or only changed nodes.',
   /**
-  * @description Accessibility attribute name that appears under the Computed Properties section in
-  * the Accessibility pane of the Elements panel when inspecting an element with aria-relevant set.
+  *@description Accessibility attribute name that appears under the Computed Properties section in the Accessibility pane of the Elements pane
   */
   relevantLiveRegions: 'Relevant (live regions)',
   /**
@@ -100,11 +93,7 @@ export const UIStrings = {
   whetherThisElementOrItsSubtree:
       'Whether this element or its subtree are currently being updated (and thus may be in an inconsistent state).',
   /**
-  * @description Accessibility attribute name that appears under the Computed Properties section in
-  * the Accessibility pane of the Elements panel. A live region is a section of the DOM graph which
-  * is dynamic in nature and will change regularly. The live region root is the node in the graph
-  * which is a parent of all nodes in the live region.
-  * https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions
+  *@description Accessibility attribute name that appears under the Computed Properties section in the Accessibility pane of the Elements pane
   */
   liveRegionRoot: 'Live region root',
   /**
@@ -336,9 +325,7 @@ export const UIStrings = {
   */
   valueFromAttribute: 'Value from attribute.',
   /**
-  * @description The source of an accessibility attribute that appears under the Computed Properties
-  * section in the Accessibility pane of the Elements panel. If the source is implicit, that means
-  * it was never specified by the user but instead is present because it is the default value.
+  *@description Accessibility attribute name that appears under the Computed Properties section in the Accessibility pane of the Elements pane
   */
   implicit: 'Implicit',
   /**
@@ -378,58 +365,41 @@ export const UIStrings = {
   */
   valueFromRelatedElement: 'Value from related element.',
   /**
-  * @description Accessibility attribute name that appears under the Computed Properties section in
-  * the Accessibility pane of the Elements pane. Indicates that this element got assigned this
-  * attribute because there is a related caption, hence it received it from the caption. 'caption'
-  * is part of the ARIA API and should not be translated.
+  *@description Accessibility attribute name that appears under the Computed Properties section in the Accessibility pane of the Elements pane
   */
-  fromCaption: 'From `caption`',
+  fromCaption: 'From caption',
   /**
   *@description Tooltip text that appears when hovering over the 'From caption' attribute name under the Computed Properties section in the Accessibility pane of the Elements pane
   */
   valueFromFigcaptionElement: 'Value from figcaption element.',
   /**
-  * @description Accessibility attribute name that appears under the Computed Properties section in
-  * the Accessibility pane of the Elements pane. Indicates that this element got assigned this
-  * attribute because there is a related label, hence it received it from the label. 'label'
-  * is part of the ARIA API and should not be translated.
+  *@description Accessibility attribute name that appears under the Computed Properties section in the Accessibility pane of the Elements pane
   */
-  fromLabel: 'From `label`',
+  fromLabel: 'From label',
   /**
   *@description Tooltip text that appears when hovering over the 'From label' attribute name under the Computed Properties section in the Accessibility pane of the Elements pane
   */
-  valueFromLabelElement: 'Value from `label` element.',
+  valueFromLabelElement: 'Value from label element.',
   /**
-  * @description Accessibility attribute name that appears under the Computed Properties section in
-  * the Accessibility pane of the Elements pane. Indicates that this element got assigned this
-  * attribute because there is a related label, hence it received it from the label. 'label (for)'
-  * is part of the ARIA API and should not be translated. label (for) is just a different type of
-  * label.
+  *@description Accessibility attribute name that appears under the Computed Properties section in the Accessibility pane of the Elements pane
   */
-  fromLabelFor: 'From `label (for)`',
+  fromLabelFor: 'From label (for)',
   /**
   *@description Tooltip text that appears when hovering over the 'From label (for)' attribute name under the Computed Properties section in the Accessibility pane of the Elements pane
   */
-  valueFromLabelElementWithFor: 'Value from `label` element with `for=` attribute.',
+  valueFromLabelElementWithFor: 'Value from label element with for= attribute.',
   /**
-  * @description Accessibility attribute name that appears under the Computed Properties section in
-  * the Accessibility pane of the Elements pane. Indicates that this element got assigned this
-  * attribute because there is a related label, hence it received it from the label. 'label
-  * (wrapped)' is part of the ARIA API and should not be translated. label (wrapped) is just a
-  * different type of label.
+  *@description Accessibility attribute name that appears under the Computed Properties section in the Accessibility pane of the Elements pane
   */
-  fromLabelWrapped: 'From `label (wrapped)`',
+  fromLabelWrapped: 'From label (wrapped)',
   /**
   *@description Tooltip text that appears when hovering over the 'From label (wrapped)' attribute name under the Computed Properties section in the Accessibility pane of the Elements pane
   */
-  valueFromLabelElementWrapped: 'Value from `label` element wrapped.',
+  valueFromLabelElementWrapped: 'Value from label element wrapped.',
   /**
-  * @description Accessibility attribute name that appears under the Computed Properties section in
-  * the Accessibility pane of the Elements pane. Indicates that this element got assigned this
-  * attribute because there is a related legend, hence it received it from the legend. 'legend' is
-  * part of the ARIA API and should not be translated.
+  *@description Accessibility attribute name that appears under the Computed Properties section in the Accessibility pane of the Elements pane
   */
-  fromLegend: 'From `legend`',
+  fromLegend: 'From legend',
   /**
   *@description Tooltip text that appears when hovering over the 'From legend' attribute name under the Computed Properties section in the Accessibility pane of the Elements pane
   */
@@ -447,8 +417,7 @@ export const UIStrings = {
   */
   valueFromTableCaption: 'Value from table caption.',
   /**
-  * @description Accessibility attribute name that appears under the Computed Properties section in
-  * the Accessibility pane of the Elements panel.
+  *@description Accessibility attribute name that appears under the Computed Properties section in the Accessibility pane of the Elements pane
   */
   fromTitle: 'From title',
   /**

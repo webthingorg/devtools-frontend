@@ -67,10 +67,7 @@ export const UIStrings = {
   */
   orientation: 'Orientation',
   /**
-  *@description Title of the display attribute in App Manifest View of the Application panel
-  * The display attribute defines the preferred display mode for the app such fullscreen or
-  * standalone.
-  * For more details see https://www.w3.org/TR/appmanifest/#display-member.
+  *@description Text in App Manifest View of the Application panel
   */
   display: 'Display',
   /**
@@ -234,12 +231,10 @@ export const UIStrings = {
   */
   icon: 'Icon',
   /**
-  * @description This is a warning message telling the user about a problem where the src attribute
-  * of an image has not be entered/provided correctly. 'src' is part of the DOM API and should not
-  * be translated.
-  * @example {ImageName} PH1
+  *@description Warning message for image resources from the manifest
+  *@example {Image} PH1
   */
-  sSrcIsNotSet: '{PH1} `src` is not set',
+  sSrcIsNotSet: '{PH1} src is not set',
   /**
   *@description Warning message for image resources from the manifest
   *@example {Image} PH1

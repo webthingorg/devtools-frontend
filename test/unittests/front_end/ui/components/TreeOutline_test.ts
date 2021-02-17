@@ -3,9 +3,8 @@
 // found in the LICENSE file.
 
 import * as Coordinator from '../../../../../front_end/render_coordinator/render_coordinator.js';
-import * as LitHtml from '../../../../../front_end/third_party/lit-html/lit-html.js';
 import * as UIComponents from '../../../../../front_end/ui/components/components.js';
-import {assertElement, assertShadowRoot, dispatchClickEvent, dispatchKeyDownEvent, renderElementIntoDOM, stripLitHtmlCommentNodes} from '../../helpers/DOMHelpers.js';
+import {assertElement, assertShadowRoot, dispatchClickEvent, dispatchKeyDownEvent, renderElementIntoDOM} from '../../helpers/DOMHelpers.js';
 
 const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
 const {assert} = chai;
@@ -136,7 +135,8 @@ function treeNodeKeyText(node: HTMLLIElement) {
   if (!keyNode) {
     throw new Error('Found tree node without a key within it.');
   }
-  return keyNode.getAttribute('data-node-key') || '';
+  // Trim to remove whitespace that made it into the DOM that we don't care about.
+  return (keyNode.textContent || '').trim();
 }
 
 function getVisibleTreeNodeByText(shadowRoot: ShadowRoot, text: string): HTMLLIElement {
@@ -305,36 +305,6 @@ describe('TreeOutline', () => {
         ],
       },
     ]);
-  });
-
-  it('allows a node to have a custom renderer', async () => {
-    const tinyTree: UIComponents.TreeOutlineUtils.TreeNode[] = [{
-      key: 'Offices',
-      renderer: key => LitHtml.html`<h2 class="top-node">${key.toUpperCase()}</h2>`,
-      children: () => Promise.resolve([
-        {
-          key: 'EMEA',
-        },
-        {
-          key: 'USA',
-        },
-        {
-          key: 'APAC',
-        },
-      ]),
-    }];
-
-    const {component, shadowRoot} = await renderTreeOutline({
-      tree: tinyTree,
-    });
-
-    await component.expandRecursively(Number.POSITIVE_INFINITY);
-    await coordinator.done();
-    const officeNode = getVisibleTreeNodeByText(shadowRoot, 'Offices');
-    const key = officeNode.querySelector('[data-node-key]');
-    assertElement(key, HTMLElement);
-    const renderedKey = stripLitHtmlCommentNodes(key.innerHTML);
-    assert.strictEqual(renderedKey, '<h2 class="top-node">OFFICES</h2>');
   });
 
   describe('navigating with keyboard', () => {

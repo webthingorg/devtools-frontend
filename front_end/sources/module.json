@@ -49,7 +49,8 @@
     "color_picker",
     "event_listeners",
     "object_ui",
-    "coverage"
+    "coverage",
+    "linear_memory_inspector"
   ],
   "modules": [
     "sources-legacy.js"

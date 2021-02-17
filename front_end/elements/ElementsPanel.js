@@ -32,7 +32,7 @@ import * as Common from '../common/common.js';
 import * as Components from '../components/components.js';
 import * as Extensions from '../extensions/extensions.js';
 import * as Host from '../host/host.js';
-import * as i18n from '../i18n/i18n.js';
+import {ls} from '../platform/platform.js';
 import * as Root from '../root/root.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
@@ -47,59 +47,6 @@ import {MarkerDecorator} from './MarkerDecorator.js';  // eslint-disable-line no
 import {MetricsSidebarPane} from './MetricsSidebarPane.js';
 import {Events as StylesSidebarPaneEvents, StylesSidebarPane} from './StylesSidebarPane.js';
 
-export const UIStrings = {
-  /**
-  *@description Text in Elements Panel of the Elements panel
-  */
-  findByStringSelectorOrXpath: 'Find by string, selector, or XPath',
-  /**
-  *@description Title of the switch to accessibility tree button in the Elements panel
-  */
-  switchToAccessibilityTreeView: 'Switch to Accessibility Tree view',
-  /**
-  *@description Title of the switch to DOM tree button in the Elements panel
-  */
-  switchToDomTreeView: 'Switch to DOM Tree view',
-  /**
-  *@description Text for a rendering frame
-  */
-  frame: 'Frame',
-  /**
-  *@description Title of the Computed Styles sidebar toggle in the Styles pane
-  */
-  computedStylesSidebar: 'Computed Styles sidebar',
-  /**
-  *@description Text in Elements Panel of the Elements panel
-  */
-  computed: 'Computed',
-  /**
-  *@description Text in Elements Panel of the Elements panel
-  */
-  styles: 'Styles',
-  /**
-  *@description A context menu item to reveal a node in the DOM tree of the Elements Panel
-  */
-  revealInElementsPanel: 'Reveal in Elements panel',
-  /**
-  *@description Text when node can not be found in page
-  */
-  nodeCannotBeFoundInTheCurrent: 'Node cannot be found in the current page.',
-  /**
-  *@description Console warning when a user tries to reveal a non-node type Remote Object.
-  */
-  theRemoteObjectCouldNotBe: 'The remote object could not be resolved into a valid node.',
-  /**
-  *@description Console warning when the user tries to reveal a deferred DOM Node that resolves as null.
-  */
-  theDeferredDomNodeCouldNotBe: 'The deferred DOM Node could not be resolved into a valid node.',
-  /**
-  *@description Text in Elements Panel of the Elements panel
-  *@example {::after, ::before} PH1
-  */
-  elementStateS: 'Element state: {PH1}',
-};
-const str_ = i18n.i18n.registerUIStrings('elements/ElementsPanel.js', UIStrings);
-const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 /**
  *
  * @param {!SDK.DOMModel.DOMNode} node
@@ -140,7 +87,7 @@ export class ElementsPanel extends UI.Panel.Panel {
 
     this._searchableView = new UI.SearchableView.SearchableView(this, null);
     this._searchableView.setMinimumSize(25, 28);
-    this._searchableView.setPlaceholder(i18nString(UIStrings.findByStringSelectorOrXpath));
+    this._searchableView.setPlaceholder(Common.UIString.UIString('Find by string, selector, or XPath'));
     const stackElement = this._searchableView.element;
 
     this._contentElement = document.createElement('div');
@@ -216,11 +163,11 @@ export class ElementsPanel extends UI.Panel.Panel {
    */
   _initializeFullAccessibilityTreeView(stackElement) {
     this._accessibilityTreeButton = document.createElement('button');
-    this._accessibilityTreeButton.textContent = i18nString(UIStrings.switchToAccessibilityTreeView);
+    this._accessibilityTreeButton.textContent = ls`Switch to Accessibility Tree view`;
     this._accessibilityTreeButton.addEventListener('click', this._showAccessibilityTree.bind(this));
 
     this.domTreeButton = document.createElement('button');
-    this.domTreeButton.textContent = i18nString(UIStrings.switchToDomTreeView);
+    this.domTreeButton.textContent = ls`Switch to DOM Tree view`;
     this.domTreeButton.addEventListener('click', this._showDOMTree.bind(this));
 
     stackElement.appendChild(this._accessibilityTreeButton);
@@ -354,7 +301,7 @@ export class ElementsPanel extends UI.Panel.Panel {
       return;
     }
     header.removeChildren();
-    header.createChild('div', 'elements-tree-header-frame').textContent = i18nString(UIStrings.frame);
+    header.createChild('div', 'elements-tree-header-frame').textContent = Common.UIString.UIString('Frame');
     header.appendChild(Components.Linkifier.Linkifier.linkifyURL(
         target.inspectedURL(), /** @type {!Components.Linkifier.LinkifyURLOptions} */ ({text: target.name()})));
   }
@@ -1015,8 +962,7 @@ export class ElementsPanel extends UI.Panel.Panel {
       showMetricsWidgetInStylesPane();
     });
     this._stylesWidget.addEventListener(StylesSidebarPaneEvents.InitialUpdateCompleted, () => {
-      this._stylesWidget.appendToolbarItem(
-          stylesSplitWidget.createShowHideSidebarButton(i18nString(UIStrings.computedStylesSidebar)));
+      this._stylesWidget.appendToolbarItem(stylesSplitWidget.createShowHideSidebarButton(ls`Computed Styles sidebar`));
     });
 
     const showMetricsWidgetInComputedPane = () => {
@@ -1052,10 +998,10 @@ export class ElementsPanel extends UI.Panel.Panel {
      */
     const tabSelected = event => {
       const tabId = /** @type {string} */ (event.data.tabId);
-      if (tabId === i18nString(UIStrings.computed)) {
+      if (tabId === Common.UIString.UIString('Computed')) {
         computedStylePanesWrapper.show(computedView.element);
         showMetricsWidgetInComputedPane();
-      } else if (tabId === i18nString(UIStrings.styles)) {
+      } else if (tabId === Common.UIString.UIString('Styles')) {
         stylesSplitWidget.setSidebarWidget(computedStylePanesWrapper);
         showMetricsWidgetInStylesPane();
       }
@@ -1076,12 +1022,12 @@ export class ElementsPanel extends UI.Panel.Panel {
       this._splitWidget.installResizer(tabbedPane.headerElement());
     }
 
-    const stylesView = new UI.View.SimpleView(i18nString(UIStrings.styles));
+    const stylesView = new UI.View.SimpleView(Common.UIString.UIString('Styles'));
     this.sidebarPaneView.appendView(stylesView);
     stylesView.element.classList.add('flex-auto');
     stylesSplitWidget.show(stylesView.element);
 
-    const computedView = new UI.View.SimpleView(i18nString(UIStrings.computed));
+    const computedView = new UI.View.SimpleView(Common.UIString.UIString('Computed'));
     computedView.element.classList.add('composite', 'fill');
 
     tabbedPane.addEventListener(UI.TabbedPane.Events.TabSelected, tabSelected, this);
@@ -1243,7 +1189,7 @@ export class ContextMenuProvider {
     }
     /** @type {function():*} */
     const commandCallback = Common.Revealer.reveal.bind(Common.Revealer.Revealer, object);
-    contextMenu.revealSection().appendItem(i18nString(UIStrings.revealInElementsPanel), commandCallback);
+    contextMenu.revealSection().appendItem(Common.UIString.UIString('Reveal in Elements panel'), commandCallback);
   }
 
   static instance() {
@@ -1323,7 +1269,7 @@ export class DOMNodeRevealer {
 
         const isDocument = node instanceof SDK.DOMModel.DOMDocument;
         if (!isDocument && isDetached) {
-          const msg = i18nString(UIStrings.nodeCannotBeFoundInTheCurrent);
+          const msg = ls`Node cannot be found in the current page.`;
           Common.Console.Console.instance().warn(msg);
           reject(new Error(msg));
           return;
@@ -1341,7 +1287,7 @@ export class DOMNodeRevealer {
        */
       function checkRemoteObjectThenReveal(resolvedNode) {
         if (!resolvedNode) {
-          const msg = i18nString(UIStrings.theRemoteObjectCouldNotBe);
+          const msg = ls`The remote object could not be resolved into a valid node.`;
           Common.Console.Console.instance().warn(msg);
           reject(new Error(msg));
           return;
@@ -1354,7 +1300,7 @@ export class DOMNodeRevealer {
        */
       function checkDeferredDOMNodeThenReveal(resolvedNode) {
         if (!resolvedNode) {
-          const msg = i18nString(UIStrings.theDeferredDomNodeCouldNotBe);
+          const msg = ls`The deferred DOM Node could not be resolved into a valid node.`;
           Common.Console.Console.instance().warn(msg);
           reject(new Error(msg));
           return;
@@ -1483,6 +1429,6 @@ export class PseudoStateMarkerDecorator {
       return null;
     }
 
-    return {color: 'orange', title: i18nString(UIStrings.elementStateS, {PH1: ':' + pseudoState.join(', :')})};
+    return {color: 'orange', title: Common.UIString.UIString('Element state: %s', ':' + pseudoState.join(', :'))};
   }
 }

@@ -175,8 +175,7 @@ export const UIStrings = {
   */
   recordingFailed: 'Recording failed',
   /**
-  * @description Text to indicate the progress of a profile. Informs the user that we are currently
-  * creating a peformance profile.
+  *@description Text to indicate the progress of a profile
   */
   profiling: 'Profiling…',
   /**

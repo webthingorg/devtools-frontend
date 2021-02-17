@@ -234,8 +234,6 @@ export class TreeOutline extends HTMLElement {
     });
     const ariaExpandedAttribute = LitHtml.Directives.ifDefined(isExpandableNode(node) ? String(nodeIsExpanded) : undefined);
 
-    const renderedNodeKey = node.renderer ? node.renderer(node.key) : node.key;
-
     return LitHtml.html`
       <li role="treeitem"
         tabindex=${tabIndex}
@@ -250,7 +248,7 @@ export class TreeOutline extends HTMLElement {
         <span class="arrow-and-key-wrapper">
           <span class="arrow-icon" @click=${this.onArrowClick(node)}>
           </span>
-          <span class="tree-node-key" data-node-key=${node.key}>${renderedNodeKey}</span>
+          <span class="tree-node-key" data-node-key>${node.key}</span>
         </span>
         ${childrenToRender}
       </li>

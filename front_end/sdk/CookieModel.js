@@ -100,14 +100,10 @@ export class CookieModel extends SDKModel {
       httpOnly: cookie.httpOnly(),
       sameSite: cookie.sameSite(),
       expires,
-      priority: cookie.priority(),
-      sameParty: cookie.sameParty(),
-      sourceScheme: cookie.sourceScheme(),
-      sourcePort: cookie.sourcePort(),
+      priority: cookie.priority()
     };
     const response = await this.target().networkAgent().invoke_setCookie(protocolCookie);
-    const error = response.getError();
-    if (error || !response.success) {
+    if (response.getError()) {
       return false;
     }
     return response.success;

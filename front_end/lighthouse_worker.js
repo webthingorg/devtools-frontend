@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import './startup/startup.js';
+import './worker_service/worker_service.js';
 import './lighthouse_worker/lighthouse_worker.js';
 
 import * as Startup from './startup/startup.js';

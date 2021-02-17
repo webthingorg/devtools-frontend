@@ -177,7 +177,6 @@ export const UIStrings = {
 };
 const str_ = i18n.i18n.registerUIStrings('network/NetworkLogViewColumns.js', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
-const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
 export class NetworkLogViewColumns {
   /**
@@ -259,10 +258,9 @@ export class NetworkLogViewColumns {
    * @return {!DataGrid.DataGrid.ColumnDescriptor}
    */
   static _convertToDataGridDescriptor(columnConfig) {
-    const title = columnConfig.title instanceof Function ? columnConfig.title() : columnConfig.title;
     return /** @type {!DataGrid.DataGrid.ColumnDescriptor} */ ({
       id: columnConfig.id,
-      title,
+      title: columnConfig.title,
       sortable: columnConfig.sortable,
       align: columnConfig.align,
       nonSelectable: columnConfig.nonSelectable,
@@ -298,9 +296,7 @@ export class NetworkLogViewColumns {
       const columnConfig = /** @type {!Descriptor} */ (descriptor);
       columnConfig.id = columnConfig.id;
       if (columnConfig.subtitle) {
-        const title = columnConfig.title instanceof Function ? columnConfig.title() : columnConfig.title;
-        const subtitle = columnConfig.subtitle instanceof Function ? columnConfig.subtitle() : columnConfig.subtitle;
-        columnConfig.titleDOMFragment = this._makeHeaderFragment(title, subtitle);
+        columnConfig.titleDOMFragment = this._makeHeaderFragment(columnConfig.title, columnConfig.subtitle);
       }
       this._columns.push(columnConfig);
     }
@@ -719,10 +715,10 @@ export class NetworkLogViewColumns {
       for (const columnConfig of group) {
         // Make sure that at least one item in every group is enabled
         const isDisabled = visibleColumns.length === 1 && visibleColumns[0] === columnConfig;
-        const title = columnConfig.title instanceof Function ? columnConfig.title() : columnConfig.title;
 
         contextMenu.headerSection().appendCheckboxItem(
-            title, this._toggleColumnVisibility.bind(this, columnConfig), columnConfig.visible, isDisabled);
+            columnConfig.title, this._toggleColumnVisibility.bind(this, columnConfig), columnConfig.visible,
+            isDisabled);
       }
 
       contextMenu.headerSection().appendSeparator();
@@ -730,17 +726,15 @@ export class NetworkLogViewColumns {
 
     // Add normal columns not belonging to any group
     for (const columnConfig of nonResponseHeadersWithoutGroup) {
-      const title = columnConfig.title instanceof Function ? columnConfig.title() : columnConfig.title;
       contextMenu.headerSection().appendCheckboxItem(
-          title, this._toggleColumnVisibility.bind(this, columnConfig), columnConfig.visible);
+          columnConfig.title, this._toggleColumnVisibility.bind(this, columnConfig), columnConfig.visible);
     }
 
     const responseSubMenu = contextMenu.footerSection().appendSubMenuItem(i18nString(UIStrings.responseHeaders));
     const responseHeaders = columnConfigs.filter(columnConfig => columnConfig.isResponseHeader);
     for (const columnConfig of responseHeaders) {
-      const title = columnConfig.title instanceof Function ? columnConfig.title() : columnConfig.title;
       responseSubMenu.defaultSection().appendCheckboxItem(
-          title, this._toggleColumnVisibility.bind(this, columnConfig), columnConfig.visible);
+          columnConfig.title, this._toggleColumnVisibility.bind(this, columnConfig), columnConfig.visible);
     }
 
     responseSubMenu.footerSection().appendItem(
@@ -785,9 +779,8 @@ export class NetworkLogViewColumns {
   _manageCustomHeaderDialog() {
     const customHeaders = [];
     for (const columnConfig of this._columns) {
-      const title = columnConfig.title instanceof Function ? columnConfig.title() : columnConfig.title;
       if (columnConfig.isResponseHeader) {
-        customHeaders.push({title, editable: columnConfig.isCustomHeader});
+        customHeaders.push({title: columnConfig.title, editable: columnConfig.isCustomHeader});
       }
     }
     const manageCustomHeaders = new NetworkManageCustomHeadersView(
@@ -999,8 +992,8 @@ export const _defaultColumnConfig = {
 const _temporaryDefaultColumns = [
   {
     id: 'name',
-    title: i18nLazyString(UIStrings.name),
-    subtitle: i18nLazyString(UIStrings.path),
+    title: i18nString(UIStrings.name),
+    subtitle: i18nString(UIStrings.path),
     visible: true,
     weight: 20,
     hideable: true,
@@ -1009,117 +1002,112 @@ const _temporaryDefaultColumns = [
   },
   {
     id: 'path',
-    title: i18nLazyString(UIStrings.path),
+    title: i18nString(UIStrings.path),
     hideable: true,
     hideableGroup: 'path',
     sortingFunction: NetworkRequestNode.RequestPropertyComparator.bind(null, 'pathname')
   },
   {
     id: 'url',
-    title: i18nLazyString(UIStrings.url),
+    title: i18nString(UIStrings.url),
     hideable: true,
     hideableGroup: 'path',
     sortingFunction: NetworkRequestNode.RequestURLComparator
   },
   {
     id: 'method',
-    title: i18nLazyString(UIStrings.method),
+    title: i18nString(UIStrings.method),
     sortingFunction: NetworkRequestNode.RequestPropertyComparator.bind(null, 'requestMethod')
   },
   {
     id: 'status',
-    title: i18nLazyString(UIStrings.status),
+    title: i18nString(UIStrings.status),
     visible: true,
-    subtitle: i18nLazyString(UIStrings.text),
+    subtitle: i18nString(UIStrings.text),
     sortingFunction: NetworkRequestNode.RequestPropertyComparator.bind(null, 'statusCode')
   },
   {
     id: 'protocol',
-    title: i18nLazyString(UIStrings.protocol),
+    title: i18nString(UIStrings.protocol),
     sortingFunction: NetworkRequestNode.RequestPropertyComparator.bind(null, 'protocol')
   },
   {
     id: 'scheme',
-    title: i18nLazyString(UIStrings.scheme),
+    title: i18nString(UIStrings.scheme),
     sortingFunction: NetworkRequestNode.RequestPropertyComparator.bind(null, 'scheme')
   },
   {
     id: 'domain',
-    title: i18nLazyString(UIStrings.domain),
+    title: i18nString(UIStrings.domain),
     sortingFunction: NetworkRequestNode.RequestPropertyComparator.bind(null, 'domain')
   },
   {
     id: 'remoteaddress',
-    title: i18nLazyString(UIStrings.remoteAddress),
+    title: i18nString(UIStrings.remoteAddress),
     weight: 10,
     align: DataGrid.DataGrid.Align.Right,
     sortingFunction: NetworkRequestNode.RemoteAddressComparator
   },
   {
     id: 'remoteaddress-space',
-    title: i18nLazyString(UIStrings.remoteAddressSpace),
+    title: i18nString(UIStrings.remoteAddressSpace),
     visible: false,
     weight: 10,
     sortingFunction: NetworkRequestNode.RemoteAddressSpaceComparator
   },
-  {
-    id: 'type',
-    title: i18nLazyString(UIStrings.type),
-    visible: true,
-    sortingFunction: NetworkRequestNode.TypeComparator
-  },
+  {id: 'type', title: i18nString(UIStrings.type), visible: true, sortingFunction: NetworkRequestNode.TypeComparator},
   {
     id: 'initiator',
-    title: i18nLazyString(UIStrings.initiator),
+    title: i18nString(UIStrings.initiator),
     visible: true,
     weight: 10,
     sortingFunction: NetworkRequestNode.InitiatorComparator
   },
   {
     id: 'initiator-address-space',
-    title: i18nLazyString(UIStrings.initiatorAddressSpace),
+    title: i18nString(UIStrings.initiatorAddressSpace),
     visible: false,
     weight: 10,
     sortingFunction: NetworkRequestNode.InitiatorAddressSpaceComparator
   },
   {
     id: 'cookies',
-    title: i18nLazyString(UIStrings.cookies),
+    title: i18nString(UIStrings.cookies),
     align: DataGrid.DataGrid.Align.Right,
     sortingFunction: NetworkRequestNode.RequestCookiesCountComparator
   },
   {
     id: 'setcookies',
-    title: i18nLazyString(UIStrings.setCookies),
+    title: i18nString(UIStrings.setCookies),
     align: DataGrid.DataGrid.Align.Right,
     sortingFunction: NetworkRequestNode.ResponseCookiesCountComparator
   },
   {
     id: 'size',
-    title: i18nLazyString(UIStrings.size),
+    title: i18nString(UIStrings.size),
     visible: true,
-    subtitle: i18nLazyString(UIStrings.content),
+    subtitle: i18nString(UIStrings.content),
     align: DataGrid.DataGrid.Align.Right,
     sortingFunction: NetworkRequestNode.SizeComparator
   },
   {
     id: 'time',
-    title: i18nLazyString(UIStrings.time),
+    title: i18nString(UIStrings.time),
     visible: true,
-    subtitle: i18nLazyString(UIStrings.latency),
+    subtitle: i18nString(UIStrings.latency),
     align: DataGrid.DataGrid.Align.Right,
     sortingFunction: NetworkRequestNode.RequestPropertyComparator.bind(null, 'duration')
   },
-  {id: 'priority', title: i18nLazyString(UIStrings.priority), sortingFunction: NetworkRequestNode.PriorityComparator},
+  {id: 'priority', title: i18nString(UIStrings.priority), sortingFunction: NetworkRequestNode.PriorityComparator},
   {
     id: 'connectionid',
-    title: i18nLazyString(UIStrings.connectionId),
+    title: i18nString(UIStrings.connectionId),
     sortingFunction: NetworkRequestNode.RequestPropertyComparator.bind(null, 'connectionId')
   },
   {
     id: 'cache-control',
     isResponseHeader: true,
-    title: i18nLazyString(UIStrings.cachecontrol),
+    title: i18nString(UIStrings.cachecontrol),
     sortingFunction: NetworkRequestNode.ResponseHeaderStringComparator.bind(null, 'cache-control')
   },
   {
@@ -1127,56 +1115,56 @@ const _temporaryDefaultColumns = [
     isResponseHeader: true,
     // until IDs are supported for strings, the placeholder is used to workaround the limitation that
     // having multiple translations for a string is not supported
-    title: i18nLazyString(UIStrings.s, {PH1: 'Connection'}),
+    title: i18nString(UIStrings.s, {PH1: 'Connection'}),
     sortingFunction: NetworkRequestNode.ResponseHeaderStringComparator.bind(null, 'connection')
   },
   {
     id: 'content-encoding',
     isResponseHeader: true,
-    title: i18nLazyString(UIStrings.contentencoding),
+    title: i18nString(UIStrings.contentencoding),
     sortingFunction: NetworkRequestNode.ResponseHeaderStringComparator.bind(null, 'content-encoding')
   },
   {
     id: 'content-length',
     isResponseHeader: true,
-    title: i18nLazyString(UIStrings.contentlength),
+    title: i18nString(UIStrings.contentlength),
     align: DataGrid.DataGrid.Align.Right,
     sortingFunction: NetworkRequestNode.ResponseHeaderNumberComparator.bind(null, 'content-length')
   },
   {
     id: 'etag',
     isResponseHeader: true,
-    title: i18nLazyString(UIStrings.etag),
+    title: i18nString(UIStrings.etag),
     sortingFunction: NetworkRequestNode.ResponseHeaderStringComparator.bind(null, 'etag')
   },
   {
     id: 'keep-alive',
     isResponseHeader: true,
-    title: i18nLazyString(UIStrings.keepalive),
+    title: i18nString(UIStrings.keepalive),
     sortingFunction: NetworkRequestNode.ResponseHeaderStringComparator.bind(null, 'keep-alive')
   },
   {
     id: 'last-modified',
     isResponseHeader: true,
-    title: i18nLazyString(UIStrings.lastmodified),
+    title: i18nString(UIStrings.lastmodified),
     sortingFunction: NetworkRequestNode.ResponseHeaderDateComparator.bind(null, 'last-modified')
   },
   {
     id: 'server',
     isResponseHeader: true,
-    title: i18nLazyString(UIStrings.server),
+    title: i18nString(UIStrings.server),
     sortingFunction: NetworkRequestNode.ResponseHeaderStringComparator.bind(null, 'server')
   },
   {
     id: 'vary',
     isResponseHeader: true,
-    title: i18nLazyString(UIStrings.vary),
+    title: i18nString(UIStrings.vary),
     sortingFunction: NetworkRequestNode.ResponseHeaderStringComparator.bind(null, 'vary')
   },
   // This header is a placeholder to let datagrid know that it can be sorted by this column, but never shown.
   {
     id: 'waterfall',
-    title: i18nLazyString(UIStrings.waterfall),
+    title: i18nString(UIStrings.waterfall),
     visible: false,
     hideable: false,
     allowInSortByEvenWhenHidden: true
@@ -1202,9 +1190,9 @@ export const WaterfallSortIds = {
 /**
  * @typedef {{
  *     id: string,
- *     title: (string|function():string),
+ *     title: string,
  *     titleDOMFragment: (!DocumentFragment|undefined),
- *     subtitle: (string|null|function():string),
+ *     subtitle: (string|null),
  *     visible: boolean,
  *     weight: number,
  *     hideable: boolean,

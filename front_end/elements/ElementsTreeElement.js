@@ -32,8 +32,8 @@ import * as Common from '../common/common.js';
 import * as Components from '../components/components.js';
 import * as Emulation from '../emulation/emulation.js';
 import * as Host from '../host/host.js';
-import * as i18n from '../i18n/i18n.js';
 import * as Platform from '../platform/platform.js';
+import {ls} from '../platform/platform.js';
 import * as ProtocolClient from '../protocol_client/protocol_client.js';  // eslint-disable-line no-unused-vars
 import * as Root from '../root/root.js';
 import * as SDK from '../sdk/sdk.js';
@@ -48,135 +48,6 @@ import {ElementsTreeOutline, MappedCharToEntity, UpdateRecord} from './ElementsT
 import {ImagePreviewPopover} from './ImagePreviewPopover.js';
 import {getRegisteredDecorators, MarkerDecorator, MarkerDecoratorRegistration} from './MarkerDecorator.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
-  /**
-  *@description Title for Ad adorner
-  */
-  thisFrameWasIdentifiedAsAnAd: 'This frame was identified as an ad frame',
-  /**
-  *@description A context menu item in the Elements Tree Element of the Elements panel
-  */
-  forceState: 'Force state',
-  /**
-  *@description Hint element title in Elements Tree Element of the Elements panel
-  *@example {0} PH1
-  */
-  useSInTheConsoleToReferToThis: 'Use {PH1} in the console to refer to this element.',
-  /**
-  *@description A context menu item in the Elements Tree Element of the Elements panel
-  */
-  addAttribute: 'Add attribute',
-  /**
-  *@description Text to modify the attribute of an item
-  */
-  editAttribute: 'Edit attribute',
-  /**
-  *@description Text to focus on something
-  */
-  focus: 'Focus',
-  /**
-  *@description Text to scroll the displayed content into view
-  */
-  scrollIntoView: 'Scroll into view',
-  /**
-  *@description A context menu item in the Elements Tree Element of the Elements panel
-  */
-  editText: 'Edit text',
-  /**
-  *@description A context menu item in the Elements Tree Element of the Elements panel
-  */
-  editAsHtml: 'Edit as HTML',
-  /**
-  *@description Text for copying
-  */
-  copy: 'Copy',
-  /**
-  *@description Text in Elements Tree Element of the Elements panel, copy should be used as a verb
-  */
-  copyOuterhtml: 'Copy outerHTML',
-  /**
-  *@description Text in Elements Tree Element of the Elements panel, copy should be used as a verb
-  */
-  copySelector: 'Copy `selector`',
-  /**
-  *@description Text in Elements Tree Element of the Elements panel
-  */
-  copyJsPath: 'Copy JS path',
-  /**
-  *@description Text in Elements Tree Element of the Elements panel, copy should be used as a verb
-  */
-  copyStyles: 'Copy styles',
-  /**
-  *@description Text in Elements Tree Element of the Elements panel, copy should be used as a verb
-  */
-  copyXpath: 'Copy XPath',
-  /**
-  *@description Text in Elements Tree Element of the Elements panel, copy should be used as a verb
-  */
-  copyFullXpath: 'Copy full XPath',
-  /**
-  *@description Text in Elements Tree Element of the Elements panel
-  */
-  cutElement: 'Cut element',
-  /**
-  *@description Text in Elements Tree Element of the Elements panel, copy should be used as a verb
-  */
-  copyElement: 'Copy element',
-  /**
-  *@description Text in Elements Tree Element of the Elements panel
-  */
-  pasteElement: 'Paste element',
-  /**
-  *@description A context menu item in the Elements Tree Element of the Elements panel
-  */
-  duplicateElement: 'Duplicate element',
-  /**
-  *@description Text to hide an element
-  */
-  hideElement: 'Hide element',
-  /**
-  *@description A context menu item in the Elements Tree Element of the Elements panel
-  */
-  deleteElement: 'Delete element',
-  /**
-  *@description Text to expand something recursively
-  */
-  expandRecursively: 'Expand recursively',
-  /**
-  *@description Text to collapse children of a parent group
-  */
-  collapseChildren: 'Collapse children',
-  /**
-  *@description Title of an action in the emulation tool to capture node screenshot
-  */
-  captureNodeScreenshot: 'Capture node screenshot',
-  /**
-  *@description Text in Elements Tree Element of the Elements panel
-  */
-  valueIsTooLargeToEdit: '<value is too large to edit>',
-  /**
-  *@description Element text content in Elements Tree Element of the Elements panel
-  */
-  children: 'Children:',
-  /**
-  *@description ARIA label for Elements Tree adorners
-  */
-  enableGridMode: 'Enable grid mode',
-  /**
-  *@description ARIA label for Elements Tree adorners
-  */
-  disableGridMode: 'Disable grid mode',
-  /**
-  *@description Label of the adorner for flex elements in the Elements panel
-  */
-  enableFlexMode: 'Enable flex mode',
-  /**
-  *@description Label of the adorner for flex elements in the Elements panel
-  */
-  disableFlexMode: 'Disable flex mode',
-};
-const str_ = i18n.i18n.registerUIStrings('elements/ElementsTreeElement.js', UIStrings);
-const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   /**
    * @param {!SDK.DOMModel.DOMNode} node
@@ -227,7 +98,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
 
       if (node.isAdFrameNode()) {
         const adorner = this.adornText('Ad', AdornerCategories.Security);
-        UI.Tooltip.Tooltip.install(adorner, i18nString(UIStrings.thisFrameWasIdentifiedAsAnAd));
+        UI.Tooltip.Tooltip.install(adorner, ls`This frame was identified as an ad frame`);
       }
     }
 
@@ -297,7 +168,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   static populateForcedPseudoStateItems(contextMenu, node) {
     const pseudoClasses = ['active', 'hover', 'focus', 'visited', 'focus-within', 'focus-visible'];
     const forcedPseudoState = node.domModel().cssModel().pseudoState(node);
-    const stateMenu = contextMenu.debugSection().appendSubMenuItem(i18nString(UIStrings.forceState));
+    const stateMenu = contextMenu.debugSection().appendSubMenuItem(Common.UIString.UIString('Force state'));
     for (const pseudoClass of pseudoClasses) {
       const pseudoClassForced = forcedPseudoState ? forcedPseudoState.indexOf(pseudoClass) >= 0 : false;
       stateMenu.defaultSection().appendCheckboxItem(
@@ -444,7 +315,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       this._hintElement = this.listItemElement.createChild('span', 'selected-hint');
       const selectedElementCommand = '$0';
       UI.Tooltip.Tooltip.install(
-          this._hintElement, i18nString(UIStrings.useSInTheConsoleToReferToThis, {PH1: selectedElementCommand}));
+          this._hintElement, ls`Use ${selectedElementCommand} in the console to refer to this element.`);
       UI.ARIAUtils.markAsHidden(this._hintElement);
     }
   }
@@ -705,19 +576,19 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       return;
     }
     contextMenu.editSection().appendItem(
-        i18nString(UIStrings.addAttribute), treeElement._addNewAttribute.bind(treeElement));
+        Common.UIString.UIString('Add attribute'), treeElement._addNewAttribute.bind(treeElement));
 
     const target = /** @type {!Element} */ (event.target);
     const attribute = target.enclosingNodeOrSelfWithClass('webkit-html-attribute');
     const newAttribute = target.enclosingNodeOrSelfWithClass('add-attribute');
     if (attribute && !newAttribute) {
       contextMenu.editSection().appendItem(
-          i18nString(UIStrings.editAttribute), this._startEditingAttribute.bind(this, attribute, target));
+          Common.UIString.UIString('Edit attribute'), this._startEditingAttribute.bind(this, attribute, target));
     }
     this.populateNodeContextMenu(contextMenu);
     ElementsTreeElement.populateForcedPseudoStateItems(contextMenu, treeElement.node());
     this.populateScrollIntoView(contextMenu);
-    contextMenu.viewSection().appendItem(i18nString(UIStrings.focus), async () => {
+    contextMenu.viewSection().appendItem(Common.UIString.UIString('Focus'), async () => {
       await this._node.focus();
     });
   }
@@ -726,7 +597,8 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
    * @param {!UI.ContextMenu.ContextMenu} contextMenu
    */
   populateScrollIntoView(contextMenu) {
-    contextMenu.viewSection().appendItem(i18nString(UIStrings.scrollIntoView), () => this._node.scrollIntoView());
+    contextMenu.viewSection().appendItem(
+        Common.UIString.UIString('Scroll into view'), () => this._node.scrollIntoView());
   }
 
   /**
@@ -736,7 +608,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   populateTextContextMenu(contextMenu, textNode) {
     if (!this._editing) {
       contextMenu.editSection().appendItem(
-          i18nString(UIStrings.editText), this._startEditingTextNode.bind(this, textNode));
+          Common.UIString.UIString('Edit text'), this._startEditingTextNode.bind(this, textNode));
     }
     this.populateNodeContextMenu(contextMenu);
   }
@@ -748,12 +620,12 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     // Add free-form node-related actions.
     const isEditable = this.hasEditableNode();
     if (isEditable && !this._editing) {
-      contextMenu.editSection().appendItem(i18nString(UIStrings.editAsHtml), this._editAsHTML.bind(this));
+      contextMenu.editSection().appendItem(Common.UIString.UIString('Edit as HTML'), this._editAsHTML.bind(this));
     }
     const isShadowRoot = this._node.isShadowRoot();
 
     // Place it here so that all "Copy"-ing items stick together.
-    const copyMenu = contextMenu.clipboardSection().appendSubMenuItem(i18nString(UIStrings.copy));
+    const copyMenu = contextMenu.clipboardSection().appendSubMenuItem(Common.UIString.UIString('Copy'));
     const createShortcut = UI.KeyboardShortcut.KeyboardShortcut.shortcutToString.bind(null);
     const modifier = UI.KeyboardShortcut.Modifiers.CtrlOrMeta;
     const treeOutline = this.treeOutline;
@@ -764,54 +636,56 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     const section = copyMenu.section();
     if (!isShadowRoot) {
       menuItem = section.appendItem(
-          i18nString(UIStrings.copyOuterhtml), treeOutline.performCopyOrCut.bind(treeOutline, false, this._node));
+          Common.UIString.UIString('Copy outerHTML'),
+          treeOutline.performCopyOrCut.bind(treeOutline, false, this._node));
       menuItem.setShortcut(createShortcut('V', modifier));
     }
     if (this._node.nodeType() === Node.ELEMENT_NODE) {
-      section.appendItem(i18nString(UIStrings.copySelector), this._copyCSSPath.bind(this));
-      section.appendItem(i18nString(UIStrings.copyJsPath), this._copyJSPath.bind(this), !canGetJSPath(this._node));
-      section.appendItem(i18nString(UIStrings.copyStyles), this._copyStyles.bind(this));
+      section.appendItem(Common.UIString.UIString('Copy selector'), this._copyCSSPath.bind(this));
+      section.appendItem(
+          Common.UIString.UIString('Copy JS path'), this._copyJSPath.bind(this), !canGetJSPath(this._node));
+      section.appendItem(ls`Copy styles`, this._copyStyles.bind(this));
     }
     if (!isShadowRoot) {
-      section.appendItem(i18nString(UIStrings.copyXpath), this._copyXPath.bind(this));
-      section.appendItem(i18nString(UIStrings.copyFullXpath), this._copyFullXPath.bind(this));
+      section.appendItem(Common.UIString.UIString('Copy XPath'), this._copyXPath.bind(this));
+      section.appendItem(ls`Copy full XPath`, this._copyFullXPath.bind(this));
     }
 
     if (!isShadowRoot) {
       menuItem = copyMenu.clipboardSection().appendItem(
-          i18nString(UIStrings.cutElement), treeOutline.performCopyOrCut.bind(treeOutline, true, this._node),
+          Common.UIString.UIString('Cut element'), treeOutline.performCopyOrCut.bind(treeOutline, true, this._node),
           !this.hasEditableNode());
       menuItem.setShortcut(createShortcut('X', modifier));
       menuItem = copyMenu.clipboardSection().appendItem(
-          i18nString(UIStrings.copyElement), treeOutline.performCopyOrCut.bind(treeOutline, false, this._node));
+          Common.UIString.UIString('Copy element'), treeOutline.performCopyOrCut.bind(treeOutline, false, this._node));
       menuItem.setShortcut(createShortcut('C', modifier));
       menuItem = copyMenu.clipboardSection().appendItem(
-          i18nString(UIStrings.pasteElement), treeOutline.pasteNode.bind(treeOutline, this._node),
+          Common.UIString.UIString('Paste element'), treeOutline.pasteNode.bind(treeOutline, this._node),
           !treeOutline.canPaste(this._node));
       menuItem.setShortcut(createShortcut('V', modifier));
 
       // Duplicate element, disabled on root element and ShadowDOM.
       const isRootElement = !this._node.parentNode || this._node.parentNode.nodeName() === '#document';
       menuItem = contextMenu.editSection().appendItem(
-          i18nString(UIStrings.duplicateElement), treeOutline.duplicateNode.bind(treeOutline, this._node),
+          Common.UIString.UIString('Duplicate element'), treeOutline.duplicateNode.bind(treeOutline, this._node),
           (this._node.isInShadowTree() || isRootElement));
     }
 
     menuItem = contextMenu.debugSection().appendCheckboxItem(
-        i18nString(UIStrings.hideElement), treeOutline.toggleHideElement.bind(treeOutline, this._node),
+        Common.UIString.UIString('Hide element'), treeOutline.toggleHideElement.bind(treeOutline, this._node),
         treeOutline.isToggledToHidden(this._node));
     menuItem.setShortcut(
         UI.ShortcutRegistry.ShortcutRegistry.instance().shortcutTitleForAction('elements.hide-element') || '');
 
     if (isEditable) {
-      contextMenu.editSection().appendItem(i18nString(UIStrings.deleteElement), this.remove.bind(this));
+      contextMenu.editSection().appendItem(Common.UIString.UIString('Delete element'), this.remove.bind(this));
     }
 
-    contextMenu.viewSection().appendItem(i18nString(UIStrings.expandRecursively), this.expandRecursively.bind(this));
-    contextMenu.viewSection().appendItem(i18nString(UIStrings.collapseChildren), this.collapseChildren.bind(this));
+    contextMenu.viewSection().appendItem(ls`Expand recursively`, this.expandRecursively.bind(this));
+    contextMenu.viewSection().appendItem(ls`Collapse children`, this.collapseChildren.bind(this));
     const deviceModeWrapperAction = new Emulation.DeviceModeWrapper.ActionDelegate();
     contextMenu.viewSection().appendItem(
-        i18nString(UIStrings.captureNodeScreenshot),
+        ls`Capture node screenshot`,
         deviceModeWrapperAction.handleAction.bind(
             null, UI.Context.Context.instance(), 'emulation.capture-node-screenshot'));
   }
@@ -924,7 +798,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     const attributeValue = attributeName && attributeValueElement ? this._node.getAttribute(attributeName) : undefined;
     if (attributeValue !== undefined) {
       attributeValueElement.setTextContentTruncatedIfNeeded(
-          attributeValue, i18nString(UIStrings.valueIsTooLargeToEdit));
+          attributeValue, Common.UIString.UIString('<value is too large to edit>'));
     }
 
     // Remove zero-width spaces that were added by nodeTitleInfo.
@@ -1116,53 +990,40 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     // Append editor.
     this.listItemElement.appendChild(this._htmlEditElement);
 
-    const textEditorExtension = Root.Runtime.Runtime.instance().extension(UI.TextEditor.TextEditorFactory);
-    if (textEditorExtension) {
-      textEditorExtension.instance().then(factory => {
-        gotFactory.call(this, /** @type {!UI.TextEditor.TextEditorFactory} */ (factory));
-      });
-    }
+    const factory = TextEditor.CodeMirrorTextEditor.CodeMirrorTextEditorFactory.instance();
+    const editor = factory.createEditor({
+      lineNumbers: false,
+      lineWrapping: Common.Settings.Settings.instance().moduleSetting('domWordWrap').get(),
+      mimeType: 'text/html',
+      autoHeight: false,
+      padBottom: false,
+      bracketMatchingSetting: undefined,
+      devtoolsAccessibleName: undefined,
+      maxHighlightLength: undefined,
+      placeholder: undefined,
+      lineWiseCopyCut: undefined,
+      inputStyle: undefined,
+    });
+    this._editing = {commit: commit.bind(this), cancel: dispose.bind(this), editor, resize: resize.bind(this)};
+    resize.call(this);
 
+    editor.widget().show(
+        /** @type {!HTMLElement} */ (this._htmlEditElement));
+    editor.setText(initialValue);
+    editor.widget().focus();
+    editor.widget().element.addEventListener('focusout', event => {
+      // The relatedTarget is null when no element gains focus, e.g. switching windows.
+      const relatedTarget = /** @type {?Node} */ (event.relatedTarget);
+      if (relatedTarget && !relatedTarget.isSelfOrDescendant(editor.widget().element)) {
+        this._editing && this._editing.commit();
+      }
+    }, false);
+    editor.widget().element.addEventListener('keydown', keydown.bind(this), true);
 
-    /**
-     * @param {!UI.TextEditor.TextEditorFactory} factory
-     * @this {ElementsTreeElement}
-     */
-    function gotFactory(factory) {
-      const editor = factory.createEditor({
-        lineNumbers: false,
-        lineWrapping: Common.Settings.Settings.instance().moduleSetting('domWordWrap').get(),
-        mimeType: 'text/html',
-        autoHeight: false,
-        padBottom: false,
-        bracketMatchingSetting: undefined,
-        devtoolsAccessibleName: undefined,
-        maxHighlightLength: undefined,
-        placeholder: undefined,
-        lineWiseCopyCut: undefined,
-        inputStyle: undefined,
-      });
-      this._editing = {commit: commit.bind(this), cancel: dispose.bind(this), editor, resize: resize.bind(this)};
-      resize.call(this);
-
-      editor.widget().show(
-          /** @type {!HTMLElement} */ (this._htmlEditElement));
-      editor.setText(initialValue);
-      editor.widget().focus();
-      editor.widget().element.addEventListener('focusout', event => {
-        // The relatedTarget is null when no element gains focus, e.g. switching windows.
-        const relatedTarget = /** @type {?Node} */ (event.relatedTarget);
-        if (relatedTarget && !relatedTarget.isSelfOrDescendant(editor.widget().element)) {
-          this._editing && this._editing.commit();
-        }
-      }, false);
-      editor.widget().element.addEventListener('keydown', keydown.bind(this), true);
-
-      this.treeOutline &&
-          this.treeOutline.setMultilineEditing(
-              /** @type {!{commit: function():void, cancel: function():void, editor: !UI.TextEditor.TextEditor, resize: function():*}} */
-              (this._editing));
-    }
+    this.treeOutline &&
+        this.treeOutline.setMultilineEditing(
+            /** @type {!{commit: function():void, cancel: function():void, editor: !UI.TextEditor.TextEditor, resize: function():*}} */
+            (this._editing));
 
     /**
      * @this {ElementsTreeElement}
@@ -1596,7 +1457,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       const descendantColors = new Set();
       if (descendantDecorations.length) {
         let element = titles.createChild('div');
-        element.textContent = i18nString(UIStrings.children);
+        element.textContent = Common.UIString.UIString('Children:');
         for (const decoration of descendantDecorations) {
           element = titles.createChild('div');
           element.style.marginLeft = '15px';
@@ -1944,15 +1805,14 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
           const text = node.nodeValue();
           newNode.textContent = text.startsWith('\n') ? text.substring(1) : text;
 
-          const javascriptSyntaxHighlighter =
-              new TextEditor.SyntaxHighlighter.SyntaxHighlighter('text/javascript', true);
+          const javascriptSyntaxHighlighter = new UI.SyntaxHighlighter.SyntaxHighlighter('text/javascript', true);
           javascriptSyntaxHighlighter.syntaxHighlightNode(newNode).then(updateSearchHighlight);
         } else if (node.parentNode && node.parentNode.nodeName().toLowerCase() === 'style') {
           const newNode = titleDOM.createChild('span', 'webkit-html-text-node webkit-html-css-node');
           const text = node.nodeValue();
           newNode.textContent = text.startsWith('\n') ? text.substring(1) : text;
 
-          const cssSyntaxHighlighter = new TextEditor.SyntaxHighlighter.SyntaxHighlighter('text/css', true);
+          const cssSyntaxHighlighter = new UI.SyntaxHighlighter.SyntaxHighlighter('text/css', true);
           cssSyntaxHighlighter.syntaxHighlightNode(newNode).then(updateSearchHighlight);
         } else {
           UI.UIUtils.createTextChild(titleDOM, '"');
@@ -2288,8 +2148,8 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     adorner.addInteraction(onClick, {
       isToggle: true,
       shouldPropagateOnKeydown: false,
-      ariaLabelDefault: i18nString(UIStrings.enableGridMode),
-      ariaLabelActive: i18nString(UIStrings.disableGridMode),
+      ariaLabelDefault: ls`Enable grid mode`,
+      ariaLabelActive: ls`Disable grid mode`,
     });
 
     node.domModel().overlayModel().addEventListener(
@@ -2328,8 +2188,8 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     adorner.addInteraction(onClick, {
       isToggle: true,
       shouldPropagateOnKeydown: false,
-      ariaLabelDefault: i18nString(UIStrings.enableFlexMode),
-      ariaLabelActive: i18nString(UIStrings.disableFlexMode),
+      ariaLabelDefault: ls`Enable flex mode`,
+      ariaLabelActive: ls`Disable flex mode`,
     });
 
     node.domModel().overlayModel().addEventListener(

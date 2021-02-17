@@ -214,8 +214,6 @@ def _CheckDevToolsStyleJS(input_api, output_api):
 
     front_end_directory = input_api.os_path.join(
         input_api.PresubmitLocalPath(), 'front_end')
-    component_docs_directory = input_api.os_path.join(front_end_directory,
-                                                      'component_docs')
     inspector_overlay_directory = input_api.os_path.join(
         input_api.PresubmitLocalPath(), 'inspector_overlay')
     test_directory = input_api.os_path.join(input_api.PresubmitLocalPath(),
@@ -237,7 +235,6 @@ def _CheckDevToolsStyleJS(input_api, output_api):
         input_api.os_path.join(input_api.PresubmitLocalPath(),
                                '.eslintignore'),
         input_api.os_path.join(front_end_directory, '.eslintrc.js'),
-        input_api.os_path.join(component_docs_directory, '.eslintrc.js'),
         input_api.os_path.join(test_directory, '.eslintrc.js'),
         input_api.os_path.join(scripts_directory, 'test',
                                'run_lint_check_js.py'),
