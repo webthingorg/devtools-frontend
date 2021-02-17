@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c8c3b74_d50aa53e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-17T10:56:51Z",
+      "side": 1,
+      "message": "PTAL (the fix for the issue you found)",
+      "revId": "505a24d27c706bddaab1afbd291c6510ceaf3e29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
