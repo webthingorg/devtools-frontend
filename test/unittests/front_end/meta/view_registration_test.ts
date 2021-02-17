@@ -54,7 +54,7 @@ describeWithEnvironment('View registration', () => {
     const allCommands = QuickOpen.CommandMenu.CommandMenu.instance({forceNew: true}).commands();
     const filteredCommands = allCommands.filter(
         command => command.title() === commandPrompt &&
-            command.category() === UI.ViewManager.ViewLocationCategoryValues.PANEL);
+            command.category() === UI.ViewManager.ViewLocationCategoryValues.PANEL());
     assert.strictEqual(filteredCommands.length, 1, 'Command for showing a preregistered view was not added correctly');
   });
 
