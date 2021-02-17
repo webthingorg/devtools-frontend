@@ -33,6 +33,23 @@
       "message": "LGTM",
       "revId": "1a3a2307a6613b662e808e735a76fcb4dfb9335c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ff4d2f1_39ba561d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2021-02-17T18:03:06Z",
+      "side": 1,
+      "message": "Adding Benedikt as a Reviewer for the file front_end/devtools_compatibility.js.\nPTAL",
+      "revId": "1a3a2307a6613b662e808e735a76fcb4dfb9335c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
