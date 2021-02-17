@@ -16,6 +16,46 @@
       "message": "FYI Lighthouse OWNERS. We have changed the way we interact with the Lighthouse worker. Technically this shouldn\u0027t affect what Lighthouse does itself, but we figured you might be interested in this change nonetheless.",
       "revId": "2c4219dded623a68438ce7051bca9048682dd918",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b31bff95_ecb21e4d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-17T15:20:00Z",
+      "side": 1,
+      "message": "LGTM % nit.",
+      "revId": "2c4219dded623a68438ce7051bca9048682dd918",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "647afc09_83cfa20f",
+        "filename": "front_end/lighthouse_worker/LighthouseService.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-17T15:20:00Z",
+      "side": 1,
+      "message": "I think this could do with a comment - explaining what we found out about ports and what they are.",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 34
+      },
+      "revId": "2c4219dded623a68438ce7051bca9048682dd918",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
