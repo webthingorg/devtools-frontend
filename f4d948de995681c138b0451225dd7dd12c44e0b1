@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "bbba3e32_705707c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-17T09:31:43Z",
+      "side": 1,
+      "message": "LGTM!",
+      "revId": "f4d948de995681c138b0451225dd7dd12c44e0b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "217a863b_64910fad",
         "filename": "node_modules/mocha/node_modules/supports-color/package.json",
         "patchSetId": 4
