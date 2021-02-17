@@ -16,6 +16,24 @@
       "message": "Tested and LGTM.\n\nIn reference to the Font Editor, I found that the Font Editor, along with all the other SwatchPopovers, do not handle this scenario correctly.  \n\nTake a look at this GIF with the box shadow editor: https://imgur.com/72z2TT8\nThe inline changes are not registered in the inline style section which causes a de-sync of the DOM and the styles pane.\n\nI\u0027ve created a bug for it here: https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1179418",
       "revId": "fabea0e3862a8a80afae96d6ad8757d53f9b7488",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b3491d3_c4808cdd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-17T21:43:17Z",
+      "side": 1,
+      "message": "Oh, thanks for testing! It looks like a slightly different issue though. In the flexbox editor case the steps to reproduce were:\n\n1) have an element with the inline \"display: flex\" style (so in the first section)\n2) open the flexbox editor and select some property (expected \u003d\u003d\u003d actual \u003d\u003d\u003d the property is changed in the inline style section and in the editor)\n3) select another property in the flex editor\n\nExpected:\nThe property is updated in the inline style section and in the editor.\n\nActual:\nThe property is only updated in the editor but the inline style section is not updated. \n\nMaybe it\u0027s the same underlying issue but I didn\u0027t realise that opening a popover on some other section prevents the inline style updates altogether.",
+      "parentUuid": "c30ec44f_cec509de",
+      "revId": "fabea0e3862a8a80afae96d6ad8757d53f9b7488",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
