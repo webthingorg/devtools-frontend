@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "022b1b96_47d16757",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-17T12:53:33Z",
+      "side": 1,
+      "message": "Good call",
+      "revId": "de408f0bbb0271bfadd4ebf4500d8e9f9a7abf17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fd03adc0_e526365d",
@@ -31,6 +48,30 @@
       "writtenOn": "2021-02-17T12:45:44Z",
       "side": 1,
       "message": "should we lock this? I assume this refers also to a \u003clabel\u003e element.",
+      "range": {
+        "startLine": 401,
+        "startChar": 37,
+        "endLine": 401,
+        "endChar": 42
+      },
+      "revId": "de408f0bbb0271bfadd4ebf4500d8e9f9a7abf17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7655321a_c5020e51",
+        "filename": "front_end/accessibility/AccessibilityStrings.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-17T12:53:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd03adc0_e526365d",
       "range": {
         "startLine": 401,
         "startChar": 37,
@@ -64,6 +105,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "52ad8c14_93fcdf36",
+        "filename": "front_end/accessibility/AccessibilityStrings.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-17T12:53:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75faa59e_8c7cdd56",
+      "range": {
+        "startLine": 413,
+        "startChar": 44,
+        "endLine": 413,
+        "endChar": 49
+      },
+      "revId": "de408f0bbb0271bfadd4ebf4500d8e9f9a7abf17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5453ae2_08f1685d",
@@ -77,6 +142,30 @@
       "writtenOn": "2021-02-17T12:45:44Z",
       "side": 1,
       "message": "Same",
+      "range": {
+        "startLine": 425,
+        "startChar": 44,
+        "endLine": 425,
+        "endChar": 49
+      },
+      "revId": "de408f0bbb0271bfadd4ebf4500d8e9f9a7abf17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6cf8e68_52de7e26",
+        "filename": "front_end/accessibility/AccessibilityStrings.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-17T12:53:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5453ae2_08f1685d",
       "range": {
         "startLine": 425,
         "startChar": 44,
