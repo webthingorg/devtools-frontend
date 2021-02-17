@@ -46,6 +46,30 @@
       },
       "revId": "afedbf6c1dd1f08c2cb693f38a6466b6f1b5e1be",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9308d26_2d57d6db",
+        "filename": "front_end/main/MainImpl.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-17T14:12:01Z",
+      "side": 1,
+      "message": "https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2699266/ should hopefully address the issues in `layer_viewer`",
+      "parentUuid": "33aa0f2b_41c4c21c",
+      "range": {
+        "startLine": 413,
+        "startChar": 6,
+        "endLine": 413,
+        "endChar": 68
+      },
+      "revId": "afedbf6c1dd1f08c2cb693f38a6466b6f1b5e1be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
