@@ -318,6 +318,29 @@ Common.Settings.registerSettingExtension({
   ],
 });
 
+UI.ActionRegistration.registerActionExtension({
+  category: UI.ActionRegistration.ActionCategory.MOBILE,
+  actionId: 'emulation.toggle-print-mode',
+  toggleable: true,
+  async loadActionDelegate() {
+    const Emulation = await loadEmulationModule();
+    return Emulation.PrintModeWrapper.ActionDelegate.instance();
+  },
+  condition: Root.Runtime.ConditionName.CAN_DOCK,
+  title: (): Platform.UIString.LocalizedString => ls`Toggle print preview`,
+  iconClass: UI.ActionRegistration.IconClass.LARGEICON_PHONE,
+  bindings: [
+    {
+      platform: UI.ActionRegistration.Platforms.WindowsLinux,
+      shortcut: 'Shift+Ctrl+P',
+    },
+    {
+      platform: UI.ActionRegistration.Platforms.Mac,
+      shortcut: 'Shift+Meta+P',
+    },
+  ],
+});
+
 UI.Toolbar.registerToolbarItem({
   actionId: 'emulation.toggle-device-mode',
   condition: Root.Runtime.ConditionName.CAN_DOCK,

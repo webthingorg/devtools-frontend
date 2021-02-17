@@ -603,6 +603,7 @@ grd_files_debug_sources = [
   "front_end/emulation/DeviceModeToolbar.js",
   "front_end/emulation/DeviceModeView.js",
   "front_end/emulation/DeviceModeWrapper.js",
+  "front_end/emulation/PrintModeWrapper.js",
   "front_end/emulation/DevicesSettingsTab.js",
   "front_end/emulation/EmulatedDevices.js",
   "front_end/emulation/InspectedPagePlaceholder.js",

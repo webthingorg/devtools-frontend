@@ -175,6 +175,7 @@ all_typescript_module_sources = [
   "emulation/DeviceModeToolbar.js",
   "emulation/DeviceModeView.js",
   "emulation/DeviceModeWrapper.js",
+  "emulation/PrintModeWrapper.js",
   "emulation/DevicesSettingsTab.js",
   "emulation/EmulatedDevices.js",
   "emulation/InspectedPagePlaceholder.js",
