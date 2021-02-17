@@ -22,6 +22,30 @@
       },
       "revId": "afedbf6c1dd1f08c2cb693f38a6466b6f1b5e1be",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33aa0f2b_41c4c21c",
+        "filename": "front_end/main/MainImpl.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-02-17T13:36:08Z",
+      "side": 1,
+      "message": "This is true, I tried this approach in a previous patchset, but I had to load the handler from `Common` because that approach was triggering an `Unsupported locale \u0027undefined` error, which is triggered when the i18n system is invoked before a locale has been set. It is not completely clear to me why this was happening since by the time this LOC is reached the locale has been already set and using `LoadTimelineHandler` wouldn\u0027t even call the i18n API. \n\nMy suspicion is that by importing Timeline and calling `LoadTimelineHandler` directly in here we would be triggering an early call to i18n because we indirectly import LayerDetailsViews.ts (timeline depends on layer_viewer) and this file calls the i18n when loaded: \n\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/layer_viewer/LayerDetailsView.ts;drc\u003d562d32ce33dd1082168094708660436af18a962d;l\u003d579",
+      "parentUuid": "e5bd39e5_f45c6280",
+      "range": {
+        "startLine": 413,
+        "startChar": 6,
+        "endLine": 413,
+        "endChar": 68
+      },
+      "revId": "afedbf6c1dd1f08c2cb693f38a6466b6f1b5e1be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
