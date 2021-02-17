@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 import * as Platform from '../platform/platform.js';
-import {ls} from '../platform/platform.js';
 import * as Root from '../root/root.js';
 
 import type {ViewLocationResolver} from './View.js';
@@ -10,6 +9,39 @@ import {PreRegisteredView} from './ViewManager.js';
 
 import type {Widget} from './Widget.js';
 
+import * as i18n from '../i18n/i18n.js';
+export const UIStrings = {
+  /**
+  *@description Title of the Elements Panel
+  */
+  elements: 'Elements',
+  /**
+  *@description A title of the 'Drawer' UI.ViewLocationResolver category
+  */
+  drawer: 'Drawer',
+  /**
+  *@description A title of the 'Drawer sidebar' UI.ViewLocationResolver category
+  */
+  drawerSidebar: 'Drawer sidebar',
+  /**
+  *@description A title of the 'Panel' UI.ViewLocationResolver category
+  */
+  panel: 'Panel',
+  /**
+  *@description Title of the Network tool
+  */
+  network: 'Network',
+  /**
+  *@description A title of the 'Settings' UI.ViewLocationResolver category
+  */
+  settings: 'Settings',
+  /**
+  *@description Name of the Sources panel
+  */
+  sources: 'Sources',
+};
+const str_ = i18n.i18n.registerUIStrings('ui/ViewRegistration.ts', UIStrings);
+const i18nString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 const registeredViewExtensions: Array<PreRegisteredView> = [];
 
 export const enum ViewPersistence {
@@ -147,13 +179,13 @@ export function getRegisteredLocationResolvers(): Array<LocationResolverRegistra
 }
 
 export const ViewLocationCategoryValues = {
-  ELEMENTS: ls`Elements`,
-  DRAWER: ls`Drawer`,
-  DRAWER_SIDEBAR: ls`Drawer sidebar`,
-  PANEL: ls`Panel`,
-  NETWORK: ls`Network`,
-  SETTINGS: ls`Settings`,
-  SOURCES: ls`Sources`,
+  ELEMENTS: i18nString(UIStrings.elements),
+  DRAWER: i18nString(UIStrings.drawer),
+  DRAWER_SIDEBAR: i18nString(UIStrings.drawerSidebar),
+  PANEL: i18nString(UIStrings.panel),
+  NETWORK: i18nString(UIStrings.network),
+  SETTINGS: i18nString(UIStrings.settings),
+  SOURCES: i18nString(UIStrings.sources),
 };
 
 type ViewLocationCategory = typeof ViewLocationCategoryValues[keyof typeof ViewLocationCategoryValues];

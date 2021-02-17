@@ -3,12 +3,101 @@
 // found in the LICENSE file.
 
 import * as Common from '../common/common.js';
+import * as i18n from '../i18n/i18n.js';
 import * as Platform from '../platform/platform.js';
-import {ls} from '../platform/platform.js';
 import * as Root from '../root/root.js';
 
 import {Context} from './Context.js';
 
+export const UIStrings = {
+  /**
+  *@description Title of the Elements Panel
+  */
+  elements: 'Elements',
+  /**
+  *@description Text for one or a group of screenshots
+  */
+  screenshot: 'Screenshot',
+  /**
+  *@description Title of the Network tool
+  */
+  network: 'Network',
+  /**
+  *@description Text for the memory of the page
+  */
+  memory: 'Memory',
+  /**
+  *@description Title of the 'JavaScript Profiler' tool
+  */
+  javascriptProfiler: 'JavaScript Profiler',
+  /**
+  *@description Title of the Console tool
+  */
+  console: 'Console',
+  /**
+  *@description Text for the performance of something
+  */
+  performance: 'Performance',
+  /**
+  *@description Text for the mobile platform, as opposed to desktop
+  */
+  mobile: 'Mobile',
+  /**
+  *@description Title of an action in the emulation tool to show sensors
+  */
+  sensors: 'Sensors',
+  /**
+  *@description Text for the viewing the help options
+  */
+  help: 'Help',
+  /**
+  *@description A title of the 'Inputs' action category
+  */
+  inputs: 'Inputs',
+  /**
+  *@description Title of the Layers tool
+  */
+  layers: 'Layers',
+  /**
+  *@description A title of the 'Navigation' action category
+  */
+  navigation: 'Navigation',
+  /**
+  *@description A title of the 'Drawer' UI.ViewLocationResolver category
+  */
+  drawer: 'Drawer',
+  /**
+  *@description Text describing global shortcuts and settings that are available throughout the DevTools
+  */
+  global: 'Global',
+  /**
+  *@description A title of the 'Resources' action category
+  */
+  resources: 'Resources',
+  /**
+  *@description Text in Application Panel Sidebar of the Application panel
+  */
+  backgroundServices: 'Background Services',
+  /**
+  *@description A title of the 'Settings' UI.ViewLocationResolver category
+  */
+  settings: 'Settings',
+  /**
+  *@description Text that refers to the debugger
+  */
+  debugger: 'Debugger',
+  /**
+  *@description Name of the category that hold recording related actions
+  */
+  recorder: 'Recorder',
+  /**
+  *@description Name of the Sources panel
+  */
+  sources: 'Sources',
+};
+
+const str_ = i18n.i18n.registerUIStrings('ui/ActionRegistration.ts', UIStrings);
+const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 export interface ActionDelegate {
   handleAction(_context: Context, _actionId: string): boolean;
 }
@@ -61,7 +150,7 @@ export class Action extends Common.ObjectWrapper.ObjectWrapper {
   }
 
   category(): string {
-    return this.actionRegistration.category;
+    return this.actionRegistration.category();
   }
 
   tags(): string|void {
@@ -178,27 +267,27 @@ export const Events = {
 };
 
 export const ActionCategory = {
-  ELEMENTS: ls`Elements`,
-  SCREENSHOT: ls`Screenshot`,
-  NETWORK: ls`Network`,
-  MEMORY: ls`Memory`,
-  JAVASCRIPT_PROFILER: ls`JavaScript Profiler`,
-  CONSOLE: ls`Console`,
-  PERFORMANCE: ls`Performance`,
-  MOBILE: ls`Mobile`,
-  SENSORS: ls`Sensors`,
-  HELP: ls`Help`,
-  INPUTS: ls`Inputs`,
-  LAYERS: ls`Layers`,
-  NAVIGATION: ls`Navigation`,
-  DRAWER: ls`Drawer`,
-  GLOBAL: ls`Global`,
-  RESOURCES: ls`Resources`,
-  BACKGROUND_SERVICES: ls`Background Services`,
-  SETTINGS: ls`Settings`,
-  DEBUGGER: ls`Debugger`,
-  RECORDER: ls`Recorder`,
-  SOURCES: ls`Sources`,
+  ELEMENTS: i18nLazyString(UIStrings.elements),
+  SCREENSHOT: i18nLazyString(UIStrings.screenshot),
+  NETWORK: i18nLazyString(UIStrings.network),
+  MEMORY: i18nLazyString(UIStrings.memory),
+  JAVASCRIPT_PROFILER: i18nLazyString(UIStrings.javascriptProfiler),
+  CONSOLE: i18nLazyString(UIStrings.console),
+  PERFORMANCE: i18nLazyString(UIStrings.performance),
+  MOBILE: i18nLazyString(UIStrings.mobile),
+  SENSORS: i18nLazyString(UIStrings.sensors),
+  HELP: i18nLazyString(UIStrings.help),
+  INPUTS: i18nLazyString(UIStrings.inputs),
+  LAYERS: i18nLazyString(UIStrings.layers),
+  NAVIGATION: i18nLazyString(UIStrings.navigation),
+  DRAWER: i18nLazyString(UIStrings.drawer),
+  GLOBAL: i18nLazyString(UIStrings.global),
+  RESOURCES: i18nLazyString(UIStrings.resources),
+  BACKGROUND_SERVICES: i18nLazyString(UIStrings.backgroundServices),
+  SETTINGS: i18nLazyString(UIStrings.settings),
+  DEBUGGER: i18nLazyString(UIStrings.debugger),
+  RECORDER: i18nLazyString(UIStrings.recorder),
+  SOURCES: i18nLazyString(UIStrings.sources),
 };
 
 type ActionCategory = typeof ActionCategory[keyof typeof ActionCategory];
