@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f754fc47_a3b6828f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2021-02-17T12:57:40Z",
+      "side": 1,
+      "message": "We solved the issue by moving the event into front_end/sources/TabbedEditorContainer.js",
+      "revId": "086a5c90dda671614c9717e43247ce75d0859f1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
