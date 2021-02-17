@@ -90,33 +90,3 @@ export function pullLines(codeMirror, linesCount) {
     lines.push(lineHandle.text);
   }
 }
-
-/**
- * @implements {TextUtils.TextUtils.TokenizerFactory}
- */
-export class TokenizerFactory {
-  /**
-   * @override
-   * @param {string} mimeType
-   * @return {function(string, function(string, ?string, number, number))}
-   */
-  createTokenizer(mimeType) {
-    const mode = CodeMirror.getMode({indentUnit: 2}, mimeType);
-    const state = CodeMirror.startState(mode);
-    /**
-     * @param {string} line
-     * @param {function(string, (string|null), number, number):void} callback
-     */
-    function tokenize(line, callback) {
-      const stream = new CodeMirror.StringStream(line);
-      while (!stream.eol()) {
-        // @ts-expect-error CodeMirror types specify token as optional.
-        const style = mode.token(stream, state);
-        const value = stream.current();
-        callback(value, style, stream.start, stream.start + value.length);
-        stream.start = stream.pos;
-      }
-    }
-    return tokenize;
-  }
-}

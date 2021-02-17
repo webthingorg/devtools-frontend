@@ -28,8 +28,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import * as Root from '../root/root.js';  // eslint-disable-line no-unused-vars
-import * as TextUtils from '../text_utils/text_utils.js';
+import * as TextUtils from '../text_utils/text_utils.js';  // eslint-disable-line no-unused-vars
 
 import {createTextChild} from './UIUtils.js';
 
@@ -69,20 +68,8 @@ export class SyntaxHighlighter {
     /** @type {string} */
     let line;
 
-    const extension = Root.Runtime.Runtime.instance().extension(TextUtils.TextUtils.TokenizerFactory);
-    if (extension) {
-      return extension.instance().then(
-          factory => processTokens.call(this, /** @type {!TextUtils.TextUtils.TokenizerFactory} */ (factory)));
-    }
-    return Promise.resolve();
-
-    /**
-     * @param {!TextUtils.TextUtils.TokenizerFactory} tokenizerFactory
-     * @this {SyntaxHighlighter}
-     */
-    function processTokens(tokenizerFactory) {
       node.removeChildren();
-      const tokenize = tokenizerFactory.createTokenizer(this._mimeType);
+      const tokenize = TokenizerFactory.instance().createTokenizer(this._mimeType);
       for (let i = 0; i < lines.length; ++i) {
         line = lines[i];
         plainTextStart = 0;
@@ -95,26 +82,71 @@ export class SyntaxHighlighter {
           createTextChild(node, '\n');
         }
       }
-    }
+      return Promise.resolve();
 
-    /**
+      /**
      * @param {string} token
      * @param {?string} tokenType
      * @param {number} column
      * @param {number} newColumn
      * @this {SyntaxHighlighter}
      */
-    function processToken(token, tokenType, column, newColumn) {
-      if (!tokenType) {
-        return;
-      }
+      function processToken(token, tokenType, column, newColumn) {
+        if (!tokenType) {
+          return;
+        }
 
-      if (column > plainTextStart) {
-        const plainText = line.substring(plainTextStart, column);
-        createTextChild(node, plainText);
+        if (column > plainTextStart) {
+          const plainText = line.substring(plainTextStart, column);
+          createTextChild(node, plainText);
+        }
+        node.appendChild(this.createSpan(token, tokenType));
+        plainTextStart = newColumn;
       }
-      node.appendChild(this.createSpan(token, tokenType));
-      plainTextStart = newColumn;
+  }
+}
+
+
+/** @type {!TokenizerFactory} */
+let tokenizerFactoryInstance;
+
+/**
+ * @implements {TextUtils.TextUtils.TokenizerFactory}
+ */
+export class TokenizerFactory {
+  /**
+   * @param {{forceNew: ?boolean}} opts
+   */
+  static instance(opts = {forceNew: null}) {
+    const {forceNew} = opts;
+    if (!tokenizerFactoryInstance || forceNew) {
+      tokenizerFactoryInstance = new TokenizerFactory();
     }
+
+    return tokenizerFactoryInstance;
+  }
+  /**
+   * @override
+   * @param {string} mimeType
+   * @return {function(string, function(string, ?string, number, number))}
+   */
+  createTokenizer(mimeType) {
+    const mode = CodeMirror.getMode({indentUnit: 2}, mimeType);
+    const state = CodeMirror.startState(mode);
+    /**
+     * @param {string} line
+     * @param {function(string, (string|null), number, number):void} callback
+     */
+    function tokenize(line, callback) {
+      const stream = new CodeMirror.StringStream(line);
+      while (!stream.eol()) {
+        // @ts-expect-error CodeMirror types specify token as optional.
+        const style = mode.token(stream, state);
+        const value = stream.current();
+        callback(value, style, stream.start, stream.start + value.length);
+        stream.start = stream.pos;
+      }
+    }
+    return tokenize;
   }
 }

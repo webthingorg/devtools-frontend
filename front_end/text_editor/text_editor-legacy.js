@@ -36,8 +36,5 @@ TextEditor.CodeMirrorUtils.changeObjectToEditOperation = TextEditorModule.CodeMi
 TextEditor.CodeMirrorUtils.pullLines = TextEditorModule.CodeMirrorUtils.pullLines;
 
 /** @constructor */
-TextEditor.CodeMirrorUtils.TokenizerFactory = TextEditorModule.CodeMirrorUtils.TokenizerFactory;
-
-/** @constructor */
 TextEditor.TextEditorAutocompleteController =
     TextEditorModule.TextEditorAutocompleteController.TextEditorAutocompleteController;

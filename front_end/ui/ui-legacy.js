@@ -168,6 +168,9 @@ UI.SuggestBox = UIModule.SuggestBox.SuggestBox;
 UI.SyntaxHighlighter = UIModule.SyntaxHighlighter.SyntaxHighlighter;
 
 /** @constructor */
+UI.SyntaxHighlighter.TokenizerFactory = UIModule.SyntaxHighlighter.TokenizerFactory;
+
+/** @constructor */
 UI.TabbedPane = UIModule.TabbedPane.TabbedPane;
 
 /** @enum {symbol} */
@@ -249,7 +252,6 @@ UI.XLink.ContextMenuProvider = UIModule.XLink.ContextMenuProvider;
 
 /** @type {!UIModule.Context.Context} */
 self.UI.context = UIModule.Context.Context.instance();
-
 
 /**
  * @type {!UI.DockController}
