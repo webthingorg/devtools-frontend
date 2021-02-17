@@ -16,6 +16,40 @@
       "message": "PTAL",
       "revId": "5179559ba788fa9923f041e324fd5a709a030f99",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6957346c_5af6a48d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-17T08:07:15Z",
+      "side": 1,
+      "message": "LGTM with a suggestion",
+      "revId": "5179559ba788fa9923f041e324fd5a709a030f99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0e3ee77_c345b2a7",
+        "filename": "test/unittests/front_end/sdk/Cookie_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-17T08:07:15Z",
+      "side": 1,
+      "message": "Maybe you want to assert `sameParty` too.",
+      "revId": "5179559ba788fa9923f041e324fd5a709a030f99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
