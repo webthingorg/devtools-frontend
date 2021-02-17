@@ -16,6 +16,115 @@
       "message": "Migrating Elements to localization V2. PTAL",
       "revId": "273bad8e52cb013358489e6c1a10e9d4f4d9687a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c97a77dc_0ff52f06",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-17T07:42:44Z",
+      "side": 1,
+      "message": "lgtm % some comments",
+      "revId": "273bad8e52cb013358489e6c1a10e9d4f4d9687a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b1d0870_480f34b9",
+        "filename": "front_end/elements/MetricsSidebarPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-17T07:42:44Z",
+      "side": 1,
+      "message": "Wdyt about removing the translations for all but `content`? All the other terms are locked anyway and the type doesn\u0027t matter as its assigned to Element#textContent",
+      "range": {
+        "startLine": 307,
+        "startChar": 10,
+        "endLine": 307,
+        "endChar": 19
+      },
+      "revId": "273bad8e52cb013358489e6c1a10e9d4f4d9687a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6be58fae_f14a78b7",
+        "filename": "front_end/elements/PlatformFontsWidget.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-17T07:42:44Z",
+      "side": 1,
+      "message": "If usage is always 1 for this string, can we make the string `(1 glyph)`?",
+      "range": {
+        "startLine": 133,
+        "startChar": 24,
+        "endLine": 133,
+        "endChar": 66
+      },
+      "revId": "273bad8e52cb013358489e6c1a10e9d4f4d9687a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61905cbe_4ba73a8a",
+        "filename": "front_end/elements/StylePropertyTreeElement.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 768,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-17T07:42:44Z",
+      "side": 1,
+      "message": "This string has 5 placeholders. fontSetting.minvalue is missing.",
+      "range": {
+        "startLine": 765,
+        "startChar": 0,
+        "endLine": 768,
+        "endChar": 37
+      },
+      "revId": "273bad8e52cb013358489e6c1a10e9d4f4d9687a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89e691f5_df7a80ee",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1176,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-17T07:42:44Z",
+      "side": 1,
+      "message": "Do you know why the original CL used a placeholder for the space here?",
+      "range": {
+        "startLine": 1176,
+        "startChar": 60,
+        "endLine": 1176,
+        "endChar": 96
+      },
+      "revId": "273bad8e52cb013358489e6c1a10e9d4f4d9687a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
