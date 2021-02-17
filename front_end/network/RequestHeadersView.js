@@ -223,6 +223,7 @@ export const UIStrings = {
 };
 const str_ = i18n.i18n.registerUIStrings('network/RequestHeadersView.js', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 export class RequestHeadersView extends UI.Widget.VBox {
   /**
    * @param {!SDK.NetworkRequest.NetworkRequest} request
@@ -360,7 +361,8 @@ export class RequestHeadersView extends UI.Widget.VBox {
       const detailsNode = fragment.createChild('div', 'header-details');
       const callToAction = detailsNode.createChild('div', 'call-to-action');
       const callToActionBody = callToAction.createChild('div', 'call-to-action-body');
-      callToActionBody.createChild('div', 'explanation').textContent = header.details.explanation;
+      const details = header.details instanceof Function ? header.details() : header.details;
+      callToActionBody.createChild('div', 'explanation').textContent = details.explanation;
       for (const example of header.details.examples) {
         const exampleNode = callToActionBody.createChild('div', 'example');
         exampleNode.createChild('code').textContent = example.codeSnippet;
@@ -1166,7 +1168,7 @@ export class Category extends UI.TreeOutline.TreeElement {
  *   value: ?Object,
  *   headerValueIncorrect: ?boolean,
  *   details: !{
- *     explanation: string,
+ *     explanation: string|function():string,
  *     examples: !Array<!{codeSnippet: string, comment:(string|undefined)}>,
  *     link: ?{url:string},
  *   },
@@ -1183,7 +1185,7 @@ const BlockedReasonDetails = new Map([
       value: null,
       headerValueIncorrect: null,
       details: {
-        explanation: i18nString(UIStrings.toEmbedThisFrameInYourDocument),
+        explanation: i18nLazyString(UIStrings.toEmbedThisFrameInYourDocument),
         examples: [{codeSnippet: 'Cross-Origin-Embedder-Policy: require-corp', comment: undefined}],
         link: {url: 'https://web.dev/coop-coep/'}
       },

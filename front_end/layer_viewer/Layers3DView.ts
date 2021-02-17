@@ -81,10 +81,6 @@ export const UIStrings = {
   /**
   *@description Text in DView of the Layers panel
   */
-  repaintsOnScroll: 'repaints on scroll',
-  /**
-  *@description Text in DView of the Layers panel
-  */
   touchEventListener: 'touch event listener',
   /**
   *@description Text in DView of the Layers panel
