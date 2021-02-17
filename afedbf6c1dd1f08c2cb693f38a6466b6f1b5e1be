@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5bd39e5_f45c6280",
+        "filename": "front_end/main/MainImpl.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-17T12:08:10Z",
+      "side": 1,
+      "message": "Why don\u0027t we use `LoadTimelineHandler` here directly? I don\u0027t see any other assignment to the static field, so I think `QueryParamHandler` is unused altogether?",
+      "range": {
+        "startLine": 413,
+        "startChar": 6,
+        "endLine": 413,
+        "endChar": 68
+      },
+      "revId": "afedbf6c1dd1f08c2cb693f38a6466b6f1b5e1be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
