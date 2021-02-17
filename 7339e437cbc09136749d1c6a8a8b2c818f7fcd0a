@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0179442_cf6088fa",
+        "filename": "front_end/cookie_table/CookiesTable.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-17T10:15:20Z",
+      "side": 1,
+      "message": "numberCompare always compares cookies by size, not by port",
+      "revId": "7339e437cbc09136749d1c6a8a8b2c818f7fcd0a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
