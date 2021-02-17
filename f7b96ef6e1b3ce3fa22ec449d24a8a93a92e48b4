@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04b3fe66_c7e015da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-17T12:12:55Z",
+      "side": 1,
+      "message": "PTAL\n\nThis is simplistic, but I think it is a good start because it doesn\u0027t require the collapsible view. Wee will iterate on it once Wolfgang has the collapsible list component ready. ",
+      "revId": "f7b96ef6e1b3ce3fa22ec449d24a8a93a92e48b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
