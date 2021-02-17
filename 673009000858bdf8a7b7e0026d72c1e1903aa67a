@@ -16,6 +16,24 @@
       "message": "Hey Kim,\n\nDo you maybe know why the e2e-tests would be failing for this change? I would have assumed that the linear-memory-inspector didn\u0027t have any resources to load and that we can remove the module.json file. However, it appears that it has a silent dependency on the `-legacy.js` file and I can\u0027t really figure out where that dependency is coming from. Do you know how we might be inadvetently relying on the `-legacy.js` file?",
       "revId": "673009000858bdf8a7b7e0026d72c1e1903aa67a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ce11d33_d264dc5a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-02-17T07:20:50Z",
+      "side": 1,
+      "message": "Hi Tim,\n\nI\u0027m not 100% sure, since I do not completely understand the implications of module.js. The test that fails is about opening the linear memory inspector tab. I can see that the module is missing here when it tries to look it up:\n\nhttps://source.chromium.org/chromium/chromium/src/+/master:out/Debug/gen/devtools/root/Runtime.js;l\u003d203;drc\u003de23e2afbdd4f60dba283dc5eea987ee8a70b99fd\n\nThis is called to via the ViewManager:\n\nhttps://source.chromium.org/chromium/chromium/src/+/master:out/Debug/gen/devtools/ui/ViewManager.js;l\u003d86;drc\u003dd7e50ea73664aa87e1a658650481ce64577df183\n\nwhich tries to open the widget as a result of this call:\n\nhttps://source.chromium.org/chromium/chromium/src/+/master:out/Debug/gen/devtools/linear_memory_inspector/LinearMemoryInspectorController.js;l\u003d101;drc\u003d783fcfcab079f170e67d9d043d5c52cecd8cdfc7\n\nDoes this help? I\u0027m happy to VC on this as well!",
+      "parentUuid": "9725e252_bc8d767d",
+      "revId": "673009000858bdf8a7b7e0026d72c1e1903aa67a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
