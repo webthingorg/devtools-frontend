@@ -87,6 +87,30 @@
       },
       "revId": "eaab42b8d7ec5aa418da4284230e92628c94d9d0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cbae5e2_45618dd0",
+        "filename": "front_end/ui/components/TreeOutlineUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-17T10:16:39Z",
+      "side": 1,
+      "message": "If we land this as is, then yes, you\u0027d have to define the renderer for each child. I think this might be better as it avoids any potential conflicts like the one you highlighted.\n\nThat said I think we\u0027ll learn if this is a good or bad API once we start using it, so I think we should land as is and tweak if required.",
+      "parentUuid": "24adf948_7db07eb4",
+      "range": {
+        "startLine": 9,
+        "startChar": 2,
+        "endLine": 9,
+        "endChar": 53
+      },
+      "revId": "eaab42b8d7ec5aa418da4284230e92628c94d9d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
