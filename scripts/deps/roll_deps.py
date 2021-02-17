@@ -25,7 +25,7 @@ FILES = [
 FILE_MAPPINGS = {
     # chromium_path => devtools_frontend_path
     'components/variations/proto/devtools/client_variations.js':
-    'front_end/third_party/chromium/client-variations/ClientVariations.js',
+    'front_end/third_party/chromium/client-variations/client-variations.js',
     'third_party/axe-core/axe.d.ts': 'front_end/third_party/axe-core/axe.d.ts',
     'third_party/axe-core/axe.js': 'front_end/third_party/axe-core/axe.js',
     'third_party/axe-core/axe.min.js':
