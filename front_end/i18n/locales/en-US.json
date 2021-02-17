@@ -2336,9 +2336,6 @@
   "layer_viewer/Layers3DView.ts | paints": {
     "message": "Paints"
   },
-  "layer_viewer/Layers3DView.ts | repaintsOnScroll": {
-    "message": "repaints on scroll"
-  },
   "layer_viewer/Layers3DView.ts | resetView": {
     "message": "Reset View"
   },
