@@ -33,6 +33,24 @@
       "message": "Looks good to me, but I would like Michael to look at this as he\u0027s probably had to do something similar for the Font Editor.",
       "revId": "505a24d27c706bddaab1afbd291c6510ceaf3e29",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1898353_d77899d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-17T21:45:48Z",
+      "side": 1,
+      "message": "Actually, I have doubts now that my workaround would work for all cases. I think if the updates are coming from the page like in the test that Michael did, it\u0027s possible that the editor will be bound to the wrong section. WDYT?",
+      "parentUuid": "279d0379_71938f11",
+      "revId": "505a24d27c706bddaab1afbd291c6510ceaf3e29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
