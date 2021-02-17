@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d01166b_b6a5302d",
+        "filename": "front_end/elements/module.json",
+        "patchSetId": 14
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-02-17T03:23:56Z",
+      "side": 1,
+      "message": "Several layout test which load the elements panel rely on the resources of text_editor being loaded with the removed call to the `Extension.intance()` method.",
+      "range": {
+        "startLine": 8,
+        "startChar": 5,
+        "endLine": 8,
+        "endChar": 16
+      },
+      "revId": "4dbfd26ace6450d487f57984c4f7fb015c0a8ca8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
