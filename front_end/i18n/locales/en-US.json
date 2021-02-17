@@ -6881,9 +6881,6 @@
   "settings/SettingsScreen.ts | warning": {
     "message": "WARNING:"
   },
-  "snippets/ModuleUIStrings.ts | runSnippet": {
-    "message": "Run snippet"
-  },
   "snippets/ScriptSnippetFileSystem.ts | linkedTo": {
     "message": "Linked to {PH1}"
   },
@@ -6892,6 +6889,9 @@
   },
   "snippets/SnippetsQuickOpen.ts | noSnippetsFound": {
     "message": "No snippets found."
+  },
+  "snippets/SnippetsQuickOpen.ts | runSnippet": {
+    "message": "Run snippet"
   },
   "source_frame/FontView.js | font": {
     "message": "Font"

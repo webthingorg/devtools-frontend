@@ -179,5 +179,5 @@ export class GoToLineQuickOpen extends QuickOpen.FilteredListWidget.Provider {
 QuickOpen.FilteredListWidget.registerProvider({
   prefix: ':',
   title: i18nString(UIStrings.goToLine),
-  provider: async () => GoToLineQuickOpen.instance(),
+  provider: GoToLineQuickOpen.instance,
 });

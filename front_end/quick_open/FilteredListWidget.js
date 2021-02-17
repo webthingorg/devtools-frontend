@@ -717,8 +717,8 @@ export function getRegisteredProviders() {
 
 /**
   * @typedef {{
-  *  provider: function(): !Promise<!Provider>,
-  *  title: string,
+  *  provider: function(): !Provider,
+  *  title: (string|undefined),
   *  prefix: string,
   * }}
   */
