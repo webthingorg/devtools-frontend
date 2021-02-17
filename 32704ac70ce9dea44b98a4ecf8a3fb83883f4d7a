@@ -16,6 +16,29 @@
       "message": "The failing layout test gets the migrated extension with the old runtime infra. Currently working on porting it to a unit test.",
       "revId": "32704ac70ce9dea44b98a4ecf8a3fb83883f4d7a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b59704e_c03def2b",
+        "filename": "front_end/text_editor/CodeMirrorUtils.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-17T12:14:09Z",
+      "side": 1,
+      "message": "As I understand it, this class doesn\u0027t depend on anything that is defined in `text_editor` itself. If that\u0027s correct, can we maybe move this class into `ui/SyntaxHighlighter.js` so that we can remove the dependency of `ui` on `text_editor`? (Since `text_editor` itself depends on `ui`, this is technically a circular dependency.",
+      "range": {
+        "startLine": 101,
+        "startChar": 13,
+        "endLine": 101,
+        "endChar": 29
+      },
+      "revId": "32704ac70ce9dea44b98a4ecf8a3fb83883f4d7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
