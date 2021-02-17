@@ -15,25 +15,30 @@ export const UIStrings = {
   */
   base: 'Base64',
   /**
-  *@description Text in Binary Resource View of the Network panel
+  * @description Text in Binary Resource View of the Network panel. Shown to the user as a status
+  * message after the current text has been copied to the clipboard. Base64 is a format for encoding
+  * data.
   */
-  copiedAsBase: 'Copied as Base64',
+  copiedAsBase: 'Copied as `Base64`',
   /**
   *@description Text in Binary Resource View of the Network panel
   */
   hexViewer: 'Hex Viewer',
   /**
-  *@description Text in Binary Resource View of the Network panel
+  * @description Text in Binary Resource View of the Network panel. Shown to the user as a status
+  * message after the current text has been copied to the clipboard. Hex is short for hexadecimal,
+  * and is a format for encoding data.
   */
-  copiedAsHex: 'Copied as Hex',
+  copiedAsHex: 'Copied as `Hex`',
   /**
   *@description Text in Binary Resource View of the Network panel
   */
   utf: 'UTF-8',
   /**
-  *@description Text in Binary Resource View of the Network panel
+  *@description Text in Binary Resource View of the Network panel. Shown to the user as a status
+  * message after the current text has been copied to the clipboard. UTF-8 is a format for encoding data.
   */
-  copiedAsUtf: 'Copied as UTF-8',
+  copiedAsUtf: 'Copied as `UTF-8`',
   /**
   *@description Screen reader label for a select box that chooses how to display binary data in the Network panel
   */
