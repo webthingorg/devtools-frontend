@@ -4,6 +4,10 @@
  * found in the LICENSE file.
  */
 
+.request-initiator-view-tree.tree-outline li .selection {
+  margin-right: -6px; /* Same margin but negative than the element .request-initiator-view */
+}
+
 .request-initiator-view-section-title {
   font-weight: bold;
   padding: 4px;
