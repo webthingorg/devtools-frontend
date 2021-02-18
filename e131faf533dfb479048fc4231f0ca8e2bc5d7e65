@@ -39,6 +39,30 @@
       },
       "revId": "e131faf533dfb479048fc4231f0ca8e2bc5d7e65",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8b1158f_7fdd3833",
+        "filename": "front_end/network/requestInitiatorViewTree.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2021-02-18T17:31:26Z",
+      "side": 1,
+      "message": "I don\u0027t know if I\u0027m understanding your feedback, but the class .fill is part of the tree-outline, and this positioning is only for this particular case, because the parent has a 6px margin right, but I don\u0027t want to remove that margin.",
+      "parentUuid": "d02c69b9_91c8a273",
+      "range": {
+        "startLine": 8,
+        "startChar": 2,
+        "endLine": 8,
+        "endChar": 93
+      },
+      "revId": "e131faf533dfb479048fc4231f0ca8e2bc5d7e65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
