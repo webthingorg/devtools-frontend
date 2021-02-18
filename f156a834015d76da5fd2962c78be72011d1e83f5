@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a142e7a_f3721351",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-02-18T12:49:40Z",
+      "side": 1,
+      "message": "LGTM, with one suggestion!",
+      "revId": "f156a834015d76da5fd2962c78be72011d1e83f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e74bf7db_710b44cb",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-02-18T12:49:40Z",
+      "side": 1,
+      "message": "The source file might have been loaded twice, but this just removes the first occurence.\n\nYou could use Array.filter() instead to catch all occurences.",
+      "revId": "f156a834015d76da5fd2962c78be72011d1e83f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
