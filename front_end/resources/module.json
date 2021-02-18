@@ -9,8 +9,7 @@
     "perf_ui",
     "mobile_throttling",
     "network",
-    "sources",
-    "browser_sdk"
+    "sources"
   ],
   "modules": [
     "resources-legacy.js"

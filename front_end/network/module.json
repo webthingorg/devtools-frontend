@@ -1,6 +1,5 @@
 {
   "dependencies": [
-    "browser_sdk",
     "client_variations",
     "components",
     "cookie_table",
