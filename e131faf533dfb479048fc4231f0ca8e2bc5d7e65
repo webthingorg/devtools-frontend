@@ -87,6 +87,30 @@
       },
       "revId": "e131faf533dfb479048fc4231f0ca8e2bc5d7e65",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bc573a2_732ec2cb",
+        "filename": "front_end/network/requestInitiatorViewTree.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1429737
+      },
+      "writtenOn": "2021-02-18T18:29:02Z",
+      "side": 1,
+      "message": "Ahhh, sorry, I was confuse because I thought I was already using the class .fill and the right property hahahaha.\n\nNow it should look better :)",
+      "parentUuid": "5363b41e_edb0799d",
+      "range": {
+        "startLine": 8,
+        "startChar": 2,
+        "endLine": 8,
+        "endChar": 93
+      },
+      "revId": "e131faf533dfb479048fc4231f0ca8e2bc5d7e65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
