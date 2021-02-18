@@ -63,6 +63,30 @@
       },
       "revId": "965ad2748640569cabf9d247c8bfdffb615f5774",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76fde3d5_b1aeb647",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-18T15:34:16Z",
+      "side": 1,
+      "message": "Yes. I would be okay with that, but if you prefer not to, then we can keep this a type alias.",
+      "parentUuid": "fafc84bf_21c16268",
+      "range": {
+        "startLine": 21,
+        "startChar": 7,
+        "endLine": 21,
+        "endChar": 20
+      },
+      "revId": "965ad2748640569cabf9d247c8bfdffb615f5774",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
