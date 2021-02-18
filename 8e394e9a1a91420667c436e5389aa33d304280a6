@@ -39,6 +39,30 @@
       },
       "revId": "8e394e9a1a91420667c436e5389aa33d304280a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "199f6d4a_450c2d75",
+        "filename": "front_end/ui/components/TreeOutlineUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-18T11:40:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f178163_a85df4ec",
+      "range": {
+        "startLine": 9,
+        "startChar": 27,
+        "endLine": 9,
+        "endChar": 44
+      },
+      "revId": "8e394e9a1a91420667c436e5389aa33d304280a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

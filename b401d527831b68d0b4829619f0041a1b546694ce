@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b678040d_b5a4bcc3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-18T11:40:00Z",
+      "side": 1,
+      "message": "Good suggestion on the options bag, done. I\u0027ve also changed the API slightly so it takes the entire Node, not just the key, as I can see us extending Nodes with more data in the future.",
+      "revId": "b401d527831b68d0b4829619f0041a1b546694ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
