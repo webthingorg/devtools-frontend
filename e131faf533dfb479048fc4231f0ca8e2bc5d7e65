@@ -63,6 +63,30 @@
       },
       "revId": "e131faf533dfb479048fc4231f0ca8e2bc5d7e65",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5363b41e_edb0799d",
+        "filename": "front_end/network/requestInitiatorViewTree.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-02-18T17:37:46Z",
+      "side": 1,
+      "message": "Correct, the .fill class seems very generic and used in many places. What I\u0027m suggesting is for you to override its `right` value just in your particular case, by using any parent CSS class selector that you need to make it specific.\n\nI don\u0027t have a strong preference by the way. The element you are trying to fix with `.request-initiator-view-tree.tree-outline li .selection` also has the `.fill` class, and as such is positioned absolutely with `right:0`. I just feel it\u0027s a little cleaner to override `right` instead of adding yet another positioning technique on top with `margin-right`.\n\nHopefully this is a bit clearer :)",
+      "parentUuid": "f8b1158f_7fdd3833",
+      "range": {
+        "startLine": 8,
+        "startChar": 2,
+        "endLine": 8,
+        "endChar": 93
+      },
+      "revId": "e131faf533dfb479048fc4231f0ca8e2bc5d7e65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
