@@ -95,7 +95,7 @@ function populateContextMenu(link, event) {
  * @param {boolean|undefined} tabStops
  * @return {!Array<!StackTraceRegularRow|!StackTraceAsyncRow>}
  */
-function buildStackTraceRows(stackTrace, target, linkifier, tabStops) {
+export function buildStackTraceRows(stackTrace, target, linkifier, tabStops) {
   /** @type {!Array<!StackTraceRegularRow|!StackTraceAsyncRow>} */
   const stackTraceRows = [];
   let regularRowCount = 0;
