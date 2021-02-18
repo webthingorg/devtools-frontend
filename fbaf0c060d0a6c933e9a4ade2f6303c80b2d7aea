@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f778d058_38fc01a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-18T06:47:24Z",
+      "side": 1,
+      "message": "lgtm % nit",
+      "revId": "fbaf0c060d0a6c933e9a4ade2f6303c80b2d7aea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "140e2b18_dd73ff4a",
+        "filename": "front_end/network/BinaryResourceView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-18T06:47:24Z",
+      "side": 1,
+      "message": "Hex is locked in the next term, we might lock it here as well.",
+      "range": {
+        "startLine": 26,
+        "startChar": 14,
+        "endLine": 26,
+        "endChar": 17
+      },
+      "revId": "fbaf0c060d0a6c933e9a4ade2f6303c80b2d7aea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c541539b_0c786b5c",
+        "filename": "front_end/network/BinaryResourceView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-18T06:47:24Z",
+      "side": 1,
+      "message": "UTF-8 is locked in the next term, we should probably remove this term and use `UTF-8` as a raw untranslated string.",
+      "range": {
+        "startLine": 36,
+        "startChar": 8,
+        "endLine": 36,
+        "endChar": 13
+      },
+      "revId": "fbaf0c060d0a6c933e9a4ade2f6303c80b2d7aea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
