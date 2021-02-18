@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "965ad2748640569cabf9d247c8bfdffb615f5774",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ed31e5f_684506ac",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-18T15:30:07Z",
+      "side": 1,
+      "message": "Nit: Can we make this an `enum` instead? Then we can refer to the `enum` in the tests and make sure they stay in sync.",
+      "range": {
+        "startLine": 21,
+        "startChar": 7,
+        "endLine": 21,
+        "endChar": 20
+      },
+      "revId": "965ad2748640569cabf9d247c8bfdffb615f5774",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
