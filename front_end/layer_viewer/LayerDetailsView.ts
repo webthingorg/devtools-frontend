@@ -79,7 +79,8 @@ export const UIStrings = {
   */
   containingBlocRectangleDimensions: 'Containing Block {PH1} × {PH2} (at {PH3}, {PH4})',
   /**
-  *@description Text in Layer Details View of the Layers panel
+  * @description Layers panel text meaning a Sticky Box which causes a layer to shift. In this case
+  * box means a 2D rectangular area of the website. Sticky means this area itself does not move.
   */
   nearestLayerShiftingStickyBox: 'Nearest Layer Shifting Sticky Box',
   /**
@@ -125,7 +126,7 @@ export const UIStrings = {
   /**
   *@description Compositing reason description displayed in the Layer Details View of the Layers panel
   */
-  hasADTransform: 'Has a 3d transform.',
+  hasADTransform: 'Has a 3D transform.',
   /**
   *@description Compositing reason description displayed in the Layer Details View of the Layers panel
   */
@@ -255,12 +256,12 @@ export const UIStrings = {
   *@description Compositing reason description displayed in the Layer Details View of the Layers panel
   */
   hasAPerspectiveTransformThat:
-      'Has a perspective transform that needs to be known by compositor because of 3d descendants.',
+      'Has a perspective transform that needs to be known by compositor because of 3D descendants.',
   /**
   *@description Compositing reason description displayed in the Layer Details View of the Layers panel
   */
   hasAPreservesdPropertyThatNeeds:
-      'Has a preserves-3d property that needs to be known by compositor because of 3d descendants.',
+      'Has a `preserves-3D` property that needs to be known by compositor because of 3D descendants.',
   /**
   *@description Compositing reason description displayed in the Layer Details View of the Layers panel
   */
