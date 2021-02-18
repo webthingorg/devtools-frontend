@@ -41,6 +41,8 @@ export class CSSProperty {
     this._active = true;
     this._nameRange = null;
     this._valueRange = null;
+    /** @type {?string} */
+    this._invalidProperty = null;
   }
 
   /**
@@ -339,5 +341,19 @@ export class CSSProperty {
     const propertyText = this.text.trim();
     const text = disabled ? '/* ' + propertyText + ' */' : this.text.substring(2, propertyText.length - 2).trim();
     return this.setText(text, true, true);
+  }
+
+  /**
+   * @param {string} invalidString
+   */
+  setInvalidString(invalidString) {
+    this._invalidString = invalidString;
+  }
+
+  /**
+   * @return {string | undefined}
+   */
+  getInvalidString() {
+    return this._invalidString;
   }
 }
