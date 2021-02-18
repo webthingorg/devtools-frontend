@@ -1,6 +1,3 @@
 {
-  "dependencies": [
-    "browser_sdk"
-  ],
   "modules": []
 }

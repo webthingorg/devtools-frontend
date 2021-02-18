@@ -1,6 +1,5 @@
 {
   "dependencies": [
-    "browser_sdk",
     "components",
     "network",
     "ui"

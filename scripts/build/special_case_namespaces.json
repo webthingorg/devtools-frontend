@@ -1,7 +1,6 @@
 {
   "sdk": "SDK",
   "js_sdk": "JSSDK",
-  "browser_sdk": "BrowserSDK",
   "ui": "UI",
   "object_ui": "ObjectUI",
   "perf_ui": "PerfUI",
