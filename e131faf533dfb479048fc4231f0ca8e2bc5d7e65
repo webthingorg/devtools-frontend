@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "e131faf533dfb479048fc4231f0ca8e2bc5d7e65",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d02c69b9_91c8a273",
+        "filename": "front_end/network/requestInitiatorViewTree.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-02-18T10:36:10Z",
+      "side": 1,
+      "message": "You could also override the absolute positioning of the .fill class. It would seem a little bit more logical to me toi override existing style instead of adding a negative margin on top.\nSo something like \n\n.request-initiator-view-tree.tree-outline li .fill {\n  right: -6px;\n}",
+      "range": {
+        "startLine": 8,
+        "startChar": 2,
+        "endLine": 8,
+        "endChar": 93
+      },
+      "revId": "e131faf533dfb479048fc4231f0ca8e2bc5d7e65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
