@@ -223,6 +223,16 @@ export class PageResourceLoader extends Common.ObjectWrapper.ObjectWrapper {
       Host.userMetrics.developerResourceLoaded(code);
     }
 
+    // For chrome-extension:-URLs the only way to actually load the resource is via `fetch` inside the target.
+    if (parsedURL && parsedURL.scheme === 'chrome-extension') {
+      const target =
+          initiator.target ?? FrameManager.instance().getFrame(initiator.frameId || '')?.resourceTreeModel().target();
+      if (target) {
+        Host.userMetrics.developerResourceLoaded(Host.UserMetrics.DeveloperResourceLoaded.LoadThroughPageViaFetch);
+        return this._loadViaFetch(target, url);
+      }
+    }
+
     const result = await MultitargetNetworkManager.instance().loadResource(url);
     if (eligibleForLoadFromTarget && !result.success) {
       Host.userMetrics.developerResourceLoaded(Host.UserMetrics.DeveloperResourceLoaded.FallbackFailure);
@@ -246,12 +256,14 @@ export class PageResourceLoader extends Common.ObjectWrapper.ObjectWrapper {
     }
     const isLocalhost = parsedURL.host === 'localhost' || parsedURL.host.endsWith('.localhost');
     switch (parsedURL.scheme) {
-      case 'file':
-        return Host.UserMetrics.DeveloperResourceScheme.SchemeFile;
-      case 'data':
-        return Host.UserMetrics.DeveloperResourceScheme.SchemeData;
       case 'blob':
         return Host.UserMetrics.DeveloperResourceScheme.SchemeBlob;
+      case 'chrome-extension':
+        return Host.UserMetrics.DeveloperResourceScheme.SchemeChromeExtension;
+      case 'data':
+        return Host.UserMetrics.DeveloperResourceScheme.SchemeData;
+      case 'file':
+        return Host.UserMetrics.DeveloperResourceScheme.SchemeFile;
       case 'http':
         return isLocalhost ? Host.UserMetrics.DeveloperResourceScheme.SchemeHttpLocalhost :
                              Host.UserMetrics.DeveloperResourceScheme.SchemeHttp;
@@ -260,6 +272,38 @@ export class PageResourceLoader extends Common.ObjectWrapper.ObjectWrapper {
                              Host.UserMetrics.DeveloperResourceScheme.SchemeHttps;
     }
     return Host.UserMetrics.DeveloperResourceScheme.SchemeOther;
+  }
+
+  /**
+   * @param {!Target} target
+   * @param {string} url
+   * @return {!Promise<!{success: boolean, content: string, errorDescription: !Host.ResourceLoader.LoadErrorDescription}>}
+   */
+  async _loadViaFetch(target, url) {
+    /**
+     * @param {string} url
+     * @return {!Promise<!{success: boolean, content: string, errorDescription: !Host.ResourceLoader.LoadErrorDescription}>}
+     */
+    async function fetchAsText(url) {
+      const response = await fetch(url, {cache: 'no-cache', credentials: 'include'});
+      const success = response.ok;
+      const statusCode = response.status;
+      const message = response.statusText;
+      const content = success ? await response.text() : '';
+      return {
+        success,
+        content,
+        errorDescription: {statusCode, message, netError: undefined, netErrorName: undefined, urlValid: undefined}
+      };
+    }
+    const {result} = await target.runtimeAgent().invoke_evaluate({
+      awaitPromise: true,
+      expression: `(${fetchAsText})(${JSON.stringify(url)})`,
+      disableBreaks: true,
+      returnByValue: true,
+      silent: true
+    });
+    return result.value;
   }
 
   /**

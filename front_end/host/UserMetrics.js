@@ -706,6 +706,7 @@ export const DeveloperResourceLoaded = {
   FallbackPerOverride: 5,
   FallbackPerProtocol: 6,
   FallbackFailure: 7,
+  LoadThroughPageViaFetch: 8,
 };
 
 /** @enum {number} */
@@ -719,4 +720,5 @@ export const DeveloperResourceScheme = {
   SchemeData: 6,
   SchemeFile: 7,
   SchemeBlob: 8,
+  SchemeChromeExtension: 9,
 };
