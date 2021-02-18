@@ -309,6 +309,7 @@ export class TabbedEditorContainer extends Common.ObjectWrapper.ObjectWrapper {
     const binding = Persistence.Persistence.PersistenceImpl.instance().binding(uiSourceCode);
     uiSourceCode = binding ? binding.fileSystem : uiSourceCode;
     if (this._currentFile === uiSourceCode) {
+      Common.EventTarget.fireEvent('source-file-loaded', uiSourceCode.displayName());
       return;
     }
 
@@ -318,6 +319,7 @@ export class TabbedEditorContainer extends Common.ObjectWrapper.ObjectWrapper {
     const tabId = this._tabIds.get(uiSourceCode) || this._appendFileTab(uiSourceCode, userGesture);
 
     this._tabbedPane.selectTab(tabId, userGesture);
+    Common.EventTarget.fireEvent('source-file-loaded', uiSourceCode.displayName());
     if (userGesture) {
       this._editorSelectedByUserAction();
     }
