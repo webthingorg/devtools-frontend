@@ -39,6 +39,30 @@
       },
       "revId": "965ad2748640569cabf9d247c8bfdffb615f5774",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fafc84bf_21c16268",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-18T15:32:10Z",
+      "side": 1,
+      "message": "An enum would have to be exported and imported into the test files, right?",
+      "parentUuid": "3ed31e5f_684506ac",
+      "range": {
+        "startLine": 21,
+        "startChar": 7,
+        "endLine": 21,
+        "endChar": 20
+      },
+      "revId": "965ad2748640569cabf9d247c8bfdffb615f5774",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
