@@ -16,6 +16,23 @@
       "message": "Thanks Alex",
       "revId": "48e73cad158af1bae1debfa82a9f246a66834c19",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e29f4c2_396abcaa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-18T10:43:54Z",
+      "side": 1,
+      "message": "Saw the flakes, curious that this seems to happens only on windows.",
+      "revId": "48e73cad158af1bae1debfa82a9f246a66834c19",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
