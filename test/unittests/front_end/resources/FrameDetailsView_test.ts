@@ -5,8 +5,10 @@
 import * as Coordinator from '../../../../front_end/render_coordinator/render_coordinator.js';
 import * as Resources from '../../../../front_end/resources/resources.js';
 import * as SDK from '../../../../front_end/sdk/sdk.js';
+import * as LitHtml from '../../../../front_end/third_party/lit-html/lit-html.js';
 import * as Components from '../../../../front_end/ui/components/components.js';
 import {assertShadowRoot, getElementWithinComponent, renderElementIntoDOM} from '../helpers/DOMHelpers.js';
+import {MutationType, withMutations} from '../helpers/MutationHelpers.js';
 
 const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
 
@@ -110,5 +112,39 @@ describe('FrameDetailsView', () => {
       'available, transferable',
       'available Learn more',
     ]);
+  });
+});
+
+describe('ExpandableList', () => {
+  it('renders expandable list', async () => {
+    const list = new Resources.FrameDetailsView.ExpandableList();
+    LitHtml.render(
+        LitHtml.html`
+      <div class="row">Row 1</div>
+      <div class="row">Row 2</div>
+    `,
+        list);
+    renderElementIntoDOM(list);
+    assertShadowRoot(list.shadowRoot);
+
+    // checks that slots contain content
+    const rows = list.querySelectorAll('.row');
+    const slot = getElementWithinComponent(list, 'slot', HTMLSlotElement);
+    assert.strictEqual(rows[0], slot.assignedElements()[0]);
+    assert.strictEqual(rows[1], slot.assignedElements()[1]);
+
+    // checkst that list is not expanded initially
+    const iconSpan = list.shadowRoot.querySelector<HTMLElement>('span.arrow-icon');
+    assert.isNotNull(iconSpan);
+    assert.isFalse(iconSpan?.classList.contains('expanded'));
+
+    // checks that clicking button expands list by removing style tag
+    const button = list.shadowRoot.querySelector<HTMLElement>('button.arrow-icon-button');
+    await withMutations([{target: 'style', type: MutationType.REMOVE, max: 1}], list.shadowRoot, () => {
+      button?.click();
+    });
+
+    // checks that list is expanded
+    assert.isTrue(iconSpan?.classList.contains('expanded'));
   });
 });
