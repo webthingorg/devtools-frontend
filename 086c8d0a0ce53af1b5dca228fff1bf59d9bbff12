@@ -16,6 +16,24 @@
       "message": "How about NOT adding these quotes here and on line 753? That way we don\u0027t have to slice the stringified result above. The only difference is that the quotes are currently rendered in black, and with that change they would have the same color as the rest of the string. I\u0027d argue that\u0027s an improvement though, since that way it matches how strings are syntax-highlighted in the input.",
       "revId": "086c8d0a0ce53af1b5dca228fff1bf59d9bbff12",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f3acf4c_769061b5",
+        "filename": "front_end/console/ConsoleViewMessage.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 755,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-02-18T11:25:19Z",
+      "side": 1,
+      "message": "Done!",
+      "parentUuid": "8113c98e_ce8a9c8b",
+      "revId": "086c8d0a0ce53af1b5dca228fff1bf59d9bbff12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
