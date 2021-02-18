@@ -110,6 +110,30 @@
       },
       "revId": "fbaf0c060d0a6c933e9a4ade2f6303c80b2d7aea",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9b34d0f_c6b5b621",
+        "filename": "front_end/network/BinaryResourceView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-18T08:13:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d79ab8fe_7e80803d",
+      "range": {
+        "startLine": 36,
+        "startChar": 8,
+        "endLine": 36,
+        "endChar": 13
+      },
+      "revId": "fbaf0c060d0a6c933e9a4ade2f6303c80b2d7aea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
