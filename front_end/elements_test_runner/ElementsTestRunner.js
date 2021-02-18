@@ -1220,17 +1220,23 @@ function onBlankSection(selector, callback) {
  * To pick which properties to dump: dumpInspectorHighlightJSON(idValue, ['prop'], callback).
  *
  * @param {string} idValue
- * @param {!Function|!Array<string>} replacerOrCallback
+ * @param {?Array<string>} attributes List of top-level property names to include in the result
  * @param {?Function=} maybeCallback
  */
-ElementsTestRunner.dumpInspectorHighlightJSON = function(idValue, replacerOrCallback, maybeCallback) {
-  const callback = arguments.length === 3 ? maybeCallback : replacerOrCallback;
-  const replacer = arguments.length === 3 ? replacerOrCallback : null;
+ElementsTestRunner.dumpInspectorHighlightJSON = function(idValue, attributes, maybeCallback) {
+  const callback = arguments.length === 3 ? maybeCallback : attributes;
+  const attributeSet = arguments.length === 3 ? new Set(attributes) : null;
   ElementsTestRunner.nodeWithId(idValue, nodeResolved);
 
   async function nodeResolved(node) {
     const result = await TestRunner.OverlayAgent.getHighlightObjectForTest(node.id);
-    TestRunner.addResult(idValue + JSON.stringify(result, replacer, 2));
+    const view = attributeSet ? Object.keys(result).reduce((acc, key) => {
+      if (attributeSet.has(key)) {
+        acc[key] = result[key];
+      }
+      return acc;
+    }, {}) : result;
+    TestRunner.addResult(idValue + JSON.stringify(view, null, 2));
     callback();
   }
 };
