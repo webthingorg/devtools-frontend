@@ -16,6 +16,29 @@
       "message": "ptal!",
       "revId": "8e394e9a1a91420667c436e5389aa33d304280a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f178163_a85df4ec",
+        "filename": "front_end/ui/components/TreeOutlineUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-18T11:12:42Z",
+      "side": 1,
+      "message": "Nit: should this maybe become an options bag? I can imagine that later we would want to add more options to renderer and having an options bag makes that a bit easier to manage.",
+      "range": {
+        "startLine": 9,
+        "startChar": 27,
+        "endLine": 9,
+        "endChar": 44
+      },
+      "revId": "8e394e9a1a91420667c436e5389aa33d304280a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
