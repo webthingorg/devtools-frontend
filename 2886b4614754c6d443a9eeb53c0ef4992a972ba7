@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2815bafb_f8e0c662",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-02-18T07:34:24Z",
+      "side": 1,
+      "message": "Hi Benedikt,\n\nthis change is allowing all types to be listed in the value interpreter per default, ptal!",
+      "revId": "2886b4614754c6d443a9eeb53c0ef4992a972ba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
