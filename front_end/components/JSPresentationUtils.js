@@ -61,6 +61,98 @@ export const UIStrings = {
 };
 const str_ = i18n.i18n.registerUIStrings('components/JSPresentationUtils.js', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+
+/**
+ * @param {!Element} link
+ * @param {!Event} event
+ */
+function populateContextMenu(link, event) {
+  const contextMenu = new UI.ContextMenu.ContextMenu(event);
+  event.consume(true);
+  const uiLocation = Linkifier.uiLocation(link);
+  if (uiLocation &&
+      Bindings.IgnoreListManager.IgnoreListManager.instance().canIgnoreListUISourceCode(uiLocation.uiSourceCode)) {
+    if (Bindings.IgnoreListManager.IgnoreListManager.instance().isIgnoreListedUISourceCode(uiLocation.uiSourceCode)) {
+      contextMenu.debugSection().appendItem(
+          i18nString(UIStrings.removeFromIgnore),
+          () => Bindings.IgnoreListManager.IgnoreListManager.instance().unIgnoreListUISourceCode(
+              uiLocation.uiSourceCode));
+    } else {
+      contextMenu.debugSection().appendItem(
+          i18nString(UIStrings.addToIgnore),
+          () =>
+              Bindings.IgnoreListManager.IgnoreListManager.instance().ignoreListUISourceCode(uiLocation.uiSourceCode));
+    }
+  }
+  contextMenu.appendApplicableItems(event);
+  contextMenu.show();
+}
+
+/**
+ * @param {!Protocol.Runtime.StackTrace} stackTrace
+ * @param {?SDK.SDKModel.Target} target
+ * @param {!Linkifier} linkifier
+ * @param {boolean|undefined} tabStops
+ * @return {!Array<!StackTraceRegularRow|!StackTraceAsyncRow>}
+ */
+function buildStackTraceRows(stackTrace, target, linkifier, tabStops) {
+  /** @type {!Array<!StackTraceRegularRow|!StackTraceAsyncRow>} */
+  const stackTraceRows = [];
+  let regularRowCount = 0;
+
+  /**
+   * @param {!Protocol.Runtime.StackTrace} stackTrace
+   * @param {boolean} asyncFlag
+   */
+  function buildStackTraceRowsHelper(stackTrace, asyncFlag) {
+    /** @type {?StackTraceAsyncRow} */
+    let asyncRow = null;
+    if (asyncFlag) {
+      asyncRow = {asyncDescription: UI.UIUtils.asyncStackTraceLabel(stackTrace.description), shouldHide: false};
+      stackTraceRows.push(asyncRow);
+    }
+    let hiddenCallFrames = 0;
+    for (const stackFrame of stackTrace.callFrames) {
+      regularRowCount++;
+      let shouldHide = regularRowCount > 30 && stackTrace.callFrames.length > 31;
+      const functionName = UI.UIUtils.beautifyFunctionName(stackFrame.functionName);
+      const link = linkifier.maybeLinkifyConsoleCallFrame(
+          target, stackFrame, {tabStop: Boolean(tabStops), className: undefined, columnNumber: undefined});
+      if (link) {
+        link.addEventListener('contextmenu', populateContextMenu.bind(null, link));
+        const uiLocation = Linkifier.uiLocation(link);
+        if (uiLocation &&
+            Bindings.IgnoreListManager.IgnoreListManager.instance().isIgnoreListedUISourceCode(
+                uiLocation.uiSourceCode)) {
+          shouldHide = true;
+        }
+        // Linkifier is using a workaround with the 'zero width space' (\u200b).
+        // TODO(szuend): Remove once the Linkfier is no longer using the workaround.
+        if (!link.textContent || link.textContent === '\u200b') {
+          link.textContent = i18nString(UIStrings.unknownSource);
+        }
+      }
+      if (shouldHide) {
+        ++hiddenCallFrames;
+      }
+      stackTraceRows.push({shouldHide, functionName, link});
+    }
+    if (asyncFlag && hiddenCallFrames === stackTrace.callFrames.length && asyncRow) {
+      asyncRow.shouldHide = true;
+    }
+  }
+
+  buildStackTraceRowsHelper(stackTrace, false);
+  let asyncStackTrace = stackTrace.parent;
+  while (asyncStackTrace) {
+    if (asyncStackTrace.callFrames.length) {
+      buildStackTraceRowsHelper(asyncStackTrace, true);
+    }
+    asyncStackTrace = asyncStackTrace.parent;
+  }
+  return stackTraceRows;
+}
+
 /**
  * @param {?SDK.SDKModel.Target} target
  * @param {!Linkifier} linkifier
@@ -79,112 +171,50 @@ export function buildStackTracePreviewContents(target, linkifier, options = {
   const shadowRoot = UI.Utils.createShadowRootWithCoreStyles(
       element, {cssFile: 'components/jsUtils.css', enableLegacyPatching: false, delegatesFocus: undefined});
   const contentElement = shadowRoot.createChild('table', 'stack-preview-container');
-  let totalHiddenCallFramesCount = 0;
-  let totalCallFramesCount = 0;
   /** @type {!Array<!HTMLElement>} */
   const links = [];
-
-  /**
-   * @param {!Protocol.Runtime.StackTrace} stackTrace
-   * @return {boolean}
-   */
-  function appendStackTrace(stackTrace) {
-    let hiddenCallFrames = 0;
-    for (const stackFrame of stackTrace.callFrames) {
-      totalCallFramesCount++;
-      let shouldHide = totalCallFramesCount > 30 && stackTrace.callFrames.length > 31;
-      const row = document.createElement('tr');
-      row.createChild('td').textContent = '\n';
-      row.createChild('td', 'function-name').textContent = UI.UIUtils.beautifyFunctionName(stackFrame.functionName);
-      const link = linkifier.maybeLinkifyConsoleCallFrame(
-          target, stackFrame, {tabStop: Boolean(tabStops), className: undefined, columnNumber: undefined});
-      if (link) {
-        link.addEventListener('contextmenu', populateContextMenu.bind(null, link));
-        const uiLocation = Linkifier.uiLocation(link);
-        if (uiLocation &&
-            Bindings.IgnoreListManager.IgnoreListManager.instance().isIgnoreListedUISourceCode(
-                uiLocation.uiSourceCode)) {
-          shouldHide = true;
-        }
-        row.createChild('td').textContent = ' @ ';
-        row.createChild('td').appendChild(link);
-        // Linkifier is using a workaround with the 'zero width space' (\u200b).
-        // TODO(szuend): Remove once the Linkfier is no longer using the workaround.
-        if (!link.textContent || link.textContent === '\u200b') {
-          link.textContent = i18nString(UIStrings.unknownSource);
-        }
-        links.push(link);
-      }
-      if (shouldHide) {
-        row.classList.add('ignore-listed');
-        ++hiddenCallFrames;
-      }
-      contentElement.appendChild(row);
-    }
-    totalHiddenCallFramesCount += hiddenCallFrames;
-    return stackTrace.callFrames.length === hiddenCallFrames;
-  }
-
-  /**
-   * @param {!Element} link
-   * @param {!Event} event
-   */
-  function populateContextMenu(link, event) {
-    const contextMenu = new UI.ContextMenu.ContextMenu(event);
-    event.consume(true);
-    const uiLocation = Linkifier.uiLocation(link);
-    if (uiLocation &&
-        Bindings.IgnoreListManager.IgnoreListManager.instance().canIgnoreListUISourceCode(uiLocation.uiSourceCode)) {
-      if (Bindings.IgnoreListManager.IgnoreListManager.instance().isIgnoreListedUISourceCode(uiLocation.uiSourceCode)) {
-        contextMenu.debugSection().appendItem(
-            i18nString(UIStrings.removeFromIgnore),
-            () => Bindings.IgnoreListManager.IgnoreListManager.instance().unIgnoreListUISourceCode(
-                uiLocation.uiSourceCode));
-      } else {
-        contextMenu.debugSection().appendItem(
-            i18nString(UIStrings.addToIgnore),
-            () => Bindings.IgnoreListManager.IgnoreListManager.instance().ignoreListUISourceCode(
-                uiLocation.uiSourceCode));
-      }
-    }
-    contextMenu.appendApplicableItems(event);
-    contextMenu.show();
-  }
 
   if (!stackTrace) {
     return {element, links};
   }
+  const stackTraceRows = buildStackTraceRows(stackTrace, target, linkifier, tabStops);
+  let hiddenCallFramesCount = 0;
 
-  appendStackTrace(stackTrace);
-
-  let asyncStackTrace = stackTrace.parent;
-  while (asyncStackTrace) {
-    if (!asyncStackTrace.callFrames.length) {
-      asyncStackTrace = asyncStackTrace.parent;
-      continue;
-    }
+  for (const item of stackTraceRows) {
     const row = contentElement.createChild('tr');
-    row.createChild('td').textContent = '\n';
-    row.createChild('td', 'stack-preview-async-description').textContent =
-        UI.UIUtils.asyncStackTraceLabel(asyncStackTrace.description);
-    row.createChild('td');
-    row.createChild('td');
-    if (appendStackTrace(asyncStackTrace)) {
+    if ('asyncDescription' in item) {
+      row.createChild('td').textContent = '\n';
+      row.createChild('td', 'stack-preview-async-description').textContent = item.asyncDescription;
+      row.createChild('td');
+      row.createChild('td');
+    } else {
+      row.createChild('td').textContent = '\n';
+      row.createChild('td', 'function-name').textContent = item.functionName;
+      row.createChild('td').textContent = ' @ ';
+      if (item.link) {
+        row.createChild('td').appendChild(item.link);
+        links.push(item.link);
+      }
+      if (item.shouldHide) {
+        ++hiddenCallFramesCount;
+      }
+    }
+    if (item.shouldHide) {
       row.classList.add('ignore-listed');
     }
-    asyncStackTrace = asyncStackTrace.parent;
+    contentElement.appendChild(row);
   }
 
-  if (totalHiddenCallFramesCount) {
+  if (hiddenCallFramesCount) {
     const row = contentElement.createChild('tr', 'show-ignore-listed-link');
     row.createChild('td').textContent = '\n';
     const cell = /** @type {!HTMLTableCellElement} */ (row.createChild('td'));
     cell.colSpan = 4;
     const showAllLink = cell.createChild('span', 'link');
-    if (totalHiddenCallFramesCount === 1) {
+    if (hiddenCallFramesCount === 1) {
       showAllLink.textContent = i18nString(UIStrings.showMoreFrame);
     } else {
-      showAllLink.textContent = i18nString(UIStrings.showSMoreFrames, {PH1: totalHiddenCallFramesCount});
+      showAllLink.textContent = i18nString(UIStrings.showSMoreFrames, {PH1: hiddenCallFramesCount});
     }
     showAllLink.addEventListener('click', () => {
       contentElement.classList.add('show-ignore-listed');
@@ -206,3 +236,22 @@ export function buildStackTracePreviewContents(target, linkifier, options = {
  */
 // @ts-ignore typedef
 export let Options;
+
+/**
+ * @typedef {{
+ *   shouldHide: boolean,
+ *   functionName: string,
+ *   link: HTMLElement|null
+ * }}
+ */
+// @ts-ignore typedef
+export let StackTraceRegularRow;
+
+/**
+ * @typedef {{
+ *   shouldHide: boolean,
+ *   asyncDescription: string,
+ * }}
+ */
+// @ts-ignore typedef
+export let StackTraceAsyncRow;
