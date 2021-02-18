@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c3da0a3_96b5584e",
+        "filename": "front_end/network/BinaryResourceView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-18T07:03:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "140e2b18_dd73ff4a",
+      "range": {
+        "startLine": 26,
+        "startChar": 14,
+        "endLine": 26,
+        "endChar": 17
+      },
+      "revId": "fbaf0c060d0a6c933e9a4ade2f6303c80b2d7aea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c541539b_0c786b5c",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-02-18T06:47:24Z",
       "side": 1,
       "message": "UTF-8 is locked in the next term, we should probably remove this term and use `UTF-8` as a raw untranslated string.",
+      "range": {
+        "startLine": 36,
+        "startChar": 8,
+        "endLine": 36,
+        "endChar": 13
+      },
+      "revId": "fbaf0c060d0a6c933e9a4ade2f6303c80b2d7aea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d79ab8fe_7e80803d",
+        "filename": "front_end/network/BinaryResourceView.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-18T07:03:44Z",
+      "side": 1,
+      "message": "I still need to introduce a type to do this so it can go through typechecks that require localized strings. for now I\u0027ll lock them. Later we can add a presubmit check that the whole string isn\u0027t locked. Then we can remove these",
+      "parentUuid": "c541539b_0c786b5c",
       "range": {
         "startLine": 36,
         "startChar": 8,
