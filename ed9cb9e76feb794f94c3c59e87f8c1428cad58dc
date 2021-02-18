@@ -37,6 +37,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b0517114_cc355cf7",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2021-02-18T16:19:54Z",
+      "side": 1,
+      "message": "The type of this should be declared \n\n/**\n * @type {...}\n */",
+      "revId": "ed9cb9e76feb794f94c3c59e87f8c1428cad58dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83d794a1_f4331267",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2021-02-18T16:19:54Z",
+      "side": 1,
+      "message": "Doesn\u0027t this return `LocalizedString`? Should that type be propagated into CSSProperty as well?",
+      "revId": "ed9cb9e76feb794f94c3c59e87f8c1428cad58dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "62f4b566_a6f9b03f",
         "filename": "front_end/sdk/CSSProperty.js",
         "patchSetId": 4
@@ -48,6 +82,24 @@
       "writtenOn": "2021-02-18T08:16:53Z",
       "side": 1,
       "message": "Would it make sense to explain in what context/how these methods are used?",
+      "revId": "ed9cb9e76feb794f94c3c59e87f8c1428cad58dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fe70d5b_793d7d83",
+        "filename": "front_end/sdk/CSSProperty.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2021-02-18T16:19:54Z",
+      "side": 1,
+      "message": "+1. I\u0027m supposing that this is displayed. I\u0027d prefer to see this be something like `setDisplayedStringForInvalidValue` or `-ForInvalidProperty` or something similar.",
+      "parentUuid": "62f4b566_a6f9b03f",
       "revId": "ed9cb9e76feb794f94c3c59e87f8c1428cad58dc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
