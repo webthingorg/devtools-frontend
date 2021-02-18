@@ -337,6 +337,38 @@ describe('TreeOutline', () => {
     assert.strictEqual(renderedKey, '<h2 class="top-node">OFFICES</h2>');
   });
 
+  it('passes the custom renderer the expanded state', async () => {
+    const tinyTree: UIComponents.TreeOutlineUtils.TreeNode[] = [{
+      key: 'Offices',
+      renderer: (key, expanded) => LitHtml.html`<h2 class="top-node">${key.toUpperCase()}. Expanded: ${expanded}</h2>`,
+      children: () => Promise.resolve([
+        {
+          key: 'EMEA',
+        },
+        {
+          key: 'USA',
+        },
+        {
+          key: 'APAC',
+        },
+      ]),
+    }];
+
+    const {component, shadowRoot} = await renderTreeOutline({
+      tree: tinyTree,
+    });
+
+    const officeNode = getVisibleTreeNodeByText(shadowRoot, 'Offices');
+    const key = officeNode.querySelector('[data-node-key]');
+    assertElement(key, HTMLElement);
+    let renderedKey = stripLitHtmlCommentNodes(key.innerHTML);
+    assert.strictEqual(renderedKey, '<h2 class="top-node">OFFICES. Expanded: false</h2>');
+    await component.expandRecursively(Number.POSITIVE_INFINITY);
+    await coordinator.done();
+    renderedKey = stripLitHtmlCommentNodes(key.innerHTML);
+    assert.strictEqual(renderedKey, '<h2 class="top-node">OFFICES. Expanded: true</h2>');
+  });
+
   describe('navigating with keyboard', () => {
     it('defaults to the first root node as active', async () => {
       const {shadowRoot} = await renderTreeOutline({
