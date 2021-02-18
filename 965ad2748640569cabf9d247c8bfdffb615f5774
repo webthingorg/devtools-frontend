@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbcd71e6_bc1ded83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-02-18T15:49:36Z",
+      "side": 1,
+      "message": "If we\u0027re implementing this feature in a less adhoc fashion (like exporting an enum to the tests), we could also altenratively consider implementing this as an `it.depends` instead, which as its first argument takes a bool. Tests can then opt out of platforms by using\n\nit.depends(os.platform() !\u003d\u003d \u0027darwin\u0027, \u0027test name\u0027, ...)\u0027\n\nThis has much more power than what we need to disable tests on individual platforms, so it could be overkill. Mostly mentioning it for the record here!",
+      "revId": "965ad2748640569cabf9d247c8bfdffb615f5774",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3ed31e5f_684506ac",
