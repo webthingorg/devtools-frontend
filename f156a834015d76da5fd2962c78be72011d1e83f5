@@ -33,6 +33,24 @@
       "message": "The source file might have been loaded twice, but this just removes the first occurence.\n\nYou could use Array.filter() instead to catch all occurences.",
       "revId": "f156a834015d76da5fd2962c78be72011d1e83f5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "281121a0_fa7538e1",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2021-02-18T15:39:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e74bf7db_710b44cb",
+      "revId": "f156a834015d76da5fd2962c78be72011d1e83f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
