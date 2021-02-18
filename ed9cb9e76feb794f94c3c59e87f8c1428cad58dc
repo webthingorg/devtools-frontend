@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4306fe71_a664ef24",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2021-02-18T16:50:13Z",
+      "side": 1,
+      "message": "I believe it should since it goes through the createExclamationMark function where the string is set, but I\u0027ll verify before checking in.",
+      "parentUuid": "dab85288_9a6c7e21",
+      "revId": "ed9cb9e76feb794f94c3c59e87f8c1428cad58dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b0517114_cc355cf7",
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d381416_46727155",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2021-02-18T16:50:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0517114_cc355cf7",
+      "revId": "ed9cb9e76feb794f94c3c59e87f8c1428cad58dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "83d794a1_f4331267",
@@ -65,6 +101,24 @@
       "writtenOn": "2021-02-18T16:19:54Z",
       "side": 1,
       "message": "Doesn\u0027t this return `LocalizedString`? Should that type be propagated into CSSProperty as well?",
+      "revId": "ed9cb9e76feb794f94c3c59e87f8c1428cad58dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdde6de8_8c999e25",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2021-02-18T16:50:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83d794a1_f4331267",
       "revId": "ed9cb9e76feb794f94c3c59e87f8c1428cad58dc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -100,6 +154,24 @@
       "side": 1,
       "message": "+1. I\u0027m supposing that this is displayed. I\u0027d prefer to see this be something like `setDisplayedStringForInvalidValue` or `-ForInvalidProperty` or something similar.",
       "parentUuid": "62f4b566_a6f9b03f",
+      "revId": "ed9cb9e76feb794f94c3c59e87f8c1428cad58dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25085d26_14b0cf8d",
+        "filename": "front_end/sdk/CSSProperty.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2021-02-18T16:50:13Z",
+      "side": 1,
+      "message": "Added comments and changed function name for clarity.",
+      "parentUuid": "2fe70d5b_793d7d83",
       "revId": "ed9cb9e76feb794f94c3c59e87f8c1428cad58dc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
