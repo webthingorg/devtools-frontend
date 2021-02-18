@@ -1626,19 +1626,19 @@
     "message": "Add new class"
   },
   "elements/ClassesPaneWidget.js | classesSAdded": {
-    "message": "Classes {PH1} added."
+    "message": "Classes {PH1} added"
   },
   "elements/ClassesPaneWidget.js | classSAdded": {
-    "message": "Class {PH1} added."
+    "message": "Class {PH1} added"
   },
   "elements/ClassesPaneWidget.js | elementClasses": {
     "message": "Element Classes"
   },
   "elements/ColorSwatchPopoverIcon.js | openCubicBezierEditor": {
-    "message": "Open cubic bezier editor."
+    "message": "Open cubic bezier editor"
   },
   "elements/ColorSwatchPopoverIcon.js | openShadowEditor": {
-    "message": "Open shadow editor."
+    "message": "Open shadow editor"
   },
   "elements/ComputedStyleWidget.js | filter": {
     "message": "Filter"

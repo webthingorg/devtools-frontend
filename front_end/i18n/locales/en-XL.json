@@ -1626,19 +1626,19 @@
     "message": "Âd́d̂ ńêẃ ĉĺâśŝ"
   },
   "elements/ClassesPaneWidget.js | classesSAdded": {
-    "message": "Ĉĺâśŝéŝ {PH1} ád̂d́êd́."
+    "message": "Ĉĺâśŝéŝ {PH1} ád̂d́êd́"
   },
   "elements/ClassesPaneWidget.js | classSAdded": {
-    "message": "Ĉĺâśŝ {PH1} ád̂d́êd́."
+    "message": "Ĉĺâśŝ {PH1} ád̂d́êd́"
   },
   "elements/ClassesPaneWidget.js | elementClasses": {
     "message": "Êĺêḿêńt̂ Ćl̂áŝśêś"
   },
   "elements/ColorSwatchPopoverIcon.js | openCubicBezierEditor": {
-    "message": "Ôṕêń ĉúb̂íĉ b́êźîér̂ éd̂ít̂ór̂."
+    "message": "Ôṕêń ĉúb̂íĉ b́êźîér̂ éd̂ít̂ór̂"
   },
   "elements/ColorSwatchPopoverIcon.js | openShadowEditor": {
-    "message": "Ôṕêń ŝh́âd́ôẃ êd́ît́ôŕ."
+    "message": "Ôṕêń ŝh́âd́ôẃ êd́ît́ôŕ"
   },
   "elements/ComputedStyleWidget.js | filter": {
     "message": "F̂íl̂t́êŕ"
@@ -1668,7 +1668,7 @@
     "message": "Ĉáp̂t́ûŕê ár̂éâ śĉŕêén̂śĥót̂"
   },
   "elements/elements-meta.ts | disableDomWordWrap": {
-    "message": "D̂íŝáb̂ĺê D́ÔḾ ŵór̂d́ ŵŕâṕ"
+    "message": "D̂íŝáb̂ĺê DOM ẃôŕd̂ ẃr̂áp̂"
   },
   "elements/elements-meta.ts | duplicateElement": {
     "message": "D̂úp̂ĺîćât́ê él̂ém̂én̂t́"
@@ -1680,7 +1680,7 @@
     "message": "Êĺêḿêńt̂ś"
   },
   "elements/elements-meta.ts | enableDomWordWrap": {
-    "message": "Êńâb́l̂é D̂ÓM̂ ẃôŕd̂ ẃr̂áp̂"
+    "message": "Êńâb́l̂é DOM ŵór̂d́ ŵŕâṕ"
   },
   "elements/elements-meta.ts | eventListeners": {
     "message": "Êv́êńt̂ Ĺîśt̂én̂ér̂ś"
@@ -1689,7 +1689,7 @@
     "message": "Ĥíd̂é êĺêḿêńt̂"
   },
   "elements/elements-meta.ts | hideHtmlComments": {
-    "message": "Ĥíd̂é ĤT́M̂Ĺ ĉóm̂ḿêńt̂ś"
+    "message": "Ĥíd̂é HTML ĉóm̂ḿêńt̂ś"
   },
   "elements/elements-meta.ts | layout": {
     "message": "L̂áŷóût́"
@@ -1701,7 +1701,7 @@
     "message": "R̂éd̂ó"
   },
   "elements/elements-meta.ts | revealDomNodeOnHover": {
-    "message": "R̂év̂éâĺ D̂ÓM̂ ńôd́ê ón̂ h́ôv́êŕ"
+    "message": "R̂év̂éâĺ DOM n̂ód̂é ôń ĥóv̂ér̂"
   },
   "elements/elements-meta.ts | selectAnElementInThePageTo": {
     "message": "Ŝél̂éĉt́ âń êĺêḿêńt̂ ín̂ t́ĥé p̂áĝé t̂ó îńŝṕêćt̂ ít̂"
@@ -1716,7 +1716,7 @@
     "message": "Ŝh́ôẃ Êv́êńt̂ Ĺîśt̂én̂ér̂ś"
   },
   "elements/elements-meta.ts | showHtmlComments": {
-    "message": "Ŝh́ôẃ ĤT́M̂Ĺ ĉóm̂ḿêńt̂ś"
+    "message": "Ŝh́ôẃ HTML ĉóm̂ḿêńt̂ś"
   },
   "elements/elements-meta.ts | showLayout": {
     "message": "Ŝh́ôẃ L̂áŷóût́"
