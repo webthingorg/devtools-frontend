@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05b0d98d_8b39ca3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-02-18T07:07:24Z",
+      "side": 1,
+      "message": "Hi Benedikt,\n\nI\u0027m adding a select to select the modes (oct, sci, ..) in the linear memory inspector, ptal!",
+      "revId": "ea75e9c48cb96a02552555596fb014d341738d12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
