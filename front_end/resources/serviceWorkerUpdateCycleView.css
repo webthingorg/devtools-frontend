@@ -12,12 +12,13 @@
 }
 
 .service-worker-update-timing-table {
-  width: 380px;
+  border: 1px solid var(--color-details-hairline);
   border-spacing: 0;
   padding-left: 10px;
   padding-right: 10px;
   line-height: initial;
-  table-layout: fixed;
+  table-layout: auto;
+  overflow: hidden;
 }
 
 .service-worker-update-timing-start {
@@ -34,6 +35,8 @@
 .service-worker-update-timing-row {
   position: relative;
   height: 20px;
+  min-width: 80px;
+  overflow: hidden;
 }
 
 .service-worker-update-timing-bar {
