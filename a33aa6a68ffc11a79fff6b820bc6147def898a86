@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "836eb3c8_25d4ac6c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-19T02:55:34Z",
+      "side": 1,
+      "message": "Fixing an issue caused by the removal of \u0027newline\u0027 character. PTAL.",
+      "revId": "a33aa6a68ffc11a79fff6b820bc6147def898a86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
