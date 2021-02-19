@@ -27,6 +27,9 @@
   <message name="IDS_DEVTOOLS_3bb3e8c8a24891ba0f7608bcc96f8b0a" desc="Text for a rendering frame">
     Frame
   </message>
+  <message name="IDS_DEVTOOLS_45a98c16c72d01e6b49885019844cdc7" desc="A context menu item to open the adorner settings pane">
+    Adorner settings...
+  </message>
   <message name="IDS_DEVTOOLS_539dddc574d3cd85ba73df93df7a76d0" desc="Text for the execution stack trace">
     Stack Trace
   </message>

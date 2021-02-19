@@ -1610,6 +1610,12 @@
   "developer_resources/DeveloperResourcesView.ts | resourcesCurrentlyLoading": {
     "message": "{PH1} r̂éŝóûŕĉéŝ, {PH2} ćûŕr̂én̂t́l̂ý l̂óâd́îńĝ"
   },
+  "elements/AdornerSettingsPane.ts | saveButton": {
+    "message": "Ŝáv̂é"
+  },
+  "elements/AdornerSettingsPane.ts | settingsTitle": {
+    "message": "Ŝh́ôẃ âd́ôŕn̂ér̂ś"
+  },
   "elements/FlexboxEditor.ts | deselectButton": {
     "message": "R̂ém̂óv̂é {propertyName}: {propertyValue}"
   },

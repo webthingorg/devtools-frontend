@@ -36,6 +36,7 @@ import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
 import {linkifyDeferredNodeReference} from './DOMLinkifier.js';
+import {ElementsPanel} from './ElementsPanel.js';
 import {ElementsTreeElement, InitialChildrenLimit} from './ElementsTreeElement.js';
 import {ImagePreviewPopover} from './ImagePreviewPopover.js';
 import {MarkerDecoratorRegistration} from './MarkerDecorator.js';  // eslint-disable-line no-unused-vars
@@ -910,6 +911,10 @@ export class ElementsTreeOutline extends UI.TreeOutline.TreeOutline {
     } else if (isPseudoElement) {
       treeElement.populateScrollIntoView(contextMenu);
     }
+
+    contextMenu.viewSection().appendItem(ls`Adorner settings...`, () => {
+      ElementsPanel.instance().showAdornerSettingsPane();
+    });
 
     contextMenu.appendApplicableItems(treeElement.node());
     contextMenu.show();

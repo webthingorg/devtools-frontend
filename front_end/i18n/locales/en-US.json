@@ -1610,6 +1610,12 @@
   "developer_resources/DeveloperResourcesView.ts | resourcesCurrentlyLoading": {
     "message": "{PH1} resources, {PH2} currently loading"
   },
+  "elements/AdornerSettingsPane.ts | saveButton": {
+    "message": "Save"
+  },
+  "elements/AdornerSettingsPane.ts | settingsTitle": {
+    "message": "Show adorners"
+  },
   "elements/FlexboxEditor.ts | deselectButton": {
     "message": "Remove {propertyName}: {propertyValue}"
   },
