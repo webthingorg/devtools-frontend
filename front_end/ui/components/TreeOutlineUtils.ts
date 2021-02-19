@@ -4,21 +4,21 @@
 import * as Platform from '../../platform/platform.js';
 import * as LitHtml from '../../third_party/lit-html/lit-html.js';
 
-interface BaseTreeNode {
-  key: string;
-  renderer?: (node: TreeNode, state: {isExpanded: boolean}) => LitHtml.TemplateResult;
+interface BaseTreeNode<KeyType> {
+  key: KeyType;
+  renderer?: (node: TreeNode<KeyType>, state: {isExpanded: boolean}) => LitHtml.TemplateResult;
 }
 
-export interface TreeNodeWithChildren extends BaseTreeNode {
-  children: () => Promise<TreeNode[]>;
+export interface TreeNodeWithChildren<KeyType> extends BaseTreeNode<KeyType> {
+  children: () => Promise<TreeNode<KeyType>[]>;
 }
-interface LeafNode extends BaseTreeNode {
+interface LeafNode<KeyType> extends BaseTreeNode<KeyType> {
   children?: never;
 }
 
-export type TreeNode = TreeNodeWithChildren|LeafNode;
+export type TreeNode<KeyType> = TreeNodeWithChildren<KeyType>|LeafNode<KeyType>;
 
-export function isExpandableNode(node: TreeNode): node is TreeNodeWithChildren {
+export function isExpandableNode<KeyType>(node: TreeNode<KeyType>): node is TreeNodeWithChildren<KeyType> {
   return 'children' in node;
 }
 
@@ -28,7 +28,7 @@ export function isExpandableNode(node: TreeNode): node is TreeNodeWithChildren {
  * can navigate between real DOM node and structural tree node easily in code.
  */
 export const trackDOMNodeToTreeNode =
-    LitHtml.directive((weakMap: WeakMap<HTMLLIElement, TreeNode>, treeNode: TreeNode) => {
+    LitHtml.directive(<KeyType>(weakMap: WeakMap<HTMLLIElement, TreeNode<KeyType>>, treeNode: TreeNode<KeyType>) => {
       return (part: LitHtml.Part): void => {
         if (!(part instanceof LitHtml.AttributePart)) {
           throw new Error('Ref directive must be used as an attribute.');
@@ -137,14 +137,15 @@ const getParentListItemForDOMNode = (currentDOMNode: HTMLLIElement): HTMLLIEleme
   return parentNode as HTMLLIElement;
 };
 
-interface KeyboardNavigationOptions {
+interface KeyboardNavigationOptions<KeyType> {
   currentDOMNode: HTMLLIElement;
-  currentTreeNode: TreeNode;
+  currentTreeNode: TreeNode<KeyType>;
   direction: Platform.KeyboardUtilities.ArrowKey;
-  setNodeExpandedState: (treeNode: TreeNode, expanded: boolean) => void;
+  setNodeExpandedState: (treeNode: TreeNode<KeyType>, expanded: boolean) => void;
 }
 
-export const findNextNodeForTreeOutlineKeyboardNavigation = (options: KeyboardNavigationOptions): HTMLLIElement => {
+export const findNextNodeForTreeOutlineKeyboardNavigation = <KeyType>(
+    options: KeyboardNavigationOptions<KeyType>): HTMLLIElement => {
   const {
     currentDOMNode,
     currentTreeNode,

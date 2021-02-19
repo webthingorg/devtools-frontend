@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import * as Components from '../../ui/components/components.js';
-export const officesAndProductsData: Components.TreeOutline.TreeOutlineData = {
+export const officesAndProductsData: Components.TreeOutline.TreeOutlineData<string> = {
   tree: [
     {
       key: 'Offices',

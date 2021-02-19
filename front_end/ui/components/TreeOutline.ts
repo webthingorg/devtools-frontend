@@ -10,18 +10,18 @@ import {findNextNodeForTreeOutlineKeyboardNavigation, isExpandableNode, trackDOM
 
 const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
 
-export interface TreeOutlineData {
-  tree: TreeNode[];
+export interface TreeOutlineData<KeyType> {
+  tree: TreeNode<KeyType>[];
 }
 
-export class TreeOutline extends HTMLElement {
+export class TreeOutline<TreeNodeKeyType> extends HTMLElement {
   private readonly shadow = this.attachShadow({mode: 'open'});
-  private treeData: readonly TreeNode[] = [];
-  private nodeExpandedMap: WeakMap<TreeNode, boolean> = new WeakMap();
-  private nodeChildrenCacheMap: WeakMap<TreeNode, TreeNode[]> = new WeakMap();
-  private domNodeToTreeNodeMap: WeakMap<HTMLLIElement, TreeNode> = new WeakMap();
+  private treeData: readonly TreeNode<TreeNodeKeyType>[] = [];
+  private nodeExpandedMap: WeakMap<TreeNode<TreeNodeKeyType>, boolean> = new WeakMap();
+  private nodeChildrenCacheMap: WeakMap<TreeNode<TreeNodeKeyType>, TreeNode<TreeNodeKeyType>[]> = new WeakMap();
+  private domNodeToTreeNodeMap: WeakMap<HTMLLIElement, TreeNode<TreeNodeKeyType>> = new WeakMap();
   private hasRenderedAtLeastOnce = false;
-  private focusableTreeNode: TreeNode|null = null;
+  private focusableTreeNode: TreeNode<TreeNodeKeyType>|null = null;
 
   /**
    * scheduledRender = render() has been called and scheduled a render.
@@ -32,13 +32,13 @@ export class TreeOutline extends HTMLElement {
    */
   private enqueuedRender = false;
 
-  get data(): TreeOutlineData {
+  get data(): TreeOutlineData<TreeNodeKeyType> {
     return {
-      tree: this.treeData as TreeNode[],
+      tree: this.treeData as TreeNode<TreeNodeKeyType>[],
     };
   }
 
-  set data(data: TreeOutlineData) {
+  set data(data: TreeOutlineData<TreeNodeKeyType>) {
     this.treeData = data.tree;
     if (!this.hasRenderedAtLeastOnce) {
       this.focusableTreeNode = this.treeData[0];
@@ -65,7 +65,7 @@ export class TreeOutline extends HTMLElement {
     this.render();
   }
 
-  private async recursivelyCollapseTreeNodeChildren(treeNode: TreeNode): Promise<void> {
+  private async recursivelyCollapseTreeNodeChildren(treeNode: TreeNode<TreeNodeKeyType>): Promise<void> {
     if (!isExpandableNode(treeNode) || !this.nodeIsExpanded(treeNode)) {
       return;
     }
@@ -75,14 +75,14 @@ export class TreeOutline extends HTMLElement {
     this.setNodeExpandedState(treeNode, false);
   }
 
-  private getFocusableTreeNode(): TreeNode {
+  private getFocusableTreeNode(): TreeNode<TreeNodeKeyType> {
     if (!this.focusableTreeNode) {
       throw new Error('getFocusableNode was called but focusableNode is null');
     }
     return this.focusableTreeNode;
   }
 
-  private async fetchNodeChildren(node: TreeNodeWithChildren): Promise<TreeNode[]> {
+  private async fetchNodeChildren(node: TreeNodeWithChildren<TreeNodeKeyType>): Promise<TreeNode<TreeNodeKeyType>[]> {
     const cached = this.nodeChildrenCacheMap.get(node);
     if (cached) {
       return cached;
@@ -92,15 +92,16 @@ export class TreeOutline extends HTMLElement {
     return children;
   }
 
-  private setNodeExpandedState(node: TreeNode, newExpandedState: boolean): void {
+  private setNodeExpandedState(node: TreeNode<TreeNodeKeyType>, newExpandedState: boolean): void {
     this.nodeExpandedMap.set(node, newExpandedState);
   }
 
-  private nodeIsExpanded(node: TreeNode): boolean {
+  private nodeIsExpanded(node: TreeNode<TreeNodeKeyType>): boolean {
     return this.nodeExpandedMap.get(node) || false;
   }
 
-  private async expandAndRecurse(node: TreeNode, currentDepth: number, maxDepth: number): Promise<void> {
+  private async expandAndRecurse(node: TreeNode<TreeNodeKeyType>, currentDepth: number, maxDepth: number):
+      Promise<void> {
     if (!isExpandableNode(node)) {
       return;
     }
@@ -112,7 +113,7 @@ export class TreeOutline extends HTMLElement {
     await Promise.all(children.map(child => this.expandAndRecurse(child, currentDepth + 1, maxDepth)));
   }
 
-  private onArrowClick(node: TreeNode): ((e: Event) => void) {
+  private onArrowClick(node: TreeNode<TreeNodeKeyType>): ((e: Event) => void) {
     return (event: Event): void => {
       event.stopPropagation();
       if (isExpandableNode(node)) {
@@ -209,9 +210,11 @@ export class TreeOutline extends HTMLElement {
     }
   }
 
-  private async renderNode(
-      node: TreeNode, {depth, setSize, positionInSet}: {depth: number, setSize: number, positionInSet: number}):
-      Promise<LitHtml.TemplateResult> {
+  private async renderNode(node: TreeNode<TreeNodeKeyType>, {depth, setSize, positionInSet}: {
+    depth: number,
+    setSize: number,
+    positionInSet: number,
+  }): Promise<LitHtml.TemplateResult> {
     let childrenToRender;
     const nodeIsExpanded = this.nodeIsExpanded(node);
     if (!isExpandableNode(node) || !nodeIsExpanded) {
@@ -235,10 +238,16 @@ export class TreeOutline extends HTMLElement {
     });
     const ariaExpandedAttribute = LitHtml.Directives.ifDefined(isExpandableNode(node) ? String(nodeIsExpanded) : undefined);
 
-    const renderedNodeKey = node.renderer ? node.renderer(node, {
-      isExpanded: nodeIsExpanded,
-    }) :
-                                            node.key;
+    let renderedNodeKey: LitHtml.TemplateResult;
+    if (node.renderer) {
+      renderedNodeKey = node.renderer(node, {isExpanded: nodeIsExpanded});
+    } else if (typeof node.key === 'string') {
+      renderedNodeKey = LitHtml.html`${node.key}`;
+    } else {
+      console.error(
+          `Node has non-string key ${JSON.stringify(node.key, null, 2)}. You must provide a custom renderer function.`);
+      renderedNodeKey = LitHtml.nothing as LitHtml.TemplateResult;
+    }
 
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
@@ -351,6 +360,6 @@ customElements.define('devtools-tree-outline', TreeOutline);
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface HTMLElementTagNameMap {
-    'devtools-tree-outline': TreeOutline;
+    'devtools-tree-outline': TreeOutline<unknown>;
   }
 }

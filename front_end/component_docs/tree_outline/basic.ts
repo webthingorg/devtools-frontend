@@ -10,7 +10,7 @@ import {officesAndProductsData} from './sample-data.js';
 await ComponentHelpers.ComponentServerSetup.setup();
 await FrontendHelpers.initializeGlobalVars();
 
-const component = new Components.TreeOutline.TreeOutline();
+const component = new Components.TreeOutline.TreeOutline<string>();
 component.data = officesAndProductsData;
 
 document.getElementById('container')?.appendChild(component);

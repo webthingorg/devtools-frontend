@@ -9,8 +9,8 @@ import * as Components from '../../ui/components/components.js';
 await ComponentHelpers.ComponentServerSetup.setup();
 await FrontendHelpers.initializeGlobalVars();
 
-async function loadInSomeNodes(): Promise<Components.TreeOutlineUtils.TreeNode[]> {
-  const europeanOffices: Components.TreeOutlineUtils.TreeNode[] = [
+async function loadInSomeNodes(): Promise<Components.TreeOutlineUtils.TreeNode<string>[]> {
+  const europeanOffices: Components.TreeOutlineUtils.TreeNode<string>[] = [
     {
       key: 'UK',
       children: () => Promise.resolve([
@@ -34,16 +34,14 @@ async function loadInSomeNodes(): Promise<Components.TreeOutlineUtils.TreeNode[]
   });
 }
 
-const data: Components.TreeOutline.TreeOutlineData = {
+const data: Components.TreeOutline.TreeOutlineData<string> = {
   tree: [
     {
       key: 'Offices',
       children: () => Promise.resolve([
         {
           key: 'Europe',
-          // TODO: Remove next line once crbug.com/1177242 is solved.
-          // eslint-disable-next-line @typescript-eslint/space-before-function-paren
-          chldren: async(): Promise<Components.TreeOutlineUtils.TreeNode[]> => {
+          async children() {
             const children = await loadInSomeNodes();
             return children;
           },
@@ -71,7 +69,7 @@ const data: Components.TreeOutline.TreeOutlineData = {
   ],
 
 };
-const component = new Components.TreeOutline.TreeOutline();
+const component = new Components.TreeOutline.TreeOutline<string>();
 component.data = data;
 
 document.getElementById('container')?.appendChild(component);

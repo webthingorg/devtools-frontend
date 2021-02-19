@@ -10,58 +10,48 @@ import * as Components from '../../ui/components/components.js';
 await ComponentHelpers.ComponentServerSetup.setup();
 await FrontendHelpers.initializeGlobalVars();
 
-const data: Components.TreeOutline.TreeOutlineData = {
+interface TreeNodeData {
+  cssProperty: string;
+  cssValue: string;
+}
+
+function renderer(node: Components.TreeOutlineUtils.TreeNode<TreeNodeData>, state: {isExpanded: boolean}) {
+  const {cssProperty, cssValue} = node.key;
+  const valueStyles = LitHtml.Directives.styleMap({
+    paddingLeft: '10px',
+    fontStyle: 'italic',
+    color: 'var(--color-syntax-1)',
+  });
+  return LitHtml.html`<code>${cssProperty}</code>:${
+      state.isExpanded ? LitHtml.nothing : LitHtml.html`<code style=${valueStyles}>${cssValue}</code>`}`;
+}
+
+const data: Components.TreeOutline.TreeOutlineData<TreeNodeData> = {
   tree: [
     {
-      key: 'Offices',
-      renderer: (node): LitHtml.TemplateResult =>
-          LitHtml.html`<strong style="color:red;">${node.key.toUpperCase()}</strong>`,
-      children: (): Promise<Components.TreeOutlineUtils.TreeNode[]> => Promise.resolve([
-        {
-          key: 'Europe',
-          children: (): Promise<Components.TreeOutlineUtils.TreeNode[]> => Promise.resolve([
-            {
-              key: 'UK',
-              children: (): Promise<Components.TreeOutlineUtils.TreeNode[]> => Promise.resolve([
-                {
-                  key: 'LON',
-                  children: (): Promise<Components.TreeOutlineUtils.TreeNode[]> =>
-                      Promise.resolve([{key: '6PS'}, {key: 'CSG'}, {key: 'BEL'}]),
-                },
-              ]),
-            },
-            {
-              key: 'Germany',
-              children: (): Promise<Components.TreeOutlineUtils.TreeNode[]> => Promise.resolve([
-                {key: 'MUC'},
-                {key: 'BER'},
-              ]),
-            },
-          ]),
-        },
-      ]),
+      key: {cssProperty: 'border', cssValue: '1px solid red'},
+      renderer,
     },
     {
-      key: 'Products',
-      children: (): Promise<Components.TreeOutlineUtils.TreeNode[]> => Promise.resolve([
-        {
-          key: 'Chrome',
-        },
-        {
-          key: 'YouTube',
-        },
-        {
-          key: 'Drive',
-        },
-        {
-          key: 'Calendar',
-        },
-      ]),
+      key: {cssProperty: 'font-size', cssValue: '20px'},
+      renderer,
+    },
+    {
+      key: {cssProperty: 'margin', cssValue: '10px 5px'},
+      async children() {
+        return Promise.resolve<Components.TreeOutlineUtils.TreeNode<TreeNodeData>[]>([
+          {key: {cssProperty: 'margin-left', cssValue: '5px'}, renderer},
+          {key: {cssProperty: 'margin-right', cssValue: '5px'}, renderer},
+          {key: {cssProperty: 'margin-top', cssValue: '10px'}, renderer},
+          {key: {cssProperty: 'margin-bottom', cssValue: '10px'}, renderer},
+        ]);
+      },
+      renderer,
     },
   ],
 };
 
-const component = new Components.TreeOutline.TreeOutline();
+const component = new Components.TreeOutline.TreeOutline<TreeNodeData>();
 component.data = data;
 
 document.getElementById('container')?.appendChild(component);
