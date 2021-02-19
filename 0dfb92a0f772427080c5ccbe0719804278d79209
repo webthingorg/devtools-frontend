@@ -18,6 +18,69 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1addd523_05eafb73",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-19T12:54:52Z",
+      "side": 1,
+      "message": "Nice CL description once again 😊",
+      "revId": "0dfb92a0f772427080c5ccbe0719804278d79209",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f34e6357_199352a1",
+        "filename": "front_end/ui/components/TreeOutline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-19T12:54:52Z",
+      "side": 1,
+      "message": "This should ideally be handled by the type system, but I understand that might be complicated. Can we leave a TODO to try to make that typecheck correctly?",
+      "range": {
+        "startLine": 247,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 120
+      },
+      "revId": "0dfb92a0f772427080c5ccbe0719804278d79209",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "628baf00_2320b207",
+        "filename": "front_end/ui/components/TreeOutlineUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-19T12:54:52Z",
+      "side": 1,
+      "message": "Do we maybe want to initialize this with `string` by default, so that people don\u0027t have to write `TreeNode\u003cstring\u003e`? Not sure how big the gain is, but I saw several scattered around the codebase.",
+      "range": {
+        "startLine": 7,
+        "startChar": 23,
+        "endLine": 7,
+        "endChar": 30
+      },
+      "revId": "0dfb92a0f772427080c5ccbe0719804278d79209",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5a8b2b82_e211c00a",
@@ -36,6 +99,53 @@
         "startChar": 0,
         "endLine": 8,
         "endChar": 15
+      },
+      "revId": "0dfb92a0f772427080c5ccbe0719804278d79209",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ce06830_3026e413",
+        "filename": "front_end/ui/components/TreeOutlineUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-19T12:54:52Z",
+      "side": 1,
+      "message": "Yeah this is fine by me.",
+      "parentUuid": "5a8b2b82_e211c00a",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 15
+      },
+      "revId": "0dfb92a0f772427080c5ccbe0719804278d79209",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0523ec0c_22e9b3c3",
+        "filename": "test/unittests/front_end/ui/components/TreeOutline_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-19T12:54:52Z",
+      "side": 1,
+      "message": "This name is different than the other generics. Should we maybe use the same name throughout or is there a particular reason why we are using `DataType` here, `KeyType` in `TreeNode` and `TreeNodeKeyType` in `TreeOutline`? Maybe we should use `TreeNodeKeyType` for all of these?",
+      "range": {
+        "startLine": 13,
+        "startChar": 33,
+        "endLine": 13,
+        "endChar": 41
       },
       "revId": "0dfb92a0f772427080c5ccbe0719804278d79209",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
