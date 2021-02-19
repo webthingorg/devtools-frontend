@@ -2,19 +2,18 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import type * as Components from '../ui/components/components.js';
-
 import * as Bindings from '../bindings/bindings.js';
 import * as Common from '../common/common.js';
-import * as LitHtml from '../third_party/lit-html/lit-html.js';
+import * as Components from '../components/components.js';
+import * as i18n from '../i18n/i18n.js';
 import * as Network from '../network/network.js';
 import * as Platform from '../platform/platform.js';
 import * as Root from '../root/root.js';
 import * as SDK from '../sdk/sdk.js';  // eslint-disable-line no-unused-vars
+import * as LitHtml from '../third_party/lit-html/lit-html.js';
+import * as WebComponents from '../ui/components/components.js';
 import * as UI from '../ui/ui.js';
 import * as Workspace from '../workspace/workspace.js';
-
-import * as i18n from '../i18n/i18n.js';
 
 export const UIStrings = {
   /**
@@ -193,6 +192,10 @@ export const UIStrings = {
   *@description Text that is usually a hyperlink to more documentation
   */
   learnMore: 'Learn more',
+  /**
+  *@description Entry in the document section of the frame details view
+  */
+  creationStackTrace: 'Creation Stack Trace',
 };
 const str_ = i18n.i18n.registerUIStrings('resources/FrameDetailsView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -221,6 +224,7 @@ export class FrameDetailsReportView extends HTMLElement {
   private readonly shadow = this.attachShadow({mode: 'open'});
   private frame?: SDK.ResourceTreeModel.ResourceTreeFrame;
   private protocolMonitorExperimentEnabled = false;
+  private readonly linkifier = new Components.Linkifier.Linkifier();
 
   connectedCallback(): void {
     this.protocolMonitorExperimentEnabled = Root.Runtime.experiments.isEnabled('protocolMonitor');
@@ -250,7 +254,8 @@ export class FrameDetailsReportView extends HTMLElement {
           padding-left: 2px;
         }
 
-        .link {
+        .link,
+        .devtools-link {
           color: var(--color-link);
           text-decoration: underline;
           cursor: pointer;
@@ -292,7 +297,7 @@ export class FrameDetailsReportView extends HTMLElement {
           display: flex;
         }
       </style>
-      <devtools-report .data=${{reportTitle: this.frame.displayName()} as Components.ReportView.ReportData}>
+      <devtools-report .data=${{reportTitle: this.frame.displayName()} as WebComponents.ReportView.ReportData}>
         ${this.renderDocumentSection()}
         ${this.renderIsolationSection()}
         ${this.renderApiAvailabilitySection()}
@@ -340,6 +345,7 @@ export class FrameDetailsReportView extends HTMLElement {
       ${this.maybeRenderUnreachableURL()}
       ${this.maybeRenderOrigin()}
       ${LitHtml.Directives.until(this.renderOwnerElement(), LitHtml.nothing)}
+      ${this.maybeRenderCreationStacktrace()}
       ${this.maybeRenderAdStatus()}
       <devtools-report-divider></devtools-report-divider>
     `;
@@ -385,7 +391,7 @@ export class FrameDetailsReportView extends HTMLElement {
           color: 'var(--color-primary)',
           width: '16px',
           height: '16px',
-        } as Components.Icon.IconData}>
+        } as WebComponents.Icon.IconData}>
       </button>
     `;
     // clang-format on
@@ -486,13 +492,69 @@ export class FrameDetailsReportView extends HTMLElement {
                 color: 'var(--color-primary)',
                 width: '16px',
                 height: '16px',
-              } as Components.Icon.IconData}></devtools-icon>
+              } as WebComponents.Icon.IconData}></devtools-icon>
               <${linkTargetDOMNode.nodeName().toLocaleLowerCase()}>
             </button>
           </devtools-report-value>
         `;
         // clang-format on
       }
+    }
+    return LitHtml.nothing;
+  }
+
+  private maybeRenderCreationStacktrace(): LitHtml.TemplateResult|{} {
+    if (this.frame && this.frame._creationStackTrace) {
+      const stackTraceRows = Components.JSPresentationUtils.buildStackTraceRows(
+          this.frame._creationStackTrace, null, this.linkifier, true);
+      const expandableRows: LitHtml.TemplateResult[] = [];
+      for (const item of stackTraceRows) {
+        if ('functionName' in item) {
+          expandableRows.push(LitHtml.html`
+          <style>
+          .stack-trace-row {
+            display: flex;
+          }
+
+          .stack-trace-function-name {
+            width: 100px;
+          }
+
+          .stack-trace-source-location {
+            display: flex;
+            overflow: hidden;
+          }
+
+          .text-ellipsis {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+        </style>
+            <div class="stack-trace-row">
+              <div class="stack-trace-function-name text-ellipsis" title="${item.functionName}">
+                ${item.functionName}
+              </div>
+              <div class="stack-trace-source-location">
+                ${item.link ? LitHtml.html`<div class="text-ellipsis">@\xA0${item.link}</div>` : LitHtml.nothing}
+              </div>
+            </div>
+          `);
+        }
+        if ('asyncDescription' in item) {
+          expandableRows.push(LitHtml.html`
+            <div>${item.asyncDescription}</div>
+          `);
+        }
+      }
+
+      return LitHtml.html`
+        <devtools-report-key>${i18nString(UIStrings.creationStackTrace)}</devtools-report-key>
+        <devtools-report-value>
+          <devtools-expandable-list .data=${{rows: expandableRows} as ExpandableListData}>
+          </devtools-expandable-list>
+        </devtools-report-value>
+      `;
     }
     return LitHtml.nothing;
   }
@@ -699,11 +761,106 @@ export class FrameDetailsReportView extends HTMLElement {
   }
 }
 
+export interface ExpandableListData {
+  rows: LitHtml.TemplateResult[];
+}
+
+export class ExpandableList extends HTMLElement {
+  private readonly shadow = this.attachShadow({mode: 'open'});
+  private expanded = false;
+  private rows: LitHtml.TemplateResult[] = [];
+
+  set data(data: ExpandableListData) {
+    this.rows = data.rows;
+    this.render();
+  }
+
+  private onArrowClick(): void {
+    this.expanded = !this.expanded;
+    this.render();
+  }
+
+  private render(): void {
+    if (this.rows.length < 1) {
+      return;
+    }
+
+    // Disabled until https://crbug.com/1079231 is fixed.
+    // clang-format off
+    LitHtml.render(
+        LitHtml.html`
+      <style>
+        div {
+          line-height: 1.7em;
+        }
+
+        .arrow-icon-button {
+          cursor: pointer;
+          padding: 0;
+          border: none;
+          background: none;
+        }
+
+        .arrow-icon {
+          display: inline-block;
+          -webkit-mask-image: url(Images/treeoutlineTriangles.svg);
+          -webkit-mask-size: 32px 24px;
+          -webkit-mask-position: 0 0;
+          background-color: var(--color-text-primary);
+          margin-top: 2px;
+          height: 12px;
+          width: 13px;
+        }
+
+        .arrow-icon.expanded {
+          -webkit-mask-position: -16px 0;
+        }
+
+        .expandable-list-container {
+          display: flex;
+          margin-top: 4px;
+        }
+
+        .expandable-list-items {
+          overflow: hidden;
+        }
+
+        .devtools-link {
+          color: var(--color-link);
+          text-decoration: underline;
+          cursor: pointer;
+          padding: 2px 0; /* adjust focus ring size */
+        }
+      </style>
+      <div class="expandable-list-container">
+        <div>
+          ${this.rows.length > 1 ?
+            LitHtml.html`
+              <button @click=${(): void => this.onArrowClick()} class="arrow-icon-button">
+                <span class="arrow-icon ${this.expanded ? 'expanded' : ''}"></span>
+              </button>
+            `
+          : LitHtml.nothing}
+        </div>
+        <div class="expandable-list-items">
+          ${this.rows.filter((_, index) => (this.expanded || index === 0)).map(row => LitHtml.html`
+            ${row}
+          `)}
+        </div>
+      </div>
+    `,
+        this.shadow);
+    // clang-format on
+  }
+}
+
 customElements.define('devtools-resources-frame-details-view', FrameDetailsReportView);
+customElements.define('devtools-expandable-list', ExpandableList);
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface HTMLElementTagNameMap {
     'devtools-resources-frame-details-view': FrameDetailsReportView;
+    'devtools-expandable-list': ExpandableList;
   }
 }
