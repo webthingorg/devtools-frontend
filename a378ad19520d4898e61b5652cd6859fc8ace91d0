@@ -16,6 +16,46 @@
       "message": "Fixing a layout bug on the performance tab. PTAL.",
       "revId": "a378ad19520d4898e61b5652cd6859fc8ace91d0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9301fe88_46f154b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-19T08:38:34Z",
+      "side": 1,
+      "message": "LGTM! thanks",
+      "revId": "a378ad19520d4898e61b5652cd6859fc8ace91d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c1da269_c9aadc90",
+        "filename": "front_end/timeline/TimelinePanel.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-19T08:38:34Z",
+      "side": 1,
+      "message": "Can you set the placeholder example to \u0027\u003creload button\u003e\u0027 or something similar? Makes it clearer for translators. Thanks!",
+      "range": {
+        "startLine": 202,
+        "startChar": 14,
+        "endLine": 202,
+        "endChar": 20
+      },
+      "revId": "a378ad19520d4898e61b5652cd6859fc8ace91d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
