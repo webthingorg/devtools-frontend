@@ -16,6 +16,24 @@
       "message": "LGTM; probably worth some comms to devtools-dev to let people know about the npm7 req.",
       "revId": "235f3d76038cffed2b5501843c6920a01a90431b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fea8370a_6702b1ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-19T11:26:29Z",
+      "side": 1,
+      "message": "Yes will do!",
+      "parentUuid": "5e1b3c56_dd3b8e19",
+      "revId": "235f3d76038cffed2b5501843c6920a01a90431b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
