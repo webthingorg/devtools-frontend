@@ -132,7 +132,8 @@ export class CompilerScriptMapping {
    * @return {?string}
    */
   static uiSourceCodeOrigin(uiSourceCode) {
-    const sourceMap = uiSourceCodeToSourceMap.get(uiSourceCode);
+    // TODO(bmeurer): FIX!
+    const sourceMap = uiSourceCodeToBinding.get(uiSourceCode)?._activeSourceMap;
     if (!sourceMap) {
       return null;
     }
@@ -210,22 +211,23 @@ export class CompilerScriptMapping {
    * @return {!Array<!SDK.DebuggerModel.Location>}
    */
   uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber) {
-    const sourceMap = uiSourceCodeToSourceMap.get(uiSourceCode);
-    if (!sourceMap) {
+    const binding = uiSourceCodeToBinding.get(uiSourceCode);
+    if (!binding) {
       return [];
     }
-    const scripts = this._sourceMapManager.clientsForSourceMap(sourceMap);
-    if (!scripts.length) {
-      return [];
+    /** @type {!Array<SDK.DebuggerModel.Location>} */
+    const locations = [];
+    for (const sourceMap of binding._referringSourceMaps) {
+      const scripts = this._sourceMapManager.clientsForSourceMap(sourceMap);
+      const entry = sourceMap.sourceLineMapping(uiSourceCode.url(), lineNumber, columnNumber);
+      if (entry) {
+        scripts.forEach(
+            script => locations.push(this._debuggerModel.createRawLocation(
+                script, entry.lineNumber + script.lineOffset,
+                !entry.lineNumber ? entry.columnNumber + script.columnOffset : entry.columnNumber)));
+      }
     }
-    const entry = sourceMap.sourceLineMapping(uiSourceCode.url(), lineNumber, columnNumber);
-    if (!entry) {
-      return [];
-    }
-    return scripts.map(
-        script => this._debuggerModel.createRawLocation(
-            script, entry.lineNumber + script.lineOffset,
-            !entry.lineNumber ? entry.columnNumber + script.columnOffset : entry.columnNumber));
+    return locations;
   }
 
   /**
@@ -295,8 +297,16 @@ export class CompilerScriptMapping {
    * @return {!Array<!SDK.Script.Script>}
    */
   scriptsForUISourceCode(uiSourceCode) {
-    const sourceMap = uiSourceCodeToSourceMap.get(uiSourceCode);
-    return sourceMap ? this._sourceMapManager.clientsForSourceMap(sourceMap) : [];
+    const binding = uiSourceCodeToBinding.get(uiSourceCode);
+    if (!binding) {
+      return [];
+    }
+    /** @type {!Array<!SDK.Script.Script>} */
+    const scripts = [];
+    for (const sourceMap of binding._referringSourceMaps) {
+      this._sourceMapManager.clientsForSourceMap(sourceMap).forEach(script => scripts.push(script));
+    }
+    return scripts;
   }
 
   /**
@@ -329,11 +339,16 @@ export class CompilerScriptMapping {
    * @return {boolean}
    */
   static uiLineHasMapping(uiSourceCode, lineNumber) {
-    const sourceMap = uiSourceCodeToSourceMap.get(uiSourceCode);
-    if (!sourceMap) {
+    const binding = uiSourceCodeToBinding.get(uiSourceCode);
+    if (!binding) {
       return true;
     }
-    return Boolean(sourceMap.sourceLineMapping(uiSourceCode.url(), lineNumber, 0));
+    for (const sourceMap of binding._referringSourceMaps) {
+      if (Boolean(sourceMap.sourceLineMapping(uiSourceCode.url(), lineNumber, 0))) {
+        return true;
+      }
+    }
+    return false;
   }
 
   dispose() {
@@ -344,8 +359,8 @@ export class CompilerScriptMapping {
   }
 }
 
-/** @type {!WeakMap<!Workspace.UISourceCode.UISourceCode, !SDK.SourceMap.SourceMap>} */
-const uiSourceCodeToSourceMap = new WeakMap();
+/** @type {!WeakMap<!Workspace.UISourceCode.UISourceCode, !Binding>} */
+const uiSourceCodeToBinding = new WeakMap();
 
 class Binding {
   /**
@@ -375,7 +390,7 @@ class Binding {
 
     const newUISourceCode =
         this._project.createUISourceCode(this._url, Common.ResourceType.resourceTypes.SourceMapScript);
-    uiSourceCodeToSourceMap.set(newUISourceCode, sourceMap);
+    uiSourceCodeToBinding.set(newUISourceCode, this);
     const contentProvider =
         sourceMap.sourceContentProvider(this._url, Common.ResourceType.resourceTypes.SourceMapScript);
     const mimeType = Common.ResourceType.ResourceType.mimeFromURL(this._url) || 'text/javascript';
