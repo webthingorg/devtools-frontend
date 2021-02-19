@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66b7e0d2_53ead788",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-19T08:36:05Z",
+      "side": 1,
+      "message": "Simon is OOO, Mathias PTAL",
+      "revId": "674fd7c6f2e3fe58da0f989209663c3f8b7c1255",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
