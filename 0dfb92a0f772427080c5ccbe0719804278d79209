@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffb6fc7d_991fa3cd",
+        "filename": "front_end/ui/components/TreeOutline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-19T15:47:19Z",
+      "side": 1,
+      "message": "I\u0027ve been able to remove this as discussed by doing the default rendering. We\u0027ll revisit types more next week",
+      "parentUuid": "f34e6357_199352a1",
+      "range": {
+        "startLine": 247,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 120
+      },
+      "revId": "0dfb92a0f772427080c5ccbe0719804278d79209",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "628baf00_2320b207",
@@ -71,6 +95,30 @@
       "writtenOn": "2021-02-19T12:54:52Z",
       "side": 1,
       "message": "Do we maybe want to initialize this with `string` by default, so that people don\u0027t have to write `TreeNode\u003cstring\u003e`? Not sure how big the gain is, but I saw several scattered around the codebase.",
+      "range": {
+        "startLine": 7,
+        "startChar": 23,
+        "endLine": 7,
+        "endChar": 30
+      },
+      "revId": "0dfb92a0f772427080c5ccbe0719804278d79209",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b5a938c_fd440299",
+        "filename": "front_end/ui/components/TreeOutlineUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-19T15:47:19Z",
+      "side": 1,
+      "message": "I am on the fence with this. I think I\u0027d rather make people be explicit (I don\u0027t expect many to use strings, I think it will more commonly be complex types). Shout if you disagree and we can discuss.",
+      "parentUuid": "628baf00_2320b207",
       "range": {
         "startLine": 7,
         "startChar": 23,
@@ -128,6 +176,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "469eb235_a124c231",
+        "filename": "front_end/ui/components/TreeOutlineUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-19T15:47:19Z",
+      "side": 1,
+      "message": "As discussed, going for `treeNodeData` to be explicit.",
+      "parentUuid": "1ce06830_3026e413",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 15
+      },
+      "revId": "0dfb92a0f772427080c5ccbe0719804278d79209",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0523ec0c_22e9b3c3",
@@ -141,6 +213,30 @@
       "writtenOn": "2021-02-19T12:54:52Z",
       "side": 1,
       "message": "This name is different than the other generics. Should we maybe use the same name throughout or is there a particular reason why we are using `DataType` here, `KeyType` in `TreeNode` and `TreeNodeKeyType` in `TreeOutline`? Maybe we should use `TreeNodeKeyType` for all of these?",
+      "range": {
+        "startLine": 13,
+        "startChar": 33,
+        "endLine": 13,
+        "endChar": 41
+      },
+      "revId": "0dfb92a0f772427080c5ccbe0719804278d79209",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d468e787_c7c6425d",
+        "filename": "test/unittests/front_end/ui/components/TreeOutline_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-19T15:47:19Z",
+      "side": 1,
+      "message": "Agreed - let\u0027s go for `TreeNodeKeyType`",
+      "parentUuid": "0523ec0c_22e9b3c3",
       "range": {
         "startLine": 13,
         "startChar": 33,
