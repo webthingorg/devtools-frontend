@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "502ce8c8_ca36b172",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-19T06:14:28Z",
+      "side": 1,
+      "message": "Migrating ui to localization V2. Couple of changes outside of the regular ones, left comments to pinpoint them. let me know your thoughts.",
+      "revId": "eb938f5ac002936ba4019264c0e5b28c14ebfb41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
