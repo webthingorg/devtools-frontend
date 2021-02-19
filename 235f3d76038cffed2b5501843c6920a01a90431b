@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e1b3c56_dd3b8e19",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-19T11:25:24Z",
+      "side": 1,
+      "message": "LGTM; probably worth some comms to devtools-dev to let people know about the npm7 req.",
+      "revId": "235f3d76038cffed2b5501843c6920a01a90431b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
