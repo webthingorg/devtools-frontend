@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3e0bae87_f07f7f07",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1221,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-02-19T09:50:34Z",
+      "side": 1,
+      "message": "Yes. Let me add the return type.",
+      "parentUuid": "b9511a43_7e87ad33",
+      "revId": "6f51e3bbf4753dc760140f2333bf8dbf59264398",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c11d5192_ef965db8",
         "filename": "front_end/elements/ElementsTreeOutline.js",
         "patchSetId": 3
@@ -48,6 +66,24 @@
       "writtenOn": "2021-02-19T08:20:27Z",
       "side": 1,
       "message": "do we need ...?",
+      "revId": "6f51e3bbf4753dc760140f2333bf8dbf59264398",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0184333b_a6619b23",
+        "filename": "front_end/elements/ElementsTreeOutline.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-02-19T09:50:34Z",
+      "side": 1,
+      "message": "This was in the original UI mockup. It seems like DevTools has quite a few _title_s or _action item_s (e.g. Export HAR.., Import frames...) that have a trailing \"...\". I think it -_maybe_ follows some sort of convention that if an action leads to an extra window opening or some extra actions, then \"...\" makes sense?\n\nI\u0027m actually fine either way. @petermueller WDYT?",
+      "parentUuid": "c11d5192_ef965db8",
       "revId": "6f51e3bbf4753dc760140f2333bf8dbf59264398",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
