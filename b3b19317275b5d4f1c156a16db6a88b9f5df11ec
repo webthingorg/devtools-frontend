@@ -33,6 +33,24 @@
       "message": "Are the `` quotes going to be shown in the UI? Is it a convention to mark terms like this now? When a screenreader would say it, how would it sounds with back ticks?",
       "revId": "b3b19317275b5d4f1c156a16db6a88b9f5df11ec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4d958ab_e58d7ac2",
+        "filename": "front_end/elements/elements-meta.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-19T08:23:01Z",
+      "side": 1,
+      "message": "Backticks are for locking terms (in locV2), check out en-XL.json, it doesn\u0027t put the extra marks on the DOM letters anymore.\n\nhttps://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/docs/localization/locked_terms_V2.md\n\nActually the .ctc file produced by collect-strings.js treats it as an embedded markdown snippet but I think that\u0027s just an implementation detail.",
+      "parentUuid": "5627549b_a87b715c",
+      "revId": "b3b19317275b5d4f1c156a16db6a88b9f5df11ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
