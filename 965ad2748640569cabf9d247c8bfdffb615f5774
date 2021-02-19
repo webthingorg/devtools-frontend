@@ -104,6 +104,30 @@
       },
       "revId": "965ad2748640569cabf9d247c8bfdffb615f5774",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "490c388a_2e1997b9",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-19T08:23:43Z",
+      "side": 1,
+      "message": "I think I prefer the type alias and literal values in this case. But let\u0027s revisit later if it becomes problematic.",
+      "parentUuid": "76fde3d5_b1aeb647",
+      "range": {
+        "startLine": 21,
+        "startChar": 7,
+        "endLine": 21,
+        "endChar": 20
+      },
+      "revId": "965ad2748640569cabf9d247c8bfdffb615f5774",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
