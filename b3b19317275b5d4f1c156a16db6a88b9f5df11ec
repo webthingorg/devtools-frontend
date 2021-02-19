@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "b3b19317275b5d4f1c156a16db6a88b9f5df11ec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5627549b_a87b715c",
+        "filename": "front_end/elements/elements-meta.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2021-02-19T08:16:46Z",
+      "side": 1,
+      "message": "Are the `` quotes going to be shown in the UI? Is it a convention to mark terms like this now? When a screenreader would say it, how would it sounds with back ticks?",
+      "revId": "b3b19317275b5d4f1c156a16db6a88b9f5df11ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
