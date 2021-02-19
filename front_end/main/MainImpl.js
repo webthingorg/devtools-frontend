@@ -35,6 +35,9 @@ import * as Extensions from '../extensions/extensions.js';
 import * as Help from '../help/help.js';
 import * as Host from '../host/host.js';
 import * as i18n from '../i18n/i18n.js';
+import * as InspectorMain from '../inspector_main/inspector_main.js';
+import * as JSMain from '../js_main/js_main.js';
+import * as NodeMain from '../node_main/node_main.js';
 import * as PerfUI from '../perf_ui/perf_ui.js';
 import * as Persistence from '../persistence/persistence.js';
 import * as Platform from '../platform/platform.js';
@@ -47,6 +50,7 @@ import * as Snippets from '../snippets/snippets.js';
 import * as ThemeSupport from '../theme_support/theme_support.js';
 import * as Timeline from '../timeline/timeline.js';
 import * as UI from '../ui/ui.js';
+import * as WorkerMain from '../worker_main/worker_main.js';
 import * as Workspace from '../workspace/workspace.js';
 
 import {ExecutionContextSelector} from './ExecutionContextSelector.js';
@@ -423,10 +427,14 @@ export class MainImpl {
 
   async _initializeTarget() {
     MainImpl.time('Main._initializeTarget');
-    const instances = await Promise.all(
-        Root.Runtime.Runtime.instance().extensions('early-initialization').map(extension => extension.instance()));
-    for (const instance of instances) {
-      await /** @type {!Common.Runnable.Runnable} */ (instance).run();
+    const earlyInitializationRunnables = [
+      InspectorMain.InspectorMain.InspectorMainImpl,
+      JSMain.JsMain.JsMainImpl,
+      NodeMain.NodeMain.NodeMainImpl,
+      WorkerMain.WorkerMain.WorkerMainImpl,
+    ];
+    for (const runnable of earlyInitializationRunnables) {
+      await runnable.instance().run();
     }
     // Used for browser tests.
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.readyForTest();
