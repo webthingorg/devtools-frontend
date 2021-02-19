@@ -32,8 +32,10 @@ import * as Bindings from '../bindings/bindings.js';
 import * as Common from '../common/common.js';
 import * as Components from '../components/components.js';
 import * as Extensions from '../extensions/extensions.js';
+import * as Help from '../help/help.js';
 import * as Host from '../host/host.js';
 import * as i18n from '../i18n/i18n.js';
+import * as PerfUI from '../perf_ui/perf_ui.js';
 import * as Persistence from '../persistence/persistence.js';
 import * as Platform from '../platform/platform.js';
 import {ls} from '../platform/platform.js';
@@ -436,27 +438,26 @@ export class MainImpl {
   _lateInitialization() {
     MainImpl.time('Main._lateInitialization');
     Extensions.ExtensionServer.ExtensionServer.instance().initializeExtensions();
-    const extensions = Root.Runtime.Runtime.instance().extensions('late-initialization');
     /** @type {!Array<!Promise<void>>} */
     const promises = [];
-    for (const extension of extensions) {
-      const setting = extension.descriptor()['setting'];
-      if (!setting || Common.Settings.Settings.instance().moduleSetting(setting).get()) {
-        promises.push(
-            extension.instance().then(instance => (/** @type {!Common.Runnable.Runnable} */ (instance)).run()));
-        continue;
+    promises.push(Help.Help.HelpLateInitialization.instance().run());
+    if (Root.Runtime.experiments.isEnabled('liveHeapProfile')) {
+      const setting = 'memoryLiveHeapProfile';
+      if (Common.Settings.Settings.instance().moduleSetting(setting).get()) {
+        promises.push(PerfUI.LiveHeapProfile.LiveHeapProfile.instance().run());
+      } else {
+        /**
+         * @param {!Common.EventTarget.EventTargetEvent} event
+         */
+        const changeListener = async event => {
+          if (!event.data) {
+            return;
+          }
+          Common.Settings.Settings.instance().moduleSetting(setting).removeChangeListener(changeListener);
+          PerfUI.LiveHeapProfile.LiveHeapProfile.instance().run();
+        };
+        Common.Settings.Settings.instance().moduleSetting(setting).addChangeListener(changeListener);
       }
-      /**
-       * @param {!Common.EventTarget.EventTargetEvent} event
-       */
-      const changeListener = async event => {
-        if (!event.data) {
-          return;
-        }
-        Common.Settings.Settings.instance().moduleSetting(setting).removeChangeListener(changeListener);
-        (/** @type {!Common.Runnable.Runnable} */ (await extension.instance())).run();
-      };
-      Common.Settings.Settings.instance().moduleSetting(setting).addChangeListener(changeListener);
     }
     this._lateInitDonePromise = Promise.all(promises).then(() => undefined);
     MainImpl.timeEnd('Main._lateInitialization');

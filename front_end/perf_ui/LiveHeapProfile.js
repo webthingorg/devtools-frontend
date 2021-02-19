@@ -8,11 +8,15 @@ import * as SDK from '../sdk/sdk.js';
 
 import {Memory} from './LineLevelProfile.js';
 
+/** @type {!LiveHeapProfile} */
+let liveHeapProfileInstance;
+
 /**
  * @implements {Common.Runnable.Runnable}
  * @implements {SDK.SDKModel.SDKModelObserver<!SDK.HeapProfilerModel.HeapProfilerModel>}
  */
 export class LiveHeapProfile {
+  /** @private */
   constructor() {
     this._running = false;
     this._sessionId = 0;
@@ -23,6 +27,18 @@ export class LiveHeapProfile {
     if (this._setting.get()) {
       this._startProfiling();
     }
+  }
+
+  /**
+   * @param {{forceNew: ?boolean}} opts
+   */
+  static instance(opts = {forceNew: null}) {
+    const {forceNew} = opts;
+    if (!liveHeapProfileInstance || forceNew) {
+      liveHeapProfileInstance = new LiveHeapProfile();
+    }
+
+    return liveHeapProfileInstance;
   }
 
   /**

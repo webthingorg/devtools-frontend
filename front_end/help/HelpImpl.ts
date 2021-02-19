@@ -51,7 +51,16 @@ export function innerShowReleaseNoteIfNeeded(
   UI.ViewManager.ViewManager.instance().showView(releaseNoteViewId, true);
 }
 
+let helpLateInitializationInstance: HelpLateInitialization;
 export class HelpLateInitialization implements Common.Runnable.Runnable {
+  static instance(opts: {forceNew: boolean|null} = {forceNew: null}): HelpLateInitialization {
+    const {forceNew} = opts;
+    if (!helpLateInitializationInstance || forceNew) {
+      helpLateInitializationInstance = new HelpLateInitialization();
+    }
+    return helpLateInitializationInstance;
+  }
+
   async run(): Promise<void> {
     if (!Host.InspectorFrontendHost.isUnderTest()) {
       showReleaseNoteIfNeeded();
