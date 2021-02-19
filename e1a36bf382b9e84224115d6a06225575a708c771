@@ -106,6 +106,24 @@
       "parentUuid": "8001a05e_dccb62e5",
       "revId": "e1a36bf382b9e84224115d6a06225575a708c771",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfeb4290_866aefc5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-02-19T14:36:24Z",
+      "side": 1,
+      "message": "Sorry for late reply. Out of town and then oncall. A WIP: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2683399. Will work on it today. Also, I realize that using overflow : hidden also controls max-width.",
+      "parentUuid": "6b625f27_b25ff0ff",
+      "revId": "e1a36bf382b9e84224115d6a06225575a708c771",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
