@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1214d92_9212102d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341633
+      },
+      "writtenOn": "2021-02-19T01:43:39Z",
+      "side": 1,
+      "message": "I see the issue now.  Didn\u0027t realize warnings generated for font variation settings technically parsed correctly.\n\nUpdated the conditional to announce and seems to be working.\nhttps://imgur.com/a3dBG1h",
+      "parentUuid": "4306fe71_a664ef24",
+      "revId": "ed9cb9e76feb794f94c3c59e87f8c1428cad58dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b0517114_cc355cf7",
