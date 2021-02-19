@@ -20,6 +20,9 @@ devtools_module("main") {
     "../help:bundle",
     "../host:bundle",
     "../i18n:bundle",
+    "../inspector_main:bundle",
+    "../js_main:bundle",
+    "../node_main:bundle",
     "../persistence:bundle",
     "../platform:bundle",
     "../protocol_client:bundle",
@@ -29,6 +32,7 @@ devtools_module("main") {
     "../theme_support:bundle",
     "../timeline:bundle",
     "../ui:bundle",
+    "../worker_main:bundle",
     "../workspace:bundle",
   ]
 }
