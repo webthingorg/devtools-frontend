@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce771d4c_683f4997",
+        "filename": "test/e2e/sources/syntax-highlighting_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2021-02-19T09:14:10Z",
+      "side": 1,
+      "message": "The test failures suggest that the events aren\u0027t triggered at the right place. We\u0027re done waiting for the file to open before source lines are there.",
+      "revId": "94bed49d7f22d463e39be60b916d23dbaf7a40cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
