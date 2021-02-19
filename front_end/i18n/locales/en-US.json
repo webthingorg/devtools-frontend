@@ -318,7 +318,7 @@
     "message": "Value from label element with for= attribute."
   },
   "accessibility/AccessibilityStrings.ts | valueFromLabelElementWrapped": {
-    "message": "Value from label element wrapped."
+    "message": "Value from a wrapping label element."
   },
   "accessibility/AccessibilityStrings.ts | valueFromLegendElement": {
     "message": "Value from legend element."
@@ -2580,19 +2580,19 @@
     "message": "Has a backdrop filter."
   },
   "layer_viewer/LayerDetailsView.ts | hasABlendingEffectThatNeedsToBe": {
-    "message": "Has a blending effect that needs to be known by compositor because of composited descendants."
+    "message": "Has a blending effect that needs to be known by the compositor because of composited descendants."
   },
   "layer_viewer/LayerDetailsView.ts | hasAClipThatNeedsToBeKnownBy": {
-    "message": "Has a clip that needs to be known by compositor because of composited descendants."
+    "message": "Has a clip that needs to be known by the compositor because of composited descendants."
   },
   "layer_viewer/LayerDetailsView.ts | hasADTransform": {
-    "message": "Has a 3d transform."
+    "message": "Has a 3D transform."
   },
   "layer_viewer/LayerDetailsView.ts | hasAFilterEffectThatNeedsToBe": {
-    "message": "Has a filter effect that needs to be known by compositor because of composited descendants."
+    "message": "Has a filter effect that needs to be known by the compositor because of composited descendants."
   },
   "layer_viewer/LayerDetailsView.ts | hasAMaskThatNeedsToBeKnownBy": {
-    "message": "Has a mask that needs to be known by compositor because of composited descendants."
+    "message": "Has a mask that needs to be known by the compositor because of composited descendants."
   },
   "layer_viewer/LayerDetailsView.ts | hasAnActiveAcceleratedBackdrop": {
     "message": "Has an active accelerated backdrop filter animation or transition."
@@ -2607,13 +2607,13 @@
     "message": "Has an active accelerated transform animation or transition."
   },
   "layer_viewer/LayerDetailsView.ts | hasAPerspectiveTransformThat": {
-    "message": "Has a perspective transform that needs to be known by compositor because of 3d descendants."
+    "message": "Has a perspective transform that needs to be known by the compositor because of 3D descendants."
   },
   "layer_viewer/LayerDetailsView.ts | hasAPreservesdPropertyThatNeeds": {
-    "message": "Has a preserves-3d property that needs to be known by compositor because of 3d descendants."
+    "message": "Has a preserves-3D property that needs to be known by the compositor because of 3D descendants."
   },
   "layer_viewer/LayerDetailsView.ts | hasAReflectionThatNeedsToBeKnown": {
-    "message": "Has a reflection that needs to be known by compositor because of composited descendants."
+    "message": "Has a reflection that needs to be known by the compositor because of composited descendants."
   },
   "layer_viewer/LayerDetailsView.ts | hasAWillchangeCompositingHint": {
     "message": "Has a will-change compositing hint other than transform and opacity."
@@ -2631,7 +2631,7 @@
     "message": "Has clipping ancestor."
   },
   "layer_viewer/LayerDetailsView.ts | hasOpacityThatNeedsToBeAppliedBy": {
-    "message": "Has opacity that needs to be applied by compositor because of composited descendants."
+    "message": "Has opacity that needs to be applied by the compositor because of composited descendants."
   },
   "layer_viewer/LayerDetailsView.ts | isAnAcceleratedCanvasOrIsA": {
     "message": "Is an accelerated canvas, or is a display list backed canvas that was promoted to a layer based on a performance heuristic."
@@ -5961,7 +5961,7 @@
     "message": "Name"
   },
   "resources/AppManifestView.js | needHelpReadOurS": {
-    "message": "Need help? Read our {PH1}."
+    "message": "Need help? Read {PH1}."
   },
   "resources/AppManifestView.js | noManifestDetected": {
     "message": "No manifest detected"
