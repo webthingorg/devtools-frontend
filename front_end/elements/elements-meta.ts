@@ -404,6 +404,13 @@ Common.Settings.registerSettingExtension({
   defaultValue: true,
 });
 
+Common.Settings.registerSettingExtension({
+  category: Common.Settings.SettingCategory.ADORNER,
+  settingName: 'adornerSettings',
+  settingType: Common.Settings.SettingType.ARRAY,
+  defaultValue: [],
+});
+
 UI.ContextMenu.registerProvider({
   contextTypes() {
     return [

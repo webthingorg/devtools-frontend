@@ -111,6 +111,9 @@
   <message name="IDS_DEVTOOLS_ee02b74d0caebce3dabaf3b3e79b6a65" desc="The UI destination when right clicking an item that can be revealed">
     Issues view
   </message>
+  <message name="IDS_DEVTOOLS_ef8ebaca74d4487499376614ccb7d83e" desc="A title of the 'Adorner' setting category">
+    Adorner
+  </message>
   <message name="IDS_DEVTOOLS_f28128b38efbc6134dc40751ee21fd29" desc="Text for documents, a type of resources">
     Documents
   </message>

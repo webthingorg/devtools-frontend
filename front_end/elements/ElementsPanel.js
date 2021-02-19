@@ -38,6 +38,8 @@ import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
 import {AccessibilityTreeView} from './AccessibilityTreeView.js';
+import {AdornerManager} from './AdornerManager.js';
+import {AdornerSettingsPane} from './AdornerSettingsPane.js';
 import {ComputedStyleWidget} from './ComputedStyleWidget.js';
 import {DOMNode, ElementsBreadcrumbs} from './ElementsBreadcrumbs.js';  // eslint-disable-line no-unused-vars
 import {ElementsTreeElement} from './ElementsTreeElement.js';           // eslint-disable-line no-unused-vars
@@ -209,6 +211,10 @@ export class ElementsPanel extends UI.Panel.Panel {
     this._currentSearchResultIndex = -1;  // -1 represents the initial invalid state
 
     this._pendingNodeReveal = false;
+
+    this._adornerManager = new AdornerManager(Common.Settings.Settings.instance().moduleSetting('adornerSettings'));
+    /** @type {?AdornerSettingsPane} */
+    this._adornerSettingsPane = null;
   }
 
   /**
@@ -1186,6 +1192,34 @@ export class ElementsPanel extends UI.Panel.Panel {
         treeElement.updateStyleAdorners();
       }
     }
+  }
+
+  showAdornerSettingsPane() {
+    // Delay the initialization of the pane to the first showing
+    // since usually this pane won't be used.
+    if (!this._adornerSettingsPane) {
+      this._adornerSettingsPane = new AdornerSettingsPane();
+      this._adornerSettingsPane.addEventListener('adorner-settings-updated', /** @param {*} event */ event => {
+        this._adornerManager.updateSettings(event.data.settings);
+        for (const treeOutline of this._treeOutlines) {
+          treeOutline.update();
+        }
+      });
+      this._searchableView.element.prepend(this._adornerSettingsPane);
+    }
+
+    const adornerSettings = this._adornerManager.getSettings();
+    this._adornerSettingsPane.data = {
+      settings: adornerSettings,
+    };
+    this._adornerSettingsPane.show();
+  }
+
+  /**
+   * @param {string} adornerText
+   */
+  isAdornerEnabled(adornerText) {
+    return this._adornerManager.isAdornerEnabled(adornerText);
   }
 }
 
