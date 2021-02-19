@@ -44,6 +44,7 @@ import * as UI from '../ui/ui.js';
 import {Adorner} from './Adorner.js';
 import {AdornerCategories} from './AdornerManager.js';
 import {canGetJSPath, cssPath, jsPath, xPath} from './DOMPath.js';
+import {ElementsPanel} from './ElementsPanel.js';
 import {ElementsTreeOutline, MappedCharToEntity, UpdateRecord} from './ElementsTreeOutline.js';  // eslint-disable-line no-unused-vars
 import {ImagePreviewPopover} from './ImagePreviewPopover.js';
 import {getRegisteredDecorators, MarkerDecorator, MarkerDecoratorRegistration} from './MarkerDecorator.js';  // eslint-disable-line no-unused-vars
@@ -225,7 +226,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
 
       this.updateStyleAdorners();
 
-      if (node.isAdFrameNode()) {
+      if (ElementsPanel.instance().isAdornerEnabled('Ad') && node.isAdFrameNode()) {
         const adorner = this.adornText('Ad', AdornerCategories.Security);
         UI.Tooltip.Tooltip.install(adorner, i18nString(UIStrings.thisFrameWasIdentifiedAsAnAd));
       }
@@ -2253,10 +2254,10 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
         Root.Runtime.experiments.isEnabled('cssFlexboxFeatures') && (display === 'flex' || display === 'inline-flex');
 
     let adorner;
-    if (isGrid) {
+    if (ElementsPanel.instance().isAdornerEnabled('Grid') && isGrid) {
       adorner = this.createGridAdorner();
     }
-    if (isFlex) {
+    if (ElementsPanel.instance().isAdornerEnabled('Flex') && isFlex) {
       adorner = this.createFlexAdorner();
     }
 

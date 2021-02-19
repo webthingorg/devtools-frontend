@@ -59,6 +59,7 @@ export const enum SettingCategory {
   EMULATION = 'EMULATION',
   MEMORY = 'MEMORY',
   EXTENSIONS = 'EXTENSIONS',
+  ADORNER = 'ADORNER',
 }
 
 export function getLocalizedSettingsCategory(category: SettingCategory): string|Platform.UIString.LocalizedString {
@@ -93,6 +94,8 @@ export function getLocalizedSettingsCategory(category: SettingCategory): string|
       return ls`Memory`;
     case SettingCategory.EXTENSIONS:
       return ls`Extensions`;
+    case SettingCategory.ADORNER:
+      return ls`Adorner`;
     case SettingCategory.NONE:
       return '';
   }

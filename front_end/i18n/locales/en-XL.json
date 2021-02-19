@@ -1622,6 +1622,12 @@
   "elements/Adorner.js | sAdorner": {
     "message": "{PH1} âd́ôŕn̂ér̂"
   },
+  "elements/AdornerSettingsPane.ts | saveButton": {
+    "message": "Ŝáv̂é"
+  },
+  "elements/AdornerSettingsPane.ts | settingsTitle": {
+    "message": "Ŝh́ôẃ âd́ôŕn̂ér̂ś"
+  },
   "elements/ClassesPaneWidget.js | addNewClass": {
     "message": "Âd́d̂ ńêẃ ĉĺâśŝ"
   },
@@ -1879,6 +1885,9 @@
   },
   "elements/ElementsTreeElement.js | valueIsTooLargeToEdit": {
     "message": "<v̂ál̂úê íŝ t́ôó l̂ár̂ǵê t́ô éd̂ít̂>"
+  },
+  "elements/ElementsTreeOutline.js | adornerSettings": {
+    "message": "Âd́ôŕn̂ér̂ śêt́t̂ín̂ǵŝ..."
   },
   "elements/ElementsTreeOutline.js | pageDom": {
     "message": "P̂áĝé D̂ÓM̂"
