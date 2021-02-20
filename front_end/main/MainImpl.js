@@ -423,10 +423,8 @@ export class MainImpl {
 
   async _initializeTarget() {
     MainImpl.time('Main._initializeTarget');
-    const instances = await Promise.all(
-        Root.Runtime.Runtime.instance().extensions('early-initialization').map(extension => extension.instance()));
-    for (const instance of instances) {
-      await /** @type {!Common.Runnable.Runnable} */ (instance).run();
+    for (const runnableInstanceFunction of Common.Runnable.getRegisteredEarlyInitializationRunnables()) {
+      await runnableInstanceFunction().run();
     }
     // Used for browser tests.
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.readyForTest();

@@ -10,10 +10,25 @@ import * as Root from '../root/root.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
+/** @type {!InspectorMainImpl} */
+let inspectorMainImplInstance;
+
 /**
  * @implements {Common.Runnable.Runnable}
  */
 export class InspectorMainImpl extends Common.ObjectWrapper.ObjectWrapper {
+  /**
+   * @param {{forceNew: ?boolean}} opts
+   */
+  static instance(opts = {forceNew: null}) {
+    const {forceNew} = opts;
+    if (!inspectorMainImplInstance || forceNew) {
+      inspectorMainImplInstance = new InspectorMainImpl();
+    }
+
+    return inspectorMainImplInstance;
+  }
+
   /**
    * @override
    */
@@ -58,6 +73,8 @@ export class InspectorMainImpl extends Common.ObjectWrapper.ObjectWrapper {
         });
   }
 }
+
+Common.Runnable.registerEarlyInitializationRunnable(InspectorMainImpl.instance);
 
 /** @type {!ReloadActionDelegate} */
 let reloadActionDelegateInstance;
