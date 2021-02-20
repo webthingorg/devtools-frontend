@@ -44,6 +44,7 @@ export const UIStrings = {
 
 const str_ = i18n.i18n.registerUIStrings('mobile_throttling/ThrottlingPresets.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
 // TODO(crbug.com/1167717): Make this a const enum again
 // eslint-disable-next-line rulesdir/const_enum
@@ -74,7 +75,7 @@ export class ThrottlingPresets {
 
   static getLowEndMobileConditions(): Conditions {
     return {
-      title: i18nString(UIStrings.lowendMobile),
+      title: i18nLazyString(UIStrings.lowendMobile),
       description: i18nString(UIStrings.slowGXCpuSlowdown),
       network: SDK.NetworkManager.Slow3GConditions,
       cpuThrottlingRate: CPUThrottlingRates.LowEndMobile,
@@ -83,7 +84,7 @@ export class ThrottlingPresets {
 
   static getMidTierMobileConditions(): Conditions {
     return {
-      title: i18nString(UIStrings.midtierMobile),
+      title: i18nLazyString(UIStrings.midtierMobile),
       description: i18nString(UIStrings.fastGXCpuSlowdown),
       network: SDK.NetworkManager.Fast3GConditions,
       cpuThrottlingRate: CPUThrottlingRates.MidTierMobile,
@@ -92,7 +93,7 @@ export class ThrottlingPresets {
 
   static getCustomConditions(): PlaceholderConditions {
     return {
-      title: i18nString(UIStrings.custom),
+      title: i18nLazyString(UIStrings.custom),
       description: i18nString(UIStrings.checkNetworkAndPerformancePanels),
     };
   }
@@ -125,25 +126,25 @@ export class ThrottlingPresets {
 }
 
 export interface Conditions {
-  title: string;
+  title: () => string;
   description: string;
   network: SDK.NetworkManager.Conditions;
   cpuThrottlingRate: number;
 }
 
 export interface NetworkThrottlingConditionsGroup {
-  title: string;
+  title: () => string;
   items: SDK.NetworkManager.Conditions[];
 }
 
 export interface MobileThrottlingConditionsGroup {
-  title: string;
+  title: () => string;
   items: (Conditions|PlaceholderConditions)[];
 }
 
 export type ConditionsList = (Conditions|PlaceholderConditions|null)[];
 
 export interface PlaceholderConditions {
-  title: string;
+  title: () => string;
   description: string;
 }

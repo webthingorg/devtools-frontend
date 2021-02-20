@@ -33,9 +33,9 @@ export function getShowThirdPartyIssuesSetting() {
 /**
  * @typedef {{
   *             file: string,
-  *             substitutions: (!Map<string, string>|undefined),
+  *             substitutions: (!Map<string, () => string>|undefined),
   *             issueKind: !IssueKind,
-  *             links: !Array<!{link: string, linkTitle: string}>
+  *             links: !Array<!{link: string, linkTitle: () => string}>
   *          }}
   */
 // @ts-ignore typedef

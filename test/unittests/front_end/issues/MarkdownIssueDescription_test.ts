@@ -63,7 +63,7 @@ describeWithEnvironment('substitutePlaceholders', async () => {
     const str = 'Example string with a single {PLACEHOLDER_placeholder}';
 
     const actual = Issues.MarkdownIssueDescription.substitutePlaceholders(
-        str, new Map<string, string>([['PLACEHOLDER_placeholder', 'fooholder']]));
+        str, new Map<string, () => string>([['PLACEHOLDER_placeholder', () => 'fooholder']]));
     assert.strictEqual(actual, 'Example string with a single fooholder');
   });
 
@@ -71,7 +71,7 @@ describeWithEnvironment('substitutePlaceholders', async () => {
     const str = 'Example string with two placeholders, \'{PLACEHOLDER_ph1}\' and \'{PLACEHOLDER_ph2}\'.';
 
     const actual = Issues.MarkdownIssueDescription.substitutePlaceholders(
-        str, new Map<string, string>([['PLACEHOLDER_ph1', 'foo'], ['PLACEHOLDER_ph2', 'bar']]));
+        str, new Map<string, () => string>([['PLACEHOLDER_ph1', () => 'foo'], ['PLACEHOLDER_ph2', () => 'bar']]));
     assert.strictEqual(actual, 'Example string with two placeholders, \'foo\' and \'bar\'.');
   });
 
@@ -91,19 +91,21 @@ describeWithEnvironment('substitutePlaceholders', async () => {
     const str = 'Example string with no placeholder';
 
     assert.throws(
-        () => Issues.MarkdownIssueDescription.substitutePlaceholders(str, new Map([['PLACEHOLDER_FOO', 'bar']])));
+        () => Issues.MarkdownIssueDescription.substitutePlaceholders(str, new Map([['PLACEHOLDER_FOO', () => 'bar']])));
   });
 
   it('allows the same placeholder to be used multiple times', () => {
     const str = 'Example string with the same placeholder used twice: {PLACEHOLDER_PH1} {PLACEHOLDER_PH1}';
 
-    const actual = Issues.MarkdownIssueDescription.substitutePlaceholders(str, new Map([['PLACEHOLDER_PH1', 'foo']]));
+    const actual =
+        Issues.MarkdownIssueDescription.substitutePlaceholders(str, new Map([['PLACEHOLDER_PH1', () => 'foo']]));
     assert.strictEqual(actual, 'Example string with the same placeholder used twice: foo foo');
   });
 
   it('throws an error for invalid placeholder syntax provided in the substitutions map', () => {
     const str = 'Example string with no placeholder';
 
-    assert.throws(() => Issues.MarkdownIssueDescription.substitutePlaceholders(str, new Map([['invalid_ph', 'foo']])));
+    assert.throws(
+        () => Issues.MarkdownIssueDescription.substitutePlaceholders(str, new Map([['invalid_ph', () => 'foo']])));
   });
 });

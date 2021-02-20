@@ -4,12 +4,6 @@
   <message name="IDS_DEVTOOLS_0b484cfcf50c8fabff48c0aad426f544" desc="Text to dock the DevTools to the left of the browser tab">
     Dock to left
   </message>
-  <message name="IDS_DEVTOOLS_29260f495ba8adcc62fd1307c758ff4e" desc="Text to show the measuring rulers on the target">
-    Show rulers
-  </message>
-  <message name="IDS_DEVTOOLS_3b563524fdb17b4a86590470d40bef74" desc="Text that appears on a button for the media resource type filter.">
-    Media
-  </message>
 
   <message name="IDS_DEVTOOLS_4789f23283b3a61f858b641a1bef19a3" desc="Text for the memory of the page">
     Memory
@@ -28,9 +22,6 @@
   </message>
   <message name="IDS_DEVTOOLS_87d17f4624a514e81dc7c8e016a7405c" desc="Text for the mobile platform, as opposed to desktop">
     Mobile
-  </message>
-  <message name="IDS_DEVTOOLS_886f598a8a9e6a4bfe0c09fcf7779611" desc="Title of a Rendering setting that can be invoked through the Command Menu">
-    Emulate a focused page
   </message>
   <message name="IDS_DEVTOOLS_9446a98ad14416153cc4d45ab8b531bf" desc="Text for the performance of something">
     Performance
@@ -56,29 +47,11 @@
   <message name="IDS_DEVTOOLS_bccaa4aa80831b76c11240a16447975f" desc="Title of the Console tool">
     Console
   </message>
-  <message name="IDS_DEVTOOLS_bec25a46972e4fa86df9413508add5c2" desc="Text that refers to disabling local fonts">
-    Disable local fonts
-  </message>
-  <message name="IDS_DEVTOOLS_e0ac20adce6ffee48c7151b070aa5737" desc="Text that refers to device such as a phone">
-    Device
-  </message>
-  <message name="IDS_DEVTOOLS_e402c138065e7eece783dc30c6079192" desc="Text that appears on a button for the xhr resource type filter.">
-    XHR
-  </message>
   <message name="IDS_DEVTOOLS_eec89088ee408b80387155272b113256" desc="Title of the Network tool">
     Network
   </message>
-  <message name="IDS_DEVTOOLS_ef95393ad48336d7c3543625354a3d56" desc="Text to highlight the rendering frames for ads">
-    Highlight ad frames
-  </message>
-  <message name="IDS_DEVTOOLS_f0f31c9700c6b10d8a20dc487b2ae6a8" desc="Text for the touch type to simulate on a device">
-    Touch
-  </message>
   <message name="IDS_DEVTOOLS_f53944c3a55bdb5ad65c6226e358a626" desc="Text to undock the DevTools">
     Undock into separate window
-  </message>
-  <message name="IDS_DEVTOOLS_f907e651164789346ae0a1e257c462d8" desc="Label for a group of JavaScript files">
-    Script
   </message>
   <message name="IDS_DEVTOOLS_fb61758d0f0fda4ba867c3d5a46c16a7" desc="Name of the Sources panel">
     Sources
