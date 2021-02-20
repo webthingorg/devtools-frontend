@@ -3,6 +3,9 @@
   <message name="IDS_DEVTOOLS_005e5f0c76f1286c8785a2b25694ad41" desc="Field in Devices pane letting customize which CPU architecture the edited device presents via User Agent Client Hints. Example should be kept exactly.">
     Architecture (e.g. x86)
   </message>
+  <message name="IDS_DEVTOOLS_012528cb9fb45d278755f9fec090ed11" desc="Title of the Laptop with MDPI screen device">
+    Laptop with MDPI screen
+  </message>
   <message name="IDS_DEVTOOLS_01afd961b3193f0c1e831ec100ea36dc" desc="Error message in the Devices settings pane that declares the minimum value for the device pixel ratio input">
     Device pixel ratio must be greater than or equal to <ph name="EMULATION_DEVICEMODEMODEL_MINDEVICESCALEFACTOR">$1s<ex>0</ex></ph>.
   </message>
@@ -14,6 +17,9 @@
   </message>
   <message name="IDS_DEVTOOLS_0ca08f8f4a8a19f7f1ae87c119494327" desc="Title as part of a tool to override existing configurations">
     Overrides
+  </message>
+  <message name="IDS_DEVTOOLS_0d1160fe394d87ddbc2ca8e7cc25379d" desc="Title of the Laptop with touch device">
+    Laptop with touch
   </message>
   <message name="IDS_DEVTOOLS_0e1275697d4c40b4b0640fbfa3907afa" desc="A tag of Sensors tool that can be searched in the command menu">
     accelerometer
@@ -50,6 +56,9 @@
   </message>
   <message name="IDS_DEVTOOLS_445b8178609bbfdf97fe430bc7448fa7" desc="Title of foldable group of options in Devices pane letting customize what information is sent about the browser and device via user agent client hints functionality">
     User agent client hints
+  </message>
+  <message name="IDS_DEVTOOLS_4a321c67ad4bac0f3386f5e257b1fba3" desc="Title of the Laptop with HiDPI screen device">
+    Laptop with HiDPI screen
   </message>
   <message name="IDS_DEVTOOLS_4c9b91fc2eab5f3085a58146a9befda9" desc="Tooltip text for the foldable 'User agent client hints' section's help button">
     User agent client hints are an alternative to the user agent string that identify the browser and the device in a more structured way with better privacy accounting. Click the button to learn more.
