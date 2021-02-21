@@ -44,6 +44,7 @@ import * as UI from '../ui/ui.js';
 import {Adorner} from './Adorner.js';
 import {AdornerCategories} from './AdornerManager.js';
 import {canGetJSPath, cssPath, jsPath, xPath} from './DOMPath.js';
+import {ElementsPanel} from './ElementsPanel.js';
 import {ElementsTreeOutline, MappedCharToEntity, UpdateRecord} from './ElementsTreeOutline.js';  // eslint-disable-line no-unused-vars
 import {ImagePreviewPopover} from './ImagePreviewPopover.js';
 import {getRegisteredDecorators, MarkerDecorator, MarkerDecoratorRegistration} from './MarkerDecorator.js';  // eslint-disable-line no-unused-vars
@@ -2169,6 +2170,9 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       category,
     };
     const adorner = Adorner.create(adornerContent, text, options);
+    if (!ElementsPanel.instance().isAdornerEnabled(text)) {
+      adorner.hide();
+    }
     this._adorners.push(adorner);
     this._updateAdorners();
     return adorner;
