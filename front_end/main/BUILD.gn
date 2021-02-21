@@ -17,6 +17,7 @@ devtools_module("main") {
     "../common:bundle",
     "../components:bundle",
     "../extensions:bundle",
+    "../help:bundle",
     "../host:bundle",
     "../i18n:bundle",
     "../persistence:bundle",
