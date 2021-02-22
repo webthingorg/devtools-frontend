@@ -22,6 +22,30 @@
       },
       "revId": "07a1fc464f6629cf66395f5aaff5b4cb30066cd4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e127f02a_b60e7138",
+        "filename": "front_end/main/MainImpl.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-02-22T15:26:23Z",
+      "side": 1,
+      "message": "Forgot to add this comment before sending the CL for review, but I opted for having a central place where the runnables are registered because the `early-initialization` instances that are ran vary depending on the app currently executed, if we opt for instancing all runnables here we would need to know the app devtools is launched as to run the appropiate runnables.\n\nInstead we could follow the approach we took for the main extension and rely on each app registering its applicable runnables by loading the modules it depends on and then refer to the registered runnables.",
+      "parentUuid": "1a29be95_53ad6c45",
+      "range": {
+        "startLine": 426,
+        "startChar": 59,
+        "endLine": 426,
+        "endChar": 100
+      },
+      "revId": "07a1fc464f6629cf66395f5aaff5b4cb30066cd4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
