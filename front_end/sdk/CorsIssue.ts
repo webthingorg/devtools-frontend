@@ -2,11 +2,19 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {ls} from '../common/common.js';  // eslint-disable-line rulesdir/es_modules_import
+import * as i18n from '../i18n/i18n.js';
 
 import {Issue, IssueCategory, IssueKind, MarkdownIssueDescription} from './Issue.js';  // eslint-disable-line no-unused-vars
 import {IssuesModel} from './IssuesModel.js';  // eslint-disable-line no-unused-vars
 
+export const UIStrings = {
+  /**
+  *@description Label for the link for CORS private network issues
+  */
+  corsForPrivateNetworksRfc: 'CORS for private networks (RFC1918)',
+};
+const str_ = i18n.i18n.registerUIStrings('sdk/CorsIssue.ts', UIStrings);
+const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 export class CorsIssue extends Issue {
   private issueDetails: Protocol.Audits.CorsIssueDetails;
 
@@ -31,7 +39,7 @@ export class CorsIssue extends Issue {
       issueKind: IssueKind.BreakingChange,
       links: [{
         link: 'https://web.dev/cors-rfc1918-guide',
-        linkTitle: ls`CORS for private networks (RFC1918)`,
+        linkTitle: i18nLazyString(UIStrings.corsForPrivateNetworksRfc),
       }],
     };
   }

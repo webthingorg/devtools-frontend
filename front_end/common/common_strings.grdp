@@ -21,6 +21,9 @@
   <message name="IDS_DEVTOOLS_375c9558f2166cab6515a7ab774c1735" desc="Name of a network resource type">
     TextTrack
   </message>
+  <message name="IDS_DEVTOOLS_3b563524fdb17b4a86590470d40bef74" desc="Text that appears on a button for the media resource type filter.">
+    Media
+  </message>
   <message name="IDS_DEVTOOLS_3fd3dddd9661349b90b648bba2748f1b" desc="The UI destination when right clicking an item that can be revealed">
     Sources panel
   </message>
@@ -108,11 +111,17 @@
   <message name="IDS_DEVTOOLS_da0b472ac86851a3c0b623260d09546c" desc="A title of the 'Persistence' setting category">
     Persistence
   </message>
+  <message name="IDS_DEVTOOLS_e402c138065e7eece783dc30c6079192" desc="Text that appears on a button for the xhr resource type filter.">
+    XHR
+  </message>
   <message name="IDS_DEVTOOLS_ee02b74d0caebce3dabaf3b3e79b6a65" desc="The UI destination when right clicking an item that can be revealed">
     Issues view
   </message>
   <message name="IDS_DEVTOOLS_f28128b38efbc6134dc40751ee21fd29" desc="Text for documents, a type of resources">
     Documents
+  </message>
+  <message name="IDS_DEVTOOLS_f907e651164789346ae0a1e257c462d8" desc="Label for a group of JavaScript files">
+    Script
   </message>
   <message name="IDS_DEVTOOLS_fff0d600f8a0b5e19e88bfb821dd1157" desc="Text that appears in a tooltip for the image types filter.">
     Images

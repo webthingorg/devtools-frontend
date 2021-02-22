@@ -739,7 +739,7 @@ export class IssueView extends UI.TreeOutline.TreeElement {
     const linkList = linkWrapper.listItemElement.createChild('ul', 'link-list');
     for (const description of this._description.links) {
       const link = UI.Fragment.html`<a class="link devtools-link" role="link" tabindex="0" href=${description.link}>${
-          i18nString(UIStrings.learnMoreS, {PH1: description.linkTitle})}</a>`;
+          i18nString(UIStrings.learnMoreS, {PH1: description.linkTitle()})}</a>`;
       const linkIcon = new WebComponents.Icon.Icon();
       linkIcon.data = {iconName: 'link_icon', color: 'var(--issue-link)', width: '16px', height: '16px'};
       linkIcon.classList.add('link-icon');
