@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "076e40bd_0b4c7490",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1221,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-02-22T11:33:48Z",
+      "side": 1,
+      "message": "Yes I feel the same way :) I have another CL built upon this to address this, essentially using an enum for Adorner text/names. I plan on landing that in a separate CL since this CL is already kind of big.",
+      "parentUuid": "bc840285_156bd2f0",
+      "revId": "6f51e3bbf4753dc760140f2333bf8dbf59264398",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c11d5192_ef965db8",
         "filename": "front_end/elements/ElementsTreeOutline.js",
         "patchSetId": 3
