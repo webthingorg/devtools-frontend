@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74e21867_6a02898e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-22T09:54:07Z",
+      "side": 1,
+      "message": "LGTM!",
+      "revId": "bb0ef17e0c560f2c85f7daed9cbfcc4b0d199804",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e576ade_2785d2ec",
+        "filename": "front_end/security/SecurityPanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-22T09:54:07Z",
+      "side": 1,
+      "message": "nit: user\u0027s",
+      "range": {
+        "startLine": 318,
+        "startChar": 82,
+        "endLine": 318,
+        "endChar": 83
+      },
+      "revId": "bb0ef17e0c560f2c85f7daed9cbfcc4b0d199804",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
