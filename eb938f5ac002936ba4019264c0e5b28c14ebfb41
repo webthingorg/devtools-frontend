@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b67b3b9_832792eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-22T06:41:51Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "eb938f5ac002936ba4019264c0e5b28c14ebfb41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8363df23_554b22b5",
@@ -31,6 +48,30 @@
       "writtenOn": "2021-02-19T06:24:49Z",
       "side": 1,
       "message": "(1/2) As these strings are used to compare values (as enums) I think it is best not to fix this with i18nLazyString, instead I think we need a follow up change similar to what you did here:\n2692910: [settings] Introduce true enum for SettingCategory | https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2692910\n\nBut I think this CL is not the best place for it as it is a big change on its own. So I propose to leave them unlocalized for now and fix them in another CL after migration?",
+      "range": {
+        "startLine": 179,
+        "startChar": 0,
+        "endLine": 202,
+        "endChar": 0
+      },
+      "revId": "eb938f5ac002936ba4019264c0e5b28c14ebfb41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d60e9a9b_28e12a2a",
+        "filename": "front_end/ui/ActionRegistration.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-22T06:41:51Z",
+      "side": 1,
+      "message": "Sounds good. Could you file a crbug and leave a \"TODO(crbug.com/\u003cnumber\u003e)\" comment here to track that work?",
+      "parentUuid": "8363df23_554b22b5",
       "range": {
         "startLine": 179,
         "startChar": 0,
@@ -64,6 +105,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b8d323c_8dd8a7e5",
+        "filename": "front_end/ui/ViewRegistration.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-22T06:41:51Z",
+      "side": 1,
+      "message": "Ack. Also the TODO bug comment please.",
+      "parentUuid": "1c721d5a_33330777",
+      "range": {
+        "startLine": 149,
+        "startChar": 1,
+        "endLine": 155,
+        "endChar": 21
+      },
+      "revId": "eb938f5ac002936ba4019264c0e5b28c14ebfb41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "75f834ab_cd74a778",
@@ -77,6 +142,30 @@
       "writtenOn": "2021-02-19T06:24:49Z",
       "side": 1,
       "message": "had to change this as the results are changing with this PR. We can continue this pattern or I can create a openLocalizedPanelViaMoreTools function.",
+      "range": {
+        "startLine": 7,
+        "startChar": 43,
+        "endLine": 7,
+        "endChar": 84
+      },
+      "revId": "eb938f5ac002936ba4019264c0e5b28c14ebfb41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3382103e_b6473c51",
+        "filename": "test/e2e/helpers/settings-helpers.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-22T06:41:51Z",
+      "side": 1,
+      "message": "Approach lgtm",
+      "parentUuid": "75f834ab_cd74a778",
       "range": {
         "startLine": 7,
         "startChar": 43,
