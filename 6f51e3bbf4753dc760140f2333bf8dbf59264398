@@ -109,6 +109,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "88f721a6_37366fc2",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1221,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-02-22T11:49:19Z",
+      "side": 1,
+      "message": "Good point. I\u0027m thinking this settings pane is pretty self-contained, so the risk should be minimal. The only functions that are called regularly (i.e. without using the settings pane) are `registerAdorner` and `deregisterAdorner`, and they are not complicated.\nBut I\u0027m happy to hold off if you feel something looks too risky.\n(Also, if Peter doesn\u0027t sign off on it today then I\u0027d feel not safe enough to land it tomorrow).",
+      "parentUuid": "b22aba94_afbb2512",
+      "revId": "6f51e3bbf4753dc760140f2333bf8dbf59264398",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c11d5192_ef965db8",
         "filename": "front_end/elements/ElementsTreeOutline.js",
         "patchSetId": 3
