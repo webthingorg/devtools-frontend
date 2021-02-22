@@ -13,3 +13,20 @@ export class Runnable {
     throw new Error('not implemented');
   }
 }
+
+/** @type {!Array<function(): !Runnable>} */
+const registeredEarlyInitializationRunnables = [];
+
+/**
+ * @param {function(): !Runnable} runnable
+ */
+export function registerEarlyInitializationRunnable(runnable) {
+  registeredEarlyInitializationRunnables.push(runnable);
+}
+
+/**
+ * @return {!Array<function(): !Runnable>}
+ */
+export function getRegisteredEarlyInitializationRunnables() {
+  return registeredEarlyInitializationRunnables;
+}
