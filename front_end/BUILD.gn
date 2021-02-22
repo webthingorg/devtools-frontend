@@ -315,8 +315,16 @@ ts_library("worker_app") {
 
   deps = [
     ":shell",
+    "browser_debugger:meta",
+    "developer_resources:meta",
+    "elements:meta",
+    "help:meta",
+    "issues:meta",
     "layer_viewer:meta",
+    "network:meta",
+    "resources:meta",
     "startup:bundle",
+    "timeline:meta",
   ]
 }
 
