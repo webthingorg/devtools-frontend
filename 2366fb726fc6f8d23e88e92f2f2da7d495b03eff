@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95231001_21377171",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-02-22T09:12:36Z",
+      "side": 1,
+      "message": "@petermueller PTAL again at the current version per our discussion. Thanks!",
+      "revId": "2366fb726fc6f8d23e88e92f2f2da7d495b03eff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
