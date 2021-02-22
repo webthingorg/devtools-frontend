@@ -46,6 +46,30 @@
       },
       "revId": "07a1fc464f6629cf66395f5aaff5b4cb30066cd4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20699f75_99087ec8",
+        "filename": "front_end/main/MainImpl.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-22T16:19:57Z",
+      "side": 1,
+      "message": "Ah I see. Yes that makes sense. Do you mind adding that in as a code comment, so that we can read that in the future and remember why we made this design decision?",
+      "parentUuid": "e127f02a_b60e7138",
+      "range": {
+        "startLine": 426,
+        "startChar": 59,
+        "endLine": 426,
+        "endChar": 100
+      },
+      "revId": "07a1fc464f6629cf66395f5aaff5b4cb30066cd4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
