@@ -309,15 +309,19 @@ export class TabbedEditorContainer extends Common.ObjectWrapper.ObjectWrapper {
     const binding = Persistence.Persistence.PersistenceImpl.instance().binding(uiSourceCode);
     uiSourceCode = binding ? binding.fileSystem : uiSourceCode;
     if (this._currentFile === uiSourceCode) {
+      Common.EventTarget.fireEvent('source-file-loaded', uiSourceCode.displayName());
       return;
     }
 
     this._removeViewListeners();
     this._currentFile = uiSourceCode;
 
-    const tabId = this._tabIds.get(uiSourceCode) || this._appendFileTab(uiSourceCode, userGesture);
-
-    this._tabbedPane.selectTab(tabId, userGesture);
+    let tabId = this._tabIds.get(uiSourceCode);
+    if (!tabId) {
+      tabId = this._appendFileTab(uiSourceCode, userGesture);
+    } else {
+      this._tabbedPane.selectTab(tabId, userGesture);
+    }
     if (userGesture) {
       this._editorSelectedByUserAction();
     }
