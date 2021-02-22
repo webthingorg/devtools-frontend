@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e10c3da_67a32fd7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-02-22T16:05:47Z",
+      "side": 1,
+      "message": "Hey Eric,\n\nHere\u0027s the fix to support inlining for breakpoints. Doesn\u0027t seem to affect regular JavaScript breakpoint setting as far as I can tell from manual testing.\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "75c396a0049c07159c07c711f1b8f4e70933fce9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
