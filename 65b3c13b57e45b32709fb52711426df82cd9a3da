@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d4aa940_6725e35b",
+        "filename": "front_end/elements/AdornerSettingsPane.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-02-22T14:20:03Z",
+      "side": 1,
+      "message": "For my own understanding, do we need this? It\u0027s a \u003cdiv\u003e so it\u0027s not normally tab-reachable, or is it?",
+      "range": {
+        "startLine": 159,
+        "startChar": 41,
+        "endLine": 159,
+        "endChar": 54
+      },
+      "revId": "65b3c13b57e45b32709fb52711426df82cd9a3da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29029d28_5a49bb6e",
+        "filename": "front_end/elements/ElementsTreeOutline.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-02-22T14:20:03Z",
+      "side": 1,
+      "message": "nit: use U+2026\n\n    …",
+      "range": {
+        "startLine": 65,
+        "startChar": 36,
+        "endLine": 65,
+        "endChar": 39
+      },
+      "revId": "65b3c13b57e45b32709fb52711426df82cd9a3da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
