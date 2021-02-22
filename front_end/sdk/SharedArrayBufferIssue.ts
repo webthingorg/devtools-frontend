@@ -2,11 +2,19 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {ls} from '../common/common.js';  // eslint-disable-line rulesdir/es_modules_import
+import * as i18n from '../i18n/i18n.js';
 
 import {Issue, IssueCategory, IssueKind, MarkdownIssueDescription} from './Issue.js';  // eslint-disable-line no-unused-vars
 import {IssuesModel} from './IssuesModel.js';  // eslint-disable-line no-unused-vars
 
+export const UIStrings = {
+  /**
+  *@description Label for the link for Shared Array Buffer Issues
+  */
+  enablingSharedArrayBuffer: 'Enabling Shared Array Buffer',
+};
+const str_ = i18n.i18n.registerUIStrings('sdk/SharedArrayBufferIssue.ts', UIStrings);
+const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 export class SharedArrayBufferIssue extends Issue {
   private issueDetails: Protocol.Audits.SharedArrayBufferIssueDetails;
 
@@ -31,7 +39,7 @@ export class SharedArrayBufferIssue extends Issue {
       issueKind: IssueKind.BreakingChange,
       links: [{
         link: 'https://developer.chrome.com/blog/enabling-shared-array-buffer/',
-        linkTitle: ls`Enabling Shared Array Buffer`,
+        linkTitle: i18nLazyString(UIStrings.enablingSharedArrayBuffer),
       }],
     };
   }
