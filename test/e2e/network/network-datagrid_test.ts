@@ -59,7 +59,8 @@ describe('The Network Tab', async () => {
     });
   });
 
-  it('shows the HTML response including cyrillic characters with utf-8 encoding', async () => {
+  // Flaky test
+  it.skip('[crbug.com/1179656] the HTML response including cyrillic characters with utf-8 encoding', async () => {
     const {target} = getBrowserAndPages();
     await navigateToNetworkTab('utf-8.rawresponse');
 
@@ -86,7 +87,8 @@ describe('The Network Tab', async () => {
         '1<html><body>The following word is written using cyrillic letters and should look like "SUCCESS": SU\u0421\u0421\u0415SS.</body></html>');
   });
 
-  it('shows the correct MIME type when resources came from HTTP cache', async () => {
+  // Flaky test
+  it.skip('[crbug.com/1179656] the correct MIME type when resources came from HTTP cache', async () => {
     const {target, frontend} = getBrowserAndPages();
 
     await navigateToNetworkTab('resources-from-cache.html');
