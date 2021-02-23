@@ -16,6 +16,24 @@
       "message": "Sorry for only noticing after landing, but did we forget to add the directories to the \"migratedDirSet\" in \"scripts/localization/utils/check_localized_strings.js\"?",
       "revId": "9b0bc5ba5d655f9b3544894a8f9b9013abcff87a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e27a80fc_c519d6b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-23T18:04:55Z",
+      "side": 1,
+      "message": "😮thanks for noticing, I did forgot 😋, as this module does not have an moduleUIStrings file the presubmit did not complain. I\u0027ll add it in another CL.",
+      "parentUuid": "0c8cb57a_6d5c1a20",
+      "revId": "9b0bc5ba5d655f9b3544894a8f9b9013abcff87a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
