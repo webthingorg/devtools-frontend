@@ -1954,11 +1954,25 @@ export class TextEditorBookMark {
     return pos ? TextUtils.TextRange.TextRange.createFromLocation(pos.line, pos.ch) : null;
   }
 }
+/** @type {!CodeMirrorTextEditorFactory} */
+let codeMirrorTextEditorFactoryInstance;
 
 /**
  * @implements {UI.TextEditor.TextEditorFactory}
  */
 export class CodeMirrorTextEditorFactory {
+  /**
+   * @param {{forceNew: ?boolean}} opts
+   */
+  static instance(opts = {forceNew: null}) {
+    const {forceNew} = opts;
+    if (!codeMirrorTextEditorFactoryInstance || forceNew) {
+      codeMirrorTextEditorFactoryInstance = new CodeMirrorTextEditorFactory();
+    }
+
+    return codeMirrorTextEditorFactoryInstance;
+  }
+
   /**
    * @override
    * @param {!UI.TextEditor.Options} options
