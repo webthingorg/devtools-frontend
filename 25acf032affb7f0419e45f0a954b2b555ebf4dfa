@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d1da242_b4907cb6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-23T05:48:53Z",
+      "side": 1,
+      "message": "Migrating SDK to Localization V2. Left a comment on a minor issue. PTAL.",
+      "revId": "25acf032affb7f0419e45f0a954b2b555ebf4dfa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
