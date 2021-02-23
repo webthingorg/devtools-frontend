@@ -83,6 +83,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc83c9d5_f521dbd8",
+        "filename": "front_end/elements/AdornerSettingsPane.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-02-23T12:28:00Z",
+      "side": 1,
+      "message": "I see, we need it to be able to call .focus() — I’d missed that! Thanks",
+      "parentUuid": "c65932f9_d4bb53ba",
+      "range": {
+        "startLine": 159,
+        "startChar": 41,
+        "endLine": 159,
+        "endChar": 54
+      },
+      "revId": "65b3c13b57e45b32709fb52711426df82cd9a3da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "29029d28_5a49bb6e",
