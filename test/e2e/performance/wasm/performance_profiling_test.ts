@@ -66,13 +66,17 @@ describe('The Performance panel', async function() {
       await stopRecording();
     });
 
+    await step('wait for Timeline Details view to appear', async () => {
+      await waitFor('.timeline-details-view');
+    });
+
     await step('search for "mainWasm"', async () => {
       await searchForComponent(frontend, 'mainWasm');
     });
   });
 
   // Link to wasm function is broken in profiling tab
-  it.skip('[crbug.com/1125986] is able to inspect how long a wasm function takes to execute', async () => {
+  it('is able to inspect how long a wasm function takes to execute', async () => {
     await step('check that the total time is more than zero', async () => {
       const totalTime = await getTotalTimeFromSummary();
       assert.isAbove(totalTime, 0, 'total time for "mainWasm" is not above zero');
@@ -90,8 +94,7 @@ describe('The Performance panel', async function() {
         });
   });
 
-  // Flaky test
-  it.skip('[crbug.com/1178497] is able to display the execution time for a wasm function', async () => {
+  it('is able to display the execution time for a wasm function', async () => {
     await step('check that the Summary tab shows more than zero total time for "mainWasm"', async () => {
       const totalTime = await getTotalTimeFromSummary();
       assert.isAbove(totalTime, 0, 'mainWasm function execution time is displayed incorrectly');
