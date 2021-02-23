@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "734ca75e_031c55f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2021-02-23T09:24:47Z",
+      "side": 1,
+      "message": "Cool, LGTM. Nit: could you add `cursor: pointer` to the close (x) icon?",
+      "revId": "65b3c13b57e45b32709fb52711426df82cd9a3da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d4aa940_6725e35b",
