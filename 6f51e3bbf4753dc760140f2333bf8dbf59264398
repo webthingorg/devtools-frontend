@@ -143,6 +143,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef8a886c_914df361",
+        "filename": "front_end/elements/ElementsPanel.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 1221,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2021-02-23T12:07:42Z",
+      "side": 1,
+      "message": "Since Peter LGTM\u0027ed today, I\u0027ll wait after branch cut to land this.",
+      "parentUuid": "c136dfe3_25b89b91",
+      "revId": "6f51e3bbf4753dc760140f2333bf8dbf59264398",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c11d5192_ef965db8",
