@@ -2104,7 +2104,7 @@ export class FlameChart extends UI.Widget.VBox {
     }
     const marker = timelineData.markers[markerIndex];
     const barX = this._timeToPositionClipped(marker.startTime());
-    UI.Tooltip.Tooltip.install(element, marker.title() || '');
+    UI.Tooltip.Tooltip.install(element, (marker.title() || '') + 'XXX');
     const style = element.style;
     style.left = barX + 'px';
     style.backgroundColor = marker.color();
