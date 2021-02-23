@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c994d09_2f5062ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-23T18:14:32Z",
+      "side": 1,
+      "message": "Kalon, left a comment on ModuleUIStrings. PTAL",
+      "revId": "4ceda9cb87ccdf9d409a2626b74748348d6f0bbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52728c06_38797cbb",
+        "filename": "front_end/emulation/ModuleUIStrings.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-23T18:14:32Z",
+      "side": 1,
+      "message": "can we add the following 3 strings from emulated_devices?:\n\n- \"Laptop with HiDPI screen\"\n- \"Laptop with MDPI screen\"\n- \"Laptop with touch\"\n\nWe are removing localization from that module and the strings fit better in here, more details in:\n2707864: [Loc] Migrate emulated devices to Localization V2 | https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2707864",
+      "range": {
+        "startLine": 166,
+        "startChar": 2,
+        "endLine": 166,
+        "endChar": 51
+      },
+      "revId": "4ceda9cb87ccdf9d409a2626b74748348d6f0bbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
