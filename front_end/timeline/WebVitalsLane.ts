@@ -3,10 +3,12 @@
 // found in the LICENSE file.
 
 import * as Host from '../host/host.js';
+import * as LitHtml from '../third_party/lit-html/lit-html.js';
 
 import {assertInstanceOf, Colors, Event, Marker, MarkerType, Timebox, WebVitalsTimeline} from './WebVitalsTimeline.js';
 
 type GetMarkerTypeCallback = (event: Event) => MarkerType;
+type GetMarkerOverlay = (marker: Marker) => LitHtml.TemplateResult;
 const LONG_TASK_DURATION = 50;
 
 abstract class WebVitalsLane {
@@ -54,16 +56,21 @@ export class WebVitalsEventLane extends WebVitalsLane {
   private labelMetrics: TextMetrics;
   private label: string;
   private getMarkerType: GetMarkerTypeCallback;
+  private getMarkerOverlay?: GetMarkerOverlay;
 
-  constructor(timeline: WebVitalsTimeline, label: string, getMarkerType: GetMarkerTypeCallback) {
+  constructor(
+      timeline: WebVitalsTimeline, label: string, getMarkerType: GetMarkerTypeCallback,
+      getMarkerOverlay?: GetMarkerOverlay) {
     super(timeline);
     this.context = timeline.getContext();
     this.label = label;
     this.getMarkerType = getMarkerType;
+    this.getMarkerOverlay = getMarkerOverlay;
     this.labelMetrics = this.measureLabel(this.label);
   }
 
   handlePointerMove(x: number|null): void {
+    const prevHoverMarker = this.hoverMarker;
     if (x === null) {
       this.hoverMarker = null;
     } else {
@@ -72,6 +79,14 @@ export class WebVitalsEventLane extends WebVitalsLane {
         return tX - 5 <= x && x <= tX + m.widthIncludingLabel;
       }) ||
           null;
+    }
+
+    if (prevHoverMarker !== this.hoverMarker) {
+      if (this.hoverMarker && this.getMarkerOverlay) {
+        this.timeline.showOverlay(this.getMarkerOverlay(this.hoverMarker));
+      } else {
+        this.timeline.hideOverlay();
+      }
     }
   }
 
