@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2c40ab8_4077717e",
+        "filename": "test/unittests/front_end/sdk/CSSProperty_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2021-02-23T16:19:28Z",
+      "side": 1,
+      "message": "Opted for leaving the \u0027\\n\u0027 escape sequence as using backticks + new lines will trigger formatting identation and alter the string values as a consequence.",
+      "range": {
+        "startLine": 18,
+        "startChar": 54,
+        "endLine": 18,
+        "endChar": 56
+      },
+      "revId": "95f0bc5606aaae854d8872b8a72122733d96c97c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
