@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d166f39_13b07dd6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-02-23T21:26:40Z",
+      "side": 1,
+      "message": "Currently IconButton is only used in couple of places, I have verified both and it works fine.",
+      "revId": "d0478d8eb42df65a9aaa11dc240f277e5deb8631",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
