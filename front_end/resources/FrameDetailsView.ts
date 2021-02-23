@@ -313,17 +313,77 @@ export class FrameDetailsReportView extends HTMLElement {
     if (!stats) {
       return LitHtml.nothing;
     }
-    const allowed = stats.filter(s => s.allowed).map(s => s.feature).sort();
-    const disallowed = stats.filter(s => !s.allowed).map(s => s.feature).sort();
-    return LitHtml.html`<devtools-report-section-header>Permissions Policy</devtools-report-section-header>
-    ${
-        allowed.length ? LitHtml.html`<devtools-report-key>Allowed Features</devtools-report-key>
-    <devtools-report-value>${allowed.join(', ')}</devtools-report-value>` :
-                         LitHtml.nothing}
-    ${
-        disallowed.length ? LitHtml.html`<devtools-report-key>Disallowed Features</devtools-report-key>
-    <devtools-report-value>${disallowed.join(', ')}</devtools-report-value>` :
-                            LitHtml.nothing}
+
+    const SUCCESS_ICON_DATA: WebComponents.Icon.IconWithName = {
+      color: 'rgb(12, 164, 12)',
+      iconName: 'ic_checkmark_16x16',
+      width: '15px',
+    };
+
+    const FAILURE_ICON_DATA: WebComponents.Icon.IconWithName = {
+      color: '',
+      iconName: 'error_icon',
+      width: '14px',
+    };
+
+    const frameManager = SDK.FrameManager.FrameManager.instance();
+    const featureRows = await Promise.all(stats.sort((a, b) => a.feature.localeCompare(b.feature)).map(async s => {
+      const frame = s.locator ? frameManager.getFrame(s.locator.frameId) : null;
+      const linkTargetDOMNode = await (frame && frame.getOwnerDOMNodeOrDocument());
+      // TODO: only add CSS in first iteration
+      return LitHtml.html`
+        <style>
+          .permissions-row {
+            display: flex;
+          }
+
+          .permissions-row div {
+            padding-right: 5px;
+          }
+
+          .feature-name {
+            width: 135px;
+          }
+
+          .right {
+            display: flex;
+            overflow: hidden;
+          }
+
+          .allowed-icon {
+            padding: 2.5px 0;
+          }
+        </style>
+        <div class="permissions-row">
+          <div>
+            <devtools-icon class="allowed-icon"
+              .data=${(s.allowed ? SUCCESS_ICON_DATA : FAILURE_ICON_DATA) as WebComponents.Icon.IconData}>
+            </devtools-icon>
+          </div>
+          <div class="feature-name text-ellipsis">
+            ${s.feature}
+          </div>
+          <div>
+            ${
+          linkTargetDOMNode ? this.renderIconLink(
+                                  'elements_panel_icon',
+                                  i18nString(UIStrings.clickToRevealInElementsPanel),
+                                  (): Promise<void> => Common.Revealer.reveal(linkTargetDOMNode),
+                                  ) :
+                              LitHtml.nothing}
+          </div>
+        </div>
+      `;
+    }));
+
+    return LitHtml.html`
+      <devtools-report-section-header>Permissions Policy</devtools-report-section-header>
+      <devtools-report-key>Permissions Policy</devtools-report-key>
+      <devtools-report-value>
+        <devtools-expandable-list .data=${{rows: featureRows} as ExpandableListData}>
+        </devtools-expandable-list>
+      </devtools-report-value>
+      <devtools-report-divider></devtools-report-divider>
     `;
   }
 
@@ -796,7 +856,7 @@ export class ExpandableList extends HTMLElement {
 
         .arrow-icon-button {
           cursor: pointer;
-          padding: 0;
+          padding: 1px 0;
           border: none;
           background: none;
         }
@@ -825,11 +885,19 @@ export class ExpandableList extends HTMLElement {
           overflow: hidden;
         }
 
+        .link,
         .devtools-link {
           color: var(--color-link);
           text-decoration: underline;
           cursor: pointer;
           padding: 2px 0; /* adjust focus ring size */
+        }
+
+        button.link {
+          border: none;
+          background: none;
+          font-family: inherit;
+          font-size: inherit;
         }
       </style>
       <div class="expandable-list-container">
