@@ -801,6 +801,8 @@ all_typescript_module_sources = [
   "ui/components/IconButton.js",
   "ui/components/Linkifier.js",
   "ui/components/LinkifierUtils.js",
+  "ui/components/ObjectViewer.js",
+  "ui/components/ObjectViewerUtils.js",
   "ui/components/ReportView.js",
   "ui/components/SurveyLink.js",
   "ui/components/TreeOutline.js",

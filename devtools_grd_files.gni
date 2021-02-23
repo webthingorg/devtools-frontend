@@ -1223,6 +1223,8 @@ grd_files_debug_sources = [
   "front_end/ui/components/IconButton.js",
   "front_end/ui/components/Linkifier.js",
   "front_end/ui/components/LinkifierUtils.js",
+  "front_end/ui/components/ObjectViewer.js",
+  "front_end/ui/components/ObjectViewerUtils.js",
   "front_end/ui/components/ReportView.js",
   "front_end/ui/components/SurveyLink.js",
   "front_end/ui/components/TreeOutline.js",

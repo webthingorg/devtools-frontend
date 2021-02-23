@@ -10,6 +10,8 @@ import * as DataGridUtils from './DataGridUtils.js';
 import * as Icon from './Icon.js';
 import * as IconButton from './IconButton.js';
 import * as Linkifier from './Linkifier.js';
+import * as ObjectViewer from './ObjectViewer.js';
+import * as ObjectViewerUtils from './ObjectViewerUtils.js';
 import * as ReportView from './ReportView.js';
 import * as SurveyLink from './SurveyLink.js';
 import * as TreeOutline from './TreeOutline.js';
@@ -24,6 +26,8 @@ export {
   Icon,
   IconButton,
   Linkifier,
+  ObjectViewer,
+  ObjectViewerUtils,
   ReportView,
   SurveyLink,
   TreeOutline,

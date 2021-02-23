@@ -17,6 +17,8 @@ devtools_module("components") {
     "IconButton.ts",
     "Linkifier.ts",
     "LinkifierUtils.ts",
+    "ObjectViewer.ts",
+    "ObjectViewerUtils.ts",
     "ReportView.ts",
     "SurveyLink.ts",
     "TreeOutline.ts",

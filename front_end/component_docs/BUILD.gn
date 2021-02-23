@@ -23,6 +23,7 @@ group("component_docs") {
     "./markdown_image",
     "./markdown_link",
     "./markdown_view",
+    "./object_viewer",
     "./perf_piechart",
     "./report",
     "./survey_link",
