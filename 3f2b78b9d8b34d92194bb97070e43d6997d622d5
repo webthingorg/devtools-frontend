@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4da66416_a455c3df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-23T14:40:43Z",
+      "side": 1,
+      "message": "PTAL\n\nSteven wanted to hide the new properties until there is an article that explains them.",
+      "revId": "3f2b78b9d8b34d92194bb97070e43d6997d622d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
