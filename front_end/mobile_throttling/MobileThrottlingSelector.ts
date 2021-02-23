@@ -28,7 +28,7 @@ export const UIStrings = {
   advanced: 'Advanced',
 };
 const str_ = i18n.i18n.registerUIStrings('mobile_throttling/MobileThrottlingSelector.ts', UIStrings);
-const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
 export class MobileThrottlingSelector {
   _populateCallback: (arg0: Array<MobileThrottlingConditionsGroup>) => ConditionsList;
@@ -54,11 +54,14 @@ export class MobileThrottlingSelector {
 
   _populateOptions(): ConditionsList {
     const disabledGroup = {
-      title: i18nString(UIStrings.disabled),
+      title: i18nLazyString(UIStrings.disabled),
       items: [ThrottlingPresets.getNoThrottlingConditions()],
     };
-    const presetsGroup = {title: i18nString(UIStrings.presets), items: ThrottlingPresets.getMobilePresets()};
-    const advancedGroup = {title: i18nString(UIStrings.advanced), items: ThrottlingPresets.getAdvancedMobilePresets()};
+    const presetsGroup = {title: i18nLazyString(UIStrings.presets), items: ThrottlingPresets.getMobilePresets()};
+    const advancedGroup = {
+      title: i18nLazyString(UIStrings.advanced),
+      items: ThrottlingPresets.getAdvancedMobilePresets(),
+    };
     return this._populateCallback([disabledGroup, presetsGroup, advancedGroup]);
   }
 
@@ -77,7 +80,7 @@ export class MobileThrottlingSelector {
     const customConditions = ThrottlingPresets.getCustomConditions();
     for (let index = 0; index < this._options.length; ++index) {
       const item = this._options[index];
-      if (item && item.title === customConditions.title && item.description === customConditions.description) {
+      if (item && item.title() === customConditions.title() && item.description === customConditions.description) {
         this._selectCallback(index);
         return;
       }
