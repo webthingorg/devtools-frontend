@@ -33,6 +33,24 @@
       "message": "lgtm\n\nI would slightly prefer if we could land the CL that moves the 3 translated strings to \"emulation\" first, before we remove them in this CL.",
       "revId": "a24de66109c08ba934316dc3fb3ea1619eece5d4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fee29754_6a395ea8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-23T18:09:59Z",
+      "side": 1,
+      "message": "sounds good. I\u0027ll sync with @kahinds",
+      "parentUuid": "eb0fcf9f_b7ad2632",
+      "revId": "a24de66109c08ba934316dc3fb3ea1619eece5d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
