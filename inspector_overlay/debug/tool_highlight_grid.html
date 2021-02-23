@@ -16,6 +16,12 @@ found in the LICENSE file.
     const viewportWidth = document.documentElement.clientWidth;
     const viewportHeight = document.documentElement.clientHeight;
 
+    window.InspectorOverlayHost = {
+      send() {
+        console.log('sending', arguments);
+      }
+    }
+
     const gridInfos = [
       // Simple 2x3 grid, with explicit lines.
       {
@@ -32,7 +38,9 @@ found in the LICENSE file.
             "gridBorder":["M",100,60,"L",420,60,"L",420,204,"L",100,204,"Z"],
             "gridHighlightConfig":{"gridBorderDash":false,"rowLineDash":true,"columnLineDash":true,"showGridExtensionLines":false,"showPositiveLineNumbers":true,"showNegativeLineNumbers":true,"rowLineColor":"rgba(127, 32, 210, 1)","columnLineColor":"rgba(127, 32, 210, 1)","rowHatchColor":"rgba(127, 32, 210, .8)","columnHatchColor":"rgba(127, 32, 210, .8)"},
             "isPrimaryGrid":true,
-            "nodeId": 1
+            "nodeId": 1,
+            "rowGap": "10px",
+            "columnGap": "10px"
           }
       },
       // 3x3 grid with a leading implicit row and a leading implicit column.
