@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c8cb57a_6d5c1a20",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-23T06:47:04Z",
+      "side": 1,
+      "message": "Sorry for only noticing after landing, but did we forget to add the directories to the \"migratedDirSet\" in \"scripts/localization/utils/check_localized_strings.js\"?",
+      "revId": "9b0bc5ba5d655f9b3544894a8f9b9013abcff87a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
