@@ -16,6 +16,29 @@
       "message": "Migrating SDK to Localization V2. Left a comment on a minor issue. PTAL.",
       "revId": "25acf032affb7f0419e45f0a954b2b555ebf4dfa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8af739af_8531c874",
+        "filename": "front_end/sdk/Issue.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-23T05:52:01Z",
+      "side": 1,
+      "message": "I had lazy load the link title as some code that depends on it initializes at declaration time. (e.g SameSiteCookieIssue.js), this triggered some changes on other folders (mobile_throttling, issues). Just a heads up 😊",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 71
+      },
+      "revId": "25acf032affb7f0419e45f0a954b2b555ebf4dfa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
