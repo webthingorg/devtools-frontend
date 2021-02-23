@@ -16,6 +16,23 @@
       "message": "A small one but it differs from the previous changes. I left the details on the description. PTAL.",
       "revId": "a24de66109c08ba934316dc3fb3ea1619eece5d4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb0fcf9f_b7ad2632",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-23T06:49:16Z",
+      "side": 1,
+      "message": "lgtm\n\nI would slightly prefer if we could land the CL that moves the 3 translated strings to \"emulation\" first, before we remove them in this CL.",
+      "revId": "a24de66109c08ba934316dc3fb3ea1619eece5d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
