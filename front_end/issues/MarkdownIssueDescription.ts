@@ -12,7 +12,7 @@ export interface IssueDescription {
   title: string;
   view: MarkdownView;
   issueKind: SDK.Issue.IssueKind;
-  links: {link: string, linkTitle: string}[];
+  links: {link: string, linkTitle: () => string}[];
 }
 
 export function createIssueDescriptionFromMarkdown(description: SDK.Issue.MarkdownIssueDescription): IssueDescription {
@@ -44,7 +44,7 @@ const validPlaceholderNamePattern = /PLACEHOLDER_[a-zA-Z][a-zA-Z0-9]*/;
  *
  * Exported only for unit testing.
  */
-export function substitutePlaceholders(markdown: string, substitutions?: Map<string, string>): string {
+export function substitutePlaceholders(markdown: string, substitutions?: Map<string, () => string>): string {
   const unusedPlaceholders = new Set(substitutions ? substitutions.keys() : []);
   validatePlaceholders(unusedPlaceholders);
 
@@ -54,7 +54,7 @@ export function substitutePlaceholders(markdown: string, substitutions?: Map<str
       throw new Error(`No replacment provided for placeholder '${placeholder}'.`);
     }
     unusedPlaceholders.delete(placeholder);
-    return replacement;
+    return replacement();
   });
 
   if (unusedPlaceholders.size > 0) {

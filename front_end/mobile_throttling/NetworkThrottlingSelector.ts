@@ -25,7 +25,7 @@ export const UIStrings = {
   custom: 'Custom',
 };
 const str_ = i18n.i18n.registerUIStrings('mobile_throttling/NetworkThrottlingSelector.ts', UIStrings);
-const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 export class NetworkThrottlingSelector {
   _populateCallback: (arg0: Array<NetworkThrottlingConditionsGroup>) => Array<SDK.NetworkManager.Conditions|null>;
   _selectCallback: (arg0: number) => void;
@@ -57,9 +57,12 @@ export class NetworkThrottlingSelector {
   }
 
   _populateOptions(): void {
-    const disabledGroup = {title: i18nString(UIStrings.disabled), items: [SDK.NetworkManager.NoThrottlingConditions]};
-    const presetsGroup = {title: i18nString(UIStrings.presets), items: ThrottlingPresets.networkPresets};
-    const customGroup = {title: i18nString(UIStrings.custom), items: this._customNetworkConditionsSetting.get()};
+    const disabledGroup = {
+      title: i18nLazyString(UIStrings.disabled),
+      items: [SDK.NetworkManager.NoThrottlingConditions],
+    };
+    const presetsGroup = {title: i18nLazyString(UIStrings.presets), items: ThrottlingPresets.networkPresets};
+    const customGroup = {title: i18nLazyString(UIStrings.custom), items: this._customNetworkConditionsSetting.get()};
     this._options = this._populateCallback([disabledGroup, presetsGroup, customGroup]);
     if (!this._networkConditionsChanged()) {
       for (let i = this._options.length - 1; i >= 0; i--) {
