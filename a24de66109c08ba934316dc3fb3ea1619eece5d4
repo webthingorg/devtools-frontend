@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cc7b1ab_2d581db6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-23T06:01:47Z",
+      "side": 1,
+      "message": "A small one but it differs from the previous changes. I left the details on the description. PTAL.",
+      "revId": "a24de66109c08ba934316dc3fb3ea1619eece5d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
