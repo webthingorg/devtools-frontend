@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12599244_b8b02eba",
+        "filename": "inspector_overlay/debug/tool_highlight_grid.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-02-23T12:35:25Z",
+      "side": 1,
+      "message": ";",
+      "revId": "52fe7ee3c5a2e5c0a4fd551fbc23d0c5b3332d69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5a28e6b_f171529f",
+        "filename": "inspector_overlay/drag_resize_handler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-02-23T12:35:25Z",
+      "side": 1,
+      "message": "nit: Is there a reason to restrict this to just document.body? If not, we might as well use document.documentElement or even document itself",
+      "revId": "52fe7ee3c5a2e5c0a4fd551fbc23d0c5b3332d69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0d170d5_e1db5bb2",
+        "filename": "inspector_overlay/drag_resize_handler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-02-23T12:35:25Z",
+      "side": 1,
+      "message": "I\u0027m curious, why is this one on `window` and not `document.body` like the rest? It\u0027s not obvious to me.\n\nRe: my earlier question, if we decide to just use `document` instead, it seems like we can use that consistently here as well.",
+      "revId": "52fe7ee3c5a2e5c0a4fd551fbc23d0c5b3332d69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ea283d4_6a3131c9",
+        "filename": "inspector_overlay/drag_resize_handler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-02-23T12:35:25Z",
+      "side": 1,
+      "message": "nit: e → event",
+      "range": {
+        "startLine": 96,
+        "startChar": 35,
+        "endLine": 96,
+        "endChar": 36
+      },
+      "revId": "52fe7ee3c5a2e5c0a4fd551fbc23d0c5b3332d69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0d1377e_08c7a9de",
+        "filename": "inspector_overlay/drag_resize_handler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-02-23T12:35:25Z",
+      "side": 1,
+      "message": "document.documentElement",
+      "range": {
+        "startLine": 133,
+        "startChar": 9,
+        "endLine": 133,
+        "endChar": 22
+      },
+      "revId": "52fe7ee3c5a2e5c0a4fd551fbc23d0c5b3332d69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
