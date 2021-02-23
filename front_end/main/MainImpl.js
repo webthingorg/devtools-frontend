@@ -213,6 +213,9 @@ export class MainImpl {
     Root.Runtime.experiments.register(
         'contrastIssues', 'Enable automatic contrast issue reporting via the Issues panel');
 
+    // New cookie features.
+    Root.Runtime.experiments.register('newCookieFeatures', 'Enable new cookie features preview');
+
     Root.Runtime.experiments.enableExperimentsByDefault([
       'cssFlexboxFeatures',
     ]);

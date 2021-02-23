@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Common from '../common/common.js';
+import * as Root from '../root/root.js';
 
 import {Attributes, Cookie} from './Cookie.js';  // eslint-disable-line no-unused-vars
 import {Resource} from './Resource.js';          // eslint-disable-line no-unused-vars
@@ -90,6 +91,7 @@ export class CookieModel extends SDKModel {
     if (cookie.expires()) {
       expires = Math.floor(Date.parse(`${cookie.expires()}`) / 1000);
     }
+    const enabled = Root.Runtime.experiments.isEnabled('newCookieFeatures');
     const protocolCookie = {
       name: cookie.name(),
       value: cookie.value(),
@@ -102,8 +104,8 @@ export class CookieModel extends SDKModel {
       expires,
       priority: cookie.priority(),
       sameParty: cookie.sameParty(),
-      sourceScheme: cookie.sourceScheme(),
-      sourcePort: cookie.sourcePort(),
+      sourceScheme: enabled ? cookie.sourceScheme() : undefined,
+      sourcePort: enabled ? cookie.sourcePort() : undefined,
     };
     const response = await this.target().networkAgent().invoke_setCookie(protocolCookie);
     const error = response.getError();
