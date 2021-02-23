@@ -223,6 +223,8 @@ export interface GridHighlight {
   rows: Array<string|number>;
   columns: Array<string|number>;
   areaNames: {[key: string]: Array<string|number>};
+  rowGap: string;
+  columnGap: string;
   gridHighlightConfig: {
     gridBackgroundColor?: string,
     gridBorderColor?: string,
@@ -245,7 +247,8 @@ export interface GridHighlight {
 
 export function drawLayoutGridHighlight(
     highlight: GridHighlight, context: CanvasRenderingContext2D, deviceScaleFactor: number, canvasWidth: number,
-    canvasHeight: number, emulationScaleFactor: number, labelState: GridLabelState) {
+    canvasHeight: number, emulationScaleFactor: number,
+    labelState: GridLabelState): {rowGapPath: null|Path2D, columnGapPath: null|Path2D} {
   const gridBounds = emptyBounds();
   const gridPath = buildPath(highlight.gridBorder, gridBounds, emulationScaleFactor);
 
@@ -277,11 +280,11 @@ export function drawLayoutGridHighlight(
   const columnBounds = drawGridLines(context, highlight, 'column', emulationScaleFactor);
 
   // Draw gaps
-  drawGridGap(
+  const rowGapPath = drawGridGap(
       context, highlight.rowGaps, highlight.gridHighlightConfig.rowGapColor,
       highlight.gridHighlightConfig.rowHatchColor, highlight.rotationAngle, emulationScaleFactor,
       /* flipDirection */ true);
-  drawGridGap(
+  const columnGapPath = drawGridGap(
       context, highlight.columnGaps, highlight.gridHighlightConfig.columnGapColor,
       highlight.gridHighlightConfig.columnHatchColor, highlight.rotationAngle, emulationScaleFactor,
       /* flipDirection */ false);
@@ -311,6 +314,8 @@ export function drawLayoutGridHighlight(
   drawGridLabels(
       highlight, gridBounds, areaBounds, {canvasWidth, canvasHeight}, labelState, emulationScaleFactor,
       writingModeMatrix);
+
+  return {rowGapPath, columnGapPath};
 }
 
 function applyWritingModeTransformation(writingMode: string, gridBounds: Bounds, context: CanvasRenderingContext2D) {
@@ -464,9 +469,9 @@ function drawGridAreas(
 function drawGridGap(
     context: CanvasRenderingContext2D, gapCommands: Array<number|string>, gapColor: string|undefined,
     hatchColor: string|undefined, rotationAngle: number, emulationScaleFactor: number,
-    flipDirection: boolean|undefined) {
+    flipDirection: boolean|undefined): Path2D|null {
   if (!gapColor && !hatchColor) {
-    return;
+    return null;
   }
 
   context.save();
@@ -487,4 +492,5 @@ function drawGridGap(
     hatchFillPath(context, path, bounds, /* delta */ 10, hatchColor, rotationAngle, flipDirection);
   }
   context.restore();
+  return path;
 }
