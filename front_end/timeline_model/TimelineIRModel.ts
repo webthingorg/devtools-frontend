@@ -2,11 +2,13 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';
 import * as i18n from '../i18n/i18n.js';
-import * as SDK from '../sdk/sdk.js';  // eslint-disable-line no-unused-vars
+import * as SDK from '../sdk/sdk.js'; // eslint-disable-line no-unused-vars
 
-import {RecordType} from './TimelineModel.js';
+import { RecordType } from './TimelineModel.js';
 
 export const UIStrings = {
   /**
@@ -23,44 +25,26 @@ export const UIStrings = {
   */
   twoTouchesAtTheSameTimeSVsS: 'Two touches at the same time? {PH1} vs {PH2}',
 };
-const str_ = i18n.i18n.registerUIStrings('timeline_model/TimelineIRModel.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('timeline_model/TimelineIRModel.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
-/**
- * @type {!WeakMap<!SDK.TracingModel.Event, !Phases>}
- */
-const eventToPhase = new WeakMap();
+const eventToPhase = new WeakMap<SDK.TracingModel.Event, Phases>();
 
 export class TimelineIRModel {
+  _segments!: Common.SegmentedRange.Segment[];
+  _drags!: Common.SegmentedRange.SegmentedRange;
+  _cssAnimations!: Common.SegmentedRange.SegmentedRange;
+  _responses!: Common.SegmentedRange.SegmentedRange;
+  _scrolls!: Common.SegmentedRange.SegmentedRange;
   constructor() {
-    // Attributes below are guaranteed to be set by reset();
-
-    /** @type {!Array<!Common.SegmentedRange.Segment>} */
-    this._segments;
-    /** @type {!Common.SegmentedRange.SegmentedRange} */
-    this._drags;
-    /** @type {!Common.SegmentedRange.SegmentedRange} */
-    this._cssAnimations;
-    /** @type {!Common.SegmentedRange.SegmentedRange} */
-    this._responses;
-    /** @type {!Common.SegmentedRange.SegmentedRange} */
-    this._scrolls;
 
     this.reset();
   }
 
-  /**
-   * @param {!SDK.TracingModel.Event} event
-   * @return {(!Phases|undefined)}
-   */
-  static phaseForEvent(event) {
+  static phaseForEvent(event: SDK.TracingModel.Event): Phases | undefined {
     return eventToPhase.get(event);
   }
 
-  /**
-   * @param {?Array<!SDK.TracingModel.AsyncEvent>} inputLatencies
-   * @param {?Array<!SDK.TracingModel.AsyncEvent>} animations
-   */
-  populate(inputLatencies, animations) {
+  populate(inputLatencies: SDK.TracingModel.AsyncEvent[] | null, animations: SDK.TracingModel.AsyncEvent[] | null): void {
     this.reset();
     if (!inputLatencies) {
       return;
@@ -70,17 +54,14 @@ export class TimelineIRModel {
       this._processAnimations(animations);
     }
     const range = new Common.SegmentedRange.SegmentedRange();
-    range.appendRange(this._drags);  // Drags take lower precedence than animation, as we can't detect them reliably.
+    range.appendRange(this._drags); // Drags take lower precedence than animation, as we can't detect them reliably.
     range.appendRange(this._cssAnimations);
     range.appendRange(this._scrolls);
     range.appendRange(this._responses);
     this._segments = range.segments();
   }
 
-  /**
-   * @param {!Array<!SDK.TracingModel.AsyncEvent>} events
-   */
-  _processInputLatencies(events) {
+  _processInputLatencies(events: SDK.TracingModel.AsyncEvent[]): void {
     const eventTypes = InputEvents;
     const phases = Phases;
     const thresholdsMs = TimelineIRModel._mergeThresholdsMs;
@@ -108,21 +89,21 @@ export class TimelineIRModel {
         case eventTypes.ScrollEnd:
           if (scrollStart) {
             this._scrolls.append(this._segmentForEventRange(scrollStart, event, phases.Scroll));
-          } else {
+          }
+          else {
             this._scrolls.append(this._segmentForEvent(event, phases.Scroll));
           }
           scrollStart = null;
           break;
 
         case eventTypes.ScrollUpdate:
-          touchStart = null;  // Since we're scrolling now, disregard other touch gestures.
+          touchStart = null; // Since we're scrolling now, disregard other touch gestures.
           this._scrolls.append(this._segmentForEvent(event, phases.Scroll));
           break;
 
         case eventTypes.FlingStart:
           if (flingStart) {
-            Common.Console.Console.instance().error(
-                i18nString(UIStrings.twoFlingsAtTheSameTimeSVsS, {PH1: flingStart.startTime, PH2: event.startTime}));
+            Common.Console.Console.instance().error(i18nString(UIStrings.twoFlingsAtTheSameTimeSVsS, { PH1: flingStart.startTime, PH2: event.startTime }));
             break;
           }
           flingStart = event;
@@ -156,8 +137,7 @@ export class TimelineIRModel {
           // We do not produce any response segment for TouchStart -- there's either going to be one upon
           // TouchMove for drag, or one for GestureTap.
           if (touchStart) {
-            Common.Console.Console.instance().error(
-                i18nString(UIStrings.twoTouchesAtTheSameTimeSVsS, {PH1: touchStart.startTime, PH2: event.startTime}));
+            Common.Console.Console.instance().error(i18nString(UIStrings.twoTouchesAtTheSameTimeSVsS, { PH1: touchStart.startTime, PH2: event.startTime }));
             break;
           }
           touchStart = event;
@@ -172,7 +152,8 @@ export class TimelineIRModel {
         case eventTypes.TouchMove:
           if (firstTouchMove) {
             this._drags.append(this._segmentForEvent(event, phases.Drag));
-          } else if (touchStart) {
+          }
+          else if (touchStart) {
             firstTouchMove = event;
             this._responses.append(this._segmentForEventRange(touchStart, event, phases.Response));
           }
@@ -191,7 +172,8 @@ export class TimelineIRModel {
           if (mouseDown && !mouseMove && mouseDown.startTime + thresholdsMs.mouse > event.startTime) {
             this._responses.append(this._segmentForEvent(mouseDown, phases.Response));
             this._responses.append(this._segmentForEvent(event, phases.Response));
-          } else if (mouseDown) {
+          }
+          else if (mouseDown) {
             this._drags.append(this._segmentForEvent(event, phases.Drag));
           }
           mouseMove = event;
@@ -206,7 +188,8 @@ export class TimelineIRModel {
           // Do not consider first MouseWheel as trace viewer's implementation does -- in case of MouseWheel it's not really special.
           if (mouseWheel && canMerge(thresholdsMs.mouse, mouseWheel, event)) {
             this._scrolls.append(this._segmentForEventRange(mouseWheel, event, phases.Scroll));
-          } else {
+          }
+          else {
             this._scrolls.append(this._segmentForEvent(event, phases.Scroll));
           }
           mouseWheel = event;
@@ -214,13 +197,7 @@ export class TimelineIRModel {
       }
     }
 
-    /**
-     * @param {number} threshold
-     * @param {!SDK.TracingModel.AsyncEvent} first
-     * @param {!SDK.TracingModel.AsyncEvent} second
-     * @return {boolean}
-     */
-    function canMerge(threshold, first, second) {
+    function canMerge(threshold: number, first: SDK.TracingModel.AsyncEvent, second: SDK.TracingModel.AsyncEvent): boolean {
       if (first.endTime === undefined) {
         return false;
       }
@@ -228,55 +205,32 @@ export class TimelineIRModel {
     }
   }
 
-  /**
-   * @param {!Array<!SDK.TracingModel.AsyncEvent>} events
-   */
-  _processAnimations(events) {
+  _processAnimations(events: SDK.TracingModel.AsyncEvent[]): void {
     for (let i = 0; i < events.length; ++i) {
       this._cssAnimations.append(this._segmentForEvent(events[i], Phases.Animation));
     }
   }
 
-  /**
-   * @param {!SDK.TracingModel.AsyncEvent} event
-   * @param {!Phases} phase
-   * @return {!Common.SegmentedRange.Segment}
-   */
-  _segmentForEvent(event, phase) {
+  _segmentForEvent(event: SDK.TracingModel.AsyncEvent, phase: Phases): Common.SegmentedRange.Segment {
     this._setPhaseForEvent(event, phase);
-    return new Common.SegmentedRange.Segment(
-        event.startTime, event.endTime !== undefined ? event.endTime : Number.MAX_SAFE_INTEGER, phase);
+    return new Common.SegmentedRange.Segment(event.startTime, event.endTime !== undefined ? event.endTime : Number.MAX_SAFE_INTEGER, phase);
   }
 
-  /**
-   * @param {!SDK.TracingModel.AsyncEvent} startEvent
-   * @param {!SDK.TracingModel.AsyncEvent} endEvent
-   * @param {!Phases} phase
-   * @return {!Common.SegmentedRange.Segment}
-   */
-  _segmentForEventRange(startEvent, endEvent, phase) {
+  _segmentForEventRange(startEvent: SDK.TracingModel.AsyncEvent, endEvent: SDK.TracingModel.AsyncEvent, phase: Phases): Common.SegmentedRange.Segment {
     this._setPhaseForEvent(startEvent, phase);
     this._setPhaseForEvent(endEvent, phase);
-    return new Common.SegmentedRange.Segment(
-        startEvent.startTime, startEvent.endTime !== undefined ? startEvent.endTime : Number.MAX_SAFE_INTEGER, phase);
+    return new Common.SegmentedRange.Segment(startEvent.startTime, startEvent.endTime !== undefined ? startEvent.endTime : Number.MAX_SAFE_INTEGER, phase);
   }
 
-  /**
-   * @param {!SDK.TracingModel.AsyncEvent} asyncEvent
-   * @param {!Phases} phase
-   */
-  _setPhaseForEvent(asyncEvent, phase) {
+  _setPhaseForEvent(asyncEvent: SDK.TracingModel.AsyncEvent, phase: Phases): void {
     eventToPhase.set(asyncEvent.steps[0], phase);
   }
 
-  /**
-   * @return {!Array<!Common.SegmentedRange.Segment>}
-   */
-  interactionRecords() {
+  interactionRecords(): Common.SegmentedRange.Segment[] {
     return this._segments;
   }
 
-  reset() {
+  reset(): void {
     const thresholdsMs = TimelineIRModel._mergeThresholdsMs;
 
     this._segments = [];
@@ -285,80 +239,67 @@ export class TimelineIRModel {
     this._responses = new Common.SegmentedRange.SegmentedRange(merge.bind(null, 0));
     this._scrolls = new Common.SegmentedRange.SegmentedRange(merge.bind(null, thresholdsMs.animation));
 
-    /**
-     * @param {number} threshold
-     * @param {!Common.SegmentedRange.Segment} first
-     * @param {!Common.SegmentedRange.Segment} second
-     */
-    function merge(threshold, first, second) {
+    function merge(threshold: number, first: Common.SegmentedRange.Segment, second: Common.SegmentedRange.Segment): Common.SegmentedRange.Segment | null {
       return first.end + threshold >= second.begin && first.data === second.data ? first : null;
     }
   }
 
-  /**
-   * @param {string} eventName
-   * @return {?InputEvents}
-   */
-  _inputEventType(eventName) {
+  _inputEventType(eventName: string): InputEvents | null {
     const prefix = 'InputLatency::';
     if (!eventName.startsWith(prefix)) {
       if (eventName === InputEvents.ImplSideFling) {
-        return /** @type {!InputEvents} */ (eventName);
+        return /** @type {!InputEvents} */ eventName as InputEvents;
       }
       console.error('Unrecognized input latency event: ' + eventName);
       return null;
     }
-    return /** @type {!InputEvents} */ (eventName.substr(prefix.length));
+    return /** @type {!InputEvents} */ eventName.substr(prefix.length) as InputEvents;
   }
 }
 
-/**
- * @enum {string}
- */
-export const Phases = {
-  Idle: 'Idle',
-  Response: 'Response',
-  Scroll: 'Scroll',
-  Fling: 'Fling',
-  Drag: 'Drag',
-  Animation: 'Animation',
-  Uncategorized: 'Uncategorized'
-};
+export enum Phases {
+  Idle = 'Idle',
+  Response = 'Response',
+  Scroll = 'Scroll',
+  Fling = 'Fling',
+  Drag = 'Drag',
+  Animation = 'Animation',
+  Uncategorized = 'Uncategorized'
+}
+;
 
-/**
- * @enum {string}
- */
-export const InputEvents = {
-  Char: 'Char',
-  Click: 'GestureClick',
-  ContextMenu: 'ContextMenu',
-  FlingCancel: 'GestureFlingCancel',
-  FlingStart: 'GestureFlingStart',
-  ImplSideFling: RecordType.ImplSideFling,
-  KeyDown: 'KeyDown',
-  KeyDownRaw: 'RawKeyDown',
-  KeyUp: 'KeyUp',
-  LatencyScrollUpdate: 'ScrollUpdate',
-  MouseDown: 'MouseDown',
-  MouseMove: 'MouseMove',
-  MouseUp: 'MouseUp',
-  MouseWheel: 'MouseWheel',
-  PinchBegin: 'GesturePinchBegin',
-  PinchEnd: 'GesturePinchEnd',
-  PinchUpdate: 'GesturePinchUpdate',
-  ScrollBegin: 'GestureScrollBegin',
-  ScrollEnd: 'GestureScrollEnd',
-  ScrollUpdate: 'GestureScrollUpdate',
-  ScrollUpdateRenderer: 'ScrollUpdate',
-  ShowPress: 'GestureShowPress',
-  Tap: 'GestureTap',
-  TapCancel: 'GestureTapCancel',
-  TapDown: 'GestureTapDown',
-  TouchCancel: 'TouchCancel',
-  TouchEnd: 'TouchEnd',
-  TouchMove: 'TouchMove',
-  TouchStart: 'TouchStart'
-};
+export enum InputEvents {
+  Char = 'Char',
+  Click = 'GestureClick',
+  ContextMenu = 'ContextMenu',
+  FlingCancel = 'GestureFlingCancel',
+  FlingStart = 'GestureFlingStart',
+  ImplSideFling = RecordType.ImplSideFling,
+  KeyDown = 'KeyDown',
+  KeyDownRaw = 'RawKeyDown',
+  KeyUp = 'KeyUp',
+  LatencyScrollUpdate = 'ScrollUpdate',
+  MouseDown = 'MouseDown',
+  MouseMove = 'MouseMove',
+  MouseUp = 'MouseUp',
+  MouseWheel = 'MouseWheel',
+  PinchBegin = 'GesturePinchBegin',
+  PinchEnd = 'GesturePinchEnd',
+  PinchUpdate = 'GesturePinchUpdate',
+  ScrollBegin = 'GestureScrollBegin',
+  ScrollEnd = 'GestureScrollEnd',
+  ScrollUpdate = 'GestureScrollUpdate',
+  ScrollUpdateRenderer = 'ScrollUpdate',
+  ShowPress = 'GestureShowPress',
+  Tap = 'GestureTap',
+  TapCancel = 'GestureTapCancel',
+  TapDown = 'GestureTapDown',
+  TouchCancel = 'TouchCancel',
+  TouchEnd = 'TouchEnd',
+  TouchMove = 'TouchMove',
+  TouchStart = 'TouchStart'
+}
+;
 
 TimelineIRModel._mergeThresholdsMs = {
   animation: 1,
