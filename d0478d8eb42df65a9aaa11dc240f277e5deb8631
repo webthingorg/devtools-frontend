@@ -16,6 +16,29 @@
       "message": "Currently IconButton is only used in couple of places, I have verified both and it works fine.",
       "revId": "d0478d8eb42df65a9aaa11dc240f277e5deb8631",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49bc4bad_87034af0",
+        "filename": "front_end/ui/components/IconButton.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-24T08:07:59Z",
+      "side": 1,
+      "message": "This is only supported by edge, see https://caniuse.com/?search\u003dforced-colors\n\nWe need to find another solution. Is this necessary to improve contrast in dark-mode?",
+      "range": {
+        "startLine": 84,
+        "startChar": 16,
+        "endLine": 84,
+        "endChar": 29
+      },
+      "revId": "d0478d8eb42df65a9aaa11dc240f277e5deb8631",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
