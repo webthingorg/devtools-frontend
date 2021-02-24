@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Host from '../host/host.js';
+import * as LitHtml from '../third_party/lit-html/lit-html.js';
 
 import {WebVitalsEventLane, WebVitalsTimeboxLane} from './WebVitalsLane.js';
 
@@ -71,6 +72,7 @@ const FCP_GOOD_TIMING = 2000;
 const FCP_MEDIUM_TIMING = 4000;
 const LCP_GOOD_TIMING = 2500;
 const LCP_MEDIUM_TIMING = 4000;
+export const LONG_TASK_THRESHOLD = 50;
 
 export const enum Colors {
   Good = '#0cce6b',
@@ -87,6 +89,16 @@ export function assertInstanceOf<T>(instance: any, constructor: Constructor<T>):
   if (!(instance instanceof constructor)) {
     throw new TypeError(`Instance expected to be of type ${constructor.name} but got ${instance.constructor.name}`);
   }
+}
+
+function formatMillisecondsToSeconds(ms: number, decimalPlaces: number): string {
+  const roundPower = Math.pow(10, 3 - decimalPlaces);
+  const denominatorPower = Math.pow(10, Math.max(0, decimalPlaces));
+  return `${Math.round(ms / roundPower) / denominatorPower} s`;
+}
+
+function formatMilliseconds(ms: number): string {
+  return `${Math.round(ms)} ms`;
 }
 
 export class WebVitalsTimeline extends HTMLElement {
@@ -108,6 +120,8 @@ export class WebVitalsTimeline extends HTMLElement {
   private context: CanvasRenderingContext2D;
   private animationFrame: number|null = null;
 
+  private overlay: HTMLDivElement;
+
   constructor() {
     super();
 
@@ -125,10 +139,26 @@ export class WebVitalsTimeline extends HTMLElement {
 
     this.context = context;
 
-    this.fcpLane = new WebVitalsEventLane(this, 'FCP', e => this.getMarkerTypeForFCPEvent(e));
-    this.lcpLane = new WebVitalsEventLane(this, 'LCP', e => this.getMarkerTypeForLCPEvent(e));
+    this.fcpLane = new WebVitalsEventLane(this, 'FCP', e => this.getMarkerTypeForFCPEvent(e), this.getFCPMarkerOverlay);
+    this.lcpLane = new WebVitalsEventLane(this, 'LCP', e => this.getMarkerTypeForLCPEvent(e), this.getLCPMarkerOverlay);
     this.layoutShiftsLane = new WebVitalsEventLane(this, 'LS', _ => MarkerType.Bad);
-    this.longTasksLane = new WebVitalsTimeboxLane(this, 'Long Tasks');
+    this.longTasksLane = new WebVitalsTimeboxLane(this, 'Long Tasks', this.getLongTaskOverlay);
+
+    this.overlay = document.createElement('div');
+    this.overlay.style.position = 'absolute';
+    this.overlay.style.top = '10px';
+    this.overlay.style.left = '100px';
+
+    this.ownerDocument.body.appendChild(this.overlay);
+  }
+
+  hideOverlay(): void {
+    this.overlay.style.display = 'none';
+  }
+
+  showOverlay(content: unknown): void {
+    LitHtml.render(content, this.overlay);
+    this.overlay.style.display = 'block';
   }
 
   set data(data: WebVitalsTimelineData) {
@@ -173,6 +203,9 @@ export class WebVitalsTimeline extends HTMLElement {
     this.lcpLane.handlePointerMove(this.hoverLane === 2 ? x : null);
     this.layoutShiftsLane.handlePointerMove(this.hoverLane === 3 ? x : null);
     this.longTasksLane.handlePointerMove(this.hoverLane === 4 ? x : null);
+
+    this.overlay.style.top = (e.clientY + 10) + 'px';
+    this.overlay.style.left = (e.clientX + 10) + 'px';
 
     this.scheduleRender();
   }
@@ -261,6 +294,269 @@ export class WebVitalsTimeline extends HTMLElement {
       return MarkerType.Medium;
     }
     return MarkerType.Bad;
+  }
+
+  private getFCPMarkerOverlay(): LitHtml.TemplateResult {
+    return LitHtml.html`
+      <div class="tooltip">
+      <table class="table">
+        <thead>
+          <td colspan="3" class="title">First Contentful Paint</td>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="good"></span></td>
+            <td>Good</td>
+            <td>< ${formatMillisecondsToSeconds(FCP_GOOD_TIMING, 1)}</td>
+          </tr>
+          <tr>
+            <td><span class="medium"></span></td>
+            <td>Needs improvement</td>
+            <td>${formatMillisecondsToSeconds(FCP_GOOD_TIMING, 1)} - ${
+        formatMillisecondsToSeconds(FCP_MEDIUM_TIMING, 1)}</td>
+          </tr>
+          <tr>
+            <td><span class="bad"></span></td>
+            <td>Poor</td>
+            <td>> ${formatMillisecondsToSeconds(FCP_MEDIUM_TIMING, 1)}</td>
+          </tr>
+        </tbody>
+      </table>
+      <style>
+        .tooltip {
+          padding: 6px 8px;
+          border-radius: 3px;
+          box-shadow: 0 0 5px rgb(0 0 0 / 60%);
+          background: #fff;
+        }
+
+        .table {
+          border-collapse: collapse;
+        }
+
+        .table td {
+          padding: 4px;
+        }
+
+        .table td:nth-child(1) {
+          width: 0%;
+        }
+
+        .table td:nth-child(2) {
+          width: auto;
+        }
+
+        .table td:nth-child(3) {
+          text-align: right;
+          color: #dadce0;
+        }
+
+        .title {
+          font-weight: bold;
+        }
+
+        .good {
+          display: block;
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background: #0cce6b;
+        }
+
+        .medium {
+          display: block;
+          width: 12px;
+          height: 12px;
+          background: #ffa400;
+        }
+
+        .bad {
+          display: block;
+          border: 1px solid transparent;
+          border-width: 0 6px 12px 6px;
+          border-bottom-color: #ff4e42;
+          width: 0;
+        }
+      </style>
+      </div>
+    `;
+  }
+
+  private getLCPMarkerOverlay(): LitHtml.TemplateResult {
+    return LitHtml.html`
+      <div class="tooltip">
+      <table class="table">
+        <thead>
+          <td colspan="3" class="title">Largest Contentful Paint</td>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="good"></span></td>
+            <td>Good</td>
+            <td>< ${formatMillisecondsToSeconds(LCP_GOOD_TIMING, 1)}</td>
+          </tr>
+          <tr>
+            <td><span class="medium"></span></td>
+            <td>Needs improvement</td>
+            <td>${formatMillisecondsToSeconds(LCP_GOOD_TIMING, 1)} - ${
+        formatMillisecondsToSeconds(LCP_MEDIUM_TIMING, 1)}</td>
+          </tr>
+          <tr>
+            <td><span class="bad"></span></td>
+            <td>Poor</td>
+            <td>> ${formatMillisecondsToSeconds(LCP_MEDIUM_TIMING, 1)}</td>
+          </tr>
+        </tbody>
+      </table>
+      <style>
+        .tooltip {
+          padding: 6px 8px;
+          border-radius: 3px;
+          box-shadow: 0 0 5px rgb(0 0 0 / 60%);
+          background: #fff;
+        }
+
+        .table {
+          border-collapse: collapse;
+        }
+
+        .table td {
+          padding: 4px;
+        }
+
+        .table td:nth-child(1) {
+          width: 0%;
+        }
+
+        .table td:nth-child(2) {
+          width: auto;
+        }
+
+        .table td:nth-child(3) {
+          text-align: right;
+          color: #dadce0;
+        }
+
+        .title {
+          font-weight: bold;
+        }
+
+        .good {
+          display: block;
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background: #0cce6b;
+        }
+
+        .medium {
+          display: block;
+          width: 12px;
+          height: 12px;
+          background: #ffa400;
+        }
+
+        .bad {
+          display: block;
+          border: 1px solid transparent;
+          border-width: 0 6px 12px 6px;
+          border-bottom-color: #ff4e42;
+          width: 0;
+        }
+      </style>
+      </div>
+    `;
+  }
+
+  private getLongTaskOverlay(timebox: Timebox): LitHtml.TemplateResult {
+    return LitHtml.html`
+      <div class="tooltip">
+      <table class="table">
+        <thead>
+          <td colspan="3" class="title">
+          Long Task
+          <span class="small">
+          ${formatMilliseconds(timebox.duration)}
+          </span>
+          </td>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="good"></span></td>
+            <td>Good</td>
+            <td>0 - ${formatMilliseconds(LONG_TASK_THRESHOLD)}</td>
+          </tr>
+          <tr>
+            <td><span class="bad"></span></td>
+            <td>Poor</td>
+            <td>> ${formatMilliseconds(LONG_TASK_THRESHOLD)}</td>
+          </tr>
+        </tbody>
+      </table>
+      <style>
+        .tooltip {
+          padding: 6px 8px;
+          border-radius: 3px;
+          box-shadow: 0 0 5px rgb(0 0 0 / 60%);
+          background: #fff;
+        }
+
+        .table {
+          border-collapse: collapse;
+          min-width: 200px;
+        }
+
+        .table td {
+          padding: 4px;
+        }
+
+        .table td:nth-child(1) {
+          width: 0%;
+        }
+
+        .table td:nth-child(2) {
+          width: auto;
+        }
+
+        .table td:nth-child(3) {
+          text-align: right;
+          color: #dadce0;
+        }
+
+        .title {
+          font-weight: bold;
+        }
+
+        .small {
+          font-weight: normal;
+          color: #dadce0;
+        }
+
+        .good {
+          display: block;
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background: #0cce6b;
+        }
+
+        .medium {
+          display: block;
+          width: 12px;
+          height: 12px;
+          background: #ffa400;
+        }
+
+        .bad {
+          display: block;
+          border: 1px solid transparent;
+          border-width: 0 6px 12px 6px;
+          border-bottom-color: #ff4e42;
+          width: 0;
+        }
+      </style>
+      </div>
+    `;
   }
 
   private renderMainFrameNavigations(markers: readonly number[]): void {
