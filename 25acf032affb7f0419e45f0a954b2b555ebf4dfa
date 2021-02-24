@@ -39,6 +39,30 @@
       },
       "revId": "25acf032affb7f0419e45f0a954b2b555ebf4dfa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9d6966d_9868de5a",
+        "filename": "front_end/sdk/Issue.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-24T08:05:46Z",
+      "side": 1,
+      "message": "I think it would be better to deal with this more locally rather than make every call site lazy even if they don\u0027t strictly need to be. This also avoids the awkwardness where we need to check if the stored string is a function or not.\n\nYou could have two versions, e.g. by having a LazyMarkdownIssueDescription (or just some internal type in SameSiteCookieIssue.js), which converts to a MarkdownIssueDescription by calling the string functions, inside of SameSiteCookieIssue::getDescription(). That way the laziness is an implementation detail of SameSiteCookieIssue and doesn\u0027t affect other callers",
+      "parentUuid": "8af739af_8531c874",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 71
+      },
+      "revId": "25acf032affb7f0419e45f0a954b2b555ebf4dfa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
