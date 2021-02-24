@@ -16,6 +16,92 @@
       "message": "PTAL\n\nPeter for the semantics of the check. Jack, am I holding eslint correctly?",
       "revId": "c6bd8b25d85b0801aab56b07016ad3db14ad721b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89ef59dd_ae4b9326",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-24T08:33:19Z",
+      "side": 1,
+      "message": "LGTM % nits!",
+      "revId": "c6bd8b25d85b0801aab56b07016ad3db14ad721b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f46442a1_b0e2d1c0",
+        "filename": "scripts/eslint_rules/lib/l10n_filename_matches.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-24T08:33:19Z",
+      "side": 1,
+      "message": "nit: start these with a lowercase letter",
+      "range": {
+        "startLine": 11,
+        "startChar": 9,
+        "endLine": 11,
+        "endChar": 22
+      },
+      "revId": "c6bd8b25d85b0801aab56b07016ad3db14ad721b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d112e5b1_7dd715f9",
+        "filename": "scripts/eslint_rules/lib/l10n_filename_matches.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-24T08:33:19Z",
+      "side": 1,
+      "message": "nit: lowercase `is`",
+      "range": {
+        "startLine": 16,
+        "startChar": 9,
+        "endLine": 16,
+        "endChar": 32
+      },
+      "revId": "c6bd8b25d85b0801aab56b07016ad3db14ad721b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9a36603_aa1d77b6",
+        "filename": "scripts/eslint_rules/lib/l10n_filename_matches.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-24T08:33:19Z",
+      "side": 1,
+      "message": "did you mean to call the `isModuleScope` function here?",
+      "range": {
+        "startLine": 44,
+        "startChar": 13,
+        "endLine": 44,
+        "endChar": 26
+      },
+      "revId": "c6bd8b25d85b0801aab56b07016ad3db14ad721b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
