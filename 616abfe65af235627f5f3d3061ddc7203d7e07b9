@@ -35,6 +35,115 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c370fd81_332a378a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-24T10:42:43Z",
+      "side": 1,
+      "message": "lgtm % some comments",
+      "revId": "616abfe65af235627f5f3d3061ddc7203d7e07b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77880588_cdd80bf1",
+        "filename": "front_end/emulation/DeviceModeModel.js",
+        "patchSetId": 20
+      },
+      "lineNbr": 982,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-24T10:42:43Z",
+      "side": 1,
+      "message": "Do these also need to be split up? That is, have an enum for code and a translated version for UI?",
+      "range": {
+        "startLine": 979,
+        "startChar": 0,
+        "endLine": 982,
+        "endChar": 33
+      },
+      "revId": "616abfe65af235627f5f3d3061ddc7203d7e07b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aadbc495_8e87d695",
+        "filename": "front_end/emulation/DeviceModeToolbar.js",
+        "patchSetId": 20
+      },
+      "lineNbr": 840,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-24T10:42:43Z",
+      "side": 1,
+      "message": "Do we need to call `toFixed(0)` here to preserve the formatting?",
+      "range": {
+        "startLine": 840,
+        "startChar": 30,
+        "endLine": 840,
+        "endChar": 63
+      },
+      "revId": "616abfe65af235627f5f3d3061ddc7203d7e07b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3897a375_2bf55379",
+        "filename": "front_end/emulation/DeviceModeToolbar.js",
+        "patchSetId": 20
+      },
+      "lineNbr": 846,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-24T10:42:43Z",
+      "side": 1,
+      "message": "same as above but with toFixed(1)?",
+      "range": {
+        "startLine": 846,
+        "startChar": 37,
+        "endLine": 846,
+        "endChar": 57
+      },
+      "revId": "616abfe65af235627f5f3d3061ddc7203d7e07b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4718f29b_3502cbf8",
+        "filename": "front_end/emulation/LocationsSettingsTab.js",
+        "patchSetId": 20
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-24T10:42:43Z",
+      "side": 1,
+      "message": "any reason why this was not moved into the UIStrings?",
+      "range": {
+        "startLine": 106,
+        "startChar": 19,
+        "endLine": 106,
+        "endChar": 39
+      },
+      "revId": "616abfe65af235627f5f3d3061ddc7203d7e07b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "130afdc2_80204f43",
@@ -53,6 +162,29 @@
         "startChar": 16,
         "endLine": 1,
         "endChar": 18
+      },
+      "revId": "616abfe65af235627f5f3d3061ddc7203d7e07b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcaa85ed_7b98f4e5",
+        "filename": "front_end/emulation/SensorsView.js",
+        "patchSetId": 20
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-24T10:42:43Z",
+      "side": 1,
+      "message": "Missing placeholder for gamma",
+      "range": {
+        "startLine": 673,
+        "startChar": 11,
+        "endLine": 673,
+        "endChar": 117
       },
       "revId": "616abfe65af235627f5f3d3061ddc7203d7e07b9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
