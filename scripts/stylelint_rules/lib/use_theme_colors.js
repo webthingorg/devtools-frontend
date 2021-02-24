@@ -23,7 +23,7 @@ const COLOR_INDICATOR_REGEXES = new Set([
 ]);
 
 const themeColorsPath = path.join(__dirname, '..', '..', '..', 'front_end', 'ui', 'themeColors.css');
-const inspectorStylesPath = path.join(__dirname, '..', '..', '..', 'front_end', 'ui', 'inspectorStyle.css');
+const inspectorCommonPath = path.join(__dirname, '..', '..', '..', 'front_end', 'ui', 'inspectorCommon.css');
 
 function getRootVariableDeclarationsFromCSSFile(filePath) {
   const fileContents = fs.readFileSync(filePath, {encoding: 'utf-8'});
@@ -41,7 +41,7 @@ function getRootVariableDeclarationsFromCSSFile(filePath) {
 }
 
 const DEFINED_THEME_COLOR_VARIABLES = getRootVariableDeclarationsFromCSSFile(themeColorsPath);
-const DEFINED_INSPECTOR_STYLE_VARIABLES = getRootVariableDeclarationsFromCSSFile(inspectorStylesPath);
+const DEFINED_INSPECTOR_STYLE_VARIABLES = getRootVariableDeclarationsFromCSSFile(inspectorCommonPath);
 
 module.exports = stylelint.createPlugin(RULE_NAME, function(primary, secondary, context) {
   return function(postcssRoot, postcssResult) {
