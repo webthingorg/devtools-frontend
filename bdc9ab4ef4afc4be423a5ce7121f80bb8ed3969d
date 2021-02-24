@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ff2c69d_b066166f",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-02-24T13:16:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1202c70e_ad5e29c6",
+      "revId": "bdc9ab4ef4afc4be423a5ce7121f80bb8ed3969d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c0a46a99_3efa9609",
@@ -69,6 +87,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aea57551_3d16e697",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-02-24T13:16:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0a46a99_3efa9609",
+      "revId": "bdc9ab4ef4afc4be423a5ce7121f80bb8ed3969d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bc8598a7_8e5f439c",
@@ -82,6 +118,30 @@
       "writtenOn": "2021-02-24T10:35:59Z",
       "side": 1,
       "message": "nit: we normally place the styles above the markup. It doesn\u0027t affect anything directly here, but for consistency I think we should move it.",
+      "range": {
+        "startLine": 325,
+        "startChar": 7,
+        "endLine": 325,
+        "endChar": 13
+      },
+      "revId": "bdc9ab4ef4afc4be423a5ce7121f80bb8ed3969d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64e32949_0890ee90",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-02-24T13:16:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc8598a7_8e5f439c",
       "range": {
         "startLine": 325,
         "startChar": 7,
