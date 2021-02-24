@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd16e56d_278566e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-02-24T09:56:57Z",
+      "side": 1,
+      "message": "PTAL, thanks!",
+      "revId": "bdc9ab4ef4afc4be423a5ce7121f80bb8ed3969d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9fb4f4b_c5794666",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-02-24T09:56:57Z",
+      "side": 1,
+      "message": "@petermueller: These are the colors I extracted from the markup file but they don\u0027t yet have a mapping in ui/themeColors.css. Do you want me to add them there or change these colors to match the ones already defined?",
+      "range": {
+        "startLine": 351,
+        "startChar": 18,
+        "endLine": 351,
+        "endChar": 24
+      },
+      "revId": "bdc9ab4ef4afc4be423a5ce7121f80bb8ed3969d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
