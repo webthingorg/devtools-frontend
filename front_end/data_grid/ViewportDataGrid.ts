@@ -2,11 +2,13 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as i18n from '../i18n/i18n.js';
 import * as Platform from '../platform/platform.js';
 import * as UI from '../ui/ui.js';
 
-import {DataGridImpl, DataGridNode, Parameters} from './DataGrid.js';  // eslint-disable-line no-unused-vars
+import { DataGridImpl, DataGridNode, Parameters } from './DataGrid.js'; // eslint-disable-line no-unused-vars
 
 export const UIStrings = {
   /**
@@ -14,27 +16,29 @@ export const UIStrings = {
   */
   collapsed: 'collapsed',
 };
-const str_ = i18n.i18n.registerUIStrings('data_grid/ViewportDataGrid.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('data_grid/ViewportDataGrid.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 /**
- * @extends {DataGridImpl<!ViewportDataGridNode<!NODE_TYPE>>}
  * @template NODE_TYPE
  */
-export class ViewportDataGrid extends DataGridImpl {
-  /**
-   * @param {!Parameters} dataGridParameters
-   */
-  constructor(dataGridParameters) {
+export class ViewportDataGrid extends DataGridImpl<ViewportDataGridNode<!NODE_TYPE>> {
+  _onScrollBound: (event: Event | null) => void;
+  _visibleNodes: ViewportDataGridNode<NODE_TYPE>[];
+  _inline: boolean;
+  _stickToBottom: boolean;
+  _updateIsFromUser: boolean;
+  _lastScrollTop: number;
+  _firstVisibleIsStriped: boolean;
+  _isStriped: boolean;
+  _scrollContainer?: Element;
+  _updateAnimationFrameId?: number;
+  constructor(dataGridParameters: Parameters) {
     super(dataGridParameters);
 
     this._onScrollBound = this._onScroll.bind(this);
     this.scrollContainer.addEventListener('scroll', this._onScrollBound, true);
 
-    /** @type {!Array.<!ViewportDataGridNode<!NODE_TYPE>>} */
     this._visibleNodes = [];
-    /**
-     * @type {boolean}
-     */
     this._inline = false;
 
     this._stickToBottom = false;
@@ -46,49 +50,32 @@ export class ViewportDataGrid extends DataGridImpl {
     this.setRootNode(new ViewportDataGridNode());
   }
 
-  /**
-   * @return {!ViewportDataGridNode<!NODE_TYPE>}
-   * @override
-   */
-  rootNode() {
-    return /** @type {!ViewportDataGridNode<!NODE_TYPE>} */ (super.rootNode());
+  rootNode(): ViewportDataGridNode<NODE_TYPE> {
+    return /** @type {!ViewportDataGridNode<!NODE_TYPE>} */ super.rootNode() as ViewportDataGridNode<NODE_TYPE>;
   }
 
-  /**
-   * @param {boolean} striped
-   * @override
-   */
-  setStriped(striped) {
+  setStriped(striped: boolean): void {
     this._isStriped = striped;
     let startsWithOdd = true;
     if (this._visibleNodes.length) {
-      const allChildren = (/** @type {!ViewportDataGridNode<!NODE_TYPE>}*/ (this.rootNode())).flatChildren();
+      const allChildren = (this.rootNode() as ViewportDataGridNode<NODE_TYPE>).flatChildren();
       startsWithOdd = Boolean(allChildren.indexOf(this._visibleNodes[0]));
     }
     this._updateStripesClass(startsWithOdd);
   }
 
-  /**
-   * @param {boolean} startsWithOdd
-   */
-  _updateStripesClass(startsWithOdd) {
+  _updateStripesClass(startsWithOdd: boolean): void {
     this.element.classList.toggle('striped-data-grid', !startsWithOdd && this._isStriped);
     this.element.classList.toggle('striped-data-grid-starts-with-odd', startsWithOdd && this._isStriped);
   }
 
-  /**
-   * @param {!HTMLElement} scrollContainer
-   */
-  setScrollContainer(scrollContainer) {
+  setScrollContainer(scrollContainer: HTMLElement): void {
     this.scrollContainer.removeEventListener('scroll', this._onScrollBound, true);
     this._scrollContainer = scrollContainer;
     this.scrollContainer.addEventListener('scroll', this._onScrollBound, true);
   }
 
-  /**
-   * @override
-   */
-  onResize() {
+  onResize(): void {
     if (this._stickToBottom) {
       this.scrollContainer.scrollTop = this.scrollContainer.scrollHeight - this.scrollContainer.clientHeight;
     }
@@ -96,31 +83,22 @@ export class ViewportDataGrid extends DataGridImpl {
     super.onResize();
   }
 
-  /**
-   * @param {boolean} stick
-   */
-  setStickToBottom(stick) {
+  setStickToBottom(stick: boolean): void {
     this._stickToBottom = stick;
   }
 
-  /**
-   * @param {?Event} event
-   */
-  _onScroll(event) {
+  _onScroll(event: Event | null): void {
     this._stickToBottom = UI.UIUtils.isScrolledToBottom(this.scrollContainer);
     if (this._lastScrollTop !== this.scrollContainer.scrollTop) {
       this.scheduleUpdate(true);
     }
   }
 
-  scheduleUpdateStructure() {
+  scheduleUpdateStructure(): void {
     this.scheduleUpdate();
   }
 
-  /**
-   * @param {boolean=} isFromUser
-   */
-  scheduleUpdate(isFromUser) {
+  scheduleUpdate(isFromUser?: boolean): void {
     if (this._stickToBottom && isFromUser) {
       this._stickToBottom = UI.UIUtils.isScrolledToBottom(this.scrollContainer);
     }
@@ -134,28 +112,26 @@ export class ViewportDataGrid extends DataGridImpl {
   // TODO(allada) This should be fixed to never be needed. It is needed right now for network because removing
   // elements happens followed by a scheduleRefresh() which causes white space to be visible, but the waterfall
   // updates instantly.
-  updateInstantly() {
+  updateInstantly(): void {
     this._update();
   }
 
-  /**
-   * @override
-   */
-  renderInline() {
+  renderInline(): void {
     this._inline = true;
     super.renderInline();
     this._update();
   }
 
-  /**
-   * @param {number} clientHeight
-   * @param {number} scrollTop
-   * @return {{topPadding: number, bottomPadding: number, contentHeight: number, visibleNodes: !Array.<!ViewportDataGridNode<!NODE_TYPE>>, offset: number}}
-   */
-  _calculateVisibleNodes(clientHeight, scrollTop) {
+  _calculateVisibleNodes(clientHeight: number, scrollTop: number): {
+    topPadding: number;
+    bottomPadding: number;
+    contentHeight: number;
+    visibleNodes: Array<ViewportDataGridNode<NODE_TYPE>>;
+    offset: number;
+  } {
     const nodes = this.rootNode().flatChildren();
     if (this._inline) {
-      return {topPadding: 0, bottomPadding: 0, contentHeight: 0, visibleNodes: nodes, offset: 0};
+      return { topPadding: 0, bottomPadding: 0, contentHeight: 0, visibleNodes: nodes, offset: 0 };
     }
 
     const size = nodes.length;
@@ -187,10 +163,7 @@ export class ViewportDataGrid extends DataGridImpl {
     };
   }
 
-  /**
-   * @return {number}
-   */
-  _contentHeight() {
+  _contentHeight(): number {
     const nodes = this.rootNode().flatChildren();
     let result = 0;
     for (let i = 0, size = nodes.length; i < size; ++i) {
@@ -199,14 +172,14 @@ export class ViewportDataGrid extends DataGridImpl {
     return result;
   }
 
-  _update() {
+  _update(): void {
     if (this._updateAnimationFrameId) {
       this.element.window().cancelAnimationFrame(this._updateAnimationFrameId);
       delete this._updateAnimationFrameId;
     }
 
     const clientHeight = this.scrollContainer.clientHeight;
-    let scrollTop = this.scrollContainer.scrollTop;
+    let scrollTop: number = this.scrollContainer.scrollTop;
     const currentScrollTop = scrollTop;
     const maxScrollTop = Math.max(0, this._contentHeight() - clientHeight);
     if (!this._updateIsFromUser && this._stickToBottom) {
@@ -217,7 +190,7 @@ export class ViewportDataGrid extends DataGridImpl {
 
     const viewportState = this._calculateVisibleNodes(clientHeight, scrollTop);
     const visibleNodes = viewportState.visibleNodes;
-    const visibleNodesSet = new Set(visibleNodes);
+    const visibleNodesSet = new Set<ViewportDataGridNode<NODE_TYPE>>(visibleNodes);
 
     for (let i = 0; i < this._visibleNodes.length; ++i) {
       const oldNode = this._visibleNodes[i];
@@ -246,7 +219,7 @@ export class ViewportDataGrid extends DataGridImpl {
 
     for (let i = 0; i < visibleNodes.length; ++i) {
       const node = visibleNodes[i];
-      const element = /** @type {!HTMLElement} */ (node.element());
+      const element = (node.element() as HTMLElement);
       node.setStriped((offset + i) % 2 === 0);
       if (element !== previousElement.nextSibling) {
         tBody.insertBefore(element, previousElement.nextSibling);
@@ -260,8 +233,7 @@ export class ViewportDataGrid extends DataGridImpl {
     if (scrollTop !== currentScrollTop) {
       this.scrollContainer.scrollTop = scrollTop;
     }
-    const contentFits =
-        viewportState.contentHeight <= clientHeight && viewportState.topPadding + viewportState.bottomPadding === 0;
+    const contentFits = viewportState.contentHeight <= clientHeight && viewportState.topPadding + viewportState.bottomPadding === 0;
     if (contentFits !== this.element.classList.contains('data-grid-fits-viewport')) {
       this.element.classList.toggle('data-grid-fits-viewport', contentFits);
       this.updateWidths();
@@ -270,10 +242,7 @@ export class ViewportDataGrid extends DataGridImpl {
     this.dispatchEventToListeners(Events.ViewportCalculated);
   }
 
-  /**
-   * @param {!ViewportDataGridNode<!NODE_TYPE>} node
-   */
-  _revealViewportNode(node) {
+  _revealViewportNode(node: ViewportDataGridNode<NODE_TYPE>): void {
     const nodes = this.rootNode().flatChildren();
     const index = nodes.indexOf(node);
     if (index === -1) {
@@ -284,47 +253,44 @@ export class ViewportDataGrid extends DataGridImpl {
       fromY += nodes[i].nodeSelfHeight();
     }
     const toY = fromY + node.nodeSelfHeight();
-    let scrollTop = this.scrollContainer.scrollTop;
+    let scrollTop: number = this.scrollContainer.scrollTop;
     if (scrollTop > fromY) {
       scrollTop = fromY;
       this._stickToBottom = false;
-    } else if (scrollTop + (/** @type {!HTMLElement} */ (this.scrollContainer)).offsetHeight < toY) {
-      scrollTop = toY - (/** @type {!HTMLElement} */ (this.scrollContainer)).offsetHeight;
+    }
+    else if (scrollTop + (this.scrollContainer as HTMLElement).offsetHeight < toY) {
+      scrollTop = toY - (this.scrollContainer as HTMLElement).offsetHeight;
     }
     this.scrollContainer.scrollTop = scrollTop;
   }
 }
 
-/**
- * @override @enum {symbol}
+/**@enum {symbol}
  */
-export const Events = {
-  ViewportCalculated: Symbol('ViewportCalculated')
-};
+export enum Events {
+  ViewportCalculated = 'ViewportCalculated'
+}
+;
 
 /**
- * @extends {DataGridNode<!ViewportDataGridNode<!NODE_TYPE>>}
  * @template NODE_TYPE
  */
-export class ViewportDataGridNode extends DataGridNode {
-  /**
-   * @param {?Object.<string, *>=} data
-   * @param {boolean=} hasChildren
-   */
-  constructor(data, hasChildren) {
+export class ViewportDataGridNode extends DataGridNode<ViewportDataGridNode<!NODE_TYPE>> {
+  _stale: boolean;
+  _flatNodes: ViewportDataGridNode<NODE_TYPE>[] | null;
+  _isStriped: boolean;
+  children?: DataGridNode<ViewportDataGridNode<NODE_TYPE>>[];
+  _expanded?: boolean;
+  constructor(data?: {
+    [x: string]: any;
+  } | null, hasChildren?: boolean) {
     super(data, hasChildren);
-    /** @type {boolean} */
     this._stale = false;
-    /** @type {?Array<!ViewportDataGridNode<!NODE_TYPE>>} */
     this._flatNodes = null;
     this._isStriped = false;
   }
 
-  /**
-   * @override
-   * @return {!Element}
-   */
-  element() {
+  element(): Element {
     const existingElement = this.existingElement();
     const element = existingElement || this.createElement();
     if (!existingElement || this._stale) {
@@ -334,44 +300,30 @@ export class ViewportDataGridNode extends DataGridNode {
     return element;
   }
 
-  /**
-   * @param {boolean} isStriped
-   */
-  setStriped(isStriped) {
+  setStriped(isStriped: boolean): void {
     this._isStriped = isStriped;
     this.element().classList.toggle('odd', isStriped);
   }
 
-  /**
-   * @return {boolean}
-   */
-  isStriped() {
+  isStriped(): boolean {
     return this._isStriped;
   }
 
-  /**
-   * @protected
-   */
-  clearFlatNodes() {
+  clearFlatNodes(): void {
     this._flatNodes = null;
-    const parent = /** @type {!ViewportDataGridNode<!NODE_TYPE>} */ (this.parent);
+    const parent = (this.parent as ViewportDataGridNode<NODE_TYPE>);
     if (parent) {
       parent.clearFlatNodes();
     }
   }
 
-  /**
-   * @return {!Array<!ViewportDataGridNode<!NODE_TYPE>>}
-   */
-  flatChildren() {
+  flatChildren(): ViewportDataGridNode<NODE_TYPE>[] {
     if (this._flatNodes) {
       return this._flatNodes;
     }
-    /** @type {!Array<!ViewportDataGridNode<!NODE_TYPE>>} */
-    const flatNodes = [];
-    const children = /** @type {!Array<!Array<!ViewportDataGridNode<!NODE_TYPE>>>} */ ([this.children]);
-    /** @type {!Array<number>} */
-    const counters = [0];
+    const flatNodes: ViewportDataGridNode<NODE_TYPE>[] = [];
+    const children = ([this.children] as ViewportDataGridNode<NODE_TYPE>[][]);
+    const counters: number[] = [0];
     let depth = 0;
     while (depth >= 0) {
       if (children[depth].length <= counters[depth]) {
@@ -382,7 +334,7 @@ export class ViewportDataGridNode extends DataGridNode {
       flatNodes.push(node);
       if (node.expanded && node.children.length) {
         depth++;
-        children[depth] = /** @type {!Array<!ViewportDataGridNode<!NODE_TYPE>>} */ (node.children);
+        children[depth] = (node.children as ViewportDataGridNode<NODE_TYPE>[]);
         counters[depth] = 0;
       }
     }
@@ -391,12 +343,7 @@ export class ViewportDataGridNode extends DataGridNode {
     return flatNodes;
   }
 
-  /**
-   * @override
-   * @param {!DataGridNode<!ViewportDataGridNode<!NODE_TYPE>>} child
-   * @param {number} index
-   */
-  insertChild(child, index) {
+  insertChild(child: DataGridNode<ViewportDataGridNode<NODE_TYPE>>, index: number): void {
     this.clearFlatNodes();
     if (child.parent === this) {
       const currentIndex = this.children.indexOf(child);
@@ -419,15 +366,11 @@ export class ViewportDataGridNode extends DataGridNode {
     this.children.splice(index, 0, child);
     child.recalculateSiblings(index);
     if (this.expanded && this.dataGrid) {
-      (/** @type {!ViewportDataGrid<!NODE_TYPE>} */ (this.dataGrid)).scheduleUpdateStructure();
+      (this.dataGrid as ViewportDataGrid<NODE_TYPE>).scheduleUpdateStructure();
     }
   }
 
-  /**
-   * @override
-   * @param {!DataGridNode<!ViewportDataGridNode<!NODE_TYPE>>} child
-   */
-  removeChild(child) {
+  removeChild(child: DataGridNode<ViewportDataGridNode<NODE_TYPE>>): void {
     this.clearFlatNodes();
     if (this.dataGrid) {
       this.dataGrid.updateSelectionBeforeRemoval(child, false);
@@ -443,36 +386,32 @@ export class ViewportDataGridNode extends DataGridNode {
     }
 
     Platform.ArrayUtilities.removeElement(this.children, child, true);
-    (/** @type {!ViewportDataGridNode<!NODE_TYPE>} */ (child))._unlink();
+    (child as ViewportDataGridNode<NODE_TYPE>)._unlink();
 
     if (!this.children.length) {
       this.setHasChildren(false);
     }
     if (this.expanded && this.dataGrid) {
-      (/** @type {!ViewportDataGrid<!NODE_TYPE>} */ (this.dataGrid)).scheduleUpdateStructure();
+      (this.dataGrid as ViewportDataGrid<NODE_TYPE>).scheduleUpdateStructure();
     }
   }
 
-  /**
-   * @override
-   */
-  removeChildren() {
+  removeChildren(): void {
     this.clearFlatNodes();
     if (this.dataGrid) {
       this.dataGrid.updateSelectionBeforeRemoval(this, true);
     }
     for (let i = 0; i < this.children.length; ++i) {
-      /** @type {!ViewportDataGridNode<!NODE_TYPE>} */ (this.children[i])._unlink();
+      (this.children[i] as ViewportDataGridNode<NODE_TYPE>)._unlink();
     }
-
-    this.children = /** @type {!Array<!ViewportDataGridNode<!NODE_TYPE>>} */ ([]);
+    this.children = ([] as ViewportDataGridNode<NODE_TYPE>[]);
 
     if (this.expanded && this.dataGrid) {
-      (/** @type {!ViewportDataGrid<!NODE_TYPE>} */ (this.dataGrid)).scheduleUpdateStructure();
+      (this.dataGrid as ViewportDataGrid<NODE_TYPE>).scheduleUpdateStructure();
     }
   }
 
-  _unlink() {
+  _unlink(): void {
     const existingElement = this.existingElement();
     if (this.attached() && existingElement) {
       existingElement.remove();
@@ -480,10 +419,7 @@ export class ViewportDataGridNode extends DataGridNode {
     this.resetNode();
   }
 
-  /**
-   * @override
-   */
-  collapse() {
+  collapse(): void {
     if (!this.expanded) {
       return;
     }
@@ -494,57 +430,42 @@ export class ViewportDataGridNode extends DataGridNode {
       existingElement.classList.remove('expanded');
     }
     if (this.selected) {
-      (/** @type {!ViewportDataGrid<!NODE_TYPE>} */ (this.dataGrid))
-          .updateGridAccessibleName(/* text */ i18nString(UIStrings.collapsed));
+      (this.dataGrid as ViewportDataGrid<NODE_TYPE>)
+        .updateGridAccessibleName(i18nString(UIStrings.collapsed));
     }
-    (/** @type {!ViewportDataGrid<!NODE_TYPE>} */ (this.dataGrid)).scheduleUpdateStructure();
+    (this.dataGrid as ViewportDataGrid<NODE_TYPE>).scheduleUpdateStructure();
   }
 
-  /**
-   * @override
-   */
-  expand() {
+  expand(): void {
     if (this.expanded) {
       return;
     }
-    (/** @type {!ViewportDataGrid<!NODE_TYPE>} */ (this.dataGrid))._stickToBottom = false;
+    (this.dataGrid as ViewportDataGrid<NODE_TYPE>)._stickToBottom = false;
     this.clearFlatNodes();
     super.expand();
-    (/** @type {!ViewportDataGrid<!NODE_TYPE>} */ (this.dataGrid)).scheduleUpdateStructure();
+    (this.dataGrid as ViewportDataGrid<NODE_TYPE>).scheduleUpdateStructure();
   }
 
-  /**
-   * @return {boolean}
-   */
-  attached() {
+  attached(): boolean {
     const existingElement = this.existingElement();
     return Boolean(this.dataGrid && existingElement && existingElement.parentElement);
   }
 
-  /**
-   * @override
-   */
-  refresh() {
+  refresh(): void {
     if (this.attached()) {
       this._stale = true;
-      (/** @type {!ViewportDataGrid<!NODE_TYPE>} */ (this.dataGrid)).scheduleUpdate();
-    } else {
+      (this.dataGrid as ViewportDataGrid<NODE_TYPE>).scheduleUpdate();
+    }
+    else {
       this.resetElement();
     }
   }
 
-  /**
-   * @override
-   */
-  reveal() {
-    (/** @type {!ViewportDataGrid<!NODE_TYPE>} */ (this.dataGrid))._revealViewportNode(this);
+  reveal(): void {
+    (this.dataGrid as ViewportDataGrid<NODE_TYPE>)._revealViewportNode(this);
   }
 
-  /**
-   * @override
-   * @param {number} index
-   */
-  recalculateSiblings(index) {
+  recalculateSiblings(index: number): void {
     this.clearFlatNodes();
     super.recalculateSiblings(index);
   }
