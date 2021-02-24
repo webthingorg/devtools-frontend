@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee4526ec_6da17cf5",
+        "filename": "front_end/ui/UIUtils.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1330,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-24T11:46:10Z",
+      "side": 0,
+      "message": "Why was this file removed as well?",
+      "range": {
+        "startLine": 1330,
+        "startChar": 21,
+        "endLine": 1330,
+        "endChar": 39
+      },
+      "revId": "db3ba2b7ccf46b4075f2f0de1e52edc119720340",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

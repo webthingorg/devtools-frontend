@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7561b653_bf6da0d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-24T11:46:10Z",
+      "side": 1,
+      "message": "I think this patch should also remove `ui/inspectorStyle.css` 😜 Seems like the interaction tests are unhappy, did we accidentally remove too much?",
+      "revId": "74e05ebc43c7337f29a8d4c7dec70236c33dee5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
