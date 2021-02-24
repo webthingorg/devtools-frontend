@@ -39,6 +39,30 @@
       },
       "revId": "d0478d8eb42df65a9aaa11dc240f277e5deb8631",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f775398_2ecb8cba",
+        "filename": "front_end/ui/components/IconButton.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-02-24T17:01:29Z",
+      "side": 1,
+      "message": "Got it, I didnt realize it was edge-only. Dark mode works fine, high contrast setting in windows is not working. I will find a work-around.",
+      "parentUuid": "49bc4bad_87034af0",
+      "range": {
+        "startLine": 84,
+        "startChar": 16,
+        "endLine": 84,
+        "endChar": 29
+      },
+      "revId": "d0478d8eb42df65a9aaa11dc240f277e5deb8631",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
