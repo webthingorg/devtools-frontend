@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11e5a28e_23c1cf22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-24T08:07:09Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "7b45f6381310a517d284459f8b021483de83303b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c78f6d94_9532116e",
+        "filename": "front_end/sdk/Cookie.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-24T08:07:09Z",
+      "side": 1,
+      "message": "Could there be edge cases where we want to set non-standard port 80 for https or port 443 for http? i.e.\n`if (sourcePort \u0026\u0026 (sourcePort !\u003d\u003d 80 || this.secure()) \u0026\u0026 (sourcePort !\u003d\u003d 443 || !this.secure())) ...`?",
+      "revId": "7b45f6381310a517d284459f8b021483de83303b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
