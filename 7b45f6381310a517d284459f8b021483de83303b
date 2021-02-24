@@ -69,6 +69,24 @@
       "parentUuid": "d2d74bae_413f25d4",
       "revId": "7b45f6381310a517d284459f8b021483de83303b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e610ad31_017bd6eb",
+        "filename": "front_end/sdk/Cookie.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-24T08:56:50Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "72bc349b_ed399a0a",
+      "revId": "7b45f6381310a517d284459f8b021483de83303b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
