@@ -28,18 +28,15 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';
 import * as Platform from '../platform/platform.js';
 import * as SDK from '../sdk/sdk.js';
 import * as Workspace from '../workspace/workspace.js';
 
-/**
- * @param {string} url
- * @return {?SDK.Resource.Resource}
- */
-export function resourceForURL(url) {
-  for (const resourceTreeModel of SDK.SDKModel.TargetManager.instance().models(
-           SDK.ResourceTreeModel.ResourceTreeModel)) {
+export function resourceForURL(url: string): SDK.Resource.Resource | null {
+  for (const resourceTreeModel of SDK.SDKModel.TargetManager.instance().models(SDK.ResourceTreeModel.ResourceTreeModel)) {
     const resource = resourceTreeModel.resourceForURL(url);
     if (resource) {
       return resource;
@@ -48,11 +45,7 @@ export function resourceForURL(url) {
   return null;
 }
 
-/**
- * @param {string} url
- * @return {string}
- */
-export function displayNameForURL(url) {
+export function displayNameForURL(url: string): string {
   if (!url) {
     return '';
   }
@@ -91,13 +84,7 @@ export function displayNameForURL(url) {
   return displayName === '/' ? parsedURL.host + '/' : displayName;
 }
 
-/**
- * @param {!SDK.SDKModel.Target} target
- * @param {string} frameId
- * @param {string} url
- * @return {?Workspace.UISourceCode.UISourceCodeMetadata}
- */
-export function metadataForURL(target, frameId, url) {
+export function metadataForURL(target: SDK.SDKModel.Target, frameId: string, url: string): Workspace.UISourceCode.UISourceCodeMetadata | null {
   const resourceTreeModel = target.model(SDK.ResourceTreeModel.ResourceTreeModel);
   if (!resourceTreeModel) {
     return null;
@@ -109,11 +96,7 @@ export function metadataForURL(target, frameId, url) {
   return resourceMetadata(frame.resourceForURL(url));
 }
 
-/**
- * @param {?SDK.Resource.Resource} resource
- * @return {?Workspace.UISourceCode.UISourceCodeMetadata}
- */
-export function resourceMetadata(resource) {
+export function resourceMetadata(resource: SDK.Resource.Resource | null): Workspace.UISourceCode.UISourceCodeMetadata | null {
   if (!resource || (typeof resource.contentSize() !== 'number' && !resource.lastModified())) {
     return null;
   }

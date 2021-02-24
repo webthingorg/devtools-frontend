@@ -28,32 +28,28 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';
 import * as SDK from '../sdk/sdk.js';
-import * as Workspace from '../workspace/workspace.js';  // eslint-disable-line no-unused-vars
+import * as Workspace from '../workspace/workspace.js'; // eslint-disable-line no-unused-vars
 
-/** @type {!WeakMap<!Workspace.UISourceCode.UISourceCode, !Map<string, !{frame: !SDK.ResourceTreeModel.ResourceTreeFrame, count: number}>>} */
-const uiSourceCodeToAttributionMap = new WeakMap();
-/** @type {!WeakMap<!Workspace.Workspace.Project, !SDK.SDKModel.Target>} */
-const projectToTargetMap = new WeakMap();
+const uiSourceCodeToAttributionMap = new WeakMap<Workspace.UISourceCode.UISourceCode, Map<string, {
+  frame: SDK.ResourceTreeModel.ResourceTreeFrame;
+  count: number;
+}>>();
+const projectToTargetMap = new WeakMap<Workspace.Workspace.Project, SDK.SDKModel.Target>();
 
-/**
- * @type {!NetworkProjectManager}
- */
-let networkProjectManagerInstance;
+let networkProjectManagerInstance: NetworkProjectManager;
 
 export class NetworkProjectManager extends Common.ObjectWrapper.ObjectWrapper {
-  /**
-   * @private
-   */
-  constructor() {
+  private constructor() {
     super();
   }
 
-  /**
-   * @param {{forceNew: boolean}} opts
-   */
-  static instance({forceNew} = {forceNew: false}) {
+  static instance({ forceNew }: {
+    forceNew: boolean;
+  } = { forceNew: false }): NetworkProjectManager {
     if (!networkProjectManagerInstance || forceNew) {
       networkProjectManagerInstance = new NetworkProjectManager();
     }
@@ -68,56 +64,44 @@ export const Events = {
 };
 
 export class NetworkProject {
-  /**
-   * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
-   * @param {string} frameId
-   */
-  static _resolveFrame(uiSourceCode, frameId) {
+  static _resolveFrame(uiSourceCode: Workspace.UISourceCode.UISourceCode, frameId: string): SDK.ResourceTreeModel.ResourceTreeFrame | null {
     const target = NetworkProject.targetForUISourceCode(uiSourceCode);
     const resourceTreeModel = target && target.model(SDK.ResourceTreeModel.ResourceTreeModel);
     return resourceTreeModel ? resourceTreeModel.frameForId(frameId) : null;
   }
 
-  /**
-   * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
-   * @param {string} frameId
-   */
-  static setInitialFrameAttribution(uiSourceCode, frameId) {
+  static setInitialFrameAttribution(uiSourceCode: Workspace.UISourceCode.UISourceCode, frameId: string): void {
     const frame = NetworkProject._resolveFrame(uiSourceCode, frameId);
     if (!frame) {
       return;
     }
-    /** @type {!Map<string, !{frame: !SDK.ResourceTreeModel.ResourceTreeFrame, count: number}>} */
-    const attribution = new Map();
-    attribution.set(frameId, {frame: frame, count: 1});
+    const attribution = new Map<string, {
+      frame: SDK.ResourceTreeModel.ResourceTreeFrame;
+      count: number;
+    }>();
+    attribution.set(frameId, { frame: frame, count: 1 });
     uiSourceCodeToAttributionMap.set(uiSourceCode, attribution);
   }
 
-  /**
-   * @param {!Workspace.UISourceCode.UISourceCode} fromUISourceCode
-   * @param {!Workspace.UISourceCode.UISourceCode} toUISourceCode
-   */
-  static cloneInitialFrameAttribution(fromUISourceCode, toUISourceCode) {
+  static cloneInitialFrameAttribution(fromUISourceCode: Workspace.UISourceCode.UISourceCode, toUISourceCode: Workspace.UISourceCode.UISourceCode): void {
     const fromAttribution = uiSourceCodeToAttributionMap.get(fromUISourceCode);
     if (!fromAttribution) {
       return;
     }
-    /** @type {!Map<string, !{frame: !SDK.ResourceTreeModel.ResourceTreeFrame, count: number}>} */
-    const toAttribution = new Map();
+    const toAttribution = new Map<string, {
+      frame: SDK.ResourceTreeModel.ResourceTreeFrame;
+      count: number;
+    }>();
     for (const frameId of fromAttribution.keys()) {
       const value = fromAttribution.get(frameId);
       if (typeof value !== 'undefined') {
-        toAttribution.set(frameId, {frame: value.frame, count: value.count});
+        toAttribution.set(frameId, { frame: value.frame, count: value.count });
       }
     }
     uiSourceCodeToAttributionMap.set(toUISourceCode, toAttribution);
   }
 
-  /**
-   * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
-   * @param {string} frameId
-   */
-  static addFrameAttribution(uiSourceCode, frameId) {
+  static addFrameAttribution(uiSourceCode: Workspace.UISourceCode.UISourceCode, frameId: string): void {
     const frame = NetworkProject._resolveFrame(uiSourceCode, frameId);
     if (!frame) {
       return;
@@ -126,22 +110,18 @@ export class NetworkProject {
     if (!frameAttribution) {
       return;
     }
-    const attributionInfo = frameAttribution.get(frameId) || {frame: frame, count: 0};
+    const attributionInfo = frameAttribution.get(frameId) || { frame: frame, count: 0 };
     attributionInfo.count += 1;
     frameAttribution.set(frameId, attributionInfo);
     if (attributionInfo.count !== 1) {
       return;
     }
 
-    const data = {uiSourceCode: uiSourceCode, frame: frame};
+    const data = { uiSourceCode: uiSourceCode, frame: frame };
     NetworkProjectManager.instance().dispatchEventToListeners(Events.FrameAttributionAdded, data);
   }
 
-  /**
-   * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
-   * @param {string} frameId
-   */
-  static removeFrameAttribution(uiSourceCode, frameId) {
+  static removeFrameAttribution(uiSourceCode: Workspace.UISourceCode.UISourceCode, frameId: string): void {
     const frameAttribution = uiSourceCodeToAttributionMap.get(uiSourceCode);
     if (!frameAttribution) {
       return;
@@ -156,39 +136,23 @@ export class NetworkProject {
       return;
     }
     frameAttribution.delete(frameId);
-    const data = {uiSourceCode: uiSourceCode, frame: attributionInfo.frame};
+    const data = { uiSourceCode: uiSourceCode, frame: attributionInfo.frame };
     NetworkProjectManager.instance().dispatchEventToListeners(Events.FrameAttributionRemoved, data);
   }
 
-  /**
-   * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
-   * @return {?SDK.SDKModel.Target} target
-   */
-  static targetForUISourceCode(uiSourceCode) {
+  static targetForUISourceCode(uiSourceCode: Workspace.UISourceCode.UISourceCode): SDK.SDKModel.Target | null {
     return projectToTargetMap.get(uiSourceCode.project()) || null;
   }
 
-  /**
-   * @param {!Workspace.Workspace.Project} project
-   * @param {!SDK.SDKModel.Target} target
-   */
-  static setTargetForProject(project, target) {
+  static setTargetForProject(project: Workspace.Workspace.Project, target: SDK.SDKModel.Target): void {
     projectToTargetMap.set(project, target);
   }
 
-  /**
-   * @param {!Workspace.Workspace.Project} project
-   * @return {?SDK.SDKModel.Target}
-   */
-  static getTargetForProject(project) {
+  static getTargetForProject(project: Workspace.Workspace.Project): SDK.SDKModel.Target | null {
     return projectToTargetMap.get(project) || null;
   }
 
-  /**
-   * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
-   * @return {!Array<!SDK.ResourceTreeModel.ResourceTreeFrame>}
-   */
-  static framesForUISourceCode(uiSourceCode) {
+  static framesForUISourceCode(uiSourceCode: Workspace.UISourceCode.UISourceCode): SDK.ResourceTreeModel.ResourceTreeFrame[] {
     const target = NetworkProject.targetForUISourceCode(uiSourceCode);
     const resourceTreeModel = target && target.model(SDK.ResourceTreeModel.ResourceTreeModel);
     const attribution = uiSourceCodeToAttributionMap.get(uiSourceCode);
@@ -196,6 +160,6 @@ export class NetworkProject {
       return [];
     }
     const frames = Array.from(attribution.keys()).map(frameId => resourceTreeModel.frameForId(frameId));
-    return /** @type {!Array<!SDK.ResourceTreeModel.ResourceTreeFrame>} */ (frames.filter(frame => Boolean(frame)));
+    return /** @type {!Array<!SDK.ResourceTreeModel.ResourceTreeFrame>} */ frames.filter(frame => Boolean(frame)) as SDK.ResourceTreeModel.ResourceTreeFrame[];
   }
 }

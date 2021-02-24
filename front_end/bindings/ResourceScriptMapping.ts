@@ -28,16 +28,18 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';
 import * as i18n from '../i18n/i18n.js';
 import * as SDK from '../sdk/sdk.js';
 import * as Workspace from '../workspace/workspace.js';
 
-import {Breakpoint, BreakpointManager} from './BreakpointManager.js';  // eslint-disable-line no-unused-vars
-import {ContentProviderBasedProject} from './ContentProviderBasedProject.js';
-import {DebuggerSourceMapping, DebuggerWorkspaceBinding} from './DebuggerWorkspaceBinding.js';  // eslint-disable-line no-unused-vars
-import {NetworkProject} from './NetworkProject.js';
-import {metadataForURL} from './ResourceUtils.js';
+import { Breakpoint, BreakpointManager } from './BreakpointManager.js'; // eslint-disable-line no-unused-vars
+import { ContentProviderBasedProject } from './ContentProviderBasedProject.js';
+import { DebuggerSourceMapping, DebuggerWorkspaceBinding } from './DebuggerWorkspaceBinding.js'; // eslint-disable-line no-unused-vars
+import { NetworkProject } from './NetworkProject.js';
+import { metadataForURL } from './ResourceUtils.js';
 
 export const UIStrings = {
   /**
@@ -51,70 +53,51 @@ export const UIStrings = {
   */
   liveEditCompileFailed: 'LiveEdit compile failed: {PH1}',
 };
-const str_ = i18n.i18n.registerUIStrings('bindings/ResourceScriptMapping.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('bindings/ResourceScriptMapping.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
-/**
- * @implements {DebuggerSourceMapping}
- */
-export class ResourceScriptMapping {
-  /**
-   * @param {!SDK.DebuggerModel.DebuggerModel} debuggerModel
-   * @param {!Workspace.Workspace.WorkspaceImpl} workspace
-   * @param {!DebuggerWorkspaceBinding} debuggerWorkspaceBinding
-   */
-  constructor(debuggerModel, workspace, debuggerWorkspaceBinding) {
+export class ResourceScriptMapping implements DebuggerSourceMapping {
+  _debuggerModel: SDK.DebuggerModel.DebuggerModel;
+  _workspace: Workspace.Workspace.WorkspaceImpl;
+  _debuggerWorkspaceBinding: DebuggerWorkspaceBinding;
+  _uiSourceCodeToScriptFile: Map<Workspace.UISourceCode.UISourceCode, ResourceScriptFile>;
+  _projects: Map<string, ContentProviderBasedProject>;
+  _acceptedScripts: Set<SDK.Script.Script>;
+  _eventListeners: Common.EventTarget.EventDescriptor[];
+  constructor(debuggerModel: SDK.DebuggerModel.DebuggerModel, workspace: Workspace.Workspace.WorkspaceImpl, debuggerWorkspaceBinding: DebuggerWorkspaceBinding) {
     this._debuggerModel = debuggerModel;
     this._workspace = workspace;
     this._debuggerWorkspaceBinding = debuggerWorkspaceBinding;
-    /** @type {!Map.<!Workspace.UISourceCode.UISourceCode, !ResourceScriptFile>} */
     this._uiSourceCodeToScriptFile = new Map();
 
-    /** @type {!Map<string, !ContentProviderBasedProject>} */
     this._projects = new Map();
 
-    /** @type {!Set<!SDK.Script.Script>} */
     this._acceptedScripts = new Set();
     const runtimeModel = debuggerModel.runtimeModel();
     this._eventListeners = [
-      this._debuggerModel.addEventListener(
-          SDK.DebuggerModel.Events.ParsedScriptSource,
-          event => {
-            this._parsedScriptSource(event);
-          },
-          this),
-      this._debuggerModel.addEventListener(
-          SDK.DebuggerModel.Events.GlobalObjectCleared, this._globalObjectCleared, this),
-      runtimeModel.addEventListener(
-          SDK.RuntimeModel.Events.ExecutionContextDestroyed, this._executionContextDestroyed, this),
+      this._debuggerModel.addEventListener(SDK.DebuggerModel.Events.ParsedScriptSource, event => {
+        this._parsedScriptSource(event);
+      }, this),
+      this._debuggerModel.addEventListener(SDK.DebuggerModel.Events.GlobalObjectCleared, this._globalObjectCleared, this),
+      runtimeModel.addEventListener(SDK.RuntimeModel.Events.ExecutionContextDestroyed, this._executionContextDestroyed, this),
     ];
   }
 
-  /**
-   * @param {!SDK.Script.Script} script
-   * @return {!ContentProviderBasedProject}
-   */
-  _project(script) {
+  _project(script: SDK.Script.Script): ContentProviderBasedProject {
     const prefix = script.isContentScript() ? 'js:extensions:' : 'js::';
     const projectId = prefix + this._debuggerModel.target().id() + ':' + script.frameId;
     let project = this._projects.get(projectId);
     if (!project) {
       const projectType = script.isContentScript() ? Workspace.Workspace.projectTypes.ContentScripts :
-                                                     Workspace.Workspace.projectTypes.Network;
-      project = new ContentProviderBasedProject(
-          this._workspace, projectId, projectType, '' /* displayName */, false /* isServiceProject */);
+        Workspace.Workspace.projectTypes.Network;
+      project = new ContentProviderBasedProject(this._workspace, projectId, projectType, '' /* displayName */, false /* isServiceProject */);
       NetworkProject.setTargetForProject(project, this._debuggerModel.target());
       this._projects.set(projectId, project);
     }
     return project;
   }
 
-  /**
-   * @override
-   * @param {!SDK.DebuggerModel.Location} rawLocation
-   * @return {?Workspace.UISourceCode.UILocation}
-   */
-  rawLocationToUILocation(rawLocation) {
+  rawLocationToUILocation(rawLocation: SDK.DebuggerModel.Location): Workspace.UISourceCode.UILocation | null {
     const script = rawLocation.script();
     if (!script) {
       return null;
@@ -142,31 +125,19 @@ export class ResourceScriptMapping {
     return uiSourceCode.uiLocation(lineNumber, columnNumber);
   }
 
-  /**
-   * @override
-   * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
-   * @param {number} lineNumber
-   * @param {number} columnNumber
-   * @return {!Array<!SDK.DebuggerModel.Location>}
-   */
-  uiLocationToRawLocations(uiSourceCode, lineNumber, columnNumber) {
+  uiLocationToRawLocations(uiSourceCode: Workspace.UISourceCode.UISourceCode, lineNumber: number, columnNumber: number): SDK.DebuggerModel.Location[] {
     const scriptFile = this._uiSourceCodeToScriptFile.get(uiSourceCode);
     if (!scriptFile || typeof scriptFile._script === 'undefined') {
       return [];
     }
     const script = scriptFile._script;
     if (script.isInlineScriptWithSourceURL()) {
-      return [this._debuggerModel.createRawLocation(
-          script, lineNumber + script.lineOffset, lineNumber ? columnNumber : columnNumber + script.columnOffset)];
+      return [this._debuggerModel.createRawLocation(script, lineNumber + script.lineOffset, lineNumber ? columnNumber : columnNumber + script.columnOffset)];
     }
     return [this._debuggerModel.createRawLocation(script, lineNumber, columnNumber)];
   }
 
-  /**
-   * @param {!SDK.Script.Script} script
-   * @return {boolean}
-   */
-  _acceptsScript(script) {
+  _acceptsScript(script: SDK.Script.Script): boolean {
     if (!script.sourceURL || script.isLiveEdit() || (script.isInlineScript() && !script.hasSourceURL)) {
       return false;
     }
@@ -180,11 +151,8 @@ export class ResourceScriptMapping {
     return true;
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  async _parsedScriptSource(event) {
-    const script = /** @type {!SDK.Script.Script} */ (event.data);
+  async _parsedScriptSource(event: Common.EventTarget.EventTargetEvent): Promise<void> {
+    const script = (event.data as SDK.Script.Script);
     if (!this._acceptsScript(script)) {
       return;
     }
@@ -217,25 +185,17 @@ export class ResourceScriptMapping {
     await this._debuggerWorkspaceBinding.updateLocations(script);
   }
 
-  /**
-   * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
-   * @return {?ResourceScriptFile}
-   */
-  scriptFile(uiSourceCode) {
+  scriptFile(uiSourceCode: Workspace.UISourceCode.UISourceCode): ResourceScriptFile | null {
     return this._uiSourceCodeToScriptFile.get(uiSourceCode) || null;
   }
 
-  /**
-   * @param {!SDK.Script.Script} script
-   */
-  async _removeScript(script) {
+  async _removeScript(script: SDK.Script.Script): Promise<void> {
     if (!this._acceptedScripts.has(script)) {
       return;
     }
     this._acceptedScripts.delete(script);
     const project = this._project(script);
-    const uiSourceCode =
-        /** @type {!Workspace.UISourceCode.UISourceCode} */ (project.uiSourceCodeForURL(script.sourceURL));
+    const uiSourceCode = (project.uiSourceCodeForURL(script.sourceURL) as Workspace.UISourceCode.UISourceCode);
     const scriptFile = this._uiSourceCodeToScriptFile.get(uiSourceCode);
     if (scriptFile) {
       scriptFile.dispose();
@@ -245,35 +205,29 @@ export class ResourceScriptMapping {
     await this._debuggerWorkspaceBinding.updateLocations(script);
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _executionContextDestroyed(event) {
-    const executionContext = /** @type {!SDK.RuntimeModel.ExecutionContext} */ (event.data);
+  _executionContextDestroyed(event: Common.EventTarget.EventTargetEvent): void {
+    const executionContext = (event.data as SDK.RuntimeModel.ExecutionContext);
     const scripts = this._debuggerModel.scriptsForExecutionContext(executionContext);
     for (const script of scripts) {
       this._removeScript(script);
     }
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _globalObjectCleared(event) {
+  _globalObjectCleared(event: Common.EventTarget.EventTargetEvent): void {
     const scripts = Array.from(this._acceptedScripts);
     for (const script of scripts) {
       this._removeScript(script);
     }
   }
 
-  resetForTest() {
+  resetForTest(): void {
     const scripts = Array.from(this._acceptedScripts);
     for (const script of scripts) {
       this._removeScript(script);
     }
   }
 
-  dispose() {
+  dispose(): void {
     Common.EventTarget.EventTarget.removeEventListeners(this._eventListeners);
     const scripts = Array.from(this._acceptedScripts);
     for (const script of scripts) {
@@ -287,12 +241,14 @@ export class ResourceScriptMapping {
 }
 
 export class ResourceScriptFile extends Common.ObjectWrapper.ObjectWrapper {
-  /**
-   * @param {!ResourceScriptMapping} resourceScriptMapping
-   * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
-   * @param {!Array.<!SDK.Script.Script>} scripts
-   */
-  constructor(resourceScriptMapping, uiSourceCode, scripts) {
+  _resourceScriptMapping: ResourceScriptMapping;
+  _uiSourceCode: Workspace.UISourceCode.UISourceCode;
+  _script: SDK.Script.Script | undefined;
+  _scriptSource?: string | null;
+  _isDivergingFromVM?: boolean;
+  _hasDivergedFromVM?: boolean;
+  _isMergingToVM?: boolean;
+  constructor(resourceScriptMapping: ResourceScriptMapping, uiSourceCode: Workspace.UISourceCode.UISourceCode, scripts: SDK.Script.Script[]) {
     super();
     console.assert(scripts.length > 0);
 
@@ -303,24 +259,15 @@ export class ResourceScriptFile extends Common.ObjectWrapper.ObjectWrapper {
       this._script = scripts[scripts.length - 1];
     }
 
-    this._uiSourceCode.addEventListener(
-        Workspace.UISourceCode.Events.WorkingCopyChanged, this._workingCopyChanged, this);
-    this._uiSourceCode.addEventListener(
-        Workspace.UISourceCode.Events.WorkingCopyCommitted, this._workingCopyCommitted, this);
+    this._uiSourceCode.addEventListener(Workspace.UISourceCode.Events.WorkingCopyChanged, this._workingCopyChanged, this);
+    this._uiSourceCode.addEventListener(Workspace.UISourceCode.Events.WorkingCopyCommitted, this._workingCopyCommitted, this);
   }
 
-  /**
-   * @param {!Array.<!SDK.Script.Script>} scripts
-   * @return {boolean}
-   */
-  _hasScripts(scripts) {
+  _hasScripts(scripts: SDK.Script.Script[]): boolean {
     return Boolean(this._script) && this._script === scripts[0];
   }
 
-  /**
-   * @return {boolean}
-   */
-  _isDiverged() {
+  _isDiverged(): boolean {
     if (this._uiSourceCode.isDirty()) {
       return true;
     }
@@ -343,17 +290,11 @@ export class ResourceScriptFile extends Common.ObjectWrapper.ObjectWrapper {
     return Boolean(suffix.length) && !suffix.match(SDK.Script.sourceURLRegex);
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _workingCopyChanged(event) {
+  _workingCopyChanged(event: Common.EventTarget.EventTargetEvent): void {
     this._update();
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _workingCopyCommitted(event) {
+  _workingCopyCommitted(event: Common.EventTarget.EventTargetEvent): void {
     if (this._uiSourceCode.project().canSetFileContent()) {
       return;
     }
@@ -362,21 +303,15 @@ export class ResourceScriptFile extends Common.ObjectWrapper.ObjectWrapper {
     }
     const debuggerModel = this._resourceScriptMapping._debuggerModel;
     const breakpoints = BreakpointManager.instance()
-                            .breakpointLocationsForUISourceCode(this._uiSourceCode)
-                            .map(breakpointLocation => breakpointLocation.breakpoint);
+      .breakpointLocationsForUISourceCode(this._uiSourceCode)
+      .map(breakpointLocation => breakpointLocation.breakpoint);
     const source = this._uiSourceCode.workingCopy();
     debuggerModel.setScriptSource(this._script.scriptId, source, (error, exceptionDetails) => {
       this.scriptSourceWasSet(source, breakpoints, error, exceptionDetails);
     });
   }
 
-  /**
-   * @param {string} source
-   * @param {!Array<!Breakpoint>} breakpoints
-   * @param {?string} error
-   * @param {!Protocol.Runtime.ExceptionDetails=} exceptionDetails
-   */
-  async scriptSourceWasSet(source, breakpoints, error, exceptionDetails) {
+  async scriptSourceWasSet(source: string, breakpoints: Breakpoint[], error: string | null, exceptionDetails?: Protocol.Runtime.ExceptionDetails): Promise<void> {
     if (!error && !exceptionDetails) {
       this._scriptSource = source;
     }
@@ -389,25 +324,23 @@ export class ResourceScriptFile extends Common.ObjectWrapper.ObjectWrapper {
       return;
     }
     if (!exceptionDetails) {
-      Common.Console.Console.instance().addMessage(
-          i18nString(UIStrings.liveEditFailed, {PH1: error}), Common.Console.MessageLevel.Warning);
+      Common.Console.Console.instance().addMessage(i18nString(UIStrings.liveEditFailed, { PH1: error }), Common.Console.MessageLevel.Warning);
       return;
     }
-    const messageText = i18nString(UIStrings.liveEditCompileFailed, {PH1: exceptionDetails.text});
-    this._uiSourceCode.addLineMessage(
-        Workspace.UISourceCode.Message.Level.Error, messageText, exceptionDetails.lineNumber,
-        exceptionDetails.columnNumber);
+    const messageText = i18nString(UIStrings.liveEditCompileFailed, { PH1: exceptionDetails.text });
+    this._uiSourceCode.addLineMessage(Workspace.UISourceCode.Message.Level.Error, messageText, exceptionDetails.lineNumber, exceptionDetails.columnNumber);
   }
 
-  async _update() {
+  async _update(): Promise<void> {
     if (this._isDiverged() && !this._hasDivergedFromVM) {
       await this._divergeFromVM();
-    } else if (!this._isDiverged() && this._hasDivergedFromVM) {
+    }
+    else if (!this._isDiverged() && this._hasDivergedFromVM) {
       await this._mergeToVM();
     }
   }
 
-  async _divergeFromVM() {
+  async _divergeFromVM(): Promise<void> {
     if (this._script) {
       this._isDivergingFromVM = true;
       await this._resourceScriptMapping._debuggerWorkspaceBinding.updateLocations(this._script);
@@ -417,7 +350,7 @@ export class ResourceScriptFile extends Common.ObjectWrapper.ObjectWrapper {
     }
   }
 
-  async _mergeToVM() {
+  async _mergeToVM(): Promise<void> {
     if (this._script) {
       delete this._hasDivergedFromVM;
       this._isMergingToVM = true;
@@ -427,28 +360,19 @@ export class ResourceScriptFile extends Common.ObjectWrapper.ObjectWrapper {
     }
   }
 
-  /**
-   * @return {boolean}
-   */
-  hasDivergedFromVM() {
+  hasDivergedFromVM(): boolean {
     return Boolean(this._hasDivergedFromVM);
   }
 
-  /**
-   * @return {boolean}
-   */
-  isDivergingFromVM() {
+  isDivergingFromVM(): boolean {
     return Boolean(this._isDivergingFromVM);
   }
 
-  /**
-   * @return {boolean}
-   */
-  isMergingToVM() {
+  isMergingToVM(): boolean {
     return Boolean(this._isMergingToVM);
   }
 
-  checkMapping() {
+  checkMapping(): void {
     if (!this._script || typeof this._scriptSource !== 'undefined') {
       this._mappingCheckedForTest();
       return;
@@ -459,30 +383,22 @@ export class ResourceScriptFile extends Common.ObjectWrapper.ObjectWrapper {
     });
   }
 
-  _mappingCheckedForTest() {
+  _mappingCheckedForTest(): void {
   }
 
-  dispose() {
-    this._uiSourceCode.removeEventListener(
-        Workspace.UISourceCode.Events.WorkingCopyChanged, this._workingCopyChanged, this);
-    this._uiSourceCode.removeEventListener(
-        Workspace.UISourceCode.Events.WorkingCopyCommitted, this._workingCopyCommitted, this);
+  dispose(): void {
+    this._uiSourceCode.removeEventListener(Workspace.UISourceCode.Events.WorkingCopyChanged, this._workingCopyChanged, this);
+    this._uiSourceCode.removeEventListener(Workspace.UISourceCode.Events.WorkingCopyCommitted, this._workingCopyCommitted, this);
   }
 
-  /**
-   * @param {string} sourceMapURL
-   */
-  addSourceMapURL(sourceMapURL) {
+  addSourceMapURL(sourceMapURL: string): void {
     if (!this._script) {
       return;
     }
     this._script.debuggerModel.setSourceMapURL(this._script, sourceMapURL);
   }
 
-  /**
-   * @return {boolean}
-   */
-  hasSourceMapURL() {
+  hasSourceMapURL(): boolean {
     return this._script !== undefined && Boolean(this._script.sourceMapURL);
   }
 
