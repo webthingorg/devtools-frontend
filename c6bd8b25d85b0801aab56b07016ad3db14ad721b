@@ -83,6 +83,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "547436c0_2a5b3878",
+        "filename": "scripts/eslint_rules/lib/l10n_filename_matches.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-24T08:44:05Z",
+      "side": 1,
+      "message": "nit: file\u0027s",
+      "range": {
+        "startLine": 35,
+        "startChar": 76,
+        "endLine": 35,
+        "endChar": 78
+      },
+      "revId": "c6bd8b25d85b0801aab56b07016ad3db14ad721b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d9a36603_aa1d77b6",
         "filename": "scripts/eslint_rules/lib/l10n_filename_matches.js",
         "patchSetId": 1
