@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d981d3d_ed6d36ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-24T10:55:23Z",
+      "side": 1,
+      "message": "PTAL, had to change the test because of the change to SharedArrayBuffers text. I think it makes sense to display it as SharedArrayBuffer rather than with spaces, probably makes it easier to parse for the reader that we are referring to that API rather than describing buffers made of arrays that are shared",
+      "revId": "954504bb9bdcc71beb02b57c7f975a17daf5819f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
