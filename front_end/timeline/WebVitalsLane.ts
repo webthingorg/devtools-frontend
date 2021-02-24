@@ -3,11 +3,13 @@
 // found in the LICENSE file.
 
 import * as Host from '../host/host.js';
+import * as LitHtml from '../third_party/lit-html/lit-html.js';
 
-import {assertInstanceOf, Colors, Event, Marker, MarkerType, Timebox, WebVitalsTimeline} from './WebVitalsTimeline.js';
+import {assertInstanceOf, Colors, Event, LONG_TASK_THRESHOLD, Marker, MarkerType, Timebox, WebVitalsTimeline} from './WebVitalsTimeline.js';
 
 type GetMarkerTypeCallback = (event: Event) => MarkerType;
-const LONG_TASK_DURATION = 50;
+type GetMarkerOverlayCallback = (marker: Marker) => LitHtml.TemplateResult;
+type GetTimeboxOverlayCallback = (marker: Timebox) => LitHtml.TemplateResult;
 
 abstract class WebVitalsLane {
   protected context: CanvasRenderingContext2D;
@@ -54,16 +56,21 @@ export class WebVitalsEventLane extends WebVitalsLane {
   private labelMetrics: TextMetrics;
   private label: string;
   private getMarkerType: GetMarkerTypeCallback;
+  private getMarkerOverlay?: GetMarkerOverlayCallback;
 
-  constructor(timeline: WebVitalsTimeline, label: string, getMarkerType: GetMarkerTypeCallback) {
+  constructor(
+      timeline: WebVitalsTimeline, label: string, getMarkerType: GetMarkerTypeCallback,
+      getMarkerOverlay?: GetMarkerOverlayCallback) {
     super(timeline);
     this.context = timeline.getContext();
     this.label = label;
     this.getMarkerType = getMarkerType;
+    this.getMarkerOverlay = getMarkerOverlay;
     this.labelMetrics = this.measureLabel(this.label);
   }
 
   handlePointerMove(x: number|null): void {
+    const prevHoverMarker = this.hoverMarker;
     if (x === null) {
       this.hoverMarker = null;
     } else {
@@ -72,6 +79,14 @@ export class WebVitalsEventLane extends WebVitalsLane {
         return tX - 5 <= x && x <= tX + m.widthIncludingLabel;
       }) ||
           null;
+    }
+
+    if (prevHoverMarker !== this.hoverMarker) {
+      if (this.hoverMarker && this.getMarkerOverlay) {
+        this.timeline.showOverlay(this.getMarkerOverlay(this.hoverMarker));
+      } else {
+        this.timeline.hideOverlay();
+      }
     }
   }
 
@@ -276,8 +291,9 @@ export class WebVitalsTimeboxLane extends WebVitalsLane {
   private label: string;
   private hoverBox: number = -1;
   private selectedBox: number = -1;
+  private getTimeboxOverlay?: GetTimeboxOverlayCallback;
 
-  constructor(timeline: WebVitalsTimeline, label: string) {
+  constructor(timeline: WebVitalsTimeline, label: string, getTimeboxOverlay?: GetTimeboxOverlayCallback) {
     super(timeline);
 
     this.label = label;
@@ -302,9 +318,11 @@ export class WebVitalsTimeboxLane extends WebVitalsLane {
     const canvasPattern = this.context.createPattern(patternCanvas, 'repeat');
     assertInstanceOf(canvasPattern, CanvasPattern);
     this.longTaskPattern = canvasPattern;
+    this.getTimeboxOverlay = getTimeboxOverlay;
   }
 
   handlePointerMove(x: number|null): void {
+    const prevHoverBox = this.hoverBox;
     if (x === null) {
       this.hoverBox = -1;
     } else {
@@ -313,6 +331,14 @@ export class WebVitalsTimeboxLane extends WebVitalsLane {
         const end = this.tX(box.start + box.duration);
         return start <= x && x <= end;
       });
+    }
+
+    if (prevHoverBox !== this.hoverBox) {
+      if (this.hoverBox !== -1 && this.getTimeboxOverlay) {
+        this.timeline.showOverlay(this.getTimeboxOverlay(this.boxes[this.hoverBox]));
+      } else {
+        this.timeline.hideOverlay();
+      }
     }
   }
 
@@ -368,7 +394,7 @@ export class WebVitalsTimeboxLane extends WebVitalsLane {
     // Fill the box with a striped pattern for everything over 50ms.
     this.context.beginPath();
     this.context.fillStyle = this.longTaskPattern;
-    this.context.moveTo(this.tX(box.start + LONG_TASK_DURATION) + r, 2);
+    this.context.moveTo(this.tX(box.start + LONG_TASK_THRESHOLD) + r, 2);
     this.context.lineTo(this.tX(box.start + box.duration) - r, 2);
     this.context.quadraticCurveTo(
         this.tX(box.start + box.duration),
