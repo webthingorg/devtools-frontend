@@ -51,6 +51,24 @@
       "parentUuid": "c78f6d94_9532116e",
       "revId": "7b45f6381310a517d284459f8b021483de83303b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72bc349b_ed399a0a",
+        "filename": "front_end/sdk/Cookie.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2021-02-24T08:16:39Z",
+      "side": 1,
+      "message": "Exactly, my question was about that unlikely case.",
+      "parentUuid": "d2d74bae_413f25d4",
+      "revId": "7b45f6381310a517d284459f8b021483de83303b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
