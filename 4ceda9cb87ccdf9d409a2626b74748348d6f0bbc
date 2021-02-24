@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "567fd474_cf79e8fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2021-02-24T09:21:04Z",
+      "side": 1,
+      "message": "Done. Let me know if you\u0027d like a different approach.",
+      "parentUuid": "1c994d09_2f5062ae",
+      "revId": "4ceda9cb87ccdf9d409a2626b74748348d6f0bbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "52728c06_38797cbb",
