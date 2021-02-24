@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca05c04d_1fcb1331",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-24T08:12:41Z",
+      "side": 1,
+      "message": "PTAL\n\nPeter for the semantics of the check. Jack, am I holding eslint correctly?",
+      "revId": "c6bd8b25d85b0801aab56b07016ad3db14ad721b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
