@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bcc566d_6729dbd2",
+        "filename": "scripts/eslint_rules/lib/l10n_filename_matches.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-24T09:09:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f46442a1_b0e2d1c0",
+      "range": {
+        "startLine": 11,
+        "startChar": 9,
+        "endLine": 11,
+        "endChar": 22
+      },
+      "revId": "c6bd8b25d85b0801aab56b07016ad3db14ad721b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d112e5b1_7dd715f9",
@@ -71,6 +95,30 @@
       "writtenOn": "2021-02-24T08:33:19Z",
       "side": 1,
       "message": "nit: lowercase `is`",
+      "range": {
+        "startLine": 16,
+        "startChar": 9,
+        "endLine": 16,
+        "endChar": 32
+      },
+      "revId": "c6bd8b25d85b0801aab56b07016ad3db14ad721b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb3b0cbf_3774af26",
+        "filename": "scripts/eslint_rules/lib/l10n_filename_matches.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-24T09:09:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d112e5b1_7dd715f9",
       "range": {
         "startLine": 16,
         "startChar": 9,
@@ -104,6 +152,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "416c3481_b185da74",
+        "filename": "scripts/eslint_rules/lib/l10n_filename_matches.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-24T09:09:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "547436c0_2a5b3878",
+      "range": {
+        "startLine": 35,
+        "startChar": 76,
+        "endLine": 35,
+        "endChar": 78
+      },
+      "revId": "c6bd8b25d85b0801aab56b07016ad3db14ad721b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d9a36603_aa1d77b6",
@@ -117,6 +189,30 @@
       "writtenOn": "2021-02-24T08:33:19Z",
       "side": 1,
       "message": "did you mean to call the `isModuleScope` function here?",
+      "range": {
+        "startLine": 44,
+        "startChar": 13,
+        "endLine": 44,
+        "endChar": 26
+      },
+      "revId": "c6bd8b25d85b0801aab56b07016ad3db14ad721b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95f021c6_ea172d20",
+        "filename": "scripts/eslint_rules/lib/l10n_filename_matches.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-24T09:09:56Z",
+      "side": 1,
+      "message": "whoops, yes, good catch :)",
+      "parentUuid": "d9a36603_aa1d77b6",
       "range": {
         "startLine": 44,
         "startChar": 13,
