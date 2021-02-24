@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b4fa944_e26dc5fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2021-02-24T23:58:00Z",
+      "side": 1,
+      "message": "Code changes LGTM (had to manually diff), haven\u0027t tested it yet though.",
+      "revId": "44f5990cfb4280781c10f62a7886fbe91d1ed38f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87ff2fa2_9f2cb306",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1363999
+      },
+      "writtenOn": "2021-02-24T23:58:00Z",
+      "side": 1,
+      "message": "nit: Looks like a leftover comment",
+      "revId": "44f5990cfb4280781c10f62a7886fbe91d1ed38f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
