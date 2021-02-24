@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "75878251_ea145f2c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-02-24T10:07:23Z",
+      "side": 1,
+      "message": "Made some comments, looks good overall. I\u0027d love to see an explainer to understand what the plan is. It would be good if something like this was part of a bigger effort to allow modifying grid tracks, flex items sizes, box model regions, etc...\nThat said, I know you said this is a prototype and it might not merge. Which is cool.\nI globally agree with the approach and think this would be useful. I think it raises a lot of UX questions though that we\u0027d need to discuss before going forward (how do we make this discoverable, what about keyboard only users, what happens when the layout is such that gaps move in a counter-intuitive way, should the values always be written to inline styles, ...)\n\nThere was a feature of chrome devtools in the past where you could resize margin, padding, border, content in the overlay. I don\u0027t know if it still exists, might be worth doing some code archeology to see if it\u0027s still here.\nDo you know what I\u0027m talking about? I\u0027ll try to see if I can find some reference to it somewhere.",
+      "revId": "52fe7ee3c5a2e5c0a4fd551fbc23d0c5b3332d69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12599244_b8b02eba",
@@ -14,6 +31,52 @@
       "writtenOn": "2021-02-23T12:35:25Z",
       "side": 1,
       "message": ";",
+      "revId": "52fe7ee3c5a2e5c0a4fd551fbc23d0c5b3332d69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11c36fe8_7e376b02",
+        "filename": "inspector_overlay/drag_resize_handler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-02-24T10:07:23Z",
+      "side": 1,
+      "message": "General question: did you write all of this code for this, or reused some drag management code from devtools front-end (e.g. to drag tabs)? If the latter, could there be a way to extract it in a helper file that both front-end and inspector-overlay would import?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 4
+      },
+      "revId": "52fe7ee3c5a2e5c0a4fd551fbc23d0c5b3332d69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80efa5c7_8c1e1550",
+        "filename": "inspector_overlay/drag_resize_handler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-02-24T10:07:23Z",
+      "side": 1,
+      "message": "nit: why not call this onMouseMove since this is what we are binding it to.",
+      "range": {
+        "startLine": 37,
+        "startChar": 9,
+        "endLine": 37,
+        "endChar": 22
+      },
       "revId": "52fe7ee3c5a2e5c0a4fd551fbc23d0c5b3332d69",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -37,6 +100,70 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7e9ac4b0_1a30e541",
+        "filename": "inspector_overlay/drag_resize_handler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-02-24T10:07:23Z",
+      "side": 1,
+      "message": "Same question from me. In fact when I do this kind of drag code, I usually bind to window directly, which works fine.",
+      "parentUuid": "e5a28e6b_f171529f",
+      "revId": "52fe7ee3c5a2e5c0a4fd551fbc23d0c5b3332d69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0193493a_9b0e0b70",
+        "filename": "inspector_overlay/drag_resize_handler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-02-24T10:07:23Z",
+      "side": 1,
+      "message": "nit: match isn\u0027t particularly self explanatory to me. How about something like draggableObject, currentlyDragged, ... ?",
+      "range": {
+        "startLine": 55,
+        "startChar": 10,
+        "endLine": 55,
+        "endChar": 16
+      },
+      "revId": "52fe7ee3c5a2e5c0a4fd551fbc23d0c5b3332d69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aecc2dbb_45f96f48",
+        "filename": "inspector_overlay/drag_resize_handler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-02-24T10:07:23Z",
+      "side": 1,
+      "message": "Did you mean Mouse instead of Mouth?",
+      "range": {
+        "startLine": 64,
+        "startChar": 10,
+        "endLine": 64,
+        "endChar": 24
+      },
+      "revId": "52fe7ee3c5a2e5c0a4fd551fbc23d0c5b3332d69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d0d170d5_e1db5bb2",
         "filename": "inspector_overlay/drag_resize_handler.ts",
         "patchSetId": 3
@@ -48,6 +175,24 @@
       "writtenOn": "2021-02-23T12:35:25Z",
       "side": 1,
       "message": "I\u0027m curious, why is this one on `window` and not `document.body` like the rest? It\u0027s not obvious to me.\n\nRe: my earlier question, if we decide to just use `document` instead, it seems like we can use that consistently here as well.",
+      "revId": "52fe7ee3c5a2e5c0a4fd551fbc23d0c5b3332d69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71f6759e_c00ba4f8",
+        "filename": "inspector_overlay/drag_resize_handler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-02-24T10:07:23Z",
+      "side": 1,
+      "message": "Also, ending the drag when you mouse out of the window means that certain things won\u0027t be possible. Depending on where the grid is on the page, and depending on how big/small a user is trying to make the gap, it may be required to (at least temporarily) move the mouse outside of the constraints of the window. I don\u0027t think I would expect, as a user, for the dragging to stop because I\u0027ve moved outside of the window, especially if it\u0027s like for just a second, and just for a few pixels.",
+      "parentUuid": "d0d170d5_e1db5bb2",
       "revId": "52fe7ee3c5a2e5c0a4fd551fbc23d0c5b3332d69",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -77,6 +222,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b403f0c7_686cce4f",
+        "filename": "inspector_overlay/drag_resize_handler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-02-24T10:07:23Z",
+      "side": 1,
+      "message": "Does this logic mean that dragging with shift moves 10 times as fast?\nIf so, I guess it means the gap will move further and further away from where the mouse is on the screen.\nI understand the sentiment, but I\u0027m unsure this is needed in this case. For wysiwyg style of modifications, I usually think it\u0027s better for the object you are modifying to stick to your mouse as much as possible.\n\nThinking about it though, there are probably cases when it\u0027s not possible, where the grid is aligned in such a way that even if you drag towards the right, the gap grows towards the left. Did you notice this in your testing?",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 25
+      },
+      "revId": "52fe7ee3c5a2e5c0a4fd551fbc23d0c5b3332d69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e0d1377e_08c7a9de",
         "filename": "inspector_overlay/drag_resize_handler.ts",
         "patchSetId": 3
@@ -93,6 +261,52 @@
         "startChar": 9,
         "endLine": 133,
         "endChar": 22
+      },
+      "revId": "52fe7ee3c5a2e5c0a4fd551fbc23d0c5b3332d69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9a12c6c_d0faa9ba",
+        "filename": "inspector_overlay/tool_persistent.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-02-24T10:07:23Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this handling of index be managed at the parent class Overlay level? \nThis way we get it for all overlay types too (which is useful if we want to extend to flexbox, or box-model in the future).",
+      "range": {
+        "startLine": 82,
+        "startChar": 4,
+        "endLine": 82,
+        "endChar": 26
+      },
+      "revId": "52fe7ee3c5a2e5c0a4fd551fbc23d0c5b3332d69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e69e224_a57d2afa",
+        "filename": "inspector_overlay/tool_persistent.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-02-24T10:07:23Z",
+      "side": 1,
+      "message": "Ah! Today I Learned! I had no idea about this isPointInPath method, and it\u0027s exactly what we needed 😊",
+      "range": {
+        "startLine": 147,
+        "startChar": 39,
+        "endLine": 147,
+        "endChar": 52
       },
       "revId": "52fe7ee3c5a2e5c0a4fd551fbc23d0c5b3332d69",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
