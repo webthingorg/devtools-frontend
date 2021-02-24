@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "162c36b7_90c7e470",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372231
+      },
+      "writtenOn": "2021-02-24T20:23:18Z",
+      "side": 1,
+      "message": "- I wasn\u0027t able to get it to work with flex gaps. Preferable if I can enable multiple overlays, from grid and flex, and grab and change gaps 🤓\n- performance over a network on a custom build was better than expected, i\u0027m very interested in testing in canary!\n- Mouse over works on all gaps when multiple nested grids are used 😎, but deeper children are not draggable / don\u0027t produce any results when dragging. Can work around it by hiding an overlapping parent grid overlay, the gaps on children begin to produce results on drag after that. I\u0027m curious, does the method we\u0027re using to find the gap by x,y return multiple matches or just the \"top most layer\"? However we\u0027re doing the mouse hover visual feedback, it is reliable to show the styled cursor on hover. There\u0027s a delta somewhere between hover and drag targets, and hover is better / matches my expectations at the moment.\n- I found myself almost always holding shift and dragging, just an observation 🙂\n- UX enhancement request: can we reuse the track size badge component to show the updated gap value near the mouse cursor? as you drag, it attaches to the cursor to show you the new gap size. I found I danced a lot between the layout panel (which felt suuuper useful) and the styles panel, but only went to styles to see the value I changed it to. \"nice to have\" for sure, but I\u0027m hoping it\u0027s low effort 🙏\n\nI had some very very exciting moments with this tool! Loved it.\n\nHere\u0027s where I was mostly testing since it\u0027s entirely grid https://gui-challenges.web.app/settings/dist/, but wanted to test on this site with mixed flex and grid layouts https://cdpn.io/argyleink/debug/vYNwbgM. ",
+      "revId": "7037a76637e761e6f80c9ac407b95abbf91542d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

@@ -258,6 +258,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "615894a0_630d047b",
+        "filename": "inspector_overlay/drag_resize_handler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1372231
+      },
+      "writtenOn": "2021-02-24T20:23:18Z",
+      "side": 1,
+      "message": "I love seeing how much of my original source is still here from the proto!",
+      "revId": "52fe7ee3c5a2e5c0a4fd551fbc23d0c5b3332d69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b403f0c7_686cce4f",
         "filename": "inspector_overlay/drag_resize_handler.ts",
         "patchSetId": 3
