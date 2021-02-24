@@ -3,8 +3,10 @@
 // found in the LICENSE file.
 
 import * as Host from '../host/host.js';
+import * as LitHtml from '../third_party/lit-html/lit-html.js';
 
 import {WebVitalsEventLane, WebVitalsTimeboxLane} from './WebVitalsLane.js';
+import {WebVitalsTooltip} from './WebVitalsTooltip';
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -71,6 +73,7 @@ const FCP_GOOD_TIMING = 2000;
 const FCP_MEDIUM_TIMING = 4000;
 const LCP_GOOD_TIMING = 2500;
 const LCP_MEDIUM_TIMING = 4000;
+export const LONG_TASK_THRESHOLD = 50;
 
 export const enum Colors {
   Good = '#0cce6b',
@@ -108,6 +111,8 @@ export class WebVitalsTimeline extends HTMLElement {
   private context: CanvasRenderingContext2D;
   private animationFrame: number|null = null;
 
+  private overlay: WebVitalsTooltip;
+
   constructor() {
     super();
 
@@ -125,10 +130,16 @@ export class WebVitalsTimeline extends HTMLElement {
 
     this.context = context;
 
-    this.fcpLane = new WebVitalsEventLane(this, 'FCP', e => this.getMarkerTypeForFCPEvent(e));
-    this.lcpLane = new WebVitalsEventLane(this, 'LCP', e => this.getMarkerTypeForLCPEvent(e));
+    this.fcpLane = new WebVitalsEventLane(this, 'FCP', e => this.getMarkerTypeForFCPEvent(e), this.getFCPMarkerOverlay);
+    this.lcpLane = new WebVitalsEventLane(this, 'LCP', e => this.getMarkerTypeForLCPEvent(e), this.getLCPMarkerOverlay);
     this.layoutShiftsLane = new WebVitalsEventLane(this, 'LS', _ => MarkerType.Bad);
-    this.longTasksLane = new WebVitalsTimeboxLane(this, 'Long Tasks');
+    this.longTasksLane = new WebVitalsTimeboxLane(this, 'Long Tasks', this.getLongTaskOverlay);
+
+    this.overlay = document.createElement('devtools-timeline-webvitals-tooltip');
+    this.overlay.style.position = 'absolute';
+    this.overlay.style.display = 'none';
+
+    this.ownerDocument.body.appendChild(this.overlay);
   }
 
   set data(data: WebVitalsTimelineData) {
@@ -164,6 +175,15 @@ export class WebVitalsTimeline extends HTMLElement {
     return LINE_HEIGHT;
   }
 
+  hideOverlay(): void {
+    this.overlay.style.display = 'none';
+  }
+
+  showOverlay(content: LitHtml.TemplateResult): void {
+    this.overlay.data = {content};
+    this.overlay.style.display = 'block';
+  }
+
   private handlePointerMove(e: MouseEvent): void {
     const x = e.offsetX, y = e.offsetY;
     const lane = Math.floor(y / LINE_HEIGHT);
@@ -173,6 +193,9 @@ export class WebVitalsTimeline extends HTMLElement {
     this.lcpLane.handlePointerMove(this.hoverLane === 2 ? x : null);
     this.layoutShiftsLane.handlePointerMove(this.hoverLane === 3 ? x : null);
     this.longTasksLane.handlePointerMove(this.hoverLane === 4 ? x : null);
+
+    this.overlay.style.top = `${e.clientY + 10}px`;
+    this.overlay.style.left = `${e.clientX + 10}px`;
 
     this.scheduleRender();
   }
@@ -241,6 +264,10 @@ export class WebVitalsTimeline extends HTMLElement {
     this.render();
   }
 
+  disconnectedCallback(): void {
+    this.overlay.remove();
+  }
+
   private getMarkerTypeForFCPEvent(event: WebVitalsFCPEvent): MarkerType {
     const t = this.getTimeSinceLastMainFrameNavigation(event.timestamp);
     if (t <= FCP_GOOD_TIMING) {
@@ -261,6 +288,85 @@ export class WebVitalsTimeline extends HTMLElement {
       return MarkerType.Medium;
     }
     return MarkerType.Bad;
+  }
+
+  private getFCPMarkerOverlay(): LitHtml.TemplateResult {
+    return LitHtml.html`
+      <table class="table">
+        <thead>
+          <td colspan="3" class="title">First Contentful Paint</td>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="good"></span></td>
+            <td>Good</td>
+            <td>
+              < ${Number.millisToString(FCP_GOOD_TIMING)}</td> </tr> <tr>
+            <td><span class="medium"></span></td>
+            <td>Needs improvement</td>
+            <td>${Number.millisToString(FCP_GOOD_TIMING)} - ${Number.millisToString(FCP_MEDIUM_TIMING)}</td>
+          </tr>
+          <tr>
+            <td><span class="bad"></span></td>
+            <td>Poor</td>
+            <td>> ${Number.millisToString(FCP_MEDIUM_TIMING)}</td>
+          </tr>
+        </tbody>
+      </table>
+    `;
+  }
+
+  private getLCPMarkerOverlay(): LitHtml.TemplateResult {
+    return LitHtml.html`
+      <table class="table">
+        <thead>
+          <td colspan="3" class="title">Largest Contentful Paint</td>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="good"></span></td>
+            <td>Good</td>
+            <td>
+              < ${Number.millisToString(LCP_GOOD_TIMING)}</td> </tr> <tr>
+            <td><span class="medium"></span></td>
+            <td>Needs improvement</td>
+            <td>${Number.millisToString(LCP_GOOD_TIMING)} - ${Number.millisToString(LCP_MEDIUM_TIMING)}</td>
+          </tr>
+          <tr>
+            <td><span class="bad"></span></td>
+            <td>Poor</td>
+            <td>> ${Number.millisToString(LCP_MEDIUM_TIMING)}</td>
+          </tr>
+        </tbody>
+      </table>
+    `;
+  }
+
+  private getLongTaskOverlay(timebox: Timebox): LitHtml.TemplateResult {
+    return LitHtml.html`
+        <table class="table">
+          <thead>
+            <td colspan="3" class="title">
+              Long Task
+              <span class="small">
+                ${Number.millisToString(timebox.duration)}
+              </span>
+            </td>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="good"></span></td>
+              <td>Good</td>
+              <td>0 - ${Number.millisToString(LONG_TASK_THRESHOLD)}</td>
+            </tr>
+            <tr>
+              <td><span class="bad"></span></td>
+              <td>Poor</td>
+              <td>> ${Number.millisToString(LONG_TASK_THRESHOLD)}</td>
+            </tr>
+          </tbody>
+        </table>
+    `;
   }
 
   private renderMainFrameNavigations(markers: readonly number[]): void {
