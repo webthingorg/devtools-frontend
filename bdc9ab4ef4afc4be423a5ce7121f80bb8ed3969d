@@ -18,6 +18,80 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b7af9a6_3e126937",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-02-24T10:35:59Z",
+      "side": 1,
+      "message": "Adding Jack because of theming.",
+      "revId": "bdc9ab4ef4afc4be423a5ce7121f80bb8ed3969d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1202c70e_ad5e29c6",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-02-24T10:35:59Z",
+      "side": 1,
+      "message": "Can we avoid this by using stuff already in use? There\u0027s a function in UIUtils.js that looks like it does similar formatting: https://source.chromium.org/chromium/chromium/src/+/master:third_party/devtools-frontend/src/front_end/ui/UIUtils.js;l\u003d677",
+      "revId": "bdc9ab4ef4afc4be423a5ce7121f80bb8ed3969d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0a46a99_3efa9609",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-02-24T10:35:59Z",
+      "side": 1,
+      "message": "nit: maybe you could use a template string here?",
+      "revId": "bdc9ab4ef4afc4be423a5ce7121f80bb8ed3969d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc8598a7_8e5f439c",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-02-24T10:35:59Z",
+      "side": 1,
+      "message": "nit: we normally place the styles above the markup. It doesn\u0027t affect anything directly here, but for consistency I think we should move it.",
+      "range": {
+        "startLine": 325,
+        "startChar": 7,
+        "endLine": 325,
+        "endChar": 13
+      },
+      "revId": "bdc9ab4ef4afc4be423a5ce7121f80bb8ed3969d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9fb4f4b_c5794666",
@@ -31,6 +105,30 @@
       "writtenOn": "2021-02-24T09:56:57Z",
       "side": 1,
       "message": "@petermueller: These are the colors I extracted from the markup file but they don\u0027t yet have a mapping in ui/themeColors.css. Do you want me to add them there or change these colors to match the ones already defined?",
+      "range": {
+        "startLine": 351,
+        "startChar": 18,
+        "endLine": 351,
+        "endChar": 24
+      },
+      "revId": "bdc9ab4ef4afc4be423a5ce7121f80bb8ed3969d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4b624ae_6d2bcfb1",
+        "filename": "front_end/timeline/WebVitalsTimeline.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1189020
+      },
+      "writtenOn": "2021-02-24T10:35:59Z",
+      "side": 1,
+      "message": "Please can you sync with Jack about the colors? We need to ensure it works when theming changes.",
+      "parentUuid": "b9fb4f4b_c5794666",
       "range": {
         "startLine": 351,
         "startChar": 18,
