@@ -451,42 +451,40 @@ export class StylesSidebarPane extends ElementsSidebarPane {
     if (!section) {
       return;
     }
-
+    let sectionToFocus = null;
+    let willIterateForward = false;
     switch (/** @type {!KeyboardEvent} */ (event).key) {
       case 'ArrowUp':
       case 'ArrowLeft': {
-        const sectionToFocus = section.previousSibling() || section.lastSibling();
-        if (sectionToFocus) {
-          sectionToFocus.element.focus();
-          event.consume(true);
-        }
+        sectionToFocus = section.previousSibling() || section.lastSibling();
+        willIterateForward = false;
         break;
       }
       case 'ArrowDown':
       case 'ArrowRight': {
-        const sectionToFocus = section.nextSibling() || section.firstSibling();
-        if (sectionToFocus) {
-          sectionToFocus.element.focus();
-          event.consume(true);
-        }
+        sectionToFocus = section.nextSibling() || section.firstSibling();
+        willIterateForward = true;
         break;
       }
       case 'Home': {
-        const sectionToFocus = section.firstSibling();
-        if (sectionToFocus) {
-          sectionToFocus.element.focus();
-          event.consume(true);
-        }
+        sectionToFocus = section.firstSibling();
+        willIterateForward = true;
         break;
       }
       case 'End': {
-        const sectionToFocus = section.lastSibling();
-        if (sectionToFocus) {
-          sectionToFocus.element.focus();
-          event.consume(true);
-        }
+        sectionToFocus = section.lastSibling();
+        willIterateForward = false;
         break;
       }
+    }
+
+    if (sectionToFocus && this._filterRegex) {
+      sectionToFocus =
+          sectionToFocus.findVisibleSiblingRecursive(/* willIterateForward= */ willIterateForward, sectionToFocus);
+    }
+    if (sectionToFocus) {
+      sectionToFocus.element.focus();
+      event.consume(true);
     }
   }
 
@@ -497,8 +495,16 @@ export class StylesSidebarPane extends ElementsSidebarPane {
   resetFocus() {
     // When a styles section is focused, shift+tab should leave the section.
     // Leaving tabIndex = 0 on the first element would cause it to be focused instead.
-    if (this._sectionBlocks[0] && this._sectionBlocks[0].sections[0]) {
-      this._sectionBlocks[0].sections[0].element.tabIndex = this._sectionsContainer.hasFocus() ? -1 : 0;
+    if (!this._noMatchesElement.classList.contains('hidden')) {
+      return;
+    }
+    for (const block of this._sectionBlocks) {
+      const firstSection = block.sections[0];
+      const firstVisibleSection =
+          firstSection.findVisibleSiblingRecursive(/* willIterateForward= */ true, firstSection);
+      if (firstVisibleSection) {
+        firstVisibleSection.element.tabIndex = this._sectionsContainer.hasFocus() ? -1 : 0;
+      }
     }
   }
 
@@ -555,6 +561,7 @@ export class StylesSidebarPane extends ElementsSidebarPane {
   _onFilterChanged(regex) {
     this._filterRegex = regex;
     this._updateFilter();
+    this.resetFocus();
   }
 
   /**
@@ -1415,6 +1422,7 @@ export class StylePropertiesSection {
     /** @type {?FontEditorSectionManager} */
     this._fontPopoverIcon = null;
     this._hoverableSelectorsMode = false;
+    this._isHidden = false;
     this._markSelectorMatches();
     this.onpopulate();
   }
@@ -1700,6 +1708,25 @@ export class StylePropertiesSection {
     }
 
     return null;
+  }
+
+  /**
+   * @param {!boolean} willIterateForward
+   * @param {?StylePropertiesSection} initialSibling
+   * @return {?StylePropertiesSection}
+   */
+  findVisibleSiblingRecursive(willIterateForward, initialSibling) {
+    let currentSibling = initialSibling;
+    if (currentSibling && currentSibling.isHidden()) {
+      const nextSibling = willIterateForward ? currentSibling.nextSibling() : currentSibling.previousSibling();
+      if (nextSibling) {
+        currentSibling = this.findVisibleSiblingRecursive(willIterateForward, nextSibling);
+      } else {
+        const loopSibling = willIterateForward ? currentSibling.firstSibling() : currentSibling.lastSibling();
+        currentSibling = this.findVisibleSiblingRecursive(willIterateForward, loopSibling);
+      }
+    }
+    return currentSibling;
   }
 
   /**
@@ -1990,11 +2017,19 @@ export class StylePropertiesSection {
 
     const regex = this._parentPane.filterRegex();
     const hideRule = !hasMatchingChild && regex !== null && !regex.test(this.element.deepTextContent());
+    this._isHidden = hideRule;
     this.element.classList.toggle('hidden', hideRule);
     if (!hideRule && this._style.parentRule) {
       this._markSelectorHighlights();
     }
     return !hideRule;
+  }
+
+  /**
+   * @returns {boolean}
+   */
+  isHidden() {
+    return this._isHidden;
   }
 
   _markSelectorMatches() {
