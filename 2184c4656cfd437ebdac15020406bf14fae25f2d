@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d392853f_d79e9df7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-02-25T09:33:17Z",
+      "side": 1,
+      "message": "Hi Peter,\n\nI wanted to slightly change the text of one of the labels (after some request from the localization team https://buganizer.corp.google.com/issues/180347527), ptal! Is there a general bug that I can cite here?",
+      "revId": "2184c4656cfd437ebdac15020406bf14fae25f2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
