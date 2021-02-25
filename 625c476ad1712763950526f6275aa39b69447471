@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c89af58f_68fa0f96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341669
+      },
+      "writtenOn": "2021-02-25T19:58:20Z",
+      "side": 1,
+      "message": "Very small change to remove a line that should have been deleted in a previous revert, but wasn\u0027t. Caused the loss of focus issue described in the bug.",
+      "revId": "625c476ad1712763950526f6275aa39b69447471",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
