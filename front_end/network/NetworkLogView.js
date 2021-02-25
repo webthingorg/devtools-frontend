@@ -1927,7 +1927,7 @@ export class NetworkLogView extends UI.Widget.VBox {
     if (this._timeFilter && !this._timeFilter(request)) {
       return false;
     }
-    const categoryName = request.resourceType().category().title;
+    const categoryName = request.resourceType().category().title();
     if (!this._resourceCategoryFilterUI.accept(categoryName)) {
       return false;
     }
