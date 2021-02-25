@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "787a4022_76bbd8f9",
+        "filename": "front_end/components/JSPresentationUtils.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-25T09:13:03Z",
+      "side": 1,
+      "message": "As discussed offline, this should probably be an extra flag so users of this method can distinguish between hidden due to length number of rows, and hidden because it is an ignored library frame.",
+      "range": {
+        "startLine": 127,
+        "startChar": 10,
+        "endLine": 127,
+        "endChar": 21
+      },
+      "revId": "90c96a36c81358c0f36efdbd970dcf074e42652f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
