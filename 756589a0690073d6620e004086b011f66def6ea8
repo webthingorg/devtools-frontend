@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ff5c303_86df4d37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-25T07:44:23Z",
+      "side": 1,
+      "message": "Hey Peter, I wanted to check a couple of things while I addressed your comments, but wanted to keep the other CL (sdk migration) for reference so I started a new one from scratch. It decreased the amount of files that I had to change but on shape it is similar to the other minus your comments. PTAL.",
+      "revId": "756589a0690073d6620e004086b011f66def6ea8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
