@@ -2,16 +2,18 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';
 import * as i18n from '../i18n/i18n.js';
-import * as TextUtils from '../text_utils/text_utils.js';  // eslint-disable-line no-unused-vars
+import * as TextUtils from '../text_utils/text_utils.js'; // eslint-disable-line no-unused-vars
 import * as UI from '../ui/ui.js';
 
-import {FontView} from './FontView.js';
-import {ImageView} from './ImageView.js';
-import {JSONView} from './JSONView.js';
-import {ResourceSourceFrame} from './ResourceSourceFrame.js';
-import {XMLView} from './XMLView.js';
+import { FontView } from './FontView.js';
+import { ImageView } from './ImageView.js';
+import { JSONView } from './JSONView.js';
+import { ResourceSourceFrame } from './ResourceSourceFrame.js';
+import { XMLView } from './XMLView.js';
 
 export const UIStrings = {
   /**
@@ -19,15 +21,10 @@ export const UIStrings = {
   */
   nothingToPreview: 'Nothing to preview',
 };
-const str_ = i18n.i18n.registerUIStrings('source_frame/PreviewFactory.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('source_frame/PreviewFactory.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class PreviewFactory {
-  /**
-   * @param {!TextUtils.ContentProvider.ContentProvider} provider
-   * @param {string} mimeType
-   * @returns {!Promise<?UI.Widget.Widget>}
-   */
-  static async createPreview(provider, mimeType) {
+  static async createPreview(provider: TextUtils.ContentProvider.ContentProvider, mimeType: string): Promise<UI.Widget.Widget | null> {
     let resourceType = Common.ResourceType.ResourceType.fromMimeType(mimeType);
     if (resourceType === Common.ResourceType.resourceTypes.Other) {
       resourceType = provider.contentType();
@@ -48,7 +45,7 @@ export class PreviewFactory {
       return new UI.EmptyWidget.EmptyWidget(i18nString(UIStrings.nothingToPreview));
     }
 
-    let content = deferredContent.content;
+    let content: string = deferredContent.content;
     if (await provider.contentEncoded()) {
       content = window.atob(content);
     }
@@ -64,8 +61,7 @@ export class PreviewFactory {
     }
 
     if (resourceType.isTextType()) {
-      const highlighterType =
-          mimeType.replace(/;.*/, '') /* remove charset */ || provider.contentType().canonicalMimeType();
+      const highlighterType = mimeType.replace(/;.*/, '') /* remove charset */ || provider.contentType().canonicalMimeType();
       return ResourceSourceFrame.createSearchableView(provider, highlighterType, true /* autoPrettyPrint */);
     }
 

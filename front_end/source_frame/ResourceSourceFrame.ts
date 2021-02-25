@@ -27,11 +27,13 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as i18n from '../i18n/i18n.js';
-import * as TextUtils from '../text_utils/text_utils.js';  // eslint-disable-line no-unused-vars
+import * as TextUtils from '../text_utils/text_utils.js'; // eslint-disable-line no-unused-vars
 import * as UI from '../ui/ui.js';
 
-import {SourceFrameImpl} from './SourceFrame.js';
+import { SourceFrameImpl } from './SourceFrame.js';
 
 export const UIStrings = {
   /**
@@ -39,33 +41,23 @@ export const UIStrings = {
   */
   find: 'Find',
 };
-const str_ = i18n.i18n.registerUIStrings('source_frame/ResourceSourceFrame.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('source_frame/ResourceSourceFrame.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class ResourceSourceFrame extends SourceFrameImpl {
-  /**
-   * @param {!TextUtils.ContentProvider.ContentProvider} resource
-   * @param {boolean=} autoPrettyPrint
-   * @param {!UI.TextEditor.Options=} codeMirrorOptions
-   */
-  constructor(resource, autoPrettyPrint, codeMirrorOptions) {
+  _resource: TextUtils.ContentProvider.ContentProvider;
+  constructor(resource: TextUtils.ContentProvider.ContentProvider, autoPrettyPrint?: boolean, codeMirrorOptions?: UI.TextEditor.Options) {
     super(async () => {
-      let content = (await resource.requestContent()).content || '';
+      let content: string = (await resource.requestContent()).content || '';
       if (await resource.contentEncoded()) {
         content = window.atob(content);
       }
-      return {content, isEncoded: false};
+      return { content, isEncoded: false };
     }, codeMirrorOptions);
     this._resource = resource;
     this.setCanPrettyPrint(this._resource.contentType().isDocumentOrScriptOrStyleSheet(), autoPrettyPrint);
   }
 
-  /**
-   * @param {!TextUtils.ContentProvider.ContentProvider} resource
-   * @param {string} highlighterType
-   * @param {boolean=} autoPrettyPrint
-   * @return {!UI.Widget.Widget}
-   */
-  static createSearchableView(resource, highlighterType, autoPrettyPrint) {
+  static createSearchableView(resource: TextUtils.ContentProvider.ContentProvider, highlighterType: string, autoPrettyPrint?: boolean): UI.Widget.Widget {
     return new SearchableContainer(resource, highlighterType, autoPrettyPrint);
   }
 
@@ -73,28 +65,17 @@ export class ResourceSourceFrame extends SourceFrameImpl {
     return this._resource;
   }
 
-  /**
-   * @override
-   * @param {!UI.ContextMenu.ContextMenu} contextMenu
-   * @param {number} lineNumber
-   * @param {number} columnNumber
-   * @return {!Promise<void>}
-   */
-  populateTextAreaContextMenu(contextMenu, lineNumber, columnNumber) {
+  populateTextAreaContextMenu(contextMenu: UI.ContextMenu.ContextMenu, lineNumber: number, columnNumber: number): Promise<void> {
     contextMenu.appendApplicableItems(this._resource);
     return Promise.resolve();
   }
 }
 
 export class SearchableContainer extends UI.Widget.VBox {
-  /**
-   * @param {!TextUtils.ContentProvider.ContentProvider} resource
-   * @param {string} highlighterType
-   * @param {boolean=} autoPrettyPrint
-   */
-  constructor(resource, highlighterType, autoPrettyPrint) {
+  _sourceFrame: ResourceSourceFrame;
+  constructor(resource: TextUtils.ContentProvider.ContentProvider, highlighterType: string, autoPrettyPrint?: boolean) {
     super(true);
-    this.registerRequiredCSS('source_frame/resourceSourceFrame.css', {enableLegacyPatching: true});
+    this.registerRequiredCSS('source_frame/resourceSourceFrame.css', { enableLegacyPatching: true });
     const sourceFrame = new ResourceSourceFrame(resource, autoPrettyPrint);
     this._sourceFrame = sourceFrame;
     sourceFrame.setHighlighterType(highlighterType);
@@ -111,11 +92,7 @@ export class SearchableContainer extends UI.Widget.VBox {
     });
   }
 
-  /**
-   * @param {number} lineNumber
-   * @param {number=} columnNumber
-   */
-  async revealPosition(lineNumber, columnNumber) {
+  async revealPosition(lineNumber: number, columnNumber?: number): Promise<void> {
     this._sourceFrame.revealPosition(lineNumber, columnNumber, true);
   }
 }

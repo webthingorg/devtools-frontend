@@ -26,6 +26,8 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
 import * as i18n from '../i18n/i18n.js';
@@ -75,47 +77,44 @@ export const UIStrings = {
   */
   download: 'download',
 };
-const str_ = i18n.i18n.registerUIStrings('source_frame/ImageView.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('source_frame/ImageView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class ImageView extends UI.View.SimpleView {
-  /**
-   * @param {string} mimeType
-   * @param {!TextUtils.ContentProvider.ContentProvider} contentProvider
-   */
-  constructor(mimeType, contentProvider) {
+  _url: string;
+  _parsedURL: Common.ParsedURL.ParsedURL;
+  _mimeType: string;
+  _contentProvider: TextUtils.ContentProvider.ContentProvider;
+  _uiSourceCode: Workspace.UISourceCode.UISourceCode | null;
+  _sizeLabel: UI.Toolbar.ToolbarText;
+  _dimensionsLabel: UI.Toolbar.ToolbarText;
+  _mimeTypeLabel: UI.Toolbar.ToolbarText;
+  _container: HTMLElement;
+  _imagePreviewElement: HTMLImageElement;
+  _cachedContent?: string | null;
+  constructor(mimeType: string, contentProvider: TextUtils.ContentProvider.ContentProvider) {
     super(i18nString(UIStrings.image));
-    this.registerRequiredCSS('source_frame/imageView.css', {enableLegacyPatching: false});
+    this.registerRequiredCSS('source_frame/imageView.css', { enableLegacyPatching: false });
     this.element.tabIndex = -1;
     this.element.classList.add('image-view');
     this._url = contentProvider.contentURL();
     this._parsedURL = new Common.ParsedURL.ParsedURL(this._url);
     this._mimeType = mimeType;
     this._contentProvider = contentProvider;
-    this._uiSourceCode = contentProvider instanceof Workspace.UISourceCode.UISourceCode ?
-        /** @type {!Workspace.UISourceCode.UISourceCode} */ (contentProvider) :
-        null;
+    this._uiSourceCode = contentProvider instanceof Workspace.UISourceCode.UISourceCode ? contentProvider as Workspace.UISourceCode.UISourceCode :
+      null;
     if (this._uiSourceCode) {
-      this._uiSourceCode.addEventListener(
-          Workspace.UISourceCode.Events.WorkingCopyCommitted, this._workingCopyCommitted, this);
-      new UI.DropTarget.DropTarget(
-          this.element, [UI.DropTarget.Type.ImageFile, UI.DropTarget.Type.URI], i18nString(UIStrings.dropImageFileHere),
-          this._handleDrop.bind(this));
+      this._uiSourceCode.addEventListener(Workspace.UISourceCode.Events.WorkingCopyCommitted, this._workingCopyCommitted, this);
+      new UI.DropTarget.DropTarget(this.element, [UI.DropTarget.Type.ImageFile, UI.DropTarget.Type.URI], i18nString(UIStrings.dropImageFileHere), this._handleDrop.bind(this));
     }
     this._sizeLabel = new UI.Toolbar.ToolbarText();
     this._dimensionsLabel = new UI.Toolbar.ToolbarText();
     this._mimeTypeLabel = new UI.Toolbar.ToolbarText(mimeType);
     this._container = this.element.createChild('div', 'image');
-    /** @type {!HTMLImageElement} */
-    this._imagePreviewElement =
-        /** @type {!HTMLImageElement} */ (this._container.createChild('img', 'resource-image-view'));
+    this._imagePreviewElement = (this._container.createChild('img', 'resource-image-view') as HTMLImageElement);
     this._imagePreviewElement.addEventListener('contextmenu', this._contextMenu.bind(this), true);
   }
 
-  /**
-   * @override
-   * @return {!Promise<!Array<!UI.Toolbar.ToolbarItem>>}
-   */
-  async toolbarItems() {
+  async toolbarItems(): Promise<UI.Toolbar.ToolbarItem[]> {
     await this._updateContentIfNeeded();
     return [
       this._sizeLabel, new UI.Toolbar.ToolbarSeparator(), this._dimensionsLabel, new UI.Toolbar.ToolbarSeparator(),
@@ -123,61 +122,48 @@ export class ImageView extends UI.View.SimpleView {
     ];
   }
 
-  /**
-   * @override
-   */
-  wasShown() {
+  wasShown(): void {
     this._updateContentIfNeeded();
   }
 
-  /**
-   * @override
-   */
-  disposeView() {
+  disposeView(): void {
     if (this._uiSourceCode) {
-      this._uiSourceCode.removeEventListener(
-          Workspace.UISourceCode.Events.WorkingCopyCommitted, this._workingCopyCommitted, this);
+      this._uiSourceCode.removeEventListener(Workspace.UISourceCode.Events.WorkingCopyCommitted, this._workingCopyCommitted, this);
     }
   }
 
-  _workingCopyCommitted() {
+  _workingCopyCommitted(): void {
     this._updateContentIfNeeded();
   }
 
-  async _updateContentIfNeeded() {
-    const {content} = await this._contentProvider.requestContent();
+  async _updateContentIfNeeded(): Promise<void> {
+    const { content } = await this._contentProvider.requestContent();
     if (this._cachedContent === content) {
       return;
     }
 
     const contentEncoded = await this._contentProvider.contentEncoded();
-    /** @type {?string} */
     this._cachedContent = content;
     const imageSrc = TextUtils.ContentProvider.contentAsDataURL(content, this._mimeType, contentEncoded) || this._url;
     const loadPromise = new Promise(x => {
       this._imagePreviewElement.onload = x;
     });
     this._imagePreviewElement.src = imageSrc;
-    this._imagePreviewElement.alt = i18nString(UIStrings.imageFromS, {PH1: this._url});
+    this._imagePreviewElement.alt = i18nString(UIStrings.imageFromS, { PH1: this._url });
     const size = content && !contentEncoded ? content.length : base64ToSize(content);
     this._sizeLabel.setText(Platform.NumberUtilities.bytesToString(size));
     await loadPromise;
-    this._dimensionsLabel.setText(i18nString(
-        UIStrings.dD, {PH1: this._imagePreviewElement.naturalWidth, PH2: this._imagePreviewElement.naturalHeight}));
+    this._dimensionsLabel.setText(i18nString(UIStrings.dD, { PH1: this._imagePreviewElement.naturalWidth, PH2: this._imagePreviewElement.naturalHeight }));
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _contextMenu(event) {
+  _contextMenu(event: Event): void {
     const contextMenu = new UI.ContextMenu.ContextMenu(event);
     const parsedSrc = new Common.ParsedURL.ParsedURL(this._imagePreviewElement.src);
     if (!this._parsedURL.isDataURL()) {
       contextMenu.clipboardSection().appendItem(i18nString(UIStrings.copyImageUrl), this._copyImageURL.bind(this));
     }
     if (parsedSrc.isDataURL()) {
-      contextMenu.clipboardSection().appendItem(
-          i18nString(UIStrings.copyImageAsDataUri), this._copyImageAsDataURL.bind(this));
+      contextMenu.clipboardSection().appendItem(i18nString(UIStrings.copyImageAsDataUri), this._copyImageAsDataURL.bind(this));
     }
 
     contextMenu.clipboardSection().appendItem(i18nString(UIStrings.openImageInNewTab), this._openInNewTab.bind(this));
@@ -188,22 +174,21 @@ export class ImageView extends UI.View.SimpleView {
     contextMenu.show();
   }
 
-  _copyImageAsDataURL() {
+  _copyImageAsDataURL(): void {
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(this._imagePreviewElement.src);
   }
 
-  _copyImageURL() {
+  _copyImageURL(): void {
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(this._url);
   }
 
-  async _saveImage() {
+  async _saveImage(): Promise<void> {
     const contentEncoded = await this._contentProvider.contentEncoded();
     if (!this._cachedContent) {
       return;
     }
     const cachedContent = this._cachedContent;
-    const imageDataURL =
-        TextUtils.ContentProvider.contentAsDataURL(cachedContent, this._mimeType, contentEncoded, '', false);
+    const imageDataURL = TextUtils.ContentProvider.contentAsDataURL(cachedContent, this._mimeType, contentEncoded, '', false);
 
     if (!imageDataURL) {
       return;
@@ -217,19 +202,16 @@ export class ImageView extends UI.View.SimpleView {
     // by the OS will be replaced automatically. For example, in the Mac,
     // `:` it will be replaced with `_`.
     link.download =
-        this._parsedURL.isDataURL() ? i18nString(UIStrings.download) : decodeURIComponent(this._parsedURL.displayName);
+      this._parsedURL.isDataURL() ? i18nString(UIStrings.download) : decodeURIComponent(this._parsedURL.displayName);
     link.click();
     link.remove();
   }
 
-  _openInNewTab() {
+  _openInNewTab(): void {
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.openInNewTab(this._url);
   }
 
-  /**
-   * @param {!DataTransfer} dataTransfer
-   */
-  async _handleDrop(dataTransfer) {
+  async _handleDrop(dataTransfer: DataTransfer): Promise<void> {
     const items = dataTransfer.items;
     if (!items.length || items[0].kind !== 'file') {
       return;
@@ -237,16 +219,14 @@ export class ImageView extends UI.View.SimpleView {
 
     const entry = items[0].webkitGetAsEntry();
     const encoded = !entry.name.endsWith('.svg');
-    /**
-     * @param {!Blob} file
-     */
-    const fileCallback = file => {
+    const fileCallback = (file: Blob): void => {
       const reader = new FileReader();
-      reader.onloadend = () => {
+      reader.onloadend = (): void => {
         let result;
         try {
-          result = /** @type {?string} */ (reader.result);
-        } catch (e) {
+          result = (reader.result as string | null);
+        }
+        catch (e) {
           result = null;
           console.error('Can\'t read file: ' + e);
         }
@@ -257,7 +237,8 @@ export class ImageView extends UI.View.SimpleView {
       };
       if (encoded) {
         reader.readAsBinaryString(file);
-      } else {
+      }
+      else {
         reader.readAsText(file);
       }
     };
