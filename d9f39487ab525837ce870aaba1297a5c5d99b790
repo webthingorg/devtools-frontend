@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f75b822a_347ddb33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-25T09:10:20Z",
+      "side": 1,
+      "message": "This is difficult to review, could you please split the renaming of the file into a separate CL?",
+      "revId": "d9f39487ab525837ce870aaba1297a5c5d99b790",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
