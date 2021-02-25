@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f5a256a_ac80a4db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1448638
+      },
+      "writtenOn": "2021-02-25T20:25:20Z",
+      "side": 1,
+      "message": "Abandoning the previous PR https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2719143 in favor of this one.\nThe previous PR only enables tab to CSS links, this current change should enable tabbing for both CSS and inline styles.",
+      "revId": "44413abd197bd2efe2488d7d46c59c2f1c2ad756",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
