@@ -436,7 +436,15 @@ export class Linkifier {
     // Not initialising the anchor element with 'zero width space' (\u200b) causes a crash
     // in the layout engine.
     // TODO(szuend): Remove comment and workaround once the crash is fixed.
-    const anchor = /** @type {!HTMLElement} */ (Linkifier._createLink('\u200b', classes || ''));
+    const createLinkOptions = {
+      maxLength: undefined,
+      title: undefined,
+      href: undefined,
+      preventClick: undefined,
+      bypassURLTrimming: undefined,
+      tabStop: true
+    };
+    const anchor = /** @type {!HTMLElement} */ (Linkifier._createLink('\u200b', classes || '', createLinkOptions));
     const info = Linkifier.linkInfo(anchor);
     if (!info) {
       return anchor;
