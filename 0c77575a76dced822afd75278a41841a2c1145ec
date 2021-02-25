@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "617bd89c_48d72800",
+        "filename": "test/unittests/front_end/meta/action_registration_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-25T15:49:43Z",
+      "side": 0,
+      "message": "Ah nice!",
+      "range": {
+        "startLine": 77,
+        "startChar": 32,
+        "endLine": 77,
+        "endChar": 80
+      },
+      "revId": "0c77575a76dced822afd75278a41841a2c1145ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
