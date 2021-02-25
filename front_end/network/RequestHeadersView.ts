@@ -28,6 +28,8 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as BrowserSDK from '../browser_sdk/browser_sdk.js';
 import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
@@ -163,8 +165,7 @@ export const UIStrings = {
   /**
   *@description Tooltip to explain lack of raw headers for a particular network request
   */
-  onlyProvisionalHeadersAre:
-      'Only provisional headers are available because this request was not sent over the network and instead was served from a local cache, which doesn’t store the original request headers. Disable cache to see full request headers.',
+  onlyProvisionalHeadersAre: 'Only provisional headers are available because this request was not sent over the network and instead was served from a local cache, which doesn’t store the original request headers. Disable cache to see full request headers.',
   /**
   *@description Message to explain lack of raw headers for a particular network request
   */
@@ -192,49 +193,55 @@ export const UIStrings = {
   /**
   *@description Text in Headers View of the Network panel
   */
-  toEmbedThisFrameInYourDocument:
-      'To embed this frame in your document, the response needs to enable the cross-origin embedder policy by specifying the following response header:',
+  toEmbedThisFrameInYourDocument: 'To embed this frame in your document, the response needs to enable the cross-origin embedder policy by specifying the following response header:',
   /**
   *@description Text in Headers View of the Network panel
   */
-  toUseThisResourceFromADifferent:
-      'To use this resource from a different origin, the server needs to specify a cross-origin resource policy in the response headers:',
+  toUseThisResourceFromADifferent: 'To use this resource from a different origin, the server needs to specify a cross-origin resource policy in the response headers:',
   /**
   *@description Text in Headers View of the Network panel
   */
-  chooseThisOptionIfTheResourceAnd:
-      'Choose this option if the resource and the document are served from the same site.',
+  chooseThisOptionIfTheResourceAnd: 'Choose this option if the resource and the document are served from the same site.',
   /**
   *@description Text in Headers View of the Network panel
   */
-  onlyChooseThisOptionIfAn:
-      'Only choose this option if an arbitrary website including this resource does not impose a security risk.',
+  onlyChooseThisOptionIfAn: 'Only choose this option if an arbitrary website including this resource does not impose a security risk.',
   /**
   *@description Text in Headers View of the Network panel
   */
-  thisDocumentWasBlockedFrom:
-      'This document was blocked from loading in an `iframe` with a `sandbox` attribute because this document specified a cross-origin opener policy.',
+  thisDocumentWasBlockedFrom: 'This document was blocked from loading in an `iframe` with a `sandbox` attribute because this document specified a cross-origin opener policy.',
   /**
   *@description Text in Headers View of the Network panel
   */
-  toUseThisResourceFromADifferentSite:
-      'To use this resource from a different site, the server may relax the cross-origin resource policy response header:',
+  toUseThisResourceFromADifferentSite: 'To use this resource from a different site, the server may relax the cross-origin resource policy response header:',
   /**
   *@description Text in Headers View of the Network panel
   */
-  toUseThisResourceFromADifferentOrigin:
-      'To use this resource from a different origin, the server may relax the cross-origin resource policy response header:',
+  toUseThisResourceFromADifferentOrigin: 'To use this resource from a different origin, the server may relax the cross-origin resource policy response header:',
 };
-const str_ = i18n.i18n.registerUIStrings('network/RequestHeadersView.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('network/RequestHeadersView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 export class RequestHeadersView extends UI.Widget.VBox {
-  /**
-   * @param {!SDK.NetworkRequest.NetworkRequest} request
-   */
-  constructor(request) {
+  _request: SDK.NetworkRequest.NetworkRequest;
+  _decodeRequestParameters: boolean;
+  _showRequestHeadersText: boolean;
+  _showResponseHeadersText: boolean;
+  _highlightedElement: UI.TreeOutline.TreeElement | null;
+  _root: Category;
+  _urlItem: UI.TreeOutline.TreeElement;
+  _requestMethodItem: UI.TreeOutline.TreeElement;
+  _statusCodeItem: UI.TreeOutline.TreeElement;
+  _remoteAddressItem: UI.TreeOutline.TreeElement;
+  _referrerPolicyItem: UI.TreeOutline.TreeElement;
+  _responseHeadersCategory: Category;
+  _requestHeadersCategory: Category;
+  _queryStringCategory: Category;
+  _formDataCategory: Category;
+  _requestPayloadCategory: Category;
+  constructor(request: SDK.NetworkRequest.NetworkRequest) {
     super();
-    this.registerRequiredCSS('network/requestHeadersView.css', {enableLegacyPatching: true});
+    this.registerRequiredCSS('network/requestHeadersView.css', { enableLegacyPatching: true });
     this.element.classList.add('request-headers-view');
 
     this._request = request;
@@ -247,13 +254,12 @@ export class RequestHeadersView extends UI.Widget.VBox {
       this._decodeRequestParameters = Boolean(contentType.match(/^application\/x-www-form-urlencoded\s*(;.*)?$/i));
     }
 
-    /** @type {?UI.TreeOutline.TreeElement} */
     this._highlightedElement = null;
 
     const root = new UI.TreeOutline.TreeOutlineInShadow();
-    root.registerRequiredCSS('object_ui/objectValue.css', {enableLegacyPatching: true});
-    root.registerRequiredCSS('object_ui/objectPropertiesSection.css', {enableLegacyPatching: true});
-    root.registerRequiredCSS('network/requestHeadersTree.css', {enableLegacyPatching: true});
+    root.registerRequiredCSS('object_ui/objectValue.css', { enableLegacyPatching: true });
+    root.registerRequiredCSS('object_ui/objectPropertiesSection.css', { enableLegacyPatching: true });
+    root.registerRequiredCSS('network/requestHeadersTree.css', { enableLegacyPatching: true });
     root.element.classList.add('request-headers-tree');
     root.makeDense();
     this.element.appendChild(root.element);
@@ -277,15 +283,11 @@ export class RequestHeadersView extends UI.Widget.VBox {
     this._requestPayloadCategory = new Category(root, 'requestPayload', i18nString(UIStrings.requestPayload));
   }
 
-  /**
-   * @override
-   */
-  wasShown() {
+  wasShown(): void {
     this._clearHighlight();
     this._request.addEventListener(SDK.NetworkRequest.Events.RemoteAddressChanged, this._refreshRemoteAddress, this);
     this._request.addEventListener(SDK.NetworkRequest.Events.RequestHeadersChanged, this._refreshRequestHeaders, this);
-    this._request.addEventListener(
-        SDK.NetworkRequest.Events.ResponseHeadersChanged, this._refreshResponseHeaders, this);
+    this._request.addEventListener(SDK.NetworkRequest.Events.ResponseHeadersChanged, this._refreshResponseHeaders, this);
     this._request.addEventListener(SDK.NetworkRequest.Events.FinishedLoading, this._refreshHTTPInformation, this);
 
     this._refreshURL();
@@ -298,28 +300,19 @@ export class RequestHeadersView extends UI.Widget.VBox {
     this._root.select(/* omitFocus */ true, /* selectedByUser */ false);
   }
 
-  /**
-   * @override
-   */
-  willHide() {
+  willHide(): void {
     this._request.removeEventListener(SDK.NetworkRequest.Events.RemoteAddressChanged, this._refreshRemoteAddress, this);
-    this._request.removeEventListener(
-        SDK.NetworkRequest.Events.RequestHeadersChanged, this._refreshRequestHeaders, this);
-    this._request.removeEventListener(
-        SDK.NetworkRequest.Events.ResponseHeadersChanged, this._refreshResponseHeaders, this);
+    this._request.removeEventListener(SDK.NetworkRequest.Events.RequestHeadersChanged, this._refreshRequestHeaders, this);
+    this._request.removeEventListener(SDK.NetworkRequest.Events.ResponseHeadersChanged, this._refreshResponseHeaders, this);
     this._request.removeEventListener(SDK.NetworkRequest.Events.FinishedLoading, this._refreshHTTPInformation, this);
   }
 
-  /**
-   * @param {!UI.TreeOutline.TreeElement} treeElement
-   * @param {string} value
-   */
-  _addEntryContextMenuHandler(treeElement, value) {
+  _addEntryContextMenuHandler(treeElement: UI.TreeOutline.TreeElement, value: string): void {
     treeElement.listItemElement.addEventListener('contextmenu', event => {
       event.consume(true);
       const contextMenu = new UI.ContextMenu.ContextMenu(event);
       const decodedValue = decodeURIComponent(value);
-      const copyDecodedValueHandler = () => {
+      const copyDecodedValueHandler = (): void => {
         Host.userMetrics.actionTaken(Host.UserMetrics.Action.NetworkPanelCopyValue);
         Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(decodedValue);
       };
@@ -328,12 +321,7 @@ export class RequestHeadersView extends UI.Widget.VBox {
     });
   }
 
-  /**
-   * @param {string} name
-   * @param {string} value
-   * @return {!DocumentFragment}
-   */
-  _formatHeader(name, value) {
+  _formatHeader(name: string, value: string): DocumentFragment {
     const fragment = document.createDocumentFragment();
     fragment.createChild('div', 'header-name').textContent = name + ': ';
     fragment.createChild('span', 'header-separator');
@@ -342,11 +330,7 @@ export class RequestHeadersView extends UI.Widget.VBox {
     return fragment;
   }
 
-  /**
-   * @param {!BlockedReasonDetailDescriptor} header
-   * @return {!DocumentFragment}
-   */
-  _formatHeaderObject(header) {
+  _formatHeaderObject(header: BlockedReasonDetailDescriptor): DocumentFragment {
     const fragment = document.createDocumentFragment();
     if (header.headerNotSet) {
       fragment.createChild('div', 'header-badge header-badge-text').textContent = 'not-set';
@@ -357,7 +341,8 @@ export class RequestHeadersView extends UI.Widget.VBox {
     if (header.value) {
       if (header.headerValueIncorrect) {
         fragment.createChild('div', 'header-value source-code header-warning').textContent = header.value.toString();
-      } else {
+      }
+      else {
         fragment.createChild('div', 'header-value source-code').textContent = header.value.toString();
       }
     }
@@ -374,11 +359,10 @@ export class RequestHeadersView extends UI.Widget.VBox {
         }
       }
 
-      if (BrowserSDK.RelatedIssue.hasIssueOfCategory(
-              this._request, SDK.Issue.IssueCategory.CrossOriginEmbedderPolicy)) {
+      if (BrowserSDK.RelatedIssue.hasIssueOfCategory(this._request, SDK.Issue.IssueCategory.CrossOriginEmbedderPolicy)) {
         const link = document.createElement('div');
         link.classList.add('devtools-link');
-        link.onclick = () => {
+        link.onclick = (): void => {
           Host.userMetrics.issuesPanelOpenedFrom(Host.UserMetrics.IssueOpener.LearnMoreLinkCOEP);
           BrowserSDK.RelatedIssue.reveal(this._request, SDK.Issue.IssueCategory.CrossOriginEmbedderPolicy);
         };
@@ -388,7 +372,8 @@ export class RequestHeadersView extends UI.Widget.VBox {
         link.appendChild(text);
         link.prepend(UI.Icon.Icon.create('largeicon-breaking-change', 'icon'));
         callToActionBody.appendChild(link);
-      } else if (header.details.link) {
+      }
+      else if (header.details.link) {
         const link = UI.XLink.XLink.create(header.details.link.url, i18nString(UIStrings.learnMore), 'link');
         link.prepend(UI.Icon.Icon.create('largeicon-link'));
         callToActionBody.appendChild(link);
@@ -397,13 +382,7 @@ export class RequestHeadersView extends UI.Widget.VBox {
     return fragment;
   }
 
-  /**
-   * @param {string} value
-   * @param {string} className
-   * @param {boolean} decodeParameters
-   * @return {!Element}
-   */
-  _formatParameter(value, className, decodeParameters) {
+  _formatParameter(value: string, className: string, decodeParameters: boolean): Element {
     let errorDecoding = false;
 
     if (decodeParameters) {
@@ -411,7 +390,8 @@ export class RequestHeadersView extends UI.Widget.VBox {
       if (value.indexOf('%') >= 0) {
         try {
           value = decodeURIComponent(value);
-        } catch (e) {
+        }
+        catch (e) {
           errorDecoding = true;
         }
       }
@@ -425,27 +405,27 @@ export class RequestHeadersView extends UI.Widget.VBox {
     }
     if (errorDecoding) {
       div.createChild('span', 'header-decode-error').textContent = i18nString(UIStrings.unableToDecodeValue);
-    } else {
+    }
+    else {
       div.textContent = value;
     }
     return div;
   }
 
-  _refreshURL() {
+  _refreshURL(): void {
     this._urlItem.title = this._formatHeader(i18nString(UIStrings.requestUrl), this._request.url());
   }
 
-  _refreshQueryString() {
+  _refreshQueryString(): void {
     const queryString = this._request.queryString();
     const queryParameters = this._request.queryParameters;
     this._queryStringCategory.hidden = !queryParameters;
     if (queryParameters) {
-      this._refreshParams(
-          i18nString(UIStrings.queryStringParameters), queryParameters, queryString, this._queryStringCategory);
+      this._refreshParams(i18nString(UIStrings.queryStringParameters), queryParameters, queryString, this._queryStringCategory);
     }
   }
 
-  async _refreshFormData() {
+  async _refreshFormData(): Promise<void> {
     const formData = await this._request.requestFormData();
     if (!formData) {
       this._formDataCategory.hidden = true;
@@ -458,23 +438,21 @@ export class RequestHeadersView extends UI.Widget.VBox {
       this._formDataCategory.hidden = false;
       this._requestPayloadCategory.hidden = true;
       this._refreshParams(i18nString(UIStrings.formData), formParameters, formData, this._formDataCategory);
-    } else {
+    }
+    else {
       this._requestPayloadCategory.hidden = false;
       this._formDataCategory.hidden = true;
       try {
         const json = JSON.parse(formData);
         this._refreshRequestJSONPayload(json, formData);
-      } catch (e) {
+      }
+      catch (e) {
         this._populateTreeElementWithSourceText(this._requestPayloadCategory, formData);
       }
     }
   }
 
-  /**
-   * @param {!UI.TreeOutline.TreeElement} treeElement
-   * @param {?string} sourceText
-   */
-  _populateTreeElementWithSourceText(treeElement, sourceText) {
+  _populateTreeElementWithSourceText(treeElement: UI.TreeOutline.TreeElement, sourceText: string | null): void {
     const max_len = 3000;
     const text = (sourceText || '').trim();
     const trim = text.length > max_len;
@@ -495,17 +473,14 @@ export class RequestHeadersView extends UI.Widget.VBox {
     showMoreButton.classList.add('request-headers-show-more-button');
     showMoreButton.textContent = i18nString(UIStrings.showMore);
 
-    function showMore() {
+    function showMore(): void {
       showMoreButton.remove();
       sourceTextElement.textContent = text;
       sourceTreeElement.listItemElement.removeEventListener('contextmenu', onContextMenuShowMore);
     }
     showMoreButton.addEventListener('click', showMore);
 
-    /**
-     * @param {!Event} event
-     */
-    function onContextMenuShowMore(event) {
+    function onContextMenuShowMore(event: Event): void {
       const contextMenu = new UI.ContextMenu.ContextMenu(event);
       const section = contextMenu.newSection();
       section.appendItem(i18nString(UIStrings.showMore), showMore);
@@ -515,13 +490,7 @@ export class RequestHeadersView extends UI.Widget.VBox {
     sourceTextElement.appendChild(showMoreButton);
   }
 
-  /**
-   * @param {string} title
-   * @param {?Array.<!SDK.NetworkRequest.NameValue>} params
-   * @param {?string} sourceText
-   * @param {!UI.TreeOutline.TreeElement} paramsTreeElement
-   */
-  _refreshParams(title, params, sourceText, paramsTreeElement) {
+  _refreshParams(title: string, params: SDK.NetworkRequest.NameValue[] | null, sourceText: string | null, paramsTreeElement: UI.TreeOutline.TreeElement): void {
     paramsTreeElement.removeChildren();
 
     paramsTreeElement.listItemElement.removeChildren();
@@ -537,27 +506,21 @@ export class RequestHeadersView extends UI.Widget.VBox {
     const shouldViewSource = viewSourceForItems.has(paramsTreeElement);
     if (shouldViewSource) {
       this._appendParamsSource(title, params, sourceText, paramsTreeElement);
-    } else {
+    }
+    else {
       this._appendParamsParsed(title, params, sourceText, paramsTreeElement);
     }
   }
 
-  /**
-   * @param {string} title
-   * @param {?Array.<!SDK.NetworkRequest.NameValue>} params
-   * @param {?string} sourceText
-   * @param {!UI.TreeOutline.TreeElement} paramsTreeElement
-   */
-  _appendParamsSource(title, params, sourceText, paramsTreeElement) {
+  _appendParamsSource(title: string, params: SDK.NetworkRequest.NameValue[] | null, sourceText: string | null, paramsTreeElement: UI.TreeOutline.TreeElement): void {
     this._populateTreeElementWithSourceText(paramsTreeElement, sourceText);
 
     const listItemElement = paramsTreeElement.listItemElement;
 
     /**
-     * @param {!Event} event
      * @this {RequestHeadersView}
      */
-    const viewParsed = function(event) {
+    const viewParsed = function (event: Event): void {
       listItemElement.removeEventListener('contextmenu', viewParsedContextMenu);
 
       viewSourceForItems.delete(paramsTreeElement);
@@ -565,10 +528,7 @@ export class RequestHeadersView extends UI.Widget.VBox {
       event.consume();
     };
 
-    /**
-     * @param {!Event} event
-     */
-    const viewParsedContextMenu = event => {
+    const viewParsedContextMenu = (event: Event): void => {
       if (!paramsTreeElement.expanded) {
         return;
       }
@@ -583,13 +543,7 @@ export class RequestHeadersView extends UI.Widget.VBox {
     listItemElement.addEventListener('contextmenu', viewParsedContextMenu);
   }
 
-  /**
-   * @param {string} title
-   * @param {?Array.<!SDK.NetworkRequest.NameValue>} params
-   * @param {?string} sourceText
-   * @param {!UI.TreeOutline.TreeElement} paramsTreeElement
-   */
-  _appendParamsParsed(title, params, sourceText, paramsTreeElement) {
+  _appendParamsParsed(title: string, params: SDK.NetworkRequest.NameValue[] | null, sourceText: string | null, paramsTreeElement: UI.TreeOutline.TreeElement): void {
     for (const param of params || []) {
       const paramNameValue = document.createDocumentFragment();
       if (param.name !== '') {
@@ -598,9 +552,9 @@ export class RequestHeadersView extends UI.Widget.VBox {
         paramNameValue.appendChild(name);
         paramNameValue.createChild('span', 'header-separator');
         paramNameValue.appendChild(value);
-      } else {
-        paramNameValue.appendChild(
-            this._formatParameter(i18nString(UIStrings.empty), 'empty-request-header', this._decodeRequestParameters));
+      }
+      else {
+        paramNameValue.appendChild(this._formatParameter(i18nString(UIStrings.empty), 'empty-request-header', this._decodeRequestParameters));
       }
 
       const paramTreeElement = new UI.TreeOutline.TreeElement(paramNameValue);
@@ -611,10 +565,9 @@ export class RequestHeadersView extends UI.Widget.VBox {
     const listItemElement = paramsTreeElement.listItemElement;
 
     /**
-     * @param {!Event} event
      * @this {RequestHeadersView}
      */
-    const viewSource = function(event) {
+    const viewSource = function (event: Event): void {
       listItemElement.removeEventListener('contextmenu', viewSourceContextMenu);
 
       viewSourceForItems.add(paramsTreeElement);
@@ -623,26 +576,21 @@ export class RequestHeadersView extends UI.Widget.VBox {
     };
 
     /**
-     * @param {!Event} event
      * @this {RequestHeadersView}
      */
-    const toggleURLDecoding = function(event) {
+    const toggleURLDecoding = function (event: Event): void {
       listItemElement.removeEventListener('contextmenu', viewSourceContextMenu);
       this._toggleURLDecoding(event);
     };
 
-    /**
-     * @param {!Event} event
-     */
-    const viewSourceContextMenu = event => {
+    const viewSourceContextMenu = (event: Event): void => {
       if (!paramsTreeElement.expanded) {
         return;
       }
       const contextMenu = new UI.ContextMenu.ContextMenu(event);
       const section = contextMenu.newSection();
       section.appendItem(i18nString(UIStrings.viewSource), viewSource.bind(this, event));
-      const viewURLEncodedText =
-          this._decodeRequestParameters ? i18nString(UIStrings.viewUrlEncoded) : i18nString(UIStrings.viewDecoded);
+      const viewURLEncodedText = this._decodeRequestParameters ? i18nString(UIStrings.viewUrlEncoded) : i18nString(UIStrings.viewDecoded);
       section.appendItem(viewURLEncodedText, toggleURLDecoding.bind(this, event));
       contextMenu.show();
     };
@@ -650,8 +598,7 @@ export class RequestHeadersView extends UI.Widget.VBox {
     const viewSourceButton = this._createViewSourceToggle(/* viewSource */ false, viewSource.bind(this));
     listItemElement.appendChild(viewSourceButton);
 
-    const toggleTitle =
-        this._decodeRequestParameters ? i18nString(UIStrings.viewUrlEncodedL) : i18nString(UIStrings.viewDecodedL);
+    const toggleTitle = this._decodeRequestParameters ? i18nString(UIStrings.viewUrlEncodedL) : i18nString(UIStrings.viewDecodedL);
     const toggleButton = this._createToggleButton(toggleTitle);
     toggleButton.addEventListener('click', toggleURLDecoding.bind(this), false);
     listItemElement.appendChild(toggleButton);
@@ -659,11 +606,7 @@ export class RequestHeadersView extends UI.Widget.VBox {
     listItemElement.addEventListener('contextmenu', viewSourceContextMenu);
   }
 
-  /**
-   * @param {*} parsedObject
-   * @param {string} sourceText
-   */
-  _refreshRequestJSONPayload(parsedObject, sourceText) {
+  _refreshRequestJSONPayload(parsedObject: any, sourceText: string): void {
     const rootListItem = this._requestPayloadCategory;
     rootListItem.removeChildren();
 
@@ -674,25 +617,20 @@ export class RequestHeadersView extends UI.Widget.VBox {
 
     if (viewSourceForItems.has(rootListItem)) {
       this._appendJSONPayloadSource(rootListItem, parsedObject, sourceText);
-    } else {
+    }
+    else {
       this._appendJSONPayloadParsed(rootListItem, parsedObject, sourceText);
     }
   }
 
-  /**
-   * @param {!Category} rootListItem
-   * @param {*} parsedObject
-   * @param {string} sourceText
-   */
-  _appendJSONPayloadSource(rootListItem, parsedObject, sourceText) {
+  _appendJSONPayloadSource(rootListItem: Category, parsedObject: any, sourceText: string): void {
     const rootListItemElement = rootListItem.listItemElement;
     this._populateTreeElementWithSourceText(rootListItem, sourceText);
 
     /**
-     * @param {!Event} event
      * @this {RequestHeadersView}
      */
-    const viewParsed = function(event) {
+    const viewParsed = function (event: Event): void {
       rootListItemElement.removeEventListener('contextmenu', viewParsedContextMenu);
       viewSourceForItems.delete(rootListItem);
       this._refreshRequestJSONPayload(parsedObject, sourceText);
@@ -702,10 +640,7 @@ export class RequestHeadersView extends UI.Widget.VBox {
     const viewParsedButton = this._createViewSourceToggle(/* viewSource */ true, viewParsed.bind(this));
     rootListItemElement.appendChild(viewParsedButton);
 
-    /**
-     * @param {!Event} event
-     */
-    const viewParsedContextMenu = event => {
+    const viewParsedContextMenu = (event: Event): void => {
       if (!rootListItem.expanded) {
         return;
       }
@@ -717,16 +652,10 @@ export class RequestHeadersView extends UI.Widget.VBox {
     rootListItemElement.addEventListener('contextmenu', viewParsedContextMenu);
   }
 
-  /**
-   * @param {!Category} rootListItem
-   * @param {*} parsedObject
-   * @param {string} sourceText
-   */
-  _appendJSONPayloadParsed(rootListItem, parsedObject, sourceText) {
-    const object =
-        /** @type {!SDK.RemoteObject.LocalJSONObject} */ (SDK.RemoteObject.RemoteObject.fromLocalObject(parsedObject));
+  _appendJSONPayloadParsed(rootListItem: Category, parsedObject: any, sourceText: string): void {
+    const object = (SDK.RemoteObject.RemoteObject.fromLocalObject(parsedObject) as SDK.RemoteObject.LocalJSONObject);
     const section = new ObjectUI.ObjectPropertiesSection.RootElement(object);
-    section.title = /** @type {string} */ (object.description);
+    section.title = (object.description as string);
     section.expand();
     // `editable` is not a valid property for `ObjectUI.ObjectPropertiesSection.RootElement`. Only for
     // `ObjectUI.ObjectPropertiesSection.ObjectPropertiesSection`. We do not know if this assignment is
@@ -739,10 +668,9 @@ export class RequestHeadersView extends UI.Widget.VBox {
     const rootListItemElement = rootListItem.listItemElement;
 
     /**
-     * @param {!Event} event
      * @this {RequestHeadersView}
      */
-    const viewSource = function(event) {
+    const viewSource = function (event: Event): void {
       rootListItemElement.removeEventListener('contextmenu', viewSourceContextMenu);
 
       viewSourceForItems.add(rootListItem);
@@ -750,10 +678,7 @@ export class RequestHeadersView extends UI.Widget.VBox {
       event.consume();
     };
 
-    /**
-     * @param {!Event} event
-     */
-    const viewSourceContextMenu = event => {
+    const viewSourceContextMenu = (event: Event): void => {
       if (!rootListItem.expanded) {
         return;
       }
@@ -768,39 +693,32 @@ export class RequestHeadersView extends UI.Widget.VBox {
     rootListItemElement.addEventListener('contextmenu', viewSourceContextMenu);
   }
 
-  /**
-   * @param {boolean} viewSource
-   * @param {function(!Event):void} handler
-   * @return {!Element}
-   */
-  _createViewSourceToggle(viewSource, handler) {
+  _createViewSourceToggle(viewSource: boolean, handler: (arg0: Event) => void): Element {
     const viewSourceToggleTitle = viewSource ? i18nString(UIStrings.viewParsedL) : i18nString(UIStrings.viewSourceL);
     const viewSourceToggleButton = this._createToggleButton(viewSourceToggleTitle);
     viewSourceToggleButton.addEventListener('click', handler, false);
     return viewSourceToggleButton;
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _toggleURLDecoding(event) {
+  _toggleURLDecoding(event: Event): void {
     this._decodeRequestParameters = !this._decodeRequestParameters;
     this._refreshQueryString();
     this._refreshFormData();
     event.consume();
   }
 
-  _refreshRequestHeaders() {
+  _refreshRequestHeaders(): void {
     const treeElement = this._requestHeadersCategory;
     const headers = this._request.requestHeaders().slice();
-    headers.sort(function(a, b) {
+    headers.sort(function (a, b) {
       return Platform.StringUtilities.compare(a.name.toLowerCase(), b.name.toLowerCase());
     });
     const headersText = this._request.requestHeadersText();
 
     if (this._showRequestHeadersText && headersText) {
       this._refreshHeadersText(i18nString(UIStrings.requestHeaders), headers.length, headersText, treeElement);
-    } else {
+    }
+    else {
       this._refreshHeaders(i18nString(UIStrings.requestHeaders), headers, treeElement, headersText === undefined);
     }
 
@@ -813,25 +731,24 @@ export class RequestHeadersView extends UI.Widget.VBox {
     this._refreshFormData();
   }
 
-  _refreshResponseHeaders() {
+  _refreshResponseHeaders(): void {
     const treeElement = this._responseHeadersCategory;
     const headers = this._request.sortedResponseHeaders.slice();
     const headersText = this._request.responseHeadersText;
 
     if (this._showResponseHeadersText) {
       this._refreshHeadersText(i18nString(UIStrings.responseHeaders), headers.length, headersText, treeElement);
-    } else {
+    }
+    else {
       const headersWithIssues = [];
       if (this._request.wasBlocked()) {
-        const headerWithIssues =
-            BlockedReasonDetails.get(/** @type {!Protocol.Network.BlockedReason} */ (this._request.blockedReason()));
+        const headerWithIssues = BlockedReasonDetails.get((this._request.blockedReason() as Protocol.Network.BlockedReason));
         if (headerWithIssues) {
           headersWithIssues.push(headerWithIssues);
         }
       }
-      this._refreshHeaders(
-          i18nString(UIStrings.responseHeaders), mergeHeadersWithIssues(headers, headersWithIssues), treeElement,
-          /* provisional */ false, this._request.blockedResponseCookies());
+      this._refreshHeaders(i18nString(UIStrings.responseHeaders), mergeHeadersWithIssues(headers, headersWithIssues), treeElement, 
+      /* provisional */ false, this._request.blockedResponseCookies());
     }
 
     if (headersText) {
@@ -840,30 +757,25 @@ export class RequestHeadersView extends UI.Widget.VBox {
       treeElement.listItemElement.appendChild(toggleButton);
     }
 
-    /**
-     *
-     * @param {!Array<*>} headers
-     * @param {!Array<*>} headersWithIssues
-     */
-    function mergeHeadersWithIssues(headers, headersWithIssues) {
+    function mergeHeadersWithIssues(headers: any[], headersWithIssues: any[]): any[] {
       let i = 0, j = 0;
       const result = [];
       while (i < headers.length || j < headersWithIssues.length) {
         if (i < headers.length && (j >= headersWithIssues.length || headers[i].name < headersWithIssues[j].name)) {
-          result.push({...headers[i++], headerNotSet: false});
-        } else if (
-            j < headersWithIssues.length && (i >= headers.length || headers[i].name > headersWithIssues[j].name)) {
-          result.push({...headersWithIssues[j++], headerNotSet: true});
-        } else if (
-            i < headers.length && j < headersWithIssues.length && headers[i].name === headersWithIssues[j].name) {
-          result.push({...headersWithIssues[j++], ...headers[i++], headerNotSet: false});
+          result.push({ ...headers[i++], headerNotSet: false });
+        }
+        else if (j < headersWithIssues.length && (i >= headers.length || headers[i].name > headersWithIssues[j].name)) {
+          result.push({ ...headersWithIssues[j++], headerNotSet: true });
+        }
+        else if (i < headers.length && j < headersWithIssues.length && headers[i].name === headersWithIssues[j].name) {
+          result.push({ ...headersWithIssues[j++], ...headers[i++], headerNotSet: false });
         }
       }
       return result;
     }
   }
 
-  _refreshHTTPInformation() {
+  _refreshHTTPInformation(): void {
     const requestMethodElement = this._requestMethodItem;
     requestMethodElement.hidden = !this._request.statusCode;
     const statusCodeElement = this._statusCodeItem;
@@ -874,15 +786,16 @@ export class RequestHeadersView extends UI.Widget.VBox {
       statusCodeFragment.createChild('div', 'header-name').textContent = i18nString(UIStrings.statusCode) + ': ';
       statusCodeFragment.createChild('span', 'header-separator');
 
-      const statusCodeImage = /** @type {!UI.UIUtils.DevToolsIconLabel} */ (
-          statusCodeFragment.createChild('span', 'resource-status-image', 'dt-icon-label'));
+      const statusCodeImage = (statusCodeFragment.createChild('span', 'resource-status-image', 'dt-icon-label') as UI.UIUtils.DevToolsIconLabel);
       UI.Tooltip.Tooltip.install(statusCodeImage, this._request.statusCode + ' ' + this._request.statusText);
 
       if (this._request.statusCode < 300 || this._request.statusCode === 304) {
         statusCodeImage.type = 'smallicon-green-ball';
-      } else if (this._request.statusCode < 400) {
+      }
+      else if (this._request.statusCode < 400) {
         statusCodeImage.type = 'smallicon-orange-ball';
-      } else {
+      }
+      else {
         statusCodeImage.type = 'smallicon-red-ball';
       }
 
@@ -893,16 +806,20 @@ export class RequestHeadersView extends UI.Widget.VBox {
       if (this._request.cachedInMemory()) {
         statusText += ' ' + i18nString(UIStrings.fromMemoryCache);
         statusTextElement.classList.add('status-from-cache');
-      } else if (this._request.fetchedViaServiceWorker) {
+      }
+      else if (this._request.fetchedViaServiceWorker) {
         statusText += ' ' + i18nString(UIStrings.fromServiceWorker);
         statusTextElement.classList.add('status-from-cache');
-      } else if (this._request.redirectSourceSignedExchangeInfoHasNoErrors()) {
+      }
+      else if (this._request.redirectSourceSignedExchangeInfoHasNoErrors()) {
         statusText += ' ' + i18nString(UIStrings.fromSignedexchange);
         statusTextElement.classList.add('status-from-cache');
-      } else if (this._request.fromPrefetchCache()) {
+      }
+      else if (this._request.fromPrefetchCache()) {
         statusText += ' ' + i18nString(UIStrings.fromPrefetchCache);
         statusTextElement.classList.add('status-from-cache');
-      } else if (this._request.cached()) {
+      }
+      else if (this._request.cached()) {
         statusText += ' ' + i18nString(UIStrings.fromDiskCache);
         statusTextElement.classList.add('status-from-cache');
       }
@@ -912,12 +829,7 @@ export class RequestHeadersView extends UI.Widget.VBox {
     }
   }
 
-  /**
-   * @param {string} title
-   * @param {!UI.TreeOutline.TreeElement} headersTreeElement
-   * @param {number} headersLength
-   */
-  _refreshHeadersTitle(title, headersTreeElement, headersLength) {
+  _refreshHeadersTitle(title: string, headersTreeElement: UI.TreeOutline.TreeElement, headersLength: number): void {
     headersTreeElement.listItemElement.removeChildren();
     headersTreeElement.listItemElement.createChild('div', 'selection fill');
     UI.UIUtils.createTextChild(headersTreeElement.listItemElement, title);
@@ -926,14 +838,7 @@ export class RequestHeadersView extends UI.Widget.VBox {
     headersTreeElement.listItemElement.createChild('span', 'header-count').textContent = headerCount;
   }
 
-  /**
-   * @param {string} title
-   * @param {!Array.<!SDK.NetworkRequest.NameValue>} headers
-   * @param {!UI.TreeOutline.TreeElement} headersTreeElement
-   * @param {boolean=} provisionalHeaders
-   * @param {!Array<!SDK.NetworkRequest.BlockedSetCookieWithReason>=} blockedResponseCookies
-   */
-  _refreshHeaders(title, headers, headersTreeElement, provisionalHeaders, blockedResponseCookies) {
+  _refreshHeaders(title: string, headers: SDK.NetworkRequest.NameValue[], headersTreeElement: UI.TreeOutline.TreeElement, provisionalHeaders?: boolean, blockedResponseCookies?: SDK.NetworkRequest.BlockedSetCookieWithReason[]): void {
     headersTreeElement.removeChildren();
 
     const length = headers.length;
@@ -945,20 +850,20 @@ export class RequestHeadersView extends UI.Widget.VBox {
       if (this._request.cachedInMemory() || this._request.cached()) {
         cautionText = i18nString(UIStrings.provisionalHeadersAreShownS);
         cautionTitle = i18nString(UIStrings.onlyProvisionalHeadersAre);
-      } else {
+      }
+      else {
         cautionText = i18nString(UIStrings.provisionalHeadersAreShown);
       }
       const cautionElement = document.createElement('div');
       UI.Tooltip.Tooltip.install(cautionElement, cautionTitle);
-      /** @type {!UI.UIUtils.DevToolsIconLabel} */ (cautionElement.createChild('span', '', 'dt-icon-label')).type =
-          'smallicon-warning';
+      (cautionElement.createChild('span', '', 'dt-icon-label') as UI.UIUtils.DevToolsIconLabel).type =
+        'smallicon-warning';
       cautionElement.createChild('div', 'caution').textContent = cautionText;
       const cautionTreeElement = new UI.TreeOutline.TreeElement(cautionElement);
       headersTreeElement.appendChild(cautionTreeElement);
     }
 
-    /** @type {!Map<string, !Array<!Protocol.Network.SetCookieBlockedReason>>} */
-    const blockedCookieLineToReasons = new Map();
+    const blockedCookieLineToReasons = new Map<string, Protocol.Network.SetCookieBlockedReason[]>();
     if (blockedResponseCookies) {
       blockedResponseCookies.forEach(blockedCookie => {
         blockedCookieLineToReasons.set(blockedCookie.cookieLine, blockedCookie.blockedReasons);
@@ -967,8 +872,7 @@ export class RequestHeadersView extends UI.Widget.VBox {
 
     headersTreeElement.hidden = !length && !provisionalHeaders;
     for (const header of headers) {
-      const headerTreeElement = new UI.TreeOutline.TreeElement(
-          this._formatHeaderObject(/** @type {!BlockedReasonDetailDescriptor} */ (/** @type {*} */ (header))));
+      const headerTreeElement = new UI.TreeOutline.TreeElement(this._formatHeaderObject((header as any)));
       headerNames.set(headerTreeElement, header.name);
 
       const headerId = header.name.toLowerCase();
@@ -995,9 +899,7 @@ export class RequestHeadersView extends UI.Widget.VBox {
 
       if (headerId === 'x-client-data') {
         const data = ClientVariations.parseClientVariations(header.value);
-        const output = ClientVariations.formatClientVariations(
-            data, i18nString(UIStrings.activeClientExperimentVariation),
-            i18nString(UIStrings.activeClientExperimentVariationIds));
+        const output = ClientVariations.formatClientVariations(data, i18nString(UIStrings.activeClientExperimentVariation), i18nString(UIStrings.activeClientExperimentVariationIds));
         const wrapper = document.createElement('div');
         wrapper.classList.add('x-client-data-details');
         UI.UIUtils.createTextChild(wrapper, i18nString(UIStrings.decoded));
@@ -1009,18 +911,12 @@ export class RequestHeadersView extends UI.Widget.VBox {
     }
   }
 
-  /**
-   * @param {string} title
-   * @param {number} count
-   * @param {string} headersText
-   * @param {!UI.TreeOutline.TreeElement} headersTreeElement
-   */
-  _refreshHeadersText(title, count, headersText, headersTreeElement) {
+  _refreshHeadersText(title: string, count: number, headersText: string, headersTreeElement: UI.TreeOutline.TreeElement): void {
     this._populateTreeElementWithSourceText(headersTreeElement, headersText);
     this._refreshHeadersTitle(title, headersTreeElement, count);
   }
 
-  _refreshRemoteAddress() {
+  _refreshRemoteAddress(): void {
     const remoteAddress = this._request.remoteAddress();
     const treeElement = this._remoteAddressItem;
     treeElement.hidden = !remoteAddress;
@@ -1029,7 +925,7 @@ export class RequestHeadersView extends UI.Widget.VBox {
     }
   }
 
-  _refreshReferrerPolicy() {
+  _refreshReferrerPolicy(): void {
     const referrerPolicy = this._request.referrerPolicy();
     const treeElement = this._referrerPolicyItem;
     treeElement.hidden = !referrerPolicy;
@@ -1038,57 +934,38 @@ export class RequestHeadersView extends UI.Widget.VBox {
     }
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _toggleRequestHeadersText(event) {
+  _toggleRequestHeadersText(event: Event): void {
     this._showRequestHeadersText = !this._showRequestHeadersText;
     this._refreshRequestHeaders();
     event.consume();
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _toggleResponseHeadersText(event) {
+  _toggleResponseHeadersText(event: Event): void {
     this._showResponseHeadersText = !this._showResponseHeadersText;
     this._refreshResponseHeaders();
     event.consume();
   }
 
-  /**
-   * @param {string} title
-   * @return {!Element}
-   */
-  _createToggleButton(title) {
+  _createToggleButton(title: string): Element {
     const button = document.createElement('span');
     button.classList.add('header-toggle');
     button.textContent = title;
     return button;
   }
 
-  /**
-   * @param {boolean} isHeadersTextShown
-   * @return {!Element}
-   */
-  _createHeadersToggleButton(isHeadersTextShown) {
+  _createHeadersToggleButton(isHeadersTextShown: boolean): Element {
     const toggleTitle = isHeadersTextShown ? i18nString(UIStrings.viewParsed) : i18nString(UIStrings.viewSource);
     return this._createToggleButton(toggleTitle);
   }
 
-  _clearHighlight() {
+  _clearHighlight(): void {
     if (this._highlightedElement) {
       this._highlightedElement.listItemElement.classList.remove('header-highlight');
     }
     this._highlightedElement = null;
   }
 
-
-  /**
-   * @param {?UI.TreeOutline.TreeElement} category
-   * @param {string} name
-   */
-  _revealAndHighlight(category, name) {
+  _revealAndHighlight(category: UI.TreeOutline.TreeElement | null, name: string): void {
     this._clearHighlight();
     if (!category) {
       return;
@@ -1104,84 +981,66 @@ export class RequestHeadersView extends UI.Widget.VBox {
     }
   }
 
-  /**
-   * @param {string} header
-   */
-  revealRequestHeader(header) {
+  revealRequestHeader(header: string): void {
     this._revealAndHighlight(this._requestHeadersCategory, header);
   }
 
-  /**
-   * @param {string} header
-   */
-  revealResponseHeader(header) {
+  revealResponseHeader(header: string): void {
     this._revealAndHighlight(this._responseHeadersCategory, header);
   }
 }
 
-/** @type {!WeakSet<(!Category|!UI.TreeOutline.TreeElement)>} */
-const viewSourceForItems = new WeakSet();
+const viewSourceForItems = new WeakSet<Category | UI.TreeOutline.TreeElement>();
 
-/** @type {!WeakMap<!UI.TreeOutline.TreeElement, string>} */
-const headerNames = new WeakMap();
+const headerNames = new WeakMap<UI.TreeOutline.TreeElement, string>();
 
 export class Category extends UI.TreeOutline.TreeElement {
-  /**
-   * @param {!UI.TreeOutline.TreeOutline} root
-   * @param {string} name
-   * @param {string=} title
-   */
-  constructor(root, name, title) {
+  toggleOnClick: boolean;
+  hidden: boolean;
+  _expandedSetting: Common.Settings.Setting<any>;
+  expanded: any;
+  constructor(root: UI.TreeOutline.TreeOutline, name: string, title?: string) {
     super(title || '', true);
     this.toggleOnClick = true;
     this.hidden = true;
     this._expandedSetting =
-        Common.Settings.Settings.instance().createSetting('request-info-' + name + '-category-expanded', true);
+      Common.Settings.Settings.instance().createSetting('request-info-' + name + '-category-expanded', true);
     this.expanded = this._expandedSetting.get();
     root.appendChild(this);
   }
 
-  /**
-   * @return {!UI.TreeOutline.TreeElement}
-   */
-  createLeaf() {
+  createLeaf(): UI.TreeOutline.TreeElement {
     const leaf = new UI.TreeOutline.TreeElement();
     this.appendChild(leaf);
     return leaf;
   }
 
-  /**
-   * @override
-   */
-  onexpand() {
+  onexpand(): void {
     this._expandedSetting.set(true);
   }
 
-  /**
-   * @override
-   */
-  oncollapse() {
+  oncollapse(): void {
     this._expandedSetting.set(false);
   }
 }
+interface BlockedReasonDetailDescriptor {
+  name: string;
+  value: Object | null;
+  headerValueIncorrect: boolean | null;
+  details: {
+    explanation: () => string;
+    examples: Array<{
+      codeSnippet: string;
+      comment: (undefined | (() => string));
+    }>;
+    link: {
+      url: string;
+    } | null;
+  };
+  headerNotSet: boolean | null;
+}
 
-/**
- * @typedef {{
- *   name: string,
- *   value: ?Object,
- *   headerValueIncorrect: ?boolean,
- *   details: !{
- *     explanation: function():string,
- *     examples: !Array<!{codeSnippet: string, comment:(undefined|function():string)}>,
- *     link: ?{url:string},
- *   },
- *   headerNotSet: ?boolean,
- * }}
- */
-let BlockedReasonDetailDescriptor;  // eslint-disable-line no-unused-vars
-
-/** @type {!Map<!Protocol.Network.BlockedReason, !BlockedReasonDetailDescriptor>} */
-const BlockedReasonDetails = new Map([
+const BlockedReasonDetails = new Map<Protocol.Network.BlockedReason, BlockedReasonDetailDescriptor>([
   [
     Protocol.Network.BlockedReason.CoepFrameResourceNeedsCoepHeader, {
       name: 'cross-origin-embedder-policy',
@@ -1189,8 +1048,8 @@ const BlockedReasonDetails = new Map([
       headerValueIncorrect: null,
       details: {
         explanation: i18nLazyString(UIStrings.toEmbedThisFrameInYourDocument),
-        examples: [{codeSnippet: 'Cross-Origin-Embedder-Policy: require-corp', comment: undefined}],
-        link: {url: 'https://web.dev/coop-coep/'}
+        examples: [{ codeSnippet: 'Cross-Origin-Embedder-Policy: require-corp', comment: undefined }],
+        link: { url: 'https://web.dev/coop-coep/' }
       },
       headerNotSet: null,
     }
@@ -1212,7 +1071,7 @@ const BlockedReasonDetails = new Map([
             comment: i18nLazyString(UIStrings.onlyChooseThisOptionIfAn)
           },
         ],
-        link: {url: 'https://web.dev/coop-coep/'},
+        link: { url: 'https://web.dev/coop-coep/' },
       },
       headerNotSet: null,
     }
@@ -1225,7 +1084,7 @@ const BlockedReasonDetails = new Map([
       details: {
         explanation: i18nLazyString(UIStrings.thisDocumentWasBlockedFrom),
         examples: [],
-        link: {url: 'https://web.dev/coop-coep/'}
+        link: { url: 'https://web.dev/coop-coep/' }
       },
       headerNotSet: null,
     }

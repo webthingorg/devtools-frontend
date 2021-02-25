@@ -28,40 +28,34 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as UI from '../ui/ui.js';
 
 export class RequestHTMLView extends UI.Widget.VBox {
-  /**
-   * @param {string} dataURL
-   */
-  constructor(dataURL) {
+  _dataURL: string;
+  constructor(dataURL: string) {
     super(true);
-    this.registerRequiredCSS('network/requestHTMLView.css', {enableLegacyPatching: false});
+    this.registerRequiredCSS('network/requestHTMLView.css', { enableLegacyPatching: false });
     this._dataURL = encodeURI(dataURL).replace(/#/g, '%23');
     this.contentElement.classList.add('html', 'request-view');
   }
 
-  /**
-   * @override
-   */
-  wasShown() {
+  wasShown(): void {
     this._createIFrame();
   }
 
-  /**
-   * @override
-   */
-  willHide() {
+  willHide(): void {
     this.contentElement.removeChildren();
   }
 
-  _createIFrame() {
+  _createIFrame(): void {
     // We need to create iframe again each time because contentDocument
     // is deleted when iframe is removed from its parent.
     this.contentElement.removeChildren();
     const iframe = document.createElement('iframe');
     iframe.className = 'html-preview-frame';
-    iframe.setAttribute('sandbox', '');  // Forbid to run JavaScript and set unique origin.
+    iframe.setAttribute('sandbox', ''); // Forbid to run JavaScript and set unique origin.
     iframe.setAttribute('src', this._dataURL);
     iframe.tabIndex = -1;
     UI.ARIAUtils.markAsPresentation(iframe);

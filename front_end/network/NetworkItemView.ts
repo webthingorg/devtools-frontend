@@ -28,21 +28,23 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';
 import * as i18n from '../i18n/i18n.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
-import {EventSourceMessagesView} from './EventSourceMessagesView.js';
-import {NetworkTimeCalculator} from './NetworkTimeCalculator.js';  // eslint-disable-line no-unused-vars
-import {RequestCookiesView} from './RequestCookiesView.js';
-import {RequestHeadersView} from './RequestHeadersView.js';
-import {RequestInitiatorView} from './RequestInitiatorView.js';
-import {RequestPreviewView} from './RequestPreviewView.js';
-import {RequestResponseView} from './RequestResponseView.js';
-import {RequestTimingView} from './RequestTimingView.js';
-import {RequestTrustTokensView, statusConsideredSuccess} from './RequestTrustTokensView.js';
-import {ResourceWebSocketFrameView} from './ResourceWebSocketFrameView.js';
+import { EventSourceMessagesView } from './EventSourceMessagesView.js';
+import { NetworkTimeCalculator } from './NetworkTimeCalculator.js'; // eslint-disable-line no-unused-vars
+import { RequestCookiesView } from './RequestCookiesView.js';
+import { RequestHeadersView } from './RequestHeadersView.js';
+import { RequestInitiatorView } from './RequestInitiatorView.js';
+import { RequestPreviewView } from './RequestPreviewView.js';
+import { RequestResponseView } from './RequestResponseView.js';
+import { RequestTimingView } from './RequestTimingView.js';
+import { RequestTrustTokensView, statusConsideredSuccess } from './RequestTrustTokensView.js';
+import { ResourceWebSocketFrameView } from './ResourceWebSocketFrameView.js';
 
 export const UIStrings = {
   /**
@@ -121,17 +123,16 @@ export const UIStrings = {
   */
   requestAndResponseCookies: 'Request and response cookies',
 };
-const str_ = i18n.i18n.registerUIStrings('network/NetworkItemView.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('network/NetworkItemView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class NetworkItemView extends UI.TabbedPane.TabbedPane {
-  /**
-   * @param {!SDK.NetworkRequest.NetworkRequest} request
-   * @param {!NetworkTimeCalculator} calculator
-   * @param {!Tabs=} initialTab If specified, will open `initalTab` when the view shows. Otherwise the tab that
-   *                            was last shown is opened. Note that specifying `initalTab` won't override the
-   *                            setting that stores the 'last opened tab' (similar to how revealers work).
-   */
-  constructor(request, calculator, initialTab) {
+  _request: SDK.NetworkRequest.NetworkRequest;
+  _resourceViewTabSetting: Common.Settings.Setting<any>;
+  _headersView: RequestHeadersView;
+  _responseView: RequestResponseView | undefined;
+  _cookiesView: RequestCookiesView | null;
+  _initialTab: Tabs;
+  constructor(request: SDK.NetworkRequest.NetworkRequest, calculator: NetworkTimeCalculator, initialTab?: Tabs) {
     super();
     this._request = request;
     this.element.classList.add('network-item-view');
@@ -139,17 +140,18 @@ export class NetworkItemView extends UI.TabbedPane.TabbedPane {
     this._resourceViewTabSetting = Common.Settings.Settings.instance().createSetting('resourceViewTab', 'preview');
 
     this._headersView = new RequestHeadersView(request);
-    this.appendTab(
-        Tabs.Headers, i18nString(UIStrings.headers), this._headersView, i18nString(UIStrings.headersAndRequestBody));
+    this.appendTab(Tabs.Headers, i18nString(UIStrings.headers), this._headersView, i18nString(UIStrings.headersAndRequestBody));
 
     this.addEventListener(UI.TabbedPane.Events.TabSelected, this._tabSelected, this);
 
     if (request.resourceType() === Common.ResourceType.resourceTypes.WebSocket) {
       const frameView = new ResourceWebSocketFrameView(request);
       this.appendTab(Tabs.WsFrames, i18nString(UIStrings.messages), frameView, i18nString(UIStrings.websocketMessages));
-    } else if (request.mimeType === 'text/event-stream') {
+    }
+    else if (request.mimeType === 'text/event-stream') {
       this.appendTab(Tabs.EventSource, i18nString(UIStrings.eventstream), new EventSourceMessagesView(request));
-    } else {
+    }
+    else {
       this._responseView = new RequestResponseView(request);
       const previewView = new RequestPreviewView(request);
       this.appendTab(Tabs.Preview, i18nString(UIStrings.preview), previewView, i18nString(UIStrings.responsePreview));
@@ -159,140 +161,100 @@ export class NetworkItemView extends UI.TabbedPane.TabbedPane {
         UI.Tooltip.Tooltip.install(icon, i18nString(UIStrings.signedexchangeError));
         this.setTabIcon(Tabs.Preview, icon);
       }
-      this.appendTab(
-          Tabs.Response, i18nString(UIStrings.response), this._responseView, i18nString(UIStrings.rawResponseData));
+      this.appendTab(Tabs.Response, i18nString(UIStrings.response), this._responseView, i18nString(UIStrings.rawResponseData));
     }
 
-    this.appendTab(
-        Tabs.Initiator, i18nString(UIStrings.initiator), new RequestInitiatorView(request),
-        i18nString(UIStrings.requestInitiatorCallStack));
+    this.appendTab(Tabs.Initiator, i18nString(UIStrings.initiator), new RequestInitiatorView(request), i18nString(UIStrings.requestInitiatorCallStack));
 
-    this.appendTab(
-        Tabs.Timing, i18nString(UIStrings.timing), new RequestTimingView(request, calculator),
-        i18nString(UIStrings.requestAndResponseTimeline));
+    this.appendTab(Tabs.Timing, i18nString(UIStrings.timing), new RequestTimingView(request, calculator), i18nString(UIStrings.requestAndResponseTimeline));
 
     if (request.trustTokenParams()) {
-      this.appendTab(
-          Tabs.TrustTokens, i18nString(UIStrings.trustTokens), new RequestTrustTokensView(request),
-          i18nString(UIStrings.trustTokenOperationDetails));
+      this.appendTab(Tabs.TrustTokens, i18nString(UIStrings.trustTokens), new RequestTrustTokensView(request), i18nString(UIStrings.trustTokenOperationDetails));
     }
 
-    /** @type {?RequestCookiesView} */
     this._cookiesView = null;
 
-    /** @type {!Tabs} */
     this._initialTab = initialTab || this._resourceViewTabSetting.get();
   }
 
-  /**
-   * @override
-   */
-  wasShown() {
+  wasShown(): void {
     super.wasShown();
-    this._request.addEventListener(
-        SDK.NetworkRequest.Events.RequestHeadersChanged, this._maybeAppendCookiesPanel, this);
-    this._request.addEventListener(
-        SDK.NetworkRequest.Events.ResponseHeadersChanged, this._maybeAppendCookiesPanel, this);
-    this._request.addEventListener(
-        SDK.NetworkRequest.Events.TrustTokenResultAdded, this._maybeShowErrorIconInTrustTokenTabHeader, this);
+    this._request.addEventListener(SDK.NetworkRequest.Events.RequestHeadersChanged, this._maybeAppendCookiesPanel, this);
+    this._request.addEventListener(SDK.NetworkRequest.Events.ResponseHeadersChanged, this._maybeAppendCookiesPanel, this);
+    this._request.addEventListener(SDK.NetworkRequest.Events.TrustTokenResultAdded, this._maybeShowErrorIconInTrustTokenTabHeader, this);
     this._maybeAppendCookiesPanel();
     this._maybeShowErrorIconInTrustTokenTabHeader();
     this._selectTab(this._initialTab);
   }
 
-  /**
-   * @override
-   */
-  willHide() {
-    this._request.removeEventListener(
-        SDK.NetworkRequest.Events.RequestHeadersChanged, this._maybeAppendCookiesPanel, this);
-    this._request.removeEventListener(
-        SDK.NetworkRequest.Events.ResponseHeadersChanged, this._maybeAppendCookiesPanel, this);
-    this._request.removeEventListener(
-        SDK.NetworkRequest.Events.TrustTokenResultAdded, this._maybeShowErrorIconInTrustTokenTabHeader, this);
+  willHide(): void {
+    this._request.removeEventListener(SDK.NetworkRequest.Events.RequestHeadersChanged, this._maybeAppendCookiesPanel, this);
+    this._request.removeEventListener(SDK.NetworkRequest.Events.ResponseHeadersChanged, this._maybeAppendCookiesPanel, this);
+    this._request.removeEventListener(SDK.NetworkRequest.Events.TrustTokenResultAdded, this._maybeShowErrorIconInTrustTokenTabHeader, this);
   }
 
-  _maybeAppendCookiesPanel() {
+  _maybeAppendCookiesPanel(): void {
     const cookiesPresent = this._request.hasRequestCookies() || this._request.responseCookies.length > 0;
     console.assert(cookiesPresent || !this._cookiesView, 'Cookies were introduced in headers and then removed!');
     if (cookiesPresent && !this._cookiesView) {
       this._cookiesView = new RequestCookiesView(this._request);
-      this.appendTab(
-          Tabs.Cookies, i18nString(UIStrings.cookies), this._cookiesView,
-          i18nString(UIStrings.requestAndResponseCookies));
+      this.appendTab(Tabs.Cookies, i18nString(UIStrings.cookies), this._cookiesView, i18nString(UIStrings.requestAndResponseCookies));
     }
   }
 
-  _maybeShowErrorIconInTrustTokenTabHeader() {
+  _maybeShowErrorIconInTrustTokenTabHeader(): void {
     const trustTokenResult = this._request.trustTokenOperationDoneEvent();
     if (trustTokenResult && !statusConsideredSuccess(trustTokenResult.status)) {
       this.setTabIcon(Tabs.TrustTokens, UI.Icon.Icon.create('smallicon-error'));
     }
   }
 
-  /**
-   * @param {string} tabId
-   */
-  _selectTab(tabId) {
+  _selectTab(tabId: string): void {
     if (!this.selectTab(tabId)) {
       this.selectTab('headers');
     }
   }
 
-  /** @param {!{data: *}} event */
-  _tabSelected(event) {
+  _tabSelected(event: {
+    data: any;
+  }): void {
     if (!event.data.isUserGesture) {
       return;
     }
     this._resourceViewTabSetting.set(event.data.tabId);
   }
 
-  /**
-   * @return {!SDK.NetworkRequest.NetworkRequest}
-   */
-  request() {
+  request(): SDK.NetworkRequest.NetworkRequest {
     return this._request;
   }
 
-  /**
-   * @param {number=} line
-   * @return {!Promise<void>}
-   */
-  async revealResponseBody(line) {
+  async revealResponseBody(line?: number): Promise<void> {
     this._selectTab(Tabs.Response);
     if (this._responseView && typeof line === 'number') {
-      await this._responseView.revealLine(/** @type {number} */ (line));
+      await this._responseView.revealLine((line as number));
     }
   }
 
-  /**
-   * @param {string} header
-   */
-  revealRequestHeader(header) {
+  revealRequestHeader(header: string): void {
     this._selectTab(Tabs.Headers);
     this._headersView.revealRequestHeader(header);
   }
 
-  /**
-   * @param {string} header
-   */
-  revealResponseHeader(header) {
+  revealResponseHeader(header: string): void {
     this._selectTab(Tabs.Headers);
     this._headersView.revealResponseHeader(header);
   }
 }
 
-/**
- * @enum {string}
- */
-export const Tabs = {
-  Cookies: 'cookies',
-  EventSource: 'eventSource',
-  Headers: 'headers',
-  Initiator: 'initiator',
-  Preview: 'preview',
-  Response: 'response',
-  Timing: 'timing',
-  TrustTokens: 'trustTokens',
-  WsFrames: 'webSocketFrames'
-};
+export enum Tabs {
+  Cookies = 'cookies',
+  EventSource = 'eventSource',
+  Headers = 'headers',
+  Initiator = 'initiator',
+  Preview = 'preview',
+  Response = 'response',
+  Timing = 'timing',
+  TrustTokens = 'trustTokens',
+  WsFrames = 'webSocketFrames'
+}
+;

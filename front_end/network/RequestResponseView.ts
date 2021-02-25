@@ -28,9 +28,11 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';
 import * as i18n from '../i18n/i18n.js';
-import * as SDK from '../sdk/sdk.js';  // eslint-disable-line no-unused-vars
+import * as SDK from '../sdk/sdk.js'; // eslint-disable-line no-unused-vars
 import * as SourceFrame from '../source_frame/source_frame.js';
 import * as UI from '../ui/ui.js';
 
@@ -44,27 +46,19 @@ export const UIStrings = {
   */
   failedToLoadResponseData: 'Failed to load response data',
 };
-const str_ = i18n.i18n.registerUIStrings('network/RequestResponseView.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('network/RequestResponseView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class RequestResponseView extends UI.Widget.VBox {
-  /**
-   * @param {!SDK.NetworkRequest.NetworkRequest} request
-   */
-  constructor(request) {
+  request: SDK.NetworkRequest.NetworkRequest;
+  _contentViewPromise: Promise<UI.Widget.Widget> | null;
+  constructor(request: SDK.NetworkRequest.NetworkRequest) {
     super();
     this.element.classList.add('request-view');
-    /** @protected */
     this.request = request;
-    /** @type {?Promise<!UI.Widget.Widget>} */
     this._contentViewPromise = null;
   }
 
-  /**
-   * @param {!SDK.NetworkRequest.NetworkRequest} request
-   * @param {!SDK.NetworkRequest.ContentData} contentData
-   * @return {boolean}
-   */
-  static _hasTextContent(request, contentData) {
+  static _hasTextContent(request: SDK.NetworkRequest.NetworkRequest, contentData: SDK.NetworkRequest.ContentData): boolean {
     const mimeType = request.mimeType || '';
     let resourceType = Common.ResourceType.ResourceType.fromMimeType(mimeType);
     if (resourceType === Common.ResourceType.resourceTypes.Other) {
@@ -85,12 +79,7 @@ export class RequestResponseView extends UI.Widget.VBox {
     return false;
   }
 
-  /**
-   * @protected
-   * @param {!SDK.NetworkRequest.NetworkRequest} request
-   * @return {!Promise<?UI.Widget.Widget>}
-   */
-  static async sourceViewForRequest(request) {
+  static async sourceViewForRequest(request: SDK.NetworkRequest.NetworkRequest): Promise<UI.Widget.Widget | null> {
     let sourceView = requestToSourceView.get(request);
     if (sourceView !== undefined) {
       return sourceView;
@@ -109,38 +98,26 @@ export class RequestResponseView extends UI.Widget.VBox {
   }
 
   /**
-   * @override
    * @final
    */
-  wasShown() {
+  wasShown(): void {
     this._doShowPreview();
   }
 
-  /**
-   * @return {!Promise<!UI.Widget.Widget>}
-   */
-  _doShowPreview() {
+  _doShowPreview(): Promise<UI.Widget.Widget> {
     if (!this._contentViewPromise) {
       this._contentViewPromise = this.showPreview();
     }
     return this._contentViewPromise;
   }
 
-  /**
-   * @protected
-   * @return {!Promise<!UI.Widget.Widget>}
-   */
-  async showPreview() {
+  async showPreview(): Promise<UI.Widget.Widget> {
     const responseView = await this.createPreview();
     responseView.show(this.element);
     return responseView;
   }
 
-  /**
-   * @protected
-   * @return {!Promise<!UI.Widget.Widget>}
-   */
-  async createPreview() {
+  async createPreview(): Promise<UI.Widget.Widget> {
     const contentData = await this.request.contentData();
     const sourceView = await RequestResponseView.sourceViewForRequest(this.request);
     if ((!contentData.content || !sourceView) && !contentData.error) {
@@ -152,10 +129,7 @@ export class RequestResponseView extends UI.Widget.VBox {
     return new UI.EmptyWidget.EmptyWidget(i18nString(UIStrings.failedToLoadResponseData));
   }
 
-  /**
-   * @param {number} line
-   */
-  async revealLine(line) {
+  async revealLine(line: number): Promise<void> {
     const view = await this._doShowPreview();
     if (view instanceof SourceFrame.ResourceSourceFrame.SearchableContainer) {
       view.revealPosition(line);
@@ -163,5 +137,4 @@ export class RequestResponseView extends UI.Widget.VBox {
   }
 }
 
-/** @type {!WeakMap<!SDK.NetworkRequest.NetworkRequest, !UI.Widget.Widget>} */
-const requestToSourceView = new WeakMap();
+const requestToSourceView = new WeakMap<SDK.NetworkRequest.NetworkRequest, UI.Widget.Widget>();

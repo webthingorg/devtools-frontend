@@ -28,8 +28,10 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';
-import * as CookieTable from '../cookie_table/cookie_table.js';  // eslint-disable-line no-unused-vars
+import * as CookieTable from '../cookie_table/cookie_table.js'; // eslint-disable-line no-unused-vars
 import * as i18n from '../i18n/i18n.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
@@ -62,8 +64,7 @@ export const UIStrings = {
   /**
   *@description Tooltip to explain what response cookies are
   */
-  cookiesThatWereReceivedFromThe:
-      'Cookies that were received from the server in the \'`set-cookie`\' header of the response',
+  cookiesThatWereReceivedFromThe: 'Cookies that were received from the server in the \'`set-cookie`\' header of the response',
   /**
   *@description Label for response cookies with invalid syntax
   */
@@ -72,24 +73,28 @@ export const UIStrings = {
   * @description Tooltip to explain what malformed response cookies are. Malformed cookies are
   * cookies that did not match the expected format and could not be interpreted, and are invalid.
   */
-  cookiesThatWereReceivedFromTheServer:
-      'Cookies that were received from the server in the \'`set-cookie`\' header of the response but were malformed',
+  cookiesThatWereReceivedFromTheServer: 'Cookies that were received from the server in the \'`set-cookie`\' header of the response but were malformed',
 };
-const str_ = i18n.i18n.registerUIStrings('network/RequestCookiesView.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('network/RequestCookiesView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class RequestCookiesView extends UI.Widget.Widget {
-  /**
-   * @param {!SDK.NetworkRequest.NetworkRequest} request
-   */
-  constructor(request) {
+  _request: SDK.NetworkRequest.NetworkRequest;
+  _showFilteredOutCookiesSetting: Common.Settings.Setting<any>;
+  _emptyWidget: UI.EmptyWidget.EmptyWidget;
+  _requestCookiesTitle: HTMLElement;
+  _requestCookiesEmpty: HTMLElement;
+  _requestCookiesTable: CookieTable.CookiesTable.CookiesTable;
+  _responseCookiesTitle: HTMLElement;
+  _responseCookiesTable: CookieTable.CookiesTable.CookiesTable;
+  _malformedResponseCookiesTitle: HTMLElement;
+  _malformedResponseCookiesList: HTMLElement;
+  constructor(request: SDK.NetworkRequest.NetworkRequest) {
     super();
-    this.registerRequiredCSS('network/requestCookiesView.css', {enableLegacyPatching: false});
+    this.registerRequiredCSS('network/requestCookiesView.css', { enableLegacyPatching: false });
     this.element.classList.add('request-cookies-view');
 
-    /** @type {!SDK.NetworkRequest.NetworkRequest} */
     this._request = request;
-    this._showFilteredOutCookiesSetting = Common.Settings.Settings.instance().createSetting(
-        'show-filtered-out-request-cookies', /* defaultValue */ false);
+    this._showFilteredOutCookiesSetting = Common.Settings.Settings.instance().createSetting('show-filtered-out-request-cookies', /* defaultValue */ false);
 
     this._emptyWidget = new UI.EmptyWidget.EmptyWidget(i18nString(UIStrings.thisRequestHasNoCookies));
     this._emptyWidget.show(this.element);
@@ -99,9 +104,7 @@ export class RequestCookiesView extends UI.Widget.Widget {
     titleText.textContent = i18nString(UIStrings.requestCookies);
     UI.Tooltip.Tooltip.install(titleText, i18nString(UIStrings.cookiesThatWereSentToTheServerIn));
 
-    const requestCookiesCheckbox = /** @type {!UI.UIUtils.CheckboxLabel} */ (UI.SettingsUI.createSettingCheckbox(
-        i18nString(UIStrings.showFilteredOutRequestCookies), this._showFilteredOutCookiesSetting,
-        /* omitParagraphElement */ true));
+    const requestCookiesCheckbox = (UI.SettingsUI.createSettingCheckbox(i18nString(UIStrings.showFilteredOutRequestCookies), this._showFilteredOutCookiesSetting, true) as UI.UIUtils.CheckboxLabel);
     requestCookiesCheckbox.checkboxElement.addEventListener('change', () => {
       this._refreshRequestCookiesView();
     });
@@ -124,18 +127,19 @@ export class RequestCookiesView extends UI.Widget.Widget {
 
     this._malformedResponseCookiesTitle = this.element.createChild('div', 'request-cookies-title');
     this._malformedResponseCookiesTitle.textContent = i18nString(UIStrings.malformedResponseCookies);
-    UI.Tooltip.Tooltip.install(
-        this._malformedResponseCookiesTitle, i18nString(UIStrings.cookiesThatWereReceivedFromTheServer));
+    UI.Tooltip.Tooltip.install(this._malformedResponseCookiesTitle, i18nString(UIStrings.cookiesThatWereReceivedFromTheServer));
 
     this._malformedResponseCookiesList = this.element.createChild('div');
   }
 
-  /**
-   * @return {!{requestCookies: !Array<!SDK.Cookie.Cookie>, requestCookieToBlockedReasons: !Map<!SDK.Cookie.Cookie, !Array<!SDK.CookieModel.BlockedReason>>}}
-   */
-  _getRequestCookies() {
-    /** @type {!Map<!SDK.Cookie.Cookie, !Array<!SDK.CookieModel.BlockedReason>>} */
-    const requestCookieToBlockedReasons = new Map();
+  _getRequestCookies(): {
+    requestCookies: Array<SDK.Cookie.Cookie>;
+    requestCookieToBlockedReasons: Map<SDK.Cookie.Cookie, Array<SDK.CookieModel.BlockedReason>>;
+  } {
+    const requestCookieToBlockedReasons = new Map<SDK.Cookie.Cookie, {
+      attribute: string | null;
+      uiString: string;
+    }[]>();
     const requestCookies = this._request.includedRequestCookies().slice();
 
     if (this._showFilteredOutCookiesSetting.get()) {
@@ -150,23 +154,23 @@ export class RequestCookiesView extends UI.Widget.Widget {
       }
     }
 
-    return {requestCookies, requestCookieToBlockedReasons};
+    return { requestCookies, requestCookieToBlockedReasons };
   }
 
-  /**
-   * @return {!{responseCookies: !Array<!SDK.Cookie.Cookie>, responseCookieToBlockedReasons: !Map<!SDK.Cookie.Cookie, !Array<!SDK.CookieModel.BlockedReason>>, malformedResponseCookies: !Array<!SDK.NetworkRequest.BlockedSetCookieWithReason>}}
-   */
-  _getResponseCookies() {
-    /** @type {!Array<!SDK.Cookie.Cookie>} */
-    let responseCookies = [];
-    /** @type {!Map<!SDK.Cookie.Cookie, !Array<!SDK.CookieModel.BlockedReason>>} */
-    const responseCookieToBlockedReasons = new Map();
-    /** @type {!Array<!SDK.NetworkRequest.BlockedSetCookieWithReason>} */
-    const malformedResponseCookies = [];
+  _getResponseCookies(): {
+    responseCookies: Array<SDK.Cookie.Cookie>;
+    responseCookieToBlockedReasons: Map<SDK.Cookie.Cookie, Array<SDK.CookieModel.BlockedReason>>;
+    malformedResponseCookies: Array<SDK.NetworkRequest.BlockedSetCookieWithReason>;
+  } {
+    let responseCookies: SDK.Cookie.Cookie[] = [];
+    const responseCookieToBlockedReasons = new Map<SDK.Cookie.Cookie, {
+      attribute: string | null;
+      uiString: string;
+    }[]>();
+    const malformedResponseCookies: SDK.NetworkRequest.BlockedSetCookieWithReason[] = [];
 
     if (this._request.responseCookies.length) {
-      /** @type {!Array<?string>} */
-      const blockedCookieLines = this._request.blockedResponseCookies().map(blockedCookie => blockedCookie.cookieLine);
+      const blockedCookieLines: (string | null)[] = this._request.blockedResponseCookies().map(blockedCookie => blockedCookie.cookieLine);
       responseCookies = this._request.responseCookies.filter(cookie => {
         // remove the regular cookies that would overlap with blocked cookies
         const index = blockedCookieLines.indexOf(cookie.getCookieLine());
@@ -180,12 +184,12 @@ export class RequestCookiesView extends UI.Widget.Widget {
       for (const blockedCookie of this._request.blockedResponseCookies()) {
         const parsedCookies = SDK.CookieParser.CookieParser.parseSetCookie(blockedCookie.cookieLine);
         if (parsedCookies && !parsedCookies.length ||
-            blockedCookie.blockedReasons.includes(Protocol.Network.SetCookieBlockedReason.SyntaxError)) {
+          blockedCookie.blockedReasons.includes(Protocol.Network.SetCookieBlockedReason.SyntaxError)) {
           malformedResponseCookies.push(blockedCookie);
           continue;
         }
 
-        let cookie = blockedCookie.cookie;
+        let cookie: SDK.Cookie.Cookie | (SDK.Cookie.Cookie | null) = blockedCookie.cookie;
         if (!cookie && parsedCookies) {
           cookie = parsedCookies[0];
         }
@@ -201,10 +205,10 @@ export class RequestCookiesView extends UI.Widget.Widget {
       }
     }
 
-    return {responseCookies, responseCookieToBlockedReasons, malformedResponseCookies};
+    return { responseCookies, responseCookieToBlockedReasons, malformedResponseCookies };
   }
 
-  _refreshRequestCookiesView() {
+  _refreshRequestCookiesView(): void {
     if (!this.isShowing()) {
       return;
     }
@@ -212,12 +216,13 @@ export class RequestCookiesView extends UI.Widget.Widget {
     const gotCookies = this._request.hasRequestCookies() || this._request.responseCookies.length;
     if (gotCookies) {
       this._emptyWidget.hideWidget();
-    } else {
+    }
+    else {
       this._emptyWidget.showWidget();
     }
 
-    const {requestCookies, requestCookieToBlockedReasons} = this._getRequestCookies();
-    const {responseCookies, responseCookieToBlockedReasons, malformedResponseCookies} = this._getResponseCookies();
+    const { requestCookies, requestCookieToBlockedReasons } = this._getRequestCookies();
+    const { responseCookies, responseCookieToBlockedReasons, malformedResponseCookies } = this._getResponseCookies();
 
     if (requestCookies.length) {
       this._requestCookiesTitle.classList.remove('hidden');
@@ -225,12 +230,14 @@ export class RequestCookiesView extends UI.Widget.Widget {
       this._requestCookiesTable.showWidget();
       this._requestCookiesTable.setCookies(requestCookies, requestCookieToBlockedReasons);
 
-    } else if (this._request.blockedRequestCookies().length) {
+    }
+    else if (this._request.blockedRequestCookies().length) {
       this._requestCookiesTitle.classList.remove('hidden');
       this._requestCookiesEmpty.classList.remove('hidden');
       this._requestCookiesTable.hideWidget();
 
-    } else {
+    }
+    else {
       this._requestCookiesTitle.classList.add('hidden');
       this._requestCookiesEmpty.classList.add('hidden');
       this._requestCookiesTable.hideWidget();
@@ -240,7 +247,8 @@ export class RequestCookiesView extends UI.Widget.Widget {
       this._responseCookiesTitle.classList.remove('hidden');
       this._responseCookiesTable.showWidget();
       this._responseCookiesTable.setCookies(responseCookies, responseCookieToBlockedReasons);
-    } else {
+    }
+    else {
       this._responseCookiesTitle.classList.add('hidden');
       this._responseCookiesTable.hideWidget();
     }
@@ -256,33 +264,24 @@ export class RequestCookiesView extends UI.Widget.Widget {
         listItem.appendChild(icon);
         UI.UIUtils.createTextChild(listItem, malformedCookie.cookieLine);
         listItem.title =
-            SDK.NetworkRequest.setCookieBlockedReasonToUiString(Protocol.Network.SetCookieBlockedReason.SyntaxError);
+          SDK.NetworkRequest.setCookieBlockedReasonToUiString(Protocol.Network.SetCookieBlockedReason.SyntaxError);
       }
-    } else {
+    }
+    else {
       this._malformedResponseCookiesTitle.classList.add('hidden');
       this._malformedResponseCookiesList.classList.add('hidden');
     }
   }
 
-  /**
-   * @override
-   */
-  wasShown() {
-    this._request.addEventListener(
-        SDK.NetworkRequest.Events.RequestHeadersChanged, this._refreshRequestCookiesView, this);
-    this._request.addEventListener(
-        SDK.NetworkRequest.Events.ResponseHeadersChanged, this._refreshRequestCookiesView, this);
+  wasShown(): void {
+    this._request.addEventListener(SDK.NetworkRequest.Events.RequestHeadersChanged, this._refreshRequestCookiesView, this);
+    this._request.addEventListener(SDK.NetworkRequest.Events.ResponseHeadersChanged, this._refreshRequestCookiesView, this);
 
     this._refreshRequestCookiesView();
   }
 
-  /**
-   * @override
-   */
-  willHide() {
-    this._request.removeEventListener(
-        SDK.NetworkRequest.Events.RequestHeadersChanged, this._refreshRequestCookiesView, this);
-    this._request.removeEventListener(
-        SDK.NetworkRequest.Events.ResponseHeadersChanged, this._refreshRequestCookiesView, this);
+  willHide(): void {
+    this._request.removeEventListener(SDK.NetworkRequest.Events.RequestHeadersChanged, this._refreshRequestCookiesView, this);
+    this._request.removeEventListener(SDK.NetworkRequest.Events.ResponseHeadersChanged, this._refreshRequestCookiesView, this);
   }
 }

@@ -28,6 +28,8 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
 import * as i18n from '../i18n/i18n.js';
@@ -35,7 +37,7 @@ import * as ObjectUI from '../object_ui/object_ui.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
-import {Events, NetworkTimeCalculator} from './NetworkTimeCalculator.js';  // eslint-disable-line no-unused-vars
+import { Events, NetworkTimeCalculator } from './NetworkTimeCalculator.js'; // eslint-disable-line no-unused-vars
 
 export const UIStrings = {
   /**
@@ -160,8 +162,7 @@ export const UIStrings = {
   *@description Text to inform about the ServerTiming API, which can be used to report timing information to DevTools about the substeps that the server performed to answer the requests. Timing information is, e.g., the duration of the substep.
   *@example {https://web.dev/custom-metrics/#server-timing-api} PH1
   */
-  duringDevelopmentYouCanUseSToAdd:
-      'During development, you can use {PH1} to add insights into the server-side timing of this request.',
+  duringDevelopmentYouCanUseSToAdd: 'During development, you can use {PH1} to add insights into the server-side timing of this request.',
   /**
   *@description Header for last column of network timing tab.
   */
@@ -214,14 +215,13 @@ export const UIStrings = {
   */
   fallbackCode: 'Fallback code',
 };
-const str_ = i18n.i18n.registerUIStrings('network/RequestTimingView.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('network/RequestTimingView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class RequestTimingView extends UI.Widget.VBox {
-  /**
-   * @param {!SDK.NetworkRequest.NetworkRequest} request
-   * @param {!NetworkTimeCalculator} calculator
-   */
-  constructor(request, calculator) {
+  _request: SDK.NetworkRequest.NetworkRequest;
+  _calculator: NetworkTimeCalculator;
+  _tableElement?: Element;
+  constructor(request: SDK.NetworkRequest.NetworkRequest, calculator: NetworkTimeCalculator) {
     super();
     this.element.classList.add('resource-timing-view');
 
@@ -229,11 +229,7 @@ export class RequestTimingView extends UI.Widget.VBox {
     this._calculator = calculator;
   }
 
-  /**
-   * @param {!RequestTimeRangeNames} name
-   * @return {string}
-   */
-  static _timeRangeTitle(name) {
+  static _timeRangeTitle(name: RequestTimeRangeNames): string {
     switch (name) {
       case RequestTimeRangeNames.Push:
         return i18nString(UIStrings.receivingPush);
@@ -270,30 +266,15 @@ export class RequestTimingView extends UI.Widget.VBox {
     }
   }
 
-  /**
-   * @param {!SDK.NetworkRequest.NetworkRequest} request
-   * @param {number} navigationStart
-   * @return {!Array.<!RequestTimeRange>}
-   */
-  static calculateRequestTimeRanges(request, navigationStart) {
-    /** @type {!Array.<!RequestTimeRange>} */
-    const result = [];
-    /**
-     * @param {!RequestTimeRangeNames} name
-     * @param {number} start
-     * @param {number} end
-     */
-    function addRange(name, start, end) {
+  static calculateRequestTimeRanges(request: SDK.NetworkRequest.NetworkRequest, navigationStart: number): RequestTimeRange[] {
+    const result: RequestTimeRange[] = [];
+    function addRange(name: RequestTimeRangeNames, start: number, end: number): void {
       if (start < Number.MAX_VALUE && start <= end) {
-        result.push({name: name, start: start, end: end});
+        result.push({ name: name, start: start, end: end });
       }
     }
 
-    /**
-     * @param {!Array.<number>} numbers
-     * @return {number|undefined}
-     */
-    function firstPositive(numbers) {
+    function firstPositive(numbers: number[]): number | undefined {
       for (let i = 0; i < numbers.length; ++i) {
         if (numbers[i] > 0) {
           return numbers[i];
@@ -302,12 +283,7 @@ export class RequestTimingView extends UI.Widget.VBox {
       return undefined;
     }
 
-    /**
-     * @param {!RequestTimeRangeNames} name
-     * @param {number} start
-     * @param {number} end
-     */
-    function addOffsetRange(name, start, end) {
+    function addOffsetRange(name: RequestTimeRangeNames, start: number, end: number): void {
       if (start >= 0 && end >= 0) {
         addRange(name, startTime + (start / 1000), startTime + (end / 1000));
       }
@@ -345,42 +321,32 @@ export class RequestTimingView extends UI.Widget.VBox {
     if (request.fetchedViaServiceWorker) {
       addOffsetRange(RequestTimeRangeNames.Blocking, 0, timing.workerStart);
       addOffsetRange(RequestTimeRangeNames.ServiceWorkerPreparation, timing.workerStart, timing.workerReady);
-      addOffsetRange(
-          RequestTimeRangeNames.ServiceWorkerRespondWith, timing.workerFetchStart, timing.workerRespondWithSettled);
+      addOffsetRange(RequestTimeRangeNames.ServiceWorkerRespondWith, timing.workerFetchStart, timing.workerRespondWithSettled);
       addOffsetRange(RequestTimeRangeNames.ServiceWorker, timing.workerReady, timing.sendEnd);
       addOffsetRange(RequestTimeRangeNames.Waiting, timing.sendEnd, responseReceived);
-    } else if (!timing.pushStart) {
-      const blockingEnd =
-          firstPositive([timing.dnsStart, timing.connectStart, timing.sendStart, responseReceived]) || 0;
+    }
+    else if (!timing.pushStart) {
+      const blockingEnd = firstPositive([timing.dnsStart, timing.connectStart, timing.sendStart, responseReceived]) || 0;
       addOffsetRange(RequestTimeRangeNames.Blocking, 0, blockingEnd);
       addOffsetRange(RequestTimeRangeNames.Proxy, timing.proxyStart, timing.proxyEnd);
       addOffsetRange(RequestTimeRangeNames.DNS, timing.dnsStart, timing.dnsEnd);
       addOffsetRange(RequestTimeRangeNames.Connecting, timing.connectStart, timing.connectEnd);
       addOffsetRange(RequestTimeRangeNames.SSL, timing.sslStart, timing.sslEnd);
       addOffsetRange(RequestTimeRangeNames.Sending, timing.sendStart, timing.sendEnd);
-      addOffsetRange(
-          RequestTimeRangeNames.Waiting,
-          Math.max(timing.sendEnd, timing.connectEnd, timing.dnsEnd, timing.proxyEnd, blockingEnd), responseReceived);
+      addOffsetRange(RequestTimeRangeNames.Waiting, Math.max(timing.sendEnd, timing.connectEnd, timing.dnsEnd, timing.proxyEnd, blockingEnd), responseReceived);
     }
 
     if (request.endTime !== -1) {
-      addRange(
-          timing.pushStart ? RequestTimeRangeNames.ReceivingPush : RequestTimeRangeNames.Receiving,
-          request.responseReceivedTime, endTime);
+      addRange(timing.pushStart ? RequestTimeRangeNames.ReceivingPush : RequestTimeRangeNames.Receiving, request.responseReceivedTime, endTime);
     }
 
     return result;
   }
 
-  /**
-   * @param {!SDK.NetworkRequest.NetworkRequest} request
-   * @param {!NetworkTimeCalculator} calculator
-   * @return {!Element}
-   */
-  static createTimingTable(request, calculator) {
+  static createTimingTable(request: SDK.NetworkRequest.NetworkRequest, calculator: NetworkTimeCalculator): Element {
     const tableElement = document.createElement('table');
     tableElement.classList.add('network-timing-table');
-    UI.Utils.appendStyle(tableElement, 'network/networkTimingTable.css', {enableLegacyPatching: true});
+    UI.Utils.appendStyle(tableElement, 'network/networkTimingTable.css', { enableLegacyPatching: true });
     const colgroup = tableElement.createChild('colgroup');
     colgroup.createChild('col', 'labels');
     colgroup.createChild('col', 'bars');
@@ -399,29 +365,22 @@ export class RequestTimingView extends UI.Widget.VBox {
 
     const startTimeHeader = tableElement.createChild('thead', 'network-timing-start');
     const tableHeaderRow = startTimeHeader.createChild('tr');
-    /** @type {!HTMLTableCellElement} */
-    const activityHeaderCell = /** @type {!HTMLTableCellElement} */ (tableHeaderRow.createChild('th'));
+    const activityHeaderCell = (tableHeaderRow.createChild('th') as HTMLTableCellElement);
     activityHeaderCell.createChild('span', 'network-timing-hidden-header').textContent = i18nString(UIStrings.label);
     activityHeaderCell.scope = 'col';
-    /** @type {!HTMLTableCellElement} */
-    const waterfallHeaderCell = /** @type {!HTMLTableCellElement} */ (tableHeaderRow.createChild('th'));
+    const waterfallHeaderCell = (tableHeaderRow.createChild('th') as HTMLTableCellElement);
     waterfallHeaderCell.createChild('span', 'network-timing-hidden-header').textContent =
-        i18nString(UIStrings.waterfall);
+      i18nString(UIStrings.waterfall);
     waterfallHeaderCell.scope = 'col';
-    /** @type {!HTMLTableCellElement} */
-    const durationHeaderCell = /** @type {!HTMLTableCellElement} */ (tableHeaderRow.createChild('th'));
+    const durationHeaderCell = (tableHeaderRow.createChild('th') as HTMLTableCellElement);
     durationHeaderCell.createChild('span', 'network-timing-hidden-header').textContent = i18nString(UIStrings.duration);
     durationHeaderCell.scope = 'col';
 
-    /** @type {!HTMLTableCellElement} */
-    const queuedCell = /** @type {!HTMLTableCellElement} */ (startTimeHeader.createChild('tr').createChild('td'));
-    /** @type {!HTMLTableCellElement} */
-    const startedCell = /** @type {!HTMLTableCellElement} */ (startTimeHeader.createChild('tr').createChild('td'));
+    const queuedCell = (startTimeHeader.createChild('tr').createChild('td') as HTMLTableCellElement);
+    const startedCell = (startTimeHeader.createChild('tr').createChild('td') as HTMLTableCellElement);
     queuedCell.colSpan = startedCell.colSpan = 3;
-    UI.UIUtils.createTextChild(
-        queuedCell, i18nString(UIStrings.queuedAtS, {PH1: calculator.formatValue(request.issueTime(), 2)}));
-    UI.UIUtils.createTextChild(
-        startedCell, i18nString(UIStrings.startedAtS, {PH1: calculator.formatValue(request.startTime, 2)}));
+    UI.UIUtils.createTextChild(queuedCell, i18nString(UIStrings.queuedAtS, { PH1: calculator.formatValue(request.issueTime(), 2) }));
+    UI.UIUtils.createTextChild(startedCell, i18nString(UIStrings.startedAtS, { PH1: calculator.formatValue(request.startTime, 2) }));
 
     let right;
     for (let i = 0; i < timeRanges.length; ++i) {
@@ -433,19 +392,23 @@ export class RequestTimingView extends UI.Widget.VBox {
       }
       if (rangeName === RequestTimeRangeNames.Push) {
         createHeader(i18nString(UIStrings.serverPush));
-      } else if (rangeName === RequestTimeRangeNames.Queueing) {
+      }
+      else if (rangeName === RequestTimeRangeNames.Queueing) {
         if (!queueingHeader) {
           queueingHeader = createHeader(i18nString(UIStrings.resourceScheduling));
         }
-      } else if (ConnectionSetupRangeNames.has(rangeName)) {
+      }
+      else if (ConnectionSetupRangeNames.has(rangeName)) {
         if (!connectionHeader) {
           connectionHeader = createHeader(i18nString(UIStrings.connectionStart));
         }
-      } else if (ServiceWorkerRangeNames.has(rangeName)) {
+      }
+      else if (ServiceWorkerRangeNames.has(rangeName)) {
         if (!serviceworkerHeader) {
           serviceworkerHeader = createHeader('Service Worker');
         }
-      } else {
+      }
+      else {
         if (!dataHeader) {
           dataHeader = createHeader(i18nString(UIStrings.requestresponse));
         }
@@ -463,9 +426,8 @@ export class RequestTimingView extends UI.Widget.VBox {
       const bar = row.createChild('span', 'network-timing-bar ' + rangeName);
       bar.style.left = left + '%';
       bar.style.right = right + '%';
-      bar.textContent = '\u200B';  // Important for 0-time items to have 0 width.
-      UI.ARIAUtils.setAccessibleName(
-          row, i18nString(UIStrings.startedAtS, {PH1: calculator.formatValue(range.start, 2)}));
+      bar.textContent = '\u200B'; // Important for 0-time items to have 0 width.
+      UI.ARIAUtils.setAccessibleName(row, i18nString(UIStrings.startedAtS, { PH1: calculator.formatValue(range.start, 2) }));
       const label = tr.createChild('td').createChild('div', 'network-timing-bar-title');
       label.textContent = Number.secondsToString(duration, true);
 
@@ -480,19 +442,15 @@ export class RequestTimingView extends UI.Widget.VBox {
     }
 
     if (!request.finished) {
-      /** @type {!HTMLTableCellElement} */
-      const cell = /** @type {!HTMLTableCellElement} */ (tableElement.createChild('tr').createChild('td', 'caution'));
+      const cell = (tableElement.createChild('tr').createChild('td', 'caution') as HTMLTableCellElement);
       cell.colSpan = 3;
       UI.UIUtils.createTextChild(cell, i18nString(UIStrings.cautionRequestIsNotFinishedYet));
     }
 
     const footer = tableElement.createChild('tr', 'network-timing-footer');
-    /** @type {!HTMLTableCellElement} */
-    const note = /** @type {!HTMLTableCellElement} */ (footer.createChild('td'));
+    const note = (footer.createChild('td') as HTMLTableCellElement);
     note.colSpan = 1;
-    note.appendChild(UI.XLink.XLink.create(
-        'https://developers.google.com/web/tools/chrome-devtools/network/reference#timing-explanation',
-        i18nString(UIStrings.explanation)));
+    note.appendChild(UI.XLink.XLink.create('https://developers.google.com/web/tools/chrome-devtools/network/reference#timing-explanation', i18nString(UIStrings.explanation)));
     footer.createChild('td');
     UI.UIUtils.createTextChild(footer.createChild('td'), Number.secondsToString(totalDuration, true));
 
@@ -500,9 +458,7 @@ export class RequestTimingView extends UI.Widget.VBox {
 
     const lastTimingRightEdge = right === undefined ? 100 : right;
 
-    /** @type {!HTMLTableCellElement} */
-    const breakElement = /** @type {!HTMLTableCellElement} */ (
-        tableElement.createChild('tr', 'network-timing-table-header').createChild('td'));
+    const breakElement = (tableElement.createChild('tr', 'network-timing-table-header').createChild('td') as HTMLTableCellElement);
     breakElement.colSpan = 3;
     breakElement.createChild('hr', 'break');
 
@@ -513,32 +469,24 @@ export class RequestTimingView extends UI.Widget.VBox {
 
     if (!serverTimings) {
       const informationRow = tableElement.createChild('tr');
-      /** @type {!HTMLTableCellElement} */
-      const information = /** @type {!HTMLTableCellElement} */ (informationRow.createChild('td'));
+      const information = (informationRow.createChild('td') as HTMLTableCellElement);
       information.colSpan = 3;
 
-      const link = UI.XLink.XLink.create(
-          'https://web.dev/custom-metrics/#server-timing-api', i18nString(UIStrings.theServerTimingApi));
-      information.appendChild(
-          i18n.i18n.getFormatLocalizedString(str_, UIStrings.duringDevelopmentYouCanUseSToAdd, {PH1: link}));
+      const link = UI.XLink.XLink.create('https://web.dev/custom-metrics/#server-timing-api', i18nString(UIStrings.theServerTimingApi));
+      information.appendChild(i18n.i18n.getFormatLocalizedString(str_, UIStrings.duringDevelopmentYouCanUseSToAdd, { PH1: link }));
 
       return tableElement;
     }
 
     serverTimings.filter(item => item.metric.toLowerCase() !== 'total')
-        .forEach(item => addTiming(item, lastTimingRightEdge));
+      .forEach(item => addTiming(item, lastTimingRightEdge));
     serverTimings.filter(item => item.metric.toLowerCase() === 'total')
-        .forEach(item => addTiming(item, lastTimingRightEdge));
+      .forEach(item => addTiming(item, lastTimingRightEdge));
 
     return tableElement;
 
-    /**
-     * @param {!SDK.ServerTiming.ServerTiming} serverTiming
-     * @param {number} right
-     */
-    function addTiming(serverTiming, right) {
-      const colorGenerator =
-          new Common.Color.Generator({min: 0, max: 360, count: 36}, {min: 50, max: 80, count: undefined}, 80);
+    function addTiming(serverTiming: SDK.ServerTiming.ServerTiming, right: number): void {
+      const colorGenerator = new Common.Color.Generator({ min: 0, max: 360, count: 36 }, { min: 50, max: 80, count: undefined }, 80);
       const isTotal = serverTiming.metric.toLowerCase() === 'total';
       const tr = tableElement.createChild('tr', isTotal ? 'network-timing-footer' : '');
       const metric = tr.createChild('td', 'network-timing-metric');
@@ -551,11 +499,11 @@ export class RequestTimingView extends UI.Widget.VBox {
         return;
       }
       const left = scale * (endTime - startTime - (serverTiming.value / 1000));
-      if (left >= 0) {  // don't chart values too big or too small
+      if (left >= 0) { // don't chart values too big or too small
         const bar = row.createChild('span', 'network-timing-bar server-timing');
         bar.style.left = left + '%';
         bar.style.right = right + '%';
-        bar.textContent = '\u200B';  // Important for 0-time items to have 0 width.
+        bar.textContent = '\u200B'; // Important for 0-time items to have 0 width.
         if (!isTotal) {
           bar.style.backgroundColor = colorGenerator.colorForID(serverTiming.metric);
         }
@@ -564,11 +512,7 @@ export class RequestTimingView extends UI.Widget.VBox {
       label.textContent = Number.millisToString(serverTiming.value, true);
     }
 
-    /**
-     * @param {string} title
-     * @return {!Element}
-     */
-    function createHeader(title) {
+    function createHeader(title: string): Element {
       const dataHeader = tableElement.createChild('tr', 'network-timing-table-header');
       const headerCell = dataHeader.createChild('td');
       UI.UIUtils.createTextChild(headerCell, title);
@@ -579,7 +523,7 @@ export class RequestTimingView extends UI.Widget.VBox {
     }
   }
 
-  _constructFetchDetailsView() {
+  _constructFetchDetailsView(): void {
     if (!this._tableElement) {
       return;
     }
@@ -620,7 +564,7 @@ export class RequestTimingView extends UI.Widget.VBox {
     if (swResponseSource) {
       swResponseSourceString = this._getLocalizedResponseSourceForCode(swResponseSource);
     }
-    serviceWorkerResponseSource.textContent = i18nString(UIStrings.sourceOfResponseS, {PH1: swResponseSourceString});
+    serviceWorkerResponseSource.textContent = i18nString(UIStrings.sourceOfResponseS, { PH1: swResponseSourceString });
 
     const responseSourceTreeElement = new UI.TreeOutline.TreeElement(serviceWorkerResponseSource);
     detailsView.appendChild(responseSourceTreeElement);
@@ -628,8 +572,9 @@ export class RequestTimingView extends UI.Widget.VBox {
     const cacheNameElement = document.createElementWithClass('div', 'network-fetch-details-treeitem');
     const responseCacheStorageName = this._request.getResponseCacheStorageCacheName();
     if (responseCacheStorageName) {
-      cacheNameElement.textContent = i18nString(UIStrings.cacheStorageCacheNameS, {PH1: responseCacheStorageName});
-    } else {
+      cacheNameElement.textContent = i18nString(UIStrings.cacheStorageCacheNameS, { PH1: responseCacheStorageName });
+    }
+    else {
       cacheNameElement.textContent = i18nString(UIStrings.cacheStorageCacheNameUnknown);
     }
 
@@ -639,16 +584,13 @@ export class RequestTimingView extends UI.Widget.VBox {
     const retrievalTime = this._request.getResponseRetrievalTime();
     if (retrievalTime) {
       const responseTimeElement = document.createElementWithClass('div', 'network-fetch-details-treeitem');
-      responseTimeElement.textContent = i18nString(UIStrings.retrievalTimeS, {PH1: retrievalTime});
+      responseTimeElement.textContent = i18nString(UIStrings.retrievalTimeS, { PH1: retrievalTime });
       const responseTimeTreeElement = new UI.TreeOutline.TreeElement(responseTimeElement);
       detailsView.appendChild(responseTimeTreeElement);
     }
   }
 
-  /**
-   * @param {!Protocol.Network.ServiceWorkerResponseSource} swResponseSource
-   */
-  _getLocalizedResponseSourceForCode(swResponseSource) {
+  _getLocalizedResponseSourceForCode(swResponseSource: Protocol.Network.ServiceWorkerResponseSource): Common.UIString.LocalizedString {
     switch (swResponseSource) {
       case Protocol.Network.ServiceWorkerResponseSource.CacheStorage:
         return i18nString(UIStrings.serviceworkerCacheStorage);
@@ -661,17 +603,12 @@ export class RequestTimingView extends UI.Widget.VBox {
     }
   }
 
-  /**
-   *
-   * @param {!Element} fetchDetailsElement
-   * @param {!Event} event
-   */
-  _onToggleFetchDetails(fetchDetailsElement, event) {
+  _onToggleFetchDetails(fetchDetailsElement: Element, event: Event): void {
     if (!event.target) {
       return;
     }
 
-    const target = /** @type {!Element} */ (event.target);
+    const target = (event.target as Element);
     if (target.classList.contains('network-fetch-timing-bar-clickable')) {
       if (fetchDetailsElement.classList.contains('network-fetch-timing-bar-details-collapsed')) {
         Host.userMetrics.actionTaken(Host.UserMetrics.Action.NetworkPanelServiceWorkerRespondWith);
@@ -684,27 +621,20 @@ export class RequestTimingView extends UI.Widget.VBox {
     }
   }
 
-
-  /**
-   * @override
-   */
-  wasShown() {
+  wasShown(): void {
     this._request.addEventListener(SDK.NetworkRequest.Events.TimingChanged, this._refresh, this);
     this._request.addEventListener(SDK.NetworkRequest.Events.FinishedLoading, this._refresh, this);
     this._calculator.addEventListener(Events.BoundariesChanged, this._refresh, this);
     this._refresh();
   }
 
-  /**
-   * @override
-   */
-  willHide() {
+  willHide(): void {
     this._request.removeEventListener(SDK.NetworkRequest.Events.TimingChanged, this._refresh, this);
     this._request.removeEventListener(SDK.NetworkRequest.Events.FinishedLoading, this._refresh, this);
     this._calculator.removeEventListener(Events.BoundariesChanged, this._refresh, this);
   }
 
-  _refresh() {
+  _refresh(): void {
     if (this._tableElement) {
       this._tableElement.remove();
     }
@@ -719,35 +649,42 @@ export class RequestTimingView extends UI.Widget.VBox {
   }
 }
 
-/** @enum {string} */
-export const RequestTimeRangeNames = {
-  Push: 'push',
-  Queueing: 'queueing',
-  Blocking: 'blocking',
-  Connecting: 'connecting',
-  DNS: 'dns',
-  Proxy: 'proxy',
-  Receiving: 'receiving',
-  ReceivingPush: 'receiving-push',
-  Sending: 'sending',
-  ServiceWorker: 'serviceworker',
-  ServiceWorkerPreparation: 'serviceworker-preparation',
-  ServiceWorkerRespondWith: 'serviceworker-respondwith',
-  SSL: 'ssl',
-  Total: 'total',
-  Waiting: 'waiting'
-};
+export enum RequestTimeRangeNames {
+  Push = 'push',
+  Queueing = 'queueing',
+  Blocking = 'blocking',
+  Connecting = 'connecting',
+  DNS = 'dns',
+  Proxy = 'proxy',
+  Receiving = 'receiving',
+  ReceivingPush = 'receiving-push',
+  Sending = 'sending',
+  ServiceWorker = 'serviceworker',
+  ServiceWorkerPreparation = 'serviceworker-preparation',
+  ServiceWorkerRespondWith = 'serviceworker-respondwith',
+  SSL = 'ssl',
+  Total = 'total',
+  Waiting = 'waiting'
+}
+;
 
-export const ServiceWorkerRangeNames = new Set([
-  RequestTimeRangeNames.ServiceWorker, RequestTimeRangeNames.ServiceWorkerPreparation,
-  RequestTimeRangeNames.ServiceWorkerRespondWith
-]);
+export const ServiceWorkerRangeNames = new Set < RequestTimeRangeNames.Blocking | RequestTimeRangeNames.Connecting | RequestTimeRangeNames.DNS | RequestTimeRangeNames.Proxy | ;
+7;
+more;
+  | RequestTimeRangeNames.Waiting > ([
+    RequestTimeRangeNames.ServiceWorker, RequestTimeRangeNames.ServiceWorkerPreparation,
+    RequestTimeRangeNames.ServiceWorkerRespondWith
+  ]);
 
-export const ConnectionSetupRangeNames = new Set([
-  RequestTimeRangeNames.Queueing, RequestTimeRangeNames.Blocking, RequestTimeRangeNames.Connecting,
-  RequestTimeRangeNames.DNS, RequestTimeRangeNames.Proxy, RequestTimeRangeNames.SSL
-]);
-
-/** @typedef {{name: !RequestTimeRangeNames, start: number, end: number}} */
-// @ts-ignore typedef
-export let RequestTimeRange;
+export const ConnectionSetupRangeNames = new Set < RequestTimeRangeNames.Blocking | RequestTimeRangeNames.Connecting | RequestTimeRangeNames.DNS | RequestTimeRangeNames.Proxy | ;
+7;
+more;
+  | RequestTimeRangeNames.Waiting > ([
+    RequestTimeRangeNames.Queueing, RequestTimeRangeNames.Blocking, RequestTimeRangeNames.Connecting,
+    RequestTimeRangeNames.DNS, RequestTimeRangeNames.Proxy, RequestTimeRangeNames.SSL
+  ]);
+export interface RequestTimeRange {
+  name: RequestTimeRangeNames;
+  start: number;
+  end: number;
+}

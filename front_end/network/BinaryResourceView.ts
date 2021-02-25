@@ -2,11 +2,13 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
+/* eslint-disable rulesdir/no_underscored_properties */
+
+import * as Common from '../common/common.js'; // eslint-disable-line no-unused-vars
 import * as Host from '../host/host.js';
 import * as i18n from '../i18n/i18n.js';
 import * as SourceFrame from '../source_frame/source_frame.js';
-import * as TextUtils from '../text_utils/text_utils.js';  // eslint-disable-line no-unused-vars
+import * as TextUtils from '../text_utils/text_utils.js'; // eslint-disable-line no-unused-vars
 import * as UI from '../ui/ui.js';
 
 export const UIStrings = {
@@ -60,44 +62,36 @@ export const UIStrings = {
   */
   copyAsUtf: 'Copy as `UTF-8`',
 };
-const str_ = i18n.i18n.registerUIStrings('network/BinaryResourceView.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('network/BinaryResourceView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class BinaryResourceView extends UI.Widget.VBox {
-  /**
-   * @param {string} base64content
-   * @param {string} contentUrl
-   * @param {!Common.ResourceType.ResourceType} resourceType
-   */
-  constructor(base64content, contentUrl, resourceType) {
+  _binaryResourceViewFactory: SourceFrame.BinaryResourceViewFactory.BinaryResourceViewFactory;
+  _toolbar: UI.Toolbar.Toolbar;
+  _binaryViewObjects: BinaryViewObject[];
+  _binaryViewTypeSetting: Common.Settings.Setting<any>;
+  _binaryViewTypeCombobox: UI.Toolbar.ToolbarComboBox;
+  _copiedText: UI.Toolbar.ToolbarText;
+  _addFadeoutSettimeoutId: number | null;
+  _lastView: UI.Widget.Widget | null;
+  constructor(base64content: string, contentUrl: string, resourceType: Common.ResourceType.ResourceType) {
     super();
-    this.registerRequiredCSS('network/binaryResourceView.css', {enableLegacyPatching: false});
+    this.registerRequiredCSS('network/binaryResourceView.css', { enableLegacyPatching: false });
 
     this._binaryResourceViewFactory =
-        new SourceFrame.BinaryResourceViewFactory.BinaryResourceViewFactory(base64content, contentUrl, resourceType);
+      new SourceFrame.BinaryResourceViewFactory.BinaryResourceViewFactory(base64content, contentUrl, resourceType);
 
     this._toolbar = new UI.Toolbar.Toolbar('binary-view-toolbar', this.element);
 
-    /** @type {!Array<!BinaryViewObject>} */
     this._binaryViewObjects = [
-      new BinaryViewObject(
-          'base64', i18nString(UIStrings.base), i18nString(UIStrings.copiedAsBase),
-          this._binaryResourceViewFactory.createBase64View.bind(this._binaryResourceViewFactory),
-          this._binaryResourceViewFactory.base64.bind(this._binaryResourceViewFactory)),
-      new BinaryViewObject(
-          'hex', i18nString(UIStrings.hexViewer), i18nString(UIStrings.copiedAsHex),
-          this._binaryResourceViewFactory.createHexView.bind(this._binaryResourceViewFactory),
-          this._binaryResourceViewFactory.hex.bind(this._binaryResourceViewFactory)),
-      new BinaryViewObject(
-          'utf8', i18nString(UIStrings.utf), i18nString(UIStrings.copiedAsUtf),
-          this._binaryResourceViewFactory.createUtf8View.bind(this._binaryResourceViewFactory),
-          this._binaryResourceViewFactory.utf8.bind(this._binaryResourceViewFactory)),
+      new BinaryViewObject('base64', i18nString(UIStrings.base), i18nString(UIStrings.copiedAsBase), this._binaryResourceViewFactory.createBase64View.bind(this._binaryResourceViewFactory), this._binaryResourceViewFactory.base64.bind(this._binaryResourceViewFactory)),
+      new BinaryViewObject('hex', i18nString(UIStrings.hexViewer), i18nString(UIStrings.copiedAsHex), this._binaryResourceViewFactory.createHexView.bind(this._binaryResourceViewFactory), this._binaryResourceViewFactory.hex.bind(this._binaryResourceViewFactory)),
+      new BinaryViewObject('utf8', i18nString(UIStrings.utf), i18nString(UIStrings.copiedAsUtf), this._binaryResourceViewFactory.createUtf8View.bind(this._binaryResourceViewFactory), this._binaryResourceViewFactory.utf8.bind(this._binaryResourceViewFactory)),
     ];
     this._binaryViewTypeSetting = Common.Settings.Settings.instance().createSetting('binaryViewType', 'hex');
     this._binaryViewTypeCombobox =
-        new UI.Toolbar.ToolbarComboBox(this._binaryViewTypeChanged.bind(this), i18nString(UIStrings.binaryViewType));
+      new UI.Toolbar.ToolbarComboBox(this._binaryViewTypeChanged.bind(this), i18nString(UIStrings.binaryViewType));
     for (const viewObject of this._binaryViewObjects) {
-      this._binaryViewTypeCombobox.addOption(
-          this._binaryViewTypeCombobox.createOption(viewObject.label, viewObject.type));
+      this._binaryViewTypeCombobox.addOption(this._binaryViewTypeCombobox.createOption(viewObject.label, viewObject.type));
     }
     this._toolbar.appendToolbarItem(this._binaryViewTypeCombobox);
 
@@ -111,28 +105,20 @@ export class BinaryResourceView extends UI.Widget.VBox {
     this._copiedText.element.classList.add('binary-view-copied-text');
     this._toolbar.element.appendChild(this._copiedText.element);
 
-    /** @type {?number} */
     this._addFadeoutSettimeoutId = null;
 
-    /** @type {?UI.Widget.Widget} */
     this._lastView = null;
     this._updateView();
   }
 
-  /**
-   * @return {?BinaryViewObject}
-   */
-  _getCurrentViewObject() {
-    const filter = /** @param {!BinaryViewObject} obj */ obj => obj.type === this._binaryViewTypeSetting.get();
+  _getCurrentViewObject(): BinaryViewObject | null {
+    const filter = /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ (/** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ /** @param {!BinaryViewObject} obj */ obj: BinaryViewObject): boolean => obj.type === this._binaryViewTypeSetting.get();
     const binaryViewObject = this._binaryViewObjects.find(filter);
-    console.assert(
-        Boolean(binaryViewObject),
-        `No binary view found for binary view type found in setting 'binaryViewType': ${
-            this._binaryViewTypeSetting.get()}`);
+    console.assert(Boolean(binaryViewObject), `No binary view found for binary view type found in setting 'binaryViewType': ${this._binaryViewTypeSetting.get()}`);
     return binaryViewObject || null;
   }
 
-  async _copySelectedViewToClipboard() {
+  async _copySelectedViewToClipboard(): Promise<void> {
     const viewObject = this._getCurrentViewObject();
     if (!viewObject) {
       return;
@@ -140,10 +126,7 @@ export class BinaryResourceView extends UI.Widget.VBox {
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText((await viewObject.content()).content);
     this._copiedText.setText(viewObject.copiedMessage);
     this._copiedText.element.classList.remove('fadeout');
-    /**
-     * @this {!BinaryResourceView}
-     */
-    function addFadeoutClass() {
+    function addFadeoutClass(this: BinaryResourceView): void {
       this._copiedText.element.classList.add('fadeout');
     }
     if (this._addFadeoutSettimeoutId) {
@@ -153,14 +136,11 @@ export class BinaryResourceView extends UI.Widget.VBox {
     this._addFadeoutSettimeoutId = window.setTimeout(addFadeoutClass.bind(this), 2000);
   }
 
-  /**
-   * @override
-   */
-  wasShown() {
+  wasShown(): void {
     this._updateView();
   }
 
-  _updateView() {
+  _updateView(): void {
     const newViewObject = this._getCurrentViewObject();
     if (!newViewObject) {
       return;
@@ -180,8 +160,8 @@ export class BinaryResourceView extends UI.Widget.VBox {
     this._binaryViewTypeCombobox.selectElement().value = this._binaryViewTypeSetting.get();
   }
 
-  _binaryViewTypeChanged() {
-    const selectedOption = /** @type {?HTMLOptionElement} */ (this._binaryViewTypeCombobox.selectedOption());
+  _binaryViewTypeChanged(): void {
+    const selectedOption = (this._binaryViewTypeCombobox.selectedOption() as HTMLOptionElement | null);
     if (!selectedOption) {
       return;
     }
@@ -193,11 +173,7 @@ export class BinaryResourceView extends UI.Widget.VBox {
     this._updateView();
   }
 
-  /**
-   * @param {!UI.ContextMenu.ContextMenu} contextMenu
-   * @param {string} submenuItemText
-   */
-  addCopyToContextMenu(contextMenu, submenuItemText) {
+  addCopyToContextMenu(contextMenu: UI.ContextMenu.ContextMenu, submenuItemText: string): void {
     const copyMenu = contextMenu.clipboardSection().appendSubMenuItem(submenuItemText);
     const footerSection = copyMenu.footerSection();
 
@@ -217,28 +193,23 @@ export class BinaryResourceView extends UI.Widget.VBox {
 }
 
 export class BinaryViewObject {
-  /**
-   * @param {string} type
-   * @param {string} label
-   * @param {string} copiedMessage
-   * @param {function():!UI.Widget.Widget} createViewFn
-   * @param {function():Promise<!TextUtils.ContentProvider.DeferredContent>} deferredContent
-   */
-  constructor(type, label, copiedMessage, createViewFn, deferredContent) {
+  type: string;
+  label: string;
+  copiedMessage: string;
+  content: () => Promise<TextUtils.ContentProvider.DeferredContent>;
+  _createViewFn: () => UI.Widget.Widget;
+  _view: UI.Widget.Widget | null;
+  constructor(type: string, label: string, copiedMessage: string, createViewFn: () => UI.Widget.Widget, deferredContent: () => Promise<TextUtils.ContentProvider.DeferredContent>) {
     this.type = type;
     this.label = label;
     this.copiedMessage = copiedMessage;
     this.content = deferredContent;
     this._createViewFn = createViewFn;
 
-    /** @type {?UI.Widget.Widget} */
     this._view = null;
   }
 
-  /**
-   * @return {!UI.Widget.Widget}
-   */
-  getView() {
+  getView(): UI.Widget.Widget {
     if (!this._view) {
       this._view = this._createViewFn();
     }

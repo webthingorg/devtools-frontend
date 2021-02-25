@@ -2,121 +2,95 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
+/* eslint-disable rulesdir/no_underscored_properties */
+
+import * as Common from '../common/common.js'; // eslint-disable-line no-unused-vars
 import * as PerfUI from '../perf_ui/perf_ui.js';
 import * as SDK from '../sdk/sdk.js';
 import * as ThemeSupport from '../theme_support/theme_support.js';
 
-import {NetworkLogView} from './NetworkLogView.js';
-import {NetworkTimeBoundary} from './NetworkTimeCalculator.js';
-import {RequestTimeRangeNames, RequestTimingView} from './RequestTimingView.js';
+import { NetworkLogView } from './NetworkLogView.js';
+import { NetworkTimeBoundary } from './NetworkTimeCalculator.js';
+import { RequestTimeRangeNames, RequestTimingView } from './RequestTimingView.js';
 
 export class NetworkOverview extends PerfUI.TimelineOverviewPane.TimelineOverviewBase {
+  _selectedFilmStripTime: number;
+  _numBands: number;
+  _updateScheduled: boolean;
+  _highlightedRequest: SDK.NetworkRequest.NetworkRequest | null;
+  _loadEvents!: number[];
+  _domContentLoadedEvents!: number[];
+  _nextBand!: number;
+  _bandMap!: Map<string, number>;
+  _requestsList!: SDK.NetworkRequest.NetworkRequest[];
+  _requestsSet!: Set<SDK.NetworkRequest.NetworkRequest>;
+  _span!: number;
+  _filmStripModel?: SDK.FilmStripModel.FilmStripModel | null;
+  _lastBoundary?: NetworkTimeBoundary | null;
   constructor() {
     super();
     this._selectedFilmStripTime = -1;
     this.element.classList.add('network-overview');
 
-    /** @type {number} */
     this._numBands = 1;
-    /** @type {boolean} */
     this._updateScheduled = false;
-    /** @type {?SDK.NetworkRequest.NetworkRequest} */
     this._highlightedRequest = null;
 
-    SDK.SDKModel.TargetManager.instance().addModelListener(
-        SDK.ResourceTreeModel.ResourceTreeModel, SDK.ResourceTreeModel.Events.Load, this._loadEventFired, this);
-    SDK.SDKModel.TargetManager.instance().addModelListener(
-        SDK.ResourceTreeModel.ResourceTreeModel, SDK.ResourceTreeModel.Events.DOMContentLoaded,
-        this._domContentLoadedEventFired, this);
-
-    /** @type {!Array.<number>} */
-    this._loadEvents;
-    /** @type {!Array.<number>} */
-    this._domContentLoadedEvents;
-    /** @type {number} */
-    this._nextBand;
-    /** @type {!Map.<string, number>} */
-    this._bandMap;
-    /** @type {!Array.<!SDK.NetworkRequest.NetworkRequest>} */
-    this._requestsList;
-    /** @type {!Set.<!SDK.NetworkRequest.NetworkRequest>} */
-    this._requestsSet;
-    /** @type {number} */
-    this._span;
+    SDK.SDKModel.TargetManager.instance().addModelListener(SDK.ResourceTreeModel.ResourceTreeModel, SDK.ResourceTreeModel.Events.Load, this._loadEventFired, this);
+    SDK.SDKModel.TargetManager.instance().addModelListener(SDK.ResourceTreeModel.ResourceTreeModel, SDK.ResourceTreeModel.Events.DOMContentLoaded, this._domContentLoadedEventFired, this);
 
     this.reset();
   }
 
-  /** @param {?SDK.NetworkRequest.NetworkRequest} request */
-  setHighlightedRequest(request) {
+  setHighlightedRequest(request: SDK.NetworkRequest.NetworkRequest | null): void {
     this._highlightedRequest = request;
     this.scheduleUpdate();
   }
 
-  /**
-   * @param {?SDK.FilmStripModel.FilmStripModel} filmStripModel
-   */
-  setFilmStripModel(filmStripModel) {
+  setFilmStripModel(filmStripModel: SDK.FilmStripModel.FilmStripModel | null): void {
     this._filmStripModel = filmStripModel;
     this.scheduleUpdate();
   }
 
-  /**
-   * @param {number} time
-   */
-  selectFilmStripFrame(time) {
+  selectFilmStripFrame(time: number): void {
     this._selectedFilmStripTime = time;
     this.scheduleUpdate();
   }
 
-  clearFilmStripFrame() {
+  clearFilmStripFrame(): void {
     this._selectedFilmStripTime = -1;
     this.scheduleUpdate();
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _loadEventFired(event) {
-    const time = /** @type {number} */ (event.data.loadTime);
+  _loadEventFired(event: Common.EventTarget.EventTargetEvent): void {
+    const time = (event.data.loadTime as number);
     if (time) {
       this._loadEvents.push(time * 1000);
     }
     this.scheduleUpdate();
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _domContentLoadedEventFired(event) {
-    const data = /** @type {number} */ (event.data);
+  _domContentLoadedEventFired(event: Common.EventTarget.EventTargetEvent): void {
+    const data = (event.data as number);
     if (data) {
       this._domContentLoadedEvents.push(data * 1000);
     }
     this.scheduleUpdate();
   }
 
-  /**
-   * @param {string} connectionId
-   * @return {number}
-   */
-  _bandId(connectionId) {
+  _bandId(connectionId: string): number {
     if (!connectionId || connectionId === '0') {
       return -1;
     }
     if (this._bandMap.has(connectionId)) {
-      return /** @type {number} */ (this._bandMap.get(connectionId));
+      return /** @type {number} */ this._bandMap.get(connectionId) as number;
     }
     const result = this._nextBand++;
     this._bandMap.set(connectionId, result);
     return result;
   }
 
-  /**
-   * @param {!SDK.NetworkRequest.NetworkRequest} request
-   */
-  updateRequest(request) {
+  updateRequest(request: SDK.NetworkRequest.NetworkRequest): void {
     if (!this._requestsSet.has(request)) {
       this._requestsSet.add(request);
       this._requestsList.push(request);
@@ -124,25 +98,15 @@ export class NetworkOverview extends PerfUI.TimelineOverviewPane.TimelineOvervie
     this.scheduleUpdate();
   }
 
-  /**
-   * @override
-   */
-  wasShown() {
+  wasShown(): void {
     this.onResize();
   }
 
-  /**
-   * @override
-   * @return {!PerfUI.TimelineOverviewPane.TimelineOverviewCalculator}
-   */
-  calculator() {
-    return /** @type {!PerfUI.TimelineOverviewPane.TimelineOverviewCalculator} */ (super.calculator());
+  calculator(): PerfUI.TimelineOverviewPane.TimelineOverviewCalculator {
+    return /** @type {!PerfUI.TimelineOverviewPane.TimelineOverviewCalculator} */ super.calculator() as PerfUI.TimelineOverviewPane.TimelineOverviewCalculator;
   }
 
-  /**
-   * @override
-   */
-  onResize() {
+  onResize(): void {
     const width = this.element.offsetWidth;
     const height = this.element.offsetHeight;
     this.calculator().setDisplayWidth(width);
@@ -152,15 +116,11 @@ export class NetworkOverview extends PerfUI.TimelineOverviewPane.TimelineOvervie
     this.scheduleUpdate();
   }
 
-  /**
-   * @override
-   */
-  reset() {
+  reset(): void {
     /** @type {?SDK.FilmStripModel.FilmStripModel} */
     this._filmStripModel = null;
 
     this._span = 1;
-    /** @type {?NetworkTimeBoundary} */
     this._lastBoundary = null;
     this._nextBand = 0;
     this._bandMap = new Map();
@@ -173,10 +133,7 @@ export class NetworkOverview extends PerfUI.TimelineOverviewPane.TimelineOvervie
     this.resetCanvas();
   }
 
-  /**
-   * @protected
-   */
-  scheduleUpdate() {
+  scheduleUpdate(): void {
     if (this._updateScheduled || !this.isShowing()) {
       return;
     }
@@ -184,10 +141,7 @@ export class NetworkOverview extends PerfUI.TimelineOverviewPane.TimelineOvervie
     this.element.window().requestAnimationFrame(this.update.bind(this));
   }
 
-  /**
-   * @override
-   */
-  update() {
+  update(): void {
     this._updateScheduled = false;
 
     const calculator = this.calculator();
@@ -204,14 +158,10 @@ export class NetworkOverview extends PerfUI.TimelineOverviewPane.TimelineOvervie
     }
 
     const context = this.context();
-    /** @type {!Map<string, !Array<number>>} */
-    const linesByType = new Map();
+    const linesByType = new Map<string, number[]>();
     const paddingTop = _padding;
 
-    /**
-     * @param {string} type
-     */
-    function drawLines(type) {
+    function drawLines(type: string): void {
       const lines = linesByType.get(type);
       if (!lines) {
         return;
@@ -222,7 +172,7 @@ export class NetworkOverview extends PerfUI.TimelineOverviewPane.TimelineOvervie
       for (let i = 0; i < n;) {
         const y = lines[i++] * _bandHeight + paddingTop;
         const startTime = lines[i++];
-        let endTime = lines[i++];
+        let endTime: number = lines[i++];
         if (endTime === Number.MAX_VALUE) {
           endTime = calculator.maximumBoundary();
         }
@@ -232,13 +182,7 @@ export class NetworkOverview extends PerfUI.TimelineOverviewPane.TimelineOvervie
       context.stroke();
     }
 
-    /**
-     * @param {string} type
-     * @param {number} y
-     * @param {number} start
-     * @param {number} end
-     */
-    function addLine(type, y, start, end) {
+    function addLine(type: string, y: number, start: number, end: number): void {
       let lines = linesByType.get(type);
       if (!lines) {
         lines = [];
@@ -293,9 +237,7 @@ export class NetworkOverview extends PerfUI.TimelineOverviewPane.TimelineOvervie
 
       const start = timeRanges[0].start * 1000;
       const end = timeRanges[0].end * 1000;
-      context.fillRect(
-          calculator.computePosition(start) - borderSize, y - size / 2 - borderSize,
-          calculator.computePosition(end) - calculator.computePosition(start) + 1 + 2 * borderSize, size * borderSize);
+      context.fillRect(calculator.computePosition(start) - borderSize, y - size / 2 - borderSize, calculator.computePosition(end) - calculator.computePosition(start) + 1 + 2 * borderSize, size * borderSize);
 
       for (let j = 0; j < timeRanges.length; ++j) {
         const type = timeRanges[j].name;
@@ -362,8 +304,6 @@ export const RequestTimeRangeNameToColor = {
   [RequestTimeRangeNames.Receiving]: '#03A9F4',
 };
 
-/** @type {number} */
-export const _bandHeight = 3;
+export const _bandHeight: number = 3;
 
-/** @type {number} */
-export const _padding = 5;
+export const _padding: number = 5;

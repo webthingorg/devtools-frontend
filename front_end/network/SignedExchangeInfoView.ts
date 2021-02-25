@@ -2,10 +2,12 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Components from '../components/components.js';
 import * as Host from '../host/host.js';
 import * as i18n from '../i18n/i18n.js';
-import * as SDK from '../sdk/sdk.js';  // eslint-disable-line no-unused-vars
+import * as SDK from '../sdk/sdk.js'; // eslint-disable-line no-unused-vars
 import * as UI from '../ui/ui.js';
 
 export const UIStrings = {
@@ -94,31 +96,27 @@ export const UIStrings = {
   */
   issuer: 'Issuer',
 };
-const str_ = i18n.i18n.registerUIStrings('network/SignedExchangeInfoView.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('network/SignedExchangeInfoView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class SignedExchangeInfoView extends UI.Widget.VBox {
-  /**
-   * @param {!SDK.NetworkRequest.NetworkRequest} request
-   */
-  constructor(request) {
+  _responseHeadersItem: UI.TreeOutline.TreeElement | undefined;
+  constructor(request: SDK.NetworkRequest.NetworkRequest) {
     super();
     console.assert(request.signedExchangeInfo() !== null);
-    /** @type {!Protocol.Network.SignedExchangeInfo} */
-    const signedExchangeInfo = /** @type {!Protocol.Network.SignedExchangeInfo} */ (request.signedExchangeInfo());
+    const signedExchangeInfo = (request.signedExchangeInfo() as Protocol.Network.SignedExchangeInfo);
 
-    this.registerRequiredCSS('network/signedExchangeInfoView.css', {enableLegacyPatching: false});
+    this.registerRequiredCSS('network/signedExchangeInfoView.css', { enableLegacyPatching: false });
     this.element.classList.add('signed-exchange-info-view');
 
     const root = new UI.TreeOutline.TreeOutlineInShadow();
-    root.registerRequiredCSS('network/signedExchangeInfoTree.css', {enableLegacyPatching: true});
+    root.registerRequiredCSS('network/signedExchangeInfoTree.css', { enableLegacyPatching: true });
     root.element.classList.add('signed-exchange-info-tree');
     root.setFocusable(false);
     root.makeDense();
     root.expandTreeElementsWhenArrowing = true;
     this.element.appendChild(root.element);
 
-    /** @type {!Map<number|undefined, !Set<string>>} */
-    const errorFieldSetMap = new Map();
+    const errorFieldSetMap = new Map<number | undefined, Set<string>>();
 
     if (signedExchangeInfo.errors && signedExchangeInfo.errors.length) {
       const errorMessagesCategory = new Category(root, i18nString(UIStrings.errors));
@@ -140,8 +138,7 @@ export class SignedExchangeInfoView extends UI.Widget.VBox {
 
     const titleElement = document.createDocumentFragment();
     titleElement.createChild('div', 'header-name').textContent = i18nString(UIStrings.signedHttpExchange);
-    const learnMoreNode =
-        UI.XLink.XLink.create('https://github.com/WICG/webpackage', i18nString(UIStrings.learnmore), 'header-toggle');
+    const learnMoreNode = UI.XLink.XLink.create('https://github.com/WICG/webpackage', i18nString(UIStrings.learnmore), 'header-toggle');
     titleElement.appendChild(learnMoreNode);
     const headerCategory = new Category(root, titleElement);
     if (signedExchangeInfo.header) {
@@ -158,7 +155,7 @@ export class SignedExchangeInfoView extends UI.Widget.VBox {
       headerCategory.createLeaf(this._formatHeader(i18nString(UIStrings.headerIntegrityHash), header.headerIntegrity));
 
       this._responseHeadersItem =
-          headerCategory.createLeaf(this._formatHeader(i18nString(UIStrings.responseHeaders), ''));
+        headerCategory.createLeaf(this._formatHeader(i18nString(UIStrings.responseHeaders), ''));
       const responseHeaders = header.responseHeaders;
       for (const name in responseHeaders) {
         const headerTreeElement = new UI.TreeOutline.TreeElement(this._formatHeader(name, responseHeaders[name]));
@@ -172,63 +169,37 @@ export class SignedExchangeInfoView extends UI.Widget.VBox {
         const signature = header.signatures[i];
         const signatureCategory = new Category(root, i18nString(UIStrings.signature));
         signatureCategory.createLeaf(this._formatHeader(i18nString(UIStrings.label), signature.label));
-        signatureCategory.createLeaf(this._formatHeaderForHexData(
-            i18nString(UIStrings.signature), signature.signature,
-            errorFieldSet.has(Protocol.Network.SignedExchangeErrorField.SignatureSig)));
+        signatureCategory.createLeaf(this._formatHeaderForHexData(i18nString(UIStrings.signature), signature.signature, errorFieldSet.has(Protocol.Network.SignedExchangeErrorField.SignatureSig)));
 
         if (signature.certUrl) {
-          const certURLElement = this._formatHeader(
-              i18nString(UIStrings.certificateUrl), signature.certUrl,
-              errorFieldSet.has(Protocol.Network.SignedExchangeErrorField.SignatureCertUrl));
+          const certURLElement = this._formatHeader(i18nString(UIStrings.certificateUrl), signature.certUrl, errorFieldSet.has(Protocol.Network.SignedExchangeErrorField.SignatureCertUrl));
           if (signature.certificates) {
             const viewCertLink = certURLElement.createChild('span', 'devtools-link header-toggle');
             viewCertLink.textContent = i18nString(UIStrings.viewCertificate);
-            viewCertLink.addEventListener(
-                'click',
-                Host.InspectorFrontendHost.InspectorFrontendHostInstance.showCertificateViewer.bind(
-                    null, signature.certificates),
-                false);
+            viewCertLink.addEventListener('click', Host.InspectorFrontendHost.InspectorFrontendHostInstance.showCertificateViewer.bind(null, signature.certificates), false);
           }
           signatureCategory.createLeaf(certURLElement);
         }
-        signatureCategory.createLeaf(this._formatHeader(
-            i18nString(UIStrings.integrity), signature.integrity,
-            errorFieldSet.has(Protocol.Network.SignedExchangeErrorField.SignatureIntegrity)));
+        signatureCategory.createLeaf(this._formatHeader(i18nString(UIStrings.integrity), signature.integrity, errorFieldSet.has(Protocol.Network.SignedExchangeErrorField.SignatureIntegrity)));
         if (signature.certSha256) {
-          signatureCategory.createLeaf(this._formatHeaderForHexData(
-              i18nString(UIStrings.certificateSha), signature.certSha256,
-              errorFieldSet.has(Protocol.Network.SignedExchangeErrorField.SignatureCertSha256)));
+          signatureCategory.createLeaf(this._formatHeaderForHexData(i18nString(UIStrings.certificateSha), signature.certSha256, errorFieldSet.has(Protocol.Network.SignedExchangeErrorField.SignatureCertSha256)));
         }
-        signatureCategory.createLeaf(this._formatHeader(
-            i18nString(UIStrings.validityUrl), signature.validityUrl,
-            errorFieldSet.has(Protocol.Network.SignedExchangeErrorField.SignatureValidityUrl)));
-        signatureCategory.createLeaf().title = this._formatHeader(
-            i18nString(UIStrings.date), new Date(1000 * signature.date).toUTCString(),
-            errorFieldSet.has(Protocol.Network.SignedExchangeErrorField.SignatureTimestamps));
-        signatureCategory.createLeaf().title = this._formatHeader(
-            i18nString(UIStrings.expires), new Date(1000 * signature.expires).toUTCString(),
-            errorFieldSet.has(Protocol.Network.SignedExchangeErrorField.SignatureTimestamps));
+        signatureCategory.createLeaf(this._formatHeader(i18nString(UIStrings.validityUrl), signature.validityUrl, errorFieldSet.has(Protocol.Network.SignedExchangeErrorField.SignatureValidityUrl)));
+        signatureCategory.createLeaf().title = this._formatHeader(i18nString(UIStrings.date), new Date(1000 * signature.date).toUTCString(), errorFieldSet.has(Protocol.Network.SignedExchangeErrorField.SignatureTimestamps));
+        signatureCategory.createLeaf().title = this._formatHeader(i18nString(UIStrings.expires), new Date(1000 * signature.expires).toUTCString(), errorFieldSet.has(Protocol.Network.SignedExchangeErrorField.SignatureTimestamps));
       }
     }
     if (signedExchangeInfo.securityDetails) {
       const securityDetails = signedExchangeInfo.securityDetails;
       const securityCategory = new Category(root, i18nString(UIStrings.certificate));
       securityCategory.createLeaf(this._formatHeader(i18nString(UIStrings.subject), securityDetails.subjectName));
-      securityCategory.createLeaf(this._formatHeader(
-          i18nString(UIStrings.validFrom), new Date(1000 * securityDetails.validFrom).toUTCString()));
-      securityCategory.createLeaf(
-          this._formatHeader(i18nString(UIStrings.validUntil), new Date(1000 * securityDetails.validTo).toUTCString()));
+      securityCategory.createLeaf(this._formatHeader(i18nString(UIStrings.validFrom), new Date(1000 * securityDetails.validFrom).toUTCString()));
+      securityCategory.createLeaf(this._formatHeader(i18nString(UIStrings.validUntil), new Date(1000 * securityDetails.validTo).toUTCString()));
       securityCategory.createLeaf(this._formatHeader(i18nString(UIStrings.issuer), securityDetails.issuer));
     }
   }
 
-  /**
-   * @param {string} name
-   * @param {string} value
-   * @param {boolean=} highlighted
-   * @return {!DocumentFragment}
-   */
-  _formatHeader(name, value, highlighted) {
+  _formatHeader(name: string, value: string, highlighted?: boolean): DocumentFragment {
     const fragment = document.createDocumentFragment();
     const nameElement = fragment.createChild('div', 'header-name');
     nameElement.textContent = name + ': ';
@@ -242,13 +213,7 @@ export class SignedExchangeInfoView extends UI.Widget.VBox {
     return fragment;
   }
 
-  /**
-   * @param {string} name
-   * @param {string} value
-   * @param {boolean=} highlighted
-   * @return {!DocumentFragment}
-   */
-  _formatHeaderForHexData(name, value, highlighted) {
+  _formatHeaderForHexData(name: string, value: string, highlighted?: boolean): DocumentFragment {
     const fragment = document.createDocumentFragment();
     const nameElement = fragment.createChild('div', 'header-name');
     nameElement.textContent = name + ': ';
@@ -264,11 +229,10 @@ export class SignedExchangeInfoView extends UI.Widget.VBox {
 }
 
 export class Category extends UI.TreeOutline.TreeElement {
-  /**
-   * @param {!UI.TreeOutline.TreeOutline} root
-   * @param {(string|!Node)=} title
-   */
-  constructor(root, title) {
+  selectable: boolean;
+  toggleOnClick: boolean;
+  expanded: boolean;
+  constructor(root: UI.TreeOutline.TreeOutline, title?: string | Node) {
     super(title, true);
     this.selectable = false;
     this.toggleOnClick = true;
@@ -276,10 +240,7 @@ export class Category extends UI.TreeOutline.TreeElement {
     root.appendChild(this);
   }
 
-  /**
-   * @param {(string|!Node)=} title
-   */
-  createLeaf(title) {
+  createLeaf(title?: string | Node): UI.TreeOutline.TreeElement {
     const leaf = new UI.TreeOutline.TreeElement(title);
     leaf.selectable = false;
     this.appendChild(leaf);
