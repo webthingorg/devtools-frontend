@@ -121,6 +121,24 @@
       "parentUuid": "0c44edb4_c63a4aee",
       "revId": "6ef338afa45acf9fba2fef063deafd6a6fa827d6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8375e680_89c671ab",
+        "filename": "front_end/sources/SourcesNavigator.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1323150
+      },
+      "writtenOn": "2021-02-25T00:25:24Z",
+      "side": 1,
+      "message": "That\u0027s a bug on developer.chrome.com (https://github.com/GoogleChrome/developer.chrome.com). Don\u0027t worry about filing a bug report; I\u0027ll do that now. In fact, I may also be the one to fix it. Thanks for calling it out!",
+      "parentUuid": "bc2f1dbd_fc0e4234",
+      "revId": "6ef338afa45acf9fba2fef063deafd6a6fa827d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
