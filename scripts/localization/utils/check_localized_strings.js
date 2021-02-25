@@ -150,6 +150,7 @@ const migratedDirsSet = new Set([
   'recorder',
   'resources',
   'screencast',
+  'sdk',
   'search',
   'security',
   'settings',
