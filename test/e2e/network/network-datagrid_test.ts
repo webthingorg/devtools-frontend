@@ -140,14 +140,13 @@ describe('The Network Tab', async () => {
         ]);
       });
 
-  // Flaky test
-  it.skip('[crbug.com/1179656] shows the correct initiator address space', async () => {
+
+  it('shows the correct initiator address space', async () => {
     const {target, frontend} = getBrowserAndPages();
 
-    await navigateToNetworkTab('fetch.html');
+    await navigateToNetworkTab('empty.html');
 
-    // Reload to populate network request table
-    await target.reload({waitUntil: 'networkidle0'});
+    await target.evaluateHandle(async () => await fetch('image.svg'));
 
     await waitForSomeRequestsToAppear(2);
 
@@ -172,14 +171,12 @@ describe('The Network Tab', async () => {
     });
   });
 
-  // Flaky test
-  it.skip('[crbug.com/1179656] shows the correct remote address space', async () => {
+  it('shows the correct remote address space', async () => {
     const {target, frontend} = getBrowserAndPages();
 
-    await navigateToNetworkTab('fetch.html');
+    await navigateToNetworkTab('empty.html');
 
-    // Reload to populate network request table
-    await target.reload({waitUntil: 'networkidle0'});
+    await target.evaluateHandle(async () => await fetch('image.svg'));
 
     await waitForSomeRequestsToAppear(2);
 
