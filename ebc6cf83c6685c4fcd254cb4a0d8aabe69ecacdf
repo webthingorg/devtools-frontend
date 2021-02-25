@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "868ad1d8_f8435c8c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-25T08:53:41Z",
+      "side": 1,
+      "message": "This CL contains the proposed changes to migrate the 4 remaining strings in SDK. PTAL",
+      "revId": "ebc6cf83c6685c4fcd254cb4a0d8aabe69ecacdf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
