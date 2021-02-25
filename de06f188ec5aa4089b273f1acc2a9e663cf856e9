@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6c0c056_3a57d71b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-25T06:41:27Z",
+      "side": 1,
+      "message": "Could you make the first line more descriptive and maybe expand the CL description with a sentence or two and describe why/how this fixes keyboard accessibility? Maybe \"Make CSS links keyboard accessible\" as the summary and explain that tabStop was missing on CSS links.\n\nPeople often only quickly glance at CL descriptions to figure out whats happening.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 45
+      },
+      "revId": "de06f188ec5aa4089b273f1acc2a9e663cf856e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "ecaf01ab_f433f5d3",
