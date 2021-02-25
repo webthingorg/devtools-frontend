@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce268131_ac5cd522",
+        "filename": "front_end/css_overview/CSSOverviewCompletedView.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-25T13:02:13Z",
+      "side": 0,
+      "message": "Could we maintain the original formatting here because of the HTML element nesting? I think we should be able to copy the original text here, as that should typecheck as-is.",
+      "range": {
+        "startLine": 525,
+        "startChar": 4,
+        "endLine": 534,
+        "endChar": 14
+      },
+      "revId": "1825c613528772d3a2e3d66af43d7bb6f7a5e63a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
