@@ -2,48 +2,62 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';
 import * as Platform from '../platform/platform.js';
 import * as UI from '../ui/ui.js';
 
-import {MinimalTimeWindowMs} from './FlameChart.js';
+import { MinimalTimeWindowMs } from './FlameChart.js';
 
 /**
  * @interface
  */
-export class ChartViewportDelegate {
-  /**
-   * @param {number} startTime
-   * @param {number} endTime
-   * @param {boolean} animate
-   */
-  windowChanged(startTime, endTime, animate) {
-  }
+export interface ChartViewportDelegate {
+  windowChanged(startTime: number, endTime: number, animate: boolean): void;
 
-  /**
-   * @param {number} startTime
-   * @param {number} endTime
-   */
-  updateRangeSelection(startTime, endTime) {
-  }
+  updateRangeSelection(startTime: number, endTime: number): void;
 
-  /**
-   * @param {number} width
-   * @param {number} height
-   */
-  setSize(width, height) {
-  }
+  setSize(width: number, height: number): void;
 
-  update() {}
+  update(): void;
 }
 
 export class ChartViewport extends UI.Widget.VBox {
-  /**
-   * @param {!ChartViewportDelegate} delegate
-   */
-  constructor(delegate) {
+  _delegate: ChartViewportDelegate;
+  viewportElement: HTMLElement;
+  _alwaysShowVerticalScroll: boolean;
+  _rangeSelectionEnabled: boolean;
+  _vScrollElement: HTMLElement;
+  _vScrollContent: HTMLElement;
+  _selectionOverlay: HTMLElement;
+  _selectedTimeSpanLabel: HTMLElement;
+  _cursorElement: HTMLElement;
+  _isDragging!: boolean;
+  _totalHeight!: number;
+  _offsetHeight!: number;
+  _scrollTop!: number;
+  _rangeSelectionStart: number | null;
+  _rangeSelectionEnd: number | null;
+  _dragStartPointX!: number;
+  _dragStartPointY!: number;
+  _dragStartScrollTop!: number;
+  _visibleLeftTime!: number;
+  _visibleRightTime!: number;
+  _offsetWidth!: number;
+  _targetLeftTime!: number;
+  _targetRightTime!: number;
+  _selectionOffsetShiftX!: number;
+  _selectionOffsetShiftY!: number;
+  _selectionStartX!: number | null;
+  _lastMouseOffsetX!: number;
+  _minimumBoundary!: number;
+  _totalTime!: number;
+  _updateTimerId?: any;
+  _cancelWindowTimesAnimation?: any;
+  constructor(delegate: ChartViewportDelegate) {
     super();
-    this.registerRequiredCSS('perf_ui/chartViewport.css', {enableLegacyPatching: true});
+    this.registerRequiredCSS('perf_ui/chartViewport.css', { enableLegacyPatching: true });
 
     this._delegate = delegate;
 
@@ -54,12 +68,8 @@ export class ChartViewport extends UI.Widget.VBox {
     this.viewportElement.addEventListener('keydown', this._onChartKeyDown.bind(this), false);
     this.viewportElement.addEventListener('keyup', this._onChartKeyUp.bind(this), false);
 
-    UI.UIUtils.installDragHandle(
-        this.viewportElement, this._startDragging.bind(this), this._dragging.bind(this), this._endDragging.bind(this),
-        '-webkit-grabbing', null);
-    UI.UIUtils.installDragHandle(
-        this.viewportElement, this._startRangeSelection.bind(this), this._rangeSelectionDragging.bind(this),
-        this._endRangeSelection.bind(this), 'text', null);
+    UI.UIUtils.installDragHandle(this.viewportElement, this._startDragging.bind(this), this._dragging.bind(this), this._endDragging.bind(this), '-webkit-grabbing', null);
+    UI.UIUtils.installDragHandle(this.viewportElement, this._startRangeSelection.bind(this), this._rangeSelectionDragging.bind(this), this._endRangeSelection.bind(this), 'text', null);
 
     this._alwaysShowVerticalScroll = false;
     this._rangeSelectionEnabled = true;
@@ -74,98 +84,35 @@ export class ChartViewport extends UI.Widget.VBox {
 
     this.reset();
 
-    /** @type {boolean} */
-    this._isDragging;
-
-    /** @type {number} */
-    this._totalHeight;
-
-    /** @type {number} */
-    this._offsetHeight;
-
     /** @type {number} */
     this._vScrollElement.scrollTop;
 
-    /** @type {number} */
-    this._scrollTop;
-
-    /** @type {number|null} */
     this._rangeSelectionStart = null;
 
-    /** @type {number|null} */
     this._rangeSelectionEnd = null;
-
-    /** @type {number} */
-    this._dragStartPointX;
-
-    /** @type {number} */
-    this._dragStartPointY;
-
-    /** @type {number} */
-    this._dragStartScrollTop;
-
-    /** @type {number} */
-    this._visibleLeftTime;
-
-    /** @type {number} */
-    this._visibleRightTime;
-
-    /** @type {number} */
-    this._offsetWidth;
-
-    /** @type {number} */
-    this._targetLeftTime;
-
-    /** @type {number} */
-    this._targetRightTime;
-
-    /** @type {number} */
-    this._selectionOffsetShiftX;
-
-    /** @type {number} */
-    this._selectionOffsetShiftY;
-
-    /** @type {number|null} */
-    this._selectionStartX;
-
-    /** @type {number} */
-    this._lastMouseOffsetX;
-
-    /** @type {number} */
-    this._minimumBoundary;
-
-    /** @type {number} */
-    this._totalTime;
   }
 
-  alwaysShowVerticalScroll() {
+  alwaysShowVerticalScroll(): void {
     this._alwaysShowVerticalScroll = true;
     this._vScrollElement.classList.add('always-show-scrollbar');
   }
 
-  disableRangeSelection() {
+  disableRangeSelection(): void {
     this._rangeSelectionEnabled = false;
     this._rangeSelectionStart = null;
     this._rangeSelectionEnd = null;
     this._updateRangeSelectionOverlay();
   }
 
-  /**
-   * @return {boolean}
-   */
-  isDragging() {
+  isDragging(): boolean {
     return this._isDragging;
   }
 
-  /**
-   * @override
-   * @return {!Array<!Element>}
-   */
-  elementsToRestoreScrollPositionsFor() {
+  elementsToRestoreScrollPositionsFor(): Element[] {
     return [this._vScrollElement];
   }
 
-  _updateScrollBar() {
+  _updateScrollBar(): void {
     const showScroll = this._alwaysShowVerticalScroll || this._totalHeight > this._offsetHeight;
     if (this._vScrollElement.classList.contains('hidden') !== showScroll) {
       return;
@@ -174,16 +121,13 @@ export class ChartViewport extends UI.Widget.VBox {
     this._updateContentElementSize();
   }
 
-  /**
-   * @override
-   */
-  onResize() {
+  onResize(): void {
     this._updateScrollBar();
     this._updateContentElementSize();
     this.scheduleUpdate();
   }
 
-  reset() {
+  reset(): void {
     this._vScrollElement.scrollTop = 0;
     this._scrollTop = 0;
     this._rangeSelectionStart = null;
@@ -202,8 +146,8 @@ export class ChartViewport extends UI.Widget.VBox {
     this._updateContentElementSize();
   }
 
-  _updateContentElementSize() {
-    let offsetWidth = this._vScrollElement.offsetLeft;
+  _updateContentElementSize(): void {
+    let offsetWidth: number = this._vScrollElement.offsetLeft;
     if (!offsetWidth) {
       offsetWidth = this.contentElement.offsetWidth;
     }
@@ -212,10 +156,7 @@ export class ChartViewport extends UI.Widget.VBox {
     this._delegate.setSize(this._offsetWidth, this._offsetHeight);
   }
 
-  /**
-   * @param {number} totalHeight
-   */
-  setContentHeight(totalHeight) {
+  setContentHeight(totalHeight: number): void {
     this._totalHeight = totalHeight;
     this._vScrollContent.style.height = totalHeight + 'px';
     this._updateScrollBar();
@@ -227,56 +168,42 @@ export class ChartViewport extends UI.Widget.VBox {
     this._vScrollElement.scrollTop = this._scrollTop;
   }
 
-  /**
-   * @param {number} offset
-   * @param {number=} height
-   */
-  setScrollOffset(offset, height) {
+  setScrollOffset(offset: number, height?: number): void {
     height = height || 0;
     if (this._vScrollElement.scrollTop > offset) {
       this._vScrollElement.scrollTop = offset;
-    } else if (this._vScrollElement.scrollTop < offset - this._offsetHeight + height) {
+    }
+    else if (this._vScrollElement.scrollTop < offset - this._offsetHeight + height) {
       this._vScrollElement.scrollTop = offset - this._offsetHeight + height;
     }
   }
 
-  /**
-   * @return {number}
-   */
-  scrollOffset() {
+  scrollOffset(): number {
     return this._vScrollElement.scrollTop;
   }
 
-  /**
-   * @return {number}
-   */
-  chartHeight() {
+  chartHeight(): number {
     return this._offsetHeight;
   }
 
-  /**
-   * @param {number} zeroTime
-   * @param {number} totalTime
-   */
-  setBoundaries(zeroTime, totalTime) {
+  setBoundaries(zeroTime: number, totalTime: number): void {
     this._minimumBoundary = zeroTime;
     this._totalTime = totalTime;
   }
 
-  /**
-   * @param {!Event} e
-   */
-  _onMouseWheel(e) {
-    const wheelEvent = /** @type {!WheelEvent} */ (e);
+  _onMouseWheel(e: Event): void {
+    const wheelEvent = (e as WheelEvent);
     const doZoomInstead = wheelEvent.shiftKey !==
-        (Common.Settings.Settings.instance().moduleSetting('flamechartMouseWheelAction').get() === 'zoom');
+      (Common.Settings.Settings.instance().moduleSetting('flamechartMouseWheelAction').get() === 'zoom');
     const panVertically = !doZoomInstead && (wheelEvent.deltaY || Math.abs(wheelEvent.deltaX) === 53);
     const panHorizontally = doZoomInstead && Math.abs(wheelEvent.deltaX) > Math.abs(wheelEvent.deltaY);
     if (panVertically) {
       this._vScrollElement.scrollTop += (wheelEvent.deltaY || wheelEvent.deltaX) / 53 * this._offsetHeight / 8;
-    } else if (panHorizontally) {
+    }
+    else if (panHorizontally) {
       this._handlePanGesture(wheelEvent.deltaX, /* animate */ true);
-    } else {  // Zoom.
+    }
+    else { // Zoom.
       const wheelZoomSpeed = 1 / 53;
       this._handleZoomGesture(Math.pow(1.2, (wheelEvent.deltaY || wheelEvent.deltaX) * wheelZoomSpeed) - 1);
     }
@@ -285,11 +212,7 @@ export class ChartViewport extends UI.Widget.VBox {
     e.consume(true);
   }
 
-  /**
-   * @param {!MouseEvent} event
-   * @return {boolean}
-   */
-  _startDragging(event) {
+  _startDragging(event: MouseEvent): boolean {
     if (event.shiftKey) {
       return false;
     }
@@ -301,10 +224,7 @@ export class ChartViewport extends UI.Widget.VBox {
     return true;
   }
 
-  /**
-   * @param {!MouseEvent} event
-   */
-  _dragging(event) {
+  _dragging(event: MouseEvent): void {
     const pixelShift = this._dragStartPointX - event.pageX;
     this._dragStartPointX = event.pageX;
     this._handlePanGesture(pixelShift);
@@ -312,15 +232,11 @@ export class ChartViewport extends UI.Widget.VBox {
     this._vScrollElement.scrollTop = this._dragStartScrollTop + pixelScroll;
   }
 
-  _endDragging() {
+  _endDragging(): void {
     this._isDragging = false;
   }
 
-  /**
-   * @param {!MouseEvent} event
-   * @return {boolean}
-   */
-  _startRangeSelection(event) {
+  _startRangeSelection(event: MouseEvent): boolean {
     if (!event.shiftKey || !this._rangeSelectionEnabled) {
       return false;
     }
@@ -336,22 +252,18 @@ export class ChartViewport extends UI.Widget.VBox {
     return true;
   }
 
-  _endRangeSelection() {
+  _endRangeSelection(): void {
     this._isDragging = false;
     this._selectionStartX = null;
   }
 
-  hideRangeSelection() {
+  hideRangeSelection(): void {
     this._selectionOverlay.classList.add('hidden');
     this._rangeSelectionStart = null;
     this._rangeSelectionEnd = null;
   }
 
-  /**
-   * @param {number} startTime
-   * @param {number} endTime
-   */
-  setRangeSelection(startTime, endTime) {
+  setRangeSelection(startTime: number, endTime: number): void {
     if (!this._rangeSelectionEnabled) {
       return;
     }
@@ -361,37 +273,29 @@ export class ChartViewport extends UI.Widget.VBox {
     this._delegate.updateRangeSelection(this._rangeSelectionStart, this._rangeSelectionEnd);
   }
 
-  /**
-   * @param {!Event} event
-   */
-  onClick(event) {
-    const mouseEvent = /** @type {!MouseEvent} */ (event);
+  onClick(event: Event): void {
+    const mouseEvent = (event as MouseEvent);
     const time = this.pixelToTime(mouseEvent.offsetX);
     if (this._rangeSelectionStart !== null && this._rangeSelectionEnd !== null && time >= this._rangeSelectionStart &&
-        time <= this._rangeSelectionEnd) {
+      time <= this._rangeSelectionEnd) {
       return;
     }
     this.hideRangeSelection();
   }
 
-  /**
-   * @param {!MouseEvent} event
-   */
-  _rangeSelectionDragging(event) {
+  _rangeSelectionDragging(event: MouseEvent): void {
     const x = Platform.NumberUtilities.clamp(event.pageX + this._selectionOffsetShiftX, 0, this._offsetWidth);
     const start = this.pixelToTime(this._selectionStartX || 0);
     const end = this.pixelToTime(x);
     this.setRangeSelection(start, end);
   }
 
-  _updateRangeSelectionOverlay() {
+  _updateRangeSelectionOverlay(): void {
     const _rangeSelectionStart = this._rangeSelectionStart || 0;
     const _rangeSelectionEnd = this._rangeSelectionEnd || 0;
     const /** @const */ margin = 100;
-    const left =
-        Platform.NumberUtilities.clamp(this.timeToPosition(_rangeSelectionStart), -margin, this._offsetWidth + margin);
-    const right =
-        Platform.NumberUtilities.clamp(this.timeToPosition(_rangeSelectionEnd), -margin, this._offsetWidth + margin);
+    const left = Platform.NumberUtilities.clamp(this.timeToPosition(_rangeSelectionStart), -margin, this._offsetWidth + margin);
+    const right = Platform.NumberUtilities.clamp(this.timeToPosition(_rangeSelectionEnd), -margin, this._offsetWidth + margin);
     const style = this._selectionOverlay.style;
     style.left = left + 'px';
     style.width = (right - left) + 'px';
@@ -399,90 +303,59 @@ export class ChartViewport extends UI.Widget.VBox {
     this._selectedTimeSpanLabel.textContent = Number.preciseMillisToString(timeSpan, 2);
   }
 
-  _onScroll() {
+  _onScroll(): void {
     this._scrollTop = this._vScrollElement.scrollTop;
     this.scheduleUpdate();
   }
 
-  _onMouseOut() {
+  _onMouseOut(): void {
     this._lastMouseOffsetX = -1;
     this._showCursor(false);
   }
 
-  /**
-   * @param {!Event} e
-   */
-  _updateCursorPosition(e) {
-    const mouseEvent = /** @type {!MouseEvent} */ (e);
+  _updateCursorPosition(e: Event): void {
+    const mouseEvent = (e as MouseEvent);
     this._showCursor(mouseEvent.shiftKey);
     this._cursorElement.style.left = mouseEvent.offsetX + 'px';
     this._lastMouseOffsetX = mouseEvent.offsetX;
   }
 
-  /**
-   * @param {number} x
-   * @return {number}
-   */
-  pixelToTime(x) {
+  pixelToTime(x: number): number {
     return this.pixelToTimeOffset(x) + this._visibleLeftTime;
   }
 
-  /**
-   * @param {number} x
-   * @return {number}
-   */
-  pixelToTimeOffset(x) {
+  pixelToTimeOffset(x: number): number {
     return x * (this._visibleRightTime - this._visibleLeftTime) / this._offsetWidth;
   }
 
-  /**
-   * @param {number} time
-   * @return {number}
-   */
-  timeToPosition(time) {
-    return Math.floor(
-        (time - this._visibleLeftTime) / (this._visibleRightTime - this._visibleLeftTime) * this._offsetWidth);
+  timeToPosition(time: number): number {
+    return Math.floor((time - this._visibleLeftTime) / (this._visibleRightTime - this._visibleLeftTime) * this._offsetWidth);
   }
 
-  /**
-   * @return {number}
-   */
-  timeToPixel() {
+  timeToPixel(): number {
     return this._offsetWidth / (this._visibleRightTime - this._visibleLeftTime);
   }
 
-  /**
-   * @param {boolean} visible
-   */
-  _showCursor(visible) {
+  _showCursor(visible: boolean): void {
     this._cursorElement.classList.toggle('hidden', !visible || this._isDragging);
   }
 
-  /**
-   * @param {!Event} e
-   */
-  _onChartKeyDown(e) {
-    const mouseEvent = /** @type {!MouseEvent} */ (e);
+  _onChartKeyDown(e: Event): void {
+    const mouseEvent = (e as MouseEvent);
     this._showCursor(mouseEvent.shiftKey);
     this._handleZoomPanKeys(e);
   }
 
-  /**
-   * @param {!Event} e
-   */
-  _onChartKeyUp(e) {
-    const mouseEvent = /** @type {!MouseEvent} */ (e);
+  _onChartKeyUp(e: Event): void {
+    const mouseEvent = (e as MouseEvent);
     this._showCursor(mouseEvent.shiftKey);
   }
 
-  /**
-   * @param {!Event} e
-   */
-  _handleZoomPanKeys(e) {
+  _handleZoomPanKeys(e: Event): void {
     if (!UI.KeyboardShortcut.KeyboardShortcut.hasNoModifiers(e)) {
       return;
     }
-    const keyboardEvent = /** @type {!KeyboardEvent} */ (e);
+    const keyboardEvent = (e as KeyboardEvent);
     const zoomFactor = keyboardEvent.shiftKey ? 0.8 : 0.3;
     const panOffset = keyboardEvent.shiftKey ? 320 : 160;
     switch (keyboardEvent.code) {
@@ -504,41 +377,32 @@ export class ChartViewport extends UI.Widget.VBox {
     e.consume(true);
   }
 
-  /**
-   * @param {number} zoom
-   */
-  _handleZoomGesture(zoom) {
-    const bounds = {left: this._targetLeftTime, right: this._targetRightTime};
+  _handleZoomGesture(zoom: number): void {
+    const bounds = { left: this._targetLeftTime, right: this._targetRightTime };
     const cursorTime = this.pixelToTime(this._lastMouseOffsetX);
     bounds.left += (bounds.left - cursorTime) * zoom;
     bounds.right += (bounds.right - cursorTime) * zoom;
     this._requestWindowTimes(bounds, /* animate */ true);
   }
 
-  /**
-   * @param {number} offset
-   * @param {boolean=} animate
-   */
-  _handlePanGesture(offset, animate) {
-    const bounds = {left: this._targetLeftTime, right: this._targetRightTime};
-    const timeOffset = Platform.NumberUtilities.clamp(
-        this.pixelToTimeOffset(offset), this._minimumBoundary - bounds.left,
-        this._totalTime + this._minimumBoundary - bounds.right);
+  _handlePanGesture(offset: number, animate?: boolean): void {
+    const bounds = { left: this._targetLeftTime, right: this._targetRightTime };
+    const timeOffset = Platform.NumberUtilities.clamp(this.pixelToTimeOffset(offset), this._minimumBoundary - bounds.left, this._totalTime + this._minimumBoundary - bounds.right);
     bounds.left += timeOffset;
     bounds.right += timeOffset;
     this._requestWindowTimes(bounds, Boolean(animate));
   }
 
-  /**
-   * @param {!{left: number, right: number}} bounds
-   * @param {boolean} animate
-   */
-  _requestWindowTimes(bounds, animate) {
+  _requestWindowTimes(bounds: {
+    left: number;
+    right: number;
+  }, animate: boolean): void {
     const maxBound = this._minimumBoundary + this._totalTime;
     if (bounds.left < this._minimumBoundary) {
       bounds.right = Math.min(bounds.right + this._minimumBoundary - bounds.left, maxBound);
       bounds.left = this._minimumBoundary;
-    } else if (bounds.right > maxBound) {
+    }
+    else if (bounds.right > maxBound) {
       bounds.left = Math.max(bounds.left - bounds.right + maxBound, this._minimumBoundary);
       bounds.right = maxBound;
     }
@@ -548,7 +412,7 @@ export class ChartViewport extends UI.Widget.VBox {
     this._delegate.windowChanged(bounds.left, bounds.right, animate);
   }
 
-  scheduleUpdate() {
+  scheduleUpdate(): void {
     if (this._updateTimerId || this._cancelWindowTimesAnimation) {
       return;
     }
@@ -558,22 +422,17 @@ export class ChartViewport extends UI.Widget.VBox {
     });
   }
 
-  _update() {
+  _update(): void {
     this._updateRangeSelectionOverlay();
     this._delegate.update();
   }
 
-  /**
-   * @param {number} startTime
-   * @param {number} endTime
-   * @param {boolean=} animate
-   */
-  setWindowTimes(startTime, endTime, animate) {
+  setWindowTimes(startTime: number, endTime: number, animate?: boolean): void {
     if (startTime === this._targetLeftTime && endTime === this._targetRightTime) {
       return;
     }
     if (!animate || this._visibleLeftTime === 0 || this._visibleRightTime === Infinity ||
-        (startTime === 0 && endTime === Infinity) || (startTime === Infinity && endTime === Infinity)) {
+      (startTime === 0 && endTime === Infinity) || (startTime === Infinity && endTime === Infinity)) {
       // Skip animation, move instantly.
       this._targetLeftTime = startTime;
       this._targetRightTime = endTime;
@@ -589,35 +448,22 @@ export class ChartViewport extends UI.Widget.VBox {
     }
     this._targetLeftTime = startTime;
     this._targetRightTime = endTime;
-    this._cancelWindowTimesAnimation = UI.UIUtils.animateFunction(
-        this.element.window(), animateWindowTimes.bind(this),
-        [{from: this._visibleLeftTime, to: startTime}, {from: this._visibleRightTime, to: endTime}], 100, () => {
-          this._cancelWindowTimesAnimation = null;
-        });
+    this._cancelWindowTimesAnimation = UI.UIUtils.animateFunction(this.element.window(), animateWindowTimes.bind(this), [{ from: this._visibleLeftTime, to: startTime }, { from: this._visibleRightTime, to: endTime }], 100, () => {
+      this._cancelWindowTimesAnimation = null;
+    });
 
-    /**
-     * @param {number} startTime
-     * @param {number} endTime
-     * @this {ChartViewport}
-     */
-    function animateWindowTimes(startTime, endTime) {
+    function animateWindowTimes(this: ChartViewport, startTime: number, endTime: number): void {
       this._visibleLeftTime = startTime;
       this._visibleRightTime = endTime;
       this._update();
     }
   }
 
-  /**
-   * @return {number}
-   */
-  windowLeftTime() {
+  windowLeftTime(): number {
     return this._visibleLeftTime;
   }
 
-  /**
-   * @return {number}
-   */
-  windowRightTime() {
+  windowRightTime(): number {
     return this._visibleRightTime;
   }
 }

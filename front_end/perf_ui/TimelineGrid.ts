@@ -28,17 +28,23 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Host from '../host/host.js';
 import * as ThemeSupport from '../theme_support/theme_support.js';
 import * as UI from '../ui/ui.js';
 
-/** @type {!Map<!Element, !Element>} */
-const labelMap = new Map();
+const labelMap = new Map<HTMLDivElement | HTMLElement, HTMLDivElement>();
 
 export class TimelineGrid {
+  element: HTMLDivElement;
+  _dividersElement: HTMLElement;
+  _gridHeaderElement: HTMLDivElement;
+  _eventDividersElement: HTMLElement;
+  _dividersLabelBarElement: HTMLElement;
   constructor() {
     this.element = document.createElement('div');
-    UI.Utils.appendStyle(this.element, 'perf_ui/timelineGrid.css', {enableLegacyPatching: true});
+    UI.Utils.appendStyle(this.element, 'perf_ui/timelineGrid.css', { enableLegacyPatching: true });
 
     this._dividersElement = this.element.createChild('div', 'resources-dividers');
 
@@ -49,17 +55,12 @@ export class TimelineGrid {
     this.element.appendChild(this._gridHeaderElement);
   }
 
-  /**
-   * @param {!Calculator} calculator
-   * @param {number=} freeZoneAtLeft
-   * @return {!DividersData}
-   */
-  static calculateGridOffsets(calculator, freeZoneAtLeft) {
-    /** @const */ const minGridSlicePx = 64;  // minimal distance between grid lines.
+  static calculateGridOffsets(calculator: Calculator, freeZoneAtLeft?: number): DividersData {
+    /** @const */ const minGridSlicePx = 64; // minimal distance between grid lines.
 
     const clientWidth = calculator.computePosition(calculator.maximumBoundary());
-    let dividersCount = clientWidth / minGridSlicePx;
-    let gridSliceTime = calculator.boundarySpan() / dividersCount;
+    let dividersCount: number | 0 = clientWidth / minGridSlicePx;
+    let gridSliceTime: number = calculator.boundarySpan() / dividersCount;
     const pixelsPerTime = clientWidth / calculator.boundarySpan();
 
     // Align gridSliceTime to a nearest round value.
@@ -76,9 +77,8 @@ export class TimelineGrid {
       gridSliceTime = gridSliceTime / 2;
     }
 
-    const firstDividerTime =
-        Math.ceil((calculator.minimumBoundary() - calculator.zeroTime()) / gridSliceTime) * gridSliceTime +
-        calculator.zeroTime();
+    const firstDividerTime = Math.ceil((calculator.minimumBoundary() - calculator.zeroTime()) / gridSliceTime) * gridSliceTime +
+      calculator.zeroTime();
     let lastDividerTime = calculator.maximumBoundary();
     // Add some extra space past the right boundary as the rightmost divider label text
     // may be partially shown rather than just pop up when a new rightmost divider gets into the view.
@@ -95,22 +95,17 @@ export class TimelineGrid {
       if (calculator.computePosition(time) < (freeZoneAtLeft || 0)) {
         continue;
       }
-      offsets.push({position: Math.floor(calculator.computePosition(time)), time: time});
+      offsets.push({ position: Math.floor(calculator.computePosition(time)), time: time });
     }
 
-    return {offsets: offsets, precision: Math.max(0, -Math.floor(Math.log(gridSliceTime * 1.01) / Math.LN10))};
+    return { offsets: offsets, precision: Math.max(0, -Math.floor(Math.log(gridSliceTime * 1.01) / Math.LN10)) };
   }
 
-  /**
-   * @param {!CanvasRenderingContext2D} context
-   * @param {!DividersData} dividersData
-   */
-  static drawCanvasGrid(context, dividersData) {
+  static drawCanvasGrid(context: CanvasRenderingContext2D, dividersData: DividersData): void {
     context.save();
     context.scale(window.devicePixelRatio, window.devicePixelRatio);
     const height = Math.floor(context.canvas.height / window.devicePixelRatio);
-    context.strokeStyle = ThemeSupport.ThemeSupport.instance().patchColorText(
-        'rgba(0, 0, 0, 0.1)', ThemeSupport.ThemeSupport.ColorUsage.Foreground);
+    context.strokeStyle = ThemeSupport.ThemeSupport.instance().patchColorText('rgba(0, 0, 0, 0.1)', ThemeSupport.ThemeSupport.ColorUsage.Foreground);
     context.lineWidth = 1;
 
     context.translate(0.5, 0.5);
@@ -123,26 +118,17 @@ export class TimelineGrid {
     context.restore();
   }
 
-  /**
-   * @param {!CanvasRenderingContext2D} context
-   * @param {!DividersData} dividersData
-   * @param {function(number):string} formatTimeFunction
-   * @param {number} paddingTop
-   * @param {number} headerHeight
-   * @param {number=} freeZoneAtLeft
-   */
-  static drawCanvasHeaders(context, dividersData, formatTimeFunction, paddingTop, headerHeight, freeZoneAtLeft) {
+  static drawCanvasHeaders(context: CanvasRenderingContext2D, dividersData: DividersData, formatTimeFunction: (arg0: number) => string, paddingTop: number, headerHeight: number, freeZoneAtLeft?: number): void {
     context.save();
     context.scale(window.devicePixelRatio, window.devicePixelRatio);
     const width = Math.ceil(context.canvas.width / window.devicePixelRatio);
 
     context.beginPath();
-    context.fillStyle = ThemeSupport.ThemeSupport.instance().patchColorText(
-        'rgba(255, 255, 255, 0.5)', ThemeSupport.ThemeSupport.ColorUsage.Background);
+    context.fillStyle = ThemeSupport.ThemeSupport.instance().patchColorText('rgba(255, 255, 255, 0.5)', ThemeSupport.ThemeSupport.ColorUsage.Background);
     context.fillRect(0, 0, width, headerHeight);
 
     context.fillStyle =
-        ThemeSupport.ThemeSupport.instance().patchColorText('#333', ThemeSupport.ThemeSupport.ColorUsage.Foreground);
+      ThemeSupport.ThemeSupport.instance().patchColorText('#333', ThemeSupport.ThemeSupport.ColorUsage.Foreground);
     context.textBaseline = 'hanging';
     context.font = '11px ' + Host.Platform.fontFamily();
 
@@ -166,17 +152,12 @@ export class TimelineGrid {
     return this._dividersLabelBarElement;
   }
 
-  removeDividers() {
+  removeDividers(): void {
     this._dividersElement.removeChildren();
     this._dividersLabelBarElement.removeChildren();
   }
 
-  /**
-   * @param {!Calculator} calculator
-   * @param {number=} freeZoneAtLeft
-   * @return {boolean}
-   */
-  updateDividers(calculator, freeZoneAtLeft) {
+  updateDividers(calculator: Calculator, freeZoneAtLeft?: number): boolean {
     const dividersData = TimelineGrid.calculateGridOffsets(calculator, freeZoneAtLeft);
     const dividerOffsets = dividersData.offsets;
     const precision = dividersData.precision;
@@ -184,8 +165,8 @@ export class TimelineGrid {
     const dividersElementClientWidth = this._dividersElement.clientWidth;
 
     // Reuse divider elements and labels.
-    let divider = /** @type {?HTMLElement} */ (this._dividersElement.firstChild);
-    let dividerLabelBar = /** @type {?HTMLElement} */ (this._dividersLabelBarElement.firstChild);
+    let divider: HTMLDivElement | (HTMLElement | null) | HTMLElement = (this._dividersElement.firstChild as HTMLElement | null);
+    let dividerLabelBar: HTMLDivElement | (HTMLElement | null) | HTMLElement = (this._dividersLabelBarElement.firstChild as HTMLElement | null);
 
     for (let i = 0; i < dividerOffsets.length; ++i) {
       if (!divider) {
@@ -216,10 +197,9 @@ export class TimelineGrid {
       if (dividerLabelBar) {
         dividerLabelBar.style.left = percentLeft + '%';
       }
-
-      divider = /** @type {?HTMLElement} */ (divider.nextSibling);
+      divider = (divider.nextSibling as HTMLElement | null);
       if (dividerLabelBar) {
-        dividerLabelBar = /** @type {?HTMLElement} */ (dividerLabelBar.nextSibling);
+        dividerLabelBar = (dividerLabelBar.nextSibling as HTMLElement | null);
       }
     }
 
@@ -228,8 +208,9 @@ export class TimelineGrid {
       const nextDivider = divider.nextSibling;
       this._dividersElement.removeChild(divider);
       if (nextDivider) {
-        divider = /** @type {!HTMLElement} */ (nextDivider);
-      } else {
+        divider = (nextDivider as HTMLElement);
+      }
+      else {
         break;
       }
     }
@@ -237,25 +218,20 @@ export class TimelineGrid {
       const nextDivider = dividerLabelBar.nextSibling;
       this._dividersLabelBarElement.removeChild(dividerLabelBar);
       if (nextDivider) {
-        dividerLabelBar = /** @type {!HTMLElement} */ (nextDivider);
-      } else {
+        dividerLabelBar = (nextDivider as HTMLElement);
+      }
+      else {
         break;
       }
     }
     return true;
   }
 
-  /**
-   * @param {!Element} divider
-   */
-  addEventDivider(divider) {
+  addEventDivider(divider: Element): void {
     this._eventDividersElement.appendChild(divider);
   }
 
-  /**
-   * @param {!Array.<!Element>} dividers
-   */
-  addEventDividers(dividers) {
+  addEventDividers(dividers: Element[]): void {
     this._gridHeaderElement.removeChild(this._eventDividersElement);
     for (const divider of dividers) {
       this._eventDividersElement.appendChild(divider);
@@ -263,30 +239,27 @@ export class TimelineGrid {
     this._gridHeaderElement.appendChild(this._eventDividersElement);
   }
 
-  removeEventDividers() {
+  removeEventDividers(): void {
     this._eventDividersElement.removeChildren();
   }
 
-  hideEventDividers() {
+  hideEventDividers(): void {
     this._eventDividersElement.classList.add('hidden');
   }
 
-  showEventDividers() {
+  showEventDividers(): void {
     this._eventDividersElement.classList.remove('hidden');
   }
 
-  hideDividers() {
+  hideDividers(): void {
     this._dividersElement.classList.add('hidden');
   }
 
-  showDividers() {
+  showDividers(): void {
     this._dividersElement.classList.remove('hidden');
   }
 
-  /**
-   * @param {number} scrollTop
-   */
-  setScrollTop(scrollTop) {
+  setScrollTop(scrollTop: number): void {
     this._dividersLabelBarElement.style.top = scrollTop + 'px';
     this._eventDividersElement.style.top = scrollTop + 'px';
   }
@@ -295,45 +268,23 @@ export class TimelineGrid {
 /**
  * @interface
  */
-export class Calculator {
-  /**
-   * @param {number} time
-   * @return {number}
-   */
-  computePosition(time) {
-    throw new Error('Not implemented');
-  }
+export interface Calculator {
+  computePosition(time: number): number;
 
-  /**
-   * @param {number} time
-   * @param {number=} precision
-   * @return {string}
-   */
-  formatValue(time, precision) {
-    throw new Error('Not implemented');
-  }
+  formatValue(time: number, precision?: number): string;
 
-  /** @return {number} */
-  minimumBoundary() {
-    throw new Error('Not implemented');
-  }
+  minimumBoundary(): number;
 
-  /** @return {number} */
-  zeroTime() {
-    throw new Error('Not implemented');
-  }
+  zeroTime(): number;
 
-  /** @return {number} */
-  maximumBoundary() {
-    throw new Error('Not implemented');
-  }
+  maximumBoundary(): number;
 
-  /** @return {number} */
-  boundarySpan() {
-    throw new Error('Not implemented');
-  }
+  boundarySpan(): number;
 }
-
-/** @typedef {!{offsets: !Array<!{position: number, time: number}>, precision: number}} */
-// @ts-ignore Typedef.
-export let DividersData;
+export interface DividersData {
+  offsets: {
+    position: number;
+    time: number;
+  }[];
+  precision: number;
+}
