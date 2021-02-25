@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6059d49d_1603f692",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-02-25T03:02:05Z",
+      "side": 1,
+      "message": "Noticed that too. In patchset 2, it was renaming and has an easy diff.",
+      "parentUuid": "5b4fa944_e26dc5fb",
+      "revId": "44f5990cfb4280781c10f62a7886fbe91d1ed38f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "87ff2fa2_9f2cb306",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-02-24T23:58:00Z",
       "side": 1,
       "message": "nit: Looks like a leftover comment",
+      "revId": "44f5990cfb4280781c10f62a7886fbe91d1ed38f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c98e32c5_5ec9ce7b",
+        "filename": "front_end/resources/ServiceWorkerUpdateCycleView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1385752
+      },
+      "writtenOn": "2021-02-25T03:02:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "87ff2fa2_9f2cb306",
       "revId": "44f5990cfb4280781c10f62a7886fbe91d1ed38f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
