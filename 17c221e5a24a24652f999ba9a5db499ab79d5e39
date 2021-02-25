@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab774ba7_8fdf9ee7",
+        "filename": "front_end/help/ReleaseNoteText.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2021-02-25T07:11:45Z",
+      "side": 1,
+      "message": "Erm... I saw Addy\u0027s tweet (https://twitter.com/addyosmani/status/1355795453980372994) using that term \"Performance Heads-Up Display\" (and the bug commit description using the term too). In DevTools, we use the term \"Core Web Vitals overlay\".\n\nI think \"Performance Heads-Up Display\" is easier to understand for readers than \"Core Web Vitals overlay\" in term of understanding/imagine what the feature is.\n\nBut let\u0027s stick to the term \"Core Web Vitals overlay\" now as we use that in DevTools, also to popularize the term \"Core Web Vitals\"",
+      "parentUuid": "0937af2c_c96d8bee",
+      "range": {
+        "startLine": 30,
+        "startChar": 20,
+        "endLine": 30,
+        "endChar": 48
+      },
+      "revId": "17c221e5a24a24652f999ba9a5db499ab79d5e39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "378122db_a83b32b0",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e707cc0_d58d81b9",
+        "filename": "front_end/help/ReleaseNoteText.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2021-02-25T07:11:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "378122db_a83b32b0",
+      "range": {
+        "startLine": 50,
+        "startChar": 16,
+        "endLine": 50,
+        "endChar": 58
+      },
+      "revId": "17c221e5a24a24652f999ba9a5db499ab79d5e39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e9a871b4_fce4fc7d",
@@ -77,6 +125,30 @@
       "writtenOn": "2021-02-25T06:52:37Z",
       "side": 1,
       "message": "\"Improved PWA tooling\"?",
+      "range": {
+        "startLine": 55,
+        "startChar": 16,
+        "endLine": 55,
+        "endChar": 27
+      },
+      "revId": "17c221e5a24a24652f999ba9a5db499ab79d5e39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5fc323f_43f0416b",
+        "filename": "front_end/help/ReleaseNoteText.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2021-02-25T07:11:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9a871b4_fce4fc7d",
       "range": {
         "startLine": 55,
         "startChar": 16,
