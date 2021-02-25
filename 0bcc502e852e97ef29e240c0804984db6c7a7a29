@@ -33,6 +33,23 @@
       "message": "Rad work!",
       "revId": "0bcc502e852e97ef29e240c0804984db6c7a7a29",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "414e52f2_a49aed8e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2021-02-25T09:37:37Z",
+      "side": 1,
+      "message": "I want to abandon this CL – I realized that even with this CL the colors are better in CVD than before and by merging this CL we would have gone full circle. Let\u0027s keep it how it is for now.",
+      "revId": "0bcc502e852e97ef29e240c0804984db6c7a7a29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
