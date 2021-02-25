@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "597d3e3d_b5818ffd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-02-25T06:52:37Z",
+      "side": 1,
+      "message": "LGTM % suggestions",
+      "revId": "17c221e5a24a24652f999ba9a5db499ab79d5e39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0937af2c_c96d8bee",
+        "filename": "front_end/help/ReleaseNoteText.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-02-25T06:52:37Z",
+      "side": 1,
+      "message": "is Performance Heads-Up Display the name of this thing? If not, we should use sentence case:\n\n    New performance heads-up display\n\nIf \"Core Web Vitals overlay\" is the name, we should probably use that instead.",
+      "range": {
+        "startLine": 30,
+        "startChar": 20,
+        "endLine": 30,
+        "endChar": 48
+      },
+      "revId": "17c221e5a24a24652f999ba9a5db499ab79d5e39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "378122db_a83b32b0",
+        "filename": "front_end/help/ReleaseNoteText.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-02-25T06:52:37Z",
+      "side": 1,
+      "message": "IMHO a better description is:\n\n    Format strings as (valid) JavaScript string literals in the Console",
+      "range": {
+        "startLine": 50,
+        "startChar": 16,
+        "endLine": 50,
+        "endChar": 58
+      },
+      "revId": "17c221e5a24a24652f999ba9a5db499ab79d5e39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9a871b4_fce4fc7d",
+        "filename": "front_end/help/ReleaseNoteText.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-02-25T06:52:37Z",
+      "side": 1,
+      "message": "\"Improved PWA tooling\"?",
+      "range": {
+        "startLine": 55,
+        "startChar": 16,
+        "endLine": 55,
+        "endChar": 27
+      },
+      "revId": "17c221e5a24a24652f999ba9a5db499ab79d5e39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
