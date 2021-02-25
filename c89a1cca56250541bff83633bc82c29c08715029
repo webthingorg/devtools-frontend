@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55ca71e5_24306b54",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-25T13:40:55Z",
+      "side": 1,
+      "message": "It turns out that the previous solution only worked by accident. The right way to handle this is to make sure there is no race between (finishing) loading DevTools and creating the top toolbar.",
+      "revId": "c89a1cca56250541bff83633bc82c29c08715029",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
