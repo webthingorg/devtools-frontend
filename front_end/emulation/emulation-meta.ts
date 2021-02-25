@@ -3,13 +3,189 @@
 // found in the LICENSE file.
 
 import * as Common from '../common/common.js';
-import type * as Platform from '../platform/platform.js';
-import {ls} from '../platform/platform.js';
 import * as Root from '../root/root.js';
 import * as UI from '../ui/ui.js';
 
 // eslint-disable-next-line rulesdir/es_modules_import
 import type * as Emulation from './emulation.js';
+
+import * as i18n from '../i18n/i18n.js';
+export const UIStrings = {
+  /**
+  *@description Text for the mobile platform, as opposed to desktop
+  */
+  mobile: 'Mobile',
+  /**
+  *@description Title of an action in the emulation tool to toggle device mode
+  */
+  toggleDeviceToolbar: 'Toggle device toolbar',
+  /**
+  *@description Text for one or a group of screenshots
+  */
+  screenshot: 'Screenshot',
+  /**
+  *@description Title of an action in the emulation tool to capture screenshot
+  */
+  captureScreenshot: 'Capture screenshot',
+  /**
+  *@description Title of an action in the emulation tool to capture full height screenshot
+  */
+  captureFullSizeScreenshot: 'Capture full size screenshot',
+  /**
+  *@description Title of an action in the emulation tool to capture node screenshot
+  */
+  captureNodeScreenshot: 'Capture node screenshot',
+  /**
+  *@description Text in Device Mode Toolbar of the Device Toolbar
+  */
+  showMediaQueries: 'Show media queries',
+  /**
+  *@description Text in Device Mode Toolbar of the Device Toolbar
+  */
+  hideMediaQueries: 'Hide media queries',
+  /**
+  *@description A tag of Mobile related settings that can be searched in the command menu
+  */
+  device: 'device',
+  /**
+  *@description Text to show the measuring rulers on the target
+  */
+  showRulers: 'Show rulers',
+  /**
+  *@description Text in Device Mode Toolbar of the Device Toolbar
+  */
+  hideRulers: 'Hide rulers',
+  /**
+  *@description Text in Device Mode Toolbar of the Device Toolbar
+  */
+  showDeviceFrame: 'Show device frame',
+  /**
+  *@description Text in Device Mode Toolbar of the Device Toolbar
+  */
+  hideDeviceFrame: 'Hide device frame',
+  /**
+  *@description Title of the Devices tab
+  */
+  devices: 'Devices',
+  /**
+  *@description Title of an action in the emulation tool to show sensors
+  */
+  sensors: 'Sensors',
+  /**
+  *@description A tag of Sensors tool that can be searched in the command menu
+  */
+  geolocation: 'geolocation',
+  /**
+  *@description A tag of Sensors tool that can be searched in the command menu
+  */
+  timezones: 'timezones',
+  /**
+  *@description Text in Sensors View of the Device Toolbar
+  */
+  locale: 'locale',
+  /**
+  *@description A tag of Sensors tool that can be searched in the command menu
+  */
+  locales: 'locales',
+  /**
+  *@description A tag of Sensors tool that can be searched in the command menu
+  */
+  accelerometer: 'accelerometer',
+  /**
+  *@description A tag of Sensors tool that can be searched in the command menu
+  */
+  deviceOrientation: 'device orientation',
+  /**
+  *@description City name in Locations Settings
+  */
+  berlin: 'Berlin',
+  /**
+  *@description City name in Locations Settings
+  */
+  london: 'London',
+  /**
+  *@description City name in Locations Settings
+  */
+  moscow: 'Moscow',
+  /**
+  *@description City name in Locations Settings
+  */
+  mountainView: 'Mountain View',
+  /**
+  *@description City name in Locations Settings
+  */
+  mumbai: 'Mumbai',
+  /**
+  *@description City name in Locations Settings
+  */
+  sanFrancisco: 'San Francisco',
+  /**
+  *@description City name in Locations Settings
+  */
+  shanghai: 'Shanghai',
+  /**
+  *@description City name in Locations Settings
+  */
+  saoPaulo: 'São Paulo',
+  /**
+  *@description City name in Locations Settings
+  */
+  tokyo: 'Tokyo',
+  /**
+  *@description Title of Locations settings
+  */
+  locations: 'Locations',
+  /**
+  *@description Text for the touch type to simulate on a device
+  */
+  touch: 'Touch',
+  /**
+  *@description Text in Sensors View of the Device Toolbar
+  */
+  devicebased: 'Device-based',
+  /**
+  *@description Text in Sensors View of the Device Toolbar
+  */
+  forceEnabled: 'Force enabled',
+  /**
+  *@description Title of a section option in Sensors tab for idle emulation
+  */
+  emulateIdleDetectorState: 'Emulate Idle Detector state',
+  /**
+  *@description Title of an option in Sensors tab idle emulation select
+  */
+  noIdleEmulation: 'No idle emulation',
+  /**
+  *@description Title of an option in Sensors tab idle emulation select
+  */
+  userActiveScreenUnlocked: 'User active, screen unlocked',
+  /**
+  *@description Title of an option in Sensors tab idle emulation select
+  */
+  userActiveScreenLocked: 'User active, screen locked',
+  /**
+  *@description Title of an option in Sensors tab idle emulation select
+  */
+  userIdleScreenUnlocked: 'User idle, screen unlocked',
+  /**
+  *@description Title of an option in Sensors tab idle emulation select
+  */
+  userIdleScreenLocked: 'User idle, screen locked',
+  /**
+  *@description Title of an action that shows emulation.
+  */
+  showDevices: 'Show Devices',
+  /**
+  *@description Title of an action that shows sensors.
+  */
+  showSensors: 'Show Sensors',
+  /**
+  *@description Title of an action that shows geographic locations.
+  */
+  showLocations: 'Show Locations',
+};
+const str_ = i18n.i18n.registerUIStrings('emulation/emulation-meta.ts', UIStrings);
+const i18nString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
 let loadedEmulationModule: (typeof Emulation|undefined);
 
@@ -24,8 +200,8 @@ async function loadEmulationModule(): Promise<typeof Emulation> {
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.SETTINGS_VIEW,
-  commandPrompt: (): Platform.UIString.LocalizedString => ls`Show Devices`,
-  title: (): Platform.UIString.LocalizedString => ls`Devices`,
+  commandPrompt: i18nString(UIStrings.showDevices),
+  title: i18nString(UIStrings.devices),
   order: 30,
   async loadView() {
     const Emulation = await loadEmulationModule();
@@ -40,8 +216,8 @@ UI.ViewManager.registerViewExtension({
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
-  commandPrompt: (): Platform.UIString.LocalizedString => ls`Show Sensors`,
-  title: (): Platform.UIString.LocalizedString => ls`Sensors`,
+  commandPrompt: i18nString(UIStrings.showSensors),
+  title: i18nString(UIStrings.sensors),
   id: 'sensors',
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
   order: 100,
@@ -50,20 +226,20 @@ UI.ViewManager.registerViewExtension({
     return Emulation.SensorsView.SensorsView.instance();
   },
   tags: [
-    (): Platform.UIString.LocalizedString => ls`geolocation`,
-    (): Platform.UIString.LocalizedString => ls`timezones`,
-    (): Platform.UIString.LocalizedString => ls`locale`,
-    (): Platform.UIString.LocalizedString => ls`locales`,
-    (): Platform.UIString.LocalizedString => ls`accelerometer`,
-    (): Platform.UIString.LocalizedString => ls`device orientation`,
+    i18nString(UIStrings.geolocation),
+    i18nString(UIStrings.timezones),
+    i18nString(UIStrings.locale),
+    i18nString(UIStrings.locales),
+    i18nString(UIStrings.accelerometer),
+    i18nString(UIStrings.deviceOrientation),
   ],
 });
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.SETTINGS_VIEW,
   id: 'emulation-locations',
-  commandPrompt: (): Platform.UIString.LocalizedString => ls`Show Locations`,
-  title: (): Platform.UIString.LocalizedString => ls`Locations`,
+  commandPrompt: i18nString(UIStrings.showLocations),
+  title: i18nString(UIStrings.locations),
   order: 40,
   async loadView() {
     const Emulation = await loadEmulationModule();
@@ -83,7 +259,7 @@ UI.ActionRegistration.registerActionExtension({
     return Emulation.DeviceModeWrapper.ActionDelegate.instance();
   },
   condition: Root.Runtime.ConditionName.CAN_DOCK,
-  title: (): Platform.UIString.LocalizedString => ls`Toggle device toolbar`,
+  title: i18nString(UIStrings.toggleDeviceToolbar),
   iconClass: UI.ActionRegistration.IconClass.LARGEICON_PHONE,
   bindings: [
     {
@@ -105,7 +281,7 @@ UI.ActionRegistration.registerActionExtension({
     return Emulation.DeviceModeWrapper.ActionDelegate.instance();
   },
   condition: Root.Runtime.ConditionName.CAN_DOCK,
-  title: (): Platform.UIString.LocalizedString => ls`Capture screenshot`,
+  title: i18nString(UIStrings.captureScreenshot),
 });
 
 UI.ActionRegistration.registerActionExtension({
@@ -116,7 +292,7 @@ UI.ActionRegistration.registerActionExtension({
     return Emulation.DeviceModeWrapper.ActionDelegate.instance();
   },
   condition: Root.Runtime.ConditionName.CAN_DOCK,
-  title: (): Platform.UIString.LocalizedString => ls`Capture full size screenshot`,
+  title: i18nString(UIStrings.captureFullSizeScreenshot),
 });
 
 UI.ActionRegistration.registerActionExtension({
@@ -127,7 +303,7 @@ UI.ActionRegistration.registerActionExtension({
     return Emulation.DeviceModeWrapper.ActionDelegate.instance();
   },
   condition: Root.Runtime.ConditionName.CAN_DOCK,
-  title: (): Platform.UIString.LocalizedString => ls`Capture node screenshot`,
+  title: i18nString(UIStrings.captureNodeScreenshot),
 });
 
 UI.ActionRegistration.registerActionExtension({
@@ -137,7 +313,7 @@ UI.ActionRegistration.registerActionExtension({
     const Emulation = await loadEmulationModule();
     return Emulation.SensorsView.ShowActionDelegate.instance();
   },
-  title: (): Platform.UIString.LocalizedString => ls`Sensors`,
+  title: i18nString(UIStrings.sensors),
 });
 
 Common.Settings.registerSettingExtension({
@@ -148,14 +324,14 @@ Common.Settings.registerSettingExtension({
   options: [
     {
       value: true,
-      title: (): Platform.UIString.LocalizedString => ls`Show media queries`,
+      title: i18nString(UIStrings.showMediaQueries),
     },
     {
       value: false,
-      title: (): Platform.UIString.LocalizedString => ls`Hide media queries`,
+      title: i18nString(UIStrings.hideMediaQueries),
     },
   ],
-  tags: [(): Platform.UIString.LocalizedString => ls`device`],
+  tags: [i18nString(UIStrings.device)],
 });
 
 Common.Settings.registerSettingExtension({
@@ -166,14 +342,14 @@ Common.Settings.registerSettingExtension({
   options: [
     {
       value: true,
-      title: (): Platform.UIString.LocalizedString => ls`Show rulers`,
+      title: i18nString(UIStrings.showRulers),
     },
     {
       value: false,
-      title: (): Platform.UIString.LocalizedString => ls`Hide rulers`,
+      title: i18nString(UIStrings.hideRulers),
     },
   ],
-  tags: [(): Platform.UIString.LocalizedString => ls`device`],
+  tags: [i18nString(UIStrings.device)],
 });
 
 Common.Settings.registerSettingExtension({
@@ -184,14 +360,14 @@ Common.Settings.registerSettingExtension({
   options: [
     {
       value: true,
-      title: (): Platform.UIString.LocalizedString => ls`Show device frame`,
+      title: i18nString(UIStrings.showDeviceFrame),
     },
     {
       value: false,
-      title: (): Platform.UIString.LocalizedString => ls`Hide device frame`,
+      title: i18nString(UIStrings.hideDeviceFrame),
     },
   ],
-  tags: [(): Platform.UIString.LocalizedString => ls`device`],
+  tags: [i18nString(UIStrings.device)],
 });
 
 Common.Settings.registerSettingExtension({
@@ -199,63 +375,63 @@ Common.Settings.registerSettingExtension({
   settingType: Common.Settings.SettingType.ARRAY,
   defaultValue: [
     {
-      title: 'Berlin',
+      title: i18nString(UIStrings.berlin),
       lat: 52.520007,
       long: 13.404954,
       timezoneId: 'Europe/Berlin',
       locale: 'de_DE',
     },
     {
-      title: 'London',
+      title: i18nString(UIStrings.london),
       lat: 51.507351,
       long: -0.127758,
       timezoneId: 'Europe/London',
       locale: 'en_GB',
     },
     {
-      title: 'Moscow',
+      title: i18nString(UIStrings.moscow),
       lat: 55.755826,
       long: 37.6173,
       timezoneId: 'Europe/Moscow',
       locale: 'ru_RU',
     },
     {
-      title: 'Mountain View',
+      title: i18nString(UIStrings.mountainView),
       lat: 37.386052,
       long: -122.083851,
       timezoneId: 'US/Pacific',
       locale: 'en_US',
     },
     {
-      title: 'Mumbai',
+      title: i18nString(UIStrings.mumbai),
       lat: 19.075984,
       long: 72.877656,
       timezoneId: 'Asia/Kolkata',
       locale: 'mr_IN',
     },
     {
-      title: 'San Francisco',
+      title: i18nString(UIStrings.sanFrancisco),
       lat: 37.774929,
       long: -122.419416,
       timezoneId: 'US/Pacific',
       locale: 'en_US',
     },
     {
-      title: 'Shanghai',
+      title: i18nString(UIStrings.shanghai),
       lat: 31.230416,
       long: 121.473701,
       timezoneId: 'Asia/Shanghai',
       locale: 'zh_Hans_CN',
     },
     {
-      title: 'São Paulo',
+      title: i18nString(UIStrings.saoPaulo),
       lat: -23.55052,
       long: -46.633309,
       timezoneId: 'America/Sao_Paulo',
       locale: 'pt_BR',
     },
     {
-      title: 'Tokyo',
+      title: i18nString(UIStrings.tokyo),
       lat: 35.689487,
       long: 139.691706,
       timezoneId: 'Asia/Tokyo',
@@ -265,7 +441,7 @@ Common.Settings.registerSettingExtension({
 });
 
 Common.Settings.registerSettingExtension({
-  title: (): Platform.UIString.LocalizedString => ls`Touch`,
+  title: i18nString(UIStrings.touch),
   reloadRequired: true,
   settingName: 'emulation.touch',
   settingType: Common.Settings.SettingType.ENUM,
@@ -273,47 +449,47 @@ Common.Settings.registerSettingExtension({
   options: [
     {
       value: 'none',
-      title: (): Platform.UIString.LocalizedString => ls`Device-based`,
-      text: (): Platform.UIString.LocalizedString => ls`Device-based`,
+      title: i18nString(UIStrings.devicebased),
+      text: i18nString(UIStrings.devicebased),
     },
     {
       value: 'force',
-      title: (): Platform.UIString.LocalizedString => ls`Force enabled`,
-      text: (): Platform.UIString.LocalizedString => ls`Force enabled`,
+      title: i18nString(UIStrings.forceEnabled),
+      text: i18nString(UIStrings.forceEnabled),
     },
   ],
 });
 
 Common.Settings.registerSettingExtension({
-  title: (): Platform.UIString.LocalizedString => ls`Emulate Idle Detector state`,
+  title: i18nString(UIStrings.emulateIdleDetectorState),
   settingName: 'emulation.idleDetection',
   settingType: Common.Settings.SettingType.ENUM,
   defaultValue: 'none',
   options: [
     {
       value: 'none',
-      title: (): Platform.UIString.LocalizedString => ls`No idle emulation`,
-      text: (): Platform.UIString.LocalizedString => ls`No idle emulation`,
+      title: i18nString(UIStrings.noIdleEmulation),
+      text: i18nString(UIStrings.noIdleEmulation),
     },
     {
       value: '{\"isUserActive\":true,\"isScreenUnlocked\":true}',
-      title: (): Platform.UIString.LocalizedString => ls`User active, screen unlocked`,
-      text: (): Platform.UIString.LocalizedString => ls`User active, screen unlocked`,
+      title: i18nString(UIStrings.userActiveScreenUnlocked),
+      text: i18nString(UIStrings.userActiveScreenUnlocked),
     },
     {
       value: '{\"isUserActive\":true,\"isScreenUnlocked\":false}',
-      title: (): Platform.UIString.LocalizedString => ls`User active, screen locked`,
-      text: (): Platform.UIString.LocalizedString => ls`User active, screen locked`,
+      title: i18nString(UIStrings.userActiveScreenLocked),
+      text: i18nString(UIStrings.userActiveScreenLocked),
     },
     {
       value: '{\"isUserActive\":false,\"isScreenUnlocked\":true}',
-      title: (): Platform.UIString.LocalizedString => ls`User idle, screen unlocked`,
-      text: (): Platform.UIString.LocalizedString => ls`User idle, screen unlocked`,
+      title: i18nString(UIStrings.userIdleScreenUnlocked),
+      text: i18nString(UIStrings.userIdleScreenUnlocked),
     },
     {
       value: '{\"isUserActive\":false,\"isScreenUnlocked\":false}',
-      title: (): Platform.UIString.LocalizedString => ls`User idle, screen locked`,
-      text: (): Platform.UIString.LocalizedString => ls`User idle, screen locked`,
+      title: i18nString(UIStrings.userIdleScreenLocked),
+      text: i18nString(UIStrings.userIdleScreenLocked),
     },
   ],
 });

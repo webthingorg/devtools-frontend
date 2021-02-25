@@ -3,6 +3,9 @@
   <message name="IDS_DEVTOOLS_0203e27fe44545283879b18e7084391b" desc="Error message when failing to load a script source text">
     Unable to fetch script source.
   </message>
+  <message name="IDS_DEVTOOLS_29260f495ba8adcc62fd1307c758ff4e" desc="Text to show the measuring rulers on the target">
+    Show rulers
+  </message>
   <message name="IDS_DEVTOOLS_2eb412338beb67c81288a2f3e2da91e9" desc="Label for the link for CORS private network issues">
     CORS for private networks (RFC1918)
   </message>
@@ -624,6 +627,9 @@
   <message name="IDS_DEVTOOLS_dfac8599aa1a20968a973065801167fe" desc="Title of a setting under the Grid category that turns CSS Grid Area highlighting off">
     Do not show grid named areas
   </message>
+  <message name="IDS_DEVTOOLS_e0ac20adce6ffee48c7151b070aa5737" desc="Text that refers to device such as a phone">
+    Device
+  </message>
   <message name="IDS_DEVTOOLS_e1e4c8c9ccd9fc39c391da4bcd093fb2" desc="Noun that represents a section or block of code in the Debugger Model. Shown in the Sources tab, while paused on a breakpoint.">
     Block
   </message>
@@ -671,6 +677,9 @@
   </message>
   <message name="IDS_DEVTOOLS_f0a0bfe6bc7d2c58d2989034f83183e0" desc="Service worker running status displayed in the Service Workers view in the Application panel">
     stopped
+  </message>
+  <message name="IDS_DEVTOOLS_f0f31c9700c6b10d8a20dc487b2ae6a8" desc="Text for the touch type to simulate on a device">
+    Touch
   </message>
   <message name="IDS_DEVTOOLS_f107ac919ab14339cdb22cd00fccd215" desc="Title of a setting under the Rendering category that can be invoked through the Command Menu">
     Show paint flashing rectangles
