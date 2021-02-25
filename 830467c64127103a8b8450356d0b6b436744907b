@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "452b482f_85c818dd",
+        "filename": "front_end/perf_ui/FilmStripView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-25T15:48:38Z",
+      "side": 0,
+      "message": "Nit: indentation here again.",
+      "range": {
+        "startLine": 268,
+        "startChar": 0,
+        "endLine": 277,
+        "endChar": 17
+      },
+      "revId": "830467c64127103a8b8450356d0b6b436744907b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
