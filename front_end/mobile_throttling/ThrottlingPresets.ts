@@ -56,7 +56,7 @@ export enum CPUThrottlingRates {
 export class ThrottlingPresets {
   static getNoThrottlingConditions(): Conditions {
     return {
-      title: SDK.NetworkManager.NoThrottlingConditions.title,
+      title: SDK.NetworkManager.NoThrottlingConditions.title(),
       description: i18nString(UIStrings.noThrottling),
       network: SDK.NetworkManager.NoThrottlingConditions,
       cpuThrottlingRate: CPUThrottlingRates.NoThrottling,
@@ -65,7 +65,7 @@ export class ThrottlingPresets {
 
   static getOfflineConditions(): Conditions {
     return {
-      title: SDK.NetworkManager.OfflineConditions.title,
+      title: SDK.NetworkManager.OfflineConditions.title(),
       description: i18nString(UIStrings.noInternetConnectivity),
       network: SDK.NetworkManager.OfflineConditions,
       cpuThrottlingRate: CPUThrottlingRates.NoThrottling,
