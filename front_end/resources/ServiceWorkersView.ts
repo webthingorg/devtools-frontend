@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';
 import * as Components from '../components/components.js';
 import * as Host from '../host/host.js';
@@ -11,7 +13,7 @@ import * as Network from '../network/network.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
-import {ServiceWorkerUpdateCycleHelper} from './ServiceWorkerUpdateCycleHelper.js';
+import { ServiceWorkerUpdateCycleHelper } from './ServiceWorkerUpdateCycleHelper.js';
 
 export const UIStrings = {
   /**
@@ -170,23 +172,24 @@ export const UIStrings = {
   */
   focus: 'focus',
 };
-const str_ = i18n.i18n.registerUIStrings('resources/ServiceWorkersView.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('resources/ServiceWorkersView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 let throttleDisabledForDebugging = false;
-/**
- * @param {boolean} enable
- */
-export const setThrottleDisabledForDebugging = enable => {
+export const setThrottleDisabledForDebugging = (enable: boolean): void => {
   throttleDisabledForDebugging = enable;
 };
 
-/**
- * @implements {SDK.SDKModel.SDKModelObserver<!SDK.ServiceWorkerManager.ServiceWorkerManager>}
- */
-export class ServiceWorkersView extends UI.Widget.VBox {
+export class ServiceWorkersView extends UI.Widget.VBox implements SDK.SDKModel.SDKModelObserver {
+  _currentWorkersView: UI.ReportView.ReportView;
+  _toolbar: UI.Toolbar.Toolbar;
+  _sections: Map<SDK.ServiceWorkerManager.ServiceWorkerRegistration, Section>;
+  _manager: SDK.ServiceWorkerManager.ServiceWorkerManager | null;
+  _securityOriginManager: SDK.SecurityOriginManager.SecurityOriginManager | null;
+  _sectionToRegistration: WeakMap<UI.ReportView.Section, SDK.ServiceWorkerManager.ServiceWorkerRegistration>;
+  _eventListeners: Map<SDK.ServiceWorkerManager.ServiceWorkerManager, Common.EventTarget.EventDescriptor[]>;
   constructor() {
     super(true);
-    this.registerRequiredCSS('resources/serviceWorkersView.css', {enableLegacyPatching: false});
+    this.registerRequiredCSS('resources/serviceWorkersView.css', { enableLegacyPatching: false });
 
     // TODO(crbug.com/1156978): Replace UI.ReportView.ReportView with ReportView.ts web component.
     this._currentWorkersView = new UI.ReportView.ReportView(i18nString(UIStrings.serviceWorkers));
@@ -198,15 +201,11 @@ export class ServiceWorkersView extends UI.Widget.VBox {
     this._toolbar = this._currentWorkersView.createToolbar();
     this._toolbar.makeWrappable(true /* growVertically */);
 
-    /** @type {!Map<!SDK.ServiceWorkerManager.ServiceWorkerRegistration, !Section>} */
     this._sections = new Map();
 
-    /** @type {?SDK.ServiceWorkerManager.ServiceWorkerManager} */
     this._manager = null;
-    /** @type {?SDK.SecurityOriginManager.SecurityOriginManager} */
     this._securityOriginManager = null;
 
-    /** @type {!WeakMap<!UI.ReportView.Section, !SDK.ServiceWorkerManager.ServiceWorkerRegistration>} */
     this._sectionToRegistration = new WeakMap();
 
     const othersDiv = this.contentElement.createChild('div', 'service-workers-other-origin');
@@ -216,42 +215,33 @@ export class ServiceWorkersView extends UI.Widget.VBox {
     othersView.show(othersDiv);
     const othersSection = othersView.appendSection(i18nString(UIStrings.serviceWorkersFromOtherOrigins));
     const othersSectionRow = othersSection.appendRow();
-    const seeOthers = UI.Fragment.html
-    `<a class="devtools-link" role="link" tabindex="0" href="chrome://serviceworker-internals" target="_blank" style="display: inline; cursor: pointer;">See all registrations</a>`;
+    const seeOthers = UI.Fragment.html `<a class="devtools-link" role="link" tabindex="0" href="chrome://serviceworker-internals" target="_blank" style="display: inline; cursor: pointer;">See all registrations</a>`;
     self.onInvokeElement(seeOthers, event => {
       const mainTarget = SDK.SDKModel.TargetManager.instance().mainTarget();
-      mainTarget && mainTarget.targetAgent().invoke_createTarget({url: 'chrome://serviceworker-internals?devtools'});
+      mainTarget && mainTarget.targetAgent().invoke_createTarget({ url: 'chrome://serviceworker-internals?devtools' });
       event.consume(true);
     });
     othersSectionRow.appendChild(seeOthers);
 
-    this._toolbar.appendToolbarItem(
-        MobileThrottling.ThrottlingManager.throttlingManager().createOfflineToolbarCheckbox());
-    const updateOnReloadSetting =
-        Common.Settings.Settings.instance().createSetting('serviceWorkerUpdateOnReload', false);
+    this._toolbar.appendToolbarItem(MobileThrottling.ThrottlingManager.throttlingManager().createOfflineToolbarCheckbox());
+    const updateOnReloadSetting = Common.Settings.Settings.instance().createSetting('serviceWorkerUpdateOnReload', false);
     updateOnReloadSetting.setTitle(i18nString(UIStrings.updateOnReload));
-    const forceUpdate =
-        new UI.Toolbar.ToolbarSettingCheckbox(updateOnReloadSetting, i18nString(UIStrings.onPageReloadForceTheService));
+    const forceUpdate = new UI.Toolbar.ToolbarSettingCheckbox(updateOnReloadSetting, i18nString(UIStrings.onPageReloadForceTheService));
     this._toolbar.appendToolbarItem(forceUpdate);
     const bypassServiceWorkerSetting = Common.Settings.Settings.instance().createSetting('bypassServiceWorker', false);
     bypassServiceWorkerSetting.setTitle(i18nString(UIStrings.bypassForNetwork));
-    const fallbackToNetwork = new UI.Toolbar.ToolbarSettingCheckbox(
-        bypassServiceWorkerSetting, i18nString(UIStrings.bypassTheServiceWorkerAndLoad));
+    const fallbackToNetwork = new UI.Toolbar.ToolbarSettingCheckbox(bypassServiceWorkerSetting, i18nString(UIStrings.bypassTheServiceWorkerAndLoad));
     this._toolbar.appendToolbarItem(fallbackToNetwork);
 
-    /** @type {!Map<!SDK.ServiceWorkerManager.ServiceWorkerManager, !Array<!Common.EventTarget.EventDescriptor>>}*/
     this._eventListeners = new Map();
     SDK.SDKModel.TargetManager.instance().observeModels(SDK.ServiceWorkerManager.ServiceWorkerManager, this);
     this._updateListVisibility();
 
-    /**
-     * @param {!Event} event
-     */
-    const drawerChangeHandler = event => {
+    const drawerChangeHandler = (event: Event): void => {
       // @ts-ignore: No support for custom event listener
       const isDrawerOpen = event.detail && event.detail.isDrawerOpen;
       if (this._manager && !isDrawerOpen) {
-        const {serviceWorkerNetworkRequestsPanelStatus: {isOpen, openedAt}} = this._manager;
+        const { serviceWorkerNetworkRequestsPanelStatus: { isOpen, openedAt } } = this._manager;
         if (isOpen) {
           const networkLocation = UI.ViewManager.ViewManager.instance().locationNameForViewId('network');
           UI.ViewManager.ViewManager.instance().showViewInLocation('network', networkLocation, false);
@@ -273,40 +263,26 @@ export class ServiceWorkersView extends UI.Widget.VBox {
     document.body.addEventListener(UI.InspectorView.Events.DrawerChange, drawerChangeHandler);
   }
 
-  /**
-   * @override
-   * @param {!SDK.ServiceWorkerManager.ServiceWorkerManager} serviceWorkerManager
-   */
-  modelAdded(serviceWorkerManager) {
+  modelAdded(serviceWorkerManager: SDK.ServiceWorkerManager.ServiceWorkerManager): void {
     if (this._manager) {
       return;
     }
     this._manager = serviceWorkerManager;
-    this._securityOriginManager =
-        /** @type {!SDK.SecurityOriginManager.SecurityOriginManager} */ (
-            serviceWorkerManager.target().model(SDK.SecurityOriginManager.SecurityOriginManager));
+    this._securityOriginManager = (serviceWorkerManager.target().model(SDK.SecurityOriginManager.SecurityOriginManager) as SDK.SecurityOriginManager.SecurityOriginManager);
 
     for (const registration of this._manager.registrations().values()) {
       this._updateRegistration(registration);
     }
 
     this._eventListeners.set(serviceWorkerManager, [
-      this._manager.addEventListener(
-          SDK.ServiceWorkerManager.Events.RegistrationUpdated, this._registrationUpdated, this),
-      this._manager.addEventListener(
-          SDK.ServiceWorkerManager.Events.RegistrationDeleted, this._registrationDeleted, this),
-      this._securityOriginManager.addEventListener(
-          SDK.SecurityOriginManager.Events.SecurityOriginAdded, this._updateSectionVisibility, this),
-      this._securityOriginManager.addEventListener(
-          SDK.SecurityOriginManager.Events.SecurityOriginRemoved, this._updateSectionVisibility, this),
+      this._manager.addEventListener(SDK.ServiceWorkerManager.Events.RegistrationUpdated, this._registrationUpdated, this),
+      this._manager.addEventListener(SDK.ServiceWorkerManager.Events.RegistrationDeleted, this._registrationDeleted, this),
+      this._securityOriginManager.addEventListener(SDK.SecurityOriginManager.Events.SecurityOriginAdded, this._updateSectionVisibility, this),
+      this._securityOriginManager.addEventListener(SDK.SecurityOriginManager.Events.SecurityOriginRemoved, this._updateSectionVisibility, this),
     ]);
   }
 
-  /**
-   * @override
-   * @param {!SDK.ServiceWorkerManager.ServiceWorkerManager} serviceWorkerManager
-   */
-  modelRemoved(serviceWorkerManager) {
+  modelRemoved(serviceWorkerManager: SDK.ServiceWorkerManager.ServiceWorkerManager): void {
     if (!this._manager || this._manager !== serviceWorkerManager) {
       return;
     }
@@ -317,15 +293,10 @@ export class ServiceWorkersView extends UI.Widget.VBox {
     this._securityOriginManager = null;
   }
 
-  /**
-   * @param {!SDK.ServiceWorkerManager.ServiceWorkerRegistration} registration
-   * @return {number}
-   */
-  _getTimeStamp(registration) {
+  _getTimeStamp(registration: SDK.ServiceWorkerManager.ServiceWorkerRegistration): number {
     const versions = registration.versionsByMode();
 
-    /** @type {number|undefined} */
-    let timestamp = 0;
+    let timestamp: number | undefined = 0;
 
     const active = versions.get(SDK.ServiceWorkerManager.ServiceWorkerVersion.Modes.Active);
     const installing = versions.get(SDK.ServiceWorkerManager.ServiceWorkerVersion.Modes.Installing);
@@ -334,18 +305,21 @@ export class ServiceWorkersView extends UI.Widget.VBox {
 
     if (active) {
       timestamp = active.scriptResponseTime;
-    } else if (waiting) {
+    }
+    else if (waiting) {
       timestamp = waiting.scriptResponseTime;
-    } else if (installing) {
+    }
+    else if (installing) {
       timestamp = installing.scriptResponseTime;
-    } else if (redundant) {
+    }
+    else if (redundant) {
       timestamp = redundant.scriptResponseTime;
     }
 
     return timestamp || 0;
   }
 
-  _updateSectionVisibility() {
+  _updateSectionVisibility(): void {
     let hasThis = false;
     const movedSections = [];
     for (const section of this._sections.values()) {
@@ -373,9 +347,10 @@ export class ServiceWorkersView extends UI.Widget.VBox {
 
     for (const section of this._sections.values()) {
       if (section._section.parentWidget() === this._currentWorkersView ||
-          this._isRegistrationVisible(section._registration)) {
+        this._isRegistrationVisible(section._registration)) {
         section._section.showWidget();
-      } else {
+      }
+      else {
         section._section.hideWidget();
       }
     }
@@ -383,21 +358,18 @@ export class ServiceWorkersView extends UI.Widget.VBox {
     this._updateListVisibility();
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _registrationUpdated(event) {
-    const registration = /** @type {!SDK.ServiceWorkerManager.ServiceWorkerRegistration} */ (event.data);
+  _registrationUpdated(event: Common.EventTarget.EventTargetEvent): void {
+    const registration = (event.data as SDK.ServiceWorkerManager.ServiceWorkerRegistration);
     this._updateRegistration(registration);
     this._gcRegistrations();
   }
 
-  _gcRegistrations() {
+  _gcRegistrations(): void {
     if (!this._manager || !this._securityOriginManager) {
       return;
     }
     let hasNonDeletedRegistrations = false;
-    const securityOrigins = new Set(this._securityOriginManager.securityOrigins());
+    const securityOrigins = new Set<string>(this._securityOriginManager.securityOrigins());
     for (const registration of this._manager.registrations().values()) {
       if (!securityOrigins.has(registration.securityOrigin) && !this._isRegistrationVisible(registration)) {
         continue;
@@ -420,24 +392,16 @@ export class ServiceWorkersView extends UI.Widget.VBox {
     }
   }
 
-  /**
-   * @param {string} origin
-   * @return {?UI.ReportView.ReportView}
-   */
-  _getReportViewForOrigin(origin) {
+  _getReportViewForOrigin(origin: string): UI.ReportView.ReportView | null {
     if (this._securityOriginManager &&
-        (this._securityOriginManager.securityOrigins().includes(origin) ||
-         this._securityOriginManager.unreachableMainSecurityOrigin() === origin)) {
+      (this._securityOriginManager.securityOrigins().includes(origin) ||
+        this._securityOriginManager.unreachableMainSecurityOrigin() === origin)) {
       return this._currentWorkersView;
     }
     return null;
   }
 
-  /**
-   * @param {!SDK.ServiceWorkerManager.ServiceWorkerRegistration} registration
-   * @param {boolean=} skipUpdate
-   */
-  _updateRegistration(registration, skipUpdate) {
+  _updateRegistration(registration: SDK.ServiceWorkerManager.ServiceWorkerRegistration, skipUpdate?: boolean): void {
     let section = this._sections.get(registration);
     if (!section) {
       const title = registration.scopeURL;
@@ -446,10 +410,9 @@ export class ServiceWorkersView extends UI.Widget.VBox {
         return;
       }
       const uiSection = reportView.appendSection(title);
-      uiSection.setUiGroupTitle(i18nString(UIStrings.serviceWorkerForS, {PH1: title}));
+      uiSection.setUiGroupTitle(i18nString(UIStrings.serviceWorkerForS, { PH1: title }));
       this._sectionToRegistration.set(uiSection, registration);
-      section = new Section(
-          /** @type {!SDK.ServiceWorkerManager.ServiceWorkerManager} */ (this._manager), uiSection, registration);
+      section = new Section((this._manager as SDK.ServiceWorkerManager.ServiceWorkerManager), uiSection, registration);
       this._sections.set(registration, section);
     }
     if (skipUpdate) {
@@ -459,18 +422,12 @@ export class ServiceWorkersView extends UI.Widget.VBox {
     section._scheduleUpdate();
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _registrationDeleted(event) {
-    const registration = /** @type {!SDK.ServiceWorkerManager.ServiceWorkerRegistration} */ (event.data);
+  _registrationDeleted(event: Common.EventTarget.EventTargetEvent): void {
+    const registration = (event.data as SDK.ServiceWorkerManager.ServiceWorkerRegistration);
     this._removeRegistrationFromList(registration);
   }
 
-  /**
-   * @param {!SDK.ServiceWorkerManager.ServiceWorkerRegistration} registration
-   */
-  _removeRegistrationFromList(registration) {
+  _removeRegistrationFromList(registration: SDK.ServiceWorkerManager.ServiceWorkerRegistration): void {
     const section = this._sections.get(registration);
     if (section) {
       section._section.detach();
@@ -479,55 +436,61 @@ export class ServiceWorkersView extends UI.Widget.VBox {
     this._updateSectionVisibility();
   }
 
-  /**
-   * @param {!SDK.ServiceWorkerManager.ServiceWorkerRegistration} registration
-   * @return {boolean}
-   */
-  _isRegistrationVisible(registration) {
+  _isRegistrationVisible(registration: SDK.ServiceWorkerManager.ServiceWorkerRegistration): boolean {
     if (!registration.scopeURL) {
       return true;
     }
     return false;
   }
 
-  _updateListVisibility() {
+  _updateListVisibility(): void {
     this.contentElement.classList.toggle('service-worker-list-empty', this._sections.size === 0);
   }
 }
 
 export class Section {
-  /**
-   * @param {!SDK.ServiceWorkerManager.ServiceWorkerManager} manager
-   * @param {!UI.ReportView.Section} section
-   * @param {!SDK.ServiceWorkerManager.ServiceWorkerRegistration} registration
-   */
-  constructor(manager, section, registration) {
+  _manager: SDK.ServiceWorkerManager.ServiceWorkerManager;
+  _section: UI.ReportView.Section;
+  _registration: SDK.ServiceWorkerManager.ServiceWorkerRegistration;
+  _fingerprint: symbol | null;
+  _pushNotificationDataSetting: Common.Settings.Setting<any>;
+  _syncTagNameSetting: Common.Settings.Setting<any>;
+  _periodicSyncTagNameSetting: Common.Settings.Setting<any>;
+  _toolbar: UI.Toolbar.Toolbar;
+  _updateCycleElement: Element;
+  _networkRequests: UI.Toolbar.ToolbarButton;
+  _updateButton: UI.Toolbar.ToolbarButton;
+  _deleteButton: UI.Toolbar.ToolbarButton;
+  _sourceField: Element;
+  _statusField: Element;
+  _clientsField: Element;
+  _linkifier: Components.Linkifier.Linkifier;
+  _clientInfoCache: Map<string, Protocol.Target.TargetInfo>;
+  _throttler: Common.Throttler.Throttler;
+  _updateCycleForm?: Element;
+  constructor(manager: SDK.ServiceWorkerManager.ServiceWorkerManager, section: UI.ReportView.Section, registration: SDK.ServiceWorkerManager.ServiceWorkerRegistration) {
     this._manager = manager;
     this._section = section;
     this._registration = registration;
-    /** @type {?symbol} */
     this._fingerprint = null;
-    this._pushNotificationDataSetting = Common.Settings.Settings.instance().createLocalSetting(
-        'pushData', i18nString(UIStrings.testPushMessageFromDevtools));
+    this._pushNotificationDataSetting = Common.Settings.Settings.instance().createLocalSetting('pushData', i18nString(UIStrings.testPushMessageFromDevtools));
     this._syncTagNameSetting =
-        Common.Settings.Settings.instance().createLocalSetting('syncTagName', 'test-tag-from-devtools');
+      Common.Settings.Settings.instance().createLocalSetting('syncTagName', 'test-tag-from-devtools');
     this._periodicSyncTagNameSetting =
-        Common.Settings.Settings.instance().createLocalSetting('periodicSyncTagName', 'test-tag-from-devtools');
+      Common.Settings.Settings.instance().createLocalSetting('periodicSyncTagName', 'test-tag-from-devtools');
 
     this._toolbar = section.createToolbar();
     this._toolbar.renderAsLinks();
 
     this._updateCycleElement = ServiceWorkerUpdateCycleHelper.createTimingTable(registration);
-    this._networkRequests = new UI.Toolbar.ToolbarButton(
-        i18nString(UIStrings.networkRequests), undefined, i18nString(UIStrings.networkRequests));
+    this._networkRequests = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.networkRequests), undefined, i18nString(UIStrings.networkRequests));
     this._networkRequests.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._networkRequestsClicked, this);
     this._toolbar.appendToolbarItem(this._networkRequests);
     this._updateButton =
-        new UI.Toolbar.ToolbarButton(i18nString(UIStrings.update), undefined, i18nString(UIStrings.update));
+      new UI.Toolbar.ToolbarButton(i18nString(UIStrings.update), undefined, i18nString(UIStrings.update));
     this._updateButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._updateButtonClicked, this);
     this._toolbar.appendToolbarItem(this._updateButton);
-    this._deleteButton = new UI.Toolbar.ToolbarButton(
-        i18nString(UIStrings.unregisterServiceWorker), undefined, i18nString(UIStrings.unregister));
+    this._deleteButton = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.unregisterServiceWorker), undefined, i18nString(UIStrings.unregister));
     this._deleteButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._unregisterButtonClicked, this);
     this._toolbar.appendToolbarItem(this._deleteButton);
 
@@ -535,32 +498,18 @@ export class Section {
     this._sourceField = this._wrapWidget(this._section.appendField(i18nString(UIStrings.source)));
     this._statusField = this._wrapWidget(this._section.appendField(i18nString(UIStrings.status)));
     this._clientsField = this._wrapWidget(this._section.appendField(i18nString(UIStrings.clients)));
-    this._createSyncNotificationField(
-        i18nString(UIStrings.pushString), this._pushNotificationDataSetting.get(), i18nString(UIStrings.pushData),
-        this._push.bind(this));
-    this._createSyncNotificationField(
-        i18nString(UIStrings.syncString), this._syncTagNameSetting.get(), i18nString(UIStrings.syncTag),
-        this._sync.bind(this));
-    this._createSyncNotificationField(
-        i18nString(UIStrings.periodicSync), this._periodicSyncTagNameSetting.get(),
-        i18nString(UIStrings.periodicSyncTag), tag => this._periodicSync(tag));
+    this._createSyncNotificationField(i18nString(UIStrings.pushString), this._pushNotificationDataSetting.get(), i18nString(UIStrings.pushData), this._push.bind(this));
+    this._createSyncNotificationField(i18nString(UIStrings.syncString), this._syncTagNameSetting.get(), i18nString(UIStrings.syncTag), this._sync.bind(this));
+    this._createSyncNotificationField(i18nString(UIStrings.periodicSync), this._periodicSyncTagNameSetting.get(), i18nString(UIStrings.periodicSyncTag), tag => this._periodicSync(tag));
     this._createUpdateCycleField();
 
     this._linkifier = new Components.Linkifier.Linkifier();
-    /** @type {!Map<string, !Protocol.Target.TargetInfo>} */
     this._clientInfoCache = new Map();
     this._throttler = new Common.Throttler.Throttler(500);
   }
 
-  /**
-   * @param {string} label
-   * @param {string} initialValue
-   * @param {string} placeholder
-   * @param {function(string):void} callback
-   */
-  _createSyncNotificationField(label, initialValue, placeholder, callback) {
-    const form =
-        this._wrapWidget(this._section.appendField(label)).createChild('form', 'service-worker-editor-with-button');
+  _createSyncNotificationField(label: string, initialValue: string, placeholder: string, callback: (arg0: string) => void): void {
+    const form = this._wrapWidget(this._section.appendField(label)).createChild('form', 'service-worker-editor-with-button');
     const editor = UI.UIUtils.createInput('source-code service-worker-notification-editor');
     form.appendChild(editor);
     const button = UI.UIUtils.createTextButton(label);
@@ -571,16 +520,13 @@ export class Section {
     editor.placeholder = placeholder;
     UI.ARIAUtils.setAccessibleName(editor, label);
 
-    form.addEventListener(
-        'submit',
-        /** @param {!Event} e */
-        e => {
-          callback(editor.value || '');
-          e.consume(true);
-        });
+    form.addEventListener('submit', (e: Event) => {
+      callback(editor.value || '');
+      e.consume(true);
+    });
   }
 
-  _scheduleUpdate() {
+  _scheduleUpdate(): void {
     if (throttleDisabledForDebugging) {
       this._update();
       return;
@@ -588,11 +534,7 @@ export class Section {
     this._throttler.schedule(this._update.bind(this));
   }
 
-  /**
-   * @param {string} versionId
-   * @return {?SDK.SDKModel.Target}
-   */
-  _targetForVersionId(versionId) {
+  _targetForVersionId(versionId: string): SDK.SDKModel.Target | null {
     const version = this._manager.findVersion(versionId);
     if (!version || !version.targetId) {
       return null;
@@ -600,13 +542,7 @@ export class Section {
     return SDK.SDKModel.TargetManager.instance().targetById(version.targetId);
   }
 
-  /**
-   * @param {!Element} versionsStack
-   * @param {string} icon
-   * @param {string} label
-   * @return {!Element}
-   */
-  _addVersion(versionsStack, icon, label) {
+  _addVersion(versionsStack: Element, icon: string, label: string): Element {
     const installingEntry = versionsStack.createChild('div', 'service-worker-version');
     installingEntry.createChild('div', icon);
     const statusString = installingEntry.createChild('span', 'service-worker-version-string');
@@ -615,55 +551,43 @@ export class Section {
     return installingEntry;
   }
 
-  /**
-   * @param {!SDK.ServiceWorkerManager.ServiceWorkerVersion} version
-   */
-  _updateClientsField(version) {
+  _updateClientsField(version: SDK.ServiceWorkerManager.ServiceWorkerVersion): void {
     this._clientsField.removeChildren();
     this._section.setFieldVisible(i18nString(UIStrings.clients), Boolean(version.controlledClients.length));
     for (const client of version.controlledClients) {
       const clientLabelText = this._clientsField.createChild('div', 'service-worker-client');
       if (this._clientInfoCache.has(client)) {
-        this._updateClientInfo(
-            clientLabelText, /** @type {!Protocol.Target.TargetInfo} */ (this._clientInfoCache.get(client)));
+        this._updateClientInfo(clientLabelText, (this._clientInfoCache.get(client) as Protocol.Target.TargetInfo));
       }
       this._manager.target()
-          .targetAgent()
-          .invoke_getTargetInfo({targetId: client})
-          .then(this._onClientInfo.bind(this, clientLabelText));
+        .targetAgent()
+        .invoke_getTargetInfo({ targetId: client })
+        .then(this._onClientInfo.bind(this, clientLabelText));
     }
   }
 
-  /**
-   * @param {!SDK.ServiceWorkerManager.ServiceWorkerVersion} version
-   */
-  _updateSourceField(version) {
+  _updateSourceField(version: SDK.ServiceWorkerManager.ServiceWorkerVersion): void {
     this._sourceField.removeChildren();
     const fileName = Common.ParsedURL.ParsedURL.extractName(version.scriptURL);
     const name = this._sourceField.createChild('div', 'report-field-value-filename');
-    const link = Components.Linkifier.Linkifier.linkifyURL(
-        version.scriptURL, /** @type {!Components.Linkifier.LinkifyURLOptions} */ ({text: fileName}));
+    const link = Components.Linkifier.Linkifier.linkifyURL(version.scriptURL, ({ text: fileName } as Components.Linkifier.LinkifyURLOptions));
     link.tabIndex = 0;
     name.appendChild(link);
     if (this._registration.errors.length) {
       const errorsLabel = UI.UIUtils.createIconLabel(String(this._registration.errors.length), 'smallicon-error');
       errorsLabel.classList.add('devtools-link', 'link');
       errorsLabel.tabIndex = 0;
-      UI.ARIAUtils.setAccessibleName(
-          errorsLabel, i18nString(UIStrings.sRegistrationErrors, {PH1: this._registration.errors.length}));
+      UI.ARIAUtils.setAccessibleName(errorsLabel, i18nString(UIStrings.sRegistrationErrors, { PH1: this._registration.errors.length }));
       self.onInvokeElement(errorsLabel, () => Common.Console.Console.instance().show());
       name.appendChild(errorsLabel);
     }
     if (version.scriptResponseTime !== undefined) {
       this._sourceField.createChild('div', 'report-field-value-subtitle').textContent =
-          i18nString(UIStrings.receivedS, {PH1: new Date(version.scriptResponseTime * 1000).toLocaleString()});
+        i18nString(UIStrings.receivedS, { PH1: new Date(version.scriptResponseTime * 1000).toLocaleString() });
     }
   }
 
-  /**
-   * @return {!Promise<void>}
-   */
-  _update() {
+  _update(): Promise<void> {
     const fingerprint = this._registration.fingerprint();
     if (fingerprint === this._fingerprint) {
       return Promise.resolve();
@@ -674,7 +598,7 @@ export class Section {
 
     const versions = this._registration.versionsByMode();
     const scopeURL = this._registration.scopeURL;
-    const title = this._registration.isDeleted ? i18nString(UIStrings.sDeleted, {PH1: scopeURL}) : scopeURL;
+    const title = this._registration.isDeleted ? i18nString(UIStrings.sDeleted, { PH1: scopeURL }) : scopeURL;
     this._section.setTitle(title);
 
     const active = versions.get(SDK.ServiceWorkerManager.ServiceWorkerVersion.Modes.Active);
@@ -688,53 +612,45 @@ export class Section {
 
     if (active) {
       this._updateSourceField(active);
-      const localizedRunningStatus =
-          SDK.ServiceWorkerManager.ServiceWorkerVersion.RunningStatus[active.currentState.runningStatus];
-      const activeEntry = this._addVersion(
-          versionsStack, 'service-worker-active-circle',
-          i18nString(UIStrings.sActivatedAndIsS, {PH1: active.id, PH2: localizedRunningStatus}));
+      const localizedRunningStatus = SDK.ServiceWorkerManager.ServiceWorkerVersion.RunningStatus[active.currentState.runningStatus];
+      const activeEntry = this._addVersion(versionsStack, 'service-worker-active-circle', i18nString(UIStrings.sActivatedAndIsS, { PH1: active.id, PH2: localizedRunningStatus }));
 
       if (active.isRunning() || active.isStarting()) {
         this._createLink(activeEntry, i18nString(UIStrings.stopString), this._stopButtonClicked.bind(this, active.id));
         if (!this._targetForVersionId(active.id)) {
-          this._createLink(
-              activeEntry, i18nString(UIStrings.inspect), this._inspectButtonClicked.bind(this, active.id));
+          this._createLink(activeEntry, i18nString(UIStrings.inspect), this._inspectButtonClicked.bind(this, active.id));
         }
-      } else if (active.isStartable()) {
+      }
+      else if (active.isStartable()) {
         this._createLink(activeEntry, i18nString(UIStrings.startString), this._startButtonClicked.bind(this));
       }
       this._updateClientsField(active);
-    } else if (redundant) {
+    }
+    else if (redundant) {
       this._updateSourceField(redundant);
-      this._addVersion(
-          versionsStack, 'service-worker-redundant-circle', i18nString(UIStrings.sIsRedundant, {PH1: redundant.id}));
+      this._addVersion(versionsStack, 'service-worker-redundant-circle', i18nString(UIStrings.sIsRedundant, { PH1: redundant.id }));
       this._updateClientsField(redundant);
     }
 
     if (waiting) {
-      const waitingEntry = this._addVersion(
-          versionsStack, 'service-worker-waiting-circle', i18nString(UIStrings.sWaitingToActivate, {PH1: waiting.id}));
+      const waitingEntry = this._addVersion(versionsStack, 'service-worker-waiting-circle', i18nString(UIStrings.sWaitingToActivate, { PH1: waiting.id }));
       this._createLink(waitingEntry, i18nString(UIStrings.skipwaiting), this._skipButtonClicked.bind(this));
       if (waiting.scriptResponseTime !== undefined) {
         waitingEntry.createChild('div', 'service-worker-subtitle').textContent =
-            i18nString(UIStrings.receivedS, {PH1: new Date(waiting.scriptResponseTime * 1000).toLocaleString()});
+          i18nString(UIStrings.receivedS, { PH1: new Date(waiting.scriptResponseTime * 1000).toLocaleString() });
       }
       if (!this._targetForVersionId(waiting.id) && (waiting.isRunning() || waiting.isStarting())) {
-        this._createLink(
-            waitingEntry, i18nString(UIStrings.inspect), this._inspectButtonClicked.bind(this, waiting.id));
+        this._createLink(waitingEntry, i18nString(UIStrings.inspect), this._inspectButtonClicked.bind(this, waiting.id));
       }
     }
     if (installing) {
-      const installingEntry = this._addVersion(
-          versionsStack, 'service-worker-installing-circle',
-          i18nString(UIStrings.sTryingToInstall, {PH1: installing.id}));
+      const installingEntry = this._addVersion(versionsStack, 'service-worker-installing-circle', i18nString(UIStrings.sTryingToInstall, { PH1: installing.id }));
       if (installing.scriptResponseTime !== undefined) {
         installingEntry.createChild('div', 'service-worker-subtitle').textContent =
-            i18nString('Received %s', new Date(installing.scriptResponseTime * 1000).toLocaleString());
+          i18nString('Received %s', new Date(installing.scriptResponseTime * 1000).toLocaleString());
       }
       if (!this._targetForVersionId(installing.id) && (installing.isRunning() || installing.isStarting())) {
-        this._createLink(
-            installingEntry, i18nString(UIStrings.inspect), this._inspectButtonClicked.bind(this, installing.id));
+        this._createLink(installingEntry, i18nString(UIStrings.inspect), this._inspectButtonClicked.bind(this, installing.id));
       }
     }
 
@@ -743,16 +659,8 @@ export class Section {
     return Promise.resolve();
   }
 
-  /**
-   * @param {!Element} parent
-   * @param {string} title
-   * @param {function():void} listener
-   * @param {string=} className
-   * @param {boolean=} useCapture
-   * @return {!Element}
-   */
-  _createLink(parent, title, listener, className, useCapture) {
-    const button = /** @type {!HTMLElement} */ (document.createElement('button'));
+  _createLink(parent: Element, title: string, listener: () => void, className?: string, useCapture?: boolean): Element {
+    const button = (document.createElement('button') as HTMLElement);
     if (className) {
       button.className = className;
     }
@@ -764,33 +672,24 @@ export class Section {
     return button;
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _unregisterButtonClicked(event) {
+  _unregisterButtonClicked(event: Common.EventTarget.EventTargetEvent): void {
     this._manager.deleteRegistration(this._registration.id);
   }
 
-  _createUpdateCycleField() {
+  _createUpdateCycleField(): void {
     this._updateCycleForm =
-        this._wrapWidget(this._section.appendField(i18nString(UIStrings.updateCycle))).createChild('form');
+      this._wrapWidget(this._section.appendField(i18nString(UIStrings.updateCycle))).createChild('form');
     this._updateCycleForm.appendChild(this._updateCycleElement);
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _updateButtonClicked(event) {
+  _updateButtonClicked(event: Common.EventTarget.EventTargetEvent): void {
     this._manager.updateRegistration(this._registration.id);
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _networkRequestsClicked(event) {
+  _networkRequestsClicked(event: Common.EventTarget.EventTargetEvent): void {
     const applicationTabLocation = UI.ViewManager.ViewManager.instance().locationNameForViewId('resources');
     const networkTabLocation = applicationTabLocation === 'drawer-view' ? 'panel' : 'drawer-view';
-    UI.ViewManager.ViewManager.instance().showViewInLocation('network', networkTabLocation);
+    UI.ViewManager.ViewManager.instance().showViewInLocation('network', networkTabLocation);
 
     Network.NetworkPanel.NetworkPanel.revealAndFilter([
       {
@@ -800,21 +699,20 @@ export class Section {
     ]);
 
     const requests = SDK.NetworkLog.NetworkLog.instance().requests();
-    let lastRequest = null;
+    let lastRequest: SDK.NetworkRequest.NetworkRequest | null = null;
     if (Array.isArray(requests)) {
       for (const request of requests) {
         if (!lastRequest && request.fetchedViaServiceWorker) {
           lastRequest = request;
         }
         if (request.fetchedViaServiceWorker && lastRequest &&
-            lastRequest.responseReceivedTime < request.responseReceivedTime) {
+          lastRequest.responseReceivedTime < request.responseReceivedTime) {
           lastRequest = request;
         }
       }
     }
     if (lastRequest) {
-      Network.NetworkPanel.NetworkPanel.selectAndShowRequest(
-          lastRequest, Network.NetworkItemView.Tabs.Timing, {clearFilter: false});
+      Network.NetworkPanel.NetworkPanel.selectAndShowRequest(lastRequest, Network.NetworkItemView.Tabs.Timing, { clearFilter: false });
     }
 
     this._manager.serviceWorkerNetworkRequestsPanelStatus = {
@@ -824,35 +722,22 @@ export class Section {
     Host.userMetrics.actionTaken(Host.UserMetrics.Action.ServiceWorkerNetworkRequestClicked);
   }
 
-  /**
-   * @param {string} data
-   */
-  _push(data) {
+  _push(data: string): void {
     this._pushNotificationDataSetting.set(data);
     this._manager.deliverPushMessage(this._registration.id, data);
   }
 
-  /**
-   * @param {string} tag
-   */
-  _sync(tag) {
+  _sync(tag: string): void {
     this._syncTagNameSetting.set(tag);
     this._manager.dispatchSyncEvent(this._registration.id, tag, true);
   }
 
-  /**
-   * @param {string} tag
-   */
-  _periodicSync(tag) {
+  _periodicSync(tag: string): void {
     this._periodicSyncTagNameSetting.set(tag);
     this._manager.dispatchPeriodicSyncEvent(this._registration.id, tag);
   }
 
-  /**
-   * @param {!Element} element
-   * @param {!Protocol.Target.GetTargetInfoResponse} targetInfoResponse
-   */
-  _onClientInfo(element, targetInfoResponse) {
+  _onClientInfo(element: Element, targetInfoResponse: Protocol.Target.GetTargetInfoResponse): void {
     const targetInfo = targetInfoResponse.targetInfo;
     if (!targetInfo) {
       return;
@@ -861,61 +746,41 @@ export class Section {
     this._updateClientInfo(element, targetInfo);
   }
 
-  /**
-   * @param {!Element} element
-   * @param {!Protocol.Target.TargetInfo} targetInfo
-   */
-  _updateClientInfo(element, targetInfo) {
+  _updateClientInfo(element: Element, targetInfo: Protocol.Target.TargetInfo): void {
     if (targetInfo.type !== 'page' && targetInfo.type === 'iframe') {
       const clientString = element.createChild('span', 'service-worker-client-string');
-      UI.UIUtils.createTextChild(clientString, i18nString(UIStrings.workerS, {PH1: targetInfo.url}));
+      UI.UIUtils.createTextChild(clientString, i18nString(UIStrings.workerS, { PH1: targetInfo.url }));
       return;
     }
     element.removeChildren();
     const clientString = element.createChild('span', 'service-worker-client-string');
     UI.UIUtils.createTextChild(clientString, targetInfo.url);
-    this._createLink(
-        element, i18nString(UIStrings.focus), this._activateTarget.bind(this, targetInfo.targetId),
-        'service-worker-client-focus-link');
+    this._createLink(element, i18nString(UIStrings.focus), this._activateTarget.bind(this, targetInfo.targetId), 'service-worker-client-focus-link');
   }
 
-  /**
-   * @param {string} targetId
-   */
-  _activateTarget(targetId) {
-    this._manager.target().targetAgent().invoke_activateTarget({targetId});
+  _activateTarget(targetId: string): void {
+    this._manager.target().targetAgent().invoke_activateTarget({ targetId });
   }
 
-  _startButtonClicked() {
+  _startButtonClicked(): void {
     this._manager.startWorker(this._registration.scopeURL);
   }
 
-  _skipButtonClicked() {
+  _skipButtonClicked(): void {
     this._manager.skipWaiting(this._registration.scopeURL);
   }
 
-  /**
-   * @param {string} versionId
-   */
-  _stopButtonClicked(versionId) {
+  _stopButtonClicked(versionId: string): void {
     this._manager.stopWorker(versionId);
   }
 
-  /**
-   * @param {string} versionId
-   */
-  _inspectButtonClicked(versionId) {
+  _inspectButtonClicked(versionId: string): void {
     this._manager.inspectWorker(versionId);
   }
 
-  /**
-   * @param {!Element} container
-   * @return {!Element}
-   */
-  _wrapWidget(container) {
-    const shadowRoot = UI.Utils.createShadowRootWithCoreStyles(
-        container, {cssFile: undefined, enableLegacyPatching: true, delegatesFocus: undefined});
-    UI.Utils.appendStyle(shadowRoot, 'resources/serviceWorkersView.css', {enableLegacyPatching: false});
+  _wrapWidget(container: Element): Element {
+    const shadowRoot = UI.Utils.createShadowRootWithCoreStyles(container, { cssFile: undefined, enableLegacyPatching: true, delegatesFocus: undefined });
+    UI.Utils.appendStyle(shadowRoot, 'resources/serviceWorkersView.css', { enableLegacyPatching: false });
     const contentElement = document.createElement('div');
     shadowRoot.appendChild(contentElement);
     return contentElement;

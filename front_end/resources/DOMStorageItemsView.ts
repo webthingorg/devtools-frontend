@@ -24,6 +24,8 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';
 import * as DataGrid from '../data_grid/data_grid.js';
 import * as i18n from '../i18n/i18n.js';
@@ -31,8 +33,8 @@ import * as SourceFrame from '../source_frame/source_frame.js';
 import * as TextUtils from '../text_utils/text_utils.js';
 import * as UI from '../ui/ui.js';
 
-import {DOMStorage} from './DOMStorageModel.js';
-import {StorageItemsView} from './StorageItemsView.js';
+import { DOMStorage } from './DOMStorageModel.js';
+import { StorageItemsView } from './StorageItemsView.js';
 
 export const UIStrings = {
   /**
@@ -56,23 +58,27 @@ export const UIStrings = {
   */
   selectAValueToPreview: 'Select a value to preview',
 };
-const str_ = i18n.i18n.registerUIStrings('resources/DOMStorageItemsView.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('resources/DOMStorageItemsView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class DOMStorageItemsView extends StorageItemsView {
-  /**
-   * @param {!DOMStorage} domStorage
-   */
-  constructor(domStorage) {
+  _domStorage: DOMStorage;
+  _dataGrid: DataGrid.DataGrid.DataGridImpl<any>;
+  _splitWidget: UI.SplitWidget.SplitWidget;
+  _previewPanel: UI.Widget.VBox;
+  _preview: UI.Widget.Widget | null;
+  _previewValue: string | null;
+  _eventListeners: Common.EventTarget.EventDescriptor[];
+  constructor(domStorage: DOMStorage) {
     super(i18nString(UIStrings.domStorage), 'domStoragePanel');
 
     this._domStorage = domStorage;
 
     this.element.classList.add('storage-view', 'table');
 
-    const columns = /** @type {!Array<!DataGrid.DataGrid.ColumnDescriptor>} */ ([
-      {id: 'key', title: i18nString(UIStrings.key), sortable: false, editable: true, longText: true, weight: 50},
-      {id: 'value', title: i18nString(UIStrings.value), sortable: false, editable: true, longText: true, weight: 50}
-    ]);
+    const columns = ([
+      { id: 'key', title: i18nString(UIStrings.key), sortable: false, editable: true, longText: true, weight: 50 },
+      { id: 'value', title: i18nString(UIStrings.value), sortable: false, editable: true, longText: true, weight: 50 }
+    ] as DataGrid.DataGrid.ColumnDescriptor[]);
     this._dataGrid = new DataGrid.DataGrid.DataGridImpl({
       displayName: i18nString(UIStrings.domStorageItems),
       columns,
@@ -81,7 +87,7 @@ export class DOMStorageItemsView extends StorageItemsView {
       refreshCallback: this.refreshItems.bind(this)
     });
     this._dataGrid.addEventListener(DataGrid.DataGrid.Events.SelectedNode, event => {
-      this._previewEntry(/** @type {!DataGrid.DataGrid.DataGridNode<?>} */ (event.data));
+      this._previewEntry((event.data as DataGrid.DataGrid.DataGridNode<any>));
     });
     this._dataGrid.addEventListener(DataGrid.DataGrid.Events.DeselectedNode, event => {
       this._previewEntry(null);
@@ -90,7 +96,7 @@ export class DOMStorageItemsView extends StorageItemsView {
     this._dataGrid.setName('DOMStorageItemsView');
 
     this._splitWidget = new UI.SplitWidget.SplitWidget(
-        /* isVertical: */ false, /* secondIsSidebar: */ true, 'domStorageSplitViewState');
+    /* isVertical: */ false, /* secondIsSidebar: */ true, 'domStorageSplitViewState');
     this._splitWidget.show(this.element);
 
     this._previewPanel = new UI.Widget.VBox();
@@ -102,22 +108,16 @@ export class DOMStorageItemsView extends StorageItemsView {
     this._splitWidget.setSidebarWidget(this._previewPanel);
     this._splitWidget.installResizer(resizer);
 
-    /** @type {?UI.Widget.Widget} */
     this._preview = null;
-    /** @type {?string} */
     this._previewValue = null;
 
     this._showPreview(null, null);
 
-    /** @type {!Array<!Common.EventTarget.EventDescriptor>} */
     this._eventListeners = [];
     this.setStorage(domStorage);
   }
 
-  /**
-   * @param {!DOMStorage} domStorage
-   */
-  setStorage(domStorage) {
+  setStorage(domStorage: DOMStorage): void {
     Common.EventTarget.EventTarget.removeEventListeners(this._eventListeners);
     this._domStorage = domStorage;
     this._eventListeners = [
@@ -129,7 +129,7 @@ export class DOMStorageItemsView extends StorageItemsView {
     this.refreshItems();
   }
 
-  _domStorageItemsCleared() {
+  _domStorageItemsCleared(): void {
     if (!this.isShowing() || !this._dataGrid) {
       return;
     }
@@ -139,10 +139,7 @@ export class DOMStorageItemsView extends StorageItemsView {
     this.setCanDeleteSelected(false);
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _domStorageItemRemoved(event) {
+  _domStorageItemRemoved(event: Common.EventTarget.EventTargetEvent): void {
     if (!this.isShowing() || !this._dataGrid) {
       return;
     }
@@ -161,10 +158,7 @@ export class DOMStorageItemsView extends StorageItemsView {
     }
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _domStorageItemAdded(event) {
+  _domStorageItemAdded(event: Common.EventTarget.EventTargetEvent): void {
     if (!this.isShowing() || !this._dataGrid) {
       return;
     }
@@ -179,21 +173,17 @@ export class DOMStorageItemsView extends StorageItemsView {
       }
     }
 
-    const childNode = new DataGrid.DataGrid.DataGridNode({key: storageData.key, value: storageData.value}, false);
+    const childNode = new DataGrid.DataGrid.DataGridNode({ key: storageData.key, value: storageData.value }, false);
     rootNode.insertChild(childNode, children.length - 1);
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _domStorageItemUpdated(event) {
+  _domStorageItemUpdated(event: Common.EventTarget.EventTargetEvent): void {
     if (!this.isShowing() || !this._dataGrid) {
       return;
     }
 
     const storageData = event.data;
-    const childNode = this._dataGrid.rootNode().children.find(
-        /** @param {!DataGrid.DataGrid.DataGridNode<?>} child */ child => child.data.key === storageData.key);
+    const childNode = this._dataGrid.rootNode().children.find((child: DataGrid.DataGrid.DataGridNode<any>) => child.data.key === storageData.key);
     if (!childNode || childNode.data.value === storageData.value) {
       return;
     }
@@ -207,12 +197,9 @@ export class DOMStorageItemsView extends StorageItemsView {
     this.setCanDeleteSelected(true);
   }
 
-  /**
-   * @param {!Array<!Array<string>>} items
-   */
-  _showDOMStorageItems(items) {
+  _showDOMStorageItems(items: string[][]): void {
     const rootNode = this._dataGrid.rootNode();
-    let selectedKey = null;
+    let selectedKey: null = null;
     for (const node of rootNode.children) {
       if (!node.selected) {
         continue;
@@ -221,12 +208,12 @@ export class DOMStorageItemsView extends StorageItemsView {
       break;
     }
     rootNode.removeChildren();
-    let selectedNode = null;
-    const filteredItems = /** @param {!Array<string>} item */ item => `${item[0]} ${item[1]}`;
+    let selectedNode: null = null;
+    const filteredItems = /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ (/** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ /** @param {!Array<string>} item */ item: string[]): string => `${item[0]} ${item[1]}`;
     for (const item of this.filter(items, filteredItems)) {
       const key = item[0];
       const value = item[1];
-      const node = new DataGrid.DataGrid.DataGridNode({key: key, value: value}, false);
+      const node = new DataGrid.DataGrid.DataGridNode({ key: key, value: value }, false);
       node.selectable = true;
       rootNode.appendChild(node);
       if (!selectedNode || key === selectedKey) {
@@ -240,10 +227,7 @@ export class DOMStorageItemsView extends StorageItemsView {
     this.setCanDeleteSelected(Boolean(selectedNode));
   }
 
-  /**
-   * @override
-   */
-  deleteSelectedItem() {
+  deleteSelectedItem(): void {
     if (!this._dataGrid || !this._dataGrid.selectedNode) {
       return;
     }
@@ -251,29 +235,17 @@ export class DOMStorageItemsView extends StorageItemsView {
     this._deleteCallback(this._dataGrid.selectedNode);
   }
 
-  /**
-   * @override
-   */
-  refreshItems() {
+  refreshItems(): void {
     this._domStorage.getItems().then(items => items && this._showDOMStorageItems(items));
   }
 
-  /**
-   * @override
-   */
-  deleteAllItems() {
+  deleteAllItems(): void {
     this._domStorage.clear();
     // explicitly clear the view because the event won't be fired when it has no items
     this._domStorageItemsCleared();
   }
 
-  /**
-   * @param {!DataGrid.DataGrid.DataGridNode<?>} editingNode
-   * @param {string} columnIdentifier
-   * @param {string} oldText
-   * @param {string} newText
-   */
-  _editingCallback(editingNode, columnIdentifier, oldText, newText) {
+  _editingCallback(editingNode: DataGrid.DataGrid.DataGridNode<any>, columnIdentifier: string, oldText: string, newText: string): void {
     const domStorage = this._domStorage;
     if (columnIdentifier === 'key') {
       if (typeof oldText === 'string') {
@@ -281,15 +253,13 @@ export class DOMStorageItemsView extends StorageItemsView {
       }
       domStorage.setItem(newText, editingNode.data.value || '');
       this._removeDupes(editingNode);
-    } else {
+    }
+    else {
       domStorage.setItem(editingNode.data.key || '', newText);
     }
   }
 
-  /**
-   * @param {!DataGrid.DataGrid.DataGridNode<?>} masterNode
-   */
-  _removeDupes(masterNode) {
+  _removeDupes(masterNode: DataGrid.DataGrid.DataGridNode<any>): void {
     const rootNode = this._dataGrid.rootNode();
     const children = rootNode.children;
     for (let i = children.length - 1; i >= 0; --i) {
@@ -300,10 +270,7 @@ export class DOMStorageItemsView extends StorageItemsView {
     }
   }
 
-  /**
-   * @param {!DataGrid.DataGrid.DataGridNode<?>} node
-   */
-  _deleteCallback(node) {
+  _deleteCallback(node: DataGrid.DataGrid.DataGridNode<any>): void {
     if (!node || node.isCreationNode) {
       return;
     }
@@ -313,11 +280,7 @@ export class DOMStorageItemsView extends StorageItemsView {
     }
   }
 
-  /**
-   * @param {?UI.Widget.Widget} preview
-   * @param {?string} value
-   */
-  _showPreview(preview, value) {
+  _showPreview(preview: UI.Widget.Widget | null, value: string | null): void {
     if (this._preview && this._previewValue === value) {
       return;
     }
@@ -332,22 +295,19 @@ export class DOMStorageItemsView extends StorageItemsView {
     preview.show(this._previewPanel.contentElement);
   }
 
-  /**
-   * @param {?DataGrid.DataGrid.DataGridNode<?>} entry
-   */
-  async _previewEntry(entry) {
+  async _previewEntry(entry: DataGrid.DataGrid.DataGridNode<any> | null): Promise<void> {
     const value = entry && entry.data && entry.data.value;
     if (entry && entry.data && entry.data.value) {
       const protocol = this._domStorage.isLocalStorage ? 'localstorage' : 'sessionstorage';
       const url = `${protocol}://${entry.key}`;
-      const provider = TextUtils.StaticContentProvider.StaticContentProvider.fromString(
-          url, Common.ResourceType.resourceTypes.XHR, /** @type {string} */ (value));
+      const provider = TextUtils.StaticContentProvider.StaticContentProvider.fromString(url, Common.ResourceType.resourceTypes.XHR, (value as string));
       const preview = await SourceFrame.PreviewFactory.PreviewFactory.createPreview(provider, 'text/plain');
       // Selection could've changed while the preview was loaded
       if (entry.selected) {
         this._showPreview(preview, value);
       }
-    } else {
+    }
+    else {
       this._showPreview(null, value);
     }
   }

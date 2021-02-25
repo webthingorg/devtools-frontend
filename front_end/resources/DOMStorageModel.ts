@@ -27,29 +27,24 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';
 import * as SDK from '../sdk/sdk.js';
 
 export class DOMStorage extends Common.ObjectWrapper.ObjectWrapper {
-  /**
-   * @param {!DOMStorageModel} model
-   * @param {string} securityOrigin
-   * @param {boolean} isLocalStorage
-   */
-  constructor(model, securityOrigin, isLocalStorage) {
+  _model: DOMStorageModel;
+  _securityOrigin: string;
+  _isLocalStorage: boolean;
+  constructor(model: DOMStorageModel, securityOrigin: string, isLocalStorage: boolean) {
     super();
     this._model = model;
     this._securityOrigin = securityOrigin;
     this._isLocalStorage = isLocalStorage;
   }
 
-  /**
-   * @param {string} securityOrigin
-   * @param {boolean} isLocalStorage
-   * @return {!Protocol.DOMStorage.StorageId}
-   */
-  static storageId(securityOrigin, isLocalStorage) {
-    return {securityOrigin: securityOrigin, isLocalStorage: isLocalStorage};
+  static storageId(securityOrigin: string, isLocalStorage: boolean): Protocol.DOMStorage.StorageId {
+    return { securityOrigin: securityOrigin, isLocalStorage: isLocalStorage };
   }
 
   /** @return {!Protocol.DOMStorage.StorageId} */
@@ -67,33 +62,22 @@ export class DOMStorage extends Common.ObjectWrapper.ObjectWrapper {
     return this._isLocalStorage;
   }
 
-  /**
-   * @return {!Promise<?Array<!Protocol.DOMStorage.Item>>}
-   */
-  getItems() {
-    return this._model._agent.invoke_getDOMStorageItems({storageId: this.id}).then(({entries}) => entries);
+  getItems(): Promise<Protocol.DOMStorage.Item[] | null> {
+    return this._model._agent.invoke_getDOMStorageItems({ storageId: this.id }).then(({ entries }) => entries);
   }
 
-  /**
-   * @param {string} key
-   * @param {string} value
-   */
-  setItem(key, value) {
-    this._model._agent.invoke_setDOMStorageItem({storageId: this.id, key, value});
+  setItem(key: string, value: string): void {
+    this._model._agent.invoke_setDOMStorageItem({ storageId: this.id, key, value });
   }
 
-  /**
-   * @param {string} key
-   */
-  removeItem(key) {
-    this._model._agent.invoke_removeDOMStorageItem({storageId: this.id, key});
+  removeItem(key: string): void {
+    this._model._agent.invoke_removeDOMStorageItem({ storageId: this.id, key });
   }
 
-  clear() {
-    this._model._agent.invoke_clear({storageId: this.id});
+  clear(): void {
+    this._model._agent.invoke_clear({ storageId: this.id });
   }
 }
-
 
 /** @enum {symbol} */
 DOMStorage.Events = {
@@ -104,29 +88,29 @@ DOMStorage.Events = {
 };
 
 export class DOMStorageModel extends SDK.SDKModel.SDKModel {
-  /**
-   * @param {!SDK.SDKModel.Target} target
-   */
-  constructor(target) {
+  _securityOriginManager: SDK.SecurityOriginManager.SecurityOriginManager | null;
+  _storages: {
+    [x: string]: DOMStorage;
+  };
+  _agent: ProtocolProxyApi.DOMStorageApi;
+  _enabled?: boolean;
+  constructor(target: SDK.SDKModel.Target) {
     super(target);
 
     this._securityOriginManager = target.model(SDK.SecurityOriginManager.SecurityOriginManager);
-    /** @type {!Object.<string, !DOMStorage>} */
     this._storages = {};
     this._agent = target.domstorageAgent();
   }
 
-  enable() {
+  enable(): void {
     if (this._enabled) {
       return;
     }
 
     this.target().registerDOMStorageDispatcher(new DOMStorageDispatcher(this));
     if (this._securityOriginManager) {
-      this._securityOriginManager.addEventListener(
-          SDK.SecurityOriginManager.Events.SecurityOriginAdded, this._securityOriginAdded, this);
-      this._securityOriginManager.addEventListener(
-          SDK.SecurityOriginManager.Events.SecurityOriginRemoved, this._securityOriginRemoved, this);
+      this._securityOriginManager.addEventListener(SDK.SecurityOriginManager.Events.SecurityOriginAdded, this._securityOriginAdded, this);
+      this._securityOriginManager.addEventListener(SDK.SecurityOriginManager.Events.SecurityOriginRemoved, this._securityOriginRemoved, this);
 
       for (const securityOrigin of this._securityOriginManager.securityOrigins()) {
         this._addOrigin(securityOrigin);
@@ -137,10 +121,7 @@ export class DOMStorageModel extends SDK.SDKModel.SDKModel {
     this._enabled = true;
   }
 
-  /**
-   * @param {string} origin
-   */
-  clearForOrigin(origin) {
+  clearForOrigin(origin: string): void {
     if (!this._enabled) {
       return;
     }
@@ -156,17 +137,11 @@ export class DOMStorageModel extends SDK.SDKModel.SDKModel {
     this._addOrigin(origin);
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _securityOriginAdded(event) {
-    this._addOrigin(/** @type {string} */ (event.data));
+  _securityOriginAdded(event: Common.EventTarget.EventTargetEvent): void {
+    this._addOrigin((event.data as string));
   }
 
-  /**
-   * @param {string} securityOrigin
-   */
-  _addOrigin(securityOrigin) {
+  _addOrigin(securityOrigin: string): void {
     const parsed = new Common.ParsedURL.ParsedURL(securityOrigin);
     // These are "opaque" origins which are not supposed to support DOM storage.
     if (!parsed.isValid || parsed.scheme === 'data' || parsed.scheme === 'about' || parsed.scheme === 'javascript') {
@@ -182,17 +157,11 @@ export class DOMStorageModel extends SDK.SDKModel.SDKModel {
     }
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _securityOriginRemoved(event) {
-    this._removeOrigin(/** @type {string} */ (event.data));
+  _securityOriginRemoved(event: Common.EventTarget.EventTargetEvent): void {
+    this._removeOrigin((event.data as string));
   }
 
-  /**
-   * @param {string} securityOrigin
-   */
-  _removeOrigin(securityOrigin) {
+  _removeOrigin(securityOrigin: string): void {
     for (const isLocal of [true, false]) {
       const key = this._storageKey(securityOrigin, isLocal);
       const storage = this._storages[key];
@@ -204,19 +173,11 @@ export class DOMStorageModel extends SDK.SDKModel.SDKModel {
     }
   }
 
-  /**
-   * @param {string} securityOrigin
-   * @param {boolean} isLocalStorage
-   * @return {string}
-   */
-  _storageKey(securityOrigin, isLocalStorage) {
+  _storageKey(securityOrigin: string, isLocalStorage: boolean): string {
     return JSON.stringify(DOMStorage.storageId(securityOrigin, isLocalStorage));
   }
 
-  /**
-   * @param {!Protocol.DOMStorage.StorageId} storageId
-   */
-  _domStorageItemsCleared(storageId) {
+  _domStorageItemsCleared(storageId: Protocol.DOMStorage.StorageId): void {
     const domStorage = this.storageForId(storageId);
     if (!domStorage) {
       return;
@@ -226,63 +187,41 @@ export class DOMStorageModel extends SDK.SDKModel.SDKModel {
     domStorage.dispatchEventToListeners(DOMStorage.Events.DOMStorageItemsCleared, eventData);
   }
 
-  /**
-   * @param {!Protocol.DOMStorage.StorageId} storageId
-   * @param {string} key
-   */
-  _domStorageItemRemoved(storageId, key) {
+  _domStorageItemRemoved(storageId: Protocol.DOMStorage.StorageId, key: string): void {
     const domStorage = this.storageForId(storageId);
     if (!domStorage) {
       return;
     }
 
-    const eventData = {key: key};
+    const eventData = { key: key };
     domStorage.dispatchEventToListeners(DOMStorage.Events.DOMStorageItemRemoved, eventData);
   }
 
-  /**
-   * @param {!Protocol.DOMStorage.StorageId} storageId
-   * @param {string} key
-   * @param {string} value
-   */
-  _domStorageItemAdded(storageId, key, value) {
+  _domStorageItemAdded(storageId: Protocol.DOMStorage.StorageId, key: string, value: string): void {
     const domStorage = this.storageForId(storageId);
     if (!domStorage) {
       return;
     }
 
-    const eventData = {key: key, value: value};
+    const eventData = { key: key, value: value };
     domStorage.dispatchEventToListeners(DOMStorage.Events.DOMStorageItemAdded, eventData);
   }
 
-  /**
-   * @param {!Protocol.DOMStorage.StorageId} storageId
-   * @param {string} key
-   * @param {string} oldValue
-   * @param {string} value
-   */
-  _domStorageItemUpdated(storageId, key, oldValue, value) {
+  _domStorageItemUpdated(storageId: Protocol.DOMStorage.StorageId, key: string, oldValue: string, value: string): void {
     const domStorage = this.storageForId(storageId);
     if (!domStorage) {
       return;
     }
 
-    const eventData = {key: key, oldValue: oldValue, value: value};
+    const eventData = { key: key, oldValue: oldValue, value: value };
     domStorage.dispatchEventToListeners(DOMStorage.Events.DOMStorageItemUpdated, eventData);
   }
 
-  /**
-   * @param {!Protocol.DOMStorage.StorageId} storageId
-   * @return {!DOMStorage}
-   */
-  storageForId(storageId) {
+  storageForId(storageId: Protocol.DOMStorage.StorageId): DOMStorage {
     return this._storages[JSON.stringify(storageId)];
   }
 
-  /**
-   * @return {!Array.<!DOMStorage>}
-   */
-  storages() {
+  storages(): DOMStorage[] {
     const result = [];
     for (const id in this._storages) {
       result.push(this._storages[id]);
@@ -293,52 +232,31 @@ export class DOMStorageModel extends SDK.SDKModel.SDKModel {
 
 SDK.SDKModel.SDKModel.register(DOMStorageModel, SDK.SDKModel.Capability.DOM, false);
 
-/** @enum {symbol} */
-export const Events = {
-  DOMStorageAdded: Symbol('DOMStorageAdded'),
-  DOMStorageRemoved: Symbol('DOMStorageRemoved')
-};
+export enum Events {
+  DOMStorageAdded = 'DOMStorageAdded',
+  DOMStorageRemoved = 'DOMStorageRemoved'
+}
+;
 
-/**
- * @implements {ProtocolProxyApi.DOMStorageDispatcher}
- */
-export class DOMStorageDispatcher {
-  /**
-   * @param {!DOMStorageModel} model
-   */
-  constructor(model) {
+export class DOMStorageDispatcher implements ProtocolProxyApi.DOMStorageDispatcher {
+  _model: DOMStorageModel;
+  constructor(model: DOMStorageModel) {
     this._model = model;
   }
 
-  /**
-   * @override
-   * @param {!Protocol.DOMStorage.DomStorageItemsClearedEvent} event
-   */
-  domStorageItemsCleared({storageId}) {
+  domStorageItemsCleared({ storageId }: Protocol.DOMStorage.DomStorageItemsClearedEvent): void {
     this._model._domStorageItemsCleared(storageId);
   }
 
-  /**
-   * @override
-   * @param {!Protocol.DOMStorage.DomStorageItemRemovedEvent} event
-   */
-  domStorageItemRemoved({storageId, key}) {
+  domStorageItemRemoved({ storageId, key }: Protocol.DOMStorage.DomStorageItemRemovedEvent): void {
     this._model._domStorageItemRemoved(storageId, key);
   }
 
-  /**
-   * @override
-   * @param {!Protocol.DOMStorage.DomStorageItemAddedEvent} event
-   */
-  domStorageItemAdded({storageId, key, newValue}) {
+  domStorageItemAdded({ storageId, key, newValue }: Protocol.DOMStorage.DomStorageItemAddedEvent): void {
     this._model._domStorageItemAdded(storageId, key, newValue);
   }
 
-  /**
-   * @override
-   * @param {!Protocol.DOMStorage.DomStorageItemUpdatedEvent} storageId
-   */
-  domStorageItemUpdated({storageId, key, oldValue, newValue}) {
+  domStorageItemUpdated({ storageId, key, oldValue, newValue }: Protocol.DOMStorage.DomStorageItemUpdatedEvent): void {
     this._model._domStorageItemUpdated(storageId, key, oldValue, newValue);
   }
 }

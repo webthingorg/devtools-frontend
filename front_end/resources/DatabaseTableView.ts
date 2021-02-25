@@ -23,12 +23,14 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';
 import * as DataGrid from '../data_grid/data_grid.js';
 import * as i18n from '../i18n/i18n.js';
 import * as UI from '../ui/ui.js';
 
-import {Database, DatabaseModel, Events as DatabaseModelEvents} from './DatabaseModel.js';  // eslint-disable-line no-unused-vars
+import { Database, DatabaseModel, Events as DatabaseModelEvents } from './DatabaseModel.js'; // eslint-disable-line no-unused-vars
 
 export const UIStrings = {
   /**
@@ -54,80 +56,64 @@ export const UIStrings = {
   */
   anErrorOccurredTryingToreadTheS: 'An error occurred trying to read the "{PH1}" table.',
 };
-const str_ = i18n.i18n.registerUIStrings('resources/DatabaseTableView.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('resources/DatabaseTableView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class DatabaseTableView extends UI.View.SimpleView {
-  /**
-   * @param {!Database} database
-   * @param {string} tableName
-   */
-  constructor(database, tableName) {
+  database: Database;
+  tableName: string;
+  _lastVisibleColumns: string;
+  _columnsMap: Map<string, string>;
+  _visibleColumnsSetting: Common.Settings.Setting<any>;
+  refreshButton: UI.Toolbar.ToolbarButton;
+  _visibleColumnsInput: UI.Toolbar.ToolbarInput;
+  _dataGrid: DataGrid.SortableDataGrid.SortableDataGrid<DataGrid.SortableDataGrid.SortableDataGridNode<any>> | null;
+  _emptyWidget?: UI.EmptyWidget.EmptyWidget;
+  constructor(database: Database, tableName: string) {
     super(i18nString(UIStrings.database));
 
     this.database = database;
     this.tableName = tableName;
     this._lastVisibleColumns = '';
-    /** @type {!Map<string, string>} */
     this._columnsMap = new Map();
 
     this.element.classList.add('storage-view', 'table');
 
     this._visibleColumnsSetting =
-        Common.Settings.Settings.instance().createSetting('databaseTableViewVisibleColumns', {});
+      Common.Settings.Settings.instance().createSetting('databaseTableViewVisibleColumns', {});
 
     this.refreshButton = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.refresh), 'largeicon-refresh');
     this.refreshButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this._refreshButtonClicked, this);
     this._visibleColumnsInput = new UI.Toolbar.ToolbarInput(i18nString(UIStrings.visibleColumns), '', 1);
-    this._visibleColumnsInput.addEventListener(
-        UI.Toolbar.ToolbarInput.Event.TextChanged, this._onVisibleColumnsChanged, this);
+    this._visibleColumnsInput.addEventListener(UI.Toolbar.ToolbarInput.Event.TextChanged, this._onVisibleColumnsChanged, this);
 
-    /** @type {?DataGrid.SortableDataGrid.SortableDataGrid<!DataGrid.SortableDataGrid.SortableDataGridNode<*>>} */
     this._dataGrid = null;
   }
 
-  /**
-   * @override
-   */
-  wasShown() {
+  wasShown(): void {
     this.update();
   }
 
-  /**
-   * @override
-   * @return {!Promise<!Array<!UI.Toolbar.ToolbarItem>>}
-   */
-  async toolbarItems() {
+  async toolbarItems(): Promise<UI.Toolbar.ToolbarItem[]> {
     return [this.refreshButton, this._visibleColumnsInput];
   }
 
-  /**
-   * @param {string} tableName
-   * @return {string}
-   */
-  _escapeTableName(tableName) {
+  _escapeTableName(tableName: string): string {
     return tableName.replace(/\"/g, '""');
   }
 
-  update() {
-    this.database.executeSql(
-        'SELECT rowid, * FROM "' + this._escapeTableName(this.tableName) + '"', this._queryFinished.bind(this),
-        this._queryError.bind(this));
+  update(): void {
+    this.database.executeSql('SELECT rowid, * FROM "' + this._escapeTableName(this.tableName) + '"', this._queryFinished.bind(this), this._queryError.bind(this));
   }
 
-  /**
-   *
-   * @param {!Array<string>} columnNames
-   * @param {!Array<*>} values
-   */
-  _queryFinished(columnNames, values) {
+  _queryFinished(columnNames: string[], values: any[]): void {
     this.detachChildWidgets();
     this.element.removeChildren();
 
     this._dataGrid =
-        DataGrid.SortableDataGrid.SortableDataGrid.create(columnNames, values, i18nString(UIStrings.database));
+      DataGrid.SortableDataGrid.SortableDataGrid.create(columnNames, values, i18nString(UIStrings.database));
     this._visibleColumnsInput.setVisible(Boolean(this._dataGrid));
     if (!this._dataGrid) {
-      this._emptyWidget = new UI.EmptyWidget.EmptyWidget(i18nString(UIStrings.theStableIsEmpty, {PH1: this.tableName}));
+      this._emptyWidget = new UI.EmptyWidget.EmptyWidget(i18nString(UIStrings.theStableIsEmpty, { PH1: this.tableName }));
       this._emptyWidget.show(this.element);
       return;
     }
@@ -145,14 +131,14 @@ export class DatabaseTableView extends UI.View.SimpleView {
     this._onVisibleColumnsChanged();
   }
 
-  _onVisibleColumnsChanged() {
+  _onVisibleColumnsChanged(): void {
     if (!this._dataGrid) {
       return;
     }
     const text = this._visibleColumnsInput.value();
     const parts = text.split(/[\s,]+/);
-    const matches = new Set();
-    const columnsVisibility = new Set();
+    const matches = new Set<string>();
+    const columnsVisibility = new Set<'0'>();
     columnsVisibility.add('0');
     for (const part of parts) {
       const mappedColumn = this._columnsMap.get(part);
@@ -177,20 +163,17 @@ export class DatabaseTableView extends UI.View.SimpleView {
     this._lastVisibleColumns = newVisibleColumns;
   }
 
-  _queryError() {
+  _queryError(): void {
     this.detachChildWidgets();
     this.element.removeChildren();
 
     const errorMsgElement = document.createElement('div');
     errorMsgElement.className = 'storage-table-error';
-    errorMsgElement.textContent = i18nString(UIStrings.anErrorOccurredTryingToreadTheS, {PH1: this.tableName});
+    errorMsgElement.textContent = i18nString(UIStrings.anErrorOccurredTryingToreadTheS, { PH1: this.tableName });
     this.element.appendChild(errorMsgElement);
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _refreshButtonClicked(event) {
+  _refreshButtonClicked(event: Common.EventTarget.EventTargetEvent): void {
     this.update();
   }
 }

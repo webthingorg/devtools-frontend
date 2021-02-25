@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';
 import * as Components from '../components/components.js';
 import * as i18n from '../i18n/i18n.js';
@@ -141,25 +143,21 @@ export const UIStrings = {
   /**
   *@description Manifest installability error in the Application panel
   */
-  manifestDisplayPropertyMustBeOne:
-      'Manifest \'`display`\' property must be one of \'`standalone`\', \'`fullscreen`\', or \'`minimal-ui`\'',
+  manifestDisplayPropertyMustBeOne: 'Manifest \'`display`\' property must be one of \'`standalone`\', \'`fullscreen`\', or \'`minimal-ui`\'',
   /**
   *@description Manifest installability error in the Application panel
   *@example {100} PH1
   */
-  manifestDoesNotContainASuitable:
-      'Manifest does not contain a suitable icon - PNG, SVG or WebP format of at least {PH1}px is required, the `sizes` attribute must be set, and the `purpose` attribute, if set, must include `"any"` and should not include `"maskable"`.',
+  manifestDoesNotContainASuitable: 'Manifest does not contain a suitable icon - PNG, SVG or WebP format of at least {PH1}px is required, the `sizes` attribute must be set, and the `purpose` attribute, if set, must include `"any"` and should not include `"maskable"`.',
   /**
   *@description Manifest installability error in the Application panel
   */
-  noMatchingServiceWorkerDetected:
-      'No matching `service worker` detected. You may need to reload the page, or check that the scope of the `service worker` for the current page encloses the scope and start URL from the manifest.',
+  noMatchingServiceWorkerDetected: 'No matching `service worker` detected. You may need to reload the page, or check that the scope of the `service worker` for the current page encloses the scope and start URL from the manifest.',
   /**
   *@description Manifest installability error in the Application panel
   *@example {100} PH1
   */
-  noSuppliedIconIsAtLeastSpxSquare:
-      'No supplied icon is at least {PH1} pixels square in `PNG`, `SVG` or `WebP` format, with the purpose attribute unset or set to `"any"`.',
+  noSuppliedIconIsAtLeastSpxSquare: 'No supplied icon is at least {PH1} pixels square in `PNG`, `SVG` or `WebP` format, with the purpose attribute unset or set to `"any"`.',
   /**
   *@description Manifest installability error in the Application panel
   */
@@ -207,19 +205,16 @@ export const UIStrings = {
   /**
   *@description Manifest installability error in the Application panel
   */
-  preferrelatedapplicationsIsOnly:
-      '`prefer_related_applications` is only supported on `Chrome` Beta and Stable channels on `Android`.',
+  preferrelatedapplicationsIsOnly: '`prefer_related_applications` is only supported on `Chrome` Beta and Stable channels on `Android`.',
   /**
   *@description Manifest installability error in the Application panel
   */
-  manifestContainsDisplayoverride:
-      'Manifest contains \'`display_override`\' field, and the first supported display mode must be one of \'`standalone`\', \'`fullscreen`\', or \'`minimal-ui`\'',
+  manifestContainsDisplayoverride: 'Manifest contains \'`display_override`\' field, and the first supported display mode must be one of \'`standalone`\', \'`fullscreen`\', or \'`minimal-ui`\'',
   /**
   *@description Warning message for offline capability check
   *@example {https://developer.chrome.com/blog/improved-pwa-offline-detection} PH1
   */
-  pageDoesNotWorkOfflineThePage:
-      'Page does not work offline. Starting in Chrome 93, the installability criteria are changing, and this site will not be installable. See {PH1} for more information.',
+  pageDoesNotWorkOfflineThePage: 'Page does not work offline. Starting in Chrome 93, the installability criteria are changing, and this site will not be installable. See {PH1} for more information.',
   /**
   *@description Text to indicate the source of an image
   *@example {example.com} PH1
@@ -279,8 +274,7 @@ export const UIStrings = {
   *@example {200} PH5
   *@example {200} PH6
   */
-  actualSizeSspxOfSSDoesNotMatch:
-      'Actual size ({PH1}×{PH2})px of {PH3} {PH4} does not match specified size ({PH5}×{PH6}px)',
+  actualSizeSspxOfSSDoesNotMatch: 'Actual size ({PH1}×{PH2})px of {PH3} {PH4} does not match specified size ({PH5}×{PH6}px)',
   /**
   *@description Warning message for image resources from the manifest
   *@example {100} PH1
@@ -322,20 +316,39 @@ export const UIStrings = {
   */
   sSHeightShouldBeLessThanTwiceTheWidth: '{PH1} {PH2} height should be less than twice the width',
 };
-const str_ = i18n.i18n.registerUIStrings('resources/AppManifestView.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('resources/AppManifestView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
-/**
- * @implements {SDK.SDKModel.Observer}
- */
-export class AppManifestView extends UI.Widget.VBox {
+export class AppManifestView extends UI.Widget.VBox implements SDK.SDKModel.Observer {
+  _emptyView: UI.EmptyWidget.EmptyWidget;
+  _reportView: UI.ReportView.ReportView;
+  _errorsSection: UI.ReportView.Section;
+  _installabilitySection: UI.ReportView.Section;
+  _identitySection: UI.ReportView.Section;
+  _presentationSection: UI.ReportView.Section;
+  _iconsSection: UI.ReportView.Section;
+  _shortcutSections: UI.ReportView.Section[];
+  _screenshotsSections: UI.ReportView.Section[];
+  _nameField: HTMLElement;
+  _shortNameField: HTMLElement;
+  _descriptionField: Element;
+  _startURLField: HTMLElement;
+  _themeColorSwatch: InlineEditor.ColorSwatch.ColorSwatch;
+  _backgroundColorSwatch: InlineEditor.ColorSwatch.ColorSwatch;
+  _orientationField: HTMLElement;
+  _displayField: HTMLElement;
+  _throttler: Common.Throttler.Throttler;
+  _registeredListeners: Common.EventTarget.EventDescriptor[];
+  _target?: SDK.SDKModel.Target;
+  _resourceTreeModel?: SDK.ResourceTreeModel.ResourceTreeModel | null;
+  _serviceWorkerManager?: SDK.ServiceWorkerManager.ServiceWorkerManager | null;
   constructor() {
     super(true);
-    this.registerRequiredCSS('resources/appManifestView.css', {enableLegacyPatching: false});
+    this.registerRequiredCSS('resources/appManifestView.css', { enableLegacyPatching: false });
     this.contentElement.classList.add('manifest-container');
 
     Common.Settings.Settings.instance()
-        .moduleSetting('colorFormat')
-        .addChangeListener(this._updateManifest.bind(this, true));
+      .moduleSetting('colorFormat')
+      .addChangeListener(this._updateManifest.bind(this, true));
 
     this._emptyView = new UI.EmptyWidget.EmptyWidget(i18nString(UIStrings.noManifestDetected));
     this._emptyView.appendLink('https://web.dev/add-manifest/');
@@ -345,7 +358,7 @@ export class AppManifestView extends UI.Widget.VBox {
 
     // TODO(crbug.com/1156978): Replace UI.ReportView.ReportView with ReportView.ts web component.
     this._reportView = new UI.ReportView.ReportView(i18nString(UIStrings.appManifest));
-    this._reportView.registerRequiredCSS('resources/appManifestView.css', {enableLegacyPatching: false});
+    this._reportView.registerRequiredCSS('resources/appManifestView.css', { enableLegacyPatching: false });
     this._reportView.element.classList.add('manifest-view-header');
     this._reportView.show(this.contentElement);
     this._reportView.hideWidget();
@@ -356,9 +369,7 @@ export class AppManifestView extends UI.Widget.VBox {
 
     this._presentationSection = this._reportView.appendSection(i18nString(UIStrings.presentation));
     this._iconsSection = this._reportView.appendSection(i18nString(UIStrings.icons), 'report-section-icons');
-    /** @type {!Array<!UI.ReportView.Section>} */
     this._shortcutSections = [];
-    /** @type {!Array<!UI.ReportView.Section>} */
     this._screenshotsSections = [];
 
     this._nameField = this._identitySection.appendField(i18nString(UIStrings.name));
@@ -380,15 +391,10 @@ export class AppManifestView extends UI.Widget.VBox {
 
     this._throttler = new Common.Throttler.Throttler(1000);
     SDK.SDKModel.TargetManager.instance().observeTargets(this);
-    /** @type {!Array<!Common.EventTarget.EventDescriptor>} */
     this._registeredListeners = [];
   }
 
-  /**
-   * @override
-   * @param {!SDK.SDKModel.Target} target
-   */
-  targetAdded(target) {
+  targetAdded(target: SDK.SDKModel.Target): void {
     if (this._target) {
       return;
     }
@@ -402,24 +408,16 @@ export class AppManifestView extends UI.Widget.VBox {
     this._updateManifest(true);
 
     this._registeredListeners = [
-      this._resourceTreeModel.addEventListener(
-          SDK.ResourceTreeModel.Events.DOMContentLoaded,
-          event => {
-            this._updateManifest(true);
-          }),
-      this._serviceWorkerManager.addEventListener(
-          SDK.ServiceWorkerManager.Events.RegistrationUpdated,
-          event => {
-            this._updateManifest(false);
-          })
+      this._resourceTreeModel.addEventListener(SDK.ResourceTreeModel.Events.DOMContentLoaded, event => {
+        this._updateManifest(true);
+      }),
+      this._serviceWorkerManager.addEventListener(SDK.ServiceWorkerManager.Events.RegistrationUpdated, event => {
+        this._updateManifest(false);
+      })
     ];
   }
 
-  /**
-   * @override
-   * @param {!SDK.SDKModel.Target} target
-   */
-  targetRemoved(target) {
+  targetRemoved(target: SDK.SDKModel.Target): void {
     if (this._target !== target) {
       return;
     }
@@ -431,29 +429,20 @@ export class AppManifestView extends UI.Widget.VBox {
     Common.EventTarget.EventTarget.removeEventListeners(this._registeredListeners);
   }
 
-  /**
-   * @param {boolean} immediately
-   */
-  async _updateManifest(immediately) {
+  async _updateManifest(immediately: boolean): Promise<void> {
     if (!this._resourceTreeModel) {
       return;
     }
-    const {url, data, errors} = await this._resourceTreeModel.fetchAppManifest();
+    const { url, data, errors } = await this._resourceTreeModel.fetchAppManifest();
     const installabilityErrors = await this._resourceTreeModel.getInstallabilityErrors();
     const manifestIcons = await this._resourceTreeModel.getManifestIcons();
 
-    this._throttler.schedule(
-        () => this._renderManifest(url, data, errors, installabilityErrors, manifestIcons), immediately);
+    this._throttler.schedule(() => this._renderManifest(url, data, errors, installabilityErrors, manifestIcons), immediately);
   }
 
-  /**
-   * @param {string} url
-   * @param {?string} data
-   * @param {!Array<!Protocol.Page.AppManifestError>} errors
-   * @param {!Array<!Protocol.Page.InstallabilityError>} installabilityErrors
-   * @param {!{primaryIcon: ?string}} manifestIcons
-   */
-  async _renderManifest(url, data, errors, installabilityErrors, manifestIcons) {
+  async _renderManifest(url: string, data: string | null, errors: Protocol.Page.AppManifestError[], installabilityErrors: Protocol.Page.InstallabilityError[], manifestIcons: {
+    primaryIcon: string | null;
+  }): Promise<void> {
     if (!data && !errors.length) {
       this._emptyView.showWidget();
       this._reportView.hideWidget();
@@ -468,8 +457,7 @@ export class AppManifestView extends UI.Widget.VBox {
     this._errorsSection.clearContent();
     this._errorsSection.element.classList.toggle('hidden', !errors.length);
     for (const error of errors) {
-      this._errorsSection.appendRow().appendChild(
-          UI.UIUtils.createIconLabel(error.message, error.critical ? 'smallicon-error' : 'smallicon-warning'));
+      this._errorsSection.appendRow().appendChild(UI.UIUtils.createIconLabel(error.message, error.critical ? 'smallicon-error' : 'smallicon-warning'));
     }
 
     if (!data) {
@@ -478,7 +466,7 @@ export class AppManifestView extends UI.Widget.VBox {
 
     if (data.charCodeAt(0) === 0xFEFF) {
       data = data.slice(1);
-    }  // Trim the BOM as per https://tools.ietf.org/html/rfc7159#section-8.1.
+    } // Trim the BOM as per https://tools.ietf.org/html/rfc7159#section-8.1.
 
     const parsedManifest = JSON.parse(data);
     this._nameField.textContent = stringProperty('name');
@@ -495,22 +483,19 @@ export class AppManifestView extends UI.Widget.VBox {
     this._startURLField.removeChildren();
     const startURL = stringProperty('start_url');
     if (startURL) {
-      const completeURL = /** @type {string} */ (Common.ParsedURL.ParsedURL.completeURL(url, startURL));
-      const link = Components.Linkifier.Linkifier.linkifyURL(
-          completeURL, /** @type {!Components.Linkifier.LinkifyURLOptions} */ ({text: startURL}));
+      const completeURL = (Common.ParsedURL.ParsedURL.completeURL(url, startURL) as string);
+      const link = Components.Linkifier.Linkifier.linkifyURL(completeURL, ({ text: startURL } as Components.Linkifier.LinkifyURLOptions));
       link.tabIndex = 0;
       this._startURLField.appendChild(link);
     }
 
     this._themeColorSwatch.classList.toggle('hidden', !stringProperty('theme_color'));
-    const themeColor =
-        Common.Color.Color.parse(stringProperty('theme_color') || 'white') || Common.Color.Color.parse('white');
+    const themeColor = Common.Color.Color.parse(stringProperty('theme_color') || 'white') || Common.Color.Color.parse('white');
     if (themeColor) {
       this._themeColorSwatch.renderColor(themeColor, true);
     }
     this._backgroundColorSwatch.classList.toggle('hidden', !stringProperty('background_color'));
-    const backgroundColor =
-        Common.Color.Color.parse(stringProperty('background_color') || 'white') || Common.Color.Color.parse('white');
+    const backgroundColor = Common.Color.Color.parse(stringProperty('background_color') || 'white') || Common.Color.Color.parse('white');
     if (backgroundColor) {
       this._backgroundColorSwatch.renderColor(backgroundColor, true);
     }
@@ -540,10 +525,8 @@ export class AppManifestView extends UI.Widget.VBox {
       this._iconsSection.setIconMasked(setIconMaskedCheckbox.checkboxElement.checked);
     });
     this._iconsSection.appendRow().appendChild(setIconMaskedCheckbox);
-    const documentationLink =
-        UI.XLink.XLink.create('https://web.dev/maskable-icon/', i18nString(UIStrings.documentationOnMaskableIcons));
-    this._iconsSection.appendRow().appendChild(
-        i18n.i18n.getFormatLocalizedString(str_, UIStrings.needHelpReadOurS, {PH1: documentationLink}));
+    const documentationLink = UI.XLink.XLink.create('https://web.dev/maskable-icon/', i18nString(UIStrings.documentationOnMaskableIcons));
+    this._iconsSection.appendRow().appendChild(i18n.i18n.getFormatLocalizedString(str_, UIStrings.needHelpReadOurS, { PH1: documentationLink }));
 
     if (manifestIcons && manifestIcons.primaryIcon) {
       const wrapper = document.createElement('div');
@@ -552,7 +535,7 @@ export class AppManifestView extends UI.Widget.VBox {
       image.style.maxWidth = '200px';
       image.style.maxHeight = '200px';
       image.src = 'data:image/png;base64,' + manifestIcons.primaryIcon;
-      image.alt = i18nString(UIStrings.primaryManifestIconFromS, {PH1: url});
+      image.alt = i18nString(UIStrings.primaryManifestIconFromS, { PH1: url });
       const title = i18nString(UIStrings.primaryIconasUsedByChrome);
       const field = this._iconsSection.appendFlexedField(title);
       wrapper.appendChild(image);
@@ -560,14 +543,13 @@ export class AppManifestView extends UI.Widget.VBox {
     }
 
     for (const icon of icons) {
-      const iconErrors =
-          await this._appendImageResourceToSection(url, icon, this._iconsSection, /** isScreenshot= */ false);
+      const iconErrors = await this._appendImageResourceToSection(url, icon, this._iconsSection, /** isScreenshot= */ false);
       imageErrors.push(...iconErrors);
     }
 
     let shortcutIndex = 1;
     for (const shortcut of shortcuts) {
-      const shortcutSection = this._reportView.appendSection(i18nString(UIStrings.shortcutS, {PH1: shortcutIndex}));
+      const shortcutSection = this._reportView.appendSection(i18nString(UIStrings.shortcutS, { PH1: shortcutIndex }));
       this._shortcutSections.push(shortcutSection);
 
       shortcutSection.appendFlexedField('Name', shortcut.name);
@@ -578,17 +560,15 @@ export class AppManifestView extends UI.Widget.VBox {
         shortcutSection.appendFlexedField('Description', shortcut.description);
       }
       const urlField = shortcutSection.appendFlexedField('URL');
-      const shortcutUrl = /** @type {string} */ (Common.ParsedURL.ParsedURL.completeURL(url, shortcut.url));
-      const link = Components.Linkifier.Linkifier.linkifyURL(
-          shortcutUrl, /** @type {!Components.Linkifier.LinkifyURLOptions} */ ({text: shortcut.url}));
+      const shortcutUrl = (Common.ParsedURL.ParsedURL.completeURL(url, shortcut.url) as string);
+      const link = Components.Linkifier.Linkifier.linkifyURL(shortcutUrl, ({ text: shortcut.url } as Components.Linkifier.LinkifyURLOptions));
       link.tabIndex = 0;
       urlField.appendChild(link);
 
       const shortcutIcons = shortcut.icons || [];
       let hasShorcutIconLargeEnough = false;
       for (const shortcutIcon of shortcutIcons) {
-        const shortcutIconErrors =
-            await this._appendImageResourceToSection(url, shortcutIcon, shortcutSection, /** isScreenshot= */ false);
+        const shortcutIconErrors = await this._appendImageResourceToSection(url, shortcutIcon, shortcutSection, /** isScreenshot= */ false);
         imageErrors.push(...shortcutIconErrors);
         if (!hasShorcutIconLargeEnough && shortcutIcon.sizes) {
           const shortcutIconSize = shortcutIcon.sizes.match(/^(\d+)x(\d+)$/);
@@ -598,18 +578,16 @@ export class AppManifestView extends UI.Widget.VBox {
         }
       }
       if (!hasShorcutIconLargeEnough) {
-        imageErrors.push(i18nString(UIStrings.shortcutSShouldIncludeAXPixel, {PH1: shortcutIndex}));
+        imageErrors.push(i18nString(UIStrings.shortcutSShouldIncludeAXPixel, { PH1: shortcutIndex }));
       }
       shortcutIndex++;
     }
 
     let screenshotIndex = 1;
     for (const screenshot of screenshots) {
-      const screenshotSection =
-          this._reportView.appendSection(i18nString(UIStrings.screenshotS, {PH1: screenshotIndex}));
+      const screenshotSection = this._reportView.appendSection(i18nString(UIStrings.screenshotS, { PH1: screenshotIndex }));
       this._screenshotsSections.push(screenshotSection);
-      const screenshotErrors =
-          await this._appendImageResourceToSection(url, screenshot, screenshotSection, /** isScreenshot= */ true);
+      const screenshotErrors = await this._appendImageResourceToSection(url, screenshot, screenshotSection, /** isScreenshot= */ true);
       imageErrors.push(...screenshotErrors);
       screenshotIndex++;
     }
@@ -629,11 +607,7 @@ export class AppManifestView extends UI.Widget.VBox {
       this._errorsSection.appendRow().appendChild(UI.UIUtils.createIconLabel(error, 'smallicon-warning'));
     }
 
-    /**
-     * @param {string} name
-     * @return {string}
-     */
-    function stringProperty(name) {
+    function stringProperty(name: string): string {
       const value = parsedManifest[name];
       if (typeof value !== 'string') {
         return '';
@@ -642,11 +616,7 @@ export class AppManifestView extends UI.Widget.VBox {
     }
   }
 
-  /**
-   * @param {!Array<!Protocol.Page.InstallabilityError>} installabilityErrors
-   * @return {!Array<string>}
-   */
-  getInstallabilityErrorMessages(installabilityErrors) {
+  getInstallabilityErrorMessages(installabilityErrors: Protocol.Page.InstallabilityError[]): string[] {
     const errorMessages = [];
     for (const installabilityError of installabilityErrors) {
       let errorMessage;
@@ -674,24 +644,23 @@ export class AppManifestView extends UI.Widget.VBox {
           break;
         case 'manifest-missing-suitable-icon':
           if (installabilityError.errorArguments.length !== 1 ||
-              installabilityError.errorArguments[0].name !== 'minimum-icon-size-in-pixels') {
+            installabilityError.errorArguments[0].name !== 'minimum-icon-size-in-pixels') {
             console.error('Installability error does not have the correct errorArguments');
             break;
           }
           errorMessage =
-              i18nString(UIStrings.manifestDoesNotContainASuitable, {PH1: installabilityError.errorArguments[0].value});
+            i18nString(UIStrings.manifestDoesNotContainASuitable, { PH1: installabilityError.errorArguments[0].value });
           break;
         case 'no-matching-service-worker':
           errorMessage = i18nString(UIStrings.noMatchingServiceWorkerDetected);
           break;
         case 'no-acceptable-icon':
           if (installabilityError.errorArguments.length !== 1 ||
-              installabilityError.errorArguments[0].name !== 'minimum-icon-size-in-pixels') {
+            installabilityError.errorArguments[0].name !== 'minimum-icon-size-in-pixels') {
             console.error('Installability error does not have the correct errorArguments');
             break;
           }
-          errorMessage = i18nString(
-              UIStrings.noSuppliedIconIsAtLeastSpxSquare, {PH1: installabilityError.errorArguments[0].value});
+          errorMessage = i18nString(UIStrings.noSuppliedIconIsAtLeastSpxSquare, { PH1: installabilityError.errorArguments[0].value });
           break;
         case 'cannot-download-icon':
           errorMessage = i18nString(UIStrings.couldNotDownloadARequiredIcon);
@@ -733,9 +702,7 @@ export class AppManifestView extends UI.Widget.VBox {
           errorMessage = i18nString(UIStrings.manifestContainsDisplayoverride);
           break;
         case 'warn-not-offline-capable':
-          errorMessage = i18nString(
-              UIStrings.pageDoesNotWorkOfflineThePage,
-              {PH1: 'https://developer.chrome.com/blog/improved-pwa-offline-detection/'});
+          errorMessage = i18nString(UIStrings.pageDoesNotWorkOfflineThePage, { PH1: 'https://developer.chrome.com/blog/improved-pwa-offline-detection/' });
           break;
         default:
           console.error(`Installability error id '${installabilityError.errorId}' is not recognized`);
@@ -748,67 +715,62 @@ export class AppManifestView extends UI.Widget.VBox {
     return errorMessages;
   }
 
-  /**
-   * @param {string} url
-   * @return {!Promise<?{image: !HTMLImageElement, wrapper: !Element}>}
-   */
-  async _loadImage(url) {
+  async _loadImage(url: string): Promise<{
+    image: HTMLImageElement;
+    wrapper: Element;
+  } | null> {
     const wrapper = document.createElement('div');
     wrapper.classList.add('image-wrapper');
-    const image = /** @type {!HTMLImageElement} */ (document.createElement('img'));
+    const image = (document.createElement('img') as HTMLImageElement);
     const result = new Promise((resolve, reject) => {
       image.onload = resolve;
       image.onerror = reject;
     });
     image.src = url;
-    image.alt = i18nString(UIStrings.imageFromS, {PH1: url});
+    image.alt = i18nString(UIStrings.imageFromS, { PH1: url });
     wrapper.appendChild(image);
     try {
       await result;
-      return {wrapper, image};
-    } catch (e) {
+      return { wrapper, image };
+    }
+    catch (e) {
     }
     return null;
   }
 
-  /**
-   * @param {string} baseUrl
-   * @param {*} imageResource
-   * @param {!UI.ReportView.Section} section
-   * @param {boolean} isScreenshot
-   * @return {!Promise<!Array<string>>}
-   */
-  async _appendImageResourceToSection(baseUrl, imageResource, section, isScreenshot) {
+  async _appendImageResourceToSection(baseUrl: string, imageResource: any, section: UI.ReportView.Section, isScreenshot: boolean): Promise<string[]> {
     const imageResourceErrors = [];
     const resourceName = isScreenshot ? i18nString(UIStrings.screenshot) : i18nString(UIStrings.icon);
     if (!imageResource.src) {
-      imageResourceErrors.push(i18nString(UIStrings.sSrcIsNotSet, {PH1: resourceName}));
+      imageResourceErrors.push(i18nString(UIStrings.sSrcIsNotSet, { PH1: resourceName }));
       return imageResourceErrors;
     }
     const imageUrl = Common.ParsedURL.ParsedURL.completeURL(baseUrl, imageResource['src']);
     if (!imageUrl) {
-      imageResourceErrors.push(
-          i18nString(UIStrings.sUrlSFailedToParse, {PH1: resourceName, PH2: imageResource['src']}));
+      imageResourceErrors.push(i18nString(UIStrings.sUrlSFailedToParse, { PH1: resourceName, PH2: imageResource['src'] }));
       return imageResourceErrors;
     }
     const result = await this._loadImage(imageUrl);
     if (!result) {
-      imageResourceErrors.push(i18nString(UIStrings.sSFailedToLoad, {PH1: resourceName, PH2: imageUrl}));
+      imageResourceErrors.push(i18nString(UIStrings.sSFailedToLoad, { PH1: resourceName, PH2: imageUrl }));
       return imageResourceErrors;
     }
-    const {wrapper, image} = result;
+    const { wrapper, image } = result;
     const sizes = imageResource['sizes'] ? imageResource['sizes'].replace('x', '×') + 'px' : '';
     const title = sizes + '\n' + (imageResource['type'] || '');
     const field = section.appendFlexedField(title);
     if (!imageResource.sizes) {
-      imageResourceErrors.push(i18nString(UIStrings.sSDoesNotSpecifyItsSizeInThe, {PH1: resourceName, PH2: imageUrl}));
-    } else if (!/^\d+x\d+$/.test(imageResource.sizes)) {
-      imageResourceErrors.push(i18nString(UIStrings.sSShouldSpecifyItsSizeAs, {PH1: resourceName, PH2: imageUrl}));
-    } else {
-      const [width, height] = imageResource.sizes.split('x').map(/** @param {*} x*/ x => parseInt(x, 10));
+      imageResourceErrors.push(i18nString(UIStrings.sSDoesNotSpecifyItsSizeInThe, { PH1: resourceName, PH2: imageUrl }));
+    }
+    else if (!/^\d+x\d+$/.test(imageResource.sizes)) {
+      imageResourceErrors.push(i18nString(UIStrings.sSShouldSpecifyItsSizeAs, { PH1: resourceName, PH2: imageUrl }));
+    }
+    else {
+      const [width, height] = imageResource.sizes.split('x').map(/** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ (/** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ /** @param {*} x*/ x: any) => parseInt(x, 10));
       if (!isScreenshot && (width !== height)) {
-        imageResourceErrors.push(i18nString(UIStrings.sSDimensionsShouldBeSquare, {PH1: resourceName, PH2: imageUrl}));
-      } else if (image.naturalWidth !== width && image.naturalHeight !== height) {
+        imageResourceErrors.push(i18nString(UIStrings.sSDimensionsShouldBeSquare, { PH1: resourceName, PH2: imageUrl }));
+      }
+      else if (image.naturalWidth !== width && image.naturalHeight !== height) {
         imageResourceErrors.push(i18nString(UIStrings.actualSizeSspxOfSSDoesNotMatch, {
           PH1: image.naturalWidth,
           PH2: image.naturalHeight,
@@ -817,25 +779,25 @@ export class AppManifestView extends UI.Widget.VBox {
           PH5: width,
           PH6: height
         }));
-      } else if (image.naturalWidth !== width) {
-        imageResourceErrors.push(i18nString(
-            UIStrings.actualWidthSpxOfSSDoesNotMatch,
-            {PH1: image.naturalWidth, PH2: resourceName, PH3: imageUrl, PH4: width}));
-      } else if (image.naturalHeight !== height) {
-        imageResourceErrors.push(i18nString(
-            UIStrings.actualHeightSpxOfSSDoesNotMatch,
-            {PH1: image.naturalHeight, PH2: resourceName, PH3: imageUrl, PH4: height}));
-      } else if (isScreenshot) {
+      }
+      else if (image.naturalWidth !== width) {
+        imageResourceErrors.push(i18nString(UIStrings.actualWidthSpxOfSSDoesNotMatch, { PH1: image.naturalWidth, PH2: resourceName, PH3: imageUrl, PH4: width }));
+      }
+      else if (image.naturalHeight !== height) {
+        imageResourceErrors.push(i18nString(UIStrings.actualHeightSpxOfSSDoesNotMatch, { PH1: image.naturalHeight, PH2: resourceName, PH3: imageUrl, PH4: height }));
+      }
+      else if (isScreenshot) {
         if (width < 320 || height < 320) {
-          imageResourceErrors.push(i18nString(UIStrings.sSSizeShouldBeAtLeast320, {PH1: resourceName, PH2: imageUrl}));
-        } else if (width > 3840 || height > 3840) {
-          imageResourceErrors.push(i18nString(UIStrings.sSSizeShouldBeAtMost3840, {PH1: resourceName, PH2: imageUrl}));
-        } else if (width > height * 2) {
-          imageResourceErrors.push(
-              i18nString(UIStrings.sSWidthShouldBeLessThanTwiceTheHeight, {PH1: resourceName, PH2: imageUrl}));
-        } else if (height > width * 2) {
-          imageResourceErrors.push(
-              i18nString(UIStrings.sSHeightShouldBeLessThanTwiceTheWidth, {PH1: resourceName, PH2: imageUrl}));
+          imageResourceErrors.push(i18nString(UIStrings.sSSizeShouldBeAtLeast320, { PH1: resourceName, PH2: imageUrl }));
+        }
+        else if (width > 3840 || height > 3840) {
+          imageResourceErrors.push(i18nString(UIStrings.sSSizeShouldBeAtMost3840, { PH1: resourceName, PH2: imageUrl }));
+        }
+        else if (width > height * 2) {
+          imageResourceErrors.push(i18nString(UIStrings.sSWidthShouldBeLessThanTwiceTheHeight, { PH1: resourceName, PH2: imageUrl }));
+        }
+        else if (height > width * 2) {
+          imageResourceErrors.push(i18nString(UIStrings.sSHeightShouldBeLessThanTwiceTheWidth, { PH1: resourceName, PH2: imageUrl }));
         }
       }
     }

@@ -26,6 +26,8 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as i18n from '../i18n/i18n.js';
 import * as SDK from '../sdk/sdk.js';
 
@@ -40,17 +42,15 @@ export const UIStrings = {
   */
   anUnexpectedErrorSOccurred: 'An unexpected error {PH1} occurred.',
 };
-const str_ = i18n.i18n.registerUIStrings('resources/DatabaseModel.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('resources/DatabaseModel.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class Database {
-  /**
-   * @param {!DatabaseModel} model
-   * @param {string} id
-   * @param {string} domain
-   * @param {string} name
-   * @param {string} version
-   */
-  constructor(model, id, domain, name, version) {
+  _model: DatabaseModel;
+  _id: string;
+  _domain: string;
+  _name: string;
+  _version: string;
+  constructor(model: DatabaseModel, id: string, domain: string, name: string, version: string) {
     this._model = model;
     this._id = id;
     this._domain = domain;
@@ -93,21 +93,13 @@ export class Database {
     this._domain = x;
   }
 
-  /**
-   * @return {!Promise<!Array<string>>}
-   */
-  async tableNames() {
-    const {tableNames} = await this._model._agent.invoke_getDatabaseTableNames({databaseId: this._id}) || [];
+  async tableNames(): Promise<string[]> {
+    const { tableNames } = await this._model._agent.invoke_getDatabaseTableNames({ databaseId: this._id }) || [];
     return tableNames.sort();
   }
 
-  /**
-   * @param {string} query
-   * @param {function(!Array.<string>, !Array.<*>):void} onSuccess
-   * @param {function(string):void} onError
-   */
-  async executeSql(query, onSuccess, onError) {
-    const response = await this._model._agent.invoke_executeSQL({'databaseId': this._id, 'query': query});
+  async executeSql(query: string, onSuccess: (arg0: Array<string>, arg1: Array<any>) => void, onError: (arg0: string) => void): Promise<void> {
+    const response = await this._model._agent.invoke_executeSQL({ 'databaseId': this._id, 'query': query });
     const error = response.getError() || null;
     if (error) {
       onError(error);
@@ -122,29 +114,30 @@ export class Database {
     let message;
     if (sqlError.message) {
       message = sqlError.message;
-    } else if (sqlError.code === 2) {
+    }
+    else if (sqlError.code === 2) {
       message = i18nString(UIStrings.databaseNoLongerHasExpected);
-    } else {
-      message = i18nString(UIStrings.anUnexpectedErrorSOccurred, {PH1: sqlError.code});
+    }
+    else {
+      message = i18nString(UIStrings.anUnexpectedErrorSOccurred, { PH1: sqlError.code });
     }
     onError(message);
   }
 }
 
 export class DatabaseModel extends SDK.SDKModel.SDKModel {
-  /**
-   * @param {!SDK.SDKModel.Target} target
-   */
-  constructor(target) {
+  _databases: Database[];
+  _agent: ProtocolProxyApi.DatabaseApi;
+  _enabled?: boolean;
+  constructor(target: SDK.SDKModel.Target) {
     super(target);
 
-    /** @type {!Array<!Database>} */
     this._databases = [];
     this._agent = target.databaseAgent();
     this.target().registerDatabaseDispatcher(new DatabaseDispatcher(this));
   }
 
-  enable() {
+  enable(): void {
     if (this._enabled) {
       return;
     }
@@ -152,7 +145,7 @@ export class DatabaseModel extends SDK.SDKModel.SDKModel {
     this._enabled = true;
   }
 
-  disable() {
+  disable(): void {
     if (!this._enabled) {
       return;
     }
@@ -162,10 +155,7 @@ export class DatabaseModel extends SDK.SDKModel.SDKModel {
     this.dispatchEventToListeners(Events.DatabasesRemoved);
   }
 
-  /**
-   * @return {!Array.<!Database>}
-   */
-  databases() {
+  databases(): Database[] {
     const result = [];
     for (const database of this._databases) {
       result.push(database);
@@ -173,10 +163,7 @@ export class DatabaseModel extends SDK.SDKModel.SDKModel {
     return result;
   }
 
-  /**
-   * @param {!Database} database
-   */
-  _addDatabase(database) {
+  _addDatabase(database: Database): void {
     this._databases.push(database);
     this.dispatchEventToListeners(Events.DatabaseAdded, database);
   }
@@ -184,28 +171,21 @@ export class DatabaseModel extends SDK.SDKModel.SDKModel {
 
 SDK.SDKModel.SDKModel.register(DatabaseModel, SDK.SDKModel.Capability.DOM, false);
 
-/** @enum {symbol} */
-export const Events = {
-  DatabaseAdded: Symbol('DatabaseAdded'),
-  DatabasesRemoved: Symbol('DatabasesRemoved'),
-};
+// TODO(crbug.com/1167717): Make this a const enum again
+// eslint-disable-next-line rulesdir/const_enum
+export const enum Events {
+  DatabaseAdded = 'DatabaseAdded',
+  DatabasesRemoved = 'DatabasesRemoved'
+}
+;
 
-/**
- * @implements {ProtocolProxyApi.DatabaseDispatcher}
- */
-export class DatabaseDispatcher {
-  /**
-   * @param {!DatabaseModel} model
-   */
-  constructor(model) {
+export class DatabaseDispatcher implements ProtocolProxyApi.DatabaseDispatcher {
+  _model: DatabaseModel;
+  constructor(model: DatabaseModel) {
     this._model = model;
   }
 
-  /**
-   * @override
-   * @param {!Protocol.Database.AddDatabaseEvent} event
-   */
-  addDatabase({database}) {
+  addDatabase({ database }: Protocol.Database.AddDatabaseEvent): void {
     this._model._addDatabase(new Database(this._model, database.id, database.domain, database.name, database.version));
   }
 }

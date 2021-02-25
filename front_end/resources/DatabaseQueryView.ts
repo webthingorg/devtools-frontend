@@ -23,11 +23,13 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as DataGrid from '../data_grid/data_grid.js';
 import * as i18n from '../i18n/i18n.js';
 import * as UI from '../ui/ui.js';
 
-import {Database} from './DatabaseModel.js';  // eslint-disable-line no-unused-vars
+import { Database } from './DatabaseModel.js'; // eslint-disable-line no-unused-vars
 
 export const UIStrings = {
   /**
@@ -40,13 +42,20 @@ export const UIStrings = {
   */
   queryS: 'Query: {PH1}',
 };
-const str_ = i18n.i18n.registerUIStrings('resources/DatabaseQueryView.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('resources/DatabaseQueryView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class DatabaseQueryView extends UI.Widget.VBox {
-  /**
-   * @param {!Database} database
-   */
-  constructor(database) {
+  database: Database;
+  _queryWrapper: HTMLElement;
+  _promptContainer: HTMLElement;
+  _promptElement: HTMLElement;
+  _prompt: UI.TextPrompt.TextPrompt;
+  _proxyElement: Element;
+  _queryResults: HTMLElement[];
+  _virtualSelectedIndex: number;
+  _lastSelectedElement!: Element | null;
+  _selectionTimeout: number;
+  constructor(database: Database) {
     super();
 
     this.database = database;
@@ -55,16 +64,16 @@ export class DatabaseQueryView extends UI.Widget.VBox {
     this.element.addEventListener('selectstart', this._selectStart.bind(this), false);
 
     this._queryWrapper = this.element.createChild('div', 'database-query-group-messages');
-    this._queryWrapper.addEventListener('focusin', /** @type {!EventListener} */ (this._onFocusIn.bind(this)));
-    this._queryWrapper.addEventListener('focusout', /** @type {!EventListener} */ (this._onFocusOut.bind(this)));
-    this._queryWrapper.addEventListener('keydown', /** @type {!EventListener} */ (this._onKeyDown.bind(this)));
+    this._queryWrapper.addEventListener('focusin', (this._onFocusIn.bind(this) as EventListener));
+    this._queryWrapper.addEventListener('focusout', (this._onFocusOut.bind(this) as EventListener));
+    this._queryWrapper.addEventListener('keydown', (this._onKeyDown.bind(this) as EventListener));
     this._queryWrapper.tabIndex = -1;
 
     this._promptContainer = this.element.createChild('div', 'database-query-prompt-container');
     this._promptContainer.appendChild(UI.Icon.Icon.create('smallicon-text-prompt', 'prompt-icon'));
     this._promptElement = this._promptContainer.createChild('div');
     this._promptElement.className = 'database-query-prompt';
-    this._promptElement.addEventListener('keydown', /** @type {!EventListener} */ (this._promptKeyDown.bind(this)));
+    this._promptElement.addEventListener('keydown', (this._promptKeyDown.bind(this) as EventListener));
 
     this._prompt = new UI.TextPrompt.TextPrompt();
     this._prompt.initialize(this.completions.bind(this), ' ');
@@ -72,26 +81,19 @@ export class DatabaseQueryView extends UI.Widget.VBox {
 
     this.element.addEventListener('click', this._messagesClicked.bind(this), true);
 
-    /** @type {!Array<!HTMLElement>} */
     this._queryResults = [];
     this._virtualSelectedIndex = -1;
-    /** @type {?Element} */
-    this._lastSelectedElement;
-    /** @type {number} */
     this._selectionTimeout = 0;
   }
 
-  _messagesClicked() {
+  _messagesClicked(): void {
     this._prompt.focus();
     if (!this._prompt.isCaretInsidePrompt() && !this.element.hasSelection()) {
       this._prompt.moveCaretToEndOfPrompt();
     }
   }
 
-  /**
-   * @param {!KeyboardEvent} event
-   */
-  _onKeyDown(event) {
+  _onKeyDown(event: KeyboardEvent): void {
     if (UI.UIUtils.isEditing() || !this._queryResults.length || event.shiftKey) {
       return;
     }
@@ -99,14 +101,16 @@ export class DatabaseQueryView extends UI.Widget.VBox {
       case 'ArrowUp':
         if (this._virtualSelectedIndex > 0) {
           this._virtualSelectedIndex--;
-        } else {
+        }
+        else {
           return;
         }
         break;
       case 'ArrowDown':
         if (this._virtualSelectedIndex < this._queryResults.length - 1) {
           this._virtualSelectedIndex++;
-        } else {
+        }
+        else {
           return;
         }
         break;
@@ -123,24 +127,17 @@ export class DatabaseQueryView extends UI.Widget.VBox {
     this._updateFocusedItem();
   }
 
-  /**
-   * @param {!FocusEvent} event
-   */
-  _onFocusIn(event) {
+  _onFocusIn(event: FocusEvent): void {
     // Make default selection when moving from external (e.g. prompt) to the container.
-    if (this._virtualSelectedIndex === -1 && this._isOutsideViewport(/** @type {?Element} */ (event.relatedTarget)) &&
-        event.target === this._queryWrapper && this._queryResults.length) {
+    if (this._virtualSelectedIndex === -1 && this._isOutsideViewport((event.relatedTarget as Element | null)) &&
+      event.target === this._queryWrapper && this._queryResults.length) {
       this._virtualSelectedIndex = this._queryResults.length - 1;
     }
     this._updateFocusedItem();
   }
 
-  /**
-   * @param {!FocusEvent} event
-   */
-  _onFocusOut(event) {
-    // Remove selection when focus moves to external location (e.g. prompt).
-    if (this._isOutsideViewport(/** @type {?Element} */ (event.relatedTarget))) {
+  _onFocusOut(event: FocusEvent): void {
+    if (this._isOutsideViewport((event.relatedTarget as Element | null))) {
       this._virtualSelectedIndex = -1;
     }
     this._updateFocusedItem();
@@ -148,16 +145,12 @@ export class DatabaseQueryView extends UI.Widget.VBox {
     this._queryWrapper.scrollTop = 10000000;
   }
 
-  /**
-   * @param {?Element} element
-   * @return {boolean}
-   */
-  _isOutsideViewport(element) {
+  _isOutsideViewport(element: Element | null): boolean {
     return element !== null && !element.isSelfOrDescendant(this._queryWrapper);
   }
 
-  _updateFocusedItem() {
-    let index = this._virtualSelectedIndex;
+  _updateFocusedItem(): void {
+    let index: number = this._virtualSelectedIndex;
     if (this._queryResults.length && this._virtualSelectedIndex < 0) {
       index = this._queryResults.length - 1;
     }
@@ -174,19 +167,14 @@ export class DatabaseQueryView extends UI.Widget.VBox {
 
     if (this._queryResults.length && !this._queryWrapper.hasFocus()) {
       this._queryWrapper.tabIndex = 0;
-    } else {
+    }
+    else {
       this._queryWrapper.tabIndex = -1;
     }
     this._lastSelectedElement = selectedElement;
   }
 
-  /**
-   * @param {string} expression
-   * @param {string} prefix
-   * @param {boolean=} force
-   * @return {!Promise<!UI.SuggestBox.Suggestions>}
-   */
-  async completions(expression, prefix, force) {
+  async completions(expression: string, prefix: string, force?: boolean): Promise<UI.SuggestBox.Suggestions> {
     if (!prefix) {
       return [];
     }
@@ -194,25 +182,19 @@ export class DatabaseQueryView extends UI.Widget.VBox {
     prefix = prefix.toLowerCase();
     const tableNames = await this.database.tableNames();
     return tableNames.map(name => name + ' ')
-        .concat(SQL_BUILT_INS)
-        .filter(proposal => proposal.toLowerCase().startsWith(prefix))
-        .map(completion => (/** @type {!UI.SuggestBox.Suggestion} */ ({text: completion})));
+      .concat(SQL_BUILT_INS)
+      .filter(proposal => proposal.toLowerCase().startsWith(prefix))
+      .map(completion => ({ text: completion } as UI.SuggestBox.Suggestion));
   }
 
-  /**
-   * @param {!Event} event
-   */
-  _selectStart(event) {
+  _selectStart(event: Event): void {
     if (this._selectionTimeout) {
       clearTimeout(this._selectionTimeout);
     }
 
     this._prompt.clearAutocomplete();
 
-    /**
-     * @this {DatabaseQueryView}
-     */
-    function moveBackIfOutside() {
+    function moveBackIfOutside(this: DatabaseQueryView): void {
       this._selectionTimeout = 0;
       if (!this._prompt.isCaretInsidePrompt() && !this.element.hasSelection()) {
         this._prompt.moveCaretToEndOfPrompt();
@@ -223,20 +205,14 @@ export class DatabaseQueryView extends UI.Widget.VBox {
     this._selectionTimeout = window.setTimeout(moveBackIfOutside.bind(this), 100);
   }
 
-  /**
-   * @param {!KeyboardEvent} event
-   */
-  _promptKeyDown(event) {
+  _promptKeyDown(event: KeyboardEvent): void {
     if (event.key === 'Enter') {
       this._enterKeyPressed(event);
       return;
     }
   }
 
-  /**
-   * @param {!KeyboardEvent} event
-   */
-  async _enterKeyPressed(event) {
+  async _enterKeyPressed(event: KeyboardEvent): Promise<void> {
     event.consume(true);
 
     const query = this._prompt.textWithCurrentSuggestion();
@@ -249,11 +225,11 @@ export class DatabaseQueryView extends UI.Widget.VBox {
     this._prompt.setEnabled(false);
     try {
       const result = await new Promise((resolve, reject) => {
-        this.database.executeSql(
-            query, (columnNames, values) => resolve({columnNames, values}), errorText => reject(errorText));
+        this.database.executeSql(query, (columnNames, values) => resolve({ columnNames, values }), errorText => reject(errorText));
       });
       this._queryFinished(query, result.columnNames, result.values);
-    } catch (e) {
+    }
+    catch (e) {
       this._appendErrorQueryResult(query, e);
     }
     this._prompt.setEnabled(true);
@@ -261,18 +237,11 @@ export class DatabaseQueryView extends UI.Widget.VBox {
     this._prompt.focus();
   }
 
-  /**
-   *
-   * @param {string} query
-   * @param {!Array<string>} columnNames
-   * @param {!Array<*>} values
-   */
-  _queryFinished(query, columnNames, values) {
-    const dataGrid =
-        DataGrid.SortableDataGrid.SortableDataGrid.create(columnNames, values, i18nString(UIStrings.databaseQuery));
+  _queryFinished(query: string, columnNames: string[], values: any[]): void {
+    const dataGrid = DataGrid.SortableDataGrid.SortableDataGrid.create(columnNames, values, i18nString(UIStrings.databaseQuery));
     const trimmedQuery = query.trim();
 
-    let view = null;
+    let view: null = null;
     if (dataGrid) {
       dataGrid.setStriped(true);
       dataGrid.renderInline();
@@ -287,26 +256,19 @@ export class DatabaseQueryView extends UI.Widget.VBox {
     }
   }
 
-  /**
-   * @param {string} query
-   * @param {?UI.Widget.Widget} view
-   */
-  _appendViewQueryResult(query, view) {
+  _appendViewQueryResult(query: string, view: UI.Widget.Widget | null): void {
     const resultElement = this._appendQueryResult(query);
     if (view) {
       view.show(resultElement);
-    } else {
+    }
+    else {
       resultElement.remove();
     }
 
     this._scrollResultIntoView();
   }
 
-  /**
-   * @param {string} query
-   * @param {string} errorText
-   */
-  _appendErrorQueryResult(query, errorText) {
+  _appendErrorQueryResult(query: string, errorText: string): void {
     const resultElement = this._appendQueryResult(query);
     resultElement.classList.add('error');
     resultElement.appendChild(UI.Icon.Icon.create('smallicon-error', 'prompt-icon'));
@@ -315,20 +277,17 @@ export class DatabaseQueryView extends UI.Widget.VBox {
     this._scrollResultIntoView();
   }
 
-  _scrollResultIntoView() {
+  _scrollResultIntoView(): void {
     this._queryResults[this._queryResults.length - 1].scrollIntoView(false);
     this._promptElement.scrollIntoView(false);
   }
 
-  /**
-   * @param {string} query
-   */
-  _appendQueryResult(query) {
-    const element = /** @type {!HTMLElement} */ (document.createElement('div'));
+  _appendQueryResult(query: string): HTMLDivElement {
+    const element = (document.createElement('div') as HTMLElement);
     element.className = 'database-user-query';
     element.tabIndex = -1;
 
-    UI.ARIAUtils.setAccessibleName(element, i18nString(UIStrings.queryS, {PH1: query}));
+    UI.ARIAUtils.setAccessibleName(element, i18nString(UIStrings.queryS, { PH1: query }));
     this._queryResults.push(element);
     this._updateFocusedItem();
 
@@ -348,10 +307,12 @@ export class DatabaseQueryView extends UI.Widget.VBox {
   }
 }
 
-/** @enum {symbol} */
-export const Events = {
-  SchemaUpdated: Symbol('SchemaUpdated')
-};
+// TODO(crbug.com/1167717): Make this a const enum again
+// eslint-disable-next-line rulesdir/const_enum
+export const enum Events {
+  SchemaUpdated = 'SchemaUpdated'
+}
+;
 
 export const SQL_BUILT_INS = [
   'SELECT ', 'FROM ', 'WHERE ', 'LIMIT ', 'DELETE FROM ', 'CREATE ', 'DROP ', 'TABLE ', 'INDEX ', 'UPDATE ',
