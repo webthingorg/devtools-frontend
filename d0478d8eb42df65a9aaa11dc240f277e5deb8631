@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "acd6bf89_78b359b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-25T08:59:41Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "d0478d8eb42df65a9aaa11dc240f277e5deb8631",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "49bc4bad_87034af0",
@@ -103,6 +120,30 @@
       "side": 1,
       "message": "Looks like the implementation was just finished https://crbug.com/970285.\n\nThe doc [2] is missing LGTMs. I wasn\u0027t aware of it, has it been sent out to devtools-dev yet?",
       "parentUuid": "c0000b31_940ec0f7",
+      "range": {
+        "startLine": 84,
+        "startChar": 16,
+        "endLine": 84,
+        "endChar": 29
+      },
+      "revId": "d0478d8eb42df65a9aaa11dc240f277e5deb8631",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c919e52a_1009c100",
+        "filename": "front_end/ui/components/IconButton.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-25T08:59:41Z",
+      "side": 1,
+      "message": "Apologies, it looks like this is indeed the accepted way to style the high-contrast theme.",
+      "parentUuid": "89eee3ce_853cf3b6",
       "range": {
         "startLine": 84,
         "startChar": 16,
