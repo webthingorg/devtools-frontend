@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecaf01ab_f433f5d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-25T06:34:32Z",
+      "side": 1,
+      "message": "lgtm % nit",
+      "revId": "de06f188ec5aa4089b273f1acc2a9e663cf856e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26ca9dd3_64019410",
+        "filename": "front_end/components/Linkifier.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-25T06:34:32Z",
+      "side": 1,
+      "message": "nit: Please move this comment (all 3 lines) lower directly in front of the Linkifier._createLink call.",
+      "range": {
+        "startLine": 436,
+        "startChar": 0,
+        "endLine": 438,
+        "endChar": 74
+      },
+      "revId": "de06f188ec5aa4089b273f1acc2a9e663cf856e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
