@@ -16,6 +16,41 @@
       "message": "Hi Peter,\n\nI wanted to slightly change the text of one of the labels (after some request from the localization team https://buganizer.corp.google.com/issues/180347527), ptal! Is there a general bug that I can cite here?",
       "revId": "2184c4656cfd437ebdac15020406bf14fae25f2d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e46635e_7e814853",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-25T09:35:49Z",
+      "side": 1,
+      "message": "LGTM! thanks",
+      "revId": "2184c4656cfd437ebdac15020406bf14fae25f2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a664e65d_fff9a8fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1167239
+      },
+      "writtenOn": "2021-02-25T09:35:49Z",
+      "side": 1,
+      "message": "Yes you can tag 1163928\nand you can even tag the internal bug\n\nBug: 1163928, b/180347527",
+      "parentUuid": "d392853f_d79e9df7",
+      "revId": "2184c4656cfd437ebdac15020406bf14fae25f2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
