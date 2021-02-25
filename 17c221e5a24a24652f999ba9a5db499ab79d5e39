@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d93db3b7_61869ca4",
+        "filename": "front_end/help/ReleaseNoteText.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2021-02-25T07:28:58Z",
+      "side": 1,
+      "message": "Ack, I agree. I don\u0027t have a preference for any particular name, but it would be nice to use a single name consistently :) Thanks!",
+      "parentUuid": "ab774ba7_8fdf9ee7",
+      "range": {
+        "startLine": 30,
+        "startChar": 20,
+        "endLine": 30,
+        "endChar": 48
+      },
+      "revId": "17c221e5a24a24652f999ba9a5db499ab79d5e39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "378122db_a83b32b0",
