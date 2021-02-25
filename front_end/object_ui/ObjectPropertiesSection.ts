@@ -362,8 +362,9 @@ export class ObjectPropertiesSection extends UI.TreeOutline.TreeOutlineInShadow 
       height: '13px',
     };
     memoryIcon.onclick = (event: MouseEvent): void => {
+      Host.userMetrics.LinearMemoryInspectorRevealedFrom(Host.UserMetrics.LinearMemoryInspectorRevealedFrom.MemoryIcon);
       LinearMemoryInspector.LinearMemoryInspectorController.LinearMemoryInspectorController.instance()
-          .openInspectorView(obj, 0);
+          .openInspectorView(obj);
       event.stopPropagation();
     };
     UI.Tooltip.Tooltip.install(memoryIcon, 'Reveal in Memory Inspector panel');
