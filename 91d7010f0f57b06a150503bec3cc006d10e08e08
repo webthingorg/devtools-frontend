@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bed2e719_9c623f0b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-25T08:52:37Z",
+      "side": 1,
+      "message": "Made some changes to make intention more clear and scope down some changes. Left some comments on NetworkManager.js. PTAL.",
+      "revId": "91d7010f0f57b06a150503bec3cc006d10e08e08",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59cb8405_50234ed7",
+        "filename": "front_end/sdk/NetworkManager.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2021-02-25T08:52:37Z",
+      "side": 1,
+      "message": "Localizing this is a little trickier as \u0027Conditions\u0027 is used to serialize the value on the storage, so it cannot be deferred. This means the signature of conditions need to change and that propagates across other modules (mobile_throttling) and requires a couple of extra verifications. I created a different CL that proposes a way to address this issue, otherwise I can open a TODO bug in here to localize this 4 strings to avoid blocking the rest of the module migration. Thoughts?\n\n2719336: [Loc] Migrate Conditions in sdk/NetworkManager to Localization V2 | https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2719336",
+      "range": {
+        "startLine": 310,
+        "startChar": 11,
+        "endLine": 334,
+        "endChar": 19
+      },
+      "revId": "91d7010f0f57b06a150503bec3cc006d10e08e08",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
