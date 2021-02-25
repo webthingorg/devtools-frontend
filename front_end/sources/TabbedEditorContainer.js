@@ -212,7 +212,11 @@ export class TabbedEditorContainer extends Common.ObjectWrapper.ObjectWrapper {
    * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
    */
   showFile(uiSourceCode) {
+    const contentLoaded = uiSourceCode.contentLoaded();
     this._innerShowFile(this._canonicalUISourceCode(uiSourceCode), true);
+    if (contentLoaded) {
+      Common.EventTarget.fireEvent('source-file-loaded', uiSourceCode.displayName());
+    }
   }
 
   /**
@@ -315,9 +319,12 @@ export class TabbedEditorContainer extends Common.ObjectWrapper.ObjectWrapper {
     this._removeViewListeners();
     this._currentFile = uiSourceCode;
 
-    const tabId = this._tabIds.get(uiSourceCode) || this._appendFileTab(uiSourceCode, userGesture);
-
-    this._tabbedPane.selectTab(tabId, userGesture);
+    let tabId = this._tabIds.get(uiSourceCode);
+    if (!tabId) {
+      tabId = this._appendFileTab(uiSourceCode, userGesture);
+    } else {
+      this._tabbedPane.selectTab(tabId, userGesture);
+    }
     if (userGesture) {
       this._editorSelectedByUserAction();
     }
