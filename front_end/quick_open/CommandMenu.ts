@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Common from '../common/common.js';
 import * as Diff from '../diff/diff.js';
 import * as Host from '../host/host.js';
@@ -9,8 +11,8 @@ import * as i18n from '../i18n/i18n.js';
 import * as Platform from '../platform/platform.js';
 import * as UI from '../ui/ui.js';
 
-import {FilteredListWidget, Provider, registerProvider} from './FilteredListWidget.js';
-import {QuickOpenImpl} from './QuickOpen.js';
+import { FilteredListWidget, Provider, registerProvider } from './FilteredListWidget.js';
+import { QuickOpenImpl } from './QuickOpen.js';
 
 export const UIStrings = {
   /**
@@ -26,48 +28,41 @@ export const UIStrings = {
   */
   runCommand: 'Run Command',
 };
-const str_ = i18n.i18n.registerUIStrings('quick_open/CommandMenu.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('quick_open/CommandMenu.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
-/** @type {!CommandMenu} */
-let commandMenuInstance;
+let commandMenuInstance: CommandMenu;
 
 export class CommandMenu {
-  /** @private */
-  constructor() {
-    /** @type {!Array<!Command>} */
+  _commands: Command[];
+  private constructor() {
     this._commands = [];
     this._loadCommands();
   }
-  /**
-   * @param {{forceNew: ?boolean}} opts
-   */
-  static instance(opts = {forceNew: null}) {
-    const {forceNew} = opts;
+  static instance(opts: {
+    forceNew: boolean | null;
+  } = { forceNew: null }): CommandMenu {
+    const { forceNew } = opts;
     if (!commandMenuInstance || forceNew) {
       commandMenuInstance = new CommandMenu();
     }
     return commandMenuInstance;
   }
 
-  /**
-   * @param {!CreateCommandOptions} options
-   * @return {!Command}
-   */
-  static createCommand(options) {
-    const {category, keys, title, shortcut, executeHandler, availableHandler, userActionCode} = options;
+  static createCommand(options: CreateCommandOptions): Command {
+    const { category, keys, title, shortcut, executeHandler, availableHandler, userActionCode } = options;
 
-    let handler = executeHandler;
+    let handler: (() => void) | (() => void) | (() => any) = executeHandler;
     if (userActionCode) {
       const actionCode = userActionCode;
-      handler = () => {
+      handler = (): void => {
         Host.userMetrics.actionTaken(actionCode);
         executeHandler();
       };
     }
     if (title === 'Show Issues') {
       const cached_handler = handler;
-      handler = () => {
+      handler = (): void => {
         Host.userMetrics.issuesPanelOpenedFrom(Host.UserMetrics.IssueOpener.CommandMenu);
         cached_handler();
       };
@@ -77,13 +72,9 @@ export class CommandMenu {
   }
 
   /**
-   * @param {!Common.Settings.Setting<*>} setting
-   * @param {string} title
-   * @param {V} value
-   * @return {!Command}
    * @template V
    */
-  static createSettingCommand(setting, title, value) {
+  static createSettingCommand(setting: Common.Settings.Setting<any>, title: string, value: V): Command {
     const category = setting.category();
     if (!category) {
       throw new Error(`Creating '${title}' setting command failed. Setting has no category.`);
@@ -95,31 +86,23 @@ export class CommandMenu {
       keys: tags,
       title,
       shortcut: '',
-      executeHandler: () => {
+      executeHandler: (): void => {
         setting.set(value);
         if (reloadRequired) {
-          UI.InspectorView.InspectorView.instance().displayReloadRequiredWarning(
-              i18nString(UIStrings.oneOrMoreSettingsHaveChanged));
+          UI.InspectorView.InspectorView.instance().displayReloadRequiredWarning(i18nString(UIStrings.oneOrMoreSettingsHaveChanged));
         }
       },
       availableHandler,
       userActionCode: undefined,
     });
 
-    /**
-     * @return {boolean}
-     */
-    function availableHandler() {
+    function availableHandler(): boolean {
       return setting.get() !== value;
     }
   }
 
-  /**
-   * @param {!ActionCommandOptions} options
-   * @return {!Command}
-   */
-  static createActionCommand(options) {
-    const {action, userActionCode} = options;
+  static createActionCommand(options: ActionCommandOptions): Command {
+    const { action, userActionCode } = options;
     const shortcut = UI.ShortcutRegistry.ShortcutRegistry.instance().shortcutTitleForAction(action.id()) || '';
 
     return CommandMenu.createCommand({
@@ -133,28 +116,23 @@ export class CommandMenu {
     });
   }
 
-  /**
-   * @param {!RevealViewCommandOptions} options
-   * @return {!Command}
-   */
-  static createRevealViewCommand(options) {
-    const {title, tags, category, userActionCode, id} = options;
+  static createRevealViewCommand(options: RevealViewCommandOptions): Command {
+    const { title, tags, category, userActionCode, id } = options;
 
     return CommandMenu.createCommand({
       category,
       keys: tags,
       title,
       shortcut: '',
-      executeHandler: UI.ViewManager.ViewManager.instance().showView.bind(
-          UI.ViewManager.ViewManager.instance(), id, /* userGesture */ true),
+      executeHandler: UI.ViewManager.ViewManager.instance().showView.bind(UI.ViewManager.ViewManager.instance(), id, /* userGesture */ true),
       userActionCode,
       availableHandler: undefined
     });
   }
 
-  _loadCommands() {
-    const locations = new Map();
-    for (const {category, name} of UI.ViewManager.getRegisteredLocationResolvers()) {
+  _loadCommands(): void {
+    const locations = new Map<UI.ViewManager.ViewLocationValues, string>();
+    for (const { category, name } of UI.ViewManager.getRegisteredLocationResolvers()) {
       if (category && name) {
         locations.set(name, category);
       }
@@ -167,8 +145,7 @@ export class CommandMenu {
         continue;
       }
 
-      /** @type {!RevealViewCommandOptions} */
-      const options = {
+      const options: RevealViewCommandOptions = {
         title: view.commandPrompt(),
         tags: view.tags() || '',
         category,
@@ -191,65 +168,43 @@ export class CommandMenu {
     }
   }
 
-  /**
-   * @return {!Array.<!Command>}
-   */
-  commands() {
+  commands(): Command[] {
     return this._commands;
   }
 }
+export interface ActionCommandOptions {
+  action: UI.ActionRegistration.Action;
+  userActionCode?: number;
+}
+export interface RevealViewCommandOptions {
+  id: string;
+  title: string;
+  tags: string;
+  category: string;
+  userActionCode?: number;
+}
+export interface CreateCommandOptions {
+  category: string;
+  keys: string;
+  title: string;
+  shortcut: string;
+  executeHandler: () => any;
+  availableHandler?: (() => boolean);
+  userActionCode?: number;
+}
 
-/**
- * @typedef {{
- *   action: !UI.ActionRegistration.Action,
- *   userActionCode: (!Host.UserMetrics.Action|undefined),
- * }}
- */
-// @ts-ignore typedef
-export let ActionCommandOptions;
-
-/**
- * @typedef {{
- *   id: string,
- *   title: string,
- *   tags: string,
- *   category: string,
- *   userActionCode: (!Host.UserMetrics.Action|undefined)
- * }}
- */
-// @ts-ignore typedef
-export let RevealViewCommandOptions;
-
-/**
- * @typedef {{
- *   category: string,
- *   keys: string,
- *   title: string,
- *   shortcut: string,
- *   executeHandler: !function():*,
- *   availableHandler: ((!function():boolean)|undefined),
- *   userActionCode: (!Host.UserMetrics.Action|undefined)
- * }}
- */
-// @ts-ignore typedef
-export let CreateCommandOptions;
-
-/** @type {!CommandMenuProvider} */
-let commandMenuProviderInstance;
-
+let commandMenuProviderInstance: CommandMenuProvider;
 
 export class CommandMenuProvider extends Provider {
-  /** @private */
-  constructor() {
+  _commands: Command[];
+  private constructor() {
     super();
-    /** @type {!Array<!Command>} */
     this._commands = [];
   }
-  /**
-   * @param {{forceNew: ?boolean}} opts
-   */
-  static instance(opts = {forceNew: null}) {
-    const {forceNew} = opts;
+  static instance(opts: {
+    forceNew: boolean | null;
+  } = { forceNew: null }): CommandMenuProvider {
+    const { forceNew } = opts;
     if (!commandMenuProviderInstance || forceNew) {
       commandMenuProviderInstance = new CommandMenuProvider();
     }
@@ -257,10 +212,7 @@ export class CommandMenuProvider extends Provider {
     return commandMenuProviderInstance;
   }
 
-  /**
-   * @override
-   */
-  attach() {
+  attach(): void {
     const allCommands = CommandMenu.instance().commands();
 
     // Populate allowlisted actions.
@@ -271,8 +223,7 @@ export class CommandMenuProvider extends Provider {
         continue;
       }
 
-      /** @type {!ActionCommandOptions} */
-      const options = {action, userActionCode: undefined};
+      const options: ActionCommandOptions = { action, userActionCode: undefined };
       this._commands.push(CommandMenu.createActionCommand(options));
     }
 
@@ -284,72 +235,43 @@ export class CommandMenuProvider extends Provider {
 
     this._commands = this._commands.sort(commandComparator);
 
-    /**
-     * @param {!Command} left
-     * @param {!Command} right
-     * @return {number}
-     */
-    function commandComparator(left, right) {
+    function commandComparator(left: Command, right: Command): number {
       const cats = Platform.StringUtilities.compare(left.category(), right.category());
       return cats ? cats : Platform.StringUtilities.compare(left.title(), right.title());
     }
   }
 
-  /**
-   * @override
-   */
-  detach() {
+  detach(): void {
     this._commands = [];
   }
 
-  /**
-   * @override
-   * @return {number}
-   */
-  itemCount() {
+  itemCount(): number {
     return this._commands.length;
   }
 
-  /**
-   * @override
-   * @param {number} itemIndex
-   * @return {string}
-   */
-  itemKeyAt(itemIndex) {
+  itemKeyAt(itemIndex: number): string {
     return this._commands[itemIndex].key();
   }
 
-  /**
-   * @override
-   * @param {number} itemIndex
-   * @param {string} query
-   * @return {number}
-   */
-  itemScoreAt(itemIndex, query) {
+  itemScoreAt(itemIndex: number, query: string): number {
     const command = this._commands[itemIndex];
     let score = Diff.Diff.DiffWrapper.characterScore(query.toLowerCase(), command.title().toLowerCase());
 
     // Score panel/drawer reveals above regular actions.
     if (command.category().startsWith('Panel')) {
       score += 2;
-    } else if (command.category().startsWith('Drawer')) {
+    }
+    else if (command.category().startsWith('Drawer')) {
       score += 1;
     }
 
     return score;
   }
 
-  /**
-   * @override
-   * @param {number} itemIndex
-   * @param {string} query
-   * @param {!Element} titleElement
-   * @param {!Element} subtitleElement
-   */
-  renderItem(itemIndex, query, titleElement, subtitleElement) {
+  renderItem(itemIndex: number, query: string, titleElement: Element, subtitleElement: Element): void {
     const command = this._commands[itemIndex];
     titleElement.removeChildren();
-    const tagElement = /** @type {!HTMLElement} */ (titleElement.createChild('span', 'tag'));
+    const tagElement = (titleElement.createChild('span', 'tag') as HTMLElement);
     const index = Platform.StringUtilities.hashCode(command.category()) % MaterialPaletteColors.length;
     tagElement.style.backgroundColor = MaterialPaletteColors[index];
     tagElement.textContent = command.category();
@@ -358,12 +280,7 @@ export class CommandMenuProvider extends Provider {
     subtitleElement.textContent = command.shortcut();
   }
 
-  /**
-   * @override
-   * @param {?number} itemIndex
-   * @param {string} promptValue
-   */
-  selectItem(itemIndex, promptValue) {
+  selectItem(itemIndex: number | null, promptValue: string): void {
     if (itemIndex === null) {
       return;
     }
@@ -371,11 +288,7 @@ export class CommandMenuProvider extends Provider {
     Host.userMetrics.actionTaken(Host.UserMetrics.Action.SelectCommandFromCommandMenu);
   }
 
-  /**
-   * @override
-   * @return {string}
-   */
-  notFoundText() {
+  notFoundText(): string {
     return i18nString(UIStrings.noCommandsFound);
   }
 }
@@ -386,15 +299,13 @@ export const MaterialPaletteColors = [
 ];
 
 export class Command {
-  /**
-   * @param {string} category
-   * @param {string} title
-   * @param {string} key
-   * @param {string} shortcut
-   * @param {function():*} executeHandler
-   * @param {function()=} availableHandler
-   */
-  constructor(category, title, key, shortcut, executeHandler, availableHandler) {
+  _category: string;
+  _title: string;
+  _key: string;
+  _shortcut: string;
+  _executeHandler: () => any;
+  _availableHandler: (() => any) | undefined;
+  constructor(category: string, title: string, key: string, shortcut: string, executeHandler: () => any, availableHandler?: (() => any)) {
     this._category = category;
     this._title = title;
     this._key = category + '\0' + title + '\0' + key;
@@ -403,57 +314,37 @@ export class Command {
     this._availableHandler = availableHandler;
   }
 
-  /**
-   * @return {string}
-   */
-  category() {
+  category(): string {
     return this._category;
   }
 
-  /**
-   * @return {string}
-   */
-  title() {
+  title(): string {
     return this._title;
   }
 
-  /**
-   * @return {string}
-   */
-  key() {
+  key(): string {
     return this._key;
   }
 
-  /**
-   * @return {string}
-   */
-  shortcut() {
+  shortcut(): string {
     return this._shortcut;
   }
 
-  /**
-   * @return {boolean}
-   */
-  available() {
+  available(): boolean {
     return this._availableHandler ? this._availableHandler() : true;
   }
 
-  execute() {
+  execute(): void {
     this._executeHandler();
   }
 }
 
-/** @type {!ShowActionDelegate} */
-let showActionDelegateInstance;
-/**
- * @implements {UI.ActionRegistration.ActionDelegate}
- */
-export class ShowActionDelegate {
-  /**
-   * @param {{forceNew: ?boolean}} opts
-   */
-  static instance(opts = {forceNew: null}) {
-    const {forceNew} = opts;
+let showActionDelegateInstance: ShowActionDelegate;
+export class ShowActionDelegate implements UI.ActionRegistration.ActionDelegate {
+  static instance(opts: {
+    forceNew: boolean | null;
+  } = { forceNew: null }): ShowActionDelegate {
+    const { forceNew } = opts;
     if (!showActionDelegateInstance || forceNew) {
       showActionDelegateInstance = new ShowActionDelegate();
     }
@@ -461,13 +352,7 @@ export class ShowActionDelegate {
     return showActionDelegateInstance;
   }
 
-  /**
-   * @override
-   * @param {!UI.Context.Context} context
-   * @param {string} actionId
-   * @return {boolean}
-   */
-  handleAction(context, actionId) {
+  handleAction(context: UI.Context.Context, actionId: string): boolean {
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.bringToFront();
     QuickOpenImpl.show('>');
     return true;
@@ -476,6 +361,6 @@ export class ShowActionDelegate {
 
 registerProvider({
   prefix: '>',
-  title: () => i18nString(UIStrings.runCommand),
+  title: (): Common.UIString.LocalizedString => i18nString(UIStrings.runCommand),
   provider: CommandMenuProvider.instance,
 });
