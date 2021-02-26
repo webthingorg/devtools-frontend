@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f085e31_32fe8aff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2021-02-26T12:40:45Z",
+      "side": 1,
+      "message": "nit: for",
+      "range": {
+        "startLine": 7,
+        "startChar": 12,
+        "endLine": 7,
+        "endChar": 17
+      },
+      "revId": "ee7635cf80c4e558e70f4a7f853ecc09f29547c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b4c0d1c4_b7b1b1de",
@@ -14,6 +37,23 @@
       "writtenOn": "2021-02-26T11:39:08Z",
       "side": 1,
       "message": "PTAL\nThanks!",
+      "revId": "ee7635cf80c4e558e70f4a7f853ecc09f29547c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "478555b5_c0d99f8f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2021-02-26T12:40:45Z",
+      "side": 1,
+      "message": "Thanks, as a follow up, maybe just switch all of devtools.",
       "revId": "ee7635cf80c4e558e70f4a7f853ecc09f29547c9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
