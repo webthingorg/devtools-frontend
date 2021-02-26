@@ -50,6 +50,24 @@
       "message": "The CL forgets to add \"inspector_main\" to the list of migrated directories in \"scripts/localization/utils/check_localized_strings.js\".",
       "revId": "34128cf2027423f2161d2f5e067397265246e699",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ebaf104_887f77ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-26T07:56:48Z",
+      "side": 1,
+      "message": "(mark as unresolved)",
+      "parentUuid": "29675e63_44e95269",
+      "revId": "34128cf2027423f2161d2f5e067397265246e699",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
