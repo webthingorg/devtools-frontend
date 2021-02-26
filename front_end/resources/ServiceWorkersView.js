@@ -11,7 +11,7 @@ import * as Network from '../network/network.js';
 import * as SDK from '../sdk/sdk.js';
 import * as UI from '../ui/ui.js';
 
-import {ServiceWorkerUpdateCycleHelper} from './ServiceWorkerUpdateCycleHelper.js';
+import {ServiceWorkerUpdateCycleHelper} from './ServiceWorkerUpdateCycleView.js';
 
 export const UIStrings = {
   /**

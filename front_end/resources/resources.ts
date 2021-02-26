@@ -21,7 +21,7 @@ import * as OpenedWindowDetailsView from './OpenedWindowDetailsView.js';
 import * as ResourcesPanel from './ResourcesPanel.js';
 import * as ServiceWorkerCacheViews from './ServiceWorkerCacheViews.js';
 import * as ServiceWorkersView from './ServiceWorkersView.js';
-import * as ServiceWorkerUpdateCycleHelper from './ServiceWorkerUpdateCycleHelper.js';
+import * as ServiceWorkerUpdateCycleHelper from './ServiceWorkerUpdateCycleView.js';
 import * as StorageItemsView from './StorageItemsView.js';
 import * as StorageView from './StorageView.js';
 import * as TrustTokensView from './TrustTokensView.js';
