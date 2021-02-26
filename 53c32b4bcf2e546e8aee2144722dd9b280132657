@@ -56,6 +56,30 @@
       },
       "revId": "53c32b4bcf2e546e8aee2144722dd9b280132657",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ee04ff2_81a1bf06",
+        "filename": "test/e2e/helpers/console-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-26T08:21:29Z",
+      "side": 1,
+      "message": "This function asserts that the issue button label eventually has the expectedLabel.\n\nCalling a functions assert... even if they are async and use waitForFunction is a common practice (grep for \u0027function assert\u0027).\n\nMost of the helper functions are async, so I don\u0027t think callers will be misled to forget the await even if the function doesn\u0027t have \u0027wait\u0027 in its name.\n\nWhat exactly do you find confusing?",
+      "parentUuid": "a18815fc_3a4693d1",
+      "range": {
+        "startLine": 240,
+        "startChar": 22,
+        "endLine": 240,
+        "endChar": 44
+      },
+      "revId": "53c32b4bcf2e546e8aee2144722dd9b280132657",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
