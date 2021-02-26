@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b48b7267_2fcfb3c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2021-02-26T08:56:16Z",
+      "side": 1,
+      "message": "No idea what I\u0027m doing here. Recordings from before and after are in the issue report :)",
+      "revId": "089b7ed6665ef1b30f9dded5a2e80eb69b36b2a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
