@@ -16,7 +16,7 @@ import {AnimationEffect, AnimationGroup, AnimationImpl, AnimationModel, Events} 
 import {AnimationScreenshotPopover} from './AnimationScreenshotPopover.js';
 import {AnimationUI} from './AnimationUI.js';
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Timeline hint text content in Animation Timeline of the Animation Inspector
   */

@@ -51,7 +51,7 @@ import {DataDisplayDelegate, Events as ProfileHeaderEvents, ProfileEvents as Pro
 import {ProfileSidebarTreeElement} from './ProfileSidebarTreeElement.js';
 import {instance} from './ProfileTypeRegistry.js';
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Text to find an item
   */

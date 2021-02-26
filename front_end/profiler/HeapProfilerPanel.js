@@ -11,7 +11,7 @@ import {HeapSnapshotView} from './HeapSnapshotView.js';  // eslint-disable-line 
 import {ProfilesPanel} from './ProfilesPanel.js';
 import {instance} from './ProfileTypeRegistry.js';
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description A context menu item in the Heap Profiler Panel of a profiler tool
   */

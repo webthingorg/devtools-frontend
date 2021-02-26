@@ -14,7 +14,7 @@ import {Events, IsolatedFileSystemManager} from './IsolatedFileSystemManager.js'
 import {NetworkPersistenceManager} from './NetworkPersistenceManager.js';
 import {PlatformFileSystem} from './PlatformFileSystem.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Text of a DOM element in Workspace Settings Tab of the Workspace settings in Settings
   */

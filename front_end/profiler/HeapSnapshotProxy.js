@@ -33,7 +33,7 @@ import * as HeapSnapshotModel from '../heap_snapshot_model/heap_snapshot_model.j
 import * as i18n from '../i18n/i18n.js';
 import {ChildrenProvider} from './ChildrenProvider.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Text in Heap Snapshot Proxy of a profiler tool
   *@example {functionName} PH1

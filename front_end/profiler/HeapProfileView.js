@@ -17,7 +17,7 @@ import {Formatter, ProfileDataGridNode} from './ProfileDataGrid.js';           /
 import {ProfileEvents, ProfileHeader, ProfileType} from './ProfileHeader.js';  // eslint-disable-line no-unused-vars
 import {ProfileView, WritableProfileHeader} from './ProfileView.js';
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description The reported total size used in the selected time frame of the allocation sampling profile
   *@example {3 MB} PH1

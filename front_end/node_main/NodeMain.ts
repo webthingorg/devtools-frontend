@@ -11,7 +11,7 @@ import * as i18n from '../i18n/i18n.js';
 import * as ProtocolClient from '../protocol_client/protocol_client.js';  // eslint-disable-line no-unused-vars
 import * as SDK from '../sdk/sdk.js';
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Text that refers to the main target
   */

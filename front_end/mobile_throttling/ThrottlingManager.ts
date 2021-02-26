@@ -14,7 +14,7 @@ import {MobileThrottlingSelector} from './MobileThrottlingSelector.js';
 import {NetworkThrottlingSelector} from './NetworkThrottlingSelector.js';
 import {Conditions, ConditionsList, CPUThrottlingRates, MobileThrottlingConditionsGroup, NetworkThrottlingConditionsGroup, ThrottlingPresets} from './ThrottlingPresets.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Text with two placeholders separated by a colon
   *@example {Node removed} PH1

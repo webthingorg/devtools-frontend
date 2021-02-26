@@ -13,7 +13,7 @@ import * as UI from '../ui/ui.js';
 
 import {ContrastInfo, Events as ContrastInfoEvents} from './ContrastInfo.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Label for when no contrast information is available in the color picker
   */

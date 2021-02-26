@@ -18,7 +18,7 @@ import * as Workspace from '../workspace/workspace.js';
 
 import * as ReportRenderer from './LighthouseReporterTypes.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Label for view trace button when simulated throttling is enabled
   */

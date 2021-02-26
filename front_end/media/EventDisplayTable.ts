@@ -11,7 +11,7 @@ import * as UI from '../ui/ui.js';
 
 import {PlayerEvent} from './MediaModel.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Text for timestamps of items
   */

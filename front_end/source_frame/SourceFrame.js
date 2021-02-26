@@ -39,7 +39,7 @@ import * as Workspace from '../workspace/workspace.js';  // eslint-disable-line 
 
 import {Events, SourcesTextEditor, SourcesTextEditorDelegate} from './SourcesTextEditor.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Text for the source of something
   */

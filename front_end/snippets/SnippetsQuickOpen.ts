@@ -10,7 +10,7 @@ import * as Workspace from '../workspace/workspace.js';  // eslint-disable-line 
 
 import {evaluateScriptSnippet, findSnippetsProject} from './ScriptSnippetFileSystem.js';
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Text in Snippets Quick Open of the Sources panel when opening snippets
   */

@@ -36,7 +36,7 @@ import {IsolateSelector} from './IsolateSelector.js';
 import {ProfileType} from './ProfileHeader.js';    // eslint-disable-line no-unused-vars
 import {ProfilesPanel} from './ProfilesPanel.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Text in Profile Launcher View of a profiler tool
   */

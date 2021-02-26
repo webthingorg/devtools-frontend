@@ -13,7 +13,7 @@ import * as UI from '../ui/ui.js';
 
 import {frameworkEventListeners, FrameworkEventListenersObject} from './EventListenersUtils.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Empty holder text content in Event Listeners View of the Event Listener Debugging pane in the Sources panel
   */

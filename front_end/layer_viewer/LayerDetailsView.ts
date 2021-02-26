@@ -37,7 +37,7 @@ import * as UI from '../ui/ui.js';
 
 import {LayerView, LayerViewHost, ScrollRectSelection, Selection, SnapshotSelection, Type} from './LayerViewHost.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Text in Layer Details View of the Layers panel
   */

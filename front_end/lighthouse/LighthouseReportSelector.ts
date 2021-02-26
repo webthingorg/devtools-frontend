@@ -10,7 +10,7 @@ import * as UI from '../ui/ui.js';
 
 import * as ReportRenderer from './LighthouseReporterTypes.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Title of combo box in audits report selector
   */

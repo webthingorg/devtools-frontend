@@ -10,7 +10,7 @@ import * as SDK from '../sdk/sdk.js';
 import {Events, throttlingManager} from './ThrottlingManager.js';
 import {Conditions, ConditionsList, MobileThrottlingConditionsGroup, ThrottlingPresets} from './ThrottlingPresets.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Mobile throttling is disabled. The user can select this option to run mobile
   *emulation at a normal speed instead of throttled.

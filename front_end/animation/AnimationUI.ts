@@ -14,7 +14,7 @@ import * as UI from '../ui/ui.js';
 import {AnimationImpl, KeyframeStyle} from './AnimationModel.js';              // eslint-disable-line no-unused-vars
 import {AnimationTimeline, StepTimingFunction} from './AnimationTimeline.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Title of the first and last points of an animation
   */

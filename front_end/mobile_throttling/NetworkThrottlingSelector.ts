@@ -10,7 +10,7 @@ import * as SDK from '../sdk/sdk.js';
 
 import {NetworkThrottlingConditionsGroup, ThrottlingPresets} from './ThrottlingPresets.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Text to indicate something is not enabled
   */

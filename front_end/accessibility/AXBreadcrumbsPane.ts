@@ -12,7 +12,7 @@ import * as UI from '../ui/ui.js';
 import {AccessibilitySidebarView} from './AccessibilitySidebarView.js';  // eslint-disable-line no-unused-vars
 import {AccessibilitySubPane} from './AccessibilitySubPane.js';
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Text in AXBreadcrumbs Pane of the Accessibility panel
   */

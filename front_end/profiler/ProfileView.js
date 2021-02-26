@@ -20,7 +20,7 @@ import {DataDisplayDelegate, Events, ProfileHeader, ProfileType} from './Profile
 import {ProfileSidebarTreeElement} from './ProfileSidebarTreeElement.js';
 import {TopDownProfileDataGridTree} from './TopDownProfileDataGrid.js';
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Text in Profile View of a profiler tool
   */

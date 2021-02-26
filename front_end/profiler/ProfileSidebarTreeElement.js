@@ -8,7 +8,7 @@ import * as UI from '../ui/ui.js';
 
 import {DataDisplayDelegate, Events as ProfileHeaderEvents, ProfileHeader} from './ProfileHeader.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Text to save something
   */

@@ -25,7 +25,7 @@ import {CorsIssueDetailsView} from './CorsIssueDetailsView.js';
 import {AggregatedIssue} from './IssueAggregator.js';            // eslint-disable-line no-unused-vars
 import {IssueDescription} from './MarkdownIssueDescription.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Noun, singular. Label for a column or field containing the name of an entity.
   */

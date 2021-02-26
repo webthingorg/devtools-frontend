@@ -37,7 +37,7 @@ import {Formatter, ProfileDataGridNode} from './ProfileDataGrid.js';           /
 import {ProfileEvents, ProfileHeader, ProfileType} from './ProfileHeader.js';  // eslint-disable-line no-unused-vars
 import {ProfileView, WritableProfileHeader} from './ProfileView.js';
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Time of a single activity, as opposed to the total time
   */

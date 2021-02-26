@@ -38,7 +38,7 @@ import * as TextUtils from '../text_utils/text_utils.js';
 
 import {Events as WorkspaceImplEvents, Project, projectTypes} from './WorkspaceImpl.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Text for the index of something
   */

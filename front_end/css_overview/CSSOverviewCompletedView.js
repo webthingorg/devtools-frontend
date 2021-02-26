@@ -16,7 +16,7 @@ import {Events, OverviewController} from './CSSOverviewController.js';  // eslin
 import {CSSOverviewSidebarPanel, SidebarEvents} from './CSSOverviewSidebarPanel.js';
 import {UnusedDeclaration} from './CSSOverviewUnusedDeclarations.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Label for the summary in the CSS Overview report
   */

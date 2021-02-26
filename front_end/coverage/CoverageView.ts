@@ -18,7 +18,7 @@ import {CoverageDecorationManager, decoratorType} from './CoverageDecorationMana
 import {CoverageListView} from './CoverageListView.js';
 import {CoverageInfo, CoverageModel, CoverageType, Events, URLCoverageInfo} from './CoverageModel.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Tooltip in Coverage List View of the Coverage tab for selecting JavaScript coverage mode
   */

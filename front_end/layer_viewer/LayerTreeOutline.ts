@@ -37,7 +37,7 @@ import * as UI from '../ui/ui.js';
 
 import {LayerSelection, LayerView, LayerViewHost, Selection, SnapshotSelection} from './LayerViewHost.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Label for layers sidepanel tree
   */

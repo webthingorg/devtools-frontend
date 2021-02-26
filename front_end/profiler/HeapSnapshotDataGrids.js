@@ -40,7 +40,7 @@ import {HeapSnapshotProxy} from './HeapSnapshotProxy.js';               // eslin
 import {HeapProfileHeader} from './HeapSnapshotView.js';                // eslint-disable-line no-unused-vars
 import {DataDisplayDelegate, ProfileHeader} from './ProfileHeader.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Text in Heap Snapshot Data Grids of a profiler tool
   */

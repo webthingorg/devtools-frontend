@@ -10,7 +10,7 @@ import * as UI from '../ui/ui.js';
 
 import {Events, LighthouseController, RuntimeSettings} from './LighthouseController.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Text to cancel something
   */

@@ -14,7 +14,7 @@ import * as Workspace from '../workspace/workspace.js';
 import {FileSystem, FileSystemWorkspaceBinding} from './FileSystemWorkspaceBinding.js';  // eslint-disable-line no-unused-vars
 import {PathEncoder, PersistenceImpl} from './PersistenceImpl.js';
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Error message when attempting to create a binding from a malformed URI.
   *@example {file://%E0%A4%A} PH1

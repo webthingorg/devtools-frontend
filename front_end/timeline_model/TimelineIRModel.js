@@ -8,7 +8,7 @@ import * as SDK from '../sdk/sdk.js';  // eslint-disable-line no-unused-vars
 
 import {RecordType} from './TimelineModel.js';
 
-export const UIStrings = {
+const UIStrings = {
   /**
   * @description Error text in Timeline IRModel of the Performance panel. Indicates that two fling
   * gestures were detected at the same time, which should not be possible.

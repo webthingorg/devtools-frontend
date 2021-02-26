@@ -10,7 +10,7 @@ import * as SDK from '../sdk/sdk.js';
 
 import {ProtocolService} from './LighthouseProtocolService.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Explanation for user that Ligthhouse can only audit HTTP/HTTPS pages
   */

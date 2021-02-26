@@ -39,7 +39,7 @@ import * as UI from '../ui/ui.js';
 import {LayerSelection, LayerView, LayerViewHost, ScrollRectSelection, Selection, SnapshotSelection, Type} from './LayerViewHost.js';  // eslint-disable-line no-unused-vars
 import {Events as TransformControllerEvents, TransformController} from './TransformController.js';
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Text of a DOM element in DView of the Layers panel
   */

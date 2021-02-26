@@ -11,7 +11,7 @@ import * as Workspace from '../workspace/workspace.js';
 
 import {SamplingHeapProfileNode} from './HeapProfileView.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Text for a heap profile type
   */

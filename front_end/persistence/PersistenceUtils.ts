@@ -15,7 +15,7 @@ import {FileSystemWorkspaceBinding} from './FileSystemWorkspaceBinding.js';
 import {NetworkPersistenceManager} from './NetworkPersistenceManager.js';
 import {Events, PersistenceBinding, PersistenceImpl} from './PersistenceImpl.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Text in Persistence Utils of the Workspace settings in Settings
   *@example {example.url} PH1

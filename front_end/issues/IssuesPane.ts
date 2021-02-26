@@ -13,7 +13,7 @@ import {AggregatedIssue, Events as IssueAggregatorEvents, IssueAggregator} from 
 import {IssueView} from './IssueView.js';
 import {createIssueDescriptionFromMarkdown} from './MarkdownIssueDescription.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
    * @description Category title for a group of cross origin embedder policy (COEP) issues
    */

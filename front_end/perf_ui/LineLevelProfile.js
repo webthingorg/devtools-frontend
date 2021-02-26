@@ -10,7 +10,7 @@ import * as SourceFrame from '../source_frame/source_frame.js';  // eslint-disab
 import * as TextEditor from '../text_editor/text_editor.js';     // eslint-disable-line no-unused-vars
 import * as Workspace from '../workspace/workspace.js';          // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description The milisecond unit
   */

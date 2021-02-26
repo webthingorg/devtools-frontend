@@ -8,7 +8,7 @@ import * as UI from '../ui/ui.js';
 
 import {DataGridImpl, DataGridNode, Parameters} from './DataGrid.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description accessible name for expandible nodes in datagrids
   */

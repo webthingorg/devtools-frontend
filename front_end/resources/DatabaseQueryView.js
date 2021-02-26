@@ -29,7 +29,7 @@ import * as UI from '../ui/ui.js';
 
 import {Database} from './DatabaseModel.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Data grid name for Database Query data grids
   */

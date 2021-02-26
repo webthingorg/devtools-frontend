@@ -141,6 +141,7 @@ module.exports = {
     'rulesdir/es_modules_import': 2,
     'rulesdir/check_license_header': 2,
     'rulesdir/l10n_filename_matches': 2,
+    'rulesdir/l10n_no_uistrings_export': 2,
   },
   'overrides': [{
     'files': ['*.ts'],

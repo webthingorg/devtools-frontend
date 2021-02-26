@@ -14,7 +14,7 @@ import * as Workspace from '../workspace/workspace.js';
 
 import {CoverageType, URLCoverageInfo} from './CoverageModel.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Text that appears on a button for the css resource type filter.
   */

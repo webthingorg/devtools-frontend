@@ -41,7 +41,7 @@ import {AllocationDataGrid, HeapSnapshotConstructorsDataGrid, HeapSnapshotDiffDa
 import {HeapSnapshotProviderProxy, HeapSnapshotProxy} from './HeapSnapshotProxy.js';  // eslint-disable-line no-unused-vars
 import {DataDisplayDelegate} from './ProfileHeader.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Text in Heap Snapshot Grid Nodes of a profiler tool
   *@example {2} PH1

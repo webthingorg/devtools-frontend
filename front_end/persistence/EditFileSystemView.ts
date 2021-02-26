@@ -37,7 +37,7 @@ import * as UI from '../ui/ui.js';
 import {Events, IsolatedFileSystemManager} from './IsolatedFileSystemManager.js';
 import {PlatformFileSystem} from './PlatformFileSystem.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Text in Edit File System View of the Workspace settings in Settings
   */

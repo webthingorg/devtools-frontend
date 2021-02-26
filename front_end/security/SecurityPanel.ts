@@ -13,7 +13,7 @@ import * as UI from '../ui/ui.js';
 
 import {Events, PageSecurityState, PageVisibleSecurityState, SecurityModel, SecurityStyleExplanation, SummaryMessages} from './SecurityModel.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Title text content in Security Panel of the Security panel
   */

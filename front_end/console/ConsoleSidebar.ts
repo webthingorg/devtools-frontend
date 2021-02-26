@@ -13,7 +13,7 @@ import * as UI from '../ui/ui.js';
 import {ConsoleFilter, FilterType, LevelsMask} from './ConsoleFilter.js';
 import {ConsoleViewMessage} from './ConsoleViewMessage.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   * @description Filter name in Console Sidebar of the Console panel. This is shown when we fail to
   * parse a URL when trying to display console messages from each URL separately. This might be

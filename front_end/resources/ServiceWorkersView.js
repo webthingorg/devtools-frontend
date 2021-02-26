@@ -13,7 +13,7 @@ import * as UI from '../ui/ui.js';
 
 import {ServiceWorkerUpdateCycleHelper} from './ServiceWorkerUpdateCycleHelper.js';
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Text in Application Panel Sidebar of the Application panel
   */

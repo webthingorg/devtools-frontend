@@ -9,7 +9,7 @@ import * as UI from '../ui/ui.js';  // eslint-disable-line no-unused-vars
 
 import {Row, RowType} from './ChangesView.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Text prepended to a removed line in a diff in the Changes tool, viewable only by screen reader.
   *@example {function log () } PH1

@@ -39,7 +39,7 @@ import * as UI from '../ui/ui.js';
 
 import {KeybindsSettingsTab} from './KeybindsSettingsTab.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Name of the Settings view
   */

@@ -11,7 +11,7 @@ import {MainView, TriggerDispatcher} from './MainView.js';  // eslint-disable-li
 import {PlayerEvent} from './MediaModel.js';                // eslint-disable-line no-unused-vars
 import {PlayerPropertyKeys} from './PlayerPropertiesView.js';
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description A right-click context menu entry which when clicked causes the menu entry for that player to be removed.
   */

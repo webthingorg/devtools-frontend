@@ -7,7 +7,7 @@ import * as UI from '../ui/ui.js';
 
 import {Events, OverviewController} from './CSSOverviewController.js';  // eslint-disable-line no-unused-vars
 
-export const UIStrings = {
+const UIStrings = {
   /**
   *@description Label for the capture button in the CSS Overview Panel
   */
