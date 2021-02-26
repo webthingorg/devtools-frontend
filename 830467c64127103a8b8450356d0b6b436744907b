@@ -22,6 +22,30 @@
       },
       "revId": "830467c64127103a8b8450356d0b6b436744907b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "586146bd_f3e23c59",
+        "filename": "front_end/perf_ui/FilmStripView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1368273
+      },
+      "writtenOn": "2021-02-26T17:07:10Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "452b482f_85c818dd",
+      "range": {
+        "startLine": 268,
+        "startChar": 0,
+        "endLine": 277,
+        "endChar": 17
+      },
+      "revId": "830467c64127103a8b8450356d0b6b436744907b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
