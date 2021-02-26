@@ -80,6 +80,30 @@
       },
       "revId": "988813bc1b1cbb38edff61e37a4a1d6bfca76e84",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0599886f_cfe98b11",
+        "filename": "scripts/eslint_rules/tests/l10n_no_uistrings_export_test.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-26T11:35:57Z",
+      "side": 1,
+      "message": "Ah yes, thanks.",
+      "parentUuid": "8f507f04_457a5c03",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 6
+      },
+      "revId": "988813bc1b1cbb38edff61e37a4a1d6bfca76e84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
