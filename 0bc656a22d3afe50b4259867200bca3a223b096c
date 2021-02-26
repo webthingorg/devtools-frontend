@@ -22,6 +22,30 @@
       },
       "revId": "0bc656a22d3afe50b4259867200bca3a223b096c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95665155_eb17653f",
+        "filename": "front_end/ui/themeColors.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-26T15:54:24Z",
+      "side": 1,
+      "message": "The hairline color is the inverse of this color. The hairline color is light in light mode and dark in dark mode, whereas this color is the reverse.\n\nI will add Peter as reviewer to see what he thinks.",
+      "parentUuid": "752020b5_24e057c7",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 41
+      },
+      "revId": "0bc656a22d3afe50b4259867200bca3a223b096c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
