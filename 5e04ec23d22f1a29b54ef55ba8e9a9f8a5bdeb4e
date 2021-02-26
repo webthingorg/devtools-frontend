@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "37e3adb1_384502c2",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-02-26T07:31:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53c0a7d3_1330a640",
+      "revId": "5e04ec23d22f1a29b54ef55ba8e9a9f8a5bdeb4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dac1bbe9_8fd99c53",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-02-26T07:27:02Z",
       "side": 1,
       "message": "ContextMenu",
+      "revId": "5e04ec23d22f1a29b54ef55ba8e9a9f8a5bdeb4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb342049_9db3ab32",
+        "filename": "front_end/sources/ScopeChainSidebarPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-02-26T07:31:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dac1bbe9_8fd99c53",
       "revId": "5e04ec23d22f1a29b54ef55ba8e9a9f8a5bdeb4e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
