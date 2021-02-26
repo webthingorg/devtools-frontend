@@ -130,6 +130,7 @@ const migratedDirsSet = new Set([
   'host',
   'inline_editor',
   'input',
+  'inspector_main',
   'issues',
   'js_profiler',
   'layers',
