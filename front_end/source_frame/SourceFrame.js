@@ -156,6 +156,7 @@ export class SourceFrameImpl extends UI.View.SimpleView {
     this._selectionToSet = null;
     this._loaded = false;
     this._contentRequested = false;
+    this.contentSet = false;
     this._highlighterType = '';
 
     /** @type {?Common.WasmDisassembly.WasmDisassembly} */
@@ -443,6 +444,7 @@ export class SourceFrameImpl extends UI.View.SimpleView {
           this.setContent(this._rawContent, null);
         }
       }
+      this.contentSet = true;
     }
   }
 
