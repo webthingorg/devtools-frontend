@@ -38,6 +38,7 @@ import * as SourceFrame from '../source_frame/source_frame.js';
 import * as TextUtils from '../text_utils/text_utils.js';
 import * as UI from '../ui/ui.js';
 import * as Workspace from '../workspace/workspace.js';
+import {SourcesView} from './SourcesView.js';
 
 import {UISourceCodeFrame} from './UISourceCodeFrame.js';
 
@@ -212,7 +213,15 @@ export class TabbedEditorContainer extends Common.ObjectWrapper.ObjectWrapper {
    * @param {!Workspace.UISourceCode.UISourceCode} uiSourceCode
    */
   showFile(uiSourceCode) {
-    this._innerShowFile(this._canonicalUISourceCode(uiSourceCode), true);
+    const binding = Persistence.Persistence.PersistenceImpl.instance().binding(uiSourceCode);
+    uiSourceCode = binding ? binding.fileSystem : uiSourceCode;
+
+    const frame = UI.Context.Context.instance().flavor(SourcesView);
+    if (frame?.currentSourceFrame()?.contentSet && this._currentFile === uiSourceCode) {
+      Common.EventTarget.fireEvent('source-file-loaded', uiSourceCode.displayName());
+    } else {
+      this._innerShowFile(this._canonicalUISourceCode(uiSourceCode), true);
+    }
   }
 
   /**
@@ -316,7 +325,6 @@ export class TabbedEditorContainer extends Common.ObjectWrapper.ObjectWrapper {
     this._currentFile = uiSourceCode;
 
     const tabId = this._tabIds.get(uiSourceCode) || this._appendFileTab(uiSourceCode, userGesture);
-
     this._tabbedPane.selectTab(tabId, userGesture);
     if (userGesture) {
       this._editorSelectedByUserAction();
