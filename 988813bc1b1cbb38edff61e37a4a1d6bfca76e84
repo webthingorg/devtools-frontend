@@ -16,6 +16,46 @@
       "message": "PTAL\n\nThe follow-up CL https://crrev.com/c/2720369 enables the rule itself (to make reviewing easier).",
       "revId": "988813bc1b1cbb38edff61e37a4a1d6bfca76e84",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "598d1b18_88df9960",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-26T11:17:50Z",
+      "side": 1,
+      "message": "LGTM with one question.",
+      "revId": "988813bc1b1cbb38edff61e37a4a1d6bfca76e84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7afe5f0_50eac97f",
+        "filename": "scripts/eslint_rules/tests/l10n_no_uistrings_export_test.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-26T11:17:50Z",
+      "side": 1,
+      "message": "is it worth testing for:\n\n```\nexport {\n  UIStrings\n}\n```\n\nOr will that never occur in practice?",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 6
+      },
+      "revId": "988813bc1b1cbb38edff61e37a4a1d6bfca76e84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
