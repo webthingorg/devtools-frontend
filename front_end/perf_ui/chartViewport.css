@@ -60,7 +60,8 @@
   z-index: 100;
   background-color: rgb(56 121 217 / 30%); /* stylelint-disable-line plugin/use_theme_colors */
   /* See: crbug.com/1152736 for color variable migration. */
-  border-color: rgb(16 81 177);
+  border-color: rgb(16 81 177); /* stylelint-disable-line plugin/use_theme_colors */
+  /* See: crbug.com/1152736 for color variable migration. */
   border-width: 0 1px;
   border-style: solid;
   pointer-events: none;
