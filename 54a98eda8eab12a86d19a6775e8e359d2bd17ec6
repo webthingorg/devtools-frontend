@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b19982c9_8f83e370",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-02-26T08:41:43Z",
+      "side": 1,
+      "message": "I like the logic! Thanks for the fix.",
+      "revId": "54a98eda8eab12a86d19a6775e8e359d2bd17ec6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "046a68e9_90d14763",
+        "filename": "front_end/elements/StylesSidebarPane.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-02-26T08:41:43Z",
+      "side": 1,
+      "message": "Nit: since this doesn\u0027t only return a sibling section, but can sometimes return the section it\u0027s called on (if it\u0027s already visible) I think the naming could be slightly better.\nHow about findCurrentOrNextVisible?",
+      "range": {
+        "startLine": 502,
+        "startChar": 45,
+        "endLine": 502,
+        "endChar": 72
+      },
+      "revId": "54a98eda8eab12a86d19a6775e8e359d2bd17ec6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
