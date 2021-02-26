@@ -598,16 +598,15 @@ export class DataGrid extends HTMLElement {
       }
 
       columnHeaders.forEach(async (header, index) => {
-        const {right} = header.getBoundingClientRect();
+        const columnWidth = header.clientWidth;
         if (handlers[index]) {
-          /**
-           * 40px here because the handler is 20px wide, and we use the right
-           * boundary of the cell to position it. So we move it back 20px
-           * because it's 20px wide, but then need to pull it back another 20px
-           * so it sits over The very right hand edge of the column.
-           */
+          const handlerWidth = handlers[index].clientWidth;
           coordinator.write(() => {
-            handlers[index].style.left = `${right - 40}px`;
+            /**
+             * Render the resizer at the far right of the column; we subtract
+             * its width so it sits on the inner edge of the column.
+             */
+            handlers[index].style.left = `${columnWidth - handlerWidth}px`;
           });
         }
       });
