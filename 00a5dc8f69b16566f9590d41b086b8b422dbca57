@@ -16,6 +16,29 @@
       "message": "CL to retain focus when using \"Navigate to Style\" from the computed style context menu. PTAL!",
       "revId": "00a5dc8f69b16566f9590d41b086b8b422dbca57",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "808cba0a_b3520e8d",
+        "filename": "front_end/elements/StylePropertyHighlighter.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2021-02-26T08:46:42Z",
+      "side": 1,
+      "message": "nit: reword to \"the first tree element and corresponding section\"",
+      "range": {
+        "startLine": 58,
+        "startChar": 12,
+        "endLine": 58,
+        "endChar": 34
+      },
+      "revId": "00a5dc8f69b16566f9590d41b086b8b422dbca57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
