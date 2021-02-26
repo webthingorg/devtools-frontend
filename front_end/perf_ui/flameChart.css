@@ -39,7 +39,8 @@
 }
 
 .flame-chart-unfocused-selected-element {
-  outline: 2px solid rgb(123 123 123 / 100%);
+  outline: 2px solid rgb(123 123 123 / 100%); /* stylelint-disable-line plugin/use_theme_colors */
+  /* See: crbug.com/1152736 for color variable migration. */
 }
 
 .chart-cursor-element {
