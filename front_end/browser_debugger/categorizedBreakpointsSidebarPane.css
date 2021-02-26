@@ -51,6 +51,10 @@
   z-index: -1;
 }
 
+.source-code[is="dt-checkbox"] {
+  max-width: 100%;
+}
+
 :host-context(.-theme-with-dark-background) .breakpoint-hit .breakpoint-hit-marker {
   background-color: hsl(46deg 98% 22%);
 }
