@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b042d24_e5fcd077",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-26T08:28:50Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "53c32b4bcf2e546e8aee2144722dd9b280132657",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a18815fc_3a4693d1",
@@ -96,6 +113,30 @@
       "side": 1,
       "message": "Whats confusing to me: An assert throws an exception if the criteria isn\u0027t met. This function simply won\u0027t return until some condition is true. It is literally waiting and not asserting xD\n\nIts not a strong opinion though and if the existing convention is to name these functions \"assert*\" then I most definitely won\u0027t insist/block :)",
       "parentUuid": "5ee04ff2_81a1bf06",
+      "range": {
+        "startLine": 240,
+        "startChar": 22,
+        "endLine": 240,
+        "endChar": 44
+      },
+      "revId": "53c32b4bcf2e546e8aee2144722dd9b280132657",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ccc539a_9240e5b0",
+        "filename": "test/e2e/helpers/console-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-26T08:28:50Z",
+      "side": 1,
+      "message": "OK let\u0027s think about whether we want to enforce a convention that async asserts need to be called waitFor....",
+      "parentUuid": "a98e20b8_c65dc6fa",
       "range": {
         "startLine": 240,
         "startChar": 22,
