@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67fcfcd8_e696c3b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2021-02-26T11:37:04Z",
+      "side": 1,
+      "message": "Hey Kim,\n\nNow that the click-gutter-breakpoint.js test is gone, we can make the uiLocationToRawLocations() code actually readable. :-)\nPlease take a look.\n\nthanks,\nBenedikt",
+      "revId": "e4515011409fe3dac26af048001a9aac7afe2dad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
