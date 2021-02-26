@@ -56,6 +56,30 @@
       },
       "revId": "988813bc1b1cbb38edff61e37a4a1d6bfca76e84",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f507f04_457a5c03",
+        "filename": "scripts/eslint_rules/tests/l10n_no_uistrings_export_test.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-26T11:28:46Z",
+      "side": 1,
+      "message": "Exporting an already exported variable declaration is not possible. TS will complain about it:\n\n  error TS2323: Cannot redeclare exported variable \u0027UIStrings\u0027.",
+      "parentUuid": "b7afe5f0_50eac97f",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 6
+      },
+      "revId": "988813bc1b1cbb38edff61e37a4a1d6bfca76e84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
