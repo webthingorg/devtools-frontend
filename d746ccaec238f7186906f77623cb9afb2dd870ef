@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "43cd328b_e9b666de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-26T09:44:23Z",
+      "side": 1,
+      "message": "LGTM % comment.",
+      "revId": "d746ccaec238f7186906f77623cb9afb2dd870ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "38c3d5a4_87a07127",
@@ -14,6 +31,30 @@
       "writtenOn": "2021-02-26T09:43:29Z",
       "side": 1,
       "message": "Wasn\u0027t the point to rename this class?",
+      "range": {
+        "startLine": 24,
+        "startChar": 12,
+        "endLine": 24,
+        "endChar": 43
+      },
+      "revId": "d746ccaec238f7186906f77623cb9afb2dd870ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2929b044_e2f52f95",
+        "filename": "front_end/resources/resources.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1119600
+      },
+      "writtenOn": "2021-02-26T09:44:23Z",
+      "side": 1,
+      "message": "Let\u0027s rename this class to ServiceWorkerUpdateCycleView as well.",
+      "parentUuid": "38c3d5a4_87a07127",
       "range": {
         "startLine": 24,
         "startChar": 12,
