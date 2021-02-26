@@ -303,6 +303,33 @@ export class UserMetrics {
         EnumeratedHistogram.DeveloperResourceScheme, developerResourceScheme, size);
     Common.EventTarget.fireEvent(EnumeratedHistogram.DeveloperResourceScheme, {value: developerResourceScheme});
   }
+
+  /**
+   * @param {!LinearMemoryInspectorRevealedFrom} linearMemoryInspectorRevealedFrom
+   */
+  linearMemoryInspectorRevealedFrom(linearMemoryInspectorRevealedFrom) {
+    const size = Object.keys(linearMemoryInspectorRevealedFrom).length + 1;
+    if (linearMemoryInspectorRevealedFrom >= size) {
+      return;
+    }
+    InspectorFrontendHostInstance.recordEnumeratedHistogram(
+        EnumeratedHistogram.LinearMemoryInspectorRevealedFrom, linearMemoryInspectorRevealedFrom, size);
+    Common.EventTarget.fireEvent(
+        EnumeratedHistogram.LinearMemoryInspectorRevealedFrom, {value: linearMemoryInspectorRevealedFrom});
+  }
+
+  /**
+   * @param {!LinearMemoryInspectorTarget} linearMemoryInspectorTarget
+   */
+  linearMemoryInspectorTarget(linearMemoryInspectorTarget) {
+    const size = Object.keys(LinearMemoryInspectorTarget).length + 1;
+    if (linearMemoryInspectorTarget >= size) {
+      return;
+    }
+    InspectorFrontendHostInstance.recordEnumeratedHistogram(
+        EnumeratedHistogram.LinearMemoryInspectorTarget, linearMemoryInspectorTarget, size);
+    Common.EventTarget.fireEvent(EnumeratedHistogram.LinearMemoryInspectorTarget, {value: linearMemoryInspectorTarget});
+  }
 }
 
 // Codes below are used to collect UMA histograms in the Chromium port.
@@ -720,4 +747,19 @@ export const DeveloperResourceScheme = {
   SchemeData: 6,
   SchemeFile: 7,
   SchemeBlob: 8,
+};
+
+/** @enum {number} */
+export const LinearMemoryInspectorRevealedFrom = {
+  ContextMenu: 0,
+  MemoryIcon: 1,
+};
+
+/** @enum {number} */
+export const LinearMemoryInspectorTarget = {
+  DWARFInspectableAddress: 0,
+  ArrayBuffer: 1,
+  DataView: 2,
+  TypedArray: 3,
+  WebAssemblyMemory: 4,
 };
