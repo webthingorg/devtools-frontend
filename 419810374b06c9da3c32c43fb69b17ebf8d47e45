@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68895629_b501f291",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-26T14:12:26Z",
+      "side": 1,
+      "message": "The last patchset updates the range selection color to be yellow rather than blue, since blue on a dark background is more difficult to see. Let me know what you think Peter!",
+      "revId": "419810374b06c9da3c32c43fb69b17ebf8d47e45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
