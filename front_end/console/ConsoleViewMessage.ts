@@ -50,7 +50,9 @@ import {ConsoleViewportElement} from './ConsoleViewport.js';  // eslint-disable-
 
 export const UIStrings = {
   /**
-  *@description Message element text content in Console View Message of the Console panel
+  * @description Message element text content in Console View Message of the Console panel. Shown
+  * when the user tried to run console.clear() but the 'Preserve log' option is enabled, which stops
+  * the log from being cleared.
   */
   consoleclearWasPreventedDueTo: '`console.clear()` was prevented due to \'Preserve log\'',
   /**
