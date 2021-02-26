@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "907b6950_c5f1cb41",
+        "filename": "front_end/sources/JavaScriptBreakpointsSidebarPane.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-26T13:48:20Z",
+      "side": 0,
+      "message": "Nit: maintain this comment.",
+      "range": {
+        "startLine": 221,
+        "startChar": 0,
+        "endLine": 228,
+        "endChar": 52
+      },
+      "revId": "8bab3cc7941e5563180e3f76a9395338f5277170",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8707e5e0_80b83219",
+        "filename": "front_end/sources/SourceMapNamesResolver.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-26T13:48:20Z",
+      "side": 0,
+      "message": "Nit: maintain comment",
+      "range": {
+        "startLine": 204,
+        "startChar": 4,
+        "endLine": 204,
+        "endChar": 70
+      },
+      "revId": "8bab3cc7941e5563180e3f76a9395338f5277170",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

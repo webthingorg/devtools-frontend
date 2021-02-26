@@ -16,6 +16,29 @@
       "message": "PTAL, thanks!",
       "revId": "9e6b8860ff6f4a43471b7ab79d16993ba918e8a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0687c77_01c1d20c",
+        "filename": "front_end/sources/NavigatorView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-26T13:48:20Z",
+      "side": 1,
+      "message": "Nit: remove comment",
+      "range": {
+        "startLine": 871,
+        "startChar": 10,
+        "endLine": 871,
+        "endChar": 76
+      },
+      "revId": "9e6b8860ff6f4a43471b7ab79d16993ba918e8a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
