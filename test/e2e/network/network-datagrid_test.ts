@@ -140,16 +140,16 @@ describe('The Network Tab', async () => {
         ]);
       });
 
+
   // Flaky test
-  it.skip('[crbug.com/1179656] shows the correct initiator address space', async () => {
+  it.skipOnPlatforms(['win32'], '[crbug.com/1179656] shows the correct initiator address space', async () => {
     const {target, frontend} = getBrowserAndPages();
 
-    await navigateToNetworkTab('fetch.html');
+    await navigateToNetworkTab('empty.html');
 
-    // Reload to populate network request table
-    await target.reload({waitUntil: 'networkidle0'});
+    await target.evaluateHandle(async () => await fetch('image.svg', {cache: 'reload'}));
 
-    await waitForSomeRequestsToAppear(2);
+    await waitForSomeRequestsToAppear(1);
 
     await step('Open the contextmenu for all network column', async () => {
       await click('.name-column', {clickOptions: {button: 'right'}});
@@ -161,27 +161,26 @@ describe('The Network Tab', async () => {
     });
 
     await step('Wait for the Initiator Address Space column to have the expected values', async () => {
-      const expectedValues = JSON.stringify(['Initiator Address Space', '', 'Local']);
       await waitForFunction(async () => {
         const initiatorAddressSpaceValues = await frontend.$$eval(
             'pierce/.initiator-address-space-column',
             cells => cells.map(element => element.textContent),
         );
-        return JSON.stringify(initiatorAddressSpaceValues) === expectedValues;
+        return initiatorAddressSpaceValues[0] === 'Initiator Address Space' &&
+            initiatorAddressSpaceValues.includes('Local');
       });
     });
   });
 
   // Flaky test
-  it.skip('[crbug.com/1179656] shows the correct remote address space', async () => {
+  it.skipOnPlatforms(['win32'], '[crbug.com/1179656] shows the correct remote address space', async () => {
     const {target, frontend} = getBrowserAndPages();
 
-    await navigateToNetworkTab('fetch.html');
+    await navigateToNetworkTab('empty.html');
 
-    // Reload to populate network request table
-    await target.reload({waitUntil: 'networkidle0'});
+    await target.evaluateHandle(async () => await fetch('image.svg', {cache: 'reload'}));
 
-    await waitForSomeRequestsToAppear(2);
+    await waitForSomeRequestsToAppear(1);
 
     await step('Open the contextmenu for all network column', async () => {
       await click('.name-column', {clickOptions: {button: 'right'}});
@@ -193,13 +192,12 @@ describe('The Network Tab', async () => {
     });
 
     await step('Wait for the Remote Address Space column to have the expected values', async () => {
-      const expectedValues = JSON.stringify(['Remote Address Space', 'Local', 'Local']);
       await waitForFunction(async () => {
         const remoteAddressSpaceValues = await frontend.$$eval(
             'pierce/.remoteaddress-space-column',
             cells => cells.map(element => element.textContent),
         );
-        return JSON.stringify(remoteAddressSpaceValues) === expectedValues;
+        return remoteAddressSpaceValues[0] === 'Remote Address Space' && remoteAddressSpaceValues.includes('Local');
       });
     });
   });
