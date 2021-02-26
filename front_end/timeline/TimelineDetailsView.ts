@@ -2,20 +2,22 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as Common from '../common/common.js';  // eslint-disable-line no-unused-vars
+/* eslint-disable rulesdir/no_underscored_properties */
+
+import * as Common from '../common/common.js'; // eslint-disable-line no-unused-vars
 import * as Components from '../components/components.js';
 import * as i18n from '../i18n/i18n.js';
 import * as SDK from '../sdk/sdk.js';
 import * as TimelineModel from '../timeline_model/timeline_model.js';
 import * as UI from '../ui/ui.js';
 
-import {EventsTimelineTreeView} from './EventsTimelineTreeView.js';
-import {Events, PerformanceModel} from './PerformanceModel.js';  // eslint-disable-line no-unused-vars
-import {TimelineLayersView} from './TimelineLayersView.js';
-import {TimelinePaintProfilerView} from './TimelinePaintProfilerView.js';
-import {TimelineModeViewDelegate, TimelineSelection} from './TimelinePanel.js';  // eslint-disable-line no-unused-vars
-import {BottomUpTimelineTreeView, CallTreeTimelineTreeView, TimelineTreeView} from './TimelineTreeView.js';  // eslint-disable-line no-unused-vars
-import {TimelineDetailsContentHelper, TimelineUIUtils} from './TimelineUIUtils.js';
+import { EventsTimelineTreeView } from './EventsTimelineTreeView.js';
+import { Events, PerformanceModel } from './PerformanceModel.js'; // eslint-disable-line no-unused-vars
+import { TimelineLayersView } from './TimelineLayersView.js';
+import { TimelinePaintProfilerView } from './TimelinePaintProfilerView.js';
+import { TimelineModeViewDelegate, TimelineSelection } from './TimelinePanel.js'; // eslint-disable-line no-unused-vars
+import { BottomUpTimelineTreeView, CallTreeTimelineTreeView, TimelineTreeView } from './TimelineTreeView.js'; // eslint-disable-line no-unused-vars
+import { TimelineDetailsContentHelper, TimelineUIUtils } from './TimelineUIUtils.js';
 
 export const UIStrings = {
   /**
@@ -63,13 +65,22 @@ export const UIStrings = {
   */
   rangeSS: 'Range:  {PH1} – {PH2}',
 };
-const str_ = i18n.i18n.registerUIStrings('timeline/TimelineDetailsView.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('timeline/TimelineDetailsView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class TimelineDetailsView extends UI.Widget.VBox {
-  /**
-   * @param {!TimelineModeViewDelegate} delegate
-   */
-  constructor(delegate) {
+  _detailsLinkifier: Components.Linkifier.Linkifier;
+  _tabbedPane: UI.TabbedPane.TabbedPane;
+  _defaultDetailsWidget: UI.Widget.VBox;
+  _defaultDetailsContentElement: HTMLElement;
+  _rangeDetailViews: Map<string, TimelineTreeView>;
+  _additionalMetricsToolbar: UI.Toolbar.Toolbar;
+  _model!: PerformanceModel;
+  _track?: TimelineModel.TimelineModel.Track | null;
+  _lazyPaintProfilerView?: TimelinePaintProfilerView | null;
+  _lazyLayersView?: TimelineLayersView | null;
+  _preferredTabId?: string;
+  _selection?: TimelineSelection | null;
+  constructor(delegate: TimelineModeViewDelegate) {
     super();
     this.element.classList.add('timeline-details');
 
@@ -83,11 +94,10 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     this._defaultDetailsWidget = new UI.Widget.VBox();
     this._defaultDetailsWidget.element.classList.add('timeline-details-view');
     this._defaultDetailsContentElement =
-        this._defaultDetailsWidget.element.createChild('div', 'timeline-details-view-body vbox');
+      this._defaultDetailsWidget.element.createChild('div', 'timeline-details-view-body vbox');
     this._appendTab(tabIds.Details, i18nString(UIStrings.summary), this._defaultDetailsWidget);
     this.setPreferredTab(tabIds.Details);
 
-    /** @type Map<string, TimelineTreeView> */
     this._rangeDetailViews = new Map();
 
     const bottomUpView = new BottomUpTimelineTreeView();
@@ -106,21 +116,14 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     this.element.appendChild(this._additionalMetricsToolbar.element);
 
     this._tabbedPane.addEventListener(UI.TabbedPane.Events.TabSelected, this._tabSelected, this);
-
-    /** @type {!PerformanceModel} */
-    this._model;
   }
 
-  /**
-   * @param {?PerformanceModel} model
-   * @param {?TimelineModel.TimelineModel.Track} track
-   */
-  setModel(model, track) {
+  setModel(model: PerformanceModel | null, track: TimelineModel.TimelineModel.Track | null): void {
     if (this._model !== model) {
       if (this._model) {
         this._model.removeEventListener(Events.WindowChanged, this._onWindowChanged, this);
       }
-      this._model = /** @type {!PerformanceModel} */ (model);
+      this._model = (model as PerformanceModel);
       if (this._model) {
         this._model.addEventListener(Events.WindowChanged, this._onWindowChanged, this);
       }
@@ -137,9 +140,9 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     // Add TBT info to the footer.
     this._additionalMetricsToolbar.removeToolbarItems();
     if (model && model.timelineModel()) {
-      const {estimated, time} = model.timelineModel().totalBlockingTime();
+      const { estimated, time } = model.timelineModel().totalBlockingTime();
       const isEstimate = estimated ? ` (${i18nString(UIStrings.estimated)})` : '';
-      const message = i18nString(UIStrings.totalBlockingTimeSmss, {PH1: time.toFixed(2), PH2: isEstimate});
+      const message = i18nString(UIStrings.totalBlockingTimeSmss, { PH1: time.toFixed(2), PH2: isEstimate });
 
       const warning = document.createElement('span');
       const clsLink = UI.XLink.XLink.create('https://web.dev/tbt/', i18nString(UIStrings.learnMore));
@@ -154,10 +157,7 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     }
   }
 
-  /**
-   * @param {!Node} node
-   */
-  _setContent(node) {
+  _setContent(node: Node): void {
     const allTabs = this._tabbedPane.otherTabs(Tab.Details);
     for (let i = 0; i < allTabs.length; ++i) {
       if (!this._rangeDetailViews.has(allTabs[i])) {
@@ -168,7 +168,7 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     this._defaultDetailsContentElement.appendChild(node);
   }
 
-  _updateContents() {
+  _updateContents(): void {
     const view = this._rangeDetailViews.get(this._tabbedPane.selectedTabId || '');
     if (view) {
       const window = this._model.window();
@@ -176,45 +176,30 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     }
   }
 
-  /**
-   * @param {string} id
-   * @param {string} tabTitle
-   * @param {!UI.Widget.Widget} view
-   * @param {boolean=} isCloseable
-   */
-  _appendTab(id, tabTitle, view, isCloseable) {
+  _appendTab(id: string, tabTitle: string, view: UI.Widget.Widget, isCloseable?: boolean): void {
     this._tabbedPane.appendTab(id, tabTitle, view, undefined, undefined, isCloseable);
     if (this._preferredTabId !== this._tabbedPane.selectedTabId) {
       this._tabbedPane.selectTab(id);
     }
   }
 
-  /**
-   * @return {!Element}
-   */
-  headerElement() {
+  headerElement(): Element {
     return this._tabbedPane.headerElement();
   }
 
-  /**
-   * @param {string} tabId
-   */
-  setPreferredTab(tabId) {
+  setPreferredTab(tabId: string): void {
     this._preferredTabId = tabId;
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _onWindowChanged(event) {
+  _onWindowChanged(event: Common.EventTarget.EventTargetEvent): void {
     if (!this._selection) {
       this._updateContentsFromWindow();
     }
   }
 
-  _updateContentsFromWindow() {
+  _updateContentsFromWindow(): void {
     if (!this._model) {
-      this._setContent(UI.Fragment.html`<div/>`);
+      this._setContent(UI.Fragment.html `<div/>`);
       return;
     }
     const window = this._model.window();
@@ -222,10 +207,7 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     this._updateContents();
   }
 
-  /**
-   * @param {?TimelineSelection} selection
-   */
-  setSelection(selection) {
+  setSelection(selection: TimelineSelection | null): void {
     this._detailsLinkifier.reset();
     this._selection = selection;
     if (!this._selection) {
@@ -234,13 +216,13 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     }
     switch (this._selection.type()) {
       case TimelineSelection.Type.TraceEvent: {
-        const event = /** @type {!SDK.TracingModel.Event} */ (this._selection.object());
+        const event = (this._selection.object() as SDK.TracingModel.Event);
         TimelineUIUtils.buildTraceEventDetails(event, this._model.timelineModel(), this._detailsLinkifier, true)
-            .then(fragment => this._appendDetailsTabsForTraceEventAndShowDetails(event, fragment));
+          .then(fragment => this._appendDetailsTabsForTraceEventAndShowDetails(event, fragment));
         break;
       }
       case TimelineSelection.Type.Frame: {
-        const frame = /** @type {!TimelineModel.TimelineFrameModel.TimelineFrame} */ (this._selection.object());
+        const frame = (this._selection.object() as TimelineModel.TimelineFrameModel.TimelineFrame);
         const filmStripFrame = this._model.filmStripModelFrame(frame);
         this._setContent(TimelineUIUtils.generateDetailsContentForFrame(frame, filmStripFrame));
         if (frame.layerTree) {
@@ -253,9 +235,9 @@ export class TimelineDetailsView extends UI.Widget.VBox {
         break;
       }
       case TimelineSelection.Type.NetworkRequest: {
-        const request = /** @type {!TimelineModel.TimelineModel.NetworkRequest} */ (this._selection.object());
+        const request = (this._selection.object() as TimelineModel.TimelineModel.NetworkRequest);
         TimelineUIUtils.buildNetworkRequestDetails(request, this._model.timelineModel(), this._detailsLinkifier)
-            .then(this._setContent.bind(this));
+          .then(this._setContent.bind(this));
         break;
       }
       case TimelineSelection.Type.Range: {
@@ -267,10 +249,7 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     this._updateContents();
   }
 
-  /**
-   * @param {!Common.EventTarget.EventTargetEvent} event
-   */
-  _tabSelected(event) {
+  _tabSelected(event: Common.EventTarget.EventTargetEvent): void {
     if (!event.data.isUserGesture) {
       return;
     }
@@ -278,22 +257,16 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     this._updateContents();
   }
 
-  /**
-   * @return {!TimelineLayersView}
-   */
-  _layersView() {
+  _layersView(): TimelineLayersView {
     if (this._lazyLayersView) {
       return this._lazyLayersView;
     }
     this._lazyLayersView =
-        new TimelineLayersView(this._model.timelineModel(), this._showSnapshotInPaintProfiler.bind(this));
+      new TimelineLayersView(this._model.timelineModel(), this._showSnapshotInPaintProfiler.bind(this));
     return this._lazyLayersView;
   }
 
-  /**
-   * @return {!TimelinePaintProfilerView}
-   */
-  _paintProfilerView() {
+  _paintProfilerView(): TimelinePaintProfilerView {
     if (this._lazyPaintProfilerView) {
       return this._lazyPaintProfilerView;
     }
@@ -301,10 +274,7 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     return this._lazyPaintProfilerView;
   }
 
-  /**
-   * @param {!SDK.PaintProfiler.PaintProfilerSnapshot} snapshot
-   */
-  _showSnapshotInPaintProfiler(snapshot) {
+  _showSnapshotInPaintProfiler(snapshot: SDK.PaintProfiler.PaintProfilerSnapshot): void {
     const paintProfilerView = this._paintProfilerView();
     paintProfilerView.setSnapshot(snapshot);
     if (!this._tabbedPane.hasTab(Tab.PaintProfiler)) {
@@ -313,22 +283,15 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     this._tabbedPane.selectTab(Tab.PaintProfiler, true);
   }
 
-  /**
-   * @param {!SDK.TracingModel.Event} event
-   * @param {!Node} content
-   */
-  _appendDetailsTabsForTraceEventAndShowDetails(event, content) {
+  _appendDetailsTabsForTraceEventAndShowDetails(event: SDK.TracingModel.Event, content: Node): void {
     this._setContent(content);
     if (event.name === TimelineModel.TimelineModel.RecordType.Paint ||
-        event.name === TimelineModel.TimelineModel.RecordType.RasterTask) {
+      event.name === TimelineModel.TimelineModel.RecordType.RasterTask) {
       this._showEventInPaintProfiler(event);
     }
   }
 
-  /**
-   * @param {!SDK.TracingModel.Event} event
-   */
-  _showEventInPaintProfiler(event) {
+  _showEventInPaintProfiler(event: SDK.TracingModel.Event): void {
     const paintProfilerModel = SDK.SDKModel.TargetManager.instance().models(SDK.PaintProfiler.PaintProfilerModel)[0];
     if (!paintProfilerModel) {
       return;
@@ -344,11 +307,7 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     this._appendTab(Tab.PaintProfiler, i18nString(UIStrings.paintProfiler), paintProfilerView);
   }
 
-  /**
-   * @param {number} startTime
-   * @param {number} endTime
-   */
-  _updateSelectedRangeStats(startTime, endTime) {
+  _updateSelectedRangeStats(startTime: number, endTime: number): void {
     if (!this._model || !this._track) {
       return;
     }
@@ -357,22 +316,21 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     const endOffset = endTime - this._model.timelineModel().minimumRecordTime();
 
     const contentHelper = new TimelineDetailsContentHelper(null, null);
-    contentHelper.addSection(i18nString(
-        UIStrings.rangeSS, {PH1: Number.millisToString(startOffset), PH2: Number.millisToString(endOffset)}));
+    contentHelper.addSection(i18nString(UIStrings.rangeSS, { PH1: Number.millisToString(startOffset), PH2: Number.millisToString(endOffset) }));
     const pieChart = TimelineUIUtils.generatePieChart(aggregatedStats);
     contentHelper.appendElementRow('', pieChart);
     this._setContent(contentHelper.fragment);
   }
 }
 
-/**
- * @enum {string}
- */
-export const Tab = {
-  Details: 'Details',
-  EventLog: 'EventLog',
-  CallTree: 'CallTree',
-  BottomUp: 'BottomUp',
-  PaintProfiler: 'PaintProfiler',
-  LayerViewer: 'LayerViewer'
-};
+// TODO(crbug.com/1167717): Make this a const enum again
+// eslint-disable-next-line rulesdir/const_enum
+export const enum Tab {
+  Details = 'Details',
+  EventLog = 'EventLog',
+  CallTree = 'CallTree',
+  BottomUp = 'BottomUp',
+  PaintProfiler = 'PaintProfiler',
+  LayerViewer = 'LayerViewer'
+}
+;

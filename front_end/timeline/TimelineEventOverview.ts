@@ -28,16 +28,18 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Coverage from '../coverage/coverage.js';
 import * as i18n from '../i18n/i18n.js';
 import * as PerfUI from '../perf_ui/perf_ui.js';
 import * as Platform from '../platform/platform.js';
-import * as SDK from '../sdk/sdk.js';  // eslint-disable-line no-unused-vars
+import * as SDK from '../sdk/sdk.js'; // eslint-disable-line no-unused-vars
 import * as TimelineModel from '../timeline_model/timeline_model.js';
 import * as UI from '../ui/ui.js';
 
-import {PerformanceModel} from './PerformanceModel.js';  // eslint-disable-line no-unused-vars
-import {EventDispatchTypeDescriptor, TimelineCategory, TimelineRecordStyle, TimelineUIUtils} from './TimelineUIUtils.js';  // eslint-disable-line no-unused-vars
+import { PerformanceModel } from './PerformanceModel.js'; // eslint-disable-line no-unused-vars
+import { EventDispatchTypeDescriptor, TimelineCategory, TimelineRecordStyle, TimelineUIUtils } from './TimelineUIUtils.js'; // eslint-disable-line no-unused-vars
 
 export const UIStrings = {
   /**
@@ -67,39 +69,25 @@ export const UIStrings = {
   */
   coverage: 'COVERAGE',
 };
-const str_ = i18n.i18n.registerUIStrings('timeline/TimelineEventOverview.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('timeline/TimelineEventOverview.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class TimelineEventOverview extends PerfUI.TimelineOverviewPane.TimelineOverviewBase {
-  /**
-   * @param {string} id
-   * @param {?string} title
-   */
-  constructor(id, title) {
+  _model: PerformanceModel | null;
+  constructor(id: string, title: string | null) {
     super();
     this.element.id = 'timeline-overview-' + id;
     this.element.classList.add('overview-strip');
-    /** @type {?PerformanceModel} */
     this._model = null;
     if (title) {
       this.element.createChild('div', 'timeline-overview-strip-title').textContent = title;
     }
   }
 
-  /**
-   * @param {?PerformanceModel} model
-   */
-  setModel(model) {
+  setModel(model: PerformanceModel | null): void {
     this._model = model;
   }
 
-  /**
-   * @param {number} begin
-   * @param {number} end
-   * @param {number} position
-   * @param {number} height
-   * @param {string} color
-   */
-  _renderBar(begin, end, position, height, color) {
+  _renderBar(begin: number, end: number, position: number, height: number, color: string): void {
     const x = begin;
     const width = end - begin;
     const ctx = this.context();
@@ -113,18 +101,14 @@ export class TimelineEventOverviewInput extends TimelineEventOverview {
     super('input', null);
   }
 
-  /**
-   * @override
-   */
-  update() {
+  update(): void {
     super.update();
     if (!this._model) {
       return;
     }
     const height = this.height();
     const descriptors = TimelineUIUtils.eventDispatchDesciptors();
-    /** @type {!Map.<string,!EventDispatchTypeDescriptor>} */
-    const descriptorsByType = new Map();
+    const descriptorsByType = new Map<string, EventDispatchTypeDescriptor>();
     let maxPriority = -1;
     for (const descriptor of descriptors) {
       for (const type of descriptor.eventTypes) {
@@ -153,8 +137,7 @@ export class TimelineEventOverviewInput extends TimelineEventOverview {
           if (event.endTime === undefined) {
             continue;
           }
-          const start =
-              Platform.NumberUtilities.clamp(Math.floor((event.startTime - timeOffset) * scale), 0, canvasWidth);
+          const start = Platform.NumberUtilities.clamp(Math.floor((event.startTime - timeOffset) * scale), 0, canvasWidth);
           const end = Platform.NumberUtilities.clamp(Math.ceil((event.endTime - timeOffset) * scale), 0, canvasWidth);
           const width = Math.max(end - start, minWidth);
           this._renderBar(start, start + width, 0, height, descriptor.color);
@@ -169,10 +152,7 @@ export class TimelineEventOverviewNetwork extends TimelineEventOverview {
     super('network', i18nString(UIStrings.net));
   }
 
-  /**
-   * @override
-   */
-  update() {
+  update(): void {
     super.update();
     if (!this._model) {
       return;
@@ -186,7 +166,7 @@ export class TimelineEventOverviewNetwork extends TimelineEventOverview {
     const highPath = new Path2D();
     const lowPath = new Path2D();
     const priorities = Protocol.Network.ResourcePriority;
-    const highPrioritySet = new Set([priorities.VeryHigh, priorities.High, priorities.Medium]);
+    const highPrioritySet = new Set<any>([priorities.VeryHigh, priorities.High, priorities.Medium]);
     for (const request of timelineModel.networkRequests()) {
       const path = highPrioritySet.has(request.priority) ? highPath : lowPath;
       const s = Math.max(Math.floor((request.startTime - timeOffset) * scale), 0);
@@ -196,37 +176,30 @@ export class TimelineEventOverviewNetwork extends TimelineEventOverview {
     const ctx = this.context();
     ctx.save();
     ctx.fillStyle = 'hsl(214, 60%, 60%)';
-    ctx.fill(/** @type {?} */ (highPath));
+    ctx.fill((highPath as any));
     ctx.translate(0, bandHeight);
     ctx.fillStyle = 'hsl(214, 80%, 80%)';
-    ctx.fill(/** @type {?} */ (lowPath));
+    ctx.fill((lowPath as any));
     ctx.restore();
   }
 }
 
-/** @type {!WeakMap<!TimelineCategory, number>} */
-const categoryToIndex = new WeakMap();
+const categoryToIndex = new WeakMap<TimelineCategory, number>();
 
 export class TimelineEventOverviewCPUActivity extends TimelineEventOverview {
+  _backgroundCanvas: HTMLCanvasElement;
   constructor() {
     super('cpu-activity', i18nString(UIStrings.cpu));
-    /** @type {!HTMLCanvasElement} */
-    this._backgroundCanvas = /** @type {!HTMLCanvasElement} */ (this.element.createChild('canvas', 'fill background'));
+    this._backgroundCanvas = (this.element.createChild('canvas', 'fill background') as HTMLCanvasElement);
   }
 
-  /**
-   * @override
-   */
-  resetCanvas() {
+  resetCanvas(): void {
     super.resetCanvas();
     this._backgroundCanvas.width = this.element.clientWidth * window.devicePixelRatio;
     this._backgroundCanvas.height = this.element.clientHeight * window.devicePixelRatio;
   }
 
-  /**
-   * @override
-   */
-  update() {
+  update(): void {
     super.update();
     if (!this._model) {
       return;
@@ -249,42 +222,33 @@ export class TimelineEventOverviewCPUActivity extends TimelineEventOverview {
       categoryToIndex.set(categories[categoryOrder[i]], i);
     }
 
-    const backgroundContext = /** @type {?CanvasRenderingContext2D} */ (this._backgroundCanvas.getContext('2d'));
+    const backgroundContext = (this._backgroundCanvas.getContext('2d') as CanvasRenderingContext2D | null);
     if (!backgroundContext) {
       throw new Error('Could not find 2d canvas');
     }
     for (const track of timelineModel.tracks()) {
       if (track.type === TimelineModel.TimelineModel.TrackType.MainThread && track.forMainFrame) {
         drawThreadEvents(this.context(), track.events);
-      } else {
+      }
+      else {
         drawThreadEvents(backgroundContext, track.events);
       }
     }
     applyPattern(backgroundContext);
 
-    /**
-     * @param {!CanvasRenderingContext2D} ctx
-     * @param {!Array<!SDK.TracingModel.Event>} events
-     */
-    function drawThreadEvents(ctx, events) {
+    function drawThreadEvents(ctx: CanvasRenderingContext2D, events: SDK.TracingModel.Event[]): void {
       const quantizer = new Quantizer(timeOffset, quantTime, drawSample);
       let x = 0;
-      /** @type {!Array<number>} */
-      const categoryIndexStack = [];
-      /** @type {!Array<!Path2D>} */
-      const paths = [];
-      /** @type {!Array<number>} */
-      const lastY = [];
+      const categoryIndexStack: number[] = [];
+      const paths: Path2D[] = [];
+      const lastY: number[] = [];
       for (let i = 0; i < categoryOrder.length; ++i) {
         paths[i] = new Path2D();
         paths[i].moveTo(0, height);
         lastY[i] = height;
       }
 
-      /**
-       * @param {!Array<number>} counters
-       */
-      function drawSample(counters) {
+      function drawSample(counters: number[]): void {
         let y = baseLine;
         for (let i = idleIndex + 1; i < categoryOrder.length; ++i) {
           const h = (counters[i] || 0) / quantTime * height;
@@ -295,19 +259,13 @@ export class TimelineEventOverviewCPUActivity extends TimelineEventOverview {
         x += quantSizePx;
       }
 
-      /**
-       * @param {!SDK.TracingModel.Event} e
-       */
-      function onEventStart(e) {
+      function onEventStart(e: SDK.TracingModel.Event): void {
         const index = categoryIndexStack.length ? categoryIndexStack[categoryIndexStack.length - 1] : idleIndex;
-        quantizer.appendInterval(e.startTime, /** @type {number} */ (index));
+        quantizer.appendInterval(e.startTime, (index as number));
         categoryIndexStack.push(categoryToIndex.get(TimelineUIUtils.eventStyle(e).category) || otherIndex);
       }
 
-      /**
-       * @param {!SDK.TracingModel.Event} e
-       */
-      function onEventEnd(e) {
+      function onEventEnd(e: SDK.TracingModel.Event): void {
         const lastCategoryIndex = categoryIndexStack.pop();
         if (e.endTime !== undefined && lastCategoryIndex) {
           quantizer.appendInterval(e.endTime, lastCategoryIndex);
@@ -315,7 +273,7 @@ export class TimelineEventOverviewCPUActivity extends TimelineEventOverview {
       }
 
       TimelineModel.TimelineModel.TimelineModelImpl.forEachEvent(events, onEventStart, onEventEnd);
-      quantizer.appendInterval(timeOffset + timeSpan + quantTime, idleIndex);  // Kick drawing the last bucket.
+      quantizer.appendInterval(timeOffset + timeSpan + quantTime, idleIndex); // Kick drawing the last bucket.
       for (let i = categoryOrder.length - 1; i > 0; --i) {
         paths[i].lineTo(width, height);
         ctx.fillStyle = categories[categoryOrder[i]].color;
@@ -323,10 +281,7 @@ export class TimelineEventOverviewCPUActivity extends TimelineEventOverview {
       }
     }
 
-    /**
-     * @param {!CanvasRenderingContext2D} ctx
-     */
-    function applyPattern(ctx) {
+    function applyPattern(ctx: CanvasRenderingContext2D): void {
       const step = 4 * window.devicePixelRatio;
       ctx.save();
       ctx.lineWidth = step / Math.sqrt(8);
@@ -346,10 +301,7 @@ export class TimelineEventOverviewResponsiveness extends TimelineEventOverview {
     super('responsiveness', null);
   }
 
-  /**
-   * @override
-   */
-  update() {
+  update(): void {
     super.update();
     if (!this._model) {
       return;
@@ -390,11 +342,7 @@ export class TimelineEventOverviewResponsiveness extends TimelineEventOverview {
     ctx.fill(fillPath);
     ctx.stroke(markersPath);
 
-    /**
-     * @param {number} time
-     * @param {number} duration
-     */
-    function paintWarningDecoration(time, duration) {
+    function paintWarningDecoration(time: number, duration: number): void {
       const x = Math.round(scale * (time - timeOffset));
       const w = Math.round(scale * duration);
       fillPath.rect(x, 0, w, height);
@@ -405,21 +353,21 @@ export class TimelineEventOverviewResponsiveness extends TimelineEventOverview {
 }
 
 export class TimelineFilmStripOverview extends TimelineEventOverview {
+  _frameToImagePromise: Map<SDK.FilmStripModel.Frame, Promise<HTMLImageElement>>;
+  _lastFrame: SDK.FilmStripModel.Frame | null;
+  _lastElement: Element | null;
+  _drawGeneration?: unique symbol;
+  _emptyImage?: HTMLImageElement;
+  _imageWidth?: number;
   constructor() {
     super('filmstrip', null);
-    /** @type {!Map<!SDK.FilmStripModel.Frame,!Promise<!HTMLImageElement>>} */
     this._frameToImagePromise = new Map();
-    /** @type {?SDK.FilmStripModel.Frame} */
     this._lastFrame = null;
-    /** @type {?Element} */
     this._lastElement = null;
     this.reset();
   }
 
-  /**
-   * @override
-   */
-  update() {
+  update(): void {
     super.update();
     const frames = this._model ? this._model.filmStripModel().frames() : [];
     if (!frames.length) {
@@ -443,26 +391,17 @@ export class TimelineFilmStripOverview extends TimelineEventOverview {
     });
   }
 
-  /**
-   * @param {!SDK.FilmStripModel.Frame} frame
-   * @return {!Promise<?HTMLImageElement>}
-   */
-  async _imageByFrame(frame) {
-    /** @type {(!Promise<?HTMLImageElement>|undefined)} */
-    let imagePromise = this._frameToImagePromise.get(frame);
+  async _imageByFrame(frame: SDK.FilmStripModel.Frame): Promise<HTMLImageElement | null> {
+    let imagePromise: Promise<HTMLImageElement | null> | undefined = this._frameToImagePromise.get(frame);
     if (!imagePromise) {
       const data = await frame.imageDataPromise();
       imagePromise = UI.UIUtils.loadImageFromData(data);
-      this._frameToImagePromise.set(frame, /** @type {!Promise<!HTMLImageElement>} */ (imagePromise));
+      this._frameToImagePromise.set(frame, (imagePromise as Promise<HTMLImageElement>));
     }
     return imagePromise;
   }
 
-  /**
-   * @param {number} imageWidth
-   * @param {number} imageHeight
-   */
-  _drawFrames(imageWidth, imageHeight) {
+  _drawFrames(imageWidth: number, imageHeight: number): void {
     if (!imageWidth || !this._model) {
       return;
     }
@@ -491,12 +430,7 @@ export class TimelineFilmStripOverview extends TimelineEventOverview {
     context.strokeStyle = '#ddd';
     context.stroke();
 
-    /**
-     * @param {number} x
-     * @param {?HTMLImageElement} image
-     * @this {TimelineFilmStripOverview}
-     */
-    function drawFrameImage(x, image) {
+    function drawFrameImage(this: TimelineFilmStripOverview, x: number, image: HTMLImageElement | null): void {
       // Ignore draws deferred from a previous update call.
       if (this._drawGeneration !== drawGeneration || !image) {
         return;
@@ -505,12 +439,7 @@ export class TimelineFilmStripOverview extends TimelineEventOverview {
     }
   }
 
-  /**
-   * @override
-   * @param {number} x
-   * @return {!Promise<?Element>}
-   */
-  async overviewInfoPromise(x) {
+  async overviewInfoPromise(x: number): Promise<Element | null> {
     if (!this._model || !this._model.filmStripModel().frames().length) {
       return null;
     }
@@ -531,15 +460,12 @@ export class TimelineFilmStripOverview extends TimelineEventOverview {
     if (image) {
       element.createChild('div', 'thumbnail').appendChild(image);
     }
-      this._lastFrame = frame;
-      this._lastElement = element;
-      return element;
+    this._lastFrame = frame;
+    this._lastElement = element;
+    return element;
   }
 
-  /**
-   * @override
-   */
-  reset() {
+  reset(): void {
     this._lastFrame = null;
     this._lastElement = null;
     /** @type {!Map<!SDK.FilmStripModel.Frame,!Promise<!HTMLImageElement>>} */
@@ -555,10 +481,7 @@ export class TimelineEventOverviewFrames extends TimelineEventOverview {
     super('framerate', i18nString(UIStrings.fps));
   }
 
-  /**
-   * @override
-   */
-  update() {
+  update(): void {
     super.update();
     if (!this._model) {
       return;
@@ -578,7 +501,7 @@ export class TimelineEventOverviewFrames extends TimelineEventOverview {
     const ctx = this.context();
     const bottomY = baseY + 10 * window.devicePixelRatio;
     let x = 0;
-    let y = bottomY;
+    let y: number = bottomY;
 
     const lineWidth = window.devicePixelRatio;
     const offset = lineWidth & 1 ? 0.5 : 0;
@@ -591,7 +514,7 @@ export class TimelineEventOverviewFrames extends TimelineEventOverview {
       ctx.lineTo(x, y);
       ctx.lineTo(x, y + tickDepth);
       y = frame.idle ? bottomY :
-                       Math.round(baseY - visualHeight * Math.min(baseFrameDurationMs / frame.duration, 1)) - offset;
+        Math.round(baseY - visualHeight * Math.min(baseFrameDurationMs / frame.duration, 1)) - offset;
       ctx.lineTo(x, y + tickDepth);
       ctx.lineTo(x, y);
     }
@@ -610,19 +533,17 @@ export class TimelineEventOverviewFrames extends TimelineEventOverview {
 }
 
 export class TimelineEventOverviewMemory extends TimelineEventOverview {
+  _heapSizeLabel: HTMLElement;
   constructor() {
     super('memory', i18nString(UIStrings.heap));
     this._heapSizeLabel = this.element.createChild('div', 'memory-graph-label');
   }
 
-  resetHeapSizeLabels() {
+  resetHeapSizeLabels(): void {
     this._heapSizeLabel.textContent = '';
   }
 
-  /**
-   * @override
-   */
-  update() {
+  update(): void {
     super.update();
     const ratio = window.devicePixelRatio;
 
@@ -631,8 +552,7 @@ export class TimelineEventOverviewMemory extends TimelineEventOverview {
       return;
     }
 
-    const tracks = this._model.timelineModel().tracks().filter(
-        track => track.type === TimelineModel.TimelineModel.TrackType.MainThread && track.forMainFrame);
+    const tracks = this._model.timelineModel().tracks().filter(track => track.type === TimelineModel.TimelineModel.TrackType.MainThread && track.forMainFrame);
     const trackEvents = tracks.map(track => track.events);
 
     const lowerOffset = 3 * ratio;
@@ -641,21 +561,14 @@ export class TimelineEventOverviewMemory extends TimelineEventOverview {
     const minTime = this._model.timelineModel().minimumRecordTime();
     const maxTime = this._model.timelineModel().maximumRecordTime();
 
-    /**
-     * @param {!SDK.TracingModel.Event} event
-     * @return {boolean}
-     */
-    function isUpdateCountersEvent(event) {
+    function isUpdateCountersEvent(event: SDK.TracingModel.Event): boolean {
       return event.name === TimelineModel.TimelineModel.RecordType.UpdateCounters;
     }
     for (let i = 0; i < trackEvents.length; i++) {
       trackEvents[i] = trackEvents[i].filter(isUpdateCountersEvent);
     }
 
-    /**
-     * @param {!SDK.TracingModel.Event} event
-     */
-    function calculateMinMaxSizes(event) {
+    function calculateMinMaxSizes(event: SDK.TracingModel.Event): void {
       const counters = event.args.data;
       if (!counters || !counters.jsHeapSizeUsed) {
         return;
@@ -676,10 +589,7 @@ export class TimelineEventOverviewMemory extends TimelineEventOverview {
 
     const histogram = new Array(width);
 
-    /**
-     * @param {!SDK.TracingModel.Event} event
-     */
-    function buildHistogram(event) {
+    function buildHistogram(event: SDK.TracingModel.Event): void {
       const counters = event.args.data;
       if (!counters || !counters.jsHeapSizeUsed) {
         return;
@@ -737,25 +647,20 @@ export class TimelineEventOverviewMemory extends TimelineEventOverview {
 }
 
 export class Quantizer {
-  /**
-   * @param {number} startTime
-   * @param {number} quantDuration
-   * @param {function(!Array<number>):void} callback
-   */
-  constructor(startTime, quantDuration, callback) {
+  _lastTime: number;
+  _quantDuration: number;
+  _callback: (arg0: Array<number>) => void;
+  _counters: number[];
+  _remainder: number;
+  constructor(startTime: number, quantDuration: number, callback: (arg0: Array<number>) => void) {
     this._lastTime = startTime;
     this._quantDuration = quantDuration;
     this._callback = callback;
-    /** @type {!Array<number>} */
     this._counters = [];
     this._remainder = quantDuration;
   }
 
-  /**
-   * @param {number} time
-   * @param {number} group
-   */
-  appendInterval(time, group) {
+  appendInterval(time: number, group: number): void {
     let interval = time - this._lastTime;
     if (interval <= this._remainder) {
       this._counters[group] = (this._counters[group] || 0) + interval;
@@ -780,20 +685,18 @@ export class Quantizer {
 }
 
 export class TimelineEventOverviewCoverage extends TimelineEventOverview {
+  _heapSizeLabel: HTMLElement;
+  _coverageModel?: Coverage.CoverageModel.CoverageModel | null;
   constructor() {
     super('coverage', i18nString(UIStrings.coverage));
     this._heapSizeLabel = this.element.createChild('div', 'timeline-overview-coverage-label');
   }
 
-  resetHeapSizeLabels() {
+  resetHeapSizeLabels(): void {
     this._heapSizeLabel.textContent = '';
   }
 
-  /**
-   * @override
-   * @param {?PerformanceModel} model
-   */
-  setModel(model) {
+  setModel(model: PerformanceModel | null): void {
     super.setModel(model);
     if (model) {
       const mainTarget = model.mainTarget();
@@ -803,10 +706,7 @@ export class TimelineEventOverviewCoverage extends TimelineEventOverview {
     }
   }
 
-  /**
-   * @override
-   */
-  update() {
+  update(): void {
     super.update();
     const ratio = window.devicePixelRatio;
 
@@ -816,10 +716,8 @@ export class TimelineEventOverviewCoverage extends TimelineEventOverview {
 
     let total = 0;
     let total_used = 0;
-    /** @type {!Map<number, number>} */
-    const usedByTimestamp = new Map();
-    /** @type {!Map<number, !Set<!Coverage.CoverageModel.CoverageInfo>>} */
-    const totalByTimestamp = new Map();
+    const usedByTimestamp = new Map<number, number>();
+    const totalByTimestamp = new Map<number, Set<Coverage.CoverageModel.CoverageInfo>>();
     for (const urlInfo of this._coverageModel.entries()) {
       for (const info of urlInfo.entries()) {
         total += info.size();
@@ -838,17 +736,16 @@ export class TimelineEventOverviewCoverage extends TimelineEventOverview {
 
           if (previousCount === undefined) {
             usedByTimestamp.set(stamp, used);
-          } else {
+          }
+          else {
             usedByTimestamp.set(stamp, previousCount + used);
           }
         }
       }
     }
 
-    /** @type {!Set<!Coverage.CoverageModel.CoverageInfo>} */
-    const seen = new Set();
-    /** @type {!Map<number, number>} */
-    const coverageByTimestamp = new Map();
+    const seen = new Set<Coverage.CoverageModel.CoverageInfo>();
+    const coverageByTimestamp = new Map<number, number>();
     let sumTotal = 0, sumUsed = 0;
 
     const sortedByTimestamp = Array.from(totalByTimestamp.entries()).sort((a, b) => a[0] - b[0]);
@@ -890,10 +787,9 @@ export class TimelineEventOverviewCoverage extends TimelineEventOverview {
 
     ctx.lineTo(-lineWidth, height - yOffset);
 
-    let previous = null;
+    let previous: (number | null) | null = null;
     for (const stamp of this._coverageModel.coverageUpdateTimes()) {
-      /** @type {?number} */
-      const coverage = coverageByTimestamp.get(stamp) || previous;
+      const coverage: number | null = coverageByTimestamp.get(stamp) || previous;
       previous = coverage;
       if (!coverage) {
         continue;
@@ -921,8 +817,7 @@ export class TimelineEventOverviewCoverage extends TimelineEventOverview {
 
     previous = null;
     for (const stamp of this._coverageModel.coverageUpdateTimes()) {
-      /** @type {?number} */
-      const coverage = coverageByTimestamp.get(stamp) || previous;
+      const coverage: number | null = coverageByTimestamp.get(stamp) || previous;
       previous = coverage;
       if (!coverage) {
         continue;

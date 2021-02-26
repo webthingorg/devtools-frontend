@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as Bindings from '../bindings/bindings.js';
 import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
@@ -33,59 +35,49 @@ export const UIStrings = {
   */
   malformedCpuProfileFormat: 'Malformed CPU profile format',
 };
-const str_ = i18n.i18n.registerUIStrings('timeline/TimelineLoader.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('timeline/TimelineLoader.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
-/**
- * @implements {Common.StringOutputStream.OutputStream}
- */
-export class TimelineLoader {
-  /**
-   * @param {!Client} client
-   */
-  constructor(client) {
-    /** @type {?Client} */
+export class TimelineLoader implements Common.StringOutputStream.OutputStream {
+  _client: Client | null;
+  _backingStorage: Bindings.TempFile.TempFileBackingStorage;
+  _tracingModel: SDK.TracingModel.TracingModel | null;
+  _canceledCallback: (() => void) | null;
+  _state: State;
+  _buffer: string;
+  _firstRawChunk: boolean;
+  _firstChunk: boolean;
+  _loadedBytes: number;
+  _totalSize!: number;
+  _jsonTokenizer: TextUtils.TextUtils.BalancedJSONTokenizer;
+  constructor(client: Client) {
     this._client = client;
 
     this._backingStorage = new Bindings.TempFile.TempFileBackingStorage();
-    /** @type {?SDK.TracingModel.TracingModel} */
     this._tracingModel = new SDK.TracingModel.TracingModel(this._backingStorage);
 
-    /** @type {?function():void} */
     this._canceledCallback = null;
     this._state = State.Initial;
     this._buffer = '';
     this._firstRawChunk = true;
     this._firstChunk = true;
     this._loadedBytes = 0;
-    /** @type {number} */
-    this._totalSize;
     this._jsonTokenizer = new TextUtils.TextUtils.BalancedJSONTokenizer(this._writeBalancedJSON.bind(this), true);
   }
 
-  /**
-   * @param {!File} file
-   * @param {!Client} client
-   * @return {!TimelineLoader}
-   */
-  static loadFromFile(file, client) {
+  static loadFromFile(file: File, client: Client): TimelineLoader {
     const loader = new TimelineLoader(client);
     const fileReader = new Bindings.FileUtils.ChunkedFileReader(file, TransferChunkLengthBytes);
     loader._canceledCallback = fileReader.cancel.bind(fileReader);
     loader._totalSize = file.size;
     fileReader.read(loader).then(success => {
       if (!success && fileReader.error()) {
-        loader._reportErrorAndCancelLoading(/** @type {*} */ (fileReader.error()).message);
+        loader._reportErrorAndCancelLoading((fileReader.error() as any).message);
       }
     });
     return loader;
   }
 
-  /**
-   * @param {!Array.<!SDK.TracingManager.EventPayload>} events
-   * @param {!Client} client
-   * @return {!TimelineLoader}
-   */
-  static loadFromEvents(events, client) {
+  static loadFromEvents(events: SDK.TracingManager.EventPayload[], client: Client): TimelineLoader {
     const loader = new TimelineLoader(client);
 
     setTimeout(async () => {
@@ -93,9 +85,9 @@ export class TimelineLoader {
       client.loadingStarted();
       for (let i = 0; i < events.length; i += eventsPerChunk) {
         const chunk = events.slice(i, i + eventsPerChunk);
-        /** @type {!SDK.TracingModel.TracingModel} */ (loader._tracingModel).addEvents(chunk);
+        (loader._tracingModel as SDK.TracingModel.TracingModel).addEvents(chunk);
         client.loadingProgress((i + chunk.length) / events.length);
-        await new Promise(r => setTimeout(r));  // Yield event loop to paint.
+        await new Promise(r => setTimeout(r)); // Yield event loop to paint.
       }
       loader.close();
     });
@@ -103,18 +95,13 @@ export class TimelineLoader {
     return loader;
   }
 
-  /**
-   * @param {string} url
-   * @param {!Client} client
-   * @return {!TimelineLoader}
-   */
-  static loadFromURL(url, client) {
+  static loadFromURL(url: string, client: Client): TimelineLoader {
     const loader = new TimelineLoader(client);
     Host.ResourceLoader.loadAsStream(url, null, loader);
     return loader;
   }
 
-  cancel() {
+  cancel(): void {
     this._tracingModel = null;
     this._backingStorage.reset();
     if (this._client) {
@@ -126,19 +113,15 @@ export class TimelineLoader {
     }
   }
 
-  /**
-   * @override
-   * @param {string} chunk
-   * @return {!Promise<void>}
-   */
-  write(chunk) {
+  write(chunk: string): Promise<void> {
     if (!this._client) {
       return Promise.resolve();
     }
     this._loadedBytes += chunk.length;
     if (this._firstRawChunk) {
       this._client.loadingStarted();
-    } else {
+    }
+    else {
       this._client.loadingProgress(this._totalSize ? this._loadedBytes / this._totalSize : undefined);
     }
     this._firstRawChunk = false;
@@ -146,11 +129,14 @@ export class TimelineLoader {
     if (this._state === State.Initial) {
       if (chunk.startsWith('{"nodes":[')) {
         this._state = State.LoadingCPUProfileFormat;
-      } else if (chunk[0] === '{') {
+      }
+      else if (chunk[0] === '{') {
         this._state = State.LookingForEvents;
-      } else if (chunk[0] === '[') {
+      }
+      else if (chunk[0] === '[') {
         this._state = State.ReadingEvents;
-      } else {
+      }
+      else {
         this._reportErrorAndCancelLoading(i18nString(UIStrings.malformedTimelineDataUnknownJson));
         return Promise.resolve();
       }
@@ -186,11 +172,8 @@ export class TimelineLoader {
     return Promise.resolve();
   }
 
-  /**
-   * @param {string} data
-   */
-  _writeBalancedJSON(data) {
-    let json = data + ']';
+  _writeBalancedJSON(data: string): void {
+    let json: string = data + ']';
 
     if (!this._firstChunk) {
       const commaIndex = json.indexOf(',');
@@ -202,9 +185,10 @@ export class TimelineLoader {
 
     let items;
     try {
-      items = /** @type {!Array.<!SDK.TracingManager.EventPayload>} */ (JSON.parse(json));
-    } catch (e) {
-      this._reportErrorAndCancelLoading(i18nString(UIStrings.malformedTimelineDataS, {PH1: e.toString()}));
+      items = (JSON.parse(json) as SDK.TracingManager.EventPayload[]);
+    }
+    catch (e) {
+      this._reportErrorAndCancelLoading(i18nString(UIStrings.malformedTimelineDataS, { PH1: e.toString() }));
       return;
     }
 
@@ -217,34 +201,25 @@ export class TimelineLoader {
     }
 
     try {
-      /** @type {!SDK.TracingModel.TracingModel} */ (this._tracingModel).addEvents(items);
-    } catch (e) {
-      this._reportErrorAndCancelLoading(i18nString(UIStrings.malformedTimelineDataS, {PH1: e.toString()}));
+      (this._tracingModel as SDK.TracingModel.TracingModel).addEvents(items);
+    }
+    catch (e) {
+      this._reportErrorAndCancelLoading(i18nString(UIStrings.malformedTimelineDataS, { PH1: e.toString() }));
     }
   }
 
-  /**
-   * @param {string=} message
-   */
-  _reportErrorAndCancelLoading(message) {
+  _reportErrorAndCancelLoading(message?: string): void {
     if (message) {
       Common.Console.Console.instance().error(message);
     }
     this.cancel();
   }
 
-  /**
-   * @param {*} item
-   * @return {boolean}
-   */
-  _looksLikeAppVersion(item) {
+  _looksLikeAppVersion(item: any): boolean {
     return typeof item === 'string' && item.indexOf('Chrome') !== -1;
   }
 
-  /**
-   * @override
-   */
-  async close() {
+  async close(): Promise<void> {
     if (!this._client) {
       return;
     }
@@ -252,29 +227,26 @@ export class TimelineLoader {
     setTimeout(() => this._finalizeTrace(), 0);
   }
 
-  _finalizeTrace() {
+  _finalizeTrace(): void {
     if (this._state === State.LoadingCPUProfileFormat) {
       this._parseCPUProfileFormat(this._buffer);
       this._buffer = '';
     }
-    /** @type {!SDK.TracingModel.TracingModel} */ (this._tracingModel).tracingComplete();
-    /** @type {!Client} */ (this._client).loadingComplete(this._tracingModel);
+    (this._tracingModel as SDK.TracingModel.TracingModel).tracingComplete();
+    (this._client as Client).loadingComplete(this._tracingModel);
   }
 
-  /**
-   * @param {string} text
-   */
-  _parseCPUProfileFormat(text) {
+  _parseCPUProfileFormat(text: string): void {
     let traceEvents;
     try {
       const profile = JSON.parse(text);
-      traceEvents = TimelineModel.TimelineJSProfile.TimelineJSProfileProcessor.buildTraceProfileFromCpuProfile(
-          profile, /* tid */ 1, /* injectPageEvent */ true);
-    } catch (e) {
+      traceEvents = TimelineModel.TimelineJSProfile.TimelineJSProfileProcessor.buildTraceProfileFromCpuProfile(profile, /* tid */ 1, /* injectPageEvent */ true);
+    }
+    catch (e) {
       this._reportErrorAndCancelLoading(i18nString(UIStrings.malformedCpuProfileFormat));
       return;
     }
-    /** @type {!SDK.TracingModel.TracingModel} */ (this._tracingModel).addEvents(traceEvents);
+    (this._tracingModel as SDK.TracingModel.TracingModel).addEvents(traceEvents);
   }
 }
 
@@ -283,33 +255,21 @@ export const TransferChunkLengthBytes = 5000000;
 /**
  * @interface
  */
-export class Client {
-  loadingStarted() {
-  }
+export interface Client {
+  loadingStarted(): void;
 
-  /**
-   * @param {number=} progress
-   */
-  loadingProgress(progress) {
-  }
+  loadingProgress(progress?: number): void;
 
-  processingStarted() {
-  }
+  processingStarted(): void;
 
-  /**
-   * @param {?SDK.TracingModel.TracingModel} tracingModel
-   */
-  loadingComplete(tracingModel) {
-  }
+  loadingComplete(tracingModel: SDK.TracingModel.TracingModel | null): void;
 }
 
-/**
- * @enum {symbol}
- */
-export const State = {
-  Initial: Symbol('Initial'),
-  LookingForEvents: Symbol('LookingForEvents'),
-  ReadingEvents: Symbol('ReadingEvents'),
-  SkippingTail: Symbol('SkippingTail'),
-  LoadingCPUProfileFormat: Symbol('LoadingCPUProfileFormat')
-};
+export enum State {
+  Initial = 'Initial',
+  LookingForEvents = 'LookingForEvents',
+  ReadingEvents = 'ReadingEvents',
+  SkippingTail = 'SkippingTail',
+  LoadingCPUProfileFormat = 'LoadingCPUProfileFormat'
+}
+;

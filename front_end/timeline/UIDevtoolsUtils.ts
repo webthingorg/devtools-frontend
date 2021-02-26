@@ -28,10 +28,12 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* eslint-disable rulesdir/no_underscored_properties */
+
 import * as i18n from '../i18n/i18n.js';
 import * as Root from '../root/root.js';
 
-import {TimelineCategory, TimelineRecordStyle} from './TimelineUIUtils.js';
+import { TimelineCategory, TimelineRecordStyle } from './TimelineUIUtils.js';
 
 export const UIStrings = {
   /**
@@ -67,26 +69,24 @@ export const UIStrings = {
   */
   idle: 'Idle',
 };
-const str_ = i18n.i18n.registerUIStrings('timeline/UIDevtoolsUtils.js', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('timeline/UIDevtoolsUtils.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
-/** @type {?Object<string, !TimelineRecordStyle>} */
-let _eventStylesMap = null;
+let _eventStylesMap: {
+  [x: string]: TimelineRecordStyle;
+} | null = null;
 
-/** @type {?Object<string, !TimelineCategory>} */
-let _categories = null;
+let _categories: {
+  [x: string]: TimelineCategory;
+} | null = null;
 
 export class UIDevtoolsUtils {
-  /**
-   * @return {boolean}
-   */
-  static isUiDevTools() {
+  static isUiDevTools(): boolean {
     return Root.Runtime.Runtime.queryParam('uiDevTools') === 'true';
   }
 
-  /**
-   * @return {!Object.<string, !TimelineRecordStyle>}
-   */
-  static categorizeEvents() {
+  static categorizeEvents(): {
+    [x: string]: TimelineRecordStyle;
+  } {
     if (_eventStylesMap) {
       return _eventStylesMap;
     }
@@ -99,8 +99,9 @@ export class UIDevtoolsUtils {
     const painting = categories['painting'];
     const other = categories['other'];
 
-    /** @type {!Object<string, !TimelineRecordStyle>} */
-    const eventStyles = {};
+    const eventStyles: {
+      [x: string]: TimelineRecordStyle;
+    } = {};
 
     // Paint Categories
     eventStyles[type.ViewPaint] = new TimelineRecordStyle('View::Paint', painting);
@@ -109,7 +110,7 @@ export class UIDevtoolsUtils {
     eventStyles[type.ViewOnPaintBackground] = new TimelineRecordStyle('View::OnPaintBackground', painting);
     eventStyles[type.ViewOnPaintBorder] = new TimelineRecordStyle('View::OnPaintBorder', painting);
     eventStyles[type.LayerPaintContentsToDisplayList] =
-        new TimelineRecordStyle('Layer::PaintContentsToDisplayList', painting);
+      new TimelineRecordStyle('Layer::PaintContentsToDisplayList', painting);
 
     // Layout Categories
     eventStyles[type.ViewLayout] = new TimelineRecordStyle('View::Layout', layout);
@@ -118,7 +119,7 @@ export class UIDevtoolsUtils {
     // Raster Categories
     eventStyles[type.RasterTask] = new TimelineRecordStyle('RasterTask', rasterizing);
     eventStyles[type.RasterizerTaskImplRunOnWorkerThread] =
-        new TimelineRecordStyle('RasterizerTaskImpl::RunOnWorkerThread', rasterizing);
+      new TimelineRecordStyle('RasterizerTaskImpl::RunOnWorkerThread', rasterizing);
 
     // Draw Categories
     eventStyles[type.DirectRendererDrawFrame] = new TimelineRecordStyle('DirectRenderer::DrawFrame', drawing);
@@ -133,53 +134,43 @@ export class UIDevtoolsUtils {
     return eventStyles;
   }
 
-  /**
-   * @return {!Object.<string, !TimelineCategory>}
-   */
-  static categories() {
+  static categories(): {
+    [x: string]: TimelineCategory;
+  } {
     if (_categories) {
       return _categories;
     }
     _categories = {
-      layout: new TimelineCategory(
-          'layout', i18nString(UIStrings.layout), true, 'hsl(214, 67%, 74%)', 'hsl(214, 67%, 66%)'),
-      rasterizing: new TimelineCategory(
-          'rasterizing', i18nString(UIStrings.rasterizing), true, 'hsl(43, 83%, 72%)', 'hsl(43, 83%, 64%) '),
-      drawing: new TimelineCategory(
-          'drawing', i18nString(UIStrings.drawing), true, 'hsl(256, 67%, 76%)', 'hsl(256, 67%, 70%)'),
-      painting: new TimelineCategory(
-          'painting', i18nString(UIStrings.painting), true, 'hsl(109, 33%, 64%)', 'hsl(109, 33%, 55%)'),
+      layout: new TimelineCategory('layout', i18nString(UIStrings.layout), true, 'hsl(214, 67%, 74%)', 'hsl(214, 67%, 66%)'),
+      rasterizing: new TimelineCategory('rasterizing', i18nString(UIStrings.rasterizing), true, 'hsl(43, 83%, 72%)', 'hsl(43, 83%, 64%) '),
+      drawing: new TimelineCategory('drawing', i18nString(UIStrings.drawing), true, 'hsl(256, 67%, 76%)', 'hsl(256, 67%, 70%)'),
+      painting: new TimelineCategory('painting', i18nString(UIStrings.painting), true, 'hsl(109, 33%, 64%)', 'hsl(109, 33%, 55%)'),
       other: new TimelineCategory('other', i18nString(UIStrings.system), false, 'hsl(0, 0%, 87%)', 'hsl(0, 0%, 79%)'),
       idle: new TimelineCategory('idle', i18nString(UIStrings.idle), false, 'hsl(0, 0%, 98%)', 'hsl(0, 0%, 98%)')
     };
     return _categories;
   }
 
-  /**
-   * @return {!Array<string>}
-   */
-  static getMainCategoriesList() {
+  static getMainCategoriesList(): string[] {
     return ['idle', 'drawing', 'painting', 'rasterizing', 'layout', 'other'];
   }
 }
 
-/**
- * @enum {string}
- */
-export const RecordType = {
-  ViewPaint: 'View::Paint',
-  ViewOnPaint: 'View::OnPaint',
-  ViewPaintChildren: 'View::PaintChildren',
-  ViewOnPaintBackground: 'View::OnPaintBackground',
-  ViewOnPaintBorder: 'View::OnPaintBorder',
-  ViewLayout: 'View::Layout',
-  ViewLayoutBoundsChanged: 'View::Layout(bounds_changed)',
-  LayerPaintContentsToDisplayList: 'Layer::PaintContentsToDisplayList',
-  DirectRendererDrawFrame: 'DirectRenderer::DrawFrame',
-  RasterTask: 'RasterTask',
-  RasterizerTaskImplRunOnWorkerThread: 'RasterizerTaskImpl::RunOnWorkerThread',
-  BeginFrame: 'BeginFrame',
-  DrawFrame: 'DrawFrame',
-  NeedsBeginFrameChanged: 'NeedsBeginFrameChanged',
-  ThreadControllerImplRunTask: 'ThreadControllerImpl::RunTask',
-};
+export enum RecordType {
+  ViewPaint = 'View::Paint',
+  ViewOnPaint = 'View::OnPaint',
+  ViewPaintChildren = 'View::PaintChildren',
+  ViewOnPaintBackground = 'View::OnPaintBackground',
+  ViewOnPaintBorder = 'View::OnPaintBorder',
+  ViewLayout = 'View::Layout',
+  ViewLayoutBoundsChanged = 'View::Layout(bounds_changed)',
+  LayerPaintContentsToDisplayList = 'Layer::PaintContentsToDisplayList',
+  DirectRendererDrawFrame = 'DirectRenderer::DrawFrame',
+  RasterTask = 'RasterTask',
+  RasterizerTaskImplRunOnWorkerThread = 'RasterizerTaskImpl::RunOnWorkerThread',
+  BeginFrame = 'BeginFrame',
+  DrawFrame = 'DrawFrame',
+  NeedsBeginFrameChanged = 'NeedsBeginFrameChanged',
+  ThreadControllerImplRunTask = 'ThreadControllerImpl::RunTask'
+}
+;
