@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d350f7d_1f19f0a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-02-26T07:27:02Z",
+      "side": 1,
+      "message": "LGTM % comments, thanks!",
+      "revId": "5e04ec23d22f1a29b54ef55ba8e9a9f8a5bdeb4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53c0a7d3_1330a640",
+        "filename": "front_end/host/UserMetrics.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-02-26T07:27:02Z",
+      "side": 1,
+      "message": "I think this should be lower case, both function and variable",
+      "revId": "5e04ec23d22f1a29b54ef55ba8e9a9f8a5bdeb4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dac1bbe9_8fd99c53",
+        "filename": "front_end/sources/ScopeChainSidebarPane.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2021-02-26T07:27:02Z",
+      "side": 1,
+      "message": "ContextMenu",
+      "revId": "5e04ec23d22f1a29b54ef55ba8e9a9f8a5bdeb4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
