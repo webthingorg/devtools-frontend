@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "752020b5_24e057c7",
+        "filename": "front_end/ui/themeColors.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2021-02-26T15:50:59Z",
+      "side": 1,
+      "message": "Can we not use the hairline color or one of the background highlight colors here? Or is this different? Either way please chat with Peter; most of these new variables are named fairly generically and I\u0027m not sure we want this in with this naming.\n\nMaybe we should define `--color-white` that is always white, and then define `--color-white-opacity-10`, etc. But I\u0027ll defer to Peter.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 41
+      },
+      "revId": "0bc656a22d3afe50b4259867200bca3a223b096c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
