@@ -123,6 +123,7 @@ const migratedDirsSet = new Set([
   'data_grid',
   'developer_resources',
   'devices',
+  'emulation',
   'event_listeners',
   'help',
   'heap_snapshot_worker',
