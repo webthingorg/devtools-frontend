@@ -101,8 +101,11 @@ async function timeoutHook(this: Mocha.Runnable, done: Mocha.Done|undefined, err
   }
 }
 
+const iterations = getEnvVar('ITERATIONS', 1);
 export function it(name: string, callback: Mocha.Func|Mocha.AsyncFunc) {
-  wrapMochaCall(Mocha.it, name, callback);
+  for (let i = 0; i < iterations; i++) {
+    wrapMochaCall(Mocha.it, name + (i >= 1 ? `(#${i})` : ''), callback);
+  }
 }
 
 it.skip = function(name: string, callback: Mocha.Func|Mocha.AsyncFunc) {
@@ -110,16 +113,17 @@ it.skip = function(name: string, callback: Mocha.Func|Mocha.AsyncFunc) {
 };
 
 it.skipOnPlatforms = function(platforms: Array<Platform>, name: string, callback: Mocha.Func|Mocha.AsyncFunc) {
-  wrapMochaCall(platforms.includes(platform) ? Mocha.it.skip : Mocha.it, name, callback);
+  const shouldSkip = platforms.includes(platform);
+  if (shouldSkip) {
+    wrapMochaCall(Mocha.it.skip, name, callback);
+  } else {
+    it(name, callback);
+  }
 };
 
 it.only = function(name: string, callback: Mocha.Func|Mocha.AsyncFunc) {
-  wrapMochaCall(Mocha.it.only, name, callback);
-};
-
-it.repeat = function(repeat: number, name: string, callback: Mocha.Func|Mocha.AsyncFunc) {
-  for (let i = 0; i < repeat; i++) {
-    wrapMochaCall(Mocha.it.only, name, callback);
+  for (let i = 0; i < iterations; i++) {
+    wrapMochaCall(Mocha.it.only, name + (i >= 1 ? ` (#${i})` : ''), callback);
   }
 };
 
