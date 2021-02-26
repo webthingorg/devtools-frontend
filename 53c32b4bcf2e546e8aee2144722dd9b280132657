@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "53c32b4bcf2e546e8aee2144722dd9b280132657",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "869c2340_2e6d0a62",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-26T07:35:59Z",
+      "side": 1,
+      "message": "lgtm % naming nit",
+      "revId": "53c32b4bcf2e546e8aee2144722dd9b280132657",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a18815fc_3a4693d1",
+        "filename": "test/e2e/helpers/console-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2021-02-26T07:35:59Z",
+      "side": 1,
+      "message": "I find this name somewhat confusing as the function doesn\u0027t assert anything. It waits until the issueButton has the given label. So `waitForIssueButtonLabel` or `waitUntilIssueButtonHasLabel` would be better IMO. Wdyt?",
+      "range": {
+        "startLine": 240,
+        "startChar": 22,
+        "endLine": 240,
+        "endChar": 44
+      },
+      "revId": "53c32b4bcf2e546e8aee2144722dd9b280132657",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
