@@ -48,12 +48,14 @@ dimensions = struct(
 def recipe(
         name,
         cipd_package = defaults.cipd_package,
-        cipd_version = defaults.cipd_version):
+        cipd_version = defaults.cipd_version,
+        use_bbagent = False):
     """Create recipe declaration with dtf defaults"""
     return luci.recipe(
         name = name,
         cipd_package = cipd_package,
         cipd_version = cipd_version,
+        use_bbagent = use_bbagent,
     )
 
 def builder(
@@ -71,7 +73,8 @@ def builder(
     }
     kvargs["properties"] = properties
 
-    kvargs["executable"] = recipe(recipe_name)
+    use_bbagent = kvargs.pop("use_bbagent", False)
+    kvargs["executable"] = recipe(recipe_name, use_bbagent=use_bbagent)
 
     luci.builder(
         swarming_tags = swarming_tags,

@@ -91,6 +91,7 @@ builder(
     service_account = "devtools-ci-autoroll-builder@chops-service-accounts.iam.gserviceaccount.com",
     schedule = "0 3,12 * * *",
     recipe_name = "v8/auto_roll_v8_deps",
+    use_bbagent = True,
     dimensions = dimensions.default_ubuntu,
     execution_timeout = 2 * time.hour,
     properties = {
@@ -114,6 +115,7 @@ builder(
     service_account = "devtools-ci-autoroll-builder@chops-service-accounts.iam.gserviceaccount.com",
     schedule = "0 6 * * *",
     recipe_name = "v8/auto_roll_v8_deps",
+    use_bbagent = True,
     dimensions = dimensions.default_ubuntu,
     execution_timeout = 2 * time.hour,
     properties = {
