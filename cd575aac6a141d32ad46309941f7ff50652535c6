@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46ef72c3_1e5ff9cf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-26T15:33:22Z",
+      "side": 1,
+      "message": "I would prefer to keep both around, rather than replacing. If we keep both around, this LGTM.",
+      "range": {
+        "startLine": 9,
+        "startChar": 14,
+        "endLine": 9,
+        "endChar": 21
+      },
+      "revId": "cd575aac6a141d32ad46309941f7ff50652535c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f76da03f_0754fc3b",
+        "filename": "test/shared/mocha-extensions.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-26T15:33:22Z",
+      "side": 1,
+      "message": "This logic will skip printing the first iteration when specified and it took me a while to figure out what this did. What do you think about the following?\n\n```\nif (iterations \u003e 1) {\n  for (let i \u003d 0; i \u003c iterations; i++) {\n    wrapMochaCall(Mocha.it, `${name} #${i}`), callback);\n  }\n} else {\n  wrapMochaCall(Mocha.it, name), callback);\n}\n```",
+      "range": {
+        "startLine": 107,
+        "startChar": 35,
+        "endLine": 107,
+        "endChar": 60
+      },
+      "revId": "cd575aac6a141d32ad46309941f7ff50652535c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6df09f47_a68cd78a",
+        "filename": "test/shared/mocha-extensions.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2021-02-26T15:33:22Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 125,
+        "startChar": 2,
+        "endLine": 127,
+        "endChar": 3
+      },
+      "revId": "cd575aac6a141d32ad46309941f7ff50652535c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
