@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dec85957_fb4ecfa6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341877
+      },
+      "writtenOn": "2021-02-27T00:14:07Z",
+      "side": 1,
+      "message": "This CL fixes the edge cases where Esc key was not hiding the drawer. This was happening due to an exception thrown by SearchActionDelegate which also is activated by the Esc key. PTAL! ",
+      "revId": "c0bb83ad32a15c524a59b405ea8e7ec41486e68d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
